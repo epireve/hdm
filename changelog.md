@@ -13,3 +13,13 @@
   - Added papers to progress_cache.json with "pending" status for detailed analysis
   - Key papers include: PersonalAI (digital twins), Zep (temporal KG for agent memory), AriGraph (episodic memory), Privacy-Preserving Synthetic KGs
   - Total papers in cache: 108 (9 new pending papers added)
+- **Top-Tier Conference Mining (2023-2025):** Systematically searched 5 major conferences for PKG/HDM related papers:
+  - **VLDB 2023-2024**: Found 4 papers on temporal graph systems (AeonG), privacy-preserving data management (PriPL-Tree, DPSUR), and trajectory privacy
+  - **SIGMOD 2023-2024**: Found 3 papers on heterogeneous data integration, KG transformations, and accuracy estimation
+  - **WWW 2023-2024**: Found 5 papers on privacy-preserving federated learning, machine unlearning, LinkGuard GNN privacy, and LLM-KG integration
+  - **CHI 2023-2024**: Found 4 papers including Memoro (memory augmentation), synthetic personae, ThingPoll (IoT privacy), and LLMR
+  - **KDD 2023-2024**: Found 3 workshop papers on temporal KG discovery, privacy-preserving temporal KGs, and personal analytics
+  - Added 20 new papers to progress_cache.json (total now: 128 papers)
+  - Created comprehensive conference_mining_report_2023_2025.md summarizing findings
+  - Key trends: LLM-KG integration, privacy-first design with LDP, temporal capabilities, user control mechanisms
+  - Identified gaps: Limited complete PKG systems, scalability for personal vs. enterprise use, cross-modal integration
