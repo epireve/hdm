@@ -493,5 +493,50 @@
     "title": "TimelineKGQA: A Comprehensive Question-Answer Pair Generator",
     "url": "https://arxiv.org/abs/2501.04343",
     "status": "processed"
+  },
+  {
+    "title": "Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve Partially Observable Markov Decision Processes",
+    "url": "https://arxiv.org/abs/2408.05861",
+    "status": "pending"
+  },
+  {
+    "title": "AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents",
+    "url": "https://arxiv.org/abs/2407.04363",
+    "status": "pending"
+  },
+  {
+    "title": "PersonalAI: Towards digital twins in the graph form",
+    "url": "https://arxiv.org/abs/2506.17001",
+    "status": "pending"
+  },
+  {
+    "title": "Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility",
+    "url": "https://arxiv.org/abs/2410.12418",
+    "status": "pending"
+  },
+  {
+    "title": "FedRKG: A Privacy-preserving Federated Recommendation Framework via Knowledge Graph Enhancement",
+    "url": "https://arxiv.org/abs/2401.11089",
+    "status": "pending"
+  },
+  {
+    "title": "Pseudo-Knowledge Graph: Meta-Path Guided Retrieval and In-Graph Text for RAG-Equipped LLM",
+    "url": "https://arxiv.org/abs/2503.00309",
+    "status": "pending"
+  },
+  {
+    "title": "Multi-task Heterogeneous Graph Learning on Electronic Health Records",
+    "url": "https://arxiv.org/abs/2408.07569",
+    "status": "pending"
+  },
+  {
+    "title": "TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous Graphs",
+    "url": "https://arxiv.org/abs/2406.09639",
+    "status": "pending"
+  },
+  {
+    "title": "A Unified Temporal Knowledge Graph Reasoning Model Towards Interpolation and Extrapolation",
+    "url": "https://arxiv.org/abs/2405.18106",
+    "status": "pending"
   }
 ]
