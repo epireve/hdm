@@ -1,0 +1,3 @@
+| Paper Title | Authors | Year | Downloaded | Relevancy | Relevancy Justification | Insights | TL;DR | Summary | Research Question | Methodology | Key Findings | Primary Outcomes | Limitations | Conclusion | Research Gaps | Future Work | Implementation Insights | url | DOI | Tags |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| | | | | | | | | | | | | | | | | |
