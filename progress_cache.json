@@ -115,9 +115,9 @@
     "status": "pending"
   },
   {
-    "title": "https://arxiv.org/abs/2401.07937",
+    "title": "Integrate Any Omics: Towards genome-wide data integration for patient stratification",
     "url": "https://arxiv.org/abs/2401.07937",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-025-06063-x",
@@ -227,17 +227,17 @@
   {
     "title": "Personalizing Large Language Models using RAG and Knowledge Graph",
     "url": "https://arxiv.org/html/2505.09945v1",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Survey on Collaborative Mechanisms Between Large and Small Language Models",
     "url": "https://arxiv.org/html/2505.07460v1",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Research Trends for the Interplay between LLMs and Knowledge Graphs",
     "url": "https://arxiv.org/html/2406.08223v1",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Building and Using Personal Knowledge Graph to Improve Suicidal Ideation Detection on Social Media",
@@ -295,9 +295,9 @@
     "status": "pending"
   },
   {
-    "title": "[2406.02962] Docs2KG: Unified Knowledge Graph Construction ...",
+    "title": "Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models",
     "url": "https://arxiv.org/abs/2406.02962",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "SPARQL Anything",
