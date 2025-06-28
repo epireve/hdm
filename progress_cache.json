@@ -32,22 +32,22 @@
     {
         "title": "Knowledge graphs for enhancing transparency in health data ecosystems",
         "url": "https://journals.sagepub.com/doi/full/10.3233/SW-233347",
-        "status": "pending"
+        "status": "processed"
     },
     {
         "title": "https://ieeexplore.ieee.org/document/10504339/",
         "url": "https://ieeexplore.ieee.org/document/10504339/",
-        "status": "pending"
+        "status": "skipped_paywall"
     },
     {
         "title": "https://dl.acm.org/doi/10.1145/3555312",
         "url": "https://dl.acm.org/doi/10.1145/3555312",
-        "status": "pending"
+        "status": "skipped_paywall"
     },
     {
-        "title": "https://arxiv.org/abs/2410.11531",
+        "title": "AGENTiGraph: An Interactive Knowledge Graph Platform for LLM-based Chatbots Utilizing Private Data",
         "url": "https://arxiv.org/abs/2410.11531",
-        "status": "pending"
+        "status": "processed"
     },
     {
         "title": "https://www.mdpi.com/2504-2289/6/3/90",
