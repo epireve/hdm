@@ -40,7 +40,7 @@
     "status": "processed"
   },
   {
-    "title": "Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web",
+    "title": "Knowledge Graph Construction with a Fa\u00e7ade: A Unified Method to Access Heterogeneous Data Sources on the Web",
     "url": "https://dl.acm.org/doi/10.1145/3555312",
     "status": "processed"
   },
@@ -55,14 +55,14 @@
     "status": "processed"
   },
   {
-    "title": "https://dl.acm.org/doi/10.1145/3643479.3662055",
+    "title": "Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUT",
     "url": "https://dl.acm.org/doi/10.1145/3643479.3662055",
-    "status": "pending"
+    "status": "processed"
   },
   {
-    "title": "https://ieeexplore.ieee.org/document/10924876/",
+    "title": "Question answering over temporal knowledge graphs based on hierarchical semantic extraction",
     "url": "https://ieeexplore.ieee.org/document/10924876/",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning",
@@ -70,14 +70,14 @@
     "status": "pending"
   },
   {
-    "title": "https://ieeexplore.ieee.org/document/10597747/",
+    "title": "Local-Global History-Aware Contrastive Learning for Temporal Knowledge Graph Reasoning",
     "url": "https://ieeexplore.ieee.org/document/10597747/",
-    "status": "pending"
+    "status": "processed"
   },
   {
-    "title": "https://ieeexplore.ieee.org/document/10218032/",
+    "title": "A Blockchain-Based Personal Health Knowledge Graph for Secure Integrated Health Data Management",
     "url": "https://ieeexplore.ieee.org/document/10218032/",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Log Anomaly Detection by Adversarial Autoencoders With Graph Feature Fusion",
@@ -90,9 +90,9 @@
     "status": "processed"
   },
   {
-    "title": "https://dl.acm.org/doi/10.1145/3557990.3567586",
+    "title": "Unknown Title - ACM Paper (Cloudflare blocked)",
     "url": "https://dl.acm.org/doi/10.1145/3557990.3567586",
-    "status": "pending"
+    "status": "skipped_cloudflare"
   },
   {
     "title": "http://biorxiv.org/lookup/doi/10.1101/2022.07.18.500549",
@@ -110,9 +110,9 @@
     "status": "processed"
   },
   {
-    "title": "https://dl.acm.org/doi/10.1145/3653015",
+    "title": "Unknown Title - ACM Paper (Cloudflare blocked)",
     "url": "https://dl.acm.org/doi/10.1145/3653015",
-    "status": "pending"
+    "status": "skipped_cloudflare"
   },
   {
     "title": "Integrate Any Omics: Towards genome-wide data integration for patient stratification",
@@ -170,9 +170,9 @@
     "status": "pending"
   },
   {
-    "title": "https://iopscience.iop.org/article/10.1088/1742-6596/2472/1/012040",
+    "title": "A SysML-centric integration framework for helicopter fuel system development",
     "url": "https://iopscience.iop.org/article/10.1088/1742-6596/2472/1/012040",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "https://onepetro.org/SPEADIP/proceedings/24ADIP/24ADIP/D031S123R003/585414",
@@ -185,9 +185,9 @@
     "status": "processed"
   },
   {
-    "title": "https://ieeexplore.ieee.org/document/10827363/",
+    "title": "Platform Development for Proof-of-Concept of Smartphone-based Continuous Complex Positioning",
     "url": "https://ieeexplore.ieee.org/document/10827363/",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Development of a proof-of-concept model for digital technology integration in curriculum: A case of construction management programs in the UK and USA",
@@ -300,7 +300,7 @@
     "status": "processed"
   },
   {
-    "title": "Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web",
+    "title": "Knowledge Graph Construction with a Fa\u00e7ade: A Unified Method to Access Heterogeneous Data Sources on the Web",
     "url": "https://sparql-anything.cc",
     "status": "processed"
   },
@@ -312,47 +312,47 @@
   {
     "title": "NTIRE 2022 Challenge on Efficient Super-Resolution: Methods and Results",
     "url": "https://ieeexplore.ieee.org/document/9857089/",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
     "title": "ASPRINO D'AVERSA VITE MARITATA 2022 - THE BOURBONS",
     "url": "https://www.e-noteca.it/product/27521065/asprino-d-aversa-vite-maritata-2022-i-borboni?lang=en_US",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
     "title": "NTIRE 2022 Challenge on Perceptual Image Quality Assessment",
     "url": "https://ieeexplore.ieee.org/document/9857130/",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
-    "title": "I Borboni “Vulpis” Asprinio IGP (2022) – Campania - Passione Vino",
+    "title": "I Borboni Vulpis Asprinio IGP (2022) \u2013 Campania - Passione Vino",
     "url": "https://shop.passionevino.co.uk/products/i-borboni-vulpis-asprinio-igp-2022-campania",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
-    "title": "Crowdsensing-based Road Damage Detection Challenge (CRDDC’2022)",
+    "title": "Crowdsensing-based Road Damage Detection Challenge (CRDDC'2022)",
     "url": "https://ieeexplore.ieee.org/document/10021040/",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
     "title": "NTIRE 2022 Challenge on High Dynamic Range Imaging: Methods and Results",
     "url": "https://ieeexplore.ieee.org/document/9856998/",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
     "title": "NTIRE 2022 Challenge on Super-Resolution and Quality Enhancement of Compressed Video: Dataset, Methods and Results",
     "url": "https://ieeexplore.ieee.org/document/9857103/",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
     "title": "SYN-MAD 2022: Competition on Face Morphing Attack Detection Based on Privacy-aware Synthetic Training Data",
     "url": "https://ieeexplore.ieee.org/document/10007950/",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
     "title": "Multi-Camera Vehicle Tracking System for AI City Challenge 2022",
     "url": "https://ieeexplore.ieee.org/document/9857328/",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
     "title": "A study on temporal knowledge graph enrichment",
@@ -360,7 +360,7 @@
     "status": "pending"
   },
   {
-    "title": "Knowledge Graph Construction with a Façade: A Unified Method to Access Heteroge...",
+    "title": "Knowledge Graph Construction with a Fa\u00e7ade: A Unified Method to Access Heteroge...",
     "url": "Truncated URL",
     "status": "pending"
   },
@@ -482,6 +482,16 @@
   {
     "title": "Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUT",
     "url": "https://dl.acm.org/doi/10.1145/3643479.3662055",
+    "status": "processed"
+  },
+  {
+    "title": "Temporal Knowledge Graph Question Answering: A Survey",
+    "url": "https://arxiv.org/abs/2406.14191",
+    "status": "processed"
+  },
+  {
+    "title": "TimelineKGQA: A Comprehensive Question-Answer Pair Generator",
+    "url": "https://arxiv.org/abs/2501.04343",
     "status": "processed"
   }
 ]
