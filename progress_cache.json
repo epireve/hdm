@@ -639,4 +639,166 @@
     "url": "https://kdd2024.kdd.org/workshop/graph-personal-analytics",
     "status": "pending"
   }
-]
+,
+  {
+    "title": "A Question-Answering Assistant over Personal Knowledge Graph",
+    "url": "https://dl.acm.org/doi/10.1145/3626772.3657681",
+    "status": "pending",
+    "year": 2024,
+    "authors": "Liu L., Du H., Zhang X., Guo M., Wang H., Wang M., Yang H., Wang H., Han S., Hauff C., Zuccon G., Zhang Y.",
+    "citation_count": "N/A",
+    "relevance": "High - Cites Ecosystem for PKGs paper, implements PKG-based QA system"
+  },
+  {
+    "title": "How Can Personal Knowledge Graphs Contribute to Precision Nutrition?",
+    "url": "https://link.springer.com/chapter/10.1007/978-3-031-75702-0_6",
+    "status": "pending",
+    "year": 2024,
+    "authors": "Espinoza-Mejía M., Saquicela V., Abril-Ulloa V.",
+    "citation_count": "N/A",
+    "relevance": "High - Cross-disciplinary PKG application in healthcare/nutrition"
+  },
+  {
+    "title": "CONNECTED: leveraging digital twins and personal knowledge graphs in healthcare digitalization",
+    "url": "https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2023.1322428/full",
+    "status": "pending",
+    "year": 2023,
+    "authors": "Carbonaro A., et al.",
+    "citation_count": "N/A",
+    "relevance": "High - Cites Personal Health KGs paper, digital twin integration"
+  },
+  {
+    "title": "Healthcare knowledge graph construction: A systematic review of the state-of-the-art, open issues, and opportunities",
+    "url": "https://journalofbigdata.springeropen.com/articles/10.1186/s40537-023-00774-9",
+    "status": "pending",
+    "year": 2023,
+    "authors": "Abu-Salih B., et al.",
+    "citation_count": "Multiple",
+    "relevance": "High - Systematic review citing multiple core PKG papers"
+  },
+  {
+    "title": "A Personal Healthcare Knowledge Graph Framework for Diagnosis of Pelvic Masses Diseases",
+    "url": "https://ebooks.iospress.nl/doi/10.3233/SHTI231249",
+    "status": "pending",
+    "year": 2024,
+    "authors": "Xin et al.",
+    "citation_count": "N/A",
+    "relevance": "Medium - Healthcare PKG application citing core work"
+  },
+  {
+    "title": "KETCH: A Knowledge-Enhanced Transformer-Based Approach to Suicidal Ideation Detection",
+    "url": "https://pubsonline.informs.org/doi/10.1287/isre.2021.0619",
+    "status": "pending",
+    "year": 2024,
+    "authors": "N/A",
+    "citation_count": "High",
+    "relevance": "High - Mental health KG application citing suicide detection PKG paper"
+  },
+  {
+    "title": "Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs",
+    "url": "https://dl.acm.org/doi/10.1145/3636555.3636918",
+    "status": "pending",
+    "year": 2024,
+    "authors": "Ain et al.",
+    "citation_count": "N/A",
+    "relevance": "High - Cross-disciplinary PKG in education domain"
+  },
+  {
+    "title": "Transparent Learner Knowledge State Modeling using Personal Knowledge Graphs and Graph Neural Networks",
+    "url": "https://dl.acm.org/doi/10.1145/3627043.3659545",
+    "status": "pending",
+    "year": 2024,
+    "authors": "Alatrash et al.",
+    "citation_count": "N/A",
+    "relevance": "High - PKG with GNN integration for education"
+  },
+  {
+    "title": "MeKB-Rec: Personal Knowledge Graph Learning for Cross-Domain Recommendation",
+    "url": "https://dl.acm.org/doi/10.1145/3580305.3599293",
+    "status": "pending",
+    "year": 2023,
+    "authors": "Su et al.",
+    "citation_count": "N/A",
+    "relevance": "High - PKG for cross-domain recommendation systems"
+  },
+  {
+    "title": "Doing Personal LAPS: LLM-Augmented Dialogue Construction for Personalized Multi-Session Conversational Search",
+    "url": "https://dl.acm.org/doi/10.1145/3626772.3657820",
+    "status": "pending",
+    "year": 2024,
+    "authors": "Joko et al.",
+    "citation_count": "N/A",
+    "relevance": "High - PKG with LLM integration for conversational AI"
+  },
+  {
+    "title": "Constructing Personal Knowledge Graph from Conversation via Deep Reinforcement Learning",
+    "url": "https://link.springer.com/chapter/10.1007/978-3-031-50543-0_10",
+    "status": "pending",
+    "year": 2024,
+    "authors": "Cai and Guo",
+    "citation_count": "N/A",
+    "relevance": "High - Novel PKG construction method using DRL"
+  },
+  {
+    "title": "Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web",
+    "url": "https://dl.acm.org/doi/10.1145/3555312",
+    "status": "processed",
+    "year": 2023,
+    "authors": "Asprino et al.",
+    "citation_count": "Multiple",
+    "relevance": "High - Addresses heterogeneous data integration challenge"
+  },
+  {
+    "title": "From data to insights: the application and challenges of knowledge graphs in intelligent audit",
+    "url": "https://journalofcloudcomputing.springeropen.com/articles/10.1186/s13677-024-00674-0",
+    "status": "pending",
+    "year": 2024,
+    "authors": "N/A",
+    "citation_count": "N/A",
+    "relevance": "Medium - KG application with heterogeneous data challenges"
+  },
+  {
+    "title": "Patient-centric knowledge graphs: a survey of current methods, challenges, and applications",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11558794/",
+    "status": "pending",
+    "year": 2024,
+    "authors": "N/A",
+    "citation_count": "N/A",
+    "relevance": "High - Survey of patient-centric KGs (PCKGs)"
+  },
+  {
+    "title": "Functional Knowledge Graph Towards Knowledge Application and Data Management for General Users",
+    "url": "https://link.springer.com/chapter/10.1007/978-981-97-2303-4_2",
+    "status": "pending",
+    "year": 2024,
+    "authors": "Hu X.",
+    "citation_count": "N/A",
+    "relevance": "Medium - General user-focused KG citing PKG ecosystem work"
+  },
+  {
+    "title": "Anomaly Detection on Dynamic Knowledge Graphs",
+    "url": "https://predict-idlab.github.io/ADDKG/",
+    "status": "pending",
+    "year": 2024,
+    "authors": "N/A",
+    "citation_count": "N/A",
+    "relevance": "High - Addresses temporal/dynamic aspects of KGs"
+  },
+  {
+    "title": "FedPKG: Federated Learning for Personal Knowledge Graphs",
+    "url": "N/A - from search results",
+    "status": "pending",
+    "year": 2024,
+    "authors": "N/A",
+    "citation_count": "N/A",
+    "relevance": "High - Privacy-preserving PKG with federated learning"
+  },
+  {
+    "title": "When large language models meet personalization: perspectives of challenges and opportunities",
+    "url": "https://link.springer.com/article/10.1007/s11280-024-01276-1",
+    "status": "pending",
+    "year": 2024,
+    "authors": "N/A",
+    "citation_count": "N/A",
+    "relevance": "High - LLM personalization related to KG tuning paper"
+  }]
