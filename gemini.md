@@ -30,3 +30,10 @@ This agent is designed to conduct exhaustive, focused research on specific facet
 - **Research Table:** [research_table.md](./research_table.md)
 - **Changelog:** [changelog.md](./changelog.md)
 - **Downloaded Papers:** [papers/](./papers/)
+
+## 5. Available Tools
+
+In addition to standard web search capabilities, this agent has access to specialized MCP servers for enhanced research:
+- **Perplexity Search:** For advanced web search and reasoning.
+- **EXA Search:** For targeted searches across various domains (web, research papers, companies, LinkedIn, GitHub, Wikipedia).
+- **Web Fetch:** For direct content retrieval from URLs, providing an alternative to the default web fetch tool if limits are encountered.
