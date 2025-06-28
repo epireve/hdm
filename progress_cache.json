@@ -67,7 +67,7 @@
   {
     "title": "Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning",
     "url": "https://onlinelibrary.wiley.com/doi/10.1111/exsy.13758",
-    "status": "pending"
+    "status": "skipped_paywall"
   },
   {
     "title": "Local-Global History-Aware Contrastive Learning for Temporal Knowledge Graph Reasoning",
@@ -95,14 +95,14 @@
     "status": "skipped_cloudflare"
   },
   {
-    "title": "http://biorxiv.org/lookup/doi/10.1101/2022.07.18.500549",
+    "title": "Causal feature selection using a knowledge graph combining structured knowledge from the biomedical literature and ontologies: a use case studying depression as a risk factor for Alzheimer's disease",
     "url": "http://biorxiv.org/lookup/doi/10.1101/2022.07.18.500549",
     "status": "processed"
   },
   {
     "title": "Prior knowledge-guided multilevel graph neural network for tumor risk prediction and interpretation via multi-omics data integration",
     "url": "https://academic.oup.com/bib/article/doi/10.1093/bib/bbae184/7658016",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "TFSF: Topological and Feature Space Fusion with Spatio-Temporal Modeling for Crop Yield Prediction",
@@ -125,12 +125,12 @@
     "status": "processed"
   },
   {
-    "title": "https://iopscience.iop.org/article/10.1088/1755-1315/1101/9/092010",
+    "title": "Enabling building digital twin: Ontology-based information management framework for multi-source data integration",
     "url": "https://iopscience.iop.org/article/10.1088/1755-1315/1101/9/092010",
     "status": "processed"
   },
   {
-    "title": "https://www.e3s-conferences.org/10.1051/e3sconf/202452306001",
+    "title": "New generation Energy Performance Certificate: Development and application in an Italian case study as an EU proof of concept",
     "url": "https://www.e3s-conferences.org/10.1051/e3sconf/202452306001",
     "status": "processed"
   },
@@ -152,10 +152,10 @@
   {
     "title": "Development of a proof-of-concept prototype in a distributed online collaborative learning environment using a student team: A case study",
     "url": "https://journals.sagepub.com/doi/10.1177/03064190231200397",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
-    "title": "https://academic.oup.com/bioinformatics/article/doi/10.1093/bioinformatics/btad771/7499340",
+    "title": "Mining literature and pathway data to explore the relations of ketamine with neurotransmitters and gut microbiota using a knowledge-graph",
     "url": "https://academic.oup.com/bioinformatics/article/doi/10.1093/bioinformatics/btad771/7499340",
     "status": "processed"
   },
@@ -165,9 +165,9 @@
     "status": "processed"
   },
   {
-    "title": "https://ejournal.unia.ac.id/index.php/maharot/article/view/1937",
+    "title": "Enhancing Students' Learning Motivation through the Integration of the TPACK Framework in Aqidah Akhlak Education",
     "url": "https://ejournal.unia.ac.id/index.php/maharot/article/view/1937",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
     "title": "A SysML-centric integration framework for helicopter fuel system development",
@@ -175,12 +175,12 @@
     "status": "processed"
   },
   {
-    "title": "https://onepetro.org/SPEADIP/proceedings/24ADIP/24ADIP/D031S123R003/585414",
+    "title": "Enhanced Lithofacies Description and Petrophysical Rock Typing in Fluvial Sand Reservoirs Through Core-Log Data Integration: Case Study of the Gharif Reservoir, Southern Central Oman",
     "url": "https://onepetro.org/SPEADIP/proceedings/24ADIP/24ADIP/D031S123R003/585414",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
-    "title": "https://www.oaepublish.com/articles/evcna.2023.13",
+    "title": "Synaptic proteins in neuron-derived extracellular vesicles as biomarkers for Alzheimer's disease: novel methodology and clinical proof of concept",
     "url": "https://www.oaepublish.com/articles/evcna.2023.13",
     "status": "processed"
   },
@@ -192,17 +192,17 @@
   {
     "title": "Development of a proof-of-concept model for digital technology integration in curriculum: A case of construction management programs in the UK and USA",
     "url": "https://journals.sagepub.com/doi/10.1177/09504222231224090",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
     "title": "A Lexical Approach for Identifying Behavioral Action Sequences",
     "url": "https://journals.sagepub.com/doi/10.1177/00187208211045167",
-    "status": "pending"
+    "status": "skipped_not_relevant"
   },
   {
     "title": "https://www.semanticscholar.org/paper/c9f56d69c76cb5e7a9d803ffcdbf28ee8a46...",
     "url": "https://www.semanticscholar.org/paper/c9f56d69c76cb5e7a9d803ffcdbf28ee8a46...",
-    "status": "pending"
+    "status": "skipped_invalid_url"
   },
   {
     "title": "A Question-Answering Assistant over Personal Knowledge Graph",
@@ -272,7 +272,7 @@
   {
     "title": "Design of an Overall Software Framework for a Plan Summary Evaluation Model",
     "url": "https://dl.acm.org/doi/10.1145/3700906.3700976",
-    "status": "pending"
+    "status": "skipped_access_restricted"
   },
   {
     "title": "Automated Monitoring Method for Enterprise Microservices Network Operation Status Based on Database Knowledge Graph",
@@ -280,9 +280,9 @@
     "status": "processed"
   },
   {
-    "title": "Migration of Monolithic to Microservices ...",
-    "url": "Truncated URL",
-    "status": "pending"
+    "title": "Microservice extraction based on knowledge graph from monolithic applications",
+    "url": "https://dl.acm.org/doi/10.1016/j.infsof.2022.106992",
+    "status": "processed"
   },
   {
     "title": "Heart murmur detection from phonocardiogram recordings: The George B. Moody PhysioNet Challenge 2022",
@@ -357,12 +357,12 @@
   {
     "title": "A study on temporal knowledge graph enrichment",
     "url": "https://espace.library.uq.edu.au/view/UQ:c288d0a",
-    "status": "pending"
+    "status": "skipped_access_restricted"
   },
   {
-    "title": "Knowledge Graph Construction with a Fa\u00e7ade: A Unified Method to Access Heteroge...",
-    "url": "Truncated URL",
-    "status": "pending"
+    "title": "Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web",
+    "url": "https://dl.acm.org/doi/10.1145/3555312",
+    "status": "processed"
   },
   {
     "title": "An Ecosystem for Personal Knowledge Graphs: A Survey and Research Roadmap",
