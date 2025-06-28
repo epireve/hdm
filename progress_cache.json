@@ -360,7 +360,7 @@
     "status": "skipped_access_restricted"
   },
   {
-    "title": "Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web",
+    "title": "Knowledge Graph Construction with a Fa\u00e7ade: A Unified Method to Access Heterogeneous Data Sources on the Web",
     "url": "https://dl.acm.org/doi/10.1145/3555312",
     "status": "processed"
   },
@@ -507,7 +507,7 @@
   {
     "title": "PersonalAI: Towards digital twins in the graph form",
     "url": "https://arxiv.org/abs/2506.17001",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility",
@@ -575,7 +575,7 @@
     "status": "pending"
   },
   {
-    "title": "Privacy‐preserving graph publishing with disentangled variational information bottleneck",
+    "title": "Privacy\u2010preserving graph publishing with disentangled variational information bottleneck",
     "url": "https://onlinelibrary.wiley.com/doi/10.1002/cpe.7963",
     "status": "pending"
   },
@@ -607,7 +607,7 @@
   {
     "title": "Memoro: Using Large Language Models to Realize a Concise Interface for Real-Time Memory Augmentation",
     "url": "https://dl.acm.org/doi/10.1145/3613904.3642251",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Challenges and Opportunities of LLM-Based Synthetic Personae and Data in HCI",
@@ -638,8 +638,7 @@
     "title": "Graph Learning for Personal Analytics and User Modeling",
     "url": "https://kdd2024.kdd.org/workshop/graph-personal-analytics",
     "status": "pending"
-  }
-,
+  },
   {
     "title": "A Question-Answering Assistant over Personal Knowledge Graph",
     "url": "https://dl.acm.org/doi/10.1145/3626772.3657681",
@@ -654,14 +653,14 @@
     "url": "https://link.springer.com/chapter/10.1007/978-3-031-75702-0_6",
     "status": "pending",
     "year": 2024,
-    "authors": "Espinoza-Mejía M., Saquicela V., Abril-Ulloa V.",
+    "authors": "Espinoza-Mej\u00eda M., Saquicela V., Abril-Ulloa V.",
     "citation_count": "N/A",
     "relevance": "High - Cross-disciplinary PKG application in healthcare/nutrition"
   },
   {
     "title": "CONNECTED: leveraging digital twins and personal knowledge graphs in healthcare digitalization",
     "url": "https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2023.1322428/full",
-    "status": "pending",
+    "status": "processed",
     "year": 2023,
     "authors": "Carbonaro A., et al.",
     "citation_count": "N/A",
@@ -740,7 +739,7 @@
     "relevance": "High - Novel PKG construction method using DRL"
   },
   {
-    "title": "Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web",
+    "title": "Knowledge Graph Construction with a Fa\u00e7ade: A Unified Method to Access Heterogeneous Data Sources on the Web",
     "url": "https://dl.acm.org/doi/10.1145/3555312",
     "status": "processed",
     "year": 2023,
@@ -801,4 +800,5 @@
     "authors": "N/A",
     "citation_count": "N/A",
     "relevance": "High - LLM personalization related to KG tuning paper"
-  }]
+  }
+]
