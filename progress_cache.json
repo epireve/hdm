@@ -17,7 +17,7 @@
   {
     "title": "BUILD-KG: Integrating Heterogeneous Data Into Analytics-Enabling Knowledge Graphs",
     "url": "https://ieeexplore.ieee.org/document/10386570/",
-    "status": "skipped_paywall"
+    "status": "processed"
   },
   {
     "title": "Incremental schema integration for data wrangling via knowledge graphs",
@@ -27,7 +27,7 @@
   {
     "title": "Leveraging Knowledge Graphs for Matching Heterogeneous Entities and Explanation",
     "url": "https://ieeexplore.ieee.org/document/10386157/",
-    "status": "skipped_quota_exceeded"
+    "status": "processed"
   },
   {
     "title": "Knowledge graphs for enhancing transparency in health data ecosystems",
@@ -35,14 +35,14 @@
     "status": "processed"
   },
   {
-    "title": "https://ieeexplore.ieee.org/document/10504339/",
+    "title": "Comprehensive Personal Health Knowledge Graph for Effective Management and Utilization of Personal Health Data",
     "url": "https://ieeexplore.ieee.org/document/10504339/",
-    "status": "skipped_paywall"
+    "status": "processed"
   },
   {
-    "title": "https://dl.acm.org/doi/10.1145/3555312",
+    "title": "Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web",
     "url": "https://dl.acm.org/doi/10.1145/3555312",
-    "status": "skipped_paywall"
+    "status": "processed"
   },
   {
     "title": "AGENTiGraph: An Interactive Knowledge Graph Platform for LLM-based Chatbots Utilizing Private Data",
@@ -50,9 +50,9 @@
     "status": "processed"
   },
   {
-    "title": "https://www.mdpi.com/2504-2289/6/3/90",
+    "title": "PRIVAFRAME: A Frame-Based Knowledge Graph for Sensitive Personal Data",
     "url": "https://www.mdpi.com/2504-2289/6/3/90",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "https://dl.acm.org/doi/10.1145/3643479.3662055",
@@ -80,14 +80,14 @@
     "status": "pending"
   },
   {
-    "title": "https://ieeexplore.ieee.org/document/10231001/",
+    "title": "Log Anomaly Detection by Adversarial Autoencoders With Graph Feature Fusion",
     "url": "https://ieeexplore.ieee.org/document/10231001/",
-    "status": "pending"
+    "status": "processed"
   },
   {
-    "title": "https://ieeexplore.ieee.org/document/10026633/",
+    "title": "Adaptive Feature Fusion Networks for Origin-Destination Passenger Flow Prediction in Metro Systems",
     "url": "https://ieeexplore.ieee.org/document/10026633/",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "https://dl.acm.org/doi/10.1145/3557990.3567586",
@@ -97,7 +97,7 @@
   {
     "title": "http://biorxiv.org/lookup/doi/10.1101/2022.07.18.500549",
     "url": "http://biorxiv.org/lookup/doi/10.1101/2022.07.18.500549",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "https://academic.oup.com/bib/article/doi/10.1093/bib/bbae184/7658016",
@@ -105,9 +105,9 @@
     "status": "pending"
   },
   {
-    "title": "https://ieeexplore.ieee.org/document/10152724/",
+    "title": "TFSF: Topological and Feature Space Fusion with Spatio-Temporal Modeling for Crop Yield Prediction",
     "url": "https://ieeexplore.ieee.org/document/10152724/",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "https://dl.acm.org/doi/10.1145/3653015",
@@ -120,34 +120,34 @@
     "status": "processed"
   },
   {
-    "title": "https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-025-06063-x",
+    "title": "AMEND 2.0: module identification and multi-omic data integration with multiplex-heterogeneous graphs",
     "url": "https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-025-06063-x",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "https://iopscience.iop.org/article/10.1088/1755-1315/1101/9/092010",
     "url": "https://iopscience.iop.org/article/10.1088/1755-1315/1101/9/092010",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "https://www.e3s-conferences.org/10.1051/e3sconf/202452306001",
     "url": "https://www.e3s-conferences.org/10.1051/e3sconf/202452306001",
-    "status": "pending"
+    "status": "processed"
   },
   {
-    "title": "https://www.hindawi.com/journals/scn/2021/7185827/",
+    "title": "PoC Design: A Methodology for Proof-of-Concept Development on Internet of Things Connected Dynamic Environments",
     "url": "https://www.hindawi.com/journals/scn/2021/7185827/",
-    "status": "pending"
+    "status": "processed"
   },
   {
-    "title": "https://www.mdpi.com/1999-5903/15/3/111",
+    "title": "Co-Design, Development, and Evaluation of a Health Monitoring Tool Using Smartwatch Data: A Proof-of-Concept Study",
     "url": "https://www.mdpi.com/1999-5903/15/3/111",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "https://bmjopen.bmj.com/lookup/doi/10.1136/bmjopen-2022-065929",
     "url": "https://bmjopen.bmj.com/lookup/doi/10.1136/bmjopen-2022-065929",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "https://journals.sagepub.com/doi/10.1177/03064190231200397",
@@ -157,12 +157,12 @@
   {
     "title": "https://academic.oup.com/bioinformatics/article/doi/10.1093/bioinformatics/btad771/7499340",
     "url": "https://academic.oup.com/bioinformatics/article/doi/10.1093/bioinformatics/btad771/7499340",
-    "status": "pending"
+    "status": "processed"
   },
   {
-    "title": "https://ieeexplore.ieee.org/document/10559964/",
+    "title": "Knowledge Graph Generation and Enabling Multidimensional Analytics on Bangladesh Agricultural Data",
     "url": "https://ieeexplore.ieee.org/document/10559964/",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "https://ejournal.unia.ac.id/index.php/maharot/article/view/1937",
@@ -182,7 +182,7 @@
   {
     "title": "https://www.oaepublish.com/articles/evcna.2023.13",
     "url": "https://www.oaepublish.com/articles/evcna.2023.13",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "https://ieeexplore.ieee.org/document/10827363/",
@@ -207,7 +207,7 @@
   {
     "title": "A Question-Answering Assistant over Personal Knowledge Graph",
     "url": "https://dl.acm.org/doi/10.1145/3626772.3657665",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Knowledge Graph Tuning: Real-time Large Language Model Personalization",
@@ -247,27 +247,27 @@
   {
     "title": "Digital Personal Health Coaching Platform for Promoting Human Papillomavirus Infection Vaccinations and Cancer Prevention: Knowledge Graph-Based Recommendation System",
     "url": "https://formative.jmir.org/2023/1/e50210",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Architecture designing of digital twin in a healthcare unit",
     "url": "https://journals.sagepub.com/doi/10.1177/14604582241296792",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Smart City Digital Twins: A Modular and Adaptive Architecture for Real-Time Data-Driven Urban Management",
     "url": "https://ieeexplore.ieee.org/document/10814627/",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "A Hybrid Optimization and Machine Learning Framework for Urban Traffic Management Using Cyber-Physical Digital Twin Architecture",
     "url": "https://ieeexplore.ieee.org/document/10983125/",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Ontology-Driven Architecture for Managing Environmental, Social, and Governance Metrics",
     "url": "https://www.mdpi.com/2079-9292/13/9/1719",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Design of an Overall Software Framework for a Plan Summary Evaluation Model",
@@ -277,7 +277,7 @@
   {
     "title": "Automated Monitoring Method for Enterprise Microservices Network Operation Status Based on Database Knowledge Graph",
     "url": "https://ieeexplore.ieee.org/document/10704355/",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Migration of Monolithic to Microservices ...",
@@ -287,12 +287,12 @@
   {
     "title": "Heart murmur detection from phonocardiogram recordings: The George B. Moody PhysioNet Challenge 2022",
     "url": "http://medrxiv.org/lookup/doi/10.1101/2022.08.11.22278688",
-    "status": "pending"
+    "status": "processed"
   },
   {
-    "title": "Uncovering Values: Detecting Latent Moral Content from Natural ...",
+    "title": "Uncovering Values: Detecting Latent Moral Content from Natural Language with Explainable and Non-Trained Methods",
     "url": "https://aclanthology.org/2022.deelio-1.4/",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models",
@@ -300,14 +300,14 @@
     "status": "processed"
   },
   {
-    "title": "SPARQL Anything",
+    "title": "Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web",
     "url": "https://sparql-anything.cc",
-    "status": "pending"
+    "status": "processed"
   },
   {
-    "title": "Digital Twins' Advancements and Applications in Healthcare ...",
+    "title": "Digital Twins' Advancements and Applications in Healthcare, Towards Precision Medicine",
     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11595921/",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "NTIRE 2022 Challenge on Efficient Super-Resolution: Methods and Results",
@@ -477,6 +477,11 @@
   {
     "title": "Knowledge graph construction for computer networking course group in secondary vocational school based on multi-source heterogeneous data",
     "url": "https://ieeexplore.ieee.org/document/10086288/",
+    "status": "processed"
+  },
+  {
+    "title": "Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUT",
+    "url": "https://dl.acm.org/doi/10.1145/3643479.3662055",
     "status": "processed"
   }
 ]

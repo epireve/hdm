@@ -1,0 +1,397 @@
+[
+    {
+        "title": "A comprehensive survey of personal knowledge graphs",
+        "url": "https://wires.onlinelibrary.wiley.com/doi/10.1002/widm.1513",
+        "status": "skipped_paywall"
+    },
+    {
+        "title": "Exploring knowledge management from a software engineering perspective",
+        "url": "https://papers.academic-conferences.org/index.php/eckm/article/view/1497",
+        "status": "processed"
+    },
+    {
+        "title": "The Use of AI in Software Engineering: A Synthetic Knowledge Synthesis of the Recent Research Literature",
+        "url": "https://www.mdpi.com/2078-2489/15/6/354",
+        "status": "processed"
+    },
+    {
+        "title": "BUILD-KG: Integrating Heterogeneous Data Into Analytics-Enabling Knowledge Graphs",
+        "url": "https://ieeexplore.ieee.org/document/10386570/",
+        "status": "skipped_paywall"
+    },
+    {
+        "title": "Incremental schema integration for data wrangling via knowledge graphs",
+        "url": "https://journals.sagepub.com/doi/full/10.3233/SW-233347",
+        "status": "processed"
+    },
+    {
+        "title": "Leveraging Knowledge Graphs for Matching Heterogeneous Entities and Explanation",
+        "url": "https://ieeexplore.ieee.org/document/10386157/",
+        "status": "skipped_quota_exceeded"
+    },
+    {
+        "title": "Knowledge graphs for enhancing transparency in health data ecosystems",
+        "url": "https://journals.sagepub.com/doi/full/10.3233/SW-233347",
+        "status": "processed"
+    },
+    {
+        "title": "https://ieeexplore.ieee.org/document/10504339/",
+        "url": "https://ieeexplore.ieee.org/document/10504339/",
+        "status": "skipped_paywall"
+    },
+    {
+        "title": "https://dl.acm.org/doi/10.1145/3555312",
+        "url": "https://dl.acm.org/doi/10.1145/3555312",
+        "status": "skipped_paywall"
+    },
+    {
+        "title": "AGENTiGraph: An Interactive Knowledge Graph Platform for LLM-based Chatbots Utilizing Private Data",
+        "url": "https://arxiv.org/abs/2410.11531",
+        "status": "processed"
+    },
+    {
+        "title": "https://www.mdpi.com/2504-2289/6/3/90",
+        "url": "https://www.mdpi.com/2504-2289/6/3/90",
+        "status": "pending"
+    },
+    {
+        "title": "https://dl.acm.org/doi/10.1145/3643479.3662055",
+        "url": "https://dl.acm.org/doi/10.1145/3643479.3662055",
+        "status": "pending"
+    },
+    {
+        "title": "https://ieeexplore.ieee.org/document/10924876/",
+        "url": "https://ieeexplore.ieee.org/document/10924876/",
+        "status": "pending"
+    },
+    {
+        "title": "https://onlinelibrary.wiley.com/doi/10.1111/exsy.13758",
+        "url": "https://onlinelibrary.wiley.com/doi/10.1111/exsy.13758",
+        "status": "pending"
+    },
+    {
+        "title": "https://ieeexplore.ieee.org/document/10597747/",
+        "url": "https://ieeexplore.ieee.org/document/10597747/",
+        "status": "pending"
+    },
+    {
+        "title": "https://ieeexplore.ieee.org/document/10218032/",
+        "url": "https://ieeexplore.ieee.org/document/10218032/",
+        "status": "pending"
+    },
+    {
+        "title": "https://ieeexplore.ieee.org/document/10231001/",
+        "url": "https://ieeexplore.ieee.org/document/10231001/",
+        "status": "pending"
+    },
+    {
+        "title": "https://ieeexplore.ieee.org/document/10026633/",
+        "url": "https://ieeexplore.ieee.org/document/10026633/",
+        "status": "pending"
+    },
+    {
+        "title": "https://dl.acm.org/doi/10.1145/3557990.3567586",
+        "url": "https://dl.acm.org/doi/10.1145/3557990.3567586",
+        "status": "pending"
+    },
+    {
+        "title": "http://biorxiv.org/lookup/doi/10.1101/2022.07.18.500549",
+        "url": "http://biorxiv.org/lookup/doi/10.1101/2022.07.18.500549",
+        "status": "pending"
+    },
+    {
+        "title": "https://academic.oup.com/bib/article/doi/10.1093/bib/bbae184/7658016",
+        "url": "https://academic.oup.com/bib/article/doi/10.1093/bib/bbae184/7658016",
+        "status": "pending"
+    },
+    {
+        "title": "https://ieeexplore.ieee.org/document/10152724/",
+        "url": "https://ieeexplore.ieee.org/document/10152724/",
+        "status": "pending"
+    },
+    {
+        "title": "https://dl.acm.org/doi/10.1145/3653015",
+        "url": "https://dl.acm.org/doi/10.1145/3653015",
+        "status": "pending"
+    },
+    {
+        "title": "https://arxiv.org/abs/2401.07937",
+        "url": "https://arxiv.org/abs/2401.07937",
+        "status": "pending"
+    },
+    {
+        "title": "https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-025-06063-x",
+        "url": "https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-025-06063-x",
+        "status": "pending"
+    },
+    {
+        "title": "https://iopscience.iop.org/article/10.1088/1755-1315/1101/9/092010",
+        "url": "https://iopscience.iop.org/article/10.1088/1755-1315/1101/9/092010",
+        "status": "pending"
+    },
+    {
+        "title": "https://www.e3s-conferences.org/10.1051/e3sconf/202452306001",
+        "url": "https://www.e3s-conferences.org/10.1051/e3sconf/202452306001",
+        "status": "pending"
+    },
+    {
+        "title": "https://www.hindawi.com/journals/scn/2021/7185827/",
+        "url": "https://www.hindawi.com/journals/scn/2021/7185827/",
+        "status": "pending"
+    },
+    {
+        "title": "https://www.mdpi.com/1999-5903/15/3/111",
+        "url": "https://www.mdpi.com/1999-5903/15/3/111",
+        "status": "pending"
+    },
+    {
+        "title": "https://bmjopen.bmj.com/lookup/doi/10.1136/bmjopen-2022-065929",
+        "url": "https://bmjopen.bmj.com/lookup/doi/10.1136/bmjopen-2022-065929",
+        "status": "pending"
+    },
+    {
+        "title": "https://journals.sagepub.com/doi/10.1177/03064190231200397",
+        "url": "https://journals.sagepub.com/doi/10.1177/03064190231200397",
+        "status": "pending"
+    },
+    {
+        "title": "https://academic.oup.com/bioinformatics/article/doi/10.1093/bioinformatics/btad771/7499340",
+        "url": "https://academic.oup.com/bioinformatics/article/doi/10.1093/bioinformatics/btad771/7499340",
+        "status": "pending"
+    },
+    {
+        "title": "https://ieeexplore.ieee.org/document/10559964/",
+        "url": "https://ieeexplore.ieee.org/document/10559964/",
+        "status": "pending"
+    },
+    {
+        "title": "https://ejournal.unia.ac.id/index.php/maharot/article/view/1937",
+        "url": "https://ejournal.unia.ac.id/index.php/maharot/article/view/1937",
+        "status": "pending"
+    },
+    {
+        "title": "https://iopscience.iop.org/article/10.1088/1742-6596/2472/1/012040",
+        "url": "https://iopscience.iop.org/article/10.1088/1742-6596/2472/1/012040",
+        "status": "pending"
+    },
+    {
+        "title": "https://onepetro.org/SPEADIP/proceedings/24ADIP/24ADIP/D031S123R003/585414",
+        "url": "https://onepetro.org/SPEADIP/proceedings/24ADIP/24ADIP/D031S123R003/585414",
+        "status": "pending"
+    },
+    {
+        "title": "https://www.oaepublish.com/articles/evcna.2023.13",
+        "url": "https://www.oaepublish.com/articles/evcna.2023.13",
+        "status": "pending"
+    },
+    {
+        "title": "https://ieeexplore.ieee.org/document/10827363/",
+        "url": "https://ieeexplore.ieee.org/document/10827363/",
+        "status": "pending"
+    },
+    {
+        "title": "https://journals.sagepub.com/doi/10.1177/09504222231224090",
+        "url": "https://journals.sagepub.com/doi/10.1177/09504222231224090",
+        "status": "pending"
+    },
+    {
+        "title": "https://journals.sagepub.com/doi/10.1177/00187208211045167",
+        "url": "https://journals.sagepub.com/doi/10.1177/00187208211045167",
+        "status": "pending"
+    },
+    {
+        "title": "https://www.semanticscholar.org/paper/c9f56d69c76cb5e7a9d803ffcdbf28ee8a46...",
+        "url": "https://www.semanticscholar.org/paper/c9f56d69c76cb5e7a9d803ffcdbf28ee8a46...",
+        "status": "pending"
+    },
+    {
+        "title": "A Question-Answering Assistant over Personal Knowledge Graph",
+        "url": "https://dl.acm.org/doi/10.1145/3626772.3657665",
+        "status": "pending"
+    },
+    {
+        "title": "Building and Using Personal Knowledge Graph to Improve Suicidal Ideation Detection on Social Media",
+        "url": "https://ieeexplore.ieee.org/document/9308975/",
+        "status": "processed"
+    },
+    {
+        "title": "Digital Personal Health Coaching Platform for Promoting Human Papillomavirus Infection Vaccinations and Cancer Prevention: Knowledge Graph-Based Recommendation System",
+        "url": "https://formative.jmir.org/2023/1/e50210",
+        "status": "pending"
+    },
+    {
+        "title": "Architecture designing of digital twin in a healthcare unit",
+        "url": "https://journals.sagepub.com/doi/10.1177/14604582241296792",
+        "status": "pending"
+    },
+    {
+        "title": "Smart City Digital Twins: A Modular and Adaptive Architecture for Real-Time Data-Driven Urban Management",
+        "url": "https://ieeexplore.ieee.org/document/10814627/",
+        "status": "pending"
+    },
+    {
+        "title": "A Hybrid Optimization and Machine Learning Framework for Urban Traffic Management Using Cyber-Physical Digital Twin Architecture",
+        "url": "https://ieeexplore.ieee.org/document/10983125/",
+        "status": "pending"
+    },
+    {
+        "title": "Ontology-Driven Architecture for Managing Environmental, Social, and Governance Metrics",
+        "url": "https://www.mdpi.com/2079-9292/13/9/1719",
+        "status": "pending"
+    },
+    {
+        "title": "Design of an Overall Software Framework for a Plan Summary Evaluation Model",
+        "url": "https://dl.acm.org/doi/10.1145/3700906.3700976",
+        "status": "pending"
+    },
+    {
+        "title": "Automated Monitoring Method for Enterprise Microservices Network Operation Status Based on Database Knowledge Graph",
+        "url": "https://ieeexplore.ieee.org/document/10704355/",
+        "status": "pending"
+    },
+    {
+        "title": "Migration of Monolithic to Microservices ...",
+        "url": "Truncated URL",
+        "status": "pending"
+    },
+    {
+        "title": "Heart murmur detection from phonocardiogram recordings: The George B. Moody PhysioNet Challenge 2022",
+        "url": "http://medrxiv.org/lookup/doi/10.1101/2022.08.11.22278688",
+        "status": "pending"
+    },
+    {
+        "title": "Uncovering Values: Detecting Latent Moral Content from Natural ...",
+        "url": "https://aclanthology.org/2022.deelio-1.4/",
+        "status": "pending"
+    },
+    {
+        "title": "[2406.02962] Docs2KG: Unified Knowledge Graph Construction ...",
+        "url": "https://arxiv.org/abs/2406.02962",
+        "status": "pending"
+    },
+    {
+        "title": "SPARQL Anything",
+        "url": "https://sparql-anything.cc",
+        "status": "pending"
+    },
+    {
+        "title": "Digital Twins' Advancements and Applications in Healthcare ...",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11595921/",
+        "status": "pending"
+    },
+    {
+        "title": "NTIRE 2022 Challenge on Efficient Super-Resolution: Methods and Results",
+        "url": "https://ieeexplore.ieee.org/document/9857089/",
+        "status": "pending"
+    },
+    {
+        "title": "ASPRINO D'AVERSA VITE MARITATA 2022 - THE BOURBONS",
+        "url": "https://www.e-noteca.it/product/27521065/asprino-d-aversa-vite-maritata-2022-i-borboni?lang=en_US",
+        "status": "pending"
+    },
+    {
+        "title": "NTIRE 2022 Challenge on Perceptual Image Quality Assessment",
+        "url": "https://ieeexplore.ieee.org/document/9857130/",
+        "status": "pending"
+    },
+    {
+        "title": "I Borboni “Vulpis” Asprinio IGP (2022) – Campania - Passione Vino",
+        "url": "https://shop.passionevino.co.uk/products/i-borboni-vulpis-asprinio-igp-2022-campania",
+        "status": "pending"
+    },
+    {
+        "title": "Crowdsensing-based Road Damage Detection Challenge (CRDDC’2022)",
+        "url": "https://ieeexplore.ieee.org/document/10021040/",
+        "status": "pending"
+    },
+    {
+        "title": "NTIRE 2022 Challenge on High Dynamic Range Imaging: Methods and Results",
+        "url": "https://ieeexplore.ieee.org/document/9856998/",
+        "status": "pending"
+    },
+    {
+        "title": "NTIRE 2022 Challenge on Super-Resolution and Quality Enhancement of Compressed Video: Dataset, Methods and Results",
+        "url": "https://ieeexplore.ieee.org/document/9857103/",
+        "status": "pending"
+    },
+    {
+        "title": "SYN-MAD 2022: Competition on Face Morphing Attack Detection Based on Privacy-aware Synthetic Training Data",
+        "url": "https://ieeexplore.ieee.org/document/10007950/",
+        "status": "pending"
+    },
+    {
+        "title": "Multi-Camera Vehicle Tracking System for AI City Challenge 2022",
+        "url": "https://ieeexplore.ieee.org/document/9857328/",
+        "status": "pending"
+    },
+    {
+        "title": "A study on temporal knowledge graph enrichment",
+        "url": "https://espace.library.uq.edu.au/view/UQ:c288d0a",
+        "status": "pending"
+    },
+    {
+        "title": "Knowledge Graph Construction with a Façade: A Unified Method to Access Heteroge...",
+        "url": "Truncated URL",
+        "status": "pending"
+    },
+    {
+        "title": "An Ecosystem for Personal Knowledge Graphs: A Survey and Research Roadmap",
+        "url": "https://arxiv.org/abs/2304.09572",
+        "status": "processed"
+    },
+    {
+        "title": "PKG API: A Tool for Personal Knowledge Graph Management",
+        "url": "https://arxiv.org/abs/2402.07540",
+        "status": "processed"
+    },
+    {
+        "title": "Personal Health Knowledge Graphs for Patients",
+        "url": "https://arxiv.org/abs/2004.00071",
+        "status": "processed"
+    },
+    {
+        "title": "Applying Personal Knowledge Graphs to Health",
+        "url": "https://arxiv.org/abs/2104.07587",
+        "status": "processed"
+    },
+    {
+        "title": "Building and Using Personal Knowledge Graph to Improve Suicidal Ideation Detection on Social Media",
+        "url": "https://arxiv.org/abs/2012.09123",
+        "status": "processed"
+    },
+    {
+        "title": "Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models",
+        "url": "https://arxiv.org/abs/2406.02962",
+        "status": "processed"
+    },
+    {
+        "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+        "url": "https://arxiv.org/abs/2501.13956",
+        "status": "processed"
+    },
+    {
+        "title": "An Adaptive Framework Embedded With LLM for Knowledge Graph Construction",
+        "url": "https://ieeexplore.ieee.org/document/10948338/",
+        "status": "processed"
+    },
+    {
+        "title": "PRIVAFRAME: A Frame-Based Knowledge Graph for Sensitive Personal Data",
+        "url": "https://www.mdpi.com/2504-2289/6/3/90",
+        "status": "processed"
+    },
+    {
+        "title": "Question answering over temporal knowledge graphs based on hierarchical semantic extraction",
+        "url": "https://ieeexplore.ieee.org/document/10924876/",
+        "status": "processed"
+    },
+    {
+        "title": "Local-Global History-Aware Contrastive Learning for Temporal Knowledge Graph Reasoning",
+        "url": "https://ieeexplore.ieee.org/document/10597747/",
+        "status": "processed"
+    },
+    {
+        "title": "A Blockchain-Based Personal Health Knowledge Graph for Secure Integrated Health Data Management",
+        "url": "https://ieeexplore.ieee.org/document/10218032/",
+        "status": "processed"
+    }
+]
