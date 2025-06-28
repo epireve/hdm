@@ -497,12 +497,12 @@
   {
     "title": "Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve Partially Observable Markov Decision Processes",
     "url": "https://arxiv.org/abs/2408.05861",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents",
     "url": "https://arxiv.org/abs/2407.04363",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "PersonalAI: Towards digital twins in the graph form",
@@ -512,47 +512,47 @@
   {
     "title": "Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility",
     "url": "https://arxiv.org/abs/2410.12418",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "FedRKG: A Privacy-preserving Federated Recommendation Framework via Knowledge Graph Enhancement",
     "url": "https://arxiv.org/abs/2401.11089",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Pseudo-Knowledge Graph: Meta-Path Guided Retrieval and In-Graph Text for RAG-Equipped LLM",
     "url": "https://arxiv.org/abs/2503.00309",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Multi-task Heterogeneous Graph Learning on Electronic Health Records",
     "url": "https://arxiv.org/abs/2408.07569",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous Graphs",
     "url": "https://arxiv.org/abs/2406.09639",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "A Unified Temporal Knowledge Graph Reasoning Model Towards Interpolation and Extrapolation",
     "url": "https://arxiv.org/abs/2405.18106",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "AeonG: A Unified and Efficient Graph System for Temporal Graph Processing",
     "url": "https://www.vldb.org/pvldb/vol17/p1515-lu.pdf",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "PriPL-Tree: Accurate Range Query for Arbitrary Distribution under Local Differential Privacy",
     "url": "https://vldb.org/2024/papers/PriPL-Tree",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "DPSUR: Accelerating Differentially Private Stochastic Gradient Descent Using Selective Update and Release",
     "url": "https://vldb.org/2024/papers/DPSUR",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Trajectory Data Collection with Local Differential Privacy",
@@ -577,7 +577,7 @@
   {
     "title": "Privacy\u2010preserving graph publishing with disentangled variational information bottleneck",
     "url": "https://onlinelibrary.wiley.com/doi/10.1002/cpe.7963",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Privacy-Preserving and Fairness-Aware Federated Learning for Critical Infrastructure Protection and Resilience",
@@ -592,7 +592,7 @@
   {
     "title": "LinkGuard: Link Locally Privacy-Preserving Graph Neural Networks with Integrated Denoising and Private Learning",
     "url": "https://www2024.thewebconf.org/accepted/short-papers/linkguard",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Knowledge-Augmented Large Language Models for Personalized Contextual Query Suggestion",
@@ -622,7 +622,7 @@
   {
     "title": "ThingPoll: A System for Negotiating Privacy Configurations for IoT Devices in Shared Settings",
     "url": "https://dl.acm.org/doi/10.1145/3613904.3642156",
-    "status": "pending"
+    "status": "processed"
   },
   {
     "title": "Deep Learning on Graphs for Temporal Knowledge Discovery",
@@ -641,8 +641,8 @@
   },
   {
     "title": "A Question-Answering Assistant over Personal Knowledge Graph",
-    "url": "https://dl.acm.org/doi/10.1145/3626772.3657681",
-    "status": "pending",
+    "url": "https://dl.acm.org/doi/10.1145/3626772.3657665",
+    "status": "processed",
     "year": 2024,
     "authors": "Liu L., Du H., Zhang X., Guo M., Wang H., Wang M., Yang H., Wang H., Han S., Hauff C., Zuccon G., Zhang Y.",
     "citation_count": "N/A",
@@ -669,7 +669,7 @@
   {
     "title": "Healthcare knowledge graph construction: A systematic review of the state-of-the-art, open issues, and opportunities",
     "url": "https://journalofbigdata.springeropen.com/articles/10.1186/s40537-023-00774-9",
-    "status": "pending",
+    "status": "processed",
     "year": 2023,
     "authors": "Abu-Salih B., et al.",
     "citation_count": "Multiple",
