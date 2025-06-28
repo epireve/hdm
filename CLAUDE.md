@@ -165,9 +165,34 @@ Track and report:
 
 ## Available Tools & Capabilities
 
+### **Built-in Tools**
 - **WebSearch**: Discover papers across academic databases
 - **WebFetch**: Extract and analyze paper content with AI
 - **Task**: Launch parallel agents for batch processing
 - **Grep/Glob**: Search existing research corpus
 - **TodoWrite**: Track research tasks and progress
 - **Bash**: Automate file operations and data processing
+
+### **MCP Servers (Enhanced Capabilities)**
+- **mcp__brave_search**: Advanced web search with better academic focus than standard WebSearch
+- **mcp__fetch**: Enhanced web content retrieval with better parsing capabilities
+- **mcp__puppeteer**: JavaScript-rendered page access for dynamic academic sites
+- **mcp__filesystem**: Enhanced file operations for research data management
+- **mcp__memory**: Session persistence for long research sessions
+- **mcp__git**: Advanced version control for research progress tracking
+- **mcp__sequential_thinking**: Complex reasoning for multi-step research analysis
+
+### **MCP Integration Benefits**
+- **Enhanced Academic Search**: Brave Search provides better academic paper discovery
+- **Dynamic Content Access**: Puppeteer can access JavaScript-heavy academic portals
+- **Session Persistence**: Memory server maintains context across research sessions
+- **Advanced File Operations**: Better PDF processing and research data management
+- **Complex Reasoning**: Sequential thinking for sophisticated research synthesis
+
+### **Starting Enhanced Research Sessions**
+To utilize MCP capabilities, start Claude sessions with:
+```bash
+claude --mcp-config
+```
+
+This enables all configured MCP servers for enhanced research capabilities.
