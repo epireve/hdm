@@ -158,10 +158,12 @@ Track and report:
 ## Current Project Status
 
 - **Research Foundation**: 4 comprehensive analysis documents completed
-- **Papers Identified**: 336 potential papers discovered
-- **Processing Status**: 5 processed, 331 pending/skipped
+- **Papers Identified**: 97 papers in progress_cache.json
+- **Processing Status**: 67 processed, 29 pending, 1 skipped (paywall)
+- **Papers with URL as Title**: 22 (need proper title extraction)
 - **Key Findings**: Major gaps in temporal modeling and heterogeneous data fusion
-- **Next Priority**: Process high-relevancy papers on temporal knowledge graphs
+- **Next Priority**: Extract proper titles for 22 papers and process remaining 29 pending papers
+- **CSV Export**: papers_to_download.csv contains 30 papers needing manual review/download
 
 ## Available Tools & Capabilities
 
@@ -196,3 +198,36 @@ claude --mcp-config
 ```
 
 This enables all configured MCP servers for enhanced research capabilities.
+
+## Updated Research Strategy (2025-01-28)
+
+### Immediate Priorities
+1. **Title Extraction for 22 Papers**: Papers currently have URLs as titles and need proper metadata extraction
+2. **Process 29 Pending Papers**: Complete analysis for all pending entries
+3. **Manual Download List**: papers_to_download.csv contains 30 papers for manual review
+
+### Enhanced Processing Approach
+
+#### For Papers with URLs as Titles:
+1. Use WebFetch to visit each URL and extract proper title
+2. Update progress_cache.json with correct titles
+3. Then process normally through the 21-column extraction
+
+#### For Pending Papers:
+1. Batch process using parallel Task agents
+2. Prioritize open-access sources
+3. Use mcp__puppeteer for JavaScript-heavy sites if needed
+4. Track failures with specific error codes
+
+#### Quality Improvement:
+1. Validate all extracted data against schema
+2. Cross-reference citations between papers
+3. Build topic clusters from processed papers
+4. Generate weekly synthesis reports
+
+### Processing Metrics to Track:
+- Title extraction success rate
+- Full paper access vs abstract-only
+- Average processing time per paper
+- Data completeness score (21 columns filled)
+- Citation network density
