@@ -809,6 +809,62 @@
     "relevance": "High - Recent comprehensive overview of KG data integration"
   },
   {
+    "title": "EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs",
+    "url": "https://arxiv.org/abs/1902.10191",
+    "status": "processed",
+    "year": 2020,
+    "relevance": "High - Temporal graph neural networks for dynamic graph representation"
+  },
+  {
+    "title": "Temporal Graph Networks for Deep Learning on Dynamic Graphs",
+    "url": "https://arxiv.org/abs/2006.10637",
+    "status": "processed",
+    "year": 2020,
+    "relevance": "High - Generic framework for temporal graph networks with memory modules"
+  },
+  {
+    "title": "Dynamic Graph Neural Networks for Sequential Recommendation",
+    "url": "https://arxiv.org/abs/2104.07368",
+    "status": "processed",
+    "year": 2021,
+    "relevance": "High - Dynamic graph modeling for user behavior evolution"
+  },
+  {
+    "title": "Sequential Recommendation with Graph Neural Networks",
+    "url": "https://arxiv.org/abs/2106.14226",
+    "status": "processed",
+    "year": 2021,
+    "relevance": "High - SURGE framework for graph-based sequential recommendation"
+  },
+  {
+    "title": "User Behavior Enriched Temporal Knowledge Graphs for Sequential Recommendation",
+    "url": "https://dl.acm.org/doi/10.1145/3616855.3635762",
+    "status": "processed",
+    "year": 2024,
+    "relevance": "High - Temporal knowledge graphs with user behavior dynamics"
+  },
+  {
+    "title": "Deep Learning for Sequential Recommendation: Algorithms, Influential Factors, and Evaluations",
+    "url": "https://arxiv.org/abs/1905.01997",
+    "status": "processed",
+    "year": 2019,
+    "relevance": "High - Comprehensive survey of deep learning for temporal recommendation"
+  },
+  {
+    "title": "Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes",
+    "url": "https://arxiv.org/abs/2112.10558",
+    "status": "processed",
+    "year": 2021,
+    "relevance": "High - Continual learning on temporal graphs with class imbalance"
+  },
+  {
+    "title": "Multi-behavior Session-based Recommendation via Graph Reinforcement Learning",
+    "url": "https://proceedings.mlr.press/v222/qin24a.html",
+    "status": "processed",
+    "year": 2024,
+    "relevance": "High - Graph reinforcement learning for multi-behavior recommendation"
+  },
+  {
     "title": "A semantics-enabled approach for personalised Data Lake exploration",
     "url": "https://link.springer.com/article/10.1007/s10115-023-02014-1",
     "status": "pending",
