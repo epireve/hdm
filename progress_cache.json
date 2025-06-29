@@ -800,5 +800,201 @@
     "authors": "N/A",
     "citation_count": "N/A",
     "relevance": "High - LLM personalization related to KG tuning paper"
+  },
+  {
+    "title": "Knowledge Graphs: The Future of Data Integration and Intelligent Analysis",
+    "url": "https://www.arxiv.org/pdf/2502.15689",
+    "status": "pending",
+    "year": 2025,
+    "relevance": "High - Recent comprehensive overview of KG data integration"
+  },
+  {
+    "title": "A semantics-enabled approach for personalised Data Lake exploration",
+    "url": "https://link.springer.com/article/10.1007/s10115-023-02014-1",
+    "status": "pending",
+    "year": 2024,
+    "relevance": "High - PERSEUS approach for personal data exploration"
+  },
+  {
+    "title": "A survey on semantic data management as intersection of ontology-based data access, semantic modeling and data lakes",
+    "url": "https://www.sciencedirect.com/science/article/pii/S1570826824000052",
+    "status": "pending",
+    "year": 2024,
+    "relevance": "High - Semantic data management survey with data lake focus"
+  },
+  {
+    "title": "Big data fusion with knowledge graph: a comprehensive overview",
+    "url": "https://link.springer.com/article/10.1007/s10489-025-06549-4",
+    "status": "pending",
+    "year": 2025,
+    "relevance": "High - Comprehensive overview of data fusion with KG"
+  },
+  {
+    "title": "Context-Compatible Information Fusion for Scientific Knowledge Graphs",
+    "url": "https://link.springer.com/chapter/10.1007/978-3-030-54956-5_3",
+    "status": "pending",
+    "year": 2020,
+    "relevance": "Medium - Scientific KG information fusion approach"
+  },
+  {
+    "title": "MultiCogniGraph: A multimodal data fusion and graph convolutional network\u2010based multi\u2010hop reasoning method for large equipment fault diagnosis",
+    "url": "https://onlinelibrary.wiley.com/doi/10.1111/coin.12646",
+    "status": "pending",
+    "year": 2024,
+    "relevance": "Medium - Multimodal data fusion with GCN"
+  },
+  {
+    "title": "Semantic Data Integration for Knowledge Graph Construction at Query Time",
+    "url": "https://www.researchgate.net/publication/315867282_Semantic_Data_Integration_for_Knowledge_Graph_Construction_at_Query_Time",
+    "status": "pending",
+    "year": 2017,
+    "relevance": "Medium - Query-time semantic data integration"
+  },
+  {
+    "title": "A knowledge graph-supported information fusion approach for multi-faceted conceptual modelling",
+    "url": "https://www.sciencedirect.com/science/article/pii/S1566253523003019",
+    "status": "pending",
+    "year": 2023,
+    "relevance": "High - KG-supported information fusion for conceptual modeling"
+  },
+  {
+    "title": "Knowledge graph fusion for smart systems: A Survey",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S1566253519307729",
+    "status": "pending",
+    "year": 2020,
+    "relevance": "High - Survey of KG fusion for smart systems"
+  },
+  {
+    "title": "Knowledge Graph Service System Based on Data Fusion Technology",
+    "url": "https://ieeexplore.ieee.org/document/10200320",
+    "status": "pending",
+    "year": 2023,
+    "relevance": "Medium - KG service system with data fusion"
+  },
+  {
+    "title": "Multi-source knowledge fusion: a survey",
+    "url": "https://link.springer.com/article/10.1007/s11280-020-00811-0",
+    "status": "pending",
+    "year": 2020,
+    "relevance": "High - Survey of multi-source knowledge fusion"
+  },
+  {
+    "title": "Graphusion: Leveraging Large Language Models for Scientific Knowledge Graph Fusion and Construction in NLP Education",
+    "url": "https://arxiv.org/abs/2407.10794",
+    "status": "pending",
+    "year": 2024,
+    "relevance": "Medium - LLM-based KG fusion for education"
+  },
+  {
+    "title": "From data fusion to knowledge fusion",
+    "url": "https://dl.acm.org/doi/10.14778/2732951.2732962",
+    "status": "pending",
+    "year": 2015,
+    "relevance": "Medium - Foundational work on data to knowledge fusion"
+  },
+  {
+    "title": "Towards a Research Agenda for Personal Data Spaces: Synthesis of a Community Driven Process",
+    "url": "https://link.springer.com/chapter/10.1007/978-3-031-15086-9_36",
+    "status": "pending",
+    "year": 2022,
+    "relevance": "High - Personal data spaces research agenda"
+  },
+  {
+    "title": "Self sovereign and blockchain based access control: Supporting attributes privacy with zero knowledge",
+    "url": "https://www.sciencedirect.com/science/article/pii/S1084804522002181",
+    "status": "pending",
+    "year": 2022,
+    "relevance": "Medium - Self-sovereign identity with privacy preservation"
+  },
+  {
+    "title": "A Self-Sovereign Identity Based on Zero-Knowledge Proof and Blockchain",
+    "url": "https://www.researchgate.net/publication/370165767_A_Self-Sovereign_Identity_based_on_Zero-Knowledge_Proof_and_blockchain",
+    "status": "pending",
+    "year": 2023,
+    "relevance": "Medium - Zero-knowledge proofs for self-sovereign identity"
+  },
+  {
+    "title": "Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12056661/",
+    "status": "pending",
+    "year": 2024,
+    "relevance": "High - Survey of privacy-preserving graph ML"
+  },
+  {
+    "title": "A federated graph neural network framework for privacy-preserving personalization",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9163103/",
+    "status": "pending",
+    "year": 2022,
+    "relevance": "High - Federated GNN for privacy-preserving personalization"
+  },
+  {
+    "title": "Toward Graph Data Collaboration in a Data-Sharing-Free Manner: A Novel Privacy-Preserving Graph Pretraining Model",
+    "url": "https://pubsonline.informs.org/doi/10.1287/ijoc.2023.0115",
+    "status": "pending",
+    "year": 2023,
+    "relevance": "High - Privacy-preserving graph data collaboration"
+  },
+  {
+    "title": "Data Privacy Protection Model Based on Graph Convolutional Neural Network",
+    "url": "https://link.springer.com/article/10.1007/s11036-023-02210-x",
+    "status": "pending",
+    "year": 2023,
+    "relevance": "Medium - GCN-based privacy protection model"
+  },
+  {
+    "title": "Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey",
+    "url": "https://arxiv.org/abs/2307.04338",
+    "status": "processed",
+    "year": 2024,
+    "relevance": "High - Comprehensive survey on privacy techniques in graph machine learning"
+  },
+  {
+    "title": "Graphusion: Leveraging Large Language Models for Scientific Knowledge Graph Fusion and Construction in NLP Education",
+    "url": "https://arxiv.org/abs/2407.10794",
+    "status": "processed",
+    "year": 2024,
+    "relevance": "Medium - LLM-powered framework for KG construction"
+  },
+  {
+    "title": "FedGNN: Federated Graph Neural Network for Privacy-Preserving Recommendation",
+    "url": "https://arxiv.org/abs/2102.04925",
+    "status": "processed",
+    "year": 2022,
+    "relevance": "High - Privacy-preserving recommendation using federated GNN"
+  },
+  {
+    "title": "Collaborative Knowledge Graph Fusion by Exploiting the Open Corpus",
+    "url": "https://arxiv.org/abs/2206.07472",
+    "status": "processed",
+    "year": 2022,
+    "relevance": "High - Knowledge graph enrichment and fusion techniques"
+  },
+  {
+    "title": "A Privacy-Preserving Subgraph-Level Federated Graph Neural Network via Differential Privacy",
+    "url": "https://arxiv.org/abs/2206.03492",
+    "status": "processed",
+    "year": 2022,
+    "relevance": "High - Privacy-preserving federated GNN with differential privacy"
+  },
+  {
+    "title": "Knowledge Graph Fusion with Large Language Models for Accurate, Explainable Manufacturing Process Planning",
+    "url": "https://arxiv.org/abs/2506.13026",
+    "status": "processed",
+    "year": 2025,
+    "relevance": "High - KG-LLM integration for manufacturing decision making"
+  },
+  {
+    "title": "Detection-Fusion for Knowledge Graph Extraction from Videos",
+    "url": "https://arxiv.org/abs/2501.00136",
+    "status": "processed",
+    "year": 2025,
+    "relevance": "High - Multimodal KG extraction from video data"
+  },
+  {
+    "title": "Data-centric Artificial Intelligence: A Survey",
+    "url": "https://arxiv.org/abs/2303.10158",
+    "status": "processed",
+    "year": 2024,
+    "relevance": "High - Data-centric AI approaches for systematic data engineering"
   }
 ]
