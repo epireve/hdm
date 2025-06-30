@@ -1214,5 +1214,29 @@
     "year": 2024,
     "authors": "Espinoza-Mejía M., Saquicela V., Abril-Ulloa V.",
     "relevance": "High - PKG applications in precision nutrition and personalized health"
+  },
+  {
+    "title": "Building Contextual Knowledge Graphs for Personalized Learning Recommendations Using Text Mining and Semantic Graph Completion",
+    "url": "https://ieeexplore.ieee.org/document/10260850/",
+    "status": "processed",
+    "year": 2023,
+    "authors": "Hasan Abu-Rasheed, Mareike Dornhöfer, Christian Weber, Gábor Kismihók, Ulrike Buchmann, Madjid Fathi",
+    "relevance": "High - Contextual knowledge graphs for personalized learning"
+  },
+  {
+    "title": "LLM4EduKG: LLM for Automatic Construction of Educational Knowledge Graph",
+    "url": "https://ieeexplore.ieee.org/document/10679814/",
+    "status": "processed",
+    "year": 2024,
+    "authors": "Jianing Sun, Zhichao Zhang, Xueli He",
+    "relevance": "High - LLM-based automatic educational knowledge graph construction"
+  },
+  {
+    "title": "Construction and Application Research of Intelligent Education Knowledge Graph Based on Multi-modal Learning",
+    "url": "https://ieeexplore.ieee.org/document/10624590/",
+    "status": "processed",
+    "year": 2024,
+    "authors": "Haiping Li, Wenjing Duan",
+    "relevance": "High - Multi-modal educational knowledge graphs with demonstrated performance improvements"
   }
 ]
