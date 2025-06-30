@@ -247,7 +247,8 @@
   {
     "title": "A Question-Answering Assistant over Personal Knowledge Graph",
     "url": "https://dl.acm.org/doi/10.1145/3626772.3657665",
-    "status": "processed"
+    "status": "processed",
+    "added_to_research_table": true
   },
   {
     "title": "Knowledge Graph Tuning: Real-time Large Language Model Personalization",
@@ -582,7 +583,8 @@
   {
     "title": "AeonG: A Unified and Efficient Graph System for Temporal Graph Processing",
     "url": "https://www.vldb.org/pvldb/vol17/p1515-lu.pdf",
-    "status": "processed"
+    "status": "processed",
+    "added_to_research_table": true
   },
   {
     "title": "PriPL-Tree: Accurate Range Query for Arbitrary Distribution under Local Differential Privacy",
@@ -686,7 +688,8 @@
     "year": 2024,
     "authors": "Liu L., Du H., Zhang X., Guo M., Wang H., Wang M., Yang H., Wang H., Han S., Hauff C., Zuccon G., Zhang Y.",
     "citation_count": "N/A",
-    "relevance": "High - Cites Ecosystem for PKGs paper, implements PKG-based QA system"
+    "relevance": "High - Cites Ecosystem for PKGs paper, implements PKG-based QA system",
+    "added_to_research_table": true
   },
   {
     "title": "How Can Personal Knowledge Graphs Contribute to Precision Nutrition?",
@@ -1099,7 +1102,8 @@
     "url": "https://dl.acm.org/doi/10.1145/3627673.3679970",
     "status": "processed",
     "year": 2024,
-    "relevance": "High - CIKM 2024 paper on temporal reasoning for knowledge graphs"
+    "relevance": "High - CIKM 2024 paper on temporal reasoning for knowledge graphs",
+    "added_to_research_table": true
   },
   {
     "title": "ForecastTKGQuestions: A Benchmark for Temporal Question Answering and Forecasting over Temporal Knowledge Graphs",
