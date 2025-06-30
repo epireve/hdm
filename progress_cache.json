@@ -1,5 +1,45 @@
 [
   {
+    "title": "Patient-centric knowledge graphs: a survey of current methods, challenges, and applications",
+    "url": "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1388479/full",
+    "status": "processed"
+  },
+  {
+    "title": "Personalized and privacy-preserving federated graph neural network", 
+    "url": "https://www.frontiersin.org/journals/physics/articles/10.3389/fphy.2024.1383276/full",
+    "status": "processed"
+  },
+  {
+    "title": "PKG API: A Tool for Personal Knowledge Graph Management",
+    "url": "https://arxiv.org/abs/2402.07540",
+    "status": "processed"
+  },
+  {
+    "title": "An Ecosystem for Personal Knowledge Graphs: A Survey and Research Roadmap",
+    "url": "https://arxiv.org/abs/2304.09572", 
+    "status": "processed"
+  },
+  {
+    "title": "Temporal Fact Reasoning over Hyper-Relational Knowledge Graphs",
+    "url": "https://aclanthology.org/2024.findings-emnlp.20/",
+    "status": "processed"
+  },
+  {
+    "title": "SSTKG: Simple Spatio-Temporal Knowledge Graph for Intepretable and Versatile Dynamic Information Embedding",
+    "url": "https://arxiv.org/abs/2402.12132",
+    "status": "processed"
+  },
+  {
+    "title": "Federated Heterogeneous Graph Neural Network for Privacy-preserving Recommendation",
+    "url": "https://arxiv.org/abs/2310.11730",
+    "status": "processed"
+  },
+  {
+    "title": "Multimodal Reasoning with Multimodal Knowledge Graph",
+    "url": "https://arxiv.org/html/2406.02030v1",
+    "status": "processed"
+  },
+  {
     "title": "A comprehensive survey of personal knowledge graphs",
     "url": "https://wires.onlinelibrary.wiley.com/doi/10.1002/widm.1513",
     "status": "skipped_paywall"
@@ -1102,5 +1142,45 @@
     "status": "processed",
     "year": 2023,
     "relevance": "High - ESWC 2023 Best In-Use Paper on Solid ecosystem GDPR compliance"
+  },
+  {
+    "title": "Knowledge graph driven medicine recommendation system using graph neural networks on longitudinal medical records",
+    "url": "https://www.nature.com/articles/s41598-024-75784-5",
+    "status": "processed",
+    "year": 2024,
+    "authors": "R. Mishra, S. Shridevi",
+    "relevance": "High - KG-driven medicine recommendation with temporal modeling"
+  },
+  {
+    "title": "CTINexus: Automatic Cyber Threat Intelligence Knowledge Graph Construction Using Large Language Models",
+    "url": "https://arxiv.org/abs/2410.21060",
+    "status": "processed",
+    "year": 2024,
+    "authors": "Yutong Cheng, Osama Bajaber, Saimon Amanuel Tsegai, Dawn Song, Peng Gao",
+    "relevance": "High - Automatic KG construction using LLMs"
+  },
+  {
+    "title": "iText2KG: Incremental Knowledge Graphs Construction Using Large Language Models",
+    "url": "https://arxiv.org/abs/2409.03284",
+    "status": "processed",
+    "year": 2024,
+    "authors": "Yassir Lairgi, Ludovic Moncla, Rémy Cazabet, Khalid Benabdeslem, Pierre Cléau",
+    "relevance": "High - Incremental KG construction with zero-shot capability"
+  },
+  {
+    "title": "Graph Neural Networks for Heart Failure Prediction on an EHR-Based Patient Similarity Graph",
+    "url": "https://arxiv.org/abs/2411.19742",
+    "status": "processed",
+    "year": 2024,
+    "authors": "Heloisa Oss Boll, Ali Amirahmadi, Amira Soliman, Stefan Byttner, Mariana Recamonde-Mendoza",
+    "relevance": "High - GNN for healthcare prediction using patient similarity graphs"
+  },
+  {
+    "title": "CONNECTED: leveraging digital twins and personal knowledge graphs in healthcare digitalization",
+    "url": "https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2023.1322428/full",
+    "status": "processed",
+    "year": 2024,
+    "authors": "Antonella Carbonaro, Alberto Marfoglia, Filippo Nardini, Sabato Mellone",
+    "relevance": "High - Digital twins and PKG integration in healthcare"
   }
 ]
