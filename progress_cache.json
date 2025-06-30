@@ -750,18 +750,18 @@
   {
     "title": "From data to insights: the application and challenges of knowledge graphs in intelligent audit",
     "url": "https://journalofcloudcomputing.springeropen.com/articles/10.1186/s13677-024-00674-0",
-    "status": "pending",
+    "status": "processed",
     "year": 2024,
-    "authors": "N/A",
+    "authors": "Zhong, H., Yang, D., Shi, S., Wei, L., Wang, Y.",
     "citation_count": "N/A",
     "relevance": "Medium - KG application with heterogeneous data challenges"
   },
   {
     "title": "Patient-centric knowledge graphs: a survey of current methods, challenges, and applications",
     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11558794/",
-    "status": "pending",
+    "status": "processed",
     "year": 2024,
-    "authors": "N/A",
+    "authors": "Hassan S Al Khatib, et al.",
     "citation_count": "N/A",
     "relevance": "High - Survey of patient-centric KGs (PCKGs)"
   },
@@ -937,9 +937,10 @@
   {
     "title": "Graphusion: Leveraging Large Language Models for Scientific Knowledge Graph Fusion and Construction in NLP Education",
     "url": "https://arxiv.org/abs/2407.10794",
-    "status": "pending",
+    "status": "processed",
     "year": 2024,
-    "relevance": "Medium - LLM-based KG fusion for education"
+    "authors": "Yang, Rui; Yang, Boming; Ouyang, Sixun; She, Tianwei; Feng, Aosong; Jiang, Yuang; Lecue, Freddy; Lu, Jinghui; Li, Irene",
+    "relevance": "High - LLM-based KG construction with global perspective"
   },
   {
     "title": "From data fusion to knowledge fusion",
@@ -1052,5 +1053,54 @@
     "status": "processed",
     "year": 2024,
     "relevance": "High - Data-centric AI approaches for systematic data engineering"
+  },
+  {
+    "title": "Multi-view Temporal Knowledge Graph Reasoning",
+    "url": "https://dl.acm.org/doi/10.1145/3627673.3679970",
+    "status": "processed",
+    "year": 2024,
+    "relevance": "High - CIKM 2024 paper on temporal reasoning for knowledge graphs"
+  },
+  {
+    "title": "ForecastTKGQuestions: A Benchmark for Temporal Question Answering and Forecasting over Temporal Knowledge Graphs",
+    "url": "https://arxiv.org/abs/2208.06501",
+    "status": "processed",
+    "year": 2023,
+    "relevance": "High - ISWC 2023 paper on temporal question answering benchmark"
+  },
+  {
+    "title": "iSummary: Workload-based, Personalized Summaries for Knowledge Graphs",
+    "url": "https://arxiv.org/abs/2403.02934",
+    "status": "processed",
+    "year": 2023,
+    "relevance": "High - ISWC 2023 paper on personalized knowledge graph summarization"
+  },
+  {
+    "title": "A Rule-Based Software Agent on Top of Personal Data Stores",
+    "url": "https://github.com/SolidLabResearch/Solid-Agent",
+    "status": "processed",
+    "year": 2023,
+    "relevance": "High - ISWC 2023 paper on Solid ecosystem personal data management"
+  },
+  {
+    "title": "Continuous Personalized Knowledge Tracing: Modeling Long-Term Learning in Online Environments",
+    "url": "https://dl.acm.org/doi/10.1145/3583780.3614822",
+    "status": "processed",
+    "year": 2023,
+    "relevance": "High - CIKM 2023 paper on personalized knowledge tracing"
+  },
+  {
+    "title": "HHT: An Approach for Representing Temporally-Evolving Historical Territories",
+    "url": "https://hal.science/hal-04283672v1",
+    "status": "processed",
+    "year": 2023,
+    "relevance": "High - ESWC 2023 Best Resource Paper on temporal knowledge representation"
+  },
+  {
+    "title": "Prototyping an End-User User Interface for the Solid Application Interoperability Specification Under GDPR",
+    "url": "https://link.springer.com/chapter/10.1007/978-3-031-33455-9_33",
+    "status": "processed",
+    "year": 2023,
+    "relevance": "High - ESWC 2023 Best In-Use Paper on Solid ecosystem GDPR compliance"
   }
 ]
