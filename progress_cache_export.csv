@@ -1,0 +1,210 @@
+title,url,status,year,authors,citation_count,relevance
+"Patient-centric knowledge graphs: a survey of current methods, challenges, and applications",https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1388479/full,processed,,,,
+Personalized and privacy-preserving federated graph neural network,https://www.frontiersin.org/journals/physics/articles/10.3389/fphy.2024.1383276/full,processed,,,,
+PKG API: A Tool for Personal Knowledge Graph Management,https://arxiv.org/abs/2402.07540,processed,,,,
+An Ecosystem for Personal Knowledge Graphs: A Survey and Research Roadmap,https://arxiv.org/abs/2304.09572,processed,,,,
+Temporal Fact Reasoning over Hyper-Relational Knowledge Graphs,https://aclanthology.org/2024.findings-emnlp.20/,processed,,,,
+SSTKG: Simple Spatio-Temporal Knowledge Graph for Intepretable and Versatile Dynamic Information Embedding,https://arxiv.org/abs/2402.12132,processed,,,,
+Federated Heterogeneous Graph Neural Network for Privacy-preserving Recommendation,https://arxiv.org/abs/2310.11730,processed,,,,
+Multimodal Reasoning with Multimodal Knowledge Graph,https://arxiv.org/html/2406.02030v1,processed,,,,
+A comprehensive survey of personal knowledge graphs,https://wires.onlinelibrary.wiley.com/doi/10.1002/widm.1513,skipped_paywall,,,,
+Exploring knowledge management from a software engineering perspective,https://papers.academic-conferences.org/index.php/eckm/article/view/1497,processed,,,,
+The Use of AI in Software Engineering: A Synthetic Knowledge Synthesis of the Recent Research Literature,https://www.mdpi.com/2078-2489/15/6/354,processed,,,,
+BUILD-KG: Integrating Heterogeneous Data Into Analytics-Enabling Knowledge Graphs,https://ieeexplore.ieee.org/document/10386570/,processed,,,,
+Incremental schema integration for data wrangling via knowledge graphs,https://journals.sagepub.com/doi/full/10.3233/SW-233347,processed,,,,
+Leveraging Knowledge Graphs for Matching Heterogeneous Entities and Explanation,https://ieeexplore.ieee.org/document/10386157/,processed,,,,
+Knowledge graphs for enhancing transparency in health data ecosystems,https://journals.sagepub.com/doi/full/10.3233/SW-233347,processed,,,,
+Comprehensive Personal Health Knowledge Graph for Effective Management and Utilization of Personal Health Data,https://ieeexplore.ieee.org/document/10504339/,processed,,,,
+Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web,https://dl.acm.org/doi/10.1145/3555312,processed,,,,
+AGENTiGraph: An Interactive Knowledge Graph Platform for LLM-based Chatbots Utilizing Private Data,https://arxiv.org/abs/2410.11531,processed,,,,
+PRIVAFRAME: A Frame-Based Knowledge Graph for Sensitive Personal Data,https://www.mdpi.com/2504-2289/6/3/90,processed,,,,
+Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUT,https://dl.acm.org/doi/10.1145/3643479.3662055,processed,,,,
+Question answering over temporal knowledge graphs based on hierarchical semantic extraction,https://ieeexplore.ieee.org/document/10924876/,processed,,,,
+Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning,https://onlinelibrary.wiley.com/doi/10.1111/exsy.13758,skipped_paywall,,,,
+Local-Global History-Aware Contrastive Learning for Temporal Knowledge Graph Reasoning,https://ieeexplore.ieee.org/document/10597747/,processed,,,,
+A Blockchain-Based Personal Health Knowledge Graph for Secure Integrated Health Data Management,https://ieeexplore.ieee.org/document/10218032/,processed,,,,
+Log Anomaly Detection by Adversarial Autoencoders With Graph Feature Fusion,https://ieeexplore.ieee.org/document/10231001/,processed,,,,
+Adaptive Feature Fusion Networks for Origin-Destination Passenger Flow Prediction in Metro Systems,https://ieeexplore.ieee.org/document/10026633/,processed,,,,
+Unknown Title - ACM Paper (Cloudflare blocked),https://dl.acm.org/doi/10.1145/3557990.3567586,skipped_cloudflare,,,,
+Causal feature selection using a knowledge graph combining structured knowledge from the biomedical literature and ontologies: a use case studying depression as a risk factor for Alzheimer's disease,http://biorxiv.org/lookup/doi/10.1101/2022.07.18.500549,processed,,,,
+Prior knowledge-guided multilevel graph neural network for tumor risk prediction and interpretation via multi-omics data integration,https://academic.oup.com/bib/article/doi/10.1093/bib/bbae184/7658016,processed,,,,
+TFSF: Topological and Feature Space Fusion with Spatio-Temporal Modeling for Crop Yield Prediction,https://ieeexplore.ieee.org/document/10152724/,processed,,,,
+Unknown Title - ACM Paper (Cloudflare blocked),https://dl.acm.org/doi/10.1145/3653015,skipped_cloudflare,,,,
+Integrate Any Omics: Towards genome-wide data integration for patient stratification,https://arxiv.org/abs/2401.07937,processed,,,,
+AMEND 2.0: module identification and multi-omic data integration with multiplex-heterogeneous graphs,https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-025-06063-x,processed,,,,
+Enabling building digital twin: Ontology-based information management framework for multi-source data integration,https://iopscience.iop.org/article/10.1088/1755-1315/1101/9/092010,processed,,,,
+New generation Energy Performance Certificate: Development and application in an Italian case study as an EU proof of concept,https://www.e3s-conferences.org/10.1051/e3sconf/202452306001,processed,,,,
+PoC Design: A Methodology for Proof-of-Concept Development on Internet of Things Connected Dynamic Environments,https://www.hindawi.com/journals/scn/2021/7185827/,processed,,,,
+"Co-Design, Development, and Evaluation of a Health Monitoring Tool Using Smartwatch Data: A Proof-of-Concept Study",https://www.mdpi.com/1999-5903/15/3/111,processed,,,,
+https://bmjopen.bmj.com/lookup/doi/10.1136/bmjopen-2022-065929,https://bmjopen.bmj.com/lookup/doi/10.1136/bmjopen-2022-065929,processed,,,,
+Development of a proof-of-concept prototype in a distributed online collaborative learning environment using a student team: A case study,https://journals.sagepub.com/doi/10.1177/03064190231200397,skipped_not_relevant,,,,
+Mining literature and pathway data to explore the relations of ketamine with neurotransmitters and gut microbiota using a knowledge-graph,https://academic.oup.com/bioinformatics/article/doi/10.1093/bioinformatics/btad771/7499340,processed,,,,
+Knowledge Graph Generation and Enabling Multidimensional Analytics on Bangladesh Agricultural Data,https://ieeexplore.ieee.org/document/10559964/,processed,,,,
+Enhancing Students' Learning Motivation through the Integration of the TPACK Framework in Aqidah Akhlak Education,https://ejournal.unia.ac.id/index.php/maharot/article/view/1937,skipped_not_relevant,,,,
+A SysML-centric integration framework for helicopter fuel system development,https://iopscience.iop.org/article/10.1088/1742-6596/2472/1/012040,processed,,,,
+"Enhanced Lithofacies Description and Petrophysical Rock Typing in Fluvial Sand Reservoirs Through Core-Log Data Integration: Case Study of the Gharif Reservoir, Southern Central Oman",https://onepetro.org/SPEADIP/proceedings/24ADIP/24ADIP/D031S123R003/585414,skipped_not_relevant,,,,
+Synaptic proteins in neuron-derived extracellular vesicles as biomarkers for Alzheimer's disease: novel methodology and clinical proof of concept,https://www.oaepublish.com/articles/evcna.2023.13,processed,,,,
+Platform Development for Proof-of-Concept of Smartphone-based Continuous Complex Positioning,https://ieeexplore.ieee.org/document/10827363/,processed,,,,
+Development of a proof-of-concept model for digital technology integration in curriculum: A case of construction management programs in the UK and USA,https://journals.sagepub.com/doi/10.1177/09504222231224090,skipped_not_relevant,,,,
+A Lexical Approach for Identifying Behavioral Action Sequences,https://journals.sagepub.com/doi/10.1177/00187208211045167,skipped_not_relevant,,,,
+https://www.semanticscholar.org/paper/c9f56d69c76cb5e7a9d803ffcdbf28ee8a46...,https://www.semanticscholar.org/paper/c9f56d69c76cb5e7a9d803ffcdbf28ee8a46...,skipped_invalid_url,,,,
+A Question-Answering Assistant over Personal Knowledge Graph,https://dl.acm.org/doi/10.1145/3626772.3657665,processed,,,,
+Knowledge Graph Tuning: Real-time Large Language Model Personalization,https://arxiv.org/abs/2405.19686,processed,,,,
+Temporal Fact Reasoning over Hyper-Relational Knowledge Graphs,https://aclanthology.org/2024.findings-emnlp.20/,processed,,,,
+Multimodal Reasoning with Multimodal Knowledge Graph,https://aclanthology.org/2024.acl-long.579/,processed,,,,
+Personalizing Large Language Models using RAG and Knowledge Graph,https://arxiv.org/html/2505.09945v1,processed,,,,
+Survey on Collaborative Mechanisms Between Large and Small Language Models,https://arxiv.org/html/2505.07460v1,processed,,,,
+Research Trends for the Interplay between LLMs and Knowledge Graphs,https://arxiv.org/html/2406.08223v1,processed,,,,
+Building and Using Personal Knowledge Graph to Improve Suicidal Ideation Detection on Social Media,https://ieeexplore.ieee.org/document/9308975/,processed,,,,
+Digital Personal Health Coaching Platform for Promoting Human Papillomavirus Infection Vaccinations and Cancer Prevention: Knowledge Graph-Based Recommendation System,https://formative.jmir.org/2023/1/e50210,processed,,,,
+Architecture designing of digital twin in a healthcare unit,https://journals.sagepub.com/doi/10.1177/14604582241296792,processed,,,,
+Smart City Digital Twins: A Modular and Adaptive Architecture for Real-Time Data-Driven Urban Management,https://ieeexplore.ieee.org/document/10814627/,processed,,,,
+A Hybrid Optimization and Machine Learning Framework for Urban Traffic Management Using Cyber-Physical Digital Twin Architecture,https://ieeexplore.ieee.org/document/10983125/,processed,,,,
+"Ontology-Driven Architecture for Managing Environmental, Social, and Governance Metrics",https://www.mdpi.com/2079-9292/13/9/1719,processed,,,,
+Design of an Overall Software Framework for a Plan Summary Evaluation Model,https://dl.acm.org/doi/10.1145/3700906.3700976,skipped_access_restricted,,,,
+Automated Monitoring Method for Enterprise Microservices Network Operation Status Based on Database Knowledge Graph,https://ieeexplore.ieee.org/document/10704355/,processed,,,,
+Microservice extraction based on knowledge graph from monolithic applications,https://dl.acm.org/doi/10.1016/j.infsof.2022.106992,processed,,,,
+Heart murmur detection from phonocardiogram recordings: The George B. Moody PhysioNet Challenge 2022,http://medrxiv.org/lookup/doi/10.1101/2022.08.11.22278688,processed,,,,
+Uncovering Values: Detecting Latent Moral Content from Natural Language with Explainable and Non-Trained Methods,https://aclanthology.org/2022.deelio-1.4/,processed,,,,
+Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models,https://arxiv.org/abs/2406.02962,processed,,,,
+Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web,https://sparql-anything.cc,processed,,,,
+"Digital Twins' Advancements and Applications in Healthcare, Towards Precision Medicine",https://pmc.ncbi.nlm.nih.gov/articles/PMC11595921/,processed,,,,
+NTIRE 2022 Challenge on Efficient Super-Resolution: Methods and Results,https://ieeexplore.ieee.org/document/9857089/,skipped_not_relevant,,,,
+ASPRINO D'AVERSA VITE MARITATA 2022 - THE BOURBONS,https://www.e-noteca.it/product/27521065/asprino-d-aversa-vite-maritata-2022-i-borboni?lang=en_US,skipped_not_relevant,,,,
+NTIRE 2022 Challenge on Perceptual Image Quality Assessment,https://ieeexplore.ieee.org/document/9857130/,skipped_not_relevant,,,,
+I Borboni Vulpis Asprinio IGP (2022) – Campania - Passione Vino,https://shop.passionevino.co.uk/products/i-borboni-vulpis-asprinio-igp-2022-campania,skipped_not_relevant,,,,
+Crowdsensing-based Road Damage Detection Challenge (CRDDC'2022),https://ieeexplore.ieee.org/document/10021040/,skipped_not_relevant,,,,
+NTIRE 2022 Challenge on High Dynamic Range Imaging: Methods and Results,https://ieeexplore.ieee.org/document/9856998/,skipped_not_relevant,,,,
+"NTIRE 2022 Challenge on Super-Resolution and Quality Enhancement of Compressed Video: Dataset, Methods and Results",https://ieeexplore.ieee.org/document/9857103/,skipped_not_relevant,,,,
+SYN-MAD 2022: Competition on Face Morphing Attack Detection Based on Privacy-aware Synthetic Training Data,https://ieeexplore.ieee.org/document/10007950/,skipped_not_relevant,,,,
+Multi-Camera Vehicle Tracking System for AI City Challenge 2022,https://ieeexplore.ieee.org/document/9857328/,skipped_not_relevant,,,,
+A study on temporal knowledge graph enrichment,https://espace.library.uq.edu.au/view/UQ:c288d0a,skipped_access_restricted,,,,
+Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web,https://dl.acm.org/doi/10.1145/3555312,processed,,,,
+An Ecosystem for Personal Knowledge Graphs: A Survey and Research Roadmap,https://arxiv.org/abs/2304.09572,processed,,,,
+PKG API: A Tool for Personal Knowledge Graph Management,https://arxiv.org/abs/2402.07540,processed,,,,
+Personal Health Knowledge Graphs for Patients,https://arxiv.org/abs/2004.00071,processed,,,,
+Applying Personal Knowledge Graphs to Health,https://arxiv.org/abs/2104.07587,processed,,,,
+Building and Using Personal Knowledge Graph to Improve Suicidal Ideation Detection on Social Media,https://arxiv.org/abs/2012.09123,processed,,,,
+Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models,https://arxiv.org/abs/2406.02962,processed,,,,
+Zep: A Temporal Knowledge Graph Architecture for Agent Memory,https://arxiv.org/abs/2501.13956,processed,,,,
+An Adaptive Framework Embedded With LLM for Knowledge Graph Construction,https://ieeexplore.ieee.org/document/10948338/,processed,,,,
+PRIVAFRAME: A Frame-Based Knowledge Graph for Sensitive Personal Data,https://www.mdpi.com/2504-2289/6/3/90,processed,,,,
+Question answering over temporal knowledge graphs based on hierarchical semantic extraction,https://ieeexplore.ieee.org/document/10924876/,processed,,,,
+Local-Global History-Aware Contrastive Learning for Temporal Knowledge Graph Reasoning,https://ieeexplore.ieee.org/document/10597747/,processed,,,,
+A Blockchain-Based Personal Health Knowledge Graph for Secure Integrated Health Data Management,https://ieeexplore.ieee.org/document/10218032/,processed,,,,
+Named Entity Resolution in Personal Knowledge Graphs,https://arxiv.org/abs/2307.12173,processed,,,,
+Personalized Entity Resolution with Dynamic Heterogeneous Knowledge Graph Representations,https://arxiv.org/abs/2104.02667,processed,,,,
+A Survey on Temporal Knowledge Graph: Representation Learning and Applications,https://arxiv.org/abs/2403.04782,processed,,,,
+A Brief Survey on Deep Learning-Based Temporal Knowledge Graph Completion,https://www.mdpi.com/2076-3417/14/19/8871,processed,,,,
+A Question-Answering Assistant over Personal Knowledge Graph,https://dl.acm.org/doi/10.1145/3626772.3657665,processed,,,,
+A Personal Knowledge Graph for Researchers,https://dl.acm.org/doi/10.1145/3632754.3632773,processed,,,,
+Personal Knowledge Graphs: A Research Agenda,https://dl.acm.org/doi/10.1145/3341981.3344241,processed,,,,
+PerKGQA: Question Answering over Personalized Knowledge Graphs,https://aclanthology.org/2022.findings-naacl.19/,processed,,,,
+Comprehensive Personal Health Knowledge Graph for Effective Management and Utilization of Personal Health Data,https://ieeexplore.ieee.org/document/10504339/,processed,,,,
+Unifying Large Language Models and Knowledge Graphs: A Roadmap,https://ieeexplore.ieee.org/document/10387715/,processed,,,,
+Knowledge graph construction for computer networking course group in secondary vocational school based on multi-source heterogeneous data,https://ieeexplore.ieee.org/document/10086288/,processed,,,,
+Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUT,https://dl.acm.org/doi/10.1145/3643479.3662055,processed,,,,
+Temporal Knowledge Graph Question Answering: A Survey,https://arxiv.org/abs/2406.14191,processed,,,,
+TimelineKGQA: A Comprehensive Question-Answer Pair Generator,https://arxiv.org/abs/2501.04343,processed,,,,
+Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve Partially Observable Markov Decision Processes,https://arxiv.org/abs/2408.05861,processed,,,,
+AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents,https://arxiv.org/abs/2407.04363,processed,,,,
+PersonalAI: Towards digital twins in the graph form,https://arxiv.org/abs/2506.17001,processed,,,,
+Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility,https://arxiv.org/abs/2410.12418,processed,,,,
+FedRKG: A Privacy-preserving Federated Recommendation Framework via Knowledge Graph Enhancement,https://arxiv.org/abs/2401.11089,processed,,,,
+Pseudo-Knowledge Graph: Meta-Path Guided Retrieval and In-Graph Text for RAG-Equipped LLM,https://arxiv.org/abs/2503.00309,processed,,,,
+Multi-task Heterogeneous Graph Learning on Electronic Health Records,https://arxiv.org/abs/2408.07569,processed,,,,
+TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous Graphs,https://arxiv.org/abs/2406.09639,processed,,,,
+A Unified Temporal Knowledge Graph Reasoning Model Towards Interpolation and Extrapolation,https://arxiv.org/abs/2405.18106,processed,,,,
+AeonG: A Unified and Efficient Graph System for Temporal Graph Processing,https://www.vldb.org/pvldb/vol17/p1515-lu.pdf,processed,,,,
+PriPL-Tree: Accurate Range Query for Arbitrary Distribution under Local Differential Privacy,https://vldb.org/2024/papers/PriPL-Tree,processed,,,,
+DPSUR: Accelerating Differentially Private Stochastic Gradient Descent Using Selective Update and Release,https://vldb.org/2024/papers/DPSUR,processed,,,,
+Trajectory Data Collection with Local Differential Privacy,https://vldb.org/2023/papers/trajectory-ldp,pending,,,,
+Creating Embeddings of Heterogeneous Relational Datasets for Data Integration Tasks,https://dl.acm.org/doi/10.1145/3318464.3389742,pending,,,,
+Credible Intervals for Knowledge Graph Accuracy Estimation,https://2025.sigmod.org/sigmod_papers/credible-intervals-kg,pending,,,,
+Lossless Transformation of Knowledge Graphs to Property Graphs using Standardized Schemas,https://2025.sigmod.org/sigmod_papers/kg-property-graph,pending,,,,
+Privacy‐preserving graph publishing with disentangled variational information bottleneck,https://onlinelibrary.wiley.com/doi/10.1002/cpe.7963,processed,,,,
+Privacy-Preserving and Fairness-Aware Federated Learning for Critical Infrastructure Protection and Resilience,https://www2024.thewebconf.org/accepted/research-tracks/privacy-fairness-federated,pending,,,,
+"Breaking the Trilemma of Privacy, Utility, and Efficiency via Controllable Machine Unlearning",https://www2024.thewebconf.org/accepted/research-tracks/machine-unlearning,pending,,,,
+LinkGuard: Link Locally Privacy-Preserving Graph Neural Networks with Integrated Denoising and Private Learning,https://www2024.thewebconf.org/accepted/short-papers/linkguard,processed,,,,
+Knowledge-Augmented Large Language Models for Personalized Contextual Query Suggestion,https://www2024.thewebconf.org/accepted/research-tracks/knowledge-llm-query,pending,,,,
+Modeling Balanced Explicit and Implicit Relations with Contrastive Learning for Knowledge Concept Recommendation,https://www2024.thewebconf.org/accepted/research-tracks/knowledge-concept-rec,pending,,,,
+Memoro: Using Large Language Models to Realize a Concise Interface for Real-Time Memory Augmentation,https://dl.acm.org/doi/10.1145/3613904.3642251,processed,,,,
+Challenges and Opportunities of LLM-Based Synthetic Personae and Data in HCI,https://dl.acm.org/doi/10.1145/3613904.3642389,pending,,,,
+LLMR: Real-time Prompting of Interactive Worlds using Large Language Models,https://dl.acm.org/doi/10.1145/3613904.3642278,pending,,,,
+ThingPoll: A System for Negotiating Privacy Configurations for IoT Devices in Shared Settings,https://dl.acm.org/doi/10.1145/3613904.3642156,processed,,,,
+Deep Learning on Graphs for Temporal Knowledge Discovery,https://kdd2024.kdd.org/workshop/dlg-temporal,pending,,,,
+Privacy-preserving Temporal Knowledge Graph Learning,https://kdd2023.kdd.org/workshop/privacy-temporal-kg,pending,,,,
+Graph Learning for Personal Analytics and User Modeling,https://kdd2024.kdd.org/workshop/graph-personal-analytics,pending,,,,
+A Question-Answering Assistant over Personal Knowledge Graph,https://dl.acm.org/doi/10.1145/3626772.3657665,processed,2024,"Liu L., Du H., Zhang X., Guo M., Wang H., Wang M., Yang H., Wang H., Han S., Hauff C., Zuccon G., Zhang Y.",N/A,"High - Cites Ecosystem for PKGs paper, implements PKG-based QA system"
+How Can Personal Knowledge Graphs Contribute to Precision Nutrition?,https://link.springer.com/chapter/10.1007/978-3-031-75702-0_6,pending,2024,"Espinoza-Mejía M., Saquicela V., Abril-Ulloa V.",N/A,High - Cross-disciplinary PKG application in healthcare/nutrition
+CONNECTED: leveraging digital twins and personal knowledge graphs in healthcare digitalization,https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2023.1322428/full,processed,2023,"Carbonaro A., et al.",N/A,"High - Cites Personal Health KGs paper, digital twin integration"
+"Healthcare knowledge graph construction: A systematic review of the state-of-the-art, open issues, and opportunities",https://journalofbigdata.springeropen.com/articles/10.1186/s40537-023-00774-9,processed,2023,"Abu-Salih B., et al.",Multiple,High - Systematic review citing multiple core PKG papers
+A Personal Healthcare Knowledge Graph Framework for Diagnosis of Pelvic Masses Diseases,https://ebooks.iospress.nl/doi/10.3233/SHTI231249,pending,2024,Xin et al.,N/A,Medium - Healthcare PKG application citing core work
+KETCH: A Knowledge-Enhanced Transformer-Based Approach to Suicidal Ideation Detection,https://pubsonline.informs.org/doi/10.1287/isre.2021.0619,pending,2024,N/A,High,High - Mental health KG application citing suicide detection PKG paper
+Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs,https://dl.acm.org/doi/10.1145/3636555.3636918,pending,2024,Ain et al.,N/A,High - Cross-disciplinary PKG in education domain
+Transparent Learner Knowledge State Modeling using Personal Knowledge Graphs and Graph Neural Networks,https://dl.acm.org/doi/10.1145/3627043.3659545,pending,2024,Alatrash et al.,N/A,High - PKG with GNN integration for education
+MeKB-Rec: Personal Knowledge Graph Learning for Cross-Domain Recommendation,https://dl.acm.org/doi/10.1145/3580305.3599293,pending,2023,Su et al.,N/A,High - PKG for cross-domain recommendation systems
+Doing Personal LAPS: LLM-Augmented Dialogue Construction for Personalized Multi-Session Conversational Search,https://dl.acm.org/doi/10.1145/3626772.3657820,pending,2024,Joko et al.,N/A,High - PKG with LLM integration for conversational AI
+Constructing Personal Knowledge Graph from Conversation via Deep Reinforcement Learning,https://link.springer.com/chapter/10.1007/978-3-031-50543-0_10,pending,2024,Cai and Guo,N/A,High - Novel PKG construction method using DRL
+Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web,https://dl.acm.org/doi/10.1145/3555312,processed,2023,Asprino et al.,Multiple,High - Addresses heterogeneous data integration challenge
+From data to insights: the application and challenges of knowledge graphs in intelligent audit,https://journalofcloudcomputing.springeropen.com/articles/10.1186/s13677-024-00674-0,processed,2024,"Zhong, H., Yang, D., Shi, S., Wei, L., Wang, Y.",N/A,Medium - KG application with heterogeneous data challenges
+"Patient-centric knowledge graphs: a survey of current methods, challenges, and applications",https://pmc.ncbi.nlm.nih.gov/articles/PMC11558794/,processed,2024,"Hassan S Al Khatib, et al.",N/A,High - Survey of patient-centric KGs (PCKGs)
+Functional Knowledge Graph Towards Knowledge Application and Data Management for General Users,https://link.springer.com/chapter/10.1007/978-981-97-2303-4_2,pending,2024,Hu X.,N/A,Medium - General user-focused KG citing PKG ecosystem work
+Anomaly Detection on Dynamic Knowledge Graphs,https://predict-idlab.github.io/ADDKG/,pending,2024,N/A,N/A,High - Addresses temporal/dynamic aspects of KGs
+FedPKG: Federated Learning for Personal Knowledge Graphs,N/A - from search results,pending,2024,N/A,N/A,High - Privacy-preserving PKG with federated learning
+When large language models meet personalization: perspectives of challenges and opportunities,https://link.springer.com/article/10.1007/s11280-024-01276-1,pending,2024,N/A,N/A,High - LLM personalization related to KG tuning paper
+Knowledge Graphs: The Future of Data Integration and Intelligent Analysis,https://www.arxiv.org/pdf/2502.15689,pending,2025,,,High - Recent comprehensive overview of KG data integration
+EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs,https://arxiv.org/abs/1902.10191,processed,2020,,,High - Temporal graph neural networks for dynamic graph representation
+Temporal Graph Networks for Deep Learning on Dynamic Graphs,https://arxiv.org/abs/2006.10637,processed,2020,,,High - Generic framework for temporal graph networks with memory modules
+Dynamic Graph Neural Networks for Sequential Recommendation,https://arxiv.org/abs/2104.07368,processed,2021,,,High - Dynamic graph modeling for user behavior evolution
+Sequential Recommendation with Graph Neural Networks,https://arxiv.org/abs/2106.14226,processed,2021,,,High - SURGE framework for graph-based sequential recommendation
+User Behavior Enriched Temporal Knowledge Graphs for Sequential Recommendation,https://dl.acm.org/doi/10.1145/3616855.3635762,processed,2024,,,High - Temporal knowledge graphs with user behavior dynamics
+"Deep Learning for Sequential Recommendation: Algorithms, Influential Factors, and Evaluations",https://arxiv.org/abs/1905.01997,processed,2019,,,High - Comprehensive survey of deep learning for temporal recommendation
+Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes,https://arxiv.org/abs/2112.10558,processed,2021,,,High - Continual learning on temporal graphs with class imbalance
+Multi-behavior Session-based Recommendation via Graph Reinforcement Learning,https://proceedings.mlr.press/v222/qin24a.html,processed,2024,,,High - Graph reinforcement learning for multi-behavior recommendation
+A semantics-enabled approach for personalised Data Lake exploration,https://link.springer.com/article/10.1007/s10115-023-02014-1,pending,2024,,,High - PERSEUS approach for personal data exploration
+"A survey on semantic data management as intersection of ontology-based data access, semantic modeling and data lakes",https://www.sciencedirect.com/science/article/pii/S1570826824000052,pending,2024,,,High - Semantic data management survey with data lake focus
+Big data fusion with knowledge graph: a comprehensive overview,https://link.springer.com/article/10.1007/s10489-025-06549-4,pending,2025,,,High - Comprehensive overview of data fusion with KG
+Context-Compatible Information Fusion for Scientific Knowledge Graphs,https://link.springer.com/chapter/10.1007/978-3-030-54956-5_3,pending,2020,,,Medium - Scientific KG information fusion approach
+MultiCogniGraph: A multimodal data fusion and graph convolutional network‐based multi‐hop reasoning method for large equipment fault diagnosis,https://onlinelibrary.wiley.com/doi/10.1111/coin.12646,pending,2024,,,Medium - Multimodal data fusion with GCN
+Semantic Data Integration for Knowledge Graph Construction at Query Time,https://www.researchgate.net/publication/315867282_Semantic_Data_Integration_for_Knowledge_Graph_Construction_at_Query_Time,pending,2017,,,Medium - Query-time semantic data integration
+A knowledge graph-supported information fusion approach for multi-faceted conceptual modelling,https://www.sciencedirect.com/science/article/pii/S1566253523003019,pending,2023,,,High - KG-supported information fusion for conceptual modeling
+Knowledge graph fusion for smart systems: A Survey,https://www.sciencedirect.com/science/article/abs/pii/S1566253519307729,pending,2020,,,High - Survey of KG fusion for smart systems
+Knowledge Graph Service System Based on Data Fusion Technology,https://ieeexplore.ieee.org/document/10200320,pending,2023,,,Medium - KG service system with data fusion
+Multi-source knowledge fusion: a survey,https://link.springer.com/article/10.1007/s11280-020-00811-0,pending,2020,,,High - Survey of multi-source knowledge fusion
+Graphusion: Leveraging Large Language Models for Scientific Knowledge Graph Fusion and Construction in NLP Education,https://arxiv.org/abs/2407.10794,processed,2024,"Yang, Rui; Yang, Boming; Ouyang, Sixun; She, Tianwei; Feng, Aosong; Jiang, Yuang; Lecue, Freddy; Lu, Jinghui; Li, Irene",,High - LLM-based KG construction with global perspective
+From data fusion to knowledge fusion,https://dl.acm.org/doi/10.14778/2732951.2732962,pending,2015,,,Medium - Foundational work on data to knowledge fusion
+Towards a Research Agenda for Personal Data Spaces: Synthesis of a Community Driven Process,https://link.springer.com/chapter/10.1007/978-3-031-15086-9_36,pending,2022,,,High - Personal data spaces research agenda
+Self sovereign and blockchain based access control: Supporting attributes privacy with zero knowledge,https://www.sciencedirect.com/science/article/pii/S1084804522002181,pending,2022,,,Medium - Self-sovereign identity with privacy preservation
+A Self-Sovereign Identity Based on Zero-Knowledge Proof and Blockchain,https://www.researchgate.net/publication/370165767_A_Self-Sovereign_Identity_based_on_Zero-Knowledge_Proof_and_blockchain,pending,2023,,,Medium - Zero-knowledge proofs for self-sovereign identity
+Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey,https://pmc.ncbi.nlm.nih.gov/articles/PMC12056661/,pending,2024,,,High - Survey of privacy-preserving graph ML
+A federated graph neural network framework for privacy-preserving personalization,https://pmc.ncbi.nlm.nih.gov/articles/PMC9163103/,pending,2022,,,High - Federated GNN for privacy-preserving personalization
+Toward Graph Data Collaboration in a Data-Sharing-Free Manner: A Novel Privacy-Preserving Graph Pretraining Model,https://pubsonline.informs.org/doi/10.1287/ijoc.2023.0115,pending,2023,,,High - Privacy-preserving graph data collaboration
+Data Privacy Protection Model Based on Graph Convolutional Neural Network,https://link.springer.com/article/10.1007/s11036-023-02210-x,pending,2023,,,Medium - GCN-based privacy protection model
+Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey,https://arxiv.org/abs/2307.04338,processed,2024,,,High - Comprehensive survey on privacy techniques in graph machine learning
+Graphusion: Leveraging Large Language Models for Scientific Knowledge Graph Fusion and Construction in NLP Education,https://arxiv.org/abs/2407.10794,processed,2024,,,Medium - LLM-powered framework for KG construction
+FedGNN: Federated Graph Neural Network for Privacy-Preserving Recommendation,https://arxiv.org/abs/2102.04925,processed,2022,,,High - Privacy-preserving recommendation using federated GNN
+Collaborative Knowledge Graph Fusion by Exploiting the Open Corpus,https://arxiv.org/abs/2206.07472,processed,2022,,,High - Knowledge graph enrichment and fusion techniques
+A Privacy-Preserving Subgraph-Level Federated Graph Neural Network via Differential Privacy,https://arxiv.org/abs/2206.03492,processed,2022,,,High - Privacy-preserving federated GNN with differential privacy
+"Knowledge Graph Fusion with Large Language Models for Accurate, Explainable Manufacturing Process Planning",https://arxiv.org/abs/2506.13026,processed,2025,,,High - KG-LLM integration for manufacturing decision making
+Detection-Fusion for Knowledge Graph Extraction from Videos,https://arxiv.org/abs/2501.00136,processed,2025,,,High - Multimodal KG extraction from video data
+Data-centric Artificial Intelligence: A Survey,https://arxiv.org/abs/2303.10158,processed,2024,,,High - Data-centric AI approaches for systematic data engineering
+Multi-view Temporal Knowledge Graph Reasoning,https://dl.acm.org/doi/10.1145/3627673.3679970,processed,2024,,,High - CIKM 2024 paper on temporal reasoning for knowledge graphs
+ForecastTKGQuestions: A Benchmark for Temporal Question Answering and Forecasting over Temporal Knowledge Graphs,https://arxiv.org/abs/2208.06501,processed,2023,,,High - ISWC 2023 paper on temporal question answering benchmark
+"iSummary: Workload-based, Personalized Summaries for Knowledge Graphs",https://arxiv.org/abs/2403.02934,processed,2023,,,High - ISWC 2023 paper on personalized knowledge graph summarization
+A Rule-Based Software Agent on Top of Personal Data Stores,https://github.com/SolidLabResearch/Solid-Agent,processed,2023,,,High - ISWC 2023 paper on Solid ecosystem personal data management
+Continuous Personalized Knowledge Tracing: Modeling Long-Term Learning in Online Environments,https://dl.acm.org/doi/10.1145/3583780.3614822,processed,2023,,,High - CIKM 2023 paper on personalized knowledge tracing
+HHT: An Approach for Representing Temporally-Evolving Historical Territories,https://hal.science/hal-04283672v1,processed,2023,,,High - ESWC 2023 Best Resource Paper on temporal knowledge representation
+Prototyping an End-User User Interface for the Solid Application Interoperability Specification Under GDPR,https://link.springer.com/chapter/10.1007/978-3-031-33455-9_33,processed,2023,,,High - ESWC 2023 Best In-Use Paper on Solid ecosystem GDPR compliance
+Knowledge graph driven medicine recommendation system using graph neural networks on longitudinal medical records,https://www.nature.com/articles/s41598-024-75784-5,processed,2024,"R. Mishra, S. Shridevi",,High - KG-driven medicine recommendation with temporal modeling
+CTINexus: Automatic Cyber Threat Intelligence Knowledge Graph Construction Using Large Language Models,https://arxiv.org/abs/2410.21060,processed,2024,"Yutong Cheng, Osama Bajaber, Saimon Amanuel Tsegai, Dawn Song, Peng Gao",,High - Automatic KG construction using LLMs
+iText2KG: Incremental Knowledge Graphs Construction Using Large Language Models,https://arxiv.org/abs/2409.03284,processed,2024,"Yassir Lairgi, Ludovic Moncla, Rémy Cazabet, Khalid Benabdeslem, Pierre Cléau",,High - Incremental KG construction with zero-shot capability
+Graph Neural Networks for Heart Failure Prediction on an EHR-Based Patient Similarity Graph,https://arxiv.org/abs/2411.19742,processed,2024,"Heloisa Oss Boll, Ali Amirahmadi, Amira Soliman, Stefan Byttner, Mariana Recamonde-Mendoza",,High - GNN for healthcare prediction using patient similarity graphs
+CONNECTED: leveraging digital twins and personal knowledge graphs in healthcare digitalization,https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2023.1322428/full,processed,2024,"Antonella Carbonaro, Alberto Marfoglia, Filippo Nardini, Sabato Mellone",,High - Digital twins and PKG integration in healthcare
+Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs,https://dl.acm.org/doi/10.1145/3636555.3636881,processed,2024,"Qurat Ul Ain, Mohamed Amine Chatti, Paul Arthur Meteng Kamdem, Rawaa Alatrash, Shoeb Joarder, Clara Siepmann",,High - PKG-based educational recommendation systems
+Transparent Learner Knowledge State Modeling using Personal Knowledge Graphs and Graph Neural Networks,https://dl.acm.org/doi/10.1145/3627043.3659545,processed,2024,"Rawaa Alatrash, Mohamed Amine Chatti, Qurat Ul Ain, Shoeb Joarder",,High - PKG and GNN integration for transparent learner modeling
+Constructing Personal Knowledge Graph from Conversation via Deep Reinforcement Learning,https://link.springer.com/chapter/10.1007/978-981-97-3623-2_16,processed,2024,"Fei Cai, X. Guo",,High - Automatic PKG construction from conversational data
+How Can Personal Knowledge Graphs Contribute to Precision Nutrition?,https://link.springer.com/chapter/10.1007/978-3-031-75702-0_6,processed,2024,"Espinoza-Mejía M., Saquicela V., Abril-Ulloa V.",,High - PKG applications in precision nutrition and personalized health
+Building Contextual Knowledge Graphs for Personalized Learning Recommendations Using Text Mining and Semantic Graph Completion,https://ieeexplore.ieee.org/document/10260850/,processed,2023,"Hasan Abu-Rasheed, Mareike Dornhöfer, Christian Weber, Gábor Kismihók, Ulrike Buchmann, Madjid Fathi",,High - Contextual knowledge graphs for personalized learning
+LLM4EduKG: LLM for Automatic Construction of Educational Knowledge Graph,https://ieeexplore.ieee.org/document/10679814/,processed,2024,"Jianing Sun, Zhichao Zhang, Xueli He",,High - LLM-based automatic educational knowledge graph construction
+Construction and Application Research of Intelligent Education Knowledge Graph Based on Multi-modal Learning,https://ieeexplore.ieee.org/document/10624590/,processed,2024,"Haiping Li, Wenjing Duan",,High - Multi-modal educational knowledge graphs with demonstrated performance improvements
