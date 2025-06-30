@@ -1182,5 +1182,37 @@
     "year": 2024,
     "authors": "Antonella Carbonaro, Alberto Marfoglia, Filippo Nardini, Sabato Mellone",
     "relevance": "High - Digital twins and PKG integration in healthcare"
+  },
+  {
+    "title": "Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs",
+    "url": "https://dl.acm.org/doi/10.1145/3636555.3636881",
+    "status": "processed",
+    "year": 2024,
+    "authors": "Qurat Ul Ain, Mohamed Amine Chatti, Paul Arthur Meteng Kamdem, Rawaa Alatrash, Shoeb Joarder, Clara Siepmann",
+    "relevance": "High - PKG-based educational recommendation systems"
+  },
+  {
+    "title": "Transparent Learner Knowledge State Modeling using Personal Knowledge Graphs and Graph Neural Networks",
+    "url": "https://dl.acm.org/doi/10.1145/3627043.3659545",
+    "status": "processed",
+    "year": 2024,
+    "authors": "Rawaa Alatrash, Mohamed Amine Chatti, Qurat Ul Ain, Shoeb Joarder",
+    "relevance": "High - PKG and GNN integration for transparent learner modeling"
+  },
+  {
+    "title": "Constructing Personal Knowledge Graph from Conversation via Deep Reinforcement Learning",
+    "url": "https://link.springer.com/chapter/10.1007/978-981-97-3623-2_16",
+    "status": "processed",
+    "year": 2024,
+    "authors": "Fei Cai, X. Guo",
+    "relevance": "High - Automatic PKG construction from conversational data"
+  },
+  {
+    "title": "How Can Personal Knowledge Graphs Contribute to Precision Nutrition?",
+    "url": "https://link.springer.com/chapter/10.1007/978-3-031-75702-0_6",
+    "status": "processed",
+    "year": 2024,
+    "authors": "Espinoza-Mejía M., Saquicela V., Abril-Ulloa V.",
+    "relevance": "High - PKG applications in precision nutrition and personalized health"
   }
 ]
