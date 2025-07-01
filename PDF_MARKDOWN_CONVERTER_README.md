@@ -31,6 +31,7 @@ A powerful, all-in-one PDF to Markdown converter for the HDM (Human Digital Memo
 
 ### Core Features
 - **Three Conversion Modes**: Dual (default), Images only, Descriptions only
+- **Multiple API Key Support**: Load balance across multiple Gemini API keys
 - **Parallel Processing**: Multi-worker support for faster conversion
 - **Checkpoint System**: Automatic resume from interruptions
 - **Progress Tracking**: Real-time progress bar with ETA
@@ -73,8 +74,59 @@ pip install python-dotenv psutil
 # Make script executable
 chmod +x pdf-markdown-converter.py
 
-# Create .env file with your API key
-echo "GOOGLE_API_KEY=your_api_key_here" > .env
+# Create .env file with your API key(s)
+# For single API key:
+echo "GEMINI_API_KEYS=your_api_key_here" > .env
+
+# For multiple API keys (recommended for parallel processing):
+echo "GEMINI_API_KEYS=key1,key2,key3" > .env
+```
+
+## 🔑 Multiple API Key Support
+
+The converter supports using multiple Gemini API keys to distribute the load across different keys when running parallel workers. This helps avoid rate limits and speeds up conversion.
+
+### How It Works
+
+- Each worker is assigned an API key using round-robin distribution
+- Worker 0 uses API key 1, Worker 1 uses API key 2, etc.
+- If you have more workers than API keys, keys are reused cyclically
+
+### Configuration
+
+In your `.env` file:
+```bash
+# Single API key
+GEMINI_API_KEYS=AIzaSy0J4A
+
+# Multiple API keys (recommended)
+GEMINI_API_KEYS=AIzaSyAAA...,AIzaSyBBB...,AIzaSyCCC...
+```
+
+### Example Usage
+
+```bash
+# With 3 API keys and 8 workers
+# Workers 0,3,6 use API key 1
+# Workers 1,4,7 use API key 2  
+# Workers 2,5 use API key 3
+./venv/bin/python pdf-markdown-converter.py --workers 8
+```
+
+### Benefits
+
+- **Avoid Rate Limits**: Distribute requests across multiple keys
+- **Faster Processing**: Run more workers without hitting API limits
+- **Better Reliability**: If one key hits limits, others continue working
+- **Load Balancing**: Automatic distribution of work across keys
+
+### Monitoring
+
+The logs show which API key each worker is using:
+```
+[DUAL] Worker 0 (API key #1) converting: paper1.pdf
+[DUAL] Worker 1 (API key #2) converting: paper2.pdf
+[DUAL] Worker 2 (API key #3) converting: paper3.pdf
 ```
 
 ## 🎯 Conversion Modes
@@ -267,6 +319,22 @@ Set workers to match your CPU cores for best performance:
 - 4-core CPU: `--workers 4`
 - 8-core CPU: `--workers 8`
 - 16-core CPU: `--workers 12` (leave some for system)
+
+### Maximizing Performance with Multiple API Keys
+
+For best performance, use multiple API keys with high worker counts:
+
+```bash
+# Example: 8 workers with 3 API keys
+# Set in .env: GEMINI_API_KEYS=key1,key2,key3
+./venv/bin/python pdf-markdown-converter.py --workers 8 --progress
+
+# Example: 16 workers with 4 API keys
+# Set in .env: GEMINI_API_KEYS=key1,key2,key3,key4
+./venv/bin/python pdf-markdown-converter.py --workers 16 --progress
+```
+
+The converter automatically distributes workers across available API keys to avoid rate limits.
 
 ## 🔍 Checkpoint System
 
