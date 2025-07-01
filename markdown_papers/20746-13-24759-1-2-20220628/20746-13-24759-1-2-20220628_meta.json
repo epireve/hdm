@@ -1,0 +1,773 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Temporal Knowledge Graph Completion Using Box Embeddings",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          105.75,
+          98.1298828125
+        ],
+        [
+          505.6171875,
+          98.1298828125
+        ],
+        [
+          505.6171875,
+          111.0849609375
+        ],
+        [
+          105.75,
+          111.0849609375
+        ]
+      ]
+    },
+    {
+      "title": "Abstract",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          153.75,
+          217.5
+        ],
+        [
+          194.23828125,
+          217.5
+        ],
+        [
+          194.23828125,
+          227.197265625
+        ],
+        [
+          153.75,
+          227.197265625
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          130.5,
+          421.91015625
+        ],
+        [
+          215.455078125,
+          421.91015625
+        ],
+        [
+          215.455078125,
+          431.96484375
+        ],
+        [
+          130.5,
+          431.96484375
+        ]
+      ]
+    },
+    {
+      "title": "2 Temporal Knowledge Graph Completion",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          58.04736328125,
+          133.41796875
+        ],
+        [
+          288.0,
+          133.41796875
+        ],
+        [
+          288.0,
+          144.439453125
+        ],
+        [
+          58.04736328125,
+          144.439453125
+        ]
+      ]
+    },
+    {
+      "title": "3 Related Work",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          127.5,
+          623.25
+        ],
+        [
+          218.25,
+          623.25
+        ],
+        [
+          218.25,
+          634.21875
+        ],
+        [
+          127.5,
+          634.21875
+        ]
+      ]
+    },
+    {
+      "title": "4 A Temporal Box Embedding Model",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          70.822265625,
+          187.5
+        ],
+        [
+          273.75,
+          187.5
+        ],
+        [
+          273.75,
+          198.580078125
+        ],
+        [
+          70.822265625,
+          198.580078125
+        ]
+      ]
+    },
+    {
+      "title": "The Box Embedding Model BoxE",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          52.5,
+          288.0
+        ],
+        [
+          211.5,
+          288.0
+        ],
+        [
+          211.5,
+          297.966796875
+        ],
+        [
+          52.5,
+          297.966796875
+        ]
+      ]
+    },
+    {
+      "title": "The Temporal Box Embedding Model BoxTE",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          52.5,
+          657.75
+        ],
+        [
+          267.0,
+          657.75
+        ],
+        [
+          267.0,
+          667.86328125
+        ],
+        [
+          52.5,
+          667.86328125
+        ]
+      ]
+    },
+    {
+      "title": "5 Model Properties",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          118.037109375,
+          363.75
+        ],
+        [
+          227.25,
+          363.75
+        ],
+        [
+          227.25,
+          374.537109375
+        ],
+        [
+          118.037109375,
+          374.537109375
+        ]
+      ]
+    },
+    {
+      "title": "Full Expressiveness",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          52.5,
+          431.25
+        ],
+        [
+          145.5,
+          431.25
+        ],
+        [
+          145.5,
+          441.24609375
+        ],
+        [
+          52.5,
+          441.24609375
+        ]
+      ]
+    },
+    {
+      "title": "Inference Patterns",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          318.0,
+          340.5
+        ],
+        [
+          406.40625,
+          340.5
+        ],
+        [
+          406.40625,
+          351.140625
+        ],
+        [
+          318.0,
+          351.140625
+        ]
+      ]
+    },
+    {
+      "title": "6 Experiments",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          393.85546875,
+          274.5
+        ],
+        [
+          481.5,
+          274.5
+        ],
+        [
+          481.5,
+          285.591796875
+        ],
+        [
+          393.85546875,
+          285.591796875
+        ]
+      ]
+    },
+    {
+      "title": "Temporal Knowledge Graph Completion",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          52.5,
+          282.75
+        ],
+        [
+          245.25,
+          282.75
+        ],
+        [
+          245.25,
+          292.939453125
+        ],
+        [
+          52.5,
+          292.939453125
+        ]
+      ]
+    },
+    {
+      "title": "Parameter-bounded Experiments for TKGC",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          52.5,
+          208.5
+        ],
+        [
+          261.0,
+          208.5
+        ],
+        [
+          261.0,
+          218.689453125
+        ],
+        [
+          52.5,
+          218.689453125
+        ]
+      ]
+    },
+    {
+      "title": "7 Summary and Outlook",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          369.75,
+          504.66796875
+        ],
+        [
+          507.75,
+          504.66796875
+        ],
+        [
+          507.75,
+          514.72265625
+        ],
+        [
+          369.75,
+          514.72265625
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgments",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          125.25,
+          54.0
+        ],
+        [
+          221.25,
+          54.0
+        ],
+        [
+          221.25,
+          65.935546875
+        ],
+        [
+          125.25,
+          65.935546875
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          144.0,
+          136.5
+        ],
+        [
+          202.306640625,
+          136.5
+        ],
+        [
+          202.306640625,
+          147.0498046875
+        ],
+        [
+          144.0,
+          147.0498046875
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          323
+        ],
+        [
+          "Line",
+          94
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 1,
+        "llm_error_count": 0,
+        "llm_tokens_used": 3254
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          470
+        ],
+        [
+          "Line",
+          115
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1070
+        ],
+        [
+          "Line",
+          156
+        ],
+        [
+          "TextInlineMath",
+          9
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "Equation",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          676
+        ],
+        [
+          "Line",
+          97
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "TextInlineMath",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 1,
+        "llm_error_count": 0,
+        "llm_tokens_used": 3244
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          727
+        ],
+        [
+          "Line",
+          152
+        ],
+        [
+          "TableCell",
+          80
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "Equation",
+          5
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 1,
+        "llm_error_count": 0,
+        "llm_tokens_used": 3226
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          259
+        ],
+        [
+          "TableCell",
+          228
+        ],
+        [
+          "Line",
+          92
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 1,
+        "llm_error_count": 1,
+        "llm_tokens_used": 7056
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          372
+        ],
+        [
+          "TableCell",
+          264
+        ],
+        [
+          "Line",
+          99
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 1,
+        "llm_error_count": 0,
+        "llm_tokens_used": 6132
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          287
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "Text",
+          27
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          82
+        ],
+        [
+          "Line",
+          31
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/20746-13-24759-1-2-20220628"
+}

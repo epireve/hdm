@@ -1,0 +1,510 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Viewpoints\nFuture Research Directions of Software\nEngineering and Knowledge Engineering\u00a4",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          116.1869918699187,
+          158.25
+        ],
+        [
+          341.248046875,
+          158.25
+        ],
+        [
+          341.248046875,
+          197.7802734375
+        ],
+        [
+          116.1869918699187,
+          197.7802734375
+        ]
+      ]
+    },
+    {
+      "title": "1. Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          50.22276422764228,
+          484.5
+        ],
+        [
+          128.08056640625,
+          484.5
+        ],
+        [
+          128.08056640625,
+          493.9365234375
+        ],
+        [
+          50.22276422764228,
+          493.9365234375
+        ]
+      ]
+    },
+    {
+      "title": "2. Intersection Between Software Engineering and\nKnowledge Engineering",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          50.22276422764228,
+          374.994140625
+        ],
+        [
+          302.53125,
+          374.994140625
+        ],
+        [
+          302.53125,
+          397.6171875
+        ],
+        [
+          50.22276422764228,
+          397.6171875
+        ]
+      ]
+    },
+    {
+      "title": "3. Challenges and Future Research Directions",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          50.97235772357724,
+          129.0
+        ],
+        [
+          281.0975609756098,
+          129.0
+        ],
+        [
+          281.0975609756098,
+          138.8232421875
+        ],
+        [
+          50.97235772357724,
+          138.8232421875
+        ]
+      ]
+    },
+    {
+      "title": "3.1. Intelligent software system engineering (ISSE)",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          50.97235772357724,
+          229.5
+        ],
+        [
+          305.90771484375,
+          229.5
+        ],
+        [
+          305.90771484375,
+          238.9130859375
+        ],
+        [
+          50.97235772357724,
+          238.9130859375
+        ]
+      ]
+    },
+    {
+      "title": "3.2. Knowledge-supported software engineering (KSSE)",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          49.47317073170732,
+          139.5
+        ],
+        [
+          326.841796875,
+          139.5
+        ],
+        [
+          326.841796875,
+          150.134765625
+        ],
+        [
+          49.47317073170732,
+          150.134765625
+        ]
+      ]
+    },
+    {
+      "title": "3.3. Engineering knowledge as a software (EKaaS)",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          49.47317073170732,
+          538.5
+        ],
+        [
+          301.40576171875,
+          538.5
+        ],
+        [
+          301.40576171875,
+          548.4375
+        ],
+        [
+          49.47317073170732,
+          548.4375
+        ]
+      ]
+    },
+    {
+      "title": "4. Concluding Remarks",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          50.97235772357724,
+          244.91162109375
+        ],
+        [
+          170.84912109375,
+          244.91162109375
+        ],
+        [
+          170.84912109375,
+          254.85205078125
+        ],
+        [
+          50.97235772357724,
+          254.85205078125
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgments",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          50.22276422764228,
+          438.75
+        ],
+        [
+          142.149169921875,
+          438.75
+        ],
+        [
+          142.149169921875,
+          448.34765625
+        ],
+        [
+          50.22276422764228,
+          448.34765625
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          50.22276422764228,
+          507.0
+        ],
+        [
+          106.358642578125,
+          507.0
+        ],
+        [
+          106.358642578125,
+          516.90234375
+        ],
+        [
+          50.22276422764228,
+          516.90234375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          98
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 2,
+        "llm_error_count": 0,
+        "llm_tokens_used": 4347
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          91
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 1,
+        "llm_error_count": 0,
+        "llm_tokens_used": 2667
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          103
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 1,
+        "llm_error_count": 0,
+        "llm_tokens_used": 2158
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          102
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          102
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          122
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          98
+        ],
+        [
+          "Line",
+          25
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/xu2015"
+}
