@@ -1,0 +1,730 @@
+{
+  "data": {
+    "requestId": "abe288c451429e2164caff3c85107b61",
+    "autopromptString": "Data Integration and Heterogeneity Challenges in Personal Knowledge Graphs for Human Digital Memory",
+    "resolvedSearchType": "neural",
+    "results": [
+      {
+        "id": "https://arxiv.org/abs/2304.09572",
+        "title": "An Ecosystem for Personal Knowledge Graphs: A Survey and Research Roadmap",
+        "url": "https://arxiv.org/abs/2304.09572",
+        "publishedDate": "2023-04-19T00:00:00.000Z",
+        "author": "[Submitted on 19 Apr 2023 (v1), last revised 15 Mar 2024 (this version, v2)]",
+        "text": "# Computer Science > Artificial Intelligence\n\n**arXiv:2304.09572** (cs)\n\n\\[Submitted on 19 Apr 2023 ( [v1](https://arxiv.org/abs/2304.09572v1)), last revised 15 Mar 2024 (this version, v2)\\]\n\n# Title:An Ecosystem for Personal Knowledge Graphs: A Survey and Research Roadmap\n\nAuthors: [Martin G. Skjæveland](https://arxiv.org/search/cs?searchtype=author&query=Skj%C3%A6veland,+M+G), [Krisztian Balog](https://arxiv.org/search/cs?searchtype=author&query=Balog,+K), [Nolwenn Bernard](https://arxiv.org/search/cs?searchtype=author&query=Bernard,+N), [Weronika Łajewska](https://arxiv.org/search/cs?searchtype=auth …",
+        "image": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+      },
+      {
+        "id": "https://www.jmir.org/2024/1/e54263/",
+        "title": "Electronic Health Record–Oriented Knowledge Graph System for ...",
+        "url": "https://www.jmir.org/2024/1/e54263/",
+        "publishedDate": "2024-07-05T00:00:00.000Z",
+        "author": "Yong Shang",
+        "text": "#### Original Paper\n\n- [Yong Shang1\\*, PhD](https://www.jmir.org/search/searchResult?field%5B%5D=author&criteria%5B%5D=Yong+Shang);\n- [Yu Tian2,3\\*, PhD](https://www.jmir.org/search/searchResult?field%5B%5D=author&criteria%5B%5D=Yu+Tian);\n- [Kewei Lyu2,3, PhD](https://www.jmir.org/search/searchResult?field%5B%5D=author&criteria%5B%5D=Kewei+Lyu);\n- [Tianshu Zhou1, PhD](https://www.jmir.org/search/searchResult?field%5B%5D=author&criteria%5B%5D=Tianshu+Zhou);\n- [Ping Zhang4, MD, PhD](https://www.jmir.org/search/searchResult?field%5B%5D=author&criteria%5B%5D=Ping+Zhang);\n- [Jianghua Chen4, MD, PhD](https:/ …",
+        "image": "https://asset.jmir.pub/assets/a38b7a9b7efb8a015f8dd10a9619f3ba.png",
+        "favicon": "https://asset.jmir.pub/assets/static/images/favicon-32x32.png"
+      },
+      {
+        "id": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2021.784455/full",
+        "title": "Data Integration Challenges for Machine Learning in Precision Medicine",
+        "url": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2021.784455/full",
+        "publishedDate": "2022-01-25T00:00:00.000Z",
+        "author": "Mireya Martínez-García, Enrique Hernández-Lemus",
+        "text": "\n 1. Introduction \n Contemporary biomedical research and medical practices are increasingly turning into data-intensive fields, for which computational intelligence approaches, such as those based on artificial intelligence and machine learning (AI/ML) methods are becoming the norm. Due to the specific nature of these fields, the integration and management of the ever-growing volumes of heterogeneous data involved, often presents a number of challenges. These challenges become even more relevant in the light of the importance that AI/ML are gaining, establishing themselves at the core of the state-of-t …",
+        "image": "https://images-provider.frontiersin.org/api/ipx/w=1200&f=png/https://www.frontiersin.org/files/Articles/784455/fmed-08-784455-HTML/image_m/fmed-08-784455-g001.jpg",
+        "favicon": "https://brand.frontiersin.org/m/ed3f9ce840a03d7/favicon_32-tenantFavicon-Frontiers.png"
+      },
+      {
+        "id": "https://www.frontiersin.org/articles/10.3389/fmed.2021.784455/pdf",
+        "title": "Data Integration Challenges for Machine Learning in Precision Medicine",
+        "url": "https://www.frontiersin.org/articles/10.3389/fmed.2021.784455/pdf",
+        "publishedDate": "2022-01-25T00:00:00.000Z",
+        "author": "Enrique Hernández-Lemus",
+        "text": "REVIEW\npublished: 25 January 2022\ndoi: 10.3389/fmed.2021.784455\nFrontiers in Medicine | www.frontiersin.org 1 January 2022 | Volume 8 | Article 784455\nEdited by:\nYuguang Wang,\nShanghai Jiao Tong University, China\nReviewed by:\nJuan M. Banda,\nGeorgia State University,\nUnited States\nSridhar Goud,\nNational Institutes of Health (NIH),\nUnited States\n*Correspondence:\nEnrique Hernández-Lemus\nehernandez@inmegen.gob.mx\nSpecialty section:\nThis article was submitted to\nTranslational Medicine,\na section of the journal\nFrontiers in Medicine\nReceived: 27 September 2021\nAccepted: 28 December 2021\nPublished: 25 January …"
+      },
+      {
+        "id": "https://www.nature.com/articles/s41597-024-03171-w",
+        "title": "An open source knowledge graph ecosystem for the life sciences",
+        "url": "https://www.nature.com/articles/s41597-024-03171-w",
+        "publishedDate": "2024-04-11T00:00:00.000Z",
+        "author": "Hunter, Lawrence E.",
+        "text": "## Introduction\n\nThe worldwide growth of biomedical data is exponential, with the volume of molecular data alone expected to surpass more than four exabytes by 2025[1](https://www.nature.com/articles/s41597-024-03171-w#ref-CR1). Translational science requires integrating data and knowledge at multiple scales of biological organization. Rapid advancements in sequencing and multi-omics technologies have made tremendous amounts of diverse data available for secondary use[2](http://www.nature.com/www.nature.com#ref-CR2), [3](http://www.nature.com/www.nature.com#ref-CR3), [4](http://www.nature.com/www.natur …",
+        "image": "https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41597-024-03171-w/MediaObjects/41597_2024_3171_Fig1_HTML.png"
+      },
+      {
+        "id": "https://openaccess.city.ac.uk/31611/8/TGDK.1.1.5.pdf",
+        "title": "[PDF] Knowledge Graphs for the Life Sciences - City Research Online",
+        "url": "https://openaccess.city.ac.uk/31611/8/TGDK.1.1.5.pdf",
+        "publishedDate": "2023-12-19T00:00:00.000Z",
+        "author": "Neil Stewart",
+        "text": "City, University of London Institutional Repository\nCitation: Chen, J., Dong, H., Hastings, J., Jimenez-Ruiz, E., Lopez, V., Monnin, P., \nPesquita, C., Škoda, P. & Tamma, V. (2023). Knowledge Graphs for the Life Sciences: \nRecent Developments, Challenges and Opportunities. Transactions on Graph Data and \nKnowledge (TGDK), 1(1), doi: 10.4230/TGDK.1.1.5 \nThis is the published version of the paper. \nThis version of the publication may differ from the final published version. \nPermanent repository link: https://openaccess.city.ac.uk/id/eprint/31611/\nLink to published version: https://doi.org/10.4230/TGDK.1 …"
+      },
+      {
+        "id": "https://direct.mit.edu/dint/article-pdf/4/1/20/1985039/dint_a_00116.pdf",
+        "title": "Integrating Manifold Knowledge for Global Entity Linking with Heterogeneous Graphs",
+        "url": "https://direct.mit.edu/dint/article-pdf/4/1/20/1985039/dint_a_00116.pdf",
+        "publishedDate": "2021-01-01T00:00:00.000Z",
+        "author": "Zhibin Chen,Yuting Wu,Yansong Feng,Dongyan Zhao",
+        "text": "Yuting Wu\nZhibin Chen\nWangxuan Institute of Computer Technology\nPeking University\n100871BeijingChina\nCenter for Data Science\nPeking University\n100871BeijingChina\nYuting Wu\nWangxuan Institute of Computer Technology\nPeking University\n100871BeijingChina\nData Intelligence\nThe MOE Key Laboratory of Computational Linguistics\nPeking University\n100871BeijingChina\nYansong Feng\nWangxuan Institute of Computer Technology\nPeking University\n100871BeijingChina\nData Intelligence\nThe MOE Key Laboratory of Computational Linguistics\nPeking University\n100871BeijingChina\nDongyan Zhao\nWangxuan Institute of Computer Technolo …"
+      },
+      {
+        "id": "https://mdpi-res.com/d_attachment/applsci/applsci-11-08275/article_deploy/applsci-11-08275-v2.pdf?version=1631073461",
+        "title": "Data Harmonization for Heterogeneous Datasets: A Systematic Literature Review",
+        "url": "https://mdpi-res.com/d_attachment/applsci/applsci-11-08275/article_deploy/applsci-11-08275-v2.pdf?version=1631073461",
+        "publishedDate": "2021-09-08T00:00:00.000Z",
+        "author": "Ganesh Kumar, Shuib Basri, Abdullahi Abubakar Imam, Sunder Ali Khowaja, Luiz Fernando Capretz and Abdullateef Oluwagbemiga Balogun",
+        "text": "applied \nsciences\nReview\nData Harmonization for Heterogeneous Datasets: A Systematic\nLiterature Review\nGanesh Kumar 1,* , Shuib Basri 1\n, Abdullahi Abubakar Imam 1,2, Sunder Ali Khowaja 3,\nLuiz Fernando Capretz 4 and Abdullateef Oluwagbemiga Balogun 1,5\n\u0001\u0002\u0003\u0001\u0004\u0005\u0006\u0007\b\n\u0001\u0002\u0003\u0004\u0005\u0006\u0007\nCitation: Kumar, G.; Basri, S.; Imam,\nA.A.; Khowaja, S.A.; Capretz, L.F.;\nBalogun, A.O. Data Harmonization\nfor Heterogeneous Datasets: A\nSystematic Literature Review. Appl.\nSci. 2021, 11, 8275. https://doi.org/\n10.3390/app11178275\nAcademic Editor: Manuel Armada\nReceived: 17 August 2021\nAccepted: 30 August 2021\nPublished: 6 September 20 …"
+      },
+      {
+        "id": "https://export.arxiv.org/pdf/2303.13948v1.pdf",
+        "title": "Knowledge Graphs: Opportunities and Challenges",
+        "url": "https://export.arxiv.org/pdf/2303.13948v1.pdf",
+        "publishedDate": "2023-03-24T12:10:42.000Z",
+        "author": "Ciyuan Peng,Feng Xia,Mehdi Naseriparsa,Francesco Osborne",
+        "text": "Ciyuan Peng ciyuan.p@outlook.com\nInstitute of Innovation, Science and Sustainability\nFederation University Australia\n3353Ballarat\nVIC\nAustralia\nIntroduction\n· Feng Xia\nSchool of Computing Technologies\nRMIT University\n3000Melbourne\nVIC\nAustralia\n· Mehdi Naseriparsa\nGlobal Professional School\nFederation University Australia\n3353Ballarat\nVIC\nAustralia\nFrancesco Osborne francesco.osborne@open.ac.uk\nKnowledge Media Institute\nThe Open University\nMilton KeynesMK7 6AAUK\nFeng Xia f.xia@ieee.org\nCiyuan Peng\nMehdi Naseriparsa m.naseriparsa@federation.edu.au\nFrancesco Osborne\nC Peng\nInstitute of Innovation, Scienc …"
+      },
+      {
+        "id": "https://export.arxiv.org/pdf/2304.01311v3.pdf",
+        "title": "Knowledge Graphs in Practice: Characterizing their Users, Challenges, and Visualization Opportunities",
+        "url": "https://export.arxiv.org/pdf/2304.01311v3.pdf",
+        "publishedDate": "2024-06-18T16:47:40.000Z",
+        "author": "Harry Li,Gabriel Appleby,Camelia Daniela Brumar,Remco Chang,Ashley Suh",
+        "text": "Harry Li \nGabriel Appleby \nCamelia Daniela Brumar \nRemco Chang \nAshley Suh \nKnowledge Graphs in Practice: Characterizing their Users, Challenges, and Visualization Opportunities\nIndex Terms-Knowledge graphsvisualization techniques and methodologieshuman factorsvisual communication\nThis study presents insights from interviews with nineteen Knowledge Graph (KG) practitioners who work in both enterprise and academic settings on a wide variety of use cases. Through this study, we identify critical challenges experienced by KG practitioners when creating, exploring, and analyzing KGs that could be alleviate …"
+      },
+      {
+        "id": "https://www.semanticscholar.org/paper/Data-Augmentation-for-Personal-Knowledge-Base-Ganesan-Nagalapatti/663aa9e377e724cf08276720d69e5a2b513e0b1b",
+        "title": "Data Augmentation for Personal Knowledge Base Population | Semantic Scholar",
+        "url": "https://www.semanticscholar.org/paper/Data-Augmentation-for-Personal-Knowledge-Base-Ganesan-Nagalapatti/663aa9e377e724cf08276720d69e5a2b513e0b1b",
+        "publishedDate": "2023-02-07T20:16:26.000Z",
+        "author": "Balaji Ganesan; Lokesh Nagalapatti; Hima Patel",
+        "text": "Report on the Workshop on Personal Knowledge Graphs (PKG 2021) at AKBC 2021 Computer Science ACM SIGIR Forum 2022 The goal of the PKG'21 workshop was to create a forum for researchers and practitioners from diverse areas to present and discuss methods, tools, techniques, and experiences related to the construction and use of personal knowledge graphs, identify open questions, and create a shared research agenda. Semantic Correlation Graph Embedding Weiwei Wang Yuchen Han S. Bromuri M. Dumontier Computer Science 2022 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE) 2022 This work proposes a no …"
+      },
+      {
+        "id": "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC6447393&blobtype=pdf",
+        "title": "Merging heterogeneous clinical data to enable knowledge discovery",
+        "url": "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC6447393&blobtype=pdf",
+        "publishedDate": "2019-04-03T00:00:00.000Z",
+        "author": "Martin G. Seneviratne, Michael G. Kahn, Tina Hernandez-Boussard",
+        "text": "Merging heterogeneous clinical data to enable knowledge \ndiscovery\nMartin G. Seneviratne,\nDepartment of Biomedical Data Science, Stanford University, 1265 Welch Rd, Stanford, CA \n94305, United States, martsen@stanford.edu\nMichael G. Kahn, and\nColorado Clinical and Translational Sciences Institute, Denver, CO 80045, United States, \nmichael.Kahn@ucdenver.edu\nTina Hernandez-Boussard\nDepartment of Medicine, Biomedical Informatics, Stanford University, 1265 Welch Rd, Stanford, \nCA 94305, United States, boussard@stanford.edu\nAbstract\nThe vision of precision medicine relies on the integration of large-scale c …"
+      },
+      {
+        "id": "https://www.sciencedirect.com/science/article/pii/S0306457319303401",
+        "title": "Multimodal joint learning for personal knowledge base construction from Twitter-based lifelogs",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0306457319303401",
+        "publishedDate": "2020-11-05T00:00:00.000Z",
+        "author": "An-Zi  Yen, Hen-Hsen  Huang, Hsin-Hsi  Chen",
+        "text": "People are used to log their life on social media platforms. In this paper, we aim to extract life events by leveraging both visual and textual information shared on Twitter and construct personal knowledge bases of individuals. The issues to be tackled include (1) not all text descriptions are related to life events, (2) life events in a text description can be expressed explicitly or implicitly, (3) the predicates in the implicit life events are often absent, and (4) the mapping from natural language predicates to knowledge base relations may be ambiguous. A multimodal joint learning approach trained …"
+      },
+      {
+        "id": "https://arxiv.org/abs/2104.07587",
+        "title": "Applying Personal Knowledge Graphs to Health",
+        "url": "https://arxiv.org/abs/2104.07587",
+        "publishedDate": "2021-04-15T00:00:00.000Z",
+        "author": "[Submitted on 15 Apr 2021]",
+        "text": "# Computer Science > Artificial Intelligence\n\n**arXiv:2104.07587** (cs)\n\n\\[Submitted on 15 Apr 2021\\]\n\n# Title:Applying Personal Knowledge Graphs to Health\n\nAuthors: [Sola Shirai](https://arxiv.org/search/cs?searchtype=author&query=Shirai,+S), [Oshani Seneviratne](https://arxiv.org/search/cs?searchtype=author&query=Seneviratne,+O), [Deborah L. McGuinness](https://arxiv.org/search/cs?searchtype=author&query=McGuinness,+D+L)\n\nView a PDF of the paper titled Applying Personal Knowledge Graphs to Health, by Sola Shirai and 2 other authors\n\n[View PDF](https://arxiv.org/pdf/2104.07587)\n\n> Abstract:Knowledge g …",
+        "image": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+      },
+      {
+        "id": "https://milvus.io/ai-quick-reference/what-are-the-challenges-in-maintaining-a-knowledge-graph",
+        "title": "What are the challenges in maintaining a knowledge graph? - Milvus",
+        "url": "https://milvus.io/ai-quick-reference/what-are-the-challenges-in-maintaining-a-knowledge-graph",
+        "publishedDate": "2025-04-16T00:00:00.000Z",
+        "author": "",
+        "text": "- [Home](https://milvus.io/)\n- [AI Reference](https://milvus.io/ai-quick-reference)\n- What are the challenges in maintaining a knowledge graph?\n\n\n# What are the challenges in maintaining a knowledge graph?\n\nMaintaining a knowledge graph involves several key challenges, starting with **data quality and consistency**. Knowledge graphs integrate data from diverse sources, which often use different formats, standards, or naming conventions. For example, one dataset might represent dates as “YYYY-MM-DD,” while another uses “MM/DD/YYYY,” leading to parsing errors. Outdated information is another issue—entiti …",
+        "image": "https://assets.zilliz.com/meta_image_milvus_d6510e10e0.png"
+      },
+      {
+        "id": "https://ec-3.org/publications/conferences/EC32023/papers/EC32023_262.pdf",
+        "title": "[PDF] Describe and query semantic building digital twin data in temporal ...",
+        "url": "https://ec-3.org/publications/conferences/EC32023/papers/EC32023_262.pdf",
+        "publishedDate": "2023-07-10T00:00:00.000Z",
+        "author": "",
+        "text": "2023 European Conference on Computing in Construction\n40th International CIB W78 Conference\nHeraklion, Crete, Greece\nJuly 10-12, 2023\nDescribe and query semantic building digital twin data in temporal Knowledge Graphs\nYingying Zhang1, Jakob Beetz1\n1RWTH Aachen University, Germany\nAbstract\nWith the emerging application and development of digi\u0002tal twin technologies in the Architecture, Engineering, and\nConstruction (AEC) sector, effective monitoring and pre\u0002diction of the built environment is an important step to\u0002ward energy transformation. The temporal properties are\nalways implied in the events, either …"
+      },
+      {
+        "id": "https://export.arxiv.org/pdf/2302.11509v1.pdf",
+        "title": "Construction of Knowledge Graphs: State and Challenges",
+        "url": "https://export.arxiv.org/pdf/2302.11509v1.pdf",
+        "publishedDate": "2023-10-11T10:20:58.000Z",
+        "author": "Marvin Hofer,Daniel Obraczka,Alieh Saeedi,Hanna Köpcke,Erhard Rahm",
+        "text": "Marvin Hofer\nCenter for Scalable Data Analytics and Artificial Intelligence (ScaDS.AI\nDresden/LeipzigGermany\nDaniel Obraczka\nCenter for Scalable Data Analytics and Artificial Intelligence (ScaDS.AI\nDresden/LeipzigGermany\nAlieh Saeedi\nDept. of Computer Science\nLeipzig University\nGermany\nCenter for Scalable Data Analytics and Artificial Intelligence (ScaDS.AI\nDresden/LeipzigGermany\nHanna Köpcke\nDept. of Computer Science\nLeipzig University\nGermany\nErhard Rahm\nDept. of Computer Science\nLeipzig University\nGermany\nCenter for Scalable Data Analytics and Artificial Intelligence (ScaDS.AI\nDresden/LeipzigGermany …"
+      },
+      {
+        "id": "https://usc-isi-i2.github.io/papers/szekely15-iswc.pdf",
+        "title": "[PDF] Building and Using a Knowledge Graph to Combat Human Trafficking",
+        "url": "https://usc-isi-i2.github.io/papers/szekely15-iswc.pdf",
+        "publishedDate": "2015-07-19T00:00:00.000Z",
+        "author": "",
+        "text": "Building and Using a Knowledge Graph to\nCombat Human Trafficking\nPedro Szekely1, Craig A. Knoblock1, Jason Slepicka1, Andrew Philpot1,\nAmandeep Singh1, Chengye Yin1, Dipsy Kapoor1, Prem Natarajan1, Daniel\nMarcu1, Kevin Knight1, David Stallard1, Subessware S. Karunamoorthy1,\nRajagopal Bojanapalli1, Steven Minton2, Brian Amanatullah2, Todd Hughes3,\nMike Tamayo3, David Flynt3, Rachel Artiss3, Shih-Fu Chang4, Tao Chen4,\nGerald Hiebel5, and Lidia Ferreira6\n1 University of Southern California, Information Sciences Institute,\nMarina del Rey, CA, USA\n2\nInferLink Corporation, El Segundo, CA, USA\n3 Next Century  …"
+      },
+      {
+        "id": "https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2023.1278153/full",
+        "title": "A solution and practice for combining multi-source heterogeneous ...",
+        "url": "https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2023.1278153/full",
+        "publishedDate": "2023-09-28T00:00:00.000Z",
+        "author": "Chenwei Yan, Xinyue Fang, Xiaotong Huang, Chenyi Guo, Ji Wu",
+        "text": "## 1\\. Introduction\n\nA comprehensive understanding of enterprises and their associations is vital in the financial domain, as it benefits several real-world applications, such as fraud detection, risk management, corporate due diligence. To this end, the knowledge graph is often employed as a useful tool to provide information. In particular, enterprise knowledge graphs have attracted wide attention and application from academia and industry as an important infrastructure of artificial intelligence. Among financial firms, it has become an increasing trend to use knowledge graphs to represent knowledge  …",
+        "image": "https://images-provider.frontiersin.org/api/ipx/w=1200&f=png/https://www.frontiersin.org/files/Articles/1278153/fdata-06-1278153-HTML-r1/image_m/fdata-06-1278153-g001.jpg",
+        "favicon": "https://brand.frontiersin.org/m/ed3f9ce840a03d7/favicon_32-tenantFavicon-Frontiers.png"
+      },
+      {
+        "id": "https://inria.hal.science/hal-02930728",
+        "title": "Integrating (Very) Heterogeneous Data Sources: A Structured and an Unstructured Perspective",
+        "url": "https://inria.hal.science/hal-02930728",
+        "publishedDate": "2020-08-25T00:00:00.000Z",
+        "author": "Ioana Manolescu",
+        "text": "[Accéder directement au contenu](https://inria.hal.science/hal-02930728#skip-link)\n\n| |\n| --- |\n| Portail INRIA.HAL.SCIENCE Les publications, logiciels... des scientifiques Inria |\n\n- [Accueil](https://inria.hal.science/)\n- [Publications Inria](https://inria.hal.science/hal-02930728)\n - [Consulter les derniers dépôts](https://inria.hal.science/search/index/?q=collCode_s%3AINRIA2&rows=30&sort=submittedDate_s+desc)\n - [Par équipe de recherche](https://inria.hal.science/browse/structure-structure)\n - [Par auteur](https://inria.hal.science/browse/author-structure)\n - [Rapports de recherche et techniques](h …",
+        "favicon": "https://inria.hal.science/assets/favicon/favicon-32x32.png"
+      },
+      {
+        "id": "https://www.sciencedirect.com/science/article/pii/S187705091931107X",
+        "title": "Intelligent Approach for Heterogeneous Data Integration: Information Processes Analysis Engine in Clinical Remote Monitoring Systems",
+        "url": "https://www.sciencedirect.com/science/article/pii/S187705091931107X",
+        "publishedDate": "2019-11-05T00:00:00.000Z",
+        "author": "Mikhail  Khovrichev, ITMO University, Saint-Petersburg, Russia, Liubov  Elkhovskaya, ITMO University, Saint-Petersburg, Russia, Vladimir  Fonin, PMT Online, Moscow, Russia, Marina  Balakhontceva, ITMO University, Saint-Petersburg, Russia, mbalakhontceva@itmo.ru",
+        "text": "Abstract The paper presents a research project which aimed to design and develop an intelligent approach for the integration of heterogeneous data and knowledge sources in personalized healthcare. The integration profile we propose is mainly focused on remote monitoring of patients with arterial hypertension and chronic heart failure. This clarifies main temporal data used by event detection systems and limits it to systolic/diastolic pressure and heart rate. Our aim is to design and propose software component for such a system which makes it possible to reconstruct the whole remote monitoring and trea …"
+      },
+      {
+        "id": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11402636/",
+        "title": "Heterogeneous data integration: Challenges and opportunities - PMC",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11402636/",
+        "publishedDate": "2024-08-29T00:00:00.000Z",
+        "author": "",
+        "text": "\n \n \n \n Abstract \n Integrating multiple data source technologies is essential for organizations to respond to highly dynamic market needs. Although physical data integration systems have been considered to have better query processing systems, they pose higher implementation and maintenance costs. Meanwhile, virtual data integration has become an alternative topic that is increasingly attracting the attention of researchers in the current era of big data. Various data integration methodologies have been developed and used in various domains, processing heterogeneous data using various approaches. This  …",
+        "favicon": "https://pmc.ncbi.nlm.nih.gov/static/img/favicons/favicon-32x32.png"
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/33816906",
+        "title": "An approach for semantic integration of heterogeneous data sources - PubMed",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33816906",
+        "publishedDate": "2020-02-03T00:00:00.000Z",
+        "author": "Giuseppe Fusco 1 , Lerina Aversano 1",
+        "text": "## Abstract\n\nIntegrating data from multiple heterogeneous data sources entails dealing with data distributed among heterogeneous information sources, which can be structured, semi-structured or unstructured, and providing the user with a unified view of these data. Thus, in general, gathering information is challenging, and one of the main reasons is that data sources are designed to support specific applications. Very often their structure is unknown to the large part of users. Moreover, the stored data is often redundant, mixed with information only needed to support enterprise processes, and incompl …",
+        "image": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+        "favicon": "https://cdn.ncbi.nlm.nih.gov/coreutils/nwds/img/favicons/favicon.ico"
+      },
+      {
+        "id": "https://www.sciencedirect.com/science/article/pii/B9780444639844000090",
+        "title": "Dealing With Data Heterogeneity in a Data Fusion Perspective",
+        "url": "https://www.sciencedirect.com/science/article/pii/B9780444639844000090",
+        "publishedDate": "2019-11-05T00:00:00.000Z",
+        "author": "Federica  Mandreoli, Manuela  Montangero",
+        "text": "Abstract Dealing with multiple manifestations of the same real-world entity across several data sources is a very common challenge for many modern applications, including life science applications. This challenge is referenced as data heterogeneity in the data management research field where the final aim is often to get a unified or integrated view of the real-world entities represented in the data sources. Data heterogeneity is a long-standing challenge that has attracted much interest in different computer science disciplines. The main aim of the chapter is to show how data heterogeneity problems th …"
+      },
+      {
+        "id": "https://www.liebertpub.com/doi/full/10.1089/big.2014.0068",
+        "title": "Data Integration for Heterogenous Datasets",
+        "url": "https://www.liebertpub.com/doi/full/10.1089/big.2014.0068",
+        "publishedDate": "2014-12-15T00:00:00.000Z",
+        "author": "HendlerJames",
+        "text": "Abstract Introduction Integrating Structured Data Adding Natural Language Conclusions Acknowledgments Footnotes Disclaimer References Information &amp; Authors Metrics &amp; Citations View Options References Figures Tables Media Share Abstract More and more, the needs of data analysts are requiring the use of data outside the control of their own organizations. The increasing amount of data available on the Web, the new technologies for linking data across datasets, and the increasing need to integrate structured and unstructured data are all driving this trend. In this article, we provide a technical  …",
+        "image": "https://www.liebertpub.com/na101/home/literatum/publisher/mal/journals/content/big/2014/big.2014.2.issue-4/big.2014.2.issue-4/20141215/big.2014.2.issue-4.largecover.jpg"
+      },
+      {
+        "id": "https://www.mdpi.com/1424-8220/19/8/1747",
+        "title": "Meaningful Integration of Data from Heterogeneous Health Services and Home Environment Based on Ontology",
+        "url": "https://www.mdpi.com/1424-8220/19/8/1747",
+        "publishedDate": "2019-04-12T00:00:00.000Z",
+        "author": "Prashant Goswami",
+        "text": "## Article Menu\n\nFont Type:\n\n_Arial__Georgia__Verdana_\n\nOpen AccessArticle\n\nby\n\nCong Peng\n\n\\* and\nPrashant Goswami\n\nDepartment of Computer Science, Blekinge Institute of Technology, 371 79 Karlskrona, Sweden\n\n\\*\n\nAuthor to whom correspondence should be addressed.\n\n†\n\nThis paper is an extended version of our previous work: Peng, C.; Goswami, P.; Bai, G. An Ontological Approach to Integrate Health Resources from Different Categories of Services. In Proceedings of the 2018 International Conference on Informatics and Assistive Technologies for Health-Care, Medical Support and Wellbeing, Nice, France, 14–18 …",
+        "image": "https://pub.mdpi-res.com/sensors/sensors-19-01747/article_deploy/html/images/sensors-19-01747-g001-550.jpg?1571367628",
+        "favicon": "https://pub.mdpi-res.com/img/mask-icon-128.svg"
+      },
+      {
+        "id": "https://dl.acm.org/doi/10.1145/3428757.3429260",
+        "title": "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment",
+        "url": "https://dl.acm.org/doi/10.1145/3428757.3429260",
+        "publishedDate": "2020-11-30T00:00:00.000Z",
+        "author": "Gerd  Hübscher, Verena  Geist, verena.geist@scch.at, Dagmar  Auer, dagmar.auer@jku.at, Nicole  Hübscher, nicole.huebscher@ufg.at, Josef 2020 Küng, josef.kueng@jku.at",
+        "text": "Digitalisation of knowledge work, especially in communication-intensive domains is one of the greatest challenges, but also one of the greatest opportunities to improve today's working environments. This demands for a flexible system that supports both knowledge intensive creative work and highly individual processes. Smooth integration is hindered by the lack of the task context in knowledge management systems so far. Furthermore, a model to define and handle mental concepts, which are typically evolving during daily work, is missing, to allow for targeted use of appropriate knowledge in process tasks …"
+      },
+      {
+        "id": "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume14/issue02/24061/DagRep.14.2.1/DagRep.14.2.1.pdf",
+        "title": "[PDF] Are Knowledge Graphs Ready for the Real World? Challenges and ...",
+        "url": "https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume14/issue02/24061/DagRep.14.2.1/DagRep.14.2.1.pdf",
+        "publishedDate": "2024-07-17T00:00:00.000Z",
+        "author": "David Chaves-Fraga, Oscar Corcho, Anastasia Dimou, and Maria-Esther Vidal",
+        "text": "Report from Dagstuhl Seminar 24061\nAre Knowledge Graphs Ready for the Real World?\nChallenges and Perspective\nDavid Chaves-Fraga∗1, Oscar Corcho∗2, Anastasia Dimou∗3,\nMaria-Esther Vidal∗4, Ana Iglesias-Molina†5, and\nDylan Van Assche†6\n1 Universidade de Santiago de Compostela, ES. david.chaves@usc.es\n2 Universidad Politécnica de Madrid, ES. ocorcho@fi.upm.es\n3 KU Leuven, BE. anastasia.dimou@kuleuven.be\n4 TIB – Hannover, DE. vidal@l3s.de\n5 Universidad Politécnica de Madrid, ES. ana.iglesiasm@upm.es\n6 IDLab - Ghent University - imec, BE. Dylan.VanAssche@ugent.be\nAbstract\nThis report documents the program a …"
+      },
+      {
+        "id": "http://www.uel.br/revistas/uel/index.php/semexatas/article/download/42922/29843",
+        "title": "",
+        "url": "http://www.uel.br/revistas/uel/index.php/semexatas/article/download/42922/29843",
+        "publishedDate": "2021-06-30T00:00:00.000Z",
+        "author": "",
+        "text": "REVIEW ARTICLE\nDOI: 10.5433/1679-0375.2021v42n1p113\nReview and comparison of works on heterogeneous data and semantic\nanalysis in Big Data\nRevisão e comparação de trabalhos sobre dados heterogêneos e\nanálise semântica em Big Data\nVitor Valério de Souza Campos1; Jacques Duílio Brancher2; Francyelcyo Pussi Farias3;\nJosé Luiz Villela Marcondes Mioni4; Pedro Luiz Garbim Brahim5\nAbstract\nIn integration approaches, heterogeneity is one of the main challenging factors on the task of providing\nintegration among different data sources, whose solution lies in the search for equality among them. This work\ndescrib …"
+      },
+      {
+        "id": "https://dl.acm.org/doi/10.1145/3341981.3344241",
+        "title": "Personal Knowledge Graphs | Proceedings of the 2019 ACM SIGIR International Conference on Theory of Information Retrieval",
+        "url": "https://dl.acm.org/doi/10.1145/3341981.3344241",
+        "publishedDate": "2019-09-26T00:00:00.000Z",
+        "author": "Authors: Krisztian Balog, Tom Kenter",
+        "text": "Personal Knowledge Graphs: A Research Agenda Authors Info &amp; Claims Published: 26 September 2019 Publication History Personal Knowledge Graphs: A Research Agenda Pages 217 - 220 Abstract References Information &amp; Contributors Bibliometrics &amp; Citations View Options References Figures Tables Media Share Abstract Knowledge graphs, organizing structured information about entities, and their attributes and relationships, are ubiquitous today. Entities, in this context, are usually taken to be anyone or anything considered to be globally important. This, however, rules out many entities people inte …",
+        "image": "https://dl.acm.org/cms/asset/d1d5b910-d065-414e-8bc6-14e8740f6c5f/3341981.cover.jpg",
+        "favicon": "https://dl.acm.org/pb-assets/head-metadata/favicon-32x32-1574252172003.png"
+      },
+      {
+        "id": "https://typeset.io/pdf/a-comprehensive-survey-of-personal-knowledge-graphs-1xz6ez6mjz.pdf",
+        "title": "A comprehensive survey of personal knowledge graphs",
+        "url": "https://typeset.io/pdf/a-comprehensive-survey-of-personal-knowledge-graphs-1xz6ez6mjz.pdf",
+        "publishedDate": "2023-08-11T00:00:00.000Z",
+        "author": "",
+        "text": "FOCUS ARTICLE\nA comprehensive survey of personal knowledge graphs\nPrantika Chakraborty | Debarshi Kumar Sanyal\nSchool of Mathematical and\nComputational Sciences, Indian\nAssociation for the Cultivation of Science,\nKolkata, West Bengal, India\nCorrespondence\nPrantika Chakraborty and Debarshi\nKumar Sanyal, School of Mathematical\nand Computational Sciences, Indian\nAssociation for the Cultivation of Science,\n2A & 2B, Raja Subodh Chandra Mallick\nRoad, Jadavpur, Kolkata 700032, West\nBengal, India.\nEmail: prantika.ch@gmail.com and\ndebarshisanyal@gmail.com\nFunding information\nDepartment of Science and Technology …"
+      },
+      {
+        "id": "https://volodymyrpavlyshyn.medium.com/time-aware-personal-knowledge-graphs-integrating-lifespan-events-for-ai-memory-9a3d55603e32",
+        "title": "Time-Aware Personal Knowledge Graphs: Integrating Lifespan ...",
+        "url": "https://volodymyrpavlyshyn.medium.com/time-aware-personal-knowledge-graphs-integrating-lifespan-events-for-ai-memory-9a3d55603e32",
+        "publishedDate": "2024-10-07T09:22:26.000Z",
+        "author": "Volodymyr Pavlyshyn",
+        "text": "As artificial intelligence continues to evolve, there’s increasing interest in how machines can emulate human memory, particularly the way we recall and process events over time. Lets explores the intricate relationship between time, memory, and personal knowledge graphs, particularly focusing on how these factors interact in AI-powered systems. Below, we break down the key themes discussed in the video and explore the complex role of time in AI memory. The Role of Time in Knowledge Graphs and AI Memory In modern AI models, memory is often broken down into factual knowledge and episodic memory. Static  …",
+        "favicon": "https://miro.medium.com/v2/5d8de952517e8160e40ef9841c781cdc14a5db313057fa3c3de41c6f5b494b19"
+      },
+      {
+        "id": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8532078/",
+        "title": "Personalized Health Knowledge Graph",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8532078/",
+        "publishedDate": "2018-01-01T00:00:00.000Z",
+        "author": "",
+        "text": ". Author manuscript; available in PMC: 2021 Oct 22.\n\n_Published in final edited form as:_ CEUR Workshop Proc. 2018 Oct;2317:5.\n\n## Abstract\n\nOur current health applications do not adequately take into account contextual and personalized knowledge about patients. In order to design “Personalized Coach for Healthcare” applications to manage chronic diseases, there is a need to create a Personalized Healthcare Knowledge Graph (PHKG) that takes into consideration a patient’s health condition (personalized knowledge) and enriches that with contextualized knowledge from environmental sensors and Web of Data  …",
+        "favicon": "https://pmc.ncbi.nlm.nih.gov/static/img/favicons/favicon-32x32.png"
+      },
+      {
+        "id": "https://export.arxiv.org/pdf/2308.01732v1.pdf",
+        "title": "Towards Self-organizing Personal Knowledge Assistants in Evolving Corporate Memories",
+        "url": "https://export.arxiv.org/pdf/2308.01732v1.pdf",
+        "publishedDate": "2023-08-03T12:48:32.000Z",
+        "author": "Christian Jilek,Markus Schröder,Heiko Maus,Sven Schwarz,Andreas Dengel",
+        "text": "Christian Jilek christian.jilek@dfki.de \nSmart Data and Knowledge Services Department\nGerman Research Center for Artificial Intelligence (DFKI)\nKaiserslauternGermany\n\nDepartment of Computer Science\nRPTU Kaiserslautern-Landau\nKaiserslauternGermany\n\nMarkus Schröder markus.schroeder@dfki.de \nSmart Data and Knowledge Services Department\nGerman Research Center for Artificial Intelligence (DFKI)\nKaiserslauternGermany\n\nHeiko Maus heiko.maus@dfki.de \nSmart Data and Knowledge Services Department\nGerman Research Center for Artificial Intelligence (DFKI)\nKaiserslauternGermany\n\nSven Schwarz sven.schwarz@dfki.de \nS …"
+      },
+      {
+        "id": "https://arxiv.org/abs/2402.07540",
+        "title": "PKG API: A Tool for Personal Knowledge Graph Management",
+        "url": "https://arxiv.org/abs/2402.07540",
+        "publishedDate": "2024-02-12T00:00:00.000Z",
+        "author": "[Submitted on 12 Feb 2024]",
+        "text": "# Computer Science > Human-Computer Interaction\n\n**arXiv:2402.07540** (cs)\n\n\\[Submitted on 12 Feb 2024\\]\n\n# Title:PKG API: A Tool for Personal Knowledge Graph Management\n\nAuthors: [Nolwenn Bernard](https://arxiv.org/search/cs?searchtype=author&query=Bernard,+N), [Ivica Kostric](https://arxiv.org/search/cs?searchtype=author&query=Kostric,+I), [Weronika Łajewska](https://arxiv.org/search/cs?searchtype=author&query=%C5%81ajewska,+W), [Krisztian Balog](https://arxiv.org/search/cs?searchtype=author&query=Balog,+K), [Petra Galuščáková](https://arxiv.org/search/cs?searchtype=author&query=Galu%C5%A1%C4%8D%C3%A …",
+        "image": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+      },
+      {
+        "id": "https://arxiv.org/pdf/2301.07676.pdf",
+        "title": "",
+        "url": "https://arxiv.org/pdf/2301.07676.pdf",
+        "publishedDate": "2023-10-26T00:00:00.000Z",
+        "author": "",
+        "text": "A Workflow Model for Holistic Data\nManagement and Semantic Interoperability in\nQuantitative Archival Research\nPavlos Fafalios\n1\n, Yannis Marketakis\n1\n, Anastasia Axaridou\n1\n,\nYannis Tzitzikas\n1,2\n, and Martin Doerr\n1\n1\nInformation Systems Laboratory, FORTH-ICS, Heraklion, Greece\n2 Computer Science Department, University of Crete, Heraklion, Greece {fafalios, marketak, axaridou, tzitzik, martin}@ics.forth.gr\nAbstract. Archival research is a complicated task that involves several\ndiverse activities for the extraction of evidence and knowledge from a set\nof archival documents. The involved activities are  …"
+      },
+      {
+        "id": "https://arxiv.org/pdf/2203.08507v1.pdf",
+        "title": "Personal Knowledge Graphs: Use Cases in e-learning Platforms",
+        "url": "https://arxiv.org/pdf/2203.08507v1.pdf",
+        "publishedDate": "2022-03-16T10:04:40.000Z",
+        "author": "Eleni Ilkou",
+        "text": "Eleni Ilkou ilkou@l3s.de \nL3S Research Center\nLeibniz University Hannover Hanover\nGermany\n\nPersonal Knowledge Graphs: Use Cases in e-learning Platforms\n10.1145/nnnnnnn.nnnnnnnsupervised by Prof. Dr. Wolfgang Nejdl ACM Reference Format: Eleni Ilkou, supervised by Prof. Dr. Wolfgang Nejdl. 2022. Personal Knowl-edge Graphs: Use Cases in e-learning Platforms. In Proceedings of Companion Proceedings of the Web Conference 2022 (WWW '22 Companion). ACM, New York, NY, USA, 5 pages. https://doi.org/10.1145/nnnnnnn.nnnnnnnCCS CONCEPTS • Information systems → PersonalizationCollaborative searchPersonalization• Hu …"
+      },
+      {
+        "id": "https://arxiv.org/abs/2204.11428",
+        "title": "Personal Research Knowledge Graphs",
+        "url": "https://arxiv.org/abs/2204.11428",
+        "publishedDate": "2022-04-25T04:31:33.000Z",
+        "author": "Chakraborty; Prantika; Dutta; Sudakshina; Sanyal; Debarshi Kumar",
+        "text": "\n Download PDF \nAbstract: Maintaining research-related information in an organized manner can be\nchallenging for a researcher. In this paper, we envision personal research\nknowledge graphs (PRKGs) as a means to represent structured information about\nthe research activities of a researcher. PRKGs can be used to power intelligent\npersonal assistants, and personalize various applications. We explore what\nentities and relations could be potentially included in a PRKG, how to extract\nthem from various sources, and how to share a PRKG within a research group.\n \n \n Submission history From: Prantika Chakrabort …"
+      },
+      {
+        "id": "https://direct.mit.edu/dint/article-pdf/doi/10.1162/dint_a_00203/2072379/dint_a_00203.pdf",
+        "title": "Integrating Functional Status Information into Knowledge Graphs to Support Self-Health Management",
+        "url": "https://direct.mit.edu/dint/article-pdf/doi/10.1162/dint_a_00203/2072379/dint_a_00203.pdf",
+        "publishedDate": "2023-02-22T00:00:00.000Z",
+        "author": "Mauro Dragoni,Tania Bailoni,Ivan Donadello,Jean-Claude Martin,Helena Lindgren",
+        "text": "Mauro Dragoni dragoni@fbk.eu. \nMauro Dragoni \nFondazione Bruno Kessler\nTrentoItaly\n\n† \nTania Bailoni \nFondazione Bruno Kessler\nTrentoItaly\n\nIvan Donadello \nFree University of Bolzano\nBolzanoItaly\n\nJean-Claude Martin \nLISN-CNRS\nUniversite Paris Saclay\nParisFrance\n\nHelena Lindgren \nData Intelligence\nUmea University\nUmeaSweden\n\nSupport Self-Health Management\n\nData Intelligence\n53202310.1162/dint_a_00203Received: November 1, 2021; Revised: December 10, 2022; Accepted: January 10, 2023RESEARCH PAPER † Corresponding author: 637Knowledge GraphPersonal HealthcareFunctional StatusEnablersBarriersArguments Citat …"
+      },
+      {
+        "id": "https://link.springer.com/content/pdf/10.1007/978-3-030-59833-4_8.pdf?error=cookies_not_supported&code=6c7d0cb9-c272-453a-a65a-516b35c862f3",
+        "title": "Integrating Historical Person Registers as Linked Open Data in the WarSampo Knowledge Graph",
+        "url": "https://link.springer.com/content/pdf/10.1007/978-3-030-59833-4_8.pdf?error=cookies_not_supported&code=6c7d0cb9-c272-453a-a65a-516b35c862f3",
+        "publishedDate": "2020-10-21T00:00:00.000Z",
+        "author": "Mikko Koho",
+        "text": "Integrating Historical Person Registers\nas Linked Open Data in the WarSampo\nKnowledge Graph\nMikko Koho1,2(B), Petri Leskinen1, and Eero Hyv¨onen1,2\n1 Semantic Computing Research Group (SeCo), Aalto University, Espoo, Finland\n2 HELDIG – Helsinki Centre for Digital Humanities, University of Helsinki,\nHelsinki, Finland\nmikko.koho@helsinki.fi\nAbstract. Semantic data integration from heterogeneous, distributed\ndata silos enables Digital Humanities research and application develop\u0002ment employing a larger, mutually enriched and interlinked knowledge\ngraph. However, data integration is challenging, involving a …"
+      },
+      {
+        "id": "https://export.arxiv.org/pdf/2206.10212v1.pdf",
+        "title": "A Context Model for Personal Data Streams",
+        "url": "https://export.arxiv.org/pdf/2206.10212v1.pdf",
+        "publishedDate": "2022-06-21T09:29:55.000Z",
+        "author": "Fausto Giunchiglia,Xiaoyue Li,Matteo Busso,Marcelo Rodas-Britez",
+        "text": "Fausto Giunchiglia fausto.giunchiglia@unitn.it \nDepartment of Information Engineering and Computer Science\nUniversity of Trento\nTrentoItaly\n\nA Context Model for Personal Data Streams\nPersonal Situational Context · Data Streams\n0000−0002−5903−6150] , Xiaoyue Li [0000−0002−0100−0016] , Matteo Busso [0000−0002−3788−0203] , and Marcelo Rodas-Britez [0000−0002−7607−7587]Abstract. We propose a model of the situational context of a person and show how it can be used to organize and, consequently, reason about massive streams of sensor data and annotations, as they can be collected from mobile devices, e.g. sm …"
+      },
+      {
+        "id": "https://www.semanticscholar.org/paper/A-Knowledge-Base-for-Personal-Information-Montoya-Tanon/f7258e1131269d125a3db9856da905144b9ce511",
+        "title": "[PDF] A Knowledge Base for Personal Information Management | Semantic Scholar",
+        "url": "https://www.semanticscholar.org/paper/A-Knowledge-Base-for-Personal-Information-Montoya-Tanon/f7258e1131269d125a3db9856da905144b9ce511",
+        "publishedDate": "2018-04-23T00:00:00.000Z",
+        "author": "K. BalogTom Kenter",
+        "text": "[Skip to search form](https://www.semanticscholar.org/paper/A-Knowledge-Base-for-Personal-Information-Montoya-Tanon/f7258e1131269d125a3db9856da905144b9ce511#search-form) [Skip to main content](https://www.semanticscholar.org/paper/A-Knowledge-Base-for-Personal-Information-Montoya-Tanon/f7258e1131269d125a3db9856da905144b9ce511#main-content) [Skip to account menu](https://www.semanticscholar.org/paper/A-Knowledge-Base-for-Personal-Information-Montoya-Tanon/f7258e1131269d125a3db9856da905144b9ce511#account-menu)\n\n- Corpus ID: 51946984\n\n# A Knowledge Base for Personal Information Management\n\n```\n@inproceedi …",
+        "image": "https://www.semanticscholar.org/img/semantic_scholar_og.png",
+        "favicon": "https://cdn.semanticscholar.org/0b97a688d20952db/img/favicon-32x32.png"
+      },
+      {
+        "id": "https://turso.tech/blog/personal-knowledge-graphs-in-ai-rag-powered-applications-with-libsql",
+        "title": "Personal Knowledge Graphs in AI RAG-powered Applications with ...",
+        "url": "https://turso.tech/blog/personal-knowledge-graphs-in-ai-rag-powered-applications-with-libsql",
+        "publishedDate": "2024-09-30T00:00:00.000Z",
+        "author": "Volodymyr Pavlyshyn",
+        "text": "[Kin](https://mykin.ai) is a personal AI that helps you navigate your work-life, available on both iOS and Android.\n\nOur app is local-first and focused on the users' sovereign data ownership. A key challenge we faced was finding the right way to store that data securely.\n\n## [\\#](http://turso.tech/turso.tech\\#device-friendly) Device-friendly\n\nI partially covered various options for embeddable and device-friendly databases in my [previous article](https://ai.plainenglish.io/embeddable-and-portable-storage-for-ai-powered-apps-and-personal-knowledge-graphs-e46b0564e73c).\n\nAI-powered apps, particularly in  …",
+        "image": "https://turso.tech/images/blog/personal-knowledge-graphs-in-ai-rag-powered-applications-with-libsql/cover.png"
+      },
+      {
+        "id": "https://www.mdpi.com/2075-4418/13/11/1858/pdf?version=1685082783",
+        "title": "Prediction of Diabetic Macular Edema Using Knowledge Graph",
+        "url": "https://www.mdpi.com/2075-4418/13/11/1858/pdf?version=1685082783",
+        "publishedDate": "2023-05-26T00:00:00.000Z",
+        "author": "Zhi-Qing Li, Zi-Xuan Fu, Wen-Jun Li, Hao Fan, Shu-Nan Li, Xi-Mo Wang and Peng Zhou",
+        "text": "Citation: Li, Z.-Q.; Fu, Z.-X.; Li, W.-J.;\nFan, H.; Li, S.-N.; Wang, X.-M.; Zhou,\nP. Prediction of Diabetic Macular\nEdema Using Knowledge Graph.\nDiagnostics 2023, 13, 1858. https://\ndoi.org/10.3390/diagnostics13111858\nAcademic Editors: Cemil Colak\nand Sami Akbulut\nReceived: 13 March 2023\nRevised: 9 May 2023\nAccepted: 11 May 2023\nPublished: 26 May 2023\nCopyright: © 2023 by the authors.\nLicensee MDPI, Basel, Switzerland.\nThis article is an open access article\ndistributed under the terms and\nconditions of the Creative Commons\nAttribution (CC BY) license (https://\ncreativecommons.org/licenses/by/\n4.0/).\ndi …"
+      },
+      {
+        "id": "https://content.iospress.com/articles/information-services-and-use/isu180030",
+        "title": "Solving problems of research information heterogeneity during integration – using the European CERIF and German RCD standards as examples",
+        "url": "https://content.iospress.com/articles/information-services-and-use/isu180030",
+        "publishedDate": "2019-01-01T00:00:00.000Z",
+        "author": "",
+        "text": "You are viewing a javascript disabled version of the site. Please enable Javascript for this site to function properly.\n\n [Go to header](https://content.iospress.com/articles/information-services-and-use/isu180030#header-skiplink) [Go to navigation](https://content.iospress.com/articles/information-services-and-use/isu180030#nav-skiplink) [Go to search](https://content.iospress.com/articles/information-services-and-use/isu180030#search-bar) [Go to contents](https://content.iospress.com/articles/information-services-and-use/isu180030#content) [Go to footer](https://content.iospress.com/articles/informat …",
+        "favicon": "https://content.iospress.com:443/static/img/favicon.ico@2.6.8-2-gb19ff93"
+      },
+      {
+        "id": "https://www.mdpi.com/2076-3417/15/9/5081",
+        "title": "Designing a System Architecture for Dynamic Data Collection as a Foundation for Knowledge Modeling in Industry",
+        "url": "https://www.mdpi.com/2076-3417/15/9/5081",
+        "publishedDate": "2025-05-02T00:00:00.000Z",
+        "author": "Markus Wagner",
+        "text": "## 1\\. Introduction\n\nIn the data-driven economy of Industry 4.0, the ability to efficiently collect, analyze, and utilize data is crucial for competitiveness and innovation \\[ [1](http://www.mdpi.com/www.mdpi.com#B1-applsci-15-05081), [2](http://www.mdpi.com/www.mdpi.com#B2-applsci-15-05081)\\]. Modern knowledge management approaches incorporate human–machine interaction and data protection, playing a key role in industrial applications \\[ [3](http://www.mdpi.com/www.mdpi.com#B3-applsci-15-05081)\\]. The transition to a Knowledge Society 4.0 underscores the importance of data-driven value creation, with  …",
+        "image": "https://pub.mdpi-res.com/applsci/applsci-15-05081/article_deploy/html/images/applsci-15-05081-g001-550.jpg?1746184534",
+        "favicon": "https://pub.mdpi-res.com/img/mask-icon-128.svg"
+      },
+      {
+        "id": "https://www.sciencedirect.com/science/article/pii/S0926580523003692",
+        "title": "Knowledge graph-based data integration system for digital twins of ...",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0926580523003692",
+        "publishedDate": "2023-12-01T00:00:00.000Z",
+        "author": "",
+        "text": "- View **PDF**\n\nUnder a Creative Commons [license](http://creativecommons.org/licenses/by-nc/4.0/)\n\nOpen access\n\n## Highlights\n\n- •\nDigital twin requirements for built assets in the built environment.\n\n- •\nConversion from IFC model to equivalent property graph model.\n\n- •\nOntology-based integration of digitized processes stored in local databases.\n\n- •\nOntology-based integration of sensor data from an external IoT platform.\n\n- •\nA cloud-based event-driven microservice-based digital twin system architecture.\n\n\n## Abstract\n\nThe emergence of digital twin technologies offers a promising avenue for improvin …",
+        "image": "https://ars.els-cdn.com/content/image/1-s2.0-S0926580523X00107-cov150h.gif",
+        "favicon": "https://sdfestaticassets-us-east-1.sciencedirectassets.com/shared-assets/103/images/favSD.ico"
+      },
+      {
+        "id": "https://arxiv.org/abs/2505.09945",
+        "title": "Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph",
+        "url": "https://arxiv.org/abs/2505.09945",
+        "publishedDate": "2025-05-15T00:00:00.000Z",
+        "author": "[Submitted on 15 May 2025]",
+        "text": "[View PDF](https://arxiv.org/pdf/2505.09945) [HTML (experimental)](https://arxiv.org/html/2505.09945v1)\n\n> Abstract:The advent of large language models (LLMs) has allowed numerous applications, including the generation of queried responses, to be leveraged in chatbots and other conversational assistants. Being trained on a plethora of data, LLMs often undergo high levels of over-fitting, resulting in the generation of extra and incorrect data, thus causing hallucinations in output generation. One of the root causes of such problems is the lack of timely, factual, and personalized information fed to the …",
+        "image": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+        "favicon": "https://arxiv.org/static/browse/0.3.4/images/icons/favicon-32x32.png"
+      },
+      {
+        "id": "https://export.arxiv.org/pdf/2308.03584v1.pdf",
+        "title": "A Polystore Architecture Using Knowledge Graphs to Support Queries on Heterogeneous Data Stores",
+        "url": "https://export.arxiv.org/pdf/2308.03584v1.pdf",
+        "publishedDate": "2024-03-16T00:12:15.000Z",
+        "author": "Leonardo Guerreiro Azevedo,Renan Souza,Elton Soares,Raphael Melo Thiago,Julio Tesolin,Oliveira, Ann C.,Marcio Ferreira Moreno",
+        "text": "[![Cornell University](https://static.arxiv.org/icons/cu/cornell-reduced-white-SMALL.svg)](https://www.cornell.edu/)\n\n[We gratefully acknowledge support from\\\n\\\nthe Simons Foundation and member institutions.](https://confluence.cornell.edu/x/ALlRF)\n\n# PDF unavailable ...\n\nOur **automated** source to PDF conversion system has **failed**\nto produce PDF for the paper:\n[2308.03584v1](http://arxiv.org/abs/2308.03584v1).\n\nReturn to the\n[abstract](http://arxiv.org/abs/2308.03584v1)\nfor an alternative link to the\n[source](http://arxiv.org/e-print/2308.03584v1),\nor to find an email address to contact the author …"
+      },
+      {
+        "id": "https://content.iospress.com/articles/semantic-web/sw190371",
+        "title": "Leveraging Knowledge Graphs for Big Data Integration: the XI Pipeline",
+        "url": "https://content.iospress.com/articles/semantic-web/sw190371",
+        "publishedDate": "2020-01-01T00:00:00.000Z",
+        "author": "",
+        "text": "You are viewing a javascript disabled version of the site. Please enable Javascript for this site to function properly.\n\n [Go to header](https://content.iospress.com/articles/semantic-web/sw190371#header-skiplink) [Go to navigation](https://content.iospress.com/articles/semantic-web/sw190371#nav-skiplink) [Go to search](https://content.iospress.com/articles/semantic-web/sw190371#search-bar) [Go to contents](https://content.iospress.com/articles/semantic-web/sw190371#content) [Go to footer](https://content.iospress.com/articles/semantic-web/sw190371#footer-skiplink)\n\nSearchSearch\n\nPublished between:\nPub …",
+        "favicon": "https://content.iospress.com:443/static/img/favicon.ico@2.6.8-2-gb19ff93"
+      },
+      {
+        "id": "https://journalofcloudcomputing.springeropen.com/articles/10.1186/s13677-024-00674-0",
+        "title": "From data to insights: the application and challenges of knowledge ...",
+        "url": "https://journalofcloudcomputing.springeropen.com/articles/10.1186/s13677-024-00674-0",
+        "publishedDate": "2024-05-29T00:00:00.000Z",
+        "author": "Wang, Yanyan",
+        "text": "- Review\n- [Open access](https://www.springernature.com/gp/open-research/about/the-fundamentals-of-open-access-and-open-research)\n- Published: 29 May 2024\n\n[_Journal of Cloud Computing_](https://journalofcloudcomputing.springeropen.com/) **volume 13**, Article number: 114 (2024)\n[Cite this article](http://journalofcloudcomputing.springeropen.com/journalofcloudcomputing.springeropen.com#citeas)\n\n## Abstract\n\nIn recent years, knowledge graph technology has been widely applied in various fields such as intelligent auditing, urban transportation planning, legal research, and financial analysis. In traditio …",
+        "image": "https://static-content.springer.com/image/art%3A10.1186%2Fs13677-024-00674-0/MediaObjects/13677_2024_674_Fig1_HTML.png"
+      },
+      {
+        "id": "https://pubs.aip.org/aip/acp/article/1027731",
+        "title": "Big heterogeneous data integration and analysis",
+        "url": "https://pubs.aip.org/aip/acp/article/1027731",
+        "publishedDate": "2021-03-08T00:00:00.000Z",
+        "author": "Stella  Vetova, Technical University of Sofia, bl. 2, 2216, Bulgaria, vetova.bas@gmail.com",
+        "text": "The paper below presents an overview of big data integration techniques, methods and approaches. The report describes the data integration architecture and its components. Also, an overview of five big data integrators is included. Integrator.io, Oracle Data Integrator, Apache Spark, SQL Server Integration Service, Zapier are discussed in details. In addition, recommendations for their application are presented."
+      },
+      {
+        "id": "https://link.springer.com/article/10.1007/s10462-023-10465-9",
+        "title": "Knowledge Graphs: Opportunities and Challenges",
+        "url": "https://link.springer.com/article/10.1007/s10462-023-10465-9",
+        "publishedDate": "2023-04-03T00:00:00.000Z",
+        "author": "Osborne, Francesco",
+        "text": "## 1 Introduction\n\nKnowledge plays a vital role in human existence and development. Learning and representing human knowledge are crucial tasks in artificial intelligence (AI) research. While humans are able to understand and analyze their surroundings, AI systems require additional knowledge to obtain the same abilities and solve complex tasks in realistic scenarios (Ji et al. [2021](https://link.springer.com/article/10.1007/s10462-023-10465-9#ref-CR61)). To support these systems, we have seen the emergence of many approaches for representing human knowledge according to different conceptual models. I …",
+        "image": "https://static-content.springer.com/image/art%3A10.1007%2Fs10462-023-10465-9/MediaObjects/10462_2023_10465_Fig1_HTML.png"
+      },
+      {
+        "id": "https://www.euretos.com/blog/knowledge-graphs-breaking-down-data-integration-barriers-for-heterogeneous-data",
+        "title": "Knowledge Graphs - breaking down data integration barriers for ...",
+        "url": "https://www.euretos.com/blog/knowledge-graphs-breaking-down-data-integration-barriers-for-heterogeneous-data",
+        "publishedDate": "2024-01-01T00:00:00.000Z",
+        "author": "Euretos News",
+        "text": "# Knowledge Graphs - breaking down data integration barriers for heterogeneous data\n\nHere's another interesting [Euretos Perspective](https://www.linkedin.com/pulse/knowledge-graphs-breaking-down-data-integration-barriers-heterogeneous%3FtrackingId=Hz5YJIZsT%252F6ymZLhLiX6Sw%253D%253D/?trackingId=Hz5YJIZsT%2F6ymZLhLiX6Sw%3D%3D) article; this time on how knowledge graphs enable breaking down the barriers to integrate heterogeneous data. It discusses how in complex diseases, like Asthma, the variety of data that is used in disease research is very high and that combining and analyzing such heterogeneous  …",
+        "image": "https://www.euretos.com/hubfs/1683127871382.png"
+      },
+      {
+        "id": "https://arxiv.org/pdf/2307.12173.pdf",
+        "title": "arXiv reCAPTCHA",
+        "url": "https://arxiv.org/pdf/2307.12173",
+        "publishedDate": "2022-02-15T00:00:00.000Z",
+        "author": "",
+        "text": "\n \n \n \n \n We gratefully acknowledge support from \nthe Simons Foundation and member institutions. \n \n \n \n \n \n \n"
+      },
+      {
+        "id": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10733505/",
+        "title": "leveraging digital twins and personal knowledge graphs in ...",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10733505/",
+        "publishedDate": "2023-12-07T00:00:00.000Z",
+        "author": "",
+        "text": "\n \n \n \n Abstract \n Healthcare has always been a strategic domain in which innovative technologies can be applied to increase the effectiveness of services and patient care quality. Recent advancements have been made in the adoption of Digital Twins (DTs) and Personal Knowledge Graphs (PKGs) in this field. Despite this, their introduction has been hindered by the complex nature of the context itself which leads to many challenges both technical and organizational. In this article, we reviewed the literature about these technologies and their integrations, identifying the most critical requirements for c …",
+        "favicon": "https://pmc.ncbi.nlm.nih.gov/static/img/favicons/favicon-32x32.png"
+      },
+      {
+        "id": "https://www.arxiv.org/pdf/2502.15689",
+        "title": "[PDF] Knowledge Graphs: The Future of Data Integration and Insightful ...",
+        "url": "https://www.arxiv.org/pdf/2502.15689",
+        "publishedDate": "2025-02-24T00:00:00.000Z",
+        "author": "",
+        "text": "Knowledge Graphs: The Future of Data \nIntegration and Insightful Discovery \nSaher Mohamed, Kirollos Farah, Abdelrahman Lotfy, Kareem Rizk, \nAbdelrahman Saeed, Shahenda Mohamed, Ghada Khouriba, Tamer Arafa \nSchool of Information Technology and Computer Science (ITCS), Nile University Giza, Egypt \n{Smfarag; k.saleh; Alotfy; K.ayman, A.Saeed, shatem; GhadaKhoriba; Tarafa}@nu.edu.eg \nAbstract. Knowledge graphs are now used as an eficient way of repre-senting \nand connecting information on various concepts. It can be applied to reasoning, \nquestion answering or knowledge base completion tasks. Knowledge gra …"
+      },
+      {
+        "id": "https://medium.com/@adnanmasood/the-knowledge-graph-advantage-how-smart-companies-are-using-knowledge-graphs-to-power-ai-and-drive-59f285602683",
+        "title": "The Knowledge Graph Advantage: How Smart Companies ... - Medium",
+        "url": "https://medium.com/@adnanmasood/the-knowledge-graph-advantage-how-smart-companies-are-using-knowledge-graphs-to-power-ai-and-drive-59f285602683",
+        "publishedDate": "2025-05-23T09:02:34.000Z",
+        "author": "Adnan Masood, PhD.",
+        "text": "## An In-depth Analysis of Knowledge Representation, Reasoning Mechanisms, Algorithmic Advancements, Industry Use Cases, and Emerging Research Directions in Knowledge Graph Technology for Enhanced AI Systems — Unlocking Explainable Insights, Streamlining Data Integration, and Building Trustworthy AI with the Next Generation of Connected Data — Demystifying How KGs Enhance LLMs, Improve Data Interoperability, and Deliver Explainable AI Across Industries\n\n> tl;dr Knowledge Graphs (KGs) are machine-readable networks representing real-world entities and relationships, crucial for AI’s semantic understandin …",
+        "image": "https://miro.medium.com/v2/resize:fit:1024/1*byO90cuRyTDaNUFitG9gWg.png",
+        "favicon": "https://miro.medium.com/v2/5d8de952517e8160e40ef9841c781cdc14a5db313057fa3c3de41c6f5b494b19"
+      },
+      {
+        "id": "https://www.nature.com/articles/s41598-024-85053-0",
+        "title": "Digital twin system for manufacturing processes based on a multi ...",
+        "url": "https://www.nature.com/articles/s41598-024-85053-0",
+        "publishedDate": "2025-04-14T00:00:00.000Z",
+        "author": "Jiang, Dongsheng",
+        "text": "## Introduction\n\nAgainst the backdrop of Industry 4.0 and smart manufacturing, enterprises are grappling with challenges such as increasing production efficiency, reducing manufacturing costs, optimizing processes, and implementing real-time monitoring. Digital twin technology, an innovative fusion of virtual and real-world elements, has gained significant attention in recent years. As virtual representations of physical devices, systems, or processes, digital twins enable seamless integration of data with physical entities, effectively supporting the optimization and monitoring of production processes …",
+        "image": "https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41598-024-85053-0/MediaObjects/41598_2024_85053_Fig1_HTML.png"
+      },
+      {
+        "id": "https://arxiv.org/pdf/2012.11936v1.pdf",
+        "title": "Knowledge Graphs Evolution and Preservation - A Technical Report from ISWS 2019",
+        "url": "https://arxiv.org/pdf/2012.11936v1.pdf",
+        "publishedDate": "2020-12-22T11:21:09.000Z",
+        "author": "Nacira Abbas,Kholoud Alghamdi,Mortaza Alinam,Francesca Alloatti,Glenda C. M. Amaral,Claudia d'Amato,Luigi Asprino,Martin Beno,Felix Bensmann,Russa Biswas,Ling Cai,Riley Capshaw,Valentina Anita Carriero,Irene Celino,Amine Dadoun,Stefano De Giorgis,Harm Delva,John Domingue,Michel Dumontier,Vincent Emonet,Marieke van Erp,Paola Espinoza-Arias,Omaima Fallatah,Sebastián Ferrada,Marc Gallofré Ocaña,Michalis Georgiou,Genet Asefa Gesese,Frances Gillis-Webber,Francesca Giovannetti,María G. Buey,Ismail Harrando,Ivan Heibi,Vitor Horta,Laurine Huber,Federico Igne,Mohamad Yaser Jaradeh,Neha Keshan,Aneta Koleva,Bilal Koteich,Kabul Kurniawan,Mengya Liu,Chuangtao Ma,Lientje Maas,M. Mansfield,Fabio Mariani,Eleonora Marzi,Sepideh Mesbah,Maheshkumar Mistry,Alba Catalina Morales Tirado,Anna Nguyen,Viet Bach Nguyen,Allard Oelen,Valentina Pasqual,Heiko Paulheim,Axel Polleres,Margherita Porena,Jan Portisch,Valentina Presutti,Kader Pustu-Iren,Ariam Rivas Mendez,Soheil Roshankish,Sebastian Rudolph,Harald Sack,Ahmad Sakor,Jaime Salas,Thomas Schleider,Meilin Shi,Gianmarco Spinaci,Chang Sun,Tabea Tietz,Molka Tounsi Dhouib,Alessandro Umbrico,Wouter van den Berg,Weiqin Xu",
+        "text": "Sebastian Rudolph \nT U Dresden \nHarald De \nSack \nFiz -Karlsruhe \nKarlsruhe \nFrancesca Alloatti \nLing Cai \nStefano De Giorgis \nPaola Espinoza Arias \nAsefa Genet \nFiz Gesese \nFrances Karlsruhe \nGillis-Webber \nIvan Heibi \nLaurine Huber \nLoria Federico Igne \nMohamad Yaser Jaradeh \nKabul Kurniawan \nTu -Wien Mengya \nLiu \nMartin Mansfield \nAlba Catalina \nMorales Tirado \nViet Bach Nguyen \nJan Portisch \nEurecomThomas Schleider \nMeilin Shi \nUniversitéWeiqin Xu \nParis Est \nMarne La Vallée \n\nSanta Barbara Riley Capshaw\nInsitute of Technology\nAIFB\nStudents Nacira Abbas\nINRIA Kholoud Alghamdi\nThe University of South …"
+      },
+      {
+        "id": "https://export.arxiv.org/pdf/2306.08302v2.pdf",
+        "title": "Unifying Large Language Models and Knowledge Graphs: A Roadmap",
+        "url": "https://export.arxiv.org/pdf/2306.08302v2.pdf",
+        "publishedDate": "2024-01-25T00:48:34.000Z",
+        "author": "Shirui Pan,Linhao Luo,Yufei Wang,Chen Chen,Jiaqiang Wang,Xindong Wu",
+        "text": "Journal Of L A T E X Class\nFiles\nUnifying Large Language Models and Knowledge Graphs: A Roadmap\n148AUGUST 2021 1Index Terms-Natural Language ProcessingLarge Language ModelsGenerative Pre-TrainingKnowledge GraphsRoadmapBidirectional Reasoning\nLarge language models (LLMs), such as ChatGPT and GPT4, are making new waves in the field of natural language processing and artificial intelligence, due to their emergent ability and generalizability. However, LLMs are black-box models, which often fall short of capturing and accessing factual knowledge. In contrast, Knowledge Graphs (KGs), Wikipedia and Huapu for …"
+      },
+      {
+        "id": "https://www.tib.eu/de/forschung-entwicklung/forschungsgruppen-und-labs/scientific-data-management/lehre",
+        "title": "Lehre - TIB.eu",
+        "url": "https://www.tib.eu/de/forschung-entwicklung/forschungsgruppen-und-labs/scientific-data-management/lehre",
+        "publishedDate": "2024-03-18T00:00:00.000Z",
+        "author": "",
+        "text": "Suche\n\nDurchsuchen Sie den Webauftritt der TIB oder suchen Sie im TIB-Portal nach Fachliteratur und -information.\n\nPreferenceSeitensucheTIB-Portal\n\nSuche nach Fachliteratur und –information\n\n![](https://www.tib.eu/_assets/95710fb0dfc9d1275dd70f8177c8864a/gfx/icons/suche-rt.svg)\n\nProf. Dr. [Maria-Esther Vidal](https://www.tib.eu/de/forschung-entwicklung/forschungsgruppen-und-labs/scientific-data-management/mitarbeiterinnen-und-mitarbeiter/maria-esther-vidal) lehrt Bachelor- und Masterstudiengänge an der [Fakultät für Elektrotechnik und Informatik](https://www.idas.uni-hannover.de/de/sdm) der Leibniz Uni …",
+        "favicon": "https://www.tib.eu/_assets/95710fb0dfc9d1275dd70f8177c8864a/Icons/favicon.ico"
+      },
+      {
+        "id": "https://journalofbigdata.springeropen.com/articles/10.1186/s40537-025-01094-w",
+        "title": "Modelling big data platforms as knowledge graphs",
+        "url": "https://journalofbigdata.springeropen.com/articles/10.1186/s40537-025-01094-w",
+        "publishedDate": "2025-03-11T00:00:00.000Z",
+        "author": "Reforgiato Recupero, Diego",
+        "text": "\n \n \n \n \n \n Research \n \n \n Open access \n \n \n \n Published: 11 March 2025 \n \n \n \n \n Journal of Big Data \n volume  12, Article number:  64 ( 2025)\n Cite this article \n \n \n \n \n \n \n \n \n \n \n \n \n Abstract The rise of big data has introduced significant challenges in managing, storing, analyzing, and modeling data. These challenges require the integration of diverse storage and computing platforms. Consequently, incorporating new data sources and developing new data transformation methods is typically a slow and expensive process. Furthermore, these platforms often lack sufficient abstraction and are heavily r …",
+        "image": "https://static-content.springer.com/image/art%3A10.1186%2Fs40537-025-01094-w/MediaObjects/40537_2025_1094_Fig1_HTML.png"
+      },
+      {
+        "id": "https://altair.com/knowledge-graphs",
+        "title": "Unlock Enterprise Data with Knowledge Graph - Altair",
+        "url": "https://altair.com/knowledge-graphs",
+        "publishedDate": "2024-01-01T20:24:00.000Z",
+        "author": "",
+        "text": "\n \n \n \n \n \n Knowledge Graphs and Enterprise Data Integration\n \n Knowledge graphs are interconnected networks of data points that accurately model and represent data, down to individual values, and can incorporate trillions of nodes and relationships. Knowledge graphs have been around for years; major search engines\n and social networking sites use them to make the web more machine-readable for search, display, and advertising. In enterprises, knowledge graphs address challenges not fully addressed by cloud data platforms by integrating and querying complex\n data from diverse sources and formats. \n Know …",
+        "image": "https://altair.com/images/default-source/content-images/altair_trends_knowledge-graphs_social.jpg?sfvrsn=47f95857_1"
+      },
+      {
+        "id": "https://zenodo.org/record/8058446/files/openreseurope-1-14751.pdf",
+        "title": "Knowledge sharing and discovery across heterogeneous research infrastructures.",
+        "url": "https://zenodo.org/record/8058446/files/openreseurope-1-14751.pdf",
+        "publishedDate": "2021-06-14T00:00:00.000Z",
+        "author": "Siamak Farshidi,Xiaofeng Liao,Na Li,Doron Goldfarb,Barbara Magagna,Markus Stocker,Keith Jeffery,Peter Thijsse,Christian Pichot,A. Petzold,Zhiming Zhao",
+        "text": "Siamak Farshidi\nDepartment of Information and Computer Science\nUtrecht University\nUtrechtThe Netherlands\nXiaofeng Liao\nMultiScale Networked Systems (MNS)\nUniversity of Amsterdam\n1098 XKAmsterdamNetherlandsThe Netherlands\nUniversity of Trieste\n3. Open Research Europe\nNa Li\nMultiScale Networked Systems (MNS)\nUniversity of Amsterdam\n1098 XKAmsterdamNetherlandsThe Netherlands\nUniversity of Trieste\n3. Open Research Europe\nDoron Goldfarb\nEnvironment Agency Austria\nViennaAustria\nBarbara Magagna\nEnvironment Agency Austria\nViennaAustria\nMarkus Stocker\nTIB -Leibniz Information Centre for Science and Technology\nH …"
+      },
+      {
+        "id": "https://globalhealth.georgetown.edu/events/knowledge-graphs-for-scalable-data-integration-in-global-health",
+        "title": "Knowledge Graphs for Scalable Data Integration in Global Health",
+        "url": "https://globalhealth.georgetown.edu/events/knowledge-graphs-for-scalable-data-integration-in-global-health",
+        "publishedDate": "2024-01-22T00:00:00.000Z",
+        "author": "Global Health Institute",
+        "text": "\n \n \n \n \n \n In this seminar, Hailey Robertson, research analyst and data engineer in the Data Lab at the Georgetown University Center for Global Health Science and Security, presented the results of a project to integrate diverse datasets to support end-to-end modeling between human and animal systems using knowledge graphs. Robertson discussed the process for developing an ontology to organize multisource data and for building the knowledge graph. She shared how the knowledge graph supports a One Health approach to the prediction and detection of zoonoses, presenting a use case focused on highly patho …",
+        "image": "https://s3.amazonaws.com/global-db-public/global-db-public/event/image/26331/farm.jpg",
+        "favicon": "https://globalhealth.georgetown.edu/favicon.ico"
+      },
+      {
+        "id": "https://www.mdpi.com/2076-3417/13/12/7082",
+        "title": "Re-Thinking Data Strategy and Integration for Artificial Intelligence",
+        "url": "https://www.mdpi.com/2076-3417/13/12/7082",
+        "publishedDate": "2023-06-13T00:00:00.000Z",
+        "author": "Abdel Magid Hamouda",
+        "text": "## Article Menu\n\nFont Type:\n\n_Arial__Georgia__Verdana_\n\nOpen AccessEditor’s ChoiceReview\n\nby\n\nAbdulaziz Aldoseri\n\n,\nKhalifa N. Al-Khalifa\nand\nAbdel Magid Hamouda\n\\*\n\nEngineering Management Program, College of Engineering, Qatar University, Doha P.O. Box 2713, Qatar\n\n\\*\n\nAuthor to whom correspondence should be addressed.\n\nSubmission received: 3 May 2023\n/\nRevised: 30 May 2023\n/\nAccepted: 7 June 2023\n/\nPublished: 13 June 2023\n\n## Abstract\n\n**:**\n\nThe use of artificial intelligence (AI) is becoming more prevalent across industries such as healthcare, finance, and transportation. Artificial intelligence is …",
+        "image": "https://pub.mdpi-res.com/applsci/applsci-13-07082/article_deploy/html/images/applsci-13-07082-g001-550.jpg?1686659731",
+        "favicon": "https://pub.mdpi-res.com/img/mask-icon-128.svg"
+      },
+      {
+        "id": "https://arxiv.org/abs/2506.07285",
+        "title": "Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information Representation",
+        "url": "https://arxiv.org/abs/2506.07285",
+        "publishedDate": "2025-06-08T00:00:00.000Z",
+        "author": "[Submitted on 8 Jun 2025]",
+        "text": "Authors: [Matthäus Zloch](https://arxiv.org/search/cs?searchtype=author&query=Zloch,+M), [Danilo Dessì](https://arxiv.org/search/cs?searchtype=author&query=Dess%C3%AC,+D), [Jennifer D'Souza](https://arxiv.org/search/cs?searchtype=author&query=D'Souza,+J), [Leyla Jael Castro](https://arxiv.org/search/cs?searchtype=author&query=Castro,+L+J), [Benjamin Zapilko](https://arxiv.org/search/cs?searchtype=author&query=Zapilko,+B), [Saurav Karmakar](https://arxiv.org/search/cs?searchtype=author&query=Karmakar,+S), [Brigitte Mathiak](https://arxiv.org/search/cs?searchtype=author&query=Mathiak,+B), [Markus Stocker …",
+        "image": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+        "favicon": "https://arxiv.org/static/browse/0.3.4/images/icons/favicon-32x32.png"
+      },
+      {
+        "id": "https://arxiv.org/abs/2503.11346",
+        "title": "AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation",
+        "url": "https://arxiv.org/abs/2503.11346",
+        "publishedDate": "2025-03-14T00:00:00.000Z",
+        "author": "[Submitted on 14 Mar 2025]",
+        "text": "Authors: [Fengyu Li](https://arxiv.org/search/cs?searchtype=author&query=Li,+F) (1), [Yilin Li](https://arxiv.org/search/cs?searchtype=author&query=Li,+Y) (1), [Junhao Zhu](https://arxiv.org/search/cs?searchtype=author&query=Zhu,+J) (1), [Lu Chen](https://arxiv.org/search/cs?searchtype=author&query=Chen,+L) (1), [Yanfei Zhang](https://arxiv.org/search/cs?searchtype=author&query=Zhang,+Y) (1), [Jia Zhou](https://arxiv.org/search/cs?searchtype=author&query=Zhou,+J) (1), [Hui Zu](https://arxiv.org/search/cs?searchtype=author&query=Zu,+H) (1), [Jingwen Zhao](https://arxiv.org/search/cs?searchtype=author&qu …",
+        "image": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+        "favicon": "https://arxiv.org/static/browse/0.3.4/images/icons/favicon-32x32.png"
+      },
+      {
+        "id": "https://cci.drexel.edu/kgbigdata/2024/",
+        "title": "4th Workshop on Knowledge Graphs and Big Data",
+        "url": "https://cci.drexel.edu/kgbigdata/2024/",
+        "publishedDate": "2024-12-15T00:00:00.000Z",
+        "author": "",
+        "text": "# 4th Workshop on Knowledge Graphs and Big Data\n\nIn Conjunction with [IEEE Big Data 2024](http://bigdataieee.org/BigData2024/)\n\n## SCOPE and OBJECTIVES\n\n#### Knowledge graphs have become essential tools for representing world knowledge through interconnected entities and relationships, enabling efficient navigation and pattern discovery. Many enterprises now harness large-scale knowledge graphs to enhance products and services. Similarly, in scientific research, the surge in big data from simulations and experiments has opened new avenues for discovery. Yet, much of this data remains untapped due to ch …"
+      },
+      {
+        "id": "https://www.oxfordsemantic.tech/",
+        "title": "Oxford Semantic Technologies Knowledge Graph & AI | RDFox",
+        "url": "https://www.oxfordsemantic.tech/",
+        "author": "Engineering DirectorDow Jones",
+        "text": "##### Product\n\n##### Solutions\n\n##### Resources\n\n##### Company\n\n## Transform data and knowledge into fast and accurate answers to complex questions.\n\n#### Knowledge-based artificial intelligence powered by human-like reasoning and the highest performing knowledge graph technology.\n\n### What makes us different?\n\nOxford Semantic Technologies was born out of decades of research into Knowledge Representation and Reasoning (KRR) by three professors at the University of Oxford Computer Science department, including Professor Ian Horrocks, winner of the BCS Lovelace Medal, awarded in recognition of his signif …",
+        "image": "https://cdn.prod.website-files.com/6294f045665a4b69edebd934/64c7f3b84e21b14134659f7c_RDFox%20by%20Oxford%20Semantic%20Technologies%20OG.png",
+        "favicon": "https://cdn.prod.website-files.com/6294f045665a4b69edebd934/64c1281a4aa4f4832e6b808e_RDFox%20by%20Oxford%20Semantic%20Technologies%20Favicon.png"
+      },
+      {
+        "id": "https://smythos.com/developers/agent-development/knowledge-graphs-and-data-mining/",
+        "title": "Exploring Knowledge Graphs and Data Mining: A Quick ... - SmythOS",
+        "url": "https://smythos.com/developers/agent-development/knowledge-graphs-and-data-mining/",
+        "publishedDate": "2025-06-02T12:34:32.000Z",
+        "author": "Alaa-eddine Kaddouri",
+        "text": "Knowledge graphs are changing how we understand and process information with artificial intelligence. Like a vast digital map of interconnected facts and relationships, knowledge graphs help machines make sense of complex data in ways that mirror human understanding. Combined with powerful data mining techniques, they unlock insights that were previously hidden in plain sight.\n\nEver wondered how search engines seem to know exactly what you’re looking for? Or how virtual assistants can answer complex questions? That’s the magic of knowledge graphs. By representing information as a network of connected e …",
+        "image": "https://smythos.com/wp-content/uploads/2024/11/abstract-knowledge-graph-illustration.jpeg"
+      },
+      {
+        "id": "https://bth.diva-portal.org/smash/get/diva2:1382796/FULLTEXT01",
+        "title": "A literature review of current technologies on health data integration for patient-centered health management",
+        "url": "https://bth.diva-portal.org/smash/get/diva2:1382796/FULLTEXT01",
+        "publishedDate": "2019-12-23T00:00:00.000Z",
+        "author": "Cong Peng, Prashant Goswami, and Guohua Bai",
+        "text": "https://doi.org/10.1177/1460458219892387\nHealth Informatics Journal\n1–26\n© The Author(s) 2019\nArticle reuse guidelines: \nsagepub.com/journals-permissions\nDOI: 10.1177/1460458219892387\njournals.sagepub.com/home/jhi\nCreative Commons Non Commercial CC BY-NC: This article is distributed under the terms of the Creative \nCommons Attribution-NonCommercial 4.0 License (https://creativecommons.org/licenses/by-nc/4.0/) which \npermits non-commercial use, reproduction and distribution of the work without further permission provided the original work is \nattributed as specified on the SAGE and Open Access pages (ht …"
+      },
+      {
+        "id": "https://dl.acm.org/doi/10.1145/3297662.3365809",
+        "title": "Matching disparate dimensions for analytical integration of heterogeneous data sources",
+        "url": "https://dl.acm.org/doi/10.1145/3297662.3365809",
+        "publishedDate": "2019-11-12T00:00:00.000Z",
+        "author": "Anna  Korobko, ICM SB RAS, Krasnoyarsk, Russia, Aleksei  Korobko, ICM SB RAS, Krasnoyarsk, Russia",
+        "text": "![logo](data:,)\n\n## This website uses cookies\n\nWe occasionally run membership recruitment campaigns on social media channels and use cookies to track post-clicks. We also share information about your use of our site with our social media, advertising and analytics partners who may combine it with other information that you’ve provided to them or that they’ve collected from your use of their services. Use the check boxes below to choose the types of cookies you consent to have stored on your device.\n\nDo not sell or share my personal information\n\n[Use necessary cookies only](https://dl.acm.org/doi/10.114 …"
+      },
+      {
+        "id": "https://dl.acm.org/doi/10.1145/2030066.2030076",
+        "title": "Aggregation and exploration of heterogeneous data collected from diverse information sources",
+        "url": "https://dl.acm.org/doi/10.1145/2030066.2030076",
+        "publishedDate": "1451-12-31T00:00:00.000Z",
+        "author": "Teruhiko  Teraoka, Yahoo Japan Corporation Tokyo, Japan, tteraoka@yahoo-corp.jp",
+        "text": "This paper describes aggregation and exploration of heterogeneous data collected from various information sources. We studied the organization of such data from a user's point of view. Interactive visual interfaces are essential for exploring heterogeneous data. Our current research on the exploration of data is discussed and a study of social use of heterogeneous data is explained. An early prototype system is also introduced for data collected from several Web services and mobile devices."
+      },
+      {
+        "id": "https://vldb.org/workshops/2024/proceedings/LLM+KG/LLM+KG-1.pdf",
+        "title": "[PDF] Data Management Opportunities in Unifying Large Language ...",
+        "url": "https://vldb.org/workshops/2024/proceedings/LLM+KG/LLM+KG-1.pdf",
+        "author": "Arijit Khan, Tianxing Wu, and Xi Chen",
+        "text": "Data Management Opportunities in Unifying Large Language\nModels+Knowledge Graphs\nArijit Khan\nAalborg University\nDenmark\narijitk@cs.aau.dk\nTianxing Wu\nSoutheast University\nChina\ntianxingwu@seu.edu.cn\nXi Chen\nPlatform and Content Group, Tencent\nChina\njasonxchen@tencent.com\nABSTRACT\nLarge Language Models (LLMs), e.g., ChatGPT, PaLM, and LLaMA\nare transforming natural language processing (NLP) and artificial in\u0002telligence (AI). Recent LLMs browse Web knowledge and learn from\nexternal knowledge bases, unifying LLMs and knowledge graphs\n(KGs). The possibility of bridging KGs with LLMs has garnered\nattention  …"
+      },
+      {
+        "id": "https://ojs.aaai.org/index.php/AAAI-SS/article/download/31795/33962/35864",
+        "title": "[PDF] LLM Assisted Synthetic Multi-Modal Knowledge Graph Creation For ...",
+        "url": "https://ojs.aaai.org/index.php/AAAI-SS/article/download/31795/33962/35864",
+        "author": "Sukanya Mandal, Noel E. O'Connor",
+        "text": "LLMasMMKG: LLM Assisted Synthetic Multi-Modal Knowledge Graph Creation\nFor Smart City Cognitive Digital Twins\nSukanya Mandal1, Noel E. O’Connor2\n1SFI Centre for Research Training in Machine Learning (ML-Labs)\n2\nInsight SFI Research Centre for Data Analytics\nSchool of Electronic Engineering\nDublin City University\nDublin, Ireland\nsukanya.mandal2@mail.dcu.ie\nAbstract\nThe concept of a Smart City (SC) Cognitive Digital Twin\n(CDT) presents signifcant potential for optimizing urban envi\u0002ronments through sophisticated simulations, predictions, and\ninformed decision-making. Comprehensive Knowledge Rep\u0002resentati …"
+      },
+      {
+        "id": "https://www.turing.ac.uk/research/interest-groups/knowledge-graphs",
+        "title": "Knowledge graphs | The Alan Turing Institute",
+        "url": "https://www.turing.ac.uk/research/interest-groups/knowledge-graphs",
+        "publishedDate": "2025-03-17T00:00:00.000Z",
+        "author": "",
+        "text": "# This site uses cookies to store information on your computer.\n\nWe use cookies to improve your experience when you browse our website. Using cookies, the website can 'remember' you during a single visit to the site (a session cookie) or for repeat visits (persistent cookies).\n\nFor more information see our [cookie notice here](https://www.turing.ac.uk/cookie-notice).\n\n**You can enable all cookies and save (recommended) by clicking the button. Or you can enable or disable specific cookies by adjusting the sliders below. Clicking the X at the top will always keep the slider settings as they appear.**\n\nI  …",
+        "image": "https://www.turing.ac.uk/sites/default/files/2020-10/graphic.jpg",
+        "favicon": "https://www.turing.ac.uk/themes/custom/alanturing/favicon.ico"
+      },
+      {
+        "id": "https://www.airc.aist.go.jp/en/dkirt/",
+        "title": "Agentic AI Research Team - 人工知能研究センター",
+        "url": "https://www.airc.aist.go.jp/en/dkirt/",
+        "publishedDate": "2025-02-03T00:00:00.000Z",
+        "author": "",
+        "text": "[Top Page](https://www.airc.aist.go.jp/en/) [RESEARCH TEAMS](https://www.airc.aist.go.jp/en/teams/)Data-knolwedge Integration Research Team\n\nResearch Teams\n\n- [Team Outline](https://www.airc.aist.go.jp/en/dkirt/#section0)\n- [Information](https://www.airc.aist.go.jp/en/dkirt/#section_info)\n- [List of Publications](https://www.airc.aist.go.jp/en/dkirt/#section_paper)\n- [Researcher Profile](https://www.airc.aist.go.jp/en/dkirt/#section_member)\n\n# Agentic AI Research Team\n\n## Team Outline\n\nOur team aims to develop AI technologies that integrate data-driven and knowledge-driven AI to understand the Semantic …"
+      },
+      {
+        "id": "https://www.strategysoftware.com/blog/knowledge-graphs-the-ai-engine-powering-modern-business-intelligence",
+        "title": "Knowledge Graphs: The AI Engine Powering Modern Business ...",
+        "url": "https://www.strategysoftware.com/blog/knowledge-graphs-the-ai-engine-powering-modern-business-intelligence",
+        "publishedDate": "2024-07-31T00:00:00.000Z",
+        "author": "Joseph D. StecJuly 31, 2024",
+        "text": "Ever wonder how Netflix suggests your next binge-worthy show—or how LinkedIn recommends new connections? Maybe you've thought about how investigators untangle complex financial fraud? The answer lies in knowledge graphs. What is a Knowledge Graph? A knowledge graph is a network of interconnected data points that reveals relationships and patterns. Think of it as a map of your information universe, connecting the dots between different pieces of data. Instead of isolated data points, you get a rich tapestry of interconnected information. Why Knowledge Graphs matter for business In the age of big data an …",
+        "image": "https://images.contentstack.io/v3/assets/bltb564490bc5201f31/blt9724fcbeec090b59/679a206a605c9b30238ec511/Knowledge_Graphs_The_AI_Engine_Powering_Modern_Business_Intelligence.png",
+        "favicon": "https://www.strategysoftware.com/favicon-32x32.png"
+      },
+      {
+        "id": "https://www.mdpi.com/2071-1050/13/7/4038/pdf",
+        "title": "Reframing a Novel Decentralized Knowledge Management Concept as a Desirable Vision: As We May Realize the Memex",
+        "url": "https://www.mdpi.com/2071-1050/13/7/4038/pdf",
+        "publishedDate": "2021-04-05T00:00:00.000Z",
+        "author": "Ulrich Schmitt",
+        "text": "sustainability\nArticle\nReframing a Novel Decentralized Knowledge Management\nConcept as a Desirable Vision: As We May Realize the Memex\nUlrich Schmitt\n\u0001\u0002\u0003\u0001\u0004\u0005\u0006\u0007\b\n\u0001\u0002\u0003\u0004\u0005\u0006\u0007\nCitation: Schmitt, U. Reframing a\nNovel Decentralized Knowledge\nManagement Concept as a Desirable\nVision: As We May Realize the\nMemex. Sustainability 2021, 13, 4038.\nhttps://doi.org/10.3390/su13074038\nAcademic Editor: Ivana Quinto\nReceived: 2 November 2020\nAccepted: 17 March 2021\nPublished: 5 April 2021\nPublisher’s Note: MDPI stays neutral\nwith regard to jurisdictional claims in\npublished maps and institutional affil\u0002iations.\nCopyright:  …"
+      },
+      {
+        "id": "https://www.sciencedirect.com/science/article/pii/S0169023X21000239",
+        "title": "Managing Polyglot Systems Metadata with Hypergraphs",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0169023X21000239",
+        "publishedDate": "2021-02-11T00:00:00.000Z",
+        "author": "Moditha  Hewasinghage, Universitat Politècnica de Catalunya, BarcelonaTech, Barcelona, Spain, moditha@essi.upc.edu, Alberto  Abelló, Universitat Politècnica de Catalunya, BarcelonaTech, Barcelona, Spain, aabello@essi.upc.edu, Jovan  Varga, Universitat Politècnica de Catalunya, BarcelonaTech, Barcelona, Spain, jvarga@essi.upc.edu, Esteban  Zimányi, Université Libre de Bruxelles, 1050, Bruxelles, Belgium, ezimanyi@ulb.ac.be",
+        "text": "[Skip to main content](https://www.sciencedirect.com/science/article/pii/S0169023X21000239#screen-reader-main-content) [Skip to article](https://www.sciencedirect.com/science/article/pii/S0169023X21000239#screen-reader-main-title)\n\n- [View **PDF**](https://www.sciencedirect.com/science/article/pii/S0169023X21000239/pdfft?md5=0945a3a206303e3cbf9ec9137ab0788d&pid=1-s2.0-S0169023X21000239-main.pdf)\n- Download full issue\n\nSearch ScienceDirect\n\n## Outline\n\n01. [Abstract](https://www.sciencedirect.com/science/article/pii/S0169023X21000239#d1e1191)\n02. [Keywords](https://www.sciencedirect.com/science/article/ …"
+      }
+    ],
+    "searchTime": 6316.89419199992,
+    "costDollars": {
+      "total": 0.107,
+      "search": {
+        "neural": 0.025
+      },
+      "contents": {
+        "text": 0.082
+      }
+    }
+  }
+}
