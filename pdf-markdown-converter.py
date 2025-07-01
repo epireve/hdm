@@ -24,7 +24,8 @@ import re
 load_dotenv()
 
 # Configuration
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+GEMINI_API_KEYS = os.getenv('GEMINI_API_KEYS', '').split(',') if os.getenv('GEMINI_API_KEYS') else []
+    
 BASE_DIR = Path(__file__).parent
 PAPERS_DIR = BASE_DIR / 'papers'
 
@@ -43,6 +44,32 @@ class HDMPDFConverter:
             'skipped': 0,
             'start_time': time.time()
         }
+        self.api_keys = GEMINI_API_KEYS
+        if self.api_keys:
+            self.validate_api_keys()
+        
+    def validate_api_keys(self):
+        """Validate API keys are available"""
+        if not self.api_keys:
+            self.logger.error("No API keys found! Set GEMINI_API_KEYS in .env")
+            sys.exit(1)
+        
+        # Remove empty keys and strip whitespace
+        self.api_keys = [key.strip() for key in self.api_keys if key.strip()]
+        
+        if not self.api_keys:
+            self.logger.error("No valid API keys found!")
+            sys.exit(1)
+            
+        self.logger.info(f"Loaded {len(self.api_keys)} API key(s)")
+        
+        # If we have fewer API keys than workers, log a warning
+        if len(self.api_keys) < self.args.workers:
+            self.logger.warning(f"Only {len(self.api_keys)} API keys for {self.args.workers} workers. Keys will be reused.")
+    
+    def get_api_key_for_worker(self, worker_id: int) -> str:
+        """Get API key for a specific worker using round-robin distribution"""
+        return self.api_keys[worker_id % len(self.api_keys)]
         
     def setup_paths(self):
         """Setup directory paths based on conversion mode"""
@@ -128,7 +155,8 @@ class HDMPDFConverter:
         
         try:
             start_time = time.time()
-            self.logger.info(f"[DUAL] Converting: {pdf_path.name} ({result['size_mb']:.1f}MB)")
+            api_key_index = worker_id % len(self.api_keys)
+            self.logger.info(f"[DUAL] Worker {worker_id} (API key #{api_key_index + 1}) converting: {pdf_path.name} ({result['size_mb']:.1f}MB)")
             
             # Create input directories
             desc_input = temp_desc_dir / "input"
@@ -142,11 +170,11 @@ class HDMPDFConverter:
             
             # Step 1: Generate descriptions
             desc_cmd = self.build_marker_command(desc_input, temp_desc_dir, mode='descriptions')
-            desc_success, desc_output = self.run_marker(desc_cmd, "descriptions")
+            desc_success, desc_output = self.run_marker(desc_cmd, "descriptions", worker_id)
             
             # Step 2: Extract images
             img_cmd = self.build_marker_command(img_input, temp_img_dir, mode='images')
-            img_success, img_output = self.run_marker(img_cmd, "images")
+            img_success, img_output = self.run_marker(img_cmd, "images", worker_id)
             
             if desc_success and img_success:
                 # Merge results
@@ -187,7 +215,8 @@ class HDMPDFConverter:
         try:
             start_time = time.time()
             mode = self.args.mode.upper()
-            self.logger.info(f"[{mode}] Converting: {pdf_path.name} ({result['size_mb']:.1f}MB)")
+            api_key_index = worker_id % len(self.api_keys)
+            self.logger.info(f"[{mode}] Worker {worker_id} (API key #{api_key_index + 1}) converting: {pdf_path.name} ({result['size_mb']:.1f}MB)")
             
             # Copy PDF to temp directory
             temp_pdf = temp_dir / pdf_path.name
@@ -195,7 +224,7 @@ class HDMPDFConverter:
             
             # Build and run command
             cmd = self.build_marker_command(temp_dir, self.output_dir, mode=self.args.mode)
-            success, output = self.run_marker(cmd, self.args.mode)
+            success, output = self.run_marker(cmd, self.args.mode, worker_id)
             
             if success:
                 # Check output
@@ -299,12 +328,13 @@ class HDMPDFConverter:
         
         return cmd
     
-    def run_marker(self, cmd: List[str], mode: str) -> Tuple[bool, str]:
+    def run_marker(self, cmd: List[str], mode: str, worker_id: int = 0) -> Tuple[bool, str]:
         """Run marker command with proper timeout and error handling"""
         try:
             env = os.environ.copy()
-            if GOOGLE_API_KEY:
-                env['GOOGLE_API_KEY'] = GOOGLE_API_KEY
+            # Use worker-specific API key
+            api_key = self.get_api_key_for_worker(worker_id)
+            env['GOOGLE_API_KEY'] = api_key
             
             timeout = self.args.timeout
             if self.args.fast:
