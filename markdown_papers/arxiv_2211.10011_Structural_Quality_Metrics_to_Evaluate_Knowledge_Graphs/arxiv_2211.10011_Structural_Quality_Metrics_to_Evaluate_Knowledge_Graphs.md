@@ -3,7 +3,7 @@ cite_key: seo_2020
 title: Structural Quality Metrics to Evaluate Knowledge Graph Quality
 authors: Sumin Seo, Heeseon Cheon, Hyunho Kim, Dongseok Hyun
 year: 2020
-doi: 10.1007/978-3-540-76298-0_52)
+doi: 10.1007/978-3-540-76298-0_52
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2211.10011_Structural_Quality_Metrics_to_Evaluate_Knowledge_Graphs
@@ -22,6 +22,7 @@ keywords:
 - knowledge graphs
 - scale-related
 ---
+
 
 
 # <span id="page-0-0"></span>Structural Quality Metrics to Evaluate Knowledge Graph Quality

@@ -1,3 +1,10 @@
+---
+cite_key: xu_2024
+title: Temporal Knowledge Graph Reasoning with Historical Contrastive Learning
+authors: Yi Xu, Junjie Ou, Hui Xu, Luoyi Fu
+year: 2024
+date_processed: "2025-07-02"
+---
 <!-- cite_key: xu2020 -->
 
 # Temporal Knowledge Graph Reasoning with Historical Contrastive Learning

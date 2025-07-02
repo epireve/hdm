@@ -1,6 +1,7 @@
 ---
+
 cite_key: fang_2020
-title: Deep Learning for Sequential Recommendation: Algorithms, Influential Factors, and Evaluations
+title: "Deep Learning for Sequential Recommendation: Algorithms, Influential Factors, and Evaluations"
 authors: Hui Fang, Danning Zhang, Yiheng Shu, Guibing Guo
 year: 2020
 doi: 10.1145/3426723
@@ -10,12 +11,12 @@ original_folder: arxiv_2019_deep_learning_sequential_recommendation_survey
 images_total: 19
 images_kept: 19
 images_removed: 0
-tags:
+tags: 
 - Machine Learning
 - Personal Health
 - Recommendation System
 - Semantic Web
-keywords:
+keywords: 
 - chain-based
 - deep learning
 - dl-based
@@ -23,6 +24,7 @@ keywords:
 - recommender systems
 - session-based
 ---
+
 
 
 HUI FANG, RIIS & SIME, Shanghai University of Finance and Economics, China DANNING ZHANG<sup>∗</sup> , SIME, Shanghai University of Finance and Economics, China YIHENG SHU, Software College, Northeastern University, China GUIBING GUO, Software College, Northeastern University, China

@@ -1,9 +1,9 @@
 ---
-cite_key: s_2024
-title: OPEN ACCESS
-authors: Citation:Amofa S, Xia Q, Xia H, Obiri IA, Adjei-Arthur B, Yang J
+cite_key: amofa_2024
+title: Blockchain-secure patient Digital Twin in healthcare using smart contracts
+authors: Sandro Amofa, Qi Xia, Hu Xia, Isaac Amankona Obiri, Bonsu Adjei-Arthur, Jingcong Yang, Jianbin Gao
 year: 2024
-doi: 10.1371/journal.pone.0286120)
+doi: 10.1371/journal.pone.0286120
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: plos_blockchain_dt
@@ -31,6 +31,7 @@ keywords:
 - personal health records
 - phr
 ---
+
 
 
 

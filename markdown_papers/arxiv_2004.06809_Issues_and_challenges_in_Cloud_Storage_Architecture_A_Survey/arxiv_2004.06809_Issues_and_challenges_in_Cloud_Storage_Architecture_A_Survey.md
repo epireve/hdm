@@ -1,6 +1,7 @@
 ---
+
 cite_key: ghani_2020
-title: Issues and challenges in Cloud Storage Architecture: A Survey
+title: "Issues and challenges in Cloud Storage Architecture: A Survey"
 authors: Anwar Ghani, Afzal Badshah, Saeed Ullah Jan, Abdulrahman A. Alshdadi, Ali Daud
 year: 2020
 doi: 10.1109/RpJC.2020.DOI
@@ -10,13 +11,13 @@ original_folder: arxiv_2004.06809_Issues_and_challenges_in_Cloud_Storage_Archite
 images_total: 6
 images_kept: 5
 images_removed: 1
-tags:
+tags: 
 - Cloud Computing
 - Data Integration
 - IoT
 - Machine Learning
 - Privacy
-keywords:
+keywords: 
 - block-chain
 - cloud computing
 - fog computing
@@ -26,6 +27,7 @@ keywords:
 - self-driving
 - state-of-the-art
 ---
+
 
 
 

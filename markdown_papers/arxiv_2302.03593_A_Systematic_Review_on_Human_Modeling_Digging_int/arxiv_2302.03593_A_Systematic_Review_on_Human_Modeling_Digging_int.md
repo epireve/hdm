@@ -1,16 +1,17 @@
 ---
-cite_key: "replication2022"
-title: "A Systematic Review on Human Modeling: Digging into Human Digital Twin Implementations"
-authors: "Heribert Pascual\, Xavi Masip-Bruin\, Albert Alonso\\, Judit Cerdá \"
-year: 2022
-doi: "10.1109/ACCESS.2019.2953499."
-date_processed: "2025-07-02"
-phase2_processed: true
-original_folder: "arxiv_2302.03593_A_Systematic_Review_on_Human_Modeling_Digging_int"
-images_total: 5
-images_kept: 5
-images_removed: 0
+cite_key: pascual_2022
+title: A Systematic Review on Human Modeling: Digging into Human Digital Twin Implementations
+authors: Heribert Pascual, Xavi Masip-Bruin, Albert Alonso, Judit Cerdá
+year: '2022'
+doi: 10.1109/ACCESS.2019.2953499
+date_processed: '2025-07-02'
+phase2_processed: 'true'
+original_folder: arxiv_2302.03593_A_Systematic_Review_on_Human_Modeling_Digging_int
+images_total: '5'
+images_kept: '5'
+images_removed: '0'
 ---
+
 
 # A Systematic Review on Human Modeling: Digging into Human Digital Twin Implementations
 

@@ -3,7 +3,7 @@ cite_key: abdallah_2021
 title: Towards a GML-Enabled Knowledge Graph Platform
 authors: Hussein Abdallah, Essam Mansour
 year: 2021
-doi: 10.1145/3447772)
+doi: 10.1145/3447772
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2303.02166_Towards_a_GML-Enabled_Knowledge_Graph_Platform
@@ -48,6 +48,7 @@ keywords:
 - data transformer
 - dblp-in-rdf
 ---
+
 
 # Towards a GML-Enabled Knowledge Graph Platform
 

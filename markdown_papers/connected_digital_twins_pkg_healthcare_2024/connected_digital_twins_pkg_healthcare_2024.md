@@ -1,9 +1,9 @@
 ---
-cite_key: joulie_2019
-title: 'Brief ReportThe Roadmap toward Personalized Medicine: Challenges and Opportunities'
-authors: Michael Joulie, Hussein Ayoub
-year: 2019
-doi: 10.3390/jpm14060546)
+cite_key: cinti_2024
+title: The Roadmap toward Personalized Medicine: Challenges and Opportunities
+authors: Caterina Cinti, Maria Giovanna Trivella, Michael Joulie, Hussein Ayoub, Monika Frenzel, on behalf of the International Consortium for Personalised Medicine and Working Group 'Personalised Medicine in Healthcare' (WG2)
+year: 2024
+doi: 10.3390/jpm14060546
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: connected_digital_twins_pkg_healthcare_2024
@@ -51,6 +51,7 @@ keywords:
 - high-performance
 - performance
 ---
+
 
 
 

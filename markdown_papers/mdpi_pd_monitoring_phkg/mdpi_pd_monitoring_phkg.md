@@ -1,10 +1,9 @@
 ---
-cite_key: graphs_2024
-title: ArticleEvaluating Ontology-Based PD Monitoring and Alerting in Personal Health
-  Knowledge Graphs and Graph Neural Networks
-authors: Alerting in Personal Health Knowledge Graphs, Graph Neural Networks
+cite_key: zafeiropoulos_2024
+title: Evaluating Ontology-Based PD Monitoring and Alerting in Personal Health Knowledge Graphs and Graph Neural Networks
+authors: Nikolaos Zafeiropoulos, Pavlos Bitilis, George E. Tsekouras, Konstantinos Kotis
 year: 2024
-doi: 10.3390/info15020100)
+doi: 10.3390/info15020100
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: mdpi_pd_monitoring_phkg
@@ -52,6 +51,7 @@ keywords:
 - based learning
 - between learning
 ---
+
 
 
 

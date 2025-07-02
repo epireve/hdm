@@ -4,7 +4,7 @@ title: 'ArticleCapturing Semantic Relationships in Electronic Health Records Usi
   Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB'
 authors: Bader Aldughayfiq, Farzeen Ashfaq
 year: 2023
-doi: 10.3390/healthcare11121762)
+doi: 10.3390/healthcare11121762
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: mdpi_mimic_graphdb
@@ -51,6 +51,7 @@ keywords:
 - cyber-physical
 - data-driven
 ---
+
 
 
 

@@ -1,5 +1,5 @@
 ---
-cite_key: chakraborty_2000
+cite_key: chakraborty_2022
 title: Personal Research Knowledge Graphs
 authors: Prantika Chakraborty, Sudakshina Dutta, Debarshi Kumar Sanyal
 year: 2022

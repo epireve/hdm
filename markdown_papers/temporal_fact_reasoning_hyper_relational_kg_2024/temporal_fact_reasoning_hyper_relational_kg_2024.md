@@ -3,7 +3,7 @@ cite_key: wu_2024
 title: Temporal Fact Reasoning over Hyper-Relational Knowledge Graphs
 authors: Jingpei Wu, Yan Xia
 year: 2024
-doi: 10.18653/v1/D19-1522)
+doi: 10.18653/v1/D19-1522
 url: https://aclanthology.org/2024.findings-emnlp.20/
 relevancy: High
 downloaded: 'Yes'
@@ -34,6 +34,7 @@ keywords:
 - wiki-hy
 - yago-hy
 ---
+
 
 
 # <span id="page-0-0"></span>Temporal Fact Reasoning over Hyper-Relational Knowledge Graphs

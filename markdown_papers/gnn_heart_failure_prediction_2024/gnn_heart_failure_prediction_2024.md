@@ -1,5 +1,5 @@
 ---
-cite_key: kerkemeier_2000
+cite_key: kerkemeier_2024
 title: 'nekCRF: A next generation high-order reactive low Mach flow solver for direct
   numerical simulations'
 authors: Stefan Kerkemeier, Christos E. Frouzakis, Ananias G. Tomboulides, Paul Fischer,

@@ -1,9 +1,9 @@
 ---
-cite_key: citationkumar_2021
-title: 1. Introduction
-authors: Citation:Kumar, G., Basri, S., Imam, A.A., Khowaja, S.A., Capretz, L.F.
+cite_key: kumar_2021
+title: Data Harmonization for Heterogeneous Datasets: A Systematic Literature Review
+authors: Ganesh Kumar, Shuib Basri, Abdullahi Abubakar Imam, Sunder Ali Khowaja, Luiz Fernando Capretz, Abdullateef Oluwagbemiga Balogun
 year: 2021
-doi: 10.3390/app11178275)
+doi: 10.3390/app11178275
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: mdpi_res_com_Data_Harmonization_for_Heterogeneous_Datasets_A_Systematic_Literature_Review
@@ -28,6 +28,7 @@ keywords:
 - semi-structured
 - state-of-the-art
 ---
+
 
 
 

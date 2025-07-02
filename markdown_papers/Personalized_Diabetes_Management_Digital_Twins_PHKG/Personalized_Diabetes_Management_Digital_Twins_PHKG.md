@@ -1,8 +1,7 @@
 ---
 cite_key: rad_2024
-title: 'ArticlePersonalized Diabetes Management with Digital Twins: A Patient-Centric
-  Knowledge Graph Approach'
-authors: Fatemeh Sarani Rad , Rasha Hendawi , Xinyi Yang
+title: Personalized Diabetes Management with Digital Twins: A Patient-Centric Knowledge Graph Approach
+authors: Fatemeh Sarani Rad, Rasha Hendawi, Xinyi Yang, Juan Li
 year: 2024
 doi: 10.3390/jpm14040359
 date_processed: '2025-07-02'
@@ -53,6 +52,7 @@ keywords:
 - entropy-driven
 - follow-up
 ---
+
 
 ![](_page_0_Figure_0.jpeg)
 <!-- Image Description: The image is the logo for the *Journal of Personalized Medicine*. The logo consists of text stating the journal's name and a graphic. The graphic is a 3x3 grid of teal circles, with one circle in the bottom right corner colored pale yellow. The graphic likely symbolizes the personalization aspect of medicine, highlighting individual differences within a population. -->

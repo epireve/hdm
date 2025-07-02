@@ -1,10 +1,10 @@
----
-cite_key: christino_2007
+-
+cite_key: christino_2022
 title: A Theoretical Approach for Structuring and Analysing Knowledge Provenance for
   Visual Analytics
-authors: L. Christino1,2 , S. Rezaeipour1 , E. Milios, F. Paulovich
-year: 2007
-doi: 10.1111/cgf.13324)
+authors: L. Christino, S. Rezaeipour, E. Milios, F. Paulovich
+year: 2022
+doi: 10.1111/cgf.13324
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2204.00585_VAKG
@@ -17,37 +17,18 @@ tags:
 - Semantic Web
 - Temporal
 keywords:
-- 1 related theoretical works
-- 2 vakg ontology and knowledge graph definition
-- 21 vakg property map and data collection guideline
-- 3 survey compilation and goals
-- 31 tableau use-case
-- 33 using vakg for analysis
-- 4 vakg evaluation discussion
 - API
-- InsideInsights
-- NLP
-- PageRank
-- SenseMap
-- acknowledgment
 - active learning
 - agent-based
 - agent-based framework
-- analysis-centric
-- and ending
-- application programming interface
-- application-specific
-- ask not to track
 - atemporal
 - auto-generated
 - back-and-forth
 - behavioral provenance
 - best-practice
 - bpm-driving
-- class
-- classes
-- classification
 ---
+
 
 # <span id="page-0-1"></span>A Theoretical Approach for Structuring and Analysing Knowledge Provenance for Visual Analytics
 

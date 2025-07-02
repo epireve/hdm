@@ -4,7 +4,7 @@ title: Digital twin system for manufacturing processes based on a multi-layer kn
   graph model
 authors: Dongsheng Jiang
 year: 2024
-doi: 10.1016/j.jmsy.2021.05.010)
+doi: 10.1016/j.jmsy.2021.05.010
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: Su-2025-Digital-twin-system-for-manufacturi
@@ -50,6 +50,7 @@ keywords:
 - crowdsourcing-based
 - crowdsourcing-based continuous
 ---
+
 
 # OPEN
 

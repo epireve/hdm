@@ -4,7 +4,7 @@ title: 'PsyDT: Using LLMs to Construct the Digital Twin of Psychological Counsel
   with Personalized Counseling Style for Psychological Counseling'
 authors: Haojie Xie, Yirong Chen, Xiaofen Xing, Jingkai Lin
 year: 2022
-doi: 10.18653/v1/P16-2096)
+doi: 10.18653/v1/P16-2096
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2412.13660_PsyDT_Using_LLMs_to_Construct_the_Digital_Twin_of
@@ -25,6 +25,7 @@ keywords:
 - psy-dtcorpus
 - real-world
 ---
+
 
 
 # PsyDT: Using LLMs to Construct the Digital Twin of Psychological Counselor with Personalized Counseling Style for Psychological Counseling
