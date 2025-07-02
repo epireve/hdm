@@ -1,6 +1,7 @@
 ---
 cite_key: "ctinexus_cyber_threat_kg_2024"
-title: "<span id=\"page-0-0\"></span>Knowledge-enhanced Multi-perspective Video Representation Learning for Scene Recognition"
+title: "Knowledge-enhanced Multi-perspective Video Representation Learning for Scene Recognition"
+authors: "Xuzheng Yu, Chen Jiang, Wei Zhang, Tian Gan, Linlin Chao, Jianan Zhao, Yuan Cheng, Qingpei Guo, Wei Chu"
 year: 2016
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -23,6 +24,7 @@ With the explosive growth of video data in real-world applications, analysis and
 Video understanding itself is complex, including the diversity and redundancy of video contents, and the inherent gap among video multi-modal information. Therefore, the first intuitive challenge is how to effectively and
 
 ![](_page_0_Picture_7.jpeg)
+<!-- Image Description: This image is a three-panel sequence showing the preparation of salted egg yolk chicken wings. The first panel depicts prepared wings; the second shows them being cooked in a pan with a spatula; the third shows a finished wing being broken apart. Below is a textual description in both Chinese and English stating the ease of preparation, and a scene label identifying the setting as a family kitchen. -->
 
 Figure 1. An illustration of the task of scene recognition.
 
@@ -83,6 +85,7 @@ The temporal feature learning module is used to model videos from a temporal per
 In this module, we employ Multimodal Bitransformers [\[8\]](#page-8-15) as the backbone, and utilize Transformer [\[23\]](#page-8-16) that is effective in various tasks in recent years as the feature encoder. Specifically, for each video v, we uniformly sample N<sup>f</sup> frames as keyframes, and utilized the pretrained ResNet [\[4\]](#page-8-14) to extract the frame-level 2D feature f 2D <sup>j</sup> of each keyframe, where j ∈ [1, N<sup>f</sup> ]. We then collect N<sup>c</sup> consecutive frames with each sampled keyframe as center, and utilized the pretrained I3D [\[2\]](#page-8-17) to extract the frame-level 3D features f 3D j . For the associated textual descriptions, we utilize the pre-
 
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This figure illustrates a deep learning architecture for video scene recognition. It processes video frames and corresponding text descriptions. The architecture includes temporal feature learning (using a Transformer), knowledge-enhanced non-temporal feature learning (integrating a knowledge graph), and a matching network for final classification. The diagram shows multiple MLPs, CNNs, and feature fusion steps. Self-distillation is used for scene recognition improvement. -->
 
 Figure 2. An overview of our proposed framework for scene recognition using knowledge-enhanced multi-perspective video representation learning.
 

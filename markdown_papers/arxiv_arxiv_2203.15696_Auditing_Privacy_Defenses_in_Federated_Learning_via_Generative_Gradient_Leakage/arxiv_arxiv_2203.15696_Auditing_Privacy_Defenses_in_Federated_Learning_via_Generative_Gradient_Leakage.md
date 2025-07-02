@@ -1,6 +1,7 @@
 ---
 cite_key: "arxiv_arxiv_220315696_auditing"
 title: "Auditing Privacy Defenses in Federated Learning via Generative Gradient Leakage"
+authors: "Zhuohang Li, Jiaxin Zhang, Luyang Liu, Jian Liu"
 year: 2012
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -21,6 +22,7 @@ images_removed: 0
 Federated Learning (FL) [\[26,](#page-9-0) [29,](#page-9-1) [34\]](#page-9-2) has recently emerged as a new machine learning paradigm that enables multiple clients to collaboratively train a global learning model under the orchestration of a central server. Instead of directly exchanging their private data, each client learns
 
 <span id="page-0-1"></span>![](_page_0_Figure_7.jpeg)
+<!-- Image Description: This diagram illustrates a method for reconstructing private images. It shows two spaces: a "Natural Image Space" representing real images (a dog), and an "FL Model Gradient Space" showing model gradients. A "GAN Image Manifold" represents the space of generated images. Arrows illustrate the mapping of a private image's gradient (y) to a reconstructed image, comparing an existing method (noisy output) with the proposed Generative Gradient Learning (GGL) method (clearer dog image). The diagram visually compares reconstruction quality between methods in the context of gradient spaces and image manifolds. -->
 
 Figure 1. Illustration of data leakage via gradient: 1 Client computes gradients on its private data; 2 Client applies defense to degrade the computed gradients y; 3 Adversary attempts to reconstruct the private image from the shared gradients y 0 .
 
@@ -62,6 +64,7 @@ Another line of research seeks to constrain the amount of leaked sensitive infor
 In most existing data leakage attacks [\[13,](#page-9-7) [51,](#page-10-2) [54,](#page-10-3) [56\]](#page-10-4), the adversary is considered to be an honest-but-curious server and has access to the current FL model as well as the shared gradients. As illustrated in Figure [2a,](#page-2-0) we further assume that clients apply a privacy defense locally on the gradients computed from their private data, and the adversary can only access the degraded gradients modified by the defense
 
 <span id="page-2-0"></span>![](_page_2_Figure_8.jpeg)
+<!-- Image Description: The image contains two diagrams. (a) illustrates a threat model for federated learning (FL), showing private data from a client, gradients transmitted through a communication channel, and a gradient leakage attack on the server's FL model. (b) depicts a proposed defense mechanism. It shows a generator reconstructing an image from a latent vector, using inferred labels and shared gradients, with gradient-based and gradient-free optimizers minimizing a gradient matching loss. The purpose is to contrast a threat with a proposed solution for enhancing data privacy in FL. -->
 
 Figure 2. Illustration of the threat model and the proposed method.
 
@@ -141,6 +144,7 @@ Optimization Strategy. The target inverse problem described in Equation [4](#pag
 (2)*Covariance Matrix Adaptation Evolution Strategy (CMA-ES)*[\[19\]](#page-9-13): CMA-ES leverages a multivariate normal sampling distribution over the search space. At each step, a stochastic search is performed by drawing samples from that distribution to compute the loss. Evolutionary strategies such as recombination and mutation are used to adaptively update its mean and covariance matrix [\[18\]](#page-9-24).
 
 <span id="page-4-2"></span>![](_page_4_Figure_6.jpeg)
+<!-- Image Description: This image displays a comparison of image generation results using different optimization algorithms (Adam, BO, CMA-ES). For two input images (a blurred woman's face and a beagle), the "Original" column shows the input, while subsequent columns present generated image variations using each algorithm. The generated images demonstrate the algorithms' ability to generate multiple plausible variations of the input images. The purpose is to visually compare the performance and output quality of the different optimization methods in the context of image generation. -->
 
 Figure 3. Visual comparison of different optimizers. The images on the right are the reconstruction samples produced by three types of optimizers with different random seeds.
 
@@ -204,6 +208,7 @@ We implemented these attacks following the code repositories released by the aut
 ### Defense Scheme.
 
 Following prior studies [\[44,](#page-10-6) [56\]](#page-10-4), we choose a relatively strict defense setting for conducting evaluation: (1)*Additive*<span id="page-6-2"></span><span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
+<!-- Image Description: This image shows a comparative analysis of different defense mechanisms against adversarial attacks on image classification models. Two datasets (CelebA and ImageNet) are used. Each column represents a defense method (DLG, iDLG, IG, GI, GGL) applied to an image after adding noise or clipping gradients. The rows demonstrate the effects of additive noise, gradient clipping, and gradient sparsification on the original images and their processed versions. The purpose is to visually compare the robustness of different defenses against various types of adversarial attacks. -->
 
 Figure 4. Comparison of the reconstruction results with attack baselines on the CelebA & ImageNet datasets under various privacy defenses.
 *Noise*[\[44,](#page-10-6) [56\]](#page-10-4): inject a Gaussian noise ε ∼ N (0, σ<sup>2</sup> I) to the gradients with σ = 0.1; (2)*Gradient Clipping*[\[14,](#page-9-9) [48\]](#page-10-5): clip the values of the gradients with a bound of S = 4; (3)*Gradient Spasification*[\[56\]](#page-10-4): perform magnitude-based pruning on the gradients to achieve 90% sparsity; and (4)*Soteria*[\[44\]](#page-10-6): gradients are generated on the perturbed representation with a pruning rate of 80%.
@@ -213,6 +218,7 @@ Results. Table [3](#page-5-1) compares the performance of the proposed method GG
 From the visualization results in Figure [4,](#page-6-0) we can see that except for the IG attack in the case of gradient clipping, the reconstructed image of existing attacks does not
 
 <span id="page-6-1"></span>![](_page_6_Figure_5.jpeg)
+<!-- Image Description: The image is a 2x4 grid of photographs showing examples of different species. The top row shows a great white shark underwater, a brambling bird on snow, a black grouse in grassland, and a ruby-throated hummingbird on a branch. The bottom row repeats a great white shark, a brambling, a black grouse, and a ruby-throated hummingbird. The purpose is likely to illustrate species diversity or exemplify the data used in a study, possibly for a biodiversity or classification analysis. -->
 
 Figure 5. Reconstruction results against the Soteria [\[44\]](#page-10-6) defense on the ImageNet dataset: (top) original image and its (bottom) reconstruction by GGL.
 
@@ -221,6 +227,7 @@ reveal much information about the original image. We also observe that on the Ce
 Combining Clipping and Noise Addition. In addition, we also evaluate our attack against the combination of multiple defense mechanisms. Figure [6](#page-7-0) compares the reconstruction results under 3 defense settings: additive noise with σ = 0.1, gradient clipping with S = 4, and simultaneously applying gradient clipping and additive noise (i.e., the privacy defense used in local and distributed DP). We observe that the high-resolution image can still be reconstructed under these defenses, and combining gradient clipping and additive noise would lead to a relatively worse re-
 
 <span id="page-7-2"></span><span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: The image displays four variations of a black swan image: original, additive noise, gradient clipping, and both. Each image is accompanied by a numerical value, likely representing a metric (e.g., image quality score). The purpose is to visually demonstrate the effects of noise and gradient clipping on image quality, illustrating the degradation caused by these common image processing artifacts. -->
 
 Figure 6. Illustration of combined defense: (left) original image and its (right) reconstruction by GGL. The PSNR with respect to the original image is shown below each reconstructed image.
 
@@ -235,6 +242,7 @@ We next apply the Soteria [\[44\]](#page-10-6) defense on the CelebA dataset as 
 Limitation. Although the image prior captured by the GAN model can help restore the missing information from the degraded gradients for better image reconstruction, at the same time the output image distribution is also constrained by the GAN latent space, rendering it hard to faithfully reconstruct out-of-distribution image samples. Figure [8](#page-8-12) shows two examples of attempting to reconstruct out-of-distribution ImageNet images under the Soteria defense [\[44\]](#page-10-6): in Figure [8a,](#page-8-12) the orientation of the object reconstructed image is changed from the original image; and
 
 <span id="page-7-1"></span>![](_page_7_Figure_7.jpeg)
+<!-- Image Description: This image displays a table comparing the performance of different pruning methods (DLG, iDLG, IG, GI, GGL) on a face recognition task. Each row represents a different pruning percentage (0%, 10%, 20%, 40%, 80%). For each method and pruning level, a small image shows the reconstructed face and a number indicates a performance metric (likely accuracy or a similar measure). The rightmost column shows the original, unpruned image for comparison. The purpose is to visually demonstrate the effect of different pruning strategies and levels on image quality and model performance. -->
 
 Figure 7. Reconstruction results under the Soteria [\[44\]](#page-10-6) defense with varying pruning rates on the CelebA dataset. The PSNR with respect to the original image is shown below each reconstructed image.
 
@@ -243,12 +251,14 @@ Figure [8b,](#page-8-12) the reconstruction result is missing important semantic
 Analysis of Loss Landscape and Potential Defense. To investigate the reconstruction problem under the constraint of a generative model, we use the latent vector returned by GGL as the central point and choose two directions to visualize the loss landscape of the gradient matching loss as well as the LPIPS loss between the original image and the image generated by the BigGAN model by sampling in the latent space. The visualization results are presented in Figure [9,](#page-8-13) where Figure [9a](#page-8-13) shows the loss landscape observed by the adversary if only the gradient information is accessible, and Figure [9b](#page-8-13) shows the ground truth loss landscape measured by the LPIPS score assuming the original image is known. We have the following two observations: (1) the surface of the gradient matching loss is non-convex and contains several local minima; and (2) there exists an inconsistency between the ground truth and the observed loss surface, i.e., the image found by optimizing the gradient matching loss doesn't provide the most similar visual result. However, as showed in our experiments, such a level of inconsistency isn't sufficient to provide privacy guarantees as the suboptimal result with minimized gradient matching loss still leaks a considerable amount of information about the original image. This hints us that applying transformations to the gradients to reform the gradient matching loss so that its landscape is no longer in line with the ground truth LPIPS loss
 
 <span id="page-8-12"></span>![](_page_8_Figure_0.jpeg)
+<!-- Image Description: The image contains four photographs. Two show long-haired cats, one white and one light tan. The other two show a young woman sitting with two Bernese Mountain Dogs. The image likely illustrates a section on subjects used for a study or provides examples related to the paper’s topic, possibly in pet image recognition or a similar field. There are no charts, graphs, or equations. -->
 
 (a) Change in orientation (b) Missing semantics
 
 Figure 8. Reconstruction results of out-of-distribution image samples: (left) original image and its (right) reconstruction by GGL.
 
 <span id="page-8-13"></span>![](_page_8_Figure_4.jpeg)
+<!-- Image Description: The image contains two 3D surface plots. (a) shows the observed landscape of an L2 gradient matching loss function, while (b) displays the ground truth landscape of an LPIPS loss function. Both plots visualize loss functions across two variables (x and y), with the z-axis representing the loss value. The plots illustrate the difference between observed and actual loss function behavior, crucial for evaluating the accuracy of a method within the paper. -->
 
 Figure 9. Visualization of the loss landscapes.
 
@@ -336,6 +346,7 @@ Bonawitz, Zachary Charles, Graham Cormode, Rachel Cummings, et al. Advances and 
 Due to page limit, we only include the reconstruction results under the Soteria [\[44\]](#page-10-6) defense in our main paper (Figure [5\)](#page-6-1) for additional visualization samples on the ImageNet dataset. Here we present the full results under all 4 considered defenses (i.e., additive noise [\[44,](#page-10-6) [56\]](#page-10-4) with σ = 0.1, gradient clipping [\[14,](#page-9-9) [48\]](#page-10-5) with S = 4, gradient spasification [\[56\]](#page-10-4) with a pruning rate of 90%, and Soteria [\[44\]](#page-10-6) with a pruning rate of 80%) in Figure [10.](#page-10-17) We observe that our method is able to reconstruct high-quality images from gradients in all these considered cases regardless of the type of defense.
 
 <span id="page-10-17"></span>![](_page_10_Picture_19.jpeg)
+<!-- Image Description: The image presents a comparison of four image restoration techniques on four example images (shark, bird, bird, hummingbird). The top row shows the original images. Subsequent rows illustrate the effects of additive noise, gradient clipping, gradient sparsification, and a method called Soteria. Each row demonstrates how the chosen technique alters the images, showing visual impacts of different noise reduction and image restoration approaches. The purpose is to visually compare the performance of these techniques. -->
 
 Figure 10. Reconstruction results under various defenses on the ImageNet dataset: (first row) original images and (the rest of rows) their reconstructions by GGL under various defenses.
 
@@ -371,6 +382,7 @@ Figure 11. GAN structure for the CelebA dataset.
 Comparison with GAN Inversion. In our attack, we consider the private image to be unknown and the adversary attempts to reconstruct the image from the shared gradient information using a pre-trained GAN. However, such reconstruction is constrained by the generator's fitting abil-
 
 <span id="page-11-2"></span>![](_page_11_Figure_7.jpeg)
+<!-- Image Description: This image shows the results of a GAN inversion experiment. The top shows four images of a dog: an original, and three generated versions using different alpha (α) values representing a gradient matching loss (GGL) and interpolation. The bottom graph plots gradient matching loss and LPIPS values against α. The graph illustrates how image quality (LPIPS) and loss vary with different methods (GGL, interpolation, GAN inversion) of image generation. -->
 
 Figure 12. Comparison of image reconstructed by our method and GAN inversion.
 
@@ -379,6 +391,7 @@ ity. GAN inversion technique which inverts a given image to the GAN's latent spa
 Different Defenses. We next analyze how each defense mechanism affects the loss landscape. We extend the visualization to a 2D surface by adding a second random direction vector η (normalized according to z<sup>2</sup> − z1): z(α, β) = z<sup>1</sup> + α(z<sup>2</sup> − z1) + βη. Figure [13](#page-12-1) shows the visualized loss surface under different defense settings. We can see that additive noise and gradient sparsification do not have much impact on the geometric landscape of the gradient matching loss, whereas gradient clipping and Soteria [\[44\]](#page-10-6) clearly deform the gradient matching loss surface, rendering it hard for the adversary to find a good reconstruction under such defenses. However, by applying the adaptive transformation at the adversary's side, such deforma<span id="page-12-0"></span>tion can be greatly mitigated and thereby enables the adversary to reconstruct high-quality images even with the presence of these defenses.
 
 <span id="page-12-1"></span>![](_page_12_Figure_1.jpeg)
+<!-- Image Description: The image displays eight 3D surface plots visualizing gradient matching loss landscapes under different defense mechanisms against adversarial attacks. Each plot shows the loss as a function of two adversarial perturbation parameters. The defenses include: no defense, additive noise, gradient clipping, gradient clipping with transformation, gradient sparsification, gradient sparsification with transformation, Soteria, and Soteria with transformation. The color scales represent the magnitude of the loss. The figure aims to compare the effectiveness of each defense in mitigating adversarial attacks by illustrating the changes in the loss landscape. -->
 
 Figure 13. Visualization of observed loss landscapes under various defense settings. The bottom 3 rows compare the loss surface with (right) and without (left) applying adaptive transformation at the adversary's side.
 
@@ -391,14 +404,17 @@ Differently, we seek to investigate the privacy leakage under various defense st
 To investigate the generalizability of GGL, we conducted additional experiments on batched ImageNet images (224×224px) and with multiple local steps, with the results presented in Figure [14](#page-12-2) and Figure [15,](#page-12-3) respectively. We can see that GGL can still restore a decent amount of visual information under these settings. The proposed GGL can be further strengthened with additional prior information (e.g., BN statistics).
 
 <span id="page-12-2"></span>![](_page_12_Picture_8.jpeg)
+<!-- Image Description: The image displays two 4x4 grids of images. The left grid shows various bird species, including grouse and black grouse, demonstrating intra-species and inter-species variation. The right grid showcases black swans, elephants, and echidnas, illustrating a different set of species and diversity. The purpose is likely to visually represent the datasets used in a study comparing image classification or recognition across different animal species. -->
 
 Figure 14. Image reconstruction with batch size = 4: (1st row) original images, (2nd row) reconstructions by GGL w/o defense, and (3rd row) reconstructions by GGL w/ Soteria [\[44\]](#page-10-6) defense.
 
 <span id="page-12-3"></span>![](_page_12_Figure_10.jpeg)
+<!-- Image Description: This image compares image reconstruction with and without a defense mechanism. It shows an original image of a dog's face and its reconstructions under varying parameters ("Local Steps" and "Local LR"). The left shows reconstructions without defense, exhibiting degradation. The right shows reconstructions using the "Soteria" defense, demonstrating improved image quality despite reconstruction attempts. The variations in parameters illustrate the defense mechanism's effectiveness under different conditions. -->
 
 Figure 15. Reconstruction by GGL with multiple local steps.
 
 <span id="page-12-4"></span>![](_page_12_Picture_12.jpeg)
+<!-- Image Description: This image displays a comparison of high-resolution and blurred images. The top row shows sharp images of a woman, another woman, a peacock, a German Shepherd, a man holding a fish, and two dogs. The bottom row presents the same subjects but with their features blurred. The image likely illustrates the effect of a blurring technique or image degradation process, used to evaluate the robustness or performance of an image processing algorithm or model within the paper. -->
 
 Figure 16. Reconstruction of*in-the-wild*images: (1st row) images from*Google Images*and (2nd row) their reconstructions by GGL.
 

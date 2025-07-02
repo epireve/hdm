@@ -1,7 +1,7 @@
 ---
 cite_key: "zhang2022"
-title: "**Building a Knowledge Base of Bridge Maintenance Using Knowledge Graph**"
-authors: "**Yang Zhang , <sup>1</sup> Jia Li[u](https://orcid.org/0009-0003-5497-9533) , <sup>1</sup> and Kepeng Ho[u](https://orcid.org/0009-0004-2418-4681) <sup>2</sup>**"
+title: "Research Article# Building a Knowledge Base of Bridge Maintenance Using Knowledge Graph"
+authors: "Yang Zhang"
 year: 2022
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -12,6 +12,7 @@ images_removed: 0
 ---
 
 ![](_page_0_Picture_2.jpeg)
+<!-- Image Description: The image is the logo for Hindawi, a publisher of open-access scientific journals. It consists of a stylized graphic element—two interlocking, abstract shapes in teal and green—placed to the left of the "Hindawi" wordmark in dark gray. The logo likely serves as the publisher's identifier within the academic paper. There are no diagrams, charts, graphs, or equations present. -->
 
 # *Research Article*# Building a Knowledge Base of Bridge Maintenance Using Knowledge Graph
 **Yang Zhang , <sup>1</sup> Jia Li[u](https://orcid.org/0009-0003-5497-9533) , <sup>1</sup> and Kepeng Ho[u](https://orcid.org/0009-0004-2418-4681) <sup>2</sup>**
@@ -55,6 +56,7 @@ A knowledge base is a dataset with formal semantics that contains diverse types 
 *2.2. Construction Method.*Tere are usually two approaches to building KGs: bottom-up and top-down [\[30\]](#page-15-0). Te bottom-up approach starts with the construction of a data layer and subsequent defnition of a schema layer, and its reverse process is the top-down approach [[30](#page-15-0)]. Te former is suitable for building a general knowledge graph, and the latter is extensively used in the construction of domain knowledge graphs [[39\]](#page-15-0). A hybrid approach that combines the two is adopted to construct the BMKG in this study. In
 
 ![](_page_2_Figure_7.jpeg)
+<!-- Image Description: The Venn diagram illustrates the overlapping features of ontologies and knowledge graphs (KGs). The ontology section includes "axiom" and "function," while the KG section contains "properties of a relation." The overlapping area, representing common elements, shows "class," "instance," and "relation." The diagram visually compares and contrasts the core components of these two knowledge representation methods. -->
 
 Figure 1: Te relationship between an ontology model and a KG.
 
@@ -89,10 +91,12 @@ Table 1: Corresponding relationships between an ontology model and a KG.
 "—" denotes that an ontology model or a KG does not include a corresponding component.
 
 ![](_page_3_Figure_5.jpeg)
+<!-- Image Description: The image is a nested-circle diagram illustrating the relationship between three knowledge graph (KG) concepts. The largest circle represents the general "Knowledge base," encompassing a smaller light-blue circle labeled "KG." Within that is a smaller pale-green circle labeled "BMKG," indicating that BMKG is a subset of KG, which is itself a subset of a broader knowledge base. The diagram visually depicts the hierarchical inclusion of these knowledge graph types within the paper's proposed framework. -->
 
 Figure 2: Te relationship between a knowledge base, a KG, and the BMKG.
 
 ![](_page_3_Figure_7.jpeg)
+<!-- Image Description: This flowchart depicts a 14-step ontology development process for bridge maintenance knowledge. Steps 1-6 detail ontology creation, including domain definition, term enumeration, and class/property definition. Steps 7-10 describe knowledge acquisition, encompassing data gathering and entity/attribute/relation extraction. Steps 11-14 cover ontology modeling, reasoning, consistency checks, and storage. The flowchart visually organizes the sequential and parallel tasks involved. -->
 
 Figure 3: A workfow for building the BMKG.
 
@@ -113,6 +117,7 @@ Te bridge structure ontology is shown in Figure [4](#page-5-0). Te "BridgePortio
 To complete the missing relations, the Pellet 2.2.0 (a reasoning engine) was used to implement intelligent reasoning on the BMDO in Proteg´ e, and the inference process is ´ shown in Figure [9](#page-10-0). In the BMDO, subcomponents of bridge
 
 <span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
+<!-- Image Description: This image is a UML class diagram depicting a hierarchical model of a cable-stayed bridge (Jiuzhou Channel Bridge). It illustrates the bridge's composition, from the top-level BridgeType down to individual sub-elements like `SteelBoxGirder_1`. Relationships such as `HasComponent`, `HasSubcomponent`, and `HasElement` show the structural breakdown. Data types (e.g., `xsd:float` for weight) and properties are also specified. The diagram aims to represent the bridge's ontology for data modeling or analysis within the paper. -->
 
 Figure 4: A schematic of the bridge structure ontology (partial view). HZMB denotes the Hong Kong-Zhuhai-Macao bridge.
 
@@ -122,6 +127,7 @@ To calculate the degree of the "Flaking\_1," a rule reasoning will be implemente
 *3.3. Knowledge Storage.*To improve the efciency of knowledge access, the OWL ontology fles will be converted and stored in a graph database. In this paper, Neo4j, a popular graph database management system [\[47](#page-15-0)], is chosen as a knowledge storage tool. Instances and their datatype properties, and object properties among instances in an OWL ontology model can be represented by nodes, node properties, and relationships in Neo4j, respectively.
 
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
+<!-- Image Description: This image depicts a hierarchical ontology model for bridge defect assessment. It uses a flowchart-like structure showing relationships between concepts (e.g., hazard, material, inspection method) and their properties. Specific examples include "coating deterioration" leading to "discoloration," and flaking assessment using visual inspection and a quantitative description based on relative area. The model also integrates a rating scheme and legend, illustrated with a sample image, linking visual observations to quantitative measures. The ontology connects to a bridge structure ontology, showing how the model integrates within a larger system. -->
 
 Figure 5: A schematic of the bridge defect ontology (partial view).
 
@@ -140,6 +146,7 @@ In existing practical applications, the bridge maintenance knowledge is represen
 #### <span id="page-7-0"></span>8 Advances in Civil Engineering
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image presents a UML diagram detailing a bridge maintenance ontology. It depicts relationships between design requirements, quality inspection methods, repair actions (coatings), and defect ontology (flaking). Boxes represent concepts and actions, arrows show relationships, and a numerical rating scheme is included to assess the degree of flaking. The ontology specifies inspection frequencies, adhesive forces, and cost data (21.6 CNY/10m²) for different repair scenarios. The diagram aims to formalize bridge maintenance procedures and quality standards. -->
 
 Figure 6: A schematic of the bridge maintenance ontology (partial view).
 
@@ -204,18 +211,22 @@ suitable method. In terms of knowledge query, bridge experts can retrieve data f
 In terms of overall development cost, the overall development cost of a KG is less compared with an RDBbased knowledge base. First, for development time of a knowledge base, rule reasoning and ontology reasoning can autocomplete the missing relations or attribute values during KG construction. Terefore, compared with a traditional RDB-based knowledge base, we may spend less time on developing a KG at least in theory. Second, besides the development time of a knowledge base, it should be pay attention to the development time of a software because a knowledge base is often integrated into a software system (e.g., a bridge management system) to maximize its value. As updating a KG has a lower impact on existing program codes compared with updating an RDB-based knowledge base, we will also spend less time on developing a KG-based software system. Tird, for manpower cost, compared with traditional relational databases, a graph database reduces the difculty of designing and using a database, which will allow a bridge engineer to participate deeply in the construction of the BMKG. Te dependency on database engineers will be lowered accordingly.
 
 <span id="page-9-0"></span>![](_page_9_Figure_1.jpeg)
+<!-- Image Description: This image is an ontology diagram depicting relationships between various bridge components, evaluation methods, maintenance actions, and costs. Rectangles represent classes (e.g., BridgeComponent, MaintenanceAction), diamonds represent data properties (e.g., RepairCoating_6), and circles represent individuals. Lines show relationships like "has subclass" or "has element". The ontology aims to structure bridge management data, enabling efficient querying and analysis of bridge conditions and maintenance needs. -->
 
 Figure 8: Te BMDO visualization in the Proteg´ e (partial view). ´
 
 ![](_page_9_Picture_3.jpeg)
+<!-- Image Description: The image displays a software interface showing ontological modeling of a bridge railing. A hierarchical list shows the railing's class and related bridge components. The main section displays property assertions: "IsComponentOf Cable-stayedBridge" (object property) and "Component Type," "Weight" (data properties with values). This illustrates the knowledge representation of bridge components within a specified ontology. -->
 
 (a) Figure 9: Continued.
 
 <span id="page-10-0"></span>![](_page_10_Figure_1.jpeg)
+<!-- Image Description: The image shows a screenshot of a software interface, likely for ontology modeling or knowledge representation. It displays a hierarchical structure of bridge components, with "Railing" as a parent component having "SteelRailing" and "ConcreteBarrier" as subcomponents. A pop-up window details the justification for "SteelRailing" being a subcomponent of "Railing," demonstrating a relationship using "IsSubComponentOf" and its inverse. The purpose is to illustrate the software's capability to represent and reason about component relationships within a complex system. -->
 
 Figure 9: Proteg´ e screenshot of the inference process of ontology reasoning: (a) before the reasoning and (b) after the reasoning. ´
 
 ![](_page_10_Figure_3.jpeg)
+<!-- Image Description: This image shows a software interface displaying a knowledge representation of bridge defects. A hierarchical list shows various bridge components and defects, including "Flaking." A highlighted section details "Flaking_1," specifying its type ("Deficiency"), location ("BoxGirder_BottomPlate"), relative area (0.009f), and degree (3). An explanation panel provides logical rules (SWRL) defining these attributes, demonstrating the system's reasoning process for classifying this specific bridge defect. -->
 
 Figure 10: Te result of rule reasoning.
 
@@ -233,16 +244,20 @@ Figure 10: Te result of rule reasoning.
 | 5      | Relative area >0.15          | Defciency(?defect)^BelongTo(?defect, Flaking)^RelativeArea(?defect,?area)^swrlb:<br>greaterTan(?area,0.15)- > Defciency(?defect)^Degree(?defect,5)                                        |
 
 <span id="page-11-0"></span>![](_page_11_Figure_1.jpeg)
+<!-- Image Description: The image displays a technical comparison of asserted and inferred class hierarchies (a, b) within an ontology. Both (a) and (b) show hierarchical tree structures representing bridge-related concepts. (a) shows the asserted hierarchy, while (b) presents the inferred hierarchy expanded by a reasoner. (c) shows a log detailing the inference process, reporting successful computation of class, object, and data property hierarchies and assertions, completing in 2 milliseconds using the Pellet reasoner. -->
 
 Figure 11: Te results of consistency check: (a) before the reasoning, (b) after the reasoning, and (c) the reasoning log.
 
 ![](_page_12_Figure_1.jpeg)
+<!-- Image Description: That's not an image containing a diagram, chart, graph, equation, or illustration. It's simply a blurry, low-resolution image showing the numerals "13". There is no technical content to analyze; it appears to be a page number or a section reference, irrelevant without further context from the paper itself. -->
 
 <span id="page-12-0"></span>![](_page_12_Figure_3.jpeg)
+<!-- Image Description: Figure 12 is a partial schematic diagram of a Bridge Maintenance Knowledge Graph (BMKG). It uses a node-and-edge representation to illustrate relationships between bridge components (e.g., SteelBoxGirder), deficiencies (e.g., Flaking), maintenance actions (Repair Coating), and rating schemes. The diagram visually depicts data dependencies and is complemented by a Cypher query example to retrieve specific data based on these relationships. -->
 
 Figure 13: Te query result of the maintenance actions.
 
 <span id="page-13-0"></span>![](_page_13_Figure_1.jpeg)
+<!-- Image Description: This diagram shows a conceptual model of bridge component evaluation. Nodes represent concepts like "Bridge Component," "Evaluation Indicator," "Inspection Method," etc. Solid arrows indicate direct relationships, while dashed red arrows depict less direct or more complex relationships. Annotations ("many-to-many," "one-to-many") specify the cardinality of these relationships. The diagram visually depicts the interconnectedness of various factors involved in bridge assessment. -->
 
 Figure 14: A partial structure of domain knowledge of bridge maintenance.
 
@@ -260,6 +275,7 @@ Figure 14: A partial structure of domain knowledge of bridge maintenance.
 Diference denotes the result of subtracting a corresponding value of the "original structure" row from a corresponding value of the "new structure" row.
 
 ![](_page_13_Figure_6.jpeg)
+<!-- Image Description: The image displays a knowledge graph representation of material deficiencies, shown as nodes with attributes like length, width, depth, relative area, corrosion potential, resistivity, and humidity. A relational database table summarizes these attributes for each deficiency type (cracking, flaking, blowhole, steel corrosion, and internal dampness). Each node in the graph is assigned a 'degree', likely representing the severity or importance of the deficiency. The purpose is to illustrate the structured representation of material defect data for use in a knowledge-based system or database. -->
 
 Figure 15: Data sparsity in a relational database.
 

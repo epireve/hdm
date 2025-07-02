@@ -1,6 +1,7 @@
 ---
 cite_key: "arxiv_240803910_framework_brid"
 title: "CODEXGRAPH: Bridging Large Language Models and Code Repositories via Code Graph Databases"
+authors: "Zhiyuan Hu, Yang Liu, Zhicheng Zhang, Fei Wang, Michael Shieh, Wenmeng Zhou"
 year: 2021
 doi: "10.1561/1500000019."
 date_processed: "2025-07-02"
@@ -28,6 +29,7 @@ Current LLMs struggle with long-context inputs, limiting their effectiveness wit
 <sup>∗</sup>Equal contribution. Work was done during Xiangyan's internship at Alibaba.
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: The image contains two diagrams. (a) illustrates CodexGraph's architecture: an LM agent interacts with a code graph database, exchanging schema information with a code repository. (b) shows CodexGraph's applications, demonstrating its integration with academic benchmarks (CrossCodeEval, EvoCodeBench, SWE-Bench) and real-world applications (Code Chat, Code Debugger, etc.). The diagrams visually represent the system's structure and functionality. -->
 
 Figure 1: (a) Using a unified schema, CODEXGRAPH employs code graph databases as interfaces that allow LLM agents to interact seamlessly with code repositories. (b) CODEXGRAPH supports the management of a wide range of tasks, from academic-level code benchmarks to real-world software engineering applications. recall rates. Meanwhile, existing tool/API-based interfaces that connect codebases and LLMs are typically task-specific and require extensive expert knowledge [\(Orwall](#page-13-1) ¨ , [2024;](#page-13-1) [Chen et al.,](#page-10-5) [2024\)](#page-10-5). Furthermore, our experimental results in Section [5](#page-6-0) indicate that the two selected methods lack flexibility and generalizability for diverse repository-level code tasks.
 
@@ -74,6 +76,7 @@ Phase 2: Complete the edges. The second phase addresses the limitations of shall
 <span id="page-3-2"></span><sup>2</sup><https://github.com/CoatiSoftware/Sourcetrail>
 
 <span id="page-4-1"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: The image depicts a system architecture for translating code questions into graph queries. A primary language model (LM) agent receives a code question (e.g., "complete unfinished code"), generates natural language queries (e.g., "retrieve module where class 'LinearClassifier' is defined"), and passes them to a translation LM agent. The translation agent then produces a graph query (Cypher syntax) to extract relevant information from a schema. The diagram illustrates the workflow with boxes representing agents and data, and arrows indicating data flow. -->
 
 Figure 3: The primary LLM agent analyzes the given code question, writting natural language queries. These queries are then processed by the translation LLM agent, which translates them into executable graph queries.
 
@@ -174,6 +177,7 @@ CODEXGRAPH increases token consumption. CODEXGRAPH uses code graph databases as 
 Optimal querying strategies vary across different benchmarks. There are two strategies for formulating queries in each round within CODEXGRAPH: either generating a single query or producing multiple queries for code retrieval. Opting for a single query per round can enhance precision in retrieving relevant content but may compromise the recall rate. Conversely, generating multiple queries per round can improve recall but may reduce precision. Experimental results, as illustrated in Figure [4,](#page-7-1) reveal that for CrossCodeEval Lite (Python), which involves lower reasoning dif-
 
 <span id="page-7-1"></span>![](_page_7_Figure_10.jpeg)
+<!-- Image Description: The image presents three bar charts comparing performance metrics for single versus multiple queries on two code search benchmarks: CrossCodeEval Lite (Python) and SWE-bench Lite. The charts display Exact Match (EM), Edit Similarity (ES), and Pass@1, showing higher scores for multiple queries in both benchmarks, indicating improved performance with multiple query inputs. Each bar's color represents the query type. -->
 
 Figure 4: Performance comparison of different querying strategies on CrossCodeEval Lite (Python) and SWE-bench Lite.
 
@@ -411,6 +415,7 @@ The Code Debugger diagnoses and resolves bugs by applying iterative reasoning an
 Here is an example of Code Debugger. The user's input is a real issue[10](#page-18-0) where the outcome does not match the expected behavior. The Code Debugger first analyzes the problem, then uses Cypher queries to retrieve relevant information and infer the cause of the bug. Finally, it provides an explanation of the bug and suggests the location for the modification.
 
 ![](_page_18_Figure_4.jpeg)
+<!-- Image Description: The image displays Python code demonstrating an issue with the OpenAI API's `chat_no_stream()` method. The code snippet shows a call to the method and subsequent retrieval of usage information (`usage_info`). The "Actual Output" section shows an empty dictionary, while the "Expected Output" shows a dictionary containing token counts ("prompt_tokens," "completion_tokens," "total_tokens"), highlighting a discrepancy between the actual and expected results. This demonstrates a bug where token usage is not properly reported. -->
 
 Figure 9: The issue describes a problem where the outcome does not match the expected behavior.
 
@@ -419,12 +424,14 @@ Figure 10: Analyzing the problem and retrieving information using Cypher queries
 <span id="page-18-0"></span><sup>10</sup><https://github.com/modelscope/modelscope-agent/pull/549>
 
 ![](_page_19_Figure_4.jpeg)
+<!-- Image Description: Figure 11 is a caption describing a process, not an image containing a diagram, chart, graph, equation, or technical illustration. The caption states that the figure depicts the execution of Cypher queries to search code for relevant information. It indicates that the figure illustrates a code search method using Cypher queries. -->
 
 Figure 12: Analyzing the retrieved information to identify potential causes of the bug.
 
 Figure 13: Performing additional Cypher code searches to gather more information.
 
 ![](_page_20_Picture_9.jpeg)
+<!-- Image Description: The image contains only the word "analysis," suggesting that it's a placeholder or caption for a section of the paper detailing an analysis. There are no diagrams, charts, graphs, equations, or illustrations present in this image itself. The small graphic appears to be a logo or watermark unrelated to the analysis content. -->
 
 Figure 14: Inferring the cause of the bug based on the analysis of the retrieved information.
 
@@ -435,12 +442,14 @@ Figure 15: Identifying the precise location of the bug in the codebase.
 ### Figure 17: Suggesting the first modification to resolve the bug.
 
 ![](_page_21_Figure_20.jpeg)
+<!-- Image Description: Figure 18 is a caption, not a diagram, chart, graph, equation, or technical illustration. It describes a second modification proposed in the paper to ensure a bug is resolved. The caption itself serves to label and briefly explain the content of a presumably missing figure. -->
 
 ### A.2.3 Example of Code Unittestor result = self.user.login('testuser', 'correctpassword') self.assertTrue(result, "Login should succeed with correct credentials")
 
 Here is an example of Code Unittestor. The user's input is: "Generate test cases for TaskManager." The CodexGraph agent will first retrieve all methods and inheritance relationships in 'TaskManager', and then generate detailed test case code. def **test\_login\_empty\_username**(self): *# Test login with empty username* with self.assertRaises(ValueError): self.user.login('', 'password') if \_\_name\_\_ == '\_\_main\_\_':
 
 ![](_page_22_Figure_2.jpeg)
+<!-- Image Description: The image displays Python unit test code for a `TaskManager` class. It includes test functions (`test_add_task_success`, `test_add_task_failure`, `test_add_task_invalid_input`, `test_init_method`) verifying the `add_task` method's handling of successful addition, failure (due to existing task ID), invalid input, and class initialization. Mocking is used to isolate the `add_task` method for focused testing. The code uses assertions (`assertTrue`, `assertFalse`, `assertRaises`, `assertIsInstance`) to validate expected outcomes. -->
 
 Figure 19: Generated detailed unit test code for the 'TaskManager' class, covering its methods and inheritance relationships.
 
@@ -472,6 +481,7 @@ Figure 21: By using Cypher queries, it was discovered that the corresponding fie
 The Code Commentor analyzes code to provide detailed comments, enhancing code readability and maintainability. It leverages the code graph database to understand the code's structure and behavior, ensuring accurate and informative comments.
 
 ![](_page_23_Figure_4.jpeg)
+<!-- Image Description: The image displays a Python code snippet showing a `TaskManager` class inheriting from `BaseManager`. The snippet includes an `__init__` method and an `add_task` method that creates a `Task` object and utilizes the base class's `add_item` method. Accompanying text explains the code's origin and purpose, emphasizing the need to understand the involved classes and methods for effective commenting. -->
 
 Figure 22: The thought process: Understand the 'Task' class and 'add item' method.
 

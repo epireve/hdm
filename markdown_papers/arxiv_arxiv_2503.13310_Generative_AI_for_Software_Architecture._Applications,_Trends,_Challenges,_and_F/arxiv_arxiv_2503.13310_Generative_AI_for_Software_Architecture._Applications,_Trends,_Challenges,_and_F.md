@@ -1,7 +1,7 @@
 ---
 cite_key: "a2025"
 title: "Generative AI for Software Architecture. Applications, Challenges, and Future Directions"
-authors: "Matteo Esposito a , Xiaozhou Li a , Sergio Moreschinia,b, Noman Ahmad a , Tomas Cerny c , Karthik Vaidhyanathan d , Valentina Lenarduzzi a , Davide Taibi a"
+authors: "Matteo Esposito, Xiaozhou Li, Sergio Moreschini, Noman Ahmad, Tomas Cerny, Karthik Vaidhyanathan, Valentina Lenarduzzi, Davide Taibi"
 year: 2025
 doi: "10.5281/zenodo.15032395"
 date_processed: "2025-07-02"
@@ -159,6 +159,7 @@ What future challenges are identified for the use of Generative AI in software a
 As a last RQ, we investigate the future challenges of GenAI in software architecture for which researchers and practitioners should work in the next years (RQ3).
 
 <span id="page-4-0"></span>![](_page_4_Figure_15.jpeg)
+<!-- Image Description: This flowchart depicts a research methodology. It outlines the steps from defining the research goal and questions to data interpretation, showing the process of literature review (using Google Scholar, gray and peer-reviewed literature), data extraction from 46 documents (selected from an initial 1054), synthesis, and interpretation, ultimately providing answers to research questions. The flowchart uses boxes for activities, cylinders for data, and arrows to indicate the sequence and data flow. -->
 
 Figure 1: Study Workflow
 
@@ -435,6 +436,7 @@ Most of the works we considered belong to white literature (36; 78%) while 22% (
 Here, we present how GenAI is currently applied in SA in terms of purpose, models used, and techniques for performance improvement, such as prompt engineering practices and the level of human interaction.
 
 <span id="page-9-0"></span>![](_page_9_Figure_5.jpeg)
+<!-- Image Description: The image is a stacked bar chart showing the distribution of "Grey" and "White" across three years: 2023, 2024, and 2025. In 2023, there were 5 Grey and 3 White. In 2024, there were 4 Grey and 22 White. Finally, in 2025, there was 1 Grey and 11 White. The chart likely illustrates trends or quantities of two categories over time within the paper's context. -->
 
 Figure 2: Publication Source Trend
 
@@ -461,6 +463,7 @@ OpenAI GPT models dominate (62%) the research landscape, while alternatives such
 Among the techniques to enhance the capabilities and performance of GenAI, Fine-Tuning is applied in 12% (6) of the studies, that is, some researchers have chosen to finetune LLMs for specific architectural tasks with additional training. In particular, WL[\[4\]](#page-23-27) used Fine-Tuning to align the LLM in generating serverless functions. RAG, including proprietary variants, is applied in 20% (10) of the studies, suggesting that applying external knowledge sources is a common method to improve LLM performance in software architecture contexts. For example, WL[\[6\]](#page-23-28) used RAG and Fine-Tuning to retrieve architecture knowledge man-
 
 <span id="page-10-0"></span>![](_page_10_Figure_10.jpeg)
+<!-- Image Description: The stacked bar chart displays the number of large language model (LLM) papers published per year (2023-2025), categorized by the underlying LLM used. The largest contributor in 2024 is OpenAI (29 papers). The chart shows a breakdown of papers using specific LLMs (e.g., Code Qwen, DeepSeek, Google's LLM, LLaMA, Mistral, GitHub Copilot, T0/T5 derivatives) and miscellaneous others. It illustrates the prevalence of different LLMs within research publications over time. -->
 
 Figure 3: LLM Vendor Trend (RQ1.2)
 
@@ -570,6 +573,7 @@ The requirement-to-architecture-to-code illustrates efforts to optimize the enti
 \*One paper can have more than one model
 
 ![](_page_13_Figure_0.jpeg)
+<!-- Image Description: This image is a matrix visualizing the capabilities of various large language models (LLMs). Rows represent model enhancement techniques (fine-tuning, RAG, prompt engineering strategies), and columns list specific LLMs. Colored circles indicate whether each model supports a given technique (e.g., blue for human interaction, orange for zero-shot learning, green for fine-tuning). The purpose is to compare and contrast the features and capabilities of different LLMs. -->
 
 Figure 4: How GenAI is used
 
@@ -606,6 +610,7 @@ Concerning refactoring as a means of removing smells and improving overall softw
 Similarly, studies that perform architectural reconstruction rely on LLM to achieve this. More specifically, WL[\[16\]](#page-24-6) used LLM to map code components to a specific architecture, while WL[\[27\]](#page-24-22) used LLM to recover the deductive software architecture. Finally, only WL[\[20\]](#page-24-16) reported the use of external tools, validating the observation that LLMs are increasingly being used to recover architectural knowledge and are decreasing in strictly classical tools.
 
 <span id="page-14-0"></span>![](_page_14_Figure_0.jpeg)
+<!-- Image Description: This Sankey diagram illustrates the flow of contributions from various large language models (LLMs) to different software development tasks. The width of each colored band represents the number of contributions from a specific LLM (e.g., OpenAI, Google's LLM) to a particular task (e.g., Req-to-Arch, Arch-to-Code). The diagram visually displays the relative contribution of each LLM to different stages of software development, allowing for a comparison of their strengths and focuses. -->
 
 Figure 5: Sankey Plot connecting LLM Models to SALC Phase
 
@@ -915,6 +920,7 @@ In summary, addressing these highlighted challenges necessitates systematic vali
 Our study, being an MLR, covered both the white and gray literature to explore GenAI for Software Architec-
 
 <span id="page-21-0"></span>![](_page_21_Figure_0.jpeg)
+<!-- Image Description: The image displays a Sankey diagram illustrating the relationships between various aspects of Large Language Models (LLMs) and relevant research areas. Each colored band represents a key LLM characteristic (e.g., accuracy, hallucinations, ethical considerations) linked to its corresponding research focus (e.g., formal verification, ethical AI practices). The width of each band visually represents the strength of the relationship, showing which research areas are most strongly associated with each LLM characteristic. The diagram's purpose is to present a high-level overview of the research landscape surrounding LLM development and deployment. -->
 
 Figure 6: Challenges and Implications in GenAI for Software Architecture
 

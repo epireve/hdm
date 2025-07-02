@@ -1,7 +1,7 @@
 ---
 cite_key: "happiness2024"
 title: "KNOW–A Real-World Ontology for Knowledge Capture with Large Language Models"
-authors: "Emotions and mental states. Happiness, sadness, anger, fear, love, desire, beliefs, intentions, etc."
+authors: "Arto Bendiken"
 year: 2024
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -66,6 +66,7 @@ Our primary use cases revolve around everyday human concerns. For example, and i
 <span id="page-1-0"></span><sup>1</sup> Indeed, the distinction here is perhaps most clearly illustrated by considering the question of animals: scientific taxa and evolutionary lineages aside, from an early age children tend to consider themselves as something categorically distinct from animals.
 
 ![](_page_2_Figure_0.jpeg)
+<!-- Image Description: This image is a hierarchical tree diagram illustrating a taxonomy of "Thing". It branches into four main categories: Person, Group, Place, and Event. Each category is further subdivided into more specific entities (e.g., Person branches into Family, Nationality, etc.; Place branches into Airport, Cafe, etc.; Event into Birthday, Meeting, etc.). The diagram likely serves to define and categorize data types within the scope of the paper, possibly for knowledge representation or information retrieval. -->
 
 <span id="page-2-0"></span>Figure 1: Top-level classes in the ontology (not comprehensive)
 

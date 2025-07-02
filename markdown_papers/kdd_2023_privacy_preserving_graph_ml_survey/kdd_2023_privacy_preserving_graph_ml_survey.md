@@ -1,7 +1,7 @@
 ---
 cite_key: "fu2024b"
 title: "Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey"
-authors: "Dongqi Fu, Wenxuan Bao, Ross Maciejewski, Hanghang Tong, Jingrui He"
+authors: "Dongqi Fu"
 year: 2024
 doi: "10.48550/arXiv.2307.04338"
 url: "https://arxiv.org/abs/2307.04338"
@@ -51,10 +51,12 @@ For the computation aspect, graph data privacy-preserving computation, we focus 
 <span id="page-0-1"></span><sup>2</sup>Throughout the paper, we use "attackers" to denote the attacks on graphs. There are also attackers that are designed not for graphs but for Euclidean data, for example. Those are not in the scope of this paper.
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: The image displays a before-and-after illustration of a graph undergoing privacy-preserving operations. The "Original Graph" shows nodes (circles) and edges (lines) with associated attributes (rectangles). The "Published (or Shared) Graph" depicts a modified version of the same graph, where some attributes have been altered to protect privacy. The arrow between the graphs indicates the transformation process, labeled "Privacy-Preserving Operations." The figure's purpose is to visually represent the anonymization or sanitization techniques applied to the graph data. -->
 
 Figure 1: Privacy-Preserving Graph Data. After the privacy-preserving generation, the original graph data is perturbed with certain connections and features permuted.
 
 ![](_page_1_Figure_2.jpeg)
+<!-- Image Description: The image depicts a federated learning system. A central model (brain-shaped) receives "local updates" (model weights) from three client models (cylinders). Each client model is a smaller neural network, represented by nodes and edges. The diagram illustrates the process of aggregating local model updates from distributed clients to improve the central model's accuracy. -->
 
 Figure 2: Graph Data Privacy-Preserving Computation. In the federated learning framework, each client model has its own graph data, and the data itself is not transmitted (but the model parameters) to the central model.
 
@@ -67,6 +69,7 @@ Relation with Previous Studies. For the privacy-preserving graph data, we system
 ### PRIVACY-PRESERVING GRAPH DATA
 
 <span id="page-1-1"></span>![](_page_1_Figure_9.jpeg)
+<!-- Image Description: This diagram categorizes attackers in a network context as either active (requiring planted actions) or passive (relying on background knowledge). Attacker goals are node identity disclosure and link re-identification. A second section illustrates privacy-preserving operations (e.g., randomized, DP-based) mitigating these attacks, showing different mitigation strategies for general and vulnerable nodes/links. The diagram visually organizes attack types, goals, and mitigation techniques. -->
 
 Figure 3: Taxonomy Structure of Section 2.
 
@@ -270,6 +273,7 @@ Next, we will introduce algorithms for graph-level FL in two parts: global feder
 #*3.2.1 Global Federated Learning*Global federated learning (GFL) aims to train a shared global model for all clients. FedAvg [\[58\]](#page-16-11) provides an initial solution for training GNNs with isolated graphs from multiple clients.
 
 <span id="page-9-0"></span>![](_page_9_Figure_0.jpeg)
+<!-- Image Description: The image displays three diagrams illustrating different levels of graph data partitioning for distributed graph processing. (a) shows graph-level partitioning, dividing a graph into multiple subgraphs stored across databases. (b) depicts subgraph-level partitioning, where individual subgraphs are further divided. (c) illustrates node-level partitioning, distributing individual nodes across databases. The cloud symbol represents the overall system. Each diagram shows how data is distributed among databases. -->
 
 Figure 4: Three application scenarios of graph federated learning.
 
@@ -378,6 +382,7 @@ Specifically, the generated synthetic data is used instead of the real data duri
 The combination of privacy graph data generation and graph federated learning frameworks has several benefits. First, it ensures privacy preservation during the training process by using synthetic data. Second, it enables the transfer of graph machine learning model parameters rather than embedding vectors or other information. This can improve the accuracy and efficiency of the model. Finally, it provides a robust defense against privacy attacks and reverse-engineering, as the transmitted information is just from the generated synthetic data and not the real data.
 
 <span id="page-12-0"></span>![](_page_12_Figure_14.jpeg)
+<!-- Image Description: The image depicts a federated learning system. A central model (represented as a brain-like network) receives local model updates (model weights) from multiple client models. Each client model processes data locally, performing privacy-preserving operations before sending updates. The central model aggregates these updates to improve its overall accuracy. The diagram illustrates the iterative exchange of information between the central and client models. -->
 
 Figure 5: Privacy-preserving Graph Data with Privacypreserving Computation.
 

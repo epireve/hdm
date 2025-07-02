@@ -1,6 +1,6 @@
 ---
 cite_key: "wickramarachchi2021b"
-title: "Bibliography"
+title: "Saher Mohamed, Kirollos Farah, Abdelrahman Lotfy, Kareem Rizk, Abdelrahman Saeed, Shahenda Mohamed, Ghada Khouriba, Tamer Arafa"
 authors: "- Wickramarachchi, R., Henson, C., Sheth, A., 2020. An Evaluation of Knowledge Graph Embeddings for Autonomous Driving Data: Experience and Practice. Technical Report. URL: https://arxiv.org/abs/2003.00344. accessed: Oct. 14, 2023."
 year: 2021
 doi: "10.3390/su13063191."
@@ -59,10 +59,12 @@ Fig 2 provides overview of the process involved in constructing and utilizing a 
 mats such as XML, web pages, and JSON. These various data types are essential inputs into the knowledge graph construction process. The different brains in-volved in the process are then depicted. The human brain is responsible for processing information, transforming it into knowledge, and eventually into wis-dom. On the other hand, the machine brain involves data preprocessing and analysis, transforming raw data into useful insights. In the data preprocessing and analysis phase, the machine brain handles the crucial step of converting unstructured and semi-structured data into a format suitable for knowledge ex-traction. The knowledge graph construction process is divided into three main parts: knowledge extraction, knowledge fusion, and knowledge refinement. In the knowledge extraction phase, the system identifies entities within the data (entity extraction), extracts attributes of the identified entities (attribute extraction), and identifies relationships between entities (relation extraction). The knowledge fusion phase involves aligning entities across different data sources (entity align-ment) and linking entities to ensure consistency and integration (entity linking). Finally, the knowledge refinement phase includes classifying entities into prede-fined categories (entity classification), predicting potential relationships between entities (relation prediction), and identifying and addressing anomalies in the data (anomaly detection). The final step involves knowledge graph reasoning and representation, which enables advanced applications like semantic search, data integration, and decision-making. This step ensures that the knowledge graph can be used effectively to provide insights and support complex queries, ultimately facilitating better understanding and utilization of the underlying data.
 
 ![](_page_5_Figure_2.jpeg)
+<!-- Image Description: The image is a timeline illustrating the historical development of Semantic Web technologies. It shows key milestones: Semantic Networks (1960s), Ontologies (1970s-1980s), culminating in the Semantic Web (1990s-2000s). Linked Data and Knowledge Graphs are shown as later evolutions, building upon earlier concepts. The diagram uses boxes and arrows to connect these concepts chronologically, visually representing their relationships and evolution. -->
 
 Fig. 1. A timeline illustrating the evolution of technologies and concepts in the field of knowledge graphs, from semantic networks in the 1960s to the Semantic Web and dynamic knowledge graphs.
 
 ![](_page_6_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a knowledge graph construction process. It begins with heterogeneous data (structured, unstructured, semi-structured) inputted into a "machine brain," which preprocesses and analyzes the data. Subsequent stages involve knowledge extraction (entity & attribute/relation extraction), fusion (entity alignment & linking), and refinement (entity classification, relation prediction, anomaly detection). The final output is a knowledge graph, representing the transformation from raw information to knowledge and ultimately, wisdom. Human and machine brains are represented symbolically. -->
 
 Fig. 2. An overview of the process for constructing and utilizing a knowledge graph from heterogeneous data sources.
 
@@ -133,6 +135,7 @@ Large language models have become invaluable tools for performing knowledge extr
 relationship extraction to understand how different entities might be connected based on analysis of language and contextual cues. This allows modeling rela-tionships between entities as structured triples. Llama 7b Touvron et al. (2023) model has shown great results in consistently extracting triples from unstruc-tured data. The process first involves preparing the unstructured data and for-matting it suitably as input. A prompt is then created to instruct the model to extract subject-predicate-object triples from the unstructured data. By con-structing the prompt in this way to specify triples should be extracted in this sin-gle format, it helps the model to maintain consistent output and avoid potential issues like varying output structures across multiple responses. This optimized approach to structuring both the data preparation step and the triple extraction process with a consistent prompt design allows the large language model to reliably extract structured knowledge in the form of triples from unstructured data in a repeatable manner without changing the output format in each model response as shown in fig 3.
 
 ![](_page_10_Figure_2.jpeg)
+<!-- Image Description: The image is a node-link diagram illustrating the relationships between Steve Jobs, Apple Inc., and several of its products. Nodes represent entities (e.g., "Apple Inc.", "Steve Jobs", "iPhone") and links show relationships (e.g., "co-founder," "a product of"). The diagram visually depicts Steve Jobs's central role in Apple's success and his association with iconic products, as well as his attributes like creativity and relentless pursuit. Its purpose is to provide a concise visual summary of key connections within the context of the paper. -->
 
 Fig. 3. Knowledge Graph Extracted Using Llama 7b
 
@@ -155,10 +158,12 @@ From the Karate Club library, the Deepwalk implementation was initialized with a
 The spaCy model has a problem in the creativity of defining the entities and the relations because it takes each word in the sentence and defines its entity or review, providing a huge knowledge graph with unusable entities. Then, the
 
 ![](_page_12_Figure_1.jpeg)
+<!-- Image Description: The image displays a knowledge graph depicting the structure of a machine learning course. Nodes represent topics (e.g., "Neural Networks and Deep Learning," "Activation Functions"), colored by category. Edges connect related topics, illustrating their interdependencies. The graph serves as a visual table of contents, showing the course's organizational structure and the relationships between different learning concepts. Two central nodes, representing core concepts, have larger sizes. -->
 
 Fig. 4. The knowledge graph with predicting relations without using get-entities.
 
 ![](_page_12_Figure_3.jpeg)
+<!-- Image Description: This image is a word graph illustrating relationships between words in a text corpus, likely for sentiment analysis or topic modeling. Nodes represent words (e.g., "positive," "bad," "review"), and edges connect related words, labeled with relationship descriptors (e.g., "many," "as," "difficult"). The graph visually displays word co-occurrence and semantic connections within the data, aiding analysis of textual patterns. -->
 
 Fig. 5. Sample part of review KG using get-entities and get-relation
 
@@ -173,6 +178,7 @@ logic of extracting entities or relations should be implemented based on the dat
 Clustering the entities in the knowledge graph allows groups of similar nodes to be identified, helping to understand the underlying themes or topics repre-sented. A number of algorithms were tested to cluster the entities derived from
 
 ![](_page_13_Figure_1.jpeg)
+<!-- Image Description: This image is a knowledge graph depicting the structure of a machine learning textbook. It uses nodes (circles) representing topics, such as "Introduction to Artificial Intelligence and Machine Learning" and "Neural Networks and Deep Learning," connected by edges indicating relationships. Larger, orange nodes represent major sections, while smaller, light-blue nodes represent subsections. The graph visually illustrates the hierarchical and interconnected nature of the subject matter. -->
 
 Fig. 6. The knowledge graph with additional predicting relations without using get-entities .
 
@@ -187,6 +193,7 @@ the RDF data was loaded into an RDFLIB graph representing the same nodes of enti
 After the knowledge graph was built by extracting the entities and relations from some Wikipedia sentences, the node2vec algorithm was applied, and also the DeepWalk model was tried to generate the node embeddings for the graph, and then the embeddings were in 2-dimensional as in Fig 10. The number of clusters was chosen based on the silhouette score. As a loop was applied on different values of the number of clusters, the final number should be the best number of clusters for this data based on the embeddings that catch the large node similarity and the best number of clusters. This number of clusters was applied to the K-means, and the nodes were visualized with different colors in Fig 9 based on the cluster assigned to this specific entity.
 
 ![](_page_14_Figure_1.jpeg)
+<!-- Image Description: The scatter plot displays faculty research interests clustered using a dimensionality reduction technique. Points represent individual faculty members, colored by cluster. The x and y axes represent the first two embedding dimensions resulting from the reduction. The plot visually demonstrates the grouping of faculty based on research similarity. Cluster separation suggests distinct research areas within the faculty. -->
 
 Fig. 7. The Embedding Clusters.
 
@@ -207,6 +214,7 @@ These clustering methods have limitations in that after each run; some enti-ties
 To address the limitations of traditional clustering methods, such as the insta-bility of cluster assignments and the lack of interpretability, ExCut Gad-Elrab
 
 ![](_page_15_Figure_1.jpeg)
+<!-- Image Description: The image displays a line graph plotting "Inertia" against "Number of Clusters (k)" in a k-means clustering analysis. The graph shows inertia decreasing as the number of clusters increases, exhibiting an elbow-like shape around k=3, suggesting an optimal cluster number for the dataset. The purpose is to visually determine the optimal number of clusters by identifying the point of diminishing returns in the inertia reduction. -->
 
 Fig. 8. The Elbow Graph.
 
@@ -222,6 +230,7 @@ et al. (2020) is designed to compute explainable entity clusters over knowledge 
 ExCut adopts a joint approach that encompasses both clustering and expla-nation mining. Initially, it learns embeddings for entities using models such as TransE and ComplEx. Subsequently, it performs initial clustering of target en-tities based on their embeddings. Concurrently, ExCut learns explanation rules for each cluster directly from the knowledge graph. These rules are then applied to infer new entity-cluster assignments. Importantly, the feedback from these assignments is used to fine-tune the embeddings, thereby guiding the clustering towards more coherent and explainable groups. The process iterates between clustering, rule learning, and embedding adaptation to enhance both the quality of the clusters and the clarity of their explanations.
 
 ![](_page_16_Figure_1.jpeg)
+<!-- Image Description: The image is a network graph depicting the collaborative relationships in a film production. Nodes, sized variably and colored red, purple, and green, represent individuals and entities (e.g., "Vikram Krishna," "screenplay," "om18 motion pictures"). Edges show production roles ("produced by," "written by"). The graph visually illustrates the complex network of contributors and their interconnected roles in creating the film. -->
 
 Fig. 9. The Clusters of the Nodes Using K-Means .
 
@@ -232,18 +241,21 @@ Experiments have demonstrated that ExCut generates clusters of higher quality an
 One of the major challenges faced with knowledge graphs is disconnected sub-graphs, where entities are not fully connected within the graph. When subgraphs are disconnected, the entities contained within them cannot benefit from poten-tial relationships and links to other parts of the knowledge graph. This fragmen-tation of information limits the insights that can be discovered from the graph. One effective approach for addressing disconnected subgraphs is link prediction using graph neural networks (GNNs). GNNs have the advantage of being able to learn representations of nodes by aggregating features from their neighbor-
 
 ![](_page_17_Figure_1.jpeg)
+<!-- Image Description: This scatter plot visualizes a 2D representation of node embeddings from a clustering algorithm (likely dimensionality reduction). Three distinct clusters are shown using different colors, indicating grouping based on the embedding's features. The x-axis represents Dimension 1, and the y-axis represents Dimension 2. The plot's purpose is to illustrate the effectiveness of the clustering algorithm by showing the separation of distinct clusters in the reduced dimensional space. -->
 
 Fig. 10. The Embedding Clusters Using K-Means.
 
 ing nodes in the graph. RAGAT Liu et al. (2021) is a specialized GNN model designed specifically for the task of link prediction within knowledge graphs. RAGAT predicts a score between 0 and 1 for each pair of entities, with scores closer to 1 indicating higher confidence that a link exists between the two enti-ties. RAGAT has an attention mechanism gives it several advantages over other link prediction models. Unlike methods that iterate over each node in the graph, RAGAT can identify the most nodes for predicting specific links. It assigns at-tention weights to nodes based on their predicted importance to the link. This allows RAGAT to focus its computations only on the subset of nodes most rel-evant to the prediction task. As a result, RAGAT can perform link prediction much more eficiently on large graphs compared to approaches that consider all nodes equally. The attention mechanism enables RAGAT to scale effectively to industry-sized knowledge graphs with millions or billions of entities and relation-ships. Its ability to quickly identify missing links helps address the fragmentation caused by disconnected subgraphs. RAGAT has shown promising results in evaluating its ability to predict missing links. RAGAT was tested on two stan-dard knowledge graph link prediction benchmarks. The datasets are divided into
 
 ![](_page_18_Figure_1.jpeg)
+<!-- Image Description: This image displays a knowledge graph visualizing relationships between various entities related to a film. Nodes represent entities (e.g., people, dates, keywords like "screenplay" or "sequel"), and edges indicate relationships (e.g., "written by," "released in," "produced by"). The graph's purpose is to illustrate the interconnectedness of different aspects of the film's production and context, potentially for analysis of its development or reception. The use of color-coded nodes may indicate categorical distinctions. -->
 
 Fig. 11. The clusters using gap statistics .
 
 three parts: test, validation, and training as seen in table 3. Each part follows the format of entity, relation, and entity. On the WN18RR benchmark dataset, RAGAT achieved a Mean Reciprocal Rank (MRR) score of 0.489 and a hit@10 score of 0.562. MRR is a common metric for evaluating link prediction mod-els, where higher scores indicate better performance. An MRR of 0.489 means that on average, the correct missing link was ranked in the top two predicted links by RAGAT. RAGAT was also evaluated on the FB15K-237 benchmark dataset, achieving an MRR of 0.365 and hit@10 of 0.547 as shown in table 4. These scores demonstrate RAGAT's effectiveness at the task compared to other GNN and baseline models on both datasets.Its attention mechanism allows it to identify high-confidence missing link predictions to help reduce fragmentation in knowledge graphs. The results on the three standard benchmarks validated RAGAT's ability to predict missing links with competitive performance.
 
 ![](_page_19_Figure_1.jpeg)
+<!-- Image Description: The image displays a 2D scatter plot visualizing node embeddings with clustering. Three distinct clusters of points are color-coded (purple, yellow, teal) and plotted across "Dimension 1" and "Dimension 2". The plot's purpose is to illustrate the effectiveness of a clustering algorithm on node embeddings, showing how the algorithm groups similar nodes together in a low-dimensional space. -->
 
 Fig. 12. The embeddings clusters using agglomerative clustering . Table 3. Dataset Statistics
 
@@ -264,6 +276,7 @@ Table 4. RAGAT Performance on Different Benchmark Datasets
 Traditional embedding techniques like TransE learn embeddings for entities and relations in knowledge graphs to predict missing links. These models learn lowdimensional vector representations of entities and relationships where similar entities and relationships are closer in the embedding space. The models are rel-atively simple and eficient to train. However, these techniques also have several
 
 ![](_page_20_Figure_1.jpeg)
+<!-- Image Description: This image displays a network graph depicting the production and creative contributions to a film. Nodes, sized proportionally, represent individuals (red), production companies (red), and creative elements (purple/green) like songs, screenplay, and the film itself. Edges connecting nodes illustrate relationships, such as "written by" or "produced by". The graph visualizes the collaborative network involved in the film's creation. -->
 
 Fig. 13. The clusters of the Nodes using agglomerative clustering .
 
@@ -276,6 +289,7 @@ idea is to create a false statement that doesn't hold in KG, so the model notice
 The relation was predicted between two entities using the transE model by computing the distance for all the relations and returning the relation index and distances. All the relations were tested between each pair of entities to find the strongest relation with the smallest distance. The relation refers to the numerical value for representing similarity and dissimilarity. As in the transE model, the goal is to learn embeddings for entities and relations so that the distance between the embeddings reflects the semantics of relationships in the knowledge graph. For example, There was some entities of the knowledge graph that were connected to each other, so if the middle node was deleted, the mission is to predict the relation between the two other entities along the distance. If the three nodes were B, A, and C, the distance between B and C differed from C to B. So, the smallest distance with the strongest relation should be chosen according to Fig 14.
 
 ![](_page_21_Figure_3.jpeg)
+<!-- Image Description: Figure 14 illustrates semantic relation prediction using the TransE model. It shows a directed graph with two nodes, B and C, connected by an edge labeled "HasRelation1 (0.02)". The edge represents a predicted semantic relationship between B and C, with 0.02 indicating the associated distance or confidence score. The arrow points from B to C, showing the direction of the relationship. The figure demonstrates the model's output in predicting relationships between entities. -->
 
 #### 4 Extract triples and predict relations using pre-trained ontology
 

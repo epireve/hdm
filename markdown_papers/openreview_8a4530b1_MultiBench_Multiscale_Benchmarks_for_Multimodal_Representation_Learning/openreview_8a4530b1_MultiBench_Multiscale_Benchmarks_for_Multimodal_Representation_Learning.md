@@ -1,7 +1,7 @@
 ---
 cite_key: "liang2021"
 title: "MULTIBENCH: Multiscale Benchmarks for Multimodal Representation Learning"
-authors: "- <span id=\"page-15-0\"></span>[102] Paul Pu Liang, Ziyin Liu, AmirAli Bagher Zadeh, and Louis-Philippe Morency. Multimodal language analysis with recurrent multistage fusion. In *EMNLP*, 2018."
+authors: "Paul Pu Liang, Yiwei Lyu, Xiang Fan, Zetian Wu, Yun Cheng, Jason Wu, Leslie Chen, Peter Wu, Michelle A. Lee, Yuke Zhu, Ruslan Salakhutdinov, Philippe Morency, Johns Hopkins"
 year: 2021
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -26,6 +26,7 @@ Our perception of the natural world surrounding us involves multiple sensory mod
 35th Conference on Neural Information Processing Systems (NeurIPS 2021) Track on Datasets and Benchmarks.
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: This image from an academic paper presents a taxonomy of multimodal learning. It displays examples of data across various domains (affective computing, healthcare, finance, etc.) and modalities (language, image, video, audio, etc.). A table shows performance metrics (test and validation accuracy) for two methods. Finally, icons represent complexity and a diagram illustrates robustness, depicting the model's input from multiple modalities and potential failure points. -->
 
 Figure 1: MULTIBENCH contains a diverse set of 15 datasets spanning 10 modalities and testing for more than 20 prediction tasks across 6 distinct research areas, thereby enabling standardized, reliable, and reproducible large-scale benchmarking of multimodal models. To reflect real-world requirements, MULTIBENCH is designed to holistically evaluate (1) performance across domains and modalities, (2) complexity during training and inference, and (3) robustness to noisy and missing modalities.
 
@@ -105,6 +106,7 @@ Robustness: Real-world multimodal data is often imperfect as a result of missing
 To complement MULTIBENCH, we release a comprehensive toolkit, MULTIZOO, as starter code for multimodal algorithms which implements 20 methods spanning different methodological innova-
 
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: This image from an academic paper illustrates a multimodal learning system. It shows: 1) data preprocessing (example image sequences); 2) a unimodal model architecture (diagram of a neural network); 3) a fusion paradigm (diagram of a multi-modal fusion model with 3 input modalities); 4) optimization objectives (equations for supervised, CCA, and reconstruction loss); and 5) a training procedure (graph showing training and validation loss curves over epochs with early stopping criteria). The image visually summarizes the entire system's pipeline. -->
 
 Figure 2: MULTIZOO provides a standardized implementation of a suite of multimodal methods in a modular fashion to enable accessibility for new researchers, compositionality of approaches, and reproducibility of results.
 
@@ -209,6 +211,7 @@ Generalization across domains and modalities: MULTIBENCH offers an opportunity t
 Tradeoffs between modalities: How far can we go with unimodal methods? Surprisingly far! From Table [2,](#page-6-0) we observe that decent performance can be obtained with the best performing modality. Further improvement via multimodal models may come at the expense of around 2−3× the parameters.
 
 <span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: The image presents two scatter plots comparing the performance and training speed of different machine learning approaches (MFAS, MulT, LF, etc.). Each point represents an approach, with size possibly indicating dataset size or another metric. (a) shows all datasets, while (b) focuses on datasets with more than six approaches. A dashed curve suggests a trade-off: faster training generally correlates with slightly lower performance. The plots help analyze the efficiency and effectiveness of different methods. -->
 
 Figure 3: Tradeoff between performance and complexity. Size of circles shows variance in performance across (a) all datasets and (b) datasets on which we tested > 6 approaches. We plot a dotted blue line of best quadratic fit to show the Pareto frontier. These strong tradeoffs should encourage future work in lightweight multimodal models that generalize across datasets, as well as in adapting several possibly well-performing methods (such as MFAS or MULT) to new datasets and domains.
 
@@ -225,6 +228,7 @@ Comparisons with related benchmarks: To the best of our knowledge, MULTIBENCH is
 Our work is also inspired by recent progress in better evaluation benchmarks for a suite of important tasks in ML such as language representation learning [\[163,](#page-18-9) [164\]](#page-18-10), long-range sequence modeling [\[150\]](#page-17-8), multilingual representation learning [\[72\]](#page-13-9), graph representation learning [\[74\]](#page-13-10), and robustness to distribution shift [\[85\]](#page-14-10). These well-crafted benchmarks have accelerated progress in new algorithms, evaluation, and analysis in their respective research areas.
 
 <span id="page-8-0"></span>![](_page_8_Figure_0.jpeg)
+<!-- Image Description: The image displays two scatter plots comparing the performance and robustness of different multimodal fusion methods (e.g., CCA, MVAE, MulT). Plot (a) shows "relative robustness," while plot (b) shows "effective robustness." Each colored circle represents a method, its size correlating with performance, and its position reflecting its robustness. A dashed line indicates a trade-off between performance and robustness. The plots visually compare the methods' performance and robustness characteristics. -->
 
 Figure 4: Tradeoff between performance and robustness. Size of circles shows variance in robustness across datasets. We show the line of best linear fit in dotted blue. While better performing methods show better*relative*robustness (a), some suffer in*effective*robustness since performance*drops off faster*(b). Few models currently achieve both relative and effective robustness, which suggests directions for future research.
 

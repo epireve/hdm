@@ -1,7 +1,7 @@
 ---
 cite_key: "cuisupsup2019"
 title: "Enhancing Sequential Recommendation with Graph Contrastive Learning"
-authors: "Lizhen Cui<sup>1</sup>,2† and Chunyan Miao<sup>3</sup>,<sup>4</sup>"
+authors: "Yixin Zhang, Yong Liu, Yonghui Xu, Hao Xiong, Chenyi Lei, Wei He, Lizhen Cui, Chunyan Miao"
 year: 2019
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -56,6 +56,7 @@ In the literature, Recurrent Neural Networks (RNN) are usually applied to build 
 Self-supervised learning is an emerging unsupervised learning paradigm, which has been successfully applied in computer vision [\[Jing and Tian, 2020\]](#page-7-15) and natural language processing [\[Devlin](#page-6-1) *et al.*, 2019]. There are several recent works applying self-supervised learning techniques in recommendation tasks. For example, [Zhou *et al.*[, 2020\]](#page-7-2) maximizes the mutual information among attributes, items, and sequences by different self-supervised optimization objectives. [\[Xie](#page-7-3) *et al.*[, 2021\]](#page-7-3) maximizes the agreement between two augmented views of the same interaction sequence through a contrastive learning objective. [Wu *et al.*[, 2021\]](#page-7-16) proposes a joint learning framework based on both the contrastive learning objective and recommendation objective. Moreover, in [Wei *et al.*[, 2021\]](#page-7-17), contrastive learning is used to solve the cold-start recommendation problem. In [\[Zhang](#page-7-6) *et al.*, 2022], a diffusion-based graph contrastive learning method is developed to improve the recommendation performance based on users' implicit feedback. Additionally, self-supervised
 
 <span id="page-1-0"></span>![](_page_1_Figure_8.jpeg)
+<!-- Image Description: The image displays a transformation of sequential data into a weighted graph. (a) shows sequential data representing user interactions (u) with items (i). (b) presents a weighted graph derived from (a), where nodes represent items and weighted edges (W<sub>ij</sub>) indicate the strength of association between items based on user interaction frequency. The weights seem to reflect the likelihood of a user interacting with an item given interaction with another. The purpose is to illustrate the conversion of sequential user-item interaction data into a weighted graph representation for further analysis, likely within a recommendation system or similar context. -->
 
 Figure 1: An example showing the transition graph construction procedure, where (a) shows the observed user behavior sequences, and (b) illuminates the weighted transition graph.
 
@@ -75,6 +76,7 @@ $$
 where deg(·) denotes the degree of a node in G. Note that G is an undirected graph. Figure [1](#page-1-0) shows an example about the transition graph without edge weight normalization.
 
 <span id="page-2-0"></span>![](_page_2_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a graph-augmented sequence representation learning model. Input sequence *S* undergoes embedding look-up and is processed alongside user-specific information (*P*<sub>u</sub>). Graph-based augmentation generates graph representations (*G*<sub>s</sub>, *G*<sub>s</sub>′) fed into shared graph neural networks producing representations (*H*<sub>s</sub>, *H*<sub>s</sub>′). These are used in contrastive loss and user-specific gating to create final representations which, along with basic sequence encoding, are processed by an attention network and softmax layer for prediction (*Y*). MMD loss is also used. -->
 
 Figure 2: The framework of the proposed GCL4SR model.
 
@@ -291,6 +293,7 @@ that GCL4SRw/o GM outperforms the backbone model SAS-Rec in terms of HR@20, on b
 We also perform experiments to study the impacts of three hyper-parameters: the sampling depth M and sampling size N used in graph-based augmentation, and the embedding dimension d. Figure [3](#page-6-5) shows the performance of GCL4SR with respect to different settings of M, N, and d on Poetry and Phones datasets. As shown in Figure [3\(](#page-6-5)a), larger sampling size tends to produce better recommendation performance. For the sampling depth, we can notice the best settings for M are 4 and 3 on Poetry and Phones datasets, respectively. In addition, the best performance is achieved by setting d to 64 and 96 on Poetry and Phones datasets, respectively.
 
 <span id="page-6-5"></span>![](_page_6_Figure_1.jpeg)
+<!-- Image Description: The image contains three line graphs (a, b, c) showing the Hit Rate at 20 (HR@20) for "Poetry" and "Phones" datasets. Graph (a) plots HR@20 against parameter *N*, (b) against *M*, and (c) against *d*. Each graph displays the performance of both datasets across different parameter values, allowing for a comparison of their sensitivity to these hyperparameters. The purpose is to illustrate the impact of these parameters on the retrieval performance. -->
 
 Figure 3: The performance trends of GCL4SR with respect to different settings of M, N, and d on Poetry and Phones datasets.
 

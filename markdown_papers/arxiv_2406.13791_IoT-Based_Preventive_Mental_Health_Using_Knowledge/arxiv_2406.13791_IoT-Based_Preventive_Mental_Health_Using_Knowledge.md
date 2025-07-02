@@ -1,7 +1,7 @@
 ---
 cite_key: "gyrarda2024"
 title: "IoT-Based Preventive Mental Health Using Knowledge Graphs and Standards for Better Well-Being"
-authors: "Amelie Gyrarda,c,\\*, Seyedali Mohammadi<sup>b</sup> , Manas Gaur<sup>b</sup> and Antonio Kung<sup>a</sup>"
+authors: "Amelie Gyrarda, Seyedali Mohammadi, Manas Gaur, Antonio Kung, Mental Health"
 year: 2024
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -86,6 +86,7 @@ Our vision has been shared with the EUCloudEdgeIoT Concentration and Consultatio
 The remainder of this chapter is organized as follows: related work limitations in Section 2, standards for mental health in Section 3, the mental health ontology catalog in Section 4 (which includes mapping to standards ontologies), the project use cases in
 
 ![](_page_3_Figure_4.jpeg)
+<!-- Image Description: This diagram illustrates the landscape of Internet of Things (IoT), edge, and cloud technologies. It uses overlapping circles to represent various standards organizations (e.g., ISO, IEEE), EU projects, alliances (e.g., Gaia-X), data spaces, and related technologies (e.g., AI, linked data). The relationships and overlaps between these elements are visually depicted, highlighting their interconnectedness within the broader IoT ecosystem. The legend clarifies the meaning of different colored shapes. -->
 
 Figure 1.: Standards, Semantic Web and Data Spaces applied to Health
 
@@ -141,6 +142,7 @@ Related work shortcomings: Those works do not use health standards that we are a
 We investigate Standards Development Organizations (SDOs) for (mental) health covering AI (Semantic Web, Ontologies) such as: ETSI SmartM2M EHealth/Ageing-Well Ontology in Section 3.1, ITU/WHO Focus Group on Artificial Intelligence for Health in Section 3.2, ISO Health Standards in Section 3.3, W3C Health Standards in Section 3.4, NIST Health Standards in Section 3.5, and IEEE Health Standards in Section 3.6. Standards De-
 
 ![](_page_6_Figure_6.jpeg)
+<!-- Image Description: This diagram illustrates standardized ontologies categorized by their standardization body. Several ontologies are shown, including ETSI SmarM2M SAREF, IEEE Std 1872.2-2021 Autonomous Robotics, W3C SSN/SOSA, OneM2M, W3C Thing Description, HL7 FHIR, and ISO/IEC 21838-2:2021 (BFO). The diagram's purpose is to visually represent the landscape of standardized ontologies used in a specific domain (likely within the paper's focus area). -->
 
 Figure 2.: Standardized Ontologies
 

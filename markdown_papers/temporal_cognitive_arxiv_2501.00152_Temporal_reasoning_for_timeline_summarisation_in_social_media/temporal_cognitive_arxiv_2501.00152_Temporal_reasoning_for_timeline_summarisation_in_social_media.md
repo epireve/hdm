@@ -1,7 +1,7 @@
 ---
 cite_key: "songsupsup2019"
 title: "Temporal reasoning for timeline summarisation in social media"
-authors: "Jiayu Song<sup>1</sup> , Mahmud Akhter<sup>1</sup> , Dana Atzil-Slonim<sup>2</sup> , Maria Liakata<sup>1</sup>,<sup>3</sup>"
+authors: "Jiayu Song, Mahmud Akhter, Maria Liakata"
 year: 2019
 doi: "10.3115/V1/P14-2082)"
 date_processed: "2025-07-02"
@@ -50,6 +50,7 @@ Temporal reasoning for summarisation [Jung](#page-9-7) [et al.](#page-9-7) [\(20
 Task Given an individual's timeline (a series of posts between two dates [\(Tsakalidis et al.,](#page-10-10) [2022\)](#page-10-10)), the goal is to generate an abstractive summary that reflects changes in the individual over time [\(Song](#page-10-2) [et al.,](#page-10-2) [2024\)](#page-10-2).
 
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
+<!-- Image Description: This image compares two model training methods: fine-tuning and knowledge distillation. (a) shows fine-tuning, where a "Teacher" model is trained on a temporal reasoning dataset. (b) depicts knowledge distillation. A "Teacher" model, trained on a timeline summarization dataset, transfers knowledge to a "Student" model, minimizing language modeling loss. The diagrams illustrate data flow and model interactions in each approach. -->
 
 Figure 1: Overview of proposed method. (a) represents fine-tuning the teacher model on the temporal reasoning dataset; (b) In the KD process, we input the timeline summarisation dataset into both the Teacher and Student models, transferring temporal reasoning knowledge while using it to assist the timeline summarisation task to fine-tune Student model.
 
@@ -246,16 +247,19 @@ model. We did this both for the individual models and between models' layers. Fr
 We have created a dataset (*NarrativeReason*), containing relation triples to represent event sequences within narratives. We fine-tune a large LLM on *NarrativeReason*, then use knowledge distillation (KD) to transfer its enhanced temporal reasoning capability to a smaller LLM while leveraging the distilled knowledge to enhance performance in timeline summarisation tasks. We apply the model to a different domain from the one it was trained on, namely generating mental health related timeline summaries. Our results demonstrate that our KD approach produces more accurate summaries while
 
 <span id="page-7-2"></span>![](_page_7_Figure_7.jpeg)
+<!-- Image Description: The image displays a 2D UMAP projection of data points labeled as "Reasoning" (blue) and "Summarization" (orange). The plot visualizes the dimensionality reduction of high-dimensional data, showing clustering of points based on their assigned labels. The purpose is to illustrate the separation or overlap between reasoning and summarization tasks in the dataset, aiding analysis of their distinct feature representations. -->
 
 (a) UMAP projection Phijoint
 
 ![](_page_7_Figure_9.jpeg)
+<!-- Image Description: This UMAP projection visualizes the clustering of data points representing "Reasoning" and "Summarization" tasks. The scatter plot shows the data points distributed across two dimensions (UMAP Dimension 1 and 2). Distinct clusters are observed, suggesting some separation between the Reasoning and Summarization data, although some overlap exists. The plot aids in understanding the similarity and differences between the two task types within a high-dimensional feature space. -->
 
 (b) UMAP projection Phitl
 
 Figure 3: The UMAP projection forPhijoint and Phitl show the last layer activations for both models. We can see that Phitl has more polysemantic activations compared to Phijoint.
 
 <span id="page-7-3"></span>![](_page_7_Figure_12.jpeg)
+<!-- Image Description: The image displays a line graph titled "CKA Analysis," showing the CKA (Centering Kernel Alignment) values across layers of a neural network. Three lines represent CKA values for `Phi`, `PhiJoint`, and the comparison between them (`Phi` vs `PhiJoint`). The x-axis represents network layers (0-30), and the y-axis shows CKA values (0-1). The graph likely illustrates the alignment or similarity between different feature representations at various network depths, assessing the model's feature learning process. -->
 
 Figure 4: CKA similarity score of both within and between Phitl and Phijoint model representations.
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "bajaj2023"
-title: "*Article* **Co-Design, Development, and Evaluation of a Health Monitoring Tool Using Smartwatch Data: A Proof-of-Concept Study**"
-authors: "**Ruhi Kiran Bajaj 1,[\\\\*](https://orcid.org/0000-0002-2247-7462) , Rebecca Mary Meiring [2](https://orcid.org/0000-0002-8472-4940) and Fernando Beltran <sup>1</sup>**"
+title: "ArticleCo-Design, Development, and Evaluation of a Health Monitoring Tool Using Smartwatch Data: A Proof-of-Concept Study"
+authors: "Fernando Beltran"
 year: 2023
 doi: "10.3390/fi15030111"
 date_processed: "2025-07-02"
@@ -57,6 +57,7 @@ Rogers's Diffusion of Innovation theory [\[28\]](#page-13-14) seeks to explain h
 data, analyse health trends (anomaly detection), and allow HCPs the ability to communicate areas of concern to clients/patients. Finally, in the experimentation phase, HCPs evaluated the prototype. tionnaires used in both the co-design and evaluation phases of the study, as these attributes improved the understanding of how integrating smartwatch data with EMR relates to healthcare professionals' work practices.
 
 <span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
+<!-- Image Description: The image is a triangular diagram illustrating a cyclical process of developing and deploying innovations (Dol). The vertices represent key stages: theory building (including diffusion of innovations), observation/co-design, and experimentation/evaluation. The central circle shows system and prototype development, linked to each vertex. Arrows indicate the iterative flow between stages. The diagram's purpose is to visualize the iterative process of innovation development. Dol attributes (relative advantage/compatibility, complexity/trialability) are mentioned alongside relevant stages. -->
 **Figure 1.**Phases of the study. Adapted Methodological framework [\[19](#page-13-13)].**Figure 1.**Phases of the study. Adapted Methodological framework [27].
 
 Relative advantage and compatibility were applied in the co-design phase of the study [28]. Relative advantage is the degree to which an innovation is perceived as better than the idea it supersedes. Compatibility is how consistently the innovation is perceived as compatible with existing EMR systems. Complexity and trialability were used in the evaluation phase of the study. Complexity is the extent to which an innovation is perceived as challenging to understand and use. Trialability is whether an innovation may be trialled and modified. Observability is the degree to which the innovation results are Attributes from Rogers's Diffusion of Innovation theory [\[28\]](#page-13-14) were applied in the design and evaluation phases of the prototype to determine how potential end-users would respond to the prototype. The attributes used in this study were relative advantage, compatibility, complexity, and trialability. These attributes were applied through the questionnaires used in both the co-design and evaluation phases of the study, as these attributes improved the understanding of how integrating smartwatch data with EMR relates to healthcare professionals' work practices.
@@ -143,6 +144,7 @@ The additional columns at the end of the dataset produced by the anomaly detecti
 Participants left several comments to the open-ended question about features that participants felt would be valuable to incorporate in future iterations of the application (Table [3\)](#page-10-1).
 
 <span id="page-8-0"></span>![](_page_8_Figure_1.jpeg)
+<!-- Image Description: The image displays two smartwatch data visualization interfaces. (a) shows a summary dashboard with a gauge chart indicating average heart rate (62.40 BPM), a line graph showing heart rate over time, and buttons for calories, steps, and distance. (b) presents an anomaly detection interface, showing a table of heart rate data with anomalies highlighted, a summary of maximum heart rate (198 BPM) and anomaly count (6), and a line graph illustrating heart rate with anomalies marked. Both aim to visualize and analyze smartwatch data, with (b) focusing on anomaly detection. -->
 **Figure 3.** Web-based application prototype: (**a**) smartwatch data visualizations; (**b**) anomaly detection results.
 
 <span id="page-9-0"></span>**Table 2.**Results of the Usability Questionnaire.
@@ -171,6 +173,7 @@ Participants left several comments to the open-ended question about features tha
 | I17: This prototype provides an acceptable way to deliver healthcare services                                                   | 4          | 8                         |
 
 <span id="page-9-1"></span>![](_page_9_Figure_4.jpeg)
+<!-- Image Description: This bar chart displays usability questionnaire results. Green bars show the average score (out of 5) for each question, while a blue line represents the number of responses scoring 4 or higher. The chart assesses user opinions on various aspects of the system's usability, such as ease of use, navigation, and functionality. It visually summarizes user feedback to gauge overall system effectiveness. -->
 **Figure 4.**Distribution of responses.**Figure 4.** Distribution of responses.
 
 | Participant # | Comment(s)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |

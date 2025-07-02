@@ -1,7 +1,7 @@
 ---
 cite_key: "leroy2024"
-title: "**The role of working memory capacity in the temporal compression of episodic memories: An individual differences approach**"
-authors: "Nathan Leroy, Steve Majerus, and Arnaud D'Argembeau"
+title: "The role of working memory capacity in the temporal compression of episodic memories: An individual differences approach"
+authors: "Nathan Leroy, Steve Majerus, Arnaud D'Argembeau"
 year: 2024
 doi: "10.1037/xlm0001350"
 date_processed: "2025-07-02"
@@ -78,6 +78,7 @@ If the efficient formation and retrieval of experience units in episodic memory 
 ### Figure 1
 
 ![](_page_11_Figure_1.jpeg)
+<!-- Image Description: The image presents two diagrams illustrating a model of event segmentation and memory. Diagram A shows a timeline depicting events (EU) grouped into segments (EB) based on boundaries (D). Event segmentation feeds into working memory (numbered 1 & 2). Diagram B illustrates the memory representation of activity unfolding, showing how information from events is searched for and retrieved into working memory before being remembered. The diagram uses boxes and arrows to represent the flow of information and duration of remembering. -->
 
 *Hypothetical role of WM in the encoding and retrieval of experience units in episodic memory*
 
@@ -146,6 +147,7 @@ The reliability (average split-half) of the three measures of interest was*r*= 0
 ## Figure 2
 
 ##*Unfolding of a trial in the temporal compression task*![](_page_19_Figure_2.jpeg)
+<!-- Image Description: The image is a flowchart illustrating an experimental procedure. It depicts a sequence of stages: a fixation cross, video viewing ("Careful watching"), a blank screen ("Remembering"), a mental replay phase, and finally, a written description entry. Computer monitor icons represent each stage. Human eyes and clicking hand icons emphasize user interaction. The flowchart demonstrates the process of memory recall and description, likely for a study on visual memory or cognitive processes. -->
 *Note. First, participants saw a fixation cross during 3 s and then a 40-s video showing a person engaged in a daily life activity. As soon as the video ended, they had to mentally replay its unfolding in as much detail as possible. They were asked to press the space bar to indicate the beginning and end of their remembering. Finally, they had to write down the content of their mental replay.*##*Procedure*Participants received an URL (on their prolific account) allowing them to take part in the experiment through Gorilla ([\(https://gorilla.sc/\)](https://gorilla.sc/), a platform providing reliable RTs measures for online studies (Anwyl-Irvine et al., 2021; Anwyl-Irvine et al., 2020). They were asked to perform the tasks in a quiet and distraction-free environment and were informed that they must complete all tasks (in their entirety) to receive the monetary compensation. They first performed the three complex span tasks (Ospan, SymSpan and RotSpan) on E-Prime GO (https://pstnet.com/eprime-go/)<sup>3</sup> , which was downloaded from Gorilla. After the three
 
 <sup>3</sup> These tasks were originally developed on the E-Prime software (https://pstnet.com/products/eprime/) by the Georgia Tech Attention and Working Memory Lab, which kindly shared with us the E-Studio files necessary to create an online version of each task using the E-Prime Go platform. E-Run files for the three tasks are available for download from their website (http://englelab.gatech.edu).
@@ -226,6 +228,7 @@ of recalled experience units. Consistent with previous studies (e.g., Folville e
 ## Figure 3
 
 ![](_page_27_Figure_1.jpeg)
+<!-- Image Description: The image contains four panels (A-D) showing regression plots. Panels A and B display the relationship between working memory score and (A) temporal compression and (B) recalled experience units, categorized by EBs density (EB+, EB-). Panel C illustrates the relationship between recalled experience units and temporal compression. Panel D shows the relationship between working memory score and experience units duration, again categorized by EBs density. Shaded areas represent confidence intervals. The plots analyze how different factors affect temporal perception and memory. -->
 *Plot of fitted values (and their 95% CIs) for each model of Experiment 1*
 
 *Note. (A) Prediction of temporal compression by WM capacity for high and low EBs density videos. (B) Prediction of the number of recalled experience units by WM capacity for high and low EBs density videos. (C) Prediction of temporal compression by the number of recalled experience units. (D) Prediction remembered experience units duration by WM capacity, for high and low EBs density videos.*## Discussion
@@ -310,6 +313,7 @@ There was a significant effect of EBs density on the duration of recalled experi
 ## Figure 4
 
 ![](_page_36_Figure_1.jpeg)
+<!-- Image Description: The image displays four panels (A-D) of regression plots visualizing the relationships between working memory scores and temporal experience. Panel A shows how working memory score relates to temporal compression, separated by experience type (EB+, EB-). Panel B illustrates the recalled experience units as a function of working memory, again differentiated by experience type. Panel C presents the relationship between recalled experience units and temporal compression. Finally, panel D depicts how working memory score affects experience duration, categorized by experience type (EB+, EB-). Each plot uses lines and shaded areas to represent regression lines and confidence intervals. -->
 *Plot of fitted values (and their 95% CIs) for each model of Experiment 2*
 
 *Note. (A) Prediction of temporal compression by WM capacity for high and low EBs density videos. (B) Prediction of the number of recalled experience units by WM capacity for high and low EBs density videos. (C) Prediction of temporal compression by the number of recalled experience units. (D) Prediction remembered experience units duration by WM capacity, for high and low EBs density videos.*## Discussion
@@ -336,6 +340,7 @@ event model that needs to be maintained exceeds WM capacity, the corresponding s
 
 ## Figure 5
 *Schematic representation of the assumed influence of WM capacity on the duration of experience units that compose episodic memories*![](_page_40_Figure_3.jpeg)
+<!-- Image Description: This figure is a timeline illustrating an episodic memory model. A blue horizontal bar represents the perception phase, with green boxes showing working memory (WM) content. Vertical dark blue lines denote event boundaries (EB). Dashed lines connect WM content to episodic memory units (EU1, EU2, EU3) in the bottom section. A gap between EU2 and EU3 is depicted, and an orange line shows the maximal event model duration. The figure clarifies the temporal relationship between perception, WM, and episodic memory formation. -->
 *Note. When the event model that needs to be maintained between two EBs exceeds WM capacity (e.g., because of its duration), it is only partially integrated in episodic memory, leading to temporal gaps in the representation of the event's unfolding (see EU 3). Thus, temporal compression may depend on both the temporal distance between perceived EBs and WM storage capacity. EU: Experience unit, EB: Event boundary.*<sup>4</sup> The duration of experience units formed to represent long sub-events may depend on individual's WM capacity but also on different features of the sub-event (e.g., the complexity of perceptual information). The identification of these features, as well as their interaction with sub-events duration, will be needed to deepen our understanding of the mechanisms determining the duration of experience units formed during event perception.
 
 Another, not mutually exclusive, possibility is that WM capacity determines the duration of experience units at the time of retrieval. When one remembers an experience, past event models corresponding to particular moments of that experience (i.e., experience units) are sequentially reactivated (Jeunehomme et al., 2022). The quantity of information retrieved for each experience unit—details about the temporal evolution of persons, objects, actions, and so on—may depend on the ease with which individuals are able to access and maintain information in memory, an ability strongly associated with WM capacity (Unsworth, 2019). WM capacity may thus determine the quantity of information that can be represented within each experience unit<sup>5</sup> during retrieval (i.e., information that is retrieved, maintained online, and manipulated for the purpose of mental replay; Hassabis & Maguire, 2007), such that the duration of replayed experience units is longer with increasing WM capacity.
@@ -483,6 +488,7 @@ We used an ID filter implemented in Prolific to ensure that participants who wer
 *Supplementary information about participants included in Experiment 1 (n = 78)*## Figure S1
 
 ![](_page_56_Figure_1.jpeg)
+<!-- Image Description: The image is a horizontal bar chart titled "Nationality," displaying the distribution of participants' nationalities in a study. The chart shows the number of participants from various countries, with the United Kingdom having the highest number (53), followed by considerably fewer participants from other countries including Canada (3), India (3), Ireland (5), and the United States (5). The chart's purpose is to illustrate the geographical representation within the study's sample. -->
 *Nationality of participants included in Experiment 1*#*Sample characteristics: Experiment 2*The number of studies participants had previously successfully completed on Prolific, the number of studies from which they were rejected, their approval rate, and the time they took to complete the experiment are shown in Table S2. The nationality of participants is shown on Figure S2.
 
 ## Table S2
@@ -498,6 +504,7 @@ We used an ID filter implemented in Prolific to ensure that participants who wer
 |        |                         |           |          |            |  |  |
 *Supplementary information about participants included in Experiment 2 (n = 210)*# Figure S2
 *Nationality of participants included in Experiment 2*![](_page_57_Figure_5.jpeg)
+<!-- Image Description: The image is a horizontal bar chart displaying the nationality of participants in a study. The x-axis represents the count of participants, and the y-axis lists various nationalities (e.g., United States, United Kingdom, South Africa). The chart shows the distribution of participants across different countries, with the United States having the highest number (113). The purpose is to present the demographic data on participant nationality. -->
 
 ## Supplementary information about video stimuli
 
@@ -505,6 +512,7 @@ Stimuli used in Experiments 1 and 2 were edited based on the same eight videos s
 
 # Figure S3
 *Daily life activities depicted in the eight basic videos*![](_page_58_Picture_4.jpeg)
+<!-- Image Description: This image is a montage of eight photographs depicting various scenes of everyday activities. The photos show people engaged in tasks such as car washing, cooking, yard work, car maintenance, and indoor cleaning. There are no graphs, charts, equations or diagrams; it appears to be a qualitative data illustration, possibly used in a paper about human activity recognition or a similar topic. The purpose is likely to visually represent the range of activities analyzed or used as a case study. -->
 *Note. From left to right: a woman washing her car (432s), a woman preparing breakfast (329s), a man gardening (353 s), a man photocopying the pages of a book (348s), a man sweeping a room (329s), a lady setting up a tent (379s), a man changing the tire of his car (342s), a man preparing a livingroom for a birthday party (378s).*## Table S3
 
 |                                          | Washing<br>car | Breakfast | Gardening | Photocopying | Sweeping | Tent | Tire | Party |
@@ -532,6 +540,7 @@ During the "processing only" part of the training, participants' response times 
 # Figure S4
 
 ![](_page_61_Figure_1.jpeg)
+<!-- Image Description: This figure displays the experimental design of a cognitive psychology study. Three panels (A, B, C) illustrate trial sequences: processing tasks (arithmetic, symmetry judgment, orientation judgment); target item presentation; a recall phase (requiring subjects to reproduce the target); and feedback showing accuracy. Each panel showcases example stimuli and the user interface for responding and receiving feedback on performance. The figure visually details the study's procedure and stimulus presentation format. -->
 
 ## *Unfolding of a trial in the three complex span tasks*
 
@@ -543,10 +552,12 @@ To ensure that the relations we observed between our variables of interest were 
 
 ## Figure S5
 *Results for the main analyses of Experiment 1 when including only participants who scored above 85% for the processing part of each of the three complex span tasks (N participants =*![](_page_63_Figure_2.jpeg)
+<!-- Image Description: The image presents four panels (A-D) analyzing the effects of working memory capacity and event boundary (EB) density on temporal compression and recalled experience. Panels A and B display regression tables and interaction plots showing the relationship between working memory and temporal compression, and working memory and recalled experience units, respectively, mediated by EB density. Panels C and D similarly present tables and plots illustrating relationships between recalled experience units and temporal compression, and working memory and experience duration, respectively, also mediated by EB density. The shaded areas in the plots represent confidence intervals. -->
 *56, N observations = 425)*
 
 *Note. (A) Prediction of temporal compression by WM capacity for high and low EBs density videos. (B) Prediction of the number of recalled experience units by WM capacity for high and low EBs density videos. (C) Prediction of temporal compression by the number of recalled experience units. (D) Prediction of remembered experience units duration by WM capacity, for high and low EBs density videos.*## Figure S6
 *Results for the main analyses of Experiment 2 when including only participants who scored above 85% for the processing part of each of the three complex span tasks (N participants = 166, N observations = 1220)*![](_page_64_Figure_2.jpeg)
+<!-- Image Description: The image presents four panels (A-D) displaying regression analyses results. Each panel includes a table showing regression coefficients, standard errors, confidence intervals, t-statistics, degrees of freedom, and p-values for different predictors (intercept, working memory capacity, EBs density, and interaction). Accompanying each table is a line graph visualizing the effects of working memory score and EBs density on temporal compression (A, C) and experience units duration (B, D). The graphs show interaction effects between working memory and EBs density on both dependent variables. -->
 *Note. (A) Prediction of temporal compression by WM capacity for high and low EBs density videos. (B) Prediction of the number of recalled experience units by WM capacity for high and low EBs density videos. (C) Prediction of temporal compression by the number of recalled experience units. (D) Prediction of remembered experience units duration by WM capacity, for high and low EBs density videos.*## Inter-rater agreement
 
 ##*Experiment 1*Following guidelines proposed by Hallgren (2012) and Koo & Li (2016), inter-rater reliability was assessed with a*two-way agreement ICC*(single rater,*average-measures*; (McGraw & Wong, 1996; Shrout & Fleiss, 1979). The resulting *ICC* was 0.93 (95%*CI* [0.90, 0.95]). Nevertheless, the number of recalled experience units was not normally distributed. We thus computed a non-parametric agreement index (binomial proportions test; Bland & Altman, 1999), which indicated that the difference between the two raters was equal or inferior to one experience unit in 86.67% of the cases (95%*CI*[79.34, 91.67]). We further inspected the agreement between the two raters through a Bland-Altman analysis (Giavarina, 2015). We looked for the presence of potential fixed bias, or, in other words, systematic variations in the differences between the number of experience units identified by the first and the second rater as a function of the number of recalled experience units (computed by averaging estimations of the two raters). There was no notable bias.
@@ -572,6 +583,7 @@ The sample size of Experiment 2 was estimated a priori using the R package simr 
 ## Figure S7
 
 *Power curves for the detection of the interaction between WM capacity and EBs density in the prediction of temporal compression (based on 1000 simulations)*![](_page_68_Figure_2.jpeg)
+<!-- Image Description: The figure displays three graphs showing statistical power (%). Panel A plots power against the number of participants, demonstrating increasing power with more participants. Panel B shows a similar relationship, but with a different range of participant numbers. Panel C illustrates how power changes with decreasing effect size, revealing a decrease in power as the effect size diminishes. All graphs use error bars to indicate variability. The figure likely illustrates the impact of sample size and effect size on statistical power within the study. -->
 *Note. (A) estimates of statistical power (and its 95% CI) across a range of sample sizes (ranging from 80 to 240 participants). (B) estimates for sample sizes ranging from 190 to 230 participants (zoom on the panel A). (C) estimates of the statistical power achievable with a sample size of 210 participants and an effect size from 5% to 20% smaller than the one obtained in Experiment 1.*## Descriptive statistics
 
 Descriptive statistics for each WM task and outcome variables are shown in Tables S4 and S5 (for Experiment 1) and Tables S7 and S8 (for Experiment 2). A detailed distributional plot for each outcome variable is displayed in Figure S8 for Experiment 1 and S10 for Experiment 2. In Tables S6 (for Experiment 1) and S9 (for Experiment 2), we report correlations between all variables involved in the statistical analyses. Finally, Figures S9 (for Experiment 1) and S11 (for Experiment 2) show the distribution of the differences of temporal compression rates between EB+ and EB- stimuli as a function of participants' WM score.
@@ -594,6 +606,7 @@ Descriptive statistics for each WM task and outcome variables are shown in Table
 
 ## Figure S8
 *Density plot and descriptive statistics for the three outcome variables (Experiment 1). Values are reported separately for each EBs density*![](_page_71_Figure_2.jpeg)
+<!-- Image Description: The image contains three panels (A, B, C), each showing kernel density estimations of temporal experience data, comparing two groups (EB+, EB-). Panel A displays distributions of "Temporal Compression Rates," B shows "Number of recalled experience units," and C illustrates "Duration of recalled experience units (sec)." Each panel includes descriptive statistics (Q1, Median, Q3, Mean, SD, Skewness, Kurtosis) for both groups. The purpose is to visually compare and statistically describe the differences in temporal experience perception between the two groups. -->
 *Note. (A) Temporal compression rates. (B) The number of recalled experience units. (C) The duration of recalled experience units. Skewness and Geary's kurtosis measures (Borroni & De Capitani, 2022; Geary, 1936) were computed with the package moments (v0.14.1; Komsta & Novomestky, 2022)*## Table S6
 
 | Correlations between WM scores and the three outcome variables for EB-<br>stimuli<br>(Spearman's rho) |       |                                 |                                          |          |  |  |  |  |
@@ -614,6 +627,7 @@ Descriptive statistics for each WM task and outcome variables are shown in Table
 
 ## Figure S9
 *Density plots representing the distribution of the differences of temporal compression between EB+ and EB- stimuli (at the subject level; Experiment 1)*![](_page_73_Figure_2.jpeg)
+<!-- Image Description: The image displays two density plots, one for high working memory (WM) and one for low WM groups (n=39 each). Each plot shows the distribution of the difference in temporal compression between two conditions (EB+ and EB-). A vertical dashed line indicates the mean difference, while a solid line represents the median. The plots compare the distributions of temporal compression differences across the two WM groups, likely to investigate the impact of WM capacity on temporal perception. -->
 *Note. The golden line represents the average difference. (A) participants whose WM score was above the sample median. (B) participants whose WM score was below the sample median.*## Table S7
 
 | Descriptive statistics regarding WM tasks and correlations between them (Experiment 2) |
@@ -636,6 +650,7 @@ Descriptive statistics for each WM task and outcome variables are shown in Table
 
 ## Figure S10
 *Density plot and descriptive statistics for the three outcome variables (Experiment 2). Values are reported separately for each EBs density*![](_page_75_Figure_2.jpeg)
+<!-- Image Description: The image displays three panels (A, B, C) of kernel density plots, each comparing distributions for two groups (EB+ and EB−). Panel A shows temporal compression rates, Panel B shows the number of recalled experience units, and Panel C shows the duration of recalled experience units (seconds). Each panel includes descriptive statistics (Q1, Median, Q3, Mean, SD, Skewness, Kurtosis) for both groups, highlighting differences in the distributions of these variables between EB+ and EB−. The plots visualize the data's distribution and allow for a comparison between the two groups. -->
 *Note. (A) Temporal compression rates. (B) The number of recalled experience units. (C) The duration of recalled experience units.*## Table S9
 
 | Correlations between WM scores and the three outcome variables for EB-<br>stimuli<br>(Spearman's rho) |       |                              |                                          |          |  |  |  |  |
@@ -657,6 +672,7 @@ Descriptive statistics for each WM task and outcome variables are shown in Table
 
 ## Figure S11
 *Density plots representing the distribution of the differences of temporal compression between EB+ and EB- stimuli (at the subject level; Experiment 2)*![](_page_77_Figure_2.jpeg)
+<!-- Image Description: The image presents two density plots comparing the difference in temporal compression between two groups (EB+ and EB-) for individuals with high and low working memory (WM). Each plot shows a histogram overlaid with a kernel density estimate. A gold vertical line indicates the mean difference, while a dashed black line marks zero difference. The plots illustrate the distribution of temporal compression differences and their relation to WM capacity. -->
 *Note. The golden line represents the average difference. (A) participants whose WM score was above the sample median. (B) participants whose WM score was below the sample median.*## References
 
 - Auguie, B. (2017).*gridExtra : Miscellaneous Functions for « Grid » Graphics*. https://CRAN.Rproject.org/package=gridExtra

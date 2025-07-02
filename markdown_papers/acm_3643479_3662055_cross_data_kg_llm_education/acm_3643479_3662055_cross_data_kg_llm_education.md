@@ -1,7 +1,7 @@
 ---
 cite_key: "bui2024"
 title: "Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUT"
-authors: "Tuan Bui, Oanh Tran, Phuong Nguyen, Bao Ho, Long Nguyen, Thang Bui, Tho Quan"
+authors: "Bao Ho, Oanh Tran, Long Nguyen, Phuong Nguyen, Thang Bui"
 year: 2024
 doi: "10.1145/3643479.3662055"
 url: "https://arxiv.org/abs/2404.09296"
@@ -113,6 +113,7 @@ In the dynamic landscape of a university environment like HCMUT, data streams fr
 Figure [1](#page-2-0) presents a cross-data environment at HCMUT, which includes the following data sources.
 
 <span id="page-2-0"></span>![](_page_2_Figure_6.jpeg)
+<!-- Image Description: The image is a system diagram illustrating the architecture of an HCMUT LLM-based virtual assistant. It shows how the virtual assistant integrates with various university resources (FAQ, HelpDesk, portals, LMS, other systems, and policies/documents). These resources are connected to an "Academic entity" and an "Intention entity" which feeds information into the virtual assistant via "Educational Open Entity Discovery". The diagram clarifies the data flow and integration points for the virtual assistant. -->
 
 Fig. 1: Multi-source educational data at HCMUT
 
@@ -126,6 +127,7 @@ policies/regulations, and course information. Knowledge extractable from this so
 ## 2 The E-OED Framework
 
 <span id="page-2-1"></span>![](_page_2_Figure_13.jpeg)
+<!-- Image Description: The image is a conceptual data model represented as a network graph. Nodes, representing entities like "Student," "Course," and "Department," are connected by edges showing relationships. Rectangular nodes represent policies or information, while ovals represent entities. The diagram illustrates the interconnectedness of various aspects within a university's academic system, likely to aid in understanding data relationships for a database or information system design. -->
 
 Fig. 2: Entity type in education domain
 
@@ -134,6 +136,7 @@ Figure [2](#page-2-1) depicts the intricate task of extracting relationships wit
 Conference'17, July 2017, Washington, DC, USA Tuan Bui, et al.
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts an open entity discovery framework. FAQ data is input, undergoing data preprocessing (tokenization, unique sentence acquisition, short sentence removal). Semantic clustering follows, using SimCSE for embedding, UMAP for dimension reduction, and HDBSCAN for clustering. Finally, automatic cluster labeling uses word segmentation, POS/dependency tagging, and rule-based tag extraction to produce extracted intentions as output. -->
 
 Fig. 3: Educational Open Entity Discovery Framework
 
@@ -148,6 +151,7 @@ Automatic Cluster Labeling The final step in this process involves the automatic
 In the context of Relation Discovery between Intents and other entities, we adopt an Embedding-based approach. Due to resource and time constraints, we initially experimented with two major types of entities: intent and policy. To accommodate a large amount of diverse data with varying lengths, we employ two-stage retriever.
 
 <span id="page-3-1"></span>![](_page_3_Figure_8.jpeg)
+<!-- Image Description: The image displays a series of simple node-link diagrams, each illustrating a cluster of related student support services. Nodes represent service categories (e.g., "grade adjustment," "course registration") and links connect related services. The diagrams visually organize different support service areas, likely to clarify the scope and relationships between services offered within a university or educational setting. The purpose is to present a clear and concise overview of the support system for students. -->
 
 Fig. 4: List of some discovered intents
 
@@ -156,6 +160,7 @@ We use Sentence-BERT to embed intent entities and policy entities. Once the embe
 After getting mapping between entities using embedding, we use tf\_idf to rerank and give higher scores to policies that have similar keywords with the intents. [\[8\]](#page-5-26), we identify implicit connections between entities. This analysis enables us to uncover meaningful associations and dependencies that might not be readily apparent from raw data alone. Figure [5](#page-3-2) illustrates the approach of using Embedding-based methods for relation discovery. Based on the discovered relationships, we construct a Knowledge Graph (KG) representing the education domain. Each entity type is depicted as a node in the graph, and relationships between entities are depicted as edges. The KG offers a structured representation of the semantic landscape within the education domain, facilitating efficient traversal, query processing, and inference tasks.
 
 <span id="page-3-2"></span>![](_page_3_Figure_12.jpeg)
+<!-- Image Description: This flowchart depicts a relation discovery module. Input, comprised of entity, intent, and policy, is processed through three stages: entity enrichment, entity embedding, and similarity measuring. The output is entity relationships. The diagram illustrates a data processing pipeline for identifying relationships between entities, using embedding and similarity measurement techniques. -->
 
 Fig. 5: Relation Discovery Module using Embedding-based method
 
@@ -200,6 +205,7 @@ The embedding-based approach for relation discovery has yielded promising result
 To address the "KG-augmented LLMs" aspect of the research and its application in the education domain at HCMUT, we conduct a general pipeline of the question-answering system following the Figure [6](#page-4-2) (a). The process of answering user questions involves feeding the question into our institution's LLM, URA, which generates a structured query in the form of Neo4j's Cypher language, as our knowledge graph database is built on Neo4j. This query searches a knowledge graph database handcrafted using intent discovery's result to retrieve matching sub-graphs and relevant triples. Next, the triples are converted into a natural language format and combined with the original user question to create a final prompt for the LLM. The prompt guides the LLM in generating a coherent and accurate answer as demonstrated in Figure [6](#page-4-2) (b).
 
 <span id="page-4-2"></span>![](_page_4_Figure_12.jpeg)
+<!-- Image Description: The image displays a flowchart illustrating a knowledge graph (KG)-augmented large language model (LLM) approach. The flowchart shows user input (question/utterance) processed through a retriever accessing a KG, feeding relevant knowledge to a URA LLM which generates an answer. Below, a sample chatbot interaction demonstrates the system handling a course withdrawal request, showing both user input and system's response in Vietnamese and English. The image showcases the system's architecture and example functionality. -->
 
 (b) Demonstration of course withdrawal case
 

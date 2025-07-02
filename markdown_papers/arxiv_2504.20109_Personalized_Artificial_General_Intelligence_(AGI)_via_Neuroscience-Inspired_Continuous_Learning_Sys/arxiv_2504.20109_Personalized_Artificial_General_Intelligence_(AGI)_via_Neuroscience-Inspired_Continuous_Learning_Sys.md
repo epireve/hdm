@@ -1,7 +1,7 @@
 ---
 cite_key: "guptasupasup2021"
 title: "Personalized Artificial General Intelligence (AGI) via Neuroscience-Inspired Continuous Learning Systems"
-authors: "Rajeev Gupta<sup>a</sup> , Suhani Gupta<sup>b</sup> , Ronak Parikh<sup>c</sup> , Divya Gupta<sup>d</sup> , Amir Javaheri<sup>e</sup> , Jairaj Singh Shaktawat<sup>f</sup>"
+authors: "Rajeev Gupta, Suhani Gupta, Ronak Parikh, Divya Gupta, Amir Javaheri, Jairaj Singh Shaktawat, Neuro Health Alliance"
 year: 2021
 doi: "10.1126/science.1089662"
 date_processed: "2025-07-02"
@@ -111,12 +111,14 @@ The human brain exhibits several properties that are key to its ability to learn
 During development and learning, brains not only form new synaptic connections but also eliminate a substantial number of existing synapses. Synaptic pruning is a process by which unused or weaker connections are removed, resulting in a more efficient and specialized network. In humans, synaptic pruning is especially prominent in early childhood and adolescence; it is estimated that roughly 50% of synapses in some brain regions are pruned during adolescence [\[26\]](#page-41-5). By removing synapses that are no longer frequently used, the brain reduces metabolic cost and noise, effectively "decluttering" neural circuits [\[27\]](#page-41-6). Pruning ensures that critical connections (those repeatedly used) are preserved and strengthened, while redundant pathways are cleared out (see Figure [1\)](#page-9-0).
 
 ![](_page_9_Figure_3.jpeg)
+<!-- Image Description: This image illustrates synaptic pruning in brain development. Two brain diagrams show synaptic density before and after pruning, with a pair of scissors symbolizing the process. Detailed diagrams depict synaptic pruning and stabilization. A line graph demonstrates the decrease in gray matter volume between ages 14 and 19, correlating with synaptic pruning. The image visually explains the relationship between synaptic pruning and gray matter volume reduction during adolescence. -->
 
 <span id="page-9-0"></span>Figure 1: Illustration of synaptic pruning in the biological brain.
 
 In the context of AI, synaptic pruning inspires methods to simplify neural networks during training or continual learning. A network can start with surplus capacity and then prune weights that have little influence on outputs (e.g., weights that stay near zero). This yields a sparse model that can be faster and more memory-efficient, which is crucial for edge devices. More importantly, in continual learning, pruning can reclaim capacity for new tasks. A prune-and-grow strategy can be employed: after learning a set of tasks, prune the redundant or least important weights, and then use the freedup capacity (or even add new neurons if needed) to learn subsequent tasks. This mirrors biological neural development, where an initial overabundance of connections is later optimized (see Figure [2\)](#page-10-0).
 
 ![](_page_10_Figure_0.jpeg)
+<!-- Image Description: The image depicts a neural network pruning process. It shows three stages: a fully connected network ("Surplus Capacity"), a pruned network ("Sparse Model") achieved by iterative pruning of near-zero and redundant weights while learning new tasks, and finally, a pruned network after applying the pruning method to an existing task ("Prevented"). The diagrams illustrate how pruning reduces network size while mitigating catastrophic forgetting. The purpose is to visually explain the technique and its benefits in preserving old task knowledge while learning new tasks. -->
 
 <span id="page-10-0"></span>Figure 2: Synaptic pruning applied to AI.
 
@@ -127,12 +129,14 @@ As noted earlier, Golkar et al. [\[23\]](#page-41-2) demonstrated that allowing 
 Donald Hebb's famous principle, often paraphrased as "neurons that fire together, wire together", captures the idea that the coincidence of activity in connected neurons tends to strengthen their connection (see Figure [3\)](#page-10-1). This Hebbian plasticity is considered a fundamental mechanism for associative learning: how we learn that two events or stimuli are related.
 
 ![](_page_10_Figure_5.jpeg)
+<!-- Image Description: The image illustrates Hebbian plasticity in recurrent neural networks (RNNs). A diagram shows simplified neurons, demonstrating how simultaneous firing strengthens connections (Hebbian learning rule: Δwij(t) = η ⋅ xi(t) ⋅ xj(t)). A second diagram depicts a small RNN reflecting this principle. Finally, a graph compares the performance of an RNN with Hebbian plasticity against a standard RNN over timesteps, showing enhanced learning in the Hebbian model. -->
 
 <span id="page-10-1"></span>Figure 3: Donald Hebb's Principle.
 
 In biological neurons, repeated simultaneous activation can lead to increases in synaptic weight (long-term potentiation), whereas lack of coordinated activity can lead to weakening (long-term depression). Variants of Hebbian learning rules, such as Spike-Timing-Dependent Plasticity (STDP), adjust synaptic strengths based on the precise timing of spikes between neurons (see Figure [4\)](#page-11-0).
 
 ![](_page_11_Figure_1.jpeg)
+<!-- Image Description: This figure illustrates long-term potentiation (LTP) and long-term depression (LTD) in neurons. Simplified neuron diagrams show repeated simultaneous activation leading to LTP and uncoordinated activity resulting in LTD. A detailed diagram depicts a synapse, pre- and post-synaptic spikes, and a graph showing the time difference (Δt) between spikes, correlating to changes in synaptic strength, illustrating the mechanisms of synaptic plasticity. -->
 
 <span id="page-11-0"></span>Figure 4: Spike-Timing-Dependent Plasticity (STDP).
 
@@ -151,6 +155,7 @@ Miconi et al. [\[29\]](#page-41-8) incorporated differentiable Hebbian plasticit
 Likewise, the concept of fast weights [\[17\]](#page-40-6) uses Hebbian updates to temporarily store information that a standard slow-weight network can later retrieve. This mechanism is analogous to short-term memory at the synaptic level, with Hebbian plasticity serving as a biological metaphor for rapid within-task adaptation in artificial systems.
 
 ![](_page_12_Figure_0.jpeg)
+<!-- Image Description: This image illustrates a model of memory consolidation. It shows a three-stage process: (1) association of a person ("Emma") with a neural network representation; (2) a temporary adjustment in network weights (Δw = ηxy), depicted as a change in connection strength; (3) consolidation, where the adjusted connections become stable, representing long-term memory. The diagram uses a simple neural network to represent memory and an equation to define short-term weight changes. The figure visually explains the transition from short-term to long-term memory. -->
 
 <span id="page-12-0"></span>Figure 5: Hebbian Plasticity and Rapid Personalization.
 
@@ -163,6 +168,7 @@ In AI, inducing sparse coding in neural networks can be beneficial for similar r
 Recent continual learning research leverages this. SparCL [\[30\]](#page-41-9) explicitly encouraged a sparse subset of features to specialize for each task and showed improved retention when training on an edge device with limited memory.
 
 ![](_page_13_Figure_0.jpeg)
+<!-- Image Description: The image illustrates principles of sparse coding in neural networks, inspired by brain function. It shows how sparse activation minimizes interference between memories (represented by diagrams of interconnected nodes). A grid illustrates information encoding by neuron activation patterns, not just signal magnitude. A ReLU activation function graph and a diagram of continual learning on a mobile device complete the visualization. The purpose is to explain the biological plausibility and computational advantages of sparse coding for memory and learning. -->
 
 <span id="page-13-0"></span>Figure 6: Sparse Coding improves efficiency, reduces overlap
 
@@ -175,10 +181,12 @@ One can imagine a continual learning system that develops separate "expert modul
 Biological cognition relies on multiple memory systems. A prominent theory is the dual-memory (complementary learning) system comprising the hippocampus (fast learning, episodic memory) and the neocortex (slow learning, semantic memory). The hippocampus can rapidly encode new experiences (within one or a few exposures) and is capable of recalling specific episodes (e.g., what you ate for dinner last night), but these memories are initially fragile. The cortex, on the other hand, gradually accumulates structured knowledge (like abstract concepts and skills) over repeated exposures and sleep cycles, integrating across experiences (see Figure [8\)](#page-14-1).
 
 ![](_page_14_Figure_0.jpeg)
+<!-- Image Description: The image is a flowchart illustrating a multi-expert neural network architecture. An input feeds into a "Gating Network," which then routes the information to three "Expert Subnetworks" (Expert 1, 2, and 3). The outputs of these expert networks converge to produce a final output. The diagram visually represents the data flow and the role of the gating network in distributing information across specialized subnetworks. -->
 
 <span id="page-14-0"></span>Figure 7: Mixture-of-Experts Model
 
 ![](_page_14_Figure_2.jpeg)
+<!-- Image Description: This image from an academic paper illustrates the dual-memory system theory. It uses diagrams of the brain highlighting the hippocampus (fast learning, episodic memory) and neocortex (slow learning, semantic memory). Flowcharts depict the encoding of episodic and semantic memories, showing how the hippocampus rapidly encodes new experiences, while the neocortex gradually accumulates structured knowledge. A final diagram shows the consolidation of hippocampal memories into neocortical long-term semantic memory. -->
 
 <span id="page-14-1"></span>Figure 8: Fast and Slow Learning - hippocampus vs neocortex
 
@@ -187,6 +195,7 @@ Over time, memories can be consolidated from hippocampus to cortex: important ev
 For AI, implementing a dual memory system can address the stability–plasticity dilemma by design. Many researchers have proposed complementary learning architectures. One simple instantiation is to have a main model that learns gradually (e.g., via standard Stochastic Gradient Descent on accumulated knowledge) and an auxiliary memory module that can store recent experiences explicitly. For example, a memory buffer plus base model approach: the buffer (akin to hippocampus) caches recent data or micromodels of recent tasks, and the base model (akin to cortex) is intermittently retrained or expanded using information from the buffer. This idea underlies some replay-based methods where the buffer is the short-term memory and the network's weights are the long-term memory (see Figure [9\)](#page-15-0).
 
 ![](_page_15_Figure_2.jpeg)
+<!-- Image Description: This diagram illustrates a model of memory, comparing short-term and long-term memory processes. Short-term memory is represented as a buffer storing data (shown as graphs) linked to the hippocampus. Long-term memory is depicted as a neural network ("Base Model") that is updated ("Retraining") by data from short-term memory via the cortex. A separate illustration shows how new information from the short-term buffer is integrated into the long-term memory network. The figure's purpose is to visually explain the proposed model of memory consolidation. -->
 
 <span id="page-15-0"></span>Figure 9: Short term and long-term memory in AI
 
@@ -227,6 +236,7 @@ A central component of our approach is the Tri-Memory Continual Learning design,
 The Short-Term Memory (STM) serves as a fast-learning buffer for novel information. When the robot encounters unanticipated inputs or stimuli, the STM's plastic connections adapt rapidly through Hebbian-like updates, allowing the system to incorporate new correlations on the fly. This high degree of plasticity ensures swift responses to immediate demands; however, because the STM is prone to frequent fluctuations, knowledge stored
 
 ![](_page_19_Figure_0.jpeg)
+<!-- Image Description: The image diagrams a "Tri-Memory Continual Learning" model. A neural network is shown feeding into short-term, long-term, and permanent memory stores. The model illustrates knowledge transfer: short-term memory (STM) updates via an STM-learner network, then consolidates into long-term memory (LTM) via a consolidation phase represented by a bar graph, updating the LTM-Net. A simplified brain diagram represents the biological analogy. The diagram visually explains the architecture and information flow within the proposed continual learning framework. -->
 
 <span id="page-19-0"></span>Figure 10: Tri-Memory System: STM, LTM, and PM memory modules with dynamic consolidation
 
@@ -241,6 +251,7 @@ The third tier, Permanent Memory (PM), captures a model's most indispensable fea
 Sparse Distributed Representation: Each network uses sparse coding principles so that any given input (or task) activates only a subset of neurons. This is achieved by using layers with activity regularization (encouraging most neurons to be inactive) or architecturally via a mixture-ofexperts (MoE) layer (see Figure [11\)](#page-20-0). Concretely, in LTM-Net, we incorporate an expert gating mechanism: for different domains of knowledge (e.g., vision, language, or other contexts), only the corresponding expert sub-network is activated. If a new domain of data is encountered (e.g., the mobile assistant begins processing a new sensor type), a new expert can be added rather than interfering with existing ones.
 
 ![](_page_20_Figure_2.jpeg)
+<!-- Image Description: The image diagrams the architecture of LTM-Net. Vision, language, and sensor data inputs feed into activity-regularized layers, which in turn contribute to a mixture-of-experts layer. This layer's output is then processed by an expert gating mechanism, visualized as a matrix highlighting selected experts (orange/black circles), illustrating sparse coding and the model's selection process. The diagram showcases the data flow and expert activation within the LTM-Net framework. -->
 
 <span id="page-20-0"></span>Figure 11: Sparse distributed representation
 
@@ -251,6 +262,7 @@ This echoes the MoE idea from GLaM [\[24\]](#page-41-3), but adapted for resourc
 In biologically inspired frameworks, short rest periods, microsleeps, offer opportunities to enact small but beneficial housekeeping operations. In our implementation, microsleeps occur at periodic intervals or after a set number of inferences; each interval typically spans milliseconds to seconds, depending on the application's latency tolerance (see Figure [12\)](#page-21-0).
 
 ![](_page_21_Figure_2.jpeg)
+<!-- Image Description: This image depicts a "microsleep" technique for neural network pruning. A flowchart illustrates the process: a global offset (uniform negative weight shift) followed by optional minor gradient steps. A diagram shows network weights decaying towards zero, with frequently used weights remaining. A histogram visualizes weight distribution changes over time, and a graph illustrates weight updates via gradient descent during microsleep. The equations define the global offset and gradient step calculations. The figure explains how microsleeps gradually reduce less important weights, preventing unbounded growth. -->
 
 Figure 12: Microsleeps for Lightweight Decay: Global Offset and Minor Gradient Steps
 
@@ -265,6 +277,7 @@ Large-scale pruning is not performed during these micro-sleeps. Instead, microsl
 # <span id="page-22-0"></span>4.4. Nightly (Offline) Pruning and Replay-Based Training
 
 ![](_page_22_Figure_2.jpeg)
+<!-- Image Description: This flowchart illustrates a neural network training and optimization method. It depicts a process beginning with replay buffer activation, followed by gradient-based replay training and structured synaptic pruning. An offline pruning phase triggered during periods of inactivity (e.g., at night) removes low-importance weights. Replay-based training then uses stored data to retrain the network, preventing forgetting. Finally, optional new expert expansion and weight rebalancing steps fine-tune the network. The diagram uses icons representing training, pruning, and network structures to visually represent each stage of the process. -->
 
 <span id="page-22-1"></span>Figure 13: Nightly (Offline) Pruning
 
@@ -275,6 +288,7 @@ In this offline phase, the model applies adaptive pruning, a process guided by u
 By pruning underused connections, the system achieves a sparser internal representation, reducing both memory footprint and computational overhead for subsequent online operations. Importantly, this process is not forced to run every night. In cases where there has been minimal novel interaction or data, the system may skip pruning, preserving established parameters and preventing undue knowledge loss (see Figure [14\)](#page-23-0).
 
 ![](_page_23_Figure_2.jpeg)
+<!-- Image Description: This flowchart illustrates a neural network training method combining adaptive pruning and replay-based rehearsal. The left side depicts adaptive pruning: usage statistics from an offline phase inform a pruning decision, removing low-usage connections to reduce computational overhead. The right side shows replay-based rehearsal, where a replay buffer stores recent and older examples to prevent catastrophic forgetting during model training, with the final output showing consolidated representations. Both techniques aim to improve efficiency and stability in neural network learning. -->
 
 <span id="page-23-0"></span>Figure 14: Adaptive Pruning and Replay-Based Rehearsal
 
@@ -303,10 +317,12 @@ In parallel, error-driven (gradient-based) learning is applied selectively durin
 A typical operational cycle in our Tri-Memory system unfolds as shown in Figure [16.](#page-26-0) The key phases are:
 
 ![](_page_25_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a neural network learning model. It depicts two learning paradigms: Hebbian update (a simple weight adjustment based on co-activation, shown by Δω = ηxy) and error-driven learning (using microsleeps and offline windows). The Hebbian update uses usage counters and partial credit assignment to modify weights. A network diagram shows co-activation within the network before feeding into the error-driven learning method. The overall purpose is to contrast these two approaches to neural network learning. -->
 
 <span id="page-25-0"></span>Figure 15: Hybrid learning with Hebbian and gradient-based updates occurring at different phases of the system's timeline.
 
 ![](_page_26_Figure_0.jpeg)
+<!-- Image Description: This flowchart depicts a dynamic neural network training process. It shows five stages: input/inference (using Hebbian learning), on-the-fly weight adjustments, periodic "micro-sleep" (global offset and weight pruning), "micro-rehearsal" (brief replay and updates), and finally stable operation with dynamic restructuring (reinforcing important weights). Each stage is illustrated with a corresponding simple diagram symbolizing the process. The purpose is to illustrate the algorithm's architecture and operation. -->
 
 <span id="page-26-0"></span>Figure 16: Timeline of operations in the Tri-Memory learning cycle, showing inference, microsleeps, rehearsal, and consolidation phases.
 
@@ -520,19 +536,23 @@ In conclusion, achieving personalized AGI on the edge is a complex, multidiscipl
 Rajeev Gupta is an entrepreneur with extensive experience in AI strategy, risk modeling, and intelligent systems. He is the Co-Founder of Cowbell, where he leads innovation at the intersection of AI and Risk. Rajeev is also passionate about robotics, with a strong interest in applying AI to enable real-world autonomy.
 
 ![](_page_43_Picture_3.jpeg)
+<!-- Image Description: That's not a technical image from an academic paper; it's a photograph of a person. There are no diagrams, charts, graphs, equations, or technical illustrations present. The image is likely an author portrait or contributor photo included for biographical purposes rather than to convey technical information within the paper's body. -->
 
 Suhani Gupta is the Founder and CEO of the Neuro Health Alliance, where she leads work at the intersection of mental health advocacy and neuroscience-inspired AI. Her focus on cognitive modeling and personalized systems informed the integration of biological principles into the architecture proposed in this paper.
 
 ![](_page_43_Picture_5.jpeg)
+<!-- Image Description: That's not a technical image; it's a headshot photograph of a person. There are no diagrams, charts, graphs, equations, or technical illustrations present. The image is likely an author photograph included in an academic paper to provide a visual representation of one of the authors. It has no technical content. -->
 
 Ronak Parikh is an AI Engineer based in New York with experience in deep learning, MLOps, and deploying production-ready models. His work centers on generative architectures and structured approaches for building adaptive, real-world AI systems, contributing to the conceptual design of this paper's framework.
 
 ![](_page_43_Picture_7.jpeg)
+<!-- Image Description: That's not a technical image; it's a headshot photograph of a person, likely the author or a contributor to the academic paper. There are no diagrams, charts, graphs, equations, or other technical illustrations present. The image serves only as an author portrait, providing a visual representation of the individual associated with the research. -->
 
 Dr. Divya Gupta is the Medical Director of the JFK Neuroscience Sleep Center at HMH. A neurologist with deep expertise in neuroscience and sleep medicine, her understanding of neuroplasticity, memory consolidation, and synaptic pruning directly informed the biological foundations of this paper's continual learning framework.
 
 Amir Javaheri is the Head of Data Science and AI at Cowbell, where he leads initiatives in LLMs and applied AI. His work focuses on building scalable AI systems and translating research into robust, production-ready solutions. His expertise shaped the practical implementation considerations in this paper's architecture.
 
 ![](_page_44_Picture_2.jpeg)
+<!-- Image Description: That's not a technical image; it's a headshot photograph of a person. There are no diagrams, charts, graphs, equations, or technical illustrations. The image is likely an author photograph included for identification purposes within the academic paper. It contains no technical content. -->
 
 Jairaj Singh Shaktawat is a Staff AI Engineer with expertise in transformers, deep learning, and model optimization. His work on efficient inference and representation learning informed the architecture's memory compression and edge deployment strategies discussed in this paper.

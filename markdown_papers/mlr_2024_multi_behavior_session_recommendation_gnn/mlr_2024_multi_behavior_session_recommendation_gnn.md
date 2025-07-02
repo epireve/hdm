@@ -1,7 +1,7 @@
 ---
 cite_key: "qin2024"
 title: "Multi-behavior Session-based Recommendation via Graph Reinforcement Learning"
-authors: "Shuo Qin, Xiangyu Zhao, Haochen Liu, Wenqi Fan, Lei Chen, Hui Liu, Qing Li"
+authors: "Shuo Qin"
 year: 2024
 doi: "N/A"
 url: "https://proceedings.mlr.press/v222/qin24a.html"
@@ -54,6 +54,7 @@ The main contributions of paper can be summarized as follows.
 ### MB-GRL
 
 ![](_page_2_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a three-layered recommendation system. Layer (A) shows a session graph (nodes and edges representing user interactions) inputted into a Graph Neural Network. Layer (B) uses attention networks to process the graph's embedding, generating session representations. Finally, layer (C) employs a Deep Q-Network within a reinforcement learning framework, combining outputs from (B) to predict recommendations (L), optimizing a loss function (Lp + Lq). The diagram illustrates the system's architecture, data flow, and component interactions. -->
 
 - Figure 1: The model architecture of MB-GRl. (A) integrates the transition patterns of all items within a session along with the activated contextual information into the presentation of each item. (B) extract session representation that includes both the long-term preferences and current interests and make recommendation. (C) acts as a regularizer to fine-tune the recommendation performance.
   - We propose Multi-behavior Graph Reinforcement Learning Network (MB-GRL), a novel method that combines graph neural networks and reinforcement learning to capture user preferences at both the item and behavior level.
@@ -369,6 +370,7 @@ In our ablation studies, we evaluated our model under different settings:
 By examining the performance of our model under these ablation settings, we gain insights into the individual contributions and effects of different components and mechanisms within our proposed approach. Table [3](#page-10-0) shows the corresponding results on the Yoochoose dataset. Our model exhibits a notable advantage over other models in predicting purchasing behavior. Simultaneously, it performs on par with other models in predicting click behavior. This highlights the effectiveness of incorporating reinforcement learning in distinguishing the diverse tendencies among different behaviors. Furthermore, the attention network plays a crucial role in extracting session representations from the session item sequence. However, the SRR layer requires the session representation to encompass both long-term preferences and current interests, whereas the BF-RL layer relies on the state representation to differentiate between the varied tendencies among different behaviors. It becomes apparent that a single attention network alone cannot generate a latent vectors that fulfills both requirements simultaneously.
 
 ![](_page_12_Figure_1.jpeg)
+<!-- Image Description: The image contains two line graphs (a) and (b), each displaying the performance of two methods (red and blue stars) across varying values of γ (gamma). Each graph plots Hit Rate (HR@20) and Normalized Discounted Cumulative Gain (NDCG@20) as evaluation metrics. The graphs illustrate how these metrics change as γ changes, showing the impact of this parameter on the system's performance. The purpose is to present a comparative analysis of the two methods' sensitivity to γ. -->
 
 #### 4. Hyper-parameters Study (RQ3)
 
@@ -383,6 +385,7 @@ Effect of Reward Settings. To evaluate the effect of the RL reward setting on mo
 This paper introduces reinforcement learning to the multi-behavior conversational recommendation task and proposes a novel method called MB-GRL. Our method combines the advantages of graph neural networks and deep reinforcement learning to address the limitations of current models in predicting the next user-item interaction across multiple behavior
 
 ![](_page_13_Figure_1.jpeg)
+<!-- Image Description: The image contains two line graphs (a) and (b), each showing the performance of two methods (red and blue lines, marked with stars) across varying ratios (rp/rc). Graph (a) plots HR@20 and NDCG@20, while graph (b) plots HR@20 and NDCG@20 for a different dataset or scenario. The x-axis represents the ratio, while the y-axis shows the evaluation metrics (HR@20 and NDCG@20). The graphs illustrate how the performance of the two methods changes with respect to the ratio, allowing for a comparison of their sensitivity to this parameter. -->
 
 <span id="page-13-4"></span>Figure 3: MB-GRL with different reward setting on Yoochoose. (a) represent the performance change for purchase behavior prediction; (b) represent the performance change for click behavior prediction.
 

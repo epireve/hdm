@@ -1,7 +1,7 @@
 ---
 cite_key: "follows2024"
 title: "Memoro: Using Large Language Models to Realize a Concise Interface for Real-Time Memory Augmentation"
-authors: "The introductions of the four fictional people were as follows:"
+authors: "Figure 1: Architecture of Memoro"
 year: 2024
 doi: "10.1145/3613904.3642450"
 date_processed: "2025-07-02"
@@ -15,6 +15,7 @@ images_removed: 0
 # Memoro: Using Large Language Models to Realize a Concise Interface for Real-Time Memory Augmentation
 
 <span id="page-0-0"></span>![](_page_0_Figure_1.jpeg)
+<!-- Image Description: This image from an academic paper depicts a system architecture diagram and illustrative examples. The diagram shows a conversational AI system using a query agent (LLM) and retrieval agent (LLM) interacting with external memories and processing speech-to-text and text-to-speech. Illustrative examples showcase "Query Mode" and "Queryless Mode" demonstrating the system's ability to respond to explicit and implicit user queries via bone conduction audio feedback. The system's functionality in different interaction modes is highlighted. -->
 
 Figure 1: Architecture of Memoro and its two interaction modes. (Left) System architecture of the memory assistant. (Right) Two interaction modes: (1) Query Mode where the user can ask contextual questions (2) Queryless Mode where the user can request predictive assistance and skip query formation. In both modes, responses are discreetly played back to the user using a bone conduction headset.
 
@@ -122,10 +123,12 @@ The contextual search is implemented using the following approach. When the user
 3.2.2 Concise Suggestions. Once the answer has been retrieved using the above method, it is further post-processed to be more concise to minimize response duration and reduce output from the assistant. Searching through External Memories, rather than sifting through new information, allows for further conciseness [\[20\]](#page-13-30). For instance, "Her name is Sarah" can be replaced with "Sarah". Therefore, the objective of this step is to eliminate any extraneous words such as connectives that do not address the question. Further, contextual compression could be used to remove any words that have already been retrieved by the user, either in the query or in the current conversational context. For instance, with the current context as "She is an engineer" the query "What was her name and what is her specialization?" and the generated answer "Her name is Emily and she works as a Software Engineer" gets compressed to "Emily, Software". Addressing the query from the user, the answers can be shortened to specifically what is needed to complete the user's need. This is critical as language models tend to be more verbose as they are optimized for informativeness [\[66\]](#page-14-17). The conciseness and redundancy removal are implemented by passing the query, current context, and the generated answer from the previous run to the retrieval agent with a template prompt that instructs the
 
 <span id="page-4-0"></span>![](_page_4_Figure_2.jpeg)
+<!-- Image Description: This flowchart depicts a conversational AI system's architecture. User speech is converted to text, processed through a query or queryless mode (depending on user input), and analyzed by a Query Agent (LLM). This agent interacts with a Memory Encoder and Retrieval Agent (LLM) to generate an inferred query and provide a text-to-speech response. The system also incorporates bone conduction feedback. The diagram illustrates the data flow and components of the system. -->
 
 Figure 2: The closed loop system architecture has a memory encoder that is continuously updated using text-to-speech. The system can be configured to use query or queryless mode. In the Query Mode, the explicit query is voiced by the user, while in the Queryless Mode, the query agent infers the query. The query and memories are inputted to the retrieval agent, which returns a concise memory suggestion that is delivered to the user through bone conduction
 
 <span id="page-4-1"></span>![](_page_4_Figure_4.jpeg)
+<!-- Image Description: This flowchart depicts an LLM-based conversational agent architecture. Input (microphone/bone conduction) is processed via speech-to-text and fed to a memory encoder and query former. The query is processed by a retrieval agent (LLM) to find relevant memories (using cosine similarity) from an external database. Temporal reranking and clipping refine results before a full answer generator produces a response (text-to-speech). The flowchart visually represents the information flow and processing steps involved in the agent's operation. -->
 
 Figure 3: Detailed workflow of the components of Memoro: memory encoder, retrieval agent, and query agent. The memory encoder takes speech transcriptions and maintains the context and external memories. The query agent takes in the context and produces an inferred query. The retrieval agent takes a query and retrieves an answer from external memories.
 
@@ -195,6 +198,7 @@ We show the analysis from the user study of the systems' usability, technical ev
 A total of 392 interactions with the system were captured in the user study for all conditions: 102 for the Baseline, 150 for the Query Mode, and 140 for the Queryless Mode. Each interaction indicates a moment when the user requested memory assistance by using the button. We used these interactions for the technical evaluation.
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a study's procedure. Participants begin with a 3-minute demographic questionnaire, followed by a 1-hour section including introductions, a 12-minute math task (repeated under 4 conditions), a conversation, and a reflection survey. The process concludes with a 5-minute final survey. The flowchart visually represents the timeline and stages of the experimental design. -->
 
 Figure 4: Procedure for the user study for each participant
 
@@ -233,6 +237,7 @@ We found significant differences in task load (RTLX) scores between conditions (
 | Queryless Mode | 70.7        | 0.7            | 23.5          | 2.8                          |
 
 <span id="page-8-1"></span>![](_page_8_Figure_6.jpeg)
+<!-- Image Description: This flowchart illustrates a system's query and queryless modes for information retrieval. The top section shows "External Memories" storing Sarah's gym activities. The bottom depicts two modes: "Query Mode," where a question ("What is the name of the place?") elicits "Pump Iron" via a retrieval agent; and "Queryless Mode," which infers ("What is Sarah's third exercise?") and retrieves "Cardio Exercises" based on contextual information. The diagram contrasts explicit querying with implicit, context-aware retrieval. -->
 
 #### Figure 5: Example interactions by P3 and P19 show the Query Mode and the Queryless mode for the same memory respectively. The timestamps are changed for reporting.
 
@@ -251,10 +256,12 @@ The normality assumption for the rating data was not met according to the Shapir
 CHI '24, May 11–16, 2024, Honolulu, HI, USA Zulfikar, et al.
 
 <span id="page-9-0"></span>![](_page_9_Figure_2.jpeg)
+<!-- Image Description: The image presents four box plots (a-d), each comparing four conditions ("No System," "Baseline," "Query Mode," "Queryless Mode") across a different dependent variable: (a) Confidence, (b) Recalled Relevance, (c) Difficulty, and (d) NASA TLX. The plots show the distribution of responses for each condition, with statistically significant differences indicated by asterisks above the bars. The purpose is to visually compare the impact of different system modes on user experience and performance metrics. -->
 
 Figure 6: Task Performance and task load : (a) Confidence in recalling, (b) Relevance of recalled information, (c) Perceived difficulty in recalling, and (d) Raw NASA TLX scores. \*\*\*: <.001
 
 <span id="page-9-1"></span>![](_page_9_Figure_4.jpeg)
+<!-- Image Description: The image displays a box plot comparing system usability scores across three modes: Baseline, Query Mode, and Queryless Mode. The y-axis represents the system usability scale (0-100). The box plots show the median, interquartile range, and range of usability scores for each mode. A horizontal line with an asterisk indicates a statistically significant difference between at least two modes. The plot visually communicates the impact of different interaction modes on system usability. -->
 
 Figure 7: System Usability Scale (SUS) scores for the different assistants. \*: <.05
 
@@ -277,10 +284,12 @@ Participants felt that the Queryless Mode felt the "most seamless" (P19) and tha
 Memoro: Using LLMs to Realize a Concise Interface for Real-Time Memory Augmentation CHI '24, May 11–16, 2024, Honolulu, HI, USA
 
 <span id="page-10-0"></span>![](_page_10_Figure_2.jpeg)
+<!-- Image Description: The image presents four box plots (a-d), each comparing three conditions (Baseline, Query Mode, Queryless Mode) across a different user experience metric: Appropriate Length, Adaptability, Device Interruption, and Helpfulness. Each box plot displays the median, interquartile range, and outliers. Significance levels (indicated by asterisks) are shown between conditions, suggesting statistical comparisons were performed. The plots likely illustrate the impact of different modes (Query and Queryless) on these user experience aspects. -->
 
 Figure 8: User perceptions and experience of the different assistants: (a) Appropriateness of response length, (b) Adaptability, (c) Device interruption and (d) Helpfulness. \*\*: <.01
 
 <span id="page-10-1"></span>![](_page_10_Figure_4.jpeg)
+<!-- Image Description: The image is a stacked bar chart comparing four system modes ("No System," "Baseline," "Query Mode," "Queryless Mode") across four categories ("Most," "Second-Most," "Third-Most," "Least"). Each bar segment represents the frequency of a system mode within each category, illustrating the relative prevalence of each mode across different usage levels. The chart likely presents performance data or user behavior analysis, comparing the effectiveness or popularity of each system mode. -->
 
 Figure 9: User preferences between conditions. The plot shows the number of participants who preferred which condition the most, the second-most, the third-most and the least.
 

@@ -1,6 +1,7 @@
 ---
 cite_key: "arxiv_2019_deep_learning_seque"
-title: "1 INTRODUCTION"
+title: "CCS Concepts: • Information systems → Recommender systems."
+authors: "Additional Key Words"
 year: 2020
 doi: "10.1145/3426723"
 date_processed: "2025-07-02"
@@ -46,6 +47,7 @@ Sequential recommendation (identical to sequence-aware recommendation in [\[77\]
 For sequential recommendation, besides capturing users' long-term preferences across different sessions as the conventional recommendation does, it is also extremely important to simultaneously model users' short-term interest in a session (or a short sequence) for accurate recommendation. Regarding the time dependency among different interactions in a session as well as the correlation of behavior patterns among different sessions, traditional sequential recommender systems are particularly interested in employing appropriate and effective machine learning (ML) approaches to model sequential data, such as Markov Chain [\[21\]](#page-35-0) and session-based KNN [\[31,](#page-36-0) [39\]](#page-36-1), which are criticized by their incomplete modeling problem, as they fail to thoroughly model users' long-term patterns by combining different sessions.
 
 <span id="page-1-0"></span>![](_page_1_Figure_4.jpeg)
+<!-- Image Description: The image is a horizontal bar chart showing the yearly distribution of a data set from 2015 to 2019. The chart's purpose is to visually represent the trend in the data's quantity over the years. The length of each bar corresponds to the value of the dataset for that year, with 2019 showing the highest value and 2015 the lowest. No specific units are indicated on the y-axis. -->
 
 Fig. 1. The number of arXiv articles on DL-based sequential recommendation in 2015-2019.
 
@@ -54,6 +56,7 @@ In recent years, deep learning (DL) techniques, such as recurrent neural network
 <span id="page-1-1"></span><sup>1</sup>We searched on arXiv.org for articles using the related keywords as well as their combinations, such as sequential recommendation, deep learning and session-based recommendation in June 2020. We did not report the data of 2020 in Figure [1](#page-1-0) due to its incomplete. Figure [2](#page-2-0) considers all articles.
 
 <span id="page-2-0"></span>![](_page_2_Figure_1.jpeg)
+<!-- Image Description: This word cloud visualizes keywords from a paper on session-based recommendation systems. Larger words like "RNN," "session-based," "sequential," and "embedding" highlight the paper's focus on recurrent neural networks and session-aware methods for recommendation. Other keywords such as "attention," "deep learning," and "collaborative filtering" indicate the techniques employed. The cloud's purpose is to provide a quick overview of the paper's technical content and key concepts. -->
 
 Fig. 2. Word cloud of the keywords for sequential recommendation related articles.
 
@@ -96,6 +99,7 @@ Definition 2.1. behavior object refers to the items or services that a user choo
 Definition 2.2. behavior type refers to the way that a user interacts with items or services, including search, click, add-to-cart, buy, share, etc.
 
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
+<!-- Image Description: The image displays a graph illustrating a path from a user ($U_u$) to an item ($V_j$). The path consists of *n* intermediate nodes ($a_1$ to $a_n$), each associated with a pair of parameters ($c_i$, $o_i$). The graph visually represents a sequential process or interaction, potentially modeling user behavior or a recommendation system. Each node likely represents a step in the process, and the parameters could represent contextual information or attributes. -->
 
 Fig. 3. A schematic diagram of the sequential recommendation. : behavior type, : behavior object. A behavior is represented by a 2-tuple, i.e., = ( , ). A behavior sequence (i.e., behavior trajectory) is a list of 2-tuples in the order of time.
 
@@ -104,6 +108,7 @@ Given these concepts, a behavior can be considered as a combination of a behavio
 Thus, a sequential recommender system is referred to a system which takes a user's behavior trajectories as input, and then adopts recommendation algorithms to recommend appropriate items or services to the user. The input behavior sequence {1, 2, 3, ..., } is polymorphic, which can thus be divided into three types[5](#page-4-1) : experience-based, transaction-based and interaction-based behavior sequence, and the details are elaborated as follows:
 
 <span id="page-4-2"></span>![](_page_4_Figure_5.jpeg)
+<!-- Image Description: The image is a directed graph illustrating a user's interaction with an item. A user (U<sub>u</sub>) node is connected to an item (V<sub>i</sub>) node through a sequence of actions (a<sub>1</sub> to a<sub>n</sub>), represented by intermediate nodes. Each action is linked to a specific user behavior (e.g., click, view, share, buy), shown below the action nodes. The graph likely models a user journey or purchase funnel, showing the progression of actions leading to a purchase. -->
 
 Fig. 4. Experience-based behavior sequence.
 
@@ -114,12 +119,14 @@ Experience-based behavior sequence. In an experience-based behavior sequence (se
 <span id="page-5-0"></span>intentions indicated by different behavior types. The goal here is to predict the next behavior type that the user will exert given an item.
 
 ![](_page_5_Figure_2.jpeg)
+<!-- Image Description: This diagram illustrates a user's sequential interaction with items. A user node (U<sub>u</sub>) connects to an item node (V<sub>j</sub>) via a path representing actions (a<sub>1</sub> to a<sub>n</sub>). Each action node is linked to a "(buy, V<sub>i</sub>)" node indicating a purchase event, where V<sub>i</sub> represents a specific item involved in the action. The diagram visually represents a user's purchase sequence in a recommendation system or similar context. -->
 
 Fig. 5. Transaction-based behavior sequence.
 
 Transaction-based behavior sequence. A transaction-based behavior sequence (see Figure [5\)](#page-5-0) records a series of different behavior objects that a user interacts with, but with a same behavior type (i.e., buy). In practice, buy is the most concerned one for online sellers. Therefore, with the transaction-based behavior sequence as input, the goal of a sequential recommender system is to recommend the next object (item) that a user will buy in view of the historical transactions of the user.
 
 <span id="page-5-1"></span>![](_page_5_Figure_5.jpeg)
+<!-- Image Description: The image depicts a user-item interaction model. A directed graph shows a user ($U_u$) connected to an item ($V_j$) through a sequence of actions ($a_1$ to $a_n$). Each action, represented by a node, is linked to a specific user behavior (e.g., click, buy, share). The dashed lines signify intermediate steps. The diagram illustrates a path of user actions leading to the final purchase of an item, likely used to model user behavior or predict purchase likelihood within the paper. -->
 
 Fig. 6. Interaction-based behavior sequence.
 
@@ -132,6 +139,7 @@ Before formally defining the sequential recommendation tasks, we firstly summari
 However, although the input of the aforementioned recommendation tasks is varied, their goals are mostly identical. Specifically, both of them strive to predict the next item(s) for a user, whilst the most popular form of the output is the top-N ranked item list. The rank could be determined by probabilities, absolute values or relative rankings, while in most cases softmax function is adopted to generate the output. Tan et al. [\[103\]](#page-38-1) further proposed an embedding version of the softmax output for fast prediction to accommodate the large volume of items in recommendation.
 
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
+<!-- Image Description: The image depicts a recommender system. "Next-Item" and "Next-Basket" sequences (user's click and buy history) are input to a recommender (represented as a gear). The recommender generates a "Recommendation List" (a vertical array of items Vᵢ). Dashed lines show the user's input influencing the recommendation. The diagram illustrates the system's workflow and data flow. -->
 
 Fig. 7. Next-item and next-basket recommendation.
 
@@ -181,6 +189,7 @@ Attention mechanisms. Attention mechanism in deep learning is intuited from visu
 Graph neural networks (GNNs). GNN [\[154\]](#page-40-4) can collectively aggregate information from the graph structure. Due to its effectiveness and superior performance in many applications, it has also obtained increasing interest in recommender systems. For example, Wu et al. [\[131\]](#page-39-3) first used GNN for session-based recommendation by capturing more complex relationships between items in a sequence, and each session is represented as the composition of the long-term preference and short-term interests within a session using an attention network.
 
 <span id="page-8-0"></span>![](_page_8_Figure_6.jpeg)
+<!-- Image Description: This timeline chart displays the evolution of recommendation systems from 2015 to 2020. Each speech bubble represents a different model, categorized as either "Next Item(s) Recommendation" or "Next Basket Recommendation". The models are arranged chronologically, with the year of publication indicated. Numbers in brackets likely refer to citations within the paper. The chart illustrates the trends and advancements in the field over time. -->
 
 Fig. 8. Some recent and representative DL-based sequential recommendation models. Different colors indicate different DL techniques (grey: MLP; orange: RNN; yellow: CNN; blue: attention mechanism; green: GNN).
 
@@ -215,6 +224,7 @@ In transaction-based sequential recommendation, there is only a single behavior 
 (1) GRU4Rec-related models. Hidasi et al. [\[34\]](#page-36-11) proposed a GRU-based RNN model for sequential recommendation (i.e., GRU4Rec), which is the first model that applies RNN to sequential recommendation, and does not consider a user's identity (i.e., anonymous user). On its basis, a set of improved models [\[12,](#page-35-7) [33,](#page-36-12) [103\]](#page-38-1) have been proposed, which also use RNN architectures for modeling behavior sequence. The architecture of GRU4Rec is shown in Figure [9.](#page-10-0) As introduced in [\[34\]](#page-36-11), the input of GRU4Rec is a session (behavior sequence), which could be a single item, or a set of items appeared in the session. It uses one-hot encoding to represent the current item, or a weighted sum of encoding to represent the set of items. The core of the model is the GRU layer(s), where the output of each layer is the input for the next layer, but each layer can also be connected to a deeper non-adjacent GRU layer in the network. Feedforward layers are added between the last GRU layer and the output layer. The output is the probability of each candidate item that will appear in the next behavior.
 
 <span id="page-10-0"></span>![](_page_10_Figure_6.jpeg)
+<!-- Image Description: The image is a flowchart illustrating a neural network architecture. It shows a sequential model processing an input (1-of-N item encoding). The input passes through an embedding layer, multiple GRU (Gated Recurrent Unit) layers, and finally, a feedforward layer. The output represents scores assigned to items. The dashed lines indicate connections likely used for recurrent feedback within the GRU layers. The diagram depicts the data flow and processing steps within the model. -->
 
 Fig. 9. Architecture of GRU4Rec.
 
@@ -301,6 +311,7 @@ is easily ignored. For example, [\[128\]](#page-39-2) used pooling operation to 
 ## <span id="page-16-0"></span>4 INFLUENTIAL FACTORS ON DL-BASED MODELS
 
 <span id="page-16-1"></span>![](_page_16_Figure_3.jpeg)
+<!-- Image Description: The figure illustrates a machine learning model workflow. Raw data and labels are processed, incorporating embedding design and data augmentation. The model undergoes structural modification (attention mechanism, traditional methods, user representation), training (using specified loss function, mini-batch, and sampling strategy), and evaluation. A separate testing phase uses the refined model on new data to generate predicted labels. The diagram visually depicts the training and testing phases, highlighting data preprocessing and model refinement steps. -->
 
 Fig. 10. Influential factors of DL-based models.
 
@@ -373,6 +384,7 @@ on the basis of the Skip-gram model and thus formed unified representations of i
 <span id="page-19-0"></span>Similarly, with regard to two behavior types (i.e., add-to-cart and click), 3D-CNN [\[107\]](#page-38-6) also uses data augmentation which treats all prefixes up to the last add-to-cart item as training sequences for each session containing at least one add-to-cart item. Besides, it uses right padding or simple dropping methods to keep all the sequences of the same length.
 
 ![](_page_19_Figure_4.jpeg)
+<!-- Image Description: The image displays a flowchart illustrating different training and dropout sequences. An original sequence (11, 12, 13, 14) is shown, followed by three training sequences, each omitting one element (represented by "?") in a different position. Three subsequent dropout sequences further illustrate the model's performance when elements are missing, also with "?" indicating the missing element in different positions. The dashed circles highlight the missing elements in the dropout sequences. The figure likely demonstrates a model's robustness to missing data. -->
 
 Fig. 11. Data augmentation. The orange circles represent the predicted items; the dotted circles represent the item that is deleted in the dropout method, and light orange circles make up privileged information.
 
@@ -476,6 +488,7 @@ Following the common way in data pre-processing [\[34,](#page-36-11) [78\]](#pag
 will result in varied performance. For example, we check the performance of GRU4Rec on different data scenarios by filtering out sessions less than {2, 3, 4, 5, 10, 15, 20} on RSC15 respectively. For fair comparisons, under all data scenarios, we use the same test set as data scenario of 20 following the aforementioned data pre-process procedure. We have tuned the hyperparameters under each scenario, and the results are presented in Figure [12.](#page-23-0) As shown in Figure [12,](#page-23-0) the performance of GRU4Rec drops as the length of sequence gets longer. This might be caused by the decreasing number of sessions for training, i.e., the available training sessions on the RSC dataset are 7966888, 4419603, 2810308, 1876772, 448561, 167318, and 78486 under the seven data scenarios, respectively.
 
 <span id="page-23-0"></span>![](_page_23_Figure_2.jpeg)
+<!-- Image Description: The image contains three line graphs (a, b, c) showing the performance of a system at different parameter settings (@5, @10, @20). Graph (a) displays Recall, (b) Mean Reciprocal Rank (MRR), and (c) Normalized Discounted Cumulative Gain (NDCG). Each graph plots these metrics against a varying parameter (likely the number of retrieved items) and shows how performance changes with the parameter. The purpose is to illustrate the impact of the parameter on different ranking evaluation metrics. -->
 
 Fig. 12. The effect of the length of session on RSC15.
 
@@ -534,6 +547,7 @@ For the input module, we choose two kinds of side information: item category and
 To verify the impact of behavior types, we design a new network (B-GRU) by adding a behavior type embedding module to the basic model. Specifically, B-GRU takes both the item one-hot vectors and behavior type one-hot vectors as input and converts them into embedding vectors, where item embedding vectors are fed into a GRU model, whose output is concatenated with behavior type embedding vectors for MLP layers. The current design aims to capture the intuition that a user's next behavior in the sequence is not only related to item sequence that the user has previously interacted with, but also might be impacted by the user¡¯s previous behavior type. Besides, B-GRU uses mini-batch parallel negative sampling method with a sample size of 50. The respective control model GRU4Rec (Behavior) is the basic GRU4Rec model with the same setup as B-GRU. The structures of C-GRU, P-GRU and B-GRU are shown in Figure [13.](#page-25-0)
 
 <span id="page-25-0"></span>![](_page_25_Figure_2.jpeg)
+<!-- Image Description: This image presents three neural network architectures (C-GRU, P-GRU, B-GRU) for sequential data processing. Each architecture diagram shows layers including embedding layers (processing one-hot encodings of item categories and items), GRU (Gated Recurrent Unit) layers, a feedforward layer, and a softmax output layer. The diagrams illustrate differences in how item and category information is integrated before the GRU layers, impacting the model's handling of sequential data. -->
 
 Fig. 13. The network structures of C-GRU, P-GRU and B-GRU.
 
@@ -632,14 +646,17 @@ User representation effects. Implicit represents the basic GRU4Rec model with se
 Sampling method effects. Figures [14](#page-29-0) and [15](#page-29-1) depict the model performance with different for additional sampling strategy on RSC15 and RSC19 respectively, where the results on different datasets are varied. For RSC15, the performance of cross-entropy, BPR-max and TOP1-max (on all metrics) are consistent. They firstly slowly increases as increases from 0 to 0.25, And then decreases as is larger than 0.25. Besides, the optimal ℎ on RSC15 corresponding to different loss functions and metrics are the same. On the contrary, on RSC19, the optimal is varied for different loss functions and different evaluation metrics. For example, the optimal for BPR-max loss function is 0.5 in terms of Recall@20, but for cross-entropy that is 0. In terms of MRR@20 and NDCG@20, the optimal for BPR-max loss function is 0.75. Therefore, it is necessary to carry out
 
 <span id="page-29-0"></span>![](_page_29_Figure_1.jpeg)
+<!-- Image Description: The image contains three line graphs comparing the performance of three methods (XE, B-m, T-m) on three metrics: Recall@20, MRR@20, and NDCG@20. Each graph shows the metric's value plotted against a variable (likely a parameter) ranging from 0 to 1. The purpose is to illustrate the effect of this parameter on the performance of each method across different information retrieval metrics. The graphs allow for a comparison of the methods' performance relative to one another and the impact of the varying parameter. -->
 
 Fig. 14. The impact of on additional sampling strategy on RSC15 (XE: cross-entropy; B-m: BPR-max; T-m: TOP1-max).
 
 <span id="page-29-1"></span>![](_page_29_Figure_3.jpeg)
+<!-- Image Description: The image presents three line graphs (a, b, c) comparing the performance of three methods (XE, B-m, T-m) on a retrieval task. Each graph shows how Recall@20 (a), MRR@20 (b), and NDCG@20 (c) vary with a parameter (x-axis, unspecified). The graphs visually compare the effectiveness of the three methods across different parameter settings, illustrating their relative strengths and weaknesses in terms of ranking performance. -->
 
 Fig. 15. The impact of on additional sampling strategy on RSC19 (XE: cross-entropy; B-m: BPR-max; T-m: TOP1-max).
 
 <span id="page-29-2"></span>![](_page_29_Figure_5.jpeg)
+<!-- Image Description: The image contains three line graphs (a, b, c) showing the performance of a model across different embedding dimensions (0, 1, 32, 128, 512, 2048). Each graph displays Recall, MRR, and NDCG, respectively, using three lines representing different cut-off values (@5, @10, @20). The graphs illustrate how these metrics improve with increasing embedding dimension. -->
 
 Fig. 16. The effect of sample size on RSC15.
 
@@ -650,14 +667,17 @@ The size of negative sampling effects. As described in Figure [16](#page-29-2) t
 ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication date: January 2020.
 
 <span id="page-30-0"></span>![](_page_30_Figure_1.jpeg)
+<!-- Image Description: This figure displays three line graphs (a, b, c) comparing Recall, Mean Reciprocal Rank (MRR), and Normalized Discounted Cumulative Gain (NDCG) at 5, 10, and 20 respectively. Each graph plots performance against an increasing embedding size (0, 1, 32, 128, 512, 2048). The purpose is to demonstrate the impact of embedding size on these three information retrieval metrics. -->
 
 Fig. 17. The effect of sample size on RSC19.
 
 <span id="page-30-1"></span>![](_page_30_Figure_3.jpeg)
+<!-- Image Description: The image displays three line graphs (a, b, c) comparing the performance of four different recommendation algorithms (B-m, T-m, XE, BPRTOP1) across three metrics: Recall, MRR, and NDCG. Each graph shows three lines representing different cutoff points (@5, @10, @20) for top-N recommendations. The purpose is to visually compare the algorithms' performance at various cutoffs using standard information retrieval metrics. -->
 
 Fig. 18. Model performance for different loss functions on RSC15 (B-m: BPR-max; T-m: Top1-max; XE: cross-entropy).
 
 <span id="page-30-2"></span>![](_page_30_Figure_5.jpeg)
+<!-- Image Description: The image contains three line graphs (a, b, c) comparing the performance of four different recommendation algorithms (B-m, T-m, XE, BPRTOP1) across three metrics: Recall, Mean Reciprocal Rank (MRR), and Normalized Discounted Cumulative Gain (NDCG). Each line represents a different cut-off point (@5, @10, @20) indicating the top-N recommendations considered. The graphs illustrate how these metrics vary depending on the algorithm and the cut-off point used for evaluation. -->
 
 Fig. 19. Model performance for different loss functions on RSC19 (B-m: BPR-max; T-m: Top1-max; XE: cross-entropy).
 

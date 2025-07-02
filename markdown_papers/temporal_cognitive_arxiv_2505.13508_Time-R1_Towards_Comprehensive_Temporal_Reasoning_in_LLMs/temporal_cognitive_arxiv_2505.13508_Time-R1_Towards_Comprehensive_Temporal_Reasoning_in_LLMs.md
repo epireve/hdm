@@ -1,7 +1,7 @@
 ---
 cite_key: "penalties2016"
 title: "Time-R1: Towards Comprehensive Temporal Reasoning in LLMs"
-authors: "applying such penalties, the Plen\\_rep mechanism actively discourages the model from generating verbose or repetitive content. This not only improves the conciseness of the output but also pushes the model to explore more diverse and efficient reasoning pathways. The consistent application of these universal bonuses and penalties, including those for length and various forms of repetition (word, phrase, n-gram diversity), is therefore instrumental in achieving the well-formed, succinct, and accurate responses demonstrated in the examples throughout Appendix [E.](#page-21-0) It ensures that Time-R1's advanced temporal reasoning is communicated clearly and effectively, without being undermined by a tendency towards unnecessary verbosity or redundancy."
+authors: "Large Language Models, Temporal Reasoning"
 year: 2016
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -34,6 +34,7 @@ While existing research aims to enhance temporal reasoning—for instance, Zhao*
 In this paper, we aim to bridge this gap by equipping a single 3B-parameter model with compre-
 
 <span id="page-1-0"></span>![](_page_1_Picture_3.jpeg)
+<!-- Image Description: The image displays two examples of a natural language processing task. The left panel presents a prediction task: given information about Japan's economic situation (Yen depreciation and weak growth), the model predicts the likely publication date of a related report as February 2025. The right panel shows a text generation task: given a future date (August 2024), the model generates a plausible business news headline, contrasting a generated headline with a more realistic alternative. Both panels illustrate the model's reasoning process. -->
 
 Figure 1: Generated outputs from Time-R1 showcasing its capabilities. (Left) Future Event Time Prediction (Stage 2). (Right) Creative Scenario Generation (Stage 3), with output compared to a real-world headline.
 
@@ -60,6 +61,7 @@ This section details the Time-R1 methodology for enhancing LLM temporal capabili
 Our approach employs reinforcement learning (RL) to fine-tune a Large Language Model (LLM) for complex temporal reasoning tasks. The core process involves interaction between the LLM policy and a rule-based environment. Given a prompt x detailing a specific temporal task, the LLM, parameterized by θ, generates an output sequence y autoregressively according to its current policy πθ(y | x) = Q<sup>|</sup>y<sup>|</sup> <sup>t</sup>=1 πθ(y<sup>t</sup> | x, y<t).
 
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This image depicts a three-stage process, presented as a flowchart. Stage 1 (Comprehension) shows subtask processing (inference, difference, completion, ordering) feeding into a dynamic reward system. Stage 2 (Prediction) uses future event prediction and rule-based rewards, influencing a model parameter (θ₁). Stage 3 (Generation) involves generating, filtering, and evaluating future scenarios based on a model parameter (θ₂). Each stage is represented by a block diagram with icons and textual descriptions, illustrating the data flow and processing steps within a larger system. -->
 
 Figure 2: Overview of the Time-R1 framework. The process consists of three stages: (a) Stage 1 establishes foundational understanding by fine-tuning a base LLM on historical data across four temporal subtasks, driven by reinforcement learning (GRPO) and a dynamic reward system, resulting in model θ1. (b) Stage 2 trains θ<sup>1</sup> for future event time prediction using post-cutoff data and a rule-based reward, producing θ2. (c) Stage 3 leverages θ<sup>2</sup> for inference-based creative future scenario generation, followed by evaluation, without further RL.
 
@@ -279,6 +281,7 @@ The effectiveness of our Stage 1 fine-tuning on core temporal understanding is d
 Significantly, with these improvements, Time-R1 now outperforms the much larger DeepSeek-V3- 0324-671B model and is highly competitive with the state-of-the-art 671B DeepSeek-R1 model. It secures the top performance on the demanding Completion task and the second-best performance on the challenging Event Ordering task. This strong performance, rivaling or exceeding much larger baselines, is largely attributed to our meticulously designed task-specific rewards and the dynamic reward curriculum. For instance, the inconsistency and diversity penalties for Event Ordering (detailed in Section [3.3.2\)](#page-6-2) are pivotal. The learning curves in Appendix [C](#page-19-0) also illustrate that the
 
 <span id="page-9-0"></span>![](_page_9_Figure_9.jpeg)
+<!-- Image Description: The image contains two line graphs (a) and (b) showing training performance. Graph (a) displays the average total score over training steps for several large language models (LLMs), including Time-R1 and various Qwen and Llama models. Graph (b) shows the completion score (a subset of the total score) for the same LLMs. Both graphs illustrate the models' performance improvement during training, allowing comparison of their learning curves. Horizontal dashed lines indicate baseline scores. -->
 
 Figure 3: Stage 1 Training Performance *vs.*Baselines. Training curves for Time-R1 (θ1) and its ablation variant, Time-R1-Fixed-Reward (θ ′ 1 ), evaluated against baseline models (indicated by horizontal dashed lines). Plot (a) shows the Overall Total Score across all subtasks, while plot (b) presents the Masked Time Entity Completion subtask. The solid lines demonstrate our models' scores improving throughout the training process, ultimately surpassing the performance levels of most baseline models, including those with significantly larger scales.
 
@@ -305,6 +308,7 @@ Stage 2 equips models to predict event timing post-knowledge cutoff (2023). We a
 The overall Stage 2 performance, measured by Average Total Score R(x, y) with strict evaluation (α = 0.1), is presented in Table [2.](#page-11-1) While models show clear improvement over Stage 1 Inference tasks, likely aided by a narrower prediction time span, further significant gains prove challenging. For instance, the DS-Qwen-32B model, despite its scale and specialized complex reasoning training, scores lower than some 3B models lacking such enhancements (*e.g.*, the base Qwen2.5-3B-Instruct), underscoring the inherent difficulty of learning extrapolation and
 
 <span id="page-10-1"></span>![](_page_10_Figure_7.jpeg)
+<!-- Image Description: The image displays a line graph showing the average total scores of several large language models (LLMs) over time (August 2024 to February 2025). Each line represents a different LLM (e.g., Time-R1, Qwen2.5-3B-Instruct, DeepSeek-R1-671B), with the y-axis indicating the average total score and the x-axis representing the month. The graph likely illustrates the performance trend of various LLMs over time, possibly indicating model improvements or degradation. -->
 
 Figure 4: Monthly Average Total Score R(x, y) for Stage 2 Future Event Prediction (August 2024 - Feb 2025). Compares Time-R1 variants (θ<sup>2</sup> and θ ′ 2 ) against baselines. Evaluated with α = 0.1.
 
@@ -363,6 +367,7 @@ A combined analysis of our models' performance and output length provides compel
 This substantial reduction in length, achieved alongside superior task performance, strongly suggests that our curriculum fosters a more effi-
 
 <span id="page-12-2"></span>![](_page_12_Figure_10.jpeg)
+<!-- Image Description: The image displays a line graph comparing "Dynamic Reward" and "Fixed Reward" methods. The y-axis represents "Average Response Length," and the x-axis shows "Training Step." Two lines plot average response length over training steps, demonstrating the performance difference between the two reward methods. The graph likely illustrates the impact of reward type on response length during training within a machine learning context. -->
 
 Figure 5: Impact of Dynamic Reward on Response Length. The average response length (in tokens) across all Stage 1 tasks during training. The model trained with our full dynamic reward mechanism ("Dynamic Reward") produces consistently and significantly more concise outputs compared to the ablation model trained with a static, fixed reward ("Fixed Reward").
 
@@ -524,6 +529,7 @@ This synthetic dataset provided the necessary training signals for the model to 
 This section provides a more detailed look at the learning dynamics during Stage 1 (Comprehension), complementing the summarized performance presented in Table [1](#page-10-0) of Section [4.4.1.](#page-9-2) We present the training curves for all four fundamental temporal subtasks—Timestamp Inference, Time-Difference Estimation, Event Ordering, and Masked Time Entity Completion—specifically focusing on their progression throughout Phase 2 and Phase 3 of our dynamic reward curriculum (see Section [3.3.3](#page-7-0) for details on the curriculum phases). Additionally, we illustrate the evolution of the inconsistency penalty factor (Pincon) for the Time-Difference Estimation and Event Ordering tasks during Phase 2, highlighting the model's improving adherence to logical and mathematical consistency.
 
 <span id="page-19-1"></span>![](_page_19_Figure_5.jpeg)
+<!-- Image Description: The image contains two line graphs showing total scores (R(x,y)) across training steps for different components of a model in two phases (Phase 2 and Phase 3). The left graph displays scores for "Overall," "Completion," "Difference," "Inferring," and "Ordering," while also showing inconsistency penalty factors. The right graph shows similar scores across more training steps, indicating a continued evaluation of model performance across phases. The graphs illustrate the evolution of individual components' contributions to the overall model score during training. -->
 
 Figure 6: Learning curves for Stage 1 subtasks during (Left) Phase 2 and (Right) Phase 3 of the dynamic reward curriculum. The left plot also shows the Inconsistency Penalty Factor (Pincon) for Time-Difference Estimation and Event Ordering tasks on the right y-axis during Phase 2.
 
@@ -542,6 +548,7 @@ This appendix elaborates on specific implementation settings, focusing on the im
 The Group Relative Policy Optimization (GRPO) objective function, as defined in Equation [\(3\)](#page-3-1), incorporates a KL divergence term DKL[πθ(·|x)||πref (·|x)] scaled by a coefficient β. This term penalizes deviations of the current policy π<sup>θ</sup> from a reference policy πref , encouraging smoother and more stable policy updates. The magnitude of β directly influences the strength of this regularization.
 
 <span id="page-20-1"></span>![](_page_20_Figure_6.jpeg)
+<!-- Image Description: The image is a line graph showing the impact of the KL coefficient on average response length during training. Two lines represent different KL coefficient values (0.001 and 0.0001). The x-axis represents the training step, and the y-axis shows the average response length. The graph illustrates how the average response length changes over training steps for each KL coefficient value. It aims to demonstrate the effect of KL coefficient on response length in the context of the paper's methodology. -->
 
 Figure 7: Impact of different KL loss coefficients (β) on the average response length during training. A lower coefficient (0.0001) leads to longer average responses compared to the default setting (0.001).
 

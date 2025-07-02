@@ -1,7 +1,7 @@
 ---
 cite_key: "arazzi2019"
 title: "PRIVACY-PRESERVING IN BLOCKCHAIN-BASED FEDERATED LEARNING SYSTEMS"
-authors: "Marco Arazzi"
+authors: "Marco Arazzi, Serena Nicolazzo, Rafidha Rehiman, Federated Learning"
 year: 2019
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -95,6 +95,7 @@ The authors of [\[11\]](#page-35-4) conduct a brief review of existing literatur
 Table [1](#page-2-0) summarizes the main topics addressed by related surveys and makes a comparison with our contribution. As visible from the table, none of the existing contributions cover the topics presented in the survey or consider papers in the temporal span we analyzed. Table [2](#page-5-0) outlines the distribution of articles, specifying the number of articles considered in each category related to existing surveys and our work, along with the corresponding publication years.
 
 ![](_page_3_Figure_1.jpeg)
+<!-- Image Description: This flowchart details a systematic review's literature selection process. Starting with 471 records identified from four databases (IEEE Xplore, ACM Library, Springer Link, Science Direct), it shows the reduction in number of studies through duplicate removal, title/abstract/full-text screening, and application of inclusion/exclusion criteria, ultimately yielding 102 final papers. Each stage displays the number of studies remaining. -->
 
 <span id="page-3-1"></span>Figure 1: The PRISMA flow diagram visually outlines the various phases of the systematic review process.
 
@@ -204,10 +205,12 @@ Some ML tasks are moved to clients with powerful resources to overcome such draw
 In Federated Learning, shown in Figure [4,](#page-7-0) each device trains a local model leveraging local data and sends its parameters to the central curator for aggregation. Data is kept on-device, and knowledge is shared with peers through an aggregated model. In this way, FL combines all the advantages of the previous architectures. Indeed, it maintains data privacy while minimizing communication overhead by keeping raw data on devices and aggregating local model updates.
 
 ![](_page_6_Figure_1.jpeg)
+<!-- Image Description: The image is a diagram illustrating a cloud-based machine learning system. A smartphone, smartwatch, and webcam send data to a cloud server. The cloud stores machine learning training data and machine learning models. A desktop computer requests ("get_service") and receives models from the cloud. The diagram showcases the data flow and interaction between IoT devices, cloud infrastructure, and a machine learning application. -->
 
 <span id="page-6-0"></span>Figure 2: Centralized ML Architecture
 
 ![](_page_6_Figure_3.jpeg)
+<!-- Image Description: The image is a diagram illustrating a federated learning architecture. Multiple devices (smartphone, smartwatch, webcam, computer) each possess local data and a local machine learning (ML) model. These models send updates to a cloud-based central machine learning model, which aggregates the updates to improve the overall model without sharing raw data. The diagram visually represents the distributed nature of the learning process and the data privacy advantages of federated learning. -->
 
 <span id="page-6-1"></span>Figure 3: Distributed On-Site ML Architecture
 
@@ -225,6 +228,7 @@ The participants in the protocol are mainly divided into two types: devices know
 - Local model training and upload: Clients download the current global model to their local devices. Then, they perform local training using their data, which is kept private and not shared with the central server or other clients. The local training typically involves multiple iterations of gradient descent, back-propagation, or other optimization methods to improve the local model's performance. Following the local training, every client
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The diagram illustrates a federated learning system. Multiple edge devices (smartphone, smartwatch, computer) process local data and send trained machine learning models to a central cloud server. The server aggregates these models, creating an improved global model. Arrows depict model transmission; text labels clarify data flow. The image visually explains the core process of federated learning—distributed model training and aggregation. -->
 
 <span id="page-7-0"></span>Figure 4: Federated Learning Architecture
 
@@ -235,6 +239,7 @@ computes the model parameter updates and transmits them to the central server ei
 Figure [5](#page-7-1) illustrates a schematic diagram of FL workflow with the three phases described above. Observe that the last two steps of*(i)*iterative process of local model training and upload and*(ii)*global model aggregation and update are iterated across multiple epochs, continuously enhancing and refining the global model.
 
 ![](_page_7_Figure_6.jpeg)
+<!-- Image Description: This flowchart illustrates a federated learning system. Multiple workers (phone, watch, webcam, computer) train local models on their respective data. These models are then uploaded to a central server, which aggregates them into a global model. The updated global model is then distributed back to the workers, iterating the process. The initial step depicts model initialization. The diagram visually represents the distributed training process and model updates. -->
 
 <span id="page-7-1"></span>Figure 5: A schematic diagram of the Federated Learning workflow
 
@@ -245,6 +250,7 @@ This section deals with the different architectures for Federated Learning based
 Vertical FL, Horizontal FL, and Federated Transfer Learning. A different perspective to classify FL relates to how data is distributed among the participating parties in the feature and sample spaces [\[20,](#page-35-15) [19\]](#page-35-14). According to this criterion, Privacy-preserving in Blockchain-based Federated Learning Systems
 
 ![](_page_8_Figure_1.jpeg)
+<!-- Image Description: The image displays three diagrams illustrating different federated learning approaches. (a) shows horizontal federated learning, with datasets A and B sharing the same feature space but different sample spaces. (b) depicts vertical federated learning where datasets A and B have different feature spaces but a shared sample space. (c) presents federated transfer learning where datasets A and B have overlapping feature and sample spaces. The diagrams use rectangular regions to represent data from sources A and B, axes labeled "sample space" and "feature space," and shaded regions to highlight the overlap in the federated transfer learning approach. -->
 
 <span id="page-8-0"></span>Figure 6: The three categories of FL divided for feature and sample spaces
 
@@ -280,6 +286,7 @@ Most of the scientific papers focusing on FL [\[24,](#page-35-19) [25,](#page-35
 ## 3 Overview of Blockchain
 
 ![](_page_9_Figure_12.jpeg)
+<!-- Image Description: The image illustrates a blockchain's structure. Three blocks are depicted: a genesis block, block *i*, and block *i+1*. Each block contains a hash of the previous block, a timestamp, a nonce, and a set of transactions (TX1...TXn). Arrows show the chain's sequential linking, where each block's hash becomes the previous block's reference in the next block. This diagram visually explains the chained structure fundamental to blockchain technology. -->
 
 <span id="page-9-0"></span>Figure 7: Example of a Blockchain
 
@@ -297,6 +304,7 @@ In addition to the transactions and the hash value of the previous block, each b
 - *Confirmation*. The consensus procedure comes to an end, and the nodes have to agree on a single chain of blocks. Blocks of transactions are published on the Blockchain and are confirmed in the final version of the ledger, from which they may no longer be discarded.
 
 ![](_page_10_Figure_7.jpeg)
+<!-- Image Description: The image illustrates a blockchain transaction process. Two rows depict the stages: transaction creation, propagation, validation (top), and confirmation, update propagation, and addition to the blockchain (bottom). Simple diagrams show a transaction originating on a computer, propagating to multiple nodes for validation, and finally being added as a block to the blockchain, represented by a cube. The gray and black cubes illustrate the process of block creation and addition. -->
 
 <span id="page-10-0"></span>Figure 8: Transactions workflow in Blockchain
 
@@ -355,6 +363,7 @@ The general abstracted architecture for Blockchain-enabled Federated Learning (B
 *Task Publisher*: The task publisher initiates the process by formally submitting a request for a specific Federated Learning task, meticulously outlining the parameters, requirements, and objectives. This encompasses the task publisher's identity, initialization details (such as the Machine Learning model type), targeted performance metrics for optimization, expected processing time, and other relevant information. Furthermore, it encompasses additional crucial parameters, such as the task's initiation time, the number of federation rounds, the total reward amount, and other relevant details. The task publisher submits details of the Federated Learning task into the Blockchain for securely
 
 ![](_page_13_Figure_1.jpeg)
+<!-- Image Description: This figure depicts a system architecture for federated learning on a blockchain. The top layer shows a blockchain with miners and a task publisher interacting via consensus algorithms and a smart contract. The middle layer is an integration middleware. The bottom layer illustrates the federated learning process, where multiple participants (Participant 1, 2, ..., N) locally preprocess data, train models, and upload model parameters to a global model, which is then downloaded for further training iterations. The diagram uses boxes, arrows, and database icons to represent the various components and data flows. -->
 
 <span id="page-13-0"></span>Figure 9: General architecture for the Blockchain-enabled Federated Learning.
 
@@ -366,6 +375,7 @@ and transparently storing information for participants interested in contributin
 *Blockchain Layer:*In the Blockchain layer, pivotal elements encompass smart contracts, miners, consensus protocols, and the underlying Blockchain networks. The smart contract, another key component in Blockchain networks, operates between parties to facilitate interactions within the decentralized system. The participants utilize smart contracts (Registration Contract) to register for FL model training, ensuring transparency and immutability of conditions. After a successful registration, the revised local model is transmitted to the miners. The miners, encompassing personal computers, cloud-based nodes, or standby servers, willingly adopt the mining software. Their primary responsibilities involve receiving local model updates (local weights or local gradients) transmitted by FL participants. Furthermore, miners verify and authenticate the trained local model using the consensus algorithm, which may involve Proof of
 
 ![](_page_14_Figure_1.jpeg)
+<!-- Image Description: The image is a flowchart depicting the process of federated learning on a blockchain. It shows a task publisher initiating a training task, participants registering and responding, local model training, smart contract execution for model aggregation, miners downloading and updating global models, and consensus algorithm execution to add a new global model to the blockchain. The flow is represented by numbered steps and colored arrows illustrating data flow between the task publisher, participants, miners, and the blockchain. -->
 
 <span id="page-14-0"></span>Figure 10: The high-level workflow for a single epoch Blockchain-enabled Federated Learning
 
@@ -840,6 +850,7 @@ The research direction explored in this paper can be regarded as a foundation, a
 <span id="page-34-4"></span>Table 12: Amount of papers analyzed per topic
 
 ![](_page_34_Figure_3.jpeg)
+<!-- Image Description: The image is a line graph showing the number of articles published each year from 2018 to 2023. The x-axis represents the year, and the y-axis represents the number of articles. The graph illustrates a growth in publications, peaking in 2022 (28 articles) before declining slightly in 2023 (20 articles). The purpose is to visually represent the publication trend over time within the paper's subject area. -->
 
 <span id="page-34-5"></span>Figure 11: Literature timeline
 

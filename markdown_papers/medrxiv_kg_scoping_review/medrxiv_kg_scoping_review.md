@@ -1,7 +1,7 @@
 ---
 cite_key: "budhdeo2021"
-title: "*Discussion*"
-authors: "Sanjay Budhdeo 1, 2, 3, 4 Joe Zhang 5, 6 Yusuf Abdulle 7 Paul M Agapow 8 Douglas GJ McKechnie 9 Matt Archer 10 Viraj Shah 11 Eugenia Forte 12 Ayush Noori 13, 14 Marinka Zitnik 14, 15, 16, 3 Hutan Ashrafian 17, 18 Nikhil Sharma 1, 19"
+title: "Scoping review of knowledge graph applications in biomedical and healthcare sciences"
+authors: "Sanjay Budhdeo"
 year: 2021
 doi: "10.3389/fgene.2020.610798"
 date_processed: "2025-07-02"
@@ -227,14 +227,19 @@ In summary, KGs have many possible uses within in biomedicine and healthcare, bu
 - 34. Inc S. fuzzywuzzy: Fuzzy String Matching in Python. [Internet]. 2014. Available from: https://github.com/seatgeek/fuzzywuzzy.
 
 ![](_page_13_Figure_0.jpeg)
+<!-- Image Description: This flowchart details a systematic review's literature selection process. It begins with 1776 records identified via database searching and 4 from other sources. After duplicate removal (1620 records), abstract screening excludes 1248. 372 full-text articles are assessed for eligibility, with reasons for exclusion detailed. Finally, 372 articles undergo both qualitative and quantitative synthesis. The flowchart visually represents the study's selection criteria and the number of articles at each stage. -->
 
 ![](_page_14_Figure_0.jpeg)
+<!-- Image Description: The image is a scatter plot showing a positive trend in some quantity (unspecified by the image itself) over time (2014-2021). The x-axis represents years, and the y-axis represents the quantity's value. The plot shows a low quantity from 2014-2017, with a substantial increase in 2019-2021. The purpose is likely to illustrate growth or increase in a particular metric within the paper's subject matter over the observed period. -->
 
 ![](_page_15_Figure_0.jpeg)
+<!-- Image Description: The image is a bar chart illustrating the distribution of applications of a specific technology (likely natural language processing or machine learning) in the biomedical domain. The x-axis lists application areas (e.g., medical science insights, drug repurposing, diagnostics). The y-axis represents the frequency or count of applications within each area. The chart shows that "medical science insights" is the most frequent application, followed by "drug repurposing" and "literature representation," indicating the technology's prevalent use in these areas. The chart's purpose is to visually demonstrate the technology's application landscape within the paper's scope. -->
 
 ![](_page_16_Figure_0.jpeg)
+<!-- Image Description: The image is a bar chart illustrating the distribution of research publications across different disease areas. The x-axis categorizes diseases (general disease, infectious disease, oncology, etc.), while the y-axis represents the number of publications. "General disease" shows the highest number of publications, with a significant drop-off in subsequent categories. The chart likely serves to demonstrate the research focus areas within a specific field, possibly highlighting the prevalence of research in specific disease categories. -->
 
 ![](_page_17_Figure_1.jpeg)
+<!-- Image Description: The image displays a network graph illustrating relationships between various biological and clinical entities. Nodes represent concepts like "disease," "gene," "drug," "patient," and "clinical finding," while edges depict their interconnections. The graph visually represents the complex interplay of factors involved in disease, showing how biological elements, clinical interventions, and patient characteristics are related. Node size likely indicates significance or frequency within the dataset. -->
 
 | Country     | Count |
 |-------------|-------|

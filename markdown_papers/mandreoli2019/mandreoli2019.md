@@ -1,6 +1,7 @@
 ---
 cite_key: "mandreoli2019"
-title: "9"
+title: "Dealing With Data Heterogeneity in a Data Fusion Perspective: Models, Methodologies, and Algorithms"
+authors: "Federica Mandreoli, Scienze Fisiche"
 year: 2010
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -75,6 +76,7 @@ The Cancer Incidence in Five Continents [\[28\]](#page-31-0) provides comparable
 The Disease Ontology (DO) [\[29\]](#page-31-0) is an OBO foundry ontology for human disease. Its purpose is to provide consistent, reusable, and sustainable descriptions of human disease terms, phenotype characteristics, and related medical vocabulary disease concepts. Each concept in DO has a unique identifier, denoted as DOID, an explicit name, a definition, and a list of synonyms and is related to other DOIDs through a set of relationships, such as hypernymy and hyponymy. Moreover, it is mapped to the concepts of other widely diffused ontologies, i.e., MeSH, ICD, NCIs thesaurus, SNOMED, and OMIM. For instance, a screenshot of the breast cancer DOID and related DOIDs (synonyms in blue, hypernymies and hyponimies in gray) is shown in [Fig. 9.1](#page-6-0)B. DO can be downloaded in OWL format [\[30\].](#page-31-0)
 
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
+<!-- Image Description: The image contains three parts. (A) shows JSON-formatted data describing a gene, including its name, location, symbol, ID, and classification. (B) is a graph illustrating relationships between different types of breast cancer, with "breast cancer" as the central node. (C) displays XML metadata describing a journal article, including publication details and title. The image likely illustrates data integration and analysis within a cancer genomics study. -->
 
 FIGURE 9.1 Data samples. (A) A TCGA record in JSON format; (B) Representation of the DO concept "breast cancer"; (C) A PubMed record in XML format.
 
@@ -93,6 +95,7 @@ Second, different sources can provide conflicting data. Conflicts can arise beca
 Traditionally, schema mapping and matching, entity resolution, and data fusion represent the three main steps of a data integration process as shown in Fig. 9.2. The output of the first step is a unified view of the involved data sources at the schema level. Although different approaches and architectures on how to manage data sharing at schema level are currently available, for ease of reference in the following we assume that the output of this phase is a global schema where all the data available at the source level can be represented. The next steps, i.e., entity resolution and data fusion, are the focus of this chapter and will then operate on such a global data view.
 
 ![](_page_8_Figure_4.jpeg)
+<!-- Image Description: The image is a layered architecture diagram illustrating a data integration process. Three data sources feed into a schema mapping layer, followed by entity resolution and then data fusion. The final output is fed to an application. The diagram visually represents the sequential steps involved in combining data from multiple sources into a unified view for a specific application. -->
 
 FIGURE 9.2 The data integration process.
 

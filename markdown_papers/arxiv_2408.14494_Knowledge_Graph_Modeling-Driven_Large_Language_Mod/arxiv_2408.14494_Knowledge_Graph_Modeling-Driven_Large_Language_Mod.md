@@ -1,6 +1,7 @@
 ---
 cite_key: "arxiv_240814494_knowledge_grap"
 title: "Knowledge Graph Modeling-Driven Large Language Model Operating System (LLM OS) for Task Automation in Process Engineering Problem-Solving"
+authors: "Vijay Sri Vaikunth, Venkataramana Runkana"
 year: 2024
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -33,6 +34,7 @@ Copyright © 2025, Association for the Advancement of Artificial Intelligence (w
 tion is achieved or a predefined limit is reached. The debugging mechanism functions in two phases: error identification and solution revision. It allows the framework to dynamically adapt its problem-solving strategy, refine solutions iteratively, and tackle increasingly complex tasks that may require multiple rounds of adjustment, thereby improving its robustness and effectiveness in real-world engineering scenarios. The proposed framework addresses the limitations of current language models and problem-solving approaches in the industry, which are hindered by a lack of domainspecific knowledge and expertise, an inability to integrate diverse tools and data sources, and a limited capacity for complex, multi-step reasoning. These limitations result in inefficient and time-consuming problem-solving workflows that impede innovation and progress in the chemical and process industry. The proposed framework serves as a decision support tool, enabling process engineers to focus on high-level decision-making and innovation, accelerate design cycles through rapid prototyping and testing, and optimize chemical processes to enhance yield, efficiency, and safety. Figure 1 illustrates the framework.
 
 ![](_page_1_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a problem-solving architecture. A user query is processed by a POEA framework, interacting with a meta-agent that directs queries to various expert models (DeepSeek-Coder, DeepSeek-Math with Wolfram Alpha API, and Meta Llama versions with Stack Overflow and Graph-RAG). The system includes action generation, error handling, self-reflection, and correction mechanisms. Icons denote whether models are fine-tuned (🔥) or frozen (❄️). The flowchart illustrates the system's workflow and the roles of different components. -->
 
 Figure 1: The figure shows the architecture of the PEOA framework. It illustrates the key components and data flow of the framework, including the central meta-agent, action generator, and expert models. The framework processes user queries, selects specialized tools as expert models for subtask solving, and employs error-handling mechanisms to generate solutions for complex chemical and process engineering problems. The interconnected nature of the components highlights the framework's ability to decompose tasks, select appropriate tools, and iteratively refine solutions through a sophisticated orchestration process.
 

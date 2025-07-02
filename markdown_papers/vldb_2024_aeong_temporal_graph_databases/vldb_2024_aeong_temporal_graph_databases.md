@@ -1,7 +1,7 @@
 ---
 cite_key: "lu2024"
 title: "AeonG: An Efficient Built-in Temporal Support in Graph Databases"
-authors: "Lu et al."
+authors: "Dong Wen, Jiamin Hou"
 year: 2024
 doi: "10.14778/3648160.3648187"
 url: "https://www.vldb.org/pvldb/vol17/p1515-lu.pdf"
@@ -41,6 +41,7 @@ Dong Wen UNSW, Australia dong.wen@unsw.edu.au
 Xiaoyong Du Renmin University of China duyong@ruc.edu.cn
 
 ![](_page_0_Figure_9.jpeg)
+<!-- Image Description: The image is simply the word "ABSTRACT" in a large, bold font. It serves as a section heading in the academic paper, indicating the beginning of the abstract which summarizes the paper's main points, methods, and findings. No diagrams, charts, graphs, equations, or illustrations are present in this image. -->
 
 Real-world graphs are often dynamic and evolve over time. It is crucial for storing and querying a graph's evolution in graph databases. However, existing works either suffer from high storage overhead or lack efficient temporal query support, or both. In this paper, we propose AeonG, a new graph database with built-in temporal support. AeonG is based on a novel temporal graph model. To fit this model, we design a storage engine and a query engine. Our storage engine is hybrid, with one current storage to manage the most recent versions of graph objects, and another historical storage to manage the previous versions of graph objects. This separation makes the performance degradation of querying the most recent graph object versions as slight as possible. To reduce the historical storage overhead, we propose a novel anchor+delta strategy, in which we periodically create a complete version (namely anchor) of a graph object, and maintain every change (namely delta) between two adjacent anchors of the same object. To boost temporal query processing, we propose an anchor-based version retrieval technique in the query engine to skip unnecessary historical version traversals. Extensive experiments are conducted on both real and synthetic datasets. The results show that AeonG achieves up to 5.73× lower storage consumption and 2.57× lower temporal query latency against state-of-the-art approaches, while introducing only 9.74% performance degradation for supporting temporal features.
 
@@ -61,6 +62,7 @@ Wei Lu is the corresponding author.
 Proceedings of the VLDB Endowment, Vol. 17, No. 6 ISSN 2150-8097. [doi:10.14778/3648160.3648187](https://doi.org/10.14778/3648160.3648187)
 
 <span id="page-0-0"></span>![](_page_0_Figure_20.jpeg)
+<!-- Image Description: The figure illustrates a transaction scenario using a sequence diagram. Two time points, *t<sub>n</sub>* and *t<sub>n+1</sub>*, show a customer (Jack) with an account and phone. At *t<sub>n</sub>*, the phone's IP address is Singapore; at *t<sub>n+1</sub>*, it's New York. A $300 transaction occurs, reducing the account balance from $390 to $90. The diagram depicts relationships between the customer, account, phone, and transaction, highlighting location changes and account balance updates. -->
 
 Figure 1: The Evolution of a Customer Purchase Graph
 
@@ -71,6 +73,7 @@ Example 1. Figure [1](#page-0-0) shows the evolution of a customer purchase grap
 This work is licensed under the Creative Commons BY-NC-ND 4.0 International License. Visit<https://creativecommons.org/licenses/by-nc-nd/4.0/> to view a copy of this license. For any use beyond those covered by this license, obtain permission by emailing [info@vldb.org.](mailto:info@vldb.org) Copyright is held by the owner/author(s). Publication rights licensed to the VLDB Endowment.
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: The image is a data flow diagram illustrating a customer's interactions. It shows a customer ("Jack") owning two phones and two accounts. One phone (Singapore) is linked to an account ($390) with a time interval [t<sub>n</sub>, t<sub>n+1</sub>]. The other (New York) is linked to a second account ($90) and a transaction ($300) with time intervals [t<sub>n+1</sub>,+∞). Relationships are labeled with the time intervals during which they hold. The diagram likely explains data modeling or temporal aspects of a system. -->
 
 Figure 2: Customer Purchase Graph with a Time Dimension
 
@@ -123,6 +126,7 @@ The property graph model, originally designed for static graphs, lacks the inher
 Constraints. In our temporal property graph model, we impose two constraints to enforce that the graph at any time point corresponds to a valid property graph. At any time point : (1)
 
 <span id="page-2-2"></span>![](_page_2_Figure_18.jpeg)
+<!-- Image Description: This diagram depicts a data model showing entities (Customer, Account, Phone, Transaction) and their relationships (Has, Owns, Uses, Messages). Each entity contains attributes (e.g., Name, IP, Balance) with associated timestamps (ω) indicating validity intervals. The grey boxes represent relationships, connecting entities with labeled edges specifying the relationship type. The purpose is to illustrate a temporal data model, showcasing how data evolves over time within the system. -->
 
 Figure 3: A Running Example of Temporal Property Graphs
 
@@ -177,6 +181,7 @@ Example 4. In the right part of Figure [4,](#page-4-0) we demonstrate how AeonG 
 The query engine is responsible for handling user-issued queries, retrieving relevant graph data from the hybrid storage engine. Adhering to the "textbook" separation of components, AeonG consists
 
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: This image depicts the architecture of a temporal graph database system. It shows a query processing pipeline (parser, optimizer, executor), interacting with current and historical storage. Data is migrated asynchronously. Diagrams illustrate query parsing, data structures (nodes, edges) in both storages, and the workflow of query execution, including "skip scan" and "skip expand" optimizations to handle temporal data. The system supports temporal queries using a "FOR TT AS OF" clause. -->
 
 Figure 4: An Overview of AeonG - AeonG consists of a temporal query engine, a hybrid storage engine, and an MVCC-based transaction manager. We employ an "anchor+delta" strategy to reduce the historical storage overhead, while using an anchor-based version retrieval technique to ensure efficient temporal query processing.
 
@@ -201,6 +206,7 @@ In this section, we now elaborate on the design of AeonG 's hybrid storage engin
 Inheriting existing native graph databases [\[39\]](#page-12-20), AeonG organizes graph data into three storage components: (i) vertex properties (VP), (ii) edge properties (EP), and (iii) graph topology, i.e., vertex's incoming and outgoing edges (VE). Like most native graph databases [\[1,](#page-12-0) [4,](#page-12-3) [40\]](#page-12-21), we retain the topology within the vertices, enabling swift neighborhood traversal for each vertex. However, it is not trivial to record graph evolution under this design. The graph could change in not only its semantics, i.e., properties of graph objects, but also its structure. We have to identify different types of operations applied on the graph. For example, we should prevent
 
 <span id="page-5-1"></span>![](_page_5_Figure_0.jpeg)
+<!-- Image Description: The image illustrates a data structure for storing graph data. It shows linked lists representing vertex and edge stores (V₀...Vₙ, e₀...eₙ). Each vertex and edge entry points to a record containing identifiers (Gid), vertex/edge properties (ω), and version information (Version*). A dashed arrow indicates a potential link between the edge and vertex structures to manage graph updates, suggesting a versioning scheme for transactional updates or incremental graph changes. -->
 
 Figure 5: Data Layout of Current Storage
 
@@ -220,6 +226,7 @@ Modification paradigm. We now discuss how AeonG evolves the graph to handle vari
 - (3) When updating/creating/deleting a property value of a vertex object with = [ , +∞), we first update relevant property values in the VP part and set its time as = [ , +∞). Next, we create a historical VP version capturing the state of the
 
 <span id="page-5-2"></span>![](_page_5_Figure_12.jpeg)
+<!-- Image Description: This diagram illustrates a data model for versioning. Three rectangular boxes represent vertex objects (V1, V3) containing account and transaction data, and edge objects (e0, e2) representing relationships. A separate section shows historical data (T1, T2) organized as version chains, linked to vertex and edge objects via dotted lines. Each element includes a timestamp (ω) indicating its validity period. The figure's purpose is to visually represent the data structure and versioning mechanism used in the paper. -->
 
 Figure 6: An Example of Current Storage Layout
 
@@ -235,6 +242,7 @@ Example 6. We illustrate the data layout of current storage. As shown in Figure 
 In MVCC, historical versions are not retained in the current storage permanently. Instead, once these versions are no longer needed by any active transaction, they are safely removed through garbage collection (GC) to optimize the performance of the current storage. AeonG utilizes this mechanism to transfer those inaccessible versions to the historical storage for long-term maintenance. For the sake of communication, historical versions in the current storage are referred to as "unreclaimed", while those in the historical storage are referred to as "reclaimed". In this subsection, we first present the optimized key-value format used for storing historical
 
 <span id="page-6-1"></span>![](_page_6_Figure_0.jpeg)
+<!-- Image Description: The image displays a table showing a key-value store. Three key categories (EP, VP, VE) are each associated with multiple keys (e.g., E:2, V:1) and their corresponding values. Keys include time-indexed parameters ([t<sub>n+1</sub>, t<sub>n+2</sub>]). Values represent data such as location, balance, IP address, and arrays. The table likely illustrates a data structure used within the paper's proposed system or algorithm. -->
 
 Figure 7: Key-value Format in Historical Storage
 
@@ -431,6 +439,7 @@ We now compare AeonG with two baseline systems, Clock-G and T-GQL. As T-GQL is a
 We also run experiments using T-LDBC and T-gMrak to evaluate the storage consumption of these systems. As shown in Figure [8\(c\),](#page-9-2) AeonG exhibits up to 5.73× and 3.59× lower storage consumption compared to Clock-G and T-GQL, under T-LDBC. Further, as observed in Figure [8\(d\),](#page-9-3) the storage consumption of AeonG is lower than that of Clock-G and T-GQL by up to a 4.34× and a 2.39×, under T-gMrak. This trend is consistent with that observed in Figure [8\(a\),](#page-9-1) demonstrating that AeonG still achieves lower storage overhead when handling large and complex graph workloads.
 
 <span id="page-9-4"></span><span id="page-9-3"></span><span id="page-9-2"></span><span id="page-9-1"></span>![](_page_9_Figure_9.jpeg)
+<!-- Image Description: The image presents four bar charts comparing storage consumption and latency of three graph database systems: AeonG, Clock-G, and T-GQL. (a) and (b) show T-mgBench results: (a) storage consumption increases linearly with graph operations for all systems, and (b) latency remains relatively low and stable. (c) displays T-LDBC results for storage and latency. (d) shows T-gMark's storage consumption across different datasets (Bib, WD, LSN, SP), with SP showing significantly higher consumption than others. The charts illustrate the performance differences between the three systems under various conditions. -->
 
 ### Figure 8: Comparisons on Storage Consumption and Graph Operation Latency
 
@@ -439,6 +448,7 @@ We also run experiments using T-LDBC and T-gMrak to evaluate the storage consump
 7.2.3 Experiments on temporal query latency. We now analyze the performance of temporal queries under various configurations. We first conduct performance evaluations across various temporal queries in T-mgBench, and plot the query latency on different temporal queries in Figure [9\(a\).](#page-10-0) By default, we set the time slice length for Q2 and Q4 to 100s. We can observe that AeonG reduces the query latency by 2.57× compared to Clock-G and 37.57× compared to T-GQL. The superior performance of AeonG can be attributed to our built-in query engine, which employs an efficient anchor-based
 
 <span id="page-10-2"></span><span id="page-10-1"></span><span id="page-10-0"></span>![](_page_10_Figure_0.jpeg)
+<!-- Image Description: This figure presents bar and line charts comparing the latency of three graph query engines (AeonG, Clock-G, T-GQL) across various benchmarks. (a) and (c) show latency for different query types in T-mgBench, with (c) focusing on accessed vertex types. (b) illustrates latency variation with the number of graph operations in T-mgBench. (d) displays latency versus time slice length in T-mgBench. (e) and (f) present results from T-LDBC and T-gMark, respectively, showing latency for different query types and datasets. The charts collectively demonstrate performance differences between the three engines under diverse conditions. -->
 
 <span id="page-10-4"></span>Figure 9: Comparisons on Temporal Query Latency
 
@@ -447,6 +457,7 @@ version retrieval technique to avoid unnecessary version traversal. In contrast,
 We then study the latency of temporal query Q1 with varying the number of graph operations. Figure [9\(b\)](#page-10-1) shows that AeonG outperforms Clock-G by up to 1.43× and achieves an up to 47.18× improvement compared to T-GQL. This performance gap becomes increasingly pronounced with a growing number of graph operations. As discussed, AeonG exhibits better performance due to the proposed optimized temporal query engine. We further evaluate the query latency of Q3 across "cold", "warm", and "hot" queries. We categorize these queries based on the vertices they access. For example, a query accessing "hot" vertices is classified as a "hot" query. We divide all vertices in the database into "cold", "warm", and "hot" categories according to their access possibility, which ranges from 0% to 100% based on the Zipf distribution. As shown in Figure [9\(c\),](#page-10-2) AeonG outperforms the next-best system, Clock-G, in all query categories by up to 2.21×. We can also observe that "hot" queries, which require accessing more historical data, generally have lower performance than "warm" and "cold" queries. However, in AeonG, "hot" queries are only 1.29× slower than "warm" queries, while in T-GQL and Clock-G, "hot" queries underperform "warm" queries by up to 2.14× and 3.77×, respectively. As discussed, the smaller performance gap of AeonG can be attributed to our anchor-based version retrieval technique, which avoids unnecessary version traversal. We also study the latency of temporal query Q4 with varying time slice length from 1s to 200s. As observed
 
 <span id="page-10-6"></span>![](_page_10_Figure_4.jpeg)
+<!-- Image Description: The image presents three bar graphs comparing the performance of AenoG and Memgraph database systems under different query workloads (mgBench, LDBC, gMark). Each graph shows latency (in milliseconds) for AenoG and Memgraph, and a third bar representing the packet drop rate. The x-axis represents the number of queries, while the y-axis shows latency and drop rate. The graphs illustrate the impact of increasing query loads on latency and data loss for both systems. -->
 
 Figure 10: AeonG vs Memgraph on Non-temporal Queries
 
@@ -463,6 +474,7 @@ We now provide an in-depth analysis of AeonG's performance under diverse configu
 7.3.2 The impact of historical data migration. We next use the TmgBench workload to study the query performance with varying the GC interval to control the frequency of historical data migration. We plot the latency of queries across different data types: current, reclaimed, and unreclaimed data, and graph operation in Figure [11\(a\).](#page-11-0) As observed, the query performance for current and unreclaimed data is relatively similar, both outperforming reclaimed data queries by up to 25.8%. This difference is attributed to the fact that querying current and unreclaimed data both need to traverse the version chain in the current storage, while querying reclaimed data requires the additional step of reconstructing a historical version using anchors and deltas in the historical storage, as detailed in Section [4.](#page-4-2) Further, we note that increasing the GC interval from 1s to 1000s leads to a 17.3% decrease in the graph operation latency
 
 <span id="page-11-2"></span><span id="page-11-1"></span><span id="page-11-0"></span>![](_page_11_Figure_0.jpeg)
+<!-- Image Description: The image presents four graphs evaluating a time-series database. (a) shows latency vs. garbage collection interval for different read operations. (b) illustrates storage consumption and query latency versus anchor interval. (c) displays storage consumption and query latency against retention period. (d) depicts latency against the number of nodes and data size. All graphs assess the system's performance under varying parameters. -->
 
 Figure 11: Performance Breakdown Analysis on AeonG
 

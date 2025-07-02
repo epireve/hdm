@@ -1,7 +1,7 @@
 ---
 cite_key: "ilkouhttpsorcidorg---2022"
 title: "Personal Knowledge Graphs: Use Cases in e-learning Platforms"
-authors: "[Eleni Ilkou](https://orcid.org/0000-0002-4847-6177)"
+authors: "Eleni Ilkou"
 year: 2022
 doi: "10.1145/3487553.3524196)"
 date_processed: "2025-07-02"
@@ -96,6 +96,7 @@ Collaborative search can occur as a learning activity; Searching as Learning (Sa
 Furthermore, different systems have been introduced in the literature for collaborative search. One of the newest advancements is the QueryTogether [\[2\]](#page-4-17), a system for entity-centric collaborative search in spontaneous settings that showed that entities could portray a vital role as interactive search objects. Also, their study confirmed that a common ground provided in collocated interaction supports
 
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
+<!-- Image Description: The image is a system architecture diagram. It depicts data flow from an "Input Stream" (user profile, activity, group) through an "Intelligence" layer (using NLP/NER on Knowledge Graphs) to a "Black Box," and finally to a "Back End" involving privacy considerations and a PKG (likely a personalized knowledge graph). The diagram illustrates the processing of user data, incorporating knowledge graphs and natural language processing, with a focus on privacy within the system. -->
 
 ### Figure 1: The overall architecture that includes the input stream, intelligence computation and back end creation of a personal knowledge graph (PKG).
 
@@ -138,10 +139,12 @@ Nonetheless, we are facing a limitation because there are no goldstandards and b
 The current line of research is still in an early stage. In our first steps in user modelling in e-learning platforms, we have published
 
 <span id="page-3-1"></span>![](_page_3_Figure_9.jpeg)
+<!-- Image Description: The image is a UML diagram illustrating a system for learning path recommendation. Rectangles represent components: "User," "User Logs," "Learning Preference," "User Profile," "Learning Path," "Recommendation," "Answer," "Test," "Exercise," "Accessibility," "Psychological Parameter," and "Academic Parameter." Arrows show relationships, such as "definesLearningPath," "generatedFrom," "hasProfile," and "solves," indicating data flow and dependencies between components. The diagram visually depicts the system's architecture and information flow for personalized learning recommendations. -->
 
 Figure 2: User Profile pattern from EduCOR [\[11\]](#page-4-12) ontology.
 
 <span id="page-3-2"></span>![](_page_3_Figure_11.jpeg)
+<!-- Image Description: The image presents a stacked bar chart displaying survey results. Five questions (EQ1-EQ5) are analyzed, each showing the percentage of respondents selecting one of five response options: strongly disagree, somewhat disagree, neither agree nor disagree, somewhat agree, and strongly agree. The chart visually compares the distribution of responses across the five questions, highlighting agreement/disagreement levels for each. The y-axis represents percentage, and the x-axis represents the question number. -->
 
 Figure 3: User general feedback from CollabGraph [\[15\]](#page-4-26). EQ: "I like the" 1: the group results visualized in a graph, 2: the summary of the team-members results, 3: the graph visualizations , 4: graph visualization next to the list view of the search results, 5: combination of the list and graph view.
 

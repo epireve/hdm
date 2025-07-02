@@ -1,7 +1,7 @@
 ---
 cite_key: "replication2022"
 title: "A Systematic Review on Human Modeling: Digging into Human Digital Twin Implementations"
-authors: "Centered on organ replication, authors in [48] presented a dynamic colon model for creating an in-silico test performance model of orally ingested dosage forms inside the gastrointestinal tract. The goal of this model was to facilitate the early stages of testing and fluid modification for specific disease stages. The model variables can be tuned to simulate different conditions in the colon. The model was created using MRI scans, and a Discrete Multiphysics (DMP) simulation was performed to obtain shear rate results for the fluid and its parameters. The simulation is able to replicate the effects of the colon's contractile wall wave propagation speed, media viscosity, and media volume on the mean wall shear rate, similar to results from an in vitro test."
+authors: "Heribert Pascual\, Xavi Masip-Bruin\, Albert Alonso\\, Judit Cerdá \"
 year: 2022
 doi: "10.1109/ACCESS.2019.2953499."
 date_processed: "2025-07-02"
@@ -52,6 +52,7 @@ Additionally, we undertook many different searches in some search engines lookin
 The concept of a DT was first introduced by Dr. Michael Grieves in a course on Product Lifecycle Management at the University of Michigan, and later published in a whitepaper [9]. In 2010, NASA researchers published Grieves' idea in their roadmap [10] and began investigating ways to use DTs to reduce costs and resources in their space assets. Recently, the interest in DTs has grown significantly mainly motivated by current advances in network capabilities, data collection and delivery technologies (leveraging concepts such as the Internet of Things, big data, and industry 4.0), as well as the availability of data.
 
 ![](_page_1_Figure_10.jpeg)
+<!-- Image Description: Figure 1 is a line graph showing the number of Web of Science (WOS) publications on digital twins from 1996 to 2022. The graph displays a slow initial growth, followed by a sharp increase in publications from approximately 2018 onwards, indicating a recent surge in research on this topic. The y-axis represents the number of publications, and the x-axis represents the year. The graph illustrates the growth trend of digital twin research within the WOS database over time. -->
 
 In this context, DTs have become an important tool for simulating and analyzing the behavior and characteristics of physical entities. Some of the key features of DTs include their ability to:
 *1) Mimic the structure, environment, and behavior of physical entities.*
@@ -85,10 +86,12 @@ of detail and precision with which the DT represents the physical system or proc
 In order to ensure that the DT can accurately represent the physical system, and, consequently, meet the goals of the design, it is important to have highly skilled specialists engaged into the design phase. For instance, a team of engineers with expertise in the design and operation of a specific engine type, working together with computer scientists and data analysts would be well-suited to contribute to the design of a successful DT for that engine.
 
 ![](_page_2_Figure_11.jpeg)
+<!-- Image Description: The image is a schematic illustrating the interaction between a physical entity and a virtual entity. A gear represents the physical entity, while a matrix of dots depicts the virtual representation. Arrows indicate the flow of sensor data from the physical to the virtual (physical-to-virtual communication channel) and control signals from the virtual to the physical (virtual-to-physical communications channel). The diagram's purpose is to visually define the communication channels between physical and virtual domains within the paper's context. -->
 
 Figure 2 DT basic concept
 
 ![](_page_2_Figure_13.jpeg)
+<!-- Image Description: The image is a diagram illustrating a closed-loop system interaction between a physical process and its virtual instance. It shows bidirectional communication channels ("Physical to virtual" and "Virtual to physical"). Grey gears represent virtual components and black gears represent physical ones. "Process" and "Metrology" blocks represent the respective system elements, with feedback loops allowing for environment or process modification based on metrology data. The diagram's purpose is to visually depict the data exchange and control mechanisms within the system. -->
 
 Figure 3 Detail of DT communication channels
 
@@ -97,6 +100,7 @@ The parameters referenced before include types of data, information, and process
 ###*C. DT Lifecycle Description*Figure 4 illustrates the typical procedure for the creation of a DT, which is divided into several phases.
 
 ![](_page_3_Figure_3.jpeg)
+<!-- Image Description: The image is a flowchart illustrating a digital twin (DT) lifecycle. A "Prototyping" box points to three horizontally oriented boxes representing "DT environment," "DT instances," and "DT aggregate," showing their development stages. Below, rectangular boxes denote "Concept," "Realization," "Use," and "Dispose" phases, mapping the lifecycle stages. The figure visually depicts the progression from prototyping to the deployment and eventual disposal of a digital twin system. -->
 
 Figure 4 DT lifecycle
 
@@ -221,6 +225,7 @@ In [59], a system for real-time calculation of safety distance in human-robot co
 *H healthcare, M manufacturing*#*B. Intelectual property: Patents*This section presents the included results from patent analysis exposed in section 1d. Most of the patents are authored by institutions from China and Korea. The patents that pass the screening phase followed in this survey are listed in Table 2, along with their respective focus area and objective. A word cloud graph in Figure 5 illustrates the most frequently occurring words in the titles, having a bigger size for the most repeated words.
 
 ![](_page_9_Figure_4.jpeg)
+<!-- Image Description: This image is a word cloud visualizing keywords related to a digital twin of the human system. The largest words, "data," "human," and "system," emphasize the core concept. Smaller words, such as "digital twinning," "patient," "sensor," "medical," "monitoring," and various data-related terms, illustrate the components and applications of the system. The word cloud's purpose is to provide a visual summary of the paper's key themes and technical scope. -->
 
 Figure 5. Patent titles word cloud
 

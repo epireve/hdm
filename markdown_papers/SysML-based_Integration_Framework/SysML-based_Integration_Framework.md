@@ -1,6 +1,7 @@
 ---
 cite_key: "sysml_based_integration_framew"
 title: "A SysML-based Integration Framework for the Engineering of Mechatronic Systems"
+authors: "Mohammad Chami"
 year: 2003
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -53,6 +54,7 @@ The OMG Systems Modeling Language (OMG SysMLTM) is a general-purpose, graphical 
 According to Figure 1, the language architecture of SysML is divided into two parts: the first part depicts the UML modeling constructs that SysML reuses. The second part specifies the extensions to UML. These extensions are created to support the specific needs for the application of UML for Systems Engineering (SE). Some UML packages are not being reused due to the inessentiality for Systems Engineering (SE) applications.
 
 ![](_page_1_Figure_14.jpeg)
+<!-- Image Description: The image is a Venn diagram illustrating the relationship between UML 2 and SysML. The overlapping area represents the portion of UML 2 reused by SysML (UML4SysML). The area unique to SysML shows its extensions to UML. The area unique to UML 2 depicts parts not used by SysML. The diagram clarifies the extent to which SysML incorporates and extends UML 2. -->
 
 Fig. 1. Relationship between SysML and UML [7].
 
@@ -93,6 +95,7 @@ These use cases, together with the ability of top-down and bottom-up modeling, i
 In a very abstract view, the original SysML model can be seen as a graph consisting of requirements, elements and attributes as nodes and the associations between the elemens as edges. While linking the tool specific model data with the*shared elements*of the SysML model, this graph is extended with model nodes. So a coherent entire graph-based data model arises which is distributed over all involved engineers workstations (see figure 2).
 
 ![](_page_3_Figure_7.jpeg)
+<!-- Image Description: The image is a hierarchical diagram illustrating SysML model structure. It depicts "SysML-Element" nodes arranged in a tree-like structure, with attributes associated to them. Solid lines represent containment, dashed lines represent links, and dotted lines show associations between SysML elements and "Model data" elements at the bottom, representing the underlying data models. The diagram clarifies the relationships between SysML elements and their data representation within the models. -->
 
 Fig. 2. Distributed graph-based data model
 
@@ -125,6 +128,7 @@ Figure 3 shows a part of a sophisticated extract of a SysML model, describing th
 The motor is concretised by three domain specific models. Each of these models is developed by an engineer on his computer. At the same time, a*Client Agent*is running on the same machine, managing and monitoring the engineers work. The SysML model with the description of the DC motor is under the head of the*SysML Agent*. Additionally, a *Process Agent*is running elsewhere, coordinating the process. Actually,
 
 ![](_page_4_Figure_10.jpeg)
+<!-- Image Description: This image displays a system architecture diagram. It shows three "Client Agents" (one with a circuit simulator, one with a 3D model, and one with a PCB layout) feeding data to a "SysML Agent." The SysML agent contains a block diagram representing a quadcopter system, including components like motors, battery, and environment. The purpose is to illustrate a model-based systems engineering (MBSE) workflow where multiple engineering tools contribute to a central system model. Data attributes (e.g., dimensions, power) are explicitly shown within the SysML block definition for the DC motor. -->
 
 Fig. 3. Architecture of linking between SysML model and Eng. tools.
 

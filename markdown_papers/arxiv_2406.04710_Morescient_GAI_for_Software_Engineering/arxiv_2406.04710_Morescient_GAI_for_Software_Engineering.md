@@ -1,7 +1,7 @@
 ---
 cite_key: "allamanis2021"
 title: "Morescient GAI for Software Engineering (Extended Version)"
-authors: "- <span id=\"page-13-0\"></span>[2] Miltiadis Allamanis, Earl T. Barr, Premkumar Devanbu, and Charles Sutton. 2018. A Survey of Machine Learning for Big Code and Naturalness. ACM Comput. Surv. 51, 4, Article 81 (jul 2018), 37 pages. <https://doi.org/10.1145/3212695>"
+authors: "Additional Key Words, Marcus Kessel"
 year: 2021
 doi: "10.1145/3359591.3359735"
 date_processed: "2025-07-02"
@@ -135,6 +135,7 @@ Computer scientists have developed a range of different techniques for describin
 To achieve full morescience, GAI code models will ultimately need to be trained on descriptions at all levels and in all the different forms in which they are available. Languages used to capture observation-based descriptions of abstract semantics are currently the most inadequate, as they tend to focus on unit testing rather than data analysis or GAI training. The primary obstacle in addressing these challenges is the lack of suitable data structures that can systematically and scalably capture the abstract semantics of functional abstractions in terms of their actual responses to valid stimuli.
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image depicts a software reliability model (SRM) represented as a matrix. Rows represent tests (Tᵢ), columns represent implementations (Sᵢ). A shaded cell indicates a specific test-implementation execution. Dashed lines connect this cell to resulting functional (output values, function calls) and non-functional (time, memory, branch coverage) observation tables. The diagram illustrates how an SRM tracks and records the results of executing various tests on different software versions. -->
 
 |   | Output | Operation | Inputs |   |
 |---|--------|-----------|--------|---|
@@ -153,6 +154,7 @@ To achieve full morescience, GAI code models will ultimately need to be trained 
 (b) Sequence Sheet for a (stateful) Queue Abstraction
 
 ![](_page_7_Figure_5.jpeg)
+<!-- Image Description: The image is a diagram illustrating a multi-dimensional test matrix. A 3D coordinate system represents "Tests," "Repetitions," and "Functional Abstractions," with a dashed line connecting the system to a series of stacked matrices ($S_1, S_{...}, S_n$). Each matrix represents an "Implementation," showing results across the three dimensions. The diagram visualizes the organization and structure of test data across various implementations, abstractions, and repetitions within the paper's experimental methodology. -->
 
 (b) Stimulus-Response Hypercube (SRH)
 
@@ -187,6 +189,7 @@ There are many potential approaches to developing a continually evolving SRH. Ho
 <span id="page-8-1"></span><sup>2</sup>project is freely available on GitHub: <https://softwareobservatorium.github.io/>
 
 <span id="page-9-0"></span>![](_page_9_Figure_1.jpeg)
+<!-- Image Description: The image diagrams a "Continually Evolving SRH" system using a series of tables representing models (Morescient LLMs). Each table shows multiple implementations ($S_1$ to $S_n$) evolving across three axes: repetitions, functional abstractions, and tests. The tables are linked to executable code, illustrating a model's iterative development and refinement through repeated testing and implementation changes. The curved lines represent the continuous evolution of the system over time. -->
 
 Fig. 2. An Open, Continually Evolving SRH of de facto Behavior Data
 

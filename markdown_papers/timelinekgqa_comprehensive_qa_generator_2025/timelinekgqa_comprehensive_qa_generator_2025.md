@@ -1,7 +1,7 @@
 ---
 cite_key: "sun2025b"
 title: "TimelineKGQA: A Comprehensive Question-Answer Pair Generator for Temporal Knowledge Graphs"
-authors: "Qiang Sun, Sirui Li, Du Huynh, Mark Reynolds, Wei Liu"
+authors: "Qiang Sun"
 year: 2025
 doi: "arXiv:2501.04343"
 url: "https://arxiv.org/abs/2501.04343"
@@ -90,6 +90,7 @@ WWW, April 28–May 02, 2025, Sydney, Australia
 Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than the author(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org.
 
 <span id="page-1-0"></span>![](_page_1_Figure_2.jpeg)
+<!-- Image Description: The image presents six example question-answer pairs illustrating different types of temporal reasoning. Each pair shows a timeline with boxes representing entities and their relationships, along with colored symbols (purple triangles, red circles, magenta dots) representing different reasoning operations (Temporal Constrained Retrieval, Timeline Position Retrieval, Temporal Semantic Operation, Timeline Arithmetic Operation). The purpose is to visually categorize and exemplify the complexity of temporal question answering. -->
 
 Figure 1: Categorization framework for Temporal Questions
 
@@ -121,6 +122,7 @@ $$
 For Temporal questions like Q4, TPR will be first applied to retrieve relevant time ranges (e.g., presidency periods of Bush and Obama), then Timeline Arithmetic Operation (TAO) processes these ranges through three types of temporal relation operations: (1) Set Operations (union, intersection, negation), (2) Allen's Temporal
 
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
+<!-- Image Description: Figure 2 is a flowchart illustrating a question-answer pair generation process, categorized by question difficulty (simple, medium, complex) and answer type (factual, temporal). It details the reasoning process using Temporal Constrained Retrieval (TCR), Timeline Position Retrieval (TPR), Temporal Semantic Operation (TSO), and Timeline Arithmetic Operation (TAO). Figure 3 displays a temporal knowledge graph unification, showing how individual facts with time ranges are integrated into a unified event knowledge graph. The figures demonstrate the framework's capabilities in handling temporal information for question answering. -->
 
 Figure 2: Question answer pair generation procedure in our TimelineKGQA Generator
 
@@ -145,6 +147,7 @@ After reclassifying CronQuestion with our proposed categorization framework (Tab
 Based on the aforementioned categorization framework, we develop TimelineKGQA, an open-source automated QA pair generator for temporal knowledge graphs. This tool can generate diverse QA pairs from any TKG while incorporating all identified complexity
 
 ![](_page_2_Figure_11.jpeg)
+<!-- Image Description: Figure 3 displays a temporal knowledge graph, illustrating the unification module of the TimelineKGQA system. The graph visually represents facts about historical figures (Obama, Bush, Stalin, Churchill, Roosevelt) and their activities, each fact augmented with a time range [t<sub>start</sub>, t<sub>end</sub>]. The graph's purpose is to show how the system integrates temporal information into a knowledge graph for question answering. -->
 
 <span id="page-2-2"></span>Figure 3: Temporal knowledge graph unification
 

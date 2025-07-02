@@ -1,6 +1,6 @@
 ---
 cite_key: "yao2024"
-title: "FedRKG: A Privacy-preserving Federated Recommendation Framework via Knowledge Graph Enhancement"
+title: "FEDRKG: A Privacy-preserving Federated Recommendation Framework via Knowledge Graph Enhancement"
 authors: "Dezhong Yao, Tongtong Liu, Qi Cao, Hai Jin"
 year: 2024
 doi: "10.1007/978-981-99-9896-8_6"
@@ -38,6 +38,7 @@ Recommendation systems are widely used in various domains, such as e-commerce an
 The exclusive client access to local data leads to two challenges. Firstly, limited access to firstorder interaction data hampers the effectiveness of the recommendation model. Secondly, privacypreserving mechanisms are required to ensure secure communication between the client and server. To address these challenges, FL is introduced into the recommendation system. Existing works focus on the case of Fig. [1\(](#page-1-0)b), where recommendations are achieved by directly finding correlations between
 
 ![](_page_1_Figure_0.jpeg)
+<!-- Image Description: The image compares three learning approaches: centralized, federated learning by user relevance, and federated learning by item relevance. It uses diagrams showing users (represented by icons) interacting with items (shopping bags). (a) shows a centralized server collecting data from all users. (b) and (c) illustrate federated learning, where user or item relevance, respectively, guide the data sharing between clients and a central server, leading towards a knowledge graph. The diagrams illustrate data flow and highlight the differences in data aggregation methods. -->
 
 <span id="page-1-0"></span>Figure 1: Comparison of centralized learning, federated learning with enhanced user connections, and federated learning with enhanced project connections.
 
@@ -76,6 +77,7 @@ In addition to the client-side data, the server maintains a knowledge graph K, w
 Our goal is to train a generalized GNN model using the local bipartite graphs G<sup>i</sup> and the knowledge graph K while preserving user privacy. The model predicts the probability yˆut that a user u will be interested in an unexplored item t.
 
 ![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a federated learning framework using Graph Neural Networks (GNNs). Two clients (i, j) each process local data using Local Differential Privacy (LDP) before feeding embeddings into a GNN. The GNN's model and embedding gradients are then aggregated, updating the central GNN model and knowledge graph represented by two example graphs. The updated model is redistributed to clients. The diagram details the data flow and processing steps in a privacy-preserving distributed learning system. -->
 
 <span id="page-3-0"></span>Figure 2: The framework of FEDRKG.
 
@@ -130,6 +132,7 @@ We calculate an attention score using a score function (e.g. inner product) and 
 Similar to clients, the server performs distinct tasks that are mainly distributed across two phases. Firstly, the server's primary responsibility is to respond to the client's requests. Based on the requested items, the server utilizes the knowledge graph to sample a subgraph that corresponds to a specific client. The subgraph comprises two key components, namely the structural information in the form of triples, and the feature information, represented by the embedding of entities and relations. Subsequently, the server shares the subgraph, together with the global model, with the client. Secondly, the server needs to receive all gradients of local models and embeddings uploaded by clients. These gradients are then aggregated and used to update the global model and knowledge graph.
 
 ![](_page_5_Figure_0.jpeg)
+<!-- Image Description: The image depicts a graph-based model for user-item interaction. It shows user and item embeddings (`e<sub>u</sub>`, `e<sub>t</sub>`, `e<sub>k</sub>`) processed via dot products and summation. These are connected through relation and entity embeddings, visualized as colored blocks. The model incorporates attention mechanisms (`Att`) to weigh the interactions, represented by dashed lines linking subgraphs. The central component is a database server. The diagram illustrates the architecture and data flow within the proposed recommendation system. -->
 
 <span id="page-5-0"></span>Figure 3: Relation-aware aggregation in client.
 
@@ -252,6 +255,7 @@ We conduct a comprehensive comparison of multiple models under various settings.
 Overall, our framework outperforms existing federated learning algorithms and achieves competitive performance compared to centralized algorithms.
 
 ![](_page_9_Figure_1.jpeg)
+<!-- Image Description: The image contains three line graphs comparing the Recall@K performance of different recommendation algorithms (PER, CKE, LibFM, RippleNet, KGCN, FedMF, FedGNN, FedRKG) across varying values of K. Each graph represents a different dataset: (a) MovieLens 20M, (b) Book Crossing, and (c) LastFM. The purpose is to show the comparative recall performance of these algorithms, highlighting the superior performance of FedRKG in most cases. -->
 
 <span id="page-9-0"></span>(a) MovieLens-20M (b) Book-Crossing (c) Last.FM Figure 4: Results for top-K recommendation. The dashed line represents centralized learning, while the solid line represents federated learning. Our method surpasses all federated baselines and, furthermore, achieves competitive results compared to centralized learning.
 
@@ -266,6 +270,7 @@ In general, a smaller number of activated clients in each training round will sp
 By testing different receptive field depths, we note that an excessive receptive field reduces model prediction accuracy. As data sparsity decreases, better performance needs a larger receptive field, while a one-layer perceptual region is sufficient to achieve better performance on those sparse data sets.
 
 ![](_page_9_Figure_8.jpeg)
+<!-- Image Description: The image presents two bar charts comparing the Area Under the Curve (AUC) performance metric across three datasets (Movielens-20M, Book-Crossing, Last.FM) for a machine learning model. The left chart shows AUC values varying with the number of activated clients (1x, 2x, 4x), while the right chart shows AUC values changing with receptive field depth (1-4). The charts analyze the model's performance under different parameter settings across distinct datasets. -->
 
 Figure 5: Sensitivity analysis of activated clients and receptive field depth.
 
@@ -274,6 +279,7 @@ Figure 5: Sensitivity analysis of activated clients and receptive field depth.
 We introduce new interaction record protection and assess diverse flipping rates, with corresponding results depicted in Fig. [6.](#page-10-4) Generally, integrating privacy-preserving mechanisms often diminishes recommendation accuracy. However given limited client-side graph data, our scenario tends to induce model overfitting. Hence, proper regularization effectively enhances recommendation accuracy
 
 ![](_page_10_Figure_0.jpeg)
+<!-- Image Description: This image displays three line graphs showing the Area Under the Curve (AUC) performance metric against varying "flipping rates" for three different datasets: MovieLens-20M, Book-Crossing, and Last.FM. Each graph plots AUC values, a measure of model performance, as the flipping rate (presumably a data augmentation parameter) increases. The graphs illustrate how AUC changes for each dataset with different flipping rates, enabling a comparison of model robustness across datasets. -->
 
 <span id="page-10-4"></span>Figure 6: Effect of flipping rate on AUC.
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "pareja2020"
 title: "EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs"
-authors: "Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura, Hiroki Kanezashi, Tim Kaler, Tao Schardl, Charles Leiserson"
+authors: "Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura, Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson"
 year: 2020
 doi: "10.48550/arXiv.1902.10191"
 url: "https://arxiv.org/abs/1902.10191"
@@ -75,6 +75,7 @@ A set of approaches most relevant to this work is combinations of GNNs and recur
 In this section we present a novel method, coined *evolving graph convolutional network*(EvolveGCN), that captures the dynamism underlying a graph sequence by using a recurrent model to evolve the GCN parameters. Throughout we will use subscript t to denote the time index and superscript l to denote the GCN layer index. To avoid notational cluttering, we assume that all graphs have n nodes; although we reiterate that the node sets, as well as the cardinality, may change over time. Then, at time step t, the input data consists of the pair (A<sup>t</sup> ∈ R <sup>n</sup>×<sup>n</sup>, X<sup>t</sup> ∈ R n×d ), where the former is the graph (weighted) adjacency matrix and the latter is the
 
 ![](_page_2_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates a temporal graph convolutional network (TGCN) architecture. Three GCN modules (GCN 1, GCN 2, GCN 3) process node embeddings from evolving graphs at times 1, 2, and 3, respectively. Each GCN has two layers with weights. RNNs (RNN 1, RNN 2) connect the GCNs, incorporating temporal dependencies between graph snapshots. The output of each GCN represents the node embeddings at that time step, showcasing the model's ability to learn dynamic graph representations. -->
 
 Figure 1: Schematic illustration of EvolveGCN. The RNN means a recurrent architecture in general (e.g., GRU, LSTM). We suggest two options to evolve the GCN weights, treating them with different roles in the RNN. See the EvolveGCN-H version and EvolveGCN-O version in Figure [2.](#page-3-0)
 
@@ -122,10 +123,12 @@ $$
 $$
 
 ![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This image is a schematic illustrating a neural network architecture comparison. The left side shows a GRU (Gated Recurrent Unit) network connected to a GCONV (Graph Convolution) network. The right shows an alternative architecture replacing GCONV with EGCU-H (enhanced graph convolutional unit). Both diagrams use circles to represent network layers and arrows to denote information flow, with dashed lines showing feedback loops from hidden states (H<sub>t</sub>) and input/output weight matrices (W<sub>t</sub>). The purpose is to visually compare the proposed EGCU-H modification with a standard GRU-GCONV combination. -->
 
 (a) EvolveGCN-H, where the GCN parameters are hidden states of a recurrent architecture that takes node embeddings as input.
 
 ![](_page_3_Figure_2.jpeg)
+<!-- Image Description: This image displays a diagram comparing three neural network architectures. The left shows an LSTM receiving input `W<sub>t-1</sub><sup>(l)</sup>` and producing output `W<sub>t</sub><sup>(l)</sup>`. The middle depicts a GCONV receiving `W<sub>t</sub><sup>(l)</sup>` and `H<sub>t</sub><sup>(l)</sup>` and producing `H<sub>t</sub><sup>(l+1)</sup>`. The right combines these, showing an EGCU-O architecture which uses the previous layer's output and hidden state to generate the current output and hidden state. The image illustrates the architecture's composition and information flow. -->
 
 (b) EvolveGCN-O, where the GCN parameters are input/outputs of a recurrent architecture.
 
@@ -353,10 +356,12 @@ The F1 scores for the data set Elliptic are plotted also in Figure [3.](#page-6-
 For an interesting phenomenon, we plot the history of the F1 scores along time in Figure [4.](#page-6-2) All methods perform poorly starting at step 43. This time is when the dark market shutdown occurred. Such an emerging event causes performance degrade for all methods, with non-dynamic models suffering the most. Even dynamic models are not able to perform reliably, because the emerging event has not been learned.
 
 ![](_page_6_Figure_9.jpeg)
+<!-- Image Description: The image displays a bar chart comparing the F1 scores of four graph convolutional network (GCN) models—GCN, GCN-GRU, EvolveGCN-H, and EvolveGCN-O—across four datasets: BC-OTC, BC-Alpha, Reddit, and Elliptic. The chart shows that EvolveGCN-O generally achieves the highest F1 scores, indicating superior performance in these tasks. The x-axis represents the datasets, and the y-axis represents the F1 score, a measure of a model's accuracy. -->
 
 <span id="page-6-1"></span>Figure 3: Performance of edge classification and node classification. For edge classification (BC-OTC, BC-Alpha, and Reddit), the F1 score is the micro average. For node classification (Elliptic), because of the exceedingly high class imbalance and strong interest in the minority class (illicit transactions), the minority F1 is plotted instead.
 
 ![](_page_6_Figure_11.jpeg)
+<!-- Image Description: The image displays a line graph titled "Illicit F1," comparing the performance of four graph convolutional network (GCN) variants: GCN, GCN-GRU, EvolveGCN-H, and EvolveGCN-O. The x-axis represents an unspecified variable, while the y-axis shows F1 score, a metric of model performance. The graph illustrates the F1 scores of each model across different values of the x-axis variable, allowing for a comparison of their effectiveness in the context of the "Illicit" task. -->
 
 Figure 4: Performance of node classification over time. The F1 score is for the minority (illicit) class.
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "paris2024"
 title: "Research Trends for the Interplay between Large Language Models and Knowledge Graphs"
-authors: "Frédéric Ieng Université Paris Cité Paris, France frederic.ieng@u-paris.fr"
+authors: "Soror Sahri Universit, Morteza Ezzabady Universit, Nandana Mihindukulasooriya, Hanieh Khorashadizadeh"
 year: 2024
 doi: "10.1007/978-3-540-76888-3"
 date_processed: "2025-07-02"
@@ -83,6 +83,7 @@ Ontology Learning: Ontology learning automates the construction of ontologies by
 2.1.3 Relation Extraction: LLMs have notably advanced the complex task of relation extraction between text entities, revolutionizing the identification and interpretation of semantic connections in textual data. In particular, GPT-RE [\[79\]](#page-9-9) introduced a novel approach by infusing task-specific knowledge and logic-enriched demonstrations. This approach effectively reduces the low relevance issues between entity-relation pairings and overcomes the limitations in
 
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates the relationship between Knowledge Graph (KG) tasks and Large Language Model (LLM) tasks. It shows how various KG operations (construction, reasoning, question answering) connect to different LLM applications (information extraction, text generation). The chart highlights tasks considered in the research and those not previously surveyed, using color-coding to differentiate KG-focused, LLM-focused, and cooperative approaches. Asterisks denote tasks not covered in prior research. -->
 
 Figure 1: Categorization of the interplay between LLMs and KGs
 
@@ -156,6 +157,7 @@ This section covers research questions 5 and 6.
 4.1.1 Multi-Hop Question Generation: The goal of multi-hop question generation is to formulate questions demanding advanced reasoning over multiple sentences, including their associated answers [\[57\]](#page-9-35). [Li et al.](#page-9-35) created a KG Enhanced Language Model (KGEL), aiming to replicate human-like reasoning for multi-hop questions. Their method for generating multi-hop questions reflects the way humans approach complex questioning. Their strategy encompasses three key phases: (1) Gaining an understanding of the context by employing a pre-trained GPT-2 language model, (2) Merging information and reasoning through a sophisticated KG and an answer-aware dynamic Graph Attention Network (GAT), and (3) Executing the question generation using a multi-head attention generation module that capitalizes on improved latent representations. [Aigo et al.](#page-7-6)
 
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
+<!-- Image Description: This stacked bar chart displays the number of appearances of various Knowledge Graphs (KGs) and Large Language Models (LLMs) across different categories of tasks in a research paper. The x-axis categorizes KGs and LLMs, while the y-axis represents the frequency of appearance. Each colored segment within a bar corresponds to a specific task category, such as KG question answering, entity extraction, or ontology creation. The chart visualizes the prevalence of specific KGs and LLMs used within different application areas related to knowledge graph and language model integration. -->
 
 Figure 2: Statistics of the usage of LLMs and KGs in cited papers per category
 

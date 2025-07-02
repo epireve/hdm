@@ -1,7 +1,7 @@
 ---
 cite_key: "bradac2021"
-title: "**A Lexical Approach to Assessing Stress: Development and Proof- of- Concept**"
-authors: "- Bradac, J. J., Bowers, J. W., & Courtright, J. A. (1979). Three language variables in communication research: Intensity, immediacy, and diversity. *Human Communication Research*, *5*, 257–269. https:// doi. org/ 10. 1111/ j. 1468- 2958. 1979. tb00639.x"
+title: "A Lexical Approach to Assessing Stress: Development and Proof- of- Concept"
+authors: "Tripp Driskell, Eduardo Salas, C. Shawn Burke, James E. Driskell"
 year: 2021
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -92,6 +92,7 @@ Third, we reviewed existing lexical anal- \VLV SURJUDPV VXFK DV WKH \*HQHUDO ,QT
 )RXUWKZHUHYLHZHGRXU6SDFHÀLJKW&RUSXV which included Johnson Space Center (JSC)
 
 ![](_page_4_Figure_1.jpeg)
+<!-- Image Description: The image is a flowchart illustrating the "STRESSlet" framework, categorizing linguistic features indicative of stress. It displays five main categories (Attentional Focus, Cognitive Load, Anxiety, Negative Emotion, Social Impairment), each subdivided into more specific aspects (e.g., Task Focus, Workload). Each sub-category lists linguistic features associated with higher (>) or lower (<) stress levels. The flowchart visually organizes how linguistic features reflect different dimensions of stress, aiding in its analysis. -->
 
 *Figure 1.*675(66QHWSULPDU\GLPHQVLRQVDQGFRUUHVSRQGLQJIDFHWV
 
@@ -222,6 +223,7 @@ Further analyses demonstrate how a construct such as Social Impairment may be tr
 | Day | −.24** | −.18**           | .03                    | .10    | .02      | −.07                  | −.15** | −.20**          | −.12*|
 
 ![](_page_12_Figure_5.jpeg)
+<!-- Image Description: The image displays a line graph titled "First Person Plural," showing a fluctuating trend over 30 data points. The y-axis represents an unspecified numerical value, ranging from 0 to 3. The x-axis shows sequential data points (1-30). The graph illustrates the dynamic variation of this unnamed metric across the 30 points, with peaks and troughs indicating periods of increase and decrease. Its purpose is likely to show the variability of a key variable relevant to the paper's topic. -->
 *Figure 2.* First- person plural across time*.*Table 2 shows the correlations between the social impairment dictionaries and time. 2YHUDOO WKH SRVLWLYH DVSHFWV RI WKH VRFLDO LPSDLUPHQWIDFHWRI675(66QHWGHFOLQHDFURVV WLPH7KDWLVDVVHQW¿UVWSHUVRQSOXUDO³:H´ social terms, support/aid, and proportional XVDJH RI ¿UVWSHUVRQ SOXUDO YHUVXV ¿UVWSHUVRQ singular declines across the 30 - day mission.
 
 First- person plural,*F*(29,391) = 2.36, *p*< .001, assent terms,*F*(29,391) = 1.91, *p*= .004, support/aid terms,*F*(29,391) = 1.56, *p*= .03, and We- I (1st person plural–1st person singular),*F*(29,391) = 1.60, *p*= .03, showed withinmission variation. As an example (Figure 2), WKHPDLQYDULDWLRQVLQ¿UVWSHUVRQSOXUDOXVDJH occur on days 12 and 19 (both low workload days) and on days 23 and 27.
@@ -242,8 +244,10 @@ Social terms .54
 communications are relatively consistent. That is, the crewmembers' language variation was synchronous across the mission. Figure 3 tracks ¿UVWSHUVRQSOXUDOXVDJHE\WHDPPHPEHURYHU WLPH7KHVHUHVXOWVUHÀHFWDQGVXSSRUWWKHRUHW-LFDO DQG HPSLULFDO HYLGHQFH RI FRQWDJLRQ DQG language matching.
 
 ![](_page_13_Figure_5.jpeg)
+<!-- Image Description: The image is a blurry text excerpt stating "First Person Plural". It likely appears in a linguistics or writing studies paper, serving as a label or title to illustrate a section discussing the grammatical use of first-person plural pronouns (e.g., we, us, our). No diagrams, charts, graphs, or equations are present. -->
 
 ![](_page_13_Figure_6.jpeg)
+<!-- Image Description: The image displays a line graph tracking four individuals (A, B, C, D) over 30 time periods. Each line represents a person's fluctuating score or metric (unspecified by the image itself). The graph's purpose is to visually compare the dynamic trends and patterns of the four individuals' scores across the observed period. The y-axis shows the score range (0-7), and the x-axis denotes the time periods. -->
 *Figure 3.*First- person plural usage by team member over time.
 
 PRYHPHQWDQGWKHLQWHUUHODWHGQHVVRILQGLYLGXDO behaviors" (p. 339), and research has demon-VWUDWHG HYLGHQFH RI V\QFKURQ\LQ KXPDQ FRPmunication (Driskell et al., 2012). To directly investigate synchrony, we examined the average inter- correlation among the crewmember's language usage by the consistency measure, &URQEDFK¶VĮ\$OWKRXJK&URQEDFK¶VĮLVJHQHUally used to measure scale reliability, it allows us to gauge the consistency by which crewmembers use common language. To accomplish this, each crew member's mean per day was XVHGIRUHDFKODQJXDJHGLPHQVLRQHJGDWD points per crew member). Thus, Cronbach's Į ZDV DVVHVVHG E\ HQWHULQJ HDFK FUHZ PHP-EHULQWRWKHUHOLDELOLW\DQDO\VLV7KHUHVXOWVIRU selected Social Impairment measures are presented in Table 32YHUDOOWKHGDWDIRUHDFKOLQguistic dimension show that the crewmembers'
@@ -275,6 +279,7 @@ Table 1 supports this assertion. That is, during task- based communications, cre
 )XUWKHU DQDO\VHV LQGLFDWH GL൵HUHQFHV LQ HPRWLRQDOFRQWHQWDQGWDVNIRFXVEHWZHHQWDVN communications and leisure communications. In general, we expect task communications to EH PRUH IRFXVHG DQG ORJLFDO ZKHUHDV OHLVXUH
 
 ![](_page_14_Figure_6.jpeg)
+<!-- Image Description: The image displays a grouped bar chart comparing the frequency of eight linguistic features ("Negation," "Insult," etc.) across two contexts: "Task" and "Leisure." Positive values indicate higher frequency. The chart shows a higher frequency of positive features (e.g., "Praise," "Support/Aid") during "Task" and a greater prevalence of negative features (e.g., "Negation," "Insult") during "Leisure." The chart's purpose is to illustrate the differential use of language features depending on the activity context. -->
 *Figure 4.*Social impairment by task type.
 
 communications are more expressive and emotionally laden. Table 5 and Figure 5 examine the STRESSnet emotion categories by task type and support this prediction.
@@ -306,9 +311,11 @@ It is important to demonstrate that this approach is sensitive, or can provide a
 | Task Combined    | 5.29 | 4.69    | t(388) = 7.13, p < .001    |
 
 ![](_page_15_Figure_6.jpeg)
+<!-- Image Description: This figure presents a comparative bar chart illustrating the emotional responses during "Task" and "Leisure" activities. The chart displays the relative proportions of anger, boredom, negative emotion, negative valence, positive emotion, positive valence, and sadness experienced in each context. Negative emotions are more prominent during task activities, while positive emotions are comparatively higher during leisure. The chart's purpose is to visually represent the emotional differences between the two activity types. -->
 *Figure 5.*Emotional content by task type.
 
 ![](_page_15_Figure_8.jpeg)
+<!-- Image Description: This bar chart compares the relative frequencies of five task types ("Cognitive," "Psychomotor," "Related," "Verbs," "Combined") during "Task" and "Leisure" activities. The positive values for Task suggest higher frequency during task performance, while negative Leisure values indicate lower frequency during leisure. The chart illustrates the differential engagement of various task types across the two contexts. -->
 *Figure 6.*7DVNIRFXVE\WDVNW\SH
 
 RIWKLV HSLVRGH ,QWKH IROORZLQJ ZH H[DPLQH language use as it varies by individual crew members. For privacy purposes, the data pre-VHQWHGEHORZDUHPDVNHGVXFKWKDWWKLVVSHFL¿F PLVVLRQLVLGHQWL¿HGDV0LVVLRQDQGWKHVSH-FL¿F FUHZ PHPEHU LV LGHQWL¿HG DV 3HUVRQ ' 7KH¿UVWLQGLFDWLRQ RI RYHUWDQJHUDJJUDYDWLRQ occurred on Mission Day 26. Figure 7 shows that particular mission task and the elevated OHYHOVRIQHJDWLYHHPRWLRQIRU3HUVRQ'UHODWLYH to the remaining crew members.
@@ -318,17 +325,21 @@ A second illustration highlights an instance RI WHDP PHPEHU DWWULWLRQ RU GURSRXW
 The STRESSnet dictionary that is most relevant to health- related issues is the somatic anxiety, or somatic complaints, dictionary. This GLFWLRQDU\ LV FRPSULVHG RI KHDOWKUHODWHG ZRUGV
 
 ![](_page_16_Figure_1.jpeg)
+<!-- Image Description: The image displays a bar chart comparing the responses of four individuals (A, B, C, D) across six categories of emotion: Anger, Insult, Negation, Negative Emotion, Negative Valence, and Positive Valence. Each bar represents the score for a person in a given category. Person D shows consistently higher scores, particularly in Negative Valence. The chart likely illustrates the results of an emotional analysis, potentially from text or speech data, in relation to a specific task (as suggested by the title "Task 1000"). -->
 *Figure 7.*Negative emotion during anger incident.
 
 ![](_page_16_Figure_3.jpeg)
+<!-- Image Description: The image displays a line graph tracking "Somatic Complaints" over 14 days. The y-axis represents the level of somatic complaints, and the x-axis shows the day number. The graph illustrates a fluctuating pattern of somatic complaints, peaking around day 11 before declining through day 14. It likely demonstrates the temporal aspect of somatic complaints in the context of the study. -->
 *Figure 8.*Somatic complaints across Campaign II.
 
 WKDWDUHLQWHQGHGWRLGHQWLI\ERGLO\UHODWHGLVVXHV (e.g., headache, sore throat). The graph in Figure 8 VKRZV WKH RYHUDOO XVH RI VRPDWLF DQ[LHW\ WHUPV DYHUDJHGDFURVVDOOIRXUPLVVLRQV1RWHWKDWWKH term*mission*is synonymous with*crew*; there ZHUHIRXUPLVVLRQVRUFUHZVLQWKLV+(5\$GD\ FDPSDLJQ:HVHH IURPWKLVJUDSKWKDWVRPDWLF complaints generally increase across the 14 - day period and peak on Days 6 and 11. Using a lin-HDUPL[HGPRGHODQDO\VLVVLJQL¿FDQWGL൵HUHQFHV ZHUHIRXQGIRUVRPDWLFDQ[LHW\XVDJHDFURVVWKH 14 - day period, *F*(13,197) = 2.16, *p*= .013.
 
 ![](_page_17_Figure_2.jpeg)
+<!-- Image Description: The image displays a line graph tracking four missions (A, B, C, D) over 14 days. The y-axis represents an unspecified metric, ranging from 0 to 3. Each line shows the daily fluctuation of this metric for a given mission. The graph likely illustrates the performance or progress of these missions over time, allowing for comparison between them. -->
 *Figure 9.*0LVVLRQE\GD\LQWHUDFWLRQIRUVRPDWLFDQ[LHW\
 
 ![](_page_17_Figure_4.jpeg)
+<!-- Image Description: The image is a line graph showing the number of "Dropouts" and "Others" over 14 days. The y-axis represents the count, and the x-axis represents the day. The "Dropout" line shows a peak around day 6 and another sharp increase on day 11, while the "Others" line fluctuates less dramatically, peaking around day 12. The graph likely illustrates participant attrition or a similar phenomenon within a study's duration. -->
 *Figure 10.*Within- crew somatic anxiety term usage.
 
 Moreover, when*Day*, *Mission*, and the interaction term (*Day*x*Mission*ZHUHHQWHUHGDV¿[HG variables in the linear mixed- model analysis, there ZDVDVLJQL¿FDQWLQWHUDFWLRQ*F*(37,197) = 1.45, *p*= .056. That is, somatic anxiety terms were used at greater or lesser rates by certain missions on certain days. Figure 9 shows the mission by day interaction. As can be seen, the spikes in somatic anxiety terms on Days 6 and 11 can be attributed to Mission D. As expected, Mission D represents the crew that included the health- related incident.

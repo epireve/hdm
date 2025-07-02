@@ -1,7 +1,7 @@
 ---
 cite_key: "hoffart2019c"
 title: "Personal Knowledge Graphs: A Research Agenda"
-authors: "- <span id=\"page-3-7\"></span>[7] Johannes Hoffart, Fabian M. Suchanek, Klaus Berberich, and Gerhard Weikum. 2013. YAGO2: A Spatially and Temporally Enhanced Knowledge Base from Wikipedia. Artif. Intell. 194 (Jan. 2013), 28–61."
+authors: "Krisztian Balog Google London"
 year: 2019
 doi: "10.1145/3341981.3344241"
 date_processed: "2025-07-02"
@@ -43,6 +43,7 @@ ICTIR '19, October 2–5, 2019, Santa Clara, CA, USA ©2019 Copyright held by th
 Tom Kenter Google London, UK tomkenter@google.com
 
 <span id="page-0-0"></span>![](_page_0_Figure_18.jpeg)
+<!-- Image Description: This diagram illustrates a personal knowledge graph. A central "User" node connects to various nodes representing personal relationships (Mom, Jamie), locations (Hometown, High School), and interests (guitars). Dashed lines link the personal graph to external knowledge sources: a general-purpose knowledge graph and domain-specific knowledge graphs (e.g., an e-commerce catalog and social network). The image showcases the integration of personal information with broader knowledge bases. -->
 
 Figure 1: Illustration of a personal knowledge graph.
 
@@ -89,6 +90,7 @@ The issues above lead to the following research question (RQ1): How should entit
 3.2.2 Semantic Annotation of Text. Semantic annotation of text with respect to a knowledge repository, commonly known as entity linking, is one of the most popular ways
 
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
+<!-- Image Description: The image presents three example conversational dialogues between a user and an AI assistant. Each example (a, b, c) displays a multi-turn conversation as a sequence of text bubbles, with user messages in orange and AI responses in light blue. The dialogues illustrate different scenarios showcasing the AI's ability to understand user requests, ask clarifying questions, and provide helpful responses, implying a context-aware system capable of task completion and proactive suggestions. The AI is denoted by "AI". -->
 
 Figure 2: Motivating examples of interactions between a user and a digital assistant (depicted as AI).
 

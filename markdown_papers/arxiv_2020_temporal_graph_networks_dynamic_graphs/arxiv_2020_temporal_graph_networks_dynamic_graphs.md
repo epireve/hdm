@@ -1,7 +1,7 @@
 ---
 cite_key: "rossi2020"
-title: "Temporal Graph Networks for Deep Learning on Dynamic Graphs"
-authors: "Emanuele Rossi, Ben Chamberlain, Fabrizio Frasca, Davide Eynard, Federico Monti, Michael Bronstein"
+title: "TEMPORAL GRAPH NETWORKS FOR DEEP LEARNING ON DYNAMIC GRAPHS"
+authors: "Emanuele Rossi"
 year: 2020
 doi: "10.48550/arXiv.2006.10637"
 url: "https://arxiv.org/abs/2006.10637"
@@ -75,6 +75,7 @@ Following the terminology in [\(Kazemi et al., 2020\)](#page-10-8), a neural mod
 Memory. The memory (state) of the model at time t consists of a vector si(t) for each node i the model has seen so far. The memory of a node is updated after an event (e.g. interaction with another node or node-wise change), and its purpose is to represent the node's history in a compressed format.
 
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
+<!-- Image Description: This flowchart depicts a graph neural network architecture. A batch of graph edges (nodes 1-3 with edges t1, t2) is input. "emb" creates node embeddings. "msg" generates messages, which are aggregated ("agg"). "mem" updates the memory with aggregated messages. "dec" predicts edge probabilities, used to calculate the loss. The process iterates through time steps (t1, t2). Each box represents a matrix of data; colors represent different node/time step combinations. -->
 
 Figure 1: Computations performed by TGN on a batch of time-stamped interactions.*Top:*embeddings are produced by the embedding module using the temporal graph and the node's memory (1). The embeddings are then used to predict the batch interactions and compute the loss (2, 3).*Bottom:*these same interactions are used to update the memory (4, 5, 6). This is a simplified flow of operations which would prevent the training of all the modules in the bottom as they would not receiving a gradient. Section [3.2](#page-4-0) explains how to change the flow of operations to solve this problem and figure [2](#page-4-1) shows the complete diagram.
 
@@ -161,6 +162,7 @@ Here as well, φ(·) is a time encoding and zi(t) = emb(i, t) = h (L) i (t). In 
 The graph embedding modules mitigate the staleness problem by aggregating information from a node's neighbors memory. When a node has been inactive for a while, it is likely that some of its
 
 <span id="page-4-1"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a message-passing neural network architecture. Raw messages are processed through aggregation and memory update steps. A batch of nodes is embedded, resulting in node embeddings. These embeddings are then used by a decoder to produce edge probabilities, which are evaluated via a loss function. The numbered steps detail the flow of information through the system. -->
 
 Figure 2: Flow of operations of TGN used to train the memory-related modules.*Raw Message Store* stores the necessary raw information to compute messages, i.e. the input to the message functions, which we call raw messages, for interactions which have been processed by the model in the past. This allows the model to delay the memory update brought by an interaction to later batches. At first, the memory is updated using messages computed from raw messages stored in previous batches (1, 2, 3). The embeddings can then be computed using the just updated memory (grey link) (4). By doing this, the computation of the memory-related modules directly influences the loss (5, 6), and they receive a gradient. Finally, the raw messages for this batch interactions are stored in the raw message store (6) to be used in future batches.
 
@@ -250,10 +252,12 @@ Due to the efficient parallel processing and the need for only one graph attenti
 model is up to 30× faster than TGAT per epoch (Figure [3a\)](#page-7-1), while requiring a similar number of epochs to converge.
 
 <span id="page-7-1"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: This scatter plot displays the test average precision of various algorithms (TGN-attn, TGN-2l, TGN-mean, TGN-sum, TGN-id, TGN-nomem, DyRep, Jodie, TGAT) against the time taken per epoch in seconds. Each point represents an algorithm's performance, with error bars indicating variability. The plot shows the trade-off between computational time and precision. Algorithms like TGAT have higher precision but significantly longer training times than others like Jodie or DyRep. -->
 
 (a) Tradeoff between accuracy (test average precision in %) and speed (time per epoch in sec) of different models.
 
 ![](_page_7_Figure_2.jpeg)
+<!-- Image Description: The image displays a line graph showing the relationship between the number of sampled neighbors per layer and test average precision for several methods. Each line represents a different method (e.g., "1l-no_mem-last", "2l-mem-last"), indicated in the legend. Error bars are included, showing variability. The graph demonstrates how test precision changes as the number of sampled neighbors increases for different neighbor sampling strategies in a machine learning model. The purpose is to compare the performance of different methods under varying sampling parameters. -->
 
 (b) Performance of methods with different number of layers and with or without memory when sampling an increasing number of neighbors.*Last*and*uniform*refer to neighbor sampling strategy.
 
@@ -378,6 +382,7 @@ $$
 In case of a node deletion event, we simply remove the node (and its incoming and outgoing edges) from the temporal graph so that when computing other nodes embedding this node is not used during the temporal graph attention. Additionally, it would be possible to compute a message from the node's feature and memory and use it to update the memories of all its neighbors.
 
 <span id="page-13-2"></span>![](_page_13_Figure_0.jpeg)
+<!-- Image Description: The image is a block diagram depicting a system's architecture. It shows data flow through interconnected modules labeled "msg," "agg," "mem," "emb," and "||". Inputs include `v(t)`, `m_raw(t)`, `s(t-)`, and `e(t)`, while outputs are `s(t-)`, `m_raw(t)`, and `z(t)`. Arrows indicate data flow between modules, annotated with variables like `m(t)` and `m̃(t)`, representing data transformations within the system. The diagram likely illustrates the internal workings of a specific model or algorithm in the paper. -->
 
 Figure 4: Schematic diagram of TGN. m\_raw(t) is the raw message generated by event e(t), t˜is the instant of time of the last event involving each node, and t <sup>−</sup> the one immediately preceding t.
 
@@ -474,5 +479,6 @@ time embedding module, while for DyRep we augment the messages with the result o
 <span id="page-15-1"></span>When performing neighborhood sampling [\(Hamilton et al., 2017a\)](#page-9-4) in static graphs, nodes are usually sampled uniformly. While this strategy is also possible for dynamic graphs, it turns out that the most recent edges are often the most informative. In Figure [5](#page-15-1) we compare two TGN-attn models (see Table [1\)](#page-5-0) with either uniform or most recent neighbor sampling, which shows that a model which samples the most recent edges obtains higher performances.
 
 ![](_page_15_Figure_5.jpeg)
+<!-- Image Description: The scatter plot displays the relationship between time per epoch (in seconds) and test average precision for two methods: "most\_recent" and "uniform". Each method is represented by an ellipse indicating the mean and variance of the test average precision. The plot visually compares the performance and efficiency of the two methods. "most\_recent" achieves higher precision but requires less time per epoch than "uniform". -->
 
 Figure 5: Comparison of two TGN-attn models using different neighbor sampling strategies (when sampling 10 neighbors). Sampling the most recent edges clearly outperforms uniform sampling. Means and standard deviations (visualized as ellipses) were computed over 10 runs.

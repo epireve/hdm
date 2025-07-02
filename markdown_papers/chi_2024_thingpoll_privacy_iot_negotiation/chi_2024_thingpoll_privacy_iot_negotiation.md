@@ -1,7 +1,7 @@
 ---
 cite_key: "pittsburgh2024"
-title: "<span id=\"page-0-0\"></span>Bring Privacy To The Table: Interactive Negotiation for Privacy Settings of Shared Sensing Devices"
-authors: "[Haozhe Zhou](https://orcid.org/1234-5678-xxxx) haozhezh@cs.cmu.edu Carnegie Mellon University Pittsburgh, PA, United States"
+title: "Bring Privacy To The Table: Interactive Negotiation for Privacy Settings of Shared Sensing Devices"
+authors: "Usable Privacy, Haozhe Zhou"
 year: 2024
 doi: "10.1145/3613904.3642897"
 date_processed: "2025-07-02"
@@ -82,6 +82,7 @@ Prior work has also explored providing privacy notifications and controls to inc
 Using negotiation as a technique to mediate privacy preferences has been studied in a few contexts such as social media, mobile apps, and IoT. For example, Baarslag et al. [\[10\]](#page-15-13) studied negotiation for mobile app permissions. Further, Filipczuk et al. [\[41\]](#page-15-14) extended the negotiation model to integrate the uncertainty of user preferences in user-service negotiation. Similarly, Alanezi et al. [\[4\]](#page-15-15) proposed an automatic negotiation mechanism that automatically finds a consensus on device configuration based on pre-defined privacy policies. However, these methods are limited to bilateral negotiation, where an agent representing the user proposes offers to the opponent to maximize the user's benefits. In addition, several works explored multi-party privacy preference conflict resolution and negotiation solutions on social media [\[98,](#page-17-13) [99,](#page-17-14) [102\]](#page-17-15). Recently, Ogunniye and Kökciyan [\[80\]](#page-16-12) proposed a method to resolve privacy conflicts using an ontology of contextual integrity. ELVIRA [\[74,](#page-16-13) [75\]](#page-16-14) is an agentbased system that recommends explainable solutions to multi-user
 
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
+<!-- Image Description: This flowchart details a four-step research process. Step 1 involves observation and a verbal privacy negotiation study (N=12). Step 2 focuses on ideation, informed by prior research and an mTurk survey (N=198). Step 3 describes the design and creation of a ThingPoll prototype. Step 4 evaluates the prototype through a ThingPoll evaluation study (N=30). Each step is linked to specific sections within the paper. -->
 
 Figure 1: An overview of the methodology.
 
@@ -252,6 +253,7 @@ The overall workflow of ThingPoll is shown in Figure [2.](#page-6-0) Thing-Poll 
 Building a user preference profile model is crucial for ThingPoll to characterize each user's preferences and guide the negotiation (Design ○2 ). Figure [3b](#page-8-1) illustrates the steps involved to do so.
 
 <span id="page-6-0"></span>![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image displays a "ThingPoll Negotiation Workflow," a flowchart depicting a multi-step user-preference elicitation process for smart-home device functionality. It details steps involving profile assignment, functionality preference selection, privacy queries, and configuration suggestions. Supplementary diagrams show example screens with Likert scales for user input on data collection preferences and functionality importance. The workflow aims to negotiate a configuration balancing user privacy and desired functionality. -->
 
 (b) ThingPoll App User Interface
 
@@ -301,6 +303,7 @@ We illustrate the individual and concession preferences results in Figure [4b](#
 6.2.4 Profile Assignment and Preference Prediction. To assign a new user to a profile, ThingPoll asks the user's preferences for three shared sensing scenarios (2 questions per scenario), as shown in Figure [2b-](#page-6-0)Step 0. We iterate over the potential trait values of the 7 centroids and assign them to the profile that best aligns with their responses. We evaluated the performance of profile assignment and preference prediction using 5-fold cross-validation. The training
 
 <span id="page-8-1"></span>![](_page_8_Figure_2.jpeg)
+<!-- Image Description: The image presents a two-part flowchart illustrating a research methodology. (a) depicts a model for deriving user preferences from scenario, sensitivity, purpose, risk/benefit perception, and user traits. (b) shows a process for analyzing 198 mTurk survey responses using a Bayesian network model, K-means clustering to identify 7 user profiles, and then assigning participants to those profiles to analyze preference variations. The flowcharts detail the data processing steps involved in the study. -->
 
 Figure 3: (a) ThingPoll uses a Bayesian Network to model user profiles. Before the negotiation, User Traits variables are assigned by answering privacy preference questions on three shared sensing scenarios. During negotiation, Context, Sensitivity, Purpose, and User Traits are supplied as input variables to the Bayesian Network model, which then estimates the conditional probabilities of Individual Preference and Concession Preference. (b) We applied Expectation Maximization (EM) to jointly optimize the Bayesian Network model on the mTurk survey response data and user trait values of survey participants, which are then clustered into seven distinct types of profiles.
 
@@ -327,6 +330,7 @@ and Section [6.1.4.](#page-5-3) A user can utilize this proposal of configuratio
 CHI '24, May 11–16, 2024, Honolulu, HI, USA Zhou et al.
 
 <span id="page-9-0"></span>![](_page_9_Figure_2.jpeg)
+<!-- Image Description: The image displays three visualizations of user preference data. (a) shows seven radar charts, each representing a user profile, illustrating scores for "altruism" and "practicality." (b) and (c) are heatmaps depicting user preferences for various device types, data types, purposes, and granularities, with device ON/OFF preferences and levels of stubbornness/flexibility respectively. The purpose is to present user profile segmentation based on privacy and data sharing preferences. -->
 
 Figure 4: Seven profile clusters were identified using K-Means clustering on estimated trait values. (a) showed the seven profile cluster centroids; (b) showed the average response to individual preference for each factor mentioned in the scenario; (c) showed the average response to concession preference for each factor mentioned in the scenario. Values are scaled from 0 to 100 for visualization. The factors are sorted by the average individual preference, from most (left) to least invasive (right).
 
@@ -383,6 +387,7 @@ Participants were divided into groups of three, with one homeowner and two guest
 The study began by asking the homeowners to configure the devices to a setup they were most comfortable with. After that, each group used ThingPoll to negotiate the privacy settings of four devices in a random order. We summarized the setup of the four devices in Table [7.](#page-10-2) After negotiations, we asked each guest user to configure the devices to their most preferred settings as their true preference. Then, we generated majority and veto vote results (defined as the most privacy-preserving setting chosen among the three users). We then asked participants to rank the outcomes of all four approaches: Negotiation, Majority Vote, Veto Vote, and Homeowner's Preference. Finally, participants were asked to fill in a post-study questionnaire, where we asked participants to reflect on the satisfaction and experience of negotiation and baseline approaches.
 
 <span id="page-11-0"></span>![](_page_11_Figure_2.jpeg)
+<!-- Image Description: The image contains three plots. (a) shows box plots comparing completion and active times across four devices. (b) displays a line graph illustrating response times for functionality, query, and configuration aspects across the same devices. (c) presents box plots representing mental, temporal, effort, and frustration demands. All plots likely analyze system performance and user experience across different devices. -->
 
 Figure 5: Empirical Evaluation of User Workload Using ThingPoll: (a) User Time Consumption on Completing Negotiation; (b) User Average Response Time of Each Action in Negotiation; (c) NASA Task Load Index (TLX)
 
@@ -407,6 +412,7 @@ Negotiation Approach (NG). The negotiation approach generated the most satisfyin
 An important reason behind the high satisfaction is the ability to share needs and concerns. Even in cases where the outcome Bring Privacy To The Table: Interactive Negotiation for Privacy Settings of Shared Sensing Devices CHI '24, May 11–16, 2024, Honolulu, HI, USA Clear Explaination of 6.7% 6.7% 13.3% 33.3% 23.3% 16.7%
 
 <span id="page-12-0"></span>![](_page_12_Figure_2.jpeg)
+<!-- Image Description: The image presents two sets of stacked bar charts (a) and (b), illustrating homeowner and guest satisfaction, respectively. Each chart set displays satisfaction levels across four categories (NG, MV, VV, HP) for three aspects: privacy, functionality, and overall experience. The bars are segmented to show the percentage of respondents in each level of agreement (strongly disagree to strongly agree). The purpose is to compare satisfaction levels between homeowners and guests across different aspects of the system and categories. -->
 
 Figure 6: User Rated Outcome Satisfaction on Different Preference Aggregation Approaches. (NG: Negotiations, MV: Majority Vote, VV: Veto Vote, HP: Homeowner's Preference)
 
@@ -423,6 +429,7 @@ Veto Vote Approach (VV). This approach is the most strict approach that biases t
 According to users, the biggest advantage of the Negotiation Approach compared to the rest is the ability for users to voice their preferences, regardless of being in the minority or majority. The drawback is that the effort it takes to finish the negotiation is less predictable beforehand. As G14 mentioned, 'overall, it is good to
 
 <span id="page-12-1"></span>![](_page_12_Figure_10.jpeg)
+<!-- Image Description: This stacked bar chart displays survey responses regarding user perceptions of privacy in an automated suggestion system. Each bar represents a statement (e.g., "Clear explanation of risk and benefits") and is segmented to show the percentage of respondents who strongly agree, agree, somewhat agree, neither agree nor disagree, somewhat disagree, disagree, and strongly disagree. The chart visually compares opinions across different aspects of privacy and user experience. -->
 
 Figure 7: Experience of Participants in ThingPoll Features During Negotiation
 
@@ -676,6 +683,7 @@ Similarly, we represented the probability of selecting response ∈ for privacy 
 #### Table 8: Variables and Levels used in the Bayesian Network profile model
 
 <span id="page-18-1"></span>![](_page_18_Figure_4.jpeg)
+<!-- Image Description: This flowchart models the factors influencing individual preferences for data concessions. Three top-level categories (Location, User Role, Social Relationship) branch into contextual factors (Risk, Ambiance, Responsibility). These further decompose into more granular elements (Concern, Practicality, Altruism, Data/Access Sensitivity, Purpose). Finally, Perceived Risk and Benefit converge to determine Individual Preference, which influences Concession Preference. The diagram visually represents the hierarchical relationships between these factors. -->
 
 Figure 8: The complete graph representation of the Bayesian Network Model
 

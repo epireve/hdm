@@ -1,7 +1,7 @@
 ---
 cite_key: "saadhttpsorcidorg---2017"
 title: "SENAI: Towards Software Engineering Native Generative Artificial Intelligence"
-authors: "[Mootez Saad](https://orcid.org/0009-0008-8159-3632)"
+authors: "Mootez Saad"
 year: 2017
 doi: "10.1145/nnnnnnn.nnnnnnn"
 date_processed: "2025-07-02"
@@ -140,6 +140,7 @@ These new benchmarks would present tasks that require the model to demonstrate g
 The emergence of instruction-based language models, which allow for more flexible and interactive engagement, presents an opportunity to complement existing probing techniques with mature frameworks from psychology. A possible framework would be Bloom's Taxonomy [\[4\]](#page-4-29) which categorizes cognitive skills into hierarchical levels. This framework has been previously used by Buckley and Exton [\[5\]](#page-4-30) to assess developers' comprehension of a software system. A comprehensive assessment strategy can be designed to probe the model's knowledge across various cognitive dimensions. This framework would allow us to move beyond the surface-level analysis provided by linear probes. This includes assessing higher-order cognitive skills such as applying principles in new situations, analyzing code for adherence to best practices, evaluating design decisions, and even creating original code that embodies se principles. In addition, a taxonomy-based assessment
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a software engineering pipeline. It shows data flowing from repositories (containing synthetic data) through three stages: 1) artifact processing (using architectural decision records, UML diagrams, and source code); 2) model pre-training/finetuning (involving relationship masking and next entity prediction); and 3) evaluation (assessing testability, extensibility, maintainability, and multidimensional understanding). Each stage is illustrated with icons and short descriptions. -->
 
 ### Figure 1: Overview of the vision of seNAI, incorporating software engineering knowledge into the training and evaluation process of large language models.
 

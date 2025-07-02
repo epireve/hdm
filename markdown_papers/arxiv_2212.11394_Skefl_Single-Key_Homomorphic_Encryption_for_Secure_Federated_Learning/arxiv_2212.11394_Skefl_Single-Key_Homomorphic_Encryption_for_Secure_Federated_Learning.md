@@ -1,6 +1,7 @@
 ---
 cite_key: "arxiv_221211394_skefl_single_k_161"
 title: "Skefl: Single-Key Homomorphic Encryption for Secure Federated Learning"
+authors: "OpenFHE \[Badawi, 2022]."
 year: 2009
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -323,14 +324,17 @@ In this subsection, we delve into the heart of our experimental evaluation by pr
 Transitioning to the meticulous assessment of the Asymmetric Threshold Secret Sharing (ATSS) primitives, meticulously delineated in Fig. [2,](#page-6-1) we meticulously scrutinize the temporal dynamics of the execution times associated with the three constituent ATSS primitives: ATSS.Split(), ATSS.Combine(), and ATSS.Aggregate(). The observed trends in execution times delineate a discernible pattern. For datasets characterized by relative simplicity, exemplified by MNIST and FMNIST, all three ATSS primitives promptly culminate their execution in a matter of mere seconds. Nevertheless, the narrative changes when grappling with more intricate datasets, typified by CIFAR-10 and SVHN, where execution times elongate to span tens of seconds. Evidently, ATSS.Split() emerges as the harbinger of the longest execution durations among the ATSS primitives.
 
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
+<!-- Image Description: The image contains four line graphs comparing the accuracy (in percentage) of three federated learning algorithms—Skefl, FedHE, and FedAvg—across ten training rounds. Each graph likely represents a different dataset or experimental setting. The y-axis shows accuracy, and the x-axis represents the round number. The purpose is to visually compare the convergence speed and final accuracy of the algorithms. -->
 
 Figure 1: Skefl accuracy for MNIST, FMNIST, CIFAR-10, and SVHN
 
 <span id="page-6-1"></span>![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image presents four bar charts comparing the time (in seconds) taken for "Split," "Merge," and "Verify" operations of an algorithm (ATSS) on four different datasets (MNIST, FMNIST, CIFAR, SVHN). Each chart shows that the "Split" operation consistently takes the longest, followed by "Merge," with "Verify" being the fastest. Error bars are included. The purpose is to illustrate the computational cost of each step of the ATSS algorithm across different datasets. -->
 
 Figure 2: Performance of ATSS primitives on MNIST, FMNIST, CIFAR-10, and SVHN
 
 <span id="page-6-2"></span>![](_page_6_Figure_4.jpeg)
+<!-- Image Description: The image presents four bar charts comparing the time (in seconds) taken by three different federated learning aggregation methods (Dist, Aggr, FedAvg) on four datasets (MNIST, FMNIST, CIFAR, SVHN) using the Skefl algorithm. Each chart shows the time for each aggregation method on a specific dataset, allowing for a comparison of efficiency across datasets and algorithms. Error bars are included, suggesting variability in the results. The purpose is to illustrate the performance differences between the aggregation methods in terms of execution time. -->
 
 Figure 3: Skefl overhead of FedAvg on MNIST, FMNIST, CIFAR-10, and SVHN
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "wslinntuedusg2023"
-title: "**Blind Multimodal Quality Assessment of Low-Light Images**"
-authors: "Weisi Lin wslin@ntu.edu.sg"
+title: "Blind Multimodal Quality Assessment of Low-Light Images"
+authors: "Storage, transmission"
 year: 2023
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -39,6 +39,7 @@ Weisi Lin wslin@ntu.edu.sg
 Storage, transmission, and processing of low-light images are unavoidable (Li et al[.,](#page-21-0) [2022\)](#page-21-0), especially in smartphone photography, video surveillance, autonomous driving,*etc*. However, imaging in weak-illumination environments can lead to uneven brightness, poor visibility, impaired color, and increased hybrid noise, which degrade user experience and product value (Wang et al[.](#page-22-0), [2022\)](#page-22-0). Further, low-light images also pose various challenges to the performance of mainstream vision algorithms, including object detection (Boži´c-Štuli´c et al[.,](#page-21-1) [2019](#page-21-1)), recognition (Xu et al[.,](#page-22-1) [2024](#page-22-1)), classification (Loh and Cha[n](#page-22-2), [2019\)](#page-22-2), tracking (Zhang et al[.,](#page-22-3) [2024](#page-22-3)), segmentation (Chen et al[.,](#page-21-2) [2024\)](#page-21-2), enhancement (Liu et al[.](#page-21-3), [2021](#page-21-3)), and, assessment (Ding et al[.](#page-21-4), [2021](#page-21-4)). Therefore, it is essential to develop a reliable objective quality indicator for low-light images, which helps to meet the quality measurement and inspection needs in various industrial products and computer vision tasks.
 
 ![](_page_1_Figure_2.jpeg)
+<!-- Image Description: This image is a mind map illustrating low-light applications of computer vision. A central circle, "Low-light Applications," connects to eight circles representing industry products (autonomous driving, smartphone photography, video surveillance) and vision tasks (tracking, detection, segmentation, recognition, classification, enhancement, and assessment). Each connected circle shows example images relevant to its task, illustrating the diverse applications of low-light computer vision. -->
 
 ## <span id="page-1-0"></span>Fig. 1 Typical applications of low-light image signals
 
@@ -82,6 +83,7 @@ Deep-learned BIQAs (Wang et al[.](#page-22-11), [2022](#page-22-11)) directly le
 *Unsupervised Learning-Based* Unsupervised learning-BIQAs extract latent features without relying on ground-truth MOS labels. For example, metric-based BIQAs (Madhusudana et al[.,](#page-22-21) [2022\)](#page-22-21) employ widely-used distance measurements (e.g., cosine similarity, Wasserstein distance, etc.) to extract latent embedding features. Domain-based BIQAs (Liu et al[.,](#page-22-22) [2019\)](#page-22-22) commonly design domain alignment constraints, and measure the quality difference between each sample in a source domain based on the error metric defined in a target domain. However, domain-based BIQAs often require strict assumptions, making it challenging to meet the model requirements when the distortion type of a testing image is unknown.
 
 ![](_page_3_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a multimodal image quality assessment (BIQA) system. It processes image and text modalities separately (unimodal BIQA) using local distortion, regional degradation, and global perception features for images, and then combines these with text features (multimodal BIQA) through alignment and fusion. The final output is an objective image quality score displayed as a speedometer-like gauge, representing a combined assessment from both modalities. -->
 
 <span id="page-3-0"></span>**Fig. 2**Relationship between unimodal and multimodal BIQAs. Humans are better at perceiving image quality through semantic descriptions rather than quantitative values, which reveals that text description is a very useful modality for BIQA modeling. Please zoom in the electronic version for better details
 
@@ -131,6 +133,7 @@ By synthesizing some previous work, we design two text description principles ba
 *Intuitive Visual Perception.* This principle is inspired by previous physiological and psychological experiments on the HVS, including saliency detection and just noticeable difference. It is closely related to early vision and focuses on the relationship between optical stimuli from visual observation and the HVS experience (Wade and Swansto[n,](#page-22-27) [2013](#page-22-27)). Intuitive vision mainly focuses on some basic data characteristics, covering overall brightness, color status, texture, salient objects, etc. For instance, the verbal description in Fig. [4c](#page-6-0) contains the quality attributes, such as the luminance information '*bright*', the color information '*black*' and '*blue*', and the observed object information '*car*' and '*sign*'.
 
 ![](_page_5_Figure_1.jpeg)
+<!-- Image Description: This image presents a data analysis of images used in a study. (a), (b), and (c) are donut charts showing image source device, resolution, and application, respectively. (d) is a histogram depicting the distribution of Mean Opinion Scores (MOS) values. (e) is a histogram showing the distribution of confidence interval lengths. The charts illustrate the dataset's characteristics, crucial for understanding the study's scope and results. -->
 
 <span id="page-5-0"></span>**Fig. 3**A statistical analysis of the proposed multimodal MLIQ database:**a**shooting device,**b**image resolution,**c**application scenario,**d**MOS distribution, and**e**confidence interval
 *Empirical Visual Perception.* This principle is inspired by modern theoretical studies in visual theory that embraces empiricism as the dominant paradigm of human perception construction, such as Gregory's theory (Gregor[y,](#page-21-17) [1980](#page-21-17)). These studies demonstrate that while part of what we perceive comes from objects in front of us, another part (and possibly a larger part) always comes from our brains. The empiricism principle is closely related to late vision and focuses on exploring how the viewpoints of observers are involved in quality cognition. Empirical vision mainly involves some common real-world knowledge as well as empirical visual understanding, and highlights the possible real-life scenarios of low-light observations (Gordo[n](#page-21-18), [2004](#page-21-18)). For instance, subjects use '*driving*' rather than '*sitting*' for '*ship*' as shown in Fig. [4e](#page-6-0).
@@ -149,10 +152,12 @@ To address the above three challenges, we attempt to develop a tractable verbal 
 • For images with salient objects (e.g., the ship in Fig. [4e](#page-6-0)), trying to describe all important objects in the image content. For images with salient scenes (e.g., the parking scene in Fig. [4c](#page-6-0)), trying to describe the overall environment. For images without any salient content (e.g., the building with many small objects in Fig. [4a](#page-6-0)), trying to
 
 ![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image displays six sets of paired images, illustrating variations in luminance, content, color, blur, noise, and saturation. Each pair shows a scene under different conditions of the specified image quality factor. Descriptive captions accompany each image, highlighting the visual differences. The purpose is to visually demonstrate these image quality factors in the context of the paper, likely related to image processing or computer vision. -->
 
 <span id="page-6-0"></span>**Fig. 4** Examples of some Image-Text-MOS pairs on our MLIQ database. We provide some representative examples for analysis and discussion of the text attributes, including luminance, content, color, blurry, noise, and saturation. Please zoom in the electronic version for better details
 
 ![](_page_6_Figure_4.jpeg)
+<!-- Image Description: The image displays a matrix of 24 images categorized into four sections: Luminance, Content, Color, and Other Factors. Each image is annotated with a Mean Opinion Score (MOS) value and a brief description. The purpose is to illustrate the image quality assessment and its relation to luminance, scene content, color characteristics, and other contributing factors, likely in the context of image or video quality research. -->
 
 <span id="page-6-1"></span>**Fig. 5**Visual examples for different quality semantic description (QSD)-based texts.:**a** *Luminance* covers illumination conditions including '*bright*', '*light*', '*dim*', and '*dark*'; **b** *Content*covers the number of
 
@@ -171,6 +176,7 @@ In the experiments, 14 male and 10 female trained participants are invited to pr
 In this section, we analyze correlations between images, texts, and quality scores (i.e., MOS) on the MLIQ database. Specifically, image modality serves as a carrier of visual data, objectively reflecting the captured scene or object, providing a fixed visual stimulus. Conversely, the corresponding text modality arises from an observer's perception and interpretation of the given image, incorporating subjective feelings and insights that often extend beyond the image inherent infor-
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image displays three graphs analyzing dictation data categorized by luminance (dark, dim, light, bright). (a) shows Gaussian fits to histograms of Mean Opinion Score (MOS) values for each luminance level. (b) presents a stacked bar chart illustrating the distribution of dictation lengths (number of keywords) across luminance categories. (c) is a scatter plot showing the relationship between MOS and luminance, colored by luminance level. The purpose is to demonstrate the correlation between subjective quality (MOS), luminance, and dictation characteristics. -->
 
 <span id="page-7-0"></span>**Fig. 6**Statistics of text quality feature based on luminance:**a**histogram of the luminance keywords and Gaussian fitting,**b**histogram of the length and number of luminance keywords, and**c** scatter distribution of the luminance keywords and MOS values
 
@@ -195,6 +201,7 @@ The reduction of observed objects is often reflected in the reduction of object 
 Based on the statistical data of image content and some visual examples provided in Fig. [5b](#page-6-1), we can draw some interesting conclusions: (1) The curve in Fig. [7a](#page-8-0) shows that the quality score tends to be higher as the quantity of observed objects increases. This may indicate that images with bet-
 
 ![](_page_8_Figure_1.jpeg)
+<!-- Image Description: The figure presents three bar graphs showing the number of text sequences categorized by visual features (content, color, distortion keywords) and their corresponding Mean Opinion Scores (MOS). (a) plots object count vs. MOS; (b) plots color count vs. MOS; (c) plots distortion keywords vs. MOS. Each graph shows the distribution of text sequences across different levels of each visual feature and how MOS correlates with these features. The purpose is to demonstrate the relationship between visual content and perceived quality (MOS). -->
 
 <span id="page-8-0"></span>**Fig. 7**Statistics of other text quality features:**a**content,**b**color, and**c** keyword. The number of related images is measured by the main ordinate (placed on the left-hand side), while the average MOS result (dots connected by a solid line) is measured by the secondary ordinate (placed on the right-hand side)
 
@@ -280,6 +287,7 @@ where*<sup>F</sup>*<sup>1</sup> *img*,*lp*and*<sup>F</sup>*<sup>2</sup> *img*,*l
 Recent studies demonstrate that different backbones of deep models result in different learning capabilities. It indicates that network architectures may have important impacts on the extraction of**F***img*. Therefore, we select 5 representative networks as the backbone of *Fimg*, including VGG, ResNet (*denoted as* RN), EfficientNet (*denoted as* EN),
 
 ![](_page_10_Figure_2.jpeg)
+<!-- Image Description: This diagram illustrates a multimodal image and text quality assessment system. Image and text inputs are encoded into feature vectors. A multimodal alignment stage uses a graph-based approach, where nodes represent features and edges show relationships (attraction/repulsion), aligning visual and textual features. A fusion module combines these aligned features, and a linear probe generates four quality scores. The diagram visually depicts the data flow and processing steps of the system. -->
 
 <span id="page-10-0"></span>**Fig. 8** Overall learning framework of the proposed BMQA. It consists of three key modules, including multimodal feature representation, latent feature alignment, and fusion prediction
 
@@ -405,6 +413,7 @@ In the experiments, three databases are used including a pre-training database M
 *Dark-4K.*To validate the cross-dataset performance, we further establish a new ultra-high-definition (UHD) low-light database for the cross-dataset validation, namely Dark-4K. The original images of Dark-4K are collected from Chen et al[.](#page-21-24) [\(2018](#page-21-24)). Dark-4K consists of 424 raw low-light images, which are captured by two consumer electronics:*Sony*α7 S-II and*Fujifilm X-T2*. These two cameras have different imaging hardware: *Sony*has a full-frame Bayer sensor, and*Fujifilm* has an APS-C X-Trans sensor. Dark-4K supports the quality assessment of low-light images produced by different filter arrays.
 
 ![](_page_12_Figure_11.jpeg)
+<!-- Image Description: The image contains two histograms. (a) shows the distribution of Mean Opinion Scores (MOS) values, indicating the frequency of different MOS values across a set of images. (b) displays the distribution of confidence interval lengths associated with those MOS values, showing the variability in the accuracy of the MOS estimations. Both histograms illustrate the statistical properties of the subjective image quality assessments. -->
 
 <span id="page-12-0"></span>**Fig. 9**A statistical analysis of the proposed unimodal Dark-4K database:**a**histogram of MOS values and**b**distribution of confidence interval
 
@@ -450,6 +459,7 @@ Next, we report the setting of each training stage, such as (1) pre-training, (2
 To verify the effectiveness of two heterogenous modality feature extractors, we have conducted the experiments on
 
 ![](_page_13_Figure_11.jpeg)
+<!-- Image Description: The image contains two scatter plots. Plot (a) shows the Pearson Linear Correlation Coefficient (PLCC) against forward-pass GFLOPs/image for various models (e.g., EN-B0, VGG11, RN-18, CNXT-B). Plot (b) similarly shows the Spearman Rank Correlation Coefficient (SRCC) for the same models. Both plots illustrate the trade-off between model computational cost (GFLOPs) and prediction accuracy (PLCC and SRCC) across different architectures. Each point represents a different model. -->
 
 <span id="page-13-1"></span>**Fig. 10**Performance comparison of different image feature extractors*Fimg*: **a**PLCC-GFLOPs curves of different network variants and**b**SRCC-GFLOPs curves of different network variants
 
@@ -564,18 +574,24 @@ From Sects. [5.2](#page-13-2) to [5.4,](#page-14-0) we have validated the effect
 | The best results of the hand-crafted and deep-learned BIQAs are highlighted in bold for different devices, and the best results of our B |              |                        |        |        |                          |        |        |                         |        |        |                       |        |        |                        | MQA are highlighted in underline |                 |        |        |
 
 ![](_page_18_Picture_2.jpeg)
+<!-- Image Description: The image is a comparative illustration showing a nighttime road scene. The left panel depicts a clearly lit road at night, with streetlights illuminating the surroundings. The right panel shows the same scene but with significant visual degradation, simulating reduced visibility due to factors like fog or poor weather conditions. This comparison likely illustrates the impact of adverse weather on visibility for autonomous driving systems or similar applications within the paper. -->
 
 ![](_page_18_Picture_4.jpeg)
+<!-- Image Description: The image is a comparative pair of photographs showing a nighttime scene with a bicycle in the foreground. The left image displays the scene as captured by a standard camera, showing good visibility. The right image shows the same scene but with significantly reduced visibility, blurring and obscuring details, likely simulating the effect of adverse weather conditions or a vision impairment. The purpose is to illustrate the impact of a particular phenomenon (e.g., fog, glare, or image processing) on visual clarity. -->
 
 <span id="page-18-0"></span>**Fig. 11** Examples of the generated text modality on our Dark-4K database. Each example contains an original image sample (*left*), an attention map of the quality cognition (*right*), a predicted caption
 
 ![](_page_18_Picture_7.jpeg)
+<!-- Image Description: The image is a comparative pair of photographs showing the effect of a low-light imaging technique. The left panel displays a well-lit nighttime scene of a building facade with a clock and entrance. The right panel shows the same scene, but with significantly reduced visibility and increased blurriness, simulating low-light conditions or the effect of a particular image processing technique. The purpose is to illustrate the difference between a clear image and a degraded low-light image before and after processing. -->
 
 ![](_page_18_Picture_9.jpeg)
+<!-- Image Description: The image shows a comparative pair of photographs. The left shows a clearly lit scene: a clock, a cylindrical object, and an electronic device. The right image displays the same scene but with significant blurring and reduced contrast, simulating a low-light or poor-visibility condition. This likely illustrates the impact of image degradation or the effect of a specific image processing technique, which is probably the topic of the paper. -->
 
 ![](_page_18_Picture_11.jpeg)
+<!-- Image Description: The image is a before-and-after comparison of a "Slow Student Crossing" sign. The left panel shows the sign clearly visible in daylight. The right panel shows the same sign at night, exhibiting significantly reduced visibility due to poor nighttime reflectivity. The purpose is to illustrate the impact of retroreflectivity on traffic sign visibility and safety, likely within a study on improving traffic safety at night. -->
 
 ![](_page_18_Picture_13.jpeg)
+<!-- Image Description: The image is a comparative illustration showing a sharp image of an outdoor café scene (left) and its blurred version (right). The blurring simulates low-light or poor visibility conditions. The purpose is likely to demonstrate the effect of a proposed image processing technique or to illustrate a visual impairment model in the context of computer vision or image analysis. -->
 
 result obtained by a pre-trained SAT caption model (**SATMS**−**COCO**) on the MS-COCO database, and a low-light QSD-based caption result of **SATMLIQ**trained on the MLIQ database
 

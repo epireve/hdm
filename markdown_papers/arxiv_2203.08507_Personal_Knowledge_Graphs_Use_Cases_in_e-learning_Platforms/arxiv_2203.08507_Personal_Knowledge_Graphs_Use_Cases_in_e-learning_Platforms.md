@@ -1,7 +1,7 @@
 ---
 cite_key: "ilkouhttpsorcidorg---2022b"
 title: "arXiv:2203.08507v1 [cs.IR] 16 Mar 2022"
-authors: "[Eleni Ilkou](https://orcid.org/0000-0002-4847-6177)"
+authors: "Eleni Ilkou"
 year: 2022
 doi: "10.1145/nnnnnnn.nnnnnnn"
 date_processed: "2025-07-02"
@@ -96,6 +96,7 @@ Collaborative search can occur as a learning activity; Searching as Learning (Sa
 Furthermore, different systems have been introduced in the literature for collaborative search. One of the newest advancements is the QueryTogether [\[2\]](#page-4-15), a system for entity-centric collaborative search in spontaneous settings that showed that entities could portray a vital role as interactive search objects. Also, their study confirmed that a common ground provided in collocated interaction supports group awareness, which has a positive impact on collaboration. Inspired by their work, we plan to emphasise the entities in the group search and implement features that aid group participation and awareness. Moreover, the Learnweb platform had implemented
 
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
+<!-- Image Description: This flowchart illustrates a system architecture. Input streams (user profile, activity, group) feed into an ontology. The ontology, along with knowledge graphs (KGs), is processed by NLP/NER, resulting in a "black box" intelligence layer. The backend handles privacy, integrating with a PKG (presumably, Personal Knowledge Graph). The diagram details data flow and processing steps within a system, likely for personalized recommendations or similar applications. -->
 
 ### Figure 1: The overall architecture that includes the input stream, intelligence computation and back end creation of a personal knowledge graph (PKG).
 
@@ -138,10 +139,12 @@ Nonetheless we are facing a limitation because there are no goldstandards and ba
 The current line of research is still in an early stage. In our first steps in user modelling in e-learning platforms, we have published EduCOR ontology [\[11\]](#page-4-10) for personalised recommendations of educational resources. EduCOR consists of different parts and has a focus on user profiling, as can be seen in Figure [2.](#page-3-1) This part of the overall ontology has been extended in our latest submission to facilitate the necessary components for the creation of PKG ontology for
 
 <span id="page-3-1"></span>![](_page_3_Figure_9.jpeg)
+<!-- Image Description: The image presents a data model diagram illustrating the relationships between various entities in a learning system. Rectangles represent entities (e.g., User, Exercise, Learning Path), and arrows show relationships (e.g., "generatesLogs," "definesLearningPath"). The model includes entities related to user profiles (psychological and academic parameters, learning preferences), learning content (exercises, tests, answers), and system outputs (recommendations, learning paths). The diagram aims to visually represent the system's architecture and data flow. -->
 
 Figure 2: User Profile pattern that EduCOR [\[11\]](#page-4-10) ontology suggests.
 
 <span id="page-3-2"></span>![](_page_3_Figure_11.jpeg)
+<!-- Image Description: The image displays a stacked bar chart showing the distribution of responses to five questions (EQ1-EQ5) on a Likert scale. Each bar represents a question, segmented into five colored sections representing the percentage of respondents who strongly disagree, somewhat disagree, neither agree nor disagree, somewhat agree, and strongly agree. The chart visually compares response patterns across the five questions, likely to analyze opinions or attitudes in the study. -->
 
 Figure 3: User general feedback from CollabGraph [\[14\]](#page-4-25). EQ1: I like the group results visualized in a graph, EQ2: I like the summary of the team-members results, EQ3: I like the graph visualizations , EQ4: I want to have a graph visualization next to the list view of the search results, EQ5: I like the combination of the list and graph view.
 

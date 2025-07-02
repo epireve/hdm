@@ -1,7 +1,7 @@
 ---
 cite_key: "prahlad2025"
 title: "Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph"
-authors: "Deeksha Prahlad, Chanhee Lee, Dongha Kim, Hokeun Kim"
+authors: "Deeksha Prahlad"
 year: 2025
 doi: "arXiv:2505.09945"
 url: "https://arxiv.org/html/2505.09945v1"
@@ -67,6 +67,7 @@ In this paper, we propose a personalization approach for LLMs using RAG and KGs.
 WWW Companion '25, April 28-May 2, 2025, Sydney, NSW, Australia Deeksha Prahlad, Chanhee Lee, Dongha Kim, & Hokeun Kim
 
 <span id="page-1-4"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a comparative analysis of two question-answering systems. A baseline system (RAG+LLM) and a novel approach use ChatGPT40 to generate a dataset from calendar and conversation data. Both systems employ embedding models and prompt engineering. The key difference lies in the novel approach's integration of a knowledge graph, enhancing performance. The generated responses are evaluated using ROUGE and BLEU scores. -->
 
 Figure 1: Overall workflow of the proposed approach
 
@@ -173,10 +174,12 @@ Evaluation Criteria. We use the golden answer as the ground truth for evaluation
 WWW Companion '25, April 28-May 2, 2025, Sydney, NSW, Australia Deeksha Prahlad, Chanhee Lee, Dongha Kim, & Hokeun Kim
 
 <span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
+<!-- Image Description: This figure presents three bar charts comparing baseline and a proposed approach's performance on ROUGE-1, ROUGE-2, and ROUGE-L metrics. Each chart represents a different model size (7B, 13B, and 70B parameters). The bars show the ROUGE scores, a metric for evaluating text summarization quality, with higher scores indicating better performance. The figure demonstrates the improved performance of the "Our Approach" over the "Baseline" across all model sizes and metrics. -->
 
 Figure 3: Experimental results comparing three types of ROUGE metric scores (ROUGE-1, ROUGE-2, and ROUGE-L) of three Llama-2-Chat models (7B, 13B, and 70B) between the baseline and our approach.
 
 <span id="page-3-1"></span>![](_page_3_Figure_4.jpeg)
+<!-- Image Description: The bar chart compares the BLEU scores of a baseline approach and a new approach for three different language models (7B, 13B, 70B parameters). The new approach consistently outperforms the baseline, achieving higher BLEU scores across all model sizes. The chart visually demonstrates the effectiveness of the proposed method in improving machine translation quality, as measured by BLEU scores. -->
 
 Figure 4: Experimental results comparing BLEU scores of Llama-2-Chat models (7B, 13B, and 70B) between the baseline and our approach.
 

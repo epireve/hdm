@@ -1,7 +1,7 @@
 ---
 cite_key: "hagenberg2022"
 title: "Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing"
-authors: "Philipp Haindl philipp.haindl@scch.at Software Competence Center Hagenberg Hagenberg, Austria"
+authors: "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
 year: 2022
 doi: "10.1145/3510455.3512788"
 date_processed: "2025-07-02"
@@ -117,6 +117,7 @@ The orchestration engine controls the reliable execution of the teaming process,
 #### ICSE-NIER'22, May 21–29, 2022, Pittsburgh, PA, USA
 
 <span id="page-3-1"></span>![](_page_3_Figure_1.jpeg)
+<!-- Image Description: This image is a system architecture diagram depicting a graph-based machine learning (ML) system for production line management. It shows the system's components, including model authoring, ML experimentation, a knowledge graph (with dynamic and static subgraphs), a graph-based ML engine, operational support (self-diagnosis, decision support), and integration with production line systems (IoT sensors, HMI). Data flows and interactions between components are illustrated through arrows, indicating a complex, interconnected architecture. -->
 
 Figure 1: Reference Software Architecture For Human-AI Teaming in Smart Manufacturing.
 

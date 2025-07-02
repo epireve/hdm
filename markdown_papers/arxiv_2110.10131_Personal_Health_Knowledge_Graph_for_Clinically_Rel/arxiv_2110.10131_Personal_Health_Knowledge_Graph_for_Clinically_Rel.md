@@ -1,7 +1,7 @@
 ---
 cite_key: "seneviratnesupsup2021"
-title: "**Personal Health Knowledge Graph for Clinically Relevant Diet Recommendations**"
-authors: "Oshani Seneviratne*<sup>1</sup>* , Jonathan Harris*<sup>1</sup>* , Ching-Hua Chen*<sup>2</sup>* and Deborah L. McGuinness*<sup>1</sup>*"
+title: "Personal Health Knowledge Graph for Clinically Relevant Diet Recommendations"
+authors: "Oshani Seneviratne, Jonathan Harris, Hua Chen"
 year: 2021
 doi: "10.2337/dc20-Sint."
 date_processed: "2025-07-02"
@@ -44,6 +44,7 @@ Extending the PKGs to the health domain, [Gyrard et al.](#page-6-3) define Perso
 *Workshop on Personal Knowledge Graphs Co-located with the 3rd Automatic Knowledge Base Construction Conference (AKBC'21)* " [senevo@rpi.edu](mailto:senevo@rpi.edu) (O. Seneviratne); [harrij15@rpi.edu](mailto:harrij15@rpi.edu) (J. Harris); [chinghua@us.ibm.com](mailto:chinghua@us.ibm.com) (C. Chen); [dlm@cs.rpi.edu](mailto:dlm@cs.rpi.edu) (D. L. McGuinness)
 
 ![](_page_1_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a dietary recommendation system. User input (personal health record and food log) and domain expert knowledge (dietary guidelines) are processed via time series summarization and knowledge representation. A semantic reasoner integrates this data with personal health and food knowledge graphs to generate dietary recommendations. The system's architecture is shown as a series of interconnected components, visually representing data flow and processing steps. -->
 
 <span id="page-1-0"></span>**Figure 1:**Overview of the System Generating Dietary Recommendations
 

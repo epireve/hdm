@@ -1,7 +1,7 @@
 ---
 cite_key: "koutsoubisa2017b"
 title: "Privacy Preserving Federated Learning in Medical Imaging with Uncertainty Estimation"
-authors: "Nikolas Koutsoubisa,c,∗∗, Yasin Yilmaz<sup>c</sup> , Ravi P. Ramachandran<sup>d</sup> , Matthew Schabath<sup>b</sup> , Ghulam Rasool<sup>a</sup>"
+authors: "Nikolas Koutsoubisa, Yasin Yilmaz, Ravi P. Ramachandran, Matthew Schabath, Ghulam Rasool, Machine Learning, Cancer Center, Cancer Epidemiology, South Florida"
 year: 2017
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -57,6 +57,7 @@ FL was first proposed in [\[12\]](#page-24-3) with the FedAvg algorithm for trai
 - Heterogeneous and non-i.i.d. data distribution: Due to variations in demographics, location, medical imaging equipment, and a variety of other factors,
 
 ![](_page_3_Figure_0.jpeg)
+<!-- Image Description: The image is a Venn diagram illustrating three interconnected aspects of federated learning: Federated Learning, Privacy Preservation, and Uncertainty Estimation. Each section lists associated techniques. For example, "Federated Learning" includes methods like "Horizontal Federated learning" and "Data-free knowledge distillation," while "Privacy Preservation" details approaches such as "Differential Privacy" and "Homomorphic encryption." The diagram's purpose is to visually represent the relationship and overlapping considerations within the field of federated learning research. -->
 
 <span id="page-3-0"></span>Figure 2: Summary of topics covered in this review
 
@@ -74,6 +75,7 @@ A summary of the topics covered in this section can be seen in Figure [3,](#page
 • Horizontal FL - The dataset of each client has a larger overlap of data features than sites. This means there are more shared data features and fewer shared users. Horizontal FL focuses on the feature dimension of the data and extracts parts with the same characteristics but different users for joint training[\[38\]](#page-25-4). Horizontal FL finds its usage in fields such as keyword spotting, emoji prediction, and blockchain
 
 ![](_page_4_Figure_0.jpeg)
+<!-- Image Description: The image displays a conceptual framework for Federated Learning (FL). A three-part pie chart highlights key aspects: Uncertainty Estimation, Privacy Preservation, and Federated Learning itself. The main section details FL algorithms (FedAVG, FedBN, etc.), decentralized approaches, convergence analysis, and types of FL (horizontal, vertical, federated transfer learning). It also lists relevant FL frameworks (NVIDIA FLARE, OpenFL). The diagram visually organizes the key concepts and components within the context of FL research. -->
 
 <span id="page-4-0"></span>Figure 3: Summary of FL topics
 
@@ -202,6 +204,7 @@ Ensuring the secure processing of protected and identifiable information is a cr
 <span id="page-10-0"></span>Table 2: Privacy Preservation Methods in FL.
 
 ![](_page_11_Figure_0.jpeg)
+<!-- Image Description: The image displays a pie chart categorizing privacy preservation techniques in machine learning, divided into Federated Learning, Uncertainty Estimation, and Privacy Preservation. The latter section is further detailed in a table outlining several methods: Differential Privacy, privacy parameter tuning, Homomorphic Encryption, Decentralized Trust, and Communication Efficiency, each with explanations and sub-categories. The diagram visually organizes various approaches to data privacy within machine learning algorithms. -->
 
 <span id="page-11-0"></span>Figure 4: Summary of privacy preservation methods in FL.
 
@@ -260,6 +263,7 @@ The APPFL framework provides users with the tools to conduct their experiments w
 Another critical area in FL for medical imaging is uncertainty quantification or estimation. Once data privacy is ensured, assessing the quality of the model becomes a crucial focus for researchers. For FL to excel in the medical imaging field, it is essential to have a method for measuring how certain the model is about its predictions. Additionally, there should be a mechanism to alert a human operator when the model's certainty falls below acceptable levels. The unique challenge in FL for medical imaging arises from its non-i.i.d nature, which complicates the quantification of certainty. This complexity is
 
 ![](_page_15_Figure_0.jpeg)
+<!-- Image Description: The image presents a conceptual framework for uncertainty estimation in federated learning. A circular diagram highlights three key aspects: privacy preservation, federated learning, and uncertainty estimation. A table to the right lists various methods for achieving uncertainty quantification, categorized into model ensembling, conformal prediction, distilled predictions, Bayesian federated learning, calibration, and other methods. Each category contains specific techniques with acronyms indicating their implementation in a federated learning setting. The figure's purpose is to systematically organize and illustrate the diverse approaches to handling uncertainty within the constraints of federated learning. -->
 
 <span id="page-15-0"></span>Figure 5: Summary of uncertainty estimation methods in FL.
 

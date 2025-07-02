@@ -1,7 +1,7 @@
 ---
 cite_key: "hangzhou2022"
 title: "KSG: Knowledge and Skill Graph"
-authors: "Feng Zhao Westlake University Hangzhou, Zhejiang, China zhaofeng@westlake.edu.cn"
+authors: "Donglin Wang, Feng Zhao, Knowledge Graph"
 year: 2022
 doi: "10.1145/3511808.3557623"
 date_processed: "2025-07-02"
@@ -59,6 +59,7 @@ Acknowledgments: This work was supported by the National Science and Technology 
 Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org.
 
 ![](_page_1_Figure_2.jpeg)
+<!-- Image Description: This image displays a flowchart depicting a three-stage process. Stage (a) shows training basic skills and structuring data. Stage (b) illustrates knowledge fusion, using CN-DBpedia, involving entity and attribute extraction, alignment, adding new nodes, and quality evaluation. Finally, stage (c) depicts applications of the resulting knowledge and skill graph, including skill learning, knowledge retrieval, and visual display. The diagram uses boxes to represent processes and a graph to visualize the knowledge and skill structure. -->
 
 Figure 1: The architecture of knowledge and skill graph. We first train basic skills and form structured data in (a). Then, we extract dynamic behavioral information from basic skills and construct a preliminary but specific KSG based on CN-DBpedia in (b). Finally, we apply KSG to achieve knowledge retrieval, visual display and skill learning in (c).
 
@@ -83,6 +84,7 @@ In this paper, our preliminary KSG is based on the CN-DBpedia dataset. During th
 To obtain new nodes about skills, we first need knowledge extraction from trained basic skills. In this paper, the knowledge extraction is divided into three types: entity extraction, attribute extraction and relation extraction. For entity extraction, we use named-entity recognition (NER) to classify entity into pre-defined categories such as human, plane, walk up, walk right and so on. In this part, we extract new entity nodes including agent, environment and skill. After entity extraction, the attribute extraction is to define the attribute or description of entity. For relation extraction, we use rule-based and dictionary-based methods to extract the relationships among the entities and attributes. Relation extraction is to find the relations between entity-entity and entity-attribute. For example, "huanmoid" is one of the most popular agents which have been broadly used in various Reinforcement learning researches, and has many human's features, so we use NER to find entity node "human" in CN-Dbpedia, and then add some pre-defined skill entity nodes (such as "Walk\_Up"), environment entity nodes ("Plane", "Obstacle") to it.
 
 ![](_page_2_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a knowledge graph-based question answering system. A query is processed using BERT for entity and relation extraction. Extracted entities and relations are used to search for triplets (Entity, Relation, Attribute) within a knowledge graph (KSG). The resulting "Target Triplets" represent the answer to the query. -->
 
 Figure 2: Process of KSGQA
 
@@ -105,10 +107,12 @@ We aim to establish a KSG which can be used to search skills and provide transfe
 In this paper, we construct a preliminary and specific KSG based on CN-DBpedia. Compared with traditional knowledge graph, KSG focuses on behavioral intelligence. We retain the original functions of the knowledge graph, meanwhile introducing new dynamic knowledge and skills into it. Therefore, we also design a corresponding knowledge and skill graph question answer system. The important functions of KSGQA are knowledge retrieval and display. As shown in Figure 3, we show the basic functions of knowledge retrieval. We can see that KSG can be used to retrieval existing skills as shown in Figure 3 (a), and then when we need the networks and offline data of these skills, we can call and download them from KSG in Figure 3 (b). In addition, KSG can display the stored skills. For example, when we input "Can you show ant walking down in the plane?", the KSGQA will load the video and show how the ant walks toward the down. Moreover, if we need a new skill which is not existing in KSG, KSG is able to quickly select most related base skills as pre-trained models to help learn new skills.
 
 ![](_page_2_Figure_12.jpeg)
+<!-- Image Description: The image displays a code snippet showing a question-answering system's responses. Each question asks about the movement abilities ("skills") of different entities (human, cheetah, ant, quadruped robot). The answers list the respective movement capabilities, indicating a system capable of associating entities with their actions. The robot's unique capability ("climb") demonstrates the system's ability to handle diverse entity types and actions. -->
 
 (a) Skill retrieval
 
 ![](_page_2_Figure_14.jpeg)
+<!-- Image Description: The image displays code snippets showing queries and corresponding responses from a system. Each query requests video retrieval based on an action (e.g., "quadruped robots crawling"). The response provides the identified entity and the directory path to a pre-trained model used for retrieval. The purpose is to illustrate the system's ability to locate relevant video data using natural language queries. -->
 
 (b) Pre-trained model retrieval
 
@@ -121,22 +125,26 @@ In this paper, we consider agents from Mujoco and real quadruped robot as shown 
 CIKM '22, October 17–21, 2022, Atlanta, GA, USA Feng Zhao, Ziqi Zhang, and Donglin Wang
 
 ![](_page_3_Figure_1.jpeg)
+<!-- Image Description: The image displays four 3D renderings of different robots on a checkered plane. (a) shows a humanoid robot, (b) an ant-like robot, (c) a half-cheetah robot, and (d) a quadruped robot. The renderings likely illustrate the diverse robot morphologies used in a locomotion study within the paper, showcasing the variety of body plans tested or compared. -->
 
 Figure 4: All agents being considered in our specific KSG.
 
 ![](_page_3_Figure_3.jpeg)
+<!-- Image Description: The image presents three 3D renderings illustrating different terrain types for a robotic agent, likely in a locomotion study. (a) shows a flat plane with a checkered pattern. (b) depicts the same plane but with randomly scattered obstacles. (c) displays the agent navigating a simulated staircase. The purpose is to visually showcase the varied environments used to test the robot's navigation capabilities. -->
 
 Figure 5: All three environments in our preliminary but specific KSG including plane, obstacle and stair.
 
 In order to enrich our KSG, we design different environments to complete each task. A part of these environments are shown in Figure 5, including Plane, obstacle, and stair. By performing different tasks in different environments, we can acquire different skills for each agent. These stored skills are transferable knowledge that can be used to learn new skills. In this part, we use KSG to help agent learn new skills in different environment. Actually, the transferable knowledge includes pre-trained neural network and offline dataset. Therefore, we can directly use one of the most relevant models as a pre-training model for new skills, or we can use multiple related skills to combine and learn a new skill.
 
 ![](_page_3_Figure_6.jpeg)
+<!-- Image Description: The image contains two line graphs illustrating the test reward (%) over training steps. (a) shows a quadruped robot's performance across plane, irregular, and stair terrains. (b) compares a baseline irregular terrain performance against a model trained on a plane terrain then tested on irregular terrain; demonstrating transfer learning. Both graphs analyze the success of reinforcement learning algorithms in different locomotion scenarios. -->
 
 Figure 6: Test reward of Quadruped Robot and learn new skills in new environment using pre-trained model.
 
 In this paper, we can load stored skill model from KSG as pretrain model to learn new skill. In Figure 6 (a), we show the stored skill model's test reward of real Quadruped Robot. If we now need to acquire the skills of walk for quadruped robot in environment irregular, we can select the most relevant skills from KSG as a pretraining model. This problem belongs to performing the same task in different environments. We first calculate the similarity of environment between irregular, plane and stair. In the above question, we select the skills with the highest similarity by calculating task similarity (Walk in environment plane) as the pre-training model to learn new skill walk in environment irregular. As show in Figure 6 (b), we can see that loading related pre-training models can improve training efficiency and reduce nearly half of the training time compared with direct training from scratch.
 
 ![](_page_3_Figure_10.jpeg)
+<!-- Image Description: The image contains two line graphs comparing "Baseline" and "Load skill: Walk_Up" performance. Each graph plots "Test Reward (%)" against "Step," showing reward progress over training iterations. (a) displays results at a 30-degree incline, (b) at 60 degrees. The graphs likely illustrate the effectiveness of a learned "Walk_Up" skill compared to a baseline, demonstrating improved reward at different inclines. -->
 
 Figure 7: Obliquely upward walk at a different Angle from the horizontal direction
 

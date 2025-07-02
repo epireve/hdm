@@ -1,7 +1,7 @@
 ---
 cite_key: "briggs2021b"
-title: "**A Review of Privacy-preserving Federated Learning for the Internet-of-Things**"
-authors: "Christopher Briggs"
+title: "A Review of Privacy-preserving Federated Learning for the Internet-of-Things"
+authors: "Christopher Briggs, Zhong Fan, Peter Andras"
 year: 2021
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -167,6 +167,7 @@ $$
 Here,*n*<sup>k</sup> /*n* is the fraction of data available to the client compared to the available data to all participating clients. Clients can perform one or multiple steps of gradient descent before sending weight updates as orchestrated by the federated algorithm. A diagram describing how federated learning proceeds in the FedAvg scenario is provided in [Figure 1](#page-8-0)
 
 ![](_page_8_Figure_2.jpeg)
+<!-- Image Description: The image is a flowchart illustrating a federated learning system. A server randomly selects clients (1), sends a global model (2), clients train local models on their data (3), send model parameters back (4), the server averages parameters (5) and updates the global model (6). The system is designed to be tolerant of communication failures. Network graphs represent the global and local models. Numbered circles highlight the steps in the iterative process. -->
 
 <span id="page-8-0"></span>**Fig. 1**Schematic diagram showing how communication proceeds between the aggregating server and individual clients according to the FedAvg protocol. This procedure is iterated until the model converges or the model reaches some desired target metric (e.g. elapsed time, accuracy)
 

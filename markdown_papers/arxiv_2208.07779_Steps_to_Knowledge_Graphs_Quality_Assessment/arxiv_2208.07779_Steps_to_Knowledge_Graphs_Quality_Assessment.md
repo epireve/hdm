@@ -1,7 +1,7 @@
 ---
 cite_key: "2012"
 title: "Steps to Knowledge Graphs Quality Assessment"
-authors: "Elwin Huaman1[0000 −0002 −2410 −4977]"
+authors: "Elwin Huaman"
 year: 2012
 doi: "10.3233/SW-170275"
 date_processed: "2025-07-02"
@@ -165,6 +165,7 @@ In this step, we propose to identify 3 main points: a user, a use case, and a KG
 The goal of developing an assessment framework is to obtain a quality status of a KG for a specific UC. For that, the user needs to set up a KG into the framework, then select, based on weights of importance, a set of QDs and QMs to evaluate in the KG. This process involves:
 
 ![](_page_5_Figure_1.jpeg)
+<!-- Image Description: The image presents a hierarchical diagram illustrating a four-stage process. Stages include: 1. Identification (users, use cases, KGs); 2. Setting (KGs, QDs, QMs weighting); 3. Assessment (QMs, QDs, KGs assessment); and 4. Exploitation (KGA, UC results, UI). The diagram uses boxes to represent components and connecting lines to show the relationships between them, depicting a layered workflow from user input to final results displayed on a user interface. -->
 
 <span id="page-5-0"></span>Fig. 1. Hierarchical decomposition of our KG Quality Assessment Framework.
 

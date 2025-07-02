@@ -1,7 +1,7 @@
 ---
 cite_key: "jilek2012"
 title: "Towards Self-organizing Personal Knowledge Assistants in Evolving Corporate Memories"
-authors: "Christian Jilek 1 , 2 [,](https://orcid.org/0000-0002-5926-1673) Markus Schröder 1 [,](https://orcid.org/0000-0001-8416-0535) Heiko Maus 1 [,](https://orcid.org/0000-0003-3508-5860) Sven Schwarz 1 [,](https://orcid.org/0009-0005-3064-5592) and Andreas Dengel 1 , [2](https://orcid.org/0000-0002-6100-8255)"
+authors: "Andreas Dengel 1"
 year: 2012
 doi: "10.17026/dans-x55-69zp"
 date_processed: "2025-07-02"
@@ -116,8 +116,10 @@ The construction of knowledge graphs (KGs) from input data as mentioned before h
 <span id="page-6-2"></span><sup>8</sup> <https://www.wikidata.org/>
 
 ![](_page_7_Figure_0.jpeg)
+<!-- Image Description: This image is a simple author list from an academic paper. It shows the names of six authors: C. Jilek, M. Schröder, H. Maus, S. Schwarz, and A. Dengel. The number "8" likely indicates the item number in a numbered list of references or a bibliography section within the paper. There are no diagrams, charts, graphs, or equations present. -->
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image depicts a knowledge graph model. A central network of interconnected cloud-shaped nodes ("projects") represents the knowledge graph, with connections indicating relationships. Three highlighted project groups ("Managed Forgetting," "SensAI," "ILV") are shown. The graph integrates data from assistance widgets, a continuous user activity stream (showing actions like "clicked" and "opened"), linked open data, and personal/corporate data sources (e.g., emails, spreadsheets). The illustration's purpose is to visually explain the architecture and data sources of the knowledge graph system. -->
 
 Fig. 1: Technical scenario
 
@@ -262,6 +264,7 @@ Employees typically work on shared drives with enterprise-related and not person
 AnnoSpreadKGC – An Interactive Approach Using Annotated Spreadsheets To tackle these challenges, we proposed an interactive approach in Schröder et al. [\[195\]](#page-68-1) called Annotated Spreadsheet for Knowledge Graph Construction, abbreviated AnnoSpreadKGC. Figure [2](#page-16-0) illustrates its annotation mechanism: a sheet (left) is explored and individual cells are selected by a knowledge engineer. Various methods can be applied on them performing knowledge extraction techniques and storing results in a KG (right). Cells and KG resources are associated with a matching graph in the middle. In a final step, rows with their annotated cells are interpreted as entities forming a holistic interconnected graph. The approach's graphical user interface (GUI) provides several methods: Calculations of descriptive statistics gives an overview of categorical data in sheets and candidates for resources. Regular expressions are suitable to extract structured text information in cells. A date extraction method recognizes several formats and unifies them. The person index creator extracts mentioned persons and distinctly catalogs them. A membership discovery procedure reveals implicit relationships between cells. Using these methods 82 times, we successfully
 
 <span id="page-16-0"></span>![](_page_16_Figure_1.jpeg)
+<!-- Image Description: This image illustrates data transformation. A spreadsheet shows document metadata including editors. This is then converted into a matching graph, linking spreadsheet cells ('/cell/16') to a person node ('/person/2'). Finally, a knowledge graph expands the person node with 'firstName' and 'lastName' properties. The image demonstrates the process of converting tabular data into a more structured knowledge graph representation. -->
 
 Fig. 2: AnnoSpreadKGC annotation mechanism: spreadsheet (left) is annotated through a matching graph (middle) with extracted resources managed in a KG (right).
 
@@ -280,8 +283,10 @@ Spread2RML – Predicting RML Mappings Therefore, we investigated the possibilit
 examples is available online[38](#page-17-1). In a data-driven experiment, we examined the
 
 <span id="page-17-0"></span>![](_page_17_Figure_2.jpeg)
+<!-- Image Description: The image is a tabular dataset showing four entries. Each entry lists a "valid from" date in red and a "planned valid from" date in black. The table likely illustrates the difference between actual and planned implementation dates for some process or system described in the paper. The column header 'E' suggests it's one part of a larger dataset. -->
 
 ![](_page_17_Figure_3.jpeg)
+<!-- Image Description: The image displays a code snippet, likely from an academic paper on semantic web technologies or knowledge representation. It shows a nested structure representing a mapping between data, using notations like `rr:predicate`, `rr:object`, `rr:objectMap`, and function calls `<java:getEntitiesByColor>`. The code defines a data type (`xsd:date`) and term type (`rr:Literal`), illustrating the structure of the knowledge representation. The purpose is to exemplify the syntax and structure of a specific knowledge representation formalism. -->
 
 (a) A messy spreadsheet where two dates are in a cell and one is colored in red.
 
@@ -302,6 +307,7 @@ RDF Spreadsheet Editor Constructing a KGs from existing spreadsheets retrospecti
 row and property per column schema as depicted in Figure [4,](#page-18-0) users create resources and relationships mainly on an ABox level. Several features are proposed to increase its convenience, such as auto completion, copy & paste, data type suggestion, shared modifications and an administration view. A user study with 17 participants showed that users were able to create more statements in less time compared to using the ontology editor Protégé [\[159\]](#page-65-6) or writing RDF in Turtle syntax [\[20\]](#page-52-7). An additional user experience questionnaire [\[141\]](#page-63-7) revealed an excellent attractiveness, efficiency and perspicuity score. Still, our editor can be further improved to handle multiple objects in a cell [\[18\]](#page-52-8), large graphs with searching, sorting and filtering capabilities and TBox support.
 
 <span id="page-18-0"></span>![](_page_18_Figure_2.jpeg)
+<!-- Image Description: The image shows a table excerpt from a user interface, likely part of a database or knowledge representation system. The table displays relationships between academic conferences (ISWC, ESWC, CHI, HCI) using a "related to" column and a rank. The highlighted row indicates a user interaction selecting "Human-Computer Interaction Conference" (HCI), presumably to add or modify data within the table. The purpose is to illustrate a system’s functionality for managing and displaying conference relationships. -->
 
 Fig. 4: The RDF Spreadsheet Editor let users create resources (row header), properties (column header) and statements using intersecting cells.
 
@@ -316,12 +322,14 @@ PIM Crawler – Crawling Personal Data Data related to PIM is usually distribute
 Interactive Concept Mining on Personal Data Having access to personal information spheres of users allows us to find higher level concepts in them such as persons, projects, and topics. To illustrate this, Figure [5](#page-19-0) provides an example of concepts we might find in calendar, bookmark and email data which could be promising candidates for a user's personal knowledge graph. Since users will always have a subjective view on the relevancy of such concepts [\[64,](#page-55-7) [25\]](#page-52-6), we proposed in Schröder et al. [\[191\]](#page-68-5) an interactive concept mining approach which exploits PIM structures and let users find and rate concept suggestions. Because relevant terms often come in various shapes, such as last names in mail addresses, frequent multi-word terms in email bodies or project names as uppercase acronyms, our GUI offers suitable ranking and filtering capabilities using metrics. These metrics score terms based on their occurrences in certain data fields as well as how deep or how distributed they occur in PIM structures. Yet, the approach does not learn from given user feedback and can overwhelm users with the high variety of settings.
 
 <span id="page-19-0"></span>![](_page_19_Figure_2.jpeg)
+<!-- Image Description: The image displays screenshots of a calendar entry, email, and bookmark manager. The calendar shows a meeting scheduled for February 11th, 2019, titled "MLKG Telco," to discuss machine learning for knowledge graph construction. The email confirms this meeting, providing a link to a relevant website. The bookmark manager shows entries for "Mercurtainment," and a "Knowledge Graph," indicating the context of the discussion. The screenshots illustrate the workflow and relevant information related to a project involving knowledge graph construction and machine learning tools. -->
 
 Fig. 5: Promising concept candidates for PKGs which can be found in PIM structure of calendars, bookmarks and emails: persons (green), organizations (blue), projects (red), locations (purple), times (cyan), and general topics (yellow).
 
 Personal Knowledge Graphs from File Names Another promising source are files in hierarchical file systems, since users named them with their own vocabulary using task-related concepts, technical terms, made-up words and even puns [\[45\]](#page-54-0). How file names can help in constructing personal KGs is illustrated in Figure [6:](#page-20-0) relevant terms in file names (underlined in green) lead to KG resources as well as taxonomic and non-taxonomic relations. An approach to construct such personal KGs from file names is presented in Schröder et al. [\[199\]](#page-69-3). It supports the following construction tasks: domain terminology extraction, management of named individuals, taxonomy creation and non-taxonomic relation learning. The method makes use of rules and machine learning models to suggest new statements for the personal KG based on a user's feedback. A GUI is operated by a knowledge engineer, while a domain expert (data owner) is interviewed about the file system. We conducted four expert interviews (each for an hour) with four individual file systems to measure the performance of the approach. A questionnaire revealed that in fact file names reflect their language use and that on average, using a seven-point Likert scale [\[143\]](#page-64-9), our system is able to construct personal KGs which meaningfully reflect their language, contain meaningful taxonomies and non-taxonomic graphs. The prediction performance of our models reached mixed accuracy values depending on the task which indicates much room for improvements. Yet, an effort estimation for our GUI showed that already two inputs are enough to express a true or false statement.
 
 <span id="page-20-0"></span>![](_page_20_Figure_2.jpeg)
+<!-- Image Description: The image displays a comparative analysis of a file system and a personal knowledge graph. The left panel shows a hierarchical file system structure with folders and files (colored differently to denote file type), while the right panel depicts a knowledge graph representing the same data using nodes (e.g., :Project, :Person) and edges (relationships like :hasProject, :worksFor). The graph visualizes semantic relationships between the files and their metadata, enhancing knowledge representation compared to the simple file system structure. -->
 
 Fig. 6: Relevant (green) and irrelevant (red) terms in file names (left) are used to construct a PKG (right) with taxonomic and non-taxonomic relations.
 
@@ -356,6 +364,7 @@ After step 6, the interaction goes into its next iteration back at evidence coll
 - 7. Socio-technical issues and cognitive psychology aspects: Together with research partners of cognitive psychology and ergonomics, we also investigate socio-technical issues of such an assistance system.
 
 <span id="page-24-0"></span>![](_page_24_Figure_0.jpeg)
+<!-- Image Description: The figure presents a system architecture diagram for a self-reorganizing semantic desktop. It shows a user interacting with a system (PIMO) that includes data storage, a knowledge graph, and components for evidence collection, information extraction, and context elicitation. Support measures incorporate user interface updates and self-organization mechanisms. The diagram also notes socio-technical and cognitive psychology aspects relevant to the system's design. Numbered components illustrate a process flow. -->
 
 Towards Self-organizing PKA in Evolving Corporate Memories 25
 
@@ -376,6 +385,7 @@ A dynamic solution called "sashboard" was proposed in Jilek [\[122\]](#page-61-0
 #### 26 C. Jilek, M. Schröder, H. Maus, S. Schwarz, and A. Dengel
 
 <span id="page-25-0"></span>![](_page_25_Figure_1.jpeg)
+<!-- Image Description: The image depicts the architecture of a cSpaces Semantic Desktop. It shows how applications (web browser, file browser, email client, calendar) interact with a central "Context Space" through a semantic desktop interface. The interface evolves from a dashboard to a sidebar and then to direct injections as user familiarity increases. The Context Space manages and integrates data from various applications, visualized as interconnected documents and calendar entries, representing a personalized information management (PIMO) system. The diagram illustrates the system's workflow and data integration. -->
 
 Fig. 8: cSpaces user interfaces
 
@@ -384,6 +394,7 @@ Transparent Injections. The highest familiarity with the environment is achieved
 Higher-level actions like tagging items or writing comments could become cumbersome using only these injections. Therefore, a sidebar or dashboard is used as a complement. Figure [9](#page-26-0) illustrates how working with cSpaces then looks like. In the upper half, we see the Managed Forgetting project being the context currently selected in the sidebar (left). The context is associated with two concepts ("is about"), and, in this example, it contains six items, four files and two bookmarks. We see that this context space ("current context") has been injected into the file system (center) and the web browser (right), whereas the web browser only shows the two bookmarks. In its lower half, the figure depicts what happens if a user switches to another context: the content of the sidebar is replaced with the new context's information and both injections are updated accordingly, i.e. files and bookmarks are replaced. Since the standard protocols are used like a virtual layer, no actual data on the harddisk is moved making this operation executable in typically very few milliseconds.
 
 <span id="page-26-0"></span>![](_page_26_Figure_0.jpeg)
+<!-- Image Description: This image from an academic paper illustrates "context switching." It shows screenshots of a file explorer and a web browser. Before switching, the file explorer displays files related to "Managed Forgetting," and the browser shows a webpage about Christian Jilek. After switching, the file explorer shows files related to "supSpaces," while the browser displays a webpage about "supSpaces." Red arrows highlight the transition, demonstrating the change in context within the user interface. -->
 
 Towards Self-organizing PKA in Evolving Corporate Memories 27
 
@@ -400,6 +411,7 @@ We have already conducted multiple studies to gather user feedback on the system
 converted into notes (F). To ensure that all browser tabs (except for the experiment instructions) were closed when participants were, for example, asked to switch contexts, a special tab closing app was developed (H). This prototype or slightly varying ones were used in several studies presented in the following.
 
 <span id="page-27-0"></span>![](_page_27_Figure_2.jpeg)
+<!-- Image Description: The image displays a screenshot of a German-language Wikipedia page about Laos alongside a sidebar showing related content. A map of Laos is prominently featured, along with a smaller satellite image. The sidebar lists related activities, including facts about Laos' area and borders. The screenshot illustrates a user interface for accessing and interacting with contextual information within a digital environment, likely for a study on information retrieval or knowledge graphs. -->
 
 Fig. 10: cSpaces prototype for several user studies
 
@@ -410,6 +422,7 @@ In a follow-up experiment [\[89\]](#page-58-9), we could show the same effect mo
 Effects on Task Resumption/Switching In a second study, we investigated effects on context/task switching with the goal of quantifying participants' socalled Task Resumption Lag (TRL) [\[10\]](#page-51-9), which we understand as the time a person needs to re-adjust their mind to the former context in order to continue where they left off. Participants were asked to plan a barbecue evening that made them do research like checking emails by guests, in which they stated what they would like to eat or bring for the party, vendor websites with prices, etc. Step by step, they had to fill an order list with amounts of food and beverages to be ordered. From time to time (in each case after a few minutes), they were interrupted to work on an unrelated task (working on a wiki entry about autonomous driving). Each participant was interrupted and a few minutes later resumed the main task three times. As shown in Figure [11,](#page-29-0) the experiment had three groups: Group G1, a control group, had a non-interactive sidebar: it only showed a concise content analysis of the currently browsed email or website (1), basically the most prominent entities found in the text. Group G2 additionally had the possibility to add items to a single context-free folder as well as adding notes to them (3). Their activities were captured in an activity history list (4). Group G3 also had these possibilities but with the additional feature of being able to switch contexts (2). As a consequence, items, notes and activities stayed separated by contexts and were not mixing up. Figure [11](#page-29-0) shows how content of the two contexts – from the experimenter's view: main task and distraction task – colored in yellow and red, respectively, mix up in the sidebar of G2, whereas they stay separated for G3. After an initial tutorial to get to know the system's different features, each participant worked in total for 20 minutes on the main task and 12 minutes on the distraction task. The experiment contained 40 different webpages – emails were shown as part of an online mail client, so the whole experiment could be conducted using just a web browser. With the experiment having 51 participants, we captured 153 observed context switches as well as one hour of video material and 1, 000 logged activities on average per participant. Participants were not asked to explicitly state when they felt their switch back was complete (mainly due to the experiment initially having a slightly different focus; however, the rich amount of obtained data could also be used for the TRL analysis in a secondary study). The TRL was measured by analyzing the captured evidences. It was assumed that a person was back in their former context 1) when getting back to pages actually containing content needed to fill the remaining lines of the order list or 2) adding new items or notes to the current context. To detect 1), all 40 web pages used in the study were classified as being either offerings and prices, amounts of food or beverages brought or requested by
 
 <span id="page-29-0"></span>![](_page_29_Figure_0.jpeg)
+<!-- Image Description: The image displays four panels illustrating a context switch in a user interface. Each panel shows a list of recently accessed items ("Zuletzt gebrowst") and a section detailing the current context, including selected items and related activities. Panel 3 shows a context selection, and panel 4 demonstrates the updated interface after a context switch from "Grillabend planen" to "Autonomes Fahren," reflected in the changed activity list. Check marks (+) and crosses (X) indicate selection status. The figure likely demonstrates the system's context management capabilities. -->
 
 30 C. Jilek, M. Schröder, H. Maus, S. Schwarz, and A. Dengel
 
@@ -465,12 +478,14 @@ Last Focus. Saving the last focus of a context is another idea, i.e. saving open
 Intelligent Folder Injections. A last example has already been presented in Figure [9,](#page-26-0) when user switched from one context to another, the context sidebar as well as all injections (i.e. "current context" folder in various applications) were dynamically reorganized to fit the newly selected context's content. While this can already be seen as a simple form of reorganization, the idea can be further extended. Using so-called Intelligent Folder Injections (IFI), the current context's content can be further divided with regard to certain criteria. For example, an IFI could contain less important items of this context that are, however, associated with hot topics of other contexts. The aforementioned last focus could be another IFI. Another example, we often use is the binary division of a context's
 
 <span id="page-33-0"></span>![](_page_33_Figure_1.jpeg)
+<!-- Image Description: The image displays screenshots of a user interface, likely from a project management or collaboration tool. Two views are shown: one listing agents (individuals), media (files), and jobs related to a "ForgetIT" project, and another view showing persons, events, and jobs, similarly organized in a structured list format with associated images. The screenshots illustrate the tool's organizational capabilities for managing project information. -->
 
 Fig. 12: Fading out using the example of a calendar entry viewed during the event (left), eight months later (middle) and two years later (right) .
 
 <span id="page-34-0"></span>context in an active and a forgotten part, whereas the forgotten part is hidden by default but accessible using another IFI. This is summarized in Figure [13](#page-34-0) depicting a context with three IFIs indicated by black diamond symbols enclosing their name. Figure [14](#page-35-0) shows the example of a real-world context, the one
 
 ![](_page_34_Picture_2.jpeg)
+<!-- Image Description: The image displays a screenshot of a Windows file explorer window showing the directory structure for a "SensAI Project." Several folders are listed, including "Associated with hot topics," "Forgotten," and "Last Focus," along with folders for conferences, papers, and reporting. Two PDF files, "BMBF Funding Guideline" and "Project Proposal," are also shown. The image likely illustrates the project's organization and documentation within the paper. -->
 
 Fig. 13: Intelligent folder injections
 
@@ -483,6 +498,7 @@ Permanent Reorganization Photo Preservation in CoMem. The last section showed ex
 <span id="page-34-1"></span><sup>42</sup> <https://comem.ai/cspaces/> or [https://arxiv.org/src/1805.02181v1/anc/](https://arxiv.org/src/1805.02181v1/anc/demo_video.mp4) [demo\\_video.mp4](https://arxiv.org/src/1805.02181v1/anc/demo_video.mp4)
 
 <span id="page-35-0"></span>![](_page_35_Figure_1.jpeg)
+<!-- Image Description: The image displays two screenshots of a Windows file explorer window, likely depicting a project's file structure. The top shows a hierarchical view of numerous files and folders organized within "supSpaces". The bottom shows a subset of these files, possibly after filtering or selection, highlighted by a magnifying glass icon. The screenshots illustrate the file organization and management process used in the research, likely demonstrating data organization or a workflow. -->
 
 Fig. 14: Example of Reorganization
 
@@ -497,6 +513,7 @@ General Preservation in CoMem. In later studies, preservation was extended to ot
 <span id="page-36-0"></span><sup>43</sup> According to this approach, two evidence scores v and w (v, w ∈ [0,1]) are added as follows: v ⊕ w := 1 − (1 − v)·(1 − w). For example, the ⊕-sum of 0.6 and 0.7 is 0.88.
 
 <span id="page-37-0"></span>![](_page_37_Figure_1.jpeg)
+<!-- Image Description: The image displays a screenshot of a photo management interface. The interface organizes photos into chronologically-ordered collections, each visually represented by thumbnail grids. A magnifying glass highlights a specific photo within one collection, suggesting a focus on a particular image or event within the larger chronological context of the organized photo collection. The purpose is to illustrate the software's organizational capabilities for time-based photo archiving and retrieval. -->
 
 Fig. 15: "Time capsule" feedback interface of photo preservation study
 
@@ -536,6 +553,7 @@ Together with colleagues and students of psychology/ergonomics, we conducted an 
 - Participants formed a preference.
 
 <span id="page-40-1"></span>![](_page_40_Figure_1.jpeg)
+<!-- Image Description: This image displays a computer interface demonstrating a "Forgetful Search" algorithm. Sections (C) and (D) show keyword clusters categorized as "non-forgotten" and "forgotten," respectively, after a search for "Genetik" (genetics). Section (B) is a progress bar indicating search coverage (46 of 4 documents found in 1600ms). Section (E) lists related files. The image illustrates the algorithm's functionality by visualizing the search results and their classification. -->
 
 Fig. 18: FIS search prototype II: Coverage indication and contextual clustering
 
@@ -627,6 +645,7 @@ Fig. 21: The Semantic Desktop enables pro-active information delivery for an len
 keyword-based search. By confirming relevant topics and helpful material, writing comments, associating items with the ticket's context, etc., clerks may easily document their progress, solution attempts (particularly helpful if the ticket cannot be solved before a shift change) and finally their solution. During the processing of the ticket, the supSpaces system live-updates its list of proposed supportive material after each captured user activity – one of the reasons why we needed the aforementioned real-time-capable information extraction approach. Then, the system finally saves the supSpace, i.e. the ticket together with its rich context consisting of all information described before. If such a problem or a similar one occurs (again), the system will bring up the previously captured supSpace. Users can then decide whether the solution to the old problem can actually be transferred to the new one, which is now considerably easier given the old ticket's additional contextual information. The approach was mainly realized by means of Case-Based Reasoning (CBR) [\[1\]](#page-50-5). The supSpaces prototype as
 
 <span id="page-47-0"></span>![](_page_47_Figure_2.jpeg)
+<!-- Image Description: The image displays a screenshot of a help desk ticket system interface. Sections (A) show ticket details (ID, priority, description, assigned group). (B) is a notes section. (C) lists selectable topics related to the issue. (D) shows a checklist of troubleshooting steps, including database access failures. (E) presents two proposed solutions in German, involving database checks and patch verification. The image illustrates the troubleshooting process for a "No VOD Servers Available" issue. -->
 
 Fig. 22: supSpaces dashboard
 

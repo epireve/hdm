@@ -1,7 +1,7 @@
 ---
 cite_key: "zhanga2014"
 title: "A Comprehensive Survey on Automatic Text Summarization with Exploration of LLM-Based Methods"
-authors: "Yang Zhanga,b, Hanlei Jina,b, Dan Menga,b, Jun Wang1a,b, Jinghua Tana,b"
+authors: "Yang Zhanga, Hanlei Jina, Dan Menga, Jun Wang1a, Jinghua Tana"
 year: 2014
 doi: "10.1108/eb026526"
 date_processed: "2025-07-02"
@@ -147,6 +147,7 @@ Building upon the definition of ATS, we delineate the intermediate steps necessa
 - 3. Summarization Modeling. Modeling, the cornerstone of an ATS system, is dedicated to developing versatile language models that can interpret and distill language data into concise summaries. This is achieved through rule-based, statistical, or deep learning approaches which extract patterns from the language data. The process of
 
 ![](_page_5_Figure_0.jpeg)
+<!-- Image Description: This flowchart details a text summarization system's architecture. It outlines four stages: data acquisition (using open-source or customized datasets), text pre-processing (methods include noise removal, stemming, and tokenization), summarization modeling (employing conventional and LLM-based approaches, including extractive, abstractive, and generative methods), and evaluation (using overlap, similarity, and LLM-based metrics). The diagram visually organizes various techniques within each stage. -->
 
 <span id="page-5-1"></span>Figure 1: ATS Framework: Detailed Process from Data Acquisition through Text Pre-processing, Summarization Modeling to Evaluation Metrics.
 
@@ -1075,29 +1076,34 @@ on Intrinsic and Extrinsic Evaluation Measures for Machine Translation and/or Su
 #### Yang Zhang
 
 ![](_page_29_Picture_19.jpeg)
+<!-- Image Description: That's not a technical image; it's a headshot photograph of a person, likely the author or a contributor to the academic paper. It contains no diagrams, charts, graphs, equations, or technical illustrations. Its purpose is purely to provide a visual representation of the individual, likely for an author identification or biographical section. -->
 
 Yang Zhang is an assistant professor with the Southwestern University of Finance and Economics, China. He received his Ph.D. from the Graduate School of Informatics, Kyoto University in 2022. Before that, he received his Bachelor of Engineering from the University of New South Wales and his Master of Economics and Finance from Sydney University. He joined Southwestern University of Finance and Economics, China in 2023 as a lecturer. His research interests include text mining, text recommendation, and NLP for financial technology.
 
 #### Hanlei Jin
 
 ![](_page_29_Picture_22.jpeg)
+<!-- Image Description: That's not a technical image from an academic paper; it's a headshot photograph of a person. There are no diagrams, charts, graphs, equations, or technical illustrations present. The image is likely an author photograph included for identification purposes within the paper, rather than conveying any technical information. -->
 
 Hanlei Jin is currently working toward the Ph.D. in Management Science and Engineering at Southwestern University of Finance and Economics, Chengdu, China. He holds a B.S. degree in Management from the same institution. His research interests include text mining, text generation, and financial intelligence.
 
 #### Dan Meng
 
 ![](_page_29_Picture_25.jpeg)
+<!-- Image Description: That's not a technical image; it's a headshot photograph of a person, likely an author or contributor to the academic paper. It contains no diagrams, charts, graphs, equations, or technical illustrations. Its purpose is solely to provide a visual representation of the individual, for identification purposes within the paper's author information. -->
 
 Dan Meng is a professor with the Southwestern University of Finance and Economics, Chengdu, China. Previously, she received her Ph.D. from Southwest Jiaotong University, Chengdu, China. Her research interests include intelligent finance, intelligent decision making, and uncertainty information processing.
 
 #### Jun Wang
 
 ![](_page_29_Picture_28.jpeg)
+<!-- Image Description: That's not a technical image; it's a photograph of a person, likely an author or contributor to the academic paper. It contains no diagrams, charts, graphs, equations, or technical illustrations. Its purpose is purely to provide a visual representation of the individual, most likely for author identification. -->
 
 Jun Wang is a professor with the Southwestern University of Finance and Economics, China. Prior to his current appointment, he was a researcher at the Memorial University of Newfoundland in St. John's, Canada, and he was awarded the National Scholarship in 2017. His research interests include NLP, social media, social network analysis, financial analysis, and business intelligence.
 
 #### Jinghua Tan
 
 ![](_page_30_Picture_2.jpeg)
+<!-- Image Description: That's a photograph of a person, not a technical image containing diagrams, charts, graphs, or equations. It appears to be an author portrait, included in the academic paper for identification purposes. There is no technical content in the image itself. -->
 
 (Member, IEEE) Jinghua Tan received the B.S., M.S., and Ph.D. degrees from the Southwestern University of Finance and Economics, Chengdu, China. She is an associate professor with Sichuan Agricultural University and was a visiting scholar at the Memorial University of Newfoundland in St. John's, Canada in 2019. Her research interests include data mining and financial intelligence.

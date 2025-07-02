@@ -1,7 +1,7 @@
 ---
 cite_key: "kumar2021"
-title: "**1. Introduction**"
-authors: "**Ganesh Kumar 1,[\\\\*](https://orcid.org/0000-0002-0098-0948) , Shuib Basri <sup>1</sup> , Abdullahi Abubakar Imam 1,2, Sunder Ali Khowaja <sup>3</sup> [,](https://orcid.org/0000-0002-4586-4131) Luiz Fernando Capretz [4](https://orcid.org/0000-0001-6966-2369) and Abdullateef Oluwagbemiga Balogun 1,[5](https://orcid.org/0000-0001-7411-3639)**"
+title: "1. Introduction"
+authors: "Citation:Kumar, G., Basri, S., Imam, A.A., Khowaja, S.A., Capretz, L.F."
 year: 2021
 doi: "10.3390/app11178275)"
 date_processed: "2025-07-02"
@@ -52,6 +52,7 @@ This paper is organized as follows: In Section [2,](#page-2-0) an illustration o
 In this Systematic Literature Review (SLR), the guidelines were followed from References [\[28,](#page-24-17)[29\]](#page-24-18). The research process is divided into three phases. In the first planning phase, the stages of defining research questions, developing, and validating review protocols are covered. In the second phase, identification and selection of relevant studies, data extraction, and the information synthesis process are covered; and in the third phase, writing and validating the review are reported. Figure [1](#page-2-1) illustrates the flow of three phases.
 
 <span id="page-2-1"></span>![](_page_2_Figure_5.jpeg)
+<!-- Image Description: The flowchart depicts a three-phase research review process. Phase 1 ("Plan Review") involves specifying research questions, developing, and validating a review protocol. Phase 2 ("Conduct Review") focuses on identifying relevant studies, extracting data, and synthesizing information. Finally, Phase 3 ("Reporting Review") includes writing and validating the review report. The flowchart visually outlines the sequential steps of the methodology. -->
 **Figure 1.**SLR process.
 
 ##*2.1. Plan Review*In this first phase of research methodology, the significant research questions and development of review protocols are specified with the proper searching strategy.
@@ -144,6 +145,7 @@ Table [2a](#page-4-0),b describes the selection criteria of the relevant article
 Table [3](#page-5-1) illustrates the quality checklist questions for evaluation of studies. The questions are mainly designed for selection of the studies that are more relevant, detailed, and that cover all research questions.
 
 <span id="page-5-0"></span>![](_page_5_Figure_2.jpeg)
+<!-- Image Description: The image is a flowchart illustrating the article selection process for a literature review. Starting with 1355 articles identified via keyword search, it shows sequential exclusion steps: title-level screening (reducing to 1200), removal of duplicates (33), exclusion of irrelevant articles (22), and further exclusion after full-text review (30). The final result is 70 selected articles. The flowchart visually represents the methodology's rigor and transparency. -->
 
 **Figure 2.** Process of identifying relevant studies.
 
@@ -196,11 +198,13 @@ The summary of selected studies in the detailed arrangement is presented in Tabl
 Figure [3](#page-6-2) illustrates the number of studies per year. There were a smaller number of studies in 2015, and then the related research studies grew in 2016/2017, such as 15 and 18, respectively. In 2018 and 2019, the number of studies found was 16 and 15, and in 2020, four studies found.
 
 <span id="page-6-2"></span>![](_page_6_Figure_9.jpeg)
+<!-- Image Description: The image is a bar chart showing yearly data from 2015 to 2020. The y-axis represents a quantity (unspecified in the image), ranging from 0 to 20. The x-axis shows the years. The chart displays a peak in 2017 (18 units) and a decline in 2020 (5 units). The purpose is likely to illustrate a trend or pattern of an event or phenomenon over time within the paper. -->
 **Figure 3.**Studies selected per year.
 
 Figure [4](#page-7-0) illustrates the worldwide map of countries who contributed in research related to the research questions mentioned above. The research discussion on each research question is described in Table [A1](#page-20-0) (Appendix [A\)](#page-20-1).
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image is a choropleth map displaying the worldwide distribution of publications per country. Countries are color-coded based on publication volume; darker shades of purple indicate higher numbers, while lighter shades and orange represent lower volumes. The map visually represents the geographical concentration of academic publications, allowing for quick comparison of output between nations. A color bar indicates the scale of publication frequency (low to high). -->
 **Figure 4.**Chlorophet map showing the worldwide distribution of publications by countries.
 
 ###*3.1. Which of the Domains Are Mainly Focused on Researching Heterogeneity?*In this review, 14 studies discussed heterogeneity or heterogeneous datasets. Here we present a list of contributions for heterogeneous data.

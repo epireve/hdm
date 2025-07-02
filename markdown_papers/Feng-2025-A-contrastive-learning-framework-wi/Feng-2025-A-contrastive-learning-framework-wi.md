@@ -1,7 +1,7 @@
 ---
 cite_key: "training2024"
-title: "**A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning**"
-authors: "introducing adversarial perturbations during training, ensuring that the embedded representation remains stable in a noisy environment. Previous studies have shown[59](#page-21-19) that adversarial training significantly improves the generalization and robustness of the model. In DNCL, adversarial noise not only enhances the model's adaptability to random noise, but also improves its resistance to structured noise. This is because adversarial training continuously simulates inconsistent perturbations in reality, prompting the model to learn more robust entity and relationship embeddings to accurately filter out contradictory facts or time-misaligned information. Therefore, even if the experiment does not explicitly introduce structured or contradictory noise, DNCL still has good generalization performance and can effectively adapt to the complex noise environment of the real world."
+title: "A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning"
+authors: "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
 year: 2024
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -14,6 +14,7 @@ images_removed: 0
 # OPEN
 
 ![](_page_0_Picture_3.jpeg)
+<!-- Image Description: The image is a screenshot of a simple graphical user interface (GUI) element: a button. The button displays the text "Check for updates" and is accompanied by a small circular icon, likely representing software updates or notifications. The image's purpose within the paper is presumably to illustrate a step in a software update procedure or to exemplify the visual design of a user interface component. No charts, graphs, equations, or other complex technical illustrations are present. -->
 
 # A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning
 
@@ -34,6 +35,7 @@ The field of TKGR has seen considerable advancements in recent years. For exampl
 School of Information and Communication Engineering, Hainan University, Haikou 570228, China. email: chenbl61@163.com; huangmx09@hainanu.edu.cn
 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: This image uses two 3D diagrams to illustrate geopolitical events from 2018-2024. The left diagram shows events surrounding Kim Jong-un, Donald Trump, and the Iran nuclear deal. The right diagram depicts events involving Joe Biden, Kamala Harris, and North Korea's relations with the US, following the 2020 US election. Arrows indicate relationships between key actors and events, illustrating the temporal progression and causal links between them within the specified timeframe. -->
 **Fig. 1**. An example of a TKG, including two subgraphs of the KG with timestamps 2018 and 2024. Portrait images of political leaders, flags, and icons were obtained from Wikimedia Commons under CC BY licenses or from public domain resources.
 
 attention mechanism and the soft motif module; DPCL-Diff[8](#page-20-7) generates new events through graph node diffusion for sparse historical data and uses dual-domain periodic contrast learning to distinguish periodic and nonperiodic events; LogC[L9](#page-20-8) introduces an entity-aware attention mechanism to better integrate local and global historical information through comparative learning; CDRGN-SD[E10](#page-20-9) uses stochastic differential equations to capture the nonlinear dynamics of time Change and adapt to heterogeneous characteristics. However, these methods still face the following three challenges, which reduce their performance:
@@ -122,6 +124,7 @@ This section first gives a comprehensive overview of the proposed DNCL model, th
 Figure [2](#page-4-1) shows the overall framework of the DNCL model, which mainly consists of three parts: a multidimensional gated update module, a noise-aware adversarial modeling module, and a multi-layer embedding contrastive learning module. Specifically, the model first dynamically fuses the entity and relation historical embedding matrices input by TKG through the dual-gate mechanism of the multi-dimensional gated update module, flexibly extracts key information from historical time series data, and suppresses redundant or irrelevant information, thereby effectively alleviating the information sparsity problem and enhancing the modeling ability of long-distance dependencies. Subsequently, the noise-aware adversarial modeling module uses the adversarial training mechanism constructed by the noise generator and the discriminator to enhance the robustness of the model in a noisy environment and effectively reduce the negative impact of noise on the reasoning results. Moreover, the multi-layer embedding contrastive learning module further improves the semantic expression ability of the embedding representation by combining intra-layer and inter-layer contrastive learning strategies, and better captures the potential complex temporal relationships in the time series knowledge graph. The following sections will discuss the design and implementation details of each module in detail.
 
 <span id="page-4-1"></span>![](_page_4_Figure_8.jpeg)
+<!-- Image Description: This image depicts a complex neural network architecture for knowledge graph reasoning. It shows three main modules: a multi-dimensional gated update module processing input knowledge graph representations (H<sub>t-1</sub>, R<sub>t-1</sub>), a noise-aware adversarial modeling module enhancing robustness, and a multi-layer embedding contrastive learning module for improved representation learning. The diagram uses boxes representing modules, arrows indicating data flow, and simple bar charts for visualization of entity prediction results. Different loss functions (reasoning loss, contrastive loss) are shown, highlighting the training process. -->
 **Fig. 2**. An overall illustrative diagram of the proposed DNCL model. The model consists of three main modules: the multi-dimensional gated update module, the noise-aware adversarial modeling module, and the multi-layer embedding contrastive learning module.
 
 #### Multi-dimensional gated update module
@@ -224,6 +227,7 @@ $$
 In the task of TKGR, data usually contains erroneous, missing or conflicting information, which causes the model to learn unreliable representations and reduce the accuracy and robustness of reasoning. Therefore, a mechanism that can perceive and resist noise interference is needed to improve the generalization ability and stability of the model in complex environments. To this end, we propose a noise-aware adversarial modeling module. This module consists of a noise generator and a noise discriminator, which aims to improve the robustness and generalization ability of the model in complex scenarios. The specific structures of the noise generator and the noise discriminator are shown in Fig. [3.](#page-7-0) The noise generator introduces random noise to simulate the interference in real scenarios and increase the uncertainty of the noise, thereby expanding the distribution range of the data and helping the model adapt to diverse input conditions. The noise discriminator
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image shows two neural network architectures: a "Noise Generator" and a "Noise Discriminator". The generator, a multi-layer perceptron with ReLU and normalization layers, produces adversarial noise. This noise is input to the discriminator, another multi-layer perceptron using ReLU and a sigmoid output layer, which classifies the noise as either "effective" or "ineffective". The image illustrates a generative adversarial network (GAN) approach to noise generation and classification. -->
 **Fig. 3**. The architecture of the noise generator and the noise discriminator. *di*, *dh*, *do*, and 1 represent the number of neurons in each layer respectively; ReLU, Sigmoid, and Normalization respectively indicate that the layer uses the ReLU activation function, Sigmoid activation function, and normalization operation.
 
 takes guidance as the core, identifies and retains effective noise that is beneficial to model learning, and filters out meaningless interference to ensure the quality and pertinence of the generated noise. Through the adversarial modeling mechanism, the embedding can more accurately capture the noise characteristics, making the model more robust in dealing with complex noise environments, while greatly improving its reasoning ability for unseen data[50.](#page-21-10) The specific implementation process of the noise generator, the noise discriminator and the noiseaware adversarial training is introduced in detail below.
@@ -504,15 +508,19 @@ As shown in Fig. [6,](#page-16-1) increasing the *dh*can improve the performance
 #### Analysis of temperature coefficient*τ*As described in the previous section, this study conducted experiments on different temperature coefficients*τ*on the ICEWS14 and ICEWS18 datasets while keeping the optimal configuration of other hyperparameters unchanged. As shown in Fig. [7](#page-17-0), on both datasets, with the change of the*τ*, the overall performance of the model on the MRR and Hits@3 indicators is relatively stable, which shows that the model has certain robustness and adaptability to the setting of the*τ*. However, the figure also shows that the model performance fluctuates with
 
 <span id="page-15-0"></span>![](_page_15_Figure_8.jpeg)
+<!-- Image Description: The image is a horizontal bar chart comparing the number of events reported by four different event data sources: GDELT, ICEWS05-15, ICEWS18, and ICEWS14. Each source is represented by three colored bars showing different event categories (likely representing different event types or severities). The chart visually displays the relative quantities of events reported by each data source, allowing for a quantitative comparison of their coverage. -->
 
 ![](_page_15_Figure_9.jpeg)
+<!-- Image Description: This image is a legend for a graph or chart (not shown) in an academic paper. It defines three different methods or models: RE-NET (grey), XERTE (orange), and DNCL (blue). The purpose is to identify the visual representation of each method in the accompanying figure for easy interpretation by the reader. -->
 **Fig. 4**. Comparative analysis of runtime(seconds).
 
 <span id="page-16-0"></span>![](_page_16_Figure_1.jpeg)
+<!-- Image Description: The image is a bar chart comparing the performance of four different methods (DNCL, L²TKG, HisMatch, RE-GCN) on four datasets (ICEWS14, ICEWS105-15, ICEWS18, GDELT). Each bar represents a method's performance on a specific dataset, with height indicating the performance score (likely accuracy or F1-score). The chart's purpose is to visually demonstrate the relative effectiveness of the methods across different datasets within the paper's context. -->
 
 **Fig. 5**. Performance comparison of the DNCL and the non-contrastive learning model on the MRR (percentage) metric.
 
 <span id="page-16-1"></span>![](_page_16_Figure_3.jpeg)
+<!-- Image Description: The image contains two bar charts (a) and (b), presenting evaluation metrics for different embedding dimensions in a likely information retrieval task. Each chart shows Mean Reciprocal Rank (MRR) and Hits@K (H@1, H@3, H@10) values across various embedding dimensions (100, 200, 300, 400, 500). The charts illustrate the performance variation of the system with changing embedding dimension, allowing the authors to analyze and select optimal parameters for improved performance. The purpose is to empirically demonstrate the impact of embedding dimensionality on the model's performance. -->
 
 **Fig. 6**. Performance (percentage) of different embedding dimensions *dh*on ICEWS14 and ICEWS18 datasets.
 
@@ -535,10 +543,12 @@ As shown in Fig. [9](#page-19-1) , whether for the more ordered ICEWS14 dataset 
 Although the noise in this study is randomly generated, the noise-aware adversarial modeling module proposed by DNCL aims to improve the robustness of the model to real-world structured noise such as conflicting facts and incomplete information. This module effectively distinguishes between reliable and unreliable information
 
 <span id="page-17-0"></span>![](_page_17_Figure_8.jpeg)
+<!-- Image Description: The image contains two line graphs (a) and (b), both plotting Mean Reciprocal Rank (MRR) and Hit@3 against Temperature Coefficient. Each graph shows how these metrics, used to evaluate ranking performance, vary across different temperature coefficient values. The graphs likely illustrate the impact of this coefficient on the model's effectiveness in a specific application within the paper. -->
 
 **Fig. 7**. Performance (percentage) of different temperature coefficient *τ*on ICEWS14 and ICEWS18 datasets.
 
 <span id="page-18-0"></span>![](_page_18_Figure_1.jpeg)
+<!-- Image Description: The image contains two line graphs (a) and (b), each plotting Mean Reciprocal Rank (MRR) and Hit@3 against "History Length" (x-axis). Graph (a) shows higher values than (b), suggesting different experimental conditions or datasets. Both graphs illustrate the performance of a ranking system across varying history lengths, evaluating the impact of historical data on the system's MRR and Hit@3 metrics. -->
 **Fig. 8**. Performance (percentage) of different history length *m*on ICEWS14 and GDELT datasets.
 
 <span id="page-18-1"></span>
@@ -558,9 +568,11 @@ by introducing adversarial perturbations during training, ensuring that the embe
 As shown in Fig. [10](#page-19-2), on the three datasets, the performance of the DNCL is generally better than that of the F-DE\_SimplE and F-BoxTE model[s60](#page-21-20) based on the Wasserstein adversarial learning framework. Specifically, in the ICEWS14 and ICEWS05-15 datasets with clearer structures and relatively sparse data, the DNCL model shows stronger temporal relationship capture and long-distance dependency modeling capabilities; while in the GDELT dataset with more significant noise, the DNCL model still maintains its advantage, verifying the robustness of its noise-aware mechanism in real complex environments. Therefore, although Wasserstein adversarial learning can optimize the quality of negative sample generation, it is still insufficient when facing complex, diverse, and continuously evolving noise interference in real scenarios. The noise-aware adversarial modeling module proposed in this paper addresses these challenges and significantly improves the temporal reasoning performance and stability of the model at different scales and different noise levels through the adversarial training mechanism constructed by the noise generator and the noise discriminator.
 
 <span id="page-19-1"></span>![](_page_19_Figure_1.jpeg)
+<!-- Image Description: The image contains two line graphs (a) and (b), showing the Mean Reciprocal Rank (MRR) and Hit@3 metrics against a "Noise Intensity Control Parameter." Both graphs display similar trends, with MRR and Hit@3 exhibiting a slight undulating pattern across the parameter range. The graphs likely illustrate the robustness of the system's performance under varying levels of noise. -->
 **Fig. 9**. Performance (percentage) of different noise intensity control parameter *ϵ*on ICEWS14 and ICEWS18 datasets.
 
 <span id="page-19-2"></span>![](_page_19_Figure_3.jpeg)
+<!-- Image Description: The figure presents three bar charts (a, b, c) comparing the performance of three models (DNCL, F-DE_Simple, F-BoxTE) on three datasets. Each chart displays Mean Reciprocal Rank (MRR) and Hit@k (k=1,3,10) metrics. The charts visually compare the ranking performance of the three models across different datasets, showing the relative strengths and weaknesses of each approach. -->
 **Fig. 10**. Performance (percentage) comparison of DNCL with models trained using the Wasserstein adversarial learning framework on the ICEWS14, ICEWS05-15, and GDELT datasets. The results of F-DE\_ SimplE and F-BoxTE are from[60.](#page-21-20)
 
 <span id="page-19-0"></span>**Conclusion**In this paper, a novel dual-gate and noise-aware contrastive learning framework (DNCL) is proposed to address key issues in TKGR. Specifically, the multi-dimensional gated update module effectively models long-distance dependencies through a dual-gate mechanism; the noise-aware adversarial modeling module improves noise resistance through adversarial training; and the multi-layer embedding contrastive learning module captures the representation ability of latent temporal relationships through intra-layer and inter-layer contrastive learning. Experimental results show that DNCL improves the Hit@1 indicator by 6.91%, 4.31%, and 5.30% on the ICEWS14, ICEWS18, and ICEWS05-15 datasets, respectively. Ablation experiments and parameter analysis further verify the effectiveness and robustness of each module. DNCL still shows excellent adaptability and robustness in complex scenarios, providing an efficient solution for TKGR tasks and a new direction for more complex temporal reasoning research.

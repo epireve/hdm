@@ -1,7 +1,7 @@
 ---
 cite_key: "reiners2024"
-title: "**A Human Digital Twin Architecture for Knowledge-based Interactions and Context-Aware Conversations**"
-authors: "**Dirk Reiners, Carolina Cruz-Neira**"
+title: "A Human Digital Twin Architecture for Knowledge-based Interactions and Context-Aware Conversations"
+authors: "Abdul Mannan Mohammed, Azhar Ali Mohammad, Jason A. Ortiz, Carsten Neumann, Grace Bochenek"
 year: 2024
 doi: "10.1016/j.cmpbup.2021.100014"
 date_processed: "2025-07-02"
@@ -84,6 +84,7 @@ Our HDT technology makes use of context-aware processing, an AI emotion engine, 
 Engaging the user in a convincing and conversational manner is achieved by utilizing advanced language models such as ChatGPT-4. The HDT system architecture comprises these essential components: A) a Visual interface to capture the human's conversation and deliver the HDT responses through the Speech-to-Text Module, Animation Module, Text-to-Speech Module, Lip Sync Generation; and B) an AI module that captures non-verbal user interactions and processes the appropriate responses through a Visual Input Capture, and a LLM model. Every individual component has a distinct function in the system. Figure 1 illustrates the overall interaction flow and design of the HDT system.
 
 ![](_page_4_Figure_4.jpeg)
+<!-- Image Description: This diagram depicts the architecture of an HDT (Humanoid Digital Twin) system. It shows a system workflow, including a visual interface with user interaction (speech and visual representation), an AI module processing camera input and user speech, and a response generation module using GPT-40. The AI module processes visual and textual input to construct prompts for the LLM, which generates responses converted to speech and animation for the user. Data flows are clearly represented through arrows connecting different modules. -->
 
 ## Figure 1. HDT System Design
 
@@ -114,10 +115,13 @@ In this section we present a preliminary assessment of the HDT system's performa
 For this assessment, we chose a no-glasses autostereoscopic 55" display (Magnetic3D DS) instrumented with a microphone, speakers, and two webcams to present the physical appearance of the HDT to the user and to capture user's input and actions. Gun parts are laid out on a table in front of the display within the camera's field of view, arranged to replicate a typical assembly setup (Figure 2). One of the two high-definition web cameras capture detailed visual input of the gun parts, and the other focuses on the user to detect emotion and capture non-verbal cues. Prior to starting the conversation, the HDT system receives comprehensive information about the gun assembly process, including a digital manual with detailed diagrams and step-by-step instructions (Figure 3). The system is configured to respond to specific user queries and recognize various gun components and tools. It processes visual and auditory inputs simultaneously, allowing it to provide context-aware feedback.
 
 ![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image displays a virtual reality (VR) setup for a study. A diagram shows a camera's field of view encompassing a table with gun parts. A second image shows a virtual female avatar on a screen. The third shows a real-world table with disassembled gun parts. This illustrates the experimental design, comparing a virtual environment with a physical one, likely investigating aspects of perception or interaction in the context of firearm assembly/disassembly. -->
 
 ![](_page_6_Figure_3.jpeg)
+<!-- Image Description: Figure 2 describes an HDT system. It's a caption describing a figure (not shown) which is divided into three sections: the left shows system components, the middle shows the HDT on display, and the right shows the gun assembly station. The figure illustrates the system's constituent parts and their arrangement. -->
 
 ![](_page_6_Figure_4.jpeg)
+<!-- Image Description: This image is a mini AK-47 assembly guide. It shows a parts list, exploded diagram of the disassembled model, and a step-by-step pictorial assembly guide with three numbered steps. Each step depicts the manual assembly process with accompanying text descriptions. The guide aims to illustrate the construction of the mini AK-47 model from its individual components. -->
 
 **Figure 3. Gun Assembly Digital Manual**### Assessment Procedure
 

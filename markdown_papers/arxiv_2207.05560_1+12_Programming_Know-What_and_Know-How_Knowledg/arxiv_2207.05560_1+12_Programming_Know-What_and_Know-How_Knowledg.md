@@ -1,7 +1,7 @@
 ---
 cite_key: "authors2021"
 title: "1+1>2: Programming Know-What and Know-How Knowledge Fusion, Semantic Enrichment and Coherent Application"
-authors: "<sup>•</sup> *Q. Huang and Z. Yuan are co-first authors, Z. Zuo is the corresponding author(zuo803@jxnu.edu.cn)*"
+authors: "Qing Huang, Zhiqiang Yuan, Zhenchang Xing, Zhengkang Zuo, Changjing Wang, Xin Xia"
 year: 2021
 doi: "10.1145/1294261.1294276"
 date_processed: "2025-07-02"
@@ -29,6 +29,7 @@ To use certain APIs in programming tasks, developers resort to software document
 Although these studies show the promising of knowledge graph methods for software engineering, the two types of knowledge are currently independently analyzed, extracted and used. We conduct an empirical study of 100 randomly-selected API usage questions on Stack Overflow (SO), and find that only 36% of the API usage questions
 
 <span id="page-0-0"></span>![](_page_0_Figure_11.jpeg)
+<!-- Image Description: The image displays a comparative analysis of Java string-to-integer conversion methods. Figure (a) shows a direct `Integer.parseInt()` method call from a Stack Overflow question (4412). Figure (b) demonstrates error handling using a `try-catch` block to manage `NumberFormatException`. The right side presents the Java code and API documentation for `Integer.parseInt()`, detailing its functionality and potential exceptions. The arrows visually connect the Stack Overflow snippets with the Java code and documentation, illustrating the method's usage and exception handling. -->
 
 Fig. 1: Need for the Fusion of Programming Know-What and Know-How Knowledge
 
@@ -118,6 +119,7 @@ In this process, we calculate the agreement between the two students for annotat
 Our empirical study suggests the necessity of the fusion and mutual enrichment of know-what and know-how knowledge. As illustrated in Figure [2,](#page-4-0) our approach first constructs an API-KG and a Task-KG separately (Section [3.1\)](#page-4-1) and links the two KGs by API entities mentioned in task entities (Section [3.2\)](#page-5-0). Next, our approach infers new semantic relations from one KG to enrich the other KG (Section [3.3](#page-5-1) and Section [3.4\)](#page-6-0). Finally, we develop an API/Task-centric search engine and a web interface that recommends programming know-what and know-how knowledge as a unified whole
 
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: The image presents a system for fusing API and task knowledge. The top shows the construction of knowledge graphs (KGs) from API documentation and programming tutorials, using semantic inference and relation extraction. The bottom depicts a fused API-task KG, represented as a bipartite graph with nodes for API classes/methods and tasks, connected by relations like "HasMethod," "Task-Align," and hierarchical relationships. This combined KG facilitates coherent search and exploration of programming knowledge. A small example shows how a specific coding task maps to elements within the KG. -->
 
 Note that the figure in the middle, the red and purple dotted line represents the enriched semantic relation, and the blue dotted line represents the entity link between API-KG and Task-KG.
 
@@ -216,6 +218,7 @@ Based on our fused and semantically-enriched API-Task KG, we developed a knowled
 For example, given the text query "how to insert an item in List with add()", the knowledge search results by our tool are shown in Figure [2.](#page-4-0) Our search engine extracts a task entity <insert an item, List> from the query and uses the task-align method described in Section [3.4.1](#page-6-3) to match the task entities in API-Task KG. Our task-align method can match the relevant tasks even the lexical gap by keywords, for example, "insert an element at specific index into a list", and "insert an item in List". In addition to the Best Matched Task, our search engine lists other related tasks through the syntactic and semantic task relations, for example, "Add element to Set" which has a task-align relation with the matched task. Furthermore, our search engine also extracts an API mention*add()*from the query, and links this API mention to the API entity*List.add(int,E*) in API-KG. As such, it complements the recommended task know-how knowledge with the relevant API know-what knowledge. Even more, our tool visualizes the KG fragments involving the recommended tasks and APIs from which the user may learn more extended knowledge. For example, through
 
 <span id="page-7-2"></span>![](_page_7_Figure_7.jpeg)
+<!-- Image Description: The image displays a knowledge graph illustrating the relationships between an API (Application Programming Interface), `Statement.executeQuery(String sql)`, and related programming concepts. Nodes represent APIs and tasks (e.g., "Deleting Records"), while edges labeled "Link" and "HasMethod" show relationships. The graph visually represents how the API is used in different programming tasks, enhancing the understanding of its functionality within a broader context. The "Best Matched API" and "Extended API-related Knowledge" sections provide textual descriptions complementing the visual representation. -->
 
 Fig. 3: Screenshot of API-centric knowledge search
 
@@ -374,6 +377,7 @@ Both G<sup>A</sup> and G<sup>B</sup> had low accuracy on Q1 and Q5 (41.67% for G
 In summary, compared with the API- or Task-KG, our proposed API-Task KG can improve the efficiency and accuracy of developers in completing programming tasks. The API-Task KG has two advantages. First, it bridges the gap between know-what and know-how knowledge. As a result of the knowledge fusion, our tool provides developers with not only the definition and caveats about the API [\[1\]](#page-13-0), but also the usage of the API [\[4\]](#page-13-3). Take Q26 for example. Five G<sup>A</sup> participants used a "try-catch" struc-
 
 <span id="page-11-0"></span>![](_page_11_Figure_4.jpeg)
+<!-- Image Description: The image displays a knowledge graph illustrating relationships between a programming task ("Converting String to Int") and related concepts. Light green circles represent API entities (e.g., `Integer.parseInt`), light blue circles represent tasks ("Converting String to Long"), and arrows indicate relationships (e.g., "Link," "Throw," "Task-Align"). The graph visualizes how the initial task connects to other tasks and API elements, demonstrating the system's ability to expand beyond a single search query to provide broader context. -->
 
 Fig. 4: Screenshot of the Q26 search results
 
@@ -441,12 +445,14 @@ The work is partly supported by the National Nature Science Foundation of China 
 - <span id="page-13-33"></span>[34] G. Petrosyan, M. Robillard, and R. Mori, "Discovering information explaining api types using text classification," *2015 IEEE/ACM 37th IEEE International Conference on Software Engineering*, vol. 1, pp. 869–879, 2015.
 
 ![](_page_13_Picture_35.jpeg)
+<!-- Image Description: That image is a photograph of a person, not a technical illustration, chart, graph, or diagram. It's likely an author photograph included in the academic paper to identify the author's appearance. There is no technical content within the image itself. -->
 
 **QING HUANG**received the M.S degree in computer application and technology from Nanchang University, in 2009, and the PH.D. degree in computer software and theory from Wuhan University, in 2018. He is currently an Assistant Professor with the School of Computer and
 
 Information Engineering, Jiangxi Normal University, China. His research interests include information security, software engineering and knowledge graph.
 
 ![](_page_13_Picture_38.jpeg)
+<!-- Image Description: That's not a technical image; it's a photograph of a person. It's likely an author portrait included in an academic paper to identify the author visually, and contains no diagrams, charts, graphs, equations, or other technical illustrations. The image itself has no technical content. -->
 **Zhiqiang Yuan**is a second-year graduate student in the School of Computer and Information Engineering, Jiangxi Normal University. His research interests are software engineering and knowledge graph.
 **Zhenchang Xing**is an Associate Professor in the Research School of Computer Science, Australian National University. Previously, he was an Assistant Professor in the School of Computer Science and Engineering, Nanyang Technological University, Singapore, from 2012-
 
@@ -456,11 +462,13 @@ Information Engineering, Jiangxi Normal University, China. His research interest
 ogy Department of Jiangxi Normal University, Nanchang, China. His main research interests include software formal methods, generic programming, etc.
 
 ![](_page_14_Picture_3.jpeg)
+<!-- Image Description: That's not a technical image; it's a photograph of a person. There are no diagrams, charts, graphs, equations, or technical illustrations. The image is likely an author photograph included for identification purposes in the academic paper. It contains no technical content. -->
 **Changjing Wang**received the bachelor's and master's degrees from Jiangxi Normal University, China, in 1999 and 2004, respectively. He received the PhD degree from Institute of Software, Chinese Academy of Science, China, in 2012. He is currently a professor with the College
 
 of Computer Information and Engineering, Jiangxi Normal University, China. His research interests include Web service and formal method.
 
 ![](_page_14_Picture_6.jpeg)
+<!-- Image Description: That's not a technical image; it's a photograph of a person. It's likely an author portrait included in the academic paper to identify the author or contributors. It contains no diagrams, charts, graphs, equations, or other technical illustrations. The image serves a purely biographical or introductory purpose, not a technical one. -->
 **Xin Xia**is the director of the Software Engineering Application Technology Lab at Huawei, China. He received the**ACM SIGSOFT Early Career Researcher Award** in 2022. His current research focuses on data science for software engineering, i.e., mining and ana-
 
 lyzing rich data in software repositories to uncover interesting and actionable information.

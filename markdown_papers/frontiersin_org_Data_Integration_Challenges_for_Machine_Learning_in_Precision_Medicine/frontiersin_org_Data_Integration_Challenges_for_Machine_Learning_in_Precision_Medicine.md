@@ -1,7 +1,7 @@
 ---
 cite_key: "b2021"
-title: "[Data Integration Challenges for](https://www.frontiersin.org/articles/10.3389/fmed.2021.784455/full) Machine Learning in Precision Medicine"
-authors: "- <span id=\"page-20-1\"></span>312. Jana B, Poray J, Mandal T, Kule M. A multilevel encryption technique in cloud security. In: 2017 7th International Conference on Communication Systems and Network Technologies (CSNT). Nagpur: IEEE (2017). p. 220–4."
+title: "Data Integration Challenges for Machine Learning in Precision Medicine"
+authors: "Clinical Research Division, Mexico City, Computational Genomics Division"
 year: 2021
 doi: "10.3389/fmed.2021.784455/full)"
 date_processed: "2025-07-02"
@@ -15,6 +15,7 @@ images_removed: 1
 <span id="page-0-0"></span>
 
 ![](_page_0_Picture_2.jpeg)
+<!-- Image Description: That image is not a diagram, chart, graph, equation, or technical illustration from an academic paper. It's a simple graphical button or icon commonly used in software interfaces. The image displays a circular progress indicator partially filled, overlapping a bookmark icon, and the text "Check for updates." Its purpose within the paper's context is likely to indicate that the paper might have newer versions, suggesting readers look for updated content. -->
 
 # [Data Integration Challenges for](https://www.frontiersin.org/articles/10.3389/fmed.2021.784455/full) Machine Learning in Precision Medicine
 
@@ -73,6 +74,7 @@ In order to present a panoramic view on how these and other challenges may be ov
 The following section (Precision medicine: transforming biomedical evidence with data analytics) will outline how the tenets of computational intelligence and machine learning may be used to advance medicine turning it (even more) into a fullevidence based science. We will see that in order to impact biomedical research, clinical practice and public policy, AI/ML approaches could be helpful to extend our capacities to generate biomedical knowledge, contribute to knowledge dissemination, translate personalized medicine into clinical practice and even empowering the patients. In order to develop, large scale data analytics in medicine should be able to become translational, i.e., moving faster from research environments to clinical settings to ultimately benefit the patients. Then, we will move on in the next section, to discuss the main challenges involved in the use of computational learning toward Precision Medicine.
 
 ![](_page_2_Figure_2.jpeg)
+<!-- Image Description: Figure 1 presents a workflow for AI/ML modeling in precision medicine. It's a flowchart showing four stages: 1) diverse data sources (social interaction, genetics, EHRs, etc.), 2) data collection methods, 3) data modeling and processing (emphasizing big data challenges and cloud computing solutions), and 4) data integration for precision medicine (illustrated with a human body diagram showing integrated data inputs). The figure highlights the challenges of integrating diverse data types for successful AI/ML application in this field. -->
 
 <span id="page-2-0"></span>These include processing heterogeneous and unstructured data, working on collaborative and cloud-based resources, developing standards for data sharing and collaboration, implementing software solutions to support large scale data analytics under the biomedical and clinical diverse data ecosystems.
 

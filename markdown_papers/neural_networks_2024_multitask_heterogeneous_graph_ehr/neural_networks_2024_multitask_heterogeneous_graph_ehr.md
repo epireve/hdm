@@ -1,7 +1,7 @@
 ---
 cite_key: "chan2024"
 title: "Multi-task Heterogeneous Graph Learning on Electronic Health Records"
-authors: "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yu"
+authors: "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
 year: 2024
 doi: "arXiv:2408.07569"
 url: "https://arxiv.org/abs/2408.07569"
@@ -41,6 +41,7 @@ Furthermore, the EHR data encompass various tasks
 
 <sup>∗</sup>Corresponding author. Email address lqyu@hku.hk
 *Preprint submitted to Neural Networks August 15, 2024*<span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: The image is a flowchart illustrating challenges in utilizing Electronic Health Records (EHR) for machine learning. It depicts three key challenges: structural sparsity (shown as a sparse tree structure), noisiness (illustrated by a time-series graph of fluctuating data), and heterogeneity (represented by contrasting patient profiles – male vs. female). The flowchart connects various data sources within EHR (lab events, clinical reports, diagnosis, medications, length of stay, patient demographics) to these challenges. The purpose is to visually represent data complexities hindering the effective application of machine learning to EHR data. -->
 
 Figure 1: Illustration of EHR data and the challenges. EHRs contain enriched information on clinical visits of patients, including relevant medications and diagnoses. However, analysis of EHR data poses three challenges — the sparsity in the data structure, noisiness, and heterogeneity of patients and their visits make it difficult to deliver accurate analysis.
 
@@ -58,6 +59,7 @@ Motivated by the aforementioned limitations in existing research, we propose a n
 - We perform extensive experiments on two benchmark datasets to validate the effectiveness of our method over state-of-the-art methods. Our model is shown to consistently outperform the competitors over four popular clinical tasks based on EHRs — predictions of mortality, readmission, length-ofstay, and drug recommendation. Enriched ablation studies demonstrate the robustness of our method to different components and hyperparameters.
 
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
+<!-- Image Description: This image presents four simple flowcharts illustrating different healthcare scenarios. The top row depicts a visit leading to medication and another visit (left) and a visit resulting in a prescription (right). The bottom row shows a patient receiving a diagnosis and treatment (left), and a visit followed by a diagnosis (right). The charts use icons representing patients, visits, medications, prescriptions, diagnosis, and treatment to visually represent the sequences of events. The purpose is likely to illustrate the various pathways within a healthcare system. -->
 
 Figure 2: Four examples of meta-relations highlighted in the EHRs. These meta-relations involve structural connections between multiple nodes with different node types, highlighting the heterogeneity of the data. Consequently, a homogeneous graph model is insufficient to effectively capture and represent these complex meta-relations.
 
@@ -78,6 +80,7 @@ Many recent works [\[44,](#page-13-4) [25,](#page-12-13) [9,](#page-12-14) [48\]
 Heterogeneous Graph. A heterogeneous graph is defined by a graph <sup>G</sup> <sup>=</sup> (V, <sup>E</sup>, <sup>A</sup>,R), where <sup>V</sup>, <sup>E</sup>, <sup>A</sup> represent the set of entities (vertices or nodes), relations (edges), and entity types respectively, and R represents the space of edge attributes. For*v*∈ V,*v* is mapped to an entity type by a function τ(*v*) ∈ A. An edge *<sup>e</sup>* <sup>=</sup> (*h*,*r*, *<sup>t</sup>*) ∈ E links the head node *<sup>h</sup>*and the tail node
 
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates a data model for patient medical records. Squares represent patients ($P_i$), circles represent visits ($V_{ij}$), triangles represent diagnoses ($D_k$), and rectangles represent treatments ($T_l$). Arrows indicate relationships between visits, diagnoses, and treatments for each patient. The model shows multiple visits per patient leading to multiple diagnoses and subsequent treatments. The purpose is to visualize the structure of the data used in the paper's analysis. -->
 
 Figure 3: An example of a heterogeneous graph constructed from EHR data, where*N*represents the total number of patients, and*m<sup>i</sup>*represents the total number of visits by the*i*-th patient.
 
@@ -107,6 +110,7 @@ $$
 where <sup>γ</sup> is the margin for contrastive learning, [*x*]<sup>+</sup> <sup>=</sup> max(*x*, 0), and *<sup>S</sup>*′*<sup>e</sup>* = {(*h* ′ ,*r*, *<sup>t</sup>*)|*<sup>h</sup>* ′ ∈ V} ∪ {(*h*,*r*, *<sup>t</sup>* ′ )|*t*′ ∈ V} is the set of negative samples by replacing either a head*h*or a tail*t* with another node in the graph. Through self-supervised learning, nodes sharing similar features would be pulled together and those whose features are different would be pushed away, leading to more distinguishable node features. Since most medical entities (e.g., diagnosis) are static, pretraining the node embeddings would also lead to improved inductive inference performance when new nodes (e.g., visits or patients) arrive.
 
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: This figure depicts a graph neural network (GNN) architecture for multi-task learning on electronic health records (EHRs). It shows three phases: graph construction (creating a heterogeneous graph from EHR data), training (a GNN processes the graph, generating embeddings), and evaluation (predicting readmission, mortality, length of stay, and drug recommendations). The training phase uses a shared-weight GNN with multi-task learning, combining objective and task-specific losses. A visualization component aids interpretability. The diagram uses boxes to represent modules, arrows show data flow, and tables summarize input data. -->
 
 Figure 4: Overview of our proposed framework. We first construct a heterogeneous graph from the raw EHR data, and then obtain node-level representation with heterogeneous GNNs. Causal and trivial representations are disentangled and the task-specific loss is obtained by combining the classification loss Lobj and the uniform loss Lunif. We adopt a task-level aggregation module to obtain the multi-task learning loss. After training the GNN, we test the GNN with different downstream tasks (e.g., mortality prediction and drug recommendation).
 
@@ -142,6 +146,7 @@ $$
 where JS is the Jensen–Shannon divergence [\[6\]](#page-12-21) between two distributions,*z*<sup>G</sup>*<sup>t</sup>* is the trivial representation predictive with the node features from trivial graph G*<sup>t</sup>*, and*y*unif is the noise feature vector where each element is
 
 <span id="page-5-1"></span>![](_page_5_Figure_6.jpeg)
+<!-- Image Description: The image is a causal diagram illustrating a latent variable model. Nodes represent variables (A: covariates, T: treatment, S: confounders, R: latent representation, Y: target). Arrows indicate causal relationships. The diagram shows how covariates (A) and treatment (T) influence a latent representation (R), which in turn affects the target variable (Y). Confounders (S) affect both the treatment and the latent representation, highlighting potential biases. The diagram's purpose is to visually represent the complex relationships between variables within the paper's model. -->
 
 Figure 5: A causal diagram illustrating the effects of shortcut features. Without denoising, the model would make a prediction based on trivial features *S*(i.e., the backdoor path*S*→*R*→*Y*) , and the trivial variables (i.e., noise variables *S*) would hamper the prediction performance. Causal denoising aims to reduce the confounding effects by removing these backdoor paths during the training.
 
@@ -291,6 +296,7 @@ We also compare the embeddings from different GNN architectures. We observe that
 Prediction Interpretations. We perform a case study on a specific visit of a patient to evaluate the decision process on readmission prediction. For the selected visit node, we select the top 3 diagnosis edges that have the highest edge attention scores. Table [5](#page-9-2) presents the visit and the selected diagnoses associated with their readmission prediction (together with the ICD9 codes and description of the diagnoses). We observe that our model can select diagnoses related to brain functionality and cancer according to their attention scores, which provides evidence that the model can effectively capture the semantic information in EHRs when making read-
 
 <span id="page-9-1"></span>![](_page_9_Figure_0.jpeg)
+<!-- Image Description: The image displays three 2D scatter plots visualizing data likely from a healthcare system. The first plot shows distinct clusters of points representing diagnoses, patients, prescriptions, procedures, and visits, potentially illustrating relationships between these data types. The second and third plots appear to be dimensionality-reduced representations of the same data, showing the data points after applying a dimensionality reduction technique like t-SNE or UMAP. The plots likely demonstrate the separation or clustering of data points based on different categories within a dataset. -->
 
 Figure 6: T-SNE scatter plot of the embeddings (Left panel: MulT-EHR, Middle panel: StageNet [\[8\]](#page-12-26), Right panel: Deepr [\[26\]](#page-12-24)). We observe that MulT-EHR can capture more complex patterns than other methods.
 
@@ -364,12 +370,14 @@ sharing. We experiment with one to four tasks, and Table [7](#page-9-4) presents
 changes. However, using a homogeneous GNN architecture (e.g., GCN) would hamper the predictive performance since they only consider direct connections in the graph by neighbour averaging. Hence, they cannot leverage the structural information in the EHR data, which leads to less satisfactory performance.
 
 <span id="page-10-1"></span>![](_page_10_Figure_5.jpeg)
+<!-- Image Description: The image displays a bar chart comparing four metrics (DR, MORT, READM, LOS) across eight different parameter settings (x-axis). Each bar represents the value of a metric for a given parameter setting, with the height corresponding to the metric's value. The chart likely illustrates the effect of varying a parameter (possibly a regularization or learning rate) on four performance indicators in a model, potentially within a machine learning or statistical modeling context. The purpose is to show the impact of the parameter on the model's performance, allowing for comparison of results under different conditions. -->
 
 Figure 7: Performance in AUROC of MulT-EHR with different values of λ on MIMIC-III tasks (DR: drug recommendation, MORT: mortality, READM: readmission, LoS: length of stay).
 
 # *6.4. Hyperparameter Tuning*Tuning Parameters for Objectives. We evaluate the <sup>e</sup>ffect of the regularization parameter λ of different task losses. Figure [7](#page-10-1) presents the change in performance as λ increases. We observe that the performance is in general robust to λ, where a slightly decreased performance is observed when λ is too large. Since λ represents the
 
 <span id="page-10-3"></span>![](_page_10_Figure_10.jpeg)
+<!-- Image Description: The image displays a bar chart comparing four metrics (DR, MORT, READM, LOS) across five different sizes (16, 32, 64, 128, 256). Each bar represents the value of a metric for a given size. The chart likely shows the performance or outcome of a system or process at varying scales, with the purpose of analyzing the effect of size on these four key performance indicators. -->
 
 Figure 8: Performance in AUROC of MulT-EHR with different hidden dimensions on MIMIC-III tasks (DR: drug recommendation, MORT: mortality, READM: readmission, LoS: length of stay).
 
@@ -524,16 +532,21 @@ Figure [D.9](#page-15-0) visualizes the node embeddings of MIMIC-III entities tr
 The dropout rate determines the regularization of the learning. Figure [E.11](#page-15-2) presents the results of our framework with different dropout rates. We report the AUROC from the four benchmark tasks using dropout rates of {0.1, <sup>0</sup>.2, <sup>0</sup>.3, <sup>0</sup>.4, <sup>0</sup>.5, <sup>0</sup>.6}. We observe that our method is robust to different dropout rates. The example learning curve on drug recommendation tasks can be found in Figure [D.10.](#page-15-1) Incorporating dropouts can enhance the overall performance of the model, while it is essential to fine-tune the dropout rate to achieve optimal
 
 <span id="page-15-0"></span>![](_page_15_Figure_0.jpeg)
+<!-- Image Description: The image displays a scatter plot visualizing the relationships between five medical data categories: diagnosis, patient, prescription, procedure, and visit. Data points are clustered near the origin, with a few outliers. The plot likely illustrates the dimensionality reduction or clustering of medical records, showcasing relationships between different record types within a dataset. The purpose is to show data distribution and potential relationships between different record types, probably to inform further analysis within the paper. -->
 
 <span id="page-15-1"></span>![](_page_15_Figure_1.jpeg)
+<!-- Image Description: The image displays a line graph illustrating the Area Under the ROC Curve (AUROC) against the number of steps. Multiple lines represent different values of a parameter 'd' (0.1, 0.2, 0.3, 0.4). The graph shows the AUROC's convergence behavior for varying 'd' values over training steps, likely to demonstrate the impact of this parameter on model performance in a machine learning context. -->
 
 ![](_page_15_Figure_2.jpeg)
+<!-- Image Description: The image displays a 2D scatter plot visualizing the results of a dimensionality reduction technique (likely t-SNE or UMAP) applied to medical data. Five distinct clusters are color-coded and labeled: diagnosis, patient, prescription, procedure, and visit. The plot's purpose is to show the relationships and potential separation between these different data types within a reduced-dimensionality space. The clusters' spatial distribution suggests varying degrees of correlation and separation among the data categories. -->
 
 ![](_page_15_Figure_3.jpeg)
+<!-- Image Description: This scatter plot visualizes a dimensionality reduction of medical data. Points represent different data types (diagnosis, patient, prescription, procedure, visit), color-coded for distinction. The plot shows clusters of data points suggesting relationships between these data types. Its purpose is to illustrate the structure and relationships within the dataset after applying a dimensionality reduction technique, likely for visualization or feature extraction in a machine learning context. -->
 
 Figure D.10: Learning curves of MulT-EHR with different dropout rates.
 
 <span id="page-15-2"></span>![](_page_15_Figure_5.jpeg)
+<!-- Image Description: The image displays a grouped bar chart comparing four metrics (DR, MORT, READM, LOS) across six different x-axis values (0.1 to 0.6). Each group of bars represents a single x-axis value, showing the corresponding values for each of the four metrics. The chart likely illustrates the relationship between the x-axis variable (not specified) and the four outcome measures, possibly showing trends or correlations. -->
 
 Figure E.11: Performance in AUROC of MulT-EHR with different dropout rates on MIMIC-III tasks (DR: drug recommendation, MORT: mortality, READM: readmission, LoS: length of stay).
 

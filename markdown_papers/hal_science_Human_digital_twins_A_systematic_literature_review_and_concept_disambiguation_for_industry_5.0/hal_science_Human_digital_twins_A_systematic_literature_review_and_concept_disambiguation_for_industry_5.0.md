@@ -1,7 +1,7 @@
 ---
 cite_key: "gaffineta2002"
 title: "Human Digital Twin: Systematic Literature Review and Concept Disambiguation for Industry 5.0"
-authors: "Ben Gaffineta,b, Jana Al Haj Ali<sup>a</sup> , Yannick Naudet<sup>b</sup> , Herv´e Panetto<sup>a</sup>"
+authors: "Ben Gaffineta, Jana Al Haj Ali, Yannick Naudet"
 year: 2002
 doi: "10.2777/308407."
 date_processed: "2025-07-02"
@@ -191,6 +191,7 @@ This section provides the answer to the first part, namely the evolution over ti
 We have gathered all papers on HDTs based on our query defined in Section 3.3, including papers from all application domains of the papers. Four main domains emerged from our selection: (i) Industry (32.2%), (ii) Healthcare (28.9%), (iii) Metaverse (7.8%) and (iv) Mobility (5.5%). The first scientific publication that uses the concept of HDT was published in 2017 with an application in industrial production systems [20]. The author applies the concept of DT to a human to capture their behaviour and act as their representative. Since the first publication the concept has attracted increased interest, which manifests as an accelerated growth in the number of publications, as presented in Figure 2. Notably Industry was the first application area to adopt the concept and an increased number of publications follows over the next years. In 2019 the concept spreads for the first time to
 
 ![](_page_14_Figure_0.jpeg)
+<!-- Image Description: This image displays a timeline charting the development of Human Digital Twins (HDTs). It shows key milestones, including the first mention of HDTs in scientific literature (2018), categorization into passive, semi-active, and active HDTs (2019), and the introduction of an HDT conceptual model (2021). The timeline also features descriptions of HDTs and their components, illustrating the evolution of the concept and its applications across various fields like healthcare and mobility. The figure uses text boxes and a horizontal timeline to organize the information chronologically. -->
 
 Figure 1: Timeline of Human Digital Twins (HDT) and various conceptual perspectives.
 
@@ -199,14 +200,17 @@ another domain, namely into Healthcare [22]. Within only 3 years the number of p
 **in scientific Literature Preliminary Definition** The total number of scientific publications by application area is shown in Figure 3(a). HDT research remains dominated by Healthcare and Industry with a combined 61.1% of all extracted scientific publications. Both Metaverse and Mobility applications are new additions that are worth setting apart. Notably a large number of publications is categorised in the Other application area category. This is due to the rapid introduction of HDTs in completely new, and highly diverse area. From Figure 2 the number of publications that don't fit prior categories is increasing rapidly around 2022. A more detailed breakdown on Figure 3(b) illustrates how wide the application areas have spread since 2022.
 
 ![](_page_15_Figure_0.jpeg)
+<!-- Image Description: This bar chart displays the number of publications per year (2017-2023) categorized by industry sector: Healthcare, Industry, Metaverse, Mobility, and Other. It shows a significant increase in publications across all sectors from 2017 to 2023, with Healthcare and Industry consistently showing the highest numbers. The chart's purpose is to illustrate trends in publication output within different technological sectors over time. -->
 
 Figure 2: Number of publications by year and by application area. In 2023 papers were screened until the 15th of June.
 
 ![](_page_15_Figure_2.jpeg)
+<!-- Image Description: The image contains two charts analyzing paper publications. (a) is a pie chart showing the distribution of papers across five application categories: Healthcare (26), Industry (29), Metaverse (7), Mobility (5), and Other (23). (b) is a bar chart and line graph showing the number of unique categories and total number of papers published each year from 2020 to 2023, illustrating a growth trend. Both charts likely demonstrate the topic distribution and publication volume in a specific research field over time. -->
 
 Figure 3: (a) Total number of publications by application area. (b) Total number of papers categorised as "Other" and number of unique categories that have less than 4 papers.
 
 ![](_page_16_Figure_0.jpeg)
+<!-- Image Description: The bar chart displays the number of publications per year (2017-2023) categorized by continent (Africa, Asia, Europe, North America). It illustrates the publication trend over time for each region. The year 2022 shows the highest total number of publications, primarily from Europe. The chart's purpose is to visually represent geographical distribution of publications within the study's timeframe. -->
 
 Figure 4: Number of publications by year and continent.
 
@@ -219,6 +223,7 @@ This section provides an answer to the second part, namely the geographic distri
 This section provides an answer to RQ3: What is the conceptual understanding, or definition, of HDTs? Due to the high number of different application cases many different scientific communities are researching HDTs. With each community comes a different set of domain-specific vocabulary and understandings of what an HDT should consist of. In Figure 1 we highlight
 
 ![](_page_17_Figure_0.jpeg)
+<!-- Image Description: This stacked bar chart displays the number of publications per country categorized by sector: Healthcare, Industry, Metaverse, Mobility, and Other. The y-axis represents the publication count, and the x-axis lists various countries. The chart's purpose is to visualize the geographical distribution of publications across different sectors, highlighting which countries are most prolific in each area. The USA shows the highest overall publication count. -->
 
 Figure 5: Number of publications by country and application area.
 
@@ -240,6 +245,7 @@ This section addresses RQ3.2: How is the concept of DT understood and used? A cl
 In 2018 a major paper [31] presents how the concept of DT is used differently in various disciplines, as well as conceptual variations in the definitions themselves. According to the authors the level of data integration of the DT is not always considered explicitly. To harmonise the understanding they introduce three subcategories which are distinguished by their level of integration (see Figure 6), namely; (i) Digital Model, (ii) Digital Shadow, and (iii) Digital Twin.
 
 ![](_page_19_Figure_0.jpeg)
+<!-- Image Description: The image illustrates three representations of digital twins: digital model, digital shadow, and digital twin. Each panel shows a physical object (grey box with gears) and a digital object (light blue box with circuit diagram). Arrows indicate automatic (solid) and manual (dashed) data flow between them. The digital model uses only manual data flow, the digital shadow uses automatic data flow from physical to digital object, and the digital twin features bidirectional automatic data flow. The image clarifies the distinctions between these concepts. -->
 
 Figure 6: (a) Digital Model, (b) Digital Shadow and (c) Digital Twin as introduced in Kritzinger et al. [31]. The categories are distinguished by the level of data integration.
 
@@ -271,6 +277,7 @@ Out of the 90 papers on HDT analysed, 49 were about true DTs, 11 about Digital S
 A second major factor that impacts the integration level is whether the paper is conceptual in nature or presents an implementation. Following this, Figure 7 shows the difference in level of integration for each application domain. For all application areas the level of integration is higher for conceptual papers than for case-studies. In aggregate 76.2% of conceptual papers propose true DTs, while only 42.9% of case-studies do. The difference is even more pronounced when counting the increase in Digital Models when moving from concept towards implementation; 16.7% of conceptual papers propose Digital Models while 46.9% of implementations are Digital Models. Please note that not all Digital Models are misidentified DTs as some authors choose to create a Digital Model first, before addressing the technical challenges to elevate it to become a DT. On Figure 7 a more granular overview is given. Notably the level of integration is decreasing for all application areas when going towards implementation. Paper from industrial applications achieve an overall high level of integration. The concept of DTs themselves stems from industrial research and the community has an increased familiarity with
 
 ![](_page_21_Figure_0.jpeg)
+<!-- Image Description: This stacked bar chart displays the number of publications categorized by topic and type of digital technology: Digital Model, Digital Shadow, and Digital Twin. Each bar represents a category (e.g., Healthcare, Industry, Metaverse), with segments indicating the count of publications focusing on each digital technology within that category. The chart illustrates the relative prevalence of different digital technologies across various application domains in the literature. -->
 
 Figure 7: Level of data integration in reviewed paper, categorised by application domain and whether the study is conceptual in nature or a practical case-study.
 
@@ -291,6 +298,7 @@ The second category is DTs of systems containing humans. If the authors create a
 From this analysis we can observe the overwhelming consensus that the twinned entity of an HDT is a human individual. It is to be distinguished
 
 ![](_page_23_Figure_0.jpeg)
+<!-- Image Description: The pie chart displays the distribution of 85+2+3=90 data points across three categories: "Human individual" (94.44%), "Human role" (3.33%), and "System containing humans" (2.22%). The chart likely illustrates the prevalence of different perspectives or entities in a dataset analyzed in the paper, potentially related to human-centered systems or similar topics. The large proportion of "Human individual" suggests a focus on individual human experiences within the study. -->
 
 Figure 8: Count of publications categorised by the nature of the twinned entity.
 
@@ -303,6 +311,7 @@ Through our literature review we have explored the main conceptual components of
 For our analysis, we come back to the high-level model of a DT and its twinned entity. That is a physical object (the twinned entity), a digital object (the DT), and data flows between them. In the following, we clarify what are the physical object and the digital object in the case of an HDT, and we categorise HDTs variations based on the nature of data transfers. In Figure 10 we give a basic overview of the differences between (i) Human Digital Model; (ii) Human Digital Shadow; (iii) Human Digital Twin and; (iv) traditional Digital Twin. A traditional DT receives data automatically from a technical system through a data acquisition interface. It processes the data and runs models to return automatic feedback to the twinned sys-
 
 ![](_page_24_Figure_0.jpeg)
+<!-- Image Description: The image is a diagram illustrating the concept of digital twins. It shows two columns, "Physical World" and "Digital World," with corresponding representations of physical objects, twinned entities, and humans, linked to their digital counterparts (digital objects, digital twins, and human digital twins). The diagram clarifies terminology, differentiating between various types of digital representations and their scope (general vs. human-only). Boxes list synonyms for physical and digital entities, aiding in defining the terminology and clarifying the various types of digital twins. -->
 
 Figure 9: Vocabulary for Digital Twin and Human Digital Twin.
 
@@ -315,6 +324,7 @@ Each of the elements are discussed in detail in the Sections below; (i) Physical
 For DTs in general the twinned entity can be any physical object. One aspect that separates an HDT from a traditional DT is that the twinned entity needs to be human. In our preliminary definition the twinned entity has to be of human nature. However in Section 4.3.2 we have established that there is high consensus that the twinned entity needs to be a human individual. We align ourselves with the consensus and refine the definition with the necessary, but not sufficient, condition that the twinned entity is a human individual.
 
 ![](_page_25_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates four digital twin approaches for human-machine interaction. (i) shows a human digital model built from manual data; (ii) a shadow twin using automatic data flow; (iii) a human digital twin incorporating both; and (iv) a traditional digital twin linked to a technical system. Arrows denote automatic (solid) and manual (dashed) data flow between the human individual and their digital representation. The diagram clarifies different data acquisition methods and their resulting digital twin types. -->
 
 Figure 10: Overview of entities and data flows for (i) Human Digital Model; (ii) Human Digital Shadow; (iii) Human Digital Twin and; (iv) traditional Digital Twin.
 
@@ -323,6 +333,7 @@ However there is a special case which tests the boundary of this condition. Is i
 We take the position that a single DT that encompasses a human and a weakly coupled technical system is not an HDT as the gathered data is no longer focused on the human individual but also the technical system. Additionally the human can remove themselves from the interaction and render the joint DT ineffective. For this reason it would be advisable to create
 
 ![](_page_26_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates an augmented human system. A central "Augmented Human Digital Twin" block receives data via manual and automatic flows from a "Human Individual" and a "Technical System". Data flows are depicted using different line styles (dashed, solid, etc.) indicating data acquisition methods and coupling strengths. The diagram showcases the interplay of human, digital, and technical components within an augmented human framework. -->
 
 Figure 11: Data flows of an augmented Human Digital Twin (aHDT) where a human and a strongly coupled technical system is twinned to a single DT.
 
@@ -418,6 +429,7 @@ Beyond challenges about trust that are related to technical challenges, there ar
 HDTs concentrate data about a human individual and with an appropriate design philosophy can give the individual increased control over their data in question and how it is used, including what decisions impacting their own life can be made with it. Establishing guiding principles for ethical HDT development are an urgent need for industrialists [62] and requires interdisciplinary work with researchers from social sciences.
 
 ![](_page_36_Figure_0.jpeg)
+<!-- Image Description: The image presents a conceptual framework for Human Digital Twins (HDTs). It uses a diagram divided into "Twinned Entity" (showing human, augmented human, and technical system options) and "Data Integration" (illustrating digital model, digital shadow, and digital twin with varying levels of automatic data input and feedback). The diagram visually explains how different combinations of twinned entities and data integration methods lead to different types of HDTs. A short description clarifies the essential elements of an HDT. -->
 
 Figure 12: Essentials of Human Digital Twins and categorisation framework based on the twinned entity and level of data integration.
 

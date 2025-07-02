@@ -1,7 +1,7 @@
 ---
 cite_key: "kg2000"
-title: "**ATemporal Knowledge Graph Generation Dataset Supervised Distantly by Large Language Models**"
-authors: "TKG represents a signifcant and vibrant branch of KG, garnering considerable interest in recent years. By incorporating the dimension of time, TKGs ofer a richer representation of the real world, enabling a more nuanced understanding of event occurrence. For example, two static knowledge triples <*Tomas Wolf, joined, UC Berkeley*> and <*Tomas Wolf, published, Seminal Paper*> can be extracted from the sentence \"Tomas Wolf joined UC Berkeley in 1976 and published his seminal paper in 1984\". Te triplet without temporal information is not conducive to representing realistic facts. More dynamic facts are represented in the TKG as <*Tomas Wolf, joined, UC Berkeley, 1976*> and <*Tomas Wolf, published, Seminal Paper, 1984*>. Moreover, the dynamic nature of event expressions within TKG facilitates a comprehensive analysis of historical and prospective developments, providing a clearer and more logically coherent narrative of events over time. Tis"
+title: "A Temporal Knowledge Graph Generation Dataset Supervised Distantly by Large Language Models"
+authors: "Jun Zhu, Yan Fu, Junlin Zhou, Duanbing Chen"
 year: 2000
 doi: "10.1007/978-3-642-15939-8"
 date_processed: "2025-07-02"
@@ -14,7 +14,7 @@ images_removed: 0
 
 # OPEN
 
-**Data Descriptor**# ATemporal Knowledge Graph Generation Dataset Supervised Distantly by Large Language Models
+**Data Descriptor**# A Temporal Knowledge Graph Generation Dataset Supervised Distantly by Large Language Models
 **Jun Zhu <sup>1</sup>, Yan Fu1,2, Junlin Zhou1,2 & Duanbing Chen 1,2**✉
 **Knowledge graphs can be constructed by extracting triples from documents, which denotes documentlevel relation extraction. Each triple illustrates a fact composed of two entities and a relation. However, temporal information corresponding to these facts is ignored. Incorporating temporal information exhibits the temporal connections between facts. Constructing a temporal knowledge graph (TKG) from documents is relatively unexplored. To address this limitation, we built a new dataset for this task based on a document-level relation extraction dataset. We mine the combination relation patterns and construct temporal quadruples by combining facts and timestamps. Additionally, two large language models (LLMs) are adopted to generate quadruples for the rest of the triples without timestamps. Multiple flters and manual annotation are used to ensure the quality of the data. To evaluate the dataset, we propose an LLM-based framework for extracting relations with temporal information from documents. The framework transforms relation extraction to a seq-to-seq task and fne-tunes LLMs to predict the relation with timestamps between entities. Experiments show the performance of LLMs on the proposed dataset.**## Background & Summary
 
@@ -238,8 +238,10 @@ For the TKG generation, there are no existing methods for this task. So we const
 **LLM Framework.** Diferent from data construction, the task of TKG generation aims to extract relations from entities and timestamps based on the context rather than determining the correctness of quadruples. Terefore, we propose a novel LLM framework by adjusting the prompt and designing external modules. Te adjusted prompt is shown in Fig. [5](#page-9-0). Te new prompt consists of a generation demand, a list of entities, a list of
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates the data structure of the Tem-DocRED dataset. It shows four JSON files (train, val, test, and rel_info) containing nested dictionaries. The `train`, `val`, and `test` files each have `dict_1` and further nested dictionaries including `vertexSet`, `labels`, and `sents`. The `rel_info` file contains dictionaries labeled `T1` and `T2`. The diagram visually represents the hierarchical organization of the data for relation extraction. -->
 
 <span id="page-7-0"></span>![](_page_7_Figure_2.jpeg)
+<!-- Image Description: Figure 3 is a text caption, not a visual image. It describes the organization of the "Tem-DocRED Dataset File Directory," indicating that the figure (presumably missing from the provided text) is a diagram or illustration showing the file structure of a dataset used in the paper. The caption's purpose is to provide context for the subsequent figure, which details the organization of the dataset's files within its directory. -->
 
 relations, a list of timestamps and some examples. Te LLM is requested to pick up two entities, a relation and a timestamp from corresponding lists for each to construct a fact in the form of <*subject entity, relation, object entity, timestamp*>. For most LLMs, the generated content becomes longer, and the accuracy decreases. To minimize the impact as much as possible, we set "at least 5 triplets" (we set this value based on the average number of facts in the training set.) in the initial prompt. To standardize the output of LLMs and ensure that the results can be parsed, we have specifed the output format and provided some unstructured quadruple examples. At the same time, we have also given the meaning of the quadruple expressions for the LLM to understand.
 
@@ -255,8 +257,10 @@ Following previous works of DocRE[30](#page-12-26),[31](#page-12-27), we employ 
 **LLM Comparison on Tem-DocRED.** Results of TRE are shown in Table [5](#page-9-1). All LLMs perform poorly on the Tem-DocRED. Te main reason is the hallucination of LLMs. Tey ofen generate facts like <*'Rihanna', 'born in', 'Barbados', '2010'*>, which looks correct without considering the document. But the timestamp is completely unrelated to the fact. LLMs can't exactly capture the occurrence time of each fact. Another issue is that LLMs
 
 ![](_page_8_Figure_1.jpeg)
+<!-- Image Description: This bar chart displays the frequency of 24 different relationship types in a dataset. The x-axis represents the relationship type (e.g., "joined," "born in," etc.), while the y-axis shows the count of occurrences. The chart's purpose is to illustrate the distribution of various relationships within the data, highlighting the prevalence of certain connections over others. The tallest bar represents "joined" with a count of 3203. The chart likely supports quantitative analysis of the relationships within the paper's subject matter. -->
 
 ![](_page_8_Figure_2.jpeg)
+<!-- Image Description: The image is a bar chart showing the distribution of named entity types in a dataset. The categories are: PER (person), TIME, LOC (location), NUM (number), MISC (miscellaneous), and ORG (organization). The chart displays the count of each entity type, with LOC having the highest frequency (14485) and NUM having the lowest (3317). The chart likely illustrates the dataset's characteristics and informs the methodology section of a natural language processing or information extraction paper. -->
 
 <span id="page-8-0"></span>**Fig. 4**Statistics of entities and relations in the Tem-DocRED, where**(a)**shows the number of facts containing diferent relationship types, and**(b)** shows the number of entities of diferent types.
 
@@ -265,6 +269,7 @@ sometimes generate completely wrong answers. Although we have defned the form of
 Among all LLMs, GLM-4 and Llama-3 outperform other LLMs. Tese models are specifcally optimized for handling longer texts, thereby exhibiting superior comprehension abilities when processing documents. Within the same model families, those with more parameters tend to perform better, as evidenced by the performance of Yi-1.5-6B and Yi-1.5-9B. For each model, the diference between F1 and Ign F1 is relatively minor or non-existent.
 
 ![](_page_9_Figure_1.jpeg)
+<!-- Image Description: The image displays a system for prompt reconstruction using LLMs and LoRA. A diagram illustrates the LLM + LoRA architecture, showing attention mechanisms and fine-tuning. Another diagram depicts a knowledge graph (TKG) representing factual information extracted from text, with nodes for entities, relations, and timestamps. A flowchart shows the process of generating quadruples (entity1, relation, entity2, timestamp) from the TKG, comparing predicted and positive results. The purpose is to visualize the architecture and workflow of a knowledge-based prompt reconstruction system. -->
 
 <span id="page-9-0"></span>**Fig. 5**Te LLM framework for DocTRE includes fne-tuning an LLM with prompts via LoRA. Generated results are fltered to remove irrelevant quadruples, and the remaining quadruples are used to construct the TKG.
 
@@ -293,6 +298,7 @@ To further explore the performance of LLMs on the facts with diferent relations,
 **LLM Comparison on TKG Generation.** To achieve the full process of generating TKG, we adopt TAG[31](#page-12-27) to extract mentions and resolve conferences, grouping these mentions into clusters. Since TAG does not provide
 
 ![](_page_10_Figure_1.jpeg)
+<!-- Image Description: This bar chart compares the recall performance of three large language models (LLaMA-3-8B, GLM-4-9B, Qwen-2-7B) across six different tasks. Each task (e.g., "participated," "published by") represents a specific type of question the models were asked to answer about a dataset. The chart's purpose is to illustrate the relative strengths and weaknesses of the models in retrieving relevant information, with higher recall indicating better performance. The x-axis represents the task, and the y-axis represents the recall score. -->
 
 <span id="page-10-0"></span>**Fig. 6**Te performance of several LLMs on the top six facts with diferent relations in terms of quantitative ranking. Te quantity of relevant facts increases from lef to right. Recall indicates the proportion of relevant facts in the test set that are predicted correctly.
 

@@ -146,6 +146,7 @@ In the literature, we observe that a majority of the applications focus on the p
 <span id="page-5-1"></span>Table 1: Different interpretations of personal knowledge graphs.
 
 ![](_page_5_Figure_2.jpeg)
+<!-- Image Description: The image is a data flow diagram illustrating a system architecture. Three data sources (Linked Open Data, Public data, Private data) are integrated and populate a central PKG (presumably a knowledge graph) managed by a system using ontologies. Services provide r/w access to the PKG, utilized by Owners and Users. The diagram shows data flow and system interactions, clarifying the relationships between data sources, the central PKG, services, and users. -->
 
 <span id="page-5-3"></span>Figure 1: PKG ecosystem.
 

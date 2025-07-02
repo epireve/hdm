@@ -1,7 +1,7 @@
 ---
 cite_key: "gaosupsup2014"
 title: "Large Language Models and Medical Knowledge Grounding for Diagnosis Prediction"
-authors: "Yanjun Gao<sup>1</sup>, Ruizhe Li<sup>2</sup>, Emma Croxford<sup>1</sup>, Samuel Tesch<sup>1</sup>, Daniel To<sup>1</sup>, John Caskey<sup>1</sup>, Brian W. Patterson<sup>1</sup>, Matthew M. Churpek<sup>1</sup>, Timothy Miller<sup>4</sup>, Dmitriy Dligach<sup>3</sup>, and Majid Afshar<sup>1</sup>"
+authors: "Yanjun Gao, Ruizhe Li, Emma Croxford, Samuel Tesch, Daniel To, John Caskey, Brian W. Patterson, Matthew M. Churpek, Timothy Miller, Dmitriy Dligach, Majid Afshar, Public Health, Wisconsin Madison"
 year: 2014
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -36,10 +36,12 @@ Current efforts at automating diagnosis generation from daily progress notes lev
 > Going beyond the technical aspects of constructing knowledge graphs, our work also focuses on the precise evaluation of LLMs, motivated by the need of improving diagnostic performance and ensuring diagnostic safety (Balogh et al., 2015; Donaldson et al., 2000). Existing evaluation metrics for LLM output are insufficient for evaluating diagnostic accuracies, where precise performance is necessary to ensure diagnostic safety. We focus on an evaluation framework that can identify the diagnostic errors and the root cause, and assess the self-explanatory aspects of LLMs' diagnostic processes. We designed the first human evaluation survey, following the SaferDX instrument, an organizational self-assessment tool with recommended practices aimed at improving diagnostic safety (Singh et al., 2019), for LLMs diagnosis prediction. The survey also incorporates the latest evaluation criteria for LLM, including factual accuracy, hallucination, quality of evidence, and other relevant aspects, identified from previous work in the field of biomedical NLP (Otmakhova et al., 2022; Singhal et al., 2023; Moramarco et al., 2021; Adams et al., 2021). Our aim is to bridge the gap between comprehensive diagnostic evaluation for safety and the capabilities of advanced language models, facilitating a deeper understanding of their diagnostic performance, and paving the way for safe LLM-augmented diagnostic decision support.
 
 ![](_page_2_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a four-step process for medical diagnosis using an LLM. Step 1 extracts concepts from a patient progress note and maps them to knowledge graph paths. Step 2 uses perplexity estimation to select the best prompt template from candidates, incorporating those paths. Step 3 uses the selected template to prompt an LLM, predicting diagnoses. Finally, Step 4 involves physician evaluation of the LLM's output against the original note. A key component is a knowledge graph (DR.Knows) representing relationships between medical concepts. -->
 
 Figure 1: Study overview: we focused on generating diagnoses (red font text in the Plan section) using the SOAP-Format Progress Note with the aid of large language models (LLM). The input consists of Subjective, Objective and Assessment sections (the dotted line box on the example progress note), and diagnoses in the Plan sections are the ground truth. We introduced an innovative knowledge graph model, namely DR.KNOWS, that identifies and extracts the most relevant knowledge trajectories from the UMLS Knowledge Graph. The nodes for the UMLS knowledge graph are Concept Unique Identifiers (CUIs) and edges are the semantic relations among CUIs. We experimented with prompting ChatGPT for diagnosis generation, with and without DR.KNOWS predicted knowledge paths. Furthermore, we investigated how this knowledge grounding influences the diagnostic output of LLMs using human evaluation. Text with underlines are the UMLS concepts identified through a concept extractor.
 
 ![](_page_2_Figure_3.jpeg)
+<!-- Image Description: The image is a directed acyclic graph illustrating the relationships between medical symptoms and conditions in a 47-year-old female patient presenting with fever, coughing, and sepsis. Nodes represent symptoms (fever, coughing) and conditions (sepsis, pneumonia), while edges depict relationships like "has pathological process," "is a," or "temporally follows." The graph visualizes the patient's symptoms and their potential underlying causes, aiding in differential diagnosis within the paper's context. -->
 
 Figure 2: Inferring possible diagnoses within 2-hops from a UMLS knowledge graph given a patient's medical description. We highlight the UMLS medical concept in the color boxes ("female", "sepsis", etc). Each concept has its own subgraph, where concepts are the vertices, and semantic relations are the edges (for space constraint, we neglect the subgraph for "female" in this graph presentation). On the first hop, we could identify the most relevant neighbor concepts to the input description. The darker color the vertices are, the more relevant they are to the input description. A second hop could be further performed based on the most relevant nodes, and reach the final diagnoses "Pneumonia and influenza" and "Respiratory Distress Syndrome". Note that we use the preferred text of Concept Unique Identifiers (CUIs) for presentation purposes. The actual UMLS KG is built on CUIs rather than preferred text.
 
@@ -137,14 +139,17 @@ Results from human evaluation Human evaluation was performed on few-shot ChatGPT
 Figure 4 describes all components of the diagnosis scores, considering six distinct scoring aspects. ChatGPT models with and without KG paths exhibited similar performance in ACCURACY, OMISSION, UNCERTAINTY, PLAUSIBILITY, and SPECIFICITY. Notably, both models excelled in terms of ACCURACY, consistently providing about 80% affirmative answers ("Yes") to the question of whether the output meets the criteria for an official diagnosis. In contrast, their performance in ABSTRACTION ranged from 13% ("KG") to 18% ("No KG"). On omitted diagnoses, approximately 14% to 15% stemmed from aleatoric uncertainty. This uncertainty contributed to about 18% of cases for "majority aleatoric" and 33% for "all aleatoric" scenarios for both models. Lastly, concerning the level of ABSTRACTION, ChatGPT with KG did not favor more extractive diagnoses than ChatGPT without KG, scoring 87% compared to 81% for
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image presents two pairs of box plots comparing diagnostic and reasoning scores with and without knowledge graph (KG) assistance. Each box plot displays the median, interquartile range, and outliers for a group. The plots visually compare the distribution of scores for diagnosis and reasoning tasks, showing the impact of KG integration on performance. The x-axis represents the task (Diagnosis/Reasoning) and KG use (No KG/KG), while the y-axis shows the score (0-1). -->
 
 Figure 3: Overall performance for ChatGPT models with the absence ("No KG") and the presence of DR.KNOWS ("KG").
 
 ![](_page_7_Figure_4.jpeg)
+<!-- Image Description: The image displays six bar charts comparing frequencies of different qualitative attributes for two groups, "KG" and "No KG". The charts assess abstraction, accuracy, plausibility, and specificity, further broken down by omission types (direct, indirect, epistemic, aleatoric). The purpose is to show the differences in these attributes between the two groups across various categorization schemes related to omission uncertainty. -->
 
 Figure 4: Diagnosis scores for ChatGPT models with the absence ("No KG") and the presence of DR.KNOWS ("KG").
 
 ![](_page_8_Figure_1.jpeg)
+<!-- Image Description: The image presents six bar charts comparing two groups (KG and No KG) across various aspects of knowledge representation. Each chart displays the frequency of responses for binary (Yes/No) or Likert scale (Strongly Disagree to Strongly Agree) questions. The metrics assessed are omission, abstraction, effective abstraction, poor comprehension, poor rationale, and poor recall. The charts likely illustrate the effectiveness of a KG (Knowledge Graph) intervention on knowledge representation quality. -->
 
 Figure 5: Reasoning scores for ChatGPT models with the absence ("No KG") and the presence of Dr.Knows ("KG").
 
@@ -161,6 +166,7 @@ In addition to DR.KNOWS' errors, there were instances where ChatGPT failed to le
 Figure 6: An error example of DR.KNOWS retrieved knowledge pathways. DR.KNOWS finds two paths leading to irrelevant and misleading diagnosis, marked as red fonts. The symbol represents a self-loop.
 
 ![](_page_9_Figure_3.jpeg)
+<!-- Image Description: The image displays a patient's medical progress note and its analysis by a knowledge-based system. The top section shows the patient's input data including symptoms and lab results. Below, the system outputs six knowledge paths linking the symptoms to possible diagnoses like renal failure and cirrhosis. Finally, it presents the gold standard diagnosis and predicted diagnoses based on the knowledge paths and input data. The image demonstrates the system's ability to process medical data and infer diagnoses. -->
 
 Figure 7: An example from ChatGPT with DR.KNOWS extracted knowledge pathways. Two paths had source CUIs ("Consulting with (procedure), Drug Allergy") that were less likely to generate pertinent paths for clinical diagnoses. Note that the path of "Drug allergy" led to a path contradicting to the "No Known Drug Allergies" description in the input. The path of "cirrhosis of liver" was a correct diagnosis, but ChatGPT failed to include it.
 
@@ -214,6 +220,7 @@ The detailed scoring in human evaluation not only highlighted ChatGPT's performa
 > In conclusion, LLMs like ChatGPT are a promising direction for generating diagnoses for clinical decision support; however, methods such as graph prompting are needed to guide the model down correct reasoning paths to avoid hallucinations and provide comprehensive diagnoses. While we show some progress in a graph prompting approach with DR.KNOWS, more work is needed to improve methods that leverage the UMLS knowledge source for grounding to achieve more accurate outputs. Furthermore, our human evaluation framework carries strong face validity and reliability to evaluate a model's strengths and weaknesses as a diagnostic decision support system.
 
 ![](_page_13_Figure_1.jpeg)
+<!-- Image Description: The image depicts a graph-based model for medical concept extraction. Input text ("47 yrs female with fever, coughing, and sepsis") is processed by SapBERT, generating text and concept encodings. These encodings are used to extract subgraphs from a knowledge graph, which are then fed through a graph neural network, a path encoder, and a path ranker to identify the top N scored CUIs (UMLS concepts). The diagram illustrates the workflow, showing data flow between the various model components. -->
 
 Figure 10: DR.KNOWS model architecture. The input concepts ("female", "fever", etc) are represented by concept unique identifiers (CUIs, represented as the combination of letters and numbers, e.g."C0243026", "C0015967").
 
@@ -390,6 +397,7 @@ The quality of evidence aspect of evaluation becomes a key factor in evaluating 
 In addition to the aspects outlined above, the evaluators were also asked to answer questions based on the amount of ABSTRACTION present in each part of the output. This was to ascertain how the knowledge paths influenced the type of output produced and whether or not the model was able to use abstraction. Since abstraction does not directly equate to better text generation, these questions did not impact the
 
 ![](_page_18_Figure_1.jpeg)
+<!-- Image Description: The image presents a flowchart detailing the evaluation of a medical diagnosis system's output. It shows a diagnostic reasoning process, analyzing RCA stenosis, epistaxis, and PVCs. The process is scored using criteria like omission, uncertainty, accuracy, plausibility, and specificity for diagnosis, and comprehension, recall, and rationale for reasoning. Evaluation questions are provided to assess the quality and completeness of the system's output based on the defined metrics. -->
 
 Figure 11: The structure of the survey questions given an LLM output. The output consists of two components: diagnoses (red-colored text) and reasoning (blue-colored text). For each component, there are corresponding questions evaluating certain aspects.
 

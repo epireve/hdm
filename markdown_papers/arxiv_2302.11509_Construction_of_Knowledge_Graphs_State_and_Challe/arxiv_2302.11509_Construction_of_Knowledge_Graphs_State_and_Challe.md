@@ -1,7 +1,7 @@
 ---
 cite_key: "dresdenleipzig2012"
 title: "Construction of Knowledge Graphs: State and Challenges"
-authors: "<span id=\"page-0-0\"></span><sup>b</sup> *Center for Scalable Data Analytics and Artificial Intelligence (ScaDS.AI) Dresden/Leipzig, Germany*"
+authors: "Erhard Rahm a,b"
 year: 2012
 doi: "10.1145/3289600.3290956."
 date_processed: "2025-07-02"
@@ -70,6 +70,7 @@ Figure [1](#page-3-0) visualizes a simplified KG example with integrated informa
 <span id="page-2-2"></span><sup>3</sup><https://blog.diffbot.com/knowledge-graph-glossary/>
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
+<!-- Image Description: The image displays a knowledge graph illustrating data relationships. Nodes represent entities (e.g., Aphex Twin, Album, Ireland), and edges denote relationships (e.g., "artist," "birthPlace," "genre"). The graph depicts a semantic structure, incorporating data from various domains (Music, Geo, Shop, Person). Dashed outlines indicate classes, while solid circles represent instances. The equation "Knowledge Graph = Data + Relations + Semantic Structure + Inference" summarizes the graph's construction and purpose within the paper: to model knowledge representation. -->
 
 Fig. 1. Simplified Knowledge Graph (KG) example demonstrating integrated information from five domains, showcasing ten entities of eight types connected by twelve relationships (two distinct is-a relations). Dashed lines indicate semantic structures (ontology or graph schema) such as entity types. Inferences can be made based on the relationships and typing, revealing additional information such as the broader birthplace of Aphex Twin being Ireland and Xtal belonging to the Techno genre (Not all possible inferences are shown for clarity).
 
@@ -170,6 +171,7 @@ We give an overview of the main tasks for Knowledge Graph Construction with a fo
 - Metadata Management: Acquisition and management of different kinds of metadata, e.g., about the provenance of entities, structural metadata, temporal information, quality reports or process logs.
 
 <span id="page-8-0"></span>![](_page_8_Figure_1.jpeg)
+<!-- Image Description: The image is a flowchart depicting a knowledge graph (KG) construction pipeline. A hexagonal core represents a metadata repository, fed by data acquisition and preprocessing, ontology management, and knowledge extraction. The core processes data versions, provenance, and configurations (schemas and mappings). Subsequently, entity resolution and fusion, quality assurance, and knowledge completion steps generate integrated KG versions. The pipeline visually illustrates the steps and data flow in building a KG from unstructured/semi-structured sources. -->
 
 Fig. 2. Incremental Knowledge Graph Construction Pipeline
 
@@ -252,6 +254,7 @@ While string similarity can be a strong signal for a match decision, often seman
 There are some tailored ontology matching approaches for KGs such as for mapping categories derived from Wikipedia to the Wordnet taxonomy with the goal to achieve an enriched KG ontology [\[12\]](#page-37-11). Other specific approaches have been developed to address the integration of RDBs with ontologies, that go beyond the mapping languages described in Section [3.1.3.](#page-9-0) KARMA [\[97\]](#page-41-3) provides a semi-automatic approach to link a structured source such as a RDB with an existing ontology. The process consists of assigning semantic types to each column, constructing a graph of all possible mappings between the source and the ontology, refining the model based on user input and finally generating a formal specification of the source model.
 
 ##*3.3.3. Ontology Integration*<span id="page-13-0"></span>![](_page_13_Figure_6.jpeg)
+<!-- Image Description: The image displays three graph diagrams (a, b, c) illustrating different ontology alignment strategies: simple, full, and asymmetric. Each shows source and target data graphs with nodes representing classes (C1, C2) and entities (E1-E6), and edges denoting relationships ("is-a," "sameAs," "equivalentClass," "equivalentProperty"). The diagrams illustrate how these relationships are handled in each alignment approach, showing varying levels of entity and class merging. The top part defines the ontology and entity alignments used. -->
 
 Fig. 3. Ontology and Entity Merging Strategies.
 
@@ -268,6 +271,7 @@ Figure [3](#page-13-0) visualizes each of the three strategies, where a) also sh
 ##*3.4.1. Named Entity Recognition*Named-entity recognition (NER) refers to demarcating the locations of entity mentions in an input text. In the most widely used scenarios mentions of only a handful of types (e.g. persons, places, locations, etc.) are determined. However KGs usually contain hundreds or thousands of types. Furthermore, off-the-shelf NER tools do not provide canonicalized identifiers for the extracted mentions. A second step is therefore necessary to link entity mentions either to existing entities in a KG or with new identifiers.
 
 <span id="page-14-0"></span>![](_page_14_Figure_9.jpeg)
+<!-- Image Description: The figure illustrates a knowledge base population pipeline. It shows the steps of named entity recognition, highlighting "Richard," "David," "James," "2014," and "Syro". A disambiguation step follows, resolving the named entities to specific database entries (e.g., `dbr:Richard_David_James`). Finally, relation extraction and linking creates knowledge triples (e.g., `dbr:Syro dbp:artist dbr:Aphex_Twin`). The process demonstrates how unstructured text is transformed into structured knowledge. -->
 
 Fig. 4. Knowledge Extraction steps for an example sentence linking entities and relations to the DBpedia KG.
 
@@ -315,6 +319,7 @@ For incremental ER the task is to match sets of new entities from one or several
 <span id="page-17-2"></span><sup>14</sup><https://www.sap.com/products/technology-platform/master-data-governance.html>
 
 <span id="page-18-0"></span>![](_page_18_Figure_1.jpeg)
+<!-- Image Description: The flowchart illustrates a data fusion process. "New Entities" (geometric shapes) undergo "Blocking," then "Matching" (with similarity scores 0.5-1.0 shown), followed by "Clustering" into groups. Finally, "Fusion" combines these clusters with "Previous Clusters." The diagram visually represents the algorithm's steps, showing how new data is integrated into existing clusters based on similarity. -->
 
 Fig. 5. Incremental entity resolution workflow.
 

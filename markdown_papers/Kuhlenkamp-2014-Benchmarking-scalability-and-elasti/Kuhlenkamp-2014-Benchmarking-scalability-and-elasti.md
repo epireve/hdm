@@ -1,6 +1,6 @@
 ---
 cite_key: "berlin2014"
-title: "**Benchmarking Scalability and Elasticity of Distributed Database Systems**"
+title: "Benchmarking Scalability and Elasticity of Distributed Database Systems"
 authors: "Markus Klems Technische Universitat Berlin ¨ Information Systems Engineering Group Berlin, Germany mk@ise.tu-berlin.de"
 year: 2014
 date_processed: "2025-07-02"
@@ -160,14 +160,18 @@ The average and upper percentile latency measurements are similar across all YCS
 ####*4.4.2 Workload W*We reproduce the experiments for the insert-intense workload W as described in Section 5.3 of [14]. E1 reports a linear increase of Cassandra's throughput that is approximately 12% higher than for workload R. Cassandra write latency is shown in figure 11 of the original paper with 7 – 8 ms. E1 reports high HBase read latency of up to 1000 ms, as well as high write latency.
 
 ![](_page_3_Figure_10.jpeg)
+<!-- Image Description: The image displays a line graph comparing the throughput (operations per second) of Cassandra and HBase databases across varying numbers of nodes (4, 8, and 12). Two experimental setups (E1 and E2) are shown for each database. The graph illustrates how throughput scales with the number of nodes for both database systems under different experimental conditions. The purpose is to present performance comparisons to support conclusions within the paper. -->
 
 (a) Throughput for Workload R.
 
 ![](_page_3_Figure_12.jpeg)
+<!-- Image Description: The image presents a bar chart illustrating latency (in milliseconds) as a function of the number of nodes in a system. The chart displays the average, 95th percentile, and 99th percentile latency for each node count (4, 8, and 12). The stacked bars show the contribution of each percentile to the overall latency, revealing the impact of outliers on system performance. The chart's purpose is to demonstrate the relationship between system scale and latency distribution. -->
 
 ![](_page_3_Figure_13.jpeg)
+<!-- Image Description: The image is a text label describing a section of an academic paper. It indicates that this section (b) presents data on Cassandra read latency for a specific workload, labeled "R". No diagrams, charts, graphs, or equations are shown in this image; it only provides a textual description of the following content. -->
 
 ![](_page_3_Figure_14.jpeg)
+<!-- Image Description: The image presents a stacked bar chart illustrating HBase read latency for workload R. The x-axis represents the number of nodes, and the y-axis shows latency in milliseconds. Each bar is segmented to show average, 95th percentile, and 99th percentile latency, allowing analysis of the performance distribution as the number of nodes increases. The chart demonstrates how latency changes across different percentiles with varying node counts within the HBase system under a specific workload. -->
 
 Figure 1: Workload R.
 
@@ -186,8 +190,10 @@ However, our measurements reproduce the gradient between two throughput measurem
 We reproduced the experiments described in Section 5.6 of [14] with the 8-node clusters and different throughput targets. For all workloads, except for the HBase write latency, we can observe a clear reduction of latency for lower throughput targets. The results are in the magnitude as reported in the original paper [14]. Cassandra's latency is reduced by 50-70% when target throughput is throttled to 50% of the maximum throughput. The latency reduction of read and scan operation are event greater for HBase. Since write latency of HBase workloads is close to zero under maximum throughput, no further reduction of latency can be observed in this case. The original paper does not report upper percentile latencies. Variations in HBase read latency decrease significantly with decreasing load, i.e., normalized 95-percentile read latency decrease to 35% and 5% and normalized 99-percentile read latency decreases to 62% and 4%. During the throughput variation experiments we
 
 ![](_page_4_Figure_8.jpeg)
+<!-- Image Description: The image contains two graphs. (a) shows throughput (ops/sec) of Cassandra and HBase, varying cluster size (number of nodes) and experimental setup (E1, E2). Higher node counts yield increased throughput for both databases. (b) displays Cassandra write latency (ms) across different cluster sizes, broken down into average, 95th, and 99th percentiles. Latency remains relatively consistent regardless of cluster size. Both graphs analyze performance for workload W. -->
 
 ![](_page_4_Figure_9.jpeg)
+<!-- Image Description: The bar chart displays latency (in milliseconds) versus the number of nodes in a system. Three latency metrics are shown: average, 95th percentile, and 99th percentile. The chart illustrates that latency remains very low until a significant increase at approximately 14 nodes, indicating a potential scalability bottleneck beyond this point. -->
 
 (c) HBase write latency for Workload W.
 
@@ -196,14 +202,18 @@ Figure 2: Workload W.
 made the observation that Cassandra 99-percentile read and scan latency is very large during the 50% target throughput experiments. Unfortunately, we cannot explain the reason for these results.
 
 ![](_page_5_Figure_0.jpeg)
+<!-- Image Description: This bar chart displays read latency (in milliseconds) for workload R under varying target throughput constraints (no limit, 95%, 50%). It shows average, 95th-percentile, and 99th-percentile latency for each throughput level. The chart's purpose is to illustrate the impact of throughput limitations on read latency performance, revealing the trade-off between throughput and latency. -->
 
 ![](_page_5_Figure_1.jpeg)
+<!-- Image Description: The image presents three stacked bar charts (a, b, c) illustrating latency (in ms) for different workloads (R, W, RS) under varying target throughput constraints (no limit, 95%, 50%). Each bar is segmented to show average, 95th percentile, and 99th percentile latency values. The charts analyze the impact of throughput limits on latency performance across different workload types and percentiles. -->
 
 ![](_page_5_Figure_2.jpeg)
+<!-- Image Description: This bar chart displays scan latency (in milliseconds) for workload RS, categorized by average, 95th percentile, and 99th percentile latency. It analyzes the impact of limiting target throughput to 95% and 50% of maximum throughput, compared to no throughput limit. The chart shows a clear increase in latency at all percentiles as the target throughput is reduced. -->
 
 Figure 3: Target workloads Cassandra.
 
 ![](_page_5_Figure_4.jpeg)
+<!-- Image Description: The image contains three stacked bar charts showing latency (in milliseconds) for three workloads (R, W, RS) at different target throughputs (max, 95%, 50%). Each bar is divided into average, 95th percentile, and 99th percentile latency. The charts illustrate the relationship between target throughput and latency, revealing performance characteristics under varying load conditions for different database operations (read, write, scan). -->
 
 Figure 4: Target workloads HBase.
 
@@ -222,20 +232,24 @@ Furthermore, we observe that latency distributions for an operation type measure
 We could not reproduce some results reported for E1. Therefore, we discuss this issue in detail in Section 4.6.3 and Section 5. We could not reproduce most of the absolute throughput measurements of E1. Absolute HBase throughput for workload W is more than doubled compared to E1. Absolute Cassandra throughput is considerable less than reported for E1 under all workload types. Absolute Cassandra latencies are considerable higher than reported for E1 for all experiments. We measure lower absolute read and write latencies for HBase under workload W. Measurements for absolute scan latency for both Cassandra and HBase differ from E1. Our observations show higher absolute scan latency for Cassandra and lower absolute scan latency for HBase compared to E1. Furthermore, we observe similar absolute scan latencies and lower absolute latencies under decreasing bounded requests for both Cassandra and HBase.
 
 ![](_page_6_Figure_0.jpeg)
+<!-- Image Description: The image is a line graph comparing the throughput (operations per second) of Cassandra and HBase databases under two experimental conditions (E1 and E2) as the number of nodes increases from 4 to 12. Each database/condition combination is represented by a different line with distinct markers. The graph shows that throughput increases with the number of nodes for both databases, but Cassandra exhibits higher throughput than HBase across all conditions. The purpose is to demonstrate and compare the scalability of Cassandra and HBase. -->
 
 (a) Throughput for Workload RS.
 
 ![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The stacked bar chart displays latency (in milliseconds) for different numbers of nodes (4, 8, and 12). Each bar is segmented to show average, 95th percentile, and 99th percentile latency. The chart illustrates how latency increases with the number of nodes and the increasing percentiles, highlighting tail latency behavior in a distributed system. -->
 
 (b) Cassandra scan latency for Workload RS.
 
 ![](_page_6_Figure_4.jpeg)
+<!-- Image Description: The image displays a stacked bar chart showing HBase scan latency for workload RS. The x-axis represents the number of nodes, while the y-axis shows latency in milliseconds. Each bar is segmented into average, 95th percentile, and 99th percentile latencies. The chart illustrates how latency changes with the varying number of nodes, highlighting the impact on average and tail latencies. -->
 
 Figure 5: Workload RS.
 
 ####*4.6.3 Additional Experiment Setups*We conducted two additional experiments to further investigate results for E1 that we could not reproduce under experiment setup E2. First, we investigate lower overall performance measurements for Cassandra. Second, we in-
 
 ![](_page_6_Figure_8.jpeg)
+<!-- Image Description: The histogram displays the distribution of a large number of measurements (approximately 48,000) represented by millisecond intervals. The x-axis shows histogram bins in milliseconds, and the y-axis represents the count of measurements falling within each bin. The distribution is heavily skewed to the left, with a long tail. The median, average, and 95th percentile are indicated on the graph, showing the central tendency and spread of the data. The purpose is likely to illustrate the performance characteristics (latency or response time) of a system. -->
 
 Figure 6: Histogram of read latencies for workload R measured by a single YCSB-client for a HBase 12-node cluster.
 
@@ -244,6 +258,7 @@ vestigate better performance measurements for HBase under workload W for E2.
 The reason why Cassandra performed worse than in the previous publication can be attributed to a CPU bottleneck. We observed high CPU utilization of the Cassandra cluster of ca. 80% in all of our experiments. Subsequently, we ran a 4 node cluster experiment with compute-optimized EC2 instances of instance type c1.xlarge that have 8 virtual CPU cores instead of 4 virtual CPU cores and 7 GB RAM instead of 15 GB RAM memory. Figure 7 shows the relative throughput increase for m1.xlarge and c1.xlarge instances over m1.large instances. Cassandra throughput for workload R increases by 107% instead of 32% for the c1.xlarge cluster and by 67% instead of 11% for workload W, respectively. Therefore, the measured throughput of the experiment clearly exceeded previous measurements for the 4 node cluster experiment with m1.xlarge EC2 instances.
 
 ![](_page_6_Figure_12.jpeg)
+<!-- Image Description: This image displays two bar graphs comparing the throughput (operations per second) of Cassandra and HBase databases across different EC2 instance types (m1.large, m1.xlarge, c1.xlarge). Each bar graph shows throughput for read (R) and write (W) workloads. Percentage increases in throughput from m1.large to other instance types are annotated. The figure illustrates the performance scaling of each database on varying hardware configurations. -->
 
 Figure 7: Throughput of a 4-node Cassandra cluster and a 4-node HBase cluster for different EC2 instance types.
 
@@ -252,6 +267,7 @@ We recommend to not only check disk IO and network IO bottlenecks but also perfo
 In a second experiment, we investigated better HBase performance measurements under workload W for experiment setup E2. For experiment setup E2, we were not able to successfully complete the execution of workload W for thread numbers higher than 192 per YCSB-client. Rabl et al. [14] report that the selection of simultaneously open connections for a experiment setup must balance congestion and performance degradation resulting from high number of connections with an underutilized system resulting from low number of connections per YCSB-client. We conducted an additional experiment for a 4-node HBase cluster under workload W to investigate the effect of different thread numbers for experiment setup E2. We used two YCSB servers according to E1. Figure 8 shows increasing read and write latencies with an increasing number of threads for E2. Throughput values peaked at 64 and 128 threads. In combination with throughput measurements presented in figure 2(a), the results indicate that experiment setup E2 avoids a client-side bottleneck by increasing the total number of YCSB servers and reducing the number of threads per YCSB server. Therefore, we argue that the number of open connections and client servers should be optimized for a specific infrastructure and distributed database system.
 
 ![](_page_7_Figure_2.jpeg)
+<!-- Image Description: The bar chart displays the relative latency increase (in percentage) for read and write operations under varying YCSB thread counts (32, 64, 96, 128, 192, 256). It shows a significant increase in latency for both read and write operations as the thread count increases, indicating performance degradation. The chart also notes a small baseline latency (159 ms for read, 0.14 ms for write) and a region of connection failures. The figure illustrates the impact of increased concurrency on latency. -->
 
 Figure 8: Relative increase of average read and write latency for increasing thread counts over a baseline of 32 threads for a 4-node HBase cluster and workload W.
 
@@ -284,6 +300,7 @@ Table 3: Cassandra 3-node cluster performance on m1.xlarge EC2 instances for dif
 Experiments with a non-replicated Cassandra cluster. We conduct SB1 scalability experiments with a nonreplicated 3-node Cassandra cluster and increasing YCSB record counts of 15, 20, 45, 60, and 90 million records which correspond to a data volume per Cassandra node of 5GB, 10GB, 15GB, 20GB, and 30GB, respectively. An additional storage overhead results from stored metadata. We apply the standard YCSB workload B with 95% read and 5% update operations. The results in table 3 show that performance drops by a factor of 10 when the data load per Cassandra node is increased from 10GB to 15GB. Initially, we thought that this effect was caused by an increase of the number of SSTables. However, one of our reviewers remarked correctly that the drastic decrease of read performance is more likely being caused by insufficient local file system cache, in our case ca. 10GB per server. System monitoring metrics of the 15GB+ experiments show heavily increased idle time of the CPU waiting for IO (figure 9).
 
 ![](_page_8_Figure_3.jpeg)
+<!-- Image Description: The image presents two line graphs comparing CPU wait I/O and Cassandra throughput (operations per second) under varying data volumes (10GB/node and 20GB/node). Each graph shows fluctuating throughput and CPU wait I/O over time. The purpose is to illustrate the relationship between data volume, CPU I/O wait time, and Cassandra's performance. The increased data volume in the right graph correlates with increased CPU wait time and slightly reduced throughput. -->
 
 Figure 9: Cassandra throughput and server CPU wait IO time series measurements for a cluster with 10GB/node vs. 20GB/node.
 
@@ -305,6 +322,7 @@ For vertical scaling on Amazon EC2, an experiment described further below, it is
 RAID0 increases disk throughput by splitting data across striped disks at the cost of storage space, which is limited by the size of the smallest of the striped disks. The EBSoptimized option enables full utilization of IOPS provisioned for an EBS volume by dedicating 1,000 Mbps throughput to an EC2 m1.xlarge instance for traffic between the EC2 instance and the attached EBS volumes. EBS volumes can further be configured with Provisioned IOPS, a guarantee to provide at least 90% of the Provisioned IOPS with single digit millisecond latency in 99.9% of the time.
 
 ![](_page_8_Figure_16.jpeg)
+<!-- Image Description: The image presents two box plots. The top plot shows throughput (operations per second) for four systems (S-1 to S-4), illustrating performance variations. The bottom plot displays read latency (in milliseconds) for the same systems. Both plots compare the systems' performance metrics, highlighting median, quartiles, and outliers. The purpose is to visually compare and contrast the read throughput and latency of different systems. -->
 
 Figure 10: Comparison of Cassandra performance for EC2 Storage Setups S1-S4.
 
@@ -337,6 +355,7 @@ Table 4: HBase elasticity measurements. Relative change of 99th percentile read 
 smaller degradation of throughput. Under read-heavy workload B, we observe the opposite effect and an increasing performance degradation. We account this to the effect that regions assigned to new nodes can directly serve updaterequest, but lose caching effects.
 
 ![](_page_9_Figure_10.jpeg)
+<!-- Image Description: The bar chart displays the throughput change (in percentage) for workloads A and B as the number of simultaneously added nodes increases from 1 to 3. Negative values indicate a decrease in throughput. Workload A shows consistently negative throughput changes, while Workload B experiences a larger negative impact with increasing nodes. The chart illustrates the impact of node addition on system performance under different workloads. -->
 
 Figure 11: Relative decrease of HBase average throughput [ops/s] for simultaneous addition of varying numbers of nodes.
 
@@ -370,12 +389,15 @@ Measurements. For evaluating the elasticity of Cassandra, we collect the followi
 ####*6.2.2 Vertical Scaling*Although distributed systems are designed for horizontal scalability, it is also possible to increase or decrease cluster capacity by vertical scaling. We understand vertical scaling as a system operations activity where a system operator either upgrades server hardware to increase capacity, or downgrades server hardware to decrease capacity and thus save cost, respectively. Amazon EC2 allows a system operator to stop a server instance, change the instance type, and restart the instance again with the new instance type. Since EC2 IP addresses are assigned dynamically, we set up an Amazon Elastic Load Balancer (ELB) that removes the old instance before it is stopped and adds the new instance after it has been started. In experiment C-7, we evaluate Cassandra's vertical scalability in terms of scaling speed and performance impact. In the experiment, we upgrade one of the m1.xlarge EC2 instances to an m3.2xlarge instance which is equipped with 8 vCPUs of Intel Xeon E5-2670 processor and with 30 GB RAM.
 
 ![](_page_10_Figure_10.jpeg)
+<!-- Image Description: The image displays a box plot showing read latency (in milliseconds) for five different configurations (CS-1 to CS-7). Each box represents the interquartile range of the data, with the median indicated by a line within the box. Whiskers extend to the furthest data points within 1.5 times the interquartile range, and outliers are shown as '+' symbols. The plot illustrates the distribution of read latencies and facilitates comparison across different configurations. -->
 
 Figure 12: Cassandra read latency for scaling scenarios CS-1, CS-2, CS-3, CS-4, and CS-7.
 
 ![](_page_10_Figure_12.jpeg)
+<!-- Image Description: The image is a text label describing the content of a missing figure in an academic paper. It states that the missing figure displays "Update latency before, during, and after scaling." The label indicates that the figure likely presents a graph or chart illustrating the change in update latency—a measure of delay—over time, as a system undergoes scaling. -->
 
 ![](_page_10_Figure_13.jpeg)
+<!-- Image Description: The figure displays box plots illustrating update latency (in milliseconds) for five different configurations (CS-1 to CS-7). Each box plot shows the median, interquartile range, and outliers for update latency in each configuration. The y-axis represents the update latency, and the x-axis shows the different configurations. The plot likely compares the performance of different systems or algorithms regarding update speed. -->
 
 Figure 13: Cassandra update latency for scaling scenarios CS-1, CS-2, CS-3, CS-4, and CS-7.
 

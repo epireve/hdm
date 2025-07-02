@@ -1,7 +1,7 @@
 ---
 cite_key: "sun2024"
-title: "Knowledge Graph Tuning: Real-time Large Language Model Personalization"
-authors: "Jingwei Sun, Zhixu Du, Yiran Chen"
+title: "Knowledge Graph Tuning: Real-time Large Language Model Personalization based on Human Feedback"
+authors: "Jingwei Sun, Zhixu Du"
 year: 2024
 doi: "10.48550/arXiv.2405.19686"
 url: "https://arxiv.org/abs/2405.19686"
@@ -37,6 +37,7 @@ Large language models (LLM) have shown increasing power on various NLP tasks [\[
 <sup>∗</sup> equal contribution
 
 ![](_page_1_Figure_0.jpeg)
+<!-- Image Description: The image depicts a flowchart illustrating a Large Language Model (LLM) personalization pipeline. It shows four stages: pre-training (unsupervised, using internet data), alignment (supervised finetuning and RLHF using demonstration and comparison data), finetuning (domain-specific, using downstream data), and deployment (model personalization via human-LLM interaction). A zoomed-in section details this interaction, showing a user query, LLM response, user feedback, and resulting personalized knowledge integration ("Dog is vegetarian"). The diagram visualizes the process of adapting a general LLM to a user's specific needs. -->
 
 <span id="page-1-0"></span>Figure 1: Pipeline of the development of an LLM. In the deployment phase, the model is personalized based on human feedback during the human-LLM interactions. The LLM in the figure is personalized to adapt to the knowledge that the user's dog is vegetarian from the interaction. Then, in the later interactions, the LLM agent will recommend vegetarian dog food for the user given the same query.
 
@@ -68,6 +69,7 @@ KG-enhanced LLM A KG-enhanced LLM fθ,<sup>G</sup> is parameterized by both the 
 This section introduces our method, KGT (Knowledge Graph Tuning), which enables real-time LLM personalization based on user feedback. Instead of finetuning the model parameters, we edit the user's personalized knowledge graph, which provides the user's personalized factual knowledge to enhance the customization capability of the LLM. KGT does not need to conduct back-propagation of the LLM, and only the inference is required, which significantly reduces the latency and computational cost. The edited knowledge triples are comprehensible, ensuring the method's interpretability. The overview of KGT is shown in Figure [2.](#page-3-0)
 
 ![](_page_3_Figure_2.jpeg)
+<!-- Image Description: This diagram illustrates a system for improving Large Language Models (LLMs) using knowledge graphs (KGs). A user query ("Help me buy dog food") receives an LLM response, then user feedback ("My dog only eats vegetables"). The system refines the KG by adding/removing triples (e.g., adding "<dog, enjoy, vegetable>" and removing "<dog, is, carnivore>") based on user feedback to improve future LLM responses. The diagram shows this process, highlighting the interaction between the LLM, KG, and personalized knowledge triples. -->
 
 <span id="page-3-0"></span>Figure 2: The overview of KGT. The LLM extracts the posterior distribution of the personalized knowledge triples Q(z|q, a) from the human-LLM interaction. The personalized triples are utilized to optimize the KG to achieve two goals: The model can (1) retrieve the personalized triples with high probability and (2) generate the user's feedback with the retrieved triples in high confidence.
 
@@ -235,6 +237,7 @@ In addition to the personalization performance, we also evaluate KGT's efficienc
 We also conduct experiments under the setting where the user also provides feedback on relations r between e<sup>q</sup> and e<sup>a</sup> under the query's context. We utilize GPT-4 to mimic the user and extract the relations to construct H (q, a, K). We use the same instruction template in Section [4.2](#page-4-2) for the GPT-4 to conduct relation extraction. The compared results with and without the user's feedback of relations are shown in Figure [3.](#page-8-1) It is shown that KGT achieves similar performance if the user provides feedback on the relations in addition to the answer. Notably, utilizing the relations extracted by the LLM θ can even achieve higher performance on efficacy and paraphrase rates in most cases. Our analysis is that when extracting relations using the LLM θ, KGT implicitly distills knowledge from the model to the knowledge triples, which might benefit the model inference more than human feedback on relations. Thus, in practice, the user will only need to provide the personalized answer to a query as feedback to KGT.
 
 ![](_page_8_Figure_5.jpeg)
+<!-- Image Description: The image presents two bar graphs comparing the efficacy and paraphrase rates of three large language models (GPT2-xl, Llama2-7B, Llama3-8B). Each graph shows results with and without human feedback on relations. The graphs display percentage rates, illustrating the impact of human feedback on model performance in terms of both efficacy and paraphrase generation. Red bars represent "no human feedback," while blue hatched bars show "with human feedback." -->
 
 <span id="page-8-1"></span>Figure 3: Compared results on*CounterFact*dataset with and without user feedback on relations.
 
@@ -247,6 +250,7 @@ We also evaluate the effect of the query set size on the personalization perform
 We propose an approach, KGT, that personalizes models by optimizing external knowledge graph rather than model parameters. Our method and experimental results demonstrate that our approach offers benefits in terms of performance and efficiency, as supported by empirical studies. By addressing the critical challenges of efficiency and interpretability in model personalization, KGT offers a promising direction for future research and application in enhancing user interactions with LLMs, which has a positive societal impact. One limitation of this method (KGT) is that it depends on the LLM's ability to follow instructions when calculating Pθ,<sup>G</sup>(a|q, z), Pθ,<sup>G</sup>(z|q), and collecting
 
 <span id="page-9-0"></span>![](_page_9_Figure_0.jpeg)
+<!-- Image Description: This figure presents two line graphs comparing the performance of six methods (FT, ROME, KE, KN, MEND, KGT) for paraphrase identification. The left graph shows "Efficacy Rate (%)" and the right graph shows "Paraphrase Rate (%)", both plotted against the "Size of Query Set" (log scale). The graphs illustrate how each method's performance changes as the query set size increases, allowing for a comparative analysis of their scalability and accuracy. -->
 
 Figure 4: Compared results on*CounterFact*dataset using Llama3-8B with different query set sizes.
 

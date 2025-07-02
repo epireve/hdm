@@ -1,7 +1,7 @@
 ---
 cite_key: "gargsupasup2012"
 title: "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges"
-authors: "Satvik Garg<sup>a</sup> , Dwaipayan Royb,<sup>∗</sup>"
+authors: "Satvik Garg, Dwaipayan Roy"
 year: 2012
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -34,6 +34,7 @@ Knowledge graph is a graph-based data representation modality consisting of bina
 The knowledge graphs are important for many applicative use cases like social networks, web-based collaborative knowledge bases like DBpedia [\[6\]](#page-46-5), and in healthcare when trying to model protein-protein interaction networks or genetic information [\[7\]](#page-46-6). They are also useful for Natural Language Processing (NLP) applications like entity recognition [\[8\]](#page-46-7), entity linking [\[9\]](#page-46-8), dialogue systems [\[10\]](#page-46-9), semantic parsing [\[11\]](#page-46-10), information retrieval [\[12\]](#page-46-11) and question answering systems [\[13\]](#page-47-0). Most KG's are available online and open sourced ranging from domain specific KG's such as GeneOntology [\[14\]](#page-47-1) and for general purposes such as YAGO [\[15\]](#page-47-2), FreeBase [\[16\]](#page-47-3), DBpedia [\[6\]](#page-46-5), WordNet [\[17\]](#page-47-4), NELL [\[18\]](#page-47-5). Knowledge Graphs are the result of automatic generation, in some cases from mining web pages like GDELT [\[19\]](#page-47-6) and craft source operations like WIKIDATA [\[20\]](#page-47-7). Commercial KG's are pretty common in applications like search engines. Examples of commercial KG include Facebook Open Graph, Microsoft Satori, Yahoo Spark and Google Knowledge Graph [\[21\]](#page-47-8).
 
 ![](_page_1_Figure_3.jpeg)
+<!-- Image Description: The image is a knowledge graph illustrating relationships between entities. Nodes represent entities (e.g., John, Company, Delhi), while edges represent relationships (e.g., "works in," "likes," "is a"). The graph visually depicts a knowledge base's structure, showing how different entities are connected and the types of relationships between them. It likely serves to illustrate the data structure used in a knowledge representation or reasoning system described in the paper. -->
 
 Figure 1: An example of hypothetical knowledge graph.
 
@@ -48,6 +49,7 @@ Several approaches exist to tackle the challenging problem of link prediction []
 The KGE models are mostly categorized into three different types of models namely, translation, semantic, and neural network based. Models such as TransE [\[31\]](#page-47-18), TransH [\[32\]](#page-47-19), TransR [\[33\]](#page-47-20), TransD [\[34\]](#page-47-21), TranSparse [\[35\]](#page-47-22) are common examples of translation based approaches. DistMult [\[36\]](#page-47-23), RESCAL [\[37\]](#page-47-24), CompleX [\[38\]](#page-47-25) belong to the semantic-based methods. These models are good yet fail to provide deeper semantics, ignoring hierarchical associations. Contrary to previ-
 
 ![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This diagram is a knowledge graph illustrating relationships between entities. Nodes represent entities (e.g., John, Company, Person, City) and edges depict relationships (e.g., "works in," "is a," "nationality is"). The graph shows how various entities connect, demonstrating a semantic network within a specific domain, likely used in the paper to explain a knowledge representation or reasoning system. Solid and dashed lines likely indicate different types of relationships. -->
 
 Figure 2: An example of hypothetical knowledge graph for knowledge graph completion. Red dotted line represents potential links.
 
@@ -98,6 +100,7 @@ The manual feature extraction techniques that are explored in this study furnish
 ##*2.2. Graph Representation Learning*While traditional machine learning models for KGC rely on hand-crafted feature engineering (as shown in figure 3), advances in graph representation learning (GRL) models have led to the introduction of automatically generated feature encoders, which prevent hand-designed features that forestall hand-designed attributes [\[96\]](#page-49-22). In simple words, GRL represents an area of study to apply machine learning on graphs, but avoid extracting features manually as they are difficult and time consuming on graphs.
 
 ![](_page_8_Figure_0.jpeg)
+<!-- Image Description: The image is a flowchart comparing two approaches to graph prediction. The top row depicts manual feature engineering: an input graph is processed via handcrafted features and a feature mapping to generate predictions. The bottom row illustrates graph representation learning: an input graph undergoes automated feature generation and feature mapping for prediction. The flowchart highlights the shift from manual to automated feature extraction in graph-based prediction tasks. -->
 
 Figure 3: Manual Feature Engineering versus Graph Representation Learning
 
@@ -118,6 +121,7 @@ LINE [\[95\]](#page-49-21) also adopts the similar methodology by defining first
 One method worth mentioning is HARP [\[109\]](#page-50-2) which improves the performance of the walking and embedding based techniques mentioned above. Due to the non-convex based objective functions in the previous models, they can be trapped in local optima (as shown in figure 4) and therefore reduce performance. HARP on the other hand preprocess the graph using coarsening techniques to accumulate associated nodes into super nodes. In any case, it is important to
 
 ![](_page_10_Figure_0.jpeg)
+<!-- Image Description: The image contains two 2D graphs illustrating different optimization scenarios. (a) shows a single, global minimum represented by a parabola with a yellow sphere at its vertex. (b) depicts a more complex function with multiple local minima and maxima, indicated by yellow spheres at the lowest points of each curve section. The graphs likely illustrate the difference between simple and complex optimization problems. -->
 
 Figure 4: (a) Convex (b) Non Convex
 
@@ -130,6 +134,7 @@ The GNN's are further classified into types such as GAE (Graph AutoEncoder) [\[1
 The representation procedures that depend on GNN consider both structural information and
 
 ![](_page_11_Figure_0.jpeg)
+<!-- Image Description: The image is a flowchart depicting a graph neural network architecture. An input graph is processed through sequential layers: a lookup layer, a scoring layer, and a loss layer. A negative generation module feeds into the lookup layer. The final output feeds into downstream tasks. The diagram illustrates the data flow and processing steps within the model. -->
 
 Figure 5: A bird's eye view on knowledge graph embedding pipeline
 
@@ -189,6 +194,7 @@ h + r \approx t \tag{2}
 $$
 
 ![](_page_14_Figure_6.jpeg)
+<!-- Image Description: The image is a vector diagram showing three vectors: **r**, **h**, and **t**, forming a triangle in two-dimensional space. The vectors originate from a common point at the origin of a Cartesian coordinate system. The diagram likely illustrates vector addition or decomposition within a physical or mathematical model presented in the paper. Vector **r** appears to be the resultant vector of **h** and **t**. -->
 
 Figure 6: TransE [\[31\]](#page-47-18)
 
@@ -204,6 +210,7 @@ where*<sup>l</sup>*1/*l*2 are the norm constraints. The TransE has repeatedly sh
 Curbing the limitation of the TransE model, Ma et al. proposed TransH [\[32\]](#page-47-19) to give different representation vectors to each entity depending on the relation. In other words, TransH works by issuing an entirely separate relation-specific hyperplane for each relationship so that the entities associated with it have different semantics only in the context of that relationship. As shown in Figure 7, for the entity embedding vectors h and t, TransH projects it to the hyperplane (relation specific) in the direction of mapping vector *W<sup>r</sup>*that gives the projection vector*h*<sup>⊥</sup> and *t*⊥.
 
 ![](_page_15_Figure_2.jpeg)
+<!-- Image Description: The image is a 2D vector diagram illustrating vector decomposition. Two vectors, **r** and **h**, are shown. **h** is decomposed into components parallel (**h<sub>||</sub>**) and perpendicular (**h<sub>⊥</sub>**) to **r**. A third vector **t** is also shown, likely representing a transformation or relation between **h** and **r**. Dashed lines form a parallelogram, visually representing vector addition and subtraction. The diagram likely serves to explain a geometrical or physical relationship between vectors within the paper's mathematical framework. -->
 
 Figure 7: TransH [\[32\]](#page-47-19)
 
@@ -230,6 +237,7 @@ $$
 where *M<sup>r</sup>*is a projection matrix or mapping matrix generated by projecting entity vectors into relation specific space. Compared to TransE and TransR, TransR shows some competitive performance. However, it is also associated with limitations that need to be addressed. Without much trouble, one can understand that the semantics shared by the tail and head unit may be completely different. For example, triplet(John, research\_area\_is, computervision) in which the
 
 ![](_page_16_Figure_0.jpeg)
+<!-- Image Description: The image is a diagram illustrating a transformation between "Entity Space" and "Relation Space." Two 2D Cartesian coordinate systems are shown. Gold arrows represent vectors 'h' and 't' in Entity Space, and 'h⊥' and 't⊥' in Relation Space, connected by a dotted line representing a transformation matrix 'Mr'. A gold arrow 'r' shows the result of the transformation in Relation Space. The diagram visually explains a linear transformation mapping entities to relations. -->
 
 Figure 8: TransR [\[33\]](#page-47-20)
 
@@ -238,6 +246,7 @@ head entity John (person) is completely different from computervision (field of 
 TransD [\[34\]](#page-47-21), an improvement of TransR, adopts a dynamic mapping matrix that effectively generates two separate mapping matrices for head and tail entities. It exploits two embedding vectors for the representation of each entity and relation. The first embedding vector is used to represent the semantics of entity and relations (r belongs to*R<sup>s</sup>*and h, t belongs to*Rd*). The second embedding vector (*R<sup>m</sup>*belongs to*R<sup>s</sup>*and*Hm*, *T<sup>m</sup>*belongs to*Rd*) is employed to generate two dynamic projection matrices (*M<sup>h</sup>*, *<sup>M</sup>t*) as shown in figure 9. The scoring function is given in
 
 ![](_page_16_Figure_4.jpeg)
+<!-- Image Description: The image displays a two-part diagram illustrating a transformation between "Entity Space" and "Relation Space". The left panel shows points (h1, h2, h3, t1, t2, t3) in the Entity Space. The right panel shows transformed points (h1r, h2r, h3r, t1r, t2r, t3r) in Relation Space. Two parallel arrows labeled "Mrhi" and "Mrti" represent the transformation matrices mapping entities to relations. The diagram visually depicts a linear transformation, likely used in a knowledge representation or relational learning context. -->
 
 Figure 9: TransD [\[34\]](#page-47-21)
 
@@ -346,6 +355,7 @@ To sum up, KGC techniques dependent on the translation embeddings emphasized the
 As shown in figure 10, it works by first creating a 3D binary tensor X (that is, X belongs to*R <sup>i</sup>*.*i*. *<sup>j</sup>*where*i*and*j* denotes the number entity and relation, respectively) utilizing the triplets present in multi-relational graphs. Each slice X*<sup>s</sup>*where*s*belongs to 0, 1, 2, to n present in tensor X directly represents a relation type*R<sup>s</sup>* . The value of X*pqr*= 1 tells that*p th*,*q th*entity and*r th*relation is present in the graph is true; otherwise, it indicates an undefined fact if the value equals zero.
 
 ![](_page_19_Figure_8.jpeg)
+<!-- Image Description: The image is a diagram illustrating a tensor. It depicts a multi-dimensional array represented as a stack of matrices. Each matrix represents a two-dimensional slice, indexed by `e¹`, `e²`, ... `eⁱ` along one axis and `r¹`, `r²`, ... `rʲ` along the other. The diagram visually explains the structure of a tensor used within the paper, likely to represent data or parameters in a machine learning or deep learning context. -->
 
 Figure 10: Knowledge graph representation as Tensors.
 
@@ -362,6 +372,7 @@ f_r(h,t) = h^T M_r t \tag{23}
 $$
 
 ![](_page_20_Figure_4.jpeg)
+<!-- Image Description: The image displays a three-layer neural network architecture. The bottom layer represents "Head Entity" and "Tail Entity" nodes, feeding into a middle layer of nodes. All middle layer nodes connect to a single top layer node, labeled *fr(h,t)*, representing the relationship score. Arrows indicate information flow. The network likely models relationships between entities ("Head Entity" and "Tail Entity") for a task such as knowledge graph embedding or relation extraction. *Mr* likely denotes a matrix of embeddings. -->
 
 Figure 11: RESCAL [\[37\]](#page-47-24).
 
@@ -374,6 +385,7 @@ $$
 It infers the fundamental relations between sets of elements that are present in the same dimension. Contrasted with RESCAL model, it decreases the parameter count and remarkably augments the performance for extracting the target knowledge in graphs.
 
 ![](_page_20_Figure_9.jpeg)
+<!-- Image Description: The image is a diagram illustrating a knowledge graph embedding model. It depicts a three-layer architecture. The bottom layer represents "Head Entity" and "Tail Entity" nodes. The middle layer shows intermediate nodes, labeled *r*, representing relations. The top layer contains a single node, *fr(h,t)*, representing the final embedding based on head (h) and tail (t) entities and relation (r). The arrows indicate the flow of information, illustrating how entity and relation embeddings are combined to produce a final representation. The diagram visually explains the model's structure and information processing. -->
 
 Figure 12: DistMult [\[36\]](#page-47-23).
 
@@ -432,6 +444,7 @@ $$
 It has been shown that the earlier works have not focused on the utilization of crossover interactions, a.k.a bidirectional interactions between relations and entities that help to segment the related knowledge for KGC tasks [\[151\]](#page-51-16). The concept of related knowledge or information is explained in figure 13. The CrossE [\[151\]](#page-51-16) model was proposed to exploit crossover interactions with
 
 ![](_page_22_Figure_3.jpeg)
+<!-- Image Description: This diagram illustrates a knowledge graph, depicting relationships between individuals (A-E, P-Q). Nodes represent individuals, and edges represent relationships (e.g., "isMotherOf," "worksFor," "bestEmployee"). Edge styles (solid, dashed, colored) might indicate relationship types or data provenance. The graph likely exemplifies a knowledge representation used in the paper, potentially for reasoning or data integration. The central node "A" appears to be a key connection point. -->
 
 Figure 13: An example of made up Knowledge Graph [\[151\]](#page-51-16). The black-colored relationships represents the potential related knowledge and interaction to infer the dotted relation i.e. father-child relationship. The red-colored links depicting the professional relations of A do not give important knowledge to this undertaking.
 
@@ -489,6 +502,7 @@ $$
 \n(38)
 
 ![](_page_23_Figure_6.jpeg)
+<!-- Image Description: The diagram illustrates a computational model, likely for knowledge graph embedding. It shows a function, *fr(h,t)*, taking "Head" and "Tail" entity embeddings as input (*Mx1, Mx2, My1, My2*) via intermediate representations. The model integrates "Relation" embeddings to generate a final output. The diagram's purpose is to visually represent the architecture of this specific knowledge graph embedding model. -->
 
 Figure 14: SME [\[153\]](#page-51-18).
 
@@ -507,6 +521,7 @@ $$
 \n(40)
 
 ![](_page_24_Figure_2.jpeg)
+<!-- Image Description: The image is a diagram illustrating a neural network architecture. It depicts the processing of "Head" and "Tail" inputs through matrices ($M_{r1}$, $M_{r2}$, and a central 3D matrix $X_r$) to generate a relation ($fr(h,t)$). The process involves a hyperbolic tangent (tanh) activation function and shows the flow of information through the network layers. The diagram's purpose is to visually explain the model's structure and how input data is transformed to produce the relation output. -->
 
 Figure 15: NTN [\[154\]](#page-51-19).
 
@@ -518,6 +533,7 @@ $$
 \n<sup>(41)</sup>
 
 ![](_page_24_Figure_6.jpeg)
+<!-- Image Description: Figure 16 is a diagram illustrating a Multilayer Perceptron (MLP) architecture. Three input vectors ("Head," "Relation," "Tail") are processed through individual layers (Mᵢ, Mⱼ, Mₖ) before converging into a tanh activation function. The output, *fr(h,t)*, represents the final result of the MLP. The diagram visually depicts the information flow and layer interactions within this specific MLP model. -->
 
 NAM or Neural Association Model [\[155\]](#page-51-20) sets up a deep neural architecture. The NAM embeds a given triplet into a feature vector space. At that point, the vector embeddings of the relation as well as the head entity are combined to get a vector *z*<sup>0</sup> = [*h*;*r*] which act as an input
 
@@ -629,6 +645,7 @@ $$
 When employing KG to advance a question answering (QA) framework, only one of the triple is inferred to respond to the inquiry. For complex QA frameworks and when the given KG is mainly fragmented, it is essential to have the option to deduce obscure answers with existing triples. State-of-the-art embedding-based techniques limit their applications to model complex queries due to their inability to model the symbolic composition of facts present in KGs. An elective answer is to deduce missing links by orchestrating data from multi-hop paths, for example, BornIn(JoeBiden, Pennsylvania) ∧ LocatedIn(Pennsylvania, USA) ⇒ bornIn(JoeBiden, USA), given in figure 17. Reinforcement learning can help to understand questions and answers by modeling them as a sequential decision problem. As of late, the Path-Ranking Algorithm (PRA) [\[163\]](#page-52-0) arises as a promising technique for learning complex paths in huge KGs. PRA uses random walk with restart-based deduction component to run a depth first search to extract required features called relational paths. Although it works in a completely discrete space, making it hard to assess and look at comparable entities and relations in a KG.
 
 ![](_page_28_Figure_6.jpeg)
+<!-- Image Description: This image is a knowledge graph depicting relationships between individuals and entities. Nodes represent individuals (Joe Biden, Kamala Harris, Chuck Schumer) and entities (U.S. Government, USA, Pennsylvania). Edges, labeled with relationship types (e.g., "BelongTo," "BornIn," "CollaboratedWith," "LiveIn," "LocatedIn"), show connections between them. The graph illustrates the relationships among these individuals within the context of the U.S. government and their geographical locations. The purpose is likely to demonstrate the use of a knowledge graph for representing complex relationships in the paper's domain. -->
 
 Figure 17: An example of knowledge graph completion to infer complex queries.
 
@@ -653,6 +670,7 @@ Pouya Pezeshkpour et al. [\[178\]](#page-52-15) reconsidered and researched the 
 There are two calibration techniques. Isotonic regression [\[181\]](#page-52-18) is a non-parametric technique and does take into account sigmoid assumption. It fits an increasing constant function to the model yield and is generally suitable for many examples. However, it is prone to overfit. Platt scaling [\[182\]](#page-52-19) on the other takes into account the sigmoid function that learns scalar weights to yield a confidence score for each example. It might work better for smaller datasets. Model Calibration has a few advantages. According to the framework's point of view, language processing pipelines that incorporate KG can depend on calibrated scores to determine which KGE forecasts to trust. According to a research point of view, incorporating calibration helps determine the output predictions for acknowledging KGE models. As given in figure 18, we can easily analyze how a very much calibrated model resembles. A straight spotted line addresses an ideal calibrated model though the red shaded line addresses an uncalibrated model.
 
 ![](_page_31_Figure_2.jpeg)
+<!-- Image Description: The image contains two diagrams (a) and (b), each showing a square with a dashed diagonal line and a solid black line representing a path. Diagram (a) depicts a simple L-shaped path, while diagram (b) shows a more complex, stepwise path. Both paths begin at the lower left corner and approach, but do not cross, the diagonal. The diagrams likely illustrate different strategies or solutions within an algorithm or model described in the paper, possibly related to pathfinding, optimization, or constraint satisfaction problems. -->
 
 Figure 18: (a) Uncalibrated Model (b) Calibrated Model
 
@@ -663,6 +681,7 @@ Models after calibration procedures work impressively better compared to uncalib
 Existing methodologies fundamentally revolve around static link structure between a finite arrangement of entities overlooking the assortment of information types that are regularly utilized in information bases like content, arithmetic values, images, uncertain and temporal information. In this section, a higher outline on utilizing this real-world knowledge on link prediction tasks is discussed. As shown in figure 19, this segment is split into three subsections, multimodal knowledge graph, temporal knowledge graph, and uncertain knowledge graph embeddings.
 
 ![](_page_32_Figure_1.jpeg)
+<!-- Image Description: This flowchart categorizes knowledge graph embedding methods. The root node is "Real World Knowledge Graph," branching into "Uncertain," "Temporal," and "Multi-modal" categories. Each branch further subdivides into data modalities (Text, Numeric, Multiple) which then list specific embedding models applicable to that data type and characteristic. The diagram thus provides a structured overview of different knowledge graph embedding techniques based on their input data characteristics. -->
 
 Figure 19: Hierarchical Distribution for emneddings real world knowledge graphs.
 
@@ -687,6 +706,7 @@ Despite their commitment to leverage numerical literals, each method discussed n
 ##*6.2. Temporal Knowledge Graph Embeddings*A few KGs include temporal realities, for example, the triple*(DonaldTrump, PresidentOf, USA)*only substantial in a particular time span (2017, 2021). Temporal Knowledge graphs like YAGO3 [\[15\]](#page-47-2), ICEWS2014, ICEWS2005-15, ICEWS [\[195\]](#page-53-5), GDELT [\[196\]](#page-53-6) feed time data into facts. Triples appended with time data are addressed as quadruples, formed like*(s, r, o, T)*, where T signifies the timestamp. Conventional KGE models dismiss time data, prompting an insufficiency of performing link prediction on Temporal KGs, including relations, for example, *(?, PresidentOf, USA, 2018)*.
 
 ![](_page_34_Figure_5.jpeg)
+<!-- Image Description: This diagram depicts a graph showing Donald Trump's presidency (20-01-2017 to 20-01-2021). Nodes represent key entities (Trump, USA, China, India), and edges represent events with dates: Trump's presidency start and end dates and his visits to China (08-11-2017) and India (24-02-2020). The image likely illustrates a data model or knowledge representation within the paper, possibly related to temporal events or political datasets. -->
 
 Figure 20: An example of Temporal Knowledge Graph.
 
@@ -705,6 +725,7 @@ Knowledge Graphs, for example, ConceptNet [\[206\]](#page-53-16), carry uncertai
 Many works are mentioned in the literature of knowledge graph representation learning that supports multimodal data and leverage numeric features related to node entities to produce better embeddings for upgraded link prediction tasks [\[51\]](#page-48-9) [\[192\]](#page-53-2) [\[47\]](#page-48-5). However, these models are not
 
 ![](_page_36_Figure_0.jpeg)
+<!-- Image Description: The image is a directed graph representing Andrew's skills. Nodes represent skills (Python, Java, MLOps, Physics) and Andrew's central node. Directed edges show skill levels (0.15–0.90), indicating the strength of each skill. The graph likely illustrates a skill profile or competency model within the context of the paper. -->
 
 Figure 21: An example of Uncertain Knowledge Graph
 
@@ -717,6 +738,7 @@ In this section, we will briefly discuss the software ecosystem that revolves ar
 The center of the KGE's are models, and we have mentioned (in section 5) that there are many models available for training the KGE. The accessibility of models for each library is recorded in Table 2. Some of the most common models are TransE [\[31\]](#page-47-18), CompleX [\[38\]](#page-47-25) and DistMult [\[36\]](#page-47-23) accessible practically in almost all the libraries and there are a few varieties present across the rest of the models for which library gives what models. Libraries like Pykg2vec [\[210\]](#page-53-20) and PyKEEN [\[211\]](#page-53-21) offer a wide scope of models, for example, RGCN [\[119\]](#page-50-12), TuckER [\[177\]](#page-52-14), NTN [\[33\]](#page-47-20), KG2E
 
 ![](_page_37_Figure_0.jpeg)
+<!-- Image Description: The image is a timeline illustrating the evolution of eight knowledge graph embedding (KGE) libraries: OpenKE, PyTorch-BigGraph, LibKGE, PyKeen, TORCH-KGE, AmpliGraph, Pykg2vec, and Graphvite, and DGL-KE. Each library is represented by a box, connected to a subsequent library via a horizontal timeline arrow indicating their development order. The timeline depicts a progression of KGE tool development. -->
 
 Figure 22: Open source libraries for training KGE.
 

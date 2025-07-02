@@ -1,7 +1,7 @@
 ---
 cite_key: "oliverkarras2020"
 title: "Divide and Conquer the EmpiRE: A Community-Maintainable Knowledge Graph of Empirical Research in Requirements Engineering"
-authors: "Email: {oliver.karras, soeren.auer}@tib.eu"
+authors: "Oliver Karras"
 year: 2020
 doi: "10.48366/r255464)"
 date_processed: "2025-07-02"
@@ -115,6 +115,7 @@ Research question: How can we use the ORKG as a technical infrastructure to orga
 We frame our research approach using the design science paradigm [\[75\]](#page-11-30). We*collect*papers from the field of RE and*extract*data on the empirical research reported. In this way, we build and publish the initial KG-EmpiRE as a solution design, which we*analyze*for evaluation. For this reason, our research approach consists of the three main steps: Data collection, data extraction, and data analysis (see Figure [2\)](#page-3-1).
 
 <span id="page-3-1"></span>![](_page_3_Figure_9.jpeg)
+<!-- Image Description: Figure 2 is an activity diagram illustrating the research approach. It shows three stages: data collection (selecting venue, track, downloading PDFs), data extraction (developing an ORKG template, adding papers, describing papers using the template), and data analysis (identifying competency questions, specifying SPARQL queries, running queries and analyzing data in Jupyter Notebook). The diagram uses rectangular boxes for process steps and a filled circle to represent start and end points. -->
 
 Figure 2: Activity diagram of the research approach.
 
@@ -139,6 +140,7 @@ The first two authors of this paper developed the*[ORKG](https://orkg.org/templa
 For data extraction, we added each paper from data collection to the ORKG using its Digital Object Identifier (DOI). In this way, the ORKG automatically compiles the bibliographic metadata of the papers. The second author applied the developed ORKG*template*to each paper and extracted the corresponding data from all papers, using the terminology used in the paper to ensure an accurate and consistent description. The first and the third author reviewed each description by comparing the extracted data with the respective paper. In the case of inconsistencies or ambiguities, the three authors discussed and resolved the issues identified.
 
 <span id="page-4-1"></span>![](_page_4_Figure_4.jpeg)
+<!-- Image Description: The image is an Entity-Relationship Diagram (ERD) illustrating an ORKG template for bibliographic metadata and research questions. It depicts classes (e.g., Paper, Author, Research Question) and their attributes (data types like Integer, String, Boolean). Relationships between classes, such as "contribution" and "research_question," are shown with arrows. The diagram visually represents the data structure and relationships within the ORKG template, clarifying how different data elements are interconnected. -->
 
 Figure 3: Excerpt from the ORKG*template*for data extraction.
 
@@ -242,8 +244,10 @@ Despite the positive developments towards the vision [\[50\]](#page-11-6), we ha
 According to Sjøberg et al. [\[50\]](#page-11-6), more *case studies*and*action research*are needed for data collection to ensure the industrial relevance of empirical research. However, our results show that the use of*case studies*decreased, and researchers rarely use*action research*. More effort from the research community is required to achieve this part of the vision. For data analysis, the proportion of papers using *inferential statistics*is low (26.2% average proportion for the target state) and diverse. Based on the names, we found 57 different statistical tests in the 570 papers, often apparently using different spellings for partly the supposedly same test. For example,
 
 <span id="page-7-1"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: Figure 4 is a bar chart showing the proportion of papers per year (2000-2022) that include an empirical study. Gray bars represent the proportion for each year, with values listed below. A dashed line shows a linear trend indicating an overall increase in the proportion of papers with empirical studies over time. The chart visually demonstrates this increasing trend within the field of study. -->
 
 <span id="page-7-2"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: Figures 4 and 5 are bar charts showing the proportion of papers using empirical studies (Figure 4) and case studies/action research (Figure 5) per year from 2000-2022. Each figure includes a table with the exact proportions for each year and a dashed line representing a linear trend. Figure 4 shows a general decline in the proportion of papers reporting empirical studies over time, while Figure 5 displays the proportion of papers employing case study or action research methods, also exhibiting a trend. Both figures visually represent research methodology trends within a specific field. -->
 
 <span id="page-7-3"></span>Figure 5: Proportion of papers per year using case study or action research with linear trend lines. 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 Proportion 0.10 0.18 0.26 0.28 0.18 0.30 0.20 0.38 0.22 0.44 0.21 0.37 0.39 0.38 0.38 0.53 0.62 0.62 0.76 0.72 0.80 0.70 0.64 0.0 0.2 0.4 0.6 0.8 Proportion of papers that provide data Year
 

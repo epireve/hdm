@@ -1,7 +1,7 @@
 ---
 cite_key: "bogachovsupsup2018"
-title: "**A LIGHTWEIGHT MULTI-EXPERT GENERATIVE LANGUAGE MODEL SYSTEM FOR ENGINEERING INFORMATION AND KNOWLEDGE EXTRACTION**"
-authors: "**Bogdan Bogachov<sup>1</sup> , Yaoyao Fiona Zhao1**,<sup>∗</sup>"
+title: "A LIGHTWEIGHT MULTI-EXPERT GENERATIVE LANGUAGE MODEL SYSTEM FOR ENGINEERING INFORMATION AND KNOWLEDGE EXTRACTION"
+authors: "Bogdan Bogachov"
 year: 2018
 doi: "10.48550/arXiv.2302.04023."
 date_processed: "2025-07-02"
@@ -93,6 +93,7 @@ Since this work is aimed at finding a lightweight LLM adaptation solution tailor
 Increasing LLM generation accuracy could involve multiple approaches. One of them is aiming to reduce hallucinations. As it was mentioned earlier, one of the reasons for the hallucination phenomenon is data overshadowing [\[16\]](#page-8-0). In an oversimplified way, this phenomenon can be described as data overlapping, as shown in Figure [1.](#page-2-1)
 
 ![](_page_2_Figure_13.jpeg)
+<!-- Image Description: The image is a diagram showing seven overlapping circles, each representing a category of aircraft repairs: fuselage, wing, window, powerplant, door, stabilizer, and generic repairs. The overlapping circles visually suggest potential interdependencies or commonalities between these repair categories within a maintenance context. The diagram likely serves to illustrate a classification scheme or framework for organizing aircraft repair tasks in the paper. -->
 
 <span id="page-2-1"></span>**FIGURE 1: DATA OVERLAPPING ILLUSTRATION.**
 
@@ -110,6 +111,7 @@ To avoid overlapping, training data chunks were isolated from each other. A sche
 To achieve such data division, each training data chunk has to have a logical beginning and a logical ending. Usually, textbased engineering documentation has a well-defined structure split by sections and subsections; Cessna's SRM [\[33\]](#page-9-1) is not an
 
 ![](_page_3_Figure_0.jpeg)
+<!-- Image Description: The image is a simple diagram showing seven circles, each representing a category of aircraft repairs: fuselage, wing, window, door, stabilizer, powerplant, and generic repairs. It likely illustrates the different types of repair work considered in the paper, serving as a visual representation of the repair categories analyzed or modeled. No equations or graphs are present. -->
 
 <span id="page-3-1"></span>**FIGURE 2: SCHEMATIC REPRESENTATION OF ISOLATED TRAIN-ING DATA.**
 
@@ -158,6 +160,7 @@ Table [3](#page-6-1) lists all combinations of tuned hyperparameters. The values
 For the full fine-tuning pipeline refer to 'finetune.py' [\[37\]](#page-9-5) module in the SLG repository.
 
 ![](_page_4_Figure_0.jpeg)
+<!-- Image Description: The flowchart depicts a query-response system. A user query is processed by an orchestrator, which routes the request to relevant expert modules (e.g., fuselage, wing, window repairs). The responses are compiled, and a final response is sent to the user, concluding the process. The diagram illustrates the system's architecture and workflow, showing the flow of information between the user, orchestrator, and expert modules. -->
 
 <span id="page-4-1"></span>**FIGURE 3: SMALL LANGUAGE GRAPH.**
 
@@ -188,6 +191,7 @@ Although SLG demonstrated significant potential in generating engineering texts,
 One notable constraint of this research is its limit to only two models for comparisons, namely, Llama-3.1-8B-Instruct LLM [\[36\]](#page-9-4) and Llama-3.2-1B-Instruct LLM [\[13\]](#page-7-11). It is planned to conduct more extensive comparisons by including the bigger Llama-3.3-70B-Instruct LLM [\[34\]](#page-9-2) and RAG [\[25\]](#page-8-9). As described in Subsection [2.3,](#page-1-1) RAG is a very powerful technique that enables LLMs to access up-to-date information and augment their contexts before generating text. Llama-3.3-70B-Instruct LLM [\[34\]](#page-9-2), on the
 
 ![](_page_5_Figure_0.jpeg)
+<!-- Image Description: The image presents twelve line graphs, arranged in a 4x3 grid. Each graph displays the performance of three different fine-tuned models (slg, finetuned_3_1_8b, finetuned_3_2_1b) across varying hyperparameters. The metrics measured are ROUGE-L, Exact Match, and METEOR. Hyperparameters explored include learning rate, LoRA rank, gradient accumulation steps, and LoRA alpha. The purpose is to show the impact of these hyperparameters on the performance of the models. -->
 
 <span id="page-5-0"></span>**FIGURE 4: EXPERIMENT CHARTS.**<span id="page-6-1"></span>
 

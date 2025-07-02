@@ -1,7 +1,7 @@
 ---
 cite_key: "yang2025b"
 title: "Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs"
-authors: "Boyang Yang1,<sup>2</sup> , Haoye Tian3,<sup>∗</sup> , Jiadong Ren<sup>1</sup> , Shunfu Jin<sup>1</sup> , Yang Liu<sup>4</sup> , Feng Liu<sup>3</sup> , Bach Le<sup>3</sup>"
+authors: "Jiadong Ren, Shunfu Jin, Yang Liu, Feng Liu, Bach Le"
 year: 2025
 doi: "10.1145/nnnnnnn.nnnnnnn"
 date_processed: "2025-07-02"
@@ -46,6 +46,7 @@ Permission to make digital or hard copies of all or part of this work for person
 <sup>©</sup> 2025 Copyright held by the owner/author(s). Publication rights licensed to ACM. ACM ISBN 978-x-xxxx-xxxx-x/YYYY/MM
 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: This flowchart diagrams two approaches (LLM-based and KG-based) to bug localization and patch generation for a Python code issue (sympy #14817). The KG-based method uses a knowledge graph to identify the relevant code section, which is then used for patch generation. Both approaches with and without entity paths are shown. The figure uses boxes representing processes, arrows indicating flow, and a graph illustrating the KG-based approach. Success/failure is indicated by checkmarks/crosses. -->
 
 Figure 1: Motivating Example
 
@@ -97,6 +98,7 @@ $$
 Where represents a candidate function entity in the knowledge graph, and are embeddings of the problem description and function entity respectively, cos(·, ·) is cosine similarity,
 
 <span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
+<!-- Image Description: This flowchart depicts an automated software patch generation system. It shows a six-step process: 1) inputting a problem description and codebase; 2) constructing a knowledge graph; 3) identifying bug locations using LLMs; 4) generating patches; 5) testing patches; and 6) ranking and selecting the final patch. The knowledge graph is a visual representation of code relationships. The flowchart uses color-coding to distinguish stages (KG mining, patch generation, patch ranking). Candidate patches are displayed with metrics indicating their effectiveness. -->
 
 Figure 2: Overview of KGCompass
 
@@ -221,10 +223,12 @@ Table 2: Token and Cost Statistics of KGCompass
 [Experimental Results]: We evaluate KGCompass's performance against existing open-source approaches in Table [1.](#page-5-0) With Claude 3.5, KGCompass achieves state-of-the-art performance across multiple dimensions. In terms of repair success, KGCompass resolves 45.67%
 
 <span id="page-5-2"></span>![](_page_5_Figure_11.jpeg)
+<!-- Image Description: This Venn diagram illustrates the overlap of features in five different visual programming environments: KGCompass, SWE-Agent, Kodu, OpenHands, and PatchKitty. Each colored ellipse represents a system, with numbers indicating the count of unique features within each intersection. The diagram visually demonstrates the shared and distinct features across these systems, highlighting their commonalities and differences for comparative analysis. The largest overlap is in the center, indicating a core set of shared features. -->
 
 Figure 4: Intersection Analysis of KGCompass Against Leading Open-Source Results
 
 <span id="page-5-3"></span>![](_page_5_Figure_13.jpeg)
+<!-- Image Description: This Venn diagram illustrates the overlap between four knowledge graph embedding methods: KGCompass, Isoform, Blackbox, and Gru. Numbers within overlapping regions represent the quantity of entities shared between methods. The diagram visually compares the unique and shared sets of entities processed by each method, providing a quantitative analysis of their commonalities and differences in the context of the paper's evaluation of knowledge graph embedding techniques. -->
 
 #### Figure 5: Intersection Analysis of KGCompass Against Leading Closed-Source Results
 
@@ -243,14 +247,17 @@ As shown in Figure [4,](#page-5-2) KGCompass uniquely resolves 19 cases that no 
 [Experimental Results]: First, we evaluated the coverage of ground truth bug locations within KG-mined top 20 relevant functions. Our analysis reveals that KG-mined top 20 relevant functions cover 84.3% of file-level and 58.8% of function-level ground truth bug locations. This remarkably high coverage while reducing the
 
 ![](_page_6_Figure_7.jpeg)
+<!-- Image Description: The bar chart displays the distribution of path lengths (in hops) in a network. The x-axis shows path length (1, 2, 3, 4 hops), and the y-axis represents the number of instances with that path length. Most instances (121) have a path length of 2 hops, followed by 63 instances with a path length of 1 hop. Fewer instances have longer path lengths (22 with 3 hops and 2 with 4 hops). The chart likely illustrates network topology characteristics within the paper. -->
 
 Figure 6: Path Length Distribution for Ground Truth Bug Locations
 
 <span id="page-6-1"></span>![](_page_6_Figure_9.jpeg)
+<!-- Image Description: The image is a pie chart illustrating the composition of a software project's activity. It shows the percentage breakdown of contributions categorized as: Files (74%), Functions (15%), Issues (5%), and Pull Requests (6%). The chart likely serves to show the relative proportion of different types of activities within the project, highlighting the significant dominance of file-based contributions. -->
 
 Figure 7: Intermediate Entity Types in KG Paths to Ground Truth Locations
 
 <span id="page-6-0"></span>![](_page_6_Figure_11.jpeg)
+<!-- Image Description: The image is a bar chart showing the frequency distribution of ground truth patch ranks. The x-axis represents the rank (1, 2, 3, 4, 5, 6-10, 11-20), and the y-axis represents the frequency. The chart illustrates that a significant number of patches (116) have a rank of 1, while the frequency decreases as the rank increases. This visualization likely demonstrates the performance or accuracy of a system by showing the distribution of correctly identified patches based on their ranking. -->
 
 Figure 8: Rank of Ground Truth Patch in KG Candidates
 

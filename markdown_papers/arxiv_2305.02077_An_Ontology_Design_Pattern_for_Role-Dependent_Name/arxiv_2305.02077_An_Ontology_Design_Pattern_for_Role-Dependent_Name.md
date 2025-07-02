@@ -1,7 +1,7 @@
 ---
 cite_key: "rayan2021"
 title: "An Ontology Design Pattern for Role-Dependent Names"
-authors: "Rushrukh Rayan1, Cogan Shimizu<sup>2</sup> , and Pascal Hitzler<sup>1</sup>"
+authors: "Cogan Shimizu, Pascal Hitzler"
 year: 2021
 doi: "10.1007/978-3-030-77385-4"
 date_processed: "2025-07-02"
@@ -33,10 +33,12 @@ A schema diagram resulting from a na¨ıve combination of these two patterns is 
 2 Rayan, Rushrukh; Shimizu, Cogan; Hitzler, Pascal
 
 ![](_page_1_Figure_1.jpeg)
+<!-- Image Description: The image presents two entity-relationship diagrams. The upper diagram shows the relationships between "Thing," "AgentRole," and "Agent," with labeled arrows indicating "providesAgentRole" and "performsAgentRole." The lower diagram illustrates the relationship between "NameStub" and "xsd:string" using the label "nameAsString." The diagrams likely illustrate a data model or ontology, defining relationships between entities within a system. -->
 
 <span id="page-1-0"></span>Fig. 1. Diagrams for Agent Role pattern (top) and Name Stub pattern (bottom), as per [\[6\]](#page-5-1)
 
 ![](_page_1_Figure_3.jpeg)
+<!-- Image Description: This image presents an ontology diagram illustrating relationships between concepts. Rectangular boxes represent classes ("Thing," "Agent," "AgentRole," "Name") linked by arrows indicating relationships (e.g., "providesAgentRole," "assumesAgentRole," "hasName"). An oval denotes a data type ("xsd:string"). The diagram likely serves to define the structure of a knowledge representation used within the paper, showing how agents, their roles, and names are interrelated. -->
 
 <span id="page-1-1"></span>Fig. 2. Diagram for naively joined AgentRole and NameStub patterns
 
@@ -62,6 +64,7 @@ The remainder of the paper is organized as follows. In Section [2](#page-2-0) we
 The difficulty posed by the diagram in Figure [2](#page-1-1) is, of course, easily addressed by making use of the fact that both AgentRole and Name are already reifications. The resulting diagram is depicted in Figure [4.](#page-2-2) We will refer to this pattern as the Role-Dependent Names (in short, RDN) pattern.
 
 ![](_page_2_Figure_4.jpeg)
+<!-- Image Description: This image is a UML diagram illustrating an ontology. Rectangles represent classes ("Thing," "Agent," "AgentRole," "Name"), and ovals represent data types ("xsd:string"). Arrows with labels depict relationships between classes, specifying how they relate (e.g., "assumesAgentRole," "providesAgentRole"). The diagram shows the relationships between the classes, particularly how an agent assumes a role and is assigned a name. -->
 
 <span id="page-2-2"></span>Fig. 4. Schema Diagram for the Role-Dependent Names pattern
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "in2021"
 title: "TIMEBENCH: A Comprehensive Evaluation of Temporal Reasoning Abilities in Large Language Models"
-authors: "C: *... After the French evacuated Egypt in 1801, Hurshid Pasha was named governor of Egypt in 1804. Muhammad Ali had himself named governor of Egypt in May 1805 ...* Q: *Which position did Hurshid Pasha hold from 1804 to 1806, if Hurshid Pasha tepped down as the governor of Egypt in 1808?* A: governor of Egypt TEMPREASON"
+authors: "Zheng Chu, Jingchang Chen, Qianglong Chen, Weijiang Yu, Haotian Wang, Ming Liu, Bing Qin"
 year: 2021
 doi: "10.18653/V1/2023.EMNLP-MAIN.298)"
 date_processed: "2025-07-02"
@@ -25,6 +25,7 @@ Grasping the concept of time is a fundamental facet of human cognition, indispen
 Time flies over us, but leaves its shadow behind. Understanding time is a crucial part of human comprehension of the world. Envision the blossoming of flowers, and you'll associate it with the arrival of spring. The ponder within it encompasses the intricate interplay of world knowledge, causality, and event temporal relationships. Temporal reasoning, in contrast to reasoning of a singular nature, comes with inherent complexity, encompassing implicit arithmetic, logical implications, and world knowledge. It is a form of integrated reasoning built upon
 
 <span id="page-0-1"></span>![](_page_0_Figure_8.jpeg)
+<!-- Image Description: The image displays a radar chart comparing the performance of several large language models (LLMs) – GPT-4, LLaMA 2 (70B and 13B parameter versions), and Mistral – against human performance across eight reasoning tasks. Each axis represents a different task (e.g., TimeXNLI, Arith, DurationQA), and the radial distance from the center indicates the model's score on that task. The chart allows for a visual comparison of the LLMs' strengths and weaknesses across various reasoning domains relative to human performance. -->
 
 Figure 1: A brief overview of human and LLMs' performance on TimeBench. Human scores are annotated.
 
@@ -214,6 +215,7 @@ other models exhibit a significant decline in comparison to GPT-4. In commonsens
 Experimental results of alignment models under zero-shot settings are shown in Table [5.](#page-5-0) In zeroshot settings, GPT-4 and GPT-3.5 rank first and second, respectively, and they significantly outperform all open-source models by a large margin. It is noteworthy that open-source models exhibit a larger performance decline compared to proprietary models when transitioning from few-shot to zero-shot scenarios. GPT, Baichuan2 and LLaMA2 suffer drops of 5.6%, 14.6% and 27.2%, respectively. We attribute this performance decline to the quality of alignment. Restricted by their limited instruction-following capability, open-source models struggle to fully unleash their performance
 
 <span id="page-4-1"></span>![](_page_4_Figure_5.jpeg)
+<!-- Image Description: This bar chart displays performance comparison results across four categories (Symbolic, Commonsense, Event, Overall). Two systems, ZS and FS, are evaluated, each with and without a "CoT" (Chain of Thought) prompting method. The chart shows the percentage scores for each system and condition, revealing the impact of CoT prompting on performance in different reasoning tasks. Higher bars indicate better performance. -->
 
 Figure 2: Performance gap with and without CoT prompting. The results are averaged from GPT-4, GPT-3.5, Baichuan2<sup>13</sup>b, LLaMA2<sup>70</sup><sup>b</sup> and Mistral<sup>7</sup>b.
 
@@ -255,10 +257,12 @@ Impact of CoT prompting across tasks. In order to explore the impact of CoT on v
 We investigate how the scale of models affects temporal reasoning capabilities. The trend is illustrated in Figure [4.](#page-6-1) As the model scale increases, there is a notable improvement in performance. When the parameter size expands from 7B to 13B, LLaMA2 and Baichuan2 show improvements of
 
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
+<!-- Image Description: This image presents two heatmaps comparing the performance of several large language models (LLMs) across various evaluation metrics. The top heatmap shows zero-shot performance, while the bottom shows few-shot performance. Each cell's color intensity represents a score (indicated by the color bar), reflecting the LLM's performance on a specific metric (e.g., TimeXNLI, Arith, Overall). The heatmaps visually compare the LLMs' strengths and weaknesses across different tasks and evaluation methods. -->
 
 Figure 3: ∆Score between the chain-of-thought prompting and direct I-O prompting. Top: zero-shot setting, Bottom: few-shot setting, Left: variation in each task, Right: averaged variation in the symbolic, commonsense, event, and overall tasks.
 
 <span id="page-6-1"></span>![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image displays a line graph comparing the performance of four large language models (Baichuan2, ChatGLM3, LLaMA2, Mistral) across different model sizes (6b/7b, 13b, 70b). The y-axis represents an unspecified performance metric, and the x-axis represents the model size in billions of parameters (B). The graph shows a generally positive correlation between model size and performance for each model, with LLaMA2 exhibiting the strongest performance increase with size. -->
 
 Figure 4: Scaling effect of model size and overall temporal reasoning performance. The x-axis (model size) is shown in the log scale. Results show a log-linearity between parameter size and performance.
 
@@ -287,6 +291,7 @@ Mastery of commonsense knowledge varies in LLMs We analyze models' performance a
 LLMs exhibit poor implicit temporal reasoning capabilities. When comparing explicit and implicit event temporal reasoning, specifically TimeQA-explicit versus others, we observe a significant performance decrease in implicit reasoning. Additionally, on TRACIE with numerous implied events, most models only surpass a random baseline (50.0). Even GPT-4, despite its advanced capabilities, achieves only a 66.4% accuracy, suggesting that the LLM struggles with modeling implicit temporal relationships. We consider it helpful to explicitly model the temporal relationships between events and time expressions, for instance constructing timelines or temporal graphs.
 
 <span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: This bar chart compares the performance of "Base" and "Align" models across various large language models (LLMs). The x-axis lists different LLMs (e.g., LLaMA270b, Vicuna1.513b), while the y-axis represents a performance metric (unspecified). Each LLM has two bars, showing its score for both Base and Align versions. The chart likely illustrates the impact of an alignment technique on LLM performance within the paper. -->
 
 Figure 5: Performance difference between base and alignment models under few-shot setting. Baichuan2 and LLaMA2 are aligned with SFT and RLHF. Vicuna, Mistral and ChatGLM3 are aligned with only SFT.
 
@@ -307,6 +312,7 @@ Symbolic Reasoning We categorize symbolic reasoning errors into five groups: (a)
 Commonsense Reasoning We categorize the errors of commonsense reasoning into two groups: (a) *No Answer*: The model fails to provide a final answer. (b) *Reasoning Error*: The model encounters reasoning errors, which can be subdivided into five types of knowledge-related errors. We observe that GPT series models have a higher *No Answer*rate, while LLaMA is always able to provide answers. This discrepancy can be attributed to two factors: firstly, the models may lack the necessary commonsense knowledge to formulate an answer; secondly, the preference alignment mechanism may prompt the model to abstain from answering when confronted with questions outside its knowledge scope. Integration of retrieval can alleviate the problem of knowledge scarcity to a certain degree.
 
 Event Temporal Reasoning We categorize the errors of event temporal reasoning into four groups: (a)*No Answer*: The model is unable to find the answer in the context. (b) *Reasoning Error*: The model encounters reasoning errors. (c) *Halluci-*<span id="page-8-0"></span>![](_page_8_Figure_0.jpeg)
+<!-- Image Description: This figure presents three bar charts comparing reasoning errors of GPT-4, GPT-3.5, and LLaMA2 across different reasoning categories. The charts are titled "Symbolic," "Commonsense," and "Event Temporal," representing different reasoning domains. Each bar within a chart shows the error count for a specific reasoning aspect (e.g., computation, frequency, metric limit) for each model. The figure illustrates the relative strengths and weaknesses of the models in various reasoning tasks. -->
 
 Figure 6: Error analysis for Symbolic, Commonsense, and Event Temporal. We select 100 test samples from each subtask for GPT-4, GPT-3.5 and LLaMa2-base70b.
 *nation*: The model's prediction does not exist in the context, known as hallucination reasoning. (d) *Metric*: The model's prediction is correct, but the metric is limited by the evaluation criteria. It can be observed that, except for reasoning errors, failures to provide answers account for approximately 30%, indicating that models still have flaws in grounding temporal facts from context. Additionally, models occasionally experience hallucination phenomena, leading to erroneous reasoning.
@@ -484,6 +490,7 @@ ChatGPT-3.5/GPT-4 [\(Ouyang et al.,](#page-11-4) [2022;](#page-11-4) [Ope](#page
 <span id="page-14-3"></span><sup>3</sup>We utilize [pycocoevalcap](https://github.com/salaniz/pycocoevalcap ) package to calucate BLEU-4, METEOR, ROUGE-L, CIDEr.
 
 <span id="page-15-2"></span>![](_page_15_Figure_0.jpeg)
+<!-- Image Description: This circular diagram shows the distribution of data points across various categories in a temporal reasoning dataset. The concentric rings represent different task types (e.g., Time NLI, Event Temporal), with the innermost circle labeled "Symbolic." Each segment within a ring denotes a specific dataset or task, annotated with its size (number of instances). The diagram visually summarizes the dataset composition across multiple dimensions, useful for understanding the scope and balance of different subtasks within the paper's focus on temporal reasoning. -->
 
 Symbolic Common Sense Event Temporal
 
@@ -512,6 +519,7 @@ The prompt formats are showcased in Figure [9.](#page-20-0) The demonstrations c
 <span id="page-15-3"></span><sup>4</sup><https://lmsys.org/>
 
 <span id="page-16-1"></span>![](_page_16_Figure_0.jpeg)
+<!-- Image Description: The image presents two sets of grouped bar charts comparing the performance of several large language models (GPT-4, GPT-3.5, LLaMA variants, Baichuan, Mistral, and ChatGLM) across three task categories (Symbolic, Commonsense, Event) and an overall average. Each bar represents a model's performance score (likely accuracy or F1-score) for a specific task. The top chart shows one evaluation metric, while the bottom chart displays a second, distinct metric. The purpose is to quantitatively compare the capabilities of different language models in reasoning tasks. -->
 
 Figure 8: Performance comparison between state-of-the-art LLMs. Up: GPT-4/3.5 and alignment models under zero-shot setting. Down: GPT-4/3.5 and base models under few-shot setting.
 

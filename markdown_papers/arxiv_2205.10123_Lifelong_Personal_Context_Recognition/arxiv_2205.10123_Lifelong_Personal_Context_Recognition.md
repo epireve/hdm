@@ -1,7 +1,7 @@
 ---
 cite_key: "bontempelli2017"
-title: "Lifelong Personal Context Recognition<sup>1</sup>"
-authors: "Andrea Bontempelli, Marcelo Rodas Britez, Xiaoyue Li, Haonan Zhao Luca Erculiani, Stefano Teso, Andrea Passerini, Fausto Giunchiglia"
+title: "Lifelong Personal Context Recognition1"
+authors: "Andrea Bontempelli, Marcelo Rodas Britez, Xiaoyue Li, Haonan Zhao, Luca Erculiani, Stefano Teso, Andrea Passerini, Fausto Giunchiglia"
 year: 2017
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -36,6 +36,7 @@ Based on the above assumptions, the research described here is based on three ma
 The notion of context used here was originally (informally) defined in [\[9\]](#page-6-8) as*"a theory of the world which encodes an individual's subjective perspective about it"*. The key intuition underlying the use of contexts is that generality is achieved by moving from the approach where there is only one monolithic theory of the *objective*world to an unbound number of*subjective*views, modeled as contexts, each providing a partial view of the world, i.e., the set of facts which are locally relevant to the current activity [\[10\]](#page-6-9). In this work, we represent contexts as Knowledge Graphs (KGs) and assume that the AI is able to store any number of them as (sets of)*Life Sequences*[\[8\]](#page-6-7), where a Life Sequence is a sequence of contexts. Figure [1](#page-2-1) represents a small life sequence with three contexts.
 
 ![](_page_2_Figure_1.jpeg)
+<!-- Image Description: The image depicts a life sequence model represented as three contextualized episodes (C₁(me), C₃(me), C₅(me)). Each episode is a table detailing location, event, objects, other persons, personal states, and functions, linked chronologically with arrows. The model visualizes a person's daily activities, from breakfast at home to a work meeting, highlighting contextual factors and transitions. "me" represents the individual, and KG denotes a knowledge graph. The time sequence (T0-T5) illustrates the progression of the episodes. -->
 
 <span id="page-2-1"></span>Figure 1. A three context life sequence of me.
 

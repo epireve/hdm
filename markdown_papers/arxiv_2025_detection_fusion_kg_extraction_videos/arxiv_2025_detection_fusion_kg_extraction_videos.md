@@ -73,6 +73,7 @@ As well as the general goal of providing a compact, largely language-agnostic de
 Let*X*be the possible set of input videos. Let our vocabulary consist of a set*I*of individuals and a set*P*=*C*∪*R*of predicates, where*C*and*R* are, respectively, unary and binary predicates. Our model then consists of
 
 ![](_page_3_Figure_7.jpeg)
+<!-- Image Description: The image is a directed graph illustrating a knowledge representation. Rectangular nodes represent attributes (yellow), objects/subjects (light blue), and relations (light red). Arrows depict relationships between concepts, such as "man" possessing the attribute "sing" and the relation "play" connecting "man" and "guitar". The graph visually demonstrates how concepts and their relationships are structured within the knowledge base, likely used in a natural language processing or knowledge reasoning system. -->
 
 <span id="page-3-0"></span>Figure 1: The first frame from MSVD\*, with (1) ground-truth natural language captions in MSVD, (2) the ground-truth set of facts in MSVD\*, (3)the facts predicted by our model, with (a)objects/subjects present, (b)attributes predicted, (c)relations predicted, and (4) visual representation of the knowledge graph produced
 
@@ -94,6 +95,7 @@ To train the multiclassifier, we use the ground truth sets of individuals and pr
 To train the predicate MLPs, we make use of the locally closed world assumption [8], to avoid learning to predict everything as true. That is, the predicate MLPs are trained as
 
 ![](_page_4_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a video analysis system. An input video is processed by an encoder, feeding into three multi-classifiers (individual, attribute, relation). These classifiers' outputs, along with visual genome statistics, are combined. A predicate MLP and a logistic regressor refine the combined data, producing a final output representing facts extracted from the video. Numbers between 0 and 1 represent probabilities associated with each vocabulary item (individual, attribute, relation). -->
 
 <span id="page-4-0"></span>Figure 2: Description of our approach for annotating a video input with knowledge graph using background knowledge as explained in Sectio[n3.1](#page-2-2)
 
@@ -140,8 +142,10 @@ Interestingly, our results for MSRVTT\* are significantly better than those for 
 <span id="page-6-0"></span>Table 2: Comparison between the main model and the extended model. The scores are average from 5 independent runs (±standard deviation). The best results are in bold.
 
 ![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image presents a table comparing the performance of two models ("Extended Model" and "Main Model") on two datasets (MSVD* and MSRVTT*). The table shows F1-scores and accuracies (positive, negative, and total) for each model and dataset. Higher values indicate better performance. The values are reported as mean ± standard deviation. The purpose is to quantitatively compare the effectiveness of the two models. -->
 
 ![](_page_6_Figure_3.jpeg)
+<!-- Image Description: The image contains two line graphs comparing F1 scores of predicate-MLPs trained with varying epochs (training iterations). Each graph shows two lines: "With VG" and "Without VG," representing model performance with and without a visual grounding component. The x-axis displays the number of epochs, and the y-axis represents the F1 score, a metric of model performance. The graphs illustrate how F1 score changes with different training epochs, allowing assessment of the impact of visual grounding on model performance across various training durations. -->
 
 <span id="page-6-1"></span>Figure 3: F1-score vs the number of training epochs for the predicate-MLP, for the main model (left) and extended model (right).
 
@@ -156,6 +160,7 @@ To further understand how Visual Genome predictions are being used in an extende
 To further evaluate the quality of the KGs produced for the video by our proposed model, manual inspection of videos and predicted facts is carried out. Figure [4](#page-7-1) shows the first two frames from a video with the facts predicted by the model for MSVD\* (left) and MSRVTT\* (right). These qualitative examples show the limitations imposed by the smaller vocabulary size in MSVD\*. The individuals, attributes and relations which appear fewer than 50 times are excluded from the dataset (see supplementary for further information on the dataset). In the video in the left figure in Figure [4,](#page-7-1) the girl is playing the flute, which is also expressed in one of the MSVD captions. However, *f lute*appears less than 50 times and so is not in the model's vocabulary and it cannot predict*play*(*girl*, *f lute*). The model is, however, correctly able to identify it as an *instrument*, and also to correctly identify other attributes, relations, and individuals present in the video.
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: This image from an academic paper presents a comparison of ground truth and predicted facts for video captioning. Two video examples are shown: a girl playing a flute (MSVD) and a man operating a toy drink dispenser (MSR-VTT). Each example shows the input video frames, followed by human-generated descriptions (ground truth), a structured representation of the ground truth, and the model's predicted structured representation of the video content. The analysis focuses on identifying objects, attributes, and relations within the videos. -->
 
 <span id="page-7-1"></span>Figure 4: Left: the first two frames from a video in MSVD\*, with (1) ground-truth natural language captions in MSVD, (2) the ground-truth set of facts in MSVD\*, (3) the facts predicted by the proposed model. Right: the first two frames from MSRVTT\*, with (1) ground-truth natural language captions in MSRVTT, (2) the ground-truth set of facts in MSRVTT\*, (3)the facts predicted by the proposed model. Left: MSVD\*, right: MSRVTT\*.
 
@@ -179,6 +184,7 @@ The results in this setting are significantly worse than the main model, where t
 | Without Combiner | 10.6     | 7.75         | 98.96        | 83.65        | 13.6     | 9.01         | 99.66        | 84.47        |
 
 ![](_page_8_Figure_1.jpeg)
+<!-- Image Description: The image contains two line graphs showing the relationship between a 'q' value and F1 score and time complexity. Each graph plots F1 score (red) and time complexity in minutes (yellow) against increasing 'q' values. The graphs illustrate how F1 score improves with increasing 'q' values, but at the cost of exponentially increased computation time. The purpose is to demonstrate the trade-off between model performance and computational cost within the paper's methodology. -->
 
 <span id="page-8-1"></span>Figure 5: Plots for changes in F1 and time-taken (in min) with changes in the number of candidate facts evaluated. Left: MSVD\* dataset, right: MSRVTT\*dataset.
 

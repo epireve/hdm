@@ -1,7 +1,7 @@
 ---
 cite_key: "correlation2024"
-title: "**Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning**"
-authors: "introducing an implicit correlation encoder and calculating the strength of the implicit correlation, this model can better capture the implicit relationships between entities, thereby improving the effectiveness of relation extraction."
+title: "1 | Introduction"
+authors: "Correspondence:Man Zhang"
 year: 2024
 doi: "10.1111/exsy.13758"
 date_processed: "2025-07-02"
@@ -13,6 +13,7 @@ images_removed: 0
 ---
 
 ![](_page_0_Picture_2.jpeg)
+<!-- Image Description: The image is simply the Wiley publisher logo. It contains no diagrams, charts, graphs, equations, or technical illustrations. Its purpose in the academic paper is to identify the publisher of the work. -->
 
 **ORIGINAL ARTICLE**# Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning
 
@@ -36,9 +37,11 @@ Knowledge graph (KG) is a framework that represents semantic knowledge in a grap
 express negotiation intention, United Kingdom, 10 April 2023), 'United States' and 'United Kingdom' are the head and tail entities, 'express negotiation intention' is the event type, and '10 April 2023' is the timestamp. Knowledge graph representation is a common method for learning to embed entities and event types into a low-dimensional vector space using temporal information. This type of representation learning is of great significance for downstream tasks such as event prediction and question answering. For example, the TKG complex question-answering model based on subgraphs effectively addresses the shortcomings of existing knowledge graph question-answering systems in time dimension processing (Chen et al. [2022](#page-17-3)). A multi-task recommendation system based on dynamic knowledge graph models TKG as continuous timestamp events updates the attributes and relationships between nodes in real-time, and crossfuses node embeddings with recommendation items, solving the problem of insufficient timeliness of existing recommendation methods relying on static KG and effectively improving recommendation performance (Wen et al. [2024\)](#page-18-0).
 
 ![](_page_1_Figure_0.jpeg)
+<!-- Image Description: This diagram depicts international relations, visualizing actions taken by various countries (Russia, Ukraine, US, China, India, Colombia, Tunisia, UK, France, Andorra) in response to a crisis. Arrows show the direction of actions, labeled with letters corresponding to a legend detailing actions like "arrest," "make statement," or "use military force." The image illustrates a network of international responses, useful for analyzing geopolitical interactions and strategic decision-making. -->
 **FIGURE 1** | Entity image segment constructed by ICEWS on 10 April 2023. (Ten countries were selected, and if there were multiple events between two countries, only one was retained for brevity).
 
 <span id="page-1-0"></span>![](_page_1_Figure_2.jpeg)
+<!-- Image Description: The image displays a temporal graph illustrating international relations. Three sequential time steps (t-3, t-2, t-1) show evolving relationships between China, Iran, and Japan, represented by nodes and labeled edges indicating actions like "express intent" or "policy support." Two bar charts demonstrate model predictions: one for entity prediction (given a query, which country is likely involved) and one for relation prediction (what action is likely). The overall purpose is to visualize the model's ability to predict future international relations based on past interactions. -->
 
 <span id="page-1-1"></span>**FIGURE 2** | A knowledge graph (KG) sequence with timestamps, consisting of a series of consecutive subgraphs. The figure shows three static subgraphs at different timestamps.
 
@@ -159,6 +162,7 @@ The task of TKG completion aims to predict the missing parts of quadruples at a 
 The basic idea of the proposed model in this study is to integrate the structural dependencies of KG, sequential patterns of information across temporal facts, and static attributes of entities at each timestamp into the evolutionary representations of entities and relations. This enables the model to learn temporal sensitivity in TKGs and the local topological dependencies and implicit correlations in node neighbourhoods. As shown in Figure [3](#page-6-0), the model is based on an encoder-decoder structure, with the relation-aware graph convolutional network (R-GCN) (Schlichtkrull et al. [2018](#page-18-13)), gated recurrent unit (GRU) (Cho et al. [2014\)](#page-17-20) and multi-layer perceptron (MLP) (Tolstikhin et al. [2021](#page-18-21)) serving as the encoder components, and Conv-TransE serving as the decoder components. First, in the dynamic local
 
 ![](_page_6_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates a graph neural network architecture for knowledge graph reasoning. It depicts an encoder comprising a static graph, temporal embedding using GRUs, and an implicit relation encoder with R-GCN layers, attention, and a convolutional layer. The encoder processes a temporal knowledge graph (TKG) to generate evolved and revolved embeddings. These are then fed into a ConvTransE decoder, culminating in a prediction stage shown as a small knowledge graph. The overall purpose is to model the evolution of knowledge graphs over time. -->
 
 <span id="page-6-0"></span>**FIGURE 3** | The framework of TD-RKG.
 
@@ -169,6 +173,7 @@ recurrent encoding layer, the Relation-aware GCN model and GRU model are employe
 The purpose of this module is to encode the KG sequence, learn the different roles of historical subgraphs of length *k* in the reasoning process, and capture the structural dependencies and sequential patterns of information across temporal neighbouring facts in the KG. Following the processing strategy of RE-GCN, a relation-aware GCN is employed to model the structural dependencies, and the gated recurrent component is used to model the historical KG sequence autoregressively. Specifically, the relation-aware GCN incorporates relationship information into the model, effectively capturing and utilising the relationship information between nodes in the graph structure by learning the relationship features between nodes, thereby better inferring and modelling structural dependency relationships. The entity gating unit obtains the evolving representations of entities at each timestamp, while the relation gating unit obtains the evolving representations of relations at each timestamp. To more intuitively demonstrate the encoding process of the dynamic local recurrent encoding layer, the flowchart in Figure [4](#page-7-0) describes the entire process of structural dependency modelling and autoregressive modelling of historical KG sequences. Next, this section will provide a more detailed description of the encoding process.
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a method for modeling historical knowledge graph (KG) sequences. It begins by obtaining historical subgraphs, initializing entity and relationship embeddings. The "Structural Dependencies Modeling" section uses a relational graph convolutional network (R-GCN) with scaled dot-product attention for message passing. The "Autoregressive Modeling" section employs mean-pooling, relation and entity gating units to update embeddings iteratively. The process concludes with updated entity and relationship embedding matrices. -->
 
 <span id="page-7-0"></span>**FIGURE 4**| The encoding flowchart of the dynamic local recurrent encoding layer.
 
@@ -241,10 +246,12 @@ where*Vr*,*<sup>t</sup>*represents all entities connected to*r*at timestamp*t*, 
 Capturing the implicit correlations between entities is crucial for the task of relation extraction. In this task, the relationships between entities depend not only on their direct connections but also on other factors such as context, co-occurrence relationships, and so on (Wang and El-Gohary [2023](#page-18-23)). Therefore, to better capture these implicit relationships and improve the accuracy and performance of relationship extraction, we introduce an implicit correlation encoder. Figure [6](#page-9-0) provides a more intuitive representation of the learning process of the dynamic implicit encoding layer. It obtains the implicit correlation strength between entities through an S-shaped function and then models the fully connected graph between entities through a multi-layer perceptron (MLP) and fuses it with the output of the relationship-aware GCN to optimise the node features extracted by the dynamic local cyclic encoding layer and avoid any loss of relevant information.
 
 ![](_page_8_Figure_21.jpeg)
+<!-- Image Description: This image displays a diagram depicting the architecture of a recurrent neural network (RNN), specifically showing three time steps (t-1, t, t+1). Each time step consists of multiple layers including addition operations (+), element-wise multiplication (represented by circles), and a tanh activation function. The network processes input (Xt) at each time step, and uses the hidden state (ht) from the previous step, generating updated hidden states (ht+1). The diagram illustrates the flow of information and computations within the RNN's architecture. -->
 
 <span id="page-8-0"></span>**FIGURE 5** | The GRU structure diagram with decay rate.
 
 ![](_page_9_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a graph neural network architecture. It depicts feature vector processing from indices *i* and *j*, calculating interaction strength using a sigmoid function, and applying a 1D convolution. A multi-layer perceptron (MLP) learns features, which are normalized and gated before creating a final embedding. A smaller inset diagram shows the gate's internal structure, possibly an LSTM cell. The entire diagram visually explains the model's sequential processing steps. -->
 
 <span id="page-9-0"></span>**FIGURE 6**| Architecture of the implicit encoding layer.
 
@@ -294,10 +301,13 @@ where*Hi*is the node feature output by the dynamic implicit encoding layer. Furt
 Common decoders such as DistMult, TuckER, ConvKB and so forth perform poorly when dealing with complex relational patterns. Specifically, DistMult (Yang et al. [2014\)](#page-18-9) is limited by its symmetry, making it difficult to effectively handle asymmetric relationships, which may lead to inference errors. Although TuckER (Balažević, Allen, and Hospedales [2019\)](#page-17-24) has a relatively strong reasoning ability, its computational complexity is high, especially in large-scale knowledge graphs. Previous studies have shown that graph convolutional networks (GCNs) using convolutional scoring functions can effectively capture the translational properties of evolving embeddings representing hidden entities and relationships, and achieve good performance in KG reasoning. Although ConvKB (Nguyen et al. [2017\)](#page-18-24) introduces convolutional networks to handle entities and relationships, its design mainly focuses on extracting local features, which makes the model perform poorly in capturing long-distance dependencies and expressing complex relationship patterns. Therefore, in this model, we select Conv-TransE as the decoder. As shown in Figure [8](#page-11-1), we employ a 2×3 kernel for 2D convolution. The input to the decoder consists of entity embedding representations and relationship embedding representations. Since the dimensions of the entity embeddings and the relationship embeddings are the same, the two embeddings can be concatenated. Due to the use of a mini-batch stochastic training algorithm, the first step of the decoder is to perform a lookup operation on the embedding matrix to retrieve the inputs*Es*and*Ep*for the triples in the mini-batch. Then, the convolution operation is applied to the inputs to obtain the sum of*Es*and*Ep*, effectively preserving the translational properties of the
 
 ![](_page_10_Figure_11.jpeg)
+<!-- Image Description: The image displays two directed acyclic graphs illustrating a temporal knowledge graph query. Nodes represent events (e.g., "doctor," "medication," "flu"). Edges show temporal relationships with dates. The left graph shows a patient's medical history; the right depicts the same history after temporal abstraction, converting specific dates to relative times ("1 day ago," "4 days ago"). The purpose is to demonstrate the process of temporal reasoning within a knowledge graph query, specifically focusing on the transformation from specific to relative time representations. -->
 
 <span id="page-10-0"></span>![](_page_10_Figure_12.jpeg)
+<!-- Image Description: Figure 7 describes a temporal displacement example. It's likely a graph or diagram where bold edges highlight significant events linked to an input query within a temporal context. The figure illustrates how important events are identified and potentially used for analysis or processing related to the input query. -->
 
 ![](_page_11_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a convolutional neural network (CNN) architecture. Input vectors (Es, Ep) are convolved with multiple kernels of varying sizes, producing feature maps. These maps are vectorized, then fed into a fully connected layer. A matrix multiplication with an embedding matrix projects the data to the embedding dimension. Finally, a sigmoid function generates predictions (logits transformed into probabilities). The diagram visually explains the data flow and transformations within the CNN. -->
 
 <span id="page-11-1"></span>**FIGURE 8**| Architecture of the decoder layer.
 
@@ -398,10 +408,12 @@ Hit@N: Hit@N represents the percentage of correct entities predicted by the mode
 As described in (Han et al. [2021](#page-17-25)), the use of filtering settings to remove corrupt facts from the sorted list does not apply to temporal reasoning tasks. For example, consider a test set query (Malaysia, the relationship to be predicted, Thailand,*t*1) with the
 
 ![](_page_13_Figure_0.jpeg)
+<!-- Image Description: The image displays a line graph comparing the performance of different knowledge graph embedding methods. The x-axis represents the dataset size, and the y-axis shows the evaluation metrics MRR (Mean Reciprocal Rank) and hits@10 (percentage of correct answers within the top 10 predictions). Multiple lines represent different methods, showing how their performance changes with varying dataset sizes. The graph's purpose is to illustrate the relative performance of these methods in the paper. -->
 
 14680394, 2025, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.13758 by <Shibboleth>-member@cranfield.ac.uk, Wiley Online Library on [30/06/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
 
 ![](_page_13_Figure_1.jpeg)
+<!-- Image Description: The image contains three line graphs (a, b, c) showing evaluation metrics (hits@3, hits@10, MRR) over training epochs for three different datasets: ICEWS14, ICEWS05-1, and YAGO. Each graph displays the progression of these metrics, indicating model performance improvement with increasing training epochs. The purpose is to illustrate the training dynamics and convergence behavior of the model on different datasets. -->
 
 <span id="page-13-0"></span>**FIGURE 9**| Comparison of Hits@1/3/10 and MRR results across various datasets.
 
@@ -416,6 +428,7 @@ The TD-RKG model is compared with three categories of models: static KG reasonin
 In the process of reasoning, static reasoning models and interpolation reasoning models do not encode historical information.
 
 ![](_page_14_Figure_1.jpeg)
+<!-- Image Description: The image displays a bar chart comparing the performance of four algorithms (CEN, RE-GCN, TITer, TD-RKG) across 20 epochs. The y-axis represents a performance metric (unspecified), and the x-axis shows the epoch number. The chart illustrates the algorithms' metric progression over training iterations, allowing for a comparison of their convergence rates and final performance levels. -->
 
 <span id="page-14-0"></span>**FIGURE 10**| MRR comparison plot for various extrapolated TKG on the ICEWS dataset.
 
@@ -432,8 +445,10 @@ This section reports and analyses the performance of TD-RKG compared to existing
 For one of the most important metrics, MRR, the line graph in Figure [10](#page-14-0) further analyses and compares the MRR performance of TD-RKG against the benchmark dynamic reasoning model, where TD-RKG consistently outperforms these baselines. In the YAGO dataset, the timestamps of the quadruples not only indicate time points but also include temporal modifiers. This makes many baseline KGE methods perform poorly in the experiments, and some methods cannot even handle time-aware link prediction tasks. The results in Tables [4](#page-12-0) and [5](#page-12-1) show that the performance of TD-RKG is far superior to static inference methods because the static model completely ignores the time information of KG inference. Although dynamic methods TTransE and HyTE consider temporal information, their scalability is poor, and more importantly, they ignore the evolutionary patterns of historical subgraphs, resulting in poorer performance than static methods. TA-DistMult performs better than its static model, DistMult, on all three datasets. This indicates the importance of temporal information for TKGC tasks. However, TA-DistMult only focuses on individual triples, neglecting contextual information, which leads to inferior performance. Compared with the historically based RE-NET, CyGNet and RE-GCN methods, the proposed TD-RKG method consistently outperforms them in terms of MRR, Hits@1, Hits@3 and Hits@10, because these methods ignore the implicit relationships between entities in the structural dependency modelling process, as well as the time-sensitivity of inference. The experimental results have verified the advantages of combining implicit relationship encoder and attention to learn and integrate implicit relationships and contextual information in TKGC,
 
 ![](_page_15_Figure_0.jpeg)
+<!-- Image Description: The image is a stacked area chart showing the proportion of different components over time (x-axis: 13-18). Multiple colored areas represent different components, possibly performance metrics related to inference ability. The chart likely illustrates a trend of changing proportions across these components over a period, potentially highlighting a performance issue discussed in the surrounding text. -->
 
 ![](_page_15_Figure_1.jpeg)
+<!-- Image Description: The image contains three line graphs comparing the performance of four algorithms (GIA, IE, LRE, TD-RKG) across different epochs. Each graph represents a separate dataset: ICEWS14 (a), ICEWS05-15 (b), and YAGO (c). The y-axis shows performance, and the x-axis represents the epoch number, indicating iterative progress. The graphs illustrate the performance trend of each algorithm over time on each dataset, allowing for a comparison of their convergence and ultimate performance. -->
 
 <span id="page-15-1"></span>**FIGURE 11** | Comparison of ablation studies in three datasets.
 
@@ -458,6 +473,7 @@ we found that the Hits@3 metric of the model does not meet the SOTA result on th
 To better understand the effectiveness of different model components in capturing relevant historical features, ablation studies were conducted in this section. As shown in Table [6](#page-15-0), the dynamic local recurrent encoding layer (LRE) had the greatest impact on performance, indicating the importance of neighbouring historical facts for predictions. The dynamic implicit encoding layer (IE) had a consistent impact across all datasets, highlighting the importance of capturing implicit correlations between entities
 
 ![](_page_16_Figure_1.jpeg)
+<!-- Image Description: The image contains three line graphs showing loss versus epoch for three different datasets (ICEWS14, ICEWS05-15, YAGO). Each graph compares two model variations: "w.TD-RKG" and "wo.TD-RKG," illustrating the impact of a specific technique (TD-RKG) on model performance by comparing loss reduction over training epochs. Lower loss indicates better model performance. The graphs visually demonstrate the effectiveness of the TD-RKG method. -->
 
 <span id="page-16-1"></span>**FIGURE 12**| Study the role of TD-RKG in the general training process using three datasets.
 

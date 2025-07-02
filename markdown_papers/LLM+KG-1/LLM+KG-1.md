@@ -1,7 +1,7 @@
 ---
 cite_key: "arijitkcsaaudk2024"
 title: "Data Management Opportunities in Unifying Large Language Models+Knowledge Graphs"
-authors: "Arijit Khan Aalborg University Denmark arijitk@cs.aau.dk"
+authors: "Arijit Khan, Tianxing Wu, Xi Chen"
 year: 2024
 date_processed: "2025-07-02"
 phase2_processed: true

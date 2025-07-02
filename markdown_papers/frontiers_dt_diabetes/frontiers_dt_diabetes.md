@@ -1,7 +1,7 @@
 ---
 cite_key: "zhangsupsup2023"
-title: "[A framework towards digital](https://www.frontiersin.org/articles/10.3389/fdgth.2024.1336050/full) [twins for type 2 diabetes](https://www.frontiersin.org/articles/10.3389/fdgth.2024.1336050/full)"
-authors: "Yue Zhang<sup>1</sup> , Guangrong Qin<sup>1</sup> , Boris Aguilar<sup>1</sup> , Noa Rappaport1,2, James T. Yurkovich2,3, Lance Pflieger2,3, Sui Huang1 , Leroy Hood1,2,3 and Ilya Shmulevich<sup>1</sup> \\*"
+title: "REVIEWED BY"
+authors: "Ilya Shmulevich"
 year: 2023
 doi: "10.3389/fdgth.2024.1336050"
 date_processed: "2025-07-02"
@@ -69,6 +69,7 @@ We selected a number of clinical variables related to T2D for further study: HbA
 Prior to analysis, the data were filtered and cleaned in a number of ways. First, we only included the subjects for which demographic, clinical, proteomic, and metabolomic data were available for at least two time points (N = 2,008). Next, we excluded subjects that had missing values for any of the five studied clinical variables in the first two time points. We then removed the clinical, proteomic, and metabolomic features that had more than 10% missingness across the data, and afterwards, we removed subjects with more than 10% missingness in the remaining metabolomic features, or any missingness in the
 
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
+<!-- Image Description: Figure 1 is a flowchart illustrating a digital twin system for type 2 diabetes (T2D). It depicts three core components: machine learning models (predicting future clinical measurements and disease progression), knowledge graphs (selecting features and explaining predictions), and mechanistic models (providing templates and receiving feedback). The system uses historical and current longitudinal patient data (clinical measurements, blood proteomics, and metabolites) as input. -->
 
 TABLE 1 Table of sample characteristics. This table shows descriptive statistics for the test sample after filtering the data.
 
@@ -93,6 +94,7 @@ The overall process of predicting clinical trajectories is described in [Figure 
 We used both regression and classification models for the delta predictions. In regression, we predicted the value of the change. To
 
 <span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
+<!-- Image Description: Figure 2 presents a machine learning model predicting type 2 diabetes-related clinical variables (HbA1c, eGFR, glucose, insulin, HOMA-IR) at 6 and 12 months. Panel A shows the model's workflow using clinical, proteomics, and metabolomics data. Panels B-F display box plots comparing the model's prediction performance (F1 score) across different feature sets (demographics only, clinically selected, full clinical, proteomics, metabolomics, all) for each variable at both time points. The plots assess the model's accuracy in predicting changes in these variables over time. -->
 
 would increase by at least 5% (or decrease by at least 5% in the case of eGFR).
 
@@ -156,6 +158,7 @@ First, we used SPOKE ([13\)](#page-8-0) to identify relationships between the hi
 We also identified a subgraph of related nodes consisting of the top predictive features (here, they are proteins mapped to nodes in SPOKE), as well as the disease node for Type 2 Diabetes. We constructed a subgraph using an approximate Steiner tree approach described in ([20](#page-8-0)). Expanding the Steiner tree to include all edges within the tree's nodes gives us the (approximately)
 
 ![](_page_5_Figure_7.jpeg)
+<!-- Image Description: Figure 3 presents a multi-panel analysis of protein classifiers and networks related to type 2 diabetes and chronic kidney disease. Panels A and C are bar charts showing logistic regression weights for proteins in HbA1C and eGFR classifiers, respectively. Panels B, D, E, and F are network diagrams illustrating protein-protein interactions and relationships with drugs and diseases, using color-coding to distinguish types of interactions (e.g., binds, treats, contraindicates). The purpose is to visualize relationships between proteins and clinical characteristics. -->
 
 #### (A,C) show the top 10 highest weighted protein predictors for dHbA1c and deGFR, respectively, at 6 months, using L1-regularized logistic regression. The bars indicate the range that the coefficients take over the 10 cross-validation runs. (B,D) Show the approximate Steiner subgraph on SPOKE using the top 10 highest weighted proteins. A node outlined in red is part of the input set. Blue nodes are proteins, while orange nodes are diseases, and purple nodes are compounds. Light blue edges represent protein-protein interactions, while gray edges represent all other types of connections, and are labeled with the edge type. (E,F) Show the shortest paths from each of the top 10 proteins to the nodes for T2D and CKD.
 
@@ -168,6 +171,7 @@ The topic PageRank algorithm is another way of identifying features on the graph
 In our digital twin system design, which incorporates machine learning, knowledge graphs and mechanistic models, we have demonstrated the utility of integrating machine learning with knowledge graphs for predicting disease trajectories and identifying key features as well as their relationships to the disease. While digital twins have been applied extensively in various engineering disciplines, their application to biomedical research has been limited. Their limited application is primarily attributed to the inherent complexity of biological systems, which poses a unique challenge in their modeling and simulation. Here, we attempt to overcome this challenge by integrating extensive mechanistic information represented in an existing biomedical
 
 ![](_page_6_Figure_7.jpeg)
+<!-- Image Description: This figure presents two horizontal bar charts (A and B). Each chart displays the top associated proteins for a specific predictive protein, indicated by "dHbA1C-predictive proteins" (A) and "dgfr-predictive proteins" (B). The y-axis lists the proteins (e.g., UFO_HUMAN, AKT1_HUMAN), and the x-axis represents the "Topic PageRank score," indicating the strength of association. Higher scores denote stronger associations. The charts likely illustrate protein networks relevant to the predictive proteins analyzed in the study. -->
 
 #### FIGURE 4
 

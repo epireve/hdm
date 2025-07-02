@@ -1,7 +1,7 @@
 ---
 cite_key: "abu-salih2023b"
-title: "**RESEARCH Open Access**"
-authors: "Bilal Abu-Salih1\\*, Muhammad AL-Qurishi2 , Mohammed Alweshah3 , Mohammad AL-Smadi4,5, Reem Alfayez1 and Heba Saadeh1"
+title: "RESEARCH Open Access"
+authors: "Heba Saadeh"
 year: 2023
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -52,6 +52,7 @@ In Sect. [2](#page-2-0), taxonomy of KG construction in healthcare is presented 
 This paper aims to review the recent KG construction approaches for healthcare applications. Thus, we attempt to cover all papers that describe mechanisms for KG construction to benefit the healthcare domain. We focus on articles that were published in the past five years (2018–2022). PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses) framework [\[9](#page-27-8)] is followed to guide this systematic review. As demonstrated in Fig. [1,](#page-2-1) around 560 articles were selected in the first stage from various databases including Elsevier, ACM Digital Library, Multidisciplinary Digital Publishing Institute (MDPI), IEEE Xplore digital library, and Google Scholar. The collected articles were all in English and were retrieved using the following keywords used in this query: "Knowledge Graph Construction", "Healthcare", "biomedicine", "medicine", "drug discovery", "drug repurposing", "adverse drug reaction", "disease(s)", "disorder", etc. An additional 83 articles were identified and added to the corpus by reviewing the citations map of the tentative collected set of papers. The first stage resulted in a total of 643 records. Another round of inspection was carried out in the screening stage to eliminate any redundant or irrelevant articles. This was accomplished by examining both the title and the abstract of each paper. In this way, 440 records were excluded in the screening stage as they did not meet the inclusion criteria. In particular, many of the articles discussed approaches for KG embeddings that are applied to existing KGs, thus no construction of new healthcare KGs was proposed. Another array of articles reported KG construction for other domains of knowledge yet indicated "healthcare" as an example of the popularity of KGs to tackle industrial applications. The eligibility phase was then carried out by examining the full text of papers and eliminating the irrelevant ones (102 records). In
 
 <span id="page-2-1"></span>![](_page_2_Figure_7.jpeg)
+<!-- Image Description: This flowchart displays the study selection process. Starting with 560 database records and 83 from a citation map, the process involves screening (643 total), eligibility assessment (203 remaining), resulting in 101 articles included in the final survey. Numbers indicate the quantity of records at each stage and reasons for exclusion are noted. The diagram visually represents the methodology's rigor and transparency. -->
 **Fig. 1** The article selection strategy for the literature review (PRISMA model)
 
 the final stage, a total of 101 papers were deemed to be qualified to be included in this review.
@@ -67,12 +68,14 @@ A KG is a multidimensional graph that contains entities (nodes) and relations (e
 A KG is a directed graph (*G*), where *G* = (*V, E*). This notation depicts the relationship between entities, as well as the interactions between these entities, in terms of graph vertices (*V* ) and edges (*E* ) connecting these vertices. The edges reflect relationships between real-world things whereas the vertices represent real-world entities. The edges of the graph connect the vertices/entities/nodes, and facts can be represented as an RDF1 triple (*head, relation, tail*), which is also notated as <h,r,t>. As a result, a fact can be inferred by the relationship that connects two interrelated entities. Figure [3](#page-4-0) demonstrates a sample KG demonstrating the semantic representation of entities captured from different interrelated healthcare domains, namely *Disease, Gene, Drug, and Compound*. The figure shows how a KG can be used to expand one domain by semantically interlinking it with another domain. Also, various facts can be inferred from the abstract
 
 <span id="page-3-0"></span>![](_page_3_Figure_8.jpeg)
+<!-- Image Description: The image is a bar chart displaying the number of publications per year from 2018 to 2022. The chart shows a clear upward trend, starting with 2 publications in 2018 and peaking at 36 in 2021, before slightly decreasing to 22 in 2022. The purpose is to illustrate the growth in research output over the period presented. -->
 
 **Fig. 2**#Publications about KG construction for healthcare in the past years
 
 <sup>1</sup>[https://www.w3.org/TR/rdf11-concepts/.](https://www.w3.org/TR/rdf11-concepts/)
 
 <span id="page-4-0"></span>![](_page_4_Figure_2.jpeg)
+<!-- Image Description: This image is a knowledge graph illustrating relationships between various biomedical entities. Nodes represent concepts like Disease, Drug, Gene, and Compound, while edges depict relationships (e.g., "treats," "interacts with," "partOf"). The graph visually represents the interconnectedness of biological processes, diseases, treatments, and their associated components, aiding in understanding complex interactions within a system. -->
 **Fig. 3** A sample healthcare KG
 
 structure of the KG. For example, the fact "*a Disease is associated with a Gene*" represents an abstract fact that comprises two abstract concepts (i.e. *Disease*and*Gene*), and the relation "*is associated with"*builds the triple <"*Disease", "associatedWith"," Gene"*>*.* These abstract concepts can be then replaced with real-life entities to provide a specific domain representation. For example, the triple <*" Sjogren's Syndrome", "associatedWith", "HLA-DR3"*> indicates a fact about the Sjogren's Syndrome disorder which can be associated with HLA genes, namely HLA-DR3 [[12\]](#page-27-11).
@@ -98,6 +101,7 @@ YAGO6 , and DBPedia<sup>7</sup> knowledge bases are examples of generic KGs, and
 To better understand the overall paradigm of healthcare KG construction, we design a taxonomy that illustrates key activities and aspects of this process. Figure [4](#page-5-1) shows the schematic representation of the taxonomy that was designed after careful examination of all significant state-of-the-art KG creation approaches relevant to critical healthcare applications, including (i) drug discovery, repurposing and adverse reaction; (ii) diseases and disorders; (iii) biomedicine; and (iv) other miscellaneous healthcare applications. This taxonomy aims to ensure that the process of constructing a typical KG in healthcare must demonstrate the intended primary use of KG, levels of knowledge extraction
 
 <span id="page-5-1"></span>![](_page_5_Figure_5.jpeg)
+<!-- Image Description: This flowchart categorizes healthcare knowledge graph (KG) construction. It branches from "Healthcare KG Construction" into "Knowledge Extraction" and then into KG usage types (drugs, diseases, biomedicine etc.). A second branch details construction approaches (manual, AI-based, etc.), knowledge base types (schema-based, schema-free), resource types (structured, unstructured), and evaluation metrics (case studies, domain experts). The right side focuses on extraction levels (entity, relation) and techniques (NER, NED, NEL) used. -->
 
 **Fig. 4**A taxonomy of healthcare KG construction
 

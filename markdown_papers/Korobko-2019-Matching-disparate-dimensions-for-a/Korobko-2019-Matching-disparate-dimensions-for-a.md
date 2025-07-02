@@ -1,7 +1,7 @@
 ---
 cite_key: "krasnoyarsk2019"
-title: "**Matching disparate dimensions for analytical integration of heterogeneous data sources**"
-authors: "Anna Korobko Department of Applied Computer Science ICM SB RAS Krasnoyarsk, Russia gglhroom@gmail.com"
+title: "Matching disparate dimensions for analytical integration of heterogeneous data sources"
+authors: "Anna Korobko, New York"
 year: 2019
 doi: "10.1145/3297662.3365809"
 date_processed: "2025-07-02"
@@ -89,6 +89,7 @@ Since we intend to integrate disparate data sources with different formats along
 The task of the analysis of municipal procurement is considered as a case study demanding simultaneous analysis of heterogeneous data. According to the Russian Federal Law for supplying municipal needs the Official All-Russian website of procurement (zakupki.gov.ru) has been developed. It consolidates municipal demands, ongoing purchases and contracts all over the country. It sends and receives data in XML format according to the predefined XSD schemas. We treat it as a semi-structured data source. Otherwise, the Local System of procurement makes up municipal demand orders and a scheduled plan of purchases using Oracle DBMS to store data and metadata. It is an example of a relational data source. If someone is to trace a certain purchase from a demand order to a contract or to analyze some supplier activity, he needs to integrate these heterogeneous data.
 
 ![](_page_3_Figure_2.jpeg)
+<!-- Image Description: This image presents a class diagram depicting the metamodel of an integral analytical platform. It shows entities like `Source`, `Measure`, `Relation`, `RS_Attribute`, and `RS_Dimension`, with their attributes defined (e.g., name, type, address). Relationships between entities are illustrated using cardinality notations (e.g., 1, 1.*, 1..*). The diagram clarifies the structure and relationships within the platform's data model. -->
 **Figure 1. The class diagram for the metamodel of the integral analytical model**The proposed metamodel of IAM is implemented using the model-driven development paradigm [27]. The models from the lower levels represent a metadata storage structure and consider a special aspect of the program realization of the theoretical approach. The next step of the current study is to develop a means for matching the dimensions of an integrated data source and a set of the reference dimensions of the integral analytical model.
 
 ### 4 ALGORITHM FOR MATCHING DISPARATE DIMENSIONS

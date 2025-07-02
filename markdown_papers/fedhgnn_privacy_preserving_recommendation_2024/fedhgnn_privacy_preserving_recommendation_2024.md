@@ -69,6 +69,7 @@ Permission to make digital or hard copies of all or part of this work for person
 WWW '24, May 13–17, 2024, Singapore, Singapore Bo Yan et al.
 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: This image illustrates different heterogeneous information network (HIN) architectures. (a) shows a centralized HIN, (b) a federated HIN, and (c) exemplifies meta-paths within the HIN. (d) depicts semantic inconsistencies in data aggregation across a HIN, highlighted by red crosses. Nodes represent users, movies, and directors, while edges represent relationships. The image serves to compare the architectures and illustrate potential challenges in HIN data integration. -->
 
 Figure 1: Comparison of a HIN in the centralized setting and federated setting
 
@@ -133,6 +134,7 @@ In this section, we give a detailed introduction to the proposed model FedHGNN. 
 Different from existing FedRec systems that only utilize user-item interactions, FedHGNN also incorporates HINs into user and item modeling, which can largely alleviate the cold-start issue caused by data sparsity. Besides, as a core component of FedHGNN, the semantic-preserving user-item publishing mechanism recovers semantics with rigorous privacy guarantees, which can be applied to all meta-path based FedRec systems technically. We present the overall framework of FedHGNN in Figure [2.](#page-3-0) As can be seen, it mainly includes two steps, i.e., user-item interaction publishing and HGNN-based federated training. At the user-item interaction publishing step, each client perturbs local interactions using our two-stage perturbation mechanism and then uploads the perturbed results to the server. After the server receives local interactions from all clients, it can form an integral perturbed HIN, which is then distributed to each client to recover the meta-path based semantics. Note that the publishing step is only conducted once in the whole federated training process. At the federated training step, clients collaboratively train a global recommendation model based on recovered neighbors, which performs node-level neighbor aggregations followed by semantic-level aggregations. Then a ranking loss is adapted to optimize embedding and model parameters. At
 
 <span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
+<!-- Image Description: This figure illustrates a distributed learning framework for recommendation systems. It depicts two client nodes (Client 1 and Client N) independently processing user-item interaction data, incorporating metapath-based neighbors and an embedding layer. Each client then uploads embedding gradients and model parameters to a central server via Local Differential Privacy (LDP). The server aggregates these, updates the embedding, and redistributes it. The diagram shows data flow and processing steps within a federated learning architecture. -->
 
 Figure 2: The overall framework of FedHGNN
 
@@ -143,6 +145,7 @@ each communication round, each participating client locally trains the model and
 To recover the semantics of the centralized HIN (obtaining the meta-path based neighbors), directly uploading the adjacency list to the server can not satisfy the privacy definition because the user-item interactions are exposed. To address this, we first present a naive solution based on random response (RR) [\[6\]](#page-8-27) and illustrate its defects of direct applications to our task. Then we give detailed introductions of our proposed two-stage perturbation mechanism for user-item interaction publishing. As depicted in Figure [3,](#page-3-1) it first perturbs the user-related shared HINs and then perturbs the user-item interactions within selected shared HINs, which not only achieves semantic-preserving but also satisfies the defined privacy. Random response (RR). As many homogeneous graph metrics publishing [\[11,](#page-8-29) [27,](#page-8-30) [35,](#page-8-31) [43\]](#page-8-32), a straw-man approach is directly utilizing RR [\[6\]](#page-8-27) to perturb each user's adjacency list , i.e., the user flips each bit of with probability = 1 1+ . However, this naive strategy faces both privacy and utility limitations. For privacy, although it satisfies the -semantic guided interaction privacy, it can not achieve our -semantic privacy goal. As for utility, it has been theoretically proved that RR would make a graph denser [\[27\]](#page-8-30). Unfortunately, there exists perturbation enlargement phenomenon [\[48\]](#page-8-33) in the HGNNs, i.e., introducing more edges may harm the HGNN's performance, which is also confirmed in our latter experiments. Besides, RR fails to accommodate the semantic-preserving since it perturbs all bits of . We can only perturb the semantic guided item set to preserve semantics but this will expose the user's
 
 <span id="page-3-1"></span>![](_page_3_Figure_7.jpeg)
+<!-- Image Description: The diagram illustrates a two-stage perturbation of a user's (Tom) heterogeneous information network (HIN). The left side shows the original HIN, with movie genre nodes (Fiction, Cartoon, Action) connected to movie nodes (Avatar, Star Wars, Peppa, First Blood, Rocky). The right depicts the perturbed HIN after two perturbation stages, showing altered connections between genres and movies. The purpose is to visually represent the data perturbation process within the HIN for robustness analysis, likely in the context of recommendation systems or similar applications. -->
 
 Figure 3: The two-stage perturbation mechanism for useritem interaction publishing
 
@@ -362,10 +365,12 @@ Analysis of different numbers of shared HINs. To demonstrate the effects of diff
 Table 3: Performance of different variants of FedHGNN on three datasets.
 
 <span id="page-7-1"></span>![](_page_7_Figure_3.jpeg)
+<!-- Image Description: This image displays three line graphs comparing HR@5, HR@10, NDCG@5, and NDCG@10 metrics across datasets (ACM, DBLP, Yelp). The x-axis represents a parameter 'n', and the y-axis shows the percentage. Each graph illustrates the performance of these metrics as 'n' increases, allowing the comparison of algorithm performance across different datasets. The purpose is to demonstrate the impact of 'n' on the evaluation metrics in the context of the research. -->
 
 Figure 4: Effects of different number of shared HINs
 
 <span id="page-7-2"></span>![](_page_7_Figure_5.jpeg)
+<!-- Image Description: The image presents nine line graphs, three sets of three, illustrating the performance of a ranking model across three datasets (ACM, DBLP, Yelp). Each graph shows HR@5, HR@10, NDCG@5, and NDCG@10 metrics as functions of parameters ε₁ and ε₂. The graphs visually compare the impact of these parameters on the ranking model's performance across different datasets, allowing for an assessment of the model's effectiveness under varying conditions. -->
 
 Figure 5: Effects of different privacy budget <sup>1</sup> and <sup>2</sup>
 
@@ -525,6 +530,7 @@ The whole process of FedHGNN is presented in Algorithm [1.](#page-10-1) Each cli
 - 37: return g˜<sup>Θ</sup>
 
 <span id="page-10-3"></span>![](_page_10_Figure_24.jpeg)
+<!-- Image Description: The image contains two line graphs comparing the performance of several federated recommendation algorithms (FeSoG, PerFedRec, FedGNN, PFedRec, FedHGNN, FedMF, SemiDFEGL) across different communication rounds. Graph (a) shows results on the ACM dataset, while (b) shows results on the DoubanBook dataset. The y-axis represents HR@10 (Hit Rate at 10), a metric for recommendation accuracy. The x-axis represents the number of communication rounds in the federated learning process. The graphs illustrate how the algorithms' performance changes with increasing communication. -->
 
 Figure 6: Coonvergence plots of different FedRecs in ACM and Douban Book datasets
 

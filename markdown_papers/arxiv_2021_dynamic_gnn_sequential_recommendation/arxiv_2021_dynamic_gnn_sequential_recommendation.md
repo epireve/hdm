@@ -48,8 +48,10 @@ Although these methods have achieved compelling results, we argue that these met
 Consequently, the above two aspects result in the diffi-
 
 <sup>•</sup>*Mengqi Zhang, Shu Wu, Qiang Liu, and Liang Wang are with the Center for Research on Intelligent Perception and Computing (CRIPAC), Institute of Automation, Chinese Academy of Sciences, Beijing 100190, China, and also with the School of Artificial Intelligence, University of Chinese Academy of Sciences, Beijing 101408, China (E-mail: mengqi.zhang@cripac.ia.ac.cn, shu.wu@nlpr.ia.ac.cn, qiang.liu@nlpr.ia.ac.cn, wangliang@nlpr.ia.ac.cn).*<sup>•</sup>*Xueli Yu is with Beijing Institute for General Artificial Intelligence (BIGAI), Beijing, China (E-mail: yuxueli@bigai.ai).*<span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: The image illustrates a sequence prediction problem. The left shows multiple input sequences (`u1`, `u2`, `u3`) of nodes (labeled `i1`, `i2`, etc.), connected by arrows indicating order. The right depicts how these sequences are used for training a model. Multiple sequences are presented for training, followed by a testing sequence where the model predicts the missing node. The figure uses node-arrow diagrams to visually represent the input and output data for training and testing a sequential model. -->
 
  ? (a) The left figure presents differnt sequences of u1, u<sup>2</sup> and u3. Our goal is to predict the next interaction of u1. The figure on the right illustrates the training and testing paradigm of most sequential models. : ()**User sequences**?**Testing**<span id="page-1-1"></span>![](_page_1_Figure_3.jpeg)
+<!-- Image Description: The image shows a sequence of three graphs ($t_1$, $t_2$, $t_3$) illustrating a graph evolution process. Nodes are colored green (u) or gold (i). The graphs depict changes in connections between nodes over time. A dashed arrow shows a node's movement from $t_1$ to $t_2$. The final graph ($t_3$) shows an uncertain connection indicated by a dashed arrow ending with a question mark. The image likely illustrates a dynamic graph model or algorithm, demonstrating its step-by-step operation. -->
 
 () (b) Interaction of user-item graph composed of u1, u<sup>2</sup> and u<sup>3</sup> at different times. Each edge represents the interaction between user and item, and has time attribute. The node u<sup>1</sup> is the target user to predict. The solid line indicates the interaction that has occurred at the current time. The dotted arrow represents the next interactions of u1. The timestamp sequence of u<sup>1</sup> is (t1, t2, t3).
 
@@ -116,6 +118,7 @@ We now present the proposed DGSR model, the framework of which is illustrated in
 In this section, we describe how to convert all user sequences into a dynamic graph. When the user u acts on the item i at time t, an edge e is established between u and
 
 <span id="page-3-2"></span>![](_page_3_Figure_2.jpeg)
+<!-- Image Description: This figure illustrates a dynamic graph recommendation network. It depicts user sequences transforming into dynamic graphs via sub-graph sampling. These graphs are then processed through a network incorporating long-term and short-term information (item-user and user-item interactions). The final stage shows a prediction layer that aggregates information to generate recommendations, represented by the output ŷ. The diagram uses nodes and edges to represent users and items, respectively, and color-coding to differentiate temporal information and processed embeddings. -->
 
 Fig. 2: Overview of DGSR framework. Take predicting the next interaction of u1's sequence (i1, i2, i3) as an example. The corresponding timestamp sequence is (t1, t2, t3). We first convert u1' sequence and its related sequences into dynamic graph G t3 , each edge represents the interaction between user and item, and has time attribute. The edges represented by the dotted line are interactions that occurred after t3, which is not included in G t3 (Section [4.1\)](#page-2-0). Then we sample a m-order sub-graph G m u<sup>1</sup> (t3) from G t3 (Section [4.2\)](#page-3-0). Following this, the well-designed Dynamic Graph Recommendation Networks propagate and aggregate the information among different user sequences (Section [4.3\)](#page-3-1). Finally, we concatenate user node embedding of each layer for final predication (Section [4.4\)](#page-5-0).
 
@@ -428,10 +431,13 @@ To explore the effect of explicit modeling dynamic collaborative information amo
 • Increasing the layer of DGSR is capable of promoting the performance substantially. It demonstrates that exploiting high-order user sequences information explicitly can effectively improve recommendation performance. DGSR-2 and DGSR-3 achieve the best performance on Games and Beauty, respectively. One possible
 
 <span id="page-9-0"></span>![](_page_9_Figure_1.jpeg)
+<!-- Image Description: The image contains two line graphs (a) and (b), showing the performance of a model on two datasets ("Games" and "Beauty"). Each graph plots "Hit@10" (red circles) and "NDCG@10" (blue squares) against the number of layers in the model. The graphs illustrate how these evaluation metrics, representing retrieval accuracy, change with varying model depth. Higher values indicate better performance. -->
 
 ![](_page_9_Figure_2.jpeg)
+<!-- Image Description: Figure 3 describes the impact of propagation layer numbers on Hit@10 and NGCD@10 values. The y-axis represents the number of propagation layers. The figure likely shows two plots side-by-side, with the left plot displaying Hit@10 and the right plot displaying NGCD@10, both as functions of the number of propagation layers. This visualization aims to illustrate the relationship between network architecture depth and performance metrics (Hit@10 and NGCD@10). -->
 
 <span id="page-9-1"></span>![](_page_9_Figure_3.jpeg)
+<!-- Image Description: This image contains two line graphs comparing Hit@10 and NDCG@10 values across different orders of sub-graphs for two datasets: "Games" and "Beauty." Each graph shows how these metrics, presumably evaluating ranking performance, change as the sub-graph order increases from 1 to 4. The purpose is to illustrate the impact of sub-graph order on the effectiveness of a ranking algorithm within the context of the paper's methodology. -->
 
 Fig. 4: Effect of the sub-graph sampling size (the y-axis on the left is Hit@10 value, and the right is NGCD@10 value)
 
@@ -445,10 +451,12 @@ reason is that Beauty is sparser than Games, a larger number of layers may be re
 #*5.5.3 Effect of the maximum sequence length*We train and test our method on the Games and Beauty datasets with n from 10 to 60, while keeping other optimal
 
 <span id="page-9-2"></span>![](_page_9_Figure_12.jpeg)
+<!-- Image Description: The image contains two line graphs comparing the performance of two models, DGSR and DGSR-1, on two datasets: Games and Beauty. The x-axis represents the maximum sequence length, and the y-axis shows the Hit@10 metric (%). Each graph illustrates how the Hit@10 performance of both models changes with varying sequence lengths, allowing for a comparison of their effectiveness across different input lengths. The purpose is to demonstrate the impact of sequence length on the recommendation accuracy of the proposed models. -->
 
 Fig. 5: Effect of the maximum length of user sequence
 
 <span id="page-9-3"></span>![](_page_9_Figure_14.jpeg)
+<!-- Image Description: The image contains two line graphs comparing Hit@10 and NDCG@10 metrics across varying embedding sizes for two datasets: "Games" (a) and "Beauty" (b). Each graph plots the performance (in percentage) of Hit@10 (red circles) and NDCG@10 (blue squares) against embedding size. The purpose is to demonstrate the impact of embedding size on the model's performance using these two evaluation metrics for different datasets. -->
 
 Fig. 6: Effect of the embedding size (the y-axis on the left is Hit@10 value, and the right is NGCD@10 value)
 

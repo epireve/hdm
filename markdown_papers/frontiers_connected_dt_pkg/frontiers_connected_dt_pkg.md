@@ -1,7 +1,7 @@
 ---
 cite_key: "soualmia2023"
-title: "[CONNECTED: leveraging digital](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1322428/full) [twins and personal knowledge](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1322428/full) [graphs in healthcare digitalization](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1322428/full)"
-authors: "EDITED BY Lina F. Soualmia, Université de Rouen, France"
+title: "RECEIVED 16 October 2023 ACCEPTED 27 November 2023 PUBLISHED 07 December 2023"
+authors: "Carbonaro A, Marfoglia A, Nardini F"
 year: 2023
 doi: "10.3389/fdgth.2023.1322428"
 date_processed: "2025-07-02"
@@ -108,6 +108,7 @@ Since Level 3 doesn't provide computational resources, the computational models 
 <sup>1</sup> <https://www.hl7.org/fhir/>
 
 <span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
+<!-- Image Description: Figure 1 presents a four-layer architecture for a digital twin system. The diagram shows data flowing upwards through layers representing: source data (databases, devices), interoperability standards (FHIR, OMOP), digital twins, and applications incorporating intelligent algorithms. A separate section details the Digital Twin APIs, including reasoning engines, logical rules, and data input/output ports. The figure illustrates the system's data flow and layered structure. -->
 
 previously defined requirements, an application is not bound to a single DT, whereas one DT may serve many. Examples of such clients include a wide range of applications, going from simple user interfaces to visualize patient information, to more sophisticated ones like smart assistants to support decisionmaking or monitoring systems.
 
@@ -122,6 +123,7 @@ In this article, we proposed CONNECTED, a modular framework in which various dat
 Within this perspective, several challenges are yet to be addressed, given the high sensitivity of healthcare data. From a technical point of view, it is fundamental to guarantee the integrity and validity of collected data, ensuring the reliability of the information stored in the PKGs, and fostering their backbone role within the framework. Another primary concern is related to PKG realization. For example, if many PKGs are extracted by a unique underlying graph, it is hard to trace a clear boundary between distinct patients. On the other hand, if PKGs are physically separated, information might be duplicated, possibly leading to inconsistencies. To this end, access-control policies must be implemented to allow specific stakeholders to query only the DTs for which they are given rights. Furthermore, due to the nature of treated information, it is worth mentioning that this kind of platform must deal with complex legal, ethical, and
 
 <span id="page-4-0"></span>![](_page_4_Figure_2.jpeg)
+<!-- Image Description: Figure 2 illustrates the implementation of a proposed use case using CONNECTED. A layered architecture is shown, progressing from data sources (medical devices, EHR, personal devices) through standard adapters to a digital twin, ultimately processed by an intelligent algorithm. The diagram details data flow and transformation, including FHIR resource representation (MedicationStatement, AdverseEvent, Observation) and illustrates how data from various sources are integrated and processed within the system. -->
 
 regulatory issues, such as different privacy policies of distinct organizations.
 

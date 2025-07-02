@@ -1,7 +1,7 @@
 ---
 cite_key: "2024"
-title: "*Article* **Personalized Diabetes Management with Digital Twins: A Patient-Centric Knowledge Graph Approach**"
-authors: "**Fatemeh Sarani Rad [,](https://orcid.org/0000-0001-7088-2561) Rasha Hendawi [,](https://orcid.org/0000-0001-5828-2651) Xinyi Yang and Juan Li [\\\\*](https://orcid.org/0000-0002-7668-5996)**"
+title: "ArticlePersonalized Diabetes Management with Digital Twins: A Patient-Centric Knowledge Graph Approach"
+authors: "Fatemeh Sarani Rad , Rasha Hendawi , Xinyi Yang"
 year: 2024
 doi: "10.3390/jpm14040359"
 date_processed: "2025-07-02"
@@ -13,6 +13,7 @@ images_removed: 3
 ---
 
 ![](_page_0_Figure_0.jpeg)
+<!-- Image Description: The image is the logo for the *Journal of Personalized Medicine*. The logo consists of text stating the journal's name and a graphic. The graphic is a 3x3 grid of teal circles, with one circle in the bottom right corner colored pale yellow. The graphic likely symbolizes the personalization aspect of medicine, highlighting individual differences within a population. -->
 
 # *Article*Personalized Diabetes Management with Digital Twins: A Patient-Centric Knowledge Graph Approach
 **Fatemeh Sarani Rad [,](https://orcid.org/0000-0001-7088-2561) Rasha Hendawi [,](https://orcid.org/0000-0001-5828-2651) Xinyi Yang and Juan Li [\\*](https://orcid.org/0000-0002-7668-5996)**Computer Science Department, North Dakota State University, Fargo, ND 58105, USA; fatemeh.saranirad@ndsu.edu (F.S.R.); rasha.hendawi@ndsu.edu (R.H.); xinyi.yang@ndsu.edu (X.Y.)**\***Correspondence: j.li@ndsu.edu; Tel.: +1-701-2319662
@@ -71,6 +72,7 @@ Our methodology for ontology development embraces a systematic, top-down approac
 archical structure allows for a nuanced categorization of health conditions. Each concept within the ontology is enriched with properties that detail its attributes and the relationships it shares with other concepts. These are divided into object properties, which connect different concepts within the ontology, and data properties, which link concepts to specific values, facilitating a detailed and relational representation of health data.*J. Pers. Med.* **2024**, *14*, x FOR PEER REVIEW 4 of 13
 
 <span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
+<!-- Image Description: This flowchart depicts a digital twin construction process for personalized healthcare. It shows data integration from various sources (wearables, genomics, EHRs, health apps, social data) into a patient's digital twin using HL7 FHIR and RDF standards. The resulting PHKG (Personal Health Knowledge Graph) enables applications like personalized blood glucose regulation, individualized care prediction, and lifestyle recommendations. The flow demonstrates the transformation of physical patient data into a digital representation for clinical applications. -->
 
 **Figure 1.**The digital twin framework.**Figure 1.**The digital twin framework.
 *3.1. Ontology Development*The cornerstone of our approach is the development of a robust and standardized ontology meticulously aligned with HL7 FHIR standards [29] to ensure interoperability and adherence to established industry practices. This health ontology is intricately designed to offer a comprehensive vocabulary and articulate the complex relationships inherent within the personal health domain, acting as the structural foundation upon which our digital twin models are constructed. Our methodology for ontology development embraces a systematic, top-down approach, initiating with broad health-related categories such as "Medical Condition" and Given the dynamic nature of medical knowledge, our ontology is crafted with flexibility in mind, enabling it to evolve in response to new medical discoveries and shifts in healthcare practices. The process of ontology evolution is triggered by the emergence of new findings, initiating a multi-step maintenance protocol that begins with the identification of necessary updates. These updates may range from the introduction of novel concepts to alterations in existing relationships within the ontology. A critical reassessment of the updated ontology's compatibility with existing data ensures seamless integration with the pre-established data framework, maintaining the coherence and functionality of the digital twin models.
@@ -114,6 +116,7 @@ range, reducing the risk of extreme fluctuations and increasing the time spent i
 comes indicated that our approach effectively maintained blood glucose within the
 
 <span id="page-6-0"></span>![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image contains two graphs. Graph (a) shows blood glucose levels (mg/dL) over time, including hypo- and hyperglycemic thresholds. Graph (b) displays corresponding insulin levels (U/mL) over time, showing peaks after meals. Both graphs illustrate the dynamic relationship between blood glucose and insulin response following multiple meals. The x-axis in both graphs represents time in hours, showing meal timings. -->
 **Figure 2.** Optimized insulin dosage and resulting blood glucose control. (**a**) Simulated blood glucose trajectory under personalized insulin regimen. (**b**) Insulin doses are determined by the digital twins and administered after each meal. **Figure 2.** Optimized insulin dosage and resulting blood glucose control. (**a**) Simulated blood glucose trajectory under personalized insulin regimen. (**b**) Insulin doses are determined by the digital twins and administered after each meal.
 
 #### *4.2. Glucose Prediction for Individualized Care [33] 4.2. Glucose Prediction for Individualized Care [\[33\]](#page-11-25)*- Digital Twin's Role: The digital twin framework provides a structured dataset that integrates critical patient-specific factors such as glucose trends, food intake, insulin usage, and more. This comprehensive dataset is pivotal for the development and training of effective predictive models. • Digital Twin's Role: The digital twin framework provides a structured dataset that integrates critical patient-specific factors such as glucose trends, food intake, insulin usage, and more. This comprehensive dataset is pivotal for the development and training of effective predictive models.
@@ -125,9 +128,11 @@ Figure [4](#page-7-1) displays information gathered over a span of 10 days for a
 <span id="page-7-0"></span>digital twin to monitor glucose levels and adjust interventions accordingly. The digital twin offers continuous monitoring and personalized interventions based on real-time data. Moreover, it allows for detailed examination of daily or hourly data, as demonstrated by the data from day 5 to day 6 presented within a 24 h timeframe. accordingly. The digital twin offers continuous monitoring and personalized interventions based on real-time data. Moreover, it allows for detailed examination of daily or hourly data, as demonstrated by the data from day 5 to day 6 presented within a 24 h timeframe.
 
 ![](_page_7_Figure_2.jpeg)
+<!-- Image Description: The image displays a line graph comparing real glucose levels (red dashed line) with those predicted by an RNN (blue solid line) over a 24-hour period. The y-axis represents glucose concentration (mg/dL), and the x-axis shows time in hours. The graph likely illustrates the accuracy of the RNN model in predicting glucose fluctuations, showing a reasonable, though not perfect, correlation between the real and predicted values. -->
 **Figure 3. Figure 3.**Blood glucose prediction based on the digital twin. Blood glucose prediction based on the digital twin.
 
 <span id="page-7-1"></span>![](_page_7_Figure_4.jpeg)
+<!-- Image Description: The image displays two time-series plots showing glucose, carbohydrate (CHO) intake, and insulin levels over time. The top graph shows a 10-day overview with daily fluctuations, while the bottom graph zooms in on a 24-hour period, highlighting detailed changes. Both graphs use the same color-coding for glucose (brown), CHO (orange), and insulin (green). The dashed line connects the graphs, indicating the relationship between daily and hourly patterns. The purpose is to illustrate the dynamic interplay of these variables in glucose regulation. -->
 **Figure 4.**Glucose, insulin, and carbohydrate (CHO) monitoring based on the digital twin.**Figure 4.**Glucose, insulin, and carbohydrate (CHO) monitoring based on the digital twin.
 *4.3. Healthcare Data Digital Twin Explorer [34] 4.3. Healthcare Data Digital Twin Explorer [\[34\]](#page-12-0)*- Digital Twin's Role: The structured PHKG and its rich relationships between health • Digital Twin's Role: The structured PHKG and its rich relationships between health concepts form the core of this application.
 - concepts form the core of this applic[atio](#page-8-0)n. • Interaction Modes: As shown in Figures 5 and [6,](#page-9-1) two interfaces provide flexibility:
@@ -138,6 +143,7 @@ Figure [4](#page-7-1) displays information gathered over a span of 10 days for a
 This empowerment in data literacy is instrumental in fostering patient engagement and active participation in collaborative care processes. Moreover, this highlights the digital twin's potential to enhance patient-centered care by providing a user-friendly platform for health data exploration.*J. Pers. Med.* **2024**, *14*, x FOR PEER REVIEW 10 of 13
 
 <span id="page-8-0"></span>![](_page_8_Figure_2.jpeg)
+<!-- Image Description: This image depicts a mock-up of a patient's comprehensive medical record hub. It displays a search interface, a medication list (Metformin, Lantus, Omeprazole), and detailed information on Lantus, including dosage, administration, potential side effects (hypoglycemia, itching, pain, vision changes), and safety recommendations. A flowchart visually links Type 2 diabetes mellitus to Lantus prescription, its potential adverse events (hypoglycemia), and safety precautions. The image illustrates a user-friendly interface for medication management and patient education. -->
 
 **Figure 5.**Health data explorer based on the digital twin.**Figure 5.**Health data explorer based on the digital twin.
 *4.4. Personalized Meal Recommendation [\[35\]](#page-12-1)*- Digital Twin's Role: The PHKG integrates information about a patient's health condition, diabetes management plan, dietary preferences, and allergies. This comprehensive data profile fuels the meal recommendation engine.
@@ -145,9 +151,11 @@ This empowerment in data literacy is instrumental in fostering patient engagemen
 - Outcomes: Our digital twin extends its capabilities beyond mere data provision; it delivers practical, personalized dietary recommendations that cater to each individual's unique needs. This enables patients to make well-informed food selections that help regulate their blood sugar levels and enhance their overall health. As demonstrated in Figure [7,](#page-9-2) we have developed a mobile application that leverages our digital twin to offer individualized meal suggestions for patients with diabetes.
 
 <span id="page-9-1"></span>![](_page_9_Figure_2.jpeg)
+<!-- Image Description: The image displays a medical record interface showing a patient's immunization history, including influenza and COVID-19 vaccines. A flowchart illustrates the influenza vaccine's side effects (irritability, muscle pain, etc.), adverse events, and disease prevention. The interface also lists medications, procedures, and other health data. The image showcases a user-friendly design for accessing and understanding personal health information. -->
 **Figure 6. Figure 6.**Navigation interface of explorer based on the digital twin. Navigation interface of explorer based on the digital twin. twin to offer individualized meal suggestions for patients with diabetes.
 
 <span id="page-9-2"></span>![](_page_9_Figure_4.jpeg)
+<!-- Image Description: The image displays a smartphone screen showing a weekly menu app. The app lists meals for each day, including breakfast, lunch, and dinner, with photos, calorie counts, and "Healthy Value" percentages. Detailed nutritional information and a recipe URL are shown for one meal ("Peachy-Licious Oatmeal"). The purpose is to illustrate the app's interface and functionality for presenting healthy meal plans. -->
 **Figure 7.**Personalized meal recommendations based on the digital twin.**Figure 7.**Personalized meal recommendations based on the digital twin.
 
 #### <span id="page-9-0"></span>5. Conclusions 5. Conclusions

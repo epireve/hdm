@@ -1,7 +1,7 @@
 ---
 cite_key: "galke2021"
-title: "Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes"
-authors: "Lukas Galke, Iacopo Vagliano, Benedikt Franke, Tobias Zielke, Marcel Hoffmann, Ansgar Scherp"
+title: "Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes ?"
+authors: "Lukas Galkea, Iacopo Vagliano b, Benedikt Franke c, Tobias Zielke c, Marcel Hoffmann c, Ansgar Scherp c"
 year: 2021
 doi: "10.48550/arXiv.2112.10558"
 url: "https://arxiv.org/abs/2112.10558"
@@ -88,6 +88,7 @@ the graph and the receptive field allow one to provide comparable results across
 We define the problem of new class detection of a graph's vertices in an evolving graph as a form of open-world lifelong graph learning [\[8,](#page-45-6) [13\]](#page-45-11). We employ this understanding of lifelong graph learning in four different settings. We introduce the four settings below and refer to the corresponding sections for experimental details. Our notation is summarized in Table [1.](#page-3-0)
 
 ![](_page_3_Figure_3.jpeg)
+<!-- Image Description: The image is a graph illustrating a time-series of network data used in a machine learning context. The left section shows training data (light blue) representing the network structure across two past tasks (t-4 to t-1) labeled with 'a', 'b', and 'c'. The right section (light red) depicts the evaluation data for a current task (t), where some nodes are unknown ('?'). The dashed line separates training and evaluation data, highlighting the temporal aspect of the model and its predictive task. The graph shows how past network structures inform predictions about the future network. -->
 
 <span id="page-3-1"></span>Figure 1: Illustration of the problem of lifelong graph learning [\[13\]](#page-45-11) with class imbalance and new classes. At each time t, the learner has to classify new vertices of task T<sup>t</sup> (red). Any task might come with previously unseen classes. For example, the class "c" emerged only at task t − 2 and was subsequently added to the class set. The learner may use internal and external knowledge from previous tasks to adapt to the current task. After evaluating task Tt, we continue with task Tt+1.
 
@@ -238,6 +239,7 @@ Algorithm 1 Incremental training for lifelong graph learning under cold-start vs
 A successful model for lifelong learning would not only classify new data into known classes but would also detect when an instance belongs to a previously unseen class. We seek to develop a generic method that is not specific to any particular GNN architecture. Thus, we take inspiration from the Deep Open
 
 ![](_page_14_Figure_0.jpeg)
+<!-- Image Description: The diagram illustrates a graph neural network (GNN) architecture for out-of-distribution (OOD) detection. A graph at time *t*, represented by nodes and edges (adjacency matrix A), with vertex features (X), is input to the GNN. The GNN, initialized with parameters from the previous time step (t-1), outputs logits. These logits are then used to predict labels via argmax. Finally, an OOD detector determines if the prediction is in-distribution (ID) or OOD. The process combines graph representation and a neural network for improved OOD detection. -->
 
 <span id="page-14-0"></span>Figure 2: Procedure of node classification and OOD detection during the execution of a task in lifelong learning. The output logits of the graph neural network are used in two ways. Once to determine the most likely in-distribution class and once to determine whether the example is in-distribution (belongs to a known class) or out-of-distribution. When an example is detected as in-distribution, we return the argmax of the logits. Otherwise, the example is marked as out-of-distribution.
 
@@ -276,6 +278,7 @@ tdiffk(G) := {time(u) − time(v) | ∀u ∈ V ∀v ∈ N <sup>k</sup> (u) with 
 The multiset tdiff<sup>k</sup> maps each time difference to the respective number of occurrences and is interpreted as a distribution over time differences. It is used to analyze the temporal distribution of the vertices in a dataset (using percentiles) and to make datasets comparable. Figure [3](#page-17-0) presents an exemplary computation of the k-neighborhood time differences tdiff<sup>2</sup> on a graph with five
 
 <span id="page-17-0"></span>![](_page_17_Figure_0.jpeg)
+<!-- Image Description: The image is a graph depicting a temporal network. Nodes represent time points (3, 4, and 5), and edges connecting them show relationships with associated numerical values (differences between time points). Edge styles (solid, dashed, dotted) and colors differentiate edge types. The `tdiff2(G)` set lists these difference values, indicating the purpose of the graph: to illustrate a specific temporal difference calculation within the network. -->
 
 Figure 3: Example of time differences tdiff2(G) for hops at distance of up to 2 from each vertex. Solid lines are edges. Dashed lines indicate paths of length two. Annotations show the time difference between the endpoints of the path. The multiset tdiff2(G) holds the resulting time differences. Note that zeros are counted in both directions as both fulfill the time(u) ≤ time(v) condition.
 
@@ -380,6 +383,7 @@ The datasets were generated by imposing a minimum threshold of publications per 
 Table [3](#page-21-0) summarizes the basic characteristics of the datasets. DBLP-easy and DBLP-hard are organized into 12 annual snapshots, while PharmaBio has 18 annual snapshots. DBLP-easy has 45k vertices, 112k edges, and a feature dimension of 2,278. The vertices are assigned to one of 12 classes, of which four only appear during the sequence of snapshots, i. e., they are not present in the first snapshots. DBLP-hard has 199k vertices, 644k edges, and a feature dimension of 4,043 (because the word vocabulary is set up based on occurrences within documents). Twenty-three of the 73 classes appear only during subsequent snapshots. PharmaBio comes with 68k vertices, 2.1M edges, feature dimension 4,829, 7 classes, and 18 snapshots. The number of edges is much higher than in the DBLP variants because PharmaBio is a coauthorship graph, which is denser than the citation graphs. Note that DBLP-easy is a subset of DBLP-hard as both were generated by applying a minimum threshold on the number of publications per class.
 
 ![](_page_22_Figure_0.jpeg)
+<!-- Image Description: This figure displays nine plots visualizing network data across different years. The top row shows (left to right): a horizontal bar chart of node counts per year, a log-log plot of node degree distribution, and a bar chart of label counts. The middle and bottom rows repeat this structure for two additional datasets. Each row represents a different dataset and the plots show the evolution of network characteristics (node count, degree distribution, and label distribution) over time. The log-log plots reveal power-law distributions, suggesting scale-free network properties. -->
 
 <span id="page-22-0"></span>Figure 4: Distribution of vertices per year on log scale (left column), degree distributions (middle column), label distributions (right column), for our new datasets: DBLP-easy (top row), DBLP-hard (middle row), PharmaBio (bottom row)
 
@@ -396,6 +400,7 @@ $$
 where Pt(y) is the observed class probability at time t. We visualize the drift
 
 ![](_page_23_Figure_3.jpeg)
+<!-- Image Description: The image displays a line graph showing "drift magnitude" over "time" for three datasets: pharmabio, dblp-easy, and dblp-hard. The y-axis represents drift magnitude (0-1), and the x-axis shows time (1999-2014). Each dataset's drift magnitude fluctuates over time, illustrating temporal changes within the datasets. The graph likely illustrates concept drift in the context of the paper. -->
 
 <span id="page-23-0"></span>Figure 5: Magnitude of the class drift per dataset. The drift within the PharmaBio dataset (no new classes) is lower than the drift of both DBLP variants. Independent and identically distributed data would have drift magnitude zero.
 
@@ -406,6 +411,7 @@ magnitudes per dataset in Figure [5.](#page-23-0) An IID dataset would have a dr
 We analyze each dataset using our k-neighborhood time differences tdiff<sup>k</sup> introduced in Section [4.](#page-16-0) In Figure [6,](#page-24-1) we show the distributions for three different values of k = 1, 2, 3. As expected, the time differences increase if we allow a longer maximum path length k. For our experiments, we will use GNN models with 2 layers, i. e.,, which take into account the two-hop neighborhood of each vertex. Thus, we use tdiff<sup>2</sup> to derive candidate history sizes, which we will compare to each other in the experiments. Following the distributions for k = 2 depicted in Figure [6,](#page-24-1) we select 1, 3, 6, and 25 as history sizes for DBLP- {easy,hard} and 1, 4, 8, and 21 as history sizes for PharmaBio according to the 25th, 50th, 75th, and 100th percentiles of tdiff2.
 
 ![](_page_24_Figure_0.jpeg)
+<!-- Image Description: The image presents three box plots, each showing the difference in timesteps for three datasets (DBLP-easy, DBLP-hard, PharmaBio) across varying maximum hop values (1, 2, 3). The box plots illustrate the distribution of timestep differences, with the median, quartiles, and outliers indicated. The purpose is to compare the performance of the algorithm across different datasets and hop parameters. -->
 
 <span id="page-24-1"></span>Figure 6: Distributions of time differences tdiff<sup>k</sup> (y-axis) for DBLP-easy (left), DBLP-hard (center) and PharmaBio (right) within the k-hop neighborhood for k = {1, 2, 3} (x-axis).
 
@@ -456,6 +462,7 @@ As DJS is a divergence measure, lower values indicate more similar distributions
 Figure [7](#page-27-1) shows the results of the GNN models and the MLP on the three datasets: Cora, Citeseer, and Pubmed. The scores of the many-few setting B are higher than those of the few-many setting A by a constant margin. Pre-trained models score consistently higher than non-pre-trained models while having less variance. The accuracy of the pre-trained models plateaus after a few inference epochs (up to 10 on Cora-A, i. e., the Cora dataset investigated in setting A, and Pubmed-B, i. e., setting B applied on the Pubmed dataset). Without any pre-training, GAT shows the fastest learning process. The absolute scores of pretrained graph neural networks are higher than the ones of MLP. From a broad perspective, the scores of pre-trained graph neural networks are all on the same level. While GCN falls behind the others on Cora-B, GAT falls behind the others on Pubmed in both settings.
 
 ![](_page_27_Figure_0.jpeg)
+<!-- Image Description: This figure displays six panels of line graphs, each showing model accuracy over epochs for different graph neural network (GNN) models (MLP, GCN, GCN-64, GraphSAGE, GAT) on three datasets (cora, citeseer, pubmed). Each panel represents a unique combination of "setting" (A or B) and dataset. Shaded regions indicate confidence intervals. The purpose is to compare the performance of various GNN models under different training settings across datasets, analyzing the effect of epochs on accuracy. -->
 
 <span id="page-27-1"></span>Figure 7: Test accuracy after each inference epoch for the many-few settings A (Top) and fewmany setting B (Bottom) on the datasets Cora, Citeseer, and Pubmed. Each line resembles the mean of 100 runs and its region shows the standard deviation. The dashed lines show the results with 200 pre-training. The solid lines are the results without pre-training.
 
@@ -539,6 +546,7 @@ This experiment shows that in the three analyzed datasets, with only history siz
 | PharmaBio                                                                  | full<br>4<br>8<br>1         | 62.3 ± 0.9<br>64.4 ± 0.8<br>65.3 ± 0.8<br>62.4 ± 0.8       | ± 0.8<br>64.4 ± 0.8<br>64.0 ± 0.7<br>61.7 ± 0.6<br>64.5                | +2.3<br>−0.0<br>−1.4<br>−0.8        | ± 0.8<br>± 0.8<br>65.7 ± 0.8<br>67.3 ± 0.8<br>68.1<br>68.2 | 68.6 ± 0.8<br>68.4 ± 0.7<br>68.0 ± 0.7<br>± 0.8<br>66.1    | +3.0<br>+1.0<br>−2.2<br>−0.1 | 67.8 ± 0.8<br>± 0.9<br>± 0.8<br>66.8 ± 0.8<br>64.1<br>67.1 | 68.3 ± 0.9<br>± 0.8<br>67.7 ± 0.7<br>± 0.7<br>68.2<br>64.5 | +4.3<br>−0.3<br>−2.6<br>+1.1                                                            |
 
 ![](_page_32_Figure_0.jpeg)
+<!-- Image Description: The image displays three line graphs comparing model accuracy over time across three datasets (dblp-easy, dblp-hard, pharmabio). Each graph shows the performance of three models (mlp, gs-mean, gat) with and without incremental training, plotting accuracy against the year. The purpose is to illustrate the temporal performance differences between the models and the impact of incremental training on accuracy for each dataset. -->
 
 <span id="page-32-1"></span>Figure 8: Results of the ablation study: Accuracy scores of once-trained, static models (solid lines) are lower than incrementally trained models (dashed lines).
 
@@ -575,6 +583,7 @@ With very low label rates (in the range between 10% and 30%), the accuracy of th
 This experiment shows that the effect of varying the label rate is as expected: the performance degrades with fewer labeled training data. We confirm the finding from previous experiments that warm restarts consistently lead to higher performance than cold restarts when the history size is small. Furthermore, we observe that warm restarts become even more important when the label rate is low.
 
 ![](_page_34_Figure_0.jpeg)
+<!-- Image Description: The image displays a line graph illustrating the relationship between label rate and accuracy for a machine learning model. Multiple lines represent different model "histories" (1, 3, 6, 25) and starting conditions ("cold" and "warm"). The graph shows accuracy increasing with label rate for all conditions, with longer histories generally resulting in higher accuracy. The purpose is to demonstrate the impact of training data history and initialization on model performance. -->
 
 <span id="page-34-1"></span>Figure 9: Average accuracy of GraphSAGE with warm restarts across tasks on DBLP-hard under varying label rate
 
@@ -587,6 +596,7 @@ In our evolving graphs, we have to deal with previously unseen classes. In previ
 In previous experiments, unseen classes were part of the test data, while there was no active treatment of having them detected automatically. In this experiment, we seek to evaluate the performance of the gDOC method to detect unseen classes. As before, we train on task t−1 and evaluate on t over a sequence of T tasks. However, for each vertex, we use our unseen class detection module gDOC to predict whether this vertex belongs to a previously known class or not. If the prediction is that the vertex does not belong to any previously known class, we reject its classification and assign a special virtual class ("unseen"). As unseen class detection modules, we compare the original DOC as a baseline with our proposed gDOC method.
 
 ![](_page_35_Figure_0.jpeg)
+<!-- Image Description: The image is a bar chart showing the number of nodes (total and unseen) for twelve tasks. The light blue bars represent the total number of nodes per task, increasing steadily from task 0 to task 10 before slightly decreasing at task 11. Small, overlaid reddish bars indicate the number of unseen nodes per task, remaining relatively small compared to the total nodes across all tasks. The chart illustrates the growth of the total number of nodes and the relatively stable proportion of unseen nodes with increasing task complexity. -->
 
 <span id="page-35-0"></span>Figure 10: Number of vertices with unseen classes per task on DBLP-hard
 
@@ -603,6 +613,7 @@ Note that we did not tune the learning rate for unseen class detection performan
 We evaluate how well the models detect unseen classes. For this purpose, we use two measures: Macro-F1 with a special class for instances of unseen classes [\[17\]](#page-46-1) and the Matthews correlation coefficient (MCC). Note that Macro-F1 averages the F1 scores over classes such that the effect of the 'unseen' class
 
 ![](_page_36_Figure_0.jpeg)
+<!-- Image Description: The image displays a line graph showing the relationship between "global_mcc" (y-axis) and "doc_alpha" (x-axis) for different "doc_threshold" values (0.0, 0.25, 0.5, 0.75, 1.0). Each line represents a different doc_threshold, indicating how the global mcc metric varies with changes in doc_alpha under different thresholding conditions. The shaded areas likely represent confidence intervals. The graph likely assesses the performance of a model across various parameter settings. -->
 
 Figure 11: MCC score of gDOC with GraphSAGE-mean as GNN model (history size 3, warm restart setting) as a function of the risk reduction factor α and varying minimum threshold values. We observe that the more risk reduction does not improve the results.
 

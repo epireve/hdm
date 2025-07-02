@@ -1,6 +1,7 @@
 ---
 cite_key: "arxiv_230302166_towards_a_gml_"
 title: "Towards a GML-Enabled Knowledge Graph Platform"
+authors: "Hussein Abdallah, Essam Mansour"
 year: 2021
 doi: "10.1145/3447772)"
 date_processed: "2025-07-02"
@@ -25,6 +26,7 @@ Knowledge graphs (KGs) are constructed based on semantics captured from heteroge
 Essam Mansour *Concordia University,*essam.mansour@concordia.ca
 
 <span id="page-0-1"></span>![](_page_0_Figure_9.jpeg)
+<!-- Image Description: This diagram is an Entity-Relationship Diagram (ERD) illustrating a data model. It depicts relationships between entities such as "Paper," "Venue," "Author," and "Affiliation." Relationships are shown with arrows and labels (e.g., "publishedIn," "authoredBy"). Dashed lines indicate weaker or less direct relationships. Features are represented as feature vectors. The diagram likely explains the data structure used for representing author and publication information within the paper. -->
 
 Fig. 1: A KG with nodes/edges in red, which could be predicted by classification and link prediction models on the fly.
 
@@ -50,6 +52,7 @@ In summary, the contributions of this paper are:
 <span id="page-1-1"></span><sup>2</sup><https://github.com/CoDS-GCS/KGNET>
 
 <span id="page-1-0"></span>![](_page_1_Figure_7.jpeg)
+<!-- Image Description: This diagram depicts an architecture for a SPARQL-ML service. It shows two main components: a "GML as a Service" section with inference and training managers using embeddings and models via HTTP calls, and a "SPARQLML as a Service" section with a query manager (parser, re-writer, optimizer) interacting with a KGMeta governor and meta sampler. The system uses an RDF engine (Apache Jena, Star-dog, Openlink-Virtuoso) and exchanges metadata (A, KG') between the components. The purpose is to illustrate the system's workflow and the interaction between GML and SPARQL-ML components. -->
 
 Fig. 3: The KGNet architecture, which provides an interface language (SPARQLML) and enables AI applications and data scientists to automatically train GML models on top of KGs for querying and inferencing KGs based on the trained models.
 
@@ -67,6 +70,7 @@ The remainder of this paper is organized as follows. Section [II](#page-1-2) pro
 GNNs have gained significant popularity in recent years. Hence, data scientists frequently utilize them to perform GML tasks. The Open Graph Benchmark (OGB) [\[19\]](#page-8-3) standardized the GNN training pipeline, emphasizing the best practices for tackling GML tasks and building a GNN training pipeline. Figure [4](#page-2-1) summarizes this pipeline, which involves encoding
 
 <span id="page-2-1"></span>![](_page_2_Figure_0.jpeg)
+<!-- Image Description: The image displays a flowchart illustrating the GML (Graph Machine Learning) framework. It shows data flowing from a Graph Database (CSV input) through a Dataset Transformer (encoding and adjacency matrix creation), resulting in sparse matrices fed into the GML method (training and inferencing). The flowchart details the stages of data processing and model application within the framework. -->
 
 Fig. 4: A traditional GML pipeline [\[19\]](#page-8-3) using a GML framework. The pipeline starts with extracting the graph data, followed by data transformation into sparse matrices to train models for a GML task. Finally, the inference step is ready to predict results in isolation from the graph databases.
 
@@ -81,6 +85,7 @@ This section highlights the open research challenges and opportunities raised by
 GML methods vary significantly in terms of their accuracy, training time, and memory requirements. Furthermore, the complexity of each GML task may differ depending on various factors, such as the size of KGs and the number of node/edge types related to the task. For example, link prediction can be more resource-intensive than node classification. Different
 
 <span id="page-2-2"></span>![](_page_2_Figure_8.jpeg)
+<!-- Image Description: The image is a hierarchical flowchart categorizing graph embedding methods. It branches from "Graph Embedding" into "KGE" (Knowledge Graph Embedding) methods (Semantic, DistMult, ComplEx, Translational) and "GNN" (Graph Neural Network) methods. GNNs are further divided into homogeneous and heterogeneous networks, with subcategories including sampling (node/layer, subgraph) and propagation (spectral, attentional) techniques. Specific algorithms under each category are listed. The purpose is to provide a comprehensive overview of the different approaches to graph embedding. -->
 
 Fig. 5: A taxonomy of methods for training GML models.
 
@@ -91,6 +96,7 @@ Real KGs can contain millions to billions of triples, such as DBLP [\[11\]](#pag
 ###*B. Seamless Integration Between GML Models and KGs*Enabling GML on top of RDF engines poses significant challenges, mainly interfacing between the trained models and the underlying data management engine. One common approach is to use user-defined functions (UDFs) to implement this interface [\[29\]](#page-8-13)–[\[31\]](#page-8-14). However, this comes with a cost for query optimizations in data systems [\[32\]](#page-8-15). The existence of an extensive catalog of UDFs can limit the expressiveness of MLbased queries. For instance, a large catalog of UDFs makes it difficult for users to choose between UDFs and find the
 
 <span id="page-3-1"></span>![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a system for automated graph machine learning (GML). It shows the stages: input (GML task, subgraph, budget, specifications); dataset transformation (preprocessing, adjacency matrix generation, train-test split); optimal GML method selection (considering GNN methods, budget, resources); GML model training (using libraries like DGL and PyG); and GML inference via a REST API, outputting results in JSON format. A key component is the GML optimizer which selects the best GNN (GCN, RGCN, etc.) based on resource constraints. -->
 
 Fig. 6: The automation of training pipeline and inference in our GML-as-a-service (GMLaaS). GMLaaS interacts with the KGMeta Manager to train a model for a specific task with limited budget. The automated pipeline opt to the near-optimal GML method for training a model within a limited budget. GMLaaS supports task inference through RestAPI that is called by a UDF.
 
@@ -113,6 +119,7 @@ The*Data Transformer*step converts the subgraph into a sparse-matrix format opti
 The*Optimal GML Method Selection*step selects the best GML method for a given task. KGNet supports various GNN methods, including GCN, RGCN, Graph-SAINT, Shadow-SAINT, Morse, and KGE methods such as ComplEx. We estimate the required memory for each method based on the size and the number of generated sparse-matrices, as well as the training time based on the matrix dimensions and feature aggregation approach. Moreover, we estimate the training time
 
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: This image presents two diagrams (A and B) illustrating the architecture of link prediction and node classification tasks. Each diagram uses a graph structure showing the relationships between tasks (e.g., Link Predictor Task, Node Classifier Task), data sources (dblp:Person, dblp:Publication), models (GML Model), and evaluation metrics (MRR Score, F1 Score). The diagrams highlight the flow of information and dependencies between different components within each task. Dashed lines represent relationships, and solid lines show direct dependencies. -->
 
 Fig. 7: A KGMeta graph of two trained models for node classification and link prediction tasks. The white nodes are nodes from the original data KG. The dashed nodes/edges are metadata collected per trained model.
 
@@ -227,6 +234,7 @@ Real KGs: We mainly focus on two benchmark KGs distinguishing in graph size, gra
 <span id="page-6-1"></span>TABLE I: Statistics of the used KGs and GNN tasks. We used four times larger KGs (DBLP and Yago) than the ones reported in OGB [\[19\]](#page-8-3).
 
 <span id="page-6-2"></span>![](_page_6_Figure_1.jpeg)
+<!-- Image Description: This image presents a technical comparison of two knowledge graph embedding methods, DBLP(KG) and KGNET(KG'), on three metrics: accuracy, training time, and memory usage. Three bar charts illustrate the performance of each method across three different models (G-SAINT, RGCN, SH-SAINT). A table summarizes the size and characteristics of the DBLP and YAGO4 knowledge graphs used in the evaluation. The image aims to demonstrate the relative efficiency and accuracy of the KGNET method compared to DBLP across different tasks and models. -->
 
 Fig. 13: (a) Accuracy, (B) Training Time, and (C) Training Memory for DBLP KG Paper-Venue node classification task. The KGNet task-oriented sampled subgraph (KG') significantly improves accuracy, training time, and memory.
 
@@ -239,10 +247,12 @@ Endpoints: We use Virtuoso 07.20.3229 as a SPARQL endpoint, as it is widely adop
 Our Link prediction task aims to predict an author's affiliation link based on their publications and affiliations history
 
 <span id="page-6-3"></span>![](_page_6_Figure_8.jpeg)
+<!-- Image Description: This figure presents a comparative analysis of YAGO and KGNET knowledge graph embedding models across three metrics: accuracy (A), training time (B), and memory usage (C). Each bar chart displays the performance of both models on three datasets (G-SAINT, RGCN, SH-SAINT). The numerical values on the bars represent the specific performance in each category for each model-dataset combination. The purpose is to demonstrate the relative strengths and weaknesses of YAGO and KGNET regarding accuracy, efficiency, and resource consumption. -->
 
 Fig. 14: (a) Accuracy, (B) Training Time, and (C) Training Memory for YAGO-4 KG Place-Country node classification task. The KGNet task-oriented sampled subgraph (KG') significantly improves accuracy, training time, and memory.
 
 <span id="page-6-4"></span>![](_page_6_Figure_10.jpeg)
+<!-- Image Description: This figure presents a comparative analysis of DBLP(KG) and KGNET(KG') methods using bar charts. (A) shows Hits@10, (B) shows training time in hours, and (C) shows memory usage in GB for the MorsE dataset. KGNET(KG') generally demonstrates superior performance in terms of Hits@10, while DBLP(KG) requires significantly more time and memory. The figure illustrates the trade-off between performance and resource consumption. -->
 
 Fig. 15: (a) Accuracy, (B) Training Time, and (C) Training Memory for the DBLP Author Affiliation link prediction task. The KGNet task-oriented edge sampled subgraph (KG') significantly improves the Hits@10 MRR score, training time, and training memory.
 

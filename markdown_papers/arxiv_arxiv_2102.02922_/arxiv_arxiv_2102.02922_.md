@@ -1,6 +1,7 @@
 ---
 cite_key: "arxiv_arxiv_210202922_"
 title: "Towards a Flexible System Architecture for Automated Knowledge Base Construction Frameworks"
+authors: "Big Data, Software Architecture"
 year: 2019
 doi: "10.14778/2733004.2733069"
 date_processed: "2025-07-02"
@@ -148,6 +149,7 @@ In this section we outline a proposal for an architecture for knowledge base fra
 - 4) Graphical user interface. A dedicated user interface allows end users to provide extraction rules and filters in a user friendly way. The interface also provides a summary of feature candidates flagged for review.
 
 ![](_page_4_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a knowledge base (KB) construction pipeline. Documents are processed by a workflow engine, feeding candidate generators (Fonduer KB process). User-provided labelling functions and a fairness API are integrated. A training data generator (Snorkel process) produces denoised data for TensorFlow-based learners (Fonduer KB - TensorFlow process), ultimately populating an SQL database and triplestore. The image details the system's architecture and data flow. -->
 
 Fig. 1: Overview of the system architecture. The API-based design allows for horizontal scalability, usability, and extensibility.
 

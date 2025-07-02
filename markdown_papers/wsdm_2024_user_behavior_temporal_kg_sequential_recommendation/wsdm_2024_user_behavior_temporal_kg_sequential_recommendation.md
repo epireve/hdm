@@ -1,7 +1,7 @@
 ---
 cite_key: "hu2024b"
 title: "User Behavior Enriched Temporal Knowledge Graphs for Sequential Recommendation"
-authors: "Hengchang Hu, Wei Guo, Xu Liu, Yong Liu, Ruiming Tang, Rui Zhang, Min-Yen Kan"
+authors: "Hengchang Hu"
 year: 2024
 doi: "10.1145/3616855.3635762"
 url: "https://dl.acm.org/doi/10.1145/3616855.3635762"
@@ -71,6 +71,7 @@ Distilling relevant knowledge is necessary [\[6,](#page-8-7) [49\]](#page-9-2), 
 (1) The item-centric approach considers only those KG entities statically linked to an item as relevant ones [\[17\]](#page-8-11), overlooking entities derived from sequential user behaviors. However, sequential relevance is a strong signal in SR tasks. For example in Figure [1,](#page-1-0) while Apple Watch and iPhone are closely connected in the KG, itemcentric methods symmetrically treat them as relevant to each other. However, user behavior often shows an asymmetric sequence, like buying an iPhone before an Apple Watch. Ignoring this sequence
 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: This figure displays the evolution of co-purchasing ratios between iPhones and Apple Watches from 2015 to 2021, shown in a line graph. A rising trend is observed, with highlighted periods representing significant changes. Accompanying the graph are two network diagrams illustrating the supplier relationships between Apple, iPhones, and Apple Watches, at 2016 (weak relationship) and 2020 (stronger relationship). The diagrams visually represent the increased co-purchasing shown in the graph. -->
 
 Figure 1: A TKG exploits the dynamic relations among entities: (left) the co-purchase of iPhone and Apple Watch rises in prominence over time; (right) resulting in the creation of a new dependency between the two entities in the TKG.
 
@@ -114,6 +115,7 @@ For effective modeling of temporal knowledge, we divide it into time-indexed sna
 ⋄ Structure-dynamic view. Leveraging existing designs [\[7,](#page-8-15) [53,](#page-9-7) [57\]](#page-9-8), we capture item-to-item transitions based on frequency, representing sequential dependencies within TKGs. These transitions lead
 
 <span id="page-2-0"></span>![](_page_2_Figure_11.jpeg)
+<!-- Image Description: The image illustrates a knowledge graph (KG) evolution process. It starts with a static knowledge graph representing static relations between nodes (v1-v6). This is transformed into a temporal KG, incorporating time-dependent entity properties and relations. The temporal KG is then decomposed into entity properties (G<sup>ent</sup><sub>t</sub>) and relations (G<sup>rel</sup><sub>t</sub>) across multiple time steps (t). A final component incorporates user behavior statistics. The diagram uses nodes and directed edges to visually represent entities and relationships, respectively. The color gradient in G<sup>ent</sup><sub>t</sub> suggests time-varying node properties. -->
 
 Figure 2: Temporal KGs construction from static knowledge and temporal knowledge. The solid arrows indicate static relations, and the dotted arrows indicate temporal relations.
 
@@ -134,6 +136,7 @@ Here, W ∈ R × is a self-loop transformation matrix; W ∈ R × is the transfo
 During the static pretraining, we apply the scoring function of DistMult factorization [\[58\]](#page-9-9) that decodes the hidden representation
 
 <span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
+<!-- Image Description: Figure 3 presents a framework for Temporal Knowledge Graph enhanced Sequential Recommendation. (a) shows a graph encoder generating dynamic entity embeddings. (b) illustrates a knowledge evolution network incorporating these embeddings, using evolution units with gated mechanisms. (c) depicts a traditional sequential recommendation model, and (d) shows the proposed model (TKG-SRec) integrating the dynamic embeddings into (c). Equations (2)-(7) detail the loss function, propagation function, and gated unit updates. The figure’s purpose is to visually explain the architecture of the proposed model, highlighting its temporal dynamics. -->
 
 Figure 3: The framework of Temporal Knowledge Graph enhanced Sequential Recommendation. KEN component (b) utilizing (a) graph encoder to learn dynamic entity embeddings. Sequential recommender component (d) leverages dynamic entity embedding into the traditional RNN-based backbone (c).
 
@@ -333,6 +336,7 @@ Table 1: Overall Performance. Bold text indicates best performance, underlined t
 Table 3: Backbone compatibility analysis over four sequential datasets, evaluated with (HR, NDCG, MRR)@5.
 
 <span id="page-6-3"></span>![](_page_6_Figure_9.jpeg)
+<!-- Image Description: The figure displays scatter plots comparing three knowledge graph embedding methods (TransE, RGCN, and KEN) across two datasets (ML-100K and Amazon-Books). Each plot shows "Embedding Relatedness" against "Order Distance". The y-axis represents the relatedness score, while the x-axis represents the distance between entities in a knowledge graph's traversal order. The plots illustrate how the relatedness score changes as the order distance increases for each embedding method and dataset. -->
 
 Figure 4: The correlation between entities' embedding relatedness and their order distances in interaction sequences.
 

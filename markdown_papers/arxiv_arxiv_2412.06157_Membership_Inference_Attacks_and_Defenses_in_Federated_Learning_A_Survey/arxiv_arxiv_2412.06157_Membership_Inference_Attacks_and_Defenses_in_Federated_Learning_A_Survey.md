@@ -1,7 +1,7 @@
 ---
 cite_key: "bai2023b"
-title: "ACM Reference Format:"
-authors: "LI BAI, HAIBO HU, QINGQING YE, and HAOYANG LI, The Hong Kong Polytechnic University, Hong Kong"
+title: "LI BAI, HAIBO HU, QINGQING YE, and HAOYANG LI, The Hong Kong Polytechnic University, Hong Kong"
+authors: "Additional Key Words"
 year: 2023
 doi: "10.1109/NaNA53684.2021.00062"
 date_processed: "2025-07-02"
@@ -101,6 +101,7 @@ In this work, we provide a comprehensive survey of MIAs together with defense st
 <sup>2</sup> D1: Partial sharing D2: Secure aggregation D3: Noise perturbation D4: Anomaly detection
 
 <span id="page-3-1"></span>![](_page_3_Figure_5.jpeg)
+<!-- Image Description: This flowchart illustrates a federated learning system's phases (aggregation, communication, local training) and associated security vulnerabilities. It shows multiple mobile devices training local models using their datasets, which are then aggregated into a global model on a central server. The diagram depicts potential attacks (trend-based, update-based) and defense mechanisms (anomaly detection, secure aggregation, noise perturbation, partial sharing) at each phase, using icons to represent attacks and defenses. Arrows indicate data flow. -->
 
 Fig. 1. Membership inference attacks and defenses in federated learning.
 
@@ -154,6 +155,7 @@ Three phases are repeated until the loss value of the global model converges on 
 2.2.2 Categorization of Federated Learning. Based on the distribution of data over the sample and feature spaces, we can broadly categorize FL into horizontal FL, vertical FL, and federated transfer learning [\[50](#page-29-14)[–52\]](#page-29-16).
 
 <span id="page-5-0"></span>![](_page_5_Figure_8.jpeg)
+<!-- Image Description: The image displays three diagrams (HFL, VFL, FTL) illustrating data partitioning strategies in federated learning. Each diagram shows 'sample ID', 'feature space', and 'label' sections. HFL shows vertically stacked data from two parties. VFL shows horizontally partitioned data. FTL depicts a scenario with overlapping feature spaces and labels, indicating a more complex data distribution across parties. The diagrams illustrate different approaches to data allocation for federated model training. -->
 
 Fig. 2. Three categories of federated learning.
 
@@ -178,6 +180,7 @@ $$
 where the membership status is 1 if the adversary infers that the input x was used to train the target model and 0 otherwise. MIAs in CL occur in either white-box scenarios, where attackers access model details (e.g., architecture and parameters), or black-box scenarios, where only model outputs are observed. In white-box settings, model parameters are observable, but not in blackbox settings [\[29\]](#page-28-16). Based on the construction of the attack model, MIAs can be categorized into classifier-based attacks and metric-based attacks.
 
 <span id="page-6-0"></span>![](_page_6_Figure_6.jpeg)
+<!-- Image Description: The diagram illustrates a membership inference attack on a machine learning model. The top section shows a target model trained on a target training set, taking queries and predicting results. The bottom section details training an attack model. The attack model uses predictions from a shadow model (trained on a shadow training set and tested on a shadow test set) to classify if a data point is from the target model's training data ("member") or not ("non-member"). The attack model uses this to infer membership in the target training set. -->
 
 Fig. 3. Overview of the shadow training scheme in CL.
 
@@ -202,6 +205,7 @@ In contrast to prior defense techniques that alter input data or the training pr
 In this subsection, we overview the threat models of MIAs in the FL setting from three perspectives: the adversary's goal, role, and strategy, as shown in Fig[.4.](#page-7-1) In addition, we discuss and compare the adversarial knowledge that an MIA attacker can access in each threat model.
 
 <span id="page-7-1"></span>![](_page_7_Figure_9.jpeg)
+<!-- Image Description: This flowchart depicts a threat model. It branches from "Threat Model" into three categories describing the adversary: "Adversary's Goal," "Adversary's Role" (Insider/Outsider), and "Adversary's Strategy" (Passive/Active). Further branches specify the adversary's attack level (Record-level/Source-level) and their position within the system (Client, Server, Eavesdropper). The diagram's purpose is to systematically categorize potential threats in the paper's context. -->
 
 Fig. 4. Categorization of threat models.
 
@@ -266,6 +270,7 @@ Although FL prevents access to the raw training data, it is still vulnerable to 
 <span id="page-10-1"></span>4.1.1 Model Gradient-based MIAs. MIAs of this type in FL treat model gradients as part of attack feature vectors [\[26,](#page-28-9) [31,](#page-28-12) [94\]](#page-31-10), or compare the gradients between rounds [\[17,](#page-28-3) [33\]](#page-28-14) to infer the membership status of a query example.
 
 ![](_page_10_Figure_6.jpeg)
+<!-- Image Description: This flowchart depicts a federated learning attack. An adversary downloads parameters (θₛ) from a global model. These parameters are then processed to extract gradients (g), hidden outputs (h), losses (ℓ), and labels (y) for multiple iterations. This extracted data trains a separate "attack model," allowing the adversary to potentially infer information about the global model's training data or functionality. The diagram uses icons representing models and data boxes representing extracted information. -->
 
 Fig. 5. Overview of update-based MIAs by using original gradients and other intermediate features.
 
@@ -306,6 +311,7 @@ where sgn (·) is an indicator function, cosim (·, ·) denotes the cosine simil
 Infer Membership via Shadow Training. Inspired by the shadow training technique in CL, this approach considers the global or local model as the target model. However, in contrast to the CL scenario, it can be implemented more easily as any participant can naturally access the target model and auxiliary data. Pustozerova et al. [\[28\]](#page-28-19) develop an MIA for a sequential FL framework that exposes an individual local model to the subsequent participant immediately after training on private datasets, allowing others to infer information from the received model. Assuming the presence of an auxiliary dataset, an attacker (e.g., one of the participants) builds shadow models, collects attack features, and develops an attack model to launch an inference attack on the victim model. Luqman et al. [\[95\]](#page-31-11) investigate CL-related MIAs based on shadow training in the peer-to-peer FL setting and reveal that membership leakage intensifies when colluding adversaries are involved. FD-Leaks, an MIA proposed by [\[106\]](#page-32-1), is tailored for federated distillation learning that involves clients exchanging model outputs on a public dataset. Unlike the shadow training approach in CL, this method treats the attacker's model as the shadow model and avoids retraining.
 
 <span id="page-12-0"></span>![](_page_12_Figure_4.jpeg)
+<!-- Image Description: This flowchart illustrates a federated learning system under attack. An adversary updates a GAN discriminator, influencing a global model on a central server. Participants download the global model, train local models, and send updates. The adversary attacks both the global and local models, indicated by dashed red lines showing malicious updates to the central server model. The diagram visually depicts the adversarial attack's impact on the federated learning process. -->
 
 Fig. 6. Overview of updated-based MIAs enhanced by data augmentation.
 
@@ -351,6 +357,7 @@ To summary, it is intuitive to exploit original gradients to build an inference 
 Trend-based MIAs examine the evolution of an indicator associated with membership status to determine whether a record is a member during the learning process. Such MIAs typically collect the historical models, extract the indicator information, and make decisions by comparing the indicator distributions between members and non-members, as shown in Fig[.7.](#page-14-0) According to the indicator knowledge used, trend-based attacks can be categorized into those based on prediction score and prediction loss.
 
 <span id="page-14-0"></span>![](_page_14_Figure_4.jpeg)
+<!-- Image Description: The image presents a flowchart illustrating an adversary's attack on a federated learning system. An adversary downloads global/local model parameters (θ). These are then processed to extract indicators (I¹...Iᵀ). A line graph shows the trend of these indicators over training rounds, suggesting an increasing value, which is used to detect the attack. The diagram visually represents the data extraction and analysis process used for detecting adversarial attacks in federated learning. -->
 
 Fig. 7. Overview of trend-based MIAs.
 

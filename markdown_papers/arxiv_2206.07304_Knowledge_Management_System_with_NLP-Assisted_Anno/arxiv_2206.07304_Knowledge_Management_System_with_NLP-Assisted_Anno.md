@@ -1,7 +1,7 @@
 ---
 cite_key: "linsupsup2022"
-title: "**Knowledge Management System with NLP-Assisted Annotations: A Brief Survey and Outlook**"
-authors: "Baihan Lin*<sup>1</sup>*,\\*"
+title: "Knowledge Management System with NLP-Assisted Annotations: A Brief Survey and Outlook"
+authors: "Baihan Lin"
 year: 2022
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -77,6 +77,7 @@ In this section, we outline three case studies that recent real-world knowledge 
 *Conversational recommendation systems*: A conversational recommendation system (CRS) is a computer system that is able to have a conversation with a human user in order to make recommendations [\[9\]](#page-4-8). This is different from traditional recommendation systems, which
 
 ![](_page_2_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates a system architecture for knowledge management. User input (via two entry points) populates several relational databases (storage, analysis, NLP-powered annotations). Data is processed through semantic similarity analysis and topic modeling, generating "inventory scores" and "shared embeddings". These feed downstream analysis and symbolic reasoning components. The figure shows data flow between the user interface, databases, and analysis stages, emphasizing the integration of different data types and analytical methods. -->
 
 <span id="page-2-0"></span>**Figure 1:**A unified framework of a knowledge management system with relational databases and NLP-assisted annotation
 

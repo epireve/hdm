@@ -1,7 +1,7 @@
 ---
 cite_key: "sun2022b"
 title: "Toward the Tradeoffs between Privacy, Fairness and Utility in Federated Learning"
-authors: "Kangkang Sun 1 , Xiaojin Zhang 2 , Xi Lin 1 , Gaolei Li 1 , Jing Wang 1 , and Jianhua Li 1"
+authors: "Jianhua Li"
 year: 2022
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -254,6 +254,7 @@ In the experiment, we compared the test accuracy between different algorithms. I
 Table [2](#page-9-0) and Table [3](#page-9-1) represent the test accuracy of differential clients in the FL system without noise and with noise, respectively. It can see from the table, that adding privacy improves the test accuracy for clients. The increase in privacy affects fairness because the increase in noise facilitates the optimizer to solve the global objective optimum while weakening the limitations of the fairness metrics, i.e., the constraints function λij lk.
 
 <span id="page-8-0"></span>![](_page_8_Figure_8.jpeg)
+<!-- Image Description: The image contains two line graphs showing the training process of a model. Both graphs plot "Test Accuracy" (for overall performance and broken down by race) and "Training Loss" against "Rounds" (likely training epochs). The left graph displays data that appears to indicate a model that is initially heavily biased, but that quickly converges to a stable performance. The right graph shows a very different learning trend. The purpose is to visually compare and contrast the performance and convergence properties of two different training strategies or model architectures. -->
 
 (*a*) Fairness predictor with no privacy(*b*) Fairness predictor with privacy (N (0, 1))
 
@@ -274,6 +275,7 @@ Fig. 1: The average test accuracy of the fair stage training process in FL setti
 Table 3: The fair stage training process in FL settings with 5 clients (privacy N (0, 1)) on*Adult*dataset.
 
 <span id="page-9-2"></span>![](_page_9_Figure_5.jpeg)
+<!-- Image Description: This image displays four line graphs comparing error rates (EO and DemP errors) for five clients under conditions with and without privacy. Graphs (a) and (c) show error rates without privacy, while (b) and (d) show the same metrics with privacy enabled. Each graph plots error against the number of rounds, illustrating the performance of each client across iterations, both with and without privacy preservation. The purpose is to visually compare the impact of privacy-preserving mechanisms on error rates. -->
 
 Fig. 2: The EO and DemP error comparison of different clients with privacy and no privacy on*Adult*dataset
 
@@ -292,12 +294,15 @@ In this paper, we research the relationship between fairness and privacy in the 
 This work was supported in part by the National Natural Science Foundation of China under Grant U20B2048, 62202302.
 
 <span id="page-11-0"></span>![](_page_11_Figure_1.jpeg)
+<!-- Image Description: The image presents six bar charts comparing performance metrics for two groups, "white" and "black." Metrics include accuracy, precision, false positive rate, false negative rate, selection rate, and count. The charts visually display disparities in these metrics between the two groups, suggesting potential bias in the system being evaluated. The purpose is to illustrate the impact of the system's performance on different demographic groups within the context of the paper's analysis. -->
 
 (*a*) Fair model of client 1 without privacy
 
 ![](_page_11_Figure_3.jpeg)
+<!-- Image Description: The image presents six bar charts comparing performance metrics for "white" and "black" groups. Metrics include accuracy, precision, false positive rate, false negative rate, selection rate, and count. The charts visually display disparities in the performance of a system (likely a machine learning model) across different racial groups, highlighting potential biases. The purpose is to illustrate the model's performance discrepancies and support analysis of fairness and equity. -->
 
 ![](_page_11_Figure_4.jpeg)
+<!-- Image Description: The image is a text description, not a diagram or chart. It labels a "Fair model of client 1 with privacy" using the notation N(0, 1), indicating a normal distribution with a mean of 0 and a standard deviation of 1. This likely describes a statistical model used in the paper, representing the privacy-preserving properties of a specific client's data. -->
 
 Fig. 3: The fairness matrics of clients on *Adult*dataset
 

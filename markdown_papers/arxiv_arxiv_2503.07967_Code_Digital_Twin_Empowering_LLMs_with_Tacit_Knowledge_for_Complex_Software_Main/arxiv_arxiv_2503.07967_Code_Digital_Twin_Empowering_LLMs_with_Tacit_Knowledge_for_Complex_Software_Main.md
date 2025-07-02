@@ -1,6 +1,6 @@
 ---
 cite_key: "challenges2021"
-title: "3.3 Application and Impact"
+title: "XIN PENG, Fudan University, China CHONG WANG, Fudan University, China MINGWEI LIU, Sun Yat-sen University, China YILING LOU, Fudan University, China YIJIAN WU, Fudan University, China"
 authors: "To address these challenges, we propose the concept and framework of Code Digital Twin, a conceptual representation of tacit knowledge that encapsulates the concepts, functionalities, and design rationales behind code elements, co-evolving with the software. The framework structures tacit knowledge into two key categories: the artifact-oriented backbone, which establishes a foundational structure by linking concepts and functionalities to software artifacts, and the rationale-centric explanations, which enrich this foundation by capturing the decisions that have shaped the system's design and evolution. The methodology for realizing a code digital twin combines structured and unstructured knowledge representations, integrating knowledge graphs, frames, and textual descriptions to capture domain concepts,"
 year: 2021
 doi: "10.1145/3611643.3616317"
@@ -41,8 +41,10 @@ Challenges in complex maintenance tasks. Software maintenance is a critical but 
 Challenges in capturing tacit knowledge. In software requirements and design, a substantial amount of tacit knowledge remains difficult to capture. The success of LLMs mainly stems from their ability to learn from public textual corpora, including code, documentation, or books. However, much of the knowledge related to software requirements and design is not explicitly or well documented. For example, it often resides in the minds of developers, on whiteboards, or in discussions held during project meetings. As a result, existing LLMs have limited capabilities of capturing such important but tacit knowledge. Moreover, such tacit knowledge is difficult and unsuitable for direct injection into LLMs
 
 <span id="page-2-0"></span>![](_page_2_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a system for acquiring tacit knowledge in software maintenance. It shows how software artifacts (source code, documentation, commit history, etc.) are processed through knowledge extraction using LLMs (Large Language Models) to create a "Code Digital Twin." This twin, representing extracted concepts, functionalities, and rationales, is visualized as a network graph. The process integrates question answering and incorporates a "Copilot" for knowledge transfer, ultimately aiming for efficient tacit knowledge acquisition. -->
 
 ![](_page_2_Figure_2.jpeg)
+<!-- Image Description: Figure 1 is a textual caption titled "The Overview of Code Digital Twin Framework". It lacks a visual diagram, chart, graph, or equation. Presumably, the figure's purpose is to introduce a conceptual framework (detailed elsewhere in the paper) for a Code Digital Twin. -->
 
 through fine-tuning due to its domain-specific, continuously evolving nature and the needs for human expertise in inspecting and supplementing such knowledge.
 

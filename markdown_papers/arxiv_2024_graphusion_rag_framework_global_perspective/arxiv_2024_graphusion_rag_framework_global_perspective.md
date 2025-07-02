@@ -1,7 +1,7 @@
 ---
 cite_key: "yangruiunusedu2025"
-title: "**Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective**"
-authors: "Rui Yang Duke-NUS Medical School Singapore yang\\_rui@u.nus.edu"
+title: "Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective"
+authors: "April 28-May"
 year: 2025
 doi: "10.18653/v1/P19-1470"
 date_processed: "2025-07-02"
@@ -67,6 +67,7 @@ Permission to make digital or hard copies of all or part of this work for person
 WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia Rui Yang, Boming Yang, Xinjie Zhao, Fan Gao and et al.
 
 <span id="page-1-0"></span>![](_page_1_Figure_2.jpeg)
+<!-- Image Description: The image is a flowchart illustrating a research methodology for reading comprehension. It depicts the progression from a free-text corpus to a merged knowledge graph ("Graphusion"), integrating seed concepts, handling duplicate entities, and employing community aggregation. Boxes represent processing steps, while graphs visualize knowledge graph evolution. The figure highlights the authors' approach ("Graphusion") within a broader context of existing methods (Local Graph-RAG) and foundational NLP concepts. -->
 
 ### Figure 1: Comparison of Zero-shot LLM, RAG framework, and our Graphusion framework on applying LLMs for KGC.
 
@@ -89,6 +90,7 @@ Knowledge Graph Construction KGC aims to create a structured representation of k
 Graphusion WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia
 
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
+<!-- Image Description: This figure details a three-step knowledge graph construction process. Step 1 extracts seed entities from free text data using techniques like topic modeling and machine translation. Step 2 extracts candidate triples using machine translation to identify relationships (e.g., "used for," "hypernym of") between entities. Step 3 fuses these triples, merging entities, resolving conflicts, and inferring novel triples to create a comprehensive knowledge graph. The diagrams illustrate the data flow and relationships between entities and relations. -->
 
 Figure 2: Graphusion framework illustration. Graphusion consists of 3 steps: S1 Seed Entity Generation, S2 Candidate Triplet Extraction and S3 Knowledge Graph Fusion.
 
@@ -192,8 +194,10 @@ Graphusion WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia
 | GPT-4o       | 2.92±0.32 | 0.65  | 2.37±0.82 | 0.67  |
 
 ![](_page_4_Figure_10.jpeg)
+<!-- Image Description: The image is a table caption announcing Table 1. The table (not shown) presents a rating of entity and relation quality, along with Inter-Annotator Agreement (IAA) scores from expert evaluations. The caption describes the table's contents and purpose, which is to present the results of an expert evaluation. -->
 
 <span id="page-4-1"></span>![](_page_4_Figure_11.jpeg)
+<!-- Image Description: This image displays a flowchart showing the merging and resolution of concept triplets in a knowledge graph. Three sections ("Merging," "Resolution," "Novel Triplets") illustrate relationships between concepts (e.g., probabilistic grammar and regex generation, machine translation types). The "More Cases" section provides further examples of relationships, including those between summarization methods, neural networks, and NLP tasks, using various relationship types (Hyponym_of, Used-for, Is-a-Prerequisite-of, Compare, Conjunction, Part-of). The diagram visually represents the process of knowledge integration and refinement within the paper's methodology. -->
 
 Figure 3: Case studies for Graphusion on the GPT-4o model: Correct parts are highlighted in green, resolved and merged parts in orange, and less accurate parts in purple.
 
@@ -596,6 +600,7 @@ Table 8: Comparison of the effect of finetuning: Results on NLP domain.
 <span id="page-16-1"></span>We explore the potential of external data in enhancing entity graph recovery. This is achieved by expanding the {Additional Information} part in the LP Prompt. We utilize LLaMa as the Base model, focusing on the NLP domain. We introduce three distinct settings: Doc.: In-domain lecture slides data as free-text; Con.: Adding one-hop neighboring entities from the training set as additional information related to the query entities. Wiki.: Incorporating the introductory paragraph of the Wikipedia page of each query entity. As illustrated in Fig [5,](#page-16-1) our findings indicate that incorporating LectureBankCD documents (Doc.) significantly diminishes performance. This decline can be attributed to the introduction of noise and excessively lengthy content, which proves challenging for the LLM to process effectively. Conversely, the inclusion of neighboring entities (Con.) markedly enhances the base model's performance. However, it relies on training data, rendering it incompatible with our primary focus on the zero-shot setting. Incorporating Wikipedia content also yields improvements and outperforms the use of LectureBankCD, likely due to higher text quality.
 
 ![](_page_16_Figure_6.jpeg)
+<!-- Image Description: The image presents a bar chart comparing the accuracy (Acc) and F1-score (F1) of four different models: Base, Doc., Con., and Wiki. The chart shows model performance metrics; higher values indicate better performance. The legend clarifies the color coding for each model. The purpose is to visually compare the effectiveness of the four models in the task described within the paper. -->
 
 Figure 5: Link Prediction Ablation Study: Comparison of models with external data.
 
@@ -640,8 +645,10 @@ We extend the results in Tab. [5](#page-7-0) by adding GraphRAG as a baseline, t
 (b) Expert evaluation on Task 6.
 
 ![](_page_17_Figure_6.jpeg)
+<!-- Image Description: The image is a title for Table 10 of an academic paper. It indicates that the table presents results from TutorQA evaluations across various tasks. No visual data is shown in the image itself; the table's content (presumably numerical results) is not displayed. The title's purpose is to clearly label the table and inform the reader of its contents. -->
 
 ![](_page_17_Figure_7.jpeg)
+<!-- Image Description: This bar chart compares the performance of "Graphusion" and "Zero-shot" methods on two tasks (Task 2 and Task 3). The y-axis represents a performance metric (likely error or loss), with lower values indicating better performance. The chart shows that the Zero-shot method significantly outperforms Graphusion on both tasks. The numerical values above each bar represent the specific performance scores. -->
 
 Figure 6: Entity counts in Task 2 and Task 3.
 
@@ -665,6 +672,7 @@ Table 11: Case study on TutorQA Task 2 and Task 3: GPT-4o, and GPT-4o-Graphusion
 Average Rating We compare expert ratings on the Graphusion KGC results produced by four models: LLaMA, GPT-3.5, GPT-4, and GPT-4o. Fig. [7](#page-18-0) and [8](#page-18-1) display the average ratings for entity quality and relation quality, respectively, grouped by relation type. Most types achieve an average rating of around 3 (full score) in entity quality, indicating that the extracted triplets contain good in-domain entities. In contrast, the ratings for relation quality are slightly lower. GPT-4 and GPT-4o perform better in relation prediction.
 
 <span id="page-18-0"></span>![](_page_18_Figure_2.jpeg)
+<!-- Image Description: Figure 7 presents two bar charts showing average human evaluation scores for entity quality. Each chart displays scores for four models (LLaMA, GPT-3, GPT-4, GPT-40) across seven relation types (Is-a-Prerequisite-of, Used-for, etc.). The charts visually compare the performance of different language models in identifying and classifying relationships within an entity subgraph. Scores range from 0.0 to 3.0, suggesting a rating scale. The purpose is to demonstrate the relative quality of entity relationship identification by different models. -->
 
 Figure 8: Relation quality rating by human evaluation, grouped by relation type.
 
@@ -675,6 +683,7 @@ Word cloud Visualization Finally, in Fig. [10,](#page-20-1) we present a word cl
 <span id="page-19-0"></span>WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia Rui Yang, Boming Yang, Xinjie Zhao, Fan Gao and et al.
 
 ![](_page_19_Figure_2.jpeg)
+<!-- Image Description: This image displays four pie charts, each representing the relative frequencies of different semantic relations (Is-a-Prerequisite-of, Part-of, Evaluate-for, Hyponym-Of, Used-for, Compare, Conjunction) identified in the outputs of four different large language models (LLaMA, GPT-3, GPT-4, and GPT-40). The charts visually compare the proportional use of these relations across the models, providing a quantitative analysis of their semantic reasoning capabilities. Larger slices indicate more frequent relation usage within each model's output. -->
 
 Figure 9: Relation type distribution.
 
@@ -683,9 +692,12 @@ Figure 9: Relation type distribution.
 Graphusion WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia
 
 <span id="page-20-1"></span>![](_page_20_Figure_2.jpeg)
+<!-- Image Description: The image displays two word clouds, one for LLAMA and one for GPT-4. Each cloud visualizes the frequency of keywords associated with each language model. Larger font sizes indicate higher frequency. The purpose is to provide a visual summary of the key concepts and technical aspects related to each model, highlighting their capabilities and research areas. -->
 
 ![](_page_20_Figure_3.jpeg)
+<!-- Image Description: The image is a word cloud visualizing keywords associated with GPT-40. Larger font sizes indicate higher frequency. Key terms include "natural language," "language model," "neural network," "machine translation," and various natural language processing (NLP) tasks like text generation, question answering, and sentiment analysis. The word cloud summarizes the capabilities and applications of GPT-40 within the context of the paper. -->
 
 ![](_page_20_Figure_4.jpeg)
+<!-- Image Description: This word cloud visualizes the key terms and concepts within a research paper on natural language processing (NLP). Larger font sizes indicate higher frequency. Core themes include "neural network," "machine translation," "language model," "word embedding," "question answering," and various NLP tasks like sentiment analysis and entity recognition. The image serves to quickly summarize the paper's scope and technical focus. -->
 
 Figure 10: Word cloud visualization for extracted entities.

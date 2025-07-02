@@ -117,6 +117,7 @@ M_{ij}^{\delta} = \cos(\vec{\mathbf{w}}_{\delta} \odot \vec{h}_i, \vec{\mathbf{w
 $$
 
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
+<!-- Image Description: This flowchart depicts a graph neural network architecture for interest modeling. Stage A constructs an "Interest Graph" from an "Interaction Sequence" using metric learning. Stage B shows an interest-fusion graph convolutional layer, highlighting cluster-aware and query-aware attention mechanisms. Stage C performs interest extraction via graph pooling after soft cluster assignment. Finally, stage D flattens the resulting graph into an interest sequence for prediction. The diagram illustrates the data flow and key operations within the proposed model. -->
 
 16 Figure 1: Illustration of the SURGE model. Each interaction sequence is re-constructed into an interest graph (A) based on metric learning, and interest fusion (B) and extraction (C) are dynamically performed on the graph. The currently activated core interest sequence (D) is obtained by flattening the pooled graph after interest fusing and extracting, which can be used for further modeling and prediction. Best viewed in color.
 
@@ -363,6 +364,7 @@ terms of the AUC metric, but exhibits poor performance according to ranking metr
 From the results, we can observe that all models are challenging to capture users' real interest when the sequence length is short due to data sparsity. As the length of the sequence increases and the difficulty of modeling decreases, most models' performance improves and reaches a peak. But as the length continues to increase, most models' performance will decline with the introduction of a large number of noise signals. Among them, DIN and DIEN declined most significantly. It is difficult for DIN to focus on the most critical parts in a long sequence. The item with the greatest attention may occur in the early part of the sequence, and it may be very different from the user's current interest. When the two-layer GRU structure in DIEN models user interests, the next GRU input depends on the previous GRU output, making it easier to be disturbed by the noise in long sequences. Due to the short-term bottleneck of a single GRU, GRU4REC will only focus on the recent history and
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image presents two line graphs comparing the performance of five different recommendation models (DIN, DIEN, CASER, GRU4REC, SURGE) across varying sequence lengths. The left graph uses the Taobao dataset, and the right graph uses the Kuaishou dataset. Both graphs plot the Gaussian Area Under the Curve (GAUC) metric against sequence length, showing how model performance changes with the length of user interaction sequences. The purpose is to illustrate the models' robustness to different sequence lengths on different datasets. -->
 
 Figure 2: Performance breakdown by sequence lengths on the two datasets. Best viewed in color.
 
@@ -377,6 +379,7 @@ The training process on the two datasets is shown in Figure 3. From the results,
 Table [3](#page-7-1) shows each model's training time on the two datasets. We can observe that, except for the non-sequential model (DIN) on the
 
 <span id="page-7-0"></span>![](_page_7_Figure_8.jpeg)
+<!-- Image Description: The image contains two line graphs comparing the performance of six different recommendation models (DIN, DIEN, CASER, GRU4REC, SLi-Rec, SURGE) on two datasets: Taobao and Kuaishou. The y-axis represents the area under the ROC curve (GAUC), a metric for model performance, while the x-axis shows the number of iterations during training. The graphs illustrate how the GAUC changes as the models are trained, enabling a comparison of their convergence and overall performance on each dataset. -->
 
 Figure 3: Test performance of the baselines by iterations on two datasets. Best viewed in color.
 
@@ -432,6 +435,7 @@ However, roughly dividing user interest into long-term part and short-term part 
 Graph Neural Networks for Recommendation. In recommendation scenarios, the input data can be represented in a graph structure. Recently, with strong ability of learning from graph-structure data, graph neural networks [\[15,](#page-9-38) [26\]](#page-9-18) have become popular means for recommender systems. PinSage [\[36\]](#page-9-39) applied GCN to pin-board graphs, which was the first work for applying GCN into industrial recommender systems. The standard GCN [\[15\]](#page-9-38) was adopted
 
 <span id="page-8-1"></span>![](_page_8_Figure_11.jpeg)
+<!-- Image Description: The image presents two bar charts comparing the Area Under the Curve (AUC) performance of different recommendation models on two datasets: Taobao and Kuaishou. Each chart shows baseline model AUCs (white bars) and AUCs after adding an "Interest Evolution Layer" (dark bars). The x-axis lists various models (DIN, GRU4REC, DIEN, SLI-Rec), while the y-axis represents AUC values. The charts illustrate the performance improvement achieved by incorporating the proposed layer. -->
 
 Figure 4: Performance comparison of the proposed method using different interest evolution layers.
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "mahjouriansupsup2022"
-title: "**ABSTRACT**"
-authors: "**Nazanin Mahjourian**<sup>∗</sup> **, Vinh Nguyen,**"
+title: "MULTIMODAL OBJECT DETECTION USING DEPTH AND IMAGE DATA FOR MANUFACTURING PARTS"
+authors: "Vinh Nguyen, Engineering Mechanics"
 year: 2022
 doi: "10.1016/j.neucom.2021.11.097."
 date_processed: "2025-07-02"
@@ -50,6 +50,7 @@ Figure [1](#page-2-1) illustrates the design of RGBD-Man, our multimodal object 
 The process starts with calibrating the two sensors so that the image and point cloud data are aligned when they are fed to the model. For each scene, the 3D point cloud is projected onto the image plane in 2D using the intrinsic and extrinsic projection matrices obtained through the sensor calibration process. This 3D to 2D projection converts the point cloud into a single-channel depth map. The depth map contains values which show each point's distance from the RGB camera. The depth map is then concatenated with the RGB image to form a four-channel input. This input is fed to a convolutional backbone which extracts feature maps from the combined RGB+depth data. Section [3](#page-2-0) will outline the process for calibrating the camera and point cloud
 
 ![](_page_2_Figure_0.jpeg)
+<!-- Image Description: The image illustrates a modified Faster-RCNN object detection pipeline. It shows a point cloud and RGB image merging into a 4-channel image, which is fed into a convolutional neural network (CNN) with five convolutional layers. The CNN's output is then processed by region of interest (ROI) pooling and a fully connected layer, followed by softmax classification and bounding box regression, producing final object detection predictions. The diagram visualizes the data flow and architecture of the proposed model. -->
 
 <span id="page-2-1"></span>**FIGURE 1: Overview of the RGBD-Man multimodal object detection framework.**sensors and obtaining the depth maps using 3D-to-2D projections in more detail. This section discusses only the architecture of the object detector.
 
@@ -71,9 +72,11 @@ The object detection framework ingests data from two independent sensors capturi
 The two sensors need to be calibrated against each other since the assembly task and the object detection model require precise alignment between the image and depth data received from the environment. Camera calibration [\[27\]](#page-8-17) involves the precise estimation of camera parameters, including intrinsic and extrinsic, to infer accurate geometric features from captured sequences. To conduct the calibration, an asymmetric 10x7 checkerboard pattern was placed in various positions and orientations within the two sensor's field of view and 60 pairs of image and point clouds were captured. MATLAB's Lidar-Camera Calibration application [\[28\]](#page-8-18) was used to tune the calibration parameters, as shown in Fig. [4.](#page-3-2) Fig. [4](#page-3-2) shows that the camera intrinsics are properly calibrated, therefore the red boundary perfectly lines up with the checkerboard's perimeter. However, the extrinsics are not calibrated yet, so the point cloud does not align with the checkerboard in the camera view. At the end of the process, the visual display and the error metrics signal a proper calibration. Hence, this process involved iteratively removing image and point cloud pairs with high calibration errors until the maximum translation error was below 0.0045 and the maximum rotation error was below 4.5°. At this point, a total of 37 image - point cloud pairs were used to compute the calibration parameters.
 
 ![](_page_3_Picture_5.jpeg)
+<!-- Image Description: The image is a photograph of two cameras mounted together. The top camera is identified as an Intel RealSense camera, showing its multiple lenses. Below it is a Basler RGB camera. The image illustrates the setup of the dual-camera system used in the paper, likely for depth sensing and color data acquisition in a computer vision application. The photo serves as a visual aid to describe the experimental setup. -->
 **FIGURE 3: Multi-sensor setup featuring a Basler RGB camera and an Intel RealSense camera mounted to the robot's table. The location and orientation of the sensors remained fixed throughout all experiments.**
 
 <span id="page-3-1"></span>![](_page_3_Figure_7.jpeg)
+<!-- Image Description: The image displays a software interface for camera-LiDAR calibration. It shows a live video feed of a checkerboard target, its corresponding point cloud (blue mesh), and a 3D representation of the point cloud. Below are bar graphs illustrating translation, rotation, and reprojection errors for different image-point cloud pairings. The purpose is to visually demonstrate the calibration process and quantify its accuracy. -->
 
 <span id="page-3-2"></span>**FIGURE 4: MATLAB's Lidar-Camera Calibration application output before 3D point cloud alignment.**
 
@@ -120,6 +123,7 @@ The models were evaluated using standard objection detection metrics, namely mea
 An early stopping mechanism was used to allow each model variant to train for as long as it can improve the validation metrics. At the end of each training epoch, the latest model checkpoint were evaluated against the validation set using the mean Average Precision (mAP) metric. Whenever an improvement in mAP was detected, which corresponds to better model accuracy, the model's checkpoint was saved as the new best configuration. The training process was stopped if the metrics did not improve over a consecutive span of 10 epochs. However, the checkpoint with the best evaluation metrics was always saved and used for a final evaluation over the test set, which produced the final mAP and Mean Precision metrics for that variant. This adaptive strategy helps avoid overfitting to the training set, and validates the chosen
 
 ![](_page_5_Figure_0.jpeg)
+<!-- Image Description: The image displays three Faster-RCNN network architectures for object detection. (a) uses an RGB image as input, (b) uses a 4-channel RGB-D image (RGB plus depth), and (c) uses a depth map generated from a point cloud. Each architecture consists of convolutional layers (Conv1-5), a region of interest (RoI) pooling layer, a fully connected layer, and output layers for bounding box regression and classification (softmax). The diagrams illustrate the data flow and model structure, showing how input images are processed to generate object detection predictions (bounding boxes). -->
 
 <span id="page-5-1"></span>**FIGURE 5: The three variants of the object detection model used in experiments.** *a.* **RGB-only: The model receives only camera images and predicts object class scores and bounding boxes for the detected objects.** *b.* **RGBD-Man: The main model which concatenates RGB and depth information into a four-channel input and predicts objects from the fused inputs.** *c.* **Depth-only: The model which predicts objects given only a single-channel depth map of scene.**
 
@@ -146,6 +150,7 @@ This section presents the evaluations results comparing the performance of the R
 The RGB-D model, which uses both images and depth, achieves a mean mAP of 0.480, outperforming the RGB-only model's mean mAP of 0.425, and the Depth-only model's mean mAP of 0.269. Similarly, the mean precision metric further demonstrates the RGB-D model's superior performance with a score of 0.474 in contrast to the RGB-only model's 0.424 and the Depth-only model's 0.301. These results are visually summarized in Figure [6,](#page-6-1) where the RGB-D model demonstrates a
 
 ![](_page_6_Figure_0.jpeg)
+<!-- Image Description: The bar chart displays the mean average precision (mAP) and mean precision of three models: Depth-Only, RGB-Only, and RGB-D. Results are shown for both mAP (light gray) and mean precision (dark gray) for each model, with error bars indicating variability. The chart compares model performance across different input modalities (depth only, RGB only, and both), illustrating the impact of data source on model accuracy. -->
 
 <span id="page-6-1"></span>**FIGURE 6: Comparison of the Depth-only, RGB-only, and RGB-D model variants over mAP and Mean Precision metrics on the test set. The error bars show standard deviation of results over 10 runs.**clear advantage over the RGB-only and depth-only models across both metrics. Specifically, the RGB-D model's mean mAP is 13% higher than that of the RGB-only model and 78% higher than the depth-only model. Similarly, the RGB-D model's mean precision shows an increase of 11.8% compared to the RGB-only and a significant 57% enhancement when measured against the Depth-only model. This demonstrates a pronounced enhancement in object detection capabilities when depth information is employed in conjunction with RGB data.
 

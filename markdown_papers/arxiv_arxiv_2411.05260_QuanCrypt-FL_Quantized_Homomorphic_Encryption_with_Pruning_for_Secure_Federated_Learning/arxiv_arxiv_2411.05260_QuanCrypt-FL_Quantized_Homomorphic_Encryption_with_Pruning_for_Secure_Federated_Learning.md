@@ -1,7 +1,7 @@
 ---
 cite_key: "jeon2020b"
 title: "QuanCrypt-FL: Quantized Homomorphic Encryption with Pruning for Secure Federated Learning"
-authors: "- <span id=\"page-12-8\"></span>[14] J. Jeon, K. Lee, S. Oh, J. Ok *et al.*, \"Gradient inversion with generative image prior,\" *Advances in neural information processing systems*, vol. 34, pp. 29 898–29 908, 2021."
+authors: "Md Jueal Mia, M. Hadi Amini, Senior Member, IEEE"
 year: 2020
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -108,6 +108,7 @@ where**w** are the global model parameters shared by the server at round , Δ**w
 During local model training, we employed a pruning technique to iteratively remove less important weights or gradients from the model updates. Specifically, clients perform soft, unstructured pruning based on the L1 norm, which creates a sparse model and makes the FL training process more efficient. The pruning process is guided by a dynamically updated pruning rate , which increases over the communication rounds, allowing for more aggressive pruning as training progresses. After pruning, clients send their pruned updates to the server,
 
 <span id="page-5-0"></span>![](_page_5_Figure_0.jpeg)
+<!-- Image Description: This flowchart depicts a federated learning system with privacy-preserving model training and pruning. Local clients encrypt, quantize, clip, and prune their model parameters before training. The encrypted weights are then aggregated on a central server using FedAvg. The server performs further pruning, reconfiguring the pruning mask periodically. The process iterates, with the updated model parameters (encrypted) being sent back to the clients for subsequent training rounds. The diagram illustrates the data flow and the different processing steps at each stage. -->
 
 Fig. 1: Overview of the proposed QuanCrypt-FL framework.
 
@@ -134,6 +135,7 @@ $$
 where ⊙ represents the element-wise product, and is the local pruning mask generated to identify which weights to
 
 <span id="page-5-1"></span>![](_page_5_Figure_10.jpeg)
+<!-- Image Description: The image displays a weight matrix undergoing pruning. Three 3x3 matrices illustrate the process: "Original Weight" shows a matrix of floating-point numbers; "Mask" is a binary matrix selecting which weights to keep (1) or remove (0); and "Pruned Weight" shows the resulting matrix, where masked-out weights are near zero. This visualizes a weight pruning technique for model compression, likely in a neural network context. -->
 
 Fig. 2: Model sparsification using unstructured pruning based on L1 norm.
 
@@ -155,6 +157,7 @@ prune at communication round . This pruned update Δ**w**+1 , is then quantized 
 <span id="page-5-4"></span>We also employed a dynamic mean-based layer-wise clipping technique in Algorithm [1](#page-5-4) to help reduce inconsistencies during the training process. The clipping factor controls the clipping parameter, dynamically adjusting the clipping based on layer-wise updates, rather than using a static clipping method. This approach ensures that each layer's updates are clipped according to their specific dynamics, leading to more
 
 <span id="page-6-4"></span>![](_page_6_Figure_1.jpeg)
+<!-- Image Description: The image is a flowchart depicting a federated learning algorithm. It details a 15-step process, starting with sharing an initial global model and ending with saving the updated global model. Steps include local client training, pruning, parameter clipping and quantization, encryption, aggregation of encrypted parameters, and decryption for performance assessment. The flowchart illustrates the data flow and operations in each stage of the iterative process. -->
 
 Fig. 3: High Level Overview of the proposed QuanCrypt-FL mechanism.
 
@@ -248,6 +251,7 @@ Several models were utilized in the experiments, including CNN, AlexNet, and Res
 ###*D. Clipping, Smoothing, and Checkpoints*To control the magnitude of model updates, we applied a clipping mechanism with a clip factor , set by default to 3.0 after conducting a grid search within the range [1.0,5.0]. This ensured that extreme values in model updates were controlled, ensuring stability during training and preventing large deviations.
 
 <span id="page-8-0"></span>![](_page_8_Figure_1.jpeg)
+<!-- Image Description: The image displays a line graph comparing the test accuracy of three Federated Learning (FL) methods: BatchCrypt, QuanCrypt-FL, and Vanilla-FL, over 300 epochs. The main graph shows the overall accuracy trends, while an inset graph zooms in on epochs 200-300, highlighting the subtle variations in accuracy among the methods during this phase. The purpose is to visually demonstrate the performance differences and stability of the three FL approaches in terms of achieved test accuracy. -->
 
 Fig. 4: Comparison of methods considering 10 clients, Model: CNN, Dataset: MNIST, =3.0, =1.0.
 
@@ -264,6 +268,7 @@ To further enhance model performance, we implemented a checkpointing mechanism w
 Figure [4](#page-8-0) shows the test accuracy comparison of BatchCrypt, QuanCrypt-FL, and Vanilla-FL on the MNIST dataset using a CNN model with 10 clients over 300 communication rounds. The results indicate that BatchCrypt starts with reasonably high accuracy but quickly stabilizes at around 99.04%, consistently underperforming compared to both QuanCrypt-FL and Vanilla-FL. QuanCrypt-FL, however, closely tracks Vanilla-FL throughout the training, reaching an accuracy of 99.40% by the final round, while Vanilla-FL achieves a similar result of 99.32%. This minimal difference between QuanCrypt-FL and Vanilla-FL demonstrates that QuanCrypt-FL achieves nearly identical performance to Vanilla-FL, while offering additional privacy-preserving features. BatchCrypt, although competitive, lags behind both methods across all 300 rounds, showing the trade-offs involved in using a heavier encryption mechanism. Ultimately, QuanCrypt-FL maintains strong accuracy
 
 ![](_page_8_Figure_10.jpeg)
+<!-- Image Description: The bar chart displays the maximum accuracy achieved by three Federated Learning (FL) methods—BatchCrypt, QuanCrypt-FL, and Vanilla FL—across varying numbers of clients (10, 20, 30, 40, 50). Each bar represents the maximum accuracy obtained by a specific method with a given number of clients. The chart aims to compare the performance of the three methods in terms of accuracy as the number of clients increases. Accuracy values are shown above each bar, ranging from approximately 98.9% to 99.4%. -->
 
 Fig. 5: Comparison of Methods for several clients, Model: CNN, Dataset: MNIST, =3.0, =1.0.
 
@@ -300,18 +305,22 @@ This demonstrates that, even if the server or adversary has access to the shared
 '
 
 <span id="page-10-0"></span>![](_page_10_Figure_1.jpeg)
+<!-- Image Description: The image displays a line graph comparing the test accuracy of three Federated Learning (FL) methods—BatchCrypt, QuanCrypt-FL, and Vanilla-FL—over 300 epochs. The main graph shows the overall trend, while an inset graph zooms in on epochs 150-300, highlighting accuracy fluctuations. The purpose is to visually demonstrate the performance differences between these FL approaches in terms of achieved test accuracy. -->
 
 Fig. 6: Comparison of accuracy considering 10 clients, Model: AlexNet, Dataset: CIFAR10, =3.0, =1.0.
 
 ![](_page_10_Figure_3.jpeg)
+<!-- Image Description: The image displays a line graph comparing the test accuracy of three Federated Learning (FL) methods: BatchCrypt, QuanCrypt-FL, and Vanilla-FL, over 300 epochs. The x-axis represents the number of epochs, and the y-axis shows the test accuracy. The graph illustrates the performance of each method, showing how their test accuracy changes with increasing training iterations. The purpose is to demonstrate and compare the accuracy achieved by different secure FL approaches. -->
 
 Fig. 7: Comparison of accuracy considering 50 clients, Model: AlexNet, Dataset: CIFAR10, =3.0, =1.0.
 
 <span id="page-10-1"></span>![](_page_10_Figure_5.jpeg)
+<!-- Image Description: This bar chart compares the maximum accuracy of three federated learning (FL) methods—BatchCrypt, QuanCrypt-FL, and Vanilla FL—across varying numbers of clients (10, 20, 30, 40, 50). Each bar represents a method's accuracy for a given client count, showing the performance variation with the scaling of the client number. The chart aims to illustrate the comparative performance of the methods under different client-scale conditions in the context of the paper. -->
 
 Fig. 8: Comparison of HE mechanism, Model: AlexNet, Dataset: CIFAR10, =3.0, =1.0.
 
 <span id="page-10-2"></span>![](_page_10_Figure_7.jpeg)
+<!-- Image Description: This image presents four line graphs comparing the performance of BatchCrypt and QuanCrypt-FL across varying numbers of clients. The graphs depict encryption time (hours), decryption time (minutes), average inference time (seconds), and training time (hours) for each method. The x-axis represents the number of clients, while the y-axis shows the corresponding time metric. The purpose is to illustrate the scalability and efficiency differences between the two cryptographic methods as the number of clients increases. -->
 
 Fig. 9: Comparison of time of HE mechanism, Model: AlexNet, Dataset: CIFAR10, =3.0, =1.0.
 
@@ -369,6 +378,7 @@ Fig. 9: Comparison of time of HE mechanism, Model: AlexNet, Dataset: CIFAR10, =3
 TABLE I: Comparative performance analysis.
 
 <span id="page-11-1"></span>![](_page_11_Figure_2.jpeg)
+<!-- Image Description: This bar chart compares the upload cost (in GB) of three different Convolutional Neural Networks (CNNs): CNN, AlexNet, and ResNet18. It contrasts the upload cost before and after quantization. Quantization significantly reduces the upload cost for all three models, as evidenced by the substantial difference in bar heights between "Quantized upload cost" and "Original upload cost" for each network. ResNet18 shows the largest difference in upload costs before and after quantization. -->
 
 Fig. 10: Comparison of upload cost for different models, Dataset: CIFAR10, =3.0, =1.0.
 
@@ -379,6 +389,7 @@ evaluation.
 Our proposed mechanism, QuanCrypt-FL, achieves state-ofthe-art performance compared to existing methods that implement HE with pruning and quanization in FL. Compared to BatchCrypt's approach of batching quantized gradient values into smaller units, our layer-wise encryption strategy in FL significantly reduces the frequency of encryption and decryption operations required per training round. By encrypting entire layers instead of smaller gradient batches, we streamline the encryption process, resulting in faster overall FL training times. This approach also reduces computational overhead during aggregation, as each layer can be processed as a single encrypted unit, simplifying the update process. Consequently, our method enhances the efficiency and scalability of secure FL, making it a practical choice for applications prioritizing
 
 <span id="page-11-2"></span>![](_page_11_Figure_7.jpeg)
+<!-- Image Description: The image displays three low-resolution images (a, b, c) of an emu-like bird in a grassy field. The images progressively degrade in quality from (a) to (c), likely illustrating the effect of a downsampling or compression algorithm. The purpose is to visually demonstrate the impact of reduced resolution on image quality, a common technique used in papers on image processing, compression, or super-resolution. -->
 
 Fig. 11: Comparison of image reconstruction using GIA, Model: ResNet18, Dataset: CIFAR10, =3.0, =1.0. (a) Original image, (b) Gradient inversion attack on the global model in Vanilla FL, (c) Gradient inversion attack on global model in QuanCrypt-FL
 

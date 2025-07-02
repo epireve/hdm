@@ -1,7 +1,7 @@
 ---
 cite_key: "alice2018"
 title: "Affordable AI Assistants with Knowledge Graph of Thoughts"
-authors: "Existing entities: Employee: [{{name: \"Alice\", employee_id: \"E1\"}, {{name: \"Bob\","
+authors: "Large Language Models"
 year: 2018
 doi: "10.48550/arXiv.2307.11278"
 date_processed: "2025-07-02"
@@ -58,6 +58,7 @@ We first illustrate the key idea, namely, using a knowledge graph to encode *str
 A knowledge graph (KG) is a structured representation of information that organizes knowledge into a graph-based format, allowing for efficient querying, reasoning, and retrieval. Formally, a KG consists of a set of triples, where each triple (s, p, o) represents a relationship between two entities s (subject) and o (object) through a predicate p. For example, the triple ("Earth", "orbits", "Sun") captures the fact that Earth orbits the Sun. Mathematically, a knowledge graph can be defined as a directed labeled graph G = (V, E, L), where V is the set of vertices (entities), E ⊆ V × V is the set of edges (relationships), and L is the set of labels (predicates) assigned to the edges. Each entity or predicate may further include properties or attributes, enabling richer representation. Knowledge graphs are widely used in various domains, including search engines, recommendation systems, and AI reasoning, as they facilitate both efficient storage and complex queries.
 
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
+<!-- Image Description: The image illustrates a knowledge graph construction and query answering process. A natural language question (input) is used to build an initial knowledge graph, which is then enhanced by querying external data and incorporating information from a YouTube transcript. This enhanced graph is used to generate a precise answer. The process is shown as a flowchart with knowledge graphs represented as node-edge diagrams, evolving from a simple graph to a more complex one containing relevant information extracted from external sources. -->
 
 Figure 1: Illustration of the key idea behind Knowledge Graph of Thoughts (KGoT): transforming the representation of a task for an AI assistant from a textual form into a knowledge graph (KG). As an example, we use a Level-3 (i.e., highest difficulty) task from the GAIA benchmark. In order to solve the task, KGoT evolves this KG by adding relevant information that brings the task closer to completion. This is achieved by iteratively running various tools. Finally, the task is solved by extracting the relevant information from the KG, using – for example – a graph query, or an LLM's inference process with the KG provided as a part of the input prompt. More examples of KGs are in Appendix [A.](#page-19-0)
 
@@ -134,6 +135,7 @@ Adaptability with LangChain The KGoT system harnesses LangChain [\[46\]](#page-1
 We show the workflow in the bottom part of Figure [2.](#page-5-0) The workflow begins when the user submits a problem to the system **1**. The first step is to verify whether the maximum number of iterations allowed for solving the problem has been reached**2**. If the iteration limit is exceeded, the system will no longer try to gather additional information and insert it into the KG, but instead will return a solution with the existing data in the KG**3**. Otherwise, the majority vote (over several replies from the LLM) decides whether the system should proceed with the Enhance pathway (using tools to
 
 <span id="page-5-0"></span>![](_page_5_Figure_0.jpeg)
+<!-- Image Description: The image presents a flowchart detailing the "Knowledge Graph of Thoughts" system. The upper section shows a high-level overview of the system's architecture, illustrating the interaction between a user question, a controller, LLM executors (graph and tool), and integrated tools. The lower section provides a detailed flowchart of the process, showing steps like graph state creation, iterative decision-making using an LLM, tool calls, and solution generation. The flowchart uses numbered steps and highlights LLM usage within the process. Various integrated tools and their interdependencies are also illustrated. -->
 
 Figure 2: Architecture overview of KGoT (top part) and the design details combined with the workflow (bottom part).
 
@@ -150,6 +152,7 @@ We now show advantages of KGoT over the state of the art. Additional results and
 Comparison Baselines. We focus on the Hugging Face (HF) Agents [\[68\]](#page-15-4), the most competitive scheme in the GAIA benchmark for the hardest level 3 tasks with the GPT-4 class of models. We also compare to two agentic frameworks, namely GPTSwarm [\[103\]](#page-18-1) (a representative graph-enhanced multi-agent scheme) and Magentic-One [\[31\]](#page-12-5), an AI agent equipped with a central orchestrator and multiple integrated tool agents. Next, to evaluate whether database search outperforms graph-based knowledge extraction, we also consider two retrieval-augmented generation (RAG) [\[50\]](#page-14-2) schemes,
 
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
+<!-- Image Description: The image presents two bar charts comparing the performance of different knowledge graph reasoning methods. The left chart shows the number of solved tasks, categorized by method (e.g., GPT-40, Neo4j+Query) and difficulty level. Higher bars indicate better performance. The right chart displays the average cost (in seconds) for each method, with lower bars indicating lower cost. Both charts allow for a comparative analysis of the trade-off between performance and computational cost across various approaches. -->
 
 Figure 3: Advantages of different variants of KGoT over other baselines (Hugging Face Agents using both GPT-4o-mini and GPT-4o, Magentic-One, GPTSwarm, two RAG baselines, Zero-Shot GPT-4o mini, and Zero-Shot GPT-4o) on the validation dataset of the GAIA benchmark. DR stands for Direct Retrieval. The used model is GPT-4o mini unless noted otherwise.
 
@@ -186,10 +189,12 @@ We also evaluated KGoT as well as HF Agents and GPTSwarm on a 10% sample (433 ta
 We further evaluated KGoT on the entire SimpleQA benchmark (due to very high costs of running all SimpleQA questions, we limit the full benchmark evaluation to KGoT). We observe no degradation in performance with a 70.34% accuracy rate. When compared against the official F1-scores of various OpenAI and Claude models [\[61\]](#page-15-11), KGoT outperforms all the available results. Specifically, our design achieves a 71.06% F1 score, significantly surpassing the 49.4% outcome of the top-performing reasoning model and improving upon all mini-reasoning models by at least 3.5×. Furthermore, KGoT exceeds the performance of all standard OpenAI models, from GPT-4o's 40% F1 score to the best-scoring closed-source model, GPT-4.5, with 62.5%. More detailed results are available in Appendix [D.1.](#page-42-0)
 
 <span id="page-8-0"></span>![](_page_8_Figure_0.jpeg)
+<!-- Image Description: The image is a bar chart comparing the performance of four different large language models (LLMs) across various tasks. The x-axis represents different LLM configurations (e.g., Qwen2.5-32B, DeepSeek-R1-70B), and the y-axis shows the number of tasks solved, with higher values indicating better performance. The chart compares GPTswarm, HF Agents, KGOT (Neo4j + Query), and Zero-Shot approaches, visually demonstrating their relative strengths and weaknesses on diverse task sets. -->
 
 Figure 4: Performance on the GAIA validation set with KGoT (non-fusion) using various LLM models. For KGoT, we use Cypher graph queries for knowledge extraction from the Neo4j graph database.
 
 ![](_page_8_Figure_2.jpeg)
+<!-- Image Description: This stacked bar chart displays the number of solved tasks at three difficulty levels (Level 1, 2, 3) across different knowledge graph (KG) setups: Neo4j, NetworkX, a combination of both, and a no-KG control. Each bar represents a specific task approach (e.g., query, direct retrieve). The chart compares performance across methods, showing the number of tasks solved at each level for each approach. A horizontal dashed line indicates the maximum number of solvable tasks (71). -->
 
 Figure 5: The impact coming from harnessing knowledge graphs (KGs) with different knowledge extraction methods (graph queries with Neo4j and Cypher, and general-purpose languages with Python and NetworkX), vs. using no KGs at all. DR stands for Direct Retrieval. Model: GPT-4o mini.
 
@@ -362,18 +367,22 @@ USA)*(Advances in Neural Information Processing Systems, Vol. 36)*, A. Oh, T. Na
 We include selected snapshots of KG representation of tasks, covering a wide range of graph structures from simple chains to trees and cyclic graphs. Each snapshot captures the current KG state in a JSON file, exported using a predefined query that retrieves all labeled nodes and edges. Regardless of the underlying graph backend, the use of a consistent export format allows all snapshots to be visualized through Neo4j's built-in web interface. In the following, we showcase illustrations of such snapshots and task statements from the GAIA validation set. Please note that the GAIA benchmark discourages making its tasks accessible to crawling. To honor their wishes, we replaced the names of entities with placeholders in the following examples, while keeping the overall structure intact.
 
 <span id="page-19-1"></span>![](_page_19_Figure_2.jpeg)
+<!-- Image Description: The image displays a question ("What writer is quoted by Merriam-Webster for the Word of the Day from [date]?"), its required tools (web browser, search engine, audio capability), and its representation as an enhanced knowledge graph. The graph visually depicts the relationships between "Date," "Word," "Quote," and the "Writer" using nodes and labeled edges, illustrating how the KGOT (Knowledge Graph-based Question Answering) task is resolved. The arrow indicates the transformation of the question into the knowledge graph representation. -->
 
 Figure 6: Example of a chain structure. This task requires 7 intermediate steps and the usage of 3 tools. The expected solution is '[firstname lastname]'. KGoT invokes the Surfer agent to search for relevant pages, locate the relevant quote, and find the person who said it. All intermediate information is successfully retrieved and used for enhancing the dynamically constructed KG. The quote contains two properties, significance and text. 'significance' stores the meaning of the quote, whereas 'text' stores the actual quote.
 
 ![](_page_19_Figure_4.jpeg)
+<!-- Image Description: The image displays a question requiring web search to find the name of a bishop who never became pope, given a museum's portrait accession number and its subject's consecrators. It shows a knowledge graph representing the relationships (co-consecrated) between individuals, with nodes for bishops and popes and edges indicating the relationships. The graph illustrates how the knowledge graph facilitates answering the question ("KGOT Task Resolution" shows the process). -->
 
 Figure 7: Example of a tree structure. This task requires 6 intermediate steps and the usage of 2 tools. The expected solution is '[firstname1 lastname1]'. The Surfer agent is also invoked for this task. In this KG representation of the task, [popename] is identified as the consecrator, where [firstname1 lastname1], [firstname2 lastname2] and [firstname3 lastname3] are all co-consecrators. Subsequently, the correct answer is obtained from the KGoT from the KG by correctly identifying [firstname1 lastname1] as the one without any labels.
 
 <span id="page-19-2"></span>![](_page_19_Figure_6.jpeg)
+<!-- Image Description: The image displays a question requiring the number of studio albums released by a specific artist within a given timeframe, using web resources. It then shows a knowledge graph illustrating the task's resolution using KGOT (Knowledge Graph based question answering technique). The graph is a node-and-edge representation where nodes represent albums and the artist, and edges represent the "released" relationship, annotated with the release year. The graph visually depicts how the question can be answered by traversing the relationships within the knowledge graph. -->
 
 Figure 8: Example of a tree structure. This task requires 4 intermediate steps and the usage of 2 tools. The expected solution is '4'. This is a trap question where only the studio albums should be taken into account. In addition to years, the type of the albums is also stored as a property in the KG. Please note that the original GAIA task has a different solution, which we do not want to reveal.
 
 ![](_page_20_Figure_0.jpeg)
+<!-- Image Description: The image displays a problem statement (left) and its knowledge graph representation (right). The problem involves executing a Python script on a string array to obtain a C++ code URL, then compiling and running that code on a numerical array. The knowledge graph visually depicts the steps: script generation, code processing, array sorting, and integer summation, culminating in the final result (65). The graph uses nodes to represent data and edges to depict the operations. -->
 
 Figure 9: Example of a cyclic graph structure. This task requires 7 intermediate steps and the usage of 6 tools. The expected solution is '65'. Here, array has the property 'values' with [42, 23, 2, 88, 37, 15], SortedArray contains the correctly sorted values [2, 15, 23, 37, 42, 88]. The final solution '65' is correctly retrieved and parsed as KGoT response. Please note that we used different array values than in the original GAIA task.
 
@@ -614,6 +623,7 @@ as Neo4j and the Python tool, within isolated containers, with one container ass
 Ultimately, our experiments achieved a 12.74× speedup over the sequential baseline on the GAIA benchmark when executed with 8 ranks in MPI, as illustrated in Figure [10.](#page-27-1) This demonstrates the significant performance improvement of the KGoT system achieved on a consumer-grade platform.
 
 <span id="page-27-1"></span>![](_page_27_Figure_2.jpeg)
+<!-- Image Description: The image displays a line graph comparing the speedup of "Work Stealing" and "Non Work Stealing" algorithms. The x-axis represents the number of processing elements in an MPI (Message Passing Interface), and the y-axis shows speedup. The graph shows that "Work Stealing" achieves significantly higher speedup, peaking at 12.74x with 8 processing elements, before slightly declining. "Non Work Stealing" exhibits lower and less consistent speedup. The experiment parameters (number of questions, measurements, chip specifications, and memory) are listed. -->
 
 Figure 10: Measured parallel speedup of KGoT task execution across varying numbers of MPI processes, under two scheduling strategies: with and without work stealing. Each task corresponds to a GAIA benchmark question, and each data point represents the average of 2 measurements on an Apple M3 Pro (12 cores @ 4.056GHz) and 18GB Memory. The dashed grey line indicates the expected theoretical speedup curve (S = 2.2985 × p) based on the asynchronous optimizations applied to individual tasks. As previously discussed, acceleration strategies are categorized into (1) single-task optimizations—including asynchronous I/O scheduling and graph operation parallelism—and (2) batch-level parallelism using MPI-based distributed processing. The work-stealing variant consistently outperforms the non-stealing baseline by minimizing idle time and dynamically redistributing atomic question tasks across ranks. These combined strategies result in a 12.74× speedup over the sequential baseline when using 8 processes.
 
@@ -1056,12 +1066,14 @@ Both prompts are reusable across pathways and enforce minimal, well-scoped corre
 We plot the results from Figure [3](#page-6-0) also as a Pareto front in Figure [11.](#page-41-1)
 
 <span id="page-41-1"></span>![](_page_41_Figure_2.jpeg)
+<!-- Image Description: This scatter plot compares the performance of different knowledge graph reasoning methods. The x-axis represents the total cost in dollars, and the y-axis shows the number of failed tasks (lower is better). Various methods, including baselines (e.g., GPT-40), are plotted, showing a trade-off between cost and performance. The plot helps assess the efficiency and effectiveness of different approaches. Shaded regions highlight groupings of similar cost and performance. -->
 
 Figure 11: Pareto front plot of cost and error counts. We report results for answering 165 GAIA validation questions across different comparison targets, using the GPT-4o mini model with each baseline. For the Zero-Shot inference, we also include results for GPT-4o for comparison. Please note that we omit the results for Magentic-One and HF Agents (GPT-4o) as their high costs would heavily disturb the plot. DR means Direct Retrieval.
 
 We also plot the relative improvements of KGoT over Hugging Face Agents and GPTSwarm respectively in Figure [12,](#page-41-2) which is based on the results shown in Figure [4.](#page-8-0)
 
 <span id="page-41-2"></span>![](_page_41_Figure_5.jpeg)
+<!-- Image Description: The image presents two bar charts comparing the number of improved tasks across different large language models (LLMs). (a) shows the improvement relative to Hugging Face agents, with Qwen2.5-32B showing the most improvement (+7 tasks). (b) shows the improvement relative to GPTSwarm, where Qwen2.5-32B exhibits the largest improvement (+20 tasks). Both charts include arithmetic means for context. The charts assess the relative performance gains of various LLMs. -->
 
 Figure 12: Relative improvement of KGoT over Hugging Face Agents (left) and GPTSwarm (right) on the GAIA validation set using various LLM models.
 
@@ -1114,6 +1126,7 @@ rating a Wikipedia tool and augmenting viewpoint segmentation with full-page sum
 We further evaluated different prompt formats in the initial iterations of KGoT. While our primary format was XML-based, we conducted additional tests using Markdown. Initial experiments with the Hugging Face Agents tool set (see Table [3\)](#page-43-1) combined with Markdown and GPT-4o mini yielded improved accuracy, reduced runtime, and lower costs. However, these results were not consistently reproducible with GPT-4o. Moreover, Markdown-based prompts interfered with optimizations such as Direct Retrieval, ultimately leading us to retain the XML-based format.
 
 <span id="page-43-2"></span>![](_page_43_Figure_6.jpeg)
+<!-- Image Description: The image is a stacked bar chart showing the number of solved tasks categorized by difficulty level (Level 1, 2, 3) across different graph database configurations. Each bar represents a combination of database system (Neo4j or NetworkX) and the use of data repair (DR) techniques. The chart compares the performance of these configurations in solving tasks of varying complexity. The height of each segment within a bar represents the number of tasks solved at that difficulty level. The purpose is to illustrate the effectiveness of different database and repair strategies for solving graph-based tasks. -->
 
 Figure 13: Comparison of different fusion types in respect to the task solve operation as well as the graph backend type. We report results for answering 165 GAIA validation questions across different comparison targets. DR stands for Direct Retrieval. Model: GPT-4o mini.
 
@@ -1124,6 +1137,7 @@ Graph Backend vs. Task Solve Operation We provide more detailed results in Figur
 We provide a runtime overview of running KGoT on the validation set of the GAIA benchmark with GPT4o-mini, Neo4j and query-based retrieval in Figure [14.](#page-44-0) The right part follows the categorization in Appendix [C.](#page-30-0) We provide a more detailed analysis of the runtime in Figure [17.](#page-46-0)
 
 <span id="page-44-0"></span>![](_page_44_Figure_0.jpeg)
+<!-- Image Description: The image presents two donut charts illustrating the runtime distribution of KGoT. Both charts show a total runtime of 35817.29 seconds. The left chart breaks down runtime by categories: tools (71.5%), Neo4j (11.2%), control logic (11.1%), and postprocessing (6.07%). The right chart shows a different breakdown: tool invocations (71.5%), system robustness (13.6%), graph executor (7.06%), solution formatting (6.07%), and tool executor (1.76%). The charts compare different aspects of KGoT's performance. -->
 
 Figure 14: Different runtime categorizations of the same data. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
 
@@ -1151,25 +1165,31 @@ We provide now a brief explanation of the more opaque function names listed in F
 - Generate forced solution generates a solution based on the state of the knowledge graph if no viable solution has been parsed after a Cypher retrieve or if the forced retrievals fails after exhausting all iterations.
 
 <span id="page-45-0"></span>![](_page_45_Figure_0.jpeg)
+<!-- Image Description: The image displays a bar chart showing the success rate of a task across three levels of difficulty. Each bar is segmented to represent different outcome categories: Correct, Correct forced, Close call, Wrong forced, Other error, and Wrong. The chart visualizes the percentage of each outcome type at each level, showing a decrease in correct responses and increase in incorrect responses with increasing difficulty. Numerical values are shown alongside percentages for each segment. The chart's purpose is to illustrate the relationship between task difficulty and performance accuracy. -->
 
 <span id="page-45-1"></span>Figure 15: Number of tasks per level that succeeded or fall into a given error category. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
 
 ![](_page_45_Figure_2.jpeg)
+<!-- Image Description: This horizontal bar chart displays the success and failure rates of different tool categories in answering questions. Each bar represents a tool category (e.g., search, calculator, PDF tools) and is divided into sections showing the number of successfully and unsuccessfully answered questions. "Search_information_tools" shows the highest number of questions, with a majority successful. The chart illustrates the performance of various tool types within a question-answering system. -->
 
 Figure 16: Overview over how many tasks use a given tool and whether they are successful or not. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
 
 <span id="page-46-0"></span>![](_page_46_Figure_0.jpeg)
+<!-- Image Description: This image from an academic paper presents six bar charts visualizing the performance of different tasks in a large language model (LLM) pipeline. Charts (a) and (b) show cost in dollars and the number of calls, respectively. Charts (c) and (d) display duration in seconds and cost per token. Finally, (e) and (f) illustrate cost per time and tokens per second. Each chart's x-axis lists various tasks, while the y-axis represents the corresponding metric. The purpose is to compare the resource consumption and efficiency of different operations within the LLM pipeline. -->
 
 Figure 17: Overview over the execution time as well as the cost in dollar. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
 
 <span id="page-47-0"></span>![](_page_47_Figure_1.jpeg)
+<!-- Image Description: This stacked bar chart displays the distribution of 165 questions based on tool choice accuracy. The y-axis represents the number of questions, and the chart is segmented into four categories: correct tool choice (36.4%), partially correct (medium match, 35.8%), partially correct (low match, 10.9%), and wrong tool choice (17%). The chart visually represents the performance distribution across different levels of accuracy in tool selection. -->
 
 <span id="page-47-1"></span>Figure 18: Analysis of the tool selection. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
 
 ![](_page_47_Figure_3.jpeg)
+<!-- Image Description: This Sankey diagram displays the relationship between tool choice and success/failure in a GAIA question. Four tool choices (ToolMatch.PARTIAL_LOW, .CORRECT, .PARTIAL_MEDIUM, .WRONG) are shown with their respective participant counts (N). The diagram's width of each flow represents the number of participants making that tool choice. The flows then branch to "Successful" (N=40) or "Failed" (N=125) outcomes, visualizing the association between tool choice and outcome. -->
 
 Figure 19: Analysis of the tool selection. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
 
 <span id="page-48-0"></span>![](_page_48_Figure_0.jpeg)
+<!-- Image Description: This donut chart displays the distribution of 173 tool usages across six unique tools within the KGoT system for 165 GAIA questions. `ask_search_agent` dominates at 61.3%, followed by `inspect_file_as_text` (15.6%), `llm_query` (11%), and others with smaller percentages. The chart visualizes the relative frequency of each tool's use in the dataset, highlighting the prevalence of `ask_search_agent`. -->
 
 Figure 20: Analysis of the tool usage. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.

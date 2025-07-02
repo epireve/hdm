@@ -1,7 +1,7 @@
 ---
 cite_key: "hagenberg2020"
 title: "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment"
-authors: "Verena Geist Software Competence Center Hagenberg GmbH Hagenberg, Austria verena.geist@scch.at"
+authors: "Gerd Hübscher Hübscher"
 year: 2020
 doi: "10.1145/3428757.3429260"
 date_processed: "2025-07-02"
@@ -115,6 +115,7 @@ The model of the TEAM System follows a graph-based, metamodelling approach. The 
 The TEAM System has a three-layered model: the meta model, the domain model and the instance model. All of these models reflect the two dimensions, data and tasks, as well as their integration. Fig. [1](#page-2-1) gives an overview of theses models and their dependencies.
 
 <span id="page-2-1"></span>![](_page_2_Figure_15.jpeg)
+<!-- Image Description: The diagram illustrates a three-layered meta-modeling approach. The top layer, "Meta Model," is divided into "MM.TypeModel" (defining core type concepts) and "MM.InstanceModel" (defining core instance concepts). Arrows indicate a "type" relationship. The middle layer, "Domain Model," defines domain-specific concepts and relations. The bottom layer, "Instance Model," shows domain-specific instances. The diagram visually represents the hierarchical relationship between the meta-model, domain model, and instance model in the context of the paper. -->
 
 Figure 1: Overview of the three layers of the TEAM model
 
@@ -167,6 +168,7 @@ The graph in Fig. [2](#page-4-0) describes the non-observable data object d ◦ 
 Thus, each element is finally assigned to an observable data object d ★ 0 - d ★ 3 , which relates to one or more non-observable data objects d ◦ 0 - d ◦ 9 . The values of the observable data objects are also added in Fig. [2.](#page-4-0)
 
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
+<!-- Image Description: The image is a directed acyclic graph illustrating a hierarchical data structure. Nodes represent data elements (labeled `d<sup>o</sup><sub>i</sub>` and `d<sup>*</sup><sub>i</sub>`), and edges represent relationships annotated with `r<sup>o</sup><sub>i</sub>` and `r<sup>*</sup><sub>i</sub>`. The graph shows a query ("Anfrage") traversing the structure, highlighting the path followed. Leaf nodes represent individual data points (e.g., "Paul," "Zimmermann"), culminating in an email address. The graph's purpose is to depict a data access or search process within the paper. -->
 
 Figure 2: = ( ∪ ) with observable d ★ and nonobservable d ◦ data objects.
 
@@ -218,6 +220,7 @@ As per definition, every data object is unique within the TEAM model, the relati
 The data and task perspectives are integrated via task relations of different kinds k. An example for this integration is given in Fig. [3,](#page-4-1) considering data and tasks on instance level and a selected set of task relation kinds. We show a small part of the scenario described in the introduction, when a user d ◦ <sup>99</sup> instantiates (i) (y 0 ) the task (t0), allocates (a) (y 1 ) it and processes (p) (y 2 ) it to link the incoming e-mail (d ◦ 9 ) to the relevant case file (d ◦ <sup>11</sup>). Incoming data objects are related via task relations of kind reference (r), e.g. the task relations y 3 and y 4 . To trace all activities also task relations on data object relations are created (c) such as y 5 , which indicates that the data object relation r ◦ <sup>11</sup> has been created by the task t0.
 
 <span id="page-4-1"></span>![](_page_4_Figure_19.jpeg)
+<!-- Image Description: The image is a directed graph depicting a state transition model. Nodes represent states (d⁰₉₉, t₀, d⁰₉, d⁰₁₁), labeled with identifiers. Directed edges represent transitions, labeled with variables (y⁰ᵢ, y¹ᵃ, y²ᵖ, y³ʳ, y⁴ʳ, y⁵ᶜ, r⁰₁₁). The graph likely illustrates a system's possible states and transitions between them, possibly for analysis or modeling in the context of the paper. -->
 
 Figure 3: Graph , integrating the data and task perspectives.
 
@@ -250,6 +253,7 @@ task relations also denote the exchange of data objects between tasks, thereby d
 Although in principle, the proposed TEAM System has a limited set of core components, the complexity of a model graph derived from a real-world scenario, like the one shown in Figure [4](#page-5-2) for the small scenario prescribed, goes beyond a usual presentation frame.
 
 <span id="page-5-2"></span>![](_page_5_Figure_6.jpeg)
+<!-- Image Description: The image is a network graph visualizing a complex system's connectivity. Nodes, represented by small dots, show entities, and lines depict relationships or interactions between them. Different line colors or shades likely represent varying relationship strengths or types. The graph's overall structure reveals clusters and potentially central nodes, illustrating the system's organization and flow. Its purpose is to visually represent network structure and relationships within the studied system, allowing for an analysis of its topology and dynamics. -->
 
 ## Figure 4: Resulting instance graph for a small real-world scenario with data objects as well as data object relations in black and tasks as well as task relations in grey colour
 
@@ -266,6 +270,7 @@ For a particularly simple representation of data objects, each corresponding dat
 Simple text representation requires sequential visual processing. However, to get a fast impression on the contents of a data object, a representation that is easily recognisable by pre-attentive visual processing [\[31\]](#page-9-33) is prefered. Especially, as the lack of pre-attentive visual processing is one of the common draw-backs of nowadays document- and data management systems. Therefore and as shown in Figure [5](#page-5-3) in a block view, a data object component is introduced that allows for different visual representations of a data object.
 
 <span id="page-5-3"></span>![](_page_5_Figure_15.jpeg)
+<!-- Image Description: The image is a diagram illustrating an email communication timeline. It shows a simplified representation of an email exchange, with labelled sections (a-i) indicating different aspects like sender(s) (a, f), recipient(s) (h,i), email subject (b), email body (g), date and time (d), and email attachments (e). The diagram likely serves to illustrate the communication process in the context of a patent-related matter. The blue dots denote attachment files or similar information. -->
 
 Figure 5: An e-mail data object shown in block view
 
@@ -274,6 +279,7 @@ As can be seen in Figure [5,](#page-5-3) subordinate data objects can be display
 For a full visual representation of a data object, the data object component supports a detail view, which is shown as part (b) of Figure [6.](#page-6-0) Preferably, a list of data objects (a) acts as an entry point for a detail view arranged next to the list, whereby multiple data objects can be selected and are displayed next to each other.
 
 <span id="page-6-0"></span>![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image displays a screenshot of an email client showing two email threads (a and b). Thread (a) shows notifications regarding a patent application filing and trademark application review. Thread (b) shows a response to a first office action on an Austrian patent application, noting a change of address and requesting expert opinion before responding. The image illustrates the workflow and communication related to patent prosecution within a specific case study. -->
 
 Figure 6: The e-mail data object of Figure [5](#page-5-3) (a) shown in detail view (b)
 
@@ -318,6 +324,7 @@ In the aforementioned example, the administrative user could add a new data obje
 ## iiWAS '20, November 30-December 2, 2020, Chiang Mai, Thailand Hübscher, et al.
 
 <span id="page-7-0"></span>![](_page_7_Figure_2.jpeg)
+<!-- Image Description: The image displays a screenshot of a software interface, likely a case management system. Sections (a) and (c) show email threads, with sender, receiver, subject, and body text visible, illustrating communication between patent applicants and their representatives. Section (b) displays a task creation menu with options to process, reply to, update, or invalidate the displayed emails. The image's purpose is to demonstrate the system's functionality in handling patent-related communication and tasks. -->
 
 Figure 7: Picking one or more data object with button (a) into a basket (b) and selecting a task type for instantiating a task
 
@@ -361,6 +368,7 @@ In summary, it is possible to make the complex model graph accessible to users f
 <span id="page-8-2"></span>
 
 ![](_page_8_Figure_2.jpeg)
+<!-- Image Description: The image displays screenshots of a software interface, likely for process management. Panel (a) shows a file browser; (b) shows an email composer; (c) shows a document viewer with a letter and flowchart; and (d) shows a document with a flowchart (numbered 28-33) illustrating a process workflow, accompanied by German text describing the process steps and data relationships. The diagrams visually represent stages of a process and serve to explain the associated text's technical details. -->
 
 Figure 9: Knowledge work: Within a task (a) a user can display relevant data objects (c) and arrange them in a detail view (d) as required. Furthermore, data objects can also be edited (b).
 

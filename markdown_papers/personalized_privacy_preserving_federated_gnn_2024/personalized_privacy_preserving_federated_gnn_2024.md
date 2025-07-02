@@ -1,7 +1,7 @@
 ---
 cite_key: "huang2024"
-title: "[Personalized and](https://www.frontiersin.org/articles/10.3389/fphy.2024.1383276/full) [privacy-preserving federated](https://www.frontiersin.org/articles/10.3389/fphy.2024.1383276/full) [graph neural network](https://www.frontiersin.org/articles/10.3389/fphy.2024.1383276/full)"
-authors: "EDITED BY Yuanyuan Huang, Chengdu University of Information Technology, China"
+title: "OPEN ACCESS"
+authors: "Meng Hao"
 year: 2024
 doi: "10.3389/fphy.2024.1383276"
 date_processed: "2025-07-02"
@@ -117,8 +117,10 @@ The PFGNN framework aims to achieve accurate, efficient, lowcommunication-cost, 
 The heterogeneity of graph data is a major challenge in federated graph neural network optimization. Consider this scenario: Assuming there are three clients, the graph structure
 
 ![](_page_3_Figure_2.jpeg)
+<!-- Image Description: Figure 1 is a flowchart depicting a personalized federated graph neural network. It shows multiple clients training models on local graph data, generating node embeddings. Clients then upload attention proportions (q<sup>(1)</sup>, q<sup>(3)</sup>, r<sup>(2)</sup>) to a trusted authority (TA), which distributes a public key. The TA aggregates these proportions, encrypted (represented by padlocks), and sends the result to a server for model aggregation. The process illustrates the workflow of the system, emphasizing data privacy and security via encryption. -->
 
 <span id="page-3-0"></span>![](_page_3_Figure_3.jpeg)
+<!-- Image Description: Figure 2 illustrates a graph similarity estimation strategy. Three sample graphs (Models 1-3) and a random graph are shown. Each model's nodes are processed to generate node embeddings. These embeddings are then averaged to produce a single vector representation (ĥ) for each graph. The resulting vectors are compared to estimate similarity, with Models 1 and 3 exhibiting high similarity. The process is depicted as flowing through a server. -->
 
 <span id="page-3-1"></span>between client 1 and client 3 is significantly different, and may even exhibit completely opposite properties. At the same time, there may be an overlap of nodes between Client 1 and Client 2. These nodes have similar characteristics and can form a cluster. It is known that clients with similar characteristics have stronger homophily McPherson et al. [[20](#page-9-19)]. In order to capture the data heterogeneity between clients and train an accurate model suitable for most client data, this work can analyze and measure different clients based on the similarity of the client's graph structure, similar clients are grouped into a cluster. Regarding finding similarity in graph structure, usually, everyone will use model parameters or gradients to calculate similarity. In fact, because the dimensionality is too high, the similarity between parameters will continue to grow as the dimensionality of the model increases, so this method has serious flaws.
 
@@ -328,10 +330,12 @@ The framework of message passing neural network in this paper is GraphSAGE, whic
 In this work, PFGNN model and FedAvg model are trained on three data sets respectively, and their accuracy is compared in [Table 3](#page-7-1). The results show that under different labels and different graphs, PFGNN model performs better than FedAvg,
 
 ![](_page_7_Figure_11.jpeg)
+<!-- Image Description: Figure 3 is a line graph showing the relationship between the number of clients and the average accuracy. The x-axis represents the number of clients (1-7), and the y-axis represents the average accuracy (0.8-1.0). The graph shows an increasing trend in accuracy as the number of clients increases, indicating a positive correlation. The graph likely demonstrates the system's performance improvement with more data from multiple clients. -->
 
 <span id="page-7-2"></span>Average accuracy comparison of different clients' number with different labels.
 
 ![](_page_7_Figure_13.jpeg)
+<!-- Image Description: Figure 4 is a bar chart comparing the test accuracy of a PFGNN framework against a non-federated approach across three graph neural network (GNN) architectures: GraphSAGE, GCN, and GIN. The chart shows test accuracy on the y-axis and the GNN architecture on the x-axis. Each GNN has two bars representing PFGNN and Non-Fed results, demonstrating the framework's performance relative to a standard approach. The figure aims to illustrate the generality and effectiveness of the PFGNN framework. -->
 
 <span id="page-7-3"></span>and the average accuracy rate increases from 5.48% to 7.38%. This shows that the PFGNN frame is suitable for handling different scenarios of label and graph distribution, which further emphasizes the superiority of the PFGNN model on non-IID data.
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "luosupsupsupsup2024b"
 title: "Chain of History: Learning and Forecasting with LLMs for Temporal Knowledge Graph Completion"
-authors: "Ruilin Luo<sup>1</sup><sup>∗</sup> , Tianle Gu<sup>1</sup><sup>∗</sup> , Haoling Li<sup>1</sup><sup>∗</sup> , Junzhe Li<sup>2</sup> , Zicheng Lin<sup>1</sup> , Jiayi Li<sup>3</sup> , Yujiu Yang<sup>1</sup>†"
+authors: "Ruilin Luo, Tianle Gu, Haoling Li, Junzhe Li, Zicheng Lin, Jiayi Li, Yujiu Yang"
 year: 2024
 doi: "10.48550/ARXIV.2309.16609)"
 date_processed: "2025-07-02"
@@ -29,6 +29,7 @@ Temporal Knowledge Graph Completion (TKGC) is a complex task involving the predi
 Knowledge Graphs (KGs), defined as meticulously structured repositories of deterministic knowledge, have been utilized across a wide range of domains such as recommender systems [\(Qin et al.,](#page-10-0) [2024\)](#page-10-0), question-answering [\(Liu et al.,](#page-9-0) [2023b\)](#page-9-0), and more recently, in the emerging field of Retrievalaugmented Generation (RAG) [\(Sun et al.,](#page-10-1) [2023;](#page-10-1) [Feng et al.,](#page-8-0) [2023\)](#page-8-0). In recent years, the concept of
 
 <span id="page-0-0"></span>![](_page_0_Figure_10.jpeg)
+<!-- Image Description: The image illustrates a Large Language Model (LLM) fine-tuning and inference process. A box labeled "LLM" (with an alpaca illustration) represents the model. Blue arrows show the fine-tuning stage using example data ("Japan, Make_a_visit, [Country]"). Orange arrows depict inference; the model predicts the missing country in a new input ("Japan, Make_a_visit, ?"). The example data includes several instances of "Japan, Make_a_visit," with different countries, visually highlighting the model's learning and prediction. -->
 
 The missing entity is **North\_Korea.**
 
@@ -297,6 +298,7 @@ The length of the historical chain L significantly influences prediction outcome
 As illustrated in Fig. [2,](#page-6-3) except the ICEWS14 dataset, on other datasets, the Hits@1 metric ex-
 
 <span id="page-6-3"></span>![](_page_6_Figure_11.jpeg)
+<!-- Image Description: The image displays a line graph showing Hits@1 (a metric of ranking accuracy) across different datasets (ICEWS14, ICEWS05-15, ICEWS18, YAGO) at varying history lengths. Each line represents a dataset, illustrating how Hits@1 changes as the history length increases. The graph aims to demonstrate the performance of the datasets with varying amounts of historical data for a specific task. -->
 
 Figure 2: The evolution pattern of the Hits@1 metric across four utilized datasets concerning the history length L.
 

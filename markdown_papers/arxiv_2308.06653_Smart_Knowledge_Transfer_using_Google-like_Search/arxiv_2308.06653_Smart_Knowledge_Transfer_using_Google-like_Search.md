@@ -1,6 +1,7 @@
 ---
 cite_key: "majumdarsrijonigmailcom2013"
-authors: "Srijoni Majumdar Advanced Technology Development Centre Indian Institute of Technology Kharagpur-721302 majumdar.srijoni@gmail.com"
+title: "Smart Knowledge Transfer using Google-like Search"
+authors: "Srijoni Majumdar, Partha Pratim Das"
 year: 2013
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -59,10 +60,12 @@ TABLE I KNOWLEDGE TYPE – KNOWLEDGE SOURCES
 We propose a search framework named SMARTKT for single and multi-threaded C / C++ and python code-bases, designed to enact*Sandra*and respond to common queries of maintenance engineers [\[32\]](#page-2-27), [\[4\]](#page-2-28) related to syntax and semantics of a software. SMARTKT supports four types of queries – a) Entity based [\[28\]](#page-2-29):*Variable D*?, *Function A*? b) List Search [\[28\]](#page-2-29): *All static variables of file ftpety.c*, *All bugs fixed on 12-03-2013*c) Template based [\[28\]](#page-2-29):*Which is the algorithm in function & what are the data-structures used*? *Function was effected by which bug numbers & how many were fixed by Developer*? d) Free-form english queries:*How many unsynchronised global variables are used to implement the UI Save button*?. For each query, SMARTKT provides direct responses coupled with *Smart*information like*responding with additional data race alerts*for queries on*global variables*. SMARTKT additionally helps to bridge missing information across sources and validates application metadata (like comments).
 
 ![](_page_1_Figure_4.jpeg)
+<!-- Image Description: The image is a directed graph representing relationships between software development entities. Nodes represent commits, bugs, developers, code changes, and data types. Edges represent relationships such as "deployed," "owned by," "affects," and "fixed by". The graph illustrates the interconnectedness of various aspects of a software project, potentially for bug tracking, analysis, or impact assessment. Specific details such as commit IDs, dates, and developer information are included. -->
 
 <span id="page-1-1"></span>Fig. 1. Knowledge Graph (Note: VP stands for VHDLPosedge)
 
 ![](_page_1_Figure_6.jpeg)
+<!-- Image Description: This flowchart depicts a software defect prediction system. It shows a multi-stage process: primitive extraction from runtime traces, project documents, and code; feature computation using statistical learning; inference via a knowledge graph (stored in a triple store using RDF/OWL); and finally, a direct and intelligent response to structured and English language queries using a SPARQL query engine. The system leverages NLP and various analysis techniques (e.g., NLTK, Stanford) for data processing. -->
 
 <span id="page-1-2"></span>Fig. 2. Architecture of SMARTKT: Knowledge sources from Table [I](#page-1-0)
 

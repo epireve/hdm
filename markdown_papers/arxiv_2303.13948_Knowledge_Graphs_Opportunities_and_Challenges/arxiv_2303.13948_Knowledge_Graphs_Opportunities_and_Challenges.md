@@ -1,7 +1,7 @@
 ---
 cite_key: "pengsupsup2021"
 title: "Knowledge Graphs: Opportunities and Challenges"
-authors: "Ciyuan Peng<sup>1</sup> , Feng Xia2\\*, Mehdi Naseriparsa<sup>3</sup> and Francesco Osborne<sup>4</sup>"
+authors: "Ciyuan Peng, Mehdi Naseriparsa, Francesco Osborne, Computing Technologies"
 year: 2021
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -52,6 +52,7 @@ In this section, the definition of knowledge graphs is provided first; then, we 
 A knowledge base is a typical data set that represents real-world facts and semantic relations in the form of triplets. When the triplets are represented as a graph with edges as relations and nodes as entities, it is considered a knowledge graph. Generally, the knowledge graph and knowledge base are regarded as the same concept and are used interchangeably. In addition, the schema for a knowledge graph can be defined as an ontology, which shows the properties of a specific domain and how they are related. Therefore, one essential stage of knowledge graph construction is ontology construction.
 
 ![](_page_3_Figure_1.jpeg)
+<!-- Image Description: The image is a directed graph illustrating a network topology. Nodes, labeled *e<sub>1</sub>* through *e<sub>9</sub>*, represent entities, with shaded nodes *e<sub>1</sub>* and *e<sub>2</sub>* possibly indicating a special status. Directed edges show relationships or data flow between nodes; 'r<sub>1</sub>' likely labels a specific connection between *e<sub>1</sub>* and *e<sub>2</sub>*. The graph likely serves to visualize a system's structure or information flow within the paper's context, potentially for modeling or algorithm demonstration. -->
 
 <span id="page-3-0"></span>Fig. 1 An example of a knowledge graph. In this knowledge graph, (e1, r1, e2) is a triplet that indicates e<sup>1</sup> and e<sup>2</sup> are connected by relation r1.
 
@@ -67,6 +68,7 @@ In 2012, Google first put forward Knowledge Graph by introducing their knowledge
 A knowledge graph is a directed graph composed of nodes and edges, where one node indicates an entity (a real object or abstract concept), and the edge between the two nodes conveys the semantic relation between the two entities [\(Bordes et al,](#page-29-2) [2011\)](#page-29-2). Resource Description Framework (RDF) and Labeled Property Graphs (LPGs) are two typical ways to represent and manage knowledge graphs [\(F¨arber et al,](#page-31-1) [2018;](#page-31-1) [Baken,](#page-28-1) [2020\)](#page-28-1). The fundamental unit of a knowledge graph is the triple (subject, predicate, object) (or (head, relation, tail)), i.e., (Bill Gates, founderOf, Microsoft). Since the relation is not necessarily symmetric, the direction of a link matters. Therefore, a knowledge graph can also be seen as a directed graph in which the head entities point to the tail entities via the relation's edge.
 
 ![](_page_4_Figure_1.jpeg)
+<!-- Image Description: The image is a conceptual diagram illustrating the landscape of knowledge graphs. A central node, "Knowledge Graphs," connects to six key areas: Knowledge Acquisition, Graph Embeddings, Graph Completion, Fusion, Reasoning, and Application Fields. Each area branches further, listing specific methods (e.g., neural network-based) and applications (e.g., recommender systems). The diagram visually organizes the key components and relationships within the field of knowledge graphs. -->
 
 <span id="page-4-0"></span>Fig. 2 Research on knowledge graphs.
 
@@ -132,6 +134,7 @@ Fig [3](#page-9-0) presents an example of knowledge graph-based movie recommenda
 Recently, a great deal of research has been conducted to utilize knowledge graphs for recommendation tasks. For instance, Wang et al. [\(Wang et al,](#page-39-1) [2019c\)](#page-39-1) introduced KPRN. KPRN is a recommender system that generates entity-relation paths according to the user-item interaction and constructs a knowledge graph that consists of the users, items, and their interaction. It
 
 ![](_page_9_Figure_1.jpeg)
+<!-- Image Description: This image depicts a knowledge graph illustrating a movie recommendation system. Three users ("Users 1, 2, 3") are connected to movies ("Moneyball," "Inception") via "isFanOf" relationships. Movies are linked to actors ("Brad Pitt," "Leonardo DiCaprio," "Nolan") and directors via "isActedBy" and "isDirectedBy" relationships. Movies are also linked to genres ("Sci-Fi"). The graph demonstrates how user preferences, actor/director information, and genre influence movie recommendations ("Once Upon A Time in Hollywood," "Interstellar"). -->
 
 <span id="page-9-0"></span>Fig. 3 An example of knowledge graph-based recommender system.
 
@@ -154,6 +157,7 @@ Question answering is one of the most central AI services, which aims to search 
 The sophisticated representation of information in knowledge graphs is a natural fit for question-answering systems. Knowledge graph-based questionanswering systems typically analyze the user question and retrieve the portion of knowledge graphs for answering. The answering task is facilitated either by using similarity measures or by producing structured queries in standard
 
 ![](_page_11_Figure_1.jpeg)
+<!-- Image Description: The image is a knowledge graph illustrating a question-answering process. A directed acyclic graph represents relationships between "Romeo," "Romeo and Juliet," "Shakespeare," and "Shakespearean tragedy," using labeled edges like "isCharacterOf" and "is WroteBy." The graph visually demonstrates how the answer ("Shakespeare") is derived by traversing the relationships starting from the question's premise ("Romeo"). The diagram showcases a knowledge representation and reasoning method. -->
 
 <span id="page-11-0"></span>Fig. 4 The illustration of knowledge graph based question-anwsering systems.
 
@@ -290,6 +294,7 @@ Table 3 Knowledge graph embedding methods.
 <span id="page-20-0"></span>
 
 ![](_page_21_Figure_1.jpeg)
+<!-- Image Description: The image depicts a schematic diagram illustrating a multi-dimensional array or tensor structure. It shows a series of nested matrices, labeled `e<sub>1</sub>` to `e<sub>m</sub>` representing elements within a matrix, and `r<sub>1</sub>` to `r<sub>n</sub>` suggesting rows or higher-order dimensions. The diagram likely serves to visually represent the data structure used in the paper's algorithm or model, clarifying its dimensionality and element organization. -->
 
 <span id="page-21-0"></span>Fig. 5 An illustration of tensor factorization of knowledge graphs.
 

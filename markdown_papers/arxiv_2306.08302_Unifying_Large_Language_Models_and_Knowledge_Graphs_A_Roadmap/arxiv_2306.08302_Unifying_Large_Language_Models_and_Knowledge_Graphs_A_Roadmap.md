@@ -1,7 +1,7 @@
 ---
 cite_key: "pan2024"
 title: "Unifying Large Language Models and Knowledge Graphs: A Roadmap"
-authors: "Shirui Pan, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu"
+authors: "Shirui Pan, Senior Member, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu"
 year: 2024
 doi: "10.1109/TKDE.2024.3352100"
 url: "https://ieeexplore.ieee.org/document/10387715/"
@@ -40,6 +40,7 @@ Large language models (LLMs)[1](#page-0-0) (e.g., BERT [\[1\]](#page-20-0), RoBE
 - <span id="page-0-2"></span>3.<https://ai.google/discover/palm2>
 
 ![](_page_0_Figure_17.jpeg)
+<!-- Image Description: The image is a Venn diagram comparing Large Language Models (LLMs) and Knowledge Graphs (KGs). Each section lists the advantages (pros) and disadvantages (cons) of each technology. Curved arrows show knowledge transfer between the two. LLMs excel in general knowledge and language processing but lack accuracy and domain specificity, while KGs offer structured, accurate knowledge but may lack generalizability. The diagram visually contrasts the strengths and weaknesses to inform the reader's understanding of both technologies. -->
 
 <span id="page-0-3"></span>Fig. 1. Summarization of the pros and cons for LLMs and KGs. LLM pros:*General Knowledge*[\[11\]](#page-20-10),*Language Processing*[\[12\]](#page-20-11),*Generalizability*[\[13\]](#page-20-12); LLM cons:*Implicit Knowledge*[\[14\]](#page-20-13),*Hallucination*[\[15\]](#page-20-14),*Indecisiveness*[\[16\]](#page-20-15),*Black-box*[\[17\]](#page-21-0),*Lacking Domain-specific/New Knowledge*[\[18\]](#page-21-1). KG pros:*Structural Knowledge*[\[19\]](#page-21-2),*Accuracy*[\[20\]](#page-21-3),*Decisiveness*[\[21\]](#page-21-4),*Interpretability*[\[22\]](#page-21-5),*Domain-specific Knowledge*[\[23\]](#page-21-6),*Evolving Knowledge*[\[24\]](#page-21-7); KG cons:*Incompleteness*[\[25\]](#page-21-8),*Lacking Language Understanding*[\[26\]](#page-21-9),*Unseen Facts*[\[27\]](#page-21-10). Pros. and Cons. are selected based on their representativeness. Detailed discussion can be found in*Appendix [A.](#page-26-0)*Despite their success in many applications, LLMs have been criticized for their lack of factual knowledge. Specifically, LLMs memorize facts and knowledge contained in the training corpus [\[14\]](#page-20-13). However, further studies reveal that LLMs are not able to recall facts and often experience hallucinations by generating statements that are factually incorrect [\[15\]](#page-20-14), [\[28\]](#page-21-11). For example, LLMs might say "Einstein discovered gravity in 1687" when asked, "When did Einstein discover gravity?", which contradicts the fact that Isaac Newton formulated the gravitational theory. This issue severely impairs the trustworthiness of LLMs.
 
@@ -69,10 +70,12 @@ In this section, we will first briefly introduce a few representative large lang
 Large language models (LLMs) pre-trained on large-scale corpus have shown great potential in various NLP tasks [\[13\]](#page-20-12). As shown in Fig. [3,](#page-2-0) most LLMs derive from the Transformer design [\[50\]](#page-21-31), which contains the encoder and decoder
 
 ![](_page_2_Figure_1.jpeg)
+<!-- Image Description: This figure presents a timeline of large language model (LLM) development, categorized by architecture (encoder-only, encoder-decoder, decoder-only). Each box represents an LLM, showing its name, parameter count, and release year. Arrows indicate lineage and influence between models. Color-coding distinguishes open-source from closed-source models. The figure illustrates the evolution of LLMs, highlighting architectural trends and the growth in model size over time. -->
 
 <span id="page-2-1"></span>Fig. 2. Representative large language models (LLMs) in recent years. Open-source models are represented by solid squares, while closed source models are represented by hollow squares.
 
 ![](_page_2_Figure_3.jpeg)
+<!-- Image Description: This diagram illustrates the architecture of a transformer model, specifically showing an encoder and a decoder. Each module consists of feed-forward layers and self-attention mechanisms. The decoder additionally incorporates encoder-decoder attention. A detailed inset depicts the multi-head dot-product self-attention mechanism, showing linear transformations of V, Q, and K vectors, followed by concatenation and a final linear layer. The diagram's purpose is to clarify the model's internal structure and the flow of information. -->
 
 <span id="page-2-0"></span>Fig. 3. An illustration of the Transformer-based LLMs with self-attention mechanism.
 
@@ -93,6 +96,7 @@ modules empowered by a self-attention mechanism. Based on the architecture struc
 <span id="page-2-4"></span><sup>5.</sup> [https://github.com/tatsu-lab/stanford](https://github.com/tatsu-lab/stanford_alpaca) alpaca
 
 ![](_page_3_Figure_1.jpeg)
+<!-- Image Description: The flowchart depicts sentiment analysis using Large Language Models (LLMs). A "prompt" consisting of an instruction ("Classify the text..."), context examples (positive and negative sentiments), and input text ("I think the vacation is okay.") is fed to the LLMs. The LLM processes this and outputs a sentiment classification (e.g., positive, negative, or neutral), shown as "Positive" in this example. The diagram illustrates the process and components of the sentiment analysis task. -->
 
 <span id="page-3-0"></span>Fig. 4. An example of sentiment classification prompt.
 
@@ -107,6 +111,7 @@ Knowledge graphs (KGs) store structured knowledge as a collection of triples KG 
 ## *2.2.1 Encyclopedic Knowledge Graphs.*Encyclopedic knowledge graphs are the most ubiquitous KGs, which represent the general knowledge in real-world. Encyclopedic knowledge graphs are often constructed by integrating information from diverse and extensive sources, including human experts, encyclopedias, and databases. Wikidata [\[20\]](#page-21-3) is one of the most widely used encyclopedic knowledge graphs, which incorporates varieties of knowledge extracted from articles on Wikipedia. Other typical
 
 ![](_page_3_Figure_9.jpeg)
+<!-- Image Description: The image displays four knowledge graphs derived from different sources. The top shows an encyclopedic graph built from Wikipedia data. Subsequent sections illustrate commonsense, domain-specific (medical), and multimodal knowledge graphs, each depicted as a node-and-edge network showing relationships between concepts (e.g., "Wake up," "Parkinson's Disease"). Node colors and shapes differentiate concept types. The graphs demonstrate the diversity of knowledge representation in different contexts. -->
 
 <span id="page-3-1"></span>Fig. 5. Examples of different categories' knowledge graphs, i.e.,*encyclopedic KGs*, *commonsense KGs*, *domain-specific KGs*, and *multi-modal KGs*.
 
@@ -117,6 +122,7 @@ encyclopedic knowledge graphs, like Freebase [\[66\]](#page-22-1), Dbpedia [\[67
 <span id="page-3-2"></span>7.<https://ko.zhonghuapu.com/>
 
 ![](_page_4_Figure_1.jpeg)
+<!-- Image Description: This image from an academic paper presents three diagrams illustrating different methods of integrating Large Language Models (LLMs) and Knowledge Graphs (KGs). (a) shows KGs enhancing LLMs by providing structured factual input. (b) depicts LLMs augmenting KGs by performing KG-related tasks. (c) illustrates a synergistic approach where LLMs and KGs mutually enhance each other through iterative knowledge representation and factual knowledge exchange. The diagrams visually compare and contrast these integration strategies. -->
 
 <span id="page-4-2"></span>Fig. 6. The general roadmap of unifying KGs and LLMs. (a.) KG-enhanced LLMs. (b.) LLM-augmented KGs. (c.) Synergized LLMs + KGs.
 
@@ -150,6 +156,7 @@ The roadmap of unifying KGs and LLMs is illustrated in Fig. [6.](#page-4-2) In t
 KGs store enormous knowledge in an explicit and structured way, which can be used to enhance the knowledge awareness of LLMs. Some researchers have proposed to incorporate KGs into LLMs during the pre-training stage, which can help LLMs learn knowledge from KGs [\[35\]](#page-21-18), [\[91\]](#page-22-26). Other researchers have proposed to incorporate KGs into LLMs during the inference stage. By retrieving knowledge from KGs, it can significantly improve the performance of LLMs in accessing domain-specific knowledge [\[92\]](#page-22-27). To improve the interpretability of LLMs, researchers also utilize
 
 ![](_page_5_Figure_1.jpeg)
+<!-- Image Description: Figure 7 presents a four-layer framework for synergizing Large Language Models (LLMs) and Knowledge Graphs (KGs). The layers depict: 1) Data (structural facts, text corpora, images, video); 2) the Synergized Model (LLMs and KGs interacting); 3) Techniques (prompt engineering, graph neural networks, etc.); and 4) Applications (search engines, recommender systems, etc.). The diagram illustrates how LLMs and KGs complement each other, with LLMs handling general knowledge and KGs providing structured information. -->
 
 <span id="page-5-0"></span>Fig. 7. The general framework of the*Synergized LLMs + KGs*, which contains four layers: *1) Data*, *2) Synergized Model*, *3) Technique*, and *4) Application*.
 
@@ -185,6 +192,7 @@ To better understand the research on unifying LLMs and KGs, we further provide a
 In the following sections (Sec [4,](#page-6-0) [5,](#page-10-0) and [6\)](#page-17-0), we will provide details on these categorizations.
 
 ![](_page_6_Figure_1.jpeg)
+<!-- Image Description: The image is a hierarchical mind map illustrating the intersection of Large Language Models (LLMs) and Knowledge Graphs (KGs). It categorizes approaches into three main sections: KG-enhanced LLMs (improving LLMs with KG knowledge), LLM-augmented KGs (using LLMs to enhance KGs), and Synergized LLMs + KGs (combining both). Each section branches into specific techniques and applications, such as KG embedding, KG completion, and knowledge fusion, showing the diverse ways LLMs and KGs can be integrated. The map's purpose is to provide a structured overview of research directions in this area. -->
 
 <span id="page-6-1"></span>Fig. 8. Fine-grained categorization of research on unifying large language models (LLMs) with knowledge graphs (KGs).
 
@@ -217,6 +225,7 @@ considered to be the most important entities for learning, and they are given a 
 ## JOURNAL OF LATEX CLASS FILES, VOL. ??, NO. ??, MONTH 20YY 8
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The diagram illustrates text-knowledge alignment using Large Language Models (LLMs). Input text ("Bob Dylan wrote Blowin' in the Wind in 1962") is processed. The LLM generates text representations (h1-h9) which are then aligned with knowledge graph representations (he1, he2) representing entities (Bob Dylan, Blowin' in the Wind). Dashed arrows indicate the alignment process. The diagram shows how LLMs bridge text and knowledge graph information. -->
 
 <span id="page-7-0"></span>Fig. 9. Injecting KG information into LLMs training objective via textknowledge alignment loss, where h denotes the hidden representation generated by LLMs.
 
@@ -227,6 +236,7 @@ The other line of work explicitly leverages the connections with knowledge and i
 #*4.1.2 Integrating KGs into LLM Inputs*As shown in Fig. [10,](#page-7-1) this kind of research focus on introducing relevant knowledge sub-graph into the inputs of LLMs. Given a knowledge graph triple and the corresponding sentences, ERNIE 3.0 [\[101\]](#page-22-36) represents the triple as a sequence of tokens and directly concatenates them with the sentences. It further randomly masks either the relation token in the triple or tokens in the sentences to better combine knowledge with textual representations. However, such direct knowledge triple concatenation method allows the tokens in the sentence to intensively interact with the tokens in the knowledge sub-graph, which could result in*Knowledge Noise*[\[36\]](#page-21-46). To solve this issue, K-BERT [\[36\]](#page-21-46) takes the first step to inject the knowledge triple into the sentence via a*visible matrix*where only the knowledge entities have access to the knowledge triple information, while the tokens in the sentences can only see each other in the self-attention module. To further reduce*Knowledge Noise*, Colake [\[107\]](#page-22-42) proposes a unified word-knowledge graph (shown in Fig. [10\)](#page-7-1) where the tokens in the input sentences form a fully
 
 ![](_page_7_Figure_7.jpeg)
+<!-- Image Description: This diagram illustrates a system using Large Language Models (LLMs) to process text. It shows input text ("Mr. Darcy gives Elizabeth a letter") represented as both a text sequence and a knowledge graph. The LLMs predict masked words (text and entity prediction) based on the knowledge graph's relational information between entities. The diagram's purpose is to demonstrate how the system integrates knowledge graph information into LLM predictions. -->
 
 <span id="page-7-1"></span>Fig. 10. Injecting KG information into LLMs inputs using graph structure.
 
@@ -247,6 +257,7 @@ The above methods could effectively fuse knowledge into LLMs. However, real-worl
 ##*4.2.2 KGs Prompting*To better feed the KG structure into the LLM during inference, KGs prompting aims to design a crafted prompt that
 
 ![](_page_8_Figure_9.jpeg)
+<!-- Image Description: The flowchart depicts a question-answering system. A question ("Which country is Obama from?") is input into a Knowledge Retriever, which retrieves relevant facts (Obama born in Honolulu, Honolulu located in USA) from a Knowledge Graph (KGS). These facts are then fed into Large Language Models (LLMs) which generate the answer ("USA"). Backpropagation is shown, suggesting iterative model improvement. The diagram illustrates the system's architecture and data flow. -->
 
 <span id="page-8-0"></span>Fig. 11. Retrieving external knowledge to enhance the LLM generation.
 
@@ -263,6 +274,7 @@ However, real-world knowledge is dynamic and requires frequent updates. Despite 
 In summary, when to use these methods depends on the application scenarios. If one wishes to apply LLMs to han-
 
 ![](_page_9_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a knowledge graph (KG) based question answering system. A KG representing facts about Obama (e.g., profession, birthplace, country) is shown. A fact is extracted from the KG and fed into a question generator, which creates a question ("Obama's profession is [MASK]"). This question is then answered by LLMs (Large Language Models), with the answer validated against the KG. The entire process demonstrates a system for validating LLM predictions using structured knowledge. -->
 
 <span id="page-9-0"></span>Fig. 12. The general framework of using knowledge graph for language model probing.
 
@@ -279,6 +291,7 @@ LAMA [\[14\]](#page-20-13) is the first work to probe the knowledge in LLMs by u
 However, LAMA ignores the fact that the prompts are inappropriate. For example, the prompt *"Obama worked as a "*may be more favorable to the prediction of the blank by the language models than*"Obama is a by profession"*.
 
 ![](_page_9_Figure_10.jpeg)
+<!-- Image Description: The image displays a knowledge graph (KG) representing relationships between entities like "Joe Biden," "Obama," "USA," and "Hawaii." A reasoning path, highlighted in pink, connects "Joe Biden" to "USA" through "colleagues" and "country" relationships. This KG is fed into Large Language Models (LLMs) which then provide the answer "USA" to the question: "Which country is Joe Biden from?" The diagram illustrates how LLMs utilize knowledge graphs for question answering. -->
 
 <span id="page-9-1"></span>Fig. 13. The general framework of using knowledge graph for language model analysis.
 
@@ -320,6 +333,7 @@ et al. [\[122\]](#page-23-11) adopt the language model during pre-training to ge
 Knowledge graphs are famous for representing knowledge in a structural manner. They have been applied in many downstream tasks such as question answering, recommendation, and web search. However, the conventional KGs are often incomplete and existing methods often lack considering textual information. To address these issues, recent research has explored integrating LLMs to augment KGs to consider the textual information and improve the performance in downstream tasks. In this section, we will introduce the recent research on LLM-augmented KGs. We will introduce the methods that integrate LLMs for KG embedding, KG completion, KG construction, KG-to-text generation, and KG question answering, respectively. Representative works are summarized in Table [3.](#page-10-1)
 
 ![](_page_10_Figure_6.jpeg)
+<!-- Image Description: This diagram illustrates a system integrating Knowledge Graph Embeddings (KGEs) and Large Language Models (LLMs). The top section shows KGE training and models processing entity and relation vectors (v<sub>h</sub>, v<sub>r</sub>, v<sub>t</sub>; e<sub>h</sub>, e<sub>r</sub>, e<sub>t</sub>). LLMs process textual descriptions, mapping them to knowledge graph entities (Neil Armstrong, BornIn, Wapakoneta) represented as KG. The KGEs and LLMs work together to enhance knowledge graph construction and reasoning. -->
 
 <span id="page-10-2"></span>Fig. 14. LLMs as text encoder for knowledge graph embedding (KGE).
 
@@ -343,6 +357,7 @@ $$
 where f is the KGE scoring function, γ is a margin hyperparameter, and v ′ h , v′ r , and v ′ t are the negative samples. In this way, the KGE model could learn adequate structure information, while reserving partial knowledge from LLM enabling better knowledge graph embedding. KEPLER [\[40\]](#page-21-22) offers a unified model for knowledge embedding and pre-trained language representation. This model not only generates effective text-enhanced knowledge embedding
 
 ![](_page_11_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a mask entity prediction method using Large Language Models (LLMs) and Knowledge Graphs (KGs). Input text ("Neil Armstrong, Born in, [MASK]") is fed into LLMs. The masked entity ("Wapakoneta") is predicted by the LLM, guided by information from the KGs. Boxes represent input tokens ([CLS], [SEP], etc.), and arrows show the flow of information. The diagram visualizes the integration of LLMs and KGs for knowledge-based entity prediction. -->
 
 <span id="page-11-0"></span>Fig. 15. LLMs for joint text and knowledge graph embedding.
 
@@ -393,6 +408,7 @@ $$
 Similar to Eq. [4,](#page-11-1) it tries to maximize the probability that the masked entity is the correct entity t. Additionally, to enable the model to learn unseen entities, MEM-KGC integrates
 
 ![](_page_12_Figure_1.jpeg)
+<!-- Image Description: This figure illustrates three different encoding methods for knowledge graph link prediction using Large Language Models (LLMs). (a) shows joint encoding, where a triple (h, r, t) is fed into an LLM, followed by an MLP for classification. (b) uses masked language modeling (MLM) where one entity is masked. (c) uses separated encoding with two LLMs processing the head and tail entities separately, with a score function combining their outputs. Each method shows the input text sequence structure with [CLS], [SEP], and masked tokens. -->
 
 <span id="page-12-0"></span>Fig. 16. The general framework of adopting LLMs as encoders (PaE) for KG Completion.
 
@@ -425,6 +441,7 @@ where fscore denotes the score function like TransE.
 StAR [\[143\]](#page-23-32) applies Siamese-style textual encoders on their text, encoding them into separate contextualized representations. To avoid the combinatorial explosion of textual encoding approaches, e.g., KG-BERT, StAR employs a scoring module that involves both deterministic classifier and spatial measurement for representation and structure learning respectively, which also enhances structured knowledge by exploring the spatial characteristics. SimKGC [\[144\]](#page-23-33) is
 
 ![](_page_12_Figure_13.jpeg)
+<!-- Image Description: The image displays two architectures for knowledge graph completion using large language models (LLMs). "(a) Encoder-Decoder PaG" shows an encoder LLM (English) processing a text sequence derived from a query triple, feeding its output to a decoder LLM (German) to generate a response. "(a) Decoder-Only PaG" uses a single decoder LLM (German), taking the entire text sequence as input. Both diagrams illustrate the input text sequences and the flow through the LLMs. The purpose is to visually compare these two architectural approaches. -->
 
 <span id="page-12-2"></span>Fig. 17. The general framework of adopting LLMs as decoders (PaG) for KG Completion. The En. and De. denote the encoder and decoder, respectively.
 
@@ -437,6 +454,7 @@ LP-BERT [\[145\]](#page-23-34) is a hybrid KGC method that combines both MLM Enc
 GenKGC [\[96\]](#page-22-31) uses the large language model BART [\[5\]](#page-20-4) as the backbone model. Inspired by the in-context learning approach used in GPT-3 [\[59\]](#page-21-40), where the model concatenates relevant samples to learn correct output answers, GenKGC proposes a relation-guided demonstration technique that includes triples with the same relation to facilitating the model's learning process. In addition, during generation, an entity-aware hierarchical decoding method is proposed to reduce the time complexity. KGT5 [\[146\]](#page-23-35) introduces a
 
 ![](_page_13_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a knowledge base completion task using Large Language Models (LLMs). Given a head entity ("Charlie's Angels") and a relation ("genre of" or "prequel of"), the LLM predicts the tail entity from 100 candidates. The example shows five such queries, with one correctly identifying the genre as "Comedy-GB." The top box shows the final output ("Charlie's Angels: Full Throttle") as the LLM's ultimate goal. -->
 
 <span id="page-13-0"></span>Fig. 18. The framework of prompt-based PaG for KG Completion.
 
@@ -455,6 +473,7 @@ Knowledge graph construction involves creating a structured representation of kn
 **Named Entity Recognition (NER)**involves identifying and tagging named entities in text data with their positions and classifications. The named entities include people, organizations, locations, and other types of entities. The stateof-the-art NER methods usually employ LLMs to leverage their contextual understanding and linguistic knowledge for accurate entity recognition and classification. There are three NER sub-tasks based on the types of NER spans identified, i.e., flat NER, nested NER, and discontinuous NER.*1) Flat NER is to identify non-overlapping named entities from input text.*It is usually conceptualized as a sequence labelling problem where each token in the text is assigned a unique label based on its position in the sequence [\[1\]](#page-20-0), [\[148\]](#page-23-37), [\[188\]](#page-24-28), [\[189\]](#page-24-29).*2) Nested NER considers complex scenarios which allow a token to belong to multiple entities.*The spanbased method [\[190\]](#page-24-30)–[\[194\]](#page-24-31) is a popular branch of nested
 
 ![](_page_14_Figure_1.jpeg)
+<!-- Image Description: The image displays two knowledge graphs. The top graph visually represents the relationships between Joe Biden, Pennsylvania, and the United States, using nodes and edges labeled with relation types (e.g., "IsA," "PresidentOf"). The bottom graph illustrates an LLM-based knowledge graph construction process, showing how a text sentence is parsed into named entities, entity types, and relations, forming the knowledge graph structure shown above. Color-coded boxes differentiate the steps (NER, typing, linking, coreference resolution, relation extraction). -->
 
 <span id="page-14-0"></span>Fig. 19. The general framework of LLM-based KG construction.
 
@@ -478,6 +497,7 @@ In order to reduce the large memory footprint faced by large LLM-based NER model
 **End-to-End KG Construction.**Currently, researchers are exploring the use of LLMs for end-to-end KG construction. Kumar et al. [\[95\]](#page-22-30) propose a unified approach to build KGs from raw text, which contains two LLMs powered components. They first finetune a LLM on named entity recognition tasks to make it capable of recognizing entities in raw text. Then, they propose another "2-model BERT" for solving the relation extraction task, which contains two BERT-based classifiers. The first classifier learns the relation class whereas the second binary classifier learns the direction of the relations between the two entities. The predicted triples and relations are then used to construct the KG. Guo et al. [\[162\]](#page-24-2) propose an end-to-end knowledge extraction model based on BERT, which can be applied to construct KGs from Classical Chinese text. Grapher [\[41\]](#page-21-23) presents a novel end-to-end multi-stage system. It first utilizes LLMs to generate KG entities, followed by a simple relation construction head, enabling efficient KG construction from the textual description. PiVE [\[163\]](#page-24-3) proposes a prompting with an iterative verification framework that utilizes a smaller LLM like T5 to correct the errors in KGs generated by a larger LLM (e.g., ChatGPT). To further explore advanced LLMs, AutoKG design several prompts for different KG
 
 ![](_page_15_Figure_6.jpeg)
+<!-- Image Description: The image depicts a knowledge graph (KG) construction process. It shows a workflow: cloze questions are inputted into Large Language Models (LLMs), which generate distilled triples (subject-predicate-object statements). These triples are then used to construct a KG, visually represented as a directed graph with nodes (e.g., Barack Obama, Honolulu) and edges (relationships like "BornIn," "MarriedTo"). The purpose is to illustrate how LLMs can be used to automatically populate knowledge graphs from natural language text. -->
 
 <span id="page-15-0"></span>Fig. 20. The general framework of distilling KGs from LLMs.
 
@@ -492,6 +512,7 @@ The goal of Knowledge-graph-to-text (KG-to-text) generation is to generate high-
 ##*5.4.1 Leveraging Knowledge from LLMs*As pioneering research efforts in using LLMs for KG-to-Text generation, Ribeiro et al. [\[167\]](#page-24-7) and Kale and Rastogi [\[231\]](#page-25-30) directly fine-tune various LLMs, including BART and T5, with the goal of transferring LLMs knowledge for this
 
 ![](_page_16_Figure_1.jpeg)
+<!-- Image Description: The image illustrates knowledge graph (KG) linearization for large language models (LLMs). A knowledge graph depicting relationships between Barack Obama, Michelle Obama, Honolulu, USA, and Washington D.C. is shown. This graph is then linearized into a sequence of subject-predicate-object triples, "Brack Obama [SEP] PoliticianOf [SEP] USA [SEP] ...," which is fed as input to the LLMs. The output is a textual description of the relationships shown in the KG. -->
 
 <span id="page-16-0"></span>Fig. 21. The general framework of KG-to-text generation.
 
@@ -519,6 +540,7 @@ $$
 where p denotes the path, and r<sup>t</sup> denotes the relation at the t-th hop of p. The retrieved relations and paths can be used
 
 ![](_page_17_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a question answering system architecture. It uses two Large Language Models (LLMs): one for relation/entity extraction from a Knowledge Graph (KGs), and another (Answer Reasoner) to process the question, related facts, and candidate answers retrieved from the KG. The system outputs a score. The diagram shows the data flow and processing steps, including input elements like the question, and intermediate steps like KG retrieval. Arrows indicate data dependencies and flow. -->
 **Question:**Where was Neil Armstrong born in?
 
 <span id="page-17-1"></span>Fig. 22. The general framework of applying LLMs for knowledge graph question answering (KGQA).
@@ -578,6 +600,7 @@ In this section, we will discuss the state-of-the-art*Synergized LLMs + KGs*from
 Text corpus and knowledge graphs both contain enormous knowledge. However, the knowledge in text corpus is usually implicit and unstructured, while the knowledge in KGs is explicit and structured. Synergized Knowledge Representation aims to design a synergized model that can
 
 ![](_page_18_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a model architecture for text processing that integrates knowledge graphs. Input text is processed by a T-encoder with self-attention layers, while a knowledge graph is processed by a K-encoder, also using self-attention. A fusion module combines the two encoders' outputs, producing text and knowledge graph outputs. The diagram shows the flow of information through self-attention layers in both encoders and the fusion of text and knowledge graph embeddings. -->
 
 <span id="page-18-0"></span>Fig. 23. Synergized knowledge representation by additional KG fusion modules.
 
@@ -592,8 +615,10 @@ KEPLER [\[40\]](#page-21-22) presents a unified model for knowledge embedding an
 To better utilize the knowledge from text corpus and knowledge graph reasoning, Synergized Reasoning aims to design a synergized model that can effectively conduct reasoning with both LLMs and KGs.
 
 ![](_page_18_Figure_8.jpeg)
+<!-- Image Description: The image is blank, containing no diagrams, charts, graphs, equations, or illustrations. Therefore, no technical content can be described. It cannot be analyzed for its purpose within the context of a paper. -->
 
 ![](_page_18_Figure_9.jpeg)
+<!-- Image Description: The image depicts an architecture for question answering. It integrates a large language model (LLM) encoder and a knowledge graph (KG) encoder. The LLM encoder processes questions and options, while the KG encoder represents knowledge. A joint reasoning layer combines these representations, using dynamic pruning and attention mechanisms (shown as directed graphs) to selectively focus on relevant KG nodes. The final answer is inferred from this integrated information. The diagram illustrates the flow of information and the key components of the model. -->
 
 <span id="page-18-1"></span>Fig. 24. The framework of LLM-KG Fusion Reasoning.
 
@@ -601,6 +626,7 @@ To better utilize the knowledge from text corpus and knowledge graph reasoning, 
 **LLMs as Agents Reasoning.**Instead using two encoders to fuse the knowledge, LLMs can also be treated as agents to interact with the KGs to conduct reasoning [\[246\]](#page-26-6), as illustrated in Fig. [25.](#page-19-1) KD-CoT [\[247\]](#page-26-7) iteratively retrieves facts from KGs and produces faithful reasoning traces, which guide LLMs to generate answers. KSL [\[239\]](#page-25-37) teaches LLMs to search on KGs to retrieve relevant facts and then generate answers. StructGPT [\[237\]](#page-25-38) designs several API interfaces to allow LLMs to access the structural data and perform reasoning by traversing on KGs. Think-on-graph [\[240\]](#page-25-39) provides a flexible plug-and-play framework where LLM agents iteratively execute beam searches on KGs to discover the
 
 ![](_page_19_Figure_1.jpeg)
+<!-- Image Description: The image depicts a knowledge graph representing relationships between Barack Obama, Michelle Obama, Honolulu, Hawaii, and the USA. Nodes represent entities, and edges represent relationships (e.g., "Born_in," "Marry_to," "City_of"). Red arrows highlight the reasoning path used to answer the question: "Which country is Barack Obama from?" A diagram below shows the process: the question is input to a system combining Large Language Models (LLMs) and Knowledge Graphs (KGs), producing the correct answer: "USA". The figure illustrates knowledge graph reasoning within an LLM-KG system. -->
 
 <span id="page-19-1"></span>Fig. 25. Using LLMs as agents for reasoning on KGs.
 
@@ -632,6 +658,7 @@ Current knowledge graphs typically rely on textual and graph structure to handle
 Conventional LLMs trained on plain text data are not designed to understand structured data like knowledge graphs. Thus, LLMs might not fully grasp or understand the information conveyed by the KG structure. A straightforward way is to linearize the structured data into a sentence that LLMs can understand. However, the scale of the KGs
 
 ![](_page_20_Figure_1.jpeg)
+<!-- Image Description: The flowchart illustrates a three-stage process integrating Large Language Models (LLMs) and Knowledge Graphs (KGs). Stage 1 involves creating KG-enhanced LLMs and LLM-augmented KGs. Stage 2 synergizes these enhanced LLMs and KGs. Stage 3 focuses on leveraging the synergized system for improved graph structure understanding, multi-modality, and knowledge updating. The image details the method's progression and its resulting capabilities. -->
 
 <span id="page-20-17"></span>Fig. 26. The milestones of unifying KGs and LLMs.
 
