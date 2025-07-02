@@ -1,519 +1,533 @@
 ---
 cite_key: xie_2024a
-title: Back to the Future: Towards Explainable Temporal Reasoning with Large Language Models
-authors: Qianqian Xie, Temporal Reasoning, Chenhan Yuan
+title: "Log Anomaly Detection by Adversarial Autoencoders With Graph Feature Fusion"
+authors: "Yuxia Xie, Kai Yang"
 year: 2024
-doi: 10.1145/3589334.3645376
-date_processed: '2025-07-02'
-phase2_processed: true
-original_folder: '3589334.3645376'
-images_total: 6
-images_kept: 5
-images_removed: 1
+doi: "10.1109/TETCI.2023.3306406"
+url: "https://ieeexplore.ieee.org/document/10231001/"
+relevancy: "Medium"
+tldr: "Graph-based log anomaly detection framework using adversarial autoencoders"
+insights: "GAE-Log framework uses event graphs and knowledge graphs to model logs with adversarial training for unsupervised anomaly detection"
+summary: "This paper proposes GAE-Log, a framework that uses event graphs and knowledge graphs to model logs, employing adversarial training of autoencoders for anomaly detection while integrating temporal dynamics and contextual information"
+research_question: "How can log anomaly detection be improved to handle the increasing scale and complexity of distributed systems?"
+methodology: "GAE-Log framework using event graphs and knowledge graphs, adversarial training of autoencoders, integration of temporal dynamics and contextual information"
+key_findings: "Outperforms state-of-the-art log anomaly detection methods with significant performance improvements, reduces computational complexity, enables unsupervised training"
+limitations: "Specific performance metrics not detailed in abstract, evaluation limited to log data domain"
+conclusion: "Demonstrates effective use of graph-based approaches for temporal anomaly detection in complex systems"
+future_work: "Extend to personal activity logs, integrate with HDM monitoring systems, develop user-friendly interfaces"
+implementation_insights: "Agent Epsilon: Graph-based temporal anomaly detection applicable to HDM system monitoring and user activity analysis"
 tags:
-- Knowledge Graph
-- Machine Learning
-- Natural Language Processing
-- Recommendation System
-- Semantic Web
-- Temporal
-keywords:
-- instruction-tuning
-- knowledge graph
-- knowledgegraph-instructed-generation
-- large language models
-- llm
-- multi-step
-- natural language processing
-- nlp
-- relation extraction
-- state-of-the-art
-- temporal knowledge graph
-- temporal reasoning
-- time-sensitive
+  - "Log Analysis"
+  - "Anomaly Detection"
+  - "Graph Neural Networks"
+  - "Adversarial Learning"
+  - "Temporal Dynamics"
 ---
 
+# Log Anomaly Detection by Adversarial Autoencoders With Graph Feature Fusion
 
+Yuxia Xie and Kai Yang *[,](https://orcid.org/0000-0002-5983-198X) Senior Member, IEEE*
 
+*Abstract***—The exponential growth of scale and complexity in distributed systems necessitates significant maintenance efforts. Logs play an indispensable role in system operation and maintenance since they record crucial runtime information. However, recent studies on log anomaly detection have primarily focused on deep learning methods, which entail high computational complexity for learning temporal and semantic features from logs. Moreover, most deep learning-based approaches for log anomaly detection require supervised training, which is labor intensive. To address these challenges, this article proposes a framework called** *GAE-Log***.** *GAE-Log* **leverages event graphs and knowledge graphs to model logs comprehensively. By integrating temporal dynamics through event graphs and incorporating contextual information from knowledge graphs,** *GAE-Log* **enhances the understanding of the system's status. Moreover,** *GAE-Log* **employs adversarial training of autoencoders for anomaly detection on logs. The effectiveness of** *GAE-Log* **is evaluated through an ablation study and comprehensive comparisons using both public and synthetic log datasets. The results demonstrate that** *GAE-Log* **outperforms stateof-the-art methods in log anomaly detection, achieving significant performance improvements.**
 
-# Back to the Future: Towards Explainable Temporal Reasoning with Large Language Models
+*Index Terms***—Adversarial training, anomaly detection, autoencoder, event graph, knowledge graph, log analysis.**
 
-Chenhan Yuan The University of Manchester Manchester, UK chenhan.yuan@manchester.ac.uk
+#### I. INTRODUCTION
 
-> Jimin Huang Wuhan University Wuhan, China jiminhuang08@gmail.com
+**T** HE growing scale and complexity of distributed systems pose challenges in terms of their management and operation. Downtime in these systems can result in significant revenue loss[\[1\].](#page-11-0) In fact, Gartner reports that the cost of system downtime is \$540 000 per hour at the higher end [\[2\],](#page-11-0) [\[3\].](#page-11-0) Thus, ensuring reliability has become imperative in the distributed system.
 
-## ABSTRACT
+To ensure high-quality service in a distributed system, efficient maintenance is crucial, requiring engineers to have a great understanding of the system architecture. However, along with the increasing digitization, larger system scales, and finer monitoring granularity, relying solely on manual intervention by engineers becomes nearly impractical. Artificial Intelligence for
 
-Temporal reasoning is a crucial natural language processing (NLP) task, providing a nuanced understanding of time-sensitive contexts within textual data. Although recent advancements in Large Language Models (LLMs) have demonstrated their potential in temporal reasoning, the predominant focus has been on tasks such as temporal expression detection, normalization, and temporal relation extraction. These tasks are primarily designed for the extraction of direct and past temporal cues from given contexts and to engage in simple reasoning processes. A significant gap remains when considering complex reasoning tasks such as event forecasting, which requires multi-step temporal reasoning on events and prediction on the future timestamp. Another notable limitation of existing methods is their incapability to illustrate their reasoning process for explaining their prediction, hindering explainability. In this paper, we introduce the first task of explainable temporal reasoning, to predict an event's occurrence at a future timestamp based on context which requires multiple reasoning over multiple events, and subsequently provide a clear explanation for their prediction. Our task offers a comprehensive evaluation of both the LLMs' complex temporal reasoning ability, the future event prediction ability, and explainability—a critical attribute for AI applications. To support this task, we present the first instruction-tuning dataset of explainable temporal reasoning (ExplainTemp) with 26k derived from the temporal knowledge graph datasets, using a novel knowledgegraph-instructed-generation strategy. Based on the dataset, we propose the first open-source[1](#page-0-0) LLM series TimeLlaMA based on the foundation LLM LlaMA2, with the ability of instruction following for explainable temporal reasoning. We compare the performance of our method and a variety of LLMs, where our method achieves
+The authors are with the Department of Computer Science, Tongji University, Shanghai 201804, China (e-mail: [yuxia\\_xie@tongji.edu.cn;](mailto:yuxia_xie@tongji.edu.cn) [kaiyang](mailto:kaiyang@tongji.edu.cn) [@tongji.edu.cn\)](mailto:kaiyang@tongji.edu.cn).
 
-WWW '24, May 13–17, 2024, Singapore, Singapore
+Digital Object Identifier 10.1109/TR.2023.3305376
 
-© 2024 Copyright held by the owner/author(s). Publication rights licensed to ACM. ACM ISBN 979-8-4007-0171-9/24/05. . . \$15.00 <https://doi.org/10.1145/3589334.3645376>
+IT Operations (AIOps) offers a solution to simplify IT operations management in complex IT environments [\[4\]](#page-11-0) with artificial intelligence techniques. AIOps not only enhances system reliability and availability, but also significantly reduces maintenance costs. In this context, log analysis plays a vital role in identifying and preventing system failures in a timely manner, thereby enabling intelligent operation and maintenance. However, log anomaly detection currently faces several challenges:
 
-Qianqian Xie<sup>∗</sup> The University of Manchester Manchester, UK xqq.sincere@gmail.com
+- - *Large Volume:* The proliferation of applications and systems generates an enormous amount of monitoring data, including a vast number of system logs. Dealing with this massive volume of log data efficiently is a significant challenge.
+- - *High Dimensionality:* System logs are unstructured and collected from various components, rendering system logs to be high dimensional. In complex distributed systems like Hadoop [\[5\],](#page-11-0) logs may come from components such as HDFS [\[6\],](#page-11-0) MapReduce [\[7\],](#page-11-0) Hive [\[8\],](#page-11-0) HBase [\[9\],](#page-11-0) Zookeeper [\[10\],](#page-11-0) Yarn [\[11\],](#page-11-0) Spark [\[12\],](#page-11-0) etc. Managing and analyzing logs with diverse dimensions adds complexity to anomaly detection.
+- - *Domain Knowledge:* Anomalies in distributed systems often involve the context and configuration information of multiple components. Detecting and understanding these anomalies require domain knowledge from subject matter experts who understand the intricate architecture and behavior of the system.
+- - *Unsupervised Learning:* Log data are typically unlabeled, making it challenging to apply traditional supervised learning techniques. Manually labeling log data for training purposes is time-consuming, costly, and often impractical due to limited anomalous instances.
+- - *Sophisticated Anomalies:* For a distributed system with various components, the failure may come from any component. Moreover, the dependencies among components can lead to the propagation of failures from one component to others. Detecting such sophisticated anomalies, where failures interact and impact different system parts, increases the difficulty of anomaly detection.
 
-Sophia Ananiadou The University of Manchester Manchester, UK sophia.ananiadou@manchester.ac.uk
+To address the above challenges, we propose a log anomaly detection framework *GAE-Log* with graph feature fusion. By applying graph feature fusion to both the event graph and knowledge graph, *GAE-Log* captures more informative and discriminative features thus achieving better anomaly detection performance. This work encompasses the following contributions:
 
-the state-of-the-art performance of temporal prediction and explanation generation. We also explore the impact of instruction tuning and different training sizes of instruction-tuning data, highlighting LLM's capabilities and limitations in complex temporal prediction and explanation generation.
+1558-1721 © 2023 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See https://www.ieee.org/publications/rights/index.html for more information.
 
-### CCS CONCEPTS
+Manuscript received 21 October 2022; revised 21 February 2023, 19 June 2023, and 13 July 2023; accepted 31 July 2023. Date of publication 25 August 2023; date of current version 5 March 2024. This work was supported in part by the National Natural Science Foundation of China under Grant 61771013; in part by the Fundamental Research Funds for the Central Universities of China; and in part by the Fundamental Research Funds of Shanghai Jiading District. Associate Editor: M.-H. Yang. *(Corresponding author: Kai Yang.)*
 
-• Computing methodologies → Temporal reasoning.
+- - *Event Graph Modeling: GAE-Log* devises an *event graph* to model the relations among sequential logs, allowing it to effectively capture the temporal dynamics of system events. This graph-based representation facilitates the analysis of log data and helps uncover patterns and anomalies in the system behavior.
+- - *Unsupervised Feature Extraction and Fusion: GAE-Log* employs unsupervised feature extraction techniques to process log data. By extracting meaningful features without relying on labeled data, we enable *GAE-Log* to detect anomalies in an unsupervised manner. Furthermore, we integrate features from both the event graph and knowledge graphs, enabling a comprehensive understanding of the system behavior.
+- - *Adversarial Training: GAE-Log* leverages adversarial training to optimize the performance of autoencoders. By using this training approach, we enhance the anomaly detection capability of *GAE-Log*, enabling it to better distinguish normal and anomalous log patterns.
+- - *Scalability and Flexibility: GAE-Log* exhibits good scalability, allowing it to handle not only event graphs and knowledge graphs but also other types of graphs. This flexibility enables *GAE-Log* to perform feature fusion on a wide range of graph-based representations, accommodating different log data characteristics and system architectures.
 
-### KEYWORDS
+In summary, our log anomaly detection framework, *GAE-Log*, utilizes graph features obtained through graph feature fusion to enhance anomaly detection performance. Experimental results on various datasets validate the effectiveness of our framework in addressing the challenges, demonstrating its potential for practical anomaly detection applications.
 
-Temporal Reasoning, Large Language Models, Event Forecasting, Explainable AI
+The rest of this article is organized as follows. In Section II, we first investigate the related work on log anomaly detection. Then, we elaborate on the details of the *GAE-Log* framework in Section [III.](#page-3-0) We provide a comprehensive explanation of the construction and feature extraction of the graph, and the *GAE-Log* for anomaly detection. Next, we assess the performance of *GAE-Log* using both synthetic and public log dataset in Section [IV.](#page-8-0) Finally, Section [V](#page-11-0) concludes this article, summarizing the key findings and contributions of our work.
 
-#### ACM Reference Format:
+#### II. RELATED WORK
 
-Chenhan Yuan, Qianqian Xie, Jimin Huang, and Sophia Ananiadou. 2024. Back to the Future: Towards Explainable Temporal Reasoning with Large Language Models. In Proceedings of the ACM Web Conference 2024 (WWW '24), May 13–17, 2024, Singapore, Singapore. ACM, New York, NY, USA, [12](#page-11-0) pages.<https://doi.org/10.1145/3589334.3645376>
+In this section, we provide a detailed overview of log anomaly detection research, highlighting the different approaches and techniques that have been explored in the field. Extensive research efforts have been undertaken for log anomaly detection, including machine learning-based methods, statisticsbased methods, and graph-based methods. We present a detailed overview of log anomaly detection research as follows.
 
-#### 1 INTRODUCTION
+## *A. Machine Learning-Based Methods*
 
-Temporal reasoning is a crucial research area in natural language processing (NLP), referring to a model's capability of accurately understand, represent, and predict time-sensitive contexts [\[13,](#page-8-0) [31,](#page-8-1) [33,](#page-8-2) [54\]](#page-9-0). This ability is critical for many web-based applications today that rely on processing time-sensitive data, including news article aggregation [\[21\]](#page-8-3), E-commerce services [\[49\]](#page-9-1), and search engine recommendation [\[39\]](#page-8-4). Existing studies have focused on tasks of temporal relation extraction: predicting the temporal ordering of events [\[12,](#page-8-5) [38\]](#page-8-6), temporal knowledge graph (KG) reasoning: inferring missing facts at past and future timestamps [\[31,](#page-8-1) [33\]](#page-8-2), and temporal question answering (QA): answering questions requiring multiple steps of temporal relational reasoning [\[19,](#page-8-7) [20\]](#page-8-8). In recent years, the performance of these tasks has been greatly improved by advanced NLP and machine learning methods including graph neural networks (GNNs) [\[17,](#page-8-9) [24,](#page-8-10) [33,](#page-8-2) [46\]](#page-9-2) and pre-trained language models (PLMs) [\[34,](#page-8-11) [45,](#page-9-3) [57\]](#page-9-4). Latest, large language models (LLMs) have shown remarkable abilities to understand natural language and human-like text generation [\[2\]](#page-8-12). Compared with PLMs, LLMs have a significantly larger model size and pre-training data, and thus show the emergent ability of in-context learning, enabling them to perform unseen tasks without task-specific training data [\[59\]](#page-9-5).
+The machine learning-based methods focus on converting heterogeneous log data into low-dimensional features to classify normal and anomalous log patterns. Specifically, the machine learning-based methods fall into two categories.
 
-<sup>∗</sup>Corresponding author
+*Traditional Machine Learning Algorithms:* Traditional machine learning algorithms focus on performing on extracted features provided by raw data [\[1\].](#page-11-0) For instance, Xu et al. devised a method using the principal component analysis (PCA) algorithm and the frequent pattern mining (FPM) algorithm for log anomaly detection. PCA performs dimension reduction of log features, while FPM mines anomalous patterns within the reduced feature space [\[13\].](#page-11-0) In addition to utilizing dimension reduction algorithms like PCA, researchers also use clustering for log anomaly detection. HLAer is a heterogeneous log analysis system that utilizes the clustering algorithm for log anomaly detection [\[14\].](#page-11-0) However, its efficiency and scalability in parallel implementation are limited. To tackle this problem, a real-time log analysis system called LogLens is proposed in [\[15\]](#page-11-0) to detect anomalies. LogLens employs different methods to detect anomalies, one is to detect anomalies through clustering the log patterns, and the other is to detect anomalies of sequential logs with finite state automaton (FSA). Similarly, Vaarandi et al. [\[16\]](#page-11-0) proposed a new clustering algorithm to perform FPM on logs, thus realizing anomaly detection. A log problem identification method for online services called LogCluster is devised in [\[17\]](#page-11-0) by comparing the extracted log sequences with the knowledge base. The clustering algorithm is utilized in LogCluster to obtain representative log sequences to establish a knowledge base. In [\[18\],](#page-11-0) Beehive is proposed to detect suspicious behaviors through log analysis. Specifically, Beehive extracts several features from logs and uses PCA to perform dimension reduction. Then, the K-Means algorithm is employed to identify outliers. In [\[19\],](#page-11-0) an unsupervised anomaly detection framework for detecting anomalies through log analysis is proposed. They learn normal patterns with a knowledge base construction method while detecting abnormal events with a streaming anomaly detection method. Indeed, log anomaly detection approaches extend beyond clustering and encompass various other algorithms, including classification, invariant mining (IM), and more. Liang et al. [\[20\]](#page-11-0) processed supercomputing system logs using different classification algorithms, including support vector machine (SVM), to detect anomalies. In [\[21\],](#page-11-0) the linear regression (LR) algorithm is employed to automatically detect performance crises in data centers. The decision tree (DT) algorithm is utilized in [\[22\]](#page-11-0) for failure diagnosis in logs. Khatuya et al. [\[23\]](#page-11-0) employed both ridge regression and K-Means to distinguish anomalous behaviors. Lou et al. [\[24\]](#page-12-0) analyzed system logs through IM, considering log sequences that violate the invariant rules as anomalies. In addition, aside from the methods mentioned above, several open-source projects implemented log anomaly detection using machine learning algorithms. For instance, the log anomaly detector [\[25\]](#page-12-0) aims to leverage natural language processing tools for log encoding and employ machine learning techniques for automated log anomaly detection. These examples highlight the utilization of various machine learning algorithms and techniques in log anomaly detection, demonstrating the diverse approaches taken to address this challenging task.
 
-<span id="page-0-0"></span><sup>1</sup><https://github.com/chenhan97/TimeLlama>
+*Deep Learning Algorithms:* Deep learning algorithms commonly employ a multiple-layer architecture, enabling the model to progressively capture and represent features at different layers [\[1\].](#page-11-0) This hierarchical approach empowers the model to learn complex and abstract representations of the input data. Furthermore, deep learning-based models can be broadly classified into two categories: Recurrent neural network (RNN) based methods and other architectures.
 
-Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than the author(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org.
+*RNN-based Models:* Brown et al. proposed an attention-based RNN model for anomaly detection in system logs in [\[26\].](#page-12-0) In a similar vein, Zhang et al. devised a failure prediction method in [\[27\]](#page-12-0)that utilizes the long short term memory (LSTM) network to model sequential logs. By leveraging the sequential patterns in logs, this approach aims to predict system failures. LSTM and its variants are also employed in other models. For instance, Wang et al. [\[28\]](#page-12-0) extracted log features using word2vec and TF-IDF models and detect anomalies through an LSTM-based approach. DeepLog [\[29\]](#page-12-0) is an LSTM-based log anomaly detection framework that comprises log template and log variable anomaly detection. Compared with [\[27\],](#page-12-0) DeepLog demonstrates better performance in comprehensive system anomaly detection. Meng et al. proposed a model called LogAnomaly in [\[30\],](#page-12-0) which leverages LSTM to detect both sequential and quantitative anomalies in logs. They also introduce a log vectorization method named template2vec. Compared to DeepLog, LogAnomaly achieves better online detection performance. In addition, Meng et al. explored log embedding for online log analysis through a semantic representation framework in [\[31\].](#page-12-0) Similarly, Zuo et al. [\[32\]](#page-12-0) proposed an anomaly detection framework targeting microservices architectures, which is compatible with LSTM models. Considering the instability of log data, Zhang et al. proposed a robust log anomaly detection method called LogRobust in [\[33\].](#page-12-0) LogRobust mitigates the impact of instability arising from system evolution and noise by embedding logs into semantic features and performs stable anomaly detection using an attention-based Bi-LSTM. Finally, in [\[34\],](#page-12-0) Nedelkoski et al. introduced Logsy, a method for learning log representation to distinguish anomalies from normal samples. These studies showcase the continuous exploration and development of RNN-based models and their variants for log anomaly detection. The ability of RNNs to capture temporal dependencies and patterns in log sequences makes them a popular choice for modeling log data and identifying anomalies.
 
-Inspired by the great promise of LLMs, recent studies have explored the temporal reasoning ability of LLMs [\[5,](#page-8-13) [30,](#page-8-14) [51,](#page-9-6) [62\]](#page-9-7).
+*Others Deep Learning Models:*In [\[35\],](#page-12-0) a convolutional neural network (CNN) is employed to detect anomalous logs within a big data system. This approach utilizes different filters to encode the logs into low-dimensional features, enabling effective anomaly detection. In comparison, our previous work, LogM [\[36\],](#page-12-0) leverages a combination of CNN and Bi-LSTM networks for log anomaly prediction. The CNN module captures semantic features, while the Bi-LSTM grasps temporal dynamics. This joint approach enhances the model's capability to handle log anomalies comprehensively. In addition to anomaly prediction, LogM proposes both unsupervised and supervised methods for diagnosing failures, making it applicable to various practical scenarios. Furthermore, Xia et al. [\[37\]](#page-12-0) introduced a log anomaly detection model based on generative adversarial network (GAN). This model consists of a generator, which models the distribution of real and synthetic log data, and a discriminator, which distinguishes anomalous samples from normal ones. By incorporating the adversarial training framework of GANs, this approach aims to improve the accuracy of log anomaly detection.
 
-Although these methods have explored the potential and limitations of LLMs, two significant challenges remain conspicuous as shown in Table. [1.](#page-2-0) Firstly, current methods [\[5,](#page-8-13) [30,](#page-8-14) [51,](#page-9-6) [62\]](#page-9-7) mainly focus on tasks such as temporal expression detection, normalization, and temporal relation extraction, which are primarily designed for the extraction of direct and historical temporal cues from given contexts and to engage in simple reasoning processes. Therefore, it is still unclear the potential of LLMs for more challenging tasks such as event forecasting [\[67\]](#page-9-8), which requires multi-step temporal reasoning and the prediction of future timestamps. Secondly, even as LLMs exhibit emergent abilities for in-context learning [\[59\]](#page-9-5), the area of explainable temporal reasoning – which involves predicting future events from context and explaining the associated reasoning – remains underexplored. It is crucial for models to not only make predictions but also to clearly justify their decisions, to improve transparency. In light of these gaps, we posit the following research questions (RQ) to guide our study: 1) RQ 1: Can LLMs be effective in predicting future events by considering the context's complex relations among events, and how do they compare with traditional methods? 2) RQ 2: What impact does instruction tuning have, particularly when using our new dataset derived from temporal knowledge graphs, on the temporal prediction capabilities of LLMs? 3) RQ 3: How effectively can LLMs clarify their prediction and reasoning process, thereby enhancing their transparency in temporal reasoning tasks?
+#### *B. Statistics-Based Methods*
 
-To address these challenges, our study aims to explore LLMs' capabilities in complex temporal reasoning, future event prediction, and, importantly, explainability—an essential aspect of AI applications. We propose the pioneering task of explainable temporal reasoning, aiming to predict the occurrence of future events based on context, demanding reasoning across multiple events, and subsequently, providing a coherent explanation for the prediction. To support this task, we propose the first-of-its-kind multi-source instruction tuning dataset ExplainTemp, fostering improvement and assessment of LLMs. ExplainTemp comprises 26k entries, built from a variety of event forecasting datasets and their derived temporal reasoning paths.
+Statistics-based methods aim to capture the statistical characteristics of log data in order to identify samples that deviate from expected patterns. Several examples of such methods are listed below. Yamanishi et al. [\[38\]](#page-12-0) employed a hybrid hidden Markov model (HMM) to model the behavior of system logs. They use an online learning algorithm to dynamically select optimal mixed components and calculate the anomaly score based on the statistical information of the entire testing data. He et al. [\[39\]](#page-12-0) utilized event count vectors as features and employ LR to estimate the anomaly score. By representing logs as event counts, they capture the occurrence frequency of different events and use LR to determine the likelihood of anomalies. In [\[40\],](#page-12-0) logs are transformed into signals to record the distribution of each time window. They calculate the Kullback–Leibler (K-L) divergence between the signal distribution of the current time window and the previous time window to detect anomalies. For intrusion detection in network traffic analysis, Hareesh et al.[\[41\]](#page-12-0) presented a statistical histogram model for normal behavior. By comparing network traffic to this model, they efficiently identify both flooding attacks and nonflooding attacks by detecting deviations from the expected behavior. Du et al. [\[42\]](#page-12-0) proposed a method, where they represent the distribution of log templates on a time axis using frequency sequences. Behavior subsequences are then formed and grouped into different clusters based on their distribution. Anomaly scores are calculated for each cluster, allowing for the identification of different types of anomalies. These statistics-based methods leverage various statistical approaches, such as HMM, event counting, signal analysis, and histogram modeling, to detect anomalies in system logs.
 
-Our methodology begins with aggregating data from various recognized datasets, encompassing diverse sources. For each data point, explanations are generated, drawing inspiration from the proven self-instruct approach [\[58\]](#page-9-9). However, we observed that merely prompting LLMs, such as ChatGPT [\[41\]](#page-9-10), yielded suboptimal results in terms of coherence and accuracy. Recognizing this limitation, we pivoted to a novel Temporal Knowledge Graph-Instructed Generation (TKGIG) approach. We extract explainable reasoning paths and context from the temporal knowledge graph for each dataset's future event prediction query. We then design prompts to guide LLMs to convert these paths and contexts into coherent explanations. This results in triples of <query, context, answer>, with each answer containing the original prediction and LLM-generated explanation. To ensure the reliability of the dataset, the human evaluation is performed on a subset of the collected data with a carefully designed annotation scheme, evaluating their correctness, completeness, and fluency. We then build a golden-standard testing dataset with human annotation.
+# *C. Graph-Based Methods*
 
-Using ExplainTemp, we propose the TimeLlaMA series, an innovative open-source LLM ensemble based on the LlaMA2 [\[53\]](#page-9-11), using instruction finetuning. Specifically, we fine-tune four TimeLlaMA models: TimeLlaMA-7B, ChatTimeLlaMA-7B, TimeLlaMA-13B, and ChatTimeLlaMA-13B. Our empirical results compare the TemporaLLaMA with other LLMs, highlighting its superior performance in terms of temporal prediction and explanation generation. Our experiments demonstrate that with proper instruction tuning using even a small volume of high-quality data, the temporal reasoning capabilities of LLMs can be substantially improved. Model size does not necessarily correlate with performance gains in temporal reasoning when employing instruction tuning under 13 billion parameters.
+The graph-based methods play a key role in extracting features from logs and constructing a graph to model the execution rules of the system. Several specific studies and frameworks are mentioned in this context. For instance, Yuan et al. [\[43\]](#page-12-0) proposed a method for detecting anomalous behaviors by mining templates and template sequences, which are used to form a graph representing the control flow. To assess abnormality, they compare this graph with benchmark graphs formed in the normal status. Similarly, Aharon et al. [\[44\]](#page-12-0) put forward a time-weighted graph for control flow, aiming to capture patterns under normal status and provide alerts for deviations. Beschastnikh et al. [\[45\]](#page-12-0) developed a model specifically designed to enhance the detection of anomalies in concurrent systems. They analyze system logs to form communication finite state machines (CFSM), which are utilized to infer system behaviors. Fu et al. [\[46\]](#page-12-0) understand system logs through contextual analysis. Specifically, they employ the formal concept analysis (FCA) method to model log sequences and utilize the DT model to find key factors. Xu et al. [\[47\]](#page-12-0) adopted an approach that involves extracting template sequences from logs and modeling these sequences with the finite state machine (FSM) algorithm. On the other hand,
 
-To encapsulate, our contributions are manifold: 1) We pioneer the first task of explainable temporal reasoning, setting the stage for subsequent research, 2) We introduce ExplainTemp, the first instruction-tuning dataset to improve and evaluate LLMs' ability of explainable temporal reasoning, 3) We propose a novel knowledge graph-instructed generation (TKGIG) method, for generating explainable temporal reasoning data with LLMs from temporal knowledge graphs, 4) We propose TimeLlaMA, an open-source LLM series tailored for this specific task, achieves SOTA performance, 5) We conduct a holistic evaluation of our method and various LLMs in the realm of temporal reasoning, critically analyze the strengths and limitations of LLMs, providing directions for future research.
+<span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
+<!-- Image Description: The image displays a system architecture for anomaly detection.  It shows three modules: an event graph module extracting events from log files, a knowledge graph module extracting entities and relations, and an anomaly detection module using autoencoders.  Event and knowledge graph embeddings are fused for anomaly scoring, visualized via a diagram illustrating the data flow and processing steps of the system.  A graph embedding process is depicted. -->
 
-#### 2 RELATED WORK
+Fig. 1. Flowchart of *GAE-Log*, which includes four modules, namely event graph module, knowledge graph module, graph feature fusion, and anomaly detection (best viewed in color).
 
-#### 1 Temporal Reasoning in NLP
+Yu et al. [\[48\]](#page-12-0) constructed a directed graph model customized for interleaved logs. This model utilized log identifiers such as request ID and transaction ID to represent the relations within the logs. These graph-based methods offer valuable techniques for extracting log features and representing control flow patterns.
 
-Based on the level of difficulty, temporal reasoning in NLP can be categorized into three tasks: temporal expression detection and normalization, temporal relation extraction, and event forecasting. The temporal expression detection task aims to detect the phrases in the text that describe the temporal information, such as "yesterday" and "last year" [\[28\]](#page-8-15). After the detection, the model is required to normalize the temporal expression into a TimeML standard format, such as "2013-01-06". The temporal expression detection and normalization task was first introduced in TempEval-2 [\[56\]](#page-9-12), where the most successful models are rule-based, such as SUTime and NavyTime [\[4,](#page-8-16) [6\]](#page-8-17). The normalization task was further improved by incorporating pre-trained embeddings later [\[25,](#page-8-18) [60\]](#page-9-13).
+However, the use of deep learning models in log anomaly detection often poses challenges due to the requirement for supervised training, which necessitates extensive data labeling. Furthermore, practical implementation of neural networks can be computationally complex. While statistics-based methods are efficient in identifying system anomalies, their detection accuracy is relatively poor. Moreover, the aforementioned methods do not consider the construction of graphs for system events or the analysis of system architectures using knowledge graphs, which could provide a more comprehensive understanding of anomalies. To address these limitations, we propose a framework called *GAE-Log* that integrates event graphs and knowledge graphs to capture comprehensive system features. In addition, *GAE-Log* employs adversarial training to train the autoencoders for log anomaly detection.
 
-When time expressions can be detected, the next level of temporal reasoning is to determine the chronological order of events described in the text, namely temporal relation extraction. The temporal relation extraction task was first introduced in TempEval [\[55\]](#page-9-14). Initially, this task was tackled by leveraging the sequential neural networks, such as LSTM and RNN, to detect temporal order [\[12,](#page-8-5) [34,](#page-8-11) [40\]](#page-8-19). Later, GNN was introduced to better capture the dependency explicitly between the events and time expressions [\[3,](#page-8-20) [38,](#page-8-6) [63\]](#page-9-15). As LLMs become popular, some work also investigated the zero-shot ability of LLM in temporal relation extraction and reported that the zero-shot performance is worse than supervised models [\[5,](#page-8-13) [62\]](#page-9-7).
+# III. *GAE-LOG:* LOG ANOMALY DETECTION BY ADVERSARIAL AUTOENCODERS WITH GRAPH FEATURE FUSION
 
-With the acquisition of a chronological order of events, the final level of temporal reasoning is event forecasting. The goal of this task is to determine if a specific event will happen in the future given the context events described in the text [\[21\]](#page-8-3). Some work
-
-<span id="page-2-0"></span>
-
-|                 | Explanation | Event Forecasting | Model         | Multi-hop Reasoning | Instruction Finetuning | Context Infer |
-|-----------------|-------------|-------------------|---------------|---------------------|------------------------|---------------|
-| TEMPLAMA [11]   | ✗           | ✗                 | T5            | ✗                   | ✗                      | ✗             |
-| TEMPREASON [51] | ✗           | ✗                 | T5            | ✗                   | ✗                      | ✓             |
-| AutoCast [67]   | ✗           | ✓                 | T5            | ✓                   | ✗                      | ✗             |
-| ExplainTemp     | ✓           | ✓                 | Llama2-7b/13b | ✓                   | ✓                      | ✓             |
-
-Table 1: The comparison between temporal reasoning datasets and corresponding finetuned models. "Context Infer" denotes if inference based on context is required and "multi-hop reasoning" means engaging in multi-step reasoning is required to arrive at the correct answer.
-
-has designed a dataset to train the model [\[67\]](#page-9-8), in which the model can access the context information through links. However, the exploration of this task is still limited despite the importance of this task.
-
-#### <span id="page-2-1"></span>2.2 Temporal Knowledge Graph Event Forecast
-
-There are two settings in the temporal knowledge graph reasoning (TKGR) task: extrapolation and interpolation. Extrapolation focuses on predicting whether events will occur in future timestamps, while interpolation aims to complete the temporal knowledge graph within a given timespan [\[31,](#page-8-1) [33\]](#page-8-2). Some works also refer to the extrapolation setting as event forecasting in temporal knowledge graph [\[16,](#page-8-22) [37\]](#page-8-23). A key difference between event forecasting in NLP and TKG is the input format - NLP uses textual context, whereas TKG relies on graph structure. To enhance explainability, some methods for TKGR produce predictions along with validated reasons. The explainable methods can be roughly summarized into three categories: logic rule-based approach, reinforcement learningbased approach, and attention network-based approach. For example, TLogic mines logic rules from temporal knowledge graphs for forecasting [\[37\]](#page-8-23). Lin et al. proposed graph and logic encoders to incorporate graph information into rules [\[36\]](#page-8-24). In reinforcement learning-based (RL) approaches, Sun et al. used an RL agent to travel on the graph to predict events, explaining the prediction [\[50\]](#page-9-16). Similarly, Li et al. found event clusters and then searched them with an RL agent [\[32\]](#page-8-25). Some models expand an initial query graph via attention until the query entity is reached, using the subgraphs as explanations [\[16\]](#page-8-22). Jung et al. also used an attention GNN to iteratively propagate towards the target entity [\[23\]](#page-8-26). As explainable TGKR models provide structural reasoning steps on the graph, we leveraged the RL-based and logic-based models to instruct the LLM explanation generation to construct the ExplainTemp dataset.
-
-#### 3 Temporal Reasoning in LLM
-
-As growth took place in pre-trained LLMs, a natural question is if LLM is capable of serving as a temporal knowledge base [\[11,](#page-8-21) [65\]](#page-9-17). The pivotal concept of this task is to understand the context under temporal expression and perform temporal-sensitive reasoning to predict missing entities [\[7\]](#page-8-27). Temporal datasets have been developed to evaluate LLM on temporal understanding, like Custom-News which evaluates if LLMs can predict masked entities given timestamps [\[26\]](#page-8-28). Dhingra et al. then proposed TEMPLAMA which emphasizes temporal questions as (ℎ, , ?, 1) and (ℎ, , ?, 2) where the answers differ due to different timestamps [\[11\]](#page-8-21). TemporalWiki addresses temporal misalignment in LLMs similarly [\[18\]](#page-8-29). Tan et al. expanded TEMPLAMA's time range and added more time-unrelated questions [\[51\]](#page-9-6).
-
-Some work also further investigated the capability of LLM in the event forecasting task, which is more challenging than temporalsensitive learning as it requires a full understanding of time and logic. Zhou et al. constructed an Autocast dataset that consists of question-and-answer pairs about future events [\[67\]](#page-9-8). Lee et al. tested the zero-shot event forecasting ability of LLM on a temporal knowledge graph and demonstrated that only through in-context learning, LLMs can achieve comparable performance w.r.t current supervised TKG methods [\[27\]](#page-8-30). Similarly, Xu et al. designed various prompts to query LLM for temporal knowledge graph completion task [\[61\]](#page-9-18). This ability was further improved by few-shot abductive reasoning over LLM and temporal knowledge graph [\[47\]](#page-9-19). However, these studies did not evaluate or improve the textual temporal reasoning skills of LLMs. Additionally, the lack of explainability in these LLMs is concerning given their importance in temporal reasoning tasks. To the best of our knowledge, our proposed ExplainTemp is the first dataset that evaluates and improves the explainability and textual temporal reasoning ability of LLMs.
-
-#### 3 METHOD
-
-The objective of this work is to assess and enhance the complex temporal reasoning capabilities of large language models (LLMs). To accomplish this goal, we propose the explainable event forecasting task for complex temporal reasoning and construct the first dataset of its kind: the Explainable Temporal Event Forecasting (ExplainTemp) dataset. We benchmark the performance of popular LLMs using this new dataset. We then propose the novel LLM series: TimeLlaMA, by instruction finetuning a series of Llama2 models, with the aim of improving the temporal reasoning abilities of LLMs.
-
-#### 1 Task Definition
-
-We define the explainable temporal reasoning task as follows: given an input document describing events E1∼<sup>2</sup> = {1, 2, · · · , } occurring during time interval <sup>1</sup> ∼ 2, the task is to predict the probability = ( |E1∼<sup>2</sup> ) that event will occur at future time 3, where <sup>3</sup> > <sup>2</sup> ≥ 1. Additionally, the LLM must also generate an explanation that demonstrates its reasoning for the prediction. Each training instance T for finetuning the language model consists of the input document , question , prediction answer , and explanation : T = { , , , }.
-
-<span id="page-3-0"></span>WWW '24, May 13–17, 2024, Singapore, Singapore Chenhan Yuan, Qianqian Xie, Jimin Huang, and Sophia Ananiadou
-
-![](_page_3_Figure_2.jpeg)
-<!-- Image Description: This diagram illustrates an explainable Temporal Knowledge Graph Reasoning (TKGR) system. A temporal knowledge graph is processed to extract context quadruples, which are converted into a document. This document, along with a forecast event, generates question prompts (positive, negative, and unsure) for a large language model (LLM). The LLM generates explanations, refined through polish and revision prompts, producing a final answer and explanation. The system uses rule-based generation and a constructed dataset for training. -->
-
-Figure 1: The pipeline of generating ExplainTemp dataset. The pos, neg, and neu denote the positive sample, negative sample, and neutral sample, respectively.
-
-# 2 Graph-Instruct-Generation: Construct ExplainTemp Dataset
-
-Recent work has explored using LLMs like ChatGPT to generate datasets by prompting the model to produce answers [\[48\]](#page-9-20). However, directly prompting LLMs to generate temporal reasoning data results in low-quality explanations, as we demonstrate in Section [4.2.2.](#page-7-0) To address this issue, we propose a novel framework called Temporal Knowledge Graph-instructed Generation (TKGIG) to produce more coherent and accurate reasoning explanations.
-
-The key insight behind our approach is to leverage temporal knowledge graphs (TKGs), which have been effectively utilized for explainable event forecasting. As illustrated in Figure [1,](#page-3-0) we first apply explainable TKG reasoning models to generate reasoning paths for a given query about a future event. We then convert these paths into natural language explanations using a twolevel prompting technique we developed. Next, we identify relevant context quadruples from the TKG and reasoning paths to construct a context quadruple set, which is transformed into a coherent natural language document . Finally, we convert the original query into a question to produce a complete training instance T = { , , , }. In this way, our TKGIG framework overcomes the limitations of directly prompting LLMs by leveraging structured knowledge in TKGs to generate high-quality explanations. The technical details of each step are provided in the following sections.
-
-Reasoning Paths Generation. As discussed in Section [2.2,](#page-2-1) temporal knowledge graph reasoning models can be categorized into three main types. In this work, we select two popular methods representing the most common approaches: TimeTraveler [\[50\]](#page-9-16), which uses a reinforcement learning-based approach, and TLogic [\[37\]](#page-8-23), which employs logic rules. We chose these models because they provide high quality and human-readable reasoning chains, as shown in the following equation:
-
-$$
-(E_1, R_c, E_{m+1}, T_{m+1}) \leftarrow \wedge_{i=1}^{m} (E_i, R_i, E_{i+1}, T_i)
-$$
- (1)
-
-where , , and are the i-th entity, timestamp, and relation, respectively. For example, Fig. [1](#page-3-0) shows that given the query quadruple, the explainable TKGR model generates the following reasoning path:
-
-(, , , 11 − 13 − 2014) ← (, , , 11 − 06 − 2014)∧ ( , ,ℎ, 11 − 04 − 2014)∧ (ℎ, ℎ, , 11 − 10 − 2014) (2)
-
-To leverage the reasoning chains from these models, we take the average confidence scores (or probability values) of the predictions from the two models and select the reasoning paths with the highest confidence.
-
-Context Document Generation. Given a query quadruple = (1, , 2, ), we first extract relevant quadruples from the TKG to form the context quadruple set, and then transform them into natural language sentences. Specifically, to extract relevant information, we obtain quadruples that meet two criteria: 1) either entity <sup>1</sup> or <sup>2</sup> from the original query is present in , and 2) the occurrence time of falls within a defined time span from the query time to time , where is the beginning timestamp of the span. Formally, we extract quadruples where (<sup>1</sup> ∈ ∨ <sup>2</sup> ∈ ) ∧ ( < < ). We also add the quadruples along the reasoning path to the context set.
-
-Once we have the context quadruple set Q, the next step is to convert Q into natural language sentences. Prior work such as KELM [\[1\]](#page-8-31) and GAP [\[9\]](#page-8-32) have proposed rule-based or pipeline methods, but these cannot generate sufficiently diverse documents from knowledge graphs. Therefore, we designed a prompt to leverage the generative capabilities of ChatGPT to produce more diverse and coherent context documents from Q. The prompt is defined as follows: "Please generate a coherent paragraph to describe the following quadruples and the time should be precise to dates: [Q]" In this way, we use the response from ChatGPT as the input document for each training instance T .
-
-Explanation Generation. Recall that for each query quadruple = (1, , 2, ), we have obtained the reasoning path . First,
-
-we automatically generate a template-based explanation ′ for each query quadruple = (1, , 2, ) using the corresponding reasoning path obtained from the above steps. This explanation template aims to concisely describe the prediction and the reasoning steps in natural language: "Based on the information provided by the document, it is plausible that <sup>1</sup> will <sup>2</sup> in . Here are my reasons: 1, and 2,· · · , therefore, it is plausible that <sup>1</sup> will <sup>2</sup> in ." We refer to this as the template synthesized explanation ′ .
-
-However, these template-generated explanations ′ may lack coherence or omit critical reasoning details. To improve the quality of explanations, we implement a two-step rewriting process prompting using LLMs like ChatGPT. First, we prompt ChatGPT to evaluate the correctness of the template explanation ′ and provide a brief justification, e.g.: "Given the text, ′ , please evaluate the correctness of the prediction..." We provide detailed prompt in Appendix [B.1](#page-10-0) for this and all subsequent prompts. If ChatGPT concludes that the explanation ′ is correct, we propose a "polish prompt" to ChatGPT: "Can you make the text more coherent and readable by expanding the explanation of each reasoning step?" However, if ChatGPT determines that the template explanation ′ contains flawed reasoning leading to an incorrect prediction, we provide a "revision prompt" asking ChatGPT to correct the flaws by considering additional context quadruple information from : "Please revise ... You can add information from the following quadruples... [Q]" In this way, the ChatGPT response represents the final, improved explanation for each training instance. This CoT prompting approach allows us to leverage the reasoning and language capabilities of LLMs to enhance the quality of automatically generated explanations.
-
-Negative and Neutral Samples. Note that by following the previously introduced steps, we can easily acquire positive training instances, i.e., the prediction is that the event will happen. However, using only positive examples to fine-tune language models can lead to highly skewed and imbalanced training. Therefore, we also propose two methods to generate negative and neutral samples individually.
-
-The negative samples represent counterfactual events that did not occur. For each positive training instance T = { , , }, we generate a negative example by replacing the relation in the query quadruple with an opposite relation ′ such that the meaning of ′ should be as opposite as possible to the original one. For example, we replaced (Africa, Host a visit, Rex Tillerson, 2018-03-10) with (Africa, withdraw visiting invitations, Rex Tillerson, 2018-03-10). The resulting negative example quadruple is ′ = (1, ′ , 2, ). In this way, as the original event did actually happen, the newly synthesized event should be highly unlikely to happen. We manually designed 546 opposite relations for all 265 relations in the temporal knowledge graph. Details are illustrated in Appendix [C.](#page-10-1)
-
-Then, similar to the explanation generation, we first generate a simple template synthesized explanation and then query ChatGPT if the synthesized explanation is correct or not. The prompt is designed as follows: "Given the text, "Based on..., we predict that <sup>1</sup> ′ <sup>2</sup> will not happen in . We could find the following patterns from the text: 1, and 2,· · · , therefore, it is plausible that <sup>1</sup> will <sup>2</sup> in .", please evaluate the correctness..." Note that the reasoning path is still the same as the positive sample. Then we can obtain
-
-<span id="page-4-1"></span>![](_page_4_Figure_7.jpeg)
-<!-- Image Description: This image presents four box plots, each showing the distribution of "Correct," "Complete," and "Fluency" scores for different sentiment categories: Positive, Negative, Neutral, and Overall. The box plots illustrate the median, interquartile range, and outliers for each metric across the categories. The purpose is to visually compare the performance (accuracy and fluency) of a system under varying sentiment conditions. -->
-
-Figure 2: The box plots of human annotation for each criterion under positive, negative, neutral, and overall dataset. The dashed line denotes the mean value and the bold line indicates the median value.
+*GAE-Log* effectively performs anomaly detection on system logs by leveraging graph features. The framework of *GAE-Log* consists of four main modules, namely event graph module, knowledge graph module, graph feature fusion, and anomaly detection, as presented in Fig. 1. To begin with, *GAE-Log* processes execution log files by parsing log messages into structured log templates and extracting log events to construct event graphs.
 
 <span id="page-4-0"></span>
 
-|          | Positive | Negative | Neutral | Overall |
-|----------|----------|----------|---------|---------|
-| Correct  | 0.73     | 0.64     | 0.81    | 0.74    |
-| Complete | 0.65     | 0.59     | 0.70    | 0.66    |
-| Fluency  | 0.98     | 0.97     | 0.98    | 0.98    |
+|               | /10.251.215.16:55695 dest: /10.251.215.16:56010<br>size 91178 from /10.250.10.6 |             |                         | 2018-11-08 20:22:12 INFO dfs. DataNode\$DataXceiver: Receiving block blk 7503483334202473044 src:<br>2018-11-08 20:23:10 INFO dfs. DataNode\$PacketResponder; Received block blk -1608999687919862906 of |                |
+|---------------|---------------------------------------------------------------------------------|-------------|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Preprocessing |                                                                                 |             |                         |                                                                                                                                                                                                          |                |
+| Date          | Time                                                                            | Level       | <b>Block</b><br>ID      | <b>Event Template</b>                                                                                                                                                                                    | Event<br>ID    |
+| 20181108      | 202212                                                                          | <b>INFO</b> | 7503483334<br>202473044 | Receiving block $\langle$ *><br>src: $\langle \langle * \rangle$ dest: $\langle \langle * \rangle$                                                                                                       | $E_1$          |
+| 20181108      | 202310                                                                          | <b>INFO</b> | 1608999687<br>919862906 | Receiving block $\lt^*$<br>of size $\langle * \rangle$ from $\langle * \rangle$                                                                                                                          | E <sub>2</sub> |
 
-Table 2: Cohen's Kappa score of human annotation for each criterion under three labels.
+Fig. 2. Example of log preprocessing to get log events.
 
-the explanation result based on the ChatGPT decision by following the exact same "Polish Prompt" or "Revision Prompt".
+![](_page_4_Figure_3.jpeg)
+<!-- Image Description: The image displays a weighted directed graph.  Nodes (circles labeled E<sub>i</sub>) represent entities, and edges (lines labeled w<sub>i</sub>) represent weighted relationships between them.  The graph's structure shows connections and weights indicating the strength of each relationship between entities.  No specific calculations or equations are shown. -->
 
-In neutral training samples, we expect the LLMs to predict "unsure" for the query quadruple because there is no context information in the given document related to the query. Additionally, for explanation, we also expect the LLMs to summarize the document and then demonstrate that there is no related context in the given document. To achieve this goal, we first replace the query quadruple = (1, , 2, ) with ′′ = ( ′ 1 , , ′ 2 , ) in the positive training instances, where ′ 1 and ′ 2 are entities that never appear in the context quadruple set Q. In other words, we ensure the entities in the neutral sample's query do not exist anywhere in the context set Q. Formally, we have ′ 1 ∉ Q ∧ ′ 2 ∉ Q. Then we designed the following prompt to query ChatGPT to generate an explanation: "Given the document "[]", how likely the event that [ ′ 1 ′ 2 ] in [] would happen? ... if the context is unrelated, summarize the context..."
+Fig. 3. Example of event graph, where node indicates log event and edge indicates transition of events.
 
-## <span id="page-4-2"></span>3.3 Data Statistics and Annotation
+The Drain algorithm [\[49\]](#page-12-0) is employed in this article for log parsing, which generates log event templates. Each log event template is mapped to a predefined log event and distinguished by different identifiers, as depicted in Fig. 2. The event graph is then encoded into vectors via graph embedding methods. Simultaneously, *GAE-Log* extracts entities and relations to form a system knowledge graph. The knowledge graph embedding algorithms are utilized to obtain embedding vectors for the knowledge graph. Subsequently, *GAE-Log* applies graph feature fusion to combine the features extracted from the event graph and knowledge graph. Finally, for log anomaly detection, *GAE-Log* utilizes adversarial training of autoencoders, enabling the framework to effectively identify anomalies in logs.
 
-We utilize ICEWS14 [\[15\]](#page-8-33), ICEWS18 [\[22\]](#page-8-34), and ICEWS0515[\[15\]](#page-8-33) datasets to generate the proposed dataset, as they are the most popular temporal knowledge graph reasoning datasets. From the three datasets, we extracted 12,229 reasoning paths and therefore generated 12,229 positive samples in the dataset. The detailed statistics of Explain-Temp are shown in Table. [3.](#page-5-0)
+#### *A. Event Graph*
 
-<span id="page-5-0"></span>
+To better characterize the sequential logs, we propose an event graph to model the log data. The event graph serves to represent the operation processes that occur during the execution of system tasks, providing a depiction of the temporal dynamics within the system. Fig. 3 presents an example of the event graph, showcasing the visualization of these operation processes.
 
-|       | Pos.  | Neg. | Neu. | ICEWS14 | ICEWS18 | 0515 |
-|-------|-------|------|------|---------|---------|------|
-| Train | 11703 | 8705 | 5360 | 10327   | 7651    | 7790 |
-| Test  | 435   | 300  | 266  | 387     | 351     | 263  |
+Now, let us delve into the detailed construction of event graphs. First, the parsed log messages are grouped into different categories based on log identifiers. Each group represents the execution of an individual system task. Log identifiers are specific tokens used to differentiate and group related operations within the system [\[1\].](#page-11-0) For example, block ID is commonly used for partitioning logs in HDFS, while task ID is typically used for Hadoop system logs. Second, *GAE-Log* clusters the
 
-Table 3: The statistics of constructed dataset. Pos., Neg., Neu. denote the number of positive, negative, and neutral samples, respectively.
+![](_page_4_Figure_9.jpeg)
+<!-- Image Description: The image displays a graph depicting relationships between software components and events.  Nodes represent components (e.g., "dfs.DataNodes," "Log1") and events ("E1"). Edges labeled "Component is," "Content is," "Event is," and "Level is" illustrate the connections.  The graph visually shows a hierarchical or network structure linking logs, events, and components. -->
 
-<span id="page-5-1"></span>![](_page_5_Figure_3.jpeg)
-<!-- Image Description: This flowchart illustrates a temporal knowledge graph (TKG) based approach for fine-tuning large language models (LLMs). A TKG is used to create an ExplainTemp dataset, which is then used to fine-tune the Llama 2 series of foundation models, resulting in the TimeLlama series. Human annotators provide test set annotations, and model performance is evaluated using BertScore, BLEU, and ROUGE metrics. The diagram shows data flow and the process of model training and evaluation. -->
+Fig. 4. Example of knowledge graph, where different kinds of entities and relations are shown (best viewed in color).
 
-Figure 3: The pipeline of finetuning and evaluating TimeLlama series models. TKGIG Strategy denotes our proposed dataset construction approach.
+logs to obtain templates and assigns tags to each template. In Fig. 3, E*<sup>i</sup>* represents the *i*th log template corresponding to a specific system event. Third, *GAE-Log* constructs the event graph by capturing temporal dynamics to model transitions among log events. Temporal dynamics refer to the connections between log events abstracted from the raw log data, determined based on their occurrence in the log sequence. This modeling approach captures the dynamic changes in the workflow during the execution of system tasks. Furthermore, *GAE-Log* performs normalization on the cooccurrence times of events to compute edge weights w*i*. For an edge e*i,j* involving nodes E*<sup>i</sup>* and E*<sup>j</sup>* , the cooccurrence count of the two nodes in the entire event graph is calculated as c*i,j* , and the total number of edges in the event graph is denoted as s*i,j* . The weight of edge e*i,j* is expressed as c*i,j*/s*i,j* .
 
-To further evaluate the quality of our dataset and construct a standardized testing dataset, two experienced annotators independently evaluated a random sample of 1,200 explanations. The annotators rated each explanation on three criteria: 1) correctness, which assessed whether the prediction and explanation were accurate; 2) completeness, which evaluated if the explanation provided the necessary context to understand the prediction; and 3) fluency, which measured if the explanation was clear and understandable. The annotation guidelines and annotator qualifications are detailed in Appendix [A.](#page-9-21) Cohen's kappa coefficient was calculated to determine inter-rater agreement for each criterion. As shown in Table [2,](#page-4-0) a high level of agreement was achieved for all criteria. In particular, the annotators demonstrated strong agreement on fluency ratings and agreement was higher overall for samples receiving neutral labels. As illustrated in Fig. [2,](#page-4-1) most samples received high scores across all three criteria. The strong inter-rater agreement and generally high scores indicate the testing dataset represents a high-quality, standardized sample for evaluation. Low-scoring samples on any of the criteria were excluded.
+Afterward, the event graphs are encoded into vectors using graph embedding methods. Each event graph represents the execution of an individual system task and is associated with a label. In practice, *GAE-Log* takes the nodes and edges of a graph as input and employs the graph2vec [\[50\]](#page-12-0) algorithm to obtain the feature vector**v***<sup>i</sup>* for the entire event graph. The graph embedding is performed by treating the entire graph as a document and rooted subgraphs as words. Through doc2vec [\[51\],](#page-12-0) embedding vectors are generated for each node, representing specific log events. In particular,
 
-### 4 TimeLlama
+$$
+\mathbf{v}_i = [v_{i1}, v_{i2}, v_{i3}, \ldots], i \in [1, d]. \tag{1}
+$$
 
-As illustrated in Fig. [3,](#page-5-1) we present the TimeLlama model series, representing the first LLMs fine-tuned specifically for complex temporal reasoning tasks, namely explainable event forecasting. By instruction tuning the models on datasets requiring the comprehension and synthesis of temporal information, TimeLlama gains an enhanced ability to make logical inferences about the timing, duration, and relations between events. This supports a more accurate prediction of what events may occur next given a historical context. We construct TimeLlama-7b and TimeLlama-13b by finetuning the base Llama-7b and Llama-13b models, respectively. The finetuning
+## *B. Knowledge Graph*
 
-#### WWW '24, May 13–17, 2024, Singapore, Singapore Chenhan Yuan, Qianqian Xie, Jimin Huang, and Sophia Ananiadou
+Due to the inherent complexity of the system, anomalies may involve various software and hardware. Relying solely on modeling the log data makes it challenging to fully analyze the system's status, while an anomaly often involves the configuration and contextual information of multiple components. To gain a comprehensive understanding of the system with minimal human intervention, we devise a knowledge graph to assist anomaly detection. Fig. 4 displays an example of the knowledge graph, illustrating the presence of different entities and their relations.
 
-<span id="page-5-2"></span>![](_page_5_Figure_9.jpeg)
-<!-- Image Description: The image contains two line graphs showing the performance of different models based on the percentage of fine-tuned models used. The left graph displays sentiment analysis results (neutral, negative, positive, overall) across varying percentages of fine-tuned models. The right graph shows BLEU, ROUGE, BertF1, BertPrec, and BertRec scores under the same conditions. Both graphs illustrate the impact of fine-tuning percentage on model performance metrics. -->
+| Log entity       | <b>Event entity</b> | Level entity | <b>Component entity</b>   | <b>Content entity</b>                    |
+|------------------|---------------------|--------------|---------------------------|------------------------------------------|
+| Log <sub>i</sub> | $E_{I}$             | <b>INFO</b>  | dfs.DataNode\$DataXceiver | Receiving block <*> src: /<*> dest: /<*> |
+| $Log_2$          | $E_{\rm S}$         | <b>INFO</b>  | dfs.FSNamesystem          | BLOCK* NameSystem.allocateBlock: <*>     |
+| Log <sub>3</sub> | $E_{I}$             | <b>INFO</b>  | dfs.DataNode\$DataXceiver | Receiving block <*> src: /<*> dest: /<*> |
+| Log <sub>4</sub> | $E_{I}$             | <b>INFO</b>  | dfs.DataNode\$DataXceiver | Receiving block <*> src: /<*> dest: /<*> |
 
-Figure 4: The automatic evaluation scores of finetuned Llama2 with various percentages of dataset usage. From left to right: F1 scores of each category, BLEU and ROUGE scores, BERTScore.
+Fig. 5. Example of entity extraction for the knowledge graph.
 
-process utilizes Flash Attention and DeepSpeed to accelerate training [\[10,](#page-8-35) [44\]](#page-9-22). Full hyperparameters can be found in Appendix [D.2.](#page-10-2) Additionally, by finetuning the Llama-7b/13b conversational models, we construct ChatTimeLlama-7b and ChatTimeLlama-13b, based on Llama-2-Chat-7b/13b optimized using reinforcement learning from human feedback (RLHF) [\[41\]](#page-9-10).
+Specifically, the knowledge graph comprises five categories of entities:
 
-#### 4 EXPERIMENTS
+- 1) *Log entity.* The log entity represents the raw log messages, as shown by the red nodes in Fig. [4.](#page-4-0) For simplicity, we denote the ith log message as Log*i*.
+- 2) *Event entity.* The event entity corresponds to the system event associated with the raw log, represented by the yellow nodes in Fig. [4.](#page-4-0)
+- 3) *Level entity.* The level entity signifies the importance of each log and is depicted by the gray nodes in Fig. [4.](#page-4-0) In this article, the level entity includes INFO, WARN, ERROR, and FATAL.
+- 4) *Component entity.* The component entity indicates the component to which the log belongs. The blue nodes in Fig. [4](#page-4-0) represent the component entities.
+- 5) *Content entity.* The content entity is associated with the specific content of the log. The green nodes in Fig. [4](#page-4-0) denote the content entities.
 
-#### 1 Experimental Settings
+Furthermore, we define the following four types of relations:
 
-Baselines. We evaluate and compare the following LLMs as the baselines: Flan T5 [\[8\]](#page-8-36): An instruction-finetuned T5 model based on chain-of-thought data that increased the number of tasks. BART [\[29\]](#page-8-37): An encoder-decoder architecture model that is proficient in abstractive dialogue, question answering, and summarization tasks. MPT-7b [\[52\]](#page-9-23): A LLM that is optimized for extremely long inputs. The MPT model with 7b parameters fine-tuned for dialogue generation is used in our experiment. Falcon-7b [\[43\]](#page-9-24): A LLM that is optimized for faster inference with decoder-only architecture. The 7B dialogue-fine-tuned version is used. Vicuna-7b [\[66\]](#page-9-25): A chatbot trained by finetuning LLaMA on a dataset collected from ShareGPT. ChatGPT [\[14\]](#page-8-38): A chatbot based on GPT-3.5 LLM that is capable of having natural conversations. Llama2-7b/13b-chat [\[53\]](#page-9-11): Llama-2 is a collection of open-sourced LLMs that outperform other models in most tasks. The chat-fine-tuned Llama2-7b/13b is used.
+- 1) *Relations among logs and events* illustrate the specific system event corresponding to each log.
+- 2) *Relations among logs and levels*indicate the level to which each log belongs.
+- 3) *Relations among logs and components* depict the components associated with each log.
+- 4) *Relations among logs and content* describe the content of each log.
 
-Metrics. Our evaluation can be roughly divided into automatic and human evaluation. In automatic evaluation, we first report precision, recall, and F1 scores of event predictions. For explanation evaluation, we choose BLEU [\[42\]](#page-9-26) (unigram, bigram, 3-gram, 4 gram) and ROUGE [\[35\]](#page-8-39) (rouge1, rouge2, rougeL) to compare the explanation generated by the LLMs with the golden explanations in the testing set. Besides the metric-based methods, we also report the BertScore [\[64\]](#page-9-27) that computes the similarity based on PLMs. We use the same evaluation criteria introduced in Sec. [3.3](#page-4-2) for human evaluation, namely correctness, completeness, and fluency.
+Now, let us illustrate how the construction algorithm works. First, we predefine the entities and relations based on effective data analysis. Then, we perform entity extraction to get five types of entities, as shown in Fig. 5. For these five types of entities, we utilize the corresponding relations to connect them. Take the four log messages in Fig. 5 as an example, we explain how Fig. [4](#page-4-0) is established. Starting with Log<sup>1</sup> as the central node, we analyze the entity extraction results and find its event entity is E1, establishing a relation between Log<sup>1</sup> and E1. In addition, the level entity for Log<sup>1</sup> is INFO, so we connect Log<sup>1</sup> and INFO to indicate that the level for Log<sup>1</sup> is INFO. Similarly, we connect Log<sup>1</sup> with its component entity and content entity. Furthermore, considering entities Log<sup>1</sup> and Log2, they both have the log level INFO. For entities Log<sup>1</sup> and Log3, their event templates are E1, while for entities Log<sup>1</sup> and Log4, their component entities are the same. Hence, we connect them through relations among logs and levels and relations among logs and components, respectively. By applying these connections, we obtain the complete knowledge graph, as depicted in Fig. [4.](#page-4-0)
 
-#### 2 Automatic Evaluation Results
+In conclusion, the knowledge graph in *GAE-Log* offers a simple and user-friendly approach for construction. It efficiently captures abundant information that depicts the system running status. Furthermore, by incorporating system topology, it effectively uncovers intercomponent relations, facilitating system understanding and anomaly detection. The constructed knowledge graph is then encoded into embedding vectors **k***i*, which enhance the training of anomaly detection models on log datasets and resulting in performance improvements
 
-4.2.1 Prediction Evaluation. In Table [4,](#page-6-0) we present compelling evidence of the substantial enhancements achieved through the finetuning of the ChatTimeLlama-7b model. Notably, our finetuned Llama2-7b model surpasses its baseline counterpart across multiple performance metrics. Specifically, we observe impressive F1 gains Back to the Future: Towards Explainable Temporal Reasoning with Large Language Models WWW '24, May 13–17, 2024, Singapore, Singapore
+$$
+\mathbf{k}_{i} = [k_{i1}, k_{i2}, k_{i3}, \ldots], i \in [1, d].
+$$
+ (2)
 
-<span id="page-6-0"></span>
+In our previous work, LogM [\[36\],](#page-12-0) we also utilized a knowledge graph. To provide a more thorough comparison, let us further discuss the differences between the two approaches. The knowledge graph employed in LogM is designed as an anomaly knowledge graph to facilitate the failure diagnosis. In this context, the entities represent abnormal events and root causes within the system, while the relations capture the characteristics of abnormal events and their corresponding root causes. Conversely, the knowledge graph proposed in this study serves as a system architecture knowledge graph aimed at enhancing the anomaly detection performance. It encompasses various entities such as log entities, event entities, component entities, and more. The relations within this knowledge graph depict specific events associated with logs and the source components of the logs, etc. In terms of diversity and informativeness, the entities and relations in *GAE-Log* offer a broader range of informative characteristics compared to those in LogM. To summarize, these two types of knowledge graphs not only exhibit significant differences in terms of entities and relations, but also address distinct downstream tasks.
 
-| Models            | Positive |      |      |      | Negative |      |      | Neutral |      |      | Overall |      |
-|-------------------|----------|------|------|------|----------|------|------|---------|------|------|---------|------|
-|                   | Prec     | Recl | F1   | Prec | Recl     | F1   | Prec | Recal   | F1   | Prec | Recal   | F1   |
-| Flan T5           | 62.9     | 29.2 | 39.9 | 31.4 | 57.0     | 40.5 | 32.2 | 30.8    | 31.5 | 45.3 | 38.0    | 38.0 |
-| BART              | 45.7     | 28.2 | 34.9 | 26.3 | 11.7     | 16.2 | 21.5 | 18.3    | 19.8 | 33.6 | 27.0    | 25.3 |
-| MPT-7b            | 48.5     | 64.6 | 55.4 | 39.5 | 35.7     | 37.5 | 25.8 | 14.7    | 18.7 | 39.8 | 42.7    | 40.3 |
-| Falcon-7b         | 47.7     | 56.6 | 51.7 | 37.9 | 22.0     | 27.8 | 19.9 | 23.3    | 21.5 | 37.4 | 37.4    | 36.5 |
-| Vicuna-7b         | 48.4     | 80.5 | 60.4 | 41.3 | 21.3     | 28.1 | 35.8 | 16.5    | 22.6 | 42.7 | 45.6    | 40.4 |
-| ChatGPT           | 90.9     | 39.1 | 54.7 | 29.5 | 31.7     | 30.5 | 30.7 | 56.8    | 39.8 | 56.5 | 41.6    | 43.5 |
-| Llama2-7b-chat    | 50.1     | 83.9 | 62.7 | 41.9 | 13.0     | 19.8 | 27.4 | 18.4    | 22.0 | 41.6 | 45.3    | 39.1 |
-| Llama2-13b-chat   | 51.3     | 53.8 | 52.5 | 40.0 | 26.0     | 31.5 | 28.0 | 36.8    | 31.8 | 41.7 | 41.0    | 40.7 |
-| TimeLlama-7b      | 90.1     | 97.6 | 93.7 | 67.6 | 84.9     | 75.3 | 97.8 | 55.1    | 70.5 | 84.6 | 82.7    | 81.5 |
-| ChatTimeLlama-7b  | 91.3     | 99.3 | 95.2 | 68.3 | 86.0     | 76.1 | 98.7 | 55.6    | 71.2 | 86.4 | 83.7    | 83.1 |
-| TimeLlama-13b     | 94.6     | 100  | 97.2 | 73.9 | 91.3     | 81.7 | 99.4 | 63.5    | 77.5 | 89.6 | 87.7    | 87.3 |
-| ChatTimeLlama-13b | 96.2     | 99.5 | 97.9 | 75.0 | 94.0     | 83.4 | 98.9 | 65.0    | 78.5 | 90.6 | 88.7    | 88.4 |
+#### *C. Graph Feature Fusion*
 
-Table 4: The prediction performance of each model on gold temporal reasoning testing set. The overall denotes the weighted average precision, recall, and F1 score.
+The event graph and knowledge graph are closely related but exhibit significant differences. First, the event graph is a directed, homogeneous, and weighted network constructed using sequential logs. It represents the execution of individual system tasks within certain task-specific contexts. On the other hand, the knowledge graph encodes entities and relations into triples (h, r, t), where h, r, and t represent head entities, relations, and tail entities, respectively. The knowledge graph is an undirected, heterogeneous network without weights, constructed using configuration information, system topology, and raw logs. Furthermore, the knowledge graph serves as a semantic network that reflects the objective laws of the system. In a sense, the knowledge graph is an abstract graph with shared attributes among multiple event graphs. While the event graph focuses on the execution of a specific system task, the knowledge graph collects relevant information about the entire system's status. The event graph and knowledge graph are complementary to each other, as they capture different aspects of the system. To leverage their correlation and differences, we propose a graph feature fusion <span id="page-6-0"></span>method that integrates features from both graphs, resulting in a more comprehensive understanding of the system's status.
 
-<span id="page-6-1"></span>
+In *GAE-Log*, the integration of the event graph embedding feature **v***<sup>i</sup>* and the knowledge graph embedding feature **k***<sup>i</sup>* is accomplished through a linear combination, as shown in the following formula:
 
-| Models            |         |        | BLEU |      | ROUGE |        |        |        |               | BertScore |       |      |
-|-------------------|---------|--------|------|------|-------|--------|--------|--------|---------------|-----------|-------|------|
-|                   | unigram | bigram | 3-gr | 4-gr | avg   | rouge1 | rouge2 | rougeL | rougesum Prec |           | Recal | F1   |
-| Flan T5           | 48.9    | 16.9   | 9.7  | 6.6  | 15.2  | 28.9   | 7.5    | 26.1   | 26.0          | 77.6      | 78.1  | 76.9 |
-| BART              | 24.5    | 11.5   | 7.1  | 4.3  | 8.9   | 23.1   | 6.3    | 19.8   | 19.7          | 75.3      | 76.7  | 74.9 |
-| MPT-7b            | 28.7    | 11.9   | 7.4  | 5.2  | 10.7  | 31.8   | 13.4   | 26.9   | 27.2          | 81.4      | 80.5  | 80.1 |
-| Falcon-7b         | 54.9    | 22.7   | 13.6 | 9.1  | 19.8  | 33.8   | 13.9   | 29.2   | 29.3          | 80.3      | 80.4  | 79.9 |
-| Vicuna-7b         | 60.5    | 27.7   | 16.5 | 10.9 | 23.5  | 43.3   | 19.7   | 37.1   | 37.2          | 83.7      | 83.8  | 83.3 |
-| ChatGPT           | 66.9    | 34.7   | 23.5 | 17.2 | 31.1  | 42.2   | 22.6   | 37.1   | 37.1          | 84.8      | 83.8  | 83.7 |
-| Llama2-7b-chat    | 61.9    | 30.4   | 19.6 | 13.9 | 26.8  | 44.2   | 23.7   | 38.3   | 38.4          | 84.2      | 84.5  | 83.8 |
-| Llama2-13b-chat   | 60.9    | 29.3   | 18.5 | 12.9 | 25.5  | 42.4   | 21.8   | 36.6   | 36.6          | 83.7      | 84.1  | 83.4 |
-| TimeLlama-7b      | 77.5    | 50.5   | 38.8 | 30.7 | 59.9  | 46.3   | 29.6   | 56.6   | 56.5          | 91.0      | 90.2  | 90.2 |
-| ChatTimeLlama-7b  | 78.3    | 52.4   | 40.2 | 32.6 | 61.9  | 48.2   | 31.1   | 57.6   | 57.7          | 89.2      | 88.3  | 88.8 |
-| TimeLlama-13b     | 76.5    | 48.8   | 36.5 | 29.1 | 44.6  | 59.4   | 29.5   | 54.9   | 54.9          | 90.0      | 89.4  | 89.4 |
-| ChatTimeLlama-13b | 77.4    | 50.5   | 38.2 | 30.7 | 46.3  | 60.7   | 30.2   | 56.2   | 56.3          | 90.5      | 89.7  | 89.7 |
+$$
+\mathbf{x}_i = \alpha \mathbf{v}_i \oplus \beta \mathbf{k}_i \tag{3}
+$$
 
-Table 5: The explanation generation performance of each model on gold temporal reasoning testing set.
+where ⊕ denotes the concatenation operation, and α and β are weight coefficients. The weight coefficients are used to determine the importance of the event graph features and the knowledge graph features. Specifically, α is constrained within the range (0,1] and β within the range [0,1]. To find the optimal weight parameters, experiments are performed. Initially, one of the weight parameters, either α or β, is fixed while the other is dynamically adjusted. This process examines the influence of each weight parameter on anomaly detection. Finally, the parameter combination resulting in the best performance is selected.
 
-<span id="page-6-2"></span>![](_page_6_Figure_6.jpeg)
-<!-- Image Description: The image displays four box plots, each comparing the performance of a different large language model (LLM): Llama-7b, Finetuned Llama2, ChatGPT, and Vicuna-7b. Each box plot shows the distribution of scores across three metrics: "Correct," "Complete," and "Fluency." The plots visually compare the LLMs' performance on these criteria, allowing for a quick assessment of their relative strengths and weaknesses. -->
+#### *D. Anomaly Detection*
 
-#### Figure 5: The box plots of human evaluation for each LLM. The dashed line denotes the mean value and the bold line indicates the median value.
+Logs serve as records of the system's running status, following a predetermined workflow during normal executions. Log anomaly detection aims to identify anomalous patterns deviating from normal behavior. To achieve this, it is essential to model the temporal dynamics of sequential logs in their normal state to effectively distinguish anomalous patterns. One commonly utilized neural network model for anomaly detection is the autoencoder. The underlying assumption of an autoencoder is that normal samples are relatively straightforward to reconstruct compared to anomalies and conform to expected distributions. Therefore, we employ an autoencoder to model the sequential logs during the normal state, enabling the discrimination of the system's status.
 
-improvements of 44.0, 32.5, 56.3, and 49.2 across four categories: positive, negative, neutral, and overall. These figures underscore the efficacy of our finetuning approach, even in the presence of noise within the training dataset. Notably, this underscores the
+Traditional autoencoders primarily focus on minimizing the reconstruction error during training. However, relying solely on optimizing the reconstruction error can lead to a limitation. This limitation arises when certain abnormal logs closely resemble normal logs. In such cases, optimizing solely for reconstruction error may result in small reconstruction errors for these anomalies, which in turn compromises the accuracy of the anomaly detection model. To address this issue, we draw inspiration from the concept of generative adversarial nets introduced in [\[52\].](#page-12-0) By incorporating this idea into the training of autoencoders, we aim to enhance their performance. This approach enables us to go beyond reconstruction error as the sole optimization criterion, leading to improved accuracy in log anomaly detection.
 
-capacity of LLMs to leverage high-quality generated datasets by instruction-tuning for substantial performance enhancements.
+*Problem formulation:* In the context of *GAE-Log*, each instance of the overall feature **x***<sup>i</sup>* represents a complete system event associated with a log sequence. *GAE-Log* utilizes a network to calculate the anomaly score for a given feature **x***i*. The objective of the anomaly detection method is to determine whether the input **x***<sup>i</sup>* belongs to class y = 0 or class y = 1 based on its anomaly score.
 
-Bigger LLM is not always better. Interestingly, increasing the model scale does not necessarily improve performance. Doubling the parameters from Llama2-7b-chat to Llama2-13b-chat yielded only marginal gains, with Llama2-7b-chat actually outperforming Llama2-13b-chat on the positive class. For instance, Llama2-7b-chat has a 10.2 F1 gain compared with Llama2-13b-chat in the positive category. Another example is the comparison between MPT-B and Flan T5. For instance, when we examined the "unsure" category, we observed that Flan T5 demonstrated an impressive F1 score of 31.5. It outperforms both MPT-7b and Falcon-7b, which achieved F1 scores of 18.7 and 21.5, respectively.
+Here, a binary variable y ∈ {0, 1} is employed, where y = 0 denotes that the event corresponding to the log sequence is considered normal, while y = 1 indicates that the event is classified as abnormal. By assessing the anomaly score, *GAE-Log* makes a prediction regarding the class membership of the input **x***i*.
 
-ChatGPT performs mediocre in the zero-shot setting. Notably, even though our dataset is generated by prompting ChatGPT, it is evident that ChatGPT exhibits suboptimal performance when presented with direct prompts, in contrast to our dataset construction approach. To provide a comprehensive view of ChatGPT's performance, we compare it with Vicuna-7b, a model that was not involved in the dataset construction process. The results reveal that ChatGPT achieves an overall F1 score of 43.5, while Vicuna-7b demonstrates a comparable F1 score of 40.4. Furthermore, our finetuned model, Llama2-7b-chat, exhibits a substantial 39.6 F1 point improvement over ChatGPT's performance.
+In our study, we present the network structure as depicted in Fig. [6.](#page-7-0) The network primarily consists of two autoencoders. These autoencoders undergo adversarial training to enable anomaly detection for log data. Specifically, the training stage is divided into two parts. Step A, illustrated in Fig. [6,](#page-7-0) involves minimizing the reconstruction error of the autoencoder. This step aims to enhance the model's ability to accurately reconstruct input data. Step B, also depicted in Fig. [6,](#page-7-0) focuses on optimizing the decoders through adversarial training. This step leverages the principles of adversarial training to refine the decoder components of the network.
 
-<span id="page-7-0"></span>4.2.2 Explanation Evaluation. In Table [5,](#page-6-1) we present the automatic evaluation results for the explanation generation. Notably, our finetuned variant, ChatTimeLlama-7b, demonstrates remarkable improvements across all key evaluation metrics. For instance, when compared to the baseline Llama2-7b-chat, ChatTimeLlama-7b exhibits substantial enhancements in BLEU, ROUGE, and BertCore scores, with gains of 35.1, 19.3, and 6.4 points, respectively. These results underscore the significant potential for enhancing the explainable temporal reasoning capabilities of LLMs through instruction tuning based on high-quality datasets.
+*Training Stage:* We divide the training stage into two steps.
 
-Parallel to our prediction evaluation, our examination of explanation quality yields insightful observations. First, our explanation evaluation results also demonstrate that ChatGPT with direct prompting exhibits limitations in generating coherent reasoning explanations. For example, the BLEU and ROUGE scores of ChatGPT are 31.1 and 37.1 while Llama2-7b-chat can also achieve comparable performance, i.e., 26.8 BLEU score and 38.4 ROUGE score. Second, the explanation quality of TimeLlama-13b is not better than that of TimeLlama-7b. For example, ChatTimeLlama-7b achieves a 61.9 BLEU score while ChatTimeLlama-13b has 46.3 BLEU. This may be due to overfitting, and lack of grounding where maximizing prediction harms explainability.
+*Step A:* To begin, we process the input data feature **x***<sup>i</sup>* by feeding it into the encoder. This produces the hidden variable feature, denoted as Z. Subsequently, we utilize two separate decoders, D<sup>1</sup> and D2, to reconstruct the feature representation of **x***<sup>i</sup>* as D1(**x***i*) and D2(**x***i*), respectively.
 
-#### 3 Human Evaluation Results
+The primary goal of Step A is to minimize the reconstruction error, which constitutes a crucial aspect of the training process. This is achieved by iteratively adjusting the encoder and decoders to optimize the fidelity of the reconstructed features. Mathematically, the optimization steps can be formally expressed as
 
-To provide an objective assessment of the quality of the generated explanations, two experienced annotators evaluated explanations from four language models: Llama2-7b, TimeLlama2-7b, ChatGPT, and Vicuna-7b. The annotation guidelines and annotator qualifications are detailed in Appendix [A.](#page-9-21) 50 explanations from each model were randomly selected, paired with the corresponding question, and evaluated by the annotators. As shown in Figure [5,](#page-6-2) the results demonstrate that overall the TimeLlama2-7b model achieved the highest scores across the three assessment criteria. Specifically, all models generated fluent explanations, as indicated by the high fluency scores. Llama2-7b and ChatGPT performed similarly on correctness and completeness. Compared to the baseline Llama2- 7b, the TimeLlama2-7b showed significantly improved correctness
+$$
+Z = E\left(\mathbf{x}_i\right) \tag{4}
+$$
 
-and completeness, suggesting that finetuning on the high-quality dataset enhanced its ability to provide coherent temporal reasoning explanations. Cohen's kappa coefficients in Appendix [A](#page-9-21) also show a high level of inter-annotator agreement for most model evaluations. In summary, the finetuned Llama2 model generated the highest quality explanations according to the human evaluation, demonstrating the efficacy of finetuning on a curated dataset to improve the explanatory capabilities of language models for temporal reasoning.
+$$
+L_{re}(\mathbf{x}_i, D_1(\mathbf{x}_i)) = ||\mathbf{x}_i - D_1(\mathbf{x}_i)||_2 \tag{5}
+$$
 
-#### 4 Fractional Data Trains LLM Reasoning Skills
+$$
+L_{re}(\mathbf{x}_i, D_2(\mathbf{x}_i)) = ||\mathbf{x}_i - D_2(\mathbf{x}_i)||_2 \tag{6}
+$$
 
-Previous experiments have demonstrated that finetuning LLMs on high-quality datasets can significantly improve their ability to provide explainable temporal reasoning. This leads to an investigation of the minimum amount of high-quality data required to improve the explainable temporal reasoning capabilities of LLMs. To test this, 10%, 50%, and 75% of the training samples were randomly selected from the dataset to fine-tune Llama2-7b using the same finetuning methodology. Interestingly, Llama2 fine-tuned on reduced amounts of data achieved comparable or better performance on automatic prediction and explanation evaluation metrics in some cases (Fig. [4\)](#page-5-2). For instance, Llama2 fine-tuned on 75% of the dataset attained a higher F1 score for prediction accuracy compared to the full dataset. Moreover, the Llama2 fine-tuned on just 10% of the data obtained similar performance on explanation metrics such as ROUGE score and BERT score versus Llama2 fine-tuned on 75% and the full dataset. These results demonstrate that with guidance from even a small volume of high-quality data, the temporal reasoning and explanation generation skills of LLMs can be substantially enhanced.
+$$
+\min L_{re}(\mathbf{x}_i, D_1(\mathbf{x}_i))
+$$
+\n(7)
 
-#### 5 CONCLUSION
+$$
+\min L_{re}(\mathbf{x}_i, D_2(\mathbf{x}_i))\,. \tag{8}
+$$
 
-In this work, we propose the first task of explainable temporal reasoning, to predict an event's occurrence at a future timestamp and generate the explanation for their prediction. To support this task, we introduce a novel dataset ExplainTemp, containing 26k examples derived from temporal knowledge graphs, developed by a novel knowledge-graph-instructed-generation strategy. Based on this dataset, we develop TimeLlama, an open-source LLM series tuned with instructions for temporal reasoning and explanation generation. Experiments demonstrate the SOTA performance of TimeLlama on future event prediction and explanation generation compared to other LLMs. We find the instruction-tuning using highquality data is critical for improving LLM's temporal reasoning and explainability. We discuss associated ethical considerations and limitations in Appendix [E.](#page-11-1) In the future, we plan to expand the breadth and diversity of our benchmark dataset by incorporating more temporal reasoning tasks.
+*Step B:* The objective of this step is twofold: to train decoder D<sup>2</sup> to discriminate between real data and data generated by decoder D1, and to train decoder D<sup>1</sup> to deceive decoder D2. This adversarial training process enhances the discrimination ability of decoder D<sup>2</sup> for detecting anomalies. Specifically, we take the data D1(**x***i*)reconstructed by decoder D<sup>1</sup> and feed it into autoencoder 2, resulting in the reconstructed data D2(D1(**x***i*)). In this step, decoder D<sup>1</sup> aims to minimize the reconstruction error, striving to accurately reconstruct the input data. Conversely, decoder D<sup>2</sup> seeks to maximize the reconstruction error, effectively distinguishing anomalies from normal data. The specific optimization function is
 
-#### ACKNOWLEDGMENTS
+$$
+\min_{D_1} \max_{D_2} ||\mathbf{x}_i - D_2(D_1(\mathbf{x}_i))||_2.
+$$
+ (9)
 
-We thank reviewers and area chair for their valuable feedback. This work is supported by the project JPNP20006 from New Energy and Industrial Technology Development Organization (NEDO).
+By incorporating the concept of adversarial training, we aim to empower autoencoder 2 with superior anomaly discrimination capabilities.
 
-Back to the Future: Towards Explainable Temporal Reasoning with Large Language Models WWW '24, May 13–17, 2024, Singapore, Singapore
+To summarize, Step B comprises a dual-training approach where decoder D<sup>1</sup> focuses on minimizing the reconstruction error, while decoder D<sup>2</sup> aims to maximize the reconstruction
+
+<span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image depicts a two-autoencoder anomaly detection system.  Input (Xᵢ) passes through Autoencoder 1 (AE₁) yielding a latent representation (Z).  Z is then input to Autoencoder 2 (AE₂).  Reconstruction losses (Lre) from both decoders (D₁, D₂) are combined to calculate an anomaly score.  The diagram uses boxes to represent layers within the autoencoders, and arrows to show data flow. -->
+
+Fig. 6. Network architecture of anomaly detection in *GAE-Log*, which includes one encoder and two decoders (best viewed in color).
+
+error. This interplay is fundamental in enhancing the anomaly detection capabilities of autoencoder 2.
+
+In line with [\(5\)](#page-6-0) and [\(6\),](#page-6-0) the final objective functions of the two autoencoders are equivalent to
+
+$$
+\mathcal{L}_{AE_1} = \frac{1}{n} L_{re} \left( \mathbf{x}_i, D_1(\mathbf{x}_i) \right) + \left( 1 - \frac{1}{n} \right) ||\mathbf{x}_i - D_2 \left( D_1(\mathbf{x}_i) \right)||_2
+$$
+\n(10)
+
+$$
+\mathcal{L}_{AE_2} = \frac{1}{n} L_{re} \left( \mathbf{x}_i, D_2(\mathbf{x}_i) \right) - \left( 1 - \frac{1}{n} \right) ||\mathbf{x}_i - D_2 \left( D_1 \left( \mathbf{x}_i \right) \right)||_2 \tag{11}
+$$
+
+where n denotes a training epoch.
+
+*Detection Stage:* Furthermore, during the anomaly detection stage, we consider two factors simultaneously and define the following the anomaly score :
+
+$$
+\epsilon(\mathbf{x}_i) = \delta L_{re} \left( \mathbf{x}_i, D_1(\mathbf{x}_i) \right) + \zeta L_{re} \left( \mathbf{x}_i, D_2 \left( D_1(\mathbf{x}_i) \right) \right) \tag{12}
+$$
+
+$$
+s.t. \delta + \zeta = 1. \tag{13}
+$$
+
+The first part of the function represents the reconstruction error of the log data using decoder D1, while the second part captures the discrepancy between the log data and the outputs of different decoders D<sup>1</sup> and D2. To ensure the desired detection sensitivity, we calculate the anomaly score by summing up these two components. To control the tradeoff between false positives and true positives, we introduce two parameters, δ and ζ, where δ<ζ indicates a high sensitivity and δ>ζ indicates a low sensitivity.
+
+Once the anomaly score exceeds a predefined threshold, we classify the log data as an anomaly; otherwise, we consider it a normal sample. In our experimental setup, we determine the threshold by analyzing the receiver operating characteristic (ROC) curve [\[53\].](#page-12-0) Specifically, during the testing stage, we **Algorithm 1:** The Anomaly Detection Algorithm of *GAE-Log*.
+
+**Input**: **x***i*: training sequential log feature, N: number of epochs, **xˆ***i*: testing sequential log feature, λ: threshold. **Output**: y: labels.
+
+Training stage:  
+\n
+$$
+E, D_1, D_2 \leftarrow
+$$
+ initialize weights  
+\n $n \leftarrow 1$   
+\nwhile  $n < N$  do  
+\n $Z_i \leftarrow E(\mathbf{x}_i)$   
+\n $\bar{\mathbf{x}}_i^1 \leftarrow D_1(Z_i)$   
+\n $\bar{\mathbf{x}}_i^2 \leftarrow D_2(Z_i)$   
+\n $\bar{\mathbf{x}}_i^2 \leftarrow D_2(E(\bar{\mathbf{x}}_i^1))$   
+\n $\mathcal{L}_{AE_1} \leftarrow \frac{1}{n} ||\mathbf{x}_i - \bar{\mathbf{x}}_i^1||_2 + (1 - \frac{1}{n}) ||\mathbf{x}_i - \bar{\mathbf{x}}_i^2||_2$   
+\n $\mathcal{L}_{AE_2} \leftarrow \frac{1}{n} ||\mathbf{x}_i - \bar{\mathbf{x}}_i^2||_2 - (1 - \frac{1}{n}) ||\mathbf{x}_i - \bar{\mathbf{x}}_i^2||_2$   
+\nend while  
+\nTesting stage:  
+\n $\hat{\mathbf{x}}_i^1 \leftarrow D_1(E(\hat{\mathbf{x}}_i))$   
+\n $\hat{\mathbf{x}}_i^2 \leftarrow D_2(E(\hat{\mathbf{x}}_i^1))$   
+\n $\epsilon(\hat{\mathbf{x}}_i) = ||\hat{\mathbf{x}}_i - \hat{\mathbf{x}}_i^1||_2 + ||\hat{\mathbf{x}}_i - \hat{\mathbf{x}}_i^2||_2$   
+\nif  $\epsilon(\hat{\mathbf{x}}_i) \ge \lambda$  then  
+\n $y = 1$   
+\nelse  
+\n $y = 0$   
+\nend if
+
+initially calculate the ROC curve to assess the performance of our model. By carefully interpreting the ROC curve, we can determine the optimal threshold that maximizes the performance of our anomaly detection system. Specifically, the overall flow of the algorithm is shown in Algorithm 1.
+
+TABLE I SETUP OF THE DIFFERENT LOG DATASETS
+
+<span id="page-8-0"></span>
+
+| Log Datasets | Number of log messages | Anomaly ratio |
+|--------------|------------------------|---------------|
+| <b>HDFS</b>  | 100 000                | $2.9\%$       |
+| OpenStack    | 1 3 3 3 3 1 8          | $7.1\%$       |
+| WordCount    | 156 203                | 4.8%          |
+| PageRank     | 138 475                | 6.3%          |
+| WordSort     | 19535                  | 6.7%          |
+
+The key of the anomaly detection network is to achieve high-performance anomaly detection for logs by effectively combining the efficient reconstruction capability of the autoencoder for normal data with the discriminative power of different branch decoder networks for anomaly data, achieved through adversarial training.
+
+#### IV. PERFORMANCE EVALUATION
+
+In this section, our main focus is on the performance evaluation of the proposed method. First, we present a detailed description of the dataset. Second, we describe the baselines. Third, we show the evaluation metrics. Fourth, we provide experimental results. Fifth, we conduct an ablation study to analyze the impact of different components. Finally, we compare the computational complexity of the *GAE-Log* with other algorithms.
+
+## *A. Dataset Description*
+
+*Public dataset:* The *HDFS log dataset* collects logs from Hadoop platform [\[13\].](#page-11-0) We have randomly selected 100 000 log messages from this dataset for conducting our experiments. The HDFS logs provide accurate records of block operations, we partitioned the log data into sessions based on different block IDs, allowing us to analyze the log data at a more granular level.
+
+The *OpenStack log dataset* [\[29\]](#page-12-0) is sourced from the CloudLab cloud computing platform [\[54\].](#page-12-0) This dataset comprises over 1 million logs, with abnormal logs accounting for approximately 7% of the total logs.
+
+*Synthetic Dataset:* To generate this dataset, we set up a Hadoop platform and executed various data analysis applications, including WordCount [\[55\],](#page-12-0) PageRank [\[56\],](#page-12-0) and Word-Sort [\[36\].](#page-12-0) To simulate real-world scenarios encountered in production environments, we manually injected six types of failures into the synthetic dataset. These failures include machine downtime, network disconnection, disk full situations, etc.
+
+Table I provides a summary of the details for all five datasets, including the total number of log messages and the anomaly ratio within each dataset. During the experiment, we randomly divided the original dataset into two equal parts for training and testing purposes. By utilizing these diverse datasets, we aim to assess the performance and robustness of our proposed method across different log sources and anomaly scenarios.
+
+#### *B. Baselines*
+
+We compare our *GAE-Log* with several baselines commonly used in log anomaly detection. These baselines include:
+
+- 1) Linear Regression (LR) [\[21\]:](#page-11-0) A statistics-based algorithm for log anomaly detection.
+- 2) Decision Tree (DT) [\[22\]:](#page-11-0) A classical tree-based log anomaly detection approach.
+- 3) Isolation Forest (iForest) [\[57\]:](#page-12-0) An effective unsupervised machine learning-based anomaly detection method.
+- 4) One-class SVM (OC-SVM) [\[58\]:](#page-12-0) A traditional method used to solve the problem of anomaly detection.
+- 5) LogCluster [\[17\]:](#page-11-0) An unsupervised log problem identification method proposed for online services.
+- 6) DeepLog [\[29\]:](#page-12-0) A popular paper in the log anomaly detection field that systematically proposes an LSTM-based method.
+- 7) CNN [\[35\]:](#page-12-0) The first paper that focuses on using a CNNbased model for log anomaly detection.
+- 8) LogRobust [\[33\]:](#page-12-0) A Bi-LSTM based method for log anomaly detection that considers the instability of logs.
+- 9) Logsy [\[34\]:](#page-12-0) A recently proposed transformer-based log anomaly detection method.
+
+To conduct our experiments, we utilize the open-source platform LOGPAI [\[39\],](#page-12-0) [\[59\]](#page-12-0) for implementing the aforementioned approaches. The *GAE-Log* model is built using PyTorch [\[60\].](#page-12-0) For training the autoencoders, we use the ReLU activation function [\[61\]](#page-12-0) and Sigmoid activation function. In our experiments, we set the dimension of the event graph embedding feature and the knowledge graph embedding feature as 128. For the *GAE-Log* model, the following parameter values are used: dim(**v***i*) = 128, dim(**k***i*) = 128, dim(**x***i*) = 256, and N = 100. We carefully analyze the results obtained from these parameter configurations in our experiments. By leveraging the LOGPAI platform and the PyTorch library, we ensure robust implementation and accurate evaluation of the proposed methods.
+
+#### *C. Evaluation Metrics*
+
+We employ the Precision, Recall, and F1-Score as metrics to evaluate the performance of log anomaly detection. The formulations are
+
+$$
+Precision = \frac{TP}{TP + FP}
+$$
+ (14)
+
+$$
+Recall = \frac{TP}{TP + FN}
+$$
+ (15)
+
+$$
+F1\text{-Score} = \frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}.\tag{16}
+$$
+
+#### *D. Experimental Results*
+
+The main focus of our proposed *GAE-Log* framework is to model sequential logs using event graphs and characterize system information using knowledge graphs. By integrating the features of event graphs and knowledge graphs, *GAE-Log* achieves a comprehensive understanding of system anomalies, leading to effective anomaly detection. In our experiments, we conduct both comparison experiments and an ablation study to verify the effectiveness of the *GAE-Log* framework.
+
+| Datasets<br>Approaches | <b>HDFS</b> | WordCount | PageRank | WordSort | OpenStack |
+|------------------------|-------------|-----------|----------|----------|-----------|
+| LR                     | 0.602       | 0.652     | 0.696    | 0.535    | 0.620     |
+| DT                     | 0.596       | 0.722     | 0.742    | 0.610    | 0.578     |
+| iForest                | 0.596       | 0.500     | 0.492    | 0.513    | 0.600     |
+| OC-SVM                 | 0.381       | 0.333     | 0.947    | 0.222    | 0.641     |
+| LogCluster [ICSE'16]   | 0.710       | 0.596     | 0.778    | 0.303    | 0.423     |
+| DeepLog [CCS'17]       | 0.640       | 0.893     | 0.700    | 0.667    | 0.932     |
+| CNN [DASC'18]          | 0.690       | 0.419     | 0.916    | 0.667    |           |
+| LogRobust [IJCAI'19]   | 0.690       | 0.901     | 0.778    | 0.667    | 0.825     |
+| Logsy [ICDM'20]        | 0.632       | 0.092     | 0.778    |          | 0.667     |
+| GAE-Log                | 0.975       | 0.948     | 0.952    | 0.955    | 0.999     |
+
+TABLE II COMPARISON RESULTS OF ANOMALY DETECTION ON DIFFERENT DATASETS IN TERMS OF F1-SCORE
+
+First, in the comparison experiments, we evaluate the performance of *GAE-Log* by comparing it with four machine learningbased algorithms commonly used for log anomaly detection. Additionally, we employ several representative deep learning-based baselines mentioned in the previous section. The performance of the *GAE-Log* framework and other models on different datasets, including HDFS logs, Hadoop application logs, and OpenStack logs, is presented in Table II. Through these experiments, we aim to demonstrate that our *GAE-Log* framework outperforms the baseline algorithms on various datasets, showcasing its superiority in log anomaly detection.
+
+In the case of HDFS logs, the results demonstrate that the *GAE-Log* framework achieves the best performance with an impressive F1-Score of **0.975**. The closest competitor among the baselines is LogCluster, which achieves an F1-Score of 0.71. Even in the presence of deep learning models, *GAE-Log* still has a superior detection performance. For the models using deep learning, the CNN-based model achieves the best performance with an F1-Score of 0.69, and the F1-Score of other models are between 0.63 and 0.65. For the models of machine learning, the LR gets the best F1-Score, while DT and iForest get the second best performance. Overall, *GAE-Log* achieves a promising anomaly detection performance on HDFS logs.
+
+For the WordCount application logs, the results indicate that *GAE-Log* achieves the best performance with an outstanding F1- Score of **0.948**. For baselines, LogRobust performs best with an F1-Score of 0.901. DeepLog is only inferior to LogRobust, while achieving an F1-Score of 0.893. In addition, the performance of other baselines is inferior, and Logsy is the most unfavorable due to its complex network structure and huge amount of parameters.
+
+For the PageRank applications, *GAE-Log* stands out as the best performer, achieving an impressive F1-Score of **0.952**. Among the baselines, the DT model shows favorable performance with an F1-Score of 0.947, which is only slightly inferior to *GAE-Log*. As for deep learning-based models, the CNN-based model achieves an F1-Score of 0.916 in log anomaly detection. The remaining baselines, except for iForest, have F1-Score between 0.7 and 0.8, which are inferior to *GAE-Log*.
+
+In the case of WordSort applications, *GAE-Log* delivers outstanding performance with an F1-Score of **0.955**, greatly surpassing other baselines. When comparing the baselines, we observe that DeepLog, CNN, and LogRobust show similar performance, with F1-Scores close to each other. However, OC-SVM performs relatively poorly, achieving an F1-Score of 0.222.
+
+From the results presented in Table II, it is evident that *GAE-Log* excels on the OpenStack log dataset. Specifically, *GAE-Log* achieves the best performance with an exceptional F1-Score of **0.999**. DeepLog follows closely with the secondbest performance, obtaining an F1-Score of 0.932. Among the remaining comparison baselines, LogRobust shows the best detection performance with an F1-Score of 0.825, which aligns with the results reported in the original paper.
+
+The overall performance of *GAE-Log* on different log datasets, including PageRank applications, WordSort applications, and OpenStack logs, demonstrates its superior performance in log anomaly detection. *GAE-Log* outperforms many of the baseline algorithms, showcasing its effectiveness and promising potential in practical applications.
+
+## *E. Ablation Study*
+
+In our ablation study, we conduct several experiments to determine the importance of different modules within *GAE-Log*. The following configurations are used:
+
+*EG/oKG: GAE-Log* performs anomaly detection using features solely from event graphs.
+
+*weighted\_EG/oKG: GAE-Log* performs anomaly detection with features from weighted event graphs.
+
+*EG w/KG: GAE-Log* performs anomaly detection by integrating features from both event graphs and knowledge graphs.
+
+*weighted\_EG w/KG: GAE-Log* performs anomaly detection using features integrated from weighted event graphs and knowledge graphs.
+
+To enhance the reliability and comprehensiveness of our experimental results, we compare the performance trends of
+
+![](_page_10_Figure_1.jpeg)
+<!-- Image Description: The figure displays a grouped bar chart comparing F1-scores for four methods (EG/oKG, weighted_EG/oKG, EG w/KG, weighted_EG w/KG) across two datasets (HDFS and OpenStack).  Each bar represents an F1-score;  the chart shows the performance variation between the methods and datasets. Dashed horizontal lines indicate average F1-scores.  Numerical F1-score values are overlaid on the bars. -->
+
+Fig. 7. Anomaly detection performance of the *GAE-Log* framework on public HDFS logs and OpenStack logs respectively.
+
+![](_page_10_Figure_3.jpeg)
+<!-- Image Description: The image displays a bar chart comparing F1-scores for four methods (EG/oKG, weighted_EG/oKG, EG w/KG, weighted_EG w/KG) across three feature sets (WordCount, PageRank, WordSort).  Each bar represents an F1-score, with values indicated numerically. A dashed horizontal line shows a baseline score.  The chart compares the performance of different methods on the same feature sets. -->
+
+Fig. 8. Anomaly detection performance of the *GAE-Log* framework on Hadoop dataset with three different applications.
+
+different feature settings in *GAE-Log*. Fig. 7 illustrates the ablation study results of public HDFS logs and OpenStack logs, presenting the F1-Scores under different feature settings. The results vividly demonstrate the outstanding performance of *GAE-Log* in log anomaly detection across various configurations: EG/oKG, weighted\_EG/oKG, EG w/KG, and weighted\_EG w/KG. Notably, we observe that the performance of *GAE-Log* using EG/oKG is inferior to that using weighted\_EG/oKG, while the performance of weighted\_EG/oKG falls short compared to EG w/KG.
+
+Fig. 8 presents the anomaly detection results specifically for Hadoop applications. First, across different applications and methods employed, *GAE-Log* utilizing weighted\_EG w/KG and EG w/KG consistently outperforms *GAE-Log* employing
+
+<span id="page-11-0"></span>TABLE III TIME COST OF DIFFERENT APPROACHES
+
+|            | <b>HDFS</b> dataset |                 |  |
+|------------|---------------------|-----------------|--|
+| Approaches | Training            | Testing         |  |
+| GAE-Log    | 1h 25 m             | 7s              |  |
+| LogCluster | 19 <sub>m</sub>     | 23s             |  |
+| DeepLog    | 1h 50 m             | 20 <sub>m</sub> |  |
+| <b>CNN</b> | 2h 23 m             | 22 <sub>m</sub> |  |
+| LogRobust  | 1h 20m              | 49 <sub>s</sub> |  |
+| Logsy      | 3h 18 m             | 34 m            |  |
+
+weighted\_EG/oKG and EG/oKG. This finding validates the effectiveness of integrating features from both event graphs and knowledge graphs in *GAE-Log*. Second, when the knowledge graph and the weights in the event graph are removed, a certain level of performance degradation occurs. Notably, the absence of the knowledge graph has the most significant impact, underscoring its crucial role in the anomaly detection process. Moreover, through a comparative analysis of the utilization of weighted\_EG to address event co-occurrences, we consistently observe improved performance across all three applications. Furthermore, it is worth noting that when *GAE-Log* already achieves superior performance with certain methods, the additional improvement from the knowledge graph and weights in the event graph is not as pronounced, which is intuitively understandable.
+
+# *F. Complexity Analysis*
+
+In this section, we provide a complexity analysis for *GAE-Log* and other related methods. The training time and testing time on the HDFS dataset are presented in Table III. Overall, all the approaches demonstrate efficient testing times, which are significantly lower than the training times. Among these approaches, *GAE-Log* achieves the best performance. Regarding the training time, *GAE-Log* exhibits favorable efficiency compared to the other methods. However, it is slightly slower than LogCluster, which utilizes a simple clustering approach. In summary, *GAE-Log* proves to be highly effective, with short detection time and acceptable training time. In addition, we conducted a detailed analysis of the time cost for each component of *GAE-Log*: Specifically, the construction of the event graph requires 25 s, the construction of the knowledge graph takes 11 s, and the graph embedding processes for the event graph and the knowledge graph require 9 and 21 s, respectively.
+
+# V. CONCLUSION
+
+This article proposes a framework called *GAE-Log* for detecting system anomalies in unstructured logs. Detecting such anomalies not only reduces financial costs, but also enhances system availability. The *GAE-Log* framework leverages two key components: the event graph and the knowledge graph, in order to model the relations among sequential logs and capture system information, respectively. By integrating the features from both graphs, *GAE-Log* offers a comprehensive perspective on system anomalies. Moreover, *GAE-Log* utilizes adversarial training for autoencoders, thereby achieving enhanced performance in log anomaly detection. To evaluate the effectiveness of the framework, extensive tests were conducted on both public and synthetic log datasets. The results demonstrate that *GAE-Log* exhibits significant advantages in detecting log anomalies.
 
 #### REFERENCES
 
-- <span id="page-8-31"></span>[1] Oshin Agarwal, Heming Ge, Siamak Shakeri, and Rami Al-Rfou. 2021. Knowledge Graph Based Synthetic Corpus Generation for Knowledge-Enhanced Language Model Pre-training. In Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies. 3554–3565.
-- <span id="page-8-12"></span>[2] Sébastien Bubeck, Varun Chandrasekaran, Ronen Eldan, Johannes Gehrke, Eric Horvitz, Ece Kamar, Peter Lee, Yin Tat Lee, Yuanzhi Li, Scott Lundberg, et al. 2023. Sparks of artificial general intelligence: Early experiments with gpt-4. arXiv preprint arXiv:2303.12712 (2023).
-- <span id="page-8-20"></span>[3] Pengfei Cao, Xinyu Zuo, Yubo Chen, Kang Liu, Jun Zhao, and Wei Bi. 2021. Uncertainty-Aware Self-Training for Semi-Supervised Event Temporal Relation Extraction. In Proceedings of the 30th ACM International Conference on Information & Knowledge Management. 2900–2904.
-- <span id="page-8-16"></span>[4] Nathanael Chambers. 2013. Navytime: Event and time ordering from raw text. In Second Joint Conference on Lexical and Computational Semantics (\* SEM), Volume 2: Proceedings of the Seventh International Workshop on Semantic Evaluation (SemEval 2013). 73–77.
-- <span id="page-8-13"></span>[5] Chunkit Chan, Jiayang Cheng, Weiqi Wang, Yuxin Jiang, Tianqing Fang, Xin Liu, and Yangqiu Song. 2023. Chatgpt evaluation on sentence level relations: A focus on temporal, causal, and discourse relations. arXiv preprint arXiv:2304.14827 (2023).
-- <span id="page-8-17"></span>[6] Angel X Chang and Christopher D Manning. 2012. Sutime: A library for recognizing and normalizing time expressions.. In Lrec, Vol. 12. 3735–3740.
-- <span id="page-8-27"></span>[7] Wenhu Chen, Xinyi Wang, and William Yang Wang. 2021. A Dataset for Answering Time-Sensitive Questions. In Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2).
-- <span id="page-8-36"></span>[8] Hyung Won Chung, Le Hou, Shayne Longpre, Barret Zoph, Yi Tay, William Fedus, Eric Li, Xuezhi Wang, Mostafa Dehghani, Siddhartha Brahma, et al. 2022. Scaling instruction-finetuned language models. arXiv preprint arXiv:2210.11416 (2022).
-- <span id="page-8-32"></span>[9] Anthony Colas, Mehrdad Alvandipour, and Daisy Zhe Wang. 2022. GAP: A Graphaware Language Model Framework for Knowledge Graph-to-Text Generation. In Proceedings of the 29th International Conference on Computational Linguistics. 5755–5769.
-- <span id="page-8-35"></span>[10] Tri Dao, Dan Fu, Stefano Ermon, Atri Rudra, and Christopher Ré. 2022. Flashattention: Fast and memory-efficient exact attention with io-awareness. Advances in Neural Information Processing Systems 35 (2022), 16344–16359.
-- <span id="page-8-21"></span>[11] Bhuwan Dhingra, Jeremy R Cole, Julian Martin Eisenschlos, Daniel Gillick, Jacob Eisenstein, and William W Cohen. 2022. Time-aware language models as temporal knowledge bases. Transactions of the Association for Computational Linguistics 10 (2022), 257–273.
-- <span id="page-8-5"></span>[12] Dmitriy Dligach, Timothy Miller, Chen Lin, Steven Bethard, and Guergana Savova. 2017. Neural temporal relation extraction. In Proceedings of the 15th Conference of the European Chapter of the Association for Computational Linguistics: Volume 2, Short Papers. 746–751.
-- <span id="page-8-0"></span>[13] Michael David Fisher, Dov M Gabbay, and Lluis Vila. 2005. Handbook of temporal reasoning in artificial intelligence. Elsevier.
-- <span id="page-8-38"></span>[14] Leo Gao, John Schulman, and Jacob Hilton. 2023. Scaling laws for reward model overoptimization. In International Conference on Machine Learning. PMLR, 10835– 10866.
-- <span id="page-8-33"></span>[15] Alberto Garcia-Duran, Sebastijan Dumančić, and Mathias Niepert. 2018. Learning Sequence Encoders for Temporal Knowledge Graph Completion. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing. 4816–4821.
-- <span id="page-8-22"></span>[16] Zhen Han, Peng Chen, Yunpu Ma, and Volker Tresp. 2021. Explainable Subgraph Reasoning for Forecasting on Temporal Knowledge Graphs. In International Conference on Learning Representations. [https://openreview.net/forum?id=](https://openreview.net/forum?id=pGIHq1m7PU) [pGIHq1m7PU](https://openreview.net/forum?id=pGIHq1m7PU)
-- <span id="page-8-9"></span>[17] Zhen Han, Zifeng Ding, Yunpu Ma, Yujia Gu, and Volker Tresp. 2021. Learning neural ordinary equations for forecasting future links on temporal knowledge graphs. In Proceedings of the 2021 conference on empirical methods in natural language processing. 8352–8364.
-- <span id="page-8-29"></span>[18] Joel Jang, Seonghyeon Ye, Changho Lee, Sohee Yang, Joongbo Shin, Janghoon Han, Gyeonghun Kim, and Minjoon Seo. 2022. TemporalWiki: A Lifelong Benchmark for Training and Evaluating Ever-Evolving Language Models. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing. 6237–6250.
-- <span id="page-8-7"></span>[19] Zhen Jia, Abdalghani Abujabal, Rishiraj Saha Roy, Jannik Strötgen, and Gerhard Weikum. 2018. Tempquestions: A benchmark for temporal question answering. In Companion Proceedings of the The Web Conference 2018. 1057–1062.
-- <span id="page-8-8"></span>[20] Zhen Jia, Abdalghani Abujabal, Rishiraj Saha Roy, Jannik Strötgen, and Gerhard Weikum. 2018. Tequila: Temporal question answering over knowledge bases. In Proceedings of the 27th ACM international conference on information and knowledge management. 1807–1810.
-- <span id="page-8-3"></span>[21] Woojeong Jin, Rahul Khanna, Suji Kim, Dong-Ho Lee, Fred Morstatter, Aram Galstyan, and Xiang Ren. 2021. ForecastQA: A Question Answering Challenge for Event Forecasting with Temporal Text Data. In Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International
+- [1] S. He, P. He, Z. Chen, T. Yang, Y. Su, and M. R. Lyu, "A survey on automated log analysis for reliability engineering," *ACM Comput. Surv.*, vol. 54, no. 6, pp. 1–37, 2021.
+- [2] A. Lerner, "The cost of downtime," 2014. [Online]. Available: [https://](https://blogs.gartner.com/andrew-lerner/2014/07/16/the-cost-of-downtime/) [blogs.gartner.com/andrew-lerner/2014/07/16/the-cost-of-downtime/](https://blogs.gartner.com/andrew-lerner/2014/07/16/the-cost-of-downtime/)
+- [3] "The cost of it downtime," 2021. [Online]. Available: [https://www.the20.](https://www.the20.com/blog/the-cost-of-it-downtime/) [com/blog/the-cost-of-it-downtime/](https://www.the20.com/blog/the-cost-of-it-downtime/)
+- [4] "What is AIOps," 2020. [Online]. Available: [https://www.ibm.com/cloud/](https://www.ibm.com/cloud/learn/aiops) [learn/aiops](https://www.ibm.com/cloud/learn/aiops)
+- [5] T. White, *Hadoop: The Definitive Guide*. Sebastopol, CA, USA: O'Reilly Media, Inc., 2012.
+- [6] K. Shvachko, H. Kuang, S. Radia, and R. Chansler, "The Hadoop distributed file system," in *Proc. IEEE 26th Symp. Mass Storage Syst. Technol.*, 2010, pp. 1–10.
+- [7] J. Dean and S. Ghemawat, "MapReduce: Simplified data processing on large clusters," *Commun. ACM*, vol. 51, no. 1, pp. 107–113, 2008.
+- [8] A. Thusoo et al., "Hive: A warehousing solution over a map-reduce framework," *VLDB Endowment*, vol. 2, no. 2, pp. 1626–1629, 2009.
+- [9] L. George, *HBase: The Definitive Guide*. Sebastopol, CA, USA: O'Reilly Media, Inc., 2011.
+- [10] P. Hunt, M. Konar, F. P. Junqueira, and B. Reed, "ZooKeeper: Wait-free coordination for internet-scale systems," in *Proc. USENIX Annu. Tech. Conf.*, 2010, pp. 1–14.
+- [11] V. K. Vavilapalli et al., "Apache hadoop YARN: Yet another resource negotiator," in *Proc. 4th Annu. Symp. Cloud Comput.*, 2013, pp. 1–16.
+- [12] M. Zaharia, M. Chowdhury, M. J. Franklin, S. Shenker, and I. Stoica, "Spark: Cluster computing with working sets," in *Proc. 2nd USENIX Conf. Hot Topics Cloud Comput.*, 2010, pp. 95–102.
+- [13] W. Xu, L. Huang, A. Fox, D. Patterson, and M. I. Jordan, "Detecting largescale system problems by mining console logs," in *Proc. ACM SIGOPS 22nd Symp. Operating Syst. Princ.*, 2009, pp. 117–132.
+- [14] H. Chen, X. Ning, G. Jiang, and K. Yoshihira, "HLAer: A system for heterogeneous log analysis," in *Proc. 1st SDM Workshop Heterogeneous Learn.*, 2014, pp. 1–22.
+- [15] B. Debnath et al., "LogLens: A real-time log analysis system," in *Proc. IEEE 38th Int. Conf. Distrib. Comput. Syst.*, 2018, pp. 1052–1062.
+- [16] R. Vaarandi, "A data clustering algorithm for mining patterns from event logs," in *Proc. IEEE 3rd Workshop IP Operations Manage.*, 2003, pp. 119–126.
+- [17] Q. Lin, H. Zhang, J.-G. Lou, Y. Zhang, and X. Chen, "Log clustering based problem identification for online service systems," in *Proc. IEEE/ACM 38th Int. Conf. Softw. Eng. Companion*, 2016, pp. 102–111.
+- [18] T.-F. Yen et al., "Beehive: Large-scale log analysis for detecting suspicious activity in enterprise networks," in *Proc. 29th Annu. Comput. Secur. Appl. Conf.*, 2013, pp. 199–208.
+- [19] V. Zeufack, D. Kim, D. Seo, and A. Lee, "An unsupervised anomaly detection framework for detecting anomalies in real time through network system's log files analysis," *High-Confidence Comput.*, vol. 1, no. 2, pp. 100030–100036, 2021.
+- [20] Y. Liang, Y. Zhang, H. Xiong, and R. Sahoo, "Failure prediction in IBM BlueGene/L event logs," in *Proc. IEEE 7th Int. Conf. Data Mining*, 2007, pp. 583–588.
+- [21] P. Bodik, M. Goldszmidt, A. Fox, D. B. Woodard, and H. Andersen, "Fingerprinting the datacenter: Automated classification of performance crises," in *Proc. 5th Eur. Conf. Comput. Syst.*, 2010, pp. 111–124.
+- [22] M. Chen, A. X. Zheng, J. Lloyd, M. I. Jordan, and E. Brewer, "Failure diagnosis using decision trees," in *Proc. 1st Int. Conf. Autonomic Comput.*, 2004, pp. 36–43.
+- [23] S. Khatuya, N. Ganguly, J. Basak, M. Bharde, and B. Mitra, "ADELE: Anomaly detection from event log empiricism," in *Proc. IEEE 13th INFOCOM Conf. Comput. Commun.*, 2018, pp. 2114–2122.
 
-Joint Conference on Natural Language Processing (Volume 1: Long Papers). 4636– 4650.
+- <span id="page-12-0"></span>[24] J.-G. Lou, Q. Fu, S. Yang, Y. Xu, and J. Li, "Mining invariants from console logs for system problem detection," in *Proc. USENIX Annu. Tech. Conf.*, 2010, pp. 1–14.
+- [25] "Log anomaly detector," 2019. [Online]. Available: [https://log-anomaly](https://log-anomaly-detector.readthedocs.io/en/latest/)[detector.readthedocs.io/en/latest/](https://log-anomaly-detector.readthedocs.io/en/latest/)
+- [26] A. Brown, A. Tuor, B. Hutchinson, and N. Nichols, "Recurrent neural network attention mechanisms for interpretable system log anomaly detection," in *Proc. 1st Workshop Mach. Learn. Comput. Syst.*, 2018, pp. 1–8.
+- [27] K. Zhang, J. Xu, M. R. Min, G. Jiang, K. Pelechrinis, and H. Zhang, "Automated IT system failure prediction: A deep learning approach," in *Proc. 4th IEEE Int. Conf. Big Data*, 2016, pp. 1291–1300.
+- [28] M. Wang, L. Xu, and L. Guo, "Anomaly detection of system logs based on natural language processing and deep learning," in *Proc. 4th Int. Conf. Front. Signal Process.*, 2018, pp. 140–144.
+- [29] M. Du, F. Li, G. Zheng, and V. Srikumar, "DeepLog: Anomaly detection and diagnosis from system logs through deep learning," in *Proc. 24th ACM SIGSAC Conf. Comput. Commun. Secur.*, 2017, pp. 1285–1298.
+- [30] W. Meng et al., "LogAnomaly: Unsupervised detection of sequential and quantitative anomalies in unstructured logs," in *Proc. 28th IEEE Int. Joint Conf. Artif. Intell.*, 2019, pp. 4739–4745.
+- [31] W. Meng et al., "A semantic-aware representation framework for online log analysis," in *Proc. 29th Int. Conf. Comput. Commun. Netw.*, 2020, pp. 1–7.
+- [32] Y. Zuo, Y. Wu, G. Min, C. Huang, and K. Pei, "An intelligent anomaly detection scheme for micro-services architectures with temporal and spatial data analysis," *IEEE Trans. Cogn. Commun. Netw.*, vol. 6, no. 2, pp. 548–561, Jun. 2020.
+- [33] X. Zhang et al., "Robust log-based anomaly detection on unstable log data," in *Proc. 27th ACM Joint Meeting Eur. Softw. Eng. Conf. Symp. Foundations Softw. Eng.*, 2019, pp. 807–817.
+- [34] S. Nedelkoski, J. Bogatinovski, A. Acker, J. Cardoso, and O. Kao, "Selfattentive classification-based anomaly detection in unstructured logs," in *Proc. 20th IEEE Int. Conf. Data Mining*, 2020, pp. 1196–1201.
+- [35] S. Lu, X. Wei, Y. Li, and L. Wang, "Detecting anomaly in Big Data system logs using convolutional neural network," in *Proc. 16th IEEE Int. Conf. Dependable, Autonomic Secure Comput.*, 2018, pp. 151–158.
+- [36] Y. Xie, K. Yang, and P. Luo, "LogM: Log analysis for multiple components of hadoop platform," *IEEE Access*, vol. 9, pp. 73522–73532, 2021.
+- [37] B. Xia, Y. Bai, J. Yin, Y. Li, and J. Xu, "LogGAN: A log-level generative adversarial network for anomaly detection using permutation event modeling," *Inf. Syst. Front.*, vol. 23, no. 2, pp. 285–298, 2021.
+- [38] K. Yamanishi and Y. Maruyama, "Dynamic syslog mining for network failure monitoring," in *Proc. 11th ACM SIGKDD Int. Conf. Knowl. Discov. Data Mining*, 2005, pp. 499–508.
+- [39] S. He, J. Zhu, P. He, and M. R. Lyu, "Experience report: System log analysis for anomaly detection," in *Proc. 27th IEEE Int. Symp. Softw. Rel. Eng.*, 2016, pp. 207–218.
+- [40] A. J. Oliner, A. V. Kulkarni, and A. Aiken, "Using correlated surprise to infer shared influence," in *Proc. 40th IEEE/IFIP Int. Conf. Dependable Syst. Netw.*, 2010, pp. 191–200.
+- [41] I. Hareesh, S. Prasanna, M. Vijayalakshmi, and S. M. Shalinie, "Anomaly detection system based on analysis of packet header and payload histograms," in *Proc. 13th Int. Conf. Recent Trends Inf. Technol.*, 2011, pp. 412–416.
+- [42] S. Du and J. Cao, "Behavioral anomaly detection approach based on log monitoring," in*Proc. 2nd Int. Conf. Behav., Econ. Socio-Cultural Comput.*, 2015, pp. 188–194.
+- [43] D. Yuan, J. Zheng, S. Park, Y. Zhou, and S. Savage, "Improving software diagnosability via log enhancement," *ACM Trans. Comput. Syst.*, vol. 30, no. 1, pp. 1–28, 2012.
+- [44] M. Aharon, G. Barash, I. Cohen, and E. Mordechai, "One graph is worth a thousand logs: Uncovering hidden structures in massive system event logs," in *Proc. 6th Joint Eur. Conf. Mach. Learn. Knowl. Discov. Databases*, 2009, pp. 227–243.
+- [45] I. Beschastnikh, Y. Brun, M. D. Ernst, and A. Krishnamurthy, "Inferring models of concurrent systems from logs of their behavior with CSight," in *Proc. 36th Int. Conf. Softw. Eng.*, 2014, pp. 468–479.
+- [46] Q. Fu, J.-G. Lou, Q. Lin, R. Ding, D. Zhang, and T. Xie, "Contextual analysis of program logs for understanding system behaviors," in *Proc. 10th Work. Conf. Mining Softw. Repositories*, 2013, pp. 397–400.
+- [47] W. Xu, L. Huang, A. Fox, D. Patterson, and M. Jordan, "Online system problem detection by mining patterns of console logs," in *Proc. 9th IEEE Int. Conf. Data Mining*, 2009, pp. 588–597.
+- [48] X. Yu, P. Joshi, J. Xu, G. Jin, H. Zhang, and G. Jiang, "Cloudseer: Workflow monitoring of cloud infrastructures via interleaved logs," *ACM SIGARCH Comput. Archit. News*, vol. 44, no. 2, pp. 489–502, 2016.
 
-- <span id="page-8-34"></span>[22] Woojeong Jin, Meng Qu, Xisen Jin, and Xiang Ren. 2020. Recurrent Event Network: Autoregressive Structure Inferenceover Temporal Knowledge Graphs. In Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP). 6669–6683.
-- <span id="page-8-26"></span>[23] Jaehun Jung, Jinhong Jung, and U Kang. 2021. Learning to walk across time for interpretable temporal knowledge graph completion. In Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery & Data Mining. 786–795.
-- <span id="page-8-10"></span>[24] Thomas N Kipf and Max Welling. 2016. Semi-Supervised Classification with Graph Convolutional Networks. In International Conference on Learning Representations.
-- <span id="page-8-18"></span>[25] Egoitz Laparra, Dongfang Xu, and Steven Bethard. 2018. From characters to time intervals: New paradigms for evaluation and neural parsing of time normalizations. Transactions of the Association for Computational Linguistics 6 (2018), 343–356.
-- <span id="page-8-28"></span>[26] Angeliki Lazaridou, Adhi Kuncoro, Elena Gribovskaya, Devang Agrawal, Adam Liska, Tayfun Terzi, Mai Gimenez, Cyprien de Masson d'Autume, Tomas Kocisky, Sebastian Ruder, et al. 2021. Mind the gap: Assessing temporal generalization in neural language models. Advances in Neural Information Processing Systems 34 (2021), 29348–29363.
-- <span id="page-8-30"></span>[27] Dong-Ho Lee, Kian Ahrabian, Woojeong Jin, Fred Morstatter, and Jay Pujara. 2023. Temporal Knowledge Graph Forecasting Without Knowledge Using In-Context Learning. arXiv preprint arXiv:2305.10613 (2023).
-- <span id="page-8-15"></span>[28] Artuur Leeuwenberg and Marie-Francine Moens. 2019. A survey on temporal reasoning for temporal information extraction from text. Journal of Artificial Intelligence Research 66 (2019), 341–380.
-- <span id="page-8-37"></span>[29] Mike Lewis, Yinhan Liu, Naman Goyal, Marjan Ghazvininejad, Abdelrahman Mohamed, Omer Levy, Veselin Stoyanov, and Luke Zettlemoyer. 2020. BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics. 7871–7880.
-- <span id="page-8-14"></span>[30] Xingxuan Li, Liying Cheng, Qingyu Tan, Hwee Tou Ng, Shafiq Joty, and Lidong Bing. 2023. Unlocking Temporal Question Answering for Large Language Models Using Code Execution. arXiv preprint arXiv:2305.15014 (2023).
-- <span id="page-8-1"></span>[31] Zixuan Li, Saiping Guan, Xiaolong Jin, Weihua Peng, Yajuan Lyu, Yong Zhu, Long Bai, Wei Li, Jiafeng Guo, and Xueqi Cheng. 2022. Complex Evolutional Pattern Learning for Temporal Knowledge Graph Reasoning. In Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers). 290–296.
-- <span id="page-8-25"></span>[32] Zixuan Li, Xiaolong Jin, Saiping Guan, Wei Li, Jiafeng Guo, Yuanzhuo Wang, and Xueqi Cheng. 2021. Search from History and Reason for Future: Two-stage Reasoning on Temporal Knowledge Graphs. In Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers). 4732– 4743.
-- <span id="page-8-2"></span>[33] Zixuan Li, Xiaolong Jin, Wei Li, Saiping Guan, Jiafeng Guo, Huawei Shen, Yuanzhuo Wang, and Xueqi Cheng. 2021. Temporal knowledge graph reasoning based on evolutional representation learning. In Proceedings of the 44th international ACM SIGIR conference on research and development in information retrieval. 408–417.
-- <span id="page-8-11"></span>[34] Chen Lin, Timothy Miller, Dmitriy Dligach, Steven Bethard, and Guergana Savova. 2019. A BERT-based universal model for both within-and cross-sentence clinical temporal relation extraction. In Proceedings of the 2nd Clinical Natural Language Processing Workshop. 65–71.
-- <span id="page-8-39"></span>[35] Chin-Yew Lin. 2004. Rouge: A package for automatic evaluation of summaries. In Text summarization branches out. 74–81.
-- <span id="page-8-24"></span>[36] Qika Lin, Jun Liu, Rui Mao, Fangzhi Xu, and Erik Cambria. 2023. TECHS: Temporal Logical Graph Networks for Explainable Extrapolation Reasoning. In Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). 1281–1293.
-- <span id="page-8-23"></span>[37] Yushan Liu, Yunpu Ma, Marcel Hildebrandt, Mitchell Joblin, and Volker Tresp. 2022. Tlogic: Temporal logical rules for explainable link forecasting on temporal knowledge graphs. In Proceedings of the AAAI conference on artificial intelligence, Vol. 36. 4120–4127.
-- <span id="page-8-6"></span>[38] Puneet Mathur, Rajiv Jain, Franck Dernoncourt, Vlad Morariu, Quan Hung Tran, and Dinesh Manocha. 2021. Timers: document-level temporal relation extraction. In Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 2: Short Papers). 524–533.
-- <span id="page-8-4"></span>[39] Marcio Moreno, Rodrigo Santos, Wallas Santos, Sandro Fiorini, Reinaldo Silva, and Renato Cerqueira. 2019. Multimedia search and temporal reasoning. In 2019 IEEE/ACIS 18th International Conference on Computer and Information Science (ICIS). IEEE, 167–172.
-- <span id="page-8-19"></span>[40] Qiang Ning, Zhili Feng, and Dan Roth. 2017. A Structured Learning Approach to Temporal Relation Extraction. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. 1027–1037.
+- [49] P. He, J. Zhu, Z. Zheng, and M. R. Lyu, "Drain: An online log parsing approach with fixed depth tree," in *Proc. 12th IEEE Int. Conf. Web Serv.*, 2017, pp. 33–40.
+- [50] A. Narayanan, M. Chandramohan, R. Venkatesan, L. Chen, Y. Liu, and S. Jaiswal, "Graph2vec: Learning distributed representations of graphs," in *Proc. 13th Int. Workshop Mining Learn. Graphs*, 2017, pp. 1–8.
+- [51] Q. Le and T. Mikolov, "Distributed representations of sentences and documents," in *Proc. 31st Int. Conf. Mach. Learn.*, 2014, pp. 1188–1196.
+- [52] J. Audibert, P. Michiardi, F. Guyard, S. Marti, and M. A. Zuluaga, "USAD: Unsupervised anomaly detection on multivariate time series," in *Proc. 26th ACM SIGKDD Int. Conf. Knowl. Discov. Data Mining*, 2020, pp. 3395–3404.
+- [53] J. Davis and M. Goadrich, "The relationship between precision-recall and ROC curves," in *Proc. 23rd Int. Conf. Mach. Learn.*, 2006, pp. 233–240.
+- [54] R. Ricci, E. Eide, and C. Team, "Introducing cloudlab: Scientific infrastructure for advancing cloud architectures and applications," *USENIX*, vol. 39, no. 6, pp. 36–38, 2014.
+- [55] J. W. Pennebaker, M. E. Francis, and R. J. Booth, *Linguistic Inquiry and Word Count: LIWC 2001*. Mahway, NJ, USA: Lawrence Erlbaum Associates, vol. 71, 2001, pp. 2012–2025.
+- [56] S. Brin et al., "The PageRank citation ranking: Bringing order to the web," in *Proc. 61st Annu. Meet. Amer. Soc. Inf. Sci.*, 1998, pp. 161–172.
+- [57] T. L. Fei, M. T. Kai, and Z. H. Zhou, "Isolation forest," in *Proc. 8th IEEE Int. Conf. Data Mining*, 2008, pp. 413–422.
+- [58] B. Schölkopf, J. C. Platt, J. Shawe-Taylor, A. J. Smola, and R. C. Williamson, "Estimating the support of a high-dimensional distribution," *Neural Comput.*, vol. 13, no. 7, pp. 1443–1471, 2001.
+- [59] Z. Chen, J. Liu, W. Gu, Y. Su, and M. R. Lyu, "Experience report: Deep learning-based system log analysis for anomaly detection," 2021, *arXiv:2107.05908*.
+- [60] A. Paszke et al., "PyTorch: An imperative style, high-performance deep learning library," in *Proc. 32th Adv. Neural Inf. Process. Syst.*, 2019, pp. 8024–8035.
+- [61] X. Glorot, A. Bordes, and Y. Bengio, "Deep sparse rectifier neural networks," in *Proc. 14th Int. Conf. Artif. Intell. Statist.*, vol. 15, 2011, pp. 315–323.
 
-- <span id="page-9-10"></span>[41] Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et al. 2022. Training language models to follow instructions with human feedback. Advances in Neural Information Processing Systems 35 (2022), 27730–27744.
-- <span id="page-9-26"></span>[42] Kishore Papineni, Salim Roukos, Todd Ward, and Wei-Jing Zhu. 2002. Bleu: a method for automatic evaluation of machine translation. In Proceedings of the 40th annual meeting of the Association for Computational Linguistics. 311–318.
-- <span id="page-9-24"></span>[43] Guilherme Penedo, Quentin Malartic, Daniel Hesslow, Ruxandra Cojocaru, Alessandro Cappelli, Hamza Alobeidli, Baptiste Pannier, Ebtesam Almazrouei, and Julien Launay. 2023. The RefinedWeb dataset for Falcon LLM: outperforming curated corpora with web data, and web data only. arXiv preprint arXiv:2306.01116 (2023). arXiv[:2306.01116 https://arxiv.org/abs/2306.01116](https://arxiv.org/abs/2306.01116)
-- <span id="page-9-22"></span>[44] Jeff Rasley, Samyam Rajbhandari, Olatunji Ruwase, and Yuxiong He. 2020. Deepspeed: System optimizations enable training deep learning models with over 100 billion parameters. In Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining. 3505–3506.
-- <span id="page-9-3"></span>[45] A Saxena, S Chakrabarti, and P Talukdar. 2021. Question answering over temporal knowledge graphs. In ACL-IJCNLP 2021-59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing, Proceedings of the Conference. Association for Computational Linguistics (ACL), 6663–6676.
-- <span id="page-9-2"></span>[46] Michael Schlichtkrull, Thomas N Kipf, Peter Bloem, Rianne Van Den Berg, Ivan Titov, and Max Welling. 2018. Modeling relational data with graph convolutional networks. In The Semantic Web: 15th International Conference, ESWC 2018, Heraklion, Crete, Greece, June 3–7, 2018, Proceedings 15. Springer, 593–607.
-- <span id="page-9-19"></span>[47] Xiaoming Shi, Siqiao Xue, Kangrui Wang, Fan Zhou, James Y Zhang, Jun Zhou, Chenhao Tan, and Hongyuan Mei. 2023. Language Models Can Improve Event Prediction by Few-Shot Abductive Reasoning. arXiv preprint arXiv:2305.16646 (2023).
-- <span id="page-9-20"></span>[48] Lei Shu, Liangchen Luo, Jayakumar Hoskere, Yun Zhu, Canoee Liu, Simon Tong, Jindong Chen, and Lei Meng. 2023. RewriteLM: An Instruction-Tuned Large Language Model for Text Rewriting. arXiv preprint arXiv:2305.15685 (2023).
-- <span id="page-9-1"></span>[49] Monika Solanki, Antonio Cau, and Hussein Zedan. 2006. Temporal reasoning of reactive web services. Semantic Web Services, Processes and Applications (2006), 107–136.
-- <span id="page-9-16"></span>[50] Haohai Sun, Jialun Zhong, Yunpu Ma, Zhen Han, and Kun He. 2021. TimeTraveler: Reinforcement Learning for Temporal Knowledge Graph Forecasting. In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing. 8306–8319.
-- <span id="page-9-6"></span>[51] Qingyu Tan, Hwee Tou Ng, and Lidong Bing. 2023. Towards Benchmarking and Improving the Temporal Reasoning Capability of Large Language Models. In Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). Association for Computational Linguistics, Toronto, Canada, 14820–14835.<https://doi.org/10.18653/v1/2023.acl-long.828>
-- <span id="page-9-23"></span>[52] MosaicML NLP Team. 2023. Introducing MPT-7B: A New Standard for Open-Source, Commercially Usable LLMs.<www.mosaicml.com/blog/mpt-7b> Accessed: 2023-05-05.
-- <span id="page-9-11"></span>[53] Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, et al. 2023. Llama 2: Open foundation and fine-tuned chat models. arXiv preprint arXiv:2307.09288 (2023).
-- <span id="page-9-0"></span>[54] Rakshit Trivedi, Hanjun Dai, Yichen Wang, and Le Song. 2017. Know-evolve: Deep temporal reasoning for dynamic knowledge graphs. In international conference on machine learning. PMLR, 3462–3471.
-- <span id="page-9-14"></span>[55] Marc Verhagen, Robert Gaizauskas, Frank Schilder, Mark Hepple, Jessica Moszkowicz, and James Pustejovsky. 2009. The TempEval challenge: identifying temporal relations in text. Language Resources and Evaluation 43 (2009), 161–179.
-- <span id="page-9-12"></span>[56] Marc Verhagen, Roser Sauri, Tommaso Caselli, and James Pustejovsky. 2010. SemEval-2010 Task 13: TempEval-2. In Proceedings of the 5th international workshop on semantic evaluation. 57–62.
-- <span id="page-9-4"></span>[57] Haoyu Wang, Muhao Chen, Hongming Zhang, and Dan Roth. 2020. Joint Constrained Learning for Event-Event Relation Extraction. In Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP). 696–706.
-- <span id="page-9-9"></span>[58] Yizhong Wang, Yeganeh Kordi, Swaroop Mishra, Alisa Liu, Noah A Smith, Daniel Khashabi, and Hannaneh Hajishirzi. 2022. Self-instruct: Aligning language model with self generated instructions. arXiv preprint arXiv:2212.10560 (2022).
-- <span id="page-9-5"></span>[59] Jason Wei, Yi Tay, Rishi Bommasani, Colin Raffel, Barret Zoph, Sebastian Borgeaud, Dani Yogatama, Maarten Bosma, Denny Zhou, Donald Metzler, et al. 2022. Emergent abilities of large language models. arXiv preprint arXiv:2206.07682 (2022).
-- <span id="page-9-13"></span>[60] Dongfang Xu, Egoitz Laparra, and Steven Bethard. 2019. Pre-trained contextualized character embeddings lead to major improvements in time normalization: A detailed analysis. In Proceedings of the Eighth Joint Conference on Lexical and Computational Semantics (\* SEM 2019). 68–74.
-- <span id="page-9-18"></span>[61] Wenjie Xu, Ben Liu, Miao Peng, Xu Jia, and Min Peng. 2023. Pre-trained Language Model with Prompts for Temporal Knowledge Graph Completion.
+![](_page_12_Picture_39.jpeg)
+<!-- Image Description: The image is a grayscale photograph of a young woman's face, presented in a frontal, neutral expression.  The image appears to be a sample image, possibly used for facial recognition or similar image processing research.  No diagrams, charts, graphs, or equations are present.  The focus is solely on the facial features. -->
 
-In Findings of the Association for Computational Linguistics: ACL 2023. Association for Computational Linguistics, Toronto, Canada, 7790–7803. [https:](https://doi.org/10.18653/v1/2023.findings-acl.493) [//doi.org/10.18653/v1/2023.findings-acl.493](https://doi.org/10.18653/v1/2023.findings-acl.493)
+**Yuxia Xie** was born in Sichuan, China. She received the B.S. degree in computer science from Qingdao University, Qingdao, China, in 2017. She received the Ph.D. degree in computer science from Tongji University, Shanghai, China, in 2023.
 
-- <span id="page-9-7"></span>[62] Chenhan Yuan, Qianqian Xie, and Sophia Ananiadou. 2023. Zero-shot Temporal Relation Extraction with ChatGPT. In The 22nd Workshop on Biomedical Natural Language Processing and BioNLP Shared Tasks. Association for Computational Linguistics, Toronto, Canada, 92–102.
-- <span id="page-9-15"></span>[63] Chenhan Yuan, Qianqian Xie, and Sophia Ananiadou. 2024. Temporal relation extraction with contrastive prototypical sampling. Knowledge-Based Systems 286 (2024), 111410.<https://doi.org/10.1016/j.knosys.2024.111410>
-- <span id="page-9-27"></span>[64] Tianyi Zhang, Varsha Kishore, Felix Wu, Kilian Q Weinberger, and Yoav Artzi. 2019. BERTScore: Evaluating Text Generation with BERT. In International Conference on Learning Representations.
-- <span id="page-9-17"></span>[65] Ruilin Zhao, Feng Zhao, Guandong Xu, Sixiao Zhang, and Hai Jin. 2022. Can Language Models Serve as Temporal Knowledge Bases?. In Findings of the Association for Computational Linguistics: EMNLP 2022. 2024–2037.
-- <span id="page-9-25"></span>[66] Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao Zhuang, Zi Lin, Zhuohan Li, Dacheng Li, Eric. P Xing, Hao Zhang, Joseph E. Gonzalez, and Ion Stoica. 2023. Judging LLM-as-a-judge with MT-Bench and Chatbot Arena. arXiv[:2306.05685](https://arxiv.org/abs/2306.05685) [cs.CL]
-- <span id="page-9-8"></span>[67] Andy Zou, Tristan Xiao, Ryan Jia, Joe Kwon, Mantas Mazeika, Richard Li, Dawn Song, Jacob Steinhardt, Owain Evans, and Dan Hendrycks. 2022. Forecasting future world events with neural networks. Advances in Neural Information Processing Systems 35 (2022), 27293–27305.
+Her research interests primarily revolve around Big Data analytics, machine learning, deep learning, graph modeling, and AIOps.
 
-#### <span id="page-9-21"></span>A HUMAN ANNOTATION AND EVALUATION
+![](_page_12_Picture_42.jpeg)
+<!-- Image Description: That's a grayscale headshot photograph of a person, likely an author or contributor to the academic paper.  It contains no diagrams, charts, graphs, equations, or other technical illustrations.  The image is solely a portrait. -->
 
-#### A.1 Settings
+**Kai Yang** (Senior Member, IEEE) received the B.Eng. degree from Southeast University, Nanjing, China, the M.S. degree from the National University of Singapore, Singapore, and the Ph.D. degree from Columbia University, New York, NY, USA.
 
-We recruited two Computer Science Ph.D. students with expertise in natural language processing (NLP) to manually annotate the test dataset and evaluate the performance of each model. The annotators were provided with the full sample set for each instance in the test data, consisting of the input document, the question about future events, and the ground truth answer with an explanation. To evaluate model performance, the annotators were also shown the model-generated explanation alongside the complete sample. By having domain experts manually annotate the testing data and compare model outputs, we aimed to robustly assess the ability of each model to provide accurate and logical explanations.
+He is a Distinguished Professor with Tongji University, Shanghai, China. He was a Technical Staff Member wth Bell Laboratories, NJ, USA, a Senior Data Scientist with Huawei Technologies, Plano, TX, USA, and a Research Associate with NEC Laboratories America, Princeton, NJ, USA. He has also been
 
-#### A.2 Annotation Guideline
+an adjunct faculty member with Columbia University since 2011. He holds over 20 patents and has been published extensively in leading IEEE journals and conferences. His current research interests include Big Data analytics, machine learning, wireless communications, and signal processing.
 
-Here we describe our human annotation guidelines for annotating and evaluating the prediction and explanation quality.
-
-Overview: You will evaluate machine-generated predictions about future events along with explanatory reasoning. The predictions and explanations are based on a given context document. Please rate each answer on a scale of 1 to 3 using the criteria below: Prediction Accuracy (1-3):
-
-- 1 The prediction on whether the event will occur is incorrect. For example, the prediction is that Event X will occur, but Event X does not happen
-- 2 The prediction on whether the event will occur is correct but the reasoning is flawed
-- 3 The prediction and reasoning are fully accurate and aligned
-
-#### Explanation Completeness (1-3):
-
-- 1 The explanation does not provide the necessary context/background to support the prediction. (e.g. "This will happen because of past events" with no further details)
-- 2 The explanation provides some relevant context but lacks important details
-
-Back to the Future: Towards Explainable Temporal Reasoning with Large Language Models WWW '24, May 13–17, 2024, Singapore, Singapore
-
-|                  | Correctness | Completeness | Fluency |
-|------------------|-------------|--------------|---------|
-| Llama-7b         | 0.73        | 0.47         | 0.98    |
-| Finetuned Llama2 | 0.82        | 0.54         | 0.99    |
-| ChatGPT          | 0.77        | 0.41         | 0.98    |
-| Vicuna           | 0.74        | 0.50         | 0.97    |
-
-Table 6: Cohen's Kappa score of human evaluation for each criterion in each LLM.
-
-• 3 - The explanation comprehensively provides the background needed to understand the prediction
-
-Explanation Fluency (1-3):
-
-- 1 The explanation is unclear or difficult to understand, such as wordy, confusing, or unclear connections between ideas, etc.
-- 2 The explanation could be improved stylistically but is reasonably clear
-- 3 The explanation is fluent, coherent, and easy to comprehend
-
-#### A.3 Agreement Level
-
-We present the human evaluation agreement level by using Cohen's Kappa score in this section. Note that the completeness interagreement level is relatively lower compared with the other two criteria. The main reason is that the completeness score heavily relies on the annotator's own logic and domain knowledge, which may introduce the annotator bias.
-
-### B TKGIG STRATEGY EXAMPLES
-
-#### <span id="page-10-0"></span>B.1 Detailed Prompts
-
-B.1.1 Template-generated explanation evaluation prompt. Given the text, ′ , please evaluate the correctness of the prediction based on the reasoning steps shown in the text. Answer correct or wrong then explain your decision concisely
-
-B.1.2 revision prompt. Please revise the provided text to ensure the prediction aligns with the reasoning steps. Adjust the flaws accordingly to reflect a correct prediction. Emphasize the importance of a logical progression of reasoning. You can add information from the following quadruples only if it is necessary for making the correct prediction. Finally, make the whole revised text more readable and coherently by expanding the explanation of each reasoning step. [Q]
-
-B.1.3 negative sample generation prompt. Given the text, "Based on the information provided by the document, we predict that <sup>1</sup> ′ <sup>2</sup> will not happen in . We could find the following patterns from the text: 1, and 2,· · · , therefore, it is plausible that <sup>1</sup> will <sup>2</sup> in .", please evaluate the correctness of the prediction based on the reasoning steps shown in the text. Answer correct or wrong then explain your decision concisely
-
-B.1.4 neutral sample generation prompt. Given the document "[]", how likely the event that [ ′ 1 ′ 2 ] in [] would happen? Please note that the context shown in the given document may not be
-
-directly related to the event, so your answer should be uncertain. And if the context is unrelated, summarize the context and tell me why you think the context is not related.
-
-### <span id="page-10-1"></span>C REVERSE RELATIONS
-
-As described in the section on negative sample generation, we carefully manually designed inverse relations for all relations present in the original temporal knowledge graph. This ensures that if an event occurs, the inverse event is highly unlikely to occur. Table [7](#page-11-2) provides examples of the inverse relations we crafted.
-
-### D EXPERIMENTS BACKGROUND
-
-#### D.1 ICEWS dataset
-
-The ICEWS datasets are built from the Integrated Crisis Early Warning System, which monitors and analyzes world events to identify potential crises. The most popular ICEWS datasets are ICEWS14, ICEWS18, and ICEWS0515. The number denotes the year of the events in each dataset. The statistics of each dataset are shown in Table. [8.](#page-11-3)
-
-### <span id="page-10-2"></span>D.2 Hyper-parameters
-
-Training hyperparameter details are as follows. A per-device batch size of 2 was utilized with a gradient accumulation step of 16. Optimization was performed with the AdamW algorithm, employing a peak learning rate of 2e-5 and a warm-up ratio of 0.03. The maximum model input length was set to 2048 tokens. DeepSpeed ZeRO stage 3 was enabled for optimization. All models were trained using 4 Nvidia Tesla A100 GPUs, each with 80GB of memory.
-
-Among the baseline methods, we fine-tuned Flan-T5 and BART on the ExplainTemp dataset while using a zero-shot setting for the other large language models (LLMs) including MPT-7B, Falcon-7B, Vicuna-7B, and ChatGPT. For the latter, we directly prompted the LLMs with the combined instruction and input text. For Flan-T5 and BART finetuning, the ExplainTemp dataset was pre-processed to follow a prefix prompting format as follows: "Input:" + document + "Question:" + question + "Answer and Explanation:". The hyperparameters for Flan T5 finetuning are shown below: The per device train batch size is set to 8 and learning rate is 5e-5. The AdamW optimizer is used for 5 epochs training with 200 warmup steps and 0.01 weight decay. The hyperparameters for BART finetuning is same as Flan T5 except the learning rate is set to 2e-5 and the number of warmup steps is 500.
-
-# D.3 More Baselines Experiments
-
-We also considered two traditional baselines' results: LSTM and BERT. The input of the models is the question and context document , and then the output is defined as a vector ∈ R1×<sup>3</sup> , where each element represents the probability that if the event in the question "will happen", "will not happen", and "unsure", respectively.
-
-Specifically, we use LSTM, and the last unit in the recurrent layer is fed into a fully connected dense layer to output the classification. In addition, we use BERT and incorporate an FFNN to classify the prediction.
-
-<span id="page-11-0"></span>
-
-<span id="page-11-2"></span>
-
-| Relation in TKG                         | Reversed relation                                                                             |  |  |  |
-|-----------------------------------------|-----------------------------------------------------------------------------------------------|--|--|--|
-| Accede to demands for change in institu | "Reject request for change in institutions, regime","Reject request or demand for political   |  |  |  |
-| tions, regime                           | reform","Reject request for policy change"                                                    |  |  |  |
-| fight with artillery and tanks          | "Halt military confrontation","Deescalate armed aggression"                                   |  |  |  |
-| Threaten with repression                | "Affirm no repression","Guarantee no repression"                                              |  |  |  |
-| Accuse of war crimes                    | "Forgive","Apologize","Praise or endorse","Express accord"                                    |  |  |  |
-| Appeal for change in leadership         | "Support the current leadership","Endorse the present administration","Back the existing lead |  |  |  |
-|                                         | ers","Affirm confidence in leadership"                                                        |  |  |  |
-| Conduct strike or boycott               | "Continue working cooperatively","Support ongoing business"                                   |  |  |  |
-| Decline comment                         | "Provide an open statement","Give a candid response"                                          |  |  |  |
-| Demand material aid                     | "Offer defense support", "Provide military assistance"                                        |  |  |  |
-| Reduce or stop economic assistance      | "Expand or begin economic support","Boost financial aid"                                      |  |  |  |
-| Make empathetic comment                 | "Make insensitive remark","Display no sympathy"                                               |  |  |  |
-| Make a visit                            | "Skip a visit","does not visit"                                                               |  |  |  |
-| Increase military alert status          | "Downgrade military alert level","Reduce military alertness"                                  |  |  |  |
-| Impose embargo, boycott, or sanctions   | "Express intent to ease embargo, boycott, or sanctions","ease embargo, boycott, or sanctions" |  |  |  |
-| Host a visit                            | "Cancel upcoming reception","Withdraw visiting invitations"                                   |  |  |  |
-| Grant diplomatic recognition            | "Withdraw acknowledgment","Rescind formal relations"                                          |  |  |  |
-
-<span id="page-11-3"></span>Table 7: Examples of manually designed inverse relations for original temporal knowledge graph relations
-
-| Datasets  | Num Entities | Num Relations | Num Events Train | Num Events Test | Num Events Val |
-|-----------|--------------|---------------|------------------|-----------------|----------------|
-| ICEWS14   | 6,869        | 230           | 74,845           | 8,514           | 7,371          |
-| ICEWS18   | 23,033       | 256           | 373,018          | 45,995          | 49545          |
-| ICEWS0515 | 10,094       | 251           | 368,868          | 46,302          | 46,159         |
-
-Table 8: The statistics of three ICEWS datasets. Num Events Train/Test/Val denotes the number of facts in training, testing, and validation sets. Num entities/relations means the number of unique entities/relations in each dataset.
-
-|      | Positive(prec/recall/F1) | Negative(prec/recall/F1) | Neutral(prec/recall/F1) | Overall        |
-|------|--------------------------|--------------------------|-------------------------|----------------|
-| LSTM | 13.1/10.3/11.5           | 14.9/8.5/10.8            | 9.3/11.8/10.4           | 11.9/9.7/10.7  |
-| BERT | 19.7/21.6/20.6           | 12.3/15.3/13.6           | 22.4/24.7/23.5          | 20.5/22.4/21.4 |
-
-Table 9: The prediction results of LSTM and BERT model on ExplainTemp Dataset.
-
-# <span id="page-11-1"></span>E ETHICAL CONSIDERATIONS AND LIMITATIONS
-
-In developing this temporal reasoning dataset, care has been taken to ensure appropriate consideration of ethical issues and limitations commonly associated with large language models. The source data has been carefully curated to provide diversity and mitigate biases. Events representing a wide range of demographic groups are included to avoid propagating systemic stereotypes. We acknowledge
-
-that, despite best efforts, the dataset may exhibit gaps or contain unintended biases. Finally, we recognize that large language models carry risks of generating harmful, biased, or logically incoherent content through hallucination. Our evaluation methodology takes this into account by prioritizing answer accuracy over fluency. With rigorous design and testing processes, we aim to uphold ethical AI principles while furthering research on temporal reasoning.
+Dr. Yang was a recipient of the Eliahu Jury Award from Columbia University, the Bell Laboratories Teamwork Award, the Huawei Technology Breakthrough Award, and the Huawei Future Star Award. The products he has developed have been deployed by Tier-1 operators and served billions of users worldwide. He is an Editor for the IEEE INTERNET OF THINGS JOURNAL, IEEE COMMUNICATIONS SURVEYS & TUTORIALS, and a Guest Editor for the IEEE JOURNAL ON SELECTED AREAS IN COMMUNICATIONS. From 2012 to 2014, he was the Vice-Chair of the IEEE ComSoc Multimedia Communications Technical Committee. In 2017, he founded and served as the Chair of the IEEE TCCN Special Interest Group on AI Embedded Cognitive Networks. He has served as a Demo/Poster Co-Chair of IEEE INFOCOM, Symposium Co-Chair of IEEE GLOBECOM, and Workshop Co-Chair of IEEE ICME.

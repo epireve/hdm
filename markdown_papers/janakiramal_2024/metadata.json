@@ -1,0 +1,538 @@
+{
+  "table_of_contents": [
+    {
+      "title": "A Hybrid Optimization and Machine Learning \nFramework for Urban Traffic Management Using \nCyber-Physical Digital Twin Architecture",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.51997375488281,
+          57.202880859375
+        ],
+        [
+          541.6848754882812,
+          57.202880859375
+        ],
+        [
+          541.6848754882812,
+          137.318359375
+        ],
+        [
+          59.51997375488281,
+          137.318359375
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          133.8000030517578,
+          475.0634460449219
+        ],
+        [
+          209.7971954345703,
+          475.0634460449219
+        ],
+        [
+          209.7971954345703,
+          485.13671875
+        ],
+        [
+          133.8000030517578,
+          485.13671875
+        ]
+      ]
+    },
+    {
+      "title": "II. LITERATURE REVIEW",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          120.3349609375,
+          55.42352294921875
+        ],
+        [
+          218.4072265625,
+          55.42352294921875
+        ],
+        [
+          218.4072265625,
+          65.5242919921875
+        ],
+        [
+          120.3349609375,
+          65.5242919921875
+        ]
+      ]
+    },
+    {
+      "title": "III. METHODOLOGY",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          389.9609375,
+          161.061279296875
+        ],
+        [
+          470.86328125,
+          161.061279296875
+        ],
+        [
+          470.86328125,
+          171.51611328125
+        ],
+        [
+          389.9609375,
+          171.51611328125
+        ]
+      ]
+    },
+    {
+      "title": "A. Data Collection",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          305.275390625,
+          178.945556640625
+        ],
+        [
+          387.69732666015625,
+          178.945556640625
+        ],
+        [
+          387.69732666015625,
+          189.018310546875
+        ],
+        [
+          305.275390625,
+          189.018310546875
+        ]
+      ]
+    },
+    {
+      "title": "B. Optimization Algorithms",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          44.925537109375,
+          546.1034545898438
+        ],
+        [
+          161.1579132080078,
+          546.1034545898438
+        ],
+        [
+          161.1579132080078,
+          556.0634460449219
+        ],
+        [
+          44.925537109375,
+          556.0634460449219
+        ]
+      ]
+    },
+    {
+      "title": "(5) \u074a\u0745\u0750\u0749\u0751\u074f\u074a\u0725 \u0748\u0741\u0751\u0728 \u0684 \u07da + \u0736\u0745\u0749\u0741 \u0748\u0741\u0752\u073d\u074e\u0736 \u0684 \u07d9 = \u0728",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          335.25,
+          439.385986328125
+        ],
+        [
+          550.6015625,
+          439.385986328125
+        ],
+        [
+          550.6015625,
+          451.7998962402344
+        ],
+        [
+          335.25,
+          451.7998962402344
+        ]
+      ]
+    },
+    {
+      "title": "C. Machine Learning",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          45.289306640625,
+          105.092041015625
+        ],
+        [
+          133.9900360107422,
+          105.092041015625
+        ],
+        [
+          133.9900360107422,
+          115.1171875
+        ],
+        [
+          45.289306640625,
+          115.1171875
+        ]
+      ]
+    },
+    {
+      "title": "IV. RESULT AND DISCUSSION",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          367.20001220703125,
+          264.5833740234375
+        ],
+        [
+          495.599609375,
+          264.5833740234375
+        ],
+        [
+          495.599609375,
+          274.63671875
+        ],
+        [
+          367.20001220703125,
+          274.63671875
+        ]
+      ]
+    },
+    {
+      "title": "V. CONCLUSION",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          396.47998046875,
+          422.0234375
+        ],
+        [
+          466.20703125,
+          422.0234375
+        ],
+        [
+          466.20703125,
+          432.51171875
+        ],
+        [
+          396.47998046875,
+          432.51171875
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          405.6000061035156,
+          630.8760986328125
+        ],
+        [
+          451.947265625,
+          630.8760986328125
+        ],
+        [
+          451.947265625,
+          639.8760986328125
+        ],
+        [
+          405.6000061035156,
+          639.8760986328125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          225
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          265
+        ],
+        [
+          "Line",
+          130
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          451
+        ],
+        [
+          "Line",
+          143
+        ],
+        [
+          "TableCell",
+          52
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          280
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "TableCell",
+          15
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          356
+        ],
+        [
+          "Line",
+          179
+        ],
+        [
+          "TableCell",
+          118
+        ],
+        [
+          "Caption",
+          4
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "TableGroup",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          173
+        ],
+        [
+          "Line",
+          73
+        ],
+        [
+          "ListItem",
+          14
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/A_Hybrid_Optimization_and_Machine_Learning_Framework_for_Urban_Traffic_Management_Using_Cyber-Physical_Digital_Twin_Architecture"
+}

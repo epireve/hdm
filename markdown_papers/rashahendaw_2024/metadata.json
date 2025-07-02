@@ -1,0 +1,703 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Comprehensive Personal Health Knowledge Graph \nfor Effective Management and Utilization of Personal \nHealth Data",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.92560577392578,
+          71.97802734375
+        ],
+        [
+          556.6326293945312,
+          71.97802734375
+        ],
+        [
+          556.6326293945312,
+          148.7574462890625
+        ],
+        [
+          59.92560577392578,
+          148.7574462890625
+        ]
+      ]
+    },
+    {
+      "title": "Keywords\u2014Personal Health Data, Knowledge Graphs, \nOntology, Electronic Health Records, Semantic Query",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          57.87360382080078,
+          477.2109375
+        ],
+        [
+          299.3289794921875,
+          477.2109375
+        ],
+        [
+          299.3289794921875,
+          496.546875
+        ],
+        [
+          57.87360382080078,
+          496.546875
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          142.25830078125,
+          503.89453125
+        ],
+        [
+          224.5693359375,
+          503.89453125
+        ],
+        [
+          224.5693359375,
+          514.8756713867188
+        ],
+        [
+          142.25830078125,
+          514.8756713867188
+        ]
+      ]
+    },
+    {
+      "title": "II. RELATED WORK",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          137.3115234375,
+          231.66943359375
+        ],
+        [
+          222.4775390625,
+          231.66943359375
+        ],
+        [
+          222.4775390625,
+          241.27606201171875
+        ],
+        [
+          137.3115234375,
+          241.27606201171875
+        ]
+      ]
+    },
+    {
+      "title": "III. DESIGN OF THE FRAMEWORK",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          357.6857604980469,
+          616.6648406982422
+        ],
+        [
+          516.1122436523438,
+          616.6648406982422
+        ],
+        [
+          516.1122436523438,
+          626.4821472167969
+        ],
+        [
+          357.6857604980469,
+          626.4821472167969
+        ]
+      ]
+    },
+    {
+      "title": "Fig 1: System Architecture",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          262.35723876953125,
+          250.787109375
+        ],
+        [
+          346.3785095214844,
+          250.787109375
+        ],
+        [
+          346.3785095214844,
+          259.26007080078125
+        ],
+        [
+          262.35723876953125,
+          259.26007080078125
+        ]
+      ]
+    },
+    {
+      "title": "A. Knowledge Graph Creation",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          57.31303405761719,
+          269.5655517578125
+        ],
+        [
+          179.43959045410156,
+          269.5655517578125
+        ],
+        [
+          179.43959045410156,
+          279.14154052734375
+        ],
+        [
+          57.31303405761719,
+          279.14154052734375
+        ]
+      ]
+    },
+    {
+      "title": "B. Query and Navigation of the Knowledge Graph",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          313.470703125,
+          233.578125
+        ],
+        [
+          510.7045593261719,
+          233.578125
+        ],
+        [
+          510.7045593261719,
+          243.30560302734375
+        ],
+        [
+          313.470703125,
+          243.30560302734375
+        ]
+      ]
+    },
+    {
+      "title": "C. Generating Embeddings of the Knowledge Graph",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          57.2255859375,
+          233.96484375
+        ],
+        [
+          262.5677185058594,
+          233.96484375
+        ],
+        [
+          262.5677185058594,
+          243.872314453125
+        ],
+        [
+          57.2255859375,
+          243.872314453125
+        ]
+      ]
+    },
+    {
+      "title": "IV. USE CASE STUDY",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          131.9326171875,
+          582.9517364501953
+        ],
+        [
+          223.85133361816406,
+          582.9517364501953
+        ],
+        [
+          223.85133361816406,
+          592.6559448242188
+        ],
+        [
+          131.9326171875,
+          592.6559448242188
+        ]
+      ]
+    },
+    {
+      "title": "A. Healthcare Data Graph Explorer (HDGE)",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          57.00146484375,
+          665.8424987792969
+        ],
+        [
+          236.2626190185547,
+          665.8424987792969
+        ],
+        [
+          236.2626190185547,
+          675.59765625
+        ],
+        [
+          57.00146484375,
+          675.59765625
+        ]
+      ]
+    },
+    {
+      "title": "B. Blockchain-based Decentralized Personal Health Data \nSharing Platform",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          57.076171875,
+          271.2510986328125
+        ],
+        [
+          283.7928771972656,
+          271.2510986328125
+        ],
+        [
+          283.7928771972656,
+          291.77239990234375
+        ],
+        [
+          57.076171875,
+          291.77239990234375
+        ]
+      ]
+    },
+    {
+      "title": "C. Chatbot for Personal Health Data Querying",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          313.76953125,
+          448.79010009765625
+        ],
+        [
+          498.85552978515625,
+          448.79010009765625
+        ],
+        [
+          498.85552978515625,
+          458.3660888671875
+        ],
+        [
+          313.76953125,
+          458.3660888671875
+        ]
+      ]
+    },
+    {
+      "title": "V. DISCUSSIONS",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          143.138671875,
+          249.240234375
+        ],
+        [
+          215.4170684814453,
+          249.240234375
+        ],
+        [
+          215.4170684814453,
+          259.15447998046875
+        ],
+        [
+          143.138671875,
+          259.15447998046875
+        ]
+      ]
+    },
+    {
+      "title": "VI. CONCLUSIONS",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          395.6484375,
+          404.5078125
+        ],
+        [
+          475.734375,
+          404.5078125
+        ],
+        [
+          475.734375,
+          414.6588134765625
+        ],
+        [
+          395.6484375,
+          414.6588134765625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          203
+        ],
+        [
+          "Line",
+          101
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          237
+        ],
+        [
+          "Line",
+          116
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          166
+        ],
+        [
+          "Line",
+          96
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          270
+        ],
+        [
+          "Line",
+          121
+        ],
+        [
+          "Text",
+          26
+        ],
+        [
+          "ListItem",
+          13
+        ],
+        [
+          "ListGroup",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          178
+        ],
+        [
+          "Line",
+          88
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          172
+        ],
+        [
+          "Line",
+          85
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          230
+        ],
+        [
+          "Line",
+          114
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "ListItem",
+          7
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          263
+        ],
+        [
+          "Line",
+          116
+        ],
+        [
+          "ListItem",
+          25
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          94
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "ListItem",
+          10
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Comprehensive_Personal_Health_Knowledge_Graph_for_Effective_Management_and_Utilization_of_Personal_Health_Data"
+}

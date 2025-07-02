@@ -1,0 +1,1478 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Building and Using Personal Knowledge Graph to\nImprove Suicidal Ideation Detection\non Social Media",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          56.0302734375,
+          58.626708984375
+        ],
+        [
+          554.02734375,
+          58.626708984375
+        ],
+        [
+          554.02734375,
+          138.3280029296875
+        ],
+        [
+          56.0302734375,
+          138.3280029296875
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          134.173828125,
+          474.8636474609375
+        ],
+        [
+          214.259765625,
+          474.8636474609375
+        ],
+        [
+          214.259765625,
+          484.8262634277344
+        ],
+        [
+          134.173828125,
+          484.8262634277344
+        ]
+      ]
+    },
+    {
+      "title": "A. Data-Aspect Challenges",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          311.37890625,
+          470.1386413574219
+        ],
+        [
+          424.3359375,
+          470.1386413574219
+        ],
+        [
+          424.3359375,
+          480.1012268066406
+        ],
+        [
+          311.37890625,
+          480.1012268066406
+        ]
+      ]
+    },
+    {
+      "title": "TABLE II\nSTATISTICS OF DELETED NORMAL POST NUMBERS BASED ON 7,329 USERS (3,652 WITH SUICIDAL IDEATION AND 3,677\nNORMAL USERS) FROM MAY 1, 2018 TO APRIL 30, 2019 ON SINA WEIBO.",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          51.8466796875,
+          51.58245849609375
+        ],
+        [
+          560.6015625,
+          51.58245849609375
+        ],
+        [
+          560.6015625,
+          85.4560546875
+        ],
+        [
+          51.8466796875,
+          85.4560546875
+        ]
+      ]
+    },
+    {
+      "title": "II. LITERATURE REVIEW ON DETECTING SUICIDAL\nIDEATION",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          64.6269302368164,
+          635.5464782714844
+        ],
+        [
+          284.783203125,
+          635.5464782714844
+        ],
+        [
+          284.783203125,
+          657.4640808105469
+        ],
+        [
+          64.6269302368164,
+          657.4640808105469
+        ]
+      ]
+    },
+    {
+      "title": "A. Traditional Questionnaire-based Suicide Risk Assessment",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          48.96393585205078,
+          662.9665985107422
+        ],
+        [
+          297.7822265625,
+          662.9665985107422
+        ],
+        [
+          297.7822265625,
+          672.92919921875
+        ],
+        [
+          48.96393585205078,
+          672.92919921875
+        ]
+      ]
+    },
+    {
+      "title": "B. Suicide Risk Detection from Social Media",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          309.5859375,
+          183.0816650390625
+        ],
+        [
+          496.9236145019531,
+          183.0816650390625
+        ],
+        [
+          496.9236145019531,
+          193.0443115234375
+        ],
+        [
+          309.5859375,
+          193.0443115234375
+        ]
+      ]
+    },
+    {
+      "title": "III. FRAMEWORK",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          397.740234375,
+          79.63037109375
+        ],
+        [
+          475.610595703125,
+          79.63037109375
+        ],
+        [
+          475.610595703125,
+          89.59295654296875
+        ],
+        [
+          397.740234375,
+          89.59295654296875
+        ]
+      ]
+    },
+    {
+      "title": "A. Building the Personal Suicide-Oriented Knowledge Graph",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          310.78125,
+          94.38348388671875
+        ],
+        [
+          563.0354614257812,
+          94.38348388671875
+        ],
+        [
+          563.0354614257812,
+          104.34613037109375
+        ],
+        [
+          310.78125,
+          104.34613037109375
+        ]
+      ]
+    },
+    {
+      "title": "TABLE III\nTYPICAL PERFECTION-RELATED AND RUMINANT\nTHINKING-RELATED WORDS.",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          334.4200134277344,
+          51.582275390625
+        ],
+        [
+          540.5994262695312,
+          51.582275390625
+        ],
+        [
+          540.5994262695312,
+          85.45587158203125
+        ],
+        [
+          334.4200134277344,
+          85.45587158203125
+        ]
+      ]
+    },
+    {
+      "title": "B. Suicidal Ideation Detection based on the Personal Knowl-\nedge Graph",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          309.884765625,
+          624.8351287841797
+        ],
+        [
+          563.035400390625,
+          624.8351287841797
+        ],
+        [
+          563.035400390625,
+          646.7527313232422
+        ],
+        [
+          309.884765625,
+          646.7527313232422
+        ]
+      ]
+    },
+    {
+      "title": "IV. EXPERIMENTS",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          134.0244140625,
+          375.2345275878906
+        ],
+        [
+          214.11375427246094,
+          375.2345275878906
+        ],
+        [
+          214.11375427246094,
+          385.1971435546875
+        ],
+        [
+          134.0244140625,
+          385.1971435546875
+        ]
+      ]
+    },
+    {
+      "title": "A. Datasets",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          47.999267578125,
+          391.3796691894531
+        ],
+        [
+          98.4638671875,
+          391.3796691894531
+        ],
+        [
+          98.4638671875,
+          401.4140625
+        ],
+        [
+          47.999267578125,
+          401.4140625
+        ]
+      ]
+    },
+    {
+      "title": "B. Experimental Setup",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          311.080078125,
+          552.62109375
+        ],
+        [
+          405.509765625,
+          552.62109375
+        ],
+        [
+          405.509765625,
+          562.7270355224609
+        ],
+        [
+          311.080078125,
+          562.7270355224609
+        ]
+      ]
+    },
+    {
+      "title": "TABLE VI\nCONFUSION MATRIX USED TO EVALUATE THE\nPERFORMANCE.",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          77.6953125,
+          468.1733703613281
+        ],
+        [
+          270.58978271484375,
+          468.1733703613281
+        ],
+        [
+          270.58978271484375,
+          502.04595947265625
+        ],
+        [
+          77.6953125,
+          502.04595947265625
+        ]
+      ]
+    },
+    {
+      "title": "C. Effectiveness of Involving Personal Suicide-Oriented\nKnowledge Graphs in Suicidal Ideation Detection",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          48.33544921875,
+          578.3146057128906
+        ],
+        [
+          300.0215148925781,
+          578.3146057128906
+        ],
+        [
+          300.0215148925781,
+          600.2322082519531
+        ],
+        [
+          48.33544921875,
+          600.2322082519531
+        ]
+      ]
+    },
+    {
+      "title": "D. Effectiveness of Property and Neighbour Attention Mech-\nanisms",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          311.9765625,
+          531.3515625
+        ],
+        [
+          563.0355224609375,
+          531.3515625
+        ],
+        [
+          563.0355224609375,
+          553.3870849609375
+        ],
+        [
+          311.9765625,
+          553.3870849609375
+        ]
+      ]
+    },
+    {
+      "title": "E. Contributions of Social Neighbours and Personal Suicide-\nOriented Knowledge Graph to Suicidal Ideation Detection",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          48.2607421875,
+          416.58050537109375
+        ],
+        [
+          300.0214538574219,
+          416.58050537109375
+        ],
+        [
+          300.0214538574219,
+          438.4980773925781
+        ],
+        [
+          48.2607421875,
+          438.4980773925781
+        ]
+      ]
+    },
+    {
+      "title": "F. Impact of Data Noise on Suicidal Ideation Detection Per-\nformance",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          47.58837890625,
+          601.2455444335938
+        ],
+        [
+          300.0215148925781,
+          601.2455444335938
+        ],
+        [
+          300.0215148925781,
+          623.1631469726562
+        ],
+        [
+          47.58837890625,
+          623.1631469726562
+        ]
+      ]
+    },
+    {
+      "title": "TABLE XIII\nDERIVED TEST DATASET CONTAINING USERS WITH LESS\nTHAN 5 POSTS THROUGHOUT THE YEAR.",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          51.28199005126953,
+          51.58245849609375
+        ],
+        [
+          299.126953125,
+          51.58245849609375
+        ],
+        [
+          299.126953125,
+          85.4560546875
+        ],
+        [
+          51.28199005126953,
+          85.4560546875
+        ]
+      ]
+    },
+    {
+      "title": "TABLE XIV",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          148.31100463867188,
+          142.69921875
+        ],
+        [
+          204.3984375,
+          142.69921875
+        ],
+        [
+          204.3984375,
+          154.2220458984375
+        ],
+        [
+          148.31100463867188,
+          154.2220458984375
+        ]
+      ]
+    },
+    {
+      "title": "G. An Ablation Study",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          311.080078125,
+          341.7565612792969
+        ],
+        [
+          401.1432800292969,
+          341.7565612792969
+        ],
+        [
+          401.1432800292969,
+          351.7191467285156
+        ],
+        [
+          311.080078125,
+          351.7191467285156
+        ]
+      ]
+    },
+    {
+      "title": "H. Training and Inference Time Costs",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          311.080078125,
+          563.5395965576172
+        ],
+        [
+          470.056640625,
+          563.5395965576172
+        ],
+        [
+          470.056640625,
+          573.50390625
+        ],
+        [
+          311.080078125,
+          573.50390625
+        ]
+      ]
+    },
+    {
+      "title": "V. DISCUSSIONS",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          393.556640625,
+          696.5714721679688
+        ],
+        [
+          473.561279296875,
+          696.5714721679688
+        ],
+        [
+          473.561279296875,
+          706.5340728759766
+        ],
+        [
+          393.556640625,
+          706.5340728759766
+        ]
+      ]
+    },
+    {
+      "title": "A. Ethical Considerations",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          311.9779968261719,
+          711.2975997924805
+        ],
+        [
+          418.658203125,
+          711.2975997924805
+        ],
+        [
+          418.658203125,
+          721.2601928710938
+        ],
+        [
+          311.9779968261719,
+          721.2601928710938
+        ]
+      ]
+    },
+    {
+      "title": "B. Limitations",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          48.447509765625,
+          267.802734375
+        ],
+        [
+          108.17578125,
+          267.802734375
+        ],
+        [
+          108.17578125,
+          277.77825927734375
+        ],
+        [
+          48.447509765625,
+          277.77825927734375
+        ]
+      ]
+    },
+    {
+      "title": "VI. CONCLUSION",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          134.3232421875,
+          711.4632949829102
+        ],
+        [
+          212.7974853515625,
+          711.4632949829102
+        ],
+        [
+          212.7974853515625,
+          721.425895690918
+        ],
+        [
+          134.3232421875,
+          721.425895690918
+        ]
+      ]
+    },
+    {
+      "title": "ACKNOWLEDGMENT",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          393.2578125,
+          299.5564270019531
+        ],
+        [
+          480.95843505859375,
+          299.5564270019531
+        ],
+        [
+          480.95843505859375,
+          309.51904296875
+        ],
+        [
+          393.2578125,
+          309.51904296875
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          409.6119384765625,
+          376.28839111328125
+        ],
+        [
+          466.171875,
+          376.28839111328125
+        ],
+        [
+          466.171875,
+          386.2510070800781
+        ],
+        [
+          409.6119384765625,
+          386.2510070800781
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          251
+        ],
+        [
+          "Line",
+          99
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Footnote",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          170
+        ],
+        [
+          "Line",
+          55
+        ],
+        [
+          "TableCell",
+          33
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          197
+        ],
+        [
+          "Line",
+          71
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          307
+        ],
+        [
+          "Line",
+          113
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          369
+        ],
+        [
+          "Line",
+          102
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          783
+        ],
+        [
+          "Line",
+          148
+        ],
+        [
+          "TextInlineMath",
+          9
+        ],
+        [
+          "TableCell",
+          6
+        ],
+        [
+          "Equation",
+          4
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          448
+        ],
+        [
+          "Line",
+          96
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "TextInlineMath",
+          5
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          574
+        ],
+        [
+          "Line",
+          96
+        ],
+        [
+          "TableCell",
+          92
+        ],
+        [
+          "TextInlineMath",
+          7
+        ],
+        [
+          "Equation",
+          4
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          546
+        ],
+        [
+          "Line",
+          133
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "TextInlineMath",
+          7
+        ],
+        [
+          "Equation",
+          4
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          299
+        ],
+        [
+          "Line",
+          106
+        ],
+        [
+          "TableCell",
+          94
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "Table",
+          4
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          766
+        ],
+        [
+          "Line",
+          120
+        ],
+        [
+          "TableCell",
+          55
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "Equation",
+          4
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          243
+        ],
+        [
+          "TableCell",
+          84
+        ],
+        [
+          "Line",
+          62
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Caption",
+          4
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          312
+        ],
+        [
+          "TableCell",
+          111
+        ],
+        [
+          "Line",
+          104
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Table",
+          5
+        ],
+        [
+          "Reference",
+          5
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          360
+        ],
+        [
+          "Line",
+          123
+        ],
+        [
+          "TableCell",
+          24
+        ],
+        [
+          "Reference",
+          14
+        ],
+        [
+          "ListItem",
+          13
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          524
+        ],
+        [
+          "Line",
+          155
+        ],
+        [
+          "ListItem",
+          43
+        ],
+        [
+          "Reference",
+          43
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          358
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "ListItem",
+          26
+        ],
+        [
+          "Reference",
+          26
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Picture",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/2012.09123v1"
+}

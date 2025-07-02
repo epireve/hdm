@@ -1,0 +1,1133 @@
+{
+  "table_of_contents": [
+    {
+      "title": "HHT: An Approach for Representing\nTemporally-Evolving Historical Territories",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          159.275390625,
+          114.60015869140625
+        ],
+        [
+          454.517578125,
+          114.60015869140625
+        ],
+        [
+          454.517578125,
+          146.87933349609375
+        ],
+        [
+          159.275390625,
+          146.87933349609375
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          134.39794921875,
+          522.5524291992188
+        ],
+        [
+          228.84048461914062,
+          522.5524291992188
+        ],
+        [
+          228.84048461914062,
+          534.5076293945312
+        ],
+        [
+          134.39794921875,
+          534.5076293945312
+        ]
+      ]
+    },
+    {
+      "title": "2 Representing historical territories and changes",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          134.76499938964844,
+          291.5366516113281
+        ],
+        [
+          429.71484375,
+          291.5366516113281
+        ],
+        [
+          429.71484375,
+          303.4918518066406
+        ],
+        [
+          134.76499938964844,
+          303.4918518066406
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Inherent difficulties in representing historical territories",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          134.173828125,
+          316.7299499511719
+        ],
+        [
+          441.66796875,
+          316.7299499511719
+        ],
+        [
+          441.66796875,
+          326.77734375
+        ],
+        [
+          134.173828125,
+          326.77734375
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Territories as temporal entities",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          133.94970703125,
+          473.5938415527344
+        ],
+        [
+          317.953125,
+          473.5938415527344
+        ],
+        [
+          317.953125,
+          483.55645751953125
+        ],
+        [
+          133.94970703125,
+          483.55645751953125
+        ]
+      ]
+    },
+    {
+      "title": "2.3 Review of change representation and reasoning",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          134.69677734375,
+          336.2499084472656
+        ],
+        [
+          397.44140625,
+          336.2499084472656
+        ],
+        [
+          397.44140625,
+          346.306640625
+        ],
+        [
+          134.69677734375,
+          346.306640625
+        ]
+      ]
+    },
+    {
+      "title": "3 The HHT Ontology for historical territories",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          134.7650146484375,
+          270.26959228515625
+        ],
+        [
+          413.876953125,
+          270.26959228515625
+        ],
+        [
+          413.876953125,
+          282.22479248046875
+        ],
+        [
+          134.7650146484375,
+          282.22479248046875
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Territory representation and link with TSN",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          134.6220703125,
+          298.10589599609375
+        ],
+        [
+          380.05419921875,
+          298.10589599609375
+        ],
+        [
+          380.05419921875,
+          308.21484375
+        ],
+        [
+          134.6220703125,
+          308.21484375
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Discrete Geometry and building blocks",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          134.39794921875,
+          581.3565368652344
+        ],
+        [
+          357.3984375,
+          581.3565368652344
+        ],
+        [
+          357.3984375,
+          591.3191375732422
+        ],
+        [
+          134.39794921875,
+          591.3191375732422
+        ]
+      ]
+    },
+    {
+      "title": "3.3 HHT-Change: Representing and qualifying change",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          134.3232421875,
+          600.2465209960938
+        ],
+        [
+          413.578125,
+          600.2465209960938
+        ],
+        [
+          413.578125,
+          610.2421875
+        ],
+        [
+          134.3232421875,
+          610.2421875
+        ]
+      ]
+    },
+    {
+      "title": "4 Change detection algorithm",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          134.76492309570312,
+          583.9421081542969
+        ],
+        [
+          319.1484375,
+          583.9421081542969
+        ],
+        [
+          319.1484375,
+          595.8973083496094
+        ],
+        [
+          134.76492309570312,
+          595.8973083496094
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Algorithm description",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          133.7255859375,
+          465.8446350097656
+        ],
+        [
+          271.33233642578125,
+          465.8446350097656
+        ],
+        [
+          271.33233642578125,
+          475.8072509765625
+        ],
+        [
+          133.7255859375,
+          475.8072509765625
+        ]
+      ]
+    },
+    {
+      "title": "12 W. Charles, N. Aussenac-Gilles, and N. Hernandez",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          134.0244140625,
+          92.8125
+        ],
+        [
+          372.9375,
+          92.8125
+        ],
+        [
+          372.9375,
+          101.88104248046875
+        ],
+        [
+          134.0244140625,
+          101.88104248046875
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Extension for flawed data detection",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          134.54736328125,
+          349.056884765625
+        ],
+        [
+          339.169921875,
+          349.056884765625
+        ],
+        [
+          339.169921875,
+          359.068359375
+        ],
+        [
+          134.54736328125,
+          359.068359375
+        ]
+      ]
+    },
+    {
+      "title": "5 Evaluation",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          134.6220703125,
+          560.8594512939453
+        ],
+        [
+          217.6962890625,
+          560.8594512939453
+        ],
+        [
+          217.6962890625,
+          572.8146514892578
+        ],
+        [
+          134.6220703125,
+          572.8146514892578
+        ]
+      ]
+    },
+    {
+      "title": "14 W. Charles, N. Aussenac-Gilles, and N. Hernandez",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          133.35205078125,
+          92.76416015625
+        ],
+        [
+          373.833984375,
+          92.76416015625
+        ],
+        [
+          373.833984375,
+          101.9970703125
+        ],
+        [
+          133.35205078125,
+          101.9970703125
+        ]
+      ]
+    },
+    {
+      "title": "5.1 French Third Republic",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          133.1279296875,
+          117.94921875
+        ],
+        [
+          276.2666015625,
+          117.94921875
+        ],
+        [
+          276.2666015625,
+          127.984375
+        ],
+        [
+          133.1279296875,
+          127.984375
+        ]
+      ]
+    },
+    {
+      "title": "5.2 NUTS",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          134.6220703125,
+          451.87774658203125
+        ],
+        [
+          194.3876953125,
+          451.87774658203125
+        ],
+        [
+          194.3876953125,
+          462.12890625
+        ],
+        [
+          134.6220703125,
+          462.12890625
+        ]
+      ]
+    },
+    {
+      "title": "5.3 France: Region reform",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          134.47265625,
+          118.02178955078125
+        ],
+        [
+          274.32421875,
+          118.02178955078125
+        ],
+        [
+          274.32421875,
+          127.984375
+        ],
+        [
+          134.47265625,
+          127.984375
+        ]
+      ]
+    },
+    {
+      "title": "6 Conclusion",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          133.65087890625,
+          364.2966003417969
+        ],
+        [
+          219.638671875,
+          364.2966003417969
+        ],
+        [
+          219.638671875,
+          376.2518005371094
+        ],
+        [
+          133.65087890625,
+          376.2518005371094
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          133.94970703125,
+          116.46649169921875
+        ],
+        [
+          197.9736328125,
+          116.46649169921875
+        ],
+        [
+          197.9736328125,
+          128.42169189453125
+        ],
+        [
+          133.94970703125,
+          128.42169189453125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          117
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          84
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          114
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          143
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          108
+        ],
+        [
+          "Line",
+          31
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          168
+        ],
+        [
+          "Line",
+          30
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          183
+        ],
+        [
+          "Line",
+          31
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          325
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          78
+        ],
+        [
+          "Line",
+          30
+        ],
+        [
+          "TableCell",
+          7
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          292
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListGroup",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          331
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListItem",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          327
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "TableCell",
+          4
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "ListItem",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          195
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Equation",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListItem",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          92
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Footnote",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          85
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          139
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "ListItem",
+          16
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          7
+        ],
+        [
+          "Line",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListItem",
+          1
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/ArticleESWC2023-WIlliamFormat"
+}
