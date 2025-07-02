@@ -1,6 +1,6 @@
 ---
 cite_key: ghani_2020
-title:  "The Impact of Climate Change on Global Food Security"
+title: The Impact of Climate Change on Global Food Security
 authors: Anwar Ghani, Afzal Badshah, Saeed Ullah Jan, Abdulrahman A. Alshdadi, Ali Daud
 year: 2020
 doi: 10.1109/RpJC.2020.DOI

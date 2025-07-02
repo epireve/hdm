@@ -1,6 +1,6 @@
 ---
 cite_key: zhao_2022
-title: 'Skefl: Single-Key Homomorphic Encryption for Secure Federated Learning'
+title: Skefl: Single-Key Homomorphic Encryption for Secure Federated Learning
 authors: Dongfang Zhao
 year: 2022
 date_processed: '2025-07-02'

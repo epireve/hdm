@@ -1,7 +1,6 @@
 ---
 cite_key: teraoka_2011
-title: Aggregation and Exploration of Heterogeneous Data Collected from Diverse Information
-  Sources
+title: Aggregation and Exploration of Heterogeneous Data Collected from Diverse Information Sources
 authors: Teruhiko Teraoka
 year: 2011
 date_processed: '2025-07-02'

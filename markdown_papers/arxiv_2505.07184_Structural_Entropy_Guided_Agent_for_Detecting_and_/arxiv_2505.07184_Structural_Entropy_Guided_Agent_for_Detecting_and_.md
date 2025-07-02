@@ -1,7 +1,6 @@
 ---
 cite_key: pan_2025
-title: Structural Entropy Guided Agent for Detecting and Repairing Knowledge Deficiencies
-  in LLMs
+title: Structural Entropy Guided Agent for Detecting and Repairing Knowledge Deficiencies in LLMs
 authors: Tengfei Pan, Artificial Intelligence
 year: 2025
 doi: 10.18653/v1/2023.findings-acl.551

@@ -1,6 +1,6 @@
 ---
 cite_key: challenges_2005
-title: 'MARK: Memory Augmented Refinement of Knowledge'
+title: MARK: Memory Augmented Refinement of Knowledge
 authors: To overcome these challenges
 year: 2005
 date_processed: '2025-07-02'

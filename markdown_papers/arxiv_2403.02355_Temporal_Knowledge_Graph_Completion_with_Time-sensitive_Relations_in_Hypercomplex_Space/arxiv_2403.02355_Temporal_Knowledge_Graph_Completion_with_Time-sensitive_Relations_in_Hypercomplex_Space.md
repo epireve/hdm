@@ -1,9 +1,7 @@
 ---
 cite_key: cai_2023
-title: Temporal Knowledge Graph Completion with Time-sensitive Relations in Hypercomplex
-  Space
-authors: Li Cai, Xin Mao, Zhihong Wang, Shangqing Zhao, Yuhao Zhou, Changxu Wu, Man
-  Lan
+title: Temporal Knowledge Graph Completion with Time-sensitive Relations in Hypercomplex Space
+authors: Li Cai, Xin Mao, Zhihong Wang, Shangqing Zhao, Yuhao Zhou, Changxu Wu, Man Lan
 year: 2023
 doi: 10.1007/3-540-44503-X_27
 date_processed: '2025-07-02'

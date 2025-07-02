@@ -1,9 +1,7 @@
 ---
 cite_key: anokhin_2024
-title: 'AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM
-  Agents'
-authors: Petr Anokhin, Nikita Semenov, Artyom Sorokin, Dmitry Evseev, Mikhail Burtsev,
-  Evgeny Burnaev
+title: AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents
+authors: Petr Anokhin, Nikita Semenov, Artyom Sorokin, Dmitry Evseev, Mikhail Burtsev, Evgeny Burnaev
 year: 2024
 doi: 10.48550/arXiv.2407.04363
 url: https://arxiv.org/abs/2407.04363

@@ -1,6 +1,6 @@
 ---
 cite_key: cudr-mauroux_2020
-title: 'Leveraging Knowledge Graphs for Big Data Integration: the XI Pipeline'
+title: Leveraging Knowledge Graphs for Big Data Integration: the XI Pipeline
 authors: Philippe Cudré-Mauroux
 year: 2020
 doi: 10.3233/SW-190371

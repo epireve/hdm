@@ -1,7 +1,6 @@
 ---
 cite_key: dunbar_2022
-title: Driving Digital Engineering Integration and Interoperability Through Semantic
-  Integration of Models with Ontologies
+title: Driving Digital Engineering Integration and Interoperability Through Semantic Integration of Models with Ontologies
 authors: Daniel Dunbar, Semantic Web, Digital Engineering
 year: 2022
 doi: 10.1002/sys.21592

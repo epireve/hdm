@@ -1,7 +1,6 @@
 ---
 cite_key: gaffineta_2002
-title: 'Human Digital Twin: Systematic Literature Review and Concept Disambiguation
-  for Industry 5.0'
+title: Human Digital Twin: Systematic Literature Review and Concept Disambiguation for Industry 5.0
 authors: Ben Gaffineta, Jana Al Haj Ali, Yannick Naudet
 year: 2002
 doi: 10.2777/308407.

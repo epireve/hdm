@@ -1,8 +1,7 @@
 ---
 cite_key: schultes_2022
 title: FAIR Digital Twins for Data-Intensive Research
-authors: Erik Schultes, Marco Roos, Luiz Olavo Bonino da Silva Santos, Giancarlo Guizzardi,
-  Jildau Bouwman, Thomas Hankemeier, Arie Baak, Barend Mons
+authors: Erik Schultes, Marco Roos, Luiz Olavo Bonino da Silva Santos, Giancarlo Guizzardi, Jildau Bouwman, Thomas Hankemeier, Arie Baak, Barend Mons
 year: 2022
 doi: 10.3389/fdata.2022.883341/full
 date_processed: '2025-07-02'

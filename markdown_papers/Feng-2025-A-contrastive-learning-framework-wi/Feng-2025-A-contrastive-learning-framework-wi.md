@@ -1,7 +1,6 @@
 ---
 cite_key: feng_2024
-title: A contrastive learning framework with dual gates and noise awareness for temporal
-  knowledge graph reasoning
+title: A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning
 authors: Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang
 year: 2024
 date_processed: '2025-07-02'

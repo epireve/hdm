@@ -1,8 +1,7 @@
 ---
 cite_key: maoa_2023
 title: A Survey on Semantic Processing Techniques
-authors: Rui Maoa, Kai Hec, Xulang Zhangb, Guanyi Chend, Jinjie Nib, Zonglin Yanga,
-  Erik Cambriaa
+authors: Rui Maoa, Kai Hec, Xulang Zhangb, Guanyi Chend, Jinjie Nib, Zonglin Yanga, Erik Cambriaa
 year: 2023
 doi: 10.5683/SP2/QPOJSI
 date_processed: '2025-07-02'

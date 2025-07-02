@@ -1,10 +1,7 @@
 ---
 cite_key: wickramarachchi_2021
-title: Saher Mohamed, Kirollos Farah, Abdelrahman Lotfy, Kareem Rizk, Abdelrahman
-  Saeed, Shahenda Mohamed, Ghada Khouriba, Tamer Arafa
-authors: '- Wickramarachchi, R., Henson, C., Sheth, A., 2020. An Evaluation of Knowledge
-  Graph Embeddings for Autonomous Driving Data: Experience, Practice. Technical Report.
-  URL: https://arxiv.org/abs/2003.00344. accessed: Oct. 14, 2023.'
+title: Saher Mohamed, Kirollos Farah, Abdelrahman Lotfy, Kareem Rizk, Abdelrahman Saeed, Shahenda Mohamed, Ghada Khouriba, Tamer Arafa
+authors: - Wickramarachchi, R., Henson, C., Sheth, A., 2020. An Evaluation of Knowledge Graph Embeddings for Autonomous Driving Data: Experience, Practice. Technical Report. URL: https://arxiv.org/abs/2003.00344. accessed: Oct. 14, 2023.
 year: 2021
 doi: 10.3390/su13063191.
 date_processed: '2025-07-02'

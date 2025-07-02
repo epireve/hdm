@@ -1,7 +1,6 @@
 ---
 cite_key: prahlad_2025
-title: Personalizing Large Language Models using Retrieval Augmented Generation and
-  Knowledge Graph
+title: Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph
 authors: Deeksha Prahlad
 year: 2025
 doi: arXiv:2505.09945

@@ -1,9 +1,7 @@
 ---
 cite_key: zhao_2024
-title: 'AGENTiGraph: An Interactive Knowledge Graph Platform for LLM-based Chatbots
-  Utilizing Private Data'
-authors: Xinjie Zhao, Moritz Blum, Rui Yang, Boming Yang, Tony Wang, Xin Li, Huitao
-  Li, Yanran Fu, Rongrong Wang, Juntao Zhang, Irene Li, Weill Cornell Medicine
+title: AGENTiGraph: An Interactive Knowledge Graph Platform for LLM-based Chatbots Utilizing Private Data
+authors: Xinjie Zhao, Moritz Blum, Rui Yang, Boming Yang, Tony Wang, Xin Li, Huitao Li, Yanran Fu, Rongrong Wang, Juntao Zhang, Irene Li, Weill Cornell Medicine
 year: 2024
 doi: arXiv:2410.11531
 url: https://arxiv.org/abs/2410.11531

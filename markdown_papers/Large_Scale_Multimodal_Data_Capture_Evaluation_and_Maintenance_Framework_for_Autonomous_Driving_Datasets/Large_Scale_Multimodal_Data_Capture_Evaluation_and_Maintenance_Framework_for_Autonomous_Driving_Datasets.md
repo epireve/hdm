@@ -1,7 +1,6 @@
 ---
 cite_key: intel_2017
-title: Large Scale Multimodal Data Capture, Evaluation and Maintenance Framework for
-  Autonomous Driving Datasets
+title: Large Scale Multimodal Data Capture, Evaluation and Maintenance Framework for Autonomous Driving Datasets
 authors: Nitheesh K. Lakshminarayana Intel
 year: 2017
 date_processed: '2025-07-02'

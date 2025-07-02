@@ -1,7 +1,6 @@
 ---
 cite_key: zhu_2019
-title: 'A SHORT SURVEY: EXPLORING KNOWLEDGE GRAPH-BASED NEURAL-SYMBOLIC SYSTEM FROM
-  APPLICATION PERSPECTIVE'
+title: A Short Survey: Exploring Knowledge Graph-based Neural-Symbolic System from Application Perspective
 authors: Shenzhe Zhu, Toronto Toronto
 year: 2019
 date_processed: '2025-07-02'

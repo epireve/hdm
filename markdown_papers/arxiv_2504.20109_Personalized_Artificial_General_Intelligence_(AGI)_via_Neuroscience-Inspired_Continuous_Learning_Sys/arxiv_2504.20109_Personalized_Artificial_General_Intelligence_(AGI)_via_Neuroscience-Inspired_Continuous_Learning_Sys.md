@@ -1,9 +1,7 @@
 ---
 cite_key: gupta_2021
-title: Personalized Artificial General Intelligence (AGI) via Neuroscience-Inspired
-  Continuous Learning Systems
-authors: Rajeev Gupta, Suhani Gupta, Ronak Parikh, Divya Gupta, Amir Javaheri, Jairaj
-  Singh Shaktawat, Neuro Health Alliance
+title: Personalized Artificial General Intelligence (AGI) via Neuroscience-Inspired Continuous Learning Systems
+authors: Rajeev Gupta, Suhani Gupta, Ronak Parikh, Divya Gupta, Amir Javaheri, Jairaj Singh Shaktawat, Neuro Health Alliance
 year: 2021
 doi: 10.1126/science.1089662
 date_processed: '2025-07-02'

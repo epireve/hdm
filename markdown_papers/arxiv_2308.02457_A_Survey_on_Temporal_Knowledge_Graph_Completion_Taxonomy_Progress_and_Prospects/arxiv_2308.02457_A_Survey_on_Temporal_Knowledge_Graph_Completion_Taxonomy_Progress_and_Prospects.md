@@ -1,8 +1,7 @@
 ---
 cite_key: wang_2023
-title: 'A Survey on Temporal Knowledge Graph Completion: Taxonomy, Progress, and Prospects'
-authors: Jiapu Wang, Boyue Wang, Meikang Qiu, Senior Member, Shirui Pan, Bo Xiong,
-  Heng Liu, Linhao Luo, Tengfei Liu, Yongli Hu, Baocai Yin, Wen Gao
+title: A Survey on Temporal Knowledge Graph Completion: Taxonomy, Progress, and Prospects
+authors: Jiapu Wang, Boyue Wang, Meikang Qiu, Senior Member, Shirui Pan, Bo Xiong, Heng Liu, Linhao Luo, Tengfei Liu, Yongli Hu, Baocai Yin, Wen Gao
 year: 2023
 date_processed: '2025-07-02'
 phase2_processed: true

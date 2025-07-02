@@ -1,7 +1,7 @@
 ---
 cite_key: neupane_2024
-title: OPEN ACCESS
-authors: Subash Neupane
+title: Patient-Centric Knowledge Graphs: A Survey of Current Methods, Challenges, and Applications
+authors: Hassan S. Al Khatib, Subash Neupane, Harish Kumar Manchukonda, Noorbakhsh Amiri Golilarz, Sudip Mittal, Amin Amirlatifi, Shahram Rahimi
 year: 2024
 doi: 10.3389/frai.2024.1388479
 date_processed: '2025-07-02'
@@ -19,6 +19,14 @@ tags:
 - Natural Language Processing
 - Personalized Medicine
 - Semantic Web
+- Patient-Centric Knowledge Graphs
+- Healthcare Data Integration
+- Medical Ontologies
+- Personalized Healthcare
+- Knowledge Representation
+tldr: Comprehensive survey exploring patient-centric knowledge graphs as transformative
+  healthcare information management approach that places individual patients at the
+  center of medical information networks.
 keywords:
 - sarasa-cabezuelo
 ---

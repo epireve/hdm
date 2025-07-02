@@ -1,7 +1,6 @@
 ---
 cite_key: kim_2024
-title: Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve Partially
-  Observable Markov Decision Processes
+title: Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve Partially Observable Markov Decision Processes
 authors: Taewoon Kim, Michael Cochez
 year: 2024
 doi: 10.48550/arXiv.2408.05861

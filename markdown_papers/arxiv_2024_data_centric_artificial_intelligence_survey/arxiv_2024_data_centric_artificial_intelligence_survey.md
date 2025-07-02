@@ -1,7 +1,6 @@
 ---
 cite_key: zhanga_2024
-title: A Comprehensive Survey on Automatic Text Summarization with Exploration of
-  LLM-Based Methods
+title: A Comprehensive Survey on Automatic Text Summarization with Exploration of LLM-Based Methods
 authors: Yang Zhanga, Hanlei Jina, Dan Menga, Jun Wang1a, Jinghua Tana
 year: 2024
 doi: 10.1108/eb026526

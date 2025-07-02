@@ -1,8 +1,7 @@
 ---
 cite_key: skjveland_2024
-title: 'An Ecosystem for Personal Knowledge Graphs: A Survey and Research Roadmap'
-authors: Martin G. Skjæveland, Krisztian Balog, Nolwenn Bernard, Weronika Łajewska,
-  Trond Linjordet
+title: An Ecosystem for Personal Knowledge Graphs: A Survey and Research Roadmap
+authors: Martin G. Skjæveland, Krisztian Balog, Nolwenn Bernard, Weronika Łajewska, Trond Linjordet
 year: 2024
 doi: 10.1016/j.aiopen.2024.01.003
 url: https://arxiv.org/abs/2304.09572

@@ -1,7 +1,6 @@
 ---
 cite_key: zhang_2022
-title: Research Article# Building a Knowledge Base of Bridge Maintenance Using Knowledge
-  Graph
+title: Research Article# Building a Knowledge Base of Bridge Maintenance Using Knowledge Graph
 authors: Yang Zhang
 year: 2022
 date_processed: '2025-07-02'

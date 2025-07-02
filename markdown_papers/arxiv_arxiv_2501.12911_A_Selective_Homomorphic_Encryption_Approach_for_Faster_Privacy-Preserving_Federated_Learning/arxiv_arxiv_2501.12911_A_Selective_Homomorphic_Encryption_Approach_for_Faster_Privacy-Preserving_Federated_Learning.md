@@ -1,7 +1,6 @@
 ---
 cite_key: rao_2016
-title: A Selective Homomorphic Encryption Approach for Faster Privacy-Preserving Federated
-  Learning
+title: A Selective Homomorphic Encryption Approach for Faster Privacy-Preserving Federated Learning
 authors: Abdulkadir Korkmaz · Praveen Rao
 year: 2016
 date_processed: '2025-07-02'

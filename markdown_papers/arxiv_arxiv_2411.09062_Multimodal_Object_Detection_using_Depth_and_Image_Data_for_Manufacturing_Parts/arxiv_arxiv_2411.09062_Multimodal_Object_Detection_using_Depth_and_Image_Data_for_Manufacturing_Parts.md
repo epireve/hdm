@@ -1,6 +1,6 @@
 ---
 cite_key: nguyen_2022
-title: MULTIMODAL OBJECT DETECTION USING DEPTH AND IMAGE DATA FOR MANUFACTURING PARTS
+title: Multimodal Object Detection Using Depth and Image Data for Manufacturing Parts
 authors: Vinh Nguyen, Engineering Mechanics
 year: 2022
 doi: 10.1016/j.neucom.2021.11.097.

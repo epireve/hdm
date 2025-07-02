@@ -1,8 +1,7 @@
 ---
 cite_key: wang_2022
 title: Collaborative Knowledge Graph Fusion by Exploiting the Open Corpus
-authors: Yue Wang, Yao Wan, Lu Bai, Lixin Cui, Zhuo Xu, Ming Li, Philip S. Yu, Edwin
-  R Hancock
+authors: Yue Wang, Yao Wan, Lu Bai, Lixin Cui, Zhuo Xu, Ming Li, Philip S. Yu, Edwin R Hancock
 year: 2022
 doi: 10.48550/arXiv.2206.07472
 url: https://arxiv.org/abs/2206.07472

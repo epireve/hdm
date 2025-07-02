@@ -1,7 +1,7 @@
 ---
 cite_key: cinti_2024
 title: The Roadmap toward Personalized Medicine: Challenges and Opportunities
-authors: Caterina Cinti, Maria Giovanna Trivella, Michael Joulie, Hussein Ayoub, Monika Frenzel, on behalf of the International Consortium for Personalised Medicine and Working Group 'Personalised Medicine in Healthcare' (WG2)
+authors: Caterina Cinti, Maria Giovanna Trivella, Michael Joulie, Hussein Ayoub, Monika Frenzel, on behalf of the International Consortium for Personalised Medicine and Working Group 'Personalised Medicine in Healthcare' (WG2
 year: 2024
 doi: 10.3390/jpm14060546
 date_processed: '2025-07-02'

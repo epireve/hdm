@@ -1,9 +1,7 @@
 ---
 cite_key: li_2025
-title: 'KnowCoder-V2: Deep Knowledge Analysis'
-authors: Zixuan Li, Wenxuan Liu, Long Bai, Chunmao Zhang, Wei Li, Fenghui Zhang, Quanxin
-  Jin, Ruoyun He, Zhuo Chen, Zhilei Hu, Fei Wang, Bingbing Xu, Xuhui Jiang, Xiaolong
-  Jin, Jiafeng Guo, Xueqi Cheng
+title: KnowCoder-V2: Deep Knowledge Analysis
+authors: Zixuan Li, Wenxuan Liu, Long Bai, Chunmao Zhang, Wei Li, Fenghui Zhang, Quanxin Jin, Ruoyun He, Zhuo Chen, Zhilei Hu, Fei Wang, Bingbing Xu, Xuhui Jiang, Xiaolong Jin, Jiafeng Guo, Xueqi Cheng
 year: 2025
 doi: 10.1016/j.jbi.2012.04.008.
 date_processed: '2025-07-02'

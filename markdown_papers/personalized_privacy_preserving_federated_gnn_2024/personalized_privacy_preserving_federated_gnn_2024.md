@@ -1,7 +1,7 @@
 ---
-cite_key: hao_2024
-title: OPEN ACCESS
-authors: Meng Hao
+cite_key: liu_2024
+title: Personalized and Privacy-Preserving Federated Graph Neural Network
+authors: Yanjun Liu, Hongwei Li, Meng Hao
 year: 2024
 doi: 10.3389/fphy.2024.1383276
 date_processed: '2025-07-02'

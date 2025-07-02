@@ -1,7 +1,7 @@
 ---
-cite_key: galu_2024
-title: 'PKG API: A Tool for Personal Knowledge Graph Management'
-authors: Petra Galu, Martin G. Skj
+cite_key: bernard_2024
+title: PKG API: A Tool for Personal Knowledge Graph Management
+authors: Nolwenn Bernard, Krisztian Balog, Ivica Kostric, Petra Galuščáková, Martin G. Skjæveland, Weronika Łajewska, Vinay Setty
 year: 2024
 doi: 10.48550/arXiv.2402.07540
 url: https://arxiv.org/abs/2402.07540

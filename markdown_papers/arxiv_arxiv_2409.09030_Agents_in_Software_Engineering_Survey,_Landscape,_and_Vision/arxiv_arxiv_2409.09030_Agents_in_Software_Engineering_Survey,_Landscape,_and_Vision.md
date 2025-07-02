@@ -1,8 +1,7 @@
 ---
 cite_key: wang_2024
-title: 'Agents in Software Engineering: Survey, Landscape, and Vision'
-authors: Yanlin Wang, Wanjun Zhong, Yanxian Huang, Ensheng Shi, Min Yang, Jiachi Chen,
-  Zibin Zheng, Hui Li, Yuchi Ma, Qianxiang Wang
+title: Agents in Software Engineering: Survey, Landscape, and Vision
+authors: Yanlin Wang, Wanjun Zhong, Yanxian Huang, Ensheng Shi, Min Yang, Jiachi Chen, Zibin Zheng, Hui Li, Yuchi Ma, Qianxiang Wang
 year: 2024
 doi: 10.1145/3591300
 date_processed: '2025-07-02'

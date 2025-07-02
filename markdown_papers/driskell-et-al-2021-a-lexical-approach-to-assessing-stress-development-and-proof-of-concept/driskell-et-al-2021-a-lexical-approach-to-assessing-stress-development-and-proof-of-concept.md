@@ -1,6 +1,6 @@
 ---
 cite_key: driskell_2021
-title: 'A Lexical Approach to Assessing Stress: Development and Proof- of- Concept'
+title: A Lexical Approach to Assessing Stress: Development and Proof- of- Concept
 authors: Tripp Driskell, Eduardo Salas, C. Shawn Burke, James E. Driskell
 year: 2021
 date_processed: '2025-07-02'

@@ -1,7 +1,7 @@
 ---
 
 cite_key: ghani_2020
-title: "Issues and challenges in Cloud Storage Architecture: A Survey"
+title: Issues and challenges in Cloud Storage Architecture: A Survey
 authors: Anwar Ghani, Afzal Badshah, Saeed Ullah Jan, Abdulrahman A. Alshdadi, Ali Daud
 year: 2020
 doi: 10.1109/RpJC.2020.DOI

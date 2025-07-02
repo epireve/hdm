@@ -1,7 +1,6 @@
 ---
 cite_key: hbscher_2020
-title: Integration of Knowledge and Task Management in an Evolving, Communication-intensive
-  Environment
+title: Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment
 authors: Gerd Hübscher Hübscher
 year: 2020
 doi: 10.1145/3428757.3429260

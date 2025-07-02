@@ -1,7 +1,7 @@
 ---
-cite_key: saadeh_2023
-title: RESEARCH Open Access
-authors: Heba Saadeh
+cite_key: abu-salih_2023
+title: Healthcare knowledge graph construction: A systematic review of the state-of-the-art, open issues, and opportunities
+authors: Bilal Abu-Salih, Muhammad AL-Qurishi, Mohammed Alweshah, Mohammad AL-Smadi, Reem Alfayez, Heba Saadeh
 year: 2023
 date_processed: '2025-07-02'
 phase2_processed: true

@@ -1,8 +1,7 @@
 ---
-cite_key: words_2023
-title: LI BAI, HAIBO HU, QINGQING YE, and HAOYANG LI, The Hong Kong Polytechnic University,
-  Hong Kong
-authors: Additional Key Words
+cite_key: bai_2023
+title: Membership Inference Attacks and Defenses in Federated Learning: A Survey
+authors: Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu
 year: 2023
 doi: 10.1109/NaNA53684.2021.00062
 date_processed: '2025-07-02'

@@ -1,6 +1,6 @@
 ---
 cite_key: ai_2025
-title: 'ZEP: A TEMPORAL KNOWLEDGE GRAPH ARCHITECTURE FOR AGENT MEMORY'
+title: Zep: A Temporal Knowledge Graph Architecture for Agent Memory
 authors: Preston Rasmussen Zep AI
 year: 2025
 doi: 10.48550/arXiv.2501.13956

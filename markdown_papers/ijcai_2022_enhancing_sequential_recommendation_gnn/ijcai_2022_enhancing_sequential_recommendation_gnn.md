@@ -1,8 +1,7 @@
 ---
 cite_key: zhang_2019
 title: Enhancing Sequential Recommendation with Graph Contrastive Learning
-authors: Yixin Zhang, Yong Liu, Yonghui Xu, Hao Xiong, Chenyi Lei, Wei He, Lizhen
-  Cui, Chunyan Miao
+authors: Yixin Zhang, Yong Liu, Yonghui Xu, Hao Xiong, Chenyi Lei, Wei He, Lizhen Cui, Chunyan Miao
 year: 2019
 date_processed: '2025-07-02'
 phase2_processed: true

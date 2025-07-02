@@ -1,7 +1,6 @@
 ---
 cite_key: ferdousi_2025
-title: 'RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized
-  Well-being'
+title: RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being
 authors: Rahatara Ferdousi, M. Anwar Hossain Senior Member
 year: 2025
 date_processed: '2025-07-02'

@@ -1,9 +1,7 @@
 ---
 cite_key: universit_2024
-title: Research Trends for the Interplay between Large Language Models and Knowledge
-  Graphs
-authors: Soror Sahri Universit, Morteza Ezzabady Universit, Nandana Mihindukulasooriya,
-  Hanieh Khorashadizadeh
+title: Research Trends for the Interplay between Large Language Models and Knowledge Graphs
+authors: Soror Sahri Universit, Morteza Ezzabady Universit, Nandana Mihindukulasooriya, Hanieh Khorashadizadeh
 year: 2024
 doi: 10.1007/978-3-540-76888-3
 date_processed: '2025-07-02'

@@ -1,8 +1,7 @@
 ---
 cite_key: pareja_2020
-title: 'EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs'
-authors: Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura,
-  Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson
+title: EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs
+authors: Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura, Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson
 year: 2020
 doi: 10.48550/arXiv.1902.10191
 url: https://arxiv.org/abs/1902.10191

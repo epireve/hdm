@@ -1,7 +1,6 @@
 ---
 cite_key: sowi_2020
-title: Overview of Current Challenges in Multi-Architecture Software Engineering and
-  a Vision for the Future
+title: Overview of Current Challenges in Multi-Architecture Software Engineering and a Vision for the Future
 authors: Piotr Sowi
 year: 2020
 doi: 10.1007/978-3-540-92913-0

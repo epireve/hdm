@@ -1,9 +1,7 @@
 ---
 cite_key: xiang_2023
-title: 'ReGraP-LLaVA: Reasoning enabled Graph-based Personalized Large Language and
-  Vision Assistant'
-authors: Yifan Xiang, Zhenxi Zhang, Yixuan Weng, Shoujun Zhou, Yangfan He, Keqin Li,
-  Twin Cities
+title: ReGraP-LLaVA: Reasoning enabled Graph-based Personalized Large Language and Vision Assistant
+authors: Yifan Xiang, Zhenxi Zhang, Yixuan Weng, Shoujun Zhou, Yangfan He, Keqin Li, Twin Cities
 year: 2023
 date_processed: '2025-07-02'
 phase2_processed: true

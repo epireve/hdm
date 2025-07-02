@@ -1,9 +1,7 @@
 ---
 cite_key: yang_2024
-title: 'Graphusion: Leveraging Large Language Models for Scientific Knowledge Graph
-  Fusion and Construction in NLP Education'
-authors: Rui Yang, Boming Yang, Sixun Ouyang, Tianwei She, Aosong Feng, Yuang Jiang,
-  Freddy Lecue, Jinghui Lu, Irene Li
+title: Graphusion: Leveraging Large Language Models for Scientific Knowledge Graph Fusion and Construction in NLP Education
+authors: Rui Yang, Boming Yang, Sixun Ouyang, Tianwei She, Aosong Feng, Yuang Jiang, Freddy Lecue, Jinghui Lu, Irene Li
 year: 2024
 doi: 10.48550/arXiv.2407.10794
 url: https://arxiv.org/abs/2407.10794

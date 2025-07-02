@@ -1,7 +1,6 @@
 ---
 cite_key: asprino_2023
-title: 'Knowledge Graph Construction with a façade: a unified method to access heterogeneous
-  data sources on the Web'
+title: Knowledge Graph Construction with a façade: a unified method to access heterogeneous data sources on the Web
 authors: Luigi Asprino, Enrico Daga, Aldo Gangemi
 year: 2023
 doi: 10.1145/3555312

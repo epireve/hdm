@@ -1,7 +1,6 @@
 ---
 cite_key: christino_2022
-title: A Theoretical Approach for Structuring and Analysing Knowledge Provenance for
-  Visual Analytics
+title: A Theoretical Approach for Structuring and Analysing Knowledge Provenance for Visual Analytics
 authors: L. Christino, S. Rezaeipour, E. Milios, F. Paulovich
 year: 2022
 doi: 10.1111/cgf.13324

@@ -1,6 +1,6 @@
 ---
 cite_key: fu_2024
-title: 'Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey'
+title: Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey
 authors: Dongqi Fu
 year: 2024
 doi: 10.48550/arXiv.2307.04338

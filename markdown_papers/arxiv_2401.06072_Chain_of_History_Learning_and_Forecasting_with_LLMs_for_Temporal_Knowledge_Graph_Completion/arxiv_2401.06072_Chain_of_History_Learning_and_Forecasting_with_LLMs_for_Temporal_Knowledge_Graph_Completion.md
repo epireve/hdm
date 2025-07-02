@@ -1,9 +1,7 @@
 ---
 cite_key: luo_2024
-title: 'Chain of History: Learning and Forecasting with LLMs for Temporal Knowledge
-  Graph Completion'
-authors: Ruilin Luo, Tianle Gu, Haoling Li, Junzhe Li, Zicheng Lin, Jiayi Li, Yujiu
-  Yang
+title: Chain of History: Learning and Forecasting with LLMs for Temporal Knowledge Graph Completion
+authors: Ruilin Luo, Tianle Gu, Haoling Li, Junzhe Li, Zicheng Lin, Jiayi Li, Yujiu Yang
 year: 2024
 doi: 10.48550/ARXIV.2309.16609
 date_processed: '2025-07-02'

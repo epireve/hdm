@@ -1,9 +1,8 @@
 ---
-cite_key: here_2012
-title: DATA INTEGRATION FOR HETEROGENOUS DATASETS
-authors: they present a number of complex challenges. The search shown here, for example,
-  required knowing that the Federal
-year: 2012
+cite_key: hendler_2014
+title: Data Integration for Heterogeneous Datasets
+authors: James Hendler
+year: 2014
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: hendler-2014-data-integration-for-heterogenous-datasets

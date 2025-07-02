@@ -1,7 +1,6 @@
 ---
 cite_key: shen_2020
-title: 'Networking Architecture and Key Supporting Technologies for Human Digital
-  Twin in Personalized Healthcare: A Comprehensive Survey'
+title: Networking Architecture and Key Supporting Technologies for Human Digital Twin in Personalized Healthcare: A Comprehensive Survey
 authors: Xuemin (Sherman) Shen, Fellow, IEEE
 year: 2020
 date_processed: '2025-07-02'

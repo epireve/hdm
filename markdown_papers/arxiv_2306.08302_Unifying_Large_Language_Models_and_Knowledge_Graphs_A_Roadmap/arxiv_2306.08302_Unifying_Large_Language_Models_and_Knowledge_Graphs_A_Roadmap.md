@@ -1,8 +1,7 @@
 ---
 cite_key: pan_2024
-title: 'Unifying Large Language Models and Knowledge Graphs: A Roadmap'
-authors: Shirui Pan, Senior Member, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang,
-  Xindong Wu
+title: Unifying Large Language Models and Knowledge Graphs: A Roadmap
+authors: Shirui Pan, Senior Member, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu
 year: 2024
 doi: 10.1109/TKDE.2024.3352100
 url: https://ieeexplore.ieee.org/document/10387715/

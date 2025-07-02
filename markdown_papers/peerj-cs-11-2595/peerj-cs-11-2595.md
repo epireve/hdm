@@ -1,8 +1,8 @@
 ---
-cite_key: intelligence_2024
-title: INTRODUCTION
-authors: Subjects Artificial Intelligence, Data Mining
-year: 2024
+cite_key: liu_2025
+title: A Temporal Knowledge Graph Reasoning Model Based on Recurrent Encoding and Contrastive Learning
+authors: Weitong Liu, Khairunnisa Hasikin, Anis Salwa Mohd Khairuddin, Meizhen Liu, Xuechen Zhao
+year: 2025
 doi: 10.7717/peerj-cs.2595
 date_processed: '2025-07-02'
 phase2_processed: true

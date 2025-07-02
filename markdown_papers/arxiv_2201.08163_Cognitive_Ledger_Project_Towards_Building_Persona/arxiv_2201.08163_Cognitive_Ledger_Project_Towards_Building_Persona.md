@@ -1,7 +1,6 @@
 ---
 cite_key: tehran_2020
-title: 'Cognitive Ledger Project: Towards Building Personal Digital Twins Through
-  Cognitive Blockchain'
+title: Cognitive Ledger Project: Towards Building Personal Digital Twins Through Cognitive Blockchain
 authors: Amir Reza Asadi Humind Labs Tehran
 year: 2020
 doi: 10.1109/MC.2018.2876181.

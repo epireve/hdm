@@ -1,7 +1,6 @@
 ---
 cite_key: korobko_2019
-title: Matching disparate dimensions for analytical integration of heterogeneous data
-  sources
+title: Matching disparate dimensions for analytical integration of heterogeneous data sources
 authors: Anna Korobko, New York
 year: 2019
 doi: 10.1145/3297662.3365809

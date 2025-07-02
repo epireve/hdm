@@ -1,9 +1,7 @@
 ---
 cite_key: bikakis_2021
 title: Pattern-based design applied to cultural heritage knowledge graphs
-authors: Editors:Antonis Bikakis, UK; Beatrice Markhoff, France; Alessandro Mosca,
-  Italy; Stéphane Jean, France; Eero Hyvönen, FinlandSolicited review:Seven anonymous
-  reviewers
+authors: Editors:Antonis Bikakis, UK; Beatrice Markhoff, France; Alessandro Mosca, Italy; Stéphane Jean, France; Eero Hyvönen, FinlandSolicited review:Seven anonymous reviewers
 year: 2021
 doi: 10.3233/SW-200422
 date_processed: '2025-07-02'

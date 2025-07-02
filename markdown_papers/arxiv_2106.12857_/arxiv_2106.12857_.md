@@ -1,8 +1,7 @@
 ---
 cite_key: presutti_2019
 title: Pattern-based Visualization of Knowledge Graphs
-authors: Valentina Presutti, Luigi Asprino, Christian Colonna, Misael Mongiovì, Margherita
-  Porena
+authors: Valentina Presutti, Luigi Asprino, Christian Colonna, Misael Mongiovì, Margherita Porena
 year: 2019
 date_processed: '2025-07-02'
 phase2_processed: true

@@ -1,6 +1,6 @@
 ---
 cite_key: models_2016
-title: 'Time-R1: Towards Comprehensive Temporal Reasoning in LLMs'
+title: Time-R1: Towards Comprehensive Temporal Reasoning in LLMs
 authors: Large Language Models, Temporal Reasoning
 year: 2016
 date_processed: '2025-07-02'

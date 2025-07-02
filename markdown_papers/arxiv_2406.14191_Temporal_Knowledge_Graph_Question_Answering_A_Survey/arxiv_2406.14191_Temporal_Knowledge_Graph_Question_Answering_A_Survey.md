@@ -1,7 +1,7 @@
 ---
 cite_key: su_2024
-title: "Temporal Knowledge Graph Question Answering: A Survey"
-authors: "Miao Su, Zixuan Li, Zhuo Chen, Long Bai, Xiaolong Jin, Jiafeng Guo"
+title: Temporal Knowledge Graph Question Answering: A Survey
+authors: Miao Su, Zixuan Li, Zhuo Chen, Long Bai, Xiaolong Jin, Jiafeng Guo
 year: 2024
 doi: "https://doi.org/10.48550/arXiv.2406.14191"
 url: "https://arxiv.org/abs/2406.14191"

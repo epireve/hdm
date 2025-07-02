@@ -1,8 +1,7 @@
 ---
 cite_key: chang_2021
 title: Sequential Recommendation with Graph Neural Networks
-authors: Jianxin Chang, Chen Gao, Yu Zheng, Yiqun Hui, Yanan Niu, Yang Song, Depeng
-  Jin, Yong Li
+authors: Jianxin Chang, Chen Gao, Yu Zheng, Yiqun Hui, Yanan Niu, Yang Song, Depeng Jin, Yong Li
 year: 2021
 doi: 10.48550/arXiv.2106.14226
 url: https://arxiv.org/abs/2106.14226

@@ -1,7 +1,6 @@
 ---
 cite_key: hu_2021
-title: 'CODEXGRAPH: Bridging Large Language Models and Code Repositories via Code
-  Graph Databases'
+title: CODEXGRAPH: Bridging Large Language Models and Code Repositories via Code Graph Databases
 authors: Zhiyuan Hu, Yang Liu, Zhicheng Zhang, Fei Wang, Michael Shieh, Wenmeng Zhou
 year: 2021
 doi: 10.1561/1500000019.

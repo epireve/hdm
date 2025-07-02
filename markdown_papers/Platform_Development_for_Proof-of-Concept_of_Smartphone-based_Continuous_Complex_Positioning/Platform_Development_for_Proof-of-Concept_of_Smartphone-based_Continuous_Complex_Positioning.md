@@ -1,9 +1,7 @@
 ---
 cite_key: seo_2022
-title: Platform Development for Proof-of-Concept of Smartphone-based Continuous Complex
-  Positioning
-authors: Seonghun Seo, Kyunghyun Park, Daesub Yoon, JaeJun Yoo, Yonghyun Kim, Yangkoo
-  Lee, Jiwoo Han
+title: Platform Development for Proof-of-Concept of Smartphone-based Continuous Complex Positioning
+authors: Seonghun Seo, Kyunghyun Park, Daesub Yoon, JaeJun Yoo, Yonghyun Kim, Yangkoo Lee, Jiwoo Han
 year: 2022
 date_processed: '2025-07-02'
 phase2_processed: true

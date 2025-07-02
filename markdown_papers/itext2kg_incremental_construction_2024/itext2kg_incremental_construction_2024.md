@@ -1,6 +1,6 @@
 ---
 cite_key: clau_2024
-title: 'iText2KG: Incremental Knowledge Graphs Construction Using Large Language Models'
+title: iText2KG: Incremental Knowledge Graphs Construction Using Large Language Models
 authors: Pierre CLÉAU
 year: 2024
 doi: arXiv:2409.03284

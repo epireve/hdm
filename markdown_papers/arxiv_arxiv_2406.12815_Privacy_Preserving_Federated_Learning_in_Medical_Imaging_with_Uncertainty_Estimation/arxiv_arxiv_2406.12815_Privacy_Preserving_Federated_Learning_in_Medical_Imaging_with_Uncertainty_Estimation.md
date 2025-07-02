@@ -1,8 +1,7 @@
 ---
 cite_key: koutsoubisa_2017
 title: Privacy Preserving Federated Learning in Medical Imaging with Uncertainty Estimation
-authors: Nikolas Koutsoubisa, Yasin Yilmaz, Ravi P. Ramachandran, Matthew Schabath,
-  Ghulam Rasool, Machine Learning, Cancer Center, Cancer Epidemiology, South Florida
+authors: Nikolas Koutsoubisa, Yasin Yilmaz, Ravi P. Ramachandran, Matthew Schabath, Ghulam Rasool, Machine Learning, Cancer Center, Cancer Epidemiology, South Florida
 year: 2017
 date_processed: '2025-07-02'
 phase2_processed: true

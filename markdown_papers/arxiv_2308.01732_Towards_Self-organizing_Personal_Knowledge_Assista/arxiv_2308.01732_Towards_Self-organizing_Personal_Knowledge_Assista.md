@@ -1,7 +1,6 @@
 ---
 cite_key: dengel_2023
-title: Towards Self-organizing Personal Knowledge Assistants in Evolving Corporate
-  Memories
+title: Towards Self-organizing Personal Knowledge Assistants in Evolving Corporate Memories
 authors: Andreas Dengel, Christian Jilek, Markus Schröder, Heiko Maus, Sven Schwarz
 year: 2023
 doi: 10.17026/dans-x55-69zp

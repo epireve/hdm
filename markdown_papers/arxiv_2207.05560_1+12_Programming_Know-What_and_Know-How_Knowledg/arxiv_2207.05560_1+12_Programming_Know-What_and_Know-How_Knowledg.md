@@ -1,9 +1,7 @@
 ---
 cite_key: huang_2021
-title: '1+1>2: Programming Know-What and Know-How Knowledge Fusion, Semantic Enrichment
-  and Coherent Application'
-authors: Qing Huang, Zhiqiang Yuan, Zhenchang Xing, Zhengkang Zuo, Changjing Wang,
-  Xin Xia
+title: 1+1>2: Programming Know-What and Know-How Knowledge Fusion, Semantic Enrichment and Coherent Application
+authors: Qing Huang, Zhiqiang Yuan, Zhenchang Xing, Zhengkang Zuo, Changjing Wang, Xin Xia
 year: 2021
 doi: 10.1145/1294261.1294276
 date_processed: '2025-07-02'

@@ -1,7 +1,6 @@
 ---
 cite_key: budhdeo_2021
-title: Scoping review of knowledge graph applications in biomedical and healthcare
-  sciences
+title: Scoping review of knowledge graph applications in biomedical and healthcare sciences
 authors: Sanjay Budhdeo
 year: 2021
 doi: 10.3389/fgene.2020.610798

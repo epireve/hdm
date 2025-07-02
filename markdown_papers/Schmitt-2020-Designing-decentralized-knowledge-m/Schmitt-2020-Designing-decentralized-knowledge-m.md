@@ -1,7 +1,6 @@
 ---
 cite_key: vol_2019
-title: 'The current issue and full text archive of this journal is available on Emerald
-  Insight at: https://www.emerald.com/insight/0368-492X.htm'
+title: The current issue and full text archive of this journal is available on Emerald Insight at: https://www.emerald.com/insight/0368-492X.htm
 authors: Kybernetes Vol
 year: 2019
 doi: 10.1108/K-03-2019-0215

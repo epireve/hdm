@@ -1,7 +1,6 @@
 ---
 cite_key: yu_2024
-title: Ontology-Driven Architecture for Managing Environmental, Social, and Governance
-  Metrics
+title: Ontology-Driven Architecture for Managing Environmental, Social, and Governance Metrics
 authors: Mingqin Yu, Fethi A. Rabhi, Madhushi Bandara
 year: 2024
 doi: 10.3390/electronics13091719

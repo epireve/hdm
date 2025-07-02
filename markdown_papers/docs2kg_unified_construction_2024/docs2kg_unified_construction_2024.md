@@ -1,7 +1,6 @@
 ---
 cite_key: sun_2024
-title: 'Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents
-  Assisted by Large Language Models'
+title: Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models
 authors: Qiang Sun
 year: 2024
 doi: 10.48550/arXiv.2406.02962

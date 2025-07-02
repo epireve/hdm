@@ -1,7 +1,6 @@
 ---
 cite_key: wu_2021
-title: 'A Survey on Accuracy-oriented Neural Recommendation: From Collaborative Filtering
-  to Information-rich Recommendation'
+title: A Survey on Accuracy-oriented Neural Recommendation: From Collaborative Filtering to Information-rich Recommendation
 authors: Le Wu, Xiangnan He, Xiang Wang, Kun Zhang, Meng Wang
 year: 2021
 date_processed: '2025-07-02'

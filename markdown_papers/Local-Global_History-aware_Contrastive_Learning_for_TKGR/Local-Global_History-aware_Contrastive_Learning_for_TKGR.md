@@ -1,9 +1,7 @@
 ---
 cite_key: chen_2023
-title: Local-Global History-aware Contrastive Learning for Temporal Knowledge Graph
-  Reasoning
-authors: Wei Chen, Huaiyu Wan, Yuting Wu ∗, Shuyuan Zhao, Jiayaqi Cheng, Yuxin Li,
-  Youfang Lin
+title: Local-Global History-aware Contrastive Learning for Temporal Knowledge Graph Reasoning
+authors: Wei Chen, Huaiyu Wan, Yuting Wu ∗, Shuyuan Zhao, Jiayaqi Cheng, Yuxin Li, Youfang Lin
 year: 2023
 doi: 10.48550/arXiv.2312.01601
 url: https://arxiv.org/abs/2312.01601

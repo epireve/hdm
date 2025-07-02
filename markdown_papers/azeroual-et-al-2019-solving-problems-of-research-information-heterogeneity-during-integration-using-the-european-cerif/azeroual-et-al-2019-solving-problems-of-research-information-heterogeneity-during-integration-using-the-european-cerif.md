@@ -1,7 +1,6 @@
 ---
 cite_key: schpfeld_2019
-title: Solving problems of research information heterogeneity during integration –
-  using the European CERIF and German RCD standards as examples
+title: Solving problems of research information heterogeneity during integration – using the European CERIF and German RCD standards as examples
 authors: Joachim Schöpfeld
 year: 2019
 doi: 10.3233/ISU-180030

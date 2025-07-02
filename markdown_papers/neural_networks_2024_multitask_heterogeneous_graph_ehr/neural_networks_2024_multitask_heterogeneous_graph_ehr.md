@@ -1,8 +1,7 @@
 ---
 cite_key: chan_2024
 title: Multi-task Heterogeneous Graph Learning on Electronic Health Records
-authors: Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam
-  Road, Diagnostic Radiology
+authors: Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology
 year: 2024
 doi: arXiv:2408.07569
 url: https://arxiv.org/abs/2408.07569
