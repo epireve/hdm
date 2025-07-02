@@ -1,6 +1,6 @@
 ---
 cite_key: liu_2020
-title: 'Web of Scholars: A Scholar Knowledge Graph'
+title: Web of Scholars: A Scholar Knowledge Graph
 authors: Jiaying Liu, Ivan Lee
 year: 2020
 doi: 10.1145/3397271.3401405

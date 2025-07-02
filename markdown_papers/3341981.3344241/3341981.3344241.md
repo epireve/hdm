@@ -1,6 +1,6 @@
 ---
 cite_key: london_2019
-title: 'Personal Knowledge Graphs: A Research Agenda'
+title: Personal Knowledge Graphs: A Research Agenda
 authors: Krisztian Balog Google London
 year: 2019
 doi: 10.1145/3341981.3344241

@@ -1,8 +1,7 @@
 ---
 cite_key: caia_2024
-title: 'A Survey on Temporal Knowledge Graph: Representation Learning and Applications'
-authors: Li Caia, Xin Mao, Yuhao Zhou, Zhaoguang Long, Changxu Wu, Man Lana, North
-  Zhongshan Road, Industrial Engineering
+title: A Survey on Temporal Knowledge Graph: Representation Learning and Applications
+authors: Li Caia, Xin Mao, Yuhao Zhou, Zhaoguang Long, Changxu Wu, Man Lana, North Zhongshan Road, Industrial Engineering
 year: 2024
 doi: arXiv:2403.04782
 url: https://arxiv.org/abs/2403.04782

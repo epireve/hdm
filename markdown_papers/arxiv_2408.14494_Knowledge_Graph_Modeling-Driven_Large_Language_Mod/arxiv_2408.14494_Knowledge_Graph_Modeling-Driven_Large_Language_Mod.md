@@ -1,7 +1,6 @@
 ---
 cite_key: vaikunth_2024
-title: Knowledge Graph Modeling-Driven Large Language Model Operating System (LLM
-  OS) for Task Automation in Process Engineering Problem-Solving
+title: Knowledge Graph Modeling-Driven Large Language Model Operating System (LLM OS) for Task Automation in Process Engineering Problem-Solving
 authors: Vijay Sri Vaikunth, Venkataramana Runkana
 year: 2024
 date_processed: '2025-07-02'

@@ -1,7 +1,6 @@
 ---
 cite_key: galkin_2024
-title: 'TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous
-  Graphs'
+title: TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous Graphs
 authors: Mikhail Galkin, Erfan Loghmani, Emanuele Rossi, Ioannis Koutis, Heiner Stuckenschmidt
 year: 2024
 doi: 10.48550/arXiv.2406.09639

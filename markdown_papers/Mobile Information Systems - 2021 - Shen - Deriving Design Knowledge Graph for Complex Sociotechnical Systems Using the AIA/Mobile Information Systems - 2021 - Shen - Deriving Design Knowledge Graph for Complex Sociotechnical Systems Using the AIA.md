@@ -1,7 +1,6 @@
 ---
 cite_key: shen_2021
-title: Deriving Design Knowledge Graph for Complex Sociotechnical Systems Using the
-  AIA Design Thinking
+title: Deriving Design Knowledge Graph for Complex Sociotechnical Systems Using the AIA Design Thinking
 authors: Tao Shen, Chan Gao, Yukari Nagai, Wei Ou
 year: 2021
 date_processed: '2025-07-02'

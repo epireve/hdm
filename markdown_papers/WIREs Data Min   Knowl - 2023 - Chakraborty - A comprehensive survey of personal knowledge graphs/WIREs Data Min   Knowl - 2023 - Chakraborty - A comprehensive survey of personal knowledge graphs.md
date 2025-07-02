@@ -1,8 +1,8 @@
 ---
-cite_key: chakraborty_2021
-title: FOCUS ARTICLE
-authors: Prantika Chakraborty, Fundamental Concepts
-year: 2021
+cite_key: chakraborty_2023
+title: A Comprehensive Survey of Personal Knowledge Graphs
+authors: Prantika Chakraborty, Debarshi Kumar Sanyal
+year: 2023
 doi: 10.1002/widm.1513
 date_processed: '2025-07-02'
 phase2_processed: true
@@ -19,10 +19,8 @@ tags:
 - Semantic Web
 keywords:
 - day-to-day
-- knowledge graph
 - knowledge graphs
 - pkg
-- recommender system
 - recommender systems
 ---
 

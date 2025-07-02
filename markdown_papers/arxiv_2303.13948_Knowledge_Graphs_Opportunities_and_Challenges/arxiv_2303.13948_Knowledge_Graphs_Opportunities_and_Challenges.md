@@ -1,6 +1,6 @@
 ---
 cite_key: peng_2021
-title: 'Knowledge Graphs: Opportunities and Challenges'
+title: Knowledge Graphs: Opportunities and Challenges
 authors: Ciyuan Peng, Mehdi Naseriparsa, Francesco Osborne, Computing Technologies
 year: 2021
 date_processed: '2025-07-02'

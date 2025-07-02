@@ -1,7 +1,6 @@
 ---
 cite_key: kimmathematics_2016
-title: Advances in Privacy Preserving Federated Learning to Realize a Truly Learning
-  Healthcare System
+title: Advances in Privacy Preserving Federated Learning to Realize a Truly Learning Healthcare System
 authors: Kibaek KimMathematics
 year: 2016
 date_processed: '2025-07-02'

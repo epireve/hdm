@@ -1,6 +1,6 @@
 ---
 cite_key: wu_2022
-title: 'FedGNN: Federated Graph Neural Network for Privacy-Preserving Recommendation'
+title: FedGNN: Federated Graph Neural Network for Privacy-Preserving Recommendation
 authors: Chuhan Wu, Fangzhao Wu, Yang Cao, Yongfeng Huang, Xing Xie
 year: 2022
 doi: 10.48550/arXiv.2102.04925

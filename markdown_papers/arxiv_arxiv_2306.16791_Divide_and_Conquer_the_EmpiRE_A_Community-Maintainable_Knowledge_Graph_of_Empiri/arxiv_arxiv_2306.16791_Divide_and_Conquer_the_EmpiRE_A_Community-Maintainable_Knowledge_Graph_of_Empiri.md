@@ -1,7 +1,6 @@
 ---
 cite_key: karras_2020
-title: 'Divide and Conquer the EmpiRE: A Community-Maintainable Knowledge Graph of
-  Empirical Research in Requirements Engineering'
+title: Divide and Conquer the EmpiRE: A Community-Maintainable Knowledge Graph of Empirical Research in Requirements Engineering
 authors: Oliver Karras
 year: 2020
 doi: 10.48366/r255464

@@ -1,7 +1,6 @@
 ---
 cite_key: gyrarda_2024
-title: IoT-Based Preventive Mental Health Using Knowledge Graphs and Standards for
-  Better Well-Being
+title: IoT-Based Preventive Mental Health Using Knowledge Graphs and Standards for Better Well-Being
 authors: Amelie Gyrarda, Seyedali Mohammadi, Manas Gaur, Antonio Kung, Mental Health
 year: 2024
 date_processed: '2025-07-02'

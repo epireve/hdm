@@ -1,7 +1,6 @@
 ---
 cite_key: ho_2024
-title: 'Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering
-  System: A Case Study at HCMUT'
+title: Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUT
 authors: Bao Ho, Oanh Tran, Long Nguyen, Phuong Nguyen, Thang Bui
 year: 2024
 doi: 10.1145/3643479.3662055

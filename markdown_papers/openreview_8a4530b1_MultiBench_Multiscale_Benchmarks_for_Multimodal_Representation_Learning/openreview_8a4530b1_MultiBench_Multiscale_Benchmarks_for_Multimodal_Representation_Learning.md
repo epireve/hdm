@@ -1,9 +1,7 @@
 ---
 cite_key: liang_2021
-title: 'MULTIBENCH: Multiscale Benchmarks for Multimodal Representation Learning'
-authors: Paul Pu Liang, Yiwei Lyu, Xiang Fan, Zetian Wu, Yun Cheng, Jason Wu, Leslie
-  Chen, Peter Wu, Michelle A. Lee, Yuke Zhu, Ruslan Salakhutdinov, Philippe Morency,
-  Johns Hopkins
+title: MULTIBENCH: Multiscale Benchmarks for Multimodal Representation Learning
+authors: Paul Pu Liang, Yiwei Lyu, Xiang Fan, Zetian Wu, Yun Cheng, Jason Wu, Leslie Chen, Peter Wu, Michelle A. Lee, Yuke Zhu, Ruslan Salakhutdinov, Philippe Morency, Johns Hopkins
 year: 2021
 date_processed: '2025-07-02'
 phase2_processed: true

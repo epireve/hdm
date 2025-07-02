@@ -1,8 +1,7 @@
 ---
 cite_key: memoro_2024
-title: 'Memoro: Using Large Language Models to Realize a Concise Interface for Real-Time
-  Memory Augmentation'
-authors: 'Figure 1: Architecture of Memoro'
+title: Memoro: Using Large Language Models to Realize a Concise Interface for Real-Time Memory Augmentation
+authors: Figure 1: Architecture of Memoro
 year: 2024
 doi: 10.1145/3613904.3642450
 date_processed: '2025-07-02'

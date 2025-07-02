@@ -1,7 +1,6 @@
 ---
 cite_key: yao_2024
-title: 'FEDRKG: A Privacy-preserving Federated Recommendation Framework via Knowledge
-  Graph Enhancement'
+title: FEDRKG: A Privacy-preserving Federated Recommendation Framework via Knowledge Graph Enhancement
 authors: Dezhong Yao, Tongtong Liu, Qi Cao, Hai Jin
 year: 2024
 doi: 10.1007/978-981-99-9896-8_6

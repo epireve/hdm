@@ -1,7 +1,6 @@
 ---
 cite_key: liu_2024
-title: Prior knowledge-guided multilevel graph neural network for tumor risk prediction
-  and interpretation via multi-omics data integration
+title: Prior knowledge-guided multilevel graph neural network for tumor risk prediction and interpretation via multi-omics data integration
 authors: Qingjie Liu
 year: 2024
 doi: 10.1093/bib/bbae184

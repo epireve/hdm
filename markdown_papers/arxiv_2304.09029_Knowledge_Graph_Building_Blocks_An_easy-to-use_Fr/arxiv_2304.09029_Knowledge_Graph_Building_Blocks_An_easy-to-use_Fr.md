@@ -1,7 +1,6 @@
 ---
 cite_key: graphs_2018
-title: 'Knowledge Graph Building Blocks: An easy-to-use Framework for developing FAIREr
-  Knowledge Graphs'
+title: Knowledge Graph Building Blocks: An easy-to-use Framework for developing FAIREr Knowledge Graphs
 authors: Knowledge graphs, Reusable data, KGBBs to manage
 year: 2018
 doi: 10.1007/978-3-030-61244-3

@@ -1,9 +1,7 @@
 ---
 cite_key: yu_2016
-title: Knowledge-enhanced Multi-perspective Video Representation Learning for Scene
-  Recognition
-authors: Xuzheng Yu, Chen Jiang, Wei Zhang, Tian Gan, Linlin Chao, Jianan Zhao, Yuan
-  Cheng, Qingpei Guo, Wei Chu
+title: Knowledge-enhanced Multi-perspective Video Representation Learning for Scene Recognition
+authors: Xuzheng Yu, Chen Jiang, Wei Zhang, Tian Gan, Linlin Chao, Jianan Zhao, Yuan Cheng, Qingpei Guo, Wei Chu
 year: 2016
 date_processed: '2025-07-02'
 phase2_processed: true

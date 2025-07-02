@@ -1,8 +1,6 @@
 ---
 cite_key: zhou_2024
-title: 'Electronic Health Record–Oriented Knowledge Graph System for Collaborative
-  Clinical Decision Support Using Multicenter Fragmented Medical Data: Design and
-  Application Study'
+title: Electronic Health Record–Oriented Knowledge Graph System for Collaborative Clinical Decision Support Using Multicenter Fragmented Medical Data: Design and Application Study
 authors: Tianshu Zhou, Ping Zhang, Jianghua Chen, Jingsong Li
 year: 2024
 doi: 10.2196/54263

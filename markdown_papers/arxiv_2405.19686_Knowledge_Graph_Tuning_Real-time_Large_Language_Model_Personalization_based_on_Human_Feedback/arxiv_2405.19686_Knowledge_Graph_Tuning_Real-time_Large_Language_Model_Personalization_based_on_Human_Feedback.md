@@ -1,7 +1,6 @@
 ---
 cite_key: sun_2024
-title: 'Knowledge Graph Tuning: Real-time Large Language Model Personalization based
-  on Human Feedback'
+title: Knowledge Graph Tuning: Real-time Large Language Model Personalization based on Human Feedback
 authors: Jingwei Sun, Zhixu Du
 year: 2024
 doi: 10.48550/arXiv.2405.19686

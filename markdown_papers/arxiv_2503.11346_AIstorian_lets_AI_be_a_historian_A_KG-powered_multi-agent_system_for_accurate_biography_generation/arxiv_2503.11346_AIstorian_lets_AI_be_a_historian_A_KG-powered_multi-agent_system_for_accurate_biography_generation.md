@@ -1,7 +1,6 @@
 ---
 cite_key: li_2018
-title: 'AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate
-  biography generation'
+title: AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation
 authors: Fengyu Li, Yilin Li, Junhao Zhu, Lu Chen, Yanfei Zhang, Jia Zhou
 year: 2018
 doi: 10.18653/v1/2024.emnlp-main.845

@@ -1,7 +1,6 @@
 ---
 cite_key: sun_2025
-title: 'TimelineKGQA: A Comprehensive Question-Answer Pair Generator for Temporal
-  Knowledge Graphs'
+title: TimelineKGQA: A Comprehensive Question-Answer Pair Generator for Temporal Knowledge Graphs
 authors: Qiang Sun
 year: 2025
 doi: arXiv:2501.04343

@@ -1,6 +1,6 @@
 ---
 cite_key: cai_2022
-title: 'Temporal Knowledge Graph Completion: A Survey'
+title: Temporal Knowledge Graph Completion: A Survey
 authors: Borui Cai, Yong Xiang, Longxiang Gao, He Zhang, Yunfeng Li, Jianxin Li
 year: 2022
 date_processed: '2025-07-02'

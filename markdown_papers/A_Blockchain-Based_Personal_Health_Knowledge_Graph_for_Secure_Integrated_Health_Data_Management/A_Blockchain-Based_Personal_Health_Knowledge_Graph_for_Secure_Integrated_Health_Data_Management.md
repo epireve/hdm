@@ -1,7 +1,6 @@
 ---
 cite_key: li_2023
-title: A Blockchain-Based Personal Health Knowledge Graph for Secure Integrated Health
-  Data Management
+title: A Blockchain-Based Personal Health Knowledge Graph for Secure Integrated Health Data Management
 authors: Juan Li, Vikram Pandey, Rasha Hendawi
 year: 2023
 doi: 10.1109/ISCC58397.2023.10218032

@@ -1,7 +1,6 @@
 ---
 cite_key: bogachov_2018
-title: A LIGHTWEIGHT MULTI-EXPERT GENERATIVE LANGUAGE MODEL SYSTEM FOR ENGINEERING
-  INFORMATION AND KNOWLEDGE EXTRACTION
+title: A Lightweight Multi-Expert Generative Language Model System for Engineering Information and Knowledge Extraction
 authors: Bogdan Bogachov
 year: 2018
 doi: 10.48550/arXiv.2302.04023.

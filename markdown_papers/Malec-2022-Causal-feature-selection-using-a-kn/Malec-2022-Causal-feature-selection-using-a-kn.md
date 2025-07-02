@@ -1,10 +1,7 @@
 ---
 cite_key: malec_2022
-title: 'Causal feature selection using a knowledge graph combining structured knowledge
-  from the biomedical literature and ontologies: a use case studying depression as
-  a risk factor for Alzheimer''s disease'
-authors: Scott A. Malec, Sanya B. Taneja, Steven M. Albert, C. Elizabeth Shaaban,
-  Helmet T. Karim, Arthur S. Levine, Paul Munro, Tiffany J. Callahan, Richard D. Boyce
+title: Causal feature selection using a knowledge graph combining structured knowledge from the biomedical literature and ontologies: a use case studying depression as a risk factor for Alzheimer's disease
+authors: Scott A. Malec, Sanya B. Taneja, Steven M. Albert, C. Elizabeth Shaaban, Helmet T. Karim, Arthur S. Levine, Paul Munro, Tiffany J. Callahan, Richard D. Boyce
 year: 2022
 doi: 10.5281/zenodo.6785307.
 date_processed: '2025-07-02'

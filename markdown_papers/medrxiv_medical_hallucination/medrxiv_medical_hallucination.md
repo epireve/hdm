@@ -1,10 +1,7 @@
 ---
 cite_key: chen_2024
 title: Medical Hallucination in Foundation Models and Their Impact on Healthcare
-authors: Shan Chen, Shuyue Stella Li, Kumail Alhamoud, Jimin Mun, Cristina Grau, Minseok
-  Jung, Rodrigo Gameiro, Lizhou Fan, Eugene Park, Tristan Lin, Wonjin Yoon, Maarten
-  Sap, Yulia Tsvetkov, Paul Liang, Xuhai Xu, Xin Liu, Hyeonhoon Lee, Hae Won Park,
-  Cynthia Breazeal
+authors: Shan Chen, Shuyue Stella Li, Kumail Alhamoud, Jimin Mun, Cristina Grau, Minseok Jung, Rodrigo Gameiro, Lizhou Fan, Eugene Park, Tristan Lin, Wonjin Yoon, Maarten Sap, Yulia Tsvetkov, Paul Liang, Xuhai Xu, Xin Liu, Hyeonhoon Lee, Hae Won Park, Cynthia Breazeal
 year: 2024
 doi: 10.1056/NEJMcpc1802826.
 date_processed: '2025-07-02'

@@ -1,6 +1,6 @@
 ---
 cite_key: words_2021
-title: Morescient GAI for Software Engineering (Extended Version)
+title: Morescient GAI for Software Engineering (Extended Version
 authors: Additional Key Words, Marcus Kessel
 year: 2021
 doi: 10.1145/3359591.3359735

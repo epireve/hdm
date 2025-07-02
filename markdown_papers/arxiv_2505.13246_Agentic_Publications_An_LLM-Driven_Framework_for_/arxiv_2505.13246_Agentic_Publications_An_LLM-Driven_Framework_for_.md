@@ -1,9 +1,7 @@
 ---
 cite_key: pugliese_2024
-title: 'Agentic Publications: An LLM-Driven Framework for Interactive Scientific Publishing,
-  Supplementing Traditional Papers with AI-Powered Knowledge Systems'
-authors: Roberto Pugliese, George Kourousias, Francesco Venier, Grazia Garlatti Costa,
-  Via Alfonso Valerio
+title: Agentic Publications: An LLM-Driven Framework for Interactive Scientific Publishing, Supplementing Traditional Papers with AI-Powered Knowledge Systems
+authors: Roberto Pugliese, George Kourousias, Francesco Venier, Grazia Garlatti Costa, Via Alfonso Valerio
 year: 2024
 doi: 10.34965/agenticpublication.3567a
 date_processed: '2025-07-02'

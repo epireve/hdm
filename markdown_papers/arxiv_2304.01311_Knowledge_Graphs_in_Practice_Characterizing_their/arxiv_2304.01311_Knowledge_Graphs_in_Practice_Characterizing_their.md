@@ -1,7 +1,6 @@
 ---
 cite_key: li_2023
-title: 'Knowledge Graphs in Practice: Characterizing their Users, Challenges, and
-  Visualization Opportunities'
+title: Knowledge Graphs in Practice: Characterizing their Users, Challenges, and Visualization Opportunities
 authors: Harry Li, Gabriel Appleby, Camelia Daniela Brumar, Remco Chang, Ashley Suh
 year: 2023
 doi: 10.1109/TVCG.2023.3326904

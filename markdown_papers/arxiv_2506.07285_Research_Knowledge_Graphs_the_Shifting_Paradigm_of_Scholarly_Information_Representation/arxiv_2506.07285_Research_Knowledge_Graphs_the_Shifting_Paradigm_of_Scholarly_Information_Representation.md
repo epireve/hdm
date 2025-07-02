@@ -1,9 +1,7 @@
 ---
 cite_key: castro_2019
-title: 'Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information
-  Representation'
-authors: Leyla Jael Castro, Benjamin Zapilko, Saurav Karmakar, Brigitte Mathiak, Markus
-  Stocker, Wolfgang Otto
+title: Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information Representation
+authors: Leyla Jael Castro, Benjamin Zapilko, Saurav Karmakar, Brigitte Mathiak, Markus Stocker, Wolfgang Otto
 year: 2019
 doi: 10.15488/13072
 date_processed: '2025-07-02'

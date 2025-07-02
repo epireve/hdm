@@ -1,7 +1,6 @@
 ---
 cite_key: jiang_2024
-title: Digital twin system for manufacturing processes based on a multi-layer knowledge
-  graph model
+title: Digital twin system for manufacturing processes based on a multi-layer knowledge graph model
 authors: Dongsheng Jiang
 year: 2024
 doi: 10.1016/j.jmsy.2021.05.010

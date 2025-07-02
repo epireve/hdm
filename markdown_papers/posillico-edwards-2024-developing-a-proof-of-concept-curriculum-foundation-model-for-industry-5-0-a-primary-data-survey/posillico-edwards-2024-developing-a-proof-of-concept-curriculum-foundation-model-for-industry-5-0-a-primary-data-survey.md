@@ -1,7 +1,6 @@
 ---
 cite_key: majesty_2024
-title: 'Developing a proof-of-concept curriculum foundation model for industry 5.0:
-  A primary data survey of built environment academics'
+title: Developing a proof-of-concept curriculum foundation model for industry 5.0: A primary data survey of built environment academics
 authors: His Majesty, John J Posillico
 year: 2024
 doi: 10.1177/09504222231224090

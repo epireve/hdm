@@ -1,7 +1,6 @@
 ---
 cite_key: leroy_2024
-title: 'The role of working memory capacity in the temporal compression of episodic
-  memories: An individual differences approach'
+title: The role of working memory capacity in the temporal compression of episodic memories: An individual differences approach
 authors: Nathan Leroy, Steve Majerus, Arnaud D'Argembeau
 year: 2024
 doi: 10.1037/xlm0001350

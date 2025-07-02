@@ -1,7 +1,7 @@
 ---
 cite_key: wang_2020
-title: "An Efficient Big Data Storage Service Architecture"
-authors: "Dan Wang, Xiang Li, Peixiang Bai, Haibo Wang, Jianmin Dong"
+title: An Efficient Big Data Storage Service Architecture
+authors: Dan Wang, Xiang Li, Peixiang Bai, Haibo Wang, Jianmin Dong
 year: 2020
 date_processed: "2025-07-02"
 phase2_processed: true

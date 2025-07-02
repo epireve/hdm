@@ -1,7 +1,6 @@
 ---
 cite_key: editor_2022
-title: Research Article Privacy-Preserving Federated Graph Neural Network Learning
-  on Non-IID Graph Data
+title: Research Article Privacy-Preserving Federated Graph Neural Network Learning on Non-IID Graph Data
 authors: Academic Editor
 year: 2022
 date_processed: '2025-07-02'

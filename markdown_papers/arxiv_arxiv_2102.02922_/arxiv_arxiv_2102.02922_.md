@@ -1,7 +1,6 @@
 ---
 cite_key: din_2019
-title: Towards a Flexible System Architecture for Automated Knowledge Base Construction
-  Frameworks
+title: Towards a Flexible System Architecture for Automated Knowledge Base Construction Frameworks
 authors: Osman Din
 year: 2019
 doi: 10.14778/2733004.2733069

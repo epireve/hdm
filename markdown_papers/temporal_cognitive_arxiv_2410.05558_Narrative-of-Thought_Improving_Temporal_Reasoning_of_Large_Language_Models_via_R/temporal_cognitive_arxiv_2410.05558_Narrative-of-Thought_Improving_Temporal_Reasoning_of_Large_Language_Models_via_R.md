@@ -1,7 +1,6 @@
 ---
 cite_key: zhang_2021
-title: 'NARRATIVE-OF-THOUGHT: Improving Temporal Reasoning of Large Language Models
-  via Recounted Narratives'
+title: NARRATIVE-OF-THOUGHT: Improving Temporal Reasoning of Large Language Models via Recounted Narratives
 authors: Xinliang Frederick Zhang, Nick Beauchamp, Lu Wang, Ann Arbor
 year: 2021
 doi: 10.48550/ARXIV.2404.14219

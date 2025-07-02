@@ -1,6 +1,6 @@
 ---
 cite_key: wang_2022
-title: 'KSG: Knowledge and Skill Graph'
+title: KSG: Knowledge and Skill Graph
 authors: Donglin Wang, Feng Zhao, Ziqi Zhang
 year: 2022
 doi: 10.1145/3511808.3557623

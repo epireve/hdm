@@ -1,9 +1,7 @@
 ---
 cite_key: liao_2023
-title: 'GenTKG: Generative Forecasting on Temporal Knowledge Graph with Large Language
-  Models'
-authors: Ruotong Liao, Xu Jia, Yangzhe Li, Yunpu Ma, Volker Tresp, Donald Trump, Joe
-  Biden
+title: GenTKG: Generative Forecasting on Temporal Knowledge Graph with Large Language Models
+authors: Ruotong Liao, Xu Jia, Yangzhe Li, Yunpu Ma, Volker Tresp, Donald Trump, Joe Biden
 year: 2023
 doi: 10.18653/v1/2023.nlrse-1.7
 date_processed: '2025-07-02'

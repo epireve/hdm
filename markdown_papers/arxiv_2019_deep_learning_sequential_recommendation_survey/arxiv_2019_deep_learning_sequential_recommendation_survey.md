@@ -1,7 +1,7 @@
 ---
 
 cite_key: fang_2020
-title: "Deep Learning for Sequential Recommendation: Algorithms, Influential Factors, and Evaluations"
+title: Deep Learning for Sequential Recommendation: Algorithms, Influential Factors, and Evaluations
 authors: Hui Fang, Danning Zhang, Yiheng Shu, Guibing Guo
 year: 2020
 doi: 10.1145/3426723

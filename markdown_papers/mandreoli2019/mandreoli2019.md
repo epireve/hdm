@@ -1,7 +1,6 @@
 ---
 cite_key: mandreoli_2010
-title: 'Dealing With Data Heterogeneity in a Data Fusion Perspective: Models, Methodologies,
-  and Algorithms'
+title: Dealing With Data Heterogeneity in a Data Fusion Perspective: Models, Methodologies, and Algorithms
 authors: Federica Mandreoli, Scienze Fisiche
 year: 2010
 date_processed: '2025-07-02'

@@ -1,6 +1,6 @@
 ---
 cite_key: lyu_2021
-title: PRIVACY-PRESERVING FEDERATED LEARNING BASED ON MULTI-KEY HOMOMORPHIC ENCRYPTION
+title: Privacy-preserving Federated Learning Based on Multi-key Homomorphic Encryption
 authors: Xixiang Lyu
 year: 2021
 date_processed: '2025-07-02'

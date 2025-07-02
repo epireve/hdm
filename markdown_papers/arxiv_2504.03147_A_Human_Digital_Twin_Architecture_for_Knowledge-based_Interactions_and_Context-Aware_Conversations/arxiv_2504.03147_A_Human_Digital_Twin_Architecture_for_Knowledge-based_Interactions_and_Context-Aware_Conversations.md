@@ -1,9 +1,7 @@
 ---
 cite_key: mohammed_2024
-title: A Human Digital Twin Architecture for Knowledge-based Interactions and Context-Aware
-  Conversations
-authors: Abdul Mannan Mohammed, Azhar Ali Mohammad, Jason A. Ortiz, Carsten Neumann,
-  Grace Bochenek
+title: A Human Digital Twin Architecture for Knowledge-based Interactions and Context-Aware Conversations
+authors: Abdul Mannan Mohammed, Azhar Ali Mohammad, Jason A. Ortiz, Carsten Neumann, Grace Bochenek
 year: 2024
 doi: 10.1016/j.cmpbup.2021.100014
 date_processed: '2025-07-02'

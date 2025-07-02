@@ -1,8 +1,7 @@
 ---
 cite_key: bellomarini_2024
 title: Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility∗
-authors: Luigi Bellomarini, Costanza Catalano, Andrea Coletta, Michela Iezzi, Pierangela
-  Samarati
+authors: Luigi Bellomarini, Costanza Catalano, Andrea Coletta, Michela Iezzi, Pierangela Samarati
 year: 2024
 doi: 10.48550/arXiv.2410.12418
 url: https://arxiv.org/abs/2410.12418

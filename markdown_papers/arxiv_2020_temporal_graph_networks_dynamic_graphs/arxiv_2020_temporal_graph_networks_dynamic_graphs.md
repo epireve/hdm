@@ -1,6 +1,6 @@
 ---
 cite_key: rossi_2020
-title: TEMPORAL GRAPH NETWORKS FOR DEEP LEARNING ON DYNAMIC GRAPHS
+title: Temporal Graph Networks for Deep Learning on Dynamic Graphs
 authors: Emanuele Rossi
 year: 2020
 doi: 10.48550/arXiv.2006.10637

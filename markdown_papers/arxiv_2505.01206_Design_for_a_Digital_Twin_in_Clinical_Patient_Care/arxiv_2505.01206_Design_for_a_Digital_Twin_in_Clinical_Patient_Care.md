@@ -1,6 +1,6 @@
 ---
 cite_key: hohenfellner_2025
-title: DESIGN FOR A DIGITAL TWIN IN CLINICAL PATIENT CARE
+title: Design for a Digital Twin in Clinical Patient Care
 authors: Markus Hohenfellner, Physikalisches Institut
 year: 2025
 date_processed: '2025-07-02'

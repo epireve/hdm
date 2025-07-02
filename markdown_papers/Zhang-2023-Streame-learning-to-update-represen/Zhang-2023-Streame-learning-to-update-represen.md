@@ -1,7 +1,6 @@
 ---
 cite_key: shao_2023
-title: 'StreamE: Lightweight Updates of Representations for Temporal Knowledge Graphs
-  in Streaming Scenarios'
+title: StreamE: Lightweight Updates of Representations for Temporal Knowledge Graphs in Streaming Scenarios
 authors: Jie Shao, Jiasheng Zhang
 year: 2023
 doi: 10.1145/3539618.3591772

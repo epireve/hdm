@@ -1,7 +1,6 @@
 ---
 cite_key: privacy_2024
-title: 'Bring Privacy To The Table: Interactive Negotiation for Privacy Settings of
-  Shared Sensing Devices'
+title: Bring Privacy To The Table: Interactive Negotiation for Privacy Settings of Shared Sensing Devices
 authors: Usable Privacy, Haozhe Zhou
 year: 2024
 doi: 10.1145/3613904.3642897

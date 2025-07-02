@@ -1,9 +1,7 @@
 ---
 cite_key: gao_2025
-title: 'HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge
-  Graph and Large Language Models'
-authors: Fan Gao, Xinjie Zhao, Ding Xia, Zhongyi Zhou, Rui Yang, Jinghui Lu, Hang
-  Jiang, Chanjun Park, Irene Li
+title: HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models
+authors: Fan Gao, Xinjie Zhao, Ding Xia, Zhongyi Zhou, Rui Yang, Jinghui Lu, Hang Jiang, Chanjun Park, Irene Li
 year: 2025
 doi: 10.18653/v1/2021.naacl-main.278
 date_processed: '2025-07-02'

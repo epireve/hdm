@@ -1,7 +1,6 @@
 ---
 cite_key: lin_2022
-title: 'Knowledge Management System with NLP-Assisted Annotations: A Brief Survey
-  and Outlook'
+title: Knowledge Management System with NLP-Assisted Annotations: A Brief Survey and Outlook
 authors: Baihan Lin
 year: 2022
 date_processed: '2025-07-02'

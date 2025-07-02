@@ -1,9 +1,7 @@
 ---
 cite_key: yang_2025
-title: 'Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with
-  a Global Perspective'
-authors: Rui Yang, Fan Gao, Moritz Blum, Freddy Lecue, Boming Yang, Aosong Feng, Tianwei
-  She, Jinghui Lu, Xinjie Zhao, Sixun Ouyang, Yuang Jiang, Irene Li
+title: Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective
+authors: Rui Yang, Fan Gao, Moritz Blum, Freddy Lecue, Boming Yang, Aosong Feng, Tianwei She, Jinghui Lu, Xinjie Zhao, Sixun Ouyang, Yuang Jiang, Irene Li
 year: 2025
 doi: 10.18653/v1/P19-1470
 date_processed: '2025-07-02'

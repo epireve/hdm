@@ -1,7 +1,6 @@
 ---
 cite_key: mahmud_2025
-title: Digital twins as global learning health and disease models for preventive and
-  personalized medicine
+title: Digital twins as global learning health and disease models for preventive and personalized medicine
 authors: Firoj Mahmud
 year: 2025
 date_processed: '2025-07-02'

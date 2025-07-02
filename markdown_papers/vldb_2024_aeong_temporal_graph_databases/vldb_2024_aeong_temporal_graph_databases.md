@@ -1,6 +1,6 @@
 ---
 cite_key: wen_2024
-title: 'AeonG: An Efficient Built-in Temporal Support in Graph Databases'
+title: AeonG: An Efficient Built-in Temporal Support in Graph Databases
 authors: Dong Wen, Jiamin Hou
 year: 2024
 doi: 10.14778/3648160.3648187

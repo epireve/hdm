@@ -1,8 +1,7 @@
 ---
 cite_key: uzctegui_2024
-title: 'Corresponding author:'
-authors: Luis Medina Uzcátegui, Instituto de Diseño y Métodos Industriales, Facultad
-  de Ciencias de la Ingeniería, Universidad Austral de Chile
+title: Corresponding author:
+authors: Luis Medina Uzcátegui, Instituto de Diseño y Métodos Industriales, Facultad de Ciencias de la Ingeniería, Universidad Austral de Chile
 year: 2024
 doi: 10.1177/03064190231200397
 date_processed: '2025-07-02'

@@ -1,7 +1,6 @@
 ---
 cite_key: castillo-escamilla_2024
-title: The Role of Physical Activity on Spatial and Temporal Cognitive Processing
-  in Young Women
+title: The Role of Physical Activity on Spatial and Temporal Cognitive Processing in Young Women
 authors: Joaquín Castillo-Escamilla, María del Mar Salvador-Viñas, José Manuel Cimadevilla
 year: 2024
 doi: 10.3390/brainsci15050431

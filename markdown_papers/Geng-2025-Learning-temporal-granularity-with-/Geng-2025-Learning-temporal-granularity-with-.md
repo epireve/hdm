@@ -1,7 +1,6 @@
 ---
 cite_key: rushangeng_2014
-title: Learning temporal granularity with quadruplet networks for temporal knowledge
-  graph completion
+title: Learning temporal granularity with quadruplet networks for temporal knowledge graph completion
 authors: RushanGeng, Cuicui Luo
 year: 2014
 date_processed: '2025-07-02'

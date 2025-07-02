@@ -1,7 +1,6 @@
 ---
 cite_key: banking_2022
-title: Incremental Analysis of Legacy Applica4ons Using Knowledge Graphs for Applica4on
-  Moderniza4on
+title: Incremental Analysis of Legacy Applica4ons Using Knowledge Graphs for Applica4on Moderniza4on
 authors: Industries such as banking, telecom
 year: 2022
 doi: 10.1145/3493700.3493735

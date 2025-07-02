@@ -1,7 +1,6 @@
 ---
 cite_key: hildebrandt_2014
-title: 'TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal
-  Knowledge Graphs'
+title: TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal Knowledge Graphs
 authors: Marcel Hildebrandt, Mitchell Joblin
 year: 2014
 date_processed: '2025-07-02'

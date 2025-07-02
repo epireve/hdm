@@ -1,8 +1,7 @@
 ---
 cite_key: turki_2013
 title: A Decade of Scholarly Research on Open Knowledge Graphs
-authors: Houcemeddine Turki, Abraham Toluwase Owodunni, Mohamed Ali Hadj Taieb, Fabrice
-  Bile, Mohamed Ben Aouicha
+authors: Houcemeddine Turki, Abraham Toluwase Owodunni, Mohamed Ali Hadj Taieb, Fabrice Bile, Mohamed Ben Aouicha
 year: 2013
 doi: 10.1007/978-3-540-88564-1
 date_processed: '2025-07-02'

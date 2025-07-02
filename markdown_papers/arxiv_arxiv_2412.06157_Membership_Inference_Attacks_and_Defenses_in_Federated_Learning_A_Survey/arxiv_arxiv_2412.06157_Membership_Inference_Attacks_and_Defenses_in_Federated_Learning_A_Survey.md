@@ -1,9 +1,8 @@
 ---
-cite_key: words_2023
-title: LI BAI, HAIBO HU, QINGQING YE, and HAOYANG LI, The Hong Kong Polytechnic University,
-  Hong Kong
-authors: Additional Key Words
-year: 2023
+cite_key: bai_2023
+title: Membership Inference Attacks and Defenses in Federated Learning: A Survey
+authors: Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu
+year:2023
 doi: 10.1109/NaNA53684.2021.00062
 date_processed: '2025-07-02'
 phase2_processed: true
@@ -20,25 +19,8 @@ tags:
 - Personal Health
 - Privacy
 keywords:
-- 1 centralized learning
-- 1 introduction
-- 1 partial sharing
-- 1 threat model
-- 1 update-based membership inference attacks
-- 2 adversarys goal
-- 2 federated learning
-- 2 secure aggregation
-- 2 trend-based membership inference attacks
-- 3 adversarys role
-- 3 comparison to attacks in centralized learning
-- 3 noise perturbation
-- 4 adversarys strategy
-- 4 anomaly detection
-- 5 attack taxonomy
-- 5 comparison to defenses in centralized learning
 - AUC
 - AgrEvader
-- ArXiv
 - BERT
 - BatchCrypt
 - FedAvg
@@ -47,9 +29,7 @@ keywords:
 - ImageNet
 - LoDen
 - accuracy-lossless
-- acm reference format
 - adversarial attack
-- ahmad-reza
 ---
 
 LI BAI, HAIBO HU, QINGQING YE, and HAOYANG LI, The Hong Kong Polytechnic University, Hong Kong

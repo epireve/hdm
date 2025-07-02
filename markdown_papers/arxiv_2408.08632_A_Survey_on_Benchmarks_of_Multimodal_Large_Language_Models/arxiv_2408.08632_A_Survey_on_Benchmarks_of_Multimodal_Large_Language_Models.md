@@ -1,8 +1,7 @@
 ---
 cite_key: lu_2024
 title: A Survey on Benchmarks of Multimodal Large Language Models
-authors: Weiheng Lu, Hao Fei, Meng Luo, Ming Dai, Min Xia, Yizhang Jin, Zhenye Gan,
-  Ding Qi, Chaoyou Fu, Ying Tai, Wankou Yang, Yabiao Wang, Chengjie Wang
+authors: Weiheng Lu, Hao Fei, Meng Luo, Ming Dai, Min Xia, Yizhang Jin, Zhenye Gan, Ding Qi, Chaoyou Fu, Ying Tai, Wankou Yang, Yabiao Wang, Chengjie Wang
 year: 2024
 date_processed: '2025-07-02'
 phase2_processed: true

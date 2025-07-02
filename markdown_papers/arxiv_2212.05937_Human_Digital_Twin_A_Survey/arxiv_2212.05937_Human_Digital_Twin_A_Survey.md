@@ -1,8 +1,7 @@
 ---
 cite_key: lin_2024
-title: 'Human Digital Twin: A Survey'
-authors: Yujia Lin, Liming Chen, Aftab Ali, Christopher Nugent, Cleland Ian, Rongyang
-  Li, Dazhi Gao, Hang Wang, Yajie Wang, Huansheng Ning
+title: Human Digital Twin: A Survey
+authors: Yujia Lin, Liming Chen, Aftab Ali, Christopher Nugent, Cleland Ian, Rongyang Li, Dazhi Gao, Hang Wang, Yajie Wang, Huansheng Ning
 year: 2024
 date_processed: '2025-07-02'
 phase2_processed: true

@@ -1,7 +1,6 @@
 ---
 cite_key: sesana_2024
-title: 'New generation Energy Performance Certificate: development and application
-  in an Italian case study as an EU proof of concept'
+title: New generation Energy Performance Certificate: development and application in an Italian case study as an EU proof of concept
 authors: Marta Maria Sesana, Ilaria Isacco
 year: 2024
 doi: 10.1051/e3sconf/202452306001

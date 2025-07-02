@@ -1,7 +1,6 @@
 ---
 cite_key: beltran_2023
-title: 'ArticleCo-Design, Development, and Evaluation of a Health Monitoring Tool
-  Using Smartwatch Data: A Proof-of-Concept Study'
+title: ArticleCo-Design, Development, and Evaluation of a Health Monitoring Tool Using Smartwatch Data: A Proof-of-Concept Study
 authors: Fernando Beltran
 year: 2023
 doi: 10.3390/fi15030111

@@ -1,7 +1,6 @@
 ---
 cite_key: yang_2024
-title: 'SSTKG: Simple Spatio-Temporal Knowledge Graph for Intepretable and Versatile
-  Dynamic Information Embedding'
+title: SSTKG: Simple Spatio-Temporal Knowledge Graph for Intepretable and Versatile Dynamic Information Embedding
 authors: Ruiyi Yang
 year: 2024
 doi: arXiv:2402.12132

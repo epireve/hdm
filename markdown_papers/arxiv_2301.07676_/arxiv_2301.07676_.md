@@ -1,7 +1,6 @@
 ---
 cite_key: doerr_2017
-title: A Workflow Model for Holistic Data Management and Semantic Interoperability
-  in Quantitative Archival Research
+title: A Workflow Model for Holistic Data Management and Semantic Interoperability in Quantitative Archival Research
 authors: Martin Doerr
 year: 2017
 date_processed: '2025-07-02'

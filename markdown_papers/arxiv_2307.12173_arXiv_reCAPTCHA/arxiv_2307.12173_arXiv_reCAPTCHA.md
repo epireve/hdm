@@ -1,7 +1,7 @@
 ---
-cite_key: words_2023
+cite_key: kejriwal_2023
 title: Named Entity Resolution in Personal Knowledge Graphs
-authors: Additional Key Words
+authors: Mayank Kejriwal
 year: 2023
 doi: arXiv:2307.12173
 url: https://arxiv.org/abs/2307.12173

@@ -1,7 +1,6 @@
 ---
 cite_key: wang_2024
-title: Question answering over temporal knowledge graphs based on hierarchical semantic
-  extraction
+title: Question answering over temporal knowledge graphs based on hierarchical semantic extraction
 authors: Jian Wang, Wenjuan Zhang, Qi He, Danfeng Zhao
 year: 2024
 doi: 10.1109/SWC62898.2024.00207

@@ -1,7 +1,6 @@
 ---
 cite_key: zhu_2025
-title: A Temporal Knowledge Graph Generation Dataset Supervised Distantly by Large
-  Language Models
+title: A Temporal Knowledge Graph Generation Dataset Supervised Distantly by Large Language Models
 authors: Jun Zhu, Yan Fu, Junlin Zhou, Duanbing Chen
 year: 2025
 doi: 10.1007/978-3-642-15939-8

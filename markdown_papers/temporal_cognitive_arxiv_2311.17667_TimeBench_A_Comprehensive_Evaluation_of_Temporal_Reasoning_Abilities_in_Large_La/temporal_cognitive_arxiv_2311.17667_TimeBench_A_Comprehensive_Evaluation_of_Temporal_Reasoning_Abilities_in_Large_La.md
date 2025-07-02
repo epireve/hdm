@@ -1,9 +1,7 @@
 ---
 cite_key: chu_2021
-title: 'TIMEBENCH: A Comprehensive Evaluation of Temporal Reasoning Abilities in Large
-  Language Models'
-authors: Zheng Chu, Jingchang Chen, Qianglong Chen, Weijiang Yu, Haotian Wang, Ming
-  Liu, Bing Qin
+title: TIMEBENCH: A Comprehensive Evaluation of Temporal Reasoning Abilities in Large Language Models
+authors: Zheng Chu, Jingchang Chen, Qianglong Chen, Weijiang Yu, Haotian Wang, Ming Liu, Bing Qin
 year: 2021
 doi: 10.18653/V1/2023.EMNLP-MAIN.298
 date_processed: '2025-07-02'

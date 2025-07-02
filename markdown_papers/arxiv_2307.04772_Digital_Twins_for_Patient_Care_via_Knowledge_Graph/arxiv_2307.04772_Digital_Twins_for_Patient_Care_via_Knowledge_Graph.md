@@ -1,7 +1,6 @@
 ---
 cite_key: nye_2023
-title: Digital Twins for Patient Care via Knowledge Graphs and Closed-Form Continuous-Time
-  Liquid Neural Networks
+title: Digital Twins for Patient Care via Knowledge Graphs and Closed-Form Continuous-Time Liquid Neural Networks
 authors: Logan Nye
 year: 2023
 date_processed: '2025-07-02'

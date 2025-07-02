@@ -1,7 +1,7 @@
 ---
 cite_key: carbonaro_2023
-title: "CONNECTED: leveraging digital twins and personal knowledge graphs in healthcare digitalization"
-authors: "Antonella Carbonaro, Alberto Marfoglia, Filippo Nardini, Sabato Mellone"
+title: CONNECTED: leveraging digital twins and personal knowledge graphs in healthcare digitalization
+authors: Antonella Carbonaro, Alberto Marfoglia, Filippo Nardini, Sabato Mellone
 year: 2023
 doi: 10.3389/fdgth.2023.1322428
 date_processed: '2025-07-02'

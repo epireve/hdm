@@ -1,6 +1,6 @@
 ---
 cite_key: zhao_2023
-title: "A SysML-centric integration framework for helicopter fuel system development"
+title: A SysML-centric integration framework for helicopter fuel system development
 authors: H Zhao, W K Wu, X M Hu, Y Q Guo, C Zhang, G X Hao
 year: 2023
 doi: 10.1109/AERO55745.2023.10115875

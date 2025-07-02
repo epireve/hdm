@@ -1,9 +1,7 @@
 ---
 cite_key: galkea_2021
-title: Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes
-  and New Classes ?
-authors: Lukas Galke, Iacopo Vagliano, Benedikt Franke, Tobias Zielke, Marcel Hoffmann,
-  Ansgar Scherp
+title: Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes ?
+authors: Lukas Galke, Iacopo Vagliano, Benedikt Franke, Tobias Zielke, Marcel Hoffmann, Ansgar Scherp
 year: 2021
 doi: 10.48550/arXiv.2112.10558
 url: https://arxiv.org/abs/2112.10558

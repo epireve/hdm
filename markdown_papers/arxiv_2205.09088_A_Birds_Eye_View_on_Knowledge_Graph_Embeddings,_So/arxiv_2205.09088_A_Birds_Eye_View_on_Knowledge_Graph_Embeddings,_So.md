@@ -1,7 +1,6 @@
 ---
 cite_key: garg_2022
-title: 'Knowledge Graph Completion: A Bird''s Eye View on Knowledge Graph Embeddings,
-  Software Libraries, Applications and Challenges'
+title: Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges
 authors: Satvik Garg, Dwaipayan Roy
 year: 2022
 date_processed: '2025-07-02'
