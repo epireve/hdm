@@ -1,2 +1,4 @@
 .env
 .claude/settings.local.json
+backup_phase2/*
+__pycache__/markdown_standardizer_improved.cpython-313.pyc

@@ -231,3 +231,158 @@ This enables all configured MCP servers for enhanced research capabilities.
 - Average processing time per paper
 - Data completeness score (21 columns filled)
 - Citation network density
+
+## Paper Processing Workflow
+
+### PDF to Markdown Conversion Workflow
+
+This workflow handles bulk conversion of PDF papers to markdown format with proper metadata integration.
+
+#### Prerequisites
+1. Place PDF files in `new_papers/` folder
+2. Ensure `missing_papers.json` contains metadata for papers
+3. Have `research_papers_merged_final.csv` as the base dataset
+
+#### Main Processing Script: `process_new_papers_batch.py`
+
+**Purpose**: Comprehensive paper processing including:
+- Converting PDFs to markdown using `smart_converter.py`
+- Adding YAML frontmatter to markdown files
+- Integrating metadata from `missing_papers.json`
+- Ensuring unique cite keys
+- Merging all data into final CSV
+
+**Key Functions**:
+- `clean_title()`: Removes quotes, brackets, normalizes titles
+- `clean_authors()`: Ensures comma-separated authors, no "et al."
+- `generate_cite_key()`: Creates cite_key from first_author_lastname_year
+- `ensure_unique_cite_keys()`: Adds a/b/c suffixes for duplicates
+- `add_yaml_to_markdown()`: Adds/updates YAML frontmatter
+
+**YAML Frontmatter Format**:
+```yaml
+---
+cite_key: "lastname_year"
+title: "Full Paper Title"
+authors: "First Author, Second Author, Third Author"
+year: 2024
+doi: "10.1234/example"
+url: "https://example.com/paper"
+relevancy: "High"
+tldr: "One sentence summary"
+insights: "Key insights for HDM"
+summary: "Comprehensive abstract"
+tags:
+  - "Knowledge Graph"
+  - "HDM"
+---
+```
+
+#### Supporting Scripts
+
+**1. `extract_full_authors.py`**
+- Identifies papers with incomplete author information
+- Flags entries with "et al.", "unavailable", or single names
+- Generates `author_update_report.json`
+
+**2. `update_missing_authors.py`**
+- Updates author fields with full author lists
+- Contains manual mappings for known papers
+- Creates backup before updating
+
+**3. `fix_author_extraction.py`**
+- Fixes YAML frontmatter with email prefixes instead of names
+- Extracts proper author names from paper content
+- Updates frontmatter with corrected author lists
+
+**4. `rename_folders_to_cite_keys.py`**
+- Renames paper folders to match their cite_keys
+- Handles special characters and length limits
+- Creates `folder_rename_log.json` with results
+
+#### Processing Steps
+
+1. **Convert PDFs to Markdown**:
+   ```bash
+   python smart_converter.py
+   ```
+
+2. **Process and Add Metadata**:
+   ```bash
+   python process_new_papers_batch.py
+   ```
+
+3. **Fix Author Issues** (if needed):
+   ```bash
+   python extract_full_authors.py
+   python update_missing_authors.py
+   python fix_author_extraction.py
+   ```
+
+4. **Rename Folders**:
+   ```bash
+   python rename_folders_to_cite_keys.py
+   ```
+
+5. **Add Image Descriptions** (optional):
+   ```bash
+   python scripts/phase2/image_descriptor.py
+   ```
+
+6. **Move Processed PDFs**:
+   - PDFs are automatically moved from `new_papers/` to `papers/`
+   - Handled by `move_processed_pdfs()` in main script
+
+#### Output Files
+
+- **research_papers_complete.csv**: Final merged dataset with all papers
+- **cite_key_mapping_complete.json**: Maps cite_keys to paper metadata
+- **new_papers_checkpoint.json**: Tracks conversion progress
+- **author_update_report.json**: Details of author updates
+- **folder_rename_log.json**: Folder renaming results
+
+#### Quality Checks
+
+1. **Author Validation**:
+   - No "et al." in author lists
+   - All names comma-separated
+   - No ampersands (&) used
+
+2. **Title Formatting**:
+   - No quotes or brackets
+   - Proper capitalization maintained
+   - No "Article" prefix
+
+3. **Cite Key Standards**:
+   - Format: lastname_year
+   - All lowercase
+   - Unique with a/b/c suffixes when needed
+
+4. **Folder Organization**:
+   - Folders named by cite_key
+   - Each folder contains `paper.md`
+   - Image files preserved with original names
+
+#### Common Issues and Solutions
+
+**Issue**: Authors extracted as email prefixes
+**Solution**: Run `fix_author_extraction.py` with manual mappings
+
+**Issue**: Duplicate cite_keys
+**Solution**: Automatic a/b/c suffix addition
+
+**Issue**: Missing metadata
+**Solution**: Check `missing_papers.json` for complete data
+
+**Issue**: PDF conversion failures
+**Solution**: Check `new_papers_checkpoint.json` for errors
+
+#### Integration with Research Workflow
+
+This processing workflow integrates with the larger research pipeline:
+1. Papers discovered through WebSearch/WebFetch
+2. Metadata extracted and stored in `missing_papers.json`
+3. PDFs downloaded to `new_papers/`
+4. This workflow converts and integrates them
+5. Final data available in `research_papers_complete.csv`
+6. Papers organized in `markdown_papers/` by cite_key
