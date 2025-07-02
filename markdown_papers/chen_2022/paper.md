@@ -3,7 +3,7 @@ cite_key: chen_2022
 title: Integrating Manifold Knowledge for Global Entity Linking with Heterogeneous Graphs
 authors: Zhibin Chen, Yuting Wu, Yansong Feng
 year: 2022
-doi: 10.1162/dint
+doi: 10.1162/dint_a_00116
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: dint_a_00116
@@ -16,23 +16,9 @@ tags:
 - Natural Language Processing
 - Semantic Web
 keywords:
-- 1 introduction
-- 2 r elated work
-- 3 p roblem formulation
-- 4 the propo sed approach
-- 5 experiments and analysis
-- 6 conclusion and future work
 - BERT
 - CNN
 - NLP
-- a learning
-- accuracy
-- acknowledgements
-- aida-a
-- aida-b
-- aida-train
-- and local context
-- article-pdf
 - artificial intelligence
 - attention-based
 - attention-based graph
@@ -41,7 +27,6 @@ keywords:
 - bert
 - bi-directional
 - bi-linear
-- bidirectional encoder representations from transformers
 - classification
 - cnn
 - cuttitta

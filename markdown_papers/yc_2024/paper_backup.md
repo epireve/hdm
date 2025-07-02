@@ -25,7 +25,6 @@ tags:
 ---
 
 ![](_page_0_Picture_0.jpeg)
-<!-- Image Description: The image is a logo for "Applied Sciences."  It features a stylized graphic of three test tubes in a rack, suggesting experimental work within the sciences. The logo likely serves as a journal title or publisher identifier, indicating the subject matter of the paper in which it appears. -->
 
 # *Article* **A Brief Survey on Deep Learning-Based Temporal Knowledge Graph Completion**
 
@@ -48,7 +47,6 @@ Knowledge graph completion (KGC) tries to solve this incompleteness problem by i
 As TKGC has attracted increased attention from the research community, various TKGC methods have been proposed, among which, deep learning (DL)-based methods have achieved state-of-the-art performance. Therefore, in order to promote further progress in this field, it is necessary to comprehensively summarize and compare the existing DLbased TKGC methods. We note that: (1) Ref. [\[8\]](#page-13-7) provides a review of temporal knowledge
 
 ![](_page_0_Picture_11.jpeg)
-<!-- Image Description: The image is a simple graphic consisting of a yellow circle containing a white checkmark, accompanied by the text "check for updates".  It's likely a visual cue or button within the paper's software, indicating a function for users to verify the presence of  software updates or new versions.  The image serves as a user interface element within the context of a technical paper discussing software development or deployment. -->
 
 **Citation:** Jia, N.; Yao, C. A Brief Survey on Deep Learning-Based Temporal Knowledge Graph Completion. *Appl. Sci.* **2024**, *14*, 8871. [https://doi.org/10.3390/](https://doi.org/10.3390/app14198871) [app14198871](https://doi.org/10.3390/app14198871)
 
@@ -57,14 +55,12 @@ Academic Editor:Antonio Pagliaro
 Received: 4 September 2024 Revised: 23 September 2024 Accepted: 30 September 2024 Published: 2 October 2024
 
 ![](_page_0_Picture_15.jpeg)
-<!-- Image Description: The image displays a Creative Commons (CC) license indicator.  It shows the CC logo, a symbol representing attribution, and the abbreviation "BY," signifying the "Attribution" license type. This indicates the work is licensed under Creative Commons Attribution, requiring attribution to the creator if used or shared. -->
 
 **Copyright:** © 2024 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license [\(https://](https://creativecommons.org/licenses/by/4.0/) [creativecommons.org/licenses/by/](https://creativecommons.org/licenses/by/4.0/) 4.0/).
 
 graphs, which includes a section on TKGC. However, this section only covers five early methods related to TKGC. (2) Ref. [\[9\]](#page-13-8) provides a review of temporal knowledge graphs, focusing on representation learning-based TKGC methods. (3) There are three review papers [\[10](#page-13-9)[–12\]](#page-13-10) on TKGC, but they either mainly focus on the interpolation-based methods or, perhaps due to space limitations, introduce TKGC methods from a macro perspective. Most importantly, the above reviews do not include research work from the last one to two years.
 
 <span id="page-1-0"></span>![](_page_1_Figure_2.jpeg)
-<!-- Image Description: This image is a knowledge graph illustrating relationships between entities.  Rectangular nodes represent entities (e.g., USA, Barack Obama), and directed edges show relationships (e.g., "PresidentOf," "LocatedIn") with associated timeframes. The graph depicts connections between US presidents, their birthplaces, and their educational background,  demonstrating the use of a knowledge graph to represent factual information. -->
 
 **Figure 1.** A knowledge graph example that contains temporal information [\[10\]](#page-13-9).
 

@@ -55,7 +55,6 @@ Given enough time and resources, domain scientists could certainly solve their K
 **This research has been supported by the National Science Foundation under Grant No. CBET-2019435.**
 
 ![](_page_1_Figure_0.jpeg)
-<!-- Image Description: The image contains three parts: (a) a table summarizing experimental conditions (temperature, protein, solution, ion, and absorbance); (b) a line graph showing Root Mean Squared Fluctuation (RMSF) versus residue number for a protein-ligand interaction; and (c) a knowledge graph representing relationships between experimental data and simulation results, linking various entities like trials, proteins, temperatures, and measured parameters.  The image illustrates how the data sources are integrated into a knowledge graph. -->
 
 **Fig. 1. The motivating example for our proposed BUILD-KG workflow, showcasing a scenario in which data o f different types from multiple sources (a)-(b) need to be converted into a single unified KG (c). Source 1 (a) provides** *spreadsheet data,* **while Source 2 (b) provides** *images* **and** *regularized text* **data. A KG capturing and connecting these data is shown in (c). The dashed edges in (c) provide examples of relationships between entities across the data sources.**
 
@@ -252,7 +251,6 @@ Table II shows a fragment of the triple sheet *T,* which specifies the triple ty
 In this section we discuss our experience of constructing a KG from the *images with annotations* in our MS use case. The data come from Data Set 2, see Section V-B2 for the details.
 
 ![](_page_6_Figure_8.jpeg)
-<!-- Image Description: The bar graph displays the percentage of phosphorus removal at different temperatures (10°C, 20°C, 30°C, and 40°C).  Phosphorus removal increases slightly with temperature from 10°C to 20°C, then plateaus. The purpose is to illustrate the relationship between temperature and phosphorus removal efficiency, likely in the context of a water treatment or environmental remediation process. -->
 
 Fig. 2. An image from Data Set 2 described in Section V-B2.
 

@@ -1,5 +1,5 @@
 ---
-cite_key: xu_2023
+cite_key: xu_2023b
 title: "TFSF: Topological and Feature Space Fusion with Spatio-Temporal Modeling for Crop Yield Prediction"
 authors: Shifeng Xu, Yijing Zhou, Cuiting Huang, Xiaoyang Yu, Chao Wu
 year: 2023

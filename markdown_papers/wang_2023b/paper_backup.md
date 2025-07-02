@@ -25,7 +25,6 @@ tags:
 ---
 
 ![](_page_0_Picture_0.jpeg)
-<!-- Image Description: That's not a technical image from an academic paper; it's a button graphic likely from a software application.  The image displays a circular icon—partially teal, yellow, and red—featuring a red bookmark-like shape. Below the icon, the text "Check for updates" is displayed.  The image's purpose would be to visually prompt a user to search for and install software updates within the application.  It's not a chart, graph, diagram, or equation; it's purely a user interface element. -->
 
 # Continuous Personalized Knowledge Tracing: Modeling Long-Term Learning in Online Environments
 
@@ -181,7 +180,6 @@ Notice that, we use (W , b) for ∈ {1, 2, 3, 4} to denote the weights and biase
 The existing deep knowledge tracing models are trained with the offline batched data, that consists of truncated portions of student sequences. This type of training results in losing the dependence between portions of the same student sequence and creates a problem for personalized KT. Additionally, it cannot be directly used in the real-world online learning environment, where the students incrementally interact with the problems. Using the offline batch
 
 <span id="page-4-0"></span>![](_page_4_Figure_2.jpeg)
-<!-- Image Description: This diagram illustrates a personalized lifelong learning model.  It shows a system with two memory modules (M<sup>v</sup> and M<sup>k</sup>) which read and write data based on prediction requests (q<sub>t</sub>).  A "Transition-Aware Stochastic Shared Embedding" block processes the memory outputs to generate updated memory states (M<sup>v</sup><sub>s,t+1</sub>) using sigmoid and tanh activation functions.  The model incorporates incremental data feeding and an evolving learning trajectory.  The diagram details the data flow and operations within the model's memory management and learning process. -->
 
 Figure 1: Online Learning and Prediction Workflow for CPKT. The purple component corresonds to the personalized performance prediction, and the green component describes the personalized knowledge forgetting and acquisition.
 

@@ -1,5 +1,5 @@
 ---
-cite_key: "xu_2023"
+cite_key: xu_2023a
 title: "Adaptive Feature Fusion Networks for Origin-Destination Passenger Flow Prediction in Metro Systems"
 authors: "Yuhang Xu, Yan Lyu, Guangwei Xiong, Shuyu Wang, Weiwei Wu, Helei Cui, Junzhou Luo, Adaptive Feature, Fusion Network"
 year: 2023
