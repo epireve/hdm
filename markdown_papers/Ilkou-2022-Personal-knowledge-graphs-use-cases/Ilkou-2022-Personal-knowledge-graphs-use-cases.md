@@ -3,7 +3,7 @@ cite_key: ilkou_2022
 title: 'Personal Knowledge Graphs: Use Cases in e-learning Platforms'
 authors: Eleni Ilkou
 year: 2022
-doi: 10.1145/3487553.3524196)
+doi: 10.1145/3487553.3524196
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: Ilkou-2022-Personal-knowledge-graphs-use-cases
@@ -29,6 +29,7 @@ keywords:
 - user-centric
 - well-established
 ---
+
 
 
 <!-- cite_key: ilkouhttpsorcidorg---2022 -->

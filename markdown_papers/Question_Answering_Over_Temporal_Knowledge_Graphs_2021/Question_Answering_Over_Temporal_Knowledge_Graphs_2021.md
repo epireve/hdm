@@ -1,9 +1,9 @@
 ---
-cite_key: india_2021
+cite_key: saxena_2021
 title: Question Answering Over Temporal Knowledge Graphs
-authors: Partha Talukdar Google Research India, Temporal Knowledge Graphs
+authors: Apoorv Saxena, Soumen Chakrabarti, Partha Talukdar
 year: 2021
-doi: https://doi.org/10.48550/arXiv.2106.01515
+doi: 10.48550/arXiv.2106.01515
 url: https://arxiv.org/abs/2106.01515
 relevancy: High
 downloaded: 'Yes'
@@ -26,6 +26,7 @@ keywords:
 - question answering
 - state-of-the-art
 ---
+
 
 
 # Question Answering Over Temporal Knowledge Graphs

@@ -3,7 +3,7 @@ cite_key: division_2021
 title: Data Integration Challenges for Machine Learning in Precision Medicine
 authors: Clinical Research Division, Mexico City, Computational Genomics Division
 year: 2021
-doi: 10.3389/fmed.2021.784455/full)
+doi: 10.3389/fmed.2021.784455/full
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: frontiersin_org_Data_Integration_Challenges_for_Machine_Learning_in_Precision_Medicine
@@ -50,6 +50,7 @@ keywords:
 - bel-assertions
 - bio-bank
 ---
+
 
 <span id="page-0-0"></span>
 

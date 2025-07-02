@@ -1,8 +1,8 @@
 ---
-cite_key: a_2012
-title: 'Construction of Knowledge Graphs: State and Challenges'
-authors: Erhard Rahm a,b
-year: 2012
+cite_key: hofer_2023
+title: Construction of Knowledge Graphs: State and Challenges
+authors: Marvin Hofer, Daniel Obraczka, Alieh Saeedi, Hanna Köpcke, Erhard Rahm
+year: 2023
 doi: 10.1145/3289600.3290956.
 date_processed: '2025-07-02'
 phase2_processed: true
@@ -53,6 +53,7 @@ keywords:
 - asia-pacific
 - assertion-based
 ---
+
 
 # Construction of Knowledge Graphs: State and Challenges
 

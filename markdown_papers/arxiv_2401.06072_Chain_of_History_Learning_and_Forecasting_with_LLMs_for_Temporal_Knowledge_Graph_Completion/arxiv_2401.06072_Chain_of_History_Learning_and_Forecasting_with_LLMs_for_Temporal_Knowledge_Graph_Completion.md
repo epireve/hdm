@@ -5,7 +5,7 @@ title: 'Chain of History: Learning and Forecasting with LLMs for Temporal Knowle
 authors: Ruilin Luo, Tianle Gu, Haoling Li, Junzhe Li, Zicheng Lin, Jiayi Li, Yujiu
   Yang
 year: 2024
-doi: 10.48550/ARXIV.2309.16609)
+doi: 10.48550/ARXIV.2309.16609
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2401.06072_Chain_of_History_Learning_and_Forecasting_with_LLMs_for_Temporal_Knowledge_Graph_Completion
@@ -26,6 +26,7 @@ keywords:
 - large language models
 - temporal knowledge graph
 ---
+
 
 
 # Chain of History: Learning and Forecasting with LLMs for Temporal Knowledge Graph Completion

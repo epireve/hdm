@@ -1,9 +1,9 @@
 ---
-cite_key: citationwu_2024
-title: 1. Introduction
-authors: Citation:Wu, T.
+cite_key: wu_2024
+title: Contrastive Enhanced Learning for Multi-Label Text Classification
+authors: Tianxiang Wu, Shuqun Yang
 year: 2024
-doi: 10.3390/app14198650)
+doi: 10.3390/app14198650
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: kg_driven_medicine_recommendation_gnn_2024
@@ -18,6 +18,7 @@ keywords:
 - multi-label
 - multi-perspective
 ---
+
 
 
 ![](_page_0_Figure_0.jpeg)

@@ -4,7 +4,7 @@ title: 'Agents in Software Engineering: Survey, Landscape, and Vision'
 authors: Yanlin Wang, Wanjun Zhong, Yanxian Huang, Ensheng Shi, Min Yang, Jiachi Chen,
   Zibin Zheng, Hui Li, Yuchi Ma, Qianxiang Wang
 year: 2024
-doi: 10.1145/3591300)
+doi: 10.1145/3591300
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_arxiv_2409.09030_Agents_in_Software_Engineering_Survey,_Landscape,_and_Vision
@@ -21,6 +21,7 @@ keywords:
 - llm
 - llm-based
 ---
+
 
 
 # Agents in Software Engineering: Survey, Landscape, and Vision

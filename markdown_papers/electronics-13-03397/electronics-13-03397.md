@@ -1,9 +1,9 @@
 ---
 cite_key: liu_2024
-title: ArticleEnhancing Temporal Knowledge Graph Representation with Curriculum Learning
+title: Enhancing Temporal Knowledge Graph Representation with Curriculum Learning
 authors: Yihe Liu, Yi Shen
 year: 2024
-doi: 10.3390/electronics13173397)
+doi: 10.3390/electronics13173397
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: electronics-13-03397
@@ -26,6 +26,7 @@ keywords:
 - multi-level
 - temporal knowledge graph
 ---
+
 
 
 

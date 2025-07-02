@@ -5,7 +5,7 @@ title: Local-Global History-aware Contrastive Learning for Temporal Knowledge Gr
 authors: Wei Chen, Huaiyu Wan, Yuting Wu ∗, Shuyuan Zhao, Jiayaqi Cheng, Yuxin Li,
   Youfang Lin
 year: 2023
-doi: https://doi.org/10.48550/arXiv.2312.01601
+doi: 10.48550/arXiv.2312.01601
 url: https://arxiv.org/abs/2312.01601
 relevancy: High
 downloaded: 'Yes'
@@ -55,6 +55,7 @@ keywords:
 - encoder-decoder
 - end-to-end
 ---
+
 
 # Local-Global History-aware Contrastive Learning for Temporal Knowledge Graph Reasoning
 

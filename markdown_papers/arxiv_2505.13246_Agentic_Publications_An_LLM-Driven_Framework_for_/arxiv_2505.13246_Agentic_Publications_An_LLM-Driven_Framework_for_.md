@@ -5,7 +5,7 @@ title: 'Agentic Publications: An LLM-Driven Framework for Interactive Scientific
 authors: Roberto Pugliese, George Kourousias, Francesco Venier, Grazia Garlatti Costa,
   Via Alfonso Valerio
 year: 2024
-doi: 10.34965/agenticpublication.3567a)
+doi: 10.34965/agenticpublication.3567a
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2505.13246_Agentic_Publications_An_LLM-Driven_Framework_for_
@@ -38,6 +38,7 @@ keywords:
 - llm-driven
 - owl
 ---
+
 
 # Agentic Publications: An LLM-Driven Framework for Interactive Scientific Publishing, Supplementing Traditional Papers with AI-Powered Knowledge Systems
 

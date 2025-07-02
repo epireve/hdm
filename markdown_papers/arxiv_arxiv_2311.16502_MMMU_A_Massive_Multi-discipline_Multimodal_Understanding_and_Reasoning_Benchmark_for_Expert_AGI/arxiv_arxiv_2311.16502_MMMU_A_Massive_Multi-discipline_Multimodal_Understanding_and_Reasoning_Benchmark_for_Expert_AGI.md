@@ -1,5 +1,5 @@
 ---
-cite_key: liu_2035
+cite_key: liu_2023
 title: 'MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark
   for Expert AGI'
 authors: Ruoqi Liu, Ge Zhang, Samuel Stevens, Dongfu Jiang, Weiming Ren, Yuxuan Sun,

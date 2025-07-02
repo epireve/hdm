@@ -1,7 +1,7 @@
 ---
-cite_key: rilling_2000
-title: BEYOND INFORMATION SILOS — AN OMNIPRESENT APPROACH TO SOFTWARE EVOLUTION
-authors: JUERGEN RILLING∗, RENE WITTE ´ , PHILIPP SCHUEGERL
+cite_key: rilling_2008
+title: Beyond Information Silos — An Omnipresent Approach to Software Evolution
+authors: Juergen Rilling, Rene Witte, Philipp Schuegerl, Philippe Charland
 year: 2008
 date_processed: '2025-07-02'
 phase2_processed: true
@@ -46,6 +46,7 @@ keywords:
 - auto-completion
 - based learning
 ---
+
 
 
 

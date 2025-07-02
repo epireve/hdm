@@ -1,8 +1,8 @@
 ---
-cite_key: arxiv_230803584_a_polystore_ar
-title: A POLYSTORE ARCHITECTURE USING KNOWLEDGE GRAPHS TO SUPPORT QUERIES ON HETEROGENEOUS
-  DATA STORES ∗
-year: 2019
+cite_key: avezedo_2023
+title: A Polystore Architecture Using Knowledge Graphs to Support Queries on Heterogeneous Data Stores
+authors: Leonardo Guerreiro Azevedo, Renan Francisco Santos Souza, Elton F. de S. Soares, Raphael M. Thiago, Julio Cesar Cardoso Tesolin, Anna C. Oliveira, Marcio Ferreira Moreno
+year: 2023
 doi: 10.1007/s00778-017-0474-5
 date_processed: '2025-07-02'
 phase2_processed: true
@@ -19,37 +19,10 @@ tags:
 - Machine Learning
 - Semantic Web
 keywords:
-- 2 httpspigapacheorg
-- 31 query complexity - users perspective
-- API
-- AllegroGraph
-- AttributeValue
-- AttributeValues
-- BigData
-- BuildingQuery
-- ComplexAttribute
-- DataReferences
-- DataStore
-- DataStores
-- a1 use of the scientific research method
-- a2 use of representation theory
-- a3 how the work was structured
-- a5 other papers of sbsi related to this work
-- acm sigmod record
-- and learning
-- apache jena
-- application programming interface
-- client application
-- client service consumer
-- client user
-- client-user
-- cloud-based
-- cloud-based enterprise
-- communications of the acm
-- constant table
-- cross-domain
+- knowledge graph
 - data heterogeneity
 ---
+
 
 # A POLYSTORE ARCHITECTURE USING KNOWLEDGE GRAPHS TO SUPPORT QUERIES ON HETEROGENEOUS DATA STORES <sup>∗</sup>
 

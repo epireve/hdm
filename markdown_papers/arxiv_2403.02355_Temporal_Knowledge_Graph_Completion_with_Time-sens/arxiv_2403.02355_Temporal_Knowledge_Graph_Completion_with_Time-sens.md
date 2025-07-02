@@ -5,7 +5,7 @@ title: Temporal Knowledge Graph Completion with Time-sensitive Relations in Hype
 authors: Li Cai, Xin Mao, Zhihong Wang, Shangqing Zhao, Yuhao Zhou, Changxu Wu, Man
   Lan
 year: 2023
-doi: 10.1007/3-540-44503-X_27)
+doi: 10.1007/3-540-44503-X_27
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2403.02355_Temporal_Knowledge_Graph_Completion_with_Time-sens
@@ -27,6 +27,7 @@ keywords:
 - time-aware
 - time-sensitive
 ---
+
 
 
 # Temporal Knowledge Graph Completion with Time-sensitive Relations in Hypercomplex Space

@@ -1,9 +1,9 @@
 ---
-cite_key: engineering_2021
+cite_key: liu_2021
 title: A Study on Temporal Knowledge Graph Enrichment
-authors: Yu Liu Master of Engineering
+authors: Yu Liu, Wen Hua, Xiaofang Zhou
 year: 2021
-doi: 10.1007/978-3-030-12079-5_2)
+doi: 10.1007/978-3-030-12079-5_2
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: s4428889_final_thesis
@@ -39,6 +39,7 @@ keywords:
 - integration
 - kg
 ---
+
 
 
 

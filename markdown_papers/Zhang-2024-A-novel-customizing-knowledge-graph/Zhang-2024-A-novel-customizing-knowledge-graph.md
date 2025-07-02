@@ -4,7 +4,7 @@ title: A novel customizing knowledge graph evaluation method for incorporating u
   needs
 authors: Ying Zhang Gang Xiao
 year: 2023
-doi: 10.1109/TKDE.2022.3150080)
+doi: 10.1109/TKDE.2022.3150080
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: Zhang-2024-A-novel-customizing-knowledge-graph
@@ -21,6 +21,7 @@ keywords:
 - question-and-answer
 - recommendation systems
 ---
+
 
 
 # OPEN

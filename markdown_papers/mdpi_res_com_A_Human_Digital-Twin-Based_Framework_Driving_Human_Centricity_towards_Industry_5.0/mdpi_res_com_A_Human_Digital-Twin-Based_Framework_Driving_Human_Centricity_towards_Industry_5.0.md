@@ -1,10 +1,9 @@
 ---
-cite_key: sacco_2023
-title: ArticleA Human Digital-Twin-Based Framework Driving Human Centricity towards
-  Industry 5.0
-authors: Marco Sacco, Advanced Manufacturing, National Research Council
+cite_key: gianfranco_2023
+title: A Human Digital-Twin-Based Framework Driving Human Centricity towards Industry 5.0
+authors: Gianfranco E. Modoni, Marco Sacco
 year: 2023
-doi: 10.3390/s23136054)
+doi: 10.3390/s23136054
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: mdpi_res_com_A_Human_Digital-Twin-Based_Framework_Driving_Human_Centricity_towards_Industry_5.0
@@ -46,6 +45,7 @@ keywords:
 - energies
 - ensemble
 ---
+
 
 
 

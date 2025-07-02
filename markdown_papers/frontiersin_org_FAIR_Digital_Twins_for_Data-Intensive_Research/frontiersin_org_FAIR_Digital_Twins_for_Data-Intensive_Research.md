@@ -4,7 +4,7 @@ title: FAIR Digital Twins for Data-Intensive Research
 authors: Erik Schultes, Marco Roos, Luiz Olavo Bonino da Silva Santos, Giancarlo Guizzardi,
   Jildau Bouwman, Thomas Hankemeier, Arie Baak, Barend Mons
 year: 2022
-doi: 10.3389/fdata.2022.883341/full)
+doi: 10.3389/fdata.2022.883341/full
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: frontiersin_org_FAIR_Digital_Twins_for_Data-Intensive_Research
@@ -48,6 +48,7 @@ keywords:
 - genomics
 - ontology
 ---
+
 
 ![](_page_0_Picture_2.jpeg)
 <!-- Image Description: The image is not a diagram, chart, graph, equation, or technical illustration; it's a placeholder graphic indicating that the reader should check for updates to the academic paper's content. The graphic consists of a rounded rectangle containing a circular progress bar partially filled with gray, overlaid with a bookmark icon, along with the text "Check for updates". It serves as a notification to the reader regarding the dynamic or incomplete nature of the paper's content. -->
