@@ -1,7 +1,7 @@
 ---
-cite_key: "d_2024"
+cite_key: "wang_2024"
 title: "Question answering over temporal knowledge graphs based on hierarchical semantic extraction"
-authors: "extracting all the day-level time information in TKG d1, d2, . . . , d<sup>n</sup>, their corresponding time-embedded representations D<sup>d</sup><sup>1</sup> , D<sup>d</sup><sup>2</sup> , . . . , D<sup>d</sup><sup>n</sup> , we aggregate them to obtain the time embedding of monthly granularity Td:"
+authors: Jian Wang, Wenjuan Zhang, Qi He, Danfeng Zhao
 year: 2024
 doi: "10.1109/SWC62898.2024.00207"
 url: "https://ieeexplore.ieee.org/document/10924876/"
