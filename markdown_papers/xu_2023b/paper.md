@@ -97,6 +97,7 @@ To make up for the unilateral correlations among nodes in topological space, we 
 In our example, the topological graph is based on the adjacency relationship among US counties, as provided by the
 
 ![](_page_2_Figure_0.jpeg)
+<!-- Image Description: Figure 0 from page 2 of the paper, showing content related to the research topic. -->
 
 Fig. 1. TFSF: A topological and feature space fusion with spatio-temporal modeling. Preprocessing: Obtain a feature embedding by CNN. Temporal feature extraction: Extract trend and variations of historical knowledge over prior years. Spatial feature fusion: A fusion of both topological and feature graphs with a AM-GCN architecture.
 
@@ -196,6 +197,7 @@ To validate the effectiveness of the multi-space convolution module in the yield
 TABLE I 2015-2017 SOYBEAN RESULTS
 
 ![](_page_4_Figure_2.jpeg)
+<!-- Image Description: Figure 2 from page 4 of the paper, showing content related to the research topic. -->
 
 Fig. 2. Predicted vs. ground truth yields
 
