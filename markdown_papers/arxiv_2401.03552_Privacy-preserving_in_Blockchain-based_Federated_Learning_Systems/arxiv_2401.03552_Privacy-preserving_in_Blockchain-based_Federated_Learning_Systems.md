@@ -1,4 +1,15 @@
-<!-- cite_key: arazzi2019 -->
+---
+cite_key: "arazzi2019"
+title: "PRIVACY-PRESERVING IN BLOCKCHAIN-BASED FEDERATED LEARNING SYSTEMS"
+authors: "Marco Arazzi"
+year: 2019
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2401.03552_Privacy-preserving_in_Blockchain-based_Federated_Learning_Systems"
+images_total: 11
+images_kept: 11
+images_removed: 0
+---
 
 # PRIVACY-PRESERVING IN BLOCKCHAIN-BASED FEDERATED LEARNING SYSTEMS
 

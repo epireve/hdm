@@ -1,4 +1,15 @@
-<!-- cite_key: wu2008 -->
+---
+cite_key: "wu2008"
+title: "A Survey on Accuracy-oriented Neural Recommendation: From Collaborative Filtering to Information-rich Recommendation"
+authors: "<sup>•</sup> *L. Wu, and M Wang are with Key Laboratory of Knowledge Engineering with Big Data, Hefei University of Technology, Hefei, Anhui 230029, China, and Institute of Artificial Intelligence, Hefei Comprehensive National Science Center, Hefei, Anhui 230088 (email: lewu.ustc, eric.mengwang@gmail.com).*"
+year: 2008
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2021_survey_accuracy_neural_recommendation"
+images_total: 8
+images_kept: 8
+images_removed: 0
+---
 
 # A Survey on Accuracy-oriented Neural Recommendation: From Collaborative Filtering to Information-rich Recommendation
 

@@ -1,4 +1,16 @@
-<!-- cite_key: schultes2022 -->
+---
+cite_key: "schultes2022"
+title: "[FAIR Digital Twins for Data-Intensive](https://www.frontiersin.org/articles/10.3389/fdata.2022.883341/full) Research"
+authors: "Erik Schultes 1,2 \\*, Marco Roos 1,3, Luiz Olavo Bonino da Silva Santos <sup>4</sup> , Giancarlo Guizzardi 4,5, Jildau Bouwman1,6, Thomas Hankemeier <sup>7</sup> , Arie Baak <sup>8</sup> and Barend Mons 1,2,3,7 \\*"
+year: 2022
+doi: "10.3389/fdata.2022.883341/full)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "frontiersin_org_FAIR_Digital_Twins_for_Data-Intensive_Research"
+images_total: 14
+images_kept: 14
+images_removed: 0
+---
 
 ![](_page_0_Picture_2.jpeg)
 

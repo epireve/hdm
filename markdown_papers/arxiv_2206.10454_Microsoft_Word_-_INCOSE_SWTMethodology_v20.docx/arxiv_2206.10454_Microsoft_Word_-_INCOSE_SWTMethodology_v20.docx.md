@@ -1,4 +1,16 @@
-<!-- cite_key: yu2022 -->
+---
+cite_key: "yu2022"
+title: "Driving Digital Engineering Integration and Interoperability Through Semantic Integration of Models with Ontologies"
+authors: "Daniel Dunbar1 | Thomas Hagedorn1 | Mark Blackburn1 | John Dzielski1 | Steven Hespelt1 | Benjamin Kruse2 | Dinesh Verma1 | Zhongyuan Yu1"
+year: 2022
+doi: "10.1002/sys.21592"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2206.10454_Microsoft_Word_-_INCOSE_SWTMethodology_v20.docx"
+images_total: 13
+images_kept: 13
+images_removed: 0
+---
 
 # Driving Digital Engineering Integration and Interoperability Through Semantic Integration of Models with Ontologies
 

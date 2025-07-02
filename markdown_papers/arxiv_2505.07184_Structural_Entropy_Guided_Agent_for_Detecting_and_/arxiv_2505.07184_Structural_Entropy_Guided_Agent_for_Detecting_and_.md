@@ -1,4 +1,16 @@
-<!-- cite_key: wei2015 -->
+---
+cite_key: "wei2015"
+title: "Structural Entropy Guided Agent for Detecting and Repairing Knowledge Deficiencies in LLMs"
+authors: "Yifan Wei1,2, Xiaoyan Yu1,3, Tengfei Pan<sup>2</sup> , Angsheng Li1† , Li Du2†"
+year: 2015
+doi: "10.18653/v1/2023.findings-acl.551)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2505.07184_Structural_Entropy_Guided_Agent_for_Detecting_and_"
+images_total: 5
+images_kept: 5
+images_removed: 0
+---
 
 # Structural Entropy Guided Agent for Detecting and Repairing Knowledge Deficiencies in LLMs
 

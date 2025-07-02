@@ -1,4 +1,16 @@
-<!-- cite_key: kumar2021 -->
+---
+cite_key: "kumar2021"
+title: "**1. Introduction**"
+authors: "**Ganesh Kumar 1,[\\\\*](https://orcid.org/0000-0002-0098-0948) , Shuib Basri <sup>1</sup> , Abdullahi Abubakar Imam 1,2, Sunder Ali Khowaja <sup>3</sup> [,](https://orcid.org/0000-0002-4586-4131) Luiz Fernando Capretz [4](https://orcid.org/0000-0001-6966-2369) and Abdullateef Oluwagbemiga Balogun 1,[5](https://orcid.org/0000-0001-7411-3639)**"
+year: 2021
+doi: "10.3390/app11178275)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "mdpi_res_com_Data_Harmonization_for_Heterogeneous_Datasets_A_Systematic_Literature_Review"
+images_total: 8
+images_kept: 4
+images_removed: 4
+---
 
 
 

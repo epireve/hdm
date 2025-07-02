@@ -1,4 +1,16 @@
-<!-- cite_key: fig2020 -->
+---
+cite_key: "fig2020"
+title: "Cognitive Ledger Project: Towards Building Personal Digital Twins Through Cognitive Blockchain"
+authors: "considering Fig.1, design requirements, and altering CIT architecture, the PCDT 1.0 architecture (Personal Cognitive Digital Twin) was designed."
+year: 2020
+doi: "10.1109/MC.2018.2876181."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2201.08163_Cognitive_Ledger_Project_Towards_Building_Persona"
+images_total: 4
+images_kept: 4
+images_removed: 0
+---
 
 # Cognitive Ledger Project: Towards Building Personal Digital Twins Through Cognitive Blockchain
 

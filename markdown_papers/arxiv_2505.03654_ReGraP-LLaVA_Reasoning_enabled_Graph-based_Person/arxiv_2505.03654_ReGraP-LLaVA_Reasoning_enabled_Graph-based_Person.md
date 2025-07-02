@@ -1,4 +1,15 @@
-<!-- cite_key: xiangsupsup2023 -->
+---
+cite_key: "xiangsupsup2023"
+title: "ReGraP-LLaVA: Reasoning enabled Graph-based Personalized Large Language and Vision Assistant"
+authors: "Yifan Xiang<sup>1</sup> , Zhenxi Zhang<sup>1</sup> , Bin Li1<sup>∗</sup> , Yixuan Weng<sup>2</sup> , Shoujun Zhou<sup>1</sup> , Yangfan He<sup>3</sup> , Keqin Li<sup>4</sup> , <sup>1</sup>Shenzhen Institute of Advanced Technology, Chinese Academy of Sciences"
+year: 2023
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2505.03654_ReGraP-LLaVA_Reasoning_enabled_Graph-based_Person"
+images_total: 18
+images_kept: 12
+images_removed: 6
+---
 
 # ReGraP-LLaVA: Reasoning enabled Graph-based Personalized Large Language and Vision Assistant
 

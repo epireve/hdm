@@ -1,4 +1,15 @@
-<!-- cite_key: briggs2021b -->
+---
+cite_key: "briggs2021b"
+title: "**A Review of Privacy-preserving Federated Learning for the Internet-of-Things**"
+authors: "Christopher Briggs"
+year: 2021
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2004.11794_A_Review_of_Privacy-preserving_Federated_Learning_for_the_Internet-of-Things"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # A Review of Privacy-preserving Federated Learning for the Internet-of-Things
 

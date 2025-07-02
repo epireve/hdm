@@ -1,4 +1,16 @@
-<!-- cite_key: file2020b -->
+---
+cite_key: "file2020b"
+title: "<span id=\"page-0-0\"></span>Structural Quality Metrics to Evaluate Knowledge Graph Quality"
+authors: "tion associated with Wikipedia and allows users to participate directly in creating and editing data. Although ontology information is not provided as a separate file, the hierarchical structure between entities can be known through *subclass of* property for each entity."
+year: 2020
+doi: "10.1007/978-3-540-76298-0_52)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2211.10011_Structural_Quality_Metrics_to_Evaluate_Knowledge_Graphs"
+images_total: 11
+images_kept: 11
+images_removed: 0
+---
 
 # <span id="page-0-0"></span>Structural Quality Metrics to Evaluate Knowledge Graph Quality
 

@@ -1,4 +1,14 @@
-<!-- cite_key: mandreoli2019 -->
+---
+cite_key: "mandreoli2019"
+title: "9"
+year: 2010
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "mandreoli2019"
+images_total: 2
+images_kept: 2
+images_removed: 0
+---
 
 # 9
 

@@ -1,4 +1,16 @@
-<!-- cite_key: bajaj2023 -->
+---
+cite_key: "bajaj2023"
+title: "*Article* **Co-Design, Development, and Evaluation of a Health Monitoring Tool Using Smartwatch Data: A Proof-of-Concept Study**"
+authors: "**Ruhi Kiran Bajaj 1,[\\\\*](https://orcid.org/0000-0002-2247-7462) , Rebecca Mary Meiring [2](https://orcid.org/0000-0002-8472-4940) and Fernando Beltran <sup>1</sup>**"
+year: 2023
+doi: "10.3390/fi15030111"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "mdpi_future_internet_15_3_111"
+images_total: 7
+images_kept: 3
+images_removed: 4
+---
 
 
 

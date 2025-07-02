@@ -1,4 +1,15 @@
-<!-- cite_key: a2013 -->
+---
+cite_key: "a2013"
+title: "**Temporal Reasoning in AI Systems**"
+authors: "Given sentences like A6, we will find the last known starting point of risk period. Then expression E2 can be"
+year: 2013
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "temporal_cognitive_arxiv_2502.00020_Temporal_Reasoning_in_AI_systems"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # Temporal Reasoning in AI Systems
 

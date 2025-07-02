@@ -1,4 +1,15 @@
-<!-- cite_key: linsupsup2003 -->
+---
+cite_key: "linsupsup2003"
+title: "Human Digital Twin: A Survey"
+authors: "Yujia Lin<sup>1</sup> , Liming Chen<sup>2</sup>† , Aftab Ali<sup>2</sup> , Christopher Nugent<sup>2</sup> , Cleland Ian<sup>2</sup> , Rongyang Li<sup>1</sup> , Dazhi Gao<sup>1</sup> , Hang Wang<sup>1</sup> , Yajie Wang<sup>1</sup> and Huansheng Ning1\\*"
+year: 2003
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2212.05937_Human_Digital_Twin_A_Survey"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # Human Digital Twin: A Survey
 

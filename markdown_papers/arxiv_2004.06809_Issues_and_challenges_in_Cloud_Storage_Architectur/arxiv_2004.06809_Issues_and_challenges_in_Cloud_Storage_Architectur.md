@@ -1,4 +1,16 @@
-<!-- cite_key: ghanisupsup2020 -->
+---
+cite_key: "ghanisupsup2020"
+title: "**Issues and challenges in Cloud Storage Architecture: A Survey**"
+authors: "**Anwar Ghani<sup>1</sup> , Afzal Badshah<sup>1</sup> , Saeed Ullah Jan<sup>2</sup> , Abdulrahman A. Alshdadi<sup>3</sup> and Ali Daud<sup>3</sup>**"
+year: 2020
+doi: "10.1109/RpJC.2020.DOI"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2004.06809_Issues_and_challenges_in_Cloud_Storage_Architectur"
+images_total: 6
+images_kept: 5
+images_removed: 1
+---
 
 
 

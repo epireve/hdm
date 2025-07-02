@@ -1,4 +1,26 @@
-<!-- cite_key: yang2024c -->
+---
+cite_key: "yang2024c"
+title: "Graphusion: Leveraging Large Language Models for Scientific Knowledge Graph Fusion and Construction in NLP Education"
+authors: "Rui Yang, Boming Yang, Sixun Ouyang, et al."
+year: 2024
+doi: "10.48550/arXiv.2407.10794"
+url: "https://arxiv.org/abs/2407.10794"
+relevancy: "Medium"
+downloaded: "Yes"
+tags:
+  - "Knowledge Graphs"
+  - "Large Language Models"
+  - "NLP"
+  - "Education"
+  - "Zero-shot Learning"
+tldr: "LLM-powered framework for creating knowledge graphs with global triplet fusion in educational context"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2024_graphusion_llm_kg_fusion_construction"
+images_total: 10
+images_kept: 10
+images_removed: 0
+---
 
 # Graphusion: Leveraging Large Language Models for Scientific Knowledge Graph Fusion and Construction in NLP Education
 

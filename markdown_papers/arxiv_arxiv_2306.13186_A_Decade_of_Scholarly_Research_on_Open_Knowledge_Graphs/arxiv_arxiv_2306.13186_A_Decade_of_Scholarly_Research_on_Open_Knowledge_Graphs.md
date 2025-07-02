@@ -1,4 +1,16 @@
-<!-- cite_key: turki2013 -->
+---
+cite_key: "turki2013"
+title: "A Decade of Scholarly Research on Open Knowledge Graphs"
+authors: "Houcemeddine Turki,<sup>1</sup>,2,<sup>3</sup> Abraham Toluwase Owodunni,<sup>2</sup>,<sup>4</sup> Mohamed Ali Hadj Taieb,<sup>1</sup>,<sup>2</sup> Ren´e Fabrice Bile,<sup>2</sup>,<sup>5</sup> Mohamed Ben Aouicha,<sup>1</sup>,<sup>2</sup> Vil´em Zouhar"
+year: 2013
+doi: "10.1007/978-3-540-88564-1"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2306.13186_A_Decade_of_Scholarly_Research_on_Open_Knowledge_Graphs"
+images_total: 11
+images_kept: 11
+images_removed: 0
+---
 
 # A Decade of Scholarly Research on Open Knowledge Graphs
 

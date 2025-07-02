@@ -1,4 +1,16 @@
-<!-- cite_key: wickramarachchi2021b -->
+---
+cite_key: "wickramarachchi2021b"
+title: "Bibliography"
+authors: "- Wickramarachchi, R., Henson, C., Sheth, A., 2020. An Evaluation of Knowledge Graph Embeddings for Autonomous Driving Data: Experience and Practice. Technical Report. URL: https://arxiv.org/abs/2003.00344. accessed: Oct. 14, 2023."
+year: 2021
+doi: "10.3390/su13063191."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2502.15689_[PDF]_Knowledge_Graphs_The_Future_of_Data_Integration_and_Insightful_..."
+images_total: 14
+images_kept: 14
+images_removed: 0
+---
 
 # Saher Mohamed, Kirollos Farah, Abdelrahman Lotfy, Kareem Rizk, Abdelrahman Saeed, Shahenda Mohamed, Ghada Khouriba, Tamer Arafa
 

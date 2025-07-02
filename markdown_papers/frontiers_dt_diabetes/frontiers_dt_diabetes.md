@@ -1,4 +1,16 @@
-<!-- cite_key: zhangsupsup2023 -->
+---
+cite_key: "zhangsupsup2023"
+title: "[A framework towards digital](https://www.frontiersin.org/articles/10.3389/fdgth.2024.1336050/full) [twins for type 2 diabetes](https://www.frontiersin.org/articles/10.3389/fdgth.2024.1336050/full)"
+authors: "Yue Zhang<sup>1</sup> , Guangrong Qin<sup>1</sup> , Boris Aguilar<sup>1</sup> , Noa Rappaport1,2, James T. Yurkovich2,3, Lance Pflieger2,3, Sui Huang1 , Leroy Hood1,2,3 and Ilya Shmulevich<sup>1</sup> \\*"
+year: 2023
+doi: "10.3389/fdgth.2024.1336050"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "frontiers_dt_diabetes"
+images_total: 4
+images_kept: 4
+images_removed: 0
+---
 
 EDITED BY Tjalf Ziemssen, University Hospital Carl Gustav Carus, Germany
 

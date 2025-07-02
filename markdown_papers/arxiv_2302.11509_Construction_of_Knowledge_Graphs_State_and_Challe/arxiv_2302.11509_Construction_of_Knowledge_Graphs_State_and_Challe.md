@@ -1,4 +1,16 @@
-<!-- cite_key: dresdenleipzig2012 -->
+---
+cite_key: "dresdenleipzig2012"
+title: "Construction of Knowledge Graphs: State and Challenges"
+authors: "<span id=\"page-0-0\"></span><sup>b</sup> *Center for Scalable Data Analytics and Artificial Intelligence (ScaDS.AI) Dresden/Leipzig, Germany*"
+year: 2012
+doi: "10.1145/3289600.3290956."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2302.11509_Construction_of_Knowledge_Graphs_State_and_Challe"
+images_total: 5
+images_kept: 5
+images_removed: 0
+---
 
 # Construction of Knowledge Graphs: State and Challenges
 

@@ -1,4 +1,16 @@
-<!-- cite_key: sowiski2020 -->
+---
+cite_key: "sowiski2020"
+title: "Overview of Current Challenges in Multi-Architecture Software Engineering and a Vision for the Future"
+authors: "Piotr Sowiński 1 ,2[0000 −0002 −2543 <sup>−</sup>9461], Ignacio Lacalle3[0000 −0002 −6002 −4050] , Rafael Vaño3[0000 −0003 −2372 <sup>−</sup>6253], Carlos E. Palau3[0000 −0002 −3795 <sup>−</sup>5404], Maria Ganzha 1 ,2[0000 −0001 −7714 <sup>−</sup>4844], and Marcin Paprzycki2[0000 −0002 −8069 −2152]"
+year: 2020
+doi: "10.1007/978-3-540-92913-0"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2410.20984_Overview_of_Current_Challenges_in_Multi-Architecture_Software_Engineering_and_a_"
+images_total: 4
+images_kept: 4
+images_removed: 0
+---
 
 # Overview of Current Challenges in Multi-Architecture Software Engineering and a Vision for the Future
 

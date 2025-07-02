@@ -1,4 +1,16 @@
-<!-- cite_key: yu2052 -->
+---
+cite_key: "yu2052"
+title: "*Article* **Ontology-Driven Architecture for Managing Environmental, Social, and Governance Metrics**"
+authors: "**Mingqin Yu 1,\\*, Fethi A. Rabhi [1](https://orcid.org/0000-0001-8934-6259) and Madhushi Bandara [2](https://orcid.org/0000-0001-6543-3841)**"
+year: 2052
+doi: "10.3390/electronics13091719)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "mdpi_electronics_13_9_1719"
+images_total: 7
+images_kept: 4
+images_removed: 3
+---
 
 
 

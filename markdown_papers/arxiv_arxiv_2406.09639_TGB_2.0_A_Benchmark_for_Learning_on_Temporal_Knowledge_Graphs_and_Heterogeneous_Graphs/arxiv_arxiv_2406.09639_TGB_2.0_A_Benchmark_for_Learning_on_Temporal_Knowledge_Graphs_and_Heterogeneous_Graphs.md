@@ -1,4 +1,26 @@
-<!-- cite_key: gastinger2024 -->
+---
+cite_key: "gastinger2024"
+title: "TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous Graphs"
+authors: "Julia Gastinger, et al."
+year: 2024
+doi: "10.48550/arXiv.2406.09639"
+url: "https://arxiv.org/abs/2406.09639"
+relevancy: "High"
+downloaded: "No"
+tags:
+  - "Temporal Graphs"
+  - "Benchmark"
+  - "Scalability"
+  - "Heterogeneous Graphs"
+  - "Machine Learning"
+tldr: "Robust benchmark framework exposing scalability limitations in current temporal and heterogeneous graph learning methods."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2406.09639_TGB_2.0_A_Benchmark_for_Learning_on_Temporal_Knowledge_Graphs_and_Heterogeneous_Graphs"
+images_total: 7
+images_kept: 7
+images_removed: 0
+---
 
 # TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous Graphs
 

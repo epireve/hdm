@@ -1,4 +1,16 @@
-<!-- cite_key: modoni2023 -->
+---
+cite_key: "modoni2023"
+title: "*Article* **A Human Digital-Twin-Based Framework Driving Human Centricity towards Industry 5.0**"
+authors: "**Gianfranco E. Modoni 1,[\\\\*](https://orcid.org/0000-0002-4017-0800) and Marco Sacco <sup>2</sup>**"
+year: 2023
+doi: "10.3390/s23136054)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "mdpi_res_com_A_Human_Digital-Twin-Based_Framework_Driving_Human_Centricity_towards_Industry_5.0"
+images_total: 13
+images_kept: 10
+images_removed: 3
+---
 
 
 

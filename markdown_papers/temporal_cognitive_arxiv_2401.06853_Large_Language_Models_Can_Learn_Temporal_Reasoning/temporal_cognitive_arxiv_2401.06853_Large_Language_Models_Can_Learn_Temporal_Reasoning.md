@@ -1,4 +1,16 @@
-<!-- cite_key: xiongsupsupsupsup2024 -->
+---
+cite_key: "xiongsupsupsupsup2024"
+title: "arXiv:2401.06853v6 [cs.CL] 8 Oct 2024"
+authors: "Siheng Xiong<sup>1</sup><sup>∗</sup> , Ali Payani<sup>2</sup><sup>∗</sup> , Ramana Kompella<sup>2</sup> , Faramarz Fekri<sup>1</sup>"
+year: 2024
+doi: "10.18653/v1/2024.findings-acl.401)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "temporal_cognitive_arxiv_2401.06853_Large_Language_Models_Can_Learn_Temporal_Reasoning"
+images_total: 7
+images_kept: 7
+images_removed: 0
+---
 
 # arXiv:2401.06853v6 [cs.CL] 8 Oct 2024
 

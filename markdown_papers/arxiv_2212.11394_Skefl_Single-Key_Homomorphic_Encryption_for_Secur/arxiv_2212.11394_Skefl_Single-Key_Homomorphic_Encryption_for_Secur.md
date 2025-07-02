@@ -1,4 +1,14 @@
-<!-- cite_key: arxiv_221211394_skefl_single_k -->
+---
+cite_key: "arxiv_221211394_skefl_single_k"
+title: "Skefl: Single-Key Homomorphic Encryption for Secure Federated Learning"
+year: 2009
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2212.11394_Skefl_Single-Key_Homomorphic_Encryption_for_Secur"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # Skefl: Single-Key Homomorphic Encryption for Secure Federated Learning
 

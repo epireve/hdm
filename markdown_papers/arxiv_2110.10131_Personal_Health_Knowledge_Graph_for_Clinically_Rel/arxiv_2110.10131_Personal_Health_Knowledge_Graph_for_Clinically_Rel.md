@@ -1,4 +1,16 @@
-<!-- cite_key: seneviratnesupsup2021 -->
+---
+cite_key: "seneviratnesupsup2021"
+title: "**Personal Health Knowledge Graph for Clinically Relevant Diet Recommendations**"
+authors: "Oshani Seneviratne*<sup>1</sup>* , Jonathan Harris*<sup>1</sup>* , Ching-Hua Chen*<sup>2</sup>* and Deborah L. McGuinness*<sup>1</sup>*"
+year: 2021
+doi: "10.2337/dc20-Sint."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2110.10131_Personal_Health_Knowledge_Graph_for_Clinically_Rel"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # Personal Health Knowledge Graph for Clinically Relevant Diet Recommendations
 

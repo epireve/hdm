@@ -1,4 +1,15 @@
-<!-- cite_key: bloorsupsup2018 -->
+---
+cite_key: "bloorsupsup2018"
+title: "Towards a Personal Health Knowledge Graph Framework for Patient Monitoring"
+authors: "Daniel Bloor<sup>1</sup> , Nnamdi Ugwuoke<sup>1</sup> , David Taylor<sup>3</sup> , Keir Lewis<sup>4</sup> , Luis Mur<sup>2</sup> , Chuan Lu<sup>1</sup>"
+year: 2018
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_phkg_framework_2023"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # Towards a Personal Health Knowledge Graph Framework for Patient Monitoring
 

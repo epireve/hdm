@@ -1,4 +1,15 @@
-<!-- cite_key: technology2024b -->
+---
+cite_key: "technology2024b"
+title: "CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property Prediction"
+authors: "<sup>1</sup>School of Information Science and Technology, Fudan University, Shanghai 200433, China."
+year: 2024
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2024_ctgnn_crystal_transformer_gnn"
+images_total: 2
+images_kept: 2
+images_removed: 0
+---
 
 # CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property Prediction
 

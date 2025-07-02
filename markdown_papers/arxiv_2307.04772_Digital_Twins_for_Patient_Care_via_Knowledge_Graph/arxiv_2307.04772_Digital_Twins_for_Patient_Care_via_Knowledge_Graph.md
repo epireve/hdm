@@ -1,4 +1,15 @@
-<!-- cite_key: cfcs2017 -->
+---
+cite_key: "cfcs2017"
+title: "*Digital Twins for Patient Care via Knowledge Graphs and Closed-Form Continuous-Time Liquid Neural Networks*"
+authors: "integrating knowledge graphs with CfCs, we can build powerful predictive models and facilitate personalized care that leads to improved patient outcomes. This combination enables real-time analytics and adaptability, essential for early diagnosis and intervention, tailoring treatment plans to each patient's unique needs, and simulating surgical procedures and therapeutic strategies."
+year: 2017
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2307.04772_Digital_Twins_for_Patient_Care_via_Knowledge_Graph"
+images_total: 0
+images_kept: 0
+images_removed: 0
+---
 
 # *Digital Twins for Patient Care via Knowledge Graphs and Closed-Form Continuous-Time Liquid Neural Networks*Logan Nye, MD1,2 <sup>1</sup>SORG Orthopaedic Research Group <sup>2</sup>Department of Orthopaedic Surgery Massachusetts General Hospital
 *Abstract***— Digital twin technology has is anticipated to transform healthcare, enabling personalized medicines and support, earlier diagnoses, simulated treatment outcomes, and optimized surgical plans. Digital twins are readily gaining traction in industries like manufacturing, supply chain logistics, and civil infrastructure. Not in patient care, however. The challenge of modeling complex diseases with multimodal patient data and the computational complexities of analyzing it have stifled digital twin adoption in the biomedical vertical. Yet, these major obstacles can potentially be handled by approaching these models in a different way. This paper proposes a novel framework for addressing the barriers to clinical twinmodeling created by computational costs and modeling complexities.We propose structuring patient health data as a knowledge graph and using closed-form continuous-time "liquid" neural networks (CfCs) for real-time analytics. By synthesizing multimodal patient data and leveraging the flexibility and efficiency of CfCs and knowledge graph ontologies, our approach enables real-time insights, personalized medicine, early diagnosis and intervention, and optimal surgical planning. This novel approach provides a comprehensive and adaptable view of patient health along with real-time analytics, paving the way for digital twin simulations and other anticipated benefits in healthcare.**

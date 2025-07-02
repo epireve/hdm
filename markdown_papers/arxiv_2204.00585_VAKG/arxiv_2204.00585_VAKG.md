@@ -1,4 +1,16 @@
-<!-- cite_key: christino2007 -->
+---
+cite_key: "christino2007"
+title: "<span id=\"page-0-1\"></span>A Theoretical Approach for Structuring and Analysing Knowledge Provenance for Visual Analytics"
+authors: "L. Christino1,[2](https://orcid.org/0000-0002-8754-8460) , S. Rezaeipour<sup>1</sup> [,](https://orcid.org/0000-0002-2136-0713) E. Milios[1](https://orcid.org/0000-0001-5549-4675) and F. Paulovich[2](https://orcid.org/0000-0002-2316-760X)"
+year: 2007
+doi: "10.1111/cgf.13324)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2204.00585_VAKG"
+images_total: 9
+images_kept: 9
+images_removed: 0
+---
 
 # <span id="page-0-1"></span>A Theoretical Approach for Structuring and Analysing Knowledge Provenance for Visual Analytics
 

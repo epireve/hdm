@@ -1,4 +1,16 @@
-<!-- cite_key: mcml2023 -->
+---
+cite_key: "mcml2023"
+title: "GenTKG: Generative Forecasting on Temporal Knowledge Graph with Large Language Models"
+authors: "<sup>1</sup>LMU Munich <sup>2</sup>Munich Center for Machine Learning (MCML)"
+year: 2023
+doi: "10.18653/v1/2023.nlrse-1.7)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2310.07793_GenTKG_Generative_Forecasting_on_Temporal_Knowledge_Graph_with_Large_Language_Models"
+images_total: 5
+images_kept: 5
+images_removed: 0
+---
 
 # GenTKG: Generative Forecasting on Temporal Knowledge Graph with Large Language Models
 

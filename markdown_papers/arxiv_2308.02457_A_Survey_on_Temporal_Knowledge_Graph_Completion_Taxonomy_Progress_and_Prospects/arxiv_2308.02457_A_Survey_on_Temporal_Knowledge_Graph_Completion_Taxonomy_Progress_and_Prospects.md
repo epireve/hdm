@@ -1,4 +1,15 @@
-<!-- cite_key: typically2009 -->
+---
+cite_key: "typically2009"
+title: "A Survey on Temporal Knowledge Graph Completion: Taxonomy, Progress, and Prospects"
+authors: "Typically, the facts in KGs are time-specific and are valid"
+year: 2009
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2308.02457_A_Survey_on_Temporal_Knowledge_Graph_Completion_Taxonomy_Progress_and_Prospects"
+images_total: 12
+images_kept: 12
+images_removed: 0
+---
 
 # A Survey on Temporal Knowledge Graph Completion: Taxonomy, Progress, and Prospects
 

@@ -1,4 +1,16 @@
-<!-- cite_key: 2012 -->
+---
+cite_key: "2012"
+title: "Steps to Knowledge Graphs Quality Assessment"
+authors: "Elwin Huaman1[0000 −0002 −2410 −4977]"
+year: 2012
+doi: "10.3233/SW-170275"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2208.07779_Steps_to_Knowledge_Graphs_Quality_Assessment"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # Steps to Knowledge Graphs Quality Assessment
 

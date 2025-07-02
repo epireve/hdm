@@ -1,4 +1,16 @@
-<!-- cite_key: bai2023 -->
+---
+cite_key: "bai2023"
+title: "ACM Reference Format:"
+authors: "LI BAI, HAIBO HU, QINGQING YE, and HAOYANG LI, The Hong Kong Polytechnic University, Hong Kong"
+year: 2023
+doi: "10.1109/NaNA53684.2021.00062"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2412.06157_Membership_Inference_Attacks_and_Defenses_in_Federated_Learning_A_Survey"
+images_total: 7
+images_kept: 7
+images_removed: 0
+---
 
 LI BAI, HAIBO HU, QINGQING YE, and HAOYANG LI, The Hong Kong Polytechnic University, Hong Kong
 

@@ -1,4 +1,26 @@
-<!-- cite_key: asprino2023 -->
+---
+cite_key: "asprino2023"
+title: "Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web"
+authors: "Luigi Asprino, Enrico Daga, Aldo Gangemi, Paul Mulholland"
+year: 2023
+doi: "10.1145/3555312"
+url: "https://dl.acm.org/doi/10.1145/3555312"
+relevancy: "High"
+downloaded: "Yes"
+tags:
+  - "Knowledge Graph Construction"
+  - "Data Integration"
+  - "SPARQL"
+  - "Heterogeneous Data"
+  - "Facade-X"
+tldr: "Unified framework for constructing knowledge graphs from heterogeneous web data sources"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "acm_3555312_kg_construction_facade"
+images_total: 10
+images_kept: 10
+images_removed: 0
+---
 
 # Knowledge Graph Construction with a façade: a unified method to access heterogeneous data sources on the Web
 

@@ -1,4 +1,14 @@
-<!-- cite_key: majumdarsrijonigmailcom2013 -->
+---
+cite_key: "majumdarsrijonigmailcom2013"
+authors: "Srijoni Majumdar Advanced Technology Development Centre Indian Institute of Technology Kharagpur-721302 majumdar.srijoni@gmail.com"
+year: 2013
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2308.06653_Smart_Knowledge_Transfer_using_Google-like_Search"
+images_total: 2
+images_kept: 2
+images_removed: 0
+---
 
 # Smart Knowledge Transfer using Google-like Search
 

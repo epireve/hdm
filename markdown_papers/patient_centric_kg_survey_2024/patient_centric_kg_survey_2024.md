@@ -1,4 +1,16 @@
-<!-- cite_key: akbari2024 -->
+---
+cite_key: "akbari2024"
+title: "[Patient-centric knowledge](https://www.frontiersin.org/articles/10.3389/frai.2024.1388479/full) [graphs: a survey of current](https://www.frontiersin.org/articles/10.3389/frai.2024.1388479/full) [methods, challenges, and](https://www.frontiersin.org/articles/10.3389/frai.2024.1388479/full) [applications](https://www.frontiersin.org/articles/10.3389/frai.2024.1388479/full)"
+authors: "EDITED BY Mohammad Akbari, Amirkabir University of Technology, Iran"
+year: 2024
+doi: "10.3389/frai.2024.1388479"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "patient_centric_kg_survey_2024"
+images_total: 5
+images_kept: 5
+images_removed: 0
+---
 
 # OPEN ACCESS
 

@@ -1,4 +1,15 @@
-<!-- cite_key: kolkata2000 -->
+---
+cite_key: "kolkata2000"
+title: "Personal Research Knowledge Graphs"
+authors: "Prantika Chakraborty Indian Association for the Cultivation of Science Kolkata, India prantika.ch@gmail.com"
+year: 2000
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2204.11428_Personal_Research_Knowledge_Graphs"
+images_total: 4
+images_kept: 4
+images_removed: 0
+---
 
 # Personal Research Knowledge Graphs
 

@@ -1,4 +1,16 @@
-<!-- cite_key: challenges2021 -->
+---
+cite_key: "challenges2021"
+title: "3.3 Application and Impact"
+authors: "To address these challenges, we propose the concept and framework of Code Digital Twin, a conceptual representation of tacit knowledge that encapsulates the concepts, functionalities, and design rationales behind code elements, co-evolving with the software. The framework structures tacit knowledge into two key categories: the artifact-oriented backbone, which establishes a foundational structure by linking concepts and functionalities to software artifacts, and the rationale-centric explanations, which enrich this foundation by capturing the decisions that have shaped the system's design and evolution. The methodology for realizing a code digital twin combines structured and unstructured knowledge representations, integrating knowledge graphs, frames, and textual descriptions to capture domain concepts,"
+year: 2021
+doi: "10.1145/3611643.3616317"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2503.07967_Code_Digital_Twin_Empowering_LLMs_with_Tacit_Knowledge_for_Complex_Software_Main"
+images_total: 2
+images_kept: 2
+images_removed: 0
+---
 
 XIN PENG, Fudan University, China CHONG WANG, Fudan University, China MINGWEI LIU, Sun Yat-sen University, China YILING LOU, Fudan University, China YIJIAN WU, Fudan University, China
 

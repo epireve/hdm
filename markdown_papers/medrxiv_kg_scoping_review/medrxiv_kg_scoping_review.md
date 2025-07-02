@@ -1,4 +1,16 @@
-<!-- cite_key: budhdeo2021 -->
+---
+cite_key: "budhdeo2021"
+title: "*Discussion*"
+authors: "Sanjay Budhdeo 1, 2, 3, 4 Joe Zhang 5, 6 Yusuf Abdulle 7 Paul M Agapow 8 Douglas GJ McKechnie 9 Matt Archer 10 Viraj Shah 11 Eugenia Forte 12 Ayush Noori 13, 14 Marinka Zitnik 14, 15, 16, 3 Hutan Ashrafian 17, 18 Nikhil Sharma 1, 19"
+year: 2021
+doi: "10.3389/fgene.2020.610798"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "medrxiv_kg_scoping_review"
+images_total: 5
+images_kept: 5
+images_removed: 0
+---
 
 It is made available under a [CC-BY-NC-ND 4.0 International license](http://creativecommons.org/licenses/by-nc-nd/4.0/) .
 

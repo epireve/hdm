@@ -1,4 +1,16 @@
-<!-- cite_key: in2021 -->
+---
+cite_key: "in2021"
+title: "TIMEBENCH: A Comprehensive Evaluation of Temporal Reasoning Abilities in Large Language Models"
+authors: "C: *... After the French evacuated Egypt in 1801, Hurshid Pasha was named governor of Egypt in 1804. Muhammad Ali had himself named governor of Egypt in May 1805 ...* Q: *Which position did Hurshid Pasha hold from 1804 to 1806, if Hurshid Pasha tepped down as the governor of Egypt in 1808?* A: governor of Egypt TEMPREASON"
+year: 2021
+doi: "10.18653/V1/2023.EMNLP-MAIN.298)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "temporal_cognitive_arxiv_2311.17667_TimeBench_A_Comprehensive_Evaluation_of_Temporal_Reasoning_Abilities_in_Large_La"
+images_total: 8
+images_kept: 8
+images_removed: 0
+---
 
 # TIMEBENCH: A Comprehensive Evaluation of Temporal Reasoning Abilities in Large Language Models
 

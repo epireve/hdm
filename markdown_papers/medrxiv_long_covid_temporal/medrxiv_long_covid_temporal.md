@@ -1,4 +1,16 @@
-<!-- cite_key: oneilsupsup2022 -->
+---
+cite_key: "oneilsupsup2022"
+title: "Finding Long-COVID: Temporal Topic Modeling of Electronic Health Records from the N3C and RECOVER Programs"
+authors: "Shawn T. O'Neil<sup>1</sup> , Charisse Madlock-Brown<sup>2</sup> , Kenneth J. Wilkins<sup>3</sup> , Brenda M. McGrath<sup>4</sup> , Hannah E. Davis<sup>5</sup> , Gina S. Assaf<sup>5</sup> , Hannah Wei<sup>5</sup> , Parya Zareie<sup>6</sup> , Evan T. French<sup>7</sup> , Johanna Loomba<sup>8</sup> , Julie A. McMurry<sup>1</sup> , Andrea Zhou<sup>8</sup> , Christopher G. Chute<sup>9</sup> , Richard A. Moffitt<sup>10</sup>, Emily R Pfaff<sup>11</sup> , Yun Jae Yoo<sup>10</sup>, Peter Leese<sup>11</sup>, Robert F. Chew<sup>12</sup>, Michael Lieberman4, 13, Melissa A. Haendel<sup>1</sup> , on behalf of the N3C Consortium and the RECOVER Consortium"
+year: 2022
+doi: "10.1093/jamia/ocaa196"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "medrxiv_long_covid_temporal"
+images_total: 14
+images_kept: 14
+images_removed: 0
+---
 
 # Finding Long-COVID: Temporal Topic Modeling of Electronic Health Records from the N3C and RECOVER Programs
 

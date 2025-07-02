@@ -1,4 +1,16 @@
-<!-- cite_key: unknown2024b -->
+---
+cite_key: "unknown2024b"
+title: "Agents in Software Engineering: Survey, Landscape, and Vision"
+authors: ", Hui Li<sup>4</sup> , Yuchi Ma<sup>5</sup> , Qianxiang Wang<sup>5</sup>"
+year: 2024
+doi: "10.1145/3591300)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2409.09030_Agents_in_Software_Engineering_Survey,_Landscape,_and_Vision"
+images_total: 4
+images_kept: 4
+images_removed: 0
+---
 
 # Agents in Software Engineering: Survey, Landscape, and Vision
 

@@ -1,4 +1,15 @@
-<!-- cite_key: chen2020 -->
+---
+cite_key: "chen2020"
+title: "A Survey on Collaborative Mechanisms Between Large and Small Language Models"
+authors: "Yi Chen1,2, JiaHao Zhao1,2, HaoHao Han1,2"
+year: 2020
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "collaborative_llm_slm_survey_2024"
+images_total: 7
+images_kept: 7
+images_removed: 0
+---
 
 # A Survey on Collaborative Mechanisms Between Large and Small Language Models
 

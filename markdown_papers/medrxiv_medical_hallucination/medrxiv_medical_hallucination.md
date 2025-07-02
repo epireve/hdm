@@ -1,4 +1,16 @@
-<!-- cite_key: tsvetkovsupsup2024 -->
+---
+cite_key: "tsvetkovsupsup2024"
+title: "Medical Hallucination in Foundation Models and Their Impact on Healthcare"
+authors: "Yulia Tsvetkov<sup>3</sup> , Paul Liang<sup>1</sup> , Xuhai Xu<sup>7</sup> , Xin Liu<sup>6</sup> , Daniel McDuff<sup>6</sup> , Hyeonhoon Lee<sup>5</sup> , Hae Won Park<sup>1</sup> , Samir Tulebaev§<sup>2</sup> , Cynthia Breazeal<sup>1</sup>"
+year: 2024
+doi: "10.1056/NEJMcpc1802826."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "medrxiv_medical_hallucination"
+images_total: 12
+images_kept: 12
+images_removed: 0
+---
 
 # Medical Hallucination in Foundation Models and Their Impact on Healthcare
 

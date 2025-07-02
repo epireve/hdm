@@ -1,4 +1,15 @@
-<!-- cite_key: sun2022b -->
+---
+cite_key: "sun2022b"
+title: "Toward the Tradeoffs between Privacy, Fairness and Utility in Federated Learning"
+authors: "Kangkang Sun 1 , Xiaojin Zhang 2 , Xi Lin 1 , Gaolei Li 1 , Jing Wang 1 , and Jianhua Li 1"
+year: 2022
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2311.18190_Toward_the_Tradeoffs_between_Privacy_Fairness_and_Utility_in_Federated_Learning"
+images_total: 5
+images_kept: 5
+images_removed: 0
+---
 
 # Toward the Tradeoffs between Privacy, Fairness and Utility in Federated Learning
 

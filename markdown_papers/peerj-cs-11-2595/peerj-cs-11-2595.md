@@ -1,4 +1,16 @@
-<!-- cite_key: malaysia2024 -->
+---
+cite_key: "malaysia2024"
+title: "ABSTRACT"
+authors: "Malaysia"
+year: 2024
+doi: "10.7717/peerj-cs.2595"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "peerj-cs-11-2595"
+images_total: 8
+images_kept: 8
+images_removed: 0
+---
 
 A temporal knowledge graph reasoning model based on recurrent encoding and contrastive learning
 

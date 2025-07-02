@@ -1,4 +1,15 @@
-<!-- cite_key: laboratory2017 -->
+---
+cite_key: "laboratory2017"
+title: "A Workflow Model for Holistic Data Management and Semantic Interoperability in Quantitative Archival Research"
+authors: "1 Information Systems Laboratory, FORTH-ICS, Heraklion, Greece"
+year: 2017
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2301.07676_"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # A Workflow Model for Holistic Data Management and Semantic Interoperability in Quantitative Archival Research
 

@@ -1,4 +1,15 @@
-<!-- cite_key: arxiv_arxiv_250606881_knowcode -->
+---
+cite_key: "arxiv_arxiv_250606881_knowcode"
+title: "KnowCoder-V2: Deep Knowledge Analysis"
+year: 2025
+doi: "10.1016/j.jbi.2012.04.008."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2506.06881_KnowCoder-V2_Deep_Knowledge_Analysis"
+images_total: 4
+images_kept: 4
+images_removed: 0
+---
 
 # KnowCoder-V2: Deep Knowledge Analysis
 

@@ -1,4 +1,15 @@
-<!-- cite_key: bradac2021 -->
+---
+cite_key: "bradac2021"
+title: "**A Lexical Approach to Assessing Stress: Development and Proof- of- Concept**"
+authors: "- Bradac, J. J., Bowers, J. W., & Courtright, J. A. (1979). Three language variables in communication research: Intensity, immediacy, and diversity. *Human Communication Research*, *5*, 257–269. https:// doi. org/ 10. 1111/ j. 1468- 2958. 1979. tb00639.x"
+year: 2021
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "driskell-et-al-2021-a-lexical-approach-to-assessing-stress-development-and-proof-of-concept"
+images_total: 11
+images_kept: 11
+images_removed: 0
+---
 
 # A Lexical Approach to Assessing Stress: Development and Proof- of- Concept
 

@@ -1,4 +1,15 @@
-<!-- cite_key: structured2014 -->
+---
+cite_key: "structured2014"
+title: "**Learning temporal granularity with quadruplet networks for temporal knowledge graph completion**"
+authors: "Temporal information is inherently structured, and it is essential to leverage its granularity to correlate facts effectively. However, previous approaches often overlook the richness of temporal granularity, treating time as a monolithic element rather than exploring its finer details in conjunction with entities and relations."
+year: 2014
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Geng-2025-Learning-temporal-granularity-with-"
+images_total: 7
+images_kept: 7
+images_removed: 0
+---
 
 # OPEN
 

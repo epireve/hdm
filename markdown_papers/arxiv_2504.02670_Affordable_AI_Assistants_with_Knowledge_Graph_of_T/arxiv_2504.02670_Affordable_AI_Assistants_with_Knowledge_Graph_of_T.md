@@ -1,4 +1,16 @@
-<!-- cite_key: alice2018 -->
+---
+cite_key: "alice2018"
+title: "Affordable AI Assistants with Knowledge Graph of Thoughts"
+authors: "Existing entities: Employee: [{{name: \"Alice\", employee_id: \"E1\"}, {{name: \"Bob\","
+year: 2018
+doi: "10.48550/arXiv.2307.11278"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2504.02670_Affordable_AI_Assistants_with_Knowledge_Graph_of_T"
+images_total: 20
+images_kept: 20
+images_removed: 0
+---
 
 # Affordable AI Assistants with Knowledge Graph of Thoughts
 

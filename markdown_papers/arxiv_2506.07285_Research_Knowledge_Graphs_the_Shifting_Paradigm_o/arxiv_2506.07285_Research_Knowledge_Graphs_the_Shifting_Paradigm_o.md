@@ -1,4 +1,16 @@
-<!-- cite_key: zloch2019 -->
+---
+cite_key: "zloch2019"
+title: "Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information Representation"
+authors: "Matthäus Zloch1,<sup>2</sup> , Danilo Dessì<sup>3</sup> , Jennifer D'Souza<sup>4</sup> , Leyla Jael Castro<sup>5</sup> , Benjamin Zapilko<sup>1</sup> , Saurav Karmakar<sup>1</sup> , Brigitte Mathiak<sup>1</sup> , Markus Stocker<sup>4</sup> , Wolfgang Otto<sup>1</sup> , Sören Auer<sup>4</sup> , and Stefan Dietze1,<sup>2</sup>"
+year: 2019
+doi: "10.15488/13072"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2506.07285_Research_Knowledge_Graphs_the_Shifting_Paradigm_o"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information Representation
 

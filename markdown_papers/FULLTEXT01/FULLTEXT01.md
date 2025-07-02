@@ -1,4 +1,16 @@
-<!-- cite_key: 2050 -->
+---
+cite_key: "2050"
+title: "**Cong Peng , Prashant Goswami and Guohua Bai**"
+authors: "- 64. Lanthaler M and Gütl C. A semantic description language for RESTful Data Services to combat Semaphobia. In: *5th IEEE International conference on digital ecosystems and technologies (IEEE DEST 2011)*, Daejeon, South Korea, 31 May–3 June 2011, pp. 47–53. New York: IEEE."
+year: 2050
+doi: "10.1177/1460458219892387"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "FULLTEXT01"
+images_total: 10
+images_kept: 8
+images_removed: 2
+---
 
 # *Original Article*
 

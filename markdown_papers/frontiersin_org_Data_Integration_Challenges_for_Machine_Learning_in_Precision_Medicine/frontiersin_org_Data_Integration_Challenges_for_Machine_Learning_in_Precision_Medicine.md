@@ -1,4 +1,16 @@
-<!-- cite_key: b2021 -->
+---
+cite_key: "b2021"
+title: "[Data Integration Challenges for](https://www.frontiersin.org/articles/10.3389/fmed.2021.784455/full) Machine Learning in Precision Medicine"
+authors: "- <span id=\"page-20-1\"></span>312. Jana B, Poray J, Mandal T, Kule M. A multilevel encryption technique in cloud security. In: 2017 7th International Conference on Communication Systems and Network Technologies (CSNT). Nagpur: IEEE (2017). p. 220–4."
+year: 2021
+doi: "10.3389/fmed.2021.784455/full)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "frontiersin_org_Data_Integration_Challenges_for_Machine_Learning_in_Precision_Medicine"
+images_total: 3
+images_kept: 2
+images_removed: 1
+---
 
 <span id="page-0-0"></span>
 

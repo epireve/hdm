@@ -1,4 +1,15 @@
-<!-- cite_key: linsupsup2022 -->
+---
+cite_key: "linsupsup2022"
+title: "**Knowledge Management System with NLP-Assisted Annotations: A Brief Survey and Outlook**"
+authors: "Baihan Lin*<sup>1</sup>*,\\*"
+year: 2022
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2206.07304_Knowledge_Management_System_with_NLP-Assisted_Anno"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # Knowledge Management System with NLP-Assisted Annotations: A Brief Survey and Outlook
 

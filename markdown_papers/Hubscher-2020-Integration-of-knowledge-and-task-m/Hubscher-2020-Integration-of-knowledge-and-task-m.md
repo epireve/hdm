@@ -1,4 +1,16 @@
-<!-- cite_key: hagenberg2020 -->
+---
+cite_key: "hagenberg2020"
+title: "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment"
+authors: "Verena Geist Software Competence Center Hagenberg GmbH Hagenberg, Austria verena.geist@scch.at"
+year: 2020
+doi: "10.1145/3428757.3429260"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Hubscher-2020-Integration-of-knowledge-and-task-m"
+images_total: 9
+images_kept: 8
+images_removed: 1
+---
 
 
 

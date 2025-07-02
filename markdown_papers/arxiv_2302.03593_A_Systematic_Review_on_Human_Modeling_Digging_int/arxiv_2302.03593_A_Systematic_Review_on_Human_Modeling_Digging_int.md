@@ -1,4 +1,16 @@
-<!-- cite_key: replication2022 -->
+---
+cite_key: "replication2022"
+title: "A Systematic Review on Human Modeling: Digging into Human Digital Twin Implementations"
+authors: "Centered on organ replication, authors in [48] presented a dynamic colon model for creating an in-silico test performance model of orally ingested dosage forms inside the gastrointestinal tract. The goal of this model was to facilitate the early stages of testing and fluid modification for specific disease stages. The model variables can be tuned to simulate different conditions in the colon. The model was created using MRI scans, and a Discrete Multiphysics (DMP) simulation was performed to obtain shear rate results for the fluid and its parameters. The simulation is able to replicate the effects of the colon's contractile wall wave propagation speed, media viscosity, and media volume on the mean wall shear rate, similar to results from an in vitro test."
+year: 2022
+doi: "10.1109/ACCESS.2019.2953499."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2302.03593_A_Systematic_Review_on_Human_Modeling_Digging_int"
+images_total: 5
+images_kept: 5
+images_removed: 0
+---
 
 # A Systematic Review on Human Modeling: Digging into Human Digital Twin Implementations
 

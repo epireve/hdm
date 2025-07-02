@@ -1,4 +1,16 @@
-<!-- cite_key: methodology2024 -->
+---
+cite_key: "methodology2024"
+title: "The current experience: Developing a wearable IMU prototype"
+authors: "Figure 1. General prototype design methodology."
+year: 2024
+doi: "10.1177/03064190231200397"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "medina-uzcategui-et-al-2023-development-of-a-proof-of-concept-prototype-amid-limited-face-to-face-interactions-a-case"
+images_total: 10
+images_kept: 9
+images_removed: 1
+---
 
 Original article
 

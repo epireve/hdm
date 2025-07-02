@@ -1,4 +1,15 @@
-<!-- cite_key: asprino2019 -->
+---
+cite_key: "asprino2019"
+title: "Pattern-based Visualization of Knowledge Graphs"
+authors: "Luigi Asprino 1 , Christian Colonna 1 , Misael Mongiov`ı 2 , Margherita Porena 2 , and Valentina Presutti 1 , 2"
+year: 2019
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2106.12857_"
+images_total: 6
+images_kept: 6
+images_removed: 0
+---
 
 # Pattern-based Visualization of Knowledge Graphs
 

@@ -1,4 +1,16 @@
-<!-- cite_key: daquino2021 -->
+---
+cite_key: "daquino2021"
+title: "Pattern-based design applied to cultural heritage knowledge graphs"
+authors: "- <span id=\"page-42-0\"></span>[14] M. Daquino, F. Mambelli, S. Peroni, F. Tomasi and F. Vitali, Enhancing semantic expressivity in the cultural heritage domain: Exposing the zeri photo archive as linked open data, *Journal on Computing and Cultural Heritage JOCCH* **10**(4) (2017), 1–21. doi[:10.1145/3051487.](https://doi.org/10.1145/3051487)"
+year: 2021
+doi: "10.3233/SW-200422"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "bikakis-et-al-2020-pattern-based-design-applied-to-cultural-heritage-knowledge-graphs-arco-the-knowledge-graph-of"
+images_total: 20
+images_kept: 20
+images_removed: 0
+---
 
 Semantic Web 12 (2021) 313–357 313 DOI 10.3233/SW-200422 IOS Press
 

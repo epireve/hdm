@@ -1,4 +1,15 @@
-<!-- cite_key: berlin2014 -->
+---
+cite_key: "berlin2014"
+title: "**Benchmarking Scalability and Elasticity of Distributed Database Systems**"
+authors: "Markus Klems Technische Universitat Berlin ¨ Information Systems Engineering Group Berlin, Germany mk@ise.tu-berlin.de"
+year: 2014
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Kuhlenkamp-2014-Benchmarking-scalability-and-elasti"
+images_total: 22
+images_kept: 22
+images_removed: 0
+---
 
 # Benchmarking Scalability and Elasticity of Distributed Database Systems
 

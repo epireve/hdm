@@ -1,4 +1,15 @@
-<!-- cite_key: arxiv_220603268_ubiquitous_kno -->
+---
+cite_key: "arxiv_220603268_ubiquitous_kno"
+title: "**3. Approach**"
+year: 2019
+doi: "10.1016/j.arcontrol.2019.01.001."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2206.03268_Ubiquitous_knowledge_empowers_the_Smart_Factory_T"
+images_total: 12
+images_kept: 10
+images_removed: 2
+---
 
 **Please cite this paper as follows:**
 

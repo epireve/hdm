@@ -1,4 +1,15 @@
-<!-- cite_key: clark2001 -->
+---
+cite_key: "clark2001"
+title: "Knowledge Patterns"
+authors: "Peter Clark 1 , John Thompson 1 , and Bruce Porter 2"
+year: 2001
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2005.04306_Knowledge_Patterns"
+images_total: 8
+images_kept: 8
+images_removed: 0
+---
 
 # Knowledge Patterns
 

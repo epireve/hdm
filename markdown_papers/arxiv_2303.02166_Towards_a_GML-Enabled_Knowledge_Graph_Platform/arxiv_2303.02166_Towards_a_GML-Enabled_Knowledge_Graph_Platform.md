@@ -1,4 +1,15 @@
-<!-- cite_key: arxiv_230302166_towards_a_gml_ -->
+---
+cite_key: "arxiv_230302166_towards_a_gml_"
+title: "Towards a GML-Enabled Knowledge Graph Platform"
+year: 2021
+doi: "10.1145/3447772)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2303.02166_Towards_a_GML-Enabled_Knowledge_Graph_Platform"
+images_total: 9
+images_kept: 9
+images_removed: 0
+---
 
 # Towards a GML-Enabled Knowledge Graph Platform
 

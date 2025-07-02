@@ -1,4 +1,16 @@
-<!-- cite_key: supsup2017 -->
+---
+cite_key: "supsup2017"
+title: "1 Introduction"
+authors: "Fausto Giunchiglia[0000 −0002 −5903 <sup>−</sup>6150], Xiaoyue Li B[0000 −0002 −0100 −0016] , Matteo Busso[0000 −0002 −3788 <sup>−</sup>0203], and Marcelo Rodas-Britez[0000 −0002 −7607 −7587]"
+year: 2017
+doi: "10.48550/ARXIV.2205.10123"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2206.10212_A_Context_Model_for_Personal_Data_Streams"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # A Context Model for Personal Data Streams ?
 

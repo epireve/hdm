@@ -1,4 +1,16 @@
-<!-- cite_key: innovations2021 -->
+---
+cite_key: "innovations2021"
+title: "Universal Digital Twin - A Dynamic Knowledge Graph"
+authors: "<span id=\"page-0-2\"></span>3 CMCL Innovations, Cambridge CB3 0AX, United Kingdom"
+year: 2021
+doi: "10.17863/CAM.32260"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Akroyd-2021-Universal-digital-twin---a-dynamic-"
+images_total: 15
+images_kept: 14
+images_removed: 1
+---
 
 # RESEARCH ARTICLE
 

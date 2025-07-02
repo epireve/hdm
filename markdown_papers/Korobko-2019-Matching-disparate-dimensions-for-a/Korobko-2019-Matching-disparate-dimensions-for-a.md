@@ -1,4 +1,16 @@
-<!-- cite_key: krasnoyarsk2019 -->
+---
+cite_key: "krasnoyarsk2019"
+title: "**Matching disparate dimensions for analytical integration of heterogeneous data sources**"
+authors: "Anna Korobko Department of Applied Computer Science ICM SB RAS Krasnoyarsk, Russia gglhroom@gmail.com"
+year: 2019
+doi: "10.1145/3297662.3365809"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Korobko-2019-Matching-disparate-dimensions-for-a"
+images_total: 2
+images_kept: 1
+images_removed: 1
+---
 
 
 

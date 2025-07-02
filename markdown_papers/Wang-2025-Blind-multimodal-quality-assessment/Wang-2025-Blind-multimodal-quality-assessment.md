@@ -1,4 +1,15 @@
-<!-- cite_key: wslinntuedusg2023 -->
+---
+cite_key: "wslinntuedusg2023"
+title: "**Blind Multimodal Quality Assessment of Low-Light Images**"
+authors: "Weisi Lin wslin@ntu.edu.sg"
+year: 2023
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Wang-2025-Blind-multimodal-quality-assessment"
+images_total: 17
+images_kept: 16
+images_removed: 1
+---
 
 # Blind Multimodal Quality Assessment of Low-Light Images
 

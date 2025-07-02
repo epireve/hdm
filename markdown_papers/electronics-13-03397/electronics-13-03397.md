@@ -1,4 +1,16 @@
-<!-- cite_key: liu2024b -->
+---
+cite_key: "liu2024b"
+title: "*Article* **Enhancing Temporal Knowledge Graph Representation with Curriculum Learning**"
+authors: "**Yihe Liu, Yi Shen and Yuanfei Dai \\***"
+year: 2024
+doi: "10.3390/electronics13173397)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "electronics-13-03397"
+images_total: 7
+images_kept: 3
+images_removed: 4
+---
 
 
 

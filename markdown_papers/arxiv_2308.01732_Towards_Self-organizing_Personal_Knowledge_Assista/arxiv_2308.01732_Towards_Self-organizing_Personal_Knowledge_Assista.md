@@ -1,4 +1,16 @@
-<!-- cite_key: jilek2012 -->
+---
+cite_key: "jilek2012"
+title: "Towards Self-organizing Personal Knowledge Assistants in Evolving Corporate Memories"
+authors: "Christian Jilek 1 , 2 [,](https://orcid.org/0000-0002-5926-1673) Markus Schröder 1 [,](https://orcid.org/0000-0001-8416-0535) Heiko Maus 1 [,](https://orcid.org/0000-0003-3508-5860) Sven Schwarz 1 [,](https://orcid.org/0009-0005-3064-5592) and Andreas Dengel 1 , [2](https://orcid.org/0000-0002-6100-8255)"
+year: 2012
+doi: "10.17026/dans-x55-69zp"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2308.01732_Towards_Self-organizing_Personal_Knowledge_Assista"
+images_total: 23
+images_kept: 19
+images_removed: 4
+---
 
 # Towards Self-organizing Personal Knowledge Assistants in Evolving Corporate Memories
 

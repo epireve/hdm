@@ -1,4 +1,16 @@
-<!-- cite_key: happens2023 -->
+---
+cite_key: "happens2023"
+title: "<span id=\"page-0-0\"></span>Knowledge Graphs in Practice: Characterizing their Users, Challenges, and Visualization Opportunities"
+authors: "Several participants stressed sociotechnical challenges in understanding the desired outcomes of a knowledge graph. When this happens, Builders can overcomplicate the construction of the KG (e.g., with too"
+year: 2023
+doi: "10.1109/TVCG.2023.3326904"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2304.01311_Knowledge_Graphs_in_Practice_Characterizing_their"
+images_total: 3
+images_kept: 2
+images_removed: 1
+---
 
 # <span id="page-0-0"></span>Knowledge Graphs in Practice: Characterizing their Users, Challenges, and Visualization Opportunities
 

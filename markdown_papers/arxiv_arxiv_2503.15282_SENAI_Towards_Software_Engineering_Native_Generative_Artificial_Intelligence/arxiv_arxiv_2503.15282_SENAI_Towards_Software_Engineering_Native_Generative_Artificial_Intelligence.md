@@ -1,3 +1,17 @@
+---
+cite_key: "saadhttpsorcidorg---2017"
+title: "SENAI: Towards Software Engineering Native Generative Artificial Intelligence"
+authors: "[Mootez Saad](https://orcid.org/0009-0008-8159-3632)"
+year: 2017
+doi: "10.1145/nnnnnnn.nnnnnnn"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2503.15282_SENAI_Towards_Software_Engineering_Native_Generative_Artificial_Intelligence"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
+
 <!-- cite_key: saadhttpsorcidorg---2017 -->
 
 # SENAI: Towards Software Engineering Native Generative Artificial Intelligence

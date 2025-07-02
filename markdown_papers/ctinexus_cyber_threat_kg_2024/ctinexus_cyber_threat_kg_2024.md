@@ -1,4 +1,14 @@
-<!-- cite_key: ctinexus_cyber_threat_kg_2024 -->
+---
+cite_key: "ctinexus_cyber_threat_kg_2024"
+title: "<span id=\"page-0-0\"></span>Knowledge-enhanced Multi-perspective Video Representation Learning for Scene Recognition"
+year: 2016
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "ctinexus_cyber_threat_kg_2024"
+images_total: 2
+images_kept: 2
+images_removed: 0
+---
 
 # <span id="page-0-0"></span>Knowledge-enhanced Multi-perspective Video Representation Learning for Scene Recognition
 

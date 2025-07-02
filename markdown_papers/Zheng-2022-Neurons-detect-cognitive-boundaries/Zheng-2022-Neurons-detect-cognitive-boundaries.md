@@ -1,4 +1,16 @@
-<!-- cite_key: valiante2021 -->
+---
+cite_key: "valiante2021"
+title: "**Cognitive boundary signals in the human medial temporal lobe shape episodic**"
+authors: "- Taufik A. Valiante2 , Adam N., Mamelak3 , Gabriel Kreiman1,5, \\*, Ueli Rutishauser3,4,6, \\*"
+year: 2021
+doi: "10.1101/2021.01.16.426538;"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Zheng-2022-Neurons-detect-cognitive-boundaries"
+images_total: 28
+images_kept: 28
+images_removed: 0
+---
 
 # Cognitive boundary signals in the human medial temporal lobe shape episodic
 

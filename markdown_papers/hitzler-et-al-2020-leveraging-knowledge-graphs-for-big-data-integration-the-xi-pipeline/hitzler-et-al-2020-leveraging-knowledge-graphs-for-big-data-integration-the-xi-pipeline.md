@@ -1,3 +1,17 @@
+---
+cite_key: "cudr-mauroux2020"
+title: "Leveraging Knowledge Graphs for Big Data Integration: the XI Pipeline"
+authors: "Philippe Cudré-Mauroux"
+year: 2020
+doi: "10.3233/SW-190371"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "hitzler-et-al-2020-leveraging-knowledge-graphs-for-big-data-integration-the-xi-pipeline"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
+
 <!-- cite_key: cudr-mauroux2020 -->
 
 Semantic Web 11 (2020) 13–17 13 DOI 10.3233/SW-190371 IOS Press

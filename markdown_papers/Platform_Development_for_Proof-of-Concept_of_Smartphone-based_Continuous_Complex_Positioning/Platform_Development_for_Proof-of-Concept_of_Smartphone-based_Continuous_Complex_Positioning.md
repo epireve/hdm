@@ -1,4 +1,15 @@
-<!-- cite_key: ji2022 -->
+---
+cite_key: "ji2022"
+title: "Platform Development for Proof-of-Concept of Smartphone-based Continuous Complex Positioning"
+authors: "- [2] M. Ji, J. Jeon, K.-S. Han, and Y. Cho, \"Accurate Long-Term Evolution/Wi-Fi hybrid positioning technology for emergency rescue,\" ETRI Journal, vol. 45, no. 6, pp. 939-951, Dec. 2023."
+year: 2022
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Platform_Development_for_Proof-of-Concept_of_Smartphone-based_Continuous_Complex_Positioning"
+images_total: 2
+images_kept: 2
+images_removed: 0
+---
 
 # Platform Development for Proof-of-Concept of Smartphone-based Continuous Complex Positioning
 

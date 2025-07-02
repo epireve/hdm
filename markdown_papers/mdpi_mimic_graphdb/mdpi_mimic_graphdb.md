@@ -1,4 +1,16 @@
-<!-- cite_key: 2023 -->
+---
+cite_key: "2023"
+title: "*Article* **Capturing Semantic Relationships in Electronic Health Records Using Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB**"
+authors: "**Bader Aldughayfiq <sup>1</sup> [,](https://orcid.org/0000-0001-9584-0560) Farzeen Ashfaq <sup>2</sup> , N. Z. Jhanjhi [2](https://orcid.org/0000-0001-8116-4733) and Mamoona Humayun 1,[\\\\*](https://orcid.org/0000-0001-6339-2257)**"
+year: 2023
+doi: "10.3390/healthcare11121762)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "mdpi_mimic_graphdb"
+images_total: 14
+images_kept: 10
+images_removed: 4
+---
 
 
 

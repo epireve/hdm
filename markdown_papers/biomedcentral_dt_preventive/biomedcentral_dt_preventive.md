@@ -1,4 +1,15 @@
-<!-- cite_key: mikaelbensonkise2025 -->
+---
+cite_key: "mikaelbensonkise2025"
+title: "Digital twins as global learning health and disease models for preventive and personalized medicine"
+authors: "mikael.benson@ki.se"
+year: 2025
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "biomedcentral_dt_preventive"
+images_total: 7
+images_kept: 7
+images_removed: 0
+---
 
 ![](_page_0_Picture_3.jpeg)
 

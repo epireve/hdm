@@ -1,4 +1,16 @@
-<!-- cite_key: caisupsup2023 -->
+---
+cite_key: "caisupsup2023"
+title: "Temporal Knowledge Graph Completion with Time-sensitive Relations in Hypercomplex Space"
+authors: "Li Cai<sup>1</sup>,<sup>2</sup> , Xin Mao<sup>1</sup> , Zhihong Wang<sup>1</sup> , Shangqing Zhao<sup>1</sup> , Yuhao Zhou<sup>1</sup> , Changxu Wu<sup>3</sup> , Man Lan<sup>1</sup> <sup>∗</sup>"
+year: 2023
+doi: "10.1007/3-540-44503-X_27)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2403.02355_Temporal_Knowledge_Graph_Completion_with_Time-sens"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # Temporal Knowledge Graph Completion with Time-sensitive Relations in Hypercomplex Space
 

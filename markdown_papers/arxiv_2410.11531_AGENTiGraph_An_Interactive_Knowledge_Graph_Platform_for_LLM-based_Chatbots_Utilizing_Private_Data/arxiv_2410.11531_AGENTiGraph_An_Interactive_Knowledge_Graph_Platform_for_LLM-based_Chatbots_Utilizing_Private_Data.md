@@ -1,4 +1,26 @@
-<!-- cite_key: zhao2024 -->
+---
+cite_key: "zhao2024"
+title: "AGENTiGraph: An Interactive Knowledge Graph Platform for LLM-based Chatbots Utilizing Private Data"
+authors: "Xinjie Zhao, Moritz Blum, Rui Yang, Boming Yang, Luis Márquez Carpintero, Mónica Pina-Navarro, Tony Wang, Xin Li, Huitao Li, Yanran Fu, Rongrong Wang, Juntao Zhang, Irene Li"
+year: 2024
+doi: "arXiv:2410.11531"
+url: "https://arxiv.org/abs/2410.11531"
+relevancy: "High"
+downloaded: "No"
+tags:
+  - "Multi-Agent Systems"
+  - "LLM-KG Integration"
+  - "Private Data Processing"
+  - "Knowledge Management"
+  - "Interactive Platforms"
+tldr: "Multi-agent knowledge management platform enabling dynamic knowledge extraction, integration, and visualization for LLM-based chatbots using private data"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2410.11531_AGENTiGraph_An_Interactive_Knowledge_Graph_Platform_for_LLM-based_Chatbots_Utilizing_Private_Data"
+images_total: 5
+images_kept: 5
+images_removed: 0
+---
 
 # <span id="page-0-0"></span>AGENTiGraph: An Interactive Knowledge Graph Platform for LLM-based Chatbots Utilizing Private Data
 

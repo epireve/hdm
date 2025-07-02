@@ -1,4 +1,15 @@
-<!-- cite_key: cuisupsup2019 -->
+---
+cite_key: "cuisupsup2019"
+title: "Enhancing Sequential Recommendation with Graph Contrastive Learning"
+authors: "Lizhen Cui<sup>1</sup>,2† and Chunyan Miao<sup>3</sup>,<sup>4</sup>"
+year: 2019
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "ijcai_2022_enhancing_sequential_recommendation_gnn"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # Enhancing Sequential Recommendation with Graph Contrastive Learning
 

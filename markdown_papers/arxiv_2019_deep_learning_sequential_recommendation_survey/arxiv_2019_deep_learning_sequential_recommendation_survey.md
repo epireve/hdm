@@ -1,4 +1,15 @@
-<!-- cite_key: arxiv_2019_deep_learning_seque -->
+---
+cite_key: "arxiv_2019_deep_learning_seque"
+title: "1 INTRODUCTION"
+year: 2020
+doi: "10.1145/3426723"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2019_deep_learning_sequential_recommendation_survey"
+images_total: 19
+images_kept: 19
+images_removed: 0
+---
 
 HUI FANG, RIIS & SIME, Shanghai University of Finance and Economics, China DANNING ZHANG<sup>∗</sup> , SIME, Shanghai University of Finance and Economics, China YIHENG SHU, Software College, Northeastern University, China GUIBING GUO, Software College, Northeastern University, China
 
