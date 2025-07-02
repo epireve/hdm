@@ -1,8 +1,7 @@
 ---
-cite_key: _2019
-title: 1. Introduction
-authors: Industry 4., Human-centric Industrial Internet, Smart Factory, Ubiquitous
-  Knowledge, Serviceoriented Digital Twin
+cite_key: longo_2019
+title: "Ubiquitous Knowledge empowers the Smart Factory: the impacts of a Service-oriented Digital Twin on enterprises' performance"
+authors: Longo, F., Nicoletti, L., Padovano, A.
 year: 2019
 doi: 10.1016/j.arcontrol.2019.01.001.
 date_processed: '2025-07-02'

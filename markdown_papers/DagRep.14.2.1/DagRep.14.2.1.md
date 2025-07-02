@@ -1,7 +1,7 @@
 ---
-cite_key: _2024
-title: 1 Executive Summary
-authors: SeminarFebruary 4–
+cite_key: chaves-fraga_2024
+title: "Are Knowledge Graphs Ready for the Real World? Challenges and Perspectives"
+authors: "David Chaves-Fraga, Oscar Corcho, Anastasia Dimou, Maria-Esther Vidal, Ana Iglesias-Molina, Dylan Van Assche"
 year: 2024
 doi: 10.4230/DagRep.14.2.1
 date_processed: '2025-07-02'

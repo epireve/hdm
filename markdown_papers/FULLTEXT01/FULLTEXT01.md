@@ -1,7 +1,6 @@
 ---
 cite_key: peng_2019
-title: A literature review of current technologies on health data integration for
-  patient-centered health management
+title: A literature review of current technologies on health data integration for patient-centered health management
 authors: Cong Peng, Prashant Goswami, Guohua Bai
 year: 2019
 doi: 10.1177/1460458219892387

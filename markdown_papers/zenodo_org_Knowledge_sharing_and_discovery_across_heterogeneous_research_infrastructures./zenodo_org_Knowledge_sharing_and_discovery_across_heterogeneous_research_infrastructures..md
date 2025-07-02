@@ -1,9 +1,7 @@
 ---
 cite_key: farshidi_2021
-title: SOFTWARE TOOL ARTICLE
-authors: Siamak Farshidi, Xiaofeng Liao, Na Li, Doron Goldfarb, Barbara Magagna, Keith
-  Jeffery, Peter Thijsse, Christian Pichot, The Netherlands, Environment Agency Austria,
-  British Geological Survey
+title: Knowledge sharing and discovery across heterogeneous research infrastructures
+authors: Siamak Farshidi, Xiaofeng Liao, Na Li, Doron Goldfarb, Barbara Magagna, Markus Stocker, Keith Jeffery, Peter Thijsse, Christian Pichot, Andreas Petzold, Zhiming Zhao
 year: 2021
 doi: 10.12688/openreseurope.13677.1
 date_processed: '2025-07-02'

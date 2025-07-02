@@ -1,7 +1,7 @@
 ---
-cite_key: zhang_2024
-title: 1 | Introduction
-authors: Correspondence:Man Zhang
+cite_key: chen_2024
+title: 1 Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning
+authors: Hongwei Chen
 year: 2024
 doi: 10.1111/exsy.13758
 date_processed: '2025-07-02'

@@ -1,9 +1,8 @@
 ---
-cite_key: zhang_2024_a_novel_customizing
-title: A novel customizing knowledge graph evaluation method for incorporating user
-  needs
+cite_key: zhang_2024
+title: A novel customizing knowledge graph evaluation method for incorporating user needs
 authors: Ying Zhang Gang Xiao
-year: 2023
+year: 2024
 doi: 10.1109/TKDE.2022.3150080
 date_processed: '2025-07-02'
 phase2_processed: true

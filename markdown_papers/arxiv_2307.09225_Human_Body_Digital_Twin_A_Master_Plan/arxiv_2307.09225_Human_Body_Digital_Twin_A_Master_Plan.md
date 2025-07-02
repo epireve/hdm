@@ -1,6 +1,6 @@
 ---
 cite_key: tang_2023
-title: arXiv:2307.09225v1 [cs.AI] 18 Jul 2023
+title: Human Body Digital Twin: A Master Plan
 authors: Chenyu Tang, Shuo Gao, Luigi G. Occhipinti
 year: 2023
 date_processed: '2025-07-02'

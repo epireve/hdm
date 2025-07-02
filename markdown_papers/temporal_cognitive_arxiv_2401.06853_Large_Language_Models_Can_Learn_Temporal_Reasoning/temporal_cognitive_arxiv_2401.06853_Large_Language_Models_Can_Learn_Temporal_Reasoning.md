@@ -1,6 +1,6 @@
 ---
 cite_key: xiong_2024
-title: arXiv:2401.06853v6 [cs.CL] 8 Oct 2024
+title: Large Language Models Can Learn Temporal Reasoning
 authors: Siheng Xiong, Ali Payani, Ramana Kompella, Faramarz Fekri
 year: 2024
 doi: 10.18653/v1/2024.findings-acl.401
