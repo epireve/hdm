@@ -3,7 +3,7 @@ cite_key: dragoni_2023
 title: Integrating Functional Status Information into Knowledge Graphs to Support Self-Health Management
 authors: Mauro Dragoni, Tania Bailoni, Ivan Donadello, Jean-Claude Martin, Helena Lindgren
 year: 2023
-doi: 10.1162/dint
+doi: 10.1162/dint_a_00203
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: dint_a_00203

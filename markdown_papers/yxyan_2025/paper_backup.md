@@ -95,7 +95,6 @@ Integrating language models with knowledge graphs is crucial for advancing natur
 This synergy allows language models to help build knowledge graphs by identifying entities and relationships in unstructured text [\[34,](#page-12-8) [78\]](#page-13-13). Conversely, knowledge graphs enhance language models by incorporating structured knowledge into training and inference [\[2,](#page-12-18) [56\]](#page-13-14), improving text accuracy and reasoning capabilities.
 
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
-<!-- Image Description: This flowchart depicts a PKG (presumably Package) framework for information retrieval.  A user's query and documents are input into a builder using traditional NLP or LLM-based methods to create a PKG.  A retriever then uses regular expression, vector, and meta-path retrieval methods to access the PKG, leveraging LLMs like GPT, LLaMA, and Qwen.  The system operates on a knowledge base of various documents.  The diagram details the framework's architecture and components. -->
 
 #### Figure 1: The overall framework of our PKG approach. We enhance LLMs by integrating diverse methods for building and retrieving PKG.
 
@@ -123,7 +122,6 @@ In the following sections, we provide a detailed explanation of the methodology,
 To construct the PKG, a key challenge is accurately extracting and representing entities and relationships from unstructured text. We adopt a hybrid approach that integrates traditional NLP algorithms with advanced language model techniques, enhancing entity recognition and relation extraction. This section outlines the PKG Builder's methodology, which consists of two main steps: (1) applying NLP algorithms to identify entities and relations, converting raw data into a structured format; and (2) refining the extraction process using language models. Additionally, we optimize storage
 
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
-<!-- Image Description: This flowchart diagrams two approaches to extracting Entity-Relation-Entity triples from text.  The left side shows data cleaning leading to text processing.  Two processing paths diverge:  traditional NLP methods (trigger words, parsing, etc.) and Large Language Model (LLM)-based approaches (prompt engineering, fine-tuning, etc.). Both paths yield Entity-Relation-Entity pairs, illustrated as lists.  The diagram contrasts traditional NLP and LLM techniques for information extraction. -->
 
 Figure 2: The extraction of entities and relations in PKG Builder. After transformation raw data into source text, We use two distinct approaches: traditional methods utilizing NLP approaches and modern techniques employing LLMs. Also, we employ LLMs to review and verify the information extracted using traditional NLP methods.
 
@@ -150,12 +148,10 @@ By integrating LLMs with traditional NLP techniques, the PKG Builder achieves a 
 We use graph databases like Neo4j [\[19,](#page-12-27) [35\]](#page-12-28) and OrientDB [\[50,](#page-13-29) [67\]](#page-13-30) to store the PKG, as they efficiently handle complex relationships. Entities and their attributes are stored as nodes, and relationships
 
 <span id="page-4-1"></span>![](_page_4_Figure_0.jpeg)
-<!-- Image Description: The image contains two diagrams illustrating a node-based data structure.  (a) shows a single node's properties (Type, Element ID, Node ID, Embedding, Text). (b) depicts three nodes ("Professor," "Student," "Text Chunk") linked by "Mentor" and "Text from" relationships.  The diagrams illustrate the structure of data representing relationships between individuals and text chunks. -->
 
 Figure 3: Nodes and Their Properties. (a) illustrates the components of a basic node; (b) presents an example of two entity nodes extracted from a single text chunk node.
 
 <span id="page-4-2"></span>![](_page_4_Figure_2.jpeg)
-<!-- Image Description: The image displays a graph illustrating a knowledge graph representation.  Peach-colored nodes represent text chunks, light green nodes represent entities, and lines denote relations between them. The graph shows how text chunks are connected to entities, which are further related to each other, demonstrating a network of extracted information.  Ellipses indicate the graph extends beyond the visualized portion.  The image likely showcases the paper's methodology for knowledge graph construction or data representation. -->
 
 Figure 4: The organization of text data within a PKG Storage System. Each entity node must be connected to at least one source text chunk node.
 
@@ -176,7 +172,6 @@ Given a user query, we can extract a wealth of information, including the query 
 When a node is retrieved using a regular expression, it provides access to a cluster of interconnected nodes and their associated information. This capability is essential for tasks requiring contextual understanding, such as extracting event sequences from timelines or identifying relationships between entities. For instance,
 
 <span id="page-5-0"></span>![](_page_5_Figure_0.jpeg)
-<!-- Image Description: This flowchart illustrates a knowledge graph retrieval system.  A user query is processed via three methods: regular expression retrieval (using regular expressions to find nodes and relations), meta-path retrieval (finding paths between nodes), and vector retrieval (using vector representations to find related nodes).  The system architecture is shown, culminating in the retrieval of related nodes from a labeled property graph (PKG).  The flowchart details the sequential steps of each retrieval method. -->
 
 Figure 5: PKG Retriever. The retrieval process begins with a user query. Then, we get the query itself, entities inside the query, and hypothetical answers for retrieval. The retrieval methods are categorized into three types: Regular Expression Retrieval, which utilizes regular expressions to identify nodes and their relations; Vector Retrieval, which employs vector-based methods to find relevant nodes and their associated relations; and Meta-path Retrieval, which explores start nodes and their connections through specified meta-paths. The content in the light yellow boxes is what we can obtain from the PKG Retriever.
 
@@ -201,7 +196,6 @@ However, integrating meta-paths of knowledge graphs with LLMs presents challenge
 To address these challenges, we propose an innovative retrieval method that reduces the complexity and computational cost of
 
 ![](_page_6_Figure_0.jpeg)
-<!-- Image Description: The image displays three directed graphs illustrating different collaboration patterns within a project knowledge graph (PKG).  (a) shows a subgraph of the PKG, depicting relationships between professors, projects, papers, and researchers, with labels indicating actions like "participate" and "publish." (b) and (c) are subgraphs focusing on specific collaboration paths: (b) shows a "professor-project-professor" interaction, and (c) demonstrates a "project-paper-researcher" relationship.  The graphs visualize collaboration structures and flows within a research network. -->
 
 Figure 6: Meta-path Retriever. When using meta-paths, we only care about the node chain but not the relations between them. After we obtain the node sequences, we can analyze the connections among different entities. (b) and (c) illustrate various meta-paths highlighting different relationships and interactions within subgraph (a).
 
@@ -350,7 +344,6 @@ Overall, while regular matching serves as a foundational method for expanding kn
 ## <span id="page-10-0"></span>4.6 Further Analysis
 
 <span id="page-10-2"></span>![](_page_10_Figure_2.jpeg)
-<!-- Image Description: The image contains two line graphs comparing the inference and temporal performance of different retriever settings (LLM, +REG RE, +VEC RE, +META-P RE) for a multihop-RAG model.  Four variations of the Qwen2.5 model (0.5B, 1.5B, 3B, 7B parameters) are evaluated.  Each graph shows how inference time and temporal performance change with increasing retriever complexity, revealing a trade-off between model size and performance across different retriever settings. -->
 
 Figure 7: Performance comparison of different retriever settings on Multihop-RAG dataset. The left panel shows inference performance, while the right panel illustrates temporal performance across various configurations (Qwen2.5-0.5B, Qwen2.5-1.5B, Qwen2.5-3B, and Qwen2.5-7B).
 

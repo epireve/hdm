@@ -94,12 +94,10 @@ where *ψ(*·*)* denotes the digamma function, -· denotes the average function.
 In each cross-validation iteration, we calculated the mutual information between all omics data and labels based on the training set. Data with mutual information greater than the mean mutual information were retained for training.
 
 ![](_page_2_Figure_1.jpeg)
-<!-- Image Description: This flowchart illustrates a multi-step machine learning model for risk prediction.  It begins with data preparation showing copy number variation, DNA methylation, and mRNA expression data. This is followed by a gene encoding GNN (graph neural network) step visualized as a graph.  A pathway aggregation block combines pathway information, represented as nodes and edges, using fully connected (FC) layers. Finally, a prediction head with FC layers outputs a high or low-risk classification. -->
 
 <span id="page-2-0"></span>**Figure 1.** The algorithm comprises three modules: the graph neural network utilizes a guidance graph to encode features at the gene level, the pathway aggregation block aggregates gene features into pathway features based on pathway information and, finally, the prediction module uses pooling, FC layers to predict the risk.
 
 ![](_page_2_Figure_3.jpeg)
-<!-- Image Description: This illustration depicts a graph neural network (GNN) training process.  It shows a "Guidance Graph" multiplied by a "Node-wise Mask" to create a "Masked Graph." This masked graph is then fed as input to a neural network.  The network's backpropagation updates the node-wise gradient, iteratively refining the mask and improving the GNN's performance.  The diagrams visually represent the data flow and the masking/updating steps within the training loop. -->
 
 <span id="page-2-1"></span>**Figure 2.** The gene interpretation algorithm assigns a mask to each node. The masked graph is obtained by multiplying the mask with the Guidance graph, and this masked graph is then input into the neural network. Through multiple iterations using gradient descent, the mask values are adjusted to minimize the error between the predicted result and the true value. In the end, critical nodes with high mask values and non-critical nodes with low mask values are obtained.
 
@@ -280,12 +278,10 @@ Gene pathways, another important biological information, were utilized in our su
 Considering the higher fatality rate of GBM, patients with a survival time exceeding 2 years were classified as long-term survivors (LTSs), while those with a survival time less than 2 years were classified as non-LTSs. For LGG and KIRC, which have lower fatality rates compared with GBM, patients with a survival time exceeding 3 years were considered LTSs, while those with a survival time less than 3 years were considered non-LTSs. The LTS and non-LTS groups had 55 and 234 cases for GBM, 156 and 75 cases for LGG and 154 and 69 cases for KIRC, respectively.
 
 ![](_page_5_Figure_1.jpeg)
-<!-- Image Description: The figure displays three Kaplan-Meier plots (A, B, C) showing survival curves for two groups (Group1 and Group2) across three cancer types: GBM, LGG, and KIRC.  Each plot includes a log-rank test p-value indicating the statistical significance of survival differences between the groups.  Shaded areas represent 95% confidence intervals. The plots illustrate the survival time distributions for each group in the respective cancer types. -->
 
 <span id="page-5-0"></span>**Figure 3.** The patients were divided into high-risk and low-risk groups based on the predicted median, and there was a significant difference between the two groups in Kaplan–Meier analysis.
 
 ![](_page_5_Figure_3.jpeg)
-<!-- Image Description: The image displays four t-SNE visualizations, each plotting two t-SNE features.  The data points are colored blue (low risk) or red (high risk). The visualizations are for all omics, mRNA, CNV, and MT data, respectively.  The purpose is to illustrate the clustering of samples based on risk level for different omics datasets using dimensionality reduction. -->
 
 <span id="page-5-1"></span>**Figure 4.** t-SNE was used to visualize the features of pathways trained on the LGG model. It can be observed that in all three omics and overall, there is a clear distinction in pathway features between high-risk and low-risk patients.
 
@@ -361,7 +357,6 @@ From the table, it can be observed that using only mRNA data gets the worst perf
 We identified key genes using the GNN-Explainer-based interpretation method, and the results for LGG are shown in [Table](#page-6-4) 6. The mean of the gene's importance scores across all samples is taken as the gene's overall importance score. For each omics, we selected the top three important key genes with adjusted *P*-values less than 0.05 for display. We divided patients into two groups, a high-importance-score group and a low-importance-score group, based on the mean importance score of a specific gene. Using this
 
 ![](_page_7_Figure_1.jpeg)
-<!-- Image Description: This image displays three Kaplan-Meier survival curves (A, B, C), each showing the survival probability over time (in days) for two groups: "Low Importance" and "High Importance."  The shaded areas represent confidence intervals.  Each graph also provides a log-rank test p-value indicating the statistical significance of the difference in survival between the groups for a specific mRNA (A, B) or MT (C)  The figure illustrates the association between gene expression levels and survival outcomes. -->
 
 <span id="page-7-0"></span>**Figure 5.** Kaplan–Meier curves for genes, dichotomized into two groups based on the median split of gene importance scores. The shaded area represents the 95% confidence interval.
 
@@ -412,7 +407,6 @@ have shown that methylation omics is important for our model. Therefore, compare
 <span id="page-7-8"></span>We have proposed a novel risk assessment algorithm, the multiomics-GNN, which effectively integrates multi-omics data, gene regulatory networks and pathway information to extract features and improve accuracy in predicting survival risk. Our model outperforms conventional methods when applied to diverse cancer datasets with multi-omics data. Moreover, we have demonstrated that our method based on multiple omics data achieves superior performance than on single omics data. Each additional omics contributes significantly and essentially to enhancing predictive performance, highlighting the effectiveness of the correlation-based multi-omics guidance
 
 ![](_page_8_Figure_1.jpeg)
-<!-- Image Description: The image contains four Kaplan-Meier survival curves (A-D). Each plot displays the survival probability over time (days) for "low importance" and "high importance" groups concerning different biological pathways (MAPK signaling, ECM-receptor interaction, steroid biosynthesis).  The log-rank test p-values indicate the statistical significance of survival differences between groups for each pathway. The shaded areas represent 95% confidence intervals.  The figure illustrates the association between gene expression levels and patient survival. -->
 
 <span id="page-8-0"></span>**Figure 6.** Kaplan–Meier curves for pathway, dichotomized into two groups based on the median split of pathway importance scores. The shaded area represents the 95% confidence interval.
 

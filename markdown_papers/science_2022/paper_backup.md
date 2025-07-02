@@ -60,7 +60,6 @@ The construction of knowledge graph mainly adopts two methods of top-down and bo
 The process of building a knowledge graph mainly consists of data collection, knowledge extraction, knowledge integration and knowledge application. The technical architecture of the knowledge graph is shown in Figure 1.
 
 ![](_page_1_Figure_4.jpeg)
-<!-- Image Description: The flowchart illustrates a knowledge graph construction process.  It shows data collection (structured, semi-structured, unstructured), knowledge extraction (physical, relationship, attribute extraction), knowledge integration (consolidation, common finger dissipation, entity disambiguation), and knowledge processing (intellectual reasoning, quality assessment, ontology construction).  The output is a knowledge graph built from third-party databases. -->
 
 Figure 1. The technical architecture of the knowledge graph
 
@@ -116,7 +115,6 @@ A key step in building a knowledge graph is through keyword extraction of the ac
 LDA (Latent Dirichlet Allocation), also known as the three-layer Bayesian probabilistic model, is to discover the subject information contained in documents through unsupervised learning. It consists of a three-layer structure of words, topics and documents. By using the co-occurrence relationship of words in the document to cluster the words, two probability distributions of "document topic" and "topic word" are obtained [9]. The relationships are shown in Figure 2.
 
 ![](_page_2_Figure_10.jpeg)
-<!-- Image Description: The figure is a graphical model depicting a generative process.  It shows a directed acyclic graph where nodes represent variables (e.g.,  θ,  φ, Z<sub>m,n</sub>, W<sub>m,n</sub>) and edges denote dependencies.  The model likely illustrates the relationships between latent variables (θ, φ) and observed variables (W<sub>m,n</sub>), possibly within a Bayesian framework. Subscripts  *m* and *n* suggest multiple instances of  Z and W, indicating a structured data representation.  The shaded node, W, implies it's the observed data.  The purpose is to visually represent the probabilistic model's structure and data generation process. -->
 
 Figure 2. LDA model
 
@@ -186,7 +184,6 @@ Based on the above table, the relationships between entities (X,contains,Y), (X,
 Through data crawling, keyword extraction and relationship extraction and other related work, our last step is to store and visualize knowledge. After comparing and measuring the extracted keywords with those obtained by manual construction, 239 entities were finally selected. At the same time, the attributes contained in each entity are completed manually. This paper uses SmartKG for knowledge storage and the results are shown in Figure 3.
 
 ![](_page_3_Figure_12.jpeg)
-<!-- Image Description: This image displays a knowledge graph, a network visualization. Nodes (circles), colored by category, represent concepts (e.g., "content," "subtask").  Edges (lines) show relationships between concepts, predominantly labeled "belong to," indicating hierarchical or associative links. The graph likely illustrates the structure or interdependencies within a specific knowledge domain, aiding analysis of its organization and complexity within the paper. -->
 
 Figure 3. Computer network knowledge graph
 
@@ -195,12 +192,10 @@ This paper focuses on the keywords "computer network basics" and "experimental t
 SmartKG can search for knowledge by querying, as shown in Figure 4. By inputting the keyword "Router", and then the relevant knowledge points will appear. Take the knowledge point "Router" as an example, it is both a key knowledge point in the theory class and a equipment that is required everywhere in the practical class. As the teaching requires students to have a high level of knowledge about routers and the ability to apply this knowledge, it can be displayed in the form of knowledge graph, which can enable students to master the required knowledge content in different learning periods. As shown in Figure 5, the router knowledge graph contains the basic attributes "definition", "english name", "function", "performance indicator" and "port". Moreover, it is one of the network transmission media. At the same time, the knowledge point "Router" involves many experimental tasks, such as "Basic configuration of a router" "LAN users accessing the Internet through a router" "Accessing the Internet through a wireless routing relationship", and so on.
 
 ![](_page_4_Figure_0.jpeg)
-<!-- Image Description: The image displays a search results interface.  A search for "Router" yielded three results: "Router," "Router configuration command," and "Router and layer 3 switch."  The interface shows a search bar, the number of results found (3), and a button to collapse all results.  The image likely illustrates a search function within a network configuration or documentation tool. -->
 
 Figure 4. Query function
 
 ![](_page_4_Figure_2.jpeg)
-<!-- Image Description: This image is a knowledge graph visualizing relationships related to the term "Router."  The central node, colored crimson, represents "Router."  Gray nodes represent related concepts (e.g., "LAN port," "definition"), while red nodes denote relational terms (e.g., "belong to," "related knowledge").  Arrows indicate the direction of relationships between nodes, illustrating a network of interconnected concepts within the context of a router.  The graph likely serves to illustrate knowledge representation or semantic relationships in the paper. -->
 
 Figure 5. Router knowledge points
 
