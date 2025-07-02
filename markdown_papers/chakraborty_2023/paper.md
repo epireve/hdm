@@ -4,24 +4,30 @@ title: A Comprehensive Survey of Personal Knowledge Graphs
 authors: Prantika Chakraborty, Debarshi Kumar Sanyal
 year: 2023
 doi: 10.1002/widm.1513
-date_processed: '2025-07-02'
+url: https://doi.org/10.1002/widm.1513
+relevancy: High
+relevancy_justification: Directly addresses HDM/PKG concepts with focus on personal data management
+tags:
+  - ai
+  - children
+  - knowledge_graph
+  - llm
+  - machine_learning
+  - memory
+  - ontology
+  - pediatric
+  - personal
+  - privacy
+  - semantic
+  - survey
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: WIREs Data Min   Knowl - 2023 - Chakraborty - A comprehensive survey
-  of personal knowledge graphs
 images_total: 7
 images_kept: 7
 images_removed: 0
-tags:
-- Knowledge Graph
-- Machine Learning
-- Natural Language Processing
-- Recommendation System
-- Semantic Web
-keywords:
-- day-to-day
-- knowledge graphs
-- pkg
-- recommender systems
+keywords: 
 ---
 
 

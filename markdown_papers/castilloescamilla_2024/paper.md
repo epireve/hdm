@@ -1,20 +1,22 @@
 ---
-cite_key: "castilloescamilla_2024"
-title: "The Role of Physical Activity on Spatial and Temporal Cognitive Processing in Young Women"
-authors: "Joaquín Castillo-Escamilla, María del Mar Salvador-Viñas, José Manuel Cimadevilla"
+cite_key: castilloescamilla_2024
+title: The Role of Physical Activity on Spatial and Temporal Cognitive Processing in Young Women
+authors: Joaquín Castillo-Escamilla, María del Mar Salvador-Viñas, José Manuel Cimadevilla
 year: 2024
-doi: "10.3390/brainsci15050431"
+doi: 10.3390/brainsci15050431
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
 tags:
-  - "Knowledge Graph"
-  - "Machine Learning"
-  - "Mental Health"
-  - "Temporal"
-date_processed: "2025-07-02"
-phase2_processed: "true"
-original_folder: "brainsci-15-00431-v3"
-images_total: "12"
-images_kept: "9"
-images_removed: "3"
+  - Knowledge Graph
+  - Machine Learning
+  - Mental Health
+  - Temporal
+date_processed: 2025-07-02
+phase2_processed: true
+original_folder: brainsci-15-00431-v3
+images_total: 12
+images_kept: 9
+images_removed: 3
 ---
 
 <!-- cite_key: castillo-escamilla2025 -->

@@ -4,35 +4,25 @@ title: A human digital twin for the M‑Machine
 authors: Jami Aho
 year: 2023
 doi: 10.1007/s44163-024-00164-x
-date_processed: '2025-07-02'
+url: https://doi.org/10.1007/s44163-024-00164-x
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
+tags:
+  - ai
+  - digital_twin
+  - integration
+  - machine_learning
+  - memory
+  - personal
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: Saariluoma-2024-A-human-digital-twin-for-the-m-mach
 images_total: 11
 images_kept: 9
 images_removed: 2
-tags:
-- Machine Learning
-keywords:
-- a conceptual and
-- actions involved in
-- and operating
-- and their use
-- are computational models
-- artifcial intelligence designers
-- as a result
-- as their foundations
-- as tools in
-- associated with certain
-- but also include
-- cognitive
-- cyber-physical
-- design
-- designers to model
-- designing intelligent
-- designing intelligent technologies
-- human
-- indeed
-- interaction
+keywords: 
 ---
 
 # Research

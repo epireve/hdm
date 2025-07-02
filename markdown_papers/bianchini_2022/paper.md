@@ -4,48 +4,27 @@ title: A semantics-enabled approach for personalised Data Lake exploration
 authors: Devis Bianchini, Valeria De Antonellis
 year: 2022
 doi: 10.2785/56118
-date_processed: '2025-07-02'
+url: https://doi.org/10.2785/56118
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
+tags:
+  - ai
+  - federated
+  - heterogeneous
+  - integration
+  - machine_learning
+  - ontology
+  - personal
+  - semantic
+  - survey
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: s10115-023-02014-1
 images_total: 15
 images_kept: 14
 images_removed: 1
-tags:
-- Data Integration
-- IoT
-- Machine Learning
-- Semantic Web
-keywords:
-- 1 introduction
-- 31 data lake model
-- 41 multi-dimensional ontology
-- 42 exploration graph creation
-- 51 multi-dimensional descriptors
-- 71 architecture for semantic data lake exploration
-- 81 experimental setup
-- 91 semantic data lake models
-- API
-- AggregationFunction
-- AirPollutionIndicator
-- AirPollutionMonitoring
-- BabelNet
-- BuildingAdministrator
-- DataFrom
-- DataSet
-- MonitoringPollutionLevels
-- SpatialDimension
-- according to the dimensions in
-- aggregate-query
-- aggregation-function
-- aldana-montes
-- analysis dimensions
-- analysis time
-- application programming interface
-- application zone
-- as is
-- attribute-value
-- author contributions
-- available data sources
+keywords: 
 ---
 
 

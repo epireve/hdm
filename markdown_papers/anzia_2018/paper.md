@@ -1,22 +1,24 @@
 ---
-cite_key: "anzia_2018"
-title: "Multimodal joint learning for personal knowledge base construction from Twitter-based lifelogs"
-authors: "Yen An-Zia, Huang Hen-Hsenb, Chen Hsin-Hsia"
+cite_key: anzia_2018
+title: Multimodal joint learning for personal knowledge base construction from Twitter-based lifelogs
+authors: Yen An-Zia, Huang Hen-Hsenb, Chen Hsin-Hsia
 year: 2018
-doi: "10.1016/j.ipm.2019.102148"
+doi: 10.1016/j.ipm.2019.102148
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
 tags:
-  - "Healthcare"
-  - "IoT"
-  - "Machine Learning"
-  - "Natural Language Processing"
-  - "Privacy"
-  - "Semantic Web"
-date_processed: "2025-07-02"
-phase2_processed: "true"
-original_folder: "1-s2.0-S0306457319303401-main"
-images_total: "19"
-images_kept: "19"
-images_removed: "0"
+  - Healthcare
+  - IoT
+  - Machine Learning
+  - Natural Language Processing
+  - Privacy
+  - Semantic Web
+date_processed: 2025-07-02
+phase2_processed: true
+original_folder: 1-s2.0-S0306457319303401-main
+images_total: 19
+images_kept: 19
+images_removed: 0
 ---
 
 Contents lists available at [ScienceDirect](http://www.sciencedirect.com/science/journal/03064573)

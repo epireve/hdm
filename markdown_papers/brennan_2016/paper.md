@@ -4,17 +4,25 @@ title: Towards a knowledge driven framework for bridging the gap between softwar
 authors: Rob Brennan, Wolters Kluwer
 year: 2016
 doi: 10.1016/j.jss.2018.12.017
-date_processed: '2025-07-02'
+url: https://doi.org/10.1016/j.jss.2018.12.017
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
+tags:
+  - ai
+  - integration
+  - llm
+  - machine_learning
+  - ontology
+  - personal
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: 1-s2.0-S0164121218302772-main
 images_total: 5
 images_kept: 5
 images_removed: 0
-tags:
-- Machine Learning
-- Semantic Web
-keywords:
-- woodcut-style
+keywords: 
 ---
 
 

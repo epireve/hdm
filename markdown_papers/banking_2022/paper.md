@@ -4,47 +4,23 @@ title: Incremental Analysis of Legacy Applica4ons Using Knowledge Graphs for App
 authors: Industries such as banking, telecom
 year: 2022
 doi: 10.1145/3493700.3493735
-date_processed: '2025-07-02'
+url: https://doi.org/10.1145/3493700.3493735
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
+tags:
+  - ai
+  - knowledge_graph
+  - machine_learning
+  - ontology
+  - personal
+  - semantic
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_arxiv_2505.06885_Incremental_Analysis_of_Legacy_Applications_Using_Knowledge_Graphs_for_Applicati
 images_total: 7
 images_kept: 6
 images_removed: 1
-tags:
-- Knowledge Graph
-- Machine Learning
-- Semantic Web
-keywords:
-- 1 code discovery and knowledge graph construcjon
-- 1 introduction
-- 2 increment creajon via neighbourhood detecjon
-- 2 system overview
-- 3 system demonstration
-- 4 conclusions and future work
-- AppModDemos
-- ApplicaAon
-- ApplicaGon
-- ApplicaGons
-- ApplicaIon
-- ApplicaIons
-- CompuGng
-- ConstrucJon
-- ConsulBng
-- CreaGon
-- acm reference format
-- appdiscoveryand-delivery-intelligence
-- applicaaon migraaon strategies
-- aws-migrabon
-- aws-migration-whitepaper
-- ccs concepts
-- chunking-strategy
-- chunking-strategy-strangler-pattern
-- cods-comad
-- cods-comad 2022 january 810 2022 bangalore india
-- custom-made
-- decomposing monoliths
-- end-to-end
-- engty-relagonship
+keywords: 
 ---
 
 # Incremental Analysis of Legacy Applica4ons Using Knowledge Graphs for Applica4on Moderniza4on

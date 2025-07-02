@@ -4,33 +4,24 @@ title: Integrating Manifold Knowledge for Global Entity Linking with Heterogeneo
 authors: Zhibin Chen, Yuting Wu, Yansong Feng
 year: 2022
 doi: 10.1162/dint_a_00116
-date_processed: '2025-07-02'
+url: https://doi.org/10.1162/dint_a_00116
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
+tags:
+  - ai
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - machine_learning
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: dint_a_00116
 images_total: 8
 images_kept: 6
 images_removed: 2
-tags:
-- Knowledge Graph
-- Machine Learning
-- Natural Language Processing
-- Semantic Web
-keywords:
-- BERT
-- CNN
-- NLP
-- artificial intelligence
-- attention-based
-- attention-based graph
-- author biography
-- author contributions
-- bert
-- bi-directional
-- bi-linear
-- classification
-- cnn
-- cuttitta
-- dcnn
+keywords: 
 ---
 
 

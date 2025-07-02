@@ -3,6 +3,8 @@ cite_key: li_2022
 title: "Microservice extraction based on knowledge graph from monolithic applications"
 authors: Zhiding Li, Chenqi Shang, Jianjie Wu, Yuan Li
 year: 2022
+doi: 10.1016/j.infsof.2022.106992
+url: https://doi.org/10.1016/j.infsof.2022.106992
 ---
 
 ![](_page_0_Picture_1.jpeg)

@@ -3,40 +3,19 @@ cite_key: chami_2003
 title: A SysML-based Integration Framework for the Engineering of Mechatronic Systems
 authors: Mohammad Chami
 year: 2003
-date_processed: '2025-07-02'
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
+tags:
+  - ai
+  - integration
+  - machine_learning
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: SysML-based_Integration_Framework
 images_total: 3
 images_kept: 3
 images_removed: 0
-tags:
-- Machine Learning
-keywords:
-- SysMl
-- abstract
-- all-in-one
-- attribute level
-- bottom-up
-- client agent
-- client agents
-- co-simulation
-- computer
-- control engineering practise
-- cross-domain
-- data integration
-- discipline-specific
-- domain-specifc
-- domain-specifc design phase
-- domain-specific
-- element level
-- general-purpose
-- graph-based
-- graph-based data
-- high-level
-- higher-ranking
-- hs-weingarten
-- performance
-- requirement
+keywords: 
 ---
 
 # A SysML-based Integration Framework for the Engineering of Mechatronic Systems

@@ -3,25 +3,25 @@ cite_key: cai_2022
 title: Temporal Knowledge Graph Completion: A Survey
 authors: Borui Cai, Yong Xiang, Longxiang Gao, He Zhang, Yunfeng Li, Jianxin Li
 year: 2022
-date_processed: '2025-07-02'
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
+tags:
+  - ai
+  - integration
+  - knowledge_graph
+  - llm
+  - machine_learning
+  - memory
+  - semantic
+  - survey
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: Cai-2023-Temporal-knowledge-graph-completion
 images_total: 1
 images_kept: 1
 images_removed: 0
-tags:
-- Knowledge Graph
-- Machine Learning
-- Natural Language Processing
-- Recommendation System
-- Semantic Web
-- Temporal
-keywords:
-- knowledge graph
-- knowledge graph completion
-- knowledge graphs
-- real-life
-- temporal knowledge graph
+keywords: 
 ---
 
 

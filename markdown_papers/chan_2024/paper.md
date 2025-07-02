@@ -6,43 +6,27 @@ year: 2024
 doi: arXiv:2408.07569
 url: https://arxiv.org/abs/2408.07569
 relevancy: High
-downloaded: 'No'
+relevancy_justification: Contains relevant concepts applicable to HDM systems
 tags:
-- Heterogeneous Graph Neural Networks
-- Electronic Health Records
-- Multi-task Learning
-- Healthcare Prediction
-- Causal Inference
-tldr: Multi-task learning framework for heterogeneous electronic health record analysis
-  using graph neural networks with causal inference-based denoising for improved healthcare
-  predictions.
-date_processed: '2025-07-02'
+  - ai
+  - healthcare
+  - heterogeneous
+  - knowledge_graph
+  - machine_learning
+  - memory
+  - personal
+  - semantic
+  - survey
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: neural_networks_2024_multitask_heterogeneous_graph_ehr
+downloaded: No
+tldr: Multi-task learning framework for heterogeneous electronic health record analysis
 images_total: 13
 images_kept: 13
 images_removed: 0
-keywords:
-- a denoising
-- additionally
-- adjust for severe
-- adopts a single
-- and predictions of
-- and resulting
-- and resulting in
-- applied to them
-- approaches modeling
-- art designs in
-- attention because of
-- causal inference
-- confounding effects
-- confounding effects and
-- contain enriched information
-- degree of heterogeneity
-- extensive
-- inference
-- keywords
-- learning
+keywords: 
 ---
 
 # Multi-task Heterogeneous Graph Learning on Electronic Health Records

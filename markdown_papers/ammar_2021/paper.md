@@ -4,58 +4,30 @@ title: Using a Personal Health Library–Enabled mHealth Recommender System for 
 authors: Nariman Ammar, James E Bailey, Robert L Davis, Arash Shaban-Nejad
 year: 2021
 doi: 10.2196/24738
-date_processed: '2025-07-02'
+url: https://doi.org/10.2196/24738
+relevancy: High
+relevancy_justification: Directly addresses HDM/PKG concepts with focus on personal data management
+tags:
+  - ai
+  - children
+  - federated
+  - healthcare
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - machine_learning
+  - ontology
+  - pediatric
+  - personal
+  - privacy
+  - semantic
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: formative-2021-3-e24738
 images_total: 18
 images_kept: 18
 images_removed: 0
-tags:
-- Biomedical
-- Blockchain
-- Digital Health
-- Electronic Health Records
-- Federated Learning
-- Healthcare
-- Knowledge Graph
-- Machine Learning
-- Patient Engagement
-- Personal Health
-- Personalized Medicine
-- Privacy
-- Recommendation System
-- Semantic Web
-keywords:
-- API
-- BasicContainer
-- ClinicalTrials
-- DesignIssues
-- EHR
-- HTTP
-- HealthDesign
-- JavaScript
-- LinkedData
-- LongChat
-- a clinic or lab
-- access control list
-- annotation-model
-- append-only
-- application programming interface
-- application-to-server
-- artificial intelligence
-- audio-pahl
-- audio-recordings
-- berners-lee
-- chine learning
-- client-server
-- client-side
-- client-to-server
-- clinical data
-- clinical decision support
-- conflicts of interest
-- construction and management of the phl
-- content-
-- corresponding author
+keywords: 
 ---
 
 # Original Paper

@@ -6,35 +6,26 @@ year: 2025
 doi: 10.48550/arXiv.2501.13956
 url: https://arxiv.org/abs/2501.13956
 relevancy: High
-downloaded: 'Yes'
+relevancy_justification: Contains relevant concepts applicable to HDM systems
 tags:
-- Temporal Knowledge Graph
-- AI Agent Memory
-- Enterprise AI
-- Knowledge Integration
-- Machine Learning
-- Dynamic Data
-tldr: Temporal knowledge graph architecture that outperforms existing memory systems
-  for AI agents with 94.8% performance and 90% latency reduction.
-date_processed: '2025-07-02'
+  - ai
+  - integration
+  - knowledge_graph
+  - llm
+  - machine_learning
+  - memory
+  - semantic
+  - survey
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: zep_temporal_kg_agent_memory_2025
+downloaded: Yes
+tldr: Temporal knowledge graph architecture that outperforms existing memory systems
 images_total: 0
 images_kept: 0
 images_removed: 0
-keywords:
-- cross-session
-- knowledge graph
-- large language model
-- llm
-- long-term
-- rag
-- real-world
-- retrieval-augmented
-- stateof-the-art
-- temporal knowledge graph
-- temporal reasoning
-- temporally-aware
+keywords: 
 ---
 
 

@@ -6,53 +6,25 @@ year: 2024
 doi: 10.48550/arXiv.2402.07540
 url: https://arxiv.org/abs/2402.07540
 relevancy: High
-downloaded: 'Yes'
+relevancy_justification: Directly addresses HDM/PKG concepts with focus on personal data management
 tags:
-- PKG
-- Personal Knowledge Graph
-- Data Management
-- RDF
-- Natural Language Processing
-- User Control
-tldr: Practical solution for managing personal knowledge graphs that enables consolidation
-  of fragmented personal data.
-date_processed: '2025-07-02'
+  - ai
+  - knowledge_graph
+  - llm
+  - ontology
+  - personal
+  - privacy
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: Bernard-2024-Pkg-api-a-tool-for-personal-knowled
+downloaded: Yes
+tldr: Practical solution for managing personal knowledge graphs that enables consolidation
 images_total: 3
 images_kept: 2
 images_removed: 1
-keywords:
-- 1 introduction
-- 2 related work
-- 3 overview and architecture
-- 6 implementation
-- 7 conclusion
-- API
-- GPT
-- HTTP
-- MyData
-- SafeAnswers
-- a learning
-- acm reference format
-- application programming interface
-- artificial intelligence
-- auto-regressive
-- axel-cyrille
-- berners-lee
-- bob likes oppenheimer
-- ccs concepts
-- chain-ofthought
-- classification
-- cross-domain
-- dwivedi-yu
-- end-users
-- entity
-- entity linking
-- few-shot
-- gpt
-- keywords
-- ontology
+keywords: 
 ---
 
 

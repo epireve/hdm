@@ -4,48 +4,28 @@ title: Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information
 authors: Leyla Jael Castro, Benjamin Zapilko, Saurav Karmakar, Brigitte Mathiak, Markus Stocker, Wolfgang Otto
 year: 2019
 doi: 10.15488/13072
-date_processed: '2025-07-02'
+url: https://doi.org/10.15488/13072
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
+tags:
+  - ai
+  - healthcare
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - llm
+  - machine_learning
+  - ontology
+  - personal
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_2506.07285_Research_Knowledge_Graphs_the_Shifting_Paradigm_o
 images_total: 1
 images_kept: 1
 images_removed: 0
-tags:
-- Knowledge Graph
-- Machine Learning
-- Natural Language Processing
-- Semantic Web
-keywords:
-- 1 introduction - open science challenges
-- 2 conceptualization of scholarly knowledge
-- 3 methods for constructing rkgs
-- 4 outlook
-- 5 conclusion
-- BERT
-- BioClinical
-- CrossRef
-- CultureGraph
-- DataCite
-- GitHub
-- McClosky
-- McDermott
-- NLP
-- OpenAlex
-- article-centric
-- artificial intelligence
-- bidirectional encoder representations from transformers
-- bioclinical-bert
-- black-box
-- community-driven
-- community-expression
-- community-expressions
-- cross-domain
-- cross-referencing
-- crowd-workers
-- datenbank-spektrum
-- decision-making
-- deep learning
-- deep learning tsunami
+keywords: 
 ---
 
 # Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information Representation

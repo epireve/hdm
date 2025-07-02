@@ -4,50 +4,29 @@ title: Scoping review of knowledge graph applications in biomedical and healthca
 authors: Sanjay Budhdeo
 year: 2021
 doi: 10.3389/fgene.2020.610798
-date_processed: '2025-07-02'
+url: https://doi.org/10.3389/fgene.2020.610798
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
+tags:
+  - ai
+  - digital_twin
+  - healthcare
+  - integration
+  - knowledge_graph
+  - llm
+  - machine_learning
+  - ontology
+  - personal
+  - privacy
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: medrxiv_kg_scoping_review
 images_total: 5
 images_kept: 5
 images_removed: 0
-tags:
-- Biomedical
-- Cancer
-- Healthcare
-- Knowledge Graph
-- Machine Learning
-- Semantic Web
-keywords:
-- AstraZeneca
-- BioMap
-- ClinVar
-- CoVar
-- DisGeNet
-- DrugBank
-- DrugCentral
-- EHR
-- GraphText
-- McKechnie
-- a priori
-- aims of the review
-- all-purpose
-- and learning
-- article filtering
-- artificial intelligence
-- bio-entities
-- by-nc-nd
-- cc-by-nc-nd
-- class-node
-- clinical data
-- consensus-driven
-- cross-disciplinary
-- cross-validation
-- cut-off
-- data collection
-- data privacy
-- data sources
-- de-identification
-- deep learning
+keywords: 
 ---
 
 It is made available under a [CC-BY-NC-ND 4.0 International license](http://creativecommons.org/licenses/by-nc-nd/4.0/) .

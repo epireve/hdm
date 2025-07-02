@@ -4,48 +4,27 @@ title: A Lightweight Multi-Expert Generative Language Model System for Engineeri
 authors: Bogdan Bogachov
 year: 2018
 doi: 10.48550/arXiv.2302.04023.
-date_processed: '2025-07-02'
+url: https://doi.org/10.48550/arxiv.2302.04023.
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
+tags:
+  - ai
+  - integration
+  - knowledge_graph
+  - llm
+  - machine_learning
+  - memory
+  - personal
+  - privacy
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_arxiv_2505.21109_A_Lightweight_Multi-Expert_Generative_Language_Model_System_for_Engineering_Info
 images_total: 4
 images_kept: 4
 images_removed: 0
-tags:
-- Cloud Computing
-- Machine Learning
-- Privacy
-- Semantic Web
-keywords:
-- 21 prompt engineering
-- 22 fine-tuning
-- 24 llms in engineering
-- 32 slg
-- 42 fine-tuning strategy
-- 7 acknowledgment
-- ArXiv
-- BERT
-- BitTorrent
-- CessnaSingle
-- GPT
-- LangChain
-- LangGraph
-- McComb
-- McCoy
-- McGill
-- above-mentioned
-- advance-article-pdf
-- allen-zhu
-- artificial intelligence
-- bidirectional encoder representations from transformers
-- cessna-maintenance-manuals
-- closed-source
-- cloud computing
-- data-driven
-- differential privacy
-- domain-specific
-- english-language
-- ew-tune
-- fact-checking
+keywords: 
 ---
 
 # A LIGHTWEIGHT MULTI-EXPERT GENERATIVE LANGUAGE MODEL SYSTEM FOR ENGINEERING INFORMATION AND KNOWLEDGE EXTRACTION

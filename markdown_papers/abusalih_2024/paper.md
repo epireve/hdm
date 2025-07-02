@@ -1,21 +1,23 @@
 ---
-cite_key: "abusalih_2024"
-title: "A systematic literature review of knowledge graph construction and application in education"
-authors: "Bilal Abu-Salih, Salihah Alotaibi"
+cite_key: abusalih_2024
+title: A systematic literature review of knowledge graph construction and application in education
+authors: Bilal Abu-Salih, Salihah Alotaibi
 year: 2024
-doi: "10.1016/j.heliyon.2024.e25383"
+doi: 10.1016/j.heliyon.2024.e25383
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
 tags:
-  - "Healthcare"
-  - "Knowledge Graph"
-  - "Machine Learning"
-  - "Recommendation System"
-  - "Semantic Web"
-date_processed: "2025-07-02"
-phase2_processed: "true"
-original_folder: "1-s2.0-S2405844024014142-main"
-images_total: "6"
-images_kept: "6"
-images_removed: "0"
+  - Healthcare
+  - Knowledge Graph
+  - Machine Learning
+  - Recommendation System
+  - Semantic Web
+date_processed: 2025-07-02
+phase2_processed: true
+original_folder: 1-s2.0-S2405844024014142-main
+images_total: 6
+images_kept: 6
+images_removed: 0
 ---
 
 Contents lists available at [ScienceDirect](www.sciencedirect.com/science/journal/24058440)

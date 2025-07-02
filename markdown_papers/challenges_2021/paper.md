@@ -4,23 +4,25 @@ title: XIN PENG, Fudan University, China CHONG WANG, Fudan University, China MIN
 authors: To address these challenges, we propose the concept, framework of Code Digital Twin, a conceptual representation of tacit knowledge that encapsulates the concepts, functionalities, design rationales behind code elements, co-evolving with the software. The framework structures tacit knowledge into two key categories: the artifact-oriented backbone, which establishes a foundational structure by linking concepts, functionalities to software artifacts, the rationale-centric explanations, which enrich this foundation by capturing the decisions that have shaped the system's design, evolution. The methodology for realizing a code digital twin combines structured, unstructured knowledge representations, integrating knowledge graphs, frames, textual descriptions to capture domain concepts
 year: 2021
 doi: 10.1145/3611643.3616317
-date_processed: '2025-07-02'
+url: https://doi.org/10.1145/3611643.3616317
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
+tags:
+  - ai
+  - digital_twin
+  - integration
+  - knowledge_graph
+  - llm
+  - machine_learning
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_arxiv_2503.07967_Code_Digital_Twin_Empowering_LLMs_with_Tacit_Knowledge_for_Complex_Software_Main
 images_total: 2
 images_kept: 2
 images_removed: 0
-tags:
-- Knowledge Graph
-- Machine Learning
-- Semantic Web
-keywords:
-- co-evolving
-- digital twin
-- large language models
-- repository-level
-- well-defined
-- yat-sen
+keywords: 
 ---
 
 
