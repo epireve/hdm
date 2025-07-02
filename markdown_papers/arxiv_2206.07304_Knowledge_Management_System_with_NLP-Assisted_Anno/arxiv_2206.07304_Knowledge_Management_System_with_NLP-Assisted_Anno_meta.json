@@ -1,0 +1,520 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Knowledge Management System with NLP-Assisted\nAnnotations: A Brief Survey and Outlook",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          87.1591796875,
+          83.453125
+        ],
+        [
+          453.984375,
+          83.453125
+        ],
+        [
+          453.984375,
+          117.5400390625
+        ],
+        [
+          87.1591796875,
+          117.5400390625
+        ]
+      ]
+    },
+    {
+      "title": "Abstract",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          130.64898681640625,
+          177.221923828125
+        ],
+        [
+          164.92752075195312,
+          177.221923828125
+        ],
+        [
+          164.92752075195312,
+          186.1883544921875
+        ],
+        [
+          130.64898681640625,
+          186.1883544921875
+        ]
+      ]
+    },
+    {
+      "title": "Keywords",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          130.96299743652344,
+          273.09991455078125
+        ],
+        [
+          171.66148376464844,
+          273.09991455078125
+        ],
+        [
+          171.66148376464844,
+          282.06634521484375
+        ],
+        [
+          130.96299743652344,
+          282.06634521484375
+        ]
+      ]
+    },
+    {
+      "title": "1. Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          89.29100036621094,
+          309.77264404296875
+        ],
+        [
+          179.87879943847656,
+          309.77264404296875
+        ],
+        [
+          179.87879943847656,
+          322.6842041015625
+        ],
+        [
+          89.29100036621094,
+          322.6842041015625
+        ]
+      ]
+    },
+    {
+      "title": "2. An Applied Perspective",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          89.05078125,
+          394.3126220703125
+        ],
+        [
+          242.8744659423828,
+          394.3126220703125
+        ],
+        [
+          242.8744659423828,
+          407.22705078125
+        ],
+        [
+          89.05078125,
+          407.22705078125
+        ]
+      ]
+    },
+    {
+      "title": "2.1. Applications",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          88.46875,
+          417.680419921875
+        ],
+        [
+          172.63485717773438,
+          417.680419921875
+        ],
+        [
+          172.63485717773438,
+          428.44000244140625
+        ],
+        [
+          88.46875,
+          428.44000244140625
+        ]
+      ]
+    },
+    {
+      "title": "2.2. User scenarios",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          88.9052734375,
+          556.4594116210938
+        ],
+        [
+          181.50076293945312,
+          556.4594116210938
+        ],
+        [
+          181.50076293945312,
+          567.218994140625
+        ],
+        [
+          88.9052734375,
+          567.218994140625
+        ]
+      ]
+    },
+    {
+      "title": "2.3. Case studies",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          302.6190185546875,
+          252.435546875
+        ],
+        [
+          384.5318603515625,
+          252.435546875
+        ],
+        [
+          384.5318603515625,
+          263.26202392578125
+        ],
+        [
+          302.6190185546875,
+          263.26202392578125
+        ]
+      ]
+    },
+    {
+      "title": "3. Bidirectional KMS Framework",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          88.68701171875,
+          469.7126159667969
+        ],
+        [
+          284.6822814941406,
+          469.7126159667969
+        ],
+        [
+          284.6822814941406,
+          482.6242370605469
+        ],
+        [
+          88.68701171875,
+          482.6242370605469
+        ]
+      ]
+    },
+    {
+      "title": "4. NLP-Assisted Insight\nAnnotation",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          302.365234375,
+          300.88067626953125
+        ],
+        [
+          440.1404113769531,
+          300.88067626953125
+        ],
+        [
+          440.1404113769531,
+          329.28619384765625
+        ],
+        [
+          302.365234375,
+          329.28619384765625
+        ]
+      ]
+    },
+    {
+      "title": "5. Practical Considerations",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          301.4921875,
+          211.39959716796875
+        ],
+        [
+          462.71484375,
+          211.39959716796875
+        ],
+        [
+          462.71484375,
+          224.3111572265625
+        ],
+        [
+          301.4921875,
+          224.3111572265625
+        ]
+      ]
+    },
+    {
+      "title": "6. Conclusions",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          89.1962890625,
+          308.14404296875
+        ],
+        [
+          177.28355407714844,
+          308.14404296875
+        ],
+        [
+          177.28355407714844,
+          321.147216796875
+        ],
+        [
+          89.1962890625,
+          321.147216796875
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          88.9052734375,
+          582.7516479492188
+        ],
+        [
+          153.70697021484375,
+          582.7516479492188
+        ],
+        [
+          153.70697021484375,
+          595.6632537841797
+        ],
+        [
+          88.9052734375,
+          595.6632537841797
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          193
+        ],
+        [
+          "Line",
+          91
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "Footnote",
+          6
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          189
+        ],
+        [
+          "Line",
+          103
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          4
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          137
+        ],
+        [
+          "Line",
+          66
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          247
+        ],
+        [
+          "Line",
+          105
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          216
+        ],
+        [
+          "Line",
+          104
+        ],
+        [
+          "ListItem",
+          17
+        ],
+        [
+          "Reference",
+          17
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          139
+        ],
+        [
+          "Line",
+          61
+        ],
+        [
+          "ListItem",
+          17
+        ],
+        [
+          "Reference",
+          17
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2206.07304_Knowledge_Management_System_with_NLP-Assisted_Anno"
+}

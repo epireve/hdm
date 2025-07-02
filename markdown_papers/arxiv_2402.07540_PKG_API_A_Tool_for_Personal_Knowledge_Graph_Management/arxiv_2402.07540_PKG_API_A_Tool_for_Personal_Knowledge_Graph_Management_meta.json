@@ -1,0 +1,548 @@
+{
+  "table_of_contents": [
+    {
+      "title": "PKG API: A Tool for Personal Knowledge Graph Management",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          64.0986328125,
+          82.76806640625
+        ],
+        [
+          557.61328125,
+          82.76806640625
+        ],
+        [
+          557.61328125,
+          99.98345947265625
+        ],
+        [
+          64.0986328125,
+          99.98345947265625
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.71435546875,
+          180.99859619140625
+        ],
+        [
+          113.92822265625,
+          180.99859619140625
+        ],
+        [
+          113.92822265625,
+          191.90771484375
+        ],
+        [
+          53.71435546875,
+          191.90771484375
+        ]
+      ]
+    },
+    {
+      "title": "CCS CONCEPTS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.79800033569336,
+          337.0185546875
+        ],
+        [
+          134.9208984375,
+          337.0185546875
+        ],
+        [
+          134.9208984375,
+          347.9276428222656
+        ],
+        [
+          53.79800033569336,
+          347.9276428222656
+        ]
+      ]
+    },
+    {
+      "title": "KEYWORDS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.602294921875,
+          394.4095458984375
+        ],
+        [
+          117.2900390625,
+          394.4095458984375
+        ],
+        [
+          117.2900390625,
+          405.3186340332031
+        ],
+        [
+          53.602294921875,
+          405.3186340332031
+        ]
+      ]
+    },
+    {
+      "title": "ACM Reference Format:",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.50300216674805,
+          436.24713134765625
+        ],
+        [
+          141.56982421875,
+          436.24713134765625
+        ],
+        [
+          141.56982421875,
+          444.7265625
+        ],
+        [
+          53.50300216674805,
+          444.7265625
+        ]
+      ]
+    },
+    {
+      "title": "1 INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.79800033569336,
+          486.860595703125
+        ],
+        [
+          156.5290069580078,
+          486.860595703125
+        ],
+        [
+          156.5290069580078,
+          497.7696838378906
+        ],
+        [
+          53.79800033569336,
+          497.7696838378906
+        ]
+      ]
+    },
+    {
+      "title": "2 RELATED WORK",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          53.154052734375,
+          224.5645751953125
+        ],
+        [
+          157.58717346191406,
+          224.5645751953125
+        ],
+        [
+          157.58717346191406,
+          235.47369384765625
+        ],
+        [
+          53.154052734375,
+          235.47369384765625
+        ]
+      ]
+    },
+    {
+      "title": "3 OVERVIEW AND ARCHITECTURE",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          53.26611328125,
+          542.9405822753906
+        ],
+        [
+          248.326171875,
+          542.9405822753906
+        ],
+        [
+          248.326171875,
+          553.8496856689453
+        ],
+        [
+          53.26611328125,
+          553.8496856689453
+        ]
+      ]
+    },
+    {
+      "title": "Figure 2: Screenshot of the home screen after submission of\na natural language statement.",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          316.458984375,
+          379.1353759765625
+        ],
+        [
+          558.509765625,
+          379.1353759765625
+        ],
+        [
+          558.509765625,
+          399.0607604980469
+        ],
+        [
+          316.458984375,
+          399.0607604980469
+        ]
+      ]
+    },
+    {
+      "title": "4 PKG VOCABULARY",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.154052734375,
+          197.735595703125
+        ],
+        [
+          170.60171508789062,
+          197.735595703125
+        ],
+        [
+          170.60171508789062,
+          208.64471435546875
+        ],
+        [
+          53.154052734375,
+          208.64471435546875
+        ]
+      ]
+    },
+    {
+      "title": "5 NATURAL LANGUAGE TO PKG",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.3408203125,
+          652.5295715332031
+        ],
+        [
+          229.9482421875,
+          652.5295715332031
+        ],
+        [
+          229.9482421875,
+          663.4386749267578
+        ],
+        [
+          53.3408203125,
+          663.4386749267578
+        ]
+      ]
+    },
+    {
+      "title": "6 IMPLEMENTATION",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.19140625,
+          85.4066162109375
+        ],
+        [
+          169.8837890625,
+          85.4066162109375
+        ],
+        [
+          169.8837890625,
+          96.31573486328125
+        ],
+        [
+          53.19140625,
+          96.31573486328125
+        ]
+      ]
+    },
+    {
+      "title": "7 CONCLUSION",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.26611328125,
+          285.5855712890625
+        ],
+        [
+          141.5726318359375,
+          285.5855712890625
+        ],
+        [
+          141.5726318359375,
+          296.4946594238281
+        ],
+        [
+          53.26611328125,
+          296.4946594238281
+        ]
+      ]
+    },
+    {
+      "title": "ACKNOWLEDGMENTS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.602294921875,
+          474.80657958984375
+        ],
+        [
+          171.3544464111328,
+          474.80657958984375
+        ],
+        [
+          171.3544464111328,
+          485.7156677246094
+        ],
+        [
+          53.602294921875,
+          485.7156677246094
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.79800033569336,
+          532.5195922851562
+        ],
+        [
+          123.21260070800781,
+          532.5195922851562
+        ],
+        [
+          123.21260070800781,
+          543.4286804199219
+        ],
+        [
+          53.79800033569336,
+          543.4286804199219
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          475
+        ],
+        [
+          "Line",
+          213
+        ],
+        [
+          "Text",
+          21
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Footnote",
+          4
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          205
+        ],
+        [
+          "Line",
+          72
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          234
+        ],
+        [
+          "Line",
+          76
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          410
+        ],
+        [
+          "Line",
+          135
+        ],
+        [
+          "Reference",
+          36
+        ],
+        [
+          "ListItem",
+          32
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2402.07540_PKG_API_A_Tool_for_Personal_Knowledge_Graph_Management"
+}

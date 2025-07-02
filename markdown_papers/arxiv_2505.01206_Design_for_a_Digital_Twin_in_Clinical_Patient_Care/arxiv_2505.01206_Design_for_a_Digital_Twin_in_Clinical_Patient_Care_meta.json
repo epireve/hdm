@@ -1,0 +1,835 @@
+{
+  "table_of_contents": [
+    {
+      "title": "DESIGN FOR A DIGITAL TWIN IN CLINICAL PATIENT CARE",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          89.4990234375,
+          97.8260498046875
+        ],
+        [
+          521.322265625,
+          97.8260498046875
+        ],
+        [
+          521.322265625,
+          115.04144287109375
+        ],
+        [
+          89.4990234375,
+          115.04144287109375
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          277.2959289550781,
+          321.110107421875
+        ],
+        [
+          334.986328125,
+          321.110107421875
+        ],
+        [
+          334.986328125,
+          333.0653076171875
+        ],
+        [
+          277.2959289550781,
+          333.0653076171875
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          69.813720703125,
+          408.6461181640625
+        ],
+        [
+          154.8135986328125,
+          408.6461181640625
+        ],
+        [
+          154.8135986328125,
+          420.601318359375
+        ],
+        [
+          69.813720703125,
+          420.601318359375
+        ]
+      ]
+    },
+    {
+      "title": "2 Fundamental Considerations",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          71.19580078125,
+          72.787109375
+        ],
+        [
+          240.556640625,
+          72.787109375
+        ],
+        [
+          240.556640625,
+          84.7423095703125
+        ],
+        [
+          71.19580078125,
+          84.7423095703125
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Requirements for a Digital Twin in Clinical\nPatient Care",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          71.71875,
+          117.29345703125
+        ],
+        [
+          278.806640625,
+          117.29345703125
+        ],
+        [
+          278.806640625,
+          138.83203125
+        ],
+        [
+          71.71875,
+          138.83203125
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Phases of Clinical Patient Journey",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          310.78125,
+          74.31524658203125
+        ],
+        [
+          478.72265625,
+          74.31524658203125
+        ],
+        [
+          478.72265625,
+          84.27783203125
+        ],
+        [
+          310.78125,
+          84.27783203125
+        ]
+      ]
+    },
+    {
+      "title": "3 Design of the Digital Twin",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          310.78125,
+          564.6387329101562
+        ],
+        [
+          462.5859375,
+          564.6387329101562
+        ],
+        [
+          462.5859375,
+          576.5939331054688
+        ],
+        [
+          310.78125,
+          576.5939331054688
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Data Backbone",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          310.98095703125,
+          681.01171875
+        ],
+        [
+          398.43267822265625,
+          681.01171875
+        ],
+        [
+          398.43267822265625,
+          691.06640625
+        ],
+        [
+          310.98095703125,
+          691.06640625
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Building Backend from Resource Description\nFramework",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          70.9716796875,
+          550.4814147949219
+        ],
+        [
+          287.6220703125,
+          550.4814147949219
+        ],
+        [
+          287.6220703125,
+          571.3530120849609
+        ],
+        [
+          70.9716796875,
+          571.3530120849609
+        ]
+      ]
+    },
+    {
+      "title": "3.3 Operational Mode",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          71.382568359375,
+          74.31646728515625
+        ],
+        [
+          172.7318115234375,
+          74.31646728515625
+        ],
+        [
+          172.7318115234375,
+          84.279052734375
+        ],
+        [
+          71.382568359375,
+          84.279052734375
+        ]
+      ]
+    },
+    {
+      "title": "4 Conclusion",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          310.98101806640625,
+          502.7281494140625
+        ],
+        [
+          386.68359375,
+          502.7281494140625
+        ],
+        [
+          386.68359375,
+          514.683349609375
+        ],
+        [
+          310.98101806640625,
+          514.683349609375
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Clinical Translation",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          309.5859375,
+          527.87109375
+        ],
+        [
+          418.95703125,
+          527.87109375
+        ],
+        [
+          418.95703125,
+          538.1561126708984
+        ],
+        [
+          309.5859375,
+          538.1561126708984
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Compliance with Requirements",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          71.419921875,
+          558.421875
+        ],
+        [
+          229.5,
+          558.421875
+        ],
+        [
+          229.5,
+          568.5900726318359
+        ],
+        [
+          71.419921875,
+          568.5900726318359
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Limitations",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          310.482421875,
+          601.734375
+        ],
+        [
+          382.66192626953125,
+          601.734375
+        ],
+        [
+          382.66192626953125,
+          612.2259979248047
+        ],
+        [
+          310.482421875,
+          612.2259979248047
+        ]
+      ]
+    },
+    {
+      "title": "4.4 Future Opportunities",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          71.382568359375,
+          192.19921875
+        ],
+        [
+          186.0205078125,
+          192.19921875
+        ],
+        [
+          186.0205078125,
+          203.11199951171875
+        ],
+        [
+          71.382568359375,
+          203.11199951171875
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgements",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          310.98095703125,
+          203.74481201171875
+        ],
+        [
+          410.58984375,
+          203.74481201171875
+        ],
+        [
+          410.58984375,
+          215.70001220703125
+        ],
+        [
+          310.98095703125,
+          215.70001220703125
+        ]
+      ]
+    },
+    {
+      "title": "Author contributions",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          310.98095703125,
+          516.26953125
+        ],
+        [
+          420.15234375,
+          516.26953125
+        ],
+        [
+          420.15234375,
+          528.3879699707031
+        ],
+        [
+          310.98095703125,
+          528.3879699707031
+        ]
+      ]
+    },
+    {
+      "title": "Competing Interests",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          310.78125,
+          681.78515625
+        ],
+        [
+          414.7734375,
+          681.78515625
+        ],
+        [
+          414.7734375,
+          693.7769470214844
+        ],
+        [
+          310.78125,
+          693.7769470214844
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          71.2705078125,
+          72.55810546875
+        ],
+        [
+          127.7490234375,
+          72.55810546875
+        ],
+        [
+          127.7490234375,
+          84.7423095703125
+        ],
+        [
+          71.2705078125,
+          84.7423095703125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          199
+        ],
+        [
+          "Line",
+          79
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          225
+        ],
+        [
+          "Line",
+          108
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          343
+        ],
+        [
+          "Line",
+          119
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          306
+        ],
+        [
+          "Line",
+          91
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          259
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          203
+        ],
+        [
+          "Line",
+          87
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          204
+        ],
+        [
+          "Line",
+          103
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          295
+        ],
+        [
+          "Line",
+          113
+        ],
+        [
+          "ListItem",
+          16
+        ],
+        [
+          "Reference",
+          16
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          65
+        ],
+        [
+          "Line",
+          21
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2505.01206_Design_for_a_Digital_Twin_in_Clinical_Patient_Care"
+}

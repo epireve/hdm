@@ -1,0 +1,786 @@
+{
+  "table_of_contents": [
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          48.81787109375,
+          157.977783203125
+        ],
+        [
+          96.7626953125,
+          157.977783203125
+        ],
+        [
+          96.7626953125,
+          167.022705078125
+        ],
+        [
+          48.81787109375,
+          167.022705078125
+        ]
+      ]
+    },
+    {
+      "title": "CITATION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          49.54541015625,
+          329.3173828125
+        ],
+        [
+          76.537109375,
+          329.3173828125
+        ],
+        [
+          76.537109375,
+          337.5455017089844
+        ],
+        [
+          49.54541015625,
+          337.5455017089844
+        ]
+      ]
+    },
+    {
+      "title": "COPYRIGHT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          48.490478515625,
+          404.5546875
+        ],
+        [
+          81.45077514648438,
+          404.5546875
+        ],
+        [
+          81.45077514648438,
+          412.3662109375
+        ],
+        [
+          48.490478515625,
+          412.3662109375
+        ]
+      ]
+    },
+    {
+      "title": "CONNECTED: leveraging digital\ntwins and personal knowledge\ngraphs in healthcare digitalization",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          212.44140625,
+          122.517578125
+        ],
+        [
+          544.19921875,
+          122.517578125
+        ],
+        [
+          544.19921875,
+          196.72705078125
+        ],
+        [
+          212.44140625,
+          196.72705078125
+        ]
+      ]
+    },
+    {
+      "title": "KEYWORDS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          214.0157012939453,
+          495.00390625
+        ],
+        [
+          244.42410278320312,
+          495.00390625
+        ],
+        [
+          244.42410278320312,
+          503.2265625
+        ],
+        [
+          214.0157012939453,
+          503.2265625
+        ]
+      ]
+    },
+    {
+      "title": "1. Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          214.0157012939453,
+          547.62890625
+        ],
+        [
+          307.3125,
+          547.62890625
+        ],
+        [
+          307.3125,
+          562.1973876953125
+        ],
+        [
+          214.0157012939453,
+          562.1973876953125
+        ]
+      ]
+    },
+    {
+      "title": "2. Recent advancements in personal\nknowledge graph",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          49.10888671875,
+          253.2139892578125
+        ],
+        [
+          278.2109375,
+          253.2139892578125
+        ],
+        [
+          278.2109375,
+          279.1866455078125
+        ],
+        [
+          49.10888671875,
+          279.1866455078125
+        ]
+      ]
+    },
+    {
+      "title": "3. Digital twin in healthcare",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          49.606300354003906,
+          628.1808776855469
+        ],
+        [
+          223.3544921875,
+          628.1808776855469
+        ],
+        [
+          223.3544921875,
+          641.6808776855469
+        ],
+        [
+          49.606300354003906,
+          641.6808776855469
+        ]
+      ]
+    },
+    {
+      "title": "4. Architectural frameworks for digital\ntwins",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          304.72430419921875,
+          253.2139892578125
+        ],
+        [
+          545.072265625,
+          253.2139892578125
+        ],
+        [
+          545.072265625,
+          279.1866455078125
+        ],
+        [
+          304.72430419921875,
+          279.1866455078125
+        ]
+      ]
+    },
+    {
+      "title": "5. CONNECTED: a framework for\ngeneral-purpose digital twins",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          49.25439453125,
+          462.11328125
+        ],
+        [
+          260.458984375,
+          462.11328125
+        ],
+        [
+          260.458984375,
+          488.66693115234375
+        ],
+        [
+          49.25439453125,
+          488.66693115234375
+        ]
+      ]
+    },
+    {
+      "title": "5.1. Level 1: Source",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          48.781494140625,
+          666.8677673339844
+        ],
+        [
+          157.2939453125,
+          666.8677673339844
+        ],
+        [
+          157.2939453125,
+          678.8676605224609
+        ],
+        [
+          48.781494140625,
+          678.8676605224609
+        ]
+      ]
+    },
+    {
+      "title": "5.2. Level 2: Standard",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          304.40234375,
+          128.6845703125
+        ],
+        [
+          426.046875,
+          128.6845703125
+        ],
+        [
+          426.046875,
+          141.81573486328125
+        ],
+        [
+          304.40234375,
+          141.81573486328125
+        ]
+      ]
+    },
+    {
+      "title": "5.3. Level 3: Digital Twin",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          304.40234375,
+          304.44384765625
+        ],
+        [
+          442.34375,
+          304.44384765625
+        ],
+        [
+          442.34375,
+          317.2802734375
+        ],
+        [
+          304.40234375,
+          317.2802734375
+        ]
+      ]
+    },
+    {
+      "title": "5.4. Level 4: Application",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          304.72430419921875,
+          642.6005859375
+        ],
+        [
+          439.142578125,
+          642.6005859375
+        ],
+        [
+          439.142578125,
+          655.2266693115234
+        ],
+        [
+          304.72430419921875,
+          655.2266693115234
+        ]
+      ]
+    },
+    {
+      "title": "6. Validation",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          49.3271484375,
+          478.1474609375
+        ],
+        [
+          127.46484375,
+          478.1474609375
+        ],
+        [
+          127.46484375,
+          492.1259765625
+        ],
+        [
+          49.3271484375,
+          492.1259765625
+        ]
+      ]
+    },
+    {
+      "title": "7. Discussion",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          304.72430419921875,
+          415.6958923339844
+        ],
+        [
+          385.88671875,
+          415.6958923339844
+        ],
+        [
+          385.88671875,
+          429.1958923339844
+        ],
+        [
+          304.72430419921875,
+          429.1958923339844
+        ]
+      ]
+    },
+    {
+      "title": "2\nhttps://projects.eclipse.org/projects/iot.hono\n3\nhttps://kafka.apache.org/",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          49.39990234375,
+          744.9246139526367
+        ],
+        [
+          197.890625,
+          744.9246139526367
+        ],
+        [
+          197.890625,
+          770.462890625
+        ],
+        [
+          49.39990234375,
+          770.462890625
+        ]
+      ]
+    },
+    {
+      "title": "Data availability statement",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          304.72430419921875,
+          383.17578125
+        ],
+        [
+          470.28125,
+          383.17578125
+        ],
+        [
+          470.28125,
+          397.27777099609375
+        ],
+        [
+          304.72430419921875,
+          397.27777099609375
+        ]
+      ]
+    },
+    {
+      "title": "Author contributions",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          304.72430419921875,
+          468.4202575683594
+        ],
+        [
+          436.232421875,
+          468.4202575683594
+        ],
+        [
+          436.232421875,
+          481.9202575683594
+        ],
+        [
+          304.72430419921875,
+          481.9202575683594
+        ]
+      ]
+    },
+    {
+      "title": "Funding",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          304.72430419921875,
+          602.720703125
+        ],
+        [
+          356.494140625,
+          602.720703125
+        ],
+        [
+          356.494140625,
+          616.69921875
+        ],
+        [
+          304.72430419921875,
+          616.69921875
+        ]
+      ]
+    },
+    {
+      "title": "Conflict of interest",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          304.72430419921875,
+          712.6196899414062
+        ],
+        [
+          423.13671875,
+          712.6196899414062
+        ],
+        [
+          423.13671875,
+          729.2146759033203
+        ],
+        [
+          304.72430419921875,
+          729.2146759033203
+        ]
+      ]
+    },
+    {
+      "title": "Publisher's note",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          48.96337890625,
+          80.85540771484375
+        ],
+        [
+          151.328125,
+          80.85540771484375
+        ],
+        [
+          151.328125,
+          95.274658203125
+        ],
+        [
+          48.96337890625,
+          95.274658203125
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          49.10888671875,
+          161.677978515625
+        ],
+        [
+          120.40771484375,
+          161.677978515625
+        ],
+        [
+          120.40771484375,
+          175.778564453125
+        ],
+        [
+          49.10888671875,
+          175.778564453125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          232
+        ],
+        [
+          "Line",
+          87
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          294
+        ],
+        [
+          "Line",
+          105
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          277
+        ],
+        [
+          "Line",
+          95
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          174
+        ],
+        [
+          "Line",
+          63
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          167
+        ],
+        [
+          "Line",
+          56
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          270
+        ],
+        [
+          "Line",
+          74
+        ],
+        [
+          "Text",
+          25
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/frontiers_connected_dt_pkg"
+}

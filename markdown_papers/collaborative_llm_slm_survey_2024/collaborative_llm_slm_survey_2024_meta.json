@@ -1,0 +1,2747 @@
+{
+  "table_of_contents": [
+    {
+      "title": "A Survey on Collaborative Mechanisms Between Large and\nSmall Language Models",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          93.9814453125,
+          97.83087158203125
+        ],
+        [
+          515.77734375,
+          97.83087158203125
+        ],
+        [
+          515.77734375,
+          136.96435546875
+        ],
+        [
+          93.9814453125,
+          136.96435546875
+        ]
+      ]
+    },
+    {
+      "title": "Abstract",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          275.3701171875,
+          237.5172119140625
+        ],
+        [
+          336.779296875,
+          237.5172119140625
+        ],
+        [
+          336.779296875,
+          251.8634033203125
+        ],
+        [
+          275.3701171875,
+          251.8634033203125
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          85.03903198242188,
+          492.33734130859375
+        ],
+        [
+          196.330078125,
+          492.33734130859375
+        ],
+        [
+          196.330078125,
+          506.68353271484375
+        ],
+        [
+          85.03903198242188,
+          506.68353271484375
+        ]
+      ]
+    },
+    {
+      "title": "1.1 Research Background and Motivation",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          84.19482421875,
+          518.9515991210938
+        ],
+        [
+          337.6883239746094,
+          518.9515991210938
+        ],
+        [
+          337.6883239746094,
+          530.9067993164062
+        ],
+        [
+          84.19482421875,
+          530.9067993164062
+        ]
+      ]
+    },
+    {
+      "title": "1.2 Definition and Scope of Large-Small Model Collaboration",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          84.4189453125,
+          58.1044921875
+        ],
+        [
+          454.478515625,
+          58.1044921875
+        ],
+        [
+          454.478515625,
+          70.27569580078125
+        ],
+        [
+          84.4189453125,
+          70.27569580078125
+        ]
+      ]
+    },
+    {
+      "title": "1.3 The Rise of On-Device Large Models and Its Impetus for Collaboration\nResearch",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          84.7177734375,
+          352.0076599121094
+        ],
+        [
+          527.1328125,
+          352.0076599121094
+        ],
+        [
+          527.1328125,
+          377.9108581542969
+        ],
+        [
+          84.7177734375,
+          377.9108581542969
+        ]
+      ]
+    },
+    {
+      "title": "1.4 Structure and Contributions of This Paper",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          84.568359375,
+          632.5446929931641
+        ],
+        [
+          368.75390625,
+          632.5446929931641
+        ],
+        [
+          368.75390625,
+          644.4998931884766
+        ],
+        [
+          84.568359375,
+          644.4998931884766
+        ]
+      ]
+    },
+    {
+      "title": "2 Related Concepts and Foundations",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          84.19482421875,
+          172.11724853515625
+        ],
+        [
+          350.82421875,
+          172.11724853515625
+        ],
+        [
+          350.82421875,
+          186.46343994140625
+        ],
+        [
+          84.19482421875,
+          186.46343994140625
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Large Language Models",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          84.64306640625,
+          295.259765625
+        ],
+        [
+          256.095703125,
+          295.259765625
+        ],
+        [
+          256.095703125,
+          307.2437438964844
+        ],
+        [
+          84.64306640625,
+          307.2437438964844
+        ]
+      ]
+    },
+    {
+      "title": "2.1.1 Definition, Architecture, and Characteristics",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          84.26953125,
+          316.69805908203125
+        ],
+        [
+          367.259765625,
+          316.69805908203125
+        ],
+        [
+          367.259765625,
+          327.9375
+        ],
+        [
+          84.26953125,
+          327.9375
+        ]
+      ]
+    },
+    {
+      "title": "2.1.2 Advantages and Limitations",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          84.34423828125,
+          555.328125
+        ],
+        [
+          277.013671875,
+          555.328125
+        ],
+        [
+          277.013671875,
+          566.6992492675781
+        ],
+        [
+          84.34423828125,
+          566.6992492675781
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Small Language Models",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          84.79248046875,
+          141.0556640625
+        ],
+        [
+          256.095703125,
+          141.0556640625
+        ],
+        [
+          256.095703125,
+          153.68170166015625
+        ],
+        [
+          84.79248046875,
+          153.68170166015625
+        ]
+      ]
+    },
+    {
+      "title": "2.2.1 Definition and Characteristics",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          84.26953125,
+          163.001953125
+        ],
+        [
+          287.771484375,
+          163.001953125
+        ],
+        [
+          287.771484375,
+          174.216796875
+        ],
+        [
+          84.26953125,
+          174.216796875
+        ]
+      ]
+    },
+    {
+      "title": "2.2.2 Advantages, Limitations, and Typical Construction Methods",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          84.4189453125,
+          388.6781005859375
+        ],
+        [
+          454.81640625,
+          388.6781005859375
+        ],
+        [
+          454.81640625,
+          399.8671875
+        ],
+        [
+          84.4189453125,
+          399.8671875
+        ]
+      ]
+    },
+    {
+      "title": "2.3 Foundation and Necessity of Collaboration Between Large and Small\nLanguage Models",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          83.8212890625,
+          100.546875
+        ],
+        [
+          527.73046875,
+          100.546875
+        ],
+        [
+          527.73046875,
+          126.981689453125
+        ],
+        [
+          83.8212890625,
+          126.981689453125
+        ]
+      ]
+    },
+    {
+      "title": "2.3.1 Technical Foundation for Collaboration: Complementarity of Capabilities\nand Characteristics",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          84.26953125,
+          135.544921875
+        ],
+        [
+          527.431640625,
+          135.544921875
+        ],
+        [
+          527.431640625,
+          160.8941650390625
+        ],
+        [
+          84.26953125,
+          160.8941650390625
+        ]
+      ]
+    },
+    {
+      "title": "2.3.2 Complementarity of Capability Boundaries",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          84.1201171875,
+          225.45703125
+        ],
+        [
+          358.59375,
+          225.45703125
+        ],
+        [
+          358.59375,
+          237.39617919921875
+        ],
+        [
+          84.1201171875,
+          237.39617919921875
+        ]
+      ]
+    },
+    {
+      "title": "2.3.3 Transferability of Architecture and Training",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          84.26953125,
+          437.765625
+        ],
+        [
+          365.466796875,
+          437.765625
+        ],
+        [
+          365.466796875,
+          449.3892517089844
+        ],
+        [
+          84.26953125,
+          449.3892517089844
+        ]
+      ]
+    },
+    {
+      "title": "2.3.4 Adaptability of Deployment Scenarios",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          83.970703125,
+          636.5390625
+        ],
+        [
+          331.998046875,
+          636.5390625
+        ],
+        [
+          331.998046875,
+          648.140625
+        ],
+        [
+          83.970703125,
+          648.140625
+        ]
+      ]
+    },
+    {
+      "title": "2.3.5 Necessity of Collaboration: An Inevitable Choice Driven by Real-world\nNeeds",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          83.970703125,
+          101.49700927734375
+        ],
+        [
+          526.833984375,
+          101.49700927734375
+        ],
+        [
+          526.833984375,
+          126.3603515625
+        ],
+        [
+          83.970703125,
+          126.3603515625
+        ]
+      ]
+    },
+    {
+      "title": "3 Collaboration Mechanisms and Architectures for Large and\nSmall Models",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          84.26953125,
+          212.7652587890625
+        ],
+        [
+          527.1328125,
+          212.7652587890625
+        ],
+        [
+          527.1328125,
+          245.04345703125
+        ],
+        [
+          84.26953125,
+          245.04345703125
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Classification of Collaboration Modes",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          84.19482421875,
+          257.3115234375
+        ],
+        [
+          336.779296875,
+          257.3115234375
+        ],
+        [
+          336.779296875,
+          269.349609375
+        ],
+        [
+          84.19482421875,
+          269.349609375
+        ]
+      ]
+    },
+    {
+      "title": "3.1.1 Pipeline Collaboration",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          84.04541015625,
+          334.6300354003906
+        ],
+        [
+          246.83203125,
+          334.6300354003906
+        ],
+        [
+          246.83203125,
+          345.7265625
+        ],
+        [
+          84.04541015625,
+          345.7265625
+        ]
+      ]
+    },
+    {
+      "title": "3.1.2 Hybrid/Routing Collaboration",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          84.04541015625,
+          545.2734375
+        ],
+        [
+          290.3591613769531,
+          545.2734375
+        ],
+        [
+          290.3591613769531,
+          556.9610900878906
+        ],
+        [
+          84.04541015625,
+          556.9610900878906
+        ]
+      ]
+    },
+    {
+      "title": "3.1.3 Auxiliary/Enhancement Collaboration",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          84.1201171875,
+          638.4530944824219
+        ],
+        [
+          333.4921875,
+          638.4530944824219
+        ],
+        [
+          333.4921875,
+          649.3621826171875
+        ],
+        [
+          84.1201171875,
+          649.3621826171875
+        ]
+      ]
+    },
+    {
+      "title": "3.1.4 Knowledge Distillation-Driven Collaboration",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          84.1201171875,
+          59.13702392578125
+        ],
+        [
+          366.9609375,
+          59.13702392578125
+        ],
+        [
+          366.9609375,
+          70.046142578125
+        ],
+        [
+          84.1201171875,
+          70.046142578125
+        ]
+      ]
+    },
+    {
+      "title": "3.1.5 Integration/Fusion Collaboration",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          84.49365234375,
+          406.6231994628906
+        ],
+        [
+          303.5810241699219,
+          406.6231994628906
+        ],
+        [
+          303.5810241699219,
+          417.65625
+        ],
+        [
+          84.49365234375,
+          417.65625
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Key Technologies for Implementing Collaboration",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          84.1201171875,
+          672.3956832885742
+        ],
+        [
+          408.796875,
+          672.3956832885742
+        ],
+        [
+          408.796875,
+          684.3508834838867
+        ],
+        [
+          84.1201171875,
+          684.3508834838867
+        ]
+      ]
+    },
+    {
+      "title": "3.2.1 Task Allocation and Intelligent Routing",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          83.74658203125,
+          264.90594482421875
+        ],
+        [
+          340.365234375,
+          264.90594482421875
+        ],
+        [
+          340.365234375,
+          276.1171875
+        ],
+        [
+          83.74658203125,
+          276.1171875
+        ]
+      ]
+    },
+    {
+      "title": "3.2.2 Inter-Model Communication and Interface Design",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          84.26953125,
+          625.9410400390625
+        ],
+        [
+          395.947265625,
+          625.9410400390625
+        ],
+        [
+          395.947265625,
+          636.8501281738281
+        ],
+        [
+          84.26953125,
+          636.8501281738281
+        ]
+      ]
+    },
+    {
+      "title": "2024).",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          84.7177734375,
+          58.974609375
+        ],
+        [
+          113.94811248779297,
+          58.974609375
+        ],
+        [
+          113.94811248779297,
+          70.048828125
+        ],
+        [
+          84.7177734375,
+          70.048828125
+        ]
+      ]
+    },
+    {
+      "title": "3.2.3 Model Fusion and Result Integration",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          84.19482421875,
+          426.1640625
+        ],
+        [
+          325.72265625,
+          426.1640625
+        ],
+        [
+          325.72265625,
+          437.765625
+        ],
+        [
+          84.19482421875,
+          437.765625
+        ]
+      ]
+    },
+    {
+      "title": "3.2.4 State Synchronization and Context Management",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          84.568359375,
+          652.0021820068359
+        ],
+        [
+          389.671875,
+          652.0021820068359
+        ],
+        [
+          389.671875,
+          663.609375
+        ],
+        [
+          84.568359375,
+          663.609375
+        ]
+      ]
+    },
+    {
+      "title": "3.2.5 Dynamic Resource Scheduling and Optimization",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          84.79248046875,
+          195.29296875
+        ],
+        [
+          389.671875,
+          195.29296875
+        ],
+        [
+          389.671875,
+          207.28125
+        ],
+        [
+          84.79248046875,
+          207.28125
+        ]
+      ]
+    },
+    {
+      "title": "4 Application Scenarios Driven by On-Device Needs",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          84.1201171875,
+          450.9140625
+        ],
+        [
+          458.40234375,
+          450.9140625
+        ],
+        [
+          458.40234375,
+          466.2035827636719
+        ],
+        [
+          84.1201171875,
+          466.2035827636719
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Real-time Low-Latency Inference Scenarios",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          84.64306640625,
+          574.27734375
+        ],
+        [
+          371.14453125,
+          574.27734375
+        ],
+        [
+          371.14453125,
+          586.9828643798828
+        ],
+        [
+          84.64306640625,
+          586.9828643798828
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Privacy-Sensitive and Local Data Scenarios",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          84.7177734375,
+          558.03515625
+        ],
+        [
+          370.4574279785156,
+          558.03515625
+        ],
+        [
+          370.4574279785156,
+          570.3227844238281
+        ],
+        [
+          84.7177734375,
+          570.3227844238281
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Task-Specific Customization and Personalization Scenarios",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          84.568359375,
+          385.6116638183594
+        ],
+        [
+          462.884765625,
+          385.6116638183594
+        ],
+        [
+          462.884765625,
+          397.5668640136719
+        ],
+        [
+          84.568359375,
+          397.5668640136719
+        ]
+      ]
+    },
+    {
+      "title": "4.4 Offline or Weak Network Environment Scenarios",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          84.26953125,
+          181.8665771484375
+        ],
+        [
+          402.521484375,
+          181.8665771484375
+        ],
+        [
+          402.521484375,
+          193.82177734375
+        ],
+        [
+          84.26953125,
+          193.82177734375
+        ]
+      ]
+    },
+    {
+      "title": "4.5 Energy-Constrained and Green AI Scenarios",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          84.04541015625,
+          651.1857452392578
+        ],
+        [
+          379.212890625,
+          651.1857452392578
+        ],
+        [
+          379.212890625,
+          663.22265625
+        ],
+        [
+          84.04541015625,
+          663.22265625
+        ]
+      ]
+    },
+    {
+      "title": "5 Challenges and Open Issues",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          84.1201171875,
+          443.1014099121094
+        ],
+        [
+          301.9658203125,
+          443.1014099121094
+        ],
+        [
+          301.9658203125,
+          457.875
+        ],
+        [
+          84.1201171875,
+          457.875
+        ]
+      ]
+    },
+    {
+      "title": "5.1 Collaboration Efficiency and System Overhead",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          84.26953125,
+          606.9196929931641
+        ],
+        [
+          390.8671875,
+          606.9196929931641
+        ],
+        [
+          390.8671875,
+          618.8748931884766
+        ],
+        [
+          84.26953125,
+          618.8748931884766
+        ]
+      ]
+    },
+    {
+      "title": "5.1.1 Latency of Task Routing Decisions",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          84.34423828125,
+          628.3292236328125
+        ],
+        [
+          312.873046875,
+          628.3292236328125
+        ],
+        [
+          312.873046875,
+          639.6328125
+        ],
+        [
+          84.34423828125,
+          639.6328125
+        ]
+      ]
+    },
+    {
+      "title": "5.1.2 Cost of Inter-Model Communication",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          84.19482421875,
+          399.48046875
+        ],
+        [
+          322.734375,
+          399.48046875
+        ],
+        [
+          322.734375,
+          410.48828125
+        ],
+        [
+          84.19482421875,
+          410.48828125
+        ]
+      ]
+    },
+    {
+      "title": "5.2 Inter-Model Consistency and Compatibility",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          84.04541015625,
+          58.32049560546875
+        ],
+        [
+          372.638671875,
+          58.32049560546875
+        ],
+        [
+          372.638671875,
+          70.27569580078125
+        ],
+        [
+          84.04541015625,
+          70.27569580078125
+        ]
+      ]
+    },
+    {
+      "title": "5.2.1 Ensuring Consistency in Output Style and Knowledge Scope Across Dif-\nferent Models",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          84.1201171875,
+          79.73004150390625
+        ],
+        [
+          526.6176147460938,
+          79.73004150390625
+        ],
+        [
+          526.6176147460938,
+          104.3173828125
+        ],
+        [
+          84.1201171875,
+          104.3173828125
+        ]
+      ]
+    },
+    {
+      "title": "5.2.2 Alignment of Model Knowledge Scope and Factual Consistency",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          84.4189453125,
+          508.5112609863281
+        ],
+        [
+          469.7578125,
+          508.5112609863281
+        ],
+        [
+          469.7578125,
+          519.4203491210938
+        ],
+        [
+          84.4189453125,
+          519.4203491210938
+        ]
+      ]
+    },
+    {
+      "title": "al., 2023).",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          84.4189453125,
+          59.13970947265625
+        ],
+        [
+          132.01358032226562,
+          59.13970947265625
+        ],
+        [
+          132.01358032226562,
+          70.048828125
+        ],
+        [
+          84.4189453125,
+          70.048828125
+        ]
+      ]
+    },
+    {
+      "title": "5.3 Evaluation Metrics and Benchmarking",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          84.7177734375,
+          290.7676086425781
+        ],
+        [
+          342.45703125,
+          290.7676086425781
+        ],
+        [
+          342.45703125,
+          302.7228088378906
+        ],
+        [
+          84.7177734375,
+          302.7228088378906
+        ]
+      ]
+    },
+    {
+      "title": "5.4 Security, Privacy, and Ethical Issues",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          84.7177734375,
+          250.11956787109375
+        ],
+        [
+          329.30859375,
+          250.11956787109375
+        ],
+        [
+          329.30859375,
+          262.1953125
+        ],
+        [
+          84.7177734375,
+          262.1953125
+        ]
+      ]
+    },
+    {
+      "title": "5.4.1 Privacy Risks of Data Flow Between Different Models",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          84.26953125,
+          340.69921875
+        ],
+        [
+          420.15234375,
+          340.69921875
+        ],
+        [
+          420.15234375,
+          351.9140625
+        ],
+        [
+          84.26953125,
+          351.9140625
+        ]
+      ]
+    },
+    {
+      "title": "5.4.2 Potential Bias Amplification or Security Vulnerabilities in Collaborative\nSystems",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          84.4189453125,
+          59.13702392578125
+        ],
+        [
+          527.73046875,
+          59.13702392578125
+        ],
+        [
+          527.73046875,
+          83.59515380859375
+        ],
+        [
+          84.4189453125,
+          83.59515380859375
+        ]
+      ]
+    },
+    {
+      "title": "6 Future Trends",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          84.79248046875,
+          117.4658203125
+        ],
+        [
+          207.38671875,
+          117.4658203125
+        ],
+        [
+          207.38671875,
+          132.26641845703125
+        ],
+        [
+          84.79248046875,
+          132.26641845703125
+        ]
+      ]
+    },
+    {
+      "title": "6.1 Smarter and More Adaptive Collaboration Frameworks",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          84.4189453125,
+          143.9560546875
+        ],
+        [
+          443.4609375,
+          143.9560546875
+        ],
+        [
+          443.4609375,
+          156.48968505859375
+        ],
+        [
+          84.4189453125,
+          156.48968505859375
+        ]
+      ]
+    },
+    {
+      "title": "6.1.1 Dynamic Collaboration Strategies Based on Reinforcement Learning",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          84.8671875,
+          287.912109375
+        ],
+        [
+          498.744140625,
+          287.912109375
+        ],
+        [
+          498.744140625,
+          300.5081481933594
+        ],
+        [
+          84.8671875,
+          300.5081481933594
+        ]
+      ]
+    },
+    {
+      "title": "6.1.2 Dynamic Collaboration Strategies Based on Meta-Learning",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          84.4189453125,
+          250.5380859375
+        ],
+        [
+          447.046875,
+          250.5380859375
+        ],
+        [
+          447.046875,
+          261.44720458984375
+        ],
+        [
+          84.4189453125,
+          261.44720458984375
+        ]
+      ]
+    },
+    {
+      "title": "6.2 Deep Fusion of Model Capabilities",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          84.04541015625,
+          583.9453125
+        ],
+        [
+          319.447265625,
+          583.9453125
+        ],
+        [
+          319.447265625,
+          596.0119018554688
+        ],
+        [
+          84.04541015625,
+          596.0119018554688
+        ]
+      ]
+    },
+    {
+      "title": "6.3 Collaboration in Multimodal and Embodied Intelligence",
+      "heading_level": null,
+      "page_id": 26,
+      "polygon": [
+        [
+          84.26953125,
+          670.1447067260742
+        ],
+        [
+          448.2421875,
+          670.1447067260742
+        ],
+        [
+          448.2421875,
+          682.0999069213867
+        ],
+        [
+          84.26953125,
+          682.0999069213867
+        ]
+      ]
+    },
+    {
+      "title": "6.3.1 Collaboration of Large and Small Models Integrating Multimodal Informa-\ntion like Vision and Speech",
+      "heading_level": null,
+      "page_id": 27,
+      "polygon": [
+        [
+          84.4189453125,
+          114.93707275390625
+        ],
+        [
+          526.6284790039062,
+          114.93707275390625
+        ],
+        [
+          526.6284790039062,
+          139.5087890625
+        ],
+        [
+          84.4189453125,
+          139.5087890625
+        ]
+      ]
+    },
+    {
+      "title": "6.3.2 Application of Large-Small Model Collaboration in Robots and Embodied\nAgents",
+      "heading_level": null,
+      "page_id": 27,
+      "polygon": [
+        [
+          84.4189453125,
+          611.015625
+        ],
+        [
+          526.639404296875,
+          611.015625
+        ],
+        [
+          526.639404296875,
+          636.5390625
+        ],
+        [
+          84.4189453125,
+          636.5390625
+        ]
+      ]
+    },
+    {
+      "title": "7 Conclusion",
+      "heading_level": null,
+      "page_id": 28,
+      "polygon": [
+        [
+          84.19482421875,
+          455.8744201660156
+        ],
+        [
+          184.08517456054688,
+          455.8744201660156
+        ],
+        [
+          184.08517456054688,
+          470.2206115722656
+        ],
+        [
+          84.19482421875,
+          470.2206115722656
+        ]
+      ]
+    },
+    {
+      "title": "7.1 Research Significance and Value",
+      "heading_level": null,
+      "page_id": 29,
+      "polygon": [
+        [
+          84.64306640625,
+          263.16162109375
+        ],
+        [
+          305.103515625,
+          263.16162109375
+        ],
+        [
+          305.103515625,
+          275.1168212890625
+        ],
+        [
+          84.64306640625,
+          275.1168212890625
+        ]
+      ]
+    },
+    {
+      "title": "7.2 Reflections and Outlook",
+      "heading_level": null,
+      "page_id": 29,
+      "polygon": [
+        [
+          84.1201171875,
+          637.6367034912109
+        ],
+        [
+          257.7392578125,
+          637.6367034912109
+        ],
+        [
+          257.7392578125,
+          649.6875
+        ],
+        [
+          84.1201171875,
+          649.6875
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 30,
+      "polygon": [
+        [
+          84.26953125,
+          537.9454345703125
+        ],
+        [
+          158.64935302734375,
+          537.9454345703125
+        ],
+        [
+          158.64935302734375,
+          552.2916412353516
+        ],
+        [
+          84.26953125,
+          552.2916412353516
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          95
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          129
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          99
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          106
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          87
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          92
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          130
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          68
+        ],
+        [
+          "Line",
+          24
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          92
+        ],
+        [
+          "Line",
+          33
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          56
+        ],
+        [
+          "Line",
+          23
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          124
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          89
+        ],
+        [
+          "Line",
+          34
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          159
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          104
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          40
+        ],
+        [
+          "Line",
+          17
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          79
+        ],
+        [
+          "Line",
+          32
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          128
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          124
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          109
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 19,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          114
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 20,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          136
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 21,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          106
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 22,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          93
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 23,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          105
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 24,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          99
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 25,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          93
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 26,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          99
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 27,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          101
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 28,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          93
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 29,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          88
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 30,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          114
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 31,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          151
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "ListItem",
+          21
+        ],
+        [
+          "Reference",
+          21
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 32,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          172
+        ],
+        [
+          "Line",
+          51
+        ],
+        [
+          "ListItem",
+          25
+        ],
+        [
+          "Reference",
+          25
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 33,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          161
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Reference",
+          23
+        ],
+        [
+          "ListItem",
+          22
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 34,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          153
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "ListItem",
+          21
+        ],
+        [
+          "Reference",
+          21
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 35,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          24
+        ],
+        [
+          "Line",
+          8
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/collaborative_llm_slm_survey_2024"
+}

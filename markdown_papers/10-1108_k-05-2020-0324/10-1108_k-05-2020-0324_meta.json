@@ -1,0 +1,1434 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Scalability of generative\nknowledge management systems:\ndesigning for individuals' and\ninstitutions' mutual benefit",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          50.654296875,
+          82.631103515625
+        ],
+        [
+          389.796875,
+          82.631103515625
+        ],
+        [
+          389.796875,
+          171.081298828125
+        ],
+        [
+          50.654296875,
+          171.081298828125
+        ]
+      ]
+    },
+    {
+      "title": "Abstract",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          47.6693115234375,
+          223.78564453125
+        ],
+        [
+          85.388671875,
+          223.78564453125
+        ],
+        [
+          85.388671875,
+          234.8106689453125
+        ],
+        [
+          47.6693115234375,
+          234.8106689453125
+        ]
+      ]
+    },
+    {
+      "title": "1. Introducing a novel perspective in pursuit of generative knowledge\nmanagement systems\nK\n50,10",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          19.95589828491211,
+          82.67266845703125
+        ],
+        [
+          407.1640625,
+          82.67266845703125
+        ],
+        [
+          407.1640625,
+          108.70147705078125
+        ],
+        [
+          19.95589828491211,
+          108.70147705078125
+        ]
+      ]
+    },
+    {
+      "title": "2. Introducing the concept-knowledge-design theory and a thermodynamic\nknowledge dynamics approach",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          46.91552734375,
+          133.506591796875
+        ],
+        [
+          374.841796875,
+          133.506591796875
+        ],
+        [
+          374.841796875,
+          154.97637939453125
+        ],
+        [
+          46.91552734375,
+          154.97637939453125
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Concept-knowledge-design theory and its application in a cuisine-related knowledge\nheritage conceptualization",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          47.27734375,
+          259.365234375
+        ],
+        [
+          371.7060546875,
+          259.365234375
+        ],
+        [
+          371.7060546875,
+          281.64404296875
+        ],
+        [
+          47.27734375,
+          281.64404296875
+        ]
+      ]
+    },
+    {
+      "title": "2.2 PKMS-related expansion of the extended knowledge-or generative-heritage-related\nconcept-knowledge-design theory",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          98.53466796875,
+          405.673828125
+        ],
+        [
+          423.083984375,
+          405.673828125
+        ],
+        [
+          423.083984375,
+          428.28515625
+        ],
+        [
+          98.53466796875,
+          428.28515625
+        ]
+      ]
+    },
+    {
+      "title": "2.3 The thermodynamic knowledge dynamics approach and its synergies with the\nconcept-knowledge-design theory and PKMS concept",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          46.91552734375,
+          83.794921875
+        ],
+        [
+          350.3189697265625,
+          83.794921875
+        ],
+        [
+          350.3189697265625,
+          105.02728271484375
+        ],
+        [
+          46.91552734375,
+          105.02728271484375
+        ]
+      ]
+    },
+    {
+      "title": "3. Concept-knowledge-design theory and thermodynamic approaches in the\nPKMS's design and scaling context",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          47.5185546875,
+          213.81005859375
+        ],
+        [
+          381.8369140625,
+          213.81005859375
+        ],
+        [
+          381.8369140625,
+          234.46054077148438
+        ],
+        [
+          47.5185546875,
+          234.46054077148438
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Knowledge management system development as a wicked problem space in search of a\ndominant design",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          98.77587890625,
+          310.074462890625
+        ],
+        [
+          435.626953125,
+          310.074462890625
+        ],
+        [
+          435.626953125,
+          331.688232421875
+        ],
+        [
+          98.77587890625,
+          331.688232421875
+        ]
+      ]
+    },
+    {
+      "title": "4. Ensuring interoperability between six scaling-and-entropy-related PKMS\ndesign interventions",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          47.0361328125,
+          149.467529296875
+        ],
+        [
+          381.1521301269531,
+          149.467529296875
+        ],
+        [
+          381.1521301269531,
+          170.62432861328125
+        ],
+        [
+          47.0361328125,
+          170.62432861328125
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Upscaling technological viability and affordances (world: 1) to support decentralized\ninfrastructures and accessibility",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          47.0361328125,
+          360.451171875
+        ],
+        [
+          374.1181640625,
+          360.451171875
+        ],
+        [
+          374.1181640625,
+          381.9150695800781
+        ],
+        [
+          47.0361328125,
+          381.9150695800781
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Downscaling entropy (world: 3) by reducing redundancies via meme-based knowledge\nrepresentation and centralized curation services",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          46.794921875,
+          542.0068359375
+        ],
+        [
+          382.3193359375,
+          542.0068359375
+        ],
+        [
+          382.3193359375,
+          563.2880859375
+        ],
+        [
+          46.794921875,
+          563.2880859375
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Upscaling the Popperian third world from an abstract philosophical construct to a\ntangible instantiation",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          47.39794921875,
+          83.3792724609375
+        ],
+        [
+          370.017578125,
+          83.3792724609375
+        ],
+        [
+          370.017578125,
+          105.4918212890625
+        ],
+        [
+          47.39794921875,
+          105.4918212890625
+        ]
+      ]
+    },
+    {
+      "title": "4.4 Upscaling innovativeness and generativity (world: 1) by enabling negentropic cumulative\nsynthesis",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          47.39794921875,
+          257.868896484375
+        ],
+        [
+          392.69140625,
+          257.868896484375
+        ],
+        [
+          392.69140625,
+          278.8479309082031
+        ],
+        [
+          47.39794921875,
+          278.8479309082031
+        ]
+      ]
+    },
+    {
+      "title": "4.5 Upscaling desirability of PKMS usage (world: 2) by knowledge workers",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          99.6201171875,
+          216.636474609375
+        ],
+        [
+          377.9775390625,
+          216.636474609375
+        ],
+        [
+          377.9775390625,
+          226.46347045898438
+        ],
+        [
+          99.6201171875,
+          226.46347045898438
+        ]
+      ]
+    },
+    {
+      "title": "4.6 Upscaling organizational KMS acceptance and effectiveness (world: 2) by co-serving the\nself-interest and commitment of knowledge workers",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          98.6552734375,
+          464.9381408691406
+        ],
+        [
+          440.6923828125,
+          464.9381408691406
+        ],
+        [
+          440.6923828125,
+          485.81103515625
+        ],
+        [
+          98.6552734375,
+          485.81103515625
+        ]
+      ]
+    },
+    {
+      "title": "5. Discussion and conclusions",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          47.0361328125,
+          314.5634765625
+        ],
+        [
+          179.4609375,
+          314.5634765625
+        ],
+        [
+          179.4609375,
+          324.8287048339844
+        ],
+        [
+          47.0361328125,
+          324.8287048339844
+        ]
+      ]
+    },
+    {
+      "title": "5.1 The rational constructivist perspective of meme-based authorship and knowledge\nretention for learning",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          96.966796875,
+          182.55322265625
+        ],
+        [
+          415.84765625,
+          182.55322265625
+        ],
+        [
+          415.84765625,
+          203.672607421875
+        ],
+        [
+          96.966796875,
+          203.672607421875
+        ]
+      ]
+    },
+    {
+      "title": "5.2 The emotional motivational perspective of aligning knowledge with skill development to\nmitigate opportunity divides",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          98.77587890625,
+          422.4184265136719
+        ],
+        [
+          439.00390625,
+          422.4184265136719
+        ],
+        [
+          439.00390625,
+          443.2566833496094
+        ],
+        [
+          98.77587890625,
+          443.2566833496094
+        ]
+      ]
+    },
+    {
+      "title": "5.3 The spiritual self-transcending perspective of sharing opportunities to build human\nheritage knowledge and individual commitment",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          47.5185546875,
+          202.33663940429688
+        ],
+        [
+          372.1884765625,
+          202.33663940429688
+        ],
+        [
+          372.1884765625,
+          222.89178466796875
+        ],
+        [
+          47.5185546875,
+          222.89178466796875
+        ]
+      ]
+    },
+    {
+      "title": "5.4 The way ahead toward a meme-based decentralized personal knowledge management\nsystem future",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          46.91552734375,
+          510.7460174560547
+        ],
+        [
+          383.04296875,
+          510.7460174560547
+        ],
+        [
+          383.04296875,
+          531.69873046875
+        ],
+        [
+          46.91552734375,
+          531.69873046875
+        ]
+      ]
+    },
+    {
+      "title": "Notes",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          99.197998046875,
+          284.470458984375
+        ],
+        [
+          122.4048080444336,
+          284.470458984375
+        ],
+        [
+          122.4048080444336,
+          293.115966796875
+        ],
+        [
+          99.197998046875,
+          293.115966796875
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          47.578857421875,
+          542.1571350097656
+        ],
+        [
+          92.685302734375,
+          542.1571350097656
+        ],
+        [
+          92.685302734375,
+          551.3173828125
+        ],
+        [
+          47.578857421875,
+          551.3173828125
+        ]
+      ]
+    },
+    {
+      "title": "Corresponding author",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          47.4884033203125,
+          518.4026947021484
+        ],
+        [
+          135.19873046875,
+          518.4026947021484
+        ],
+        [
+          135.19873046875,
+          526.9026947021484
+        ],
+        [
+          47.4884033203125,
+          526.9026947021484
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          196
+        ],
+        [
+          "Line",
+          59
+        ],
+        [
+          "Text",
+          17
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          182
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          130
+        ],
+        [
+          "Line",
+          35
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          140
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          191
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "ListItem",
+          7
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          324
+        ],
+        [
+          "Line",
+          140
+        ],
+        [
+          "TableCell",
+          50
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          222
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          213
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          207
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          21
+        ],
+        [
+          "Line",
+          9
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          200
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          151
+        ],
+        [
+          "Line",
+          51
+        ],
+        [
+          "Text",
+          8
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          215
+        ],
+        [
+          "Line",
+          60
+        ],
+        [
+          "TableCell",
+          11
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          227
+        ],
+        [
+          "Line",
+          56
+        ],
+        [
+          "TableCell",
+          12
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          25
+        ],
+        [
+          "Line",
+          13
+        ],
+        [
+          "Figure",
+          3
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          180
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          149
+        ],
+        [
+          "Line",
+          37
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          180
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          233
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 19,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          172
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "Reference",
+          9
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 20,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          237
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "Reference",
+          9
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 21,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          272
+        ],
+        [
+          "TableCell",
+          54
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Reference",
+          26
+        ],
+        [
+          "TableOfContents",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 22,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          273
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "ListItem",
+          18
+        ],
+        [
+          "Reference",
+          18
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 23,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          254
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "TableCell",
+          38
+        ],
+        [
+          "Reference",
+          18
+        ],
+        [
+          "TableOfContents",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 24,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          241
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Reference",
+          18
+        ],
+        [
+          "ListItem",
+          17
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/10-1108_k-05-2020-0324"
+}

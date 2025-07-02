@@ -1,0 +1,1032 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Temporal Knowledge Graph Reasoning with Historical Contrastive Learning",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          69.328125,
+          97.873046875
+        ],
+        [
+          542.671875,
+          97.873046875
+        ],
+        [
+          542.671875,
+          112.21923828125
+        ],
+        [
+          69.328125,
+          112.21923828125
+        ]
+      ]
+    },
+    {
+      "title": "Abstract",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          154.7149658203125,
+          218.3165283203125
+        ],
+        [
+          193.341796875,
+          218.3165283203125
+        ],
+        [
+          193.341796875,
+          228.27911376953125
+        ],
+        [
+          154.7149658203125,
+          228.27911376953125
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          131.843994140625,
+          516.31640625
+        ],
+        [
+          214.7080078125,
+          516.31640625
+        ],
+        [
+          214.7080078125,
+          528.2716064453125
+        ],
+        [
+          131.843994140625,
+          528.2716064453125
+        ]
+      ]
+    },
+    {
+      "title": "2 Related Work",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          394.20501708984375,
+          99.1895751953125
+        ],
+        [
+          484.1015625,
+          99.1895751953125
+        ],
+        [
+          484.1015625,
+          111.144775390625
+        ],
+        [
+          394.20501708984375,
+          111.144775390625
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Temporal Knowledge Graph Reasoning",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          319.5000305175781,
+          114.46051025390625
+        ],
+        [
+          530.12109375,
+          114.46051025390625
+        ],
+        [
+          530.12109375,
+          125.36956787109375
+        ],
+        [
+          319.5000305175781,
+          125.36956787109375
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Contrastive Learning",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          318.55078125,
+          477.19207763671875
+        ],
+        [
+          445.25390625,
+          477.19207763671875
+        ],
+        [
+          445.25390625,
+          488.1011962890625
+        ],
+        [
+          318.55078125,
+          488.1011962890625
+        ]
+      ]
+    },
+    {
+      "title": "3 Method",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          143.736328125,
+          320.0481262207031
+        ],
+        [
+          202.14047241210938,
+          320.0481262207031
+        ],
+        [
+          202.14047241210938,
+          332.0033264160156
+        ],
+        [
+          143.736328125,
+          332.0033264160156
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Preliminaries",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.378173828125,
+          410.9739685058594
+        ],
+        [
+          141.7939453125,
+          410.9739685058594
+        ],
+        [
+          141.7939453125,
+          421.8830871582031
+        ],
+        [
+          53.378173828125,
+          421.8830871582031
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Historical and Non-historical Dependency",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          319.1484375,
+          376.1379699707031
+        ],
+        [
+          539.5037231445312,
+          376.1379699707031
+        ],
+        [
+          539.5037231445312,
+          387.0470886230469
+        ],
+        [
+          319.1484375,
+          387.0470886230469
+        ]
+      ]
+    },
+    {
+      "title": "3.3 Historical Contrastive Learning",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.19140625,
+          580.0810394287109
+        ],
+        [
+          227.24737548828125,
+          580.0810394287109
+        ],
+        [
+          227.24737548828125,
+          590.9901275634766
+        ],
+        [
+          53.19140625,
+          590.9901275634766
+        ]
+      ]
+    },
+    {
+      "title": "3.4 Parameter Learning and Inference",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          54.0,
+          355.39453125
+        ],
+        [
+          240.7747344970703,
+          355.39453125
+        ],
+        [
+          240.7747344970703,
+          366.441162109375
+        ],
+        [
+          54.0,
+          366.441162109375
+        ]
+      ]
+    },
+    {
+      "title": "4 Experiments",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          394.453125,
+          54.78704833984375
+        ],
+        [
+          481.7109375,
+          54.78704833984375
+        ],
+        [
+          481.7109375,
+          66.74224853515625
+        ],
+        [
+          394.453125,
+          66.74224853515625
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Experimental Settings",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          319.1484375,
+          160.56292724609375
+        ],
+        [
+          447.64453125,
+          160.56292724609375
+        ],
+        [
+          447.64453125,
+          171.47198486328125
+        ],
+        [
+          319.1484375,
+          171.47198486328125
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Results",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          53.303466796875,
+          355.201171875
+        ],
+        [
+          112.658203125,
+          355.201171875
+        ],
+        [
+          112.658203125,
+          366.5271301269531
+        ],
+        [
+          53.303466796875,
+          366.5271301269531
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Ablation Study",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          53.751708984375,
+          257.12701416015625
+        ],
+        [
+          149.1709747314453,
+          257.12701416015625
+        ],
+        [
+          149.1709747314453,
+          268.03607177734375
+        ],
+        [
+          53.751708984375,
+          268.03607177734375
+        ]
+      ]
+    },
+    {
+      "title": "4.4 Hyper-parameter Analysis",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          53.41552734375,
+          645.595703125
+        ],
+        [
+          202.904296875,
+          645.595703125
+        ],
+        [
+          202.904296875,
+          656.5047912597656
+        ],
+        [
+          53.41552734375,
+          656.5047912597656
+        ]
+      ]
+    },
+    {
+      "title": "5 Conclusion and Future Work",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          355.0078125,
+          569.5551147460938
+        ],
+        [
+          522.3892822265625,
+          569.5551147460938
+        ],
+        [
+          522.3892822265625,
+          581.5103149414062
+        ],
+        [
+          355.0078125,
+          581.5103149414062
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgments",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          126.03076171875,
+          54.720703125
+        ],
+        [
+          220.53515625,
+          54.720703125
+        ],
+        [
+          220.53515625,
+          66.7423095703125
+        ],
+        [
+          126.03076171875,
+          66.7423095703125
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          143.138671875,
+          147.19903564453125
+        ],
+        [
+          201.0218505859375,
+          147.19903564453125
+        ],
+        [
+          201.0218505859375,
+          159.15423583984375
+        ],
+        [
+          143.138671875,
+          159.15423583984375
+        ]
+      ]
+    },
+    {
+      "title": "A Historical Contrastive Learning",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          81.47700500488281,
+          54.787109375
+        ],
+        [
+          265.02520751953125,
+          54.787109375
+        ],
+        [
+          265.02520751953125,
+          66.7423095703125
+        ],
+        [
+          81.47700500488281,
+          66.7423095703125
+        ]
+      ]
+    },
+    {
+      "title": "B Complexity Analysis",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          108.3251953125,
+          402.880126953125
+        ],
+        [
+          235.85382080078125,
+          402.880126953125
+        ],
+        [
+          235.85382080078125,
+          414.8353271484375
+        ],
+        [
+          108.3251953125,
+          414.8353271484375
+        ]
+      ]
+    },
+    {
+      "title": "C Details of Datasets",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          114.82470703125,
+          559.0049896240234
+        ],
+        [
+          231.890625,
+          559.0049896240234
+        ],
+        [
+          231.890625,
+          570.9601898193359
+        ],
+        [
+          114.82470703125,
+          570.9601898193359
+        ]
+      ]
+    },
+    {
+      "title": "D More Baseline Results",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          370.248046875,
+          154.412841796875
+        ],
+        [
+          506.513671875,
+          154.412841796875
+        ],
+        [
+          506.513671875,
+          166.3680419921875
+        ],
+        [
+          370.248046875,
+          166.3680419921875
+        ]
+      ]
+    },
+    {
+      "title": "E Case Study",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          400.0569763183594,
+          377.57562255859375
+        ],
+        [
+          477.4429931640625,
+          377.57562255859375
+        ],
+        [
+          477.4429931640625,
+          389.53082275390625
+        ],
+        [
+          400.0569763183594,
+          389.53082275390625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          271
+        ],
+        [
+          "Line",
+          104
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          373
+        ],
+        [
+          "Line",
+          120
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          693
+        ],
+        [
+          "Line",
+          158
+        ],
+        [
+          "TextInlineMath",
+          7
+        ],
+        [
+          "Equation",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          872
+        ],
+        [
+          "Line",
+          216
+        ],
+        [
+          "TextInlineMath",
+          11
+        ],
+        [
+          "Equation",
+          8
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          616
+        ],
+        [
+          "Line",
+          163
+        ],
+        [
+          "TableCell",
+          36
+        ],
+        [
+          "ListItem",
+          16
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "Equation",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          411
+        ],
+        [
+          "TableCell",
+          351
+        ],
+        [
+          "Line",
+          87
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          492
+        ],
+        [
+          "Line",
+          150
+        ],
+        [
+          "TableCell",
+          96
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          260
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "Text",
+          24
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          188
+        ],
+        [
+          "Line",
+          76
+        ],
+        [
+          "Text",
+          17
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          319
+        ],
+        [
+          "Line",
+          105
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "TableCell",
+          303
+        ],
+        [
+          "Span",
+          259
+        ],
+        [
+          "Line",
+          57
+        ],
+        [
+          "Caption",
+          4
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "TableGroup",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2211.10904_Temporal_Knowledge_Graph_Reasoning_with_Historical_Contrastive_Learning"
+}

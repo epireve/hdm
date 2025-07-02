@@ -1,0 +1,992 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Cross-Data Knowledge Graph Construction for LLM-enabled\nEducational Question-Answering System:\nA Case Study at HCMUT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          84.7177734375,
+          82.76910400390625
+        ],
+        [
+          564.1875,
+          82.76910400390625
+        ],
+        [
+          564.1875,
+          139.83551025390625
+        ],
+        [
+          84.7177734375,
+          139.83551025390625
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          70.44873046875,
+          363.322265625
+        ],
+        [
+          130.1455535888672,
+          363.322265625
+        ],
+        [
+          130.1455535888672,
+          375.310546875
+        ],
+        [
+          70.44873046875,
+          375.310546875
+        ]
+      ]
+    },
+    {
+      "title": "CCS CONCEPTS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          336.156982421875,
+          407.1035461425781
+        ],
+        [
+          417.76171875,
+          407.1035461425781
+        ],
+        [
+          417.76171875,
+          418.04296875
+        ],
+        [
+          336.156982421875,
+          418.04296875
+        ]
+      ]
+    },
+    {
+      "title": "KEYWORDS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          336.156982421875,
+          464.33856201171875
+        ],
+        [
+          398.0224914550781,
+          464.33856201171875
+        ],
+        [
+          398.0224914550781,
+          475.2476501464844
+        ],
+        [
+          336.156982421875,
+          475.2476501464844
+        ]
+      ]
+    },
+    {
+      "title": "ACM Reference Format:",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          334.388671875,
+          505.87713623046875
+        ],
+        [
+          424.634765625,
+          505.87713623046875
+        ],
+        [
+          424.634765625,
+          515.109375
+        ],
+        [
+          334.388671875,
+          515.109375
+        ]
+      ]
+    },
+    {
+      "title": "1 INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          336.156982421875,
+          575.8175659179688
+        ],
+        [
+          439.875,
+          575.8175659179688
+        ],
+        [
+          439.875,
+          587.0390625
+        ],
+        [
+          336.156982421875,
+          587.0390625
+        ]
+      ]
+    },
+    {
+      "title": "2 RELATED WORK",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          71.083740234375,
+          534.7705993652344
+        ],
+        [
+          176.90625,
+          534.7705993652344
+        ],
+        [
+          176.90625,
+          545.6796875
+        ],
+        [
+          71.083740234375,
+          545.6796875
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Open Intent Discovery",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          71.34521484375,
+          550.4615936279297
+        ],
+        [
+          208.28738403320312,
+          550.4615936279297
+        ],
+        [
+          208.28738403320312,
+          561.3706970214844
+        ],
+        [
+          71.34521484375,
+          561.3706970214844
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Knowledge Graph in Education Domain",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          336.156982421875,
+          340.2005615234375
+        ],
+        [
+          558.1790161132812,
+          340.2005615234375
+        ],
+        [
+          558.1790161132812,
+          351.140625
+        ],
+        [
+          336.156982421875,
+          351.140625
+        ]
+      ]
+    },
+    {
+      "title": "2.3 KG-augmented LLMs",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          333.4921875,
+          542.9405822753906
+        ],
+        [
+          465.57421875,
+          542.9405822753906
+        ],
+        [
+          465.57421875,
+          553.8496856689453
+        ],
+        [
+          333.4921875,
+          553.8496856689453
+        ]
+      ]
+    },
+    {
+      "title": "3 TOWARDS CROSS-DATA KNOWLEDGE\nGRAPH CONSTRUCTION FOR\nLLM-ENABLED EDUCATIONAL\nQUESTION-ANSWERING SYSTEM",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          70.14990234375,
+          85.4066162109375
+        ],
+        [
+          288.966796875,
+          85.4066162109375
+        ],
+        [
+          288.966796875,
+          137.28515625
+        ],
+        [
+          70.14990234375,
+          137.28515625
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Multi-source educational data at HCMUT",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          71.19580078125,
+          316.3359375
+        ],
+        [
+          302.4140625,
+          316.3359375
+        ],
+        [
+          302.4140625,
+          327.36767578125
+        ],
+        [
+          71.19580078125,
+          327.36767578125
+        ]
+      ]
+    },
+    {
+      "title": "3.2 The E-OED Framework",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          335.8828125,
+          228.12158203125
+        ],
+        [
+          476.33203125,
+          228.12158203125
+        ],
+        [
+          476.33203125,
+          239.03070068359375
+        ],
+        [
+          335.8828125,
+          239.03070068359375
+        ]
+      ]
+    },
+    {
+      "title": "3.3 Embedding-based method for Relation\nDiscovery",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          71.2705078125,
+          628.6195678710938
+        ],
+        [
+          290.3115234375,
+          628.6195678710938
+        ],
+        [
+          290.3115234375,
+          652.4796600341797
+        ],
+        [
+          71.2705078125,
+          652.4796600341797
+        ]
+      ]
+    },
+    {
+      "title": "4 EXPERIMENTS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          334.986328125,
+          516.26953125
+        ],
+        [
+          430.013671875,
+          516.26953125
+        ],
+        [
+          430.013671875,
+          527.1996459960938
+        ],
+        [
+          334.986328125,
+          527.1996459960938
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Datasets",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          333.791015625,
+          531.9815673828125
+        ],
+        [
+          402.521484375,
+          531.9815673828125
+        ],
+        [
+          402.521484375,
+          542.8906555175781
+        ],
+        [
+          333.791015625,
+          542.8906555175781
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Discovered Educational Open Intents",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          71.12109375,
+          85.4066162109375
+        ],
+        [
+          281.49609375,
+          85.4066162109375
+        ],
+        [
+          281.49609375,
+          96.34130859375
+        ],
+        [
+          71.12109375,
+          96.34130859375
+        ]
+      ]
+    },
+    {
+      "title": "Table 1: Open intent discovery result",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          117.53199768066406,
+          305.701171875
+        ],
+        [
+          267.0029296875,
+          305.701171875
+        ],
+        [
+          267.0029296875,
+          315.0417785644531
+        ],
+        [
+          117.53199768066406,
+          315.0417785644531
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Embedding-based method for Relation\nDiscovery Result",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          71.79345703125,
+          389.0390625
+        ],
+        [
+          291.65625,
+          389.0390625
+        ],
+        [
+          291.65625,
+          413.015625
+        ],
+        [
+          71.79345703125,
+          413.015625
+        ]
+      ]
+    },
+    {
+      "title": "4.4 KG-augmented LLMs Approach in\nEducational Context",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          71.2705078125,
+          661.4955749511719
+        ],
+        [
+          267.0029296875,
+          661.4955749511719
+        ],
+        [
+          267.0029296875,
+          685.3566741943359
+        ],
+        [
+          71.2705078125,
+          685.3566741943359
+        ]
+      ]
+    },
+    {
+      "title": "4.5 Discussion",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          335.583984375,
+          477.1875915527344
+        ],
+        [
+          414.1788635253906,
+          477.1875915527344
+        ],
+        [
+          414.1788635253906,
+          488.0966796875
+        ],
+        [
+          335.583984375,
+          488.0966796875
+        ]
+      ]
+    },
+    {
+      "title": "5 CONCLUSION",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          71.009033203125,
+          173.82452392578125
+        ],
+        [
+          160.76953125,
+          173.82452392578125
+        ],
+        [
+          160.76953125,
+          184.733642578125
+        ],
+        [
+          71.009033203125,
+          184.733642578125
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          71.830810546875,
+          297.8595886230469
+        ],
+        [
+          141.4145965576172,
+          297.8595886230469
+        ],
+        [
+          141.4145965576172,
+          308.7686767578125
+        ],
+        [
+          71.830810546875,
+          308.7686767578125
+        ]
+      ]
+    },
+    {
+      "title": "A APPENDIX",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          70.89697265625,
+          85.12646484375
+        ],
+        [
+          147.01097106933594,
+          85.12646484375
+        ],
+        [
+          147.01097106933594,
+          96.63134765625
+        ],
+        [
+          70.89697265625,
+          96.63134765625
+        ]
+      ]
+    },
+    {
+      "title": "A.1 E-OED Framework Analysis",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          71.04638671875,
+          101.09759521484375
+        ],
+        [
+          238.46484375,
+          101.09759521484375
+        ],
+        [
+          238.46484375,
+          112.0067138671875
+        ],
+        [
+          71.04638671875,
+          112.0067138671875
+        ]
+      ]
+    },
+    {
+      "title": "Table 3: Data censored tool",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          137.51800537109375,
+          406.20941162109375
+        ],
+        [
+          248.02734375,
+          406.20941162109375
+        ],
+        [
+          248.02734375,
+          415.17578125
+        ],
+        [
+          137.51800537109375,
+          415.17578125
+        ]
+      ]
+    },
+    {
+      "title": "Table 4: Design selection result",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          128.794921875,
+          463.5982666015625
+        ],
+        [
+          255.19921875,
+          463.5982666015625
+        ],
+        [
+          255.19921875,
+          472.5703125
+        ],
+        [
+          128.794921875,
+          472.5703125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          247
+        ],
+        [
+          "Line",
+          100
+        ],
+        [
+          "Text",
+          18
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          265
+        ],
+        [
+          "Line",
+          107
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          253
+        ],
+        [
+          "Line",
+          105
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          291
+        ],
+        [
+          "Line",
+          130
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "Figure",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "FigureGroup",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          205
+        ],
+        [
+          "Line",
+          96
+        ],
+        [
+          "TableCell",
+          35
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          408
+        ],
+        [
+          "Line",
+          138
+        ],
+        [
+          "ListItem",
+          30
+        ],
+        [
+          "Reference",
+          30
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          422
+        ],
+        [
+          "Line",
+          119
+        ],
+        [
+          "TableCell",
+          96
+        ],
+        [
+          "Text",
+          15
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "ListGroup",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          183
+        ],
+        [
+          "Line",
+          59
+        ],
+        [
+          "ListItem",
+          31
+        ],
+        [
+          "TableCell",
+          12
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Bui-2024-Cross-data-knowledge-graph-construc"
+}

@@ -1,0 +1,540 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Leveraging Knowledge Graphs for Big Data\nIntegration: the XI Pipeline",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          67.40234375,
+          145.849365234375
+        ],
+        [
+          512.19970703125,
+          145.849365234375
+        ],
+        [
+          512.19970703125,
+          200.55023193359375
+        ],
+        [
+          67.40234375,
+          200.55023193359375
+        ]
+      ]
+    },
+    {
+      "title": "1. Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          67.9107666015625,
+          443.3126525878906
+        ],
+        [
+          135.0232391357422,
+          443.3126525878906
+        ],
+        [
+          135.0232391357422,
+          453.2752380371094
+        ],
+        [
+          67.9107666015625,
+          453.2752380371094
+        ]
+      ]
+    },
+    {
+      "title": "2. The XI Pipeline",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          309.41162109375,
+          553.9801635742188
+        ],
+        [
+          390.17822265625,
+          553.9801635742188
+        ],
+        [
+          390.17822265625,
+          563.9427490234375
+        ],
+        [
+          309.41162109375,
+          563.9427490234375
+        ]
+      ]
+    },
+    {
+      "title": "2.1. Name-Entity Recognition (NER)",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          68.09234619140625,
+          274.832763671875
+        ],
+        [
+          217.2615203857422,
+          274.832763671875
+        ],
+        [
+          217.2615203857422,
+          284.79534912109375
+        ],
+        [
+          68.09234619140625,
+          284.79534912109375
+        ]
+      ]
+    },
+    {
+      "title": "2.2. Entity linking",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          68.16497802734375,
+          604.3059539794922
+        ],
+        [
+          142.503662109375,
+          604.3059539794922
+        ],
+        [
+          142.503662109375,
+          614.2685546875
+        ],
+        [
+          68.16497802734375,
+          614.2685546875
+        ]
+      ]
+    },
+    {
+      "title": "2.3. Type ranking",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          309.7021484375,
+          309.38018798828125
+        ],
+        [
+          382.5031433105469,
+          309.38018798828125
+        ],
+        [
+          382.5031433105469,
+          319.4501953125
+        ],
+        [
+          309.7021484375,
+          319.4501953125
+        ]
+      ]
+    },
+    {
+      "title": "2.4. Co-Reference Resolution",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          310.283203125,
+          546.1015930175781
+        ],
+        [
+          430.0566101074219,
+          546.1015930175781
+        ],
+        [
+          430.0566101074219,
+          556.0641784667969
+        ],
+        [
+          310.283203125,
+          556.0641784667969
+        ]
+      ]
+    },
+    {
+      "title": "2.5. Relation extraction",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          67.7655029296875,
+          126.33258056640625
+        ],
+        [
+          165.6005859375,
+          126.33258056640625
+        ],
+        [
+          165.6005859375,
+          136.295166015625
+        ],
+        [
+          67.7655029296875,
+          136.295166015625
+        ]
+      ]
+    },
+    {
+      "title": "3. Use-cases",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          68.128662109375,
+          377.380126953125
+        ],
+        [
+          121.585693359375,
+          377.380126953125
+        ],
+        [
+          121.585693359375,
+          387.49267578125
+        ],
+        [
+          68.128662109375,
+          387.49267578125
+        ]
+      ]
+    },
+    {
+      "title": "3.1. ScienceWise: Integrating research articles",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          68.0560302734375,
+          556.7158203125
+        ],
+        [
+          256.625732421875,
+          556.7158203125
+        ],
+        [
+          256.625732421875,
+          566.6784057617188
+        ],
+        [
+          68.0560302734375,
+          566.6784057617188
+        ]
+      ]
+    },
+    {
+      "title": "3.2. ArmaTweet: Integrating social media contents",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          309.7021484375,
+          162.19580078125
+        ],
+        [
+          514.814453125,
+          162.19580078125
+        ],
+        [
+          514.814453125,
+          172.15838623046875
+        ],
+        [
+          309.7021484375,
+          172.15838623046875
+        ]
+      ]
+    },
+    {
+      "title": "3.3. Guider: Integrating cloud infrastructure data",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          310.57373046875,
+          401.3101501464844
+        ],
+        [
+          511.03759765625,
+          401.3101501464844
+        ],
+        [
+          511.03759765625,
+          411.33837890625
+        ],
+        [
+          310.57373046875,
+          411.33837890625
+        ]
+      ]
+    },
+    {
+      "title": "4. Conclusions & lessons learnt",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          310.283203125,
+          652.3575897216797
+        ],
+        [
+          444.9825134277344,
+          652.3575897216797
+        ],
+        [
+          444.9825134277344,
+          662.3201904296875
+        ],
+        [
+          310.283203125,
+          662.3201904296875
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          68.49102020263672,
+          681.5679779052734
+        ],
+        [
+          114.8131332397461,
+          681.5679779052734
+        ],
+        [
+          114.8131332397461,
+          691.5305786132812
+        ],
+        [
+          68.49102020263672,
+          691.5305786132812
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          153
+        ],
+        [
+          "Line",
+          61
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          198
+        ],
+        [
+          "Line",
+          83
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          178
+        ],
+        [
+          "Line",
+          90
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          255
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "ListItem",
+          12
+        ],
+        [
+          "Reference",
+          12
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          120
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "Reference",
+          9
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/hitzler-et-al-2020-leveraging-knowledge-graphs-for-big-data-integration-the-xi-pipeline"
+}

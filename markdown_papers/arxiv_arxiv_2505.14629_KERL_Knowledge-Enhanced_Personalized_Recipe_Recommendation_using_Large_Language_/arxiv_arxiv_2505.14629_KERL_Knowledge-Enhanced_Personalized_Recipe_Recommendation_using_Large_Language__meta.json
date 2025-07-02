@@ -1,0 +1,1506 @@
+{
+  "table_of_contents": [
+    {
+      "title": "KERL: Knowledge-Enhanced Personalized Recipe Recommendation using\nLarge Language Models *",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          70.2802734375,
+          78.85003662109375
+        ],
+        [
+          525.57421875,
+          78.85003662109375
+        ],
+        [
+          525.57421875,
+          109.1436767578125
+        ],
+        [
+          70.2802734375,
+          109.1436767578125
+        ]
+      ]
+    },
+    {
+      "title": "Abstract",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          156.56640625,
+          221.8001708984375
+        ],
+        [
+          204.001953125,
+          221.8001708984375
+        ],
+        [
+          204.001953125,
+          233.75537109375
+        ],
+        [
+          156.56640625,
+          233.75537109375
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          69.370849609375,
+          592.1771545410156
+        ],
+        [
+          153.67967224121094,
+          592.1771545410156
+        ],
+        [
+          153.67967224121094,
+          604.1323547363281
+        ],
+        [
+          69.370849609375,
+          604.1323547363281
+        ]
+      ]
+    },
+    {
+      "title": "2 Related Work",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          306.1419982910156,
+          305.67724609375
+        ],
+        [
+          396.36328125,
+          305.67724609375
+        ],
+        [
+          396.36328125,
+          317.8443603515625
+        ],
+        [
+          306.1419982910156,
+          317.8443603515625
+        ]
+      ]
+    },
+    {
+      "title": "3 KERL: Food Recommendation System",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          306.14202880859375,
+          457.08416748046875
+        ],
+        [
+          523.24609375,
+          457.08416748046875
+        ],
+        [
+          523.24609375,
+          469.03936767578125
+        ],
+        [
+          306.14202880859375,
+          469.03936767578125
+        ]
+      ]
+    },
+    {
+      "title": "3.1 KERL-Recom",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          70.134765625,
+          275.0478515625
+        ],
+        [
+          162.06607055664062,
+          275.0478515625
+        ],
+        [
+          162.06607055664062,
+          286.1484375
+        ],
+        [
+          70.134765625,
+          286.1484375
+        ]
+      ]
+    },
+    {
+      "title": "3.2 KERL-Recipe",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          306.14202880859375,
+          492.9630432128906
+        ],
+        [
+          396.7420959472656,
+          492.9630432128906
+        ],
+        [
+          396.7420959472656,
+          504.048828125
+        ],
+        [
+          306.14202880859375,
+          504.048828125
+        ]
+      ]
+    },
+    {
+      "title": "3.3 KERL-Nutri",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          69.807373046875,
+          321.71142578125
+        ],
+        [
+          155.41151428222656,
+          321.71142578125
+        ],
+        [
+          155.41151428222656,
+          332.8921203613281
+        ],
+        [
+          69.807373046875,
+          332.8921203613281
+        ]
+      ]
+    },
+    {
+      "title": "4 Benchmark Generation",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          70.134765625,
+          539.3881225585938
+        ],
+        [
+          209.9677734375,
+          539.3881225585938
+        ],
+        [
+          209.9677734375,
+          551.3433227539062
+        ],
+        [
+          70.134765625,
+          551.3433227539062
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Generating Personal Preferences",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          70.42578125,
+          719.482421875
+        ],
+        [
+          248.236328125,
+          719.482421875
+        ],
+        [
+          248.236328125,
+          730.6511688232422
+        ],
+        [
+          70.42578125,
+          730.6511688232422
+        ]
+      ]
+    },
+    {
+      "title": "4.2 KGQA Benchmark",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          70.316650390625,
+          432.6700439453125
+        ],
+        [
+          186.0224609375,
+          432.6700439453125
+        ],
+        [
+          186.0224609375,
+          443.6123046875
+        ],
+        [
+          70.316650390625,
+          443.6123046875
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Nutrition Generation Benchmark",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          306.1419982910156,
+          414.62408447265625
+        ],
+        [
+          487.047607421875,
+          414.62408447265625
+        ],
+        [
+          487.047607421875,
+          425.533203125
+        ],
+        [
+          306.1419982910156,
+          425.533203125
+        ]
+      ]
+    },
+    {
+      "title": "4.4 Recipe Generation Benchmark",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          70.64404296875,
+          73.56207275390625
+        ],
+        [
+          239.64068603515625,
+          73.56207275390625
+        ],
+        [
+          239.64068603515625,
+          84.47113037109375
+        ],
+        [
+          70.64404296875,
+          84.47113037109375
+        ]
+      ]
+    },
+    {
+      "title": "5 Experimental Results",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          69.661865234375,
+          565.3076171875
+        ],
+        [
+          199.345703125,
+          565.3076171875
+        ],
+        [
+          199.345703125,
+          577.4603881835938
+        ],
+        [
+          69.661865234375,
+          577.4603881835938
+        ]
+      ]
+    },
+    {
+      "title": "5.1 Experimental Setup",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          304.693359375,
+          73.5621337890625
+        ],
+        [
+          423.72027587890625,
+          73.5621337890625
+        ],
+        [
+          423.72027587890625,
+          84.47119140625
+        ],
+        [
+          304.693359375,
+          84.47119140625
+        ]
+      ]
+    },
+    {
+      "title": "5.2 KERL-Recom Evaluation",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          304.693359375,
+          495.826171875
+        ],
+        [
+          447.291015625,
+          495.826171875
+        ],
+        [
+          447.291015625,
+          506.8407897949219
+        ],
+        [
+          304.693359375,
+          506.8407897949219
+        ]
+      ]
+    },
+    {
+      "title": "5.3 KERL-Recipe Evaluation",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          306.14202880859375,
+          377.21435546875
+        ],
+        [
+          447.0,
+          377.21435546875
+        ],
+        [
+          447.0,
+          388.31982421875
+        ],
+        [
+          306.14202880859375,
+          388.31982421875
+        ]
+      ]
+    },
+    {
+      "title": "5.4 KERL-Nutri Evaluation",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          70.06201171875,
+          306.2939453125
+        ],
+        [
+          205.33059692382812,
+          306.2939453125
+        ],
+        [
+          205.33059692382812,
+          318.03076171875
+        ],
+        [
+          70.06201171875,
+          318.03076171875
+        ]
+      ]
+    },
+    {
+      "title": "6 Conclusion",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          70.134765625,
+          579.2861328125
+        ],
+        [
+          146.380859375,
+          579.2861328125
+        ],
+        [
+          146.380859375,
+          591.4783477783203
+        ],
+        [
+          70.134765625,
+          591.4783477783203
+        ]
+      ]
+    },
+    {
+      "title": "7 Limitations",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          306.14202880859375,
+          428.400390625
+        ],
+        [
+          384.431640625,
+          428.400390625
+        ],
+        [
+          384.431640625,
+          440.662353515625
+        ],
+        [
+          306.14202880859375,
+          440.662353515625
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          69.9892578125,
+          72.5135498046875
+        ],
+        [
+          127.173828125,
+          72.5135498046875
+        ],
+        [
+          127.173828125,
+          84.71435546875
+        ],
+        [
+          69.9892578125,
+          84.71435546875
+        ]
+      ]
+    },
+    {
+      "title": "A Dataset Details",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          70.06201171875,
+          72.7591552734375
+        ],
+        [
+          169.080078125,
+          72.7591552734375
+        ],
+        [
+          169.080078125,
+          84.71435546875
+        ],
+        [
+          70.06201171875,
+          84.71435546875
+        ]
+      ]
+    },
+    {
+      "title": "A.1 Recipe tags",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          70.098388671875,
+          99.4427490234375
+        ],
+        [
+          151.91015625,
+          99.4427490234375
+        ],
+        [
+          151.91015625,
+          110.697509765625
+        ],
+        [
+          70.098388671875,
+          110.697509765625
+        ]
+      ]
+    },
+    {
+      "title": "A.2 KGQA benchmark details",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          70.134765625,
+          405.376953125
+        ],
+        [
+          220.7353515625,
+          405.376953125
+        ],
+        [
+          220.7353515625,
+          416.4775390625
+        ],
+        [
+          70.134765625,
+          416.4775390625
+        ]
+      ]
+    },
+    {
+      "title": "B Foundational Models",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          306.1419982910156,
+          72.5135498046875
+        ],
+        [
+          435.068359375,
+          72.5135498046875
+        ],
+        [
+          435.068359375,
+          84.71435546875
+        ],
+        [
+          306.1419982910156,
+          84.71435546875
+        ]
+      ]
+    },
+    {
+      "title": "C Metrics",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          306.14202880859375,
+          550.91796875
+        ],
+        [
+          366.388671875,
+          550.91796875
+        ],
+        [
+          366.388671875,
+          562.9063720703125
+        ],
+        [
+          306.14202880859375,
+          562.9063720703125
+        ]
+      ]
+    },
+    {
+      "title": "C.1 Metrics for Recommendation Evaluation",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          306.14202880859375,
+          572.6360473632812
+        ],
+        [
+          524.41015625,
+          572.6360473632812
+        ],
+        [
+          524.41015625,
+          584.2197265625
+        ],
+        [
+          306.14202880859375,
+          584.2197265625
+        ]
+      ]
+    },
+    {
+      "title": "C.2 Metrics for Recipe Generation",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          69.9892578125,
+          542.6080017089844
+        ],
+        [
+          239.64068603515625,
+          542.6080017089844
+        ],
+        [
+          239.64068603515625,
+          553.5171203613281
+        ],
+        [
+          69.9892578125,
+          553.5171203613281
+        ]
+      ]
+    },
+    {
+      "title": "C.3 Metrics for Nutrition Generation",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          305.56640625,
+          246.67205810546875
+        ],
+        [
+          487.7421875,
+          246.67205810546875
+        ],
+        [
+          487.7421875,
+          257.58111572265625
+        ],
+        [
+          305.56640625,
+          257.58111572265625
+        ]
+      ]
+    },
+    {
+      "title": "D Additional Results",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          304.40234375,
+          533.566162109375
+        ],
+        [
+          423.13671875,
+          533.566162109375
+        ],
+        [
+          423.13671875,
+          545.5213623046875
+        ],
+        [
+          304.40234375,
+          545.5213623046875
+        ]
+      ]
+    },
+    {
+      "title": "D.1 KERL-Recom",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          305.56640625,
+          556.2450561523438
+        ],
+        [
+          399.2734375,
+          556.2450561523438
+        ],
+        [
+          399.2734375,
+          567.1598205566406
+        ],
+        [
+          305.56640625,
+          567.1598205566406
+        ]
+      ]
+    },
+    {
+      "title": "D.2 KERL-Nutri",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          70.171142578125,
+          597.3759765625
+        ],
+        [
+          154.529296875,
+          597.3759765625
+        ],
+        [
+          154.529296875,
+          608.8876953125
+        ],
+        [
+          70.171142578125,
+          608.8876953125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          264
+        ],
+        [
+          "Line",
+          90
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          307
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          501
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          468
+        ],
+        [
+          "Line",
+          99
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          461
+        ],
+        [
+          "Line",
+          108
+        ],
+        [
+          "TableCell",
+          32
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          401
+        ],
+        [
+          "Line",
+          107
+        ],
+        [
+          "TableCell",
+          44
+        ],
+        [
+          "ListItem",
+          7
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          367
+        ],
+        [
+          "Line",
+          99
+        ],
+        [
+          "TableCell",
+          45
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          311
+        ],
+        [
+          "Line",
+          106
+        ],
+        [
+          "TableCell",
+          105
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          409
+        ],
+        [
+          "TableCell",
+          276
+        ],
+        [
+          "Line",
+          86
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          258
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "ListItem",
+          21
+        ],
+        [
+          "Reference",
+          21
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          252
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "ListItem",
+          23
+        ],
+        [
+          "Reference",
+          23
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          238
+        ],
+        [
+          "Line",
+          104
+        ],
+        [
+          "ListItem",
+          20
+        ],
+        [
+          "Reference",
+          20
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          263
+        ],
+        [
+          "Line",
+          97
+        ],
+        [
+          "TableCell",
+          79
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Reference",
+          5
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          502
+        ],
+        [
+          "Line",
+          127
+        ],
+        [
+          "Equation",
+          6
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          426
+        ],
+        [
+          "Line",
+          131
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "TextInlineMath",
+          5
+        ],
+        [
+          "Equation",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "TableCell",
+          306
+        ],
+        [
+          "Span",
+          281
+        ],
+        [
+          "Line",
+          77
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          154
+        ],
+        [
+          "TableCell",
+          93
+        ],
+        [
+          "Line",
+          74
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_arxiv_2505.14629_KERL_Knowledge-Enhanced_Personalized_Recipe_Recommendation_using_Large_Language_"
+}

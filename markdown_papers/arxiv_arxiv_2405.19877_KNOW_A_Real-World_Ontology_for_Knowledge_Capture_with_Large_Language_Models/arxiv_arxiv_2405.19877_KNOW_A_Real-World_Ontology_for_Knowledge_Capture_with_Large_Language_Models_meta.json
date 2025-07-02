@@ -1,0 +1,601 @@
+{
+  "table_of_contents": [
+    {
+      "title": "KNOW\u2013A Real-World Ontology for Knowledge Capture with\nLarge Language Models",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          79.3388671875,
+          97.84088134765625
+        ],
+        [
+          533.109375,
+          97.84088134765625
+        ],
+        [
+          533.109375,
+          134.9822998046875
+        ],
+        [
+          79.3388671875,
+          134.9822998046875
+        ]
+      ]
+    },
+    {
+      "title": "Abstract",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          283.1396484375,
+          259.48114013671875
+        ],
+        [
+          328.2432556152344,
+          259.48114013671875
+        ],
+        [
+          328.2432556152344,
+          271.43634033203125
+        ],
+        [
+          283.1396484375,
+          271.43634033203125
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          70.784912109375,
+          459.294189453125
+        ],
+        [
+          154.8136749267578,
+          459.294189453125
+        ],
+        [
+          154.8136749267578,
+          471.2493896484375
+        ],
+        [
+          70.784912109375,
+          471.2493896484375
+        ]
+      ]
+    },
+    {
+      "title": "1.1 Why LLMs Need KGs",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          71.12109375,
+          553.0078125
+        ],
+        [
+          189.74795532226562,
+          553.0078125
+        ],
+        [
+          189.74795532226562,
+          563.4821014404297
+        ],
+        [
+          71.12109375,
+          563.4821014404297
+        ]
+      ]
+    },
+    {
+      "title": "1.2 Why KGs Need LLMs",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          71.34521484375,
+          670.1884994506836
+        ],
+        [
+          189.755859375,
+          670.1884994506836
+        ],
+        [
+          189.755859375,
+          680.1511001586914
+        ],
+        [
+          71.34521484375,
+          680.1511001586914
+        ]
+      ]
+    },
+    {
+      "title": "1.3 The Neuro-Symbolic Synthesis",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          71.12109375,
+          180.404296875
+        ],
+        [
+          227.5576171875,
+          180.404296875
+        ],
+        [
+          227.5576171875,
+          191.9510498046875
+        ],
+        [
+          71.12109375,
+          191.9510498046875
+        ]
+      ]
+    },
+    {
+      "title": "2 Domain and Scope",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          70.89697265625,
+          371.63671875
+        ],
+        [
+          187.962890625,
+          371.63671875
+        ],
+        [
+          187.962890625,
+          384.5693664550781
+        ],
+        [
+          70.89697265625,
+          384.5693664550781
+        ]
+      ]
+    },
+    {
+      "title": "3 Use Cases",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          70.9716796875,
+          654.328125
+        ],
+        [
+          144.1845703125,
+          654.328125
+        ],
+        [
+          144.1845703125,
+          667.4593505859375
+        ],
+        [
+          70.9716796875,
+          667.4593505859375
+        ]
+      ]
+    },
+    {
+      "title": "4 Software Libraries",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          71.158447265625,
+          626.484375
+        ],
+        [
+          189.0087890625,
+          626.484375
+        ],
+        [
+          189.0087890625,
+          639.65234375
+        ],
+        [
+          71.158447265625,
+          639.65234375
+        ]
+      ]
+    },
+    {
+      "title": "5 Compare and Contrast",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          71.12109375,
+          275.923828125
+        ],
+        [
+          210.2255859375,
+          275.923828125
+        ],
+        [
+          210.2255859375,
+          289.434326171875
+        ],
+        [
+          71.12109375,
+          289.434326171875
+        ]
+      ]
+    },
+    {
+      "title": "5.1 Schema.org",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          71.307861328125,
+          327.744140625
+        ],
+        [
+          146.126953125,
+          327.744140625
+        ],
+        [
+          146.126953125,
+          339.1880798339844
+        ],
+        [
+          71.307861328125,
+          339.1880798339844
+        ]
+      ]
+    },
+    {
+      "title": "5.2 Cyc (OpenCyc, ResearchCyc)",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          71.2705078125,
+          521.68359375
+        ],
+        [
+          223.224609375,
+          521.68359375
+        ],
+        [
+          223.224609375,
+          533.28515625
+        ],
+        [
+          71.2705078125,
+          533.28515625
+        ]
+      ]
+    },
+    {
+      "title": "6 Availability and Usage",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          70.9716796875,
+          631.51171875
+        ],
+        [
+          205.7431640625,
+          631.51171875
+        ],
+        [
+          205.7431640625,
+          644.66015625
+        ],
+        [
+          70.9716796875,
+          644.66015625
+        ]
+      ]
+    },
+    {
+      "title": "6.1 Base IRI and Prefix",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          71.233154296875,
+          73.33154296875
+        ],
+        [
+          178.8486328125,
+          73.33154296875
+        ],
+        [
+          178.8486328125,
+          84.279052734375
+        ],
+        [
+          71.233154296875,
+          84.279052734375
+        ]
+      ]
+    },
+    {
+      "title": "7 Conclusion",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          71.382568359375,
+          164.3431396484375
+        ],
+        [
+          147.919921875,
+          164.3431396484375
+        ],
+        [
+          147.919921875,
+          176.29833984375
+        ],
+        [
+          71.382568359375,
+          176.29833984375
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgements",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          71.606689453125,
+          357.7181701660156
+        ],
+        [
+          171.826171875,
+          357.7181701660156
+        ],
+        [
+          171.826171875,
+          369.6733703613281
+        ],
+        [
+          71.606689453125,
+          369.6733703613281
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          71.5693359375,
+          419.9765625
+        ],
+        [
+          128.0478515625,
+          419.9765625
+        ],
+        [
+          128.0478515625,
+          432.0893859863281
+        ],
+        [
+          71.5693359375,
+          432.0893859863281
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          108
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          125
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          152
+        ],
+        [
+          "Line",
+          60
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          108
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          134
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "ListItem",
+          10
+        ],
+        [
+          "Reference",
+          10
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_arxiv_2405.19877_KNOW_A_Real-World_Ontology_for_Knowledge_Capture_with_Large_Language_Models"
+}

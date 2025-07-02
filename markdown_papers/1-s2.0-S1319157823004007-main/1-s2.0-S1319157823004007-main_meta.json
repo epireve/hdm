@@ -1,0 +1,2181 @@
+{
+  "table_of_contents": [
+    {
+      "title": "The resurrection of digital triplet: A cognitive pillar of human-machine \nintegration at the dawn of industry 5.0",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          36.66796875,
+          164.96435546875
+        ],
+        [
+          469.6565856933594,
+          164.96435546875
+        ],
+        [
+          469.6565856933594,
+          198.25335693359375
+        ],
+        [
+          36.66796875,
+          198.25335693359375
+        ]
+      ]
+    },
+    {
+      "title": "ARTICLE INFO",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          36.59521484375,
+          275.84521484375
+        ],
+        [
+          120.90568542480469,
+          275.84521484375
+        ],
+        [
+          120.90568542480469,
+          283.82244873046875
+        ],
+        [
+          36.59521484375,
+          283.82244873046875
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          201.9969940185547,
+          275.84521484375
+        ],
+        [
+          265.40625,
+          275.84521484375
+        ],
+        [
+          265.40625,
+          284.37451171875
+        ],
+        [
+          201.9969940185547,
+          284.37451171875
+        ]
+      ]
+    },
+    {
+      "title": "1. Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          36.6134033203125,
+          545.099609375
+        ],
+        [
+          100.17181396484375,
+          545.099609375
+        ],
+        [
+          100.17181396484375,
+          553.7209930419922
+        ],
+        [
+          36.6134033203125,
+          553.7209930419922
+        ]
+      ]
+    },
+    {
+      "title": "2. Research strategies and methods",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          305.857421875,
+          400.876953125
+        ],
+        [
+          446.6759338378906,
+          400.876953125
+        ],
+        [
+          446.6759338378906,
+          409.6045837402344
+        ],
+        [
+          305.857421875,
+          409.6045837402344
+        ]
+      ]
+    },
+    {
+      "title": "Table 1",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          306.5950012207031,
+          644.349609375
+        ],
+        [
+          334.0859375,
+          644.349609375
+        ],
+        [
+          334.0859375,
+          651.7559509277344
+        ],
+        [
+          306.5950012207031,
+          651.7559509277344
+        ]
+      ]
+    },
+    {
+      "title": "3. The evolution of the digital twin definition",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          36.66796875,
+          411.732421875
+        ],
+        [
+          217.8251953125,
+          411.732421875
+        ],
+        [
+          217.8251953125,
+          420.49212646484375
+        ],
+        [
+          36.66796875,
+          420.49212646484375
+        ]
+      ]
+    },
+    {
+      "title": "3.1. The digital twin concept",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          36.777099609375,
+          433.4411315917969
+        ],
+        [
+          138.43067932128906,
+          433.4411315917969
+        ],
+        [
+          138.43067932128906,
+          441.4112243652344
+        ],
+        [
+          36.777099609375,
+          441.4112243652344
+        ]
+      ]
+    },
+    {
+      "title": "Table 2",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          306.5950012207031,
+          55.48889160156249
+        ],
+        [
+          333.88323974609375,
+          55.48889160156249
+        ],
+        [
+          333.88323974609375,
+          63.3399658203125
+        ],
+        [
+          306.5950012207031,
+          63.3399658203125
+        ]
+      ]
+    },
+    {
+      "title": "Table 2 (continued )",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          36.74072265625,
+          55.53735351562499
+        ],
+        [
+          102.47937774658203,
+          55.53735351562499
+        ],
+        [
+          102.47937774658203,
+          63.38818359374999
+        ],
+        [
+          36.74072265625,
+          63.38818359374999
+        ]
+      ]
+    },
+    {
+      "title": "3.2. Digital twin and simulation",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          37.359130859375,
+          493.92382812499994
+        ],
+        [
+          149.35609436035156,
+          493.92382812499994
+        ],
+        [
+          149.35609436035156,
+          503.2623596191406
+        ],
+        [
+          37.359130859375,
+          503.2623596191406
+        ]
+      ]
+    },
+    {
+      "title": "4. Cognitive digital twin",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          37.504638671875,
+          400.1015625
+        ],
+        [
+          135.59817504882812,
+          400.1015625
+        ],
+        [
+          135.59817504882812,
+          409.094482421875
+        ],
+        [
+          37.504638671875,
+          409.094482421875
+        ]
+      ]
+    },
+    {
+      "title": "5. Digital triplet",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          305.857421875,
+          107.48852539062499
+        ],
+        [
+          373.10791015625,
+          107.48852539062499
+        ],
+        [
+          373.10791015625,
+          116.22119140625
+        ],
+        [
+          305.857421875,
+          116.22119140625
+        ]
+      ]
+    },
+    {
+      "title": "6. Enabling technologies to enhance the intelligent activity and \nheuristic level of digital twin",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          37.3955078125,
+          493.53613281249994
+        ],
+        [
+          285.0165100097656,
+          493.53613281249994
+        ],
+        [
+          285.0165100097656,
+          513.0684204101562
+        ],
+        [
+          37.3955078125,
+          513.0684204101562
+        ]
+      ]
+    },
+    {
+      "title": "6.1. The Industrial Internet of Things (IIoT)",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          306.5923767089844,
+          54.08349609374999
+        ],
+        [
+          458.90576171875,
+          54.08349609374999
+        ],
+        [
+          458.90576171875,
+          63.27099609375
+        ],
+        [
+          306.5923767089844,
+          63.27099609375
+        ]
+      ]
+    },
+    {
+      "title": "Table 3",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          37.3955078125,
+          55.68273925781249
+        ],
+        [
+          64.87564849853516,
+          55.68273925781249
+        ],
+        [
+          64.87564849853516,
+          63.43664550781249
+        ],
+        [
+          37.3955078125,
+          63.43664550781249
+        ]
+      ]
+    },
+    {
+      "title": "Table 3 (continued )",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          36.958984375,
+          54.47119140624999
+        ],
+        [
+          102.47937774658203,
+          54.47119140624999
+        ],
+        [
+          102.47937774658203,
+          63.38818359374999
+        ],
+        [
+          36.958984375,
+          63.38818359374999
+        ]
+      ]
+    },
+    {
+      "title": "Journal of King Saud University - Computer and Information Sciences 35 (2023) 101846",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          318.080078125,
+          34.91680908203125
+        ],
+        [
+          558.2985229492188,
+          34.91680908203125
+        ],
+        [
+          558.2985229492188,
+          43.29144287109375
+        ],
+        [
+          318.080078125,
+          43.29144287109375
+        ]
+      ]
+    },
+    {
+      "title": "Table 3 (continued )",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          37.58740234375,
+          53.01733398437499
+        ],
+        [
+          106.58447265625,
+          51.466552734375
+        ],
+        [
+          106.58447265625,
+          63.3399658203125
+        ],
+        [
+          37.58740234375,
+          63.3399658203125
+        ]
+      ]
+    },
+    {
+      "title": "Journal of King Saud University - Computer and Information Sciences 35 (2023) 101846",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          318.37109375,
+          35.8133544921875
+        ],
+        [
+          558.2985229492188,
+          35.8133544921875
+        ],
+        [
+          558.2985229492188,
+          43.29144287109375
+        ],
+        [
+          318.37109375,
+          43.29144287109375
+        ]
+      ]
+    },
+    {
+      "title": "6.2. Cognitive computing",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          37.286376953125,
+          599.376953125
+        ],
+        [
+          125.52003479003906,
+          599.376953125
+        ],
+        [
+          125.52003479003906,
+          607.90625
+        ],
+        [
+          37.286376953125,
+          607.90625
+        ]
+      ]
+    },
+    {
+      "title": "6.3. Artificial intelligence",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          36.777099609375,
+          327.40869140625
+        ],
+        [
+          126.97605895996094,
+          327.40869140625
+        ],
+        [
+          126.97605895996094,
+          335.9042663574219
+        ],
+        [
+          36.777099609375,
+          335.9042663574219
+        ]
+      ]
+    },
+    {
+      "title": "6.4. Semantic technologies",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          305.857421875,
+          557.8935546875
+        ],
+        [
+          399.9942626953125,
+          557.8935546875
+        ],
+        [
+          399.9942626953125,
+          566.0185546875
+        ],
+        [
+          305.857421875,
+          566.0185546875
+        ]
+      ]
+    },
+    {
+      "title": "6.5. Ontology engineering",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          37.25,
+          516.0224609375
+        ],
+        [
+          128.1157684326172,
+          516.0224609375
+        ],
+        [
+          128.1157684326172,
+          524.1795043945312
+        ],
+        [
+          37.25,
+          524.1795043945312
+        ]
+      ]
+    },
+    {
+      "title": "Boy, 2023; Rico et al., 2023).",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          306.59259033203125,
+          54.66503906249999
+        ],
+        [
+          413.0046081542969,
+          54.66503906249999
+        ],
+        [
+          413.0046081542969,
+          63.2711181640625
+        ],
+        [
+          306.59259033203125,
+          63.2711181640625
+        ]
+      ]
+    },
+    {
+      "title": "6.6. Knowledge graph",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          306.5926818847656,
+          264.98974609375
+        ],
+        [
+          384.4868469238281,
+          264.98974609375
+        ],
+        [
+          384.4868469238281,
+          273.1461181640625
+        ],
+        [
+          306.5926818847656,
+          273.1461181640625
+        ]
+      ]
+    },
+    {
+      "title": "6.7. Brain computer interface",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          36.8134765625,
+          431.89257812499994
+        ],
+        [
+          141.36529541015625,
+          431.89257812499994
+        ],
+        [
+          141.36529541015625,
+          440.50146484375
+        ],
+        [
+          36.8134765625,
+          440.50146484375
+        ]
+      ]
+    },
+    {
+      "title": "7. Digital triplet for enhancing human\u2013machine integration",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          37.17724609375,
+          410.5693359375
+        ],
+        [
+          270.6474609375,
+          410.5693359375
+        ],
+        [
+          270.6474609375,
+          419.07220458984375
+        ],
+        [
+          37.17724609375,
+          419.07220458984375
+        ]
+      ]
+    },
+    {
+      "title": "7.1. Digital twin in Industry 5.0",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          37.068115234375,
+          473.37597656249994
+        ],
+        [
+          149.7744903564453,
+          473.37597656249994
+        ],
+        [
+          149.7744903564453,
+          482.3404541015625
+        ],
+        [
+          37.068115234375,
+          482.3404541015625
+        ]
+      ]
+    },
+    {
+      "title": "8. Discussion, limitation, and knowledge gap",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          36.8134765625,
+          462.90820312499994
+        ],
+        [
+          215.31094360351562,
+          462.90820312499994
+        ],
+        [
+          215.31094360351562,
+          471.9092102050781
+        ],
+        [
+          36.8134765625,
+          471.9092102050781
+        ]
+      ]
+    },
+    {
+      "title": "9. Conclusion",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          306.5923767089844,
+          54.95581054687499
+        ],
+        [
+          363.2542419433594,
+          54.95581054687499
+        ],
+        [
+          363.2542419433594,
+          63.27099609375
+        ],
+        [
+          306.5923767089844,
+          63.27099609375
+        ]
+      ]
+    },
+    {
+      "title": "Declaration of competing interest",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          37.213623046875,
+          90.623779296875
+        ],
+        [
+          168.50904846191406,
+          90.623779296875
+        ],
+        [
+          168.50904846191406,
+          98.8734130859375
+        ],
+        [
+          37.213623046875,
+          98.8734130859375
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgement",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          37.431884765625,
+          154.011962890625
+        ],
+        [
+          110.21891784667969,
+          154.011962890625
+        ],
+        [
+          110.21891784667969,
+          162.5960693359375
+        ],
+        [
+          37.431884765625,
+          162.5960693359375
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          37.1954345703125,
+          238.82031249999997
+        ],
+        [
+          81.13603210449219,
+          238.82031249999997
+        ],
+        [
+          81.13603210449219,
+          247.2943115234375
+        ],
+        [
+          37.1954345703125,
+          247.2943115234375
+        ]
+      ]
+    },
+    {
+      "title": "H. Alimam et al.",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          36.7589111328125,
+          34.7471923828125
+        ],
+        [
+          84.63262176513672,
+          34.7471923828125
+        ],
+        [
+          84.63262176513672,
+          43.28668212890625
+        ],
+        [
+          36.7589111328125,
+          43.28668212890625
+        ]
+      ]
+    },
+    {
+      "title": "Journal of King Saud University - Computer and Information Sciences 35 (2023) 101846",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          317.7890625,
+          35.2802734375
+        ],
+        [
+          559.9140625,
+          35.2802734375
+        ],
+        [
+          559.9140625,
+          43.29144287109375
+        ],
+        [
+          317.7890625,
+          43.29144287109375
+        ]
+      ]
+    },
+    {
+      "title": "H. Alimam et al.",
+      "heading_level": null,
+      "page_id": 26,
+      "polygon": [
+        [
+          36.6861572265625,
+          34.989501953125
+        ],
+        [
+          84.63298797607422,
+          34.989501953125
+        ],
+        [
+          84.63298797607422,
+          43.28857421875
+        ],
+        [
+          36.6861572265625,
+          43.28857421875
+        ]
+      ]
+    },
+    {
+      "title": "Journal of King Saud University - Computer and Information Sciences 35 (2023) 101846",
+      "heading_level": null,
+      "page_id": 26,
+      "polygon": [
+        [
+          316.916015625,
+          36.443359375
+        ],
+        [
+          558.2985229492188,
+          34.892578125
+        ],
+        [
+          558.2985229492188,
+          43.29144287109375
+        ],
+        [
+          316.916015625,
+          44.00341796875
+        ]
+      ]
+    },
+    {
+      "title": "H. Alimam et al.",
+      "heading_level": null,
+      "page_id": 28,
+      "polygon": [
+        [
+          36.5770263671875,
+          35.20758056640625
+        ],
+        [
+          84.63298797607422,
+          35.20758056640625
+        ],
+        [
+          84.63298797607422,
+          43.28668212890625
+        ],
+        [
+          36.5770263671875,
+          43.28668212890625
+        ]
+      ]
+    },
+    {
+      "title": "Journal of King Saud University - Computer and Information Sciences 35 (2023) 101846",
+      "heading_level": null,
+      "page_id": 28,
+      "polygon": [
+        [
+          317.498046875,
+          35.9102783203125
+        ],
+        [
+          558.2985229492188,
+          34.3594970703125
+        ],
+        [
+          558.2985229492188,
+          43.29144287109375
+        ],
+        [
+          317.498046875,
+          43.3734130859375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          170
+        ],
+        [
+          "Line",
+          68
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Footnote",
+          3
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          297
+        ],
+        [
+          "Line",
+          135
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          346
+        ],
+        [
+          "Line",
+          132
+        ],
+        [
+          "ListItem",
+          12
+        ],
+        [
+          "TableCell",
+          10
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          45
+        ],
+        [
+          "Line",
+          24
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          173
+        ],
+        [
+          "Line",
+          69
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          157
+        ],
+        [
+          "Line",
+          76
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          179
+        ],
+        [
+          "Line",
+          68
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          405
+        ],
+        [
+          "TableCell",
+          268
+        ],
+        [
+          "Line",
+          159
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          325
+        ],
+        [
+          "Line",
+          133
+        ],
+        [
+          "TableCell",
+          92
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          318
+        ],
+        [
+          "Line",
+          135
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          304
+        ],
+        [
+          "Line",
+          133
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          285
+        ],
+        [
+          "Line",
+          133
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          277
+        ],
+        [
+          "Line",
+          128
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListItem",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          389
+        ],
+        [
+          "Line",
+          163
+        ],
+        [
+          "TableCell",
+          90
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          435
+        ],
+        [
+          "Line",
+          169
+        ],
+        [
+          "TableCell",
+          120
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          405
+        ],
+        [
+          "Line",
+          166
+        ],
+        [
+          "TableCell",
+          84
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          346
+        ],
+        [
+          "Line",
+          144
+        ],
+        [
+          "TableCell",
+          72
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          302
+        ],
+        [
+          "Line",
+          129
+        ],
+        [
+          "TableCell",
+          48
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          284
+        ],
+        [
+          "Line",
+          131
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 19,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          267
+        ],
+        [
+          "Line",
+          131
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 20,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          283
+        ],
+        [
+          "Line",
+          133
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 21,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          272
+        ],
+        [
+          "Line",
+          129
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 22,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          281
+        ],
+        [
+          "Line",
+          131
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 23,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          299
+        ],
+        [
+          "Line",
+          131
+        ],
+        [
+          "ListItem",
+          12
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 24,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          530
+        ],
+        [
+          "Line",
+          162
+        ],
+        [
+          "ListItem",
+          44
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 25,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          654
+        ],
+        [
+          "Line",
+          178
+        ],
+        [
+          "ListItem",
+          57
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 26,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          573
+        ],
+        [
+          "Line",
+          173
+        ],
+        [
+          "ListItem",
+          52
+        ],
+        [
+          "ListGroup",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 27,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          614
+        ],
+        [
+          "Line",
+          173
+        ],
+        [
+          "Text",
+          58
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 28,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          566
+        ],
+        [
+          "Line",
+          174
+        ],
+        [
+          "ListItem",
+          54
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 29,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          75
+        ],
+        [
+          "Line",
+          19
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/1-s2.0-S1319157823004007-main"
+}

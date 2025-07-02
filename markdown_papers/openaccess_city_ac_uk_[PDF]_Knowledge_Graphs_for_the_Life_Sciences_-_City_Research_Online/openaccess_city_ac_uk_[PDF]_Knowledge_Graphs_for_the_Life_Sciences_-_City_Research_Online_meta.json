@@ -1,0 +1,2542 @@
+{
+  "table_of_contents": [
+    {
+      "title": "City Research Online",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          263.1000061035156,
+          124.36767578125
+        ],
+        [
+          464.2626953125,
+          124.36767578125
+        ],
+        [
+          464.2626953125,
+          151.79998779296875
+        ],
+        [
+          263.1000061035156,
+          151.79998779296875
+        ]
+      ]
+    },
+    {
+      "title": "City, University of London Institutional Repository",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          95.8740234375,
+          222.01171875
+        ],
+        [
+          500.869140625,
+          222.01171875
+        ],
+        [
+          500.869140625,
+          245.5999755859375
+        ],
+        [
+          95.8740234375,
+          245.5999755859375
+        ]
+      ]
+    },
+    {
+      "title": "Knowledge Graphs for the Life Sciences: Recent\nDevelopments, Challenges and Opportunities\u2217",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          78.57421875,
+          75.545654296875
+        ],
+        [
+          462.1328125,
+          75.545654296875
+        ],
+        [
+          462.1328125,
+          115.01702880859375
+        ],
+        [
+          78.57421875,
+          115.01702880859375
+        ]
+      ]
+    },
+    {
+      "title": "Abstract",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          79.447265625,
+          449.42657470703125
+        ],
+        [
+          140.9970703125,
+          449.42657470703125
+        ],
+        [
+          140.9970703125,
+          460.46875
+        ],
+        [
+          79.447265625,
+          460.46875
+        ]
+      ]
+    },
+    {
+      "title": "5:2 Knowledge Graphs for Life Sciences",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          58.78515625,
+          62.23358154296875
+        ],
+        [
+          267.62152099609375,
+          62.23358154296875
+        ],
+        [
+          267.62152099609375,
+          72.873291015625
+        ],
+        [
+          58.78515625,
+          72.873291015625
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          97.6357421875,
+          483.4921875
+        ],
+        [
+          194.107421875,
+          483.4921875
+        ],
+        [
+          194.107421875,
+          496.0048522949219
+        ],
+        [
+          97.6357421875,
+          496.0048522949219
+        ]
+      ]
+    },
+    {
+      "title": "J. Chen et al. 5:3",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          78.21044921875,
+          62.23358154296875
+        ],
+        [
+          538.577392578125,
+          62.23358154296875
+        ],
+        [
+          538.577392578125,
+          72.6943359375
+        ],
+        [
+          78.21044921875,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "2 Knowledge Graphs in the Life Sciences",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          95.162109375,
+          100.3677978515625
+        ],
+        [
+          339.615234375,
+          100.3677978515625
+        ],
+        [
+          339.615234375,
+          112.6588134765625
+        ],
+        [
+          95.162109375,
+          112.6588134765625
+        ]
+      ]
+    },
+    {
+      "title": "J. Chen et al. 5:5",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          78.57421875,
+          62.23358154296875
+        ],
+        [
+          538.577392578125,
+          62.23358154296875
+        ],
+        [
+          538.577392578125,
+          72.6943359375
+        ],
+        [
+          78.57421875,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "3 Knowledge Graph Construction and Management",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          81.775390625,
+          309.568603515625
+        ],
+        [
+          380.939453125,
+          309.568603515625
+        ],
+        [
+          380.939453125,
+          321.5238037109375
+        ],
+        [
+          81.775390625,
+          321.5238037109375
+        ]
+      ]
+    },
+    {
+      "title": "5:6 Knowledge Graphs for Life Sciences",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          58.9306640625,
+          61.156005859375
+        ],
+        [
+          267.8798828125,
+          61.156005859375
+        ],
+        [
+          267.8798828125,
+          72.97607421875
+        ],
+        [
+          58.9306640625,
+          72.97607421875
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Knowledge Graph Construction Phases",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          95.8896484375,
+          266.61962890625
+        ],
+        [
+          341.0703125,
+          266.61962890625
+        ],
+        [
+          341.0703125,
+          280.10784912109375
+        ],
+        [
+          95.8896484375,
+          280.10784912109375
+        ]
+      ]
+    },
+    {
+      "title": "3.1.1 Data source selection",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          95.453125,
+          392.6318359375
+        ],
+        [
+          254.9296875,
+          392.6318359375
+        ],
+        [
+          254.9296875,
+          406.4238586425781
+        ],
+        [
+          95.453125,
+          406.4238586425781
+        ]
+      ]
+    },
+    {
+      "title": "3.1.2 Ontology construction",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          95.453125,
+          571.8857421875
+        ],
+        [
+          258.130859375,
+          571.8857421875
+        ],
+        [
+          258.130859375,
+          585.0419921875
+        ],
+        [
+          95.453125,
+          585.0419921875
+        ]
+      ]
+    },
+    {
+      "title": "J. Chen et al. 5:7",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          78.283203125,
+          62.23358154296875
+        ],
+        [
+          538.577392578125,
+          62.23358154296875
+        ],
+        [
+          538.577392578125,
+          72.6943359375
+        ],
+        [
+          78.283203125,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "3.1.3 Knowledge extraction",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          78.7197265625,
+          236.70660400390625
+        ],
+        [
+          238.1962890625,
+          236.70660400390625
+        ],
+        [
+          238.1962890625,
+          248.66180419921875
+        ],
+        [
+          78.7197265625,
+          248.66180419921875
+        ]
+      ]
+    },
+    {
+      "title": "5:8 Knowledge Graphs for Life Sciences",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          59.14892578125,
+          62.23358154296875
+        ],
+        [
+          268.31640625,
+          62.23358154296875
+        ],
+        [
+          268.31640625,
+          72.6943359375
+        ],
+        [
+          59.14892578125,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "3.1.4 Knowledge ingestion and validation",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          94.79833984375,
+          211.0106201171875
+        ],
+        [
+          330.0064697265625,
+          211.0106201171875
+        ],
+        [
+          330.0064697265625,
+          222.9658203125
+        ],
+        [
+          94.79833984375,
+          222.9658203125
+        ]
+      ]
+    },
+    {
+      "title": "J. Chen et al. 5:9",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          78.35595703125,
+          62.23358154296875
+        ],
+        [
+          538.577392578125,
+          62.23358154296875
+        ],
+        [
+          538.577392578125,
+          72.6943359375
+        ],
+        [
+          78.35595703125,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "3.1.5 KG storage and inspection",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          78.50146484375,
+          233.191650390625
+        ],
+        [
+          264.3408508300781,
+          233.191650390625
+        ],
+        [
+          264.3408508300781,
+          245.1468505859375
+        ],
+        [
+          78.50146484375,
+          245.1468505859375
+        ]
+      ]
+    },
+    {
+      "title": "3.1.6 Knowledge maintenance and evolution",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          78.64697265625,
+          504.20562744140625
+        ],
+        [
+          330.884765625,
+          504.20562744140625
+        ],
+        [
+          330.884765625,
+          516.1608276367188
+        ],
+        [
+          78.64697265625,
+          516.1608276367188
+        ]
+      ]
+    },
+    {
+      "title": "5:10 Knowledge Graphs for Life Sciences",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          60.02197265625,
+          62.23358154296875
+        ],
+        [
+          268.025390625,
+          62.23358154296875
+        ],
+        [
+          268.025390625,
+          72.6943359375
+        ],
+        [
+          60.02197265625,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Examples of Life Science KG Construction",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          95.5986328125,
+          256.53558349609375
+        ],
+        [
+          359.11328125,
+          256.53558349609375
+        ],
+        [
+          359.11328125,
+          268.49078369140625
+        ],
+        [
+          95.5986328125,
+          268.49078369140625
+        ]
+      ]
+    },
+    {
+      "title": "J. Chen et al. 5:11",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          78.35595703125,
+          62.0296630859375
+        ],
+        [
+          538.576904296875,
+          62.0296630859375
+        ],
+        [
+          538.576904296875,
+          72.6943359375
+        ],
+        [
+          78.35595703125,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "3.3 What has been done: recent technical developments",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          78.865234375,
+          258.80810546875
+        ],
+        [
+          398.982421875,
+          258.80810546875
+        ],
+        [
+          398.982421875,
+          271.31781005859375
+        ],
+        [
+          78.865234375,
+          271.31781005859375
+        ]
+      ]
+    },
+    {
+      "title": "5:12 Knowledge Graphs for Life Sciences",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          59.58544921875,
+          61.87548828125
+        ],
+        [
+          268.025390625,
+          61.87548828125
+        ],
+        [
+          268.025390625,
+          72.6943359375
+        ],
+        [
+          59.58544921875,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "J. Chen et al. 5:13",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          78.57421875,
+          61.9268798828125
+        ],
+        [
+          538.576904296875,
+          61.9268798828125
+        ],
+        [
+          538.576904296875,
+          72.6943359375
+        ],
+        [
+          78.57421875,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "3.4 What are the challenges?",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          78.57421875,
+          184.701416015625
+        ],
+        [
+          248.45236206054688,
+          184.701416015625
+        ],
+        [
+          248.45236206054688,
+          197.1268310546875
+        ],
+        [
+          78.57421875,
+          197.1268310546875
+        ]
+      ]
+    },
+    {
+      "title": "4 Life Science Knowledge Discovery",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          97.78125,
+          100.6761474609375
+        ],
+        [
+          312.259765625,
+          100.6761474609375
+        ],
+        [
+          312.259765625,
+          112.6588134765625
+        ],
+        [
+          97.78125,
+          112.6588134765625
+        ]
+      ]
+    },
+    {
+      "title": "4.1 What has been done: use cases and their recent developments",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          95.5986328125,
+          543.2896728515625
+        ],
+        [
+          471.4453125,
+          543.2896728515625
+        ],
+        [
+          471.4453125,
+          555.244873046875
+        ],
+        [
+          95.5986328125,
+          555.244873046875
+        ]
+      ]
+    },
+    {
+      "title": "J. Chen et al. 5:15",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          78.50146484375,
+          62.23358154296875
+        ],
+        [
+          538.576904296875,
+          62.23358154296875
+        ],
+        [
+          538.576904296875,
+          72.6943359375
+        ],
+        [
+          78.50146484375,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "5:16 Knowledge Graphs for Life Sciences",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          59.658203125,
+          62.1324462890625
+        ],
+        [
+          268.025390625,
+          62.1324462890625
+        ],
+        [
+          268.025390625,
+          72.7191162109375
+        ],
+        [
+          59.658203125,
+          72.7191162109375
+        ]
+      ]
+    },
+    {
+      "title": "4.2 What are the challenges?",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          94.94384765625,
+          426.94464111328125
+        ],
+        [
+          265.4603576660156,
+          426.94464111328125
+        ],
+        [
+          265.4603576660156,
+          438.89984130859375
+        ],
+        [
+          94.94384765625,
+          438.89984130859375
+        ]
+      ]
+    },
+    {
+      "title": "J. Chen et al. 5:17",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          78.50146484375,
+          62.23358154296875
+        ],
+        [
+          538.576904296875,
+          62.23358154296875
+        ],
+        [
+          538.576904296875,
+          72.6943359375
+        ],
+        [
+          78.50146484375,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "5 Knowledge Graphs for Explainable AI",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          78.4287109375,
+          381.3736572265625
+        ],
+        [
+          312.92633056640625,
+          381.3736572265625
+        ],
+        [
+          312.92633056640625,
+          393.4541015625
+        ],
+        [
+          78.4287109375,
+          393.4541015625
+        ]
+      ]
+    },
+    {
+      "title": "5:18 Knowledge Graphs for Life Sciences",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          59.8037109375,
+          62.23358154296875
+        ],
+        [
+          268.1708984375,
+          62.23358154296875
+        ],
+        [
+          268.1708984375,
+          72.7191162109375
+        ],
+        [
+          59.8037109375,
+          72.7191162109375
+        ]
+      ]
+    },
+    {
+      "title": "5.1 What has been done: use cases and recent developments",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          95.162109375,
+          360.91363525390625
+        ],
+        [
+          440.96270751953125,
+          360.91363525390625
+        ],
+        [
+          440.96270751953125,
+          372.86883544921875
+        ],
+        [
+          95.162109375,
+          372.86883544921875
+        ]
+      ]
+    },
+    {
+      "title": "J. Chen et al. 5:19",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          78.283203125,
+          62.23358154296875
+        ],
+        [
+          538.576904296875,
+          62.23358154296875
+        ],
+        [
+          538.576904296875,
+          72.6943359375
+        ],
+        [
+          78.283203125,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "5.2 What are the challenges?",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          78.35595703125,
+          368.3006591796875
+        ],
+        [
+          248.45236206054688,
+          368.3006591796875
+        ],
+        [
+          248.45236206054688,
+          380.2978515625
+        ],
+        [
+          78.35595703125,
+          380.2978515625
+        ]
+      ]
+    },
+    {
+      "title": "5:20 Knowledge Graphs for Life Sciences",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          59.58544921875,
+          61.1046142578125
+        ],
+        [
+          267.734375,
+          61.1046142578125
+        ],
+        [
+          267.734375,
+          72.6943359375
+        ],
+        [
+          59.58544921875,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "6 Discussion and Conclusion",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          96.7626953125,
+          100.11083984375
+        ],
+        [
+          269.6259765625,
+          100.11083984375
+        ],
+        [
+          269.6259765625,
+          112.6588134765625
+        ],
+        [
+          96.7626953125,
+          112.6588134765625
+        ]
+      ]
+    },
+    {
+      "title": "6.1 Overall challenges and trends",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          95.453125,
+          190.046142578125
+        ],
+        [
+          287.814453125,
+          190.046142578125
+        ],
+        [
+          287.814453125,
+          202.50079345703125
+        ],
+        [
+          95.453125,
+          202.50079345703125
+        ]
+      ]
+    },
+    {
+      "title": "J. Chen et al. 5:21",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          78.21044921875,
+          62.23358154296875
+        ],
+        [
+          538.576904296875,
+          62.23358154296875
+        ],
+        [
+          538.576904296875,
+          72.6943359375
+        ],
+        [
+          78.21044921875,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "5:22 Knowledge Graphs for Life Sciences",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          59.3671875,
+          62.1324462890625
+        ],
+        [
+          268.607421875,
+          62.1324462890625
+        ],
+        [
+          268.607421875,
+          72.6943359375
+        ],
+        [
+          59.3671875,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "6.2 Conclusion",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          95.5986328125,
+          99.3746337890625
+        ],
+        [
+          186.1044921875,
+          99.3746337890625
+        ],
+        [
+          186.1044921875,
+          111.329833984375
+        ],
+        [
+          95.5986328125,
+          111.329833984375
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          97.19921875,
+          292.46392822265625
+        ],
+        [
+          167.1884765625,
+          292.46392822265625
+        ],
+        [
+          167.1884765625,
+          302.426513671875
+        ],
+        [
+          97.19921875,
+          302.426513671875
+        ]
+      ]
+    },
+    {
+      "title": "5:30 Knowledge Graphs for Life Sciences",
+      "heading_level": null,
+      "page_id": 31,
+      "polygon": [
+        [
+          60.02197265625,
+          62.23358154296875
+        ],
+        [
+          269.189453125,
+          62.23358154296875
+        ],
+        [
+          269.189453125,
+          72.6943359375
+        ],
+        [
+          60.02197265625,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "5:32 Knowledge Graphs for Life Sciences",
+      "heading_level": null,
+      "page_id": 33,
+      "polygon": [
+        [
+          59.658203125,
+          62.23358154296875
+        ],
+        [
+          268.607421875,
+          62.23358154296875
+        ],
+        [
+          268.607421875,
+          72.6943359375
+        ],
+        [
+          59.658203125,
+          72.6943359375
+        ]
+      ]
+    },
+    {
+      "title": "A Terms in Knowledge Graphs and Life Sciences",
+      "heading_level": null,
+      "page_id": 33,
+      "polygon": [
+        [
+          98.87255859375,
+          465.232666015625
+        ],
+        [
+          381.23046875,
+          465.232666015625
+        ],
+        [
+          381.23046875,
+          477.736328125
+        ],
+        [
+          98.87255859375,
+          477.736328125
+        ]
+      ]
+    },
+    {
+      "title": "J. Chen et al. 5:33",
+      "heading_level": null,
+      "page_id": 34,
+      "polygon": [
+        [
+          78.57421875,
+          62.23358154296875
+        ],
+        [
+          538.576904296875,
+          62.23358154296875
+        ],
+        [
+          538.576904296875,
+          72.6943359375
+        ],
+        [
+          78.57421875,
+          72.6943359375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          44
+        ],
+        [
+          "Line",
+          19
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          3
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "Line",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          153
+        ],
+        [
+          "Line",
+          64
+        ],
+        [
+          "Text",
+          21
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          149
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          17
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          207
+        ],
+        [
+          "Line",
+          71
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          171
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Footnote",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "ListItem",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          133
+        ],
+        [
+          "Line",
+          51
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Footnote",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          147
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          168
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          129
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          161
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Footnote",
+          5
+        ],
+        [
+          "Reference",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          139
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Footnote",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          140
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          175
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          136
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          104
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          130
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          132
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          136
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListItem",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 19,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          159
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 20,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          127
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 21,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          129
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 22,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          136
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 23,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          286
+        ],
+        [
+          "Line",
+          105
+        ],
+        [
+          "ListItem",
+          14
+        ],
+        [
+          "Reference",
+          14
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 24,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          327
+        ],
+        [
+          "Line",
+          134
+        ],
+        [
+          "ListItem",
+          14
+        ],
+        [
+          "Reference",
+          14
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 25,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          363
+        ],
+        [
+          "Line",
+          132
+        ],
+        [
+          "ListItem",
+          18
+        ],
+        [
+          "Reference",
+          18
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 26,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          387
+        ],
+        [
+          "Line",
+          133
+        ],
+        [
+          "ListItem",
+          20
+        ],
+        [
+          "Reference",
+          20
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 27,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          363
+        ],
+        [
+          "Line",
+          132
+        ],
+        [
+          "ListItem",
+          18
+        ],
+        [
+          "Reference",
+          18
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 28,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          386
+        ],
+        [
+          "Line",
+          133
+        ],
+        [
+          "ListItem",
+          21
+        ],
+        [
+          "Reference",
+          21
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 29,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          352
+        ],
+        [
+          "Line",
+          131
+        ],
+        [
+          "ListItem",
+          17
+        ],
+        [
+          "Reference",
+          17
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 30,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          399
+        ],
+        [
+          "Line",
+          134
+        ],
+        [
+          "ListItem",
+          21
+        ],
+        [
+          "Reference",
+          21
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 31,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          376
+        ],
+        [
+          "Line",
+          132
+        ],
+        [
+          "ListItem",
+          20
+        ],
+        [
+          "Reference",
+          20
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 32,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          396
+        ],
+        [
+          "Line",
+          133
+        ],
+        [
+          "ListItem",
+          22
+        ],
+        [
+          "Reference",
+          22
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 33,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          280
+        ],
+        [
+          "Line",
+          91
+        ],
+        [
+          "ListItem",
+          16
+        ],
+        [
+          "Reference",
+          12
+        ],
+        [
+          "ListGroup",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 34,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          86
+        ],
+        [
+          "Line",
+          31
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/openaccess_city_ac_uk_[PDF]_Knowledge_Graphs_for_the_Life_Sciences_-_City_Research_Online"
+}
