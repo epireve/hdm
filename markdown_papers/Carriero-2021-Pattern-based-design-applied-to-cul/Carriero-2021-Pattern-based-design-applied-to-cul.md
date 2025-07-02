@@ -14,7 +14,15 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- domain-specific
+- knowledge graph
+- knowledge graphs
+- pattern-based
+- test-driven
+- unit-testing
 ---
+
 
 # <span id="page-0-0"></span>PATTERN-BASED DESIGN APPLIED TO CULTURAL HERITAGE KNOWLEDGE GRAPHS
 

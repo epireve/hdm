@@ -22,6 +22,36 @@ original_folder: privacy_preserving_synthetic_kg_2024
 images_total: 5
 images_kept: 5
 images_removed: 0
+keywords:
+- 1 erdos-renyi and scale-free networks
+- 1 introduction
+- 2 real-world graphs
+- 3 state-of-the-art comparison
+- ChooseDeg
+- ConnectedInducedSubgraphs
+- IsomorphingPartitioning
+- IsomorphismBucketing
+- IsomorphismPartitioning
+- MovieLens
+- OpenProceedings
+- PowerLaw
+- WeightNoising
+- adversary attack and privacy requirements
+- albert-laszlo
+- algorithm 1 klone
+- algorithm 2 weightnoising
+- algorithm 3 kguard
+- anh-tu
+- artificial intelligence
+- business semantics
+- casas-roma
+- ceur-ws
+- cluster-based
+- cluster-based anonymization
+- de-anonymizability
+- de-anonymization
+- differential privacy
+- el-laham
 ---
 
 # Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility<sup>∗</sup>

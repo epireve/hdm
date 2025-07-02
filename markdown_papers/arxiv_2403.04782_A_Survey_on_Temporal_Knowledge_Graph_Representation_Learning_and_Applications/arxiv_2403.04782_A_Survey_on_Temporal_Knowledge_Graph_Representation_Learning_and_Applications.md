@@ -21,7 +21,15 @@ original_folder: arxiv_2403.04782_A_Survey_on_Temporal_Knowledge_Graph_Represent
 images_total: 3
 images_kept: 3
 images_removed: 0
+keywords:
+- in-depth
+- knowledge graph
+- knowledge graphs
+- low-dimensional
+- question answering
+- temporal knowledge graph
 ---
+
 
 # A Survey on Temporal Knowledge Graph: Representation Learning and Applications
 

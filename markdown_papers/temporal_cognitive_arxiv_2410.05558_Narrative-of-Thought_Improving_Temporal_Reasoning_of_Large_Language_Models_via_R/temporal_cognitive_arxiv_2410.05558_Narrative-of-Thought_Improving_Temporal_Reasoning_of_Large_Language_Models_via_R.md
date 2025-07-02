@@ -16,6 +16,23 @@ tags:
 - Natural Language Processing
 - Semantic Web
 - Temporal
+keywords:
+- evaluation
+- generation
+- gpt
+- graph generation
+- language models
+- narrative-of-thought
+- not
+- of
+- reasoning
+- small model
+- small models
+- temporal
+- temporal graph
+- temporal reasoning
+- temporal relation
+- temporal relations
 ---
 
 # NARRATIVE-OF-THOUGHT: Improving Temporal Reasoning of Large Language Models via Recounted Narratives

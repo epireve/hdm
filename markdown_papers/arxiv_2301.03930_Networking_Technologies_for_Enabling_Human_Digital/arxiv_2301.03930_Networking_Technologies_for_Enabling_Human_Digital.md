@@ -20,6 +20,37 @@ tags:
 - Machine Learning
 - Mental Health
 - Personalized Medicine
+keywords:
+- AliCloud
+- BodyEdge
+- CNN
+- CompBioMed
+- DataNode
+- DenseNe
+- DenseNet
+- DentiTrac
+- DetNet
+- DigiTwin
+- accurate learning
+- acs nano
+- age-based
+- age-based grouping
+- agent-driven
+- agent-environment
+- ai-aid
+- ai-assisted
+- ai-based
+- ai-based data
+- ai-based decision
+- ai-based modeling
+- ai-based recommendations
+- ai-based system
+- ai-driven
+- ai-enabled
+- ai-powered
+- anomaly detection
+- any learning
+- application-specific
 ---
 
 # Networking Architecture and Key Supporting Technologies for Human Digital Twin in Personalized Healthcare: A Comprehensive Survey

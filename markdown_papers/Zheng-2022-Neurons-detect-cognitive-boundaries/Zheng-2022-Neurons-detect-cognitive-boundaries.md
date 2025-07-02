@@ -15,6 +15,37 @@ tags:
 - IoT
 - Machine Learning
 - Temporal
+keywords:
+- 933 extended data table 3 subject information
+- AlexNet
+- BoundaryType
+- DuBrow
+- FieldTrip
+- ImageNet
+- a-b
+- a-c
+- a-d
+- acad radiol
+- accuracy
+- acknowledgements
+- across-study
+- ad-tech
+- alexnet
+- annu rev neurosci
+- annu rev psychol
+- artifact-rejected
+- author contributions
+- b-d
+- band-passed
+- ben-yakov
+- boundary-aligned
+- boundary-related
+- boundary-responsive
+- brain
+- c-d
+- cedars-sinai
+- cereb cortex
+- classification
 ---
 
 # Cognitive boundary signals in the human medial temporal lobe shape episodic

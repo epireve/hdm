@@ -21,7 +21,12 @@ original_folder: Question_Answering_Over_Temporal_Knowledge_Graphs_2021
 images_total: 2
 images_kept: 2
 images_removed: 0
+keywords:
+- knowledge graphs
+- question answering
+- state-of-the-art
 ---
+
 
 # Question Answering Over Temporal Knowledge Graphs
 

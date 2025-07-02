@@ -18,6 +18,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- BERT
+- HTTP
+- LSTM
+- NLP
+- WebSci
+- accuracy
+- additional information
+- aero-engine
+- anomaly detection
+- artificial intelligence
+- author contributions
+- ba-ikg
+- ball-end
+- bert
+- bert-bi-lstm-crf
+- bi-lstm
+- bidirectional encoder representations from transformers
+- case study
+- check for updates
+- cid
+- classification
+- cloud computing
+- color-coded
+- competing interests
+- concept constraints
+- concept layer
+- continuous learning
+- correspondence
+- crowdsourcing-based
+- crowdsourcing-based continuous
 ---
 
 # OPEN

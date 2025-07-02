@@ -20,6 +20,37 @@ original_folder: arxiv_2307.12173_arXiv_reCAPTCHA
 images_total: 4
 images_kept: 4
 images_removed: 0
+keywords:
+- 1 blocking step
+- 1 evaluating blocking
+- 1 introduction
+- 2 evaluating similarity
+- 2 similarity  matching step
+- 3 evaluating named entity resolution
+- 4 evolution of research in named entity resolution
+- 6 conclusion
+- BERT
+- BigData
+- BigNet
+- ConceptNet
+- McCallum
+- McGuinness
+- McIlraith
+- McKeown
+- McNeil
+- MinHash
+- acm reference format
+- active learning
+- ai-complete
+- anti-science
+- artificial intelligence
+- assumption-free
+- attribute-types
+- axel-cyrille
+- backward-feedback
+- bases-volume
+- berners-lee
+- bidirectional encoder representations from transformers
 ---
 
 # Named Entity Resolution in Personal Knowledge Graphs

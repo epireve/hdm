@@ -16,6 +16,35 @@ tags:
 - IoT
 - Machine Learning
 - Mental Health
+keywords:
+- HTTP
+- PoseNet
+- abstract
+- acknowledgment
+- agent-agent
+- agent-oriented
+- applied sciences
+- artificial intelligence
+- asynchronous
+- being an avatar
+- blockchain
+- body-joints
+- body-tracking-without-trackers
+- cloud computing
+- co-presence
+- co-working
+- context-aware
+- eco-systems
+- environment-i
+- environment-ii
+- environment-iii
+- extended-xri
+- head-mounted
+- high-tech
+- horizon-worlds
+- human-agent
+- iot
+- latency
 ---
 
 Full Citation: J. Guan and A. Morris, "Design Frameworks for Hyper-Connected Social XRI Immersive Metaverse Environments," in IEEE Network, vol. 37, no. 4, pp. 12-21, July/August 2023, doi: 10.1109/MNET.005.2300129. keywords: Metaverse;Corporate acquisitions;Mixed reality;Switches;User experience;Digital twins;Internet of Things;Extended reality,

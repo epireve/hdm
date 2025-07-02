@@ -16,6 +16,37 @@ tags:
 - Natural Language Processing
 - Privacy
 - Semantic Web
+keywords:
+- 1 workshop topics and goals
+- 2 workshop program
+- 3 program committee
+- 4 workshop co-chairs
+- AlKhamissi
+- AutoPrompt
+- BERT
+- BabelNet
+- BertNet
+- CommonSense
+- ConceptNet
+- GPT
+- MindMap
+- NLP
+- abu-salih
+- ai open
+- amer-yahia
+- artificial intelligence
+- at learning
+- auto-completion
+- axel-cyrille
+- bidirectional encoder representations from transformers
+- black-box
+- by-nc-nd
+- chain-of-thought
+- chat-gpt
+- co-chairs
+- co-located
+- co-presented
+- cole-lewis
 ---
 
 # Data Management Opportunities in Unifying Large Language Models+Knowledge Graphs

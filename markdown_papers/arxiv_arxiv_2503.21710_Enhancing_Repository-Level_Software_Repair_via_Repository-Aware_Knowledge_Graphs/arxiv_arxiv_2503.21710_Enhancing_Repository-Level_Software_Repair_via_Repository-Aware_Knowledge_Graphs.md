@@ -15,7 +15,24 @@ tags:
 - Machine Learning
 - Natural Language Processing
 - Semantic Web
+keywords:
+- function-level
+- kg-mined
+- knowledge graph
+- knowledge graphs
+- large language models
+- llm
+- llm-based
+- multi-hop
+- open-source
+- path-guided
+- real-world
+- repository-aware
+- repository-level
+- state-of-the-art
+- swe-bench-lite
 ---
+
 
 # Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs
 

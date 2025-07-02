@@ -1,16 +1,27 @@
 ---
-cite_key: "zhang_2024_a_novel_customizing"
-title: "A novel customizing knowledge graph evaluation method for incorporating user needs"
-authors: "Ying Zhang\, Gang Xiao"
+cite_key: zhang_2024_a_novel_customizing
+title: A novel customizing knowledge graph evaluation method for incorporating user
+  needs
+authors: Ying Zhang Gang Xiao
 year: 2023
-doi: "10.1109/TKDE.2022.3150080)"
-date_processed: "2025-07-02"
+doi: 10.1109/TKDE.2022.3150080)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Zhang-2024-A-novel-customizing-knowledge-graph"
+original_folder: Zhang-2024-A-novel-customizing-knowledge-graph
 images_total: 13
 images_kept: 13
 images_removed: 0
+keywords:
+- bookmark-like
+- cost-saving
+- decision-making
+- knowledge graph
+- knowledge graphs
+- large-scale
+- question-and-answer
+- recommendation systems
 ---
+
 
 # OPEN
 

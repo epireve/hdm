@@ -20,6 +20,37 @@ tags:
 - Machine Learning
 - Mental Health
 - Personalized Medicine
+keywords:
+- 1 introduction
+- 2 related work
+- 42 prototype development
+- 43 prototype evaluation
+- CNN
+- CrossRef
+- DataFrame
+- DateTimeIndex
+- EMR
+- FitBit
+- LSTM
+- McKinsey
+- MedRxiv
+- PubMed
+- al-maroof
+- angle-base
+- anomaly detection
+- app-based
+- app-based study
+- articleco-design
+- at-risk
+- ben-assuli
+- built-in
+- classification-based
+- clinical data
+- closed-ended
+- clustering-based
+- clustering-based local
+- clustering-we
+- co-creation
 ---
 
 

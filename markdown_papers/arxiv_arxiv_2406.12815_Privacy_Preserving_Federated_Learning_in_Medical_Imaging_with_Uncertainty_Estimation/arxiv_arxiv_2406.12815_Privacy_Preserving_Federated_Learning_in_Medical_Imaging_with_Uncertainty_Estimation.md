@@ -17,6 +17,37 @@ tags:
 - Machine Learning
 - Personal Health
 - Privacy
+keywords:
+- API
+- ArXiv
+- CalibrationSummary
+- DeTrust
+- FedAvg
+- FedGen
+- FedOpt
+- FedPop
+- FedProx
+- ImageNet
+- ad-hoc
+- and labels are
+- application programming interface
+- application-specific
+- applied sciences
+- artificial intelligence
+- attention-based
+- attention-based multiple
+- auto-tuning
+- bandwidth-intensive
+- barragan-montero
+- between learning
+- blockchain-based
+- blockchain-based peerto
+- bryant-greenwood
+- built-in
+- centralized learning
+- chang-claude
+- class-specific
+- client-based
 ---
 
 # Privacy Preserving Federated Learning in Medical Imaging with Uncertainty Estimation

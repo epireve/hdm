@@ -23,6 +23,37 @@ original_folder: Local-Global_History-aware_Contrastive_Learning_for_TKGR
 images_total: 11
 images_kept: 11
 images_removed: 0
+keywords:
+- 8 end while
+- CNN
+- ComplEx
+- DisMult
+- DistMult
+- GRU
+- HisMatch
+- LogCl
+- OpenReview
+- RNN
+- TimeTraveler
+- algorithm 1 training procedure of logcl
+- anti-noise
+- artificial intelligence
+- british journal of psychology
+- closed-class
+- cnn-based
+- cnn-based methods
+- compgcn-mult
+- compgcn-sub
+- composition-based
+- composition-based multi
+- continuous-time
+- contrastive learning
+- conv-transe
+- convolutional neural network
+- copy-generation
+- de-simie
+- encoder-decoder
+- end-to-end
 ---
 
 # Local-Global History-aware Contrastive Learning for Temporal Knowledge Graph Reasoning

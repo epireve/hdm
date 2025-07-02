@@ -17,7 +17,21 @@ tags:
 - Machine Learning
 - Semantic Web
 - Temporal
+keywords:
+- cross-domain
+- embedding-based
+- in-domain
+- knowledge graph
+- large language models
+- parameter-efficient
+- pre-trained
+- re-training
+- retrieval-augmented
+- rule-based
+- temporal graph
+- temporal knowledge graph
 ---
+
 
 # GenTKG: Generative Forecasting on Temporal Knowledge Graph with Large Language Models
 

@@ -16,7 +16,14 @@ tags:
 - Recommendation System
 - Semantic Web
 - Temporal
+keywords:
+- knowledge graph
+- knowledge graph completion
+- knowledge graphs
+- real-life
+- temporal knowledge graph
 ---
+
 
 # Temporal Knowledge Graph Completion: A Survey
 

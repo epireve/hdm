@@ -16,6 +16,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 introduction
+- 3 establishment of the bmkg
+- 4 application case
+- 5 discussion
+- AncillaryFacility
+- AppearanceQuality
+- BasicRequirement
+- BelongTo
+- BoxGirder
+- BrMontology
+- BridgeComponent
+- BridgeDeckSystem
+- BridgeOnto
+- BridgePortion
+- acm computing surveys
+- applied sciences
+- attribute-supporting
+- automation in construction
+- bottom-up
+- bridge-onto
+- bridge-related
+- cable-stayed
+- cable-stayedbridge
+- coating deterioration
+- conflicts of interest
+- construction research congress
+- data availability
+- database-based
+- database-based storage
+- decision-making
 ---
 
 ![](_page_0_Picture_2.jpeg)

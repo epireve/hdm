@@ -18,7 +18,17 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Privacy
+keywords:
+- blockchain
+- blockchain-based
+- blockchain-enabled
+- federated learning
+- internet of things
+- machine learning
+- privacy-preserving
+- under-explored
 ---
+
 
 # PRIVACY-PRESERVING IN BLOCKCHAIN-BASED FEDERATED LEARNING SYSTEMS
 

@@ -22,7 +22,17 @@ original_folder: arxiv_2021_sequential_recommendation_gnn_surge
 images_total: 4
 images_kept: 4
 images_removed: 0
+keywords:
+- cluster-aware
+- item-item
+- long-term
+- neural network
+- neural networks
+- query-aware
+- re-constructing
+- state-of-the-art
 ---
+
 
 # <span id="page-0-0"></span>Sequential Recommendation with Graph Neural Networks
 

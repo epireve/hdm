@@ -17,6 +17,37 @@ tags:
 - Machine Learning
 - Privacy
 - Semantic Web
+keywords:
+- API
+- AbIdkj
+- AccessRestrictedTo
+- BasedOnGraphPattern
+- BiQaiz
+- CarryOverSubjectRangeConstraintTo
+- ConfidenceLevel
+- CreatedWithApplication
+- CreationDate
+- CurationDate
+- a central
+- a first kgbb-engine prototype
+- about-codata
+- above-mentioned
+- abox alignments
+- access and import models
+- access api
+- access model families
+- access templates
+- access-restrictions
+- ai-based
+- ai-based nlp
+- and can be
+- and literal-based objects as
+- and the
+- and the upri of the
+- and thus form a
+- application programming interface
+- application-layer
+- artificial intelligence
 ---
 
 # Knowledge Graph Building Blocks: An easy-to-use Framework for developing FAIREr Knowledge Graphs

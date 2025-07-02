@@ -1,14 +1,30 @@
 ---
-cite_key: "arxiv_221211394_skefl_single_k_161"
-title: "Skefl: Single-Key Homomorphic Encryption for Secure Federated Learning"
-authors: "OpenFHE \[Badawi, 2022]."
-year: 2009
-date_processed: "2025-07-02"
+cite_key: zhao_2022
+title: 'Skefl: Single-Key Homomorphic Encryption for Secure Federated Learning'
+authors: Dongfang Zhao
+year: 2022
+date_processed: '2025-02-07'
 phase2_processed: true
-original_folder: "arxiv_2212.11394_Skefl_Single-Key_Homomorphic_Encryption_for_Secure_Federated_Learning"
+original_folder: arxiv_2212.11394_Skefl_Single-Key_Homomorphic_Encryption_for_Secure_Federated_Learning
 images_total: 3
 images_kept: 3
 images_removed: 0
+keywords:
+- homomorphic encryption
+- federated learning
+- single-key encryption
+- multi-key encryption
+- secret sharing
+- asymmetric threshold secret sharing
+- parameter server
+- collusion attack
+- privacy preservation
+- secure aggregation
+- ciphertext
+- cryptography
+- distributed learning
+- model aggregation
+- security protocol
 ---
 
 # Skefl: Single-Key Homomorphic Encryption for Secure Federated Learning

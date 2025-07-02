@@ -23,6 +23,27 @@ original_folder: neural_networks_2024_multitask_heterogeneous_graph_ehr
 images_total: 13
 images_kept: 13
 images_removed: 0
+keywords:
+- a denoising
+- additionally
+- adjust for severe
+- adopts a single
+- and predictions of
+- and resulting
+- and resulting in
+- applied to them
+- approaches modeling
+- art designs in
+- attention because of
+- causal inference
+- confounding effects
+- confounding effects and
+- contain enriched information
+- degree of heterogeneity
+- extensive
+- inference
+- keywords
+- learning
 ---
 
 # Multi-task Heterogeneous Graph Learning on Electronic Health Records

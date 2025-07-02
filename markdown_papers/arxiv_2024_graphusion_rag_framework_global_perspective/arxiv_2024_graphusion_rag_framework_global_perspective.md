@@ -18,6 +18,37 @@ tags:
 - Machine Learning
 - Natural Language Processing
 - Semantic Web
+keywords:
+- -relation concepts and definitions-
+- API
+- ArXiv
+- BERT
+- ChaTa
+- DeepWalk
+- GPT
+- IreneZihuiLi
+- LangChain
+- NLP
+- PubGraph
+- a is larger than b
+- a learning
+- a tool is evaluated for b
+- ablation study
+- acm reference format
+- additional corpora description
+- al-hariri
+- al-rfou
+- application programming interface
+- artificial intelligence
+- aspect-based
+- aspect-based sentiment
+- auto-tuning
+- background background
+- benchmark details
+- bias-variance
+- bidirectional encoder representations from transformers
+- ccs concepts
+- ceur-ws
 ---
 
 # Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective

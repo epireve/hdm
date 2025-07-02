@@ -19,7 +19,14 @@ tags:
 - Recommendation System
 - Semantic Web
 - Temporal
+keywords:
+- domain-specific
+- knowledge graph
+- knowledge graphs
+- machine learning
+- node-link
 ---
+
 
 # <span id="page-0-0"></span>Knowledge Graphs in Practice: Characterizing their Users, Challenges, and Visualization Opportunities
 

@@ -16,6 +16,37 @@ tags:
 - IoT
 - Machine Learning
 - Privacy
+keywords:
+- CNN
+- CrossEntropyLoss
+- FedAvg
+- GitHub
+- IOT
+- IoTenabled
+- LSTM
+- McMahan
+- RNN
+- SGD
+- a learning
+- al-kadri
+- al-saedi
+- and act
+- artificial intelligence
+- artifitialleap-mbzuai
+- bassem ouni
+- cloud computing
+- communication efficiency
+- communication-efficient
+- context-specific
+- convolutional neural network
+- cost-based
+- cost-based approach
+- cost-effective
+- cost-effectiveness
+- data privacy
+- data-driven
+- deep learning
+- differential privacy
 ---
 
 # Secure Federated Learning With Fully Homomorphic Encryption for IoT Communications

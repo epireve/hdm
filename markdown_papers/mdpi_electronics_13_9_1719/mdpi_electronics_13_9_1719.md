@@ -15,6 +15,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 introduction
+- 6 conclusions and future work
+- BioPortal
+- ConsumedTotal
+- CrossRef
+- DependentVariable
+- DividedInto
+- ElectricityPurchased
+- EmissionReported
+- McGuinness
+- MetricComputingModel
+- ObtainedFrom
+- all-encompassing
+- artificial intelligence
+- berners-lee
+- capelle-blancard
+- climate-related
+- co-operation
+- color-coded
+- context-based
+- context-based environmental
+- cutting-edge
+- data-driven
+- data-rich
+- decision-makers
+- decision-making
+- decision-support
+- domain-specific
+- end-user
+- end-users
 ---
 
 

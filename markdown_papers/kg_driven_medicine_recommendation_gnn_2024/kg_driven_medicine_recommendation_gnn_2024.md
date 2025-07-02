@@ -14,7 +14,11 @@ tags:
 - Machine Learning
 - Natural Language Processing
 - Semantic Web
+keywords:
+- multi-label
+- multi-perspective
 ---
+
 
 ![](_page_0_Figure_0.jpeg)
 <!-- Image Description: The image is a logo for *Applied Sciences*, likely a journal or publication. It consists of stylized text, "applied sciences," and a simple graphic of three test tubes in a rack, suggesting experimental work and research within the applied sciences field. The logo serves as a visual identifier for the publication. -->

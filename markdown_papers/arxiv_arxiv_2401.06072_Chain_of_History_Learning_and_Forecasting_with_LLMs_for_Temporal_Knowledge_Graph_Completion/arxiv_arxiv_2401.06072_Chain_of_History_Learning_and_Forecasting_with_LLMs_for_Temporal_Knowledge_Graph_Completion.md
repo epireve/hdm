@@ -18,7 +18,15 @@ tags:
 - Recommendation System
 - Semantic Web
 - Temporal
+keywords:
+- fine-tuning
+- knowledge graph
+- knowledge graph completion
+- knowledge graphs
+- large language models
+- temporal knowledge graph
 ---
+
 
 # Chain of History: Learning and Forecasting with LLMs for Temporal Knowledge Graph Completion
 

@@ -14,7 +14,14 @@ tags:
 - Machine Learning
 - Natural Language Processing
 - Semantic Web
+keywords:
+- ai-assisted
+- evidence-based
+- multi-directional
+- nlp-assisted
+- note-taking
 ---
+
 
 # Knowledge Management System with NLP-Assisted Annotations: A Brief Survey and Outlook
 

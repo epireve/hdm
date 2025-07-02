@@ -13,7 +13,19 @@ images_removed: 0
 tags:
 - IoT
 - Machine Learning
+keywords:
+- deep learning
+- high-resolution
+- large-scale
+- multi-sensor
+- multimodal data
+- open-source
+- post-processing
+- real-time
+- sensor-specific
+- well-defined
 ---
+
 
 # Large Scale Multimodal Data Capture, Evaluation and Maintenance Framework for Autonomous Driving Datasets
 

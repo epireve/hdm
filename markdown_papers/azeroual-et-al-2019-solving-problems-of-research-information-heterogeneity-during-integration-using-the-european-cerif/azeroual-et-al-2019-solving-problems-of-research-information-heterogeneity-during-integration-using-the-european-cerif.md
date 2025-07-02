@@ -15,6 +15,37 @@ tags:
 - Data Integration
 - Federated Learning
 - Machine Learning
+keywords:
+- 1 introduction
+- 2 overview of research information
+- 5 general requirements for data quality
+- 7 concluspage-14-0ions and outlook
+- InfoInt
+- PubMed
+- QlikView
+- SimVis
+- accuracy
+- acknowledgements
+- acm computing surveys
+- cooperation partners
+- data heterogeneity
+- data migration
+- decision-makers
+- decision-making
+- doctorates and habilitations
+- dspace-cris
+- e-mail
+- employees
+- entity
+- entity-relationship
+- entity-relationship-modell
+- er-modell
+- era of the big data
+- eunis-eurocris
+- fit for purpose
+- funded projects
+- informatics
+- metadata
 ---
 
 Information Services & Use 39 (2019) 105–122 105 DOI [10.3233/ISU-180030](http://dx.doi.org/10.3233/ISU-180030) IOS Press

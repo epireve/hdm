@@ -1,9 +1,8 @@
 ---
-cite_key: respectively_2011
+cite_key: li_2020
 title: On a Factorial Knowledge Architecture for Data Science-powered Software Engineering
-  ∗
-authors: Maxwell3 datasets respectively;
-year: 2011
+authors: Zheng Li
+year: 2020
 doi: 10.1371/journal.pone.0021101.
 date_processed: '2025-07-02'
 phase2_processed: true
@@ -15,7 +14,16 @@ tags:
 - Cloud Computing
 - Machine Learning
 - Semantic Web
+keywords:
+- data-driven
+- data-intensive
+- early-version
+- factor-based
+- factor-centric
+- science-powered
+- well-known
 ---
+
 
 # On a Factorial Knowledge Architecture for Data Science-powered Software Engineering <sup>∗</sup>
 

@@ -19,6 +19,37 @@ tags:
 - Privacy
 - Recommendation System
 - Semantic Web
+keywords:
+- 1 introduction
+- 2 methods
+- 3 results 3 results
+- 4 discussion
+- 5 conclusions
+- CrossRef
+- McNagny
+- PubMed
+- RegData
+- accuracy
+- acid-based
+- acid-based drugs
+- activities-vison-paper
+- artificial intelligence
+- brief report
+- classification
+- cross-border
+- data privacy
+- data-driven
+- diagnosis
+- diagnostics
+- electronic health record
+- eu-funded
+- eu-wide
+- garcia-linares
+- genome-phenome
+- genomics
+- hernandez-ferrer
+- high-performance
+- performance
 ---
 
 

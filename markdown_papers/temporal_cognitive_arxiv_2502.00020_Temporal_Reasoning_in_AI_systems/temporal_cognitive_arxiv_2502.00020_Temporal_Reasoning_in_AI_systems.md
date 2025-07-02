@@ -16,6 +16,37 @@ tags:
 - Natural Language Processing
 - Semantic Web
 - Temporal
+keywords:
+- AlbertEinstein
+- BillClinton
+- BiologicalLivingObject
+- ComputerScientist
+- DayFn
+- FemaleHuman
+- FemaleInfant
+- FrequentPerformerFn
+- HumanAdult
+- HumanInfant
+- abhishek sharma
+- analysis-related
+- and learning
+- application-specific
+- artificial intelligence
+- bidirectional projection
+- cognitive science
+- computational intelligence
+- conclusions and discussion
+- discrete-time
+- domain-specific
+- event calculus in temporal projection
+- event-type
+- experimental evaluation
+- figure 2 algorithm used for temporal projection
+- generation learning
+- graph-based
+- graph-based reasoning
+- hazard function
+- in learning
 ---
 
 # Temporal Reasoning in AI Systems

@@ -14,6 +14,34 @@ tags:
 - Data Integration
 - IoT
 - Machine Learning
+keywords:
+- MyLifeBits
+- SenseCam
+- UbiComp
+- acm classification keywords
+- activity analysis and recommendation
+- anomaly detection
+- approach
+- augmentation of personal memory
+- author keywords
+- classification
+- community memory and summary of public life
+- community-authored
+- conclusions
+- context-aware
+- cyber-physical
+- data-mediated
+- digest views
+- e-mail
+- e-mails
+- general terms
+- landmark photo
+- landscape-oriented
+- location-based
+- location-based application
+- outlier detection
+- recall
+- right-hand
 ---
 
 

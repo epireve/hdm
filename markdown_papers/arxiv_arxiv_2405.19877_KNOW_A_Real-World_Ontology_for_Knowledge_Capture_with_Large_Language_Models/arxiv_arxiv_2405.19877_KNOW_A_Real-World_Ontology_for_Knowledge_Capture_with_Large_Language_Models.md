@@ -14,7 +14,15 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- code-generated
+- generative ai
+- knowledge graphs
+- large language models
+- neuro-symbolic
+- real-world
 ---
+
 
 # KNOW–A Real-World Ontology for Knowledge Capture with Large Language Models
 

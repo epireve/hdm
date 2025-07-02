@@ -15,6 +15,37 @@ tags:
 - Healthcare
 - Machine Learning
 - Semantic Web
+keywords:
+- API
+- DiFranzo
+- MapReduce
+- adding natural language
+- agency-specific
+- application programming interface
+- author disclosure statement
+- berners-lee
+- big data
+- blue-grey
+- business-to-business
+- color-coded
+- conclusions
+- cutting-edge
+- data discovery
+- data integration for heterogenous datasets
+- data integration for heterogenous datasets hendler
+- data-catalog
+- data-mining
+- data-sharing
+- data-the
+- disclaimer
+- domain-specific
+- e-mail
+- easier-to-use
+- efficiency
+- integration
+- precision
+- rdf
+- recall
 ---
 
 # DATA INTEGRATION FOR HETEROGENOUS DATASETS

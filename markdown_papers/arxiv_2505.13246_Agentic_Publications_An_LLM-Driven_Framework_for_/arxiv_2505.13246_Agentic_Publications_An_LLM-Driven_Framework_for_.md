@@ -16,6 +16,27 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- ai-powered
+- api
+- communication
+- demonstration
+- driven framework
+- generation
+- high-level
+- implementation
+- integration
+- knowledge flow
+- knowledge graph
+- knowledge graphs
+- knowledge integration
+- knowledge landscape
+- knowledge representation
+- knowledge synthesis
+- knowledge systems
+- llm
+- llm-driven
+- owl
 ---
 
 # Agentic Publications: An LLM-Driven Framework for Interactive Scientific Publishing, Supplementing Traditional Papers with AI-Powered Knowledge Systems

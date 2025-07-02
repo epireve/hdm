@@ -21,6 +21,32 @@ original_folder: Zhao_2023_J._Phys.%3A_Conf._Ser._2472_012040
 images_total: 8
 images_kept: 7
 images_removed: 1
+keywords:
+- 1 problem description
+- 2 solution
+- API
+- EnergyPlus
+- SysCon
+- TCP
+- application programming interface
+- black-box
+- co-simulation
+- cog management
+- cross-feed
+- cyber-physical
+- e-mail
+- file-based
+- file-based exchange
+- fmi-based
+- fmi-based co
+- helicopter fuel system development
+- higher-level
+- human-model
+- internet protocol
+- low-level
+- matlab-simulink
+- mock-up
+- performance
 ---
 
 

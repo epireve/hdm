@@ -1,12 +1,23 @@
 ---
-cite_key: kraft_2021
+cite_key: akroyd_2021
 title: RESEARCH ARTICLE
-authors: Markus Kraft1,2,4, \
+authors: Jethro Akroyd, Sebastian Mosbach, Amit Bhave, Markus Kraft
 year: 2021
 doi: 10.17863/CAM.32260
 date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: Akroyd-2021-Universal-digital-twin---a-dynamic-
+original_folder: Akroyd-2021-Universal-digital-twin
+keywords:
+- cross-domain
+- digital twin
+- digital twins
+- dynamic knowledge graph
+- knowledge graph
+- knowledge-graph
+- real-time
+- semantic web
+---
+a-dynamic-
 images_total: 15
 images_kept: 14
 images_removed: 1
@@ -17,6 +28,20 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- API
+- CityChem
+- CityEngine
+- DeAngelo
+- DeCarolis
+- DesignIssues
+- InstantaneousView
+- InterfaceOntology
+- LinkedData
+- MacCarthy
+- about-us
+- active agents
+- adms-model
 ---
 
 # RESEARCH ARTICLE

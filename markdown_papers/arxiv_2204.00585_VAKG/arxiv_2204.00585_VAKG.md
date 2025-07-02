@@ -16,6 +16,37 @@ tags:
 - Machine Learning
 - Semantic Web
 - Temporal
+keywords:
+- 1 related theoretical works
+- 2 vakg ontology and knowledge graph definition
+- 21 vakg property map and data collection guideline
+- 3 survey compilation and goals
+- 31 tableau use-case
+- 33 using vakg for analysis
+- 4 vakg evaluation discussion
+- API
+- InsideInsights
+- NLP
+- PageRank
+- SenseMap
+- acknowledgment
+- active learning
+- agent-based
+- agent-based framework
+- analysis-centric
+- and ending
+- application programming interface
+- application-specific
+- ask not to track
+- atemporal
+- auto-generated
+- back-and-forth
+- behavioral provenance
+- best-practice
+- bpm-driving
+- class
+- classes
+- classification
 ---
 
 # <span id="page-0-1"></span>A Theoretical Approach for Structuring and Analysing Knowledge Provenance for Visual Analytics

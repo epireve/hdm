@@ -3,7 +3,7 @@ cite_key: zhu_2000
 title: A Temporal Knowledge Graph Generation Dataset Supervised Distantly by Large
   Language Models
 authors: Jun Zhu, Yan Fu, Junlin Zhou, Duanbing Chen
-year: 2000
+year: 2025
 doi: 10.1007/978-3-642-15939-8
 date_processed: '2025-07-02'
 phase2_processed: true
@@ -16,6 +16,37 @@ tags:
 - Machine Learning
 - Semantic Web
 - Temporal
+keywords:
+- BERT
+- GPT
+- LSTM
+- McCallum
+- NoDerivatives
+- NonCommercial
+- OpenReview
+- SemEval
+- accuracy
+- acknowledgements
+- acl-ijcnlp
+- acl-long
+- additional information
+- anaby-tavor
+- artificial intelligence
+- attribution-noncommercial-noderivatives
+- author contributions
+- bert-based
+- bert-based methods
+- bidirectional encoder representations from transformers
+- born in
+- by-nc-nd
+- can be inferred to be
+- closed-source
+- co-founder
+- code availability
+- combination relation patterns
+- communications of the acm
+- competing interests
+- context-aware
 ---
 
 # OPEN

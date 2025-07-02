@@ -20,6 +20,37 @@ tags:
 - Machine Learning
 - Personal Health
 - Privacy
+keywords:
+- McCandlish
+- McCollam
+- McMahan
+- a learning
+- abstract
+- accuracy
+- after learning
+- and learning
+- artificial intelligence
+- biomarker
+- briefings in bioinformatics
+- carrillo-perez
+- classification
+- client c
+- clinical data
+- cloud computing
+- cloud-based
+- cloud-based system
+- clustering
+- collaborative learning
+- communication-efficient
+- computing-aware
+- context-specific
+- continual learning
+- continuous learning
+- cost-aware
+- cost-aware scheduler
+- cost-effective
+- diagnosis
+- efficiency
 ---
 
 # Advances in Privacy Preserving Federated Learning to Realize a Truly Learning Healthcare System

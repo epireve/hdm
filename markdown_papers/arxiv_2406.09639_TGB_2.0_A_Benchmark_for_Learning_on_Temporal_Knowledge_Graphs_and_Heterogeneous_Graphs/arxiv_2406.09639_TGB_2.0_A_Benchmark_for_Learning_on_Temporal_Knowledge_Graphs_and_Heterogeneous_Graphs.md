@@ -22,6 +22,37 @@ original_folder: arxiv_2406.09639_TGB_2.0_A_Benchmark_for_Learning_on_Temporal_K
 images_total: 7
 images_kept: 7
 images_removed: 0
+keywords:
+- 1 temporal knowledge graph experiments
+- 2 preliminaries
+- 2 temporal heterogenous graph experiments
+- 3 related work
+- 6 conclusion
+- API
+- CrossEntropy
+- EdgeBank
+- EdgeBanktw
+- GitHub
+- JuliaGast
+- MathOverflow
+- McCallum
+- McGill
+- McLean
+- a learning
+- abu-jabr
+- acm computing surveys
+- and learning
+- anomaly detection
+- application programming interface
+- artificial intelligence
+- attribution-sharealike
+- bi-time-window
+- communications of the acm
+- consecutiveness value
+- continuous-time
+- contrastive learning
+- copy-generation
+- cross-cultural
 ---
 
 # TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous Graphs

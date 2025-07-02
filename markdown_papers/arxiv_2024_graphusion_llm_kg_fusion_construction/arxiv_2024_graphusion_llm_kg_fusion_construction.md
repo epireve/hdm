@@ -23,7 +23,22 @@ original_folder: arxiv_2024_graphusion_llm_kg_fusion_construction
 images_total: 10
 images_kept: 10
 images_removed: 0
+keywords:
+- entity extraction
+- expert-verified
+- graph reasoning
+- knowledge graph
+- knowledge graph construction
+- knowledge graphs
+- large language models
+- link prediction
+- natural language processing
+- nlp
+- question answering
+- relation recognition
+- zero-shot
 ---
+
 
 # Graphusion: Leveraging Large Language Models for Scientific Knowledge Graph Fusion and Construction in NLP Education
 

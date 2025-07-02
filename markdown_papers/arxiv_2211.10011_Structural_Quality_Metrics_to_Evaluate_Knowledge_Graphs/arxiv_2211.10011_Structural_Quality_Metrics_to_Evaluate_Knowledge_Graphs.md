@@ -16,7 +16,13 @@ tags:
 - Natural Language Processing
 - Recommendation System
 - Semantic Web
+keywords:
+- cross-domain
+- knowledge graph
+- knowledge graphs
+- scale-related
 ---
+
 
 # <span id="page-0-0"></span>Structural Quality Metrics to Evaluate Knowledge Graph Quality
 

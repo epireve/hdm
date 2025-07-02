@@ -22,7 +22,21 @@ original_folder: zep_temporal_kg_agent_memory_2025
 images_total: 0
 images_kept: 0
 images_removed: 0
+keywords:
+- cross-session
+- knowledge graph
+- large language model
+- llm
+- long-term
+- rag
+- real-world
+- retrieval-augmented
+- stateof-the-art
+- temporal knowledge graph
+- temporal reasoning
+- temporally-aware
 ---
+
 
 # ZEP: A TEMPORAL KNOWLEDGE GRAPH ARCHITECTURE FOR AGENT MEMORY
 

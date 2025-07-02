@@ -15,6 +15,36 @@ tags:
 - Machine Learning
 - Privacy
 - Semantic Web
+keywords:
+- 1 identification
+- 1 introduction
+- 2 setting
+- 3 assessment
+- 4 exploitation
+- API
+- OpenCyc
+- accuracy
+- alpha-weights
+- application programming interface
+- authentication
+- beta-weights
+- classification
+- cost-effectiveness
+- crowd-sourced
+- digital signature
+- four-stage
+- general-purpose
+- indo-american
+- jmis-web
+- knowledge graph
+- large-scale
+- latency
+- metrics-driven
+- mind-lab
+- non-commercial
+- performance
+- rdf
+- sparql
 ---
 
 # Steps to Knowledge Graphs Quality Assessment

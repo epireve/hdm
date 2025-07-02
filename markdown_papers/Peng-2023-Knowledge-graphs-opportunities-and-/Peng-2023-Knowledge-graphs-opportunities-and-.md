@@ -15,7 +15,14 @@ tags:
 - Machine Learning
 - Recommendation System
 - Semantic Web
+keywords:
+- graph embedding
+- knowledge graph
+- knowledge graph completion
+- knowledge graphs
+- well-recognized
 ---
+
 
 
 

@@ -21,7 +21,10 @@ original_folder: vldb_2024_aeong_temporal_graph_databases
 images_total: 13
 images_kept: 12
 images_removed: 1
+keywords:
+- built-in
 ---
+
 
 
 

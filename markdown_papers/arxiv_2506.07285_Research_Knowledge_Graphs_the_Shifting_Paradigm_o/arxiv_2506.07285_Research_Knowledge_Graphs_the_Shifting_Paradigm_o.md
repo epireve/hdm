@@ -17,6 +17,37 @@ tags:
 - Machine Learning
 - Natural Language Processing
 - Semantic Web
+keywords:
+- 1 introduction - open science challenges
+- 2 conceptualization of scholarly knowledge
+- 3 methods for constructing rkgs
+- 4 outlook
+- 5 conclusion
+- BERT
+- BioClinical
+- CrossRef
+- CultureGraph
+- DataCite
+- GitHub
+- McClosky
+- McDermott
+- NLP
+- OpenAlex
+- article-centric
+- artificial intelligence
+- bidirectional encoder representations from transformers
+- bioclinical-bert
+- black-box
+- community-driven
+- community-expression
+- community-expressions
+- cross-domain
+- cross-referencing
+- crowd-workers
+- datenbank-spektrum
+- decision-making
+- deep learning
+- deep learning tsunami
 ---
 
 # Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information Representation

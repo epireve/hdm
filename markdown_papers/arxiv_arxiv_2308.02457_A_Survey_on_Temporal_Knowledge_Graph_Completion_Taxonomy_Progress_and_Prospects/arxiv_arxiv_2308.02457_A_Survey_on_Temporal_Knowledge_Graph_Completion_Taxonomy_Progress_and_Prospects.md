@@ -15,7 +15,13 @@ tags:
 - Machine Learning
 - Semantic Web
 - Temporal
+keywords:
+- knowledge graph
+- knowledge graph completion
+- knowledge graphs
+- temporal knowledge graph
 ---
+
 
 # A Survey on Temporal Knowledge Graph Completion: Taxonomy, Progress, and Prospects
 

@@ -14,6 +14,37 @@ images_removed: 2
 tags:
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 analysis of repository-level code tasks
+- 1 introduction
+- 1 repository-level code tasks
+- 2 deeper analysis of codexgraph
+- 2 related work
+- 4 experimental setting
+- 7 discussion
+- API
+- BaseManager
+- ChatDev
+- CoatiSoftware
+- CodeEval
+- CodesGraphAgentChat
+- CodesSnaphApentChat
+- CodexGraph
+- CodexGraphAgentChat
+- CodexGraphAzentChat
+- a appendix
+- a11 node types
+- a12 edge types
+- a21 example of code chat
+- a22 example of code debugger
+- a24 example of code generator
+- a25 example of code commentor
+- academic-level
+- actual output
+- agent-computer
+- api-based
+- api-based interfaces
+- application programming interface
 ---
 
 # CODEXGRAPH: Bridging Large Language Models and Code Repositories via Code Graph Databases

@@ -22,6 +22,37 @@ tags:
 - Patient Engagement
 - Personal Health
 - Semantic Web
+keywords:
+- API
+- DasMahapatra
+- DesignIssues
+- EHR
+- EMR
+- HTTP
+- HealthCom
+- HealthKit
+- HealthVault
+- JavaScript
+- acm t comput-hum int
+- acta cybern
+- activitystreams-core
+- apis with manual alignment
+- app platform
+- appl clin inform
+- application platform
+- application programming interface
+- attribution-noncommercial
+- back-end
+- berners-lee
+- bio-sensory
+- bmc med
+- built-in
+- cdm-based
+- cdm-based database
+- centralized platform
+- clinical decision support
+- cloud-based
+- cloud-based intelligent
 ---
 
 # *Original Article*

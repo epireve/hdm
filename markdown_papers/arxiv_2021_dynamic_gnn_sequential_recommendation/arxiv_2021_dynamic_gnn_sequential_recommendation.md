@@ -21,7 +21,15 @@ original_folder: arxiv_2021_dynamic_gnn_sequential_recommendation
 images_total: 8
 images_kept: 8
 images_removed: 0
+keywords:
+- deep learning
+- link prediction
+- neural network
+- neural networks
+- next-item
+- state-of-the-art
 ---
+
 
 # Dynamic Graph Neural Networks for Sequential Recommendation
 

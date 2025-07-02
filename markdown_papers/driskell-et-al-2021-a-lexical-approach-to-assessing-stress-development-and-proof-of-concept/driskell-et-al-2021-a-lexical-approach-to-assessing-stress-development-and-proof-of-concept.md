@@ -14,6 +14,37 @@ tags:
 - Machine Learning
 - Mental Health
 - Semantic Web
+keywords:
+- McCabe
+- McDonnell
+- McGraw
+- McNamara
+- SenseNet
+- SentiStrength
+- above
+- acta astronautica
+- alone
+- also
+- anger
+- annoy-dqfhv
+- annual review of psychology
+- anxious apprehension
+- archives of general psychiatry
+- assessing stress effects
+- at a distance
+- atten-wlrqiurpwdvnuhohydqwuhtxluhphqwvzhzrxog
+- attentional focus
+- avia-wlrq
+- big five
+- bob is angry at joe
+- break-idvw
+- capa-elolw
+- certainty expressions
+- child behavior and development
+- cli-pdwhdfurvvwkhfrxuvhriwkhluplvvlrqv
+- cog-qlwlyh
+- cognitive load
+- com-pxqlfdwlrqvdqgdwhdpohyhodjjuhjdwhriwkh
 ---
 
 # A Lexical Approach to Assessing Stress: Development and Proof- of- Concept

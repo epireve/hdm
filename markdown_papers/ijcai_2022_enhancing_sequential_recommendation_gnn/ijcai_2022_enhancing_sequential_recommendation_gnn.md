@@ -13,7 +13,12 @@ images_removed: 0
 tags:
 - Machine Learning
 - Recommendation System
+keywords:
+- real-world
+- recommendation systems
+- state-of-the-art
 ---
+
 
 # Enhancing Sequential Recommendation with Graph Contrastive Learning
 

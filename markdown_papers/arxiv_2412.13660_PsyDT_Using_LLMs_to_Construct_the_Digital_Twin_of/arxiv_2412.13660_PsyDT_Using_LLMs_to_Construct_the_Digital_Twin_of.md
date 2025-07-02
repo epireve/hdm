@@ -15,7 +15,17 @@ tags:
 - Machine Learning
 - Mental Health
 - Privacy
+keywords:
+- digital twin
+- gpt
+- large language models
+- long-text
+- multi-turn
+- one-shot
+- psy-dtcorpus
+- real-world
 ---
+
 
 # PsyDT: Using LLMs to Construct the Digital Twin of Psychological Counselor with Personalized Counseling Style for Psychological Counseling
 

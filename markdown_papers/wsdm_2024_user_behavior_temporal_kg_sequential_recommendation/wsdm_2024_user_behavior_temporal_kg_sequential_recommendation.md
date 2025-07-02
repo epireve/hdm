@@ -21,7 +21,19 @@ original_folder: wsdm_2024_user_behavior_temporal_kg_sequential_recommendation
 images_total: 5
 images_kept: 4
 images_removed: 1
+keywords:
+- knowledge graph
+- knowledge graphs
+- large-scale
+- real-world
+- rec-ommendation
+- state-of-theart
+- temporal knowledge graph
+- time-specific
+- tkg
+- tkg-srec
 ---
+
 
 
 

@@ -1,7 +1,8 @@
 ---
 cite_key: presutti_2019
 title: Pattern-based Visualization of Knowledge Graphs
-authors: Valentina Presutti 1
+authors: Valentina Presutti, Luigi Asprino, Christian Colonna, Misael Mongiovì, Margherita
+  Porena
 year: 2019
 date_processed: '2025-07-02'
 phase2_processed: true
@@ -13,6 +14,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 introduction
+- 2 pattern-based visualization of knowledge graphs
+- 6 conclusions and future work
+- BlueSky
+- GitHub
+- HTTP
+- LodView
+- MacroVu
+- McBrien
+- PatternInstance
+- SemDev
+- bottom-right
+- client-side
+- double-clicks
+- e-ld-r
+- e-mauroux
+- extended-ld-reactor
+- first-class
+- gomez-perez
+- graph-aware
+- graph-based
+- graph-based visualization
+- high-level
+- human-readability
+- hypertext transfer protocol
+- knowledge graph
+- ld-reactor
+- multi-filter
+- ontology
+- performance
 ---
 
 # Pattern-based Visualization of Knowledge Graphs

@@ -15,6 +15,37 @@ tags:
 - IoT
 - Knowledge Graph
 - Machine Learning
+keywords:
+- 1 introduction
+- 31 assembly task board
+- 32 sensors and calibration
+- 33 generating depth maps
+- 34 data collection and labeling
+- 35 model variants
+- 36 training and evaluation setup
+- AlexNet
+- CNN
+- RealSense
+- ResNet
+- SGD
+- a learning
+- abdullah-al-noman
+- above-mentioned
+- accuracy
+- ai-based
+- ai-based black
+- alexnet
+- anomaly detection
+- applied sciences
+- artificial intelligence
+- back-propagation
+- biosystems engineering
+- camera-based
+- camera-based human
+- camera-based object
+- classification
+- clustering
+- cnn
 ---
 
 # MULTIMODAL OBJECT DETECTION USING DEPTH AND IMAGE DATA FOR MANUFACTURING PARTS

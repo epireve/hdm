@@ -16,7 +16,10 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Privacy
+keywords:
+- internet of things
 ---
+
 
 # <span id="page-0-0"></span>Bring Privacy To The Table: Interactive Negotiation for Privacy Settings of Shared Sensing Devices
 

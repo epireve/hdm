@@ -24,7 +24,25 @@ original_folder: fedrkg_2024_federated_recommendation_framework
 images_total: 6
 images_kept: 6
 images_removed: 0
+keywords:
+- data privacy
+- differential privacy
+- federated learning
+- gnn
+- high-order
+- higher-order
+- knowledge graph
+- neural networks
+- privacy-preserving
+- pseudo-interacted
+- pseudo-labeling
+- real-world
+- recommendation system
+- recommendation systems
+- relation-aware
+- user-item
 ---
+
 
 # FEDRKG: A Privacy-preserving Federated Recommendation Framework via Knowledge Graph Enhancement
 

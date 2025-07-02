@@ -21,6 +21,37 @@ original_folder: Question_answering_over_temporal_knowledge_graphs_based_on_hier
 images_total: 3
 images_kept: 3
 images_removed: 0
+keywords:
+- BERT
+- BigData
+- CNN
+- ComplEx
+- FitzGerald
+- GeForce
+- PyTorch
+- abstract
+- accuracy
+- acknowledgment
+- after world war ii
+- after-first
+- applied intelligence
+- artificial intelligence
+- before-last
+- bidirectional encoder representations from transformers
+- by learning
+- contrastive learning
+- convolutional neural network
+- cross-temporal
+- d-dimensional
+- data preprocessing
+- day-level
+- de-simple
+- embed-kgqa
+- entity-relationship
+- equal-multi
+- graph embedding
+- hand-crafted
+- high-level
 ---
 
 # Question answering over temporal knowledge graphs based on hierarchical semantic extraction

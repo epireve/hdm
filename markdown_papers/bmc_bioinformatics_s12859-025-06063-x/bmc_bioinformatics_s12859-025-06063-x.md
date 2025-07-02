@@ -17,6 +17,37 @@ tags:
 - Healthcare
 - Knowledge Graph
 - Machine Learning
+keywords:
+- BioData
+- GitHub
+- KansasProQuest
+- McCormick
+- McHardy
+- MultiXrank
+- NetCore
+- OhmNet
+- acknowledgements
+- amend 20 new capabilities
+- amend-diablo
+- amendb-rwr
+- analysis-based
+- andrade-navarro
+- aracne-ap
+- author contributions
+- availability of data and materials
+- b-tfiid
+- benjamini-hochberg
+- beta-oxidation
+- bh-adjusted
+- biased random walk
+- biomarker
+- bmc bioinformatics
+- clinical data
+- closely-related
+- color-coded
+- column-normalization
+- column-normalized
+- column-normalizing
 ---
 
 # RESEARCH

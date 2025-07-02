@@ -22,6 +22,37 @@ original_folder: itext2kg_incremental_construction_2024
 images_total: 3
 images_kept: 3
 images_removed: 0
+keywords:
+- 1 datasets and baseline methods
+- 1 introduction
+- 1 problem formulation
+- 2 first module evaluation results
+- 2 proposed method
+- 2 related works
+- 3 incremental text2kg
+- 3 second and third modules evaluation results
+- 5 conclusion
+- AuvaLab
+- GPT
+- GitHub
+- LlamaIndex
+- NLP
+- accuracy
+- agent-based approach
+- country-specific
+- document distiller
+- document-type
+- domain-independent
+- edge-level
+- efficiency
+- embedding-models
+- entity
+- few-shot
+- fine-tuned
+- fine-tuning
+- four-module
+- gpt
+- hyperparameter
 ---
 
 # iText2KG: Incremental Knowledge Graphs Construction Using Large Language Models

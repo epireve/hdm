@@ -16,6 +16,37 @@ tags:
 - IoT
 - Machine Learning
 - Privacy
+keywords:
+- AggEnc
+- AlexNet
+- BasicBlock
+- BatchCrypt
+- CNN
+- ElGamal
+- FedAvg
+- GAN
+- InterDependent
+- LeCun
+- a learning
+- and dynamic
+- and learning
+- annual cryptology conference
+- applied sciences
+- applied soft computing
+- artificial intelligence
+- average inference time
+- bit-length
+- client-participation
+- color-coding
+- communication efficiency
+- communication-efficient
+- compromising learning
+- contrastive learning
+- convolutional neural network
+- corbin-fl
+- cross-device
+- cross-silo
+- cryptology eprint archive
 ---
 
 # QuanCrypt-FL: Quantized Homomorphic Encryption with Pruning for Secure Federated Learning

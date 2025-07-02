@@ -1,7 +1,7 @@
 ---
 cite_key: lyu_2021
-title: PRIVACY-PRESERVING FEDERATED LEARNING BASED ON MULTI-KEY HOMOMORPHIC ENCRYPTION
-authors: Xixiang Lyu
+title: Privacy-preserving Federated Learning Based on Multi-Key Homomorphic Encryption
+authors: Xixiang Lyu, Jing Ma, Si-Ahmed Naas, Stephan Sigg
 year: 2021
 date_processed: '2025-07-02'
 phase2_processed: true
@@ -15,7 +15,17 @@ tags:
 - IoT
 - Machine Learning
 - Privacy
+keywords:
+- federated learning
+- homomorphic encryption
+- internet of things
+- machine learning
+- mk-ckks
+- multi-key
+- privacy-preserving
+- xmk-ckks
 ---
+
 
 # PRIVACY-PRESERVING FEDERATED LEARNING BASED ON MULTI-KEY HOMOMORPHIC ENCRYPTION
 

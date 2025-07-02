@@ -16,6 +16,37 @@ tags:
 - Machine Learning
 - Privacy
 - Semantic Web
+keywords:
+- McCusker
+- McGuinness
+- a fair digital twin for scientific research
+- actually asserted
+- ai ready
+- ai-ready
+- and learning
+- annotated relations
+- artificial intelligence
+- as precise as possible
+- author contributions
+- becoming for people an
+- block-chain
+- bozen-bolzano
+- cardinal assertion
+- cardinal-assertions
+- check for updates
+- chromosomal location
+- citizen science
+- citizen-authorized
+- clustering
+- co-annotations
+- co-infection
+- correspondence
+- decryption
+- encryption
+- entity
+- funding
+- genomics
+- ontology
 ---
 
 ![](_page_0_Picture_2.jpeg)

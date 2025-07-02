@@ -21,6 +21,37 @@ original_folder: kdd_2023_privacy_preserving_graph_ml_survey
 images_total: 5
 images_kept: 5
 images_removed: 0
+keywords:
+- 1 limitation of current techniques
+- 1 privacy attackers on graphs
+- 2 background knowledge for passive attacks
+- 3 future directions
+- 3 privacy-preserving mechanisms
+- 4 other aspects of graph anonymization
+- 5 challenges and future opportunities
+- ClientUpdate
+- FedAvg
+- FedCluster
+- FedGraph
+- FedLab
+- FedPer
+- FedProx
+- FedRec
+- FedRep
+- FedStar
+- al-shedivat
+- anomaly detection
+- artificial intelligence
+- before-and-after
+- big-fed
+- brain-shaped
+- breadth-first
+- cluster-edge
+- communication-efficient
+- cross-client
+- cross-domain
+- data generation
+- data privacy
 ---
 
 # Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey

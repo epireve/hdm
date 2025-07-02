@@ -23,7 +23,22 @@ original_folder: fedhgnn_privacy_preserving_recommendation_2024
 images_total: 6
 images_kept: 6
 images_removed: 0
+keywords:
+- differential privacy
+- heterogeneous graph
+- high-order
+- hin-based
+- meta-path
+- meta-paths
+- neural network
+- privacy-preserving
+- real-world
+- recommender systems
+- semantic-level
+- semantic-preserving
+- user-item
 ---
+
 
 # Federated Heterogeneous Graph Neural Network for Privacy-preserving Recommendation
 

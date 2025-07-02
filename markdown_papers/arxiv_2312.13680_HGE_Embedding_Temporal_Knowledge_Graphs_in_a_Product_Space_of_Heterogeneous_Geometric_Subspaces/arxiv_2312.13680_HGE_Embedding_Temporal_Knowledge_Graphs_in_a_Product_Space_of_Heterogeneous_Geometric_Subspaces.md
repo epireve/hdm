@@ -15,7 +15,13 @@ tags:
 - Machine Learning
 - Semantic Web
 - Temporal
+keywords:
+- knowledge graphs
+- split-complex
+- state-of-the-art
+- temporal-geometric
 ---
+
 
 # HGE: Embedding Temporal Knowledge Graphs in a Product Space of Heterogeneous Geometric Subspaces
 

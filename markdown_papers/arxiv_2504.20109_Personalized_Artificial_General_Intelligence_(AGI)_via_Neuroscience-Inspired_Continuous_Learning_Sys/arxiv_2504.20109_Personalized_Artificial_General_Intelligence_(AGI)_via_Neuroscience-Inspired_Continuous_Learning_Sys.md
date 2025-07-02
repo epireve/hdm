@@ -19,7 +19,19 @@ tags:
 - Machine Learning
 - Privacy
 - Semantic Web
+keywords:
+- brain-like
+- deep learning
+- energy-efficient
+- fast-and-slow
+- memory-efficient
+- neuroscience-inspired
+- on-device
+- resource-constrained
+- self-optimization
+- task-specific
 ---
+
 
 # Personalized Artificial General Intelligence (AGI) via Neuroscience-Inspired Continuous Learning Systems
 

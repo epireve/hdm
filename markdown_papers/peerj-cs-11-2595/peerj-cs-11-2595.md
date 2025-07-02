@@ -18,6 +18,37 @@ tags:
 - Recommendation System
 - Semantic Web
 - Temporal
+keywords:
+- ArXiv
+- EvoExplor
+- GRU
+- RippleNet
+- a learning
+- ablation study
+- academic-boards
+- accuracy
+- acl-long
+- artificial intelligence
+- audio-text
+- author contributions
+- aware learning
+- candidate-related
+- classification
+- clustering
+- clustering-based
+- clustering-based contrastive
+- comparative learning
+- competing interests
+- conclusion and future work
+- context learning
+- continuous-time
+- contrastive learning
+- conv-transe
+- convolution-based
+- convolution-based gcn
+- discussions
+- efficiency
+- entity
 ---
 
 A temporal knowledge graph reasoning model based on recurrent encoding and contrastive learning

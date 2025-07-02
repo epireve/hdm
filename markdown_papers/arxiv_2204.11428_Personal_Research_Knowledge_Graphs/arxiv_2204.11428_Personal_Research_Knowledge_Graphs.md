@@ -2,7 +2,7 @@
 cite_key: chakraborty_2000
 title: Personal Research Knowledge Graphs
 authors: Prantika Chakraborty, Sudakshina Dutta, Debarshi Kumar Sanyal
-year: 2000
+year: 2022
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2204.11428_Personal_Research_Knowledge_Graphs
@@ -18,6 +18,14 @@ tags:
 - Recommendation System
 - Semantic Web
 - Temporal
+keywords:
+- co-principal
+- data augmentation
+- deep learning
+- document-level
+- domain-specific
+- end-user
+- entity linking
 ---
 
 # Personal Research Knowledge Graphs

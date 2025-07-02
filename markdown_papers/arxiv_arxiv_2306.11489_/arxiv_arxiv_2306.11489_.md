@@ -15,6 +15,37 @@ tags:
 - Machine Learning
 - Natural Language Processing
 - Semantic Web
+keywords:
+- AlKhamissi
+- BERT
+- ConceptNet
+- GPT
+- GitHub
+- KagNet
+- KeBioSum
+- LSTM
+- McAuley
+- NLP
+- adapter-based
+- adapter-based knowledge
+- ai open
+- al-bert
+- align-mask-select
+- application-related
+- artificial intelligence
+- aspect-level
+- at learning
+- attention-based
+- attention-based knowledge
+- attribute-specific
+- auto-encoding
+- auto-regressive
+- before-training
+- bert-based
+- bert-based approach
+- bert-mk
+- bidirectional encoder representations from transformers
+- black-box
 ---
 
 # Give Us the Facts: Enhancing Large Language Models with Knowledge Graphs for Fact-aware Language Modeling

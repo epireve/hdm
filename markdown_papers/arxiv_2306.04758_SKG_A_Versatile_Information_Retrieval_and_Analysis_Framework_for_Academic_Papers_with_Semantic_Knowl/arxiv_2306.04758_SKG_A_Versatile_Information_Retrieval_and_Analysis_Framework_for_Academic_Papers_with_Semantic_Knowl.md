@@ -16,7 +16,14 @@ tags:
 - Machine Learning
 - Natural Language Processing
 - Semantic Web
+keywords:
+- drag-and-drop
+- han-wei
+- knowledge graph
+- knowledge graphs
+- sparql
 ---
+
 
 # <span id="page-0-1"></span>SKG: A Versatile Information Retrieval and Analysis Framework for Academic Papers with Semantic Knowledge Graphs
 

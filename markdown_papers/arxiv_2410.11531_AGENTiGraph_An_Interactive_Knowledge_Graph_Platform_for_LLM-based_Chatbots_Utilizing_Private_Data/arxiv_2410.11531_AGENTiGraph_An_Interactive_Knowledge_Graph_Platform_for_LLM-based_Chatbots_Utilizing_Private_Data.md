@@ -23,7 +23,22 @@ original_folder: arxiv_2410.11531_AGENTiGraph_An_Interactive_Knowledge_Graph_Pla
 images_total: 5
 images_kept: 5
 images_removed: 0
+keywords:
+- agenti-graph
+- domain-specific
+- knowledge graph
+- knowledge graphs
+- large language models
+- llm-based
+- multi-agent
+- question answering
+- real-time
+- real-world
+- state-of-the-art
+- task-based
+- zero-shot
 ---
+
 
 # <span id="page-0-0"></span>AGENTiGraph: An Interactive Knowledge Graph Platform for LLM-based Chatbots Utilizing Private Data
 

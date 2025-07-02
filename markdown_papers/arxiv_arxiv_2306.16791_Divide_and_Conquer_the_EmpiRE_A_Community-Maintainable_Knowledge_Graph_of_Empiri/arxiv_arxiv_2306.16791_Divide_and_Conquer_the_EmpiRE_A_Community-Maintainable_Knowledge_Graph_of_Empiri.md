@@ -16,6 +16,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- CovidGraph
+- GitHub
+- McDonald
+- OpenAlex
+- OpenBiodiv
+- PubMed
+- SciGraph
+- SmartReviews
+- SoMeSci
+- WikiData
+- access all papers
+- according to the
+- action research
+- all-proceedings
+- artificial intelligence
+- asia-pacific
+- better identification
+- bibliographic metadata
+- biometrics bulletin
+- born-physical
+- born-virtual
+- case studies
+- case study
+- causeand-effect
+- classification schema bias
+- communications of the acm
+- community-maintainable
+- conclusion validity
+- condori-fernandez
+- construct validity
 ---
 
 # Divide and Conquer the EmpiRE: A Community-Maintainable Knowledge Graph of Empirical Research in Requirements Engineering

@@ -17,6 +17,37 @@ tags:
 - Recommendation System
 - Semantic Web
 - Temporal
+keywords:
+- CNN
+- ComplEx
+- ConMask
+- DistMul
+- DistMult
+- NoDerivatives
+- NonCommercial
+- PyTorch
+- RNN
+- RushanGeng
+- ablation experiments
+- additional information
+- and b
+- and learning
+- and w
+- are vectors in r
+- artificial intelligence
+- attribution-noncommercial-noderivatives
+- author contributions
+- barack obama
+- bookmark-like
+- by-nc-nd
+- check for updates
+- competing interests
+- context-rich
+- convolutional neural network
+- cross-attention
+- data availability
+- de-simple
+- decoding-inspired
 ---
 
 # OPEN

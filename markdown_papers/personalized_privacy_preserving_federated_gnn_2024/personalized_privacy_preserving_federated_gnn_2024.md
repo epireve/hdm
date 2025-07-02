@@ -14,6 +14,37 @@ tags:
 - Federated Learning
 - Machine Learning
 - Privacy
+keywords:
+- 1 experimental settings
+- 1 federated learning
+- 1 high-level overview
+- 1 introduction
+- 1 security analysis
+- 2 accuracy analysis
+- 2 graph neural network
+- 2 graph similarity estimation strategy
+- 2 preliminaries
+- 2 privacy analysis
+- 3 computational overhead analysis
+- 3 functional encryption
+- 3 proposed framework
+- 32 optimized function encryption algorithm
+- 4 communication overhead analysis
+- 4 security and privacy analysi
+- 5 evaluation
+- 6 conclusion
+- FedAvg
+- LeCun
+- McMahan
+- McPherson
+- SGD
+- SoftMax
+- accuracy
+- artificial intelligence
+- attention-based
+- classification
+- clustering
+- copyright
 ---
 
 # OPEN ACCESS

@@ -21,7 +21,18 @@ original_folder: mlr_2024_multi_behavior_session_recommendation_gnn
 images_total: 3
 images_kept: 3
 images_removed: 0
+keywords:
+- attention network
+- e-commerce
+- mb-grl
+- multi-behavior
+- neural network
+- q-network
+- reinforcement learning
+- session-based
+- user-item
 ---
+
 
 # Multi-behavior Session-based Recommendation via Graph Reinforcement Learning
 

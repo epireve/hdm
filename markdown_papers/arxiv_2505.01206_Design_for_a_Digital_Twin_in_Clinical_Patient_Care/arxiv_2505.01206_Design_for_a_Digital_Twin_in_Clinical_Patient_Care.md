@@ -19,7 +19,13 @@ tags:
 - Privacy
 - Recommendation System
 - Semantic Web
+keywords:
+- decision-making
+- digital twin
+- digital twins
+- knowledge graphs
 ---
+
 
 # DESIGN FOR A DIGITAL TWIN IN CLINICAL PATIENT CARE
 

@@ -1,9 +1,9 @@
 ---
-cite_key: dengel_2012
+cite_key: dengel_2023
 title: Towards Self-organizing Personal Knowledge Assistants in Evolving Corporate
   Memories
-authors: Andreas Dengel 1
-year: 2012
+authors: Andreas Dengel, Christian Jilek, Markus Schröder, Heiko Maus, Sven Schwarz
+year: 2023
 doi: 10.17026/dans-x55-69zp
 date_processed: '2025-07-02'
 phase2_processed: true
@@ -16,7 +16,11 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- kaiserslautern-landau
+- self-organizing
 ---
+
 
 # Towards Self-organizing Personal Knowledge Assistants in Evolving Corporate Memories
 

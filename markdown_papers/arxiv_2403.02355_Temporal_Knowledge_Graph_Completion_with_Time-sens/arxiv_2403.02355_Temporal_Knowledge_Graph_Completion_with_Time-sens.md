@@ -18,7 +18,16 @@ tags:
 - Recommendation System
 - Semantic Web
 - Temporal
+keywords:
+- knowledge graph
+- knowledge graph completion
+- quaternion-based
+- state-of-the-art
+- temporal knowledge graph
+- time-aware
+- time-sensitive
 ---
+
 
 # Temporal Knowledge Graph Completion with Time-sensitive Relations in Hypercomplex Space
 

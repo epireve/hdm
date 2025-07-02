@@ -18,6 +18,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- 2 httpspigapacheorg
+- 31 query complexity - users perspective
+- API
+- AllegroGraph
+- AttributeValue
+- AttributeValues
+- BigData
+- BuildingQuery
+- ComplexAttribute
+- DataReferences
+- DataStore
+- DataStores
+- a1 use of the scientific research method
+- a2 use of representation theory
+- a3 how the work was structured
+- a5 other papers of sbsi related to this work
+- acm sigmod record
+- and learning
+- apache jena
+- application programming interface
+- client application
+- client service consumer
+- client user
+- client-user
+- cloud-based
+- cloud-based enterprise
+- communications of the acm
+- constant table
+- cross-domain
+- data heterogeneity
 ---
 
 # A POLYSTORE ARCHITECTURE USING KNOWLEDGE GRAPHS TO SUPPORT QUERIES ON HETEROGENEOUS DATA STORES <sup>∗</sup>

@@ -16,7 +16,17 @@ tags:
 - Healthcare
 - Machine Learning
 - Privacy
+keywords:
+- differential privacy
+- federated learning
+- fedml-he
+- fhe
+- homomorphic encryption
+- machine learning
+- privacy-preserving
+- trade-off
 ---
+
 
 # A Selective Homomorphic Encryption Approach for Faster Privacy-Preserving Federated Learning
 

@@ -17,6 +17,23 @@ tags:
 - Decision Support
 - Healthcare
 - Machine Learning
+keywords:
+- ai
+- benchmarking models
+- chainof-thought
+- foundation
+- foundation models
+- gan
+- generation
+- hallucination
+- inference
+- information
+- limitation
+- multi-modal
+- multi-national
+- non-trivial
+- physician-annotated
+- real-world
 ---
 
 # Medical Hallucination in Foundation Models and Their Impact on Healthcare

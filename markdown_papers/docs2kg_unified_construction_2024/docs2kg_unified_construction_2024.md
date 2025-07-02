@@ -23,7 +23,17 @@ original_folder: docs2kg_unified_construction_2024
 images_total: 4
 images_kept: 4
 images_removed: 0
+keywords:
+- data integration
+- domain-specific
+- heterogeneous data
+- knowledge graph
+- knowledge graph construction
+- knowledge graphs
+- large language models
+- pre-designed
 ---
+
 
 # Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models
 

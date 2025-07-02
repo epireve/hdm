@@ -17,7 +17,34 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- blockchain
+- blue-cloud
+- cloud computing
+- cloud-based
+- community-based
+- decision-makers
+- domain-specific
+- end-users
+- envri-fair
+- envri-kms
+- fact-based
+- high-quality
+- human-caused
+- human-induced
+- ill-formed
+- knock-on
+- long-term
+- pre-conditions
+- quality-controlled
+- real-time
+- science-based
+- semi-circle
+- well-defined
+- well-documented
+- well-established
 ---
+
 
 # SOFTWARE TOOL ARTICLE
 

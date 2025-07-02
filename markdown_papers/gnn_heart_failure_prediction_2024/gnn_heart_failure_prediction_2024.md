@@ -4,7 +4,7 @@ title: 'nekCRF: A next generation high-order reactive low Mach flow solver for d
   numerical simulations'
 authors: Stefan Kerkemeier, Christos E. Frouzakis, Ananias G. Tomboulides, Paul Fischer,
   Mathis Bodee
-year: 2000
+year: 2024
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: gnn_heart_failure_prediction_2024
@@ -13,6 +13,37 @@ images_kept: 5
 images_removed: 0
 tags:
 - Machine Learning
+keywords:
+- 1 comparison to lavp
+- 1 homogeneous variable-volume autoignition
+- 1 introduction
+- 2 laminar planar premixed flame
+- 2 strong scaling
+- 5 conclusions and outlook
+- 6 availability
+- 7 credit authorship contribution statement
+- 8 acknowledgements
+- GitHub
+- accelerator-based
+- accelerator-based supercomputers
+- accuracy
+- amrex-combustion
+- boundary-conforming
+- cantera-based
+- carbon-neutral
+- centrally-located
+- chemkin-ii
+- color-coded
+- communication efficiency
+- compute-intensive
+- convergence
+- efficiency
+- latency
+- optimization
+- performance
+- precision
+- scalability
+- synchronization
 ---
 
 # nekCRF: A next generation high-order reactive low Mach flow solver for direct numerical simulations

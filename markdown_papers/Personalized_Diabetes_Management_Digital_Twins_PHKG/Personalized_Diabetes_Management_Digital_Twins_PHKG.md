@@ -21,6 +21,37 @@ tags:
 - Personalized Medicine
 - Recommendation System
 - Semantic Web
+keywords:
+- 1 introduction
+- BioMedInformatics
+- CrossRef
+- HealthCom
+- PubMed
+- RMSE
+- RNN
+- accuracy
+- article
+- artificial intelligence
+- arxiv
+- biomedinformatics
+- blood glucose level
+- closed-form
+- color-coding
+- con-in
+- con-moreover
+- continuous-time
+- data-driven
+- deep learning
+- diabetes care
+- diabetes-related
+- diet-related
+- disease-progression
+- drug discovery
+- dynamic learning
+- e-health
+- ement learning
+- entropy-driven
+- follow-up
 ---
 
 ![](_page_0_Figure_0.jpeg)

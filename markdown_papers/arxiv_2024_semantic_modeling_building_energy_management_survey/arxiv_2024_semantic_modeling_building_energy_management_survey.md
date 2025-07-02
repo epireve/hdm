@@ -15,6 +15,37 @@ tags:
 - IoT
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 digitization of building data
+- 1 introduction
+- 1 single-ontology use case scenarios
+- 11 bot building topology ontology
+- 14 brick
+- 2 others
+- 2 research methodology
+- 2 two-ontology use case scenarios
+- 3 multiple-ontology use case scenarios
+- 3 ontologies and semantic web
+- 7 conclusions
+- ActuatableProperty
+- AllField
+- AlternativeGroup
+- BuildSys
+- BuildingObject
+- BuildingSpace
+- ColdState
+- CommandExecution
+- ConnectionPoint
+- CoolState
+- ad-hoc
+- ageing-well
+- agreed-upon
+- air-conditioning
+- air-handling
+- analysis-based
+- analysis-based global
+- andez-izquierdo
+- application-specific
 ---
 
 # A Survey on Semantic Modeling for Building Energy Management

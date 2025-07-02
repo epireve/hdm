@@ -17,7 +17,17 @@ tags:
 - Natural Language Processing
 - Privacy
 - Semantic Web
+keywords:
+- inter-model
+- large language models
+- llm
+- llm-slm
+- on-device
+- resource-constrained
+- small language models
+- trade-offs
 ---
+
 
 # A Survey on Collaborative Mechanisms Between Large and Small Language Models
 

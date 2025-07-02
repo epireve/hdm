@@ -17,7 +17,17 @@ tags:
 - IoT
 - Machine Learning
 - Privacy
+keywords:
+- block-chain
+- cloud computing
+- fog computing
+- heterogeneous data
+- internet of things
+- real-time
+- self-driving
+- state-of-the-art
 ---
+
 
 
 

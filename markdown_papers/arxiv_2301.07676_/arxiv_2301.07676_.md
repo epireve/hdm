@@ -15,6 +15,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 introduction
+- 1 quality aspects
+- 2 lessons learned
+- 2 provenance-aware data curation
+- 3 ontology-based integration
+- 4 semantic network exploitation
+- API
+- FastCat
+- GioBattista
+- OpenRefine
+- ReKnow
+- ResearchSpace
+- ResetTable
+- WissKi
+- accuracy
+- acknowledgements
+- ad-hoc
+- ai-powered
+- application programming interface
+- application-specific
+- archival-corpus
+- artificial intelligence
+- automatically-matched
+- born-digital
+- ceur-ws
+- cidoc-crm
+- co-located
+- co-refer
+- co-references
+- curated data
 ---
 
 # A Workflow Model for Holistic Data Management and Semantic Interoperability in Quantitative Archival Research

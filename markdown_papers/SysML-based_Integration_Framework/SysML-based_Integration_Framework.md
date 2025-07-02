@@ -11,6 +11,32 @@ images_kept: 3
 images_removed: 0
 tags:
 - Machine Learning
+keywords:
+- SysMl
+- abstract
+- all-in-one
+- attribute level
+- bottom-up
+- client agent
+- client agents
+- co-simulation
+- computer
+- control engineering practise
+- cross-domain
+- data integration
+- discipline-specific
+- domain-specifc
+- domain-specifc design phase
+- domain-specific
+- element level
+- general-purpose
+- graph-based
+- graph-based data
+- high-level
+- higher-ranking
+- hs-weingarten
+- performance
+- requirement
 ---
 
 # A SysML-based Integration Framework for the Engineering of Mechatronic Systems

@@ -22,6 +22,37 @@ original_folder: Bernard-2024-Pkg-api-a-tool-for-personal-knowled
 images_total: 3
 images_kept: 2
 images_removed: 1
+keywords:
+- 1 introduction
+- 2 related work
+- 3 overview and architecture
+- 6 implementation
+- 7 conclusion
+- API
+- GPT
+- HTTP
+- MyData
+- SafeAnswers
+- a learning
+- acm reference format
+- application programming interface
+- artificial intelligence
+- auto-regressive
+- axel-cyrille
+- berners-lee
+- bob likes oppenheimer
+- ccs concepts
+- chain-ofthought
+- classification
+- cross-domain
+- dwivedi-yu
+- end-users
+- entity
+- entity linking
+- few-shot
+- gpt
+- keywords
+- ontology
 ---
 
 

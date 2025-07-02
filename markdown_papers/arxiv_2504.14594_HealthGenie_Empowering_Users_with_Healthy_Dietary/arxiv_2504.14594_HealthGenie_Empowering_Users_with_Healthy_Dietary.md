@@ -18,7 +18,18 @@ tags:
 - Personal Health
 - Recommendation System
 - Semantic Web
+keywords:
+- decision-making
+- knowledge graph
+- knowledge graphs
+- large language models
+- llm
+- llm-kg
+- open-ended
+- pre-built
+- within-subject
 ---
+
 
 # HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models
 

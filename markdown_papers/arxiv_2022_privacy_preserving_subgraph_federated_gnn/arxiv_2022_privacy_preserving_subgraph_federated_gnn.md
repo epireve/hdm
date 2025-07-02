@@ -2,7 +2,7 @@
 cite_key: xiao_2022
 title: A Privacy-Preserving Subgraph-Level Federated Graph Neural Network via Differential
   Privacy
-authors: Jing Xiao
+authors: Jing Xiao, Yeqing Qiu, Chenyu Huang, Jianzong Wang, Zhangcheng Huang
 year: 2022
 doi: 10.48550/arXiv.2206.03492
 url: https://arxiv.org/abs/2206.03492
@@ -22,7 +22,19 @@ original_folder: arxiv_2022_privacy_preserving_subgraph_federated_gnn
 images_total: 1
 images_kept: 1
 images_removed: 0
+keywords:
+- differential privacy
+- dp-based
+- dp-fedrec
+- gnn
+- neural network
+- non-iid
+- privacy-preserving
+- recommendation system
+- sub-graph-level
+- subgraph-level
 ---
+
 
 # A Privacy-Preserving Subgraph-Level Federated Graph Neural Network via Differential Privacy
 

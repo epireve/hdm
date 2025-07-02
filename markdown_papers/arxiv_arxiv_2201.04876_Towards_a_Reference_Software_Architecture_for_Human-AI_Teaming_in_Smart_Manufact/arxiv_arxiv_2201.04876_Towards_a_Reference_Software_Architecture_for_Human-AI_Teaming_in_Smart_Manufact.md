@@ -16,7 +16,15 @@ tags:
 - Machine Learning
 - Recommendation System
 - Semantic Web
+keywords:
+- ai-enabled
+- context-specific
+- human-ai
+- knowledge graphs
+- large-scale
+- machine learning
 ---
+
 
 # Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing
 

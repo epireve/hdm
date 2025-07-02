@@ -17,6 +17,25 @@ tags:
 - Recommendation System
 - Semantic Web
 - Temporal
+keywords:
+- baseline methods
+- existing methods
+- generation
+- inference
+- information
+- knowledge can
+- knowledge graph
+- knowledge graphs
+- lightweight framework
+- newly-arrived
+- owl
+- regularization
+- scenarios learning
+- temporal
+- temporal knowledge
+- temporal knowledge graph
+- temporal regularizations
+- tkg
 ---
 
 

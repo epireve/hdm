@@ -19,7 +19,17 @@ tags:
 - Privacy
 - Recommendation System
 - Semantic Web
+keywords:
+- e-learning
+- group-specific
+- knowledge graphs
+- pkg
+- semantic web
+- small-sized
+- user-centric
+- well-established
 ---
+
 
 <!-- cite_key: ilkouhttpsorcidorg---2022 -->
 

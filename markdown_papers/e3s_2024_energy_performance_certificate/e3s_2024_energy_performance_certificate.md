@@ -21,6 +21,37 @@ original_folder: e3s_2024_energy_performance_certificate
 images_total: 12
 images_kept: 12
 images_removed: 0
+keywords:
+- 1 introduction
+- 1 the quantitative verification strategy
+- 2 methodology
+- 4 conclusions
+- AssessmeNt
+- BuildingList
+- BuildingLocation
+- DistributedInsulation
+- FloorList
+- HollowBrick
+- InsulationPosition
+- InsulationThermalResistance
+- InsulationThickness
+- MainLayerMaterial
+- above-mentioned
+- chronicle-project
+- co-define
+- dimn-cstb
+- e-dyce
+- easy-to-understand
+- easy-tounderstand
+- energy-related
+- epc recast
+- epc-recast
+- fraunhofer-gesellschaft
+- high-quality
+- in-office
+- indoor-outdoor
+- long-term
+- multi-story
 ---
 
 # New generation Energy Performance Certificate: development and application in an Italian case study as an EU proof of concept

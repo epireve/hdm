@@ -2,7 +2,7 @@
 cite_key: rilling_2000
 title: BEYOND INFORMATION SILOS — AN OMNIPRESENT APPROACH TO SOFTWARE EVOLUTION
 authors: JUERGEN RILLING∗, RENE WITTE ´ , PHILIPP SCHUEGERL
-year: 2000
+year: 2008
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: rilling2008
@@ -14,6 +14,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 introduction
+- 2 software engineering foundations
+- 3 ambient semantic software maintenance support
+- 4 implementation
+- 5 threat to validity
+- 6 case study
+- 7 related work
+- 8 conclusions and future work
+- API
+- BestPractices
+- DesignPattern
+- IkeWiki
+- LinkedList
+- McGraw
+- McGuiness
+- MediaWiki
+- NLP
+- ObjectProperties
+- abstract syntax tree
+- addison-wesley
+- alez-p
+- ambient knowledge
+- application programming interface
+- architectural layer
+- artificial intelligence
+- as-need
+- as-needed
+- as-needed comprehension strategy
+- auto-completion
+- based learning
 ---
 
 

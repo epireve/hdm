@@ -18,6 +18,37 @@ tags:
 - Privacy
 - Semantic Web
 - Temporal
+keywords:
+- 34 loss function layer
+- 63 uncertain knowledge graph embeddings
+- API
+- AmpliGraph
+- AntiSymmetry
+- AutoEncoder
+- BERT
+- BelongTo
+- BigGraph
+- BioMed
+- BornIn
+- CNN
+- abu-salih
+- adversarial learning
+- al-rfou
+- al-saleem
+- al-zawi
+- all learning
+- amini-review
+- and learning
+- application programming interface
+- artificial intelligence
+- as well as
+- attention-based
+- attention-based deep
+- attention-based embeddings
+- attention-based walks
+- auto-encoder
+- auto-encoders
+- based learning
 ---
 
 # Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges

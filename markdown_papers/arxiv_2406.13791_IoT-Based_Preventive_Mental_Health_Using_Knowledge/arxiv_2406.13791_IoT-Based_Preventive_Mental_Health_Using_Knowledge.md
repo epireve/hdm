@@ -18,6 +18,37 @@ tags:
 - Machine Learning
 - Mental Health
 - Semantic Web
+keywords:
+- 1 introduction
+- 6 conclusion and future work
+- BetterHelp
+- BioMedInformatics
+- BioPortal
+- BlenderBot
+- ChatCounselo
+- ChatDiet
+- EHR
+- FoodOn
+- GPT
+- HealthyOffice
+- a-rank
+- accra-project
+- acknowledgements and funding
+- ageing-well
+- ai magazine
+- ai-based
+- ai-based assessment
+- ai-based mental
+- ai-enabled
+- ai-enabled health informatics
+- aim-ahead
+- anxiety-difference
+- apadisor-ders
+- applied psychology
+- article history
+- artificial intelligence
+- authorea preprints
+- based learning
 ---
 
 # IoT-Based Preventive Mental Health Using Knowledge Graphs and Standards for Better Well-Being

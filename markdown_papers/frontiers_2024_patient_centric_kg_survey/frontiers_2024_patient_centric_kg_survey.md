@@ -24,6 +24,37 @@ original_folder: frontiers_2024_patient_centric_kg_survey
 images_total: 5
 images_kept: 5
 images_removed: 0
+keywords:
+- ArXiv
+- ClinicalTrials
+- EHR
+- EMR
+- HealthInformation
+- HitaNet
+- LePendu
+- LinkedIn
+- MacLean
+- McGuinness
+- abu-salih
+- active learning
+- aguilar-escobar
+- ai and ethics
+- ai-based
+- ai-based approach
+- al-zubaidie
+- all-encompassing
+- and learning
+- apweb-waim
+- artificial intelligence
+- artificial intelligence review
+- attention-based
+- attention-based deep
+- attribute-based
+- attribute-based transformations
+- author contributions
+- axioms and rules
+- axioms and rules utilization
+- bag-of-words
 ---
 
 # Patient-Centric Knowledge Graphs: A Survey of Current Methods, Challenges, and Applications

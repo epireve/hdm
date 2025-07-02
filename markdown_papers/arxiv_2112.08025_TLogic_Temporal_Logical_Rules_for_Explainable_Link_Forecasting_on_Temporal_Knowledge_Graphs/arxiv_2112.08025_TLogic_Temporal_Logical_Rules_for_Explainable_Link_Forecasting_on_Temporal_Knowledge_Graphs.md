@@ -18,6 +18,37 @@ tags:
 - Recommendation System
 - Semantic Web
 - Temporal
+keywords:
+- ComplEx
+- DistMult
+- StreamLearner
+- acknowledgement
+- analysis
+- angela merkel
+- any-burl
+- artificial intelligence
+- barack obama
+- best-performing
+- black-box
+- bottom-up
+- candidate ranking
+- clinical decision support
+- collective learning
+- composition-based
+- composition-based multi
+- consult
+- continuous-time
+- copy-generation
+- cyclic temporal logical rule
+- datasets
+- de-simple
+- deep learning
+- discuss by telephone
+- during learning
+- efficiency
+- embedding-based
+- entity
+- experiments
 ---
 
 # TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal Knowledge Graphs

@@ -16,6 +16,37 @@ tags:
 - Machine Learning
 - Recommendation System
 - Semantic Web
+keywords:
+- API
+- BigQuery
+- ComplEx
+- DestinationNode
+- DistMult
+- HTTP
+- LinkPredictor
+- MaxMemory
+- MaxTime
+- ModelScore
+- a dblp
+- above-mentioned
+- acm sigir
+- acm sigmod
+- ad-hoc
+- addison-wesley
+- ai-enabled
+- al-kateb
+- almost-universal
+- application programming interface
+- artificial intelligence
+- as a service
+- auto-regressive
+- b the sparqlml as a service
+- billion-scale
+- cods-gcs
+- community-based
+- cross-lingual
+- data transformer
+- dblp-in-rdf
 ---
 
 # Towards a GML-Enabled Knowledge Graph Platform

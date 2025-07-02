@@ -18,6 +18,37 @@ tags:
 - Natural Language Processing
 - Privacy
 - Recommendation System
+keywords:
+- -nearest neighbors with
+- CNN
+- CiteSeer
+- DeepWalk
+- EliassiRad
+- FedAvg
+- FedProx
+- GeForce
+- McMahan
+- PyTorch
+- SGD
+- adversarial learning
+- al-rfou
+- and learning
+- architecture-agnostic
+- artificial intelligence
+- c do
+- cite-seer
+- client-preferred
+- communication efficiency
+- conflicts of interest
+- convolutional neural network
+- cosine-embedding
+- cross-entropy
+- cross-lingual
+- cross-validation
+- data availability
+- de-anonymiztiation
+- deep learning
+- deepwalk-based
 ---
 
 ![](_page_0_Picture_2.jpeg)

@@ -20,6 +20,37 @@ tags:
 - Personal Health
 - Personalized Medicine
 - Semantic Web
+keywords:
+- 1 dataset description and processing
+- 1 introduction
+- 1 predicting clinical trajectories
+- 2 machine learning models
+- 2 materials and methods
+- 3 graph analysis
+- 3 results
+- 4 discussion
+- DeFronzo
+- IlyaLab
+- McCabe
+- PageRank
+- PageRankidentified
+- accuracy
+- aguilar-ramirez
+- artificial intelligence
+- author contributions
+- benito-vicente
+- citation
+- classification
+- classification-based
+- classification-based predictions
+- clinical data
+- color-coding
+- conflict of interest
+- context-sensitive
+- copyright
+- corral-acero
+- cross-validation
+- funding
 ---
 
 EDITED BY Tjalf Ziemssen, University Hospital Carl Gustav Carus, Germany

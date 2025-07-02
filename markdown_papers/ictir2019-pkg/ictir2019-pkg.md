@@ -15,6 +15,37 @@ tags:
 - Machine Learning
 - Recommendation System
 - Semantic Web
+keywords:
+- 1 introduction
+- 3 further opportunities and challenges
+- 3 personal knowledge graphs
+- 4 conclusion
+- GeoNames
+- MusicBrainz
+- NoDerivsInternational
+- NonCommercial
+- RecSys
+- a not too popular route
+- acm reference format
+- artificial intelligence
+- attribution-noncommercial
+- by-nc-nd
+- ccs concepts
+- context-aware
+- domain-specific
+- e-commerce
+- emnlp-conll
+- entity
+- entity linking
+- entity-oriented
+- famous enough
+- general-purpose
+- hen-hsen
+- hsin-hsi
+- iot
+- keywords
+- ontology
+- rdf
 ---
 
 # Personal Knowledge Graphs: A Research Agenda

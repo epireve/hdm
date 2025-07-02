@@ -15,6 +15,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 code discovery and knowledge graph construcjon
+- 1 introduction
+- 2 increment creajon via neighbourhood detecjon
+- 2 system overview
+- 3 system demonstration
+- 4 conclusions and future work
+- AppModDemos
+- ApplicaAon
+- ApplicaGon
+- ApplicaGons
+- ApplicaIon
+- ApplicaIons
+- CompuGng
+- ConstrucJon
+- ConsulBng
+- CreaGon
+- acm reference format
+- appdiscoveryand-delivery-intelligence
+- applicaaon migraaon strategies
+- aws-migrabon
+- aws-migration-whitepaper
+- ccs concepts
+- chunking-strategy
+- chunking-strategy-strangler-pattern
+- cods-comad
+- cods-comad 2022 january 810 2022 bangalore india
+- custom-made
+- decomposing monoliths
+- end-to-end
+- engty-relagonship
 ---
 
 # Incremental Analysis of Legacy Applica4ons Using Knowledge Graphs for Applica4on Moderniza4on
