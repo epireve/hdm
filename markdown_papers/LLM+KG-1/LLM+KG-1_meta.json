@@ -1,0 +1,481 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Data Management Opportunities in Unifying Large Language\nModels+Knowledge Graphs",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          65.0530014038086,
+          82.76910400390625
+        ],
+        [
+          547.453125,
+          82.76910400390625
+        ],
+        [
+          547.453125,
+          119.90948486328125
+        ],
+        [
+          65.0530014038086,
+          119.90948486328125
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          52.892578125,
+          189.3970947265625
+        ],
+        [
+          112.59801483154297,
+          189.3970947265625
+        ],
+        [
+          112.59801483154297,
+          200.513671875
+        ],
+        [
+          52.892578125,
+          200.513671875
+        ]
+      ]
+    },
+    {
+      "title": "VLDB Workshop Reference Format:",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.079345703125,
+          397.546875
+        ],
+        [
+          178.9604034423828,
+          397.546875
+        ],
+        [
+          178.9604034423828,
+          406.2969055175781
+        ],
+        [
+          53.079345703125,
+          406.2969055175781
+        ]
+      ]
+    },
+    {
+      "title": "1 WORKSHOP TOPICS AND GOALS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.0419921875,
+          466.5930480957031
+        ],
+        [
+          247.130859375,
+          466.5930480957031
+        ],
+        [
+          247.130859375,
+          477.5021667480469
+        ],
+        [
+          53.0419921875,
+          477.5021667480469
+        ]
+      ]
+    },
+    {
+      "title": "2 WORKSHOP PROGRAM",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          317.35546875,
+          553.7690582275391
+        ],
+        [
+          460.1953125,
+          553.7690582275391
+        ],
+        [
+          460.1953125,
+          564.6781463623047
+        ],
+        [
+          317.35546875,
+          564.6781463623047
+        ]
+      ]
+    },
+    {
+      "title": "Session 1",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          317.35546875,
+          601.8351287841797
+        ],
+        [
+          352.5832214355469,
+          601.8351287841797
+        ],
+        [
+          352.5832214355469,
+          611.40234375
+        ],
+        [
+          317.35546875,
+          611.40234375
+        ]
+      ]
+    },
+    {
+      "title": "Session 2",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          316.7578125,
+          678.5481109619141
+        ],
+        [
+          355.60546875,
+          678.5481109619141
+        ],
+        [
+          355.60546875,
+          687.5145111083984
+        ],
+        [
+          316.7578125,
+          687.5145111083984
+        ]
+      ]
+    },
+    {
+      "title": "Session 3",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.71435546875,
+          240.19110107421875
+        ],
+        [
+          89.42431640625,
+          240.19110107421875
+        ],
+        [
+          89.42431640625,
+          249.43359375
+        ],
+        [
+          53.71435546875,
+          249.43359375
+        ]
+      ]
+    },
+    {
+      "title": "Session 4",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.79800033569336,
+          404.5750732421875
+        ],
+        [
+          90.02197265625,
+          404.5750732421875
+        ],
+        [
+          90.02197265625,
+          413.7890625
+        ],
+        [
+          53.79800033569336,
+          413.7890625
+        ]
+      ]
+    },
+    {
+      "title": "3 PROGRAM COMMITTEE",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.26611328125,
+          608.5640716552734
+        ],
+        [
+          200.4381103515625,
+          608.5640716552734
+        ],
+        [
+          200.4381103515625,
+          619.5234375
+        ],
+        [
+          53.26611328125,
+          619.5234375
+        ]
+      ]
+    },
+    {
+      "title": "4 WORKSHOP CO-CHAIRS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          317.953125,
+          293.712890625
+        ],
+        [
+          474.5390625,
+          293.712890625
+        ],
+        [
+          474.5390625,
+          309.15814208984375
+        ],
+        [
+          317.953125,
+          309.15814208984375
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          53.79800033569336,
+          233.96807861328125
+        ],
+        [
+          127.13987731933594,
+          233.96807861328125
+        ],
+        [
+          127.13987731933594,
+          244.87713623046875
+        ],
+        [
+          53.79800033569336,
+          244.87713623046875
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          297
+        ],
+        [
+          "Line",
+          105
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Footnote",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          339
+        ],
+        [
+          "Line",
+          113
+        ],
+        [
+          "Text",
+          17
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          269
+        ],
+        [
+          "Line",
+          113
+        ],
+        [
+          "Text",
+          17
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          251
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          17
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          497
+        ],
+        [
+          "Line",
+          150
+        ],
+        [
+          "ListItem",
+          41
+        ],
+        [
+          "Reference",
+          41
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          522
+        ],
+        [
+          "Line",
+          146
+        ],
+        [
+          "ListItem",
+          48
+        ],
+        [
+          "Reference",
+          48
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/LLM+KG-1"
+}

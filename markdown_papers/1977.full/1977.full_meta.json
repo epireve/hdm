@@ -1,0 +1,1301 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Systems/Circuits",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          41.4898681640625,
+          86.84552001953125
+        ],
+        [
+          111.9012451171875,
+          86.84552001953125
+        ],
+        [
+          111.9012451171875,
+          97.84552001953125
+        ],
+        [
+          41.4898681640625,
+          97.84552001953125
+        ]
+      ]
+    },
+    {
+      "title": "Mind the Gap: Two Dissociable Mechanisms of Temporal\nProcessing in the Auditory System",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          41.98974609375,
+          114.31494140625
+        ],
+        [
+          510.44677734375,
+          114.31494140625
+        ],
+        [
+          510.44677734375,
+          162.19195556640625
+        ],
+        [
+          41.98974609375,
+          162.19195556640625
+        ]
+      ]
+    },
+    {
+      "title": "Lucy A. Anderson1 and XJennifer F. Linden1,2",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          41.4898681640625,
+          186.000732421875
+        ],
+        [
+          233.5627899169922,
+          186.000732421875
+        ],
+        [
+          233.5627899169922,
+          197.3277587890625
+        ],
+        [
+          41.4898681640625,
+          197.3277587890625
+        ]
+      ]
+    },
+    {
+      "title": "Significance Statement",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          54.7723388671875,
+          427.5707092285156
+        ],
+        [
+          143.85800170898438,
+          427.5707092285156
+        ],
+        [
+          143.85800170898438,
+          437.5707092285156
+        ],
+        [
+          54.7723388671875,
+          437.5707092285156
+        ]
+      ]
+    },
+    {
+      "title": "Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          42.3468017578125,
+          555.8994140625
+        ],
+        [
+          102.974853515625,
+          555.8994140625
+        ],
+        [
+          102.974853515625,
+          568.0848541259766
+        ],
+        [
+          42.3468017578125,
+          568.0848541259766
+        ]
+      ]
+    },
+    {
+      "title": "Materials and Methods",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          41.6326904296875,
+          721.5849685668945
+        ],
+        [
+          148.9471893310547,
+          721.5849685668945
+        ],
+        [
+          148.9471893310547,
+          733.5849685668945
+        ],
+        [
+          41.6326904296875,
+          733.5849685668945
+        ]
+      ]
+    },
+    {
+      "title": "Results",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          41.81121826171875,
+          62.4144287109375
+        ],
+        [
+          78.0523681640625,
+          62.4144287109375
+        ],
+        [
+          78.0523681640625,
+          74.5848388671875
+        ],
+        [
+          41.81121826171875,
+          74.5848388671875
+        ]
+      ]
+    },
+    {
+      "title": "Thalamic-subdivision-specific deficit in neural sensitivity to\nbrief gaps in noise",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          42.3468017578125,
+          447.8924255371094
+        ],
+        [
+          278.50341796875,
+          447.8924255371094
+        ],
+        [
+          278.50341796875,
+          468.3924560546875
+        ],
+        [
+          42.3468017578125,
+          468.3924560546875
+        ]
+      ]
+    },
+    {
+      "title": "Evidence suggests a central rather than peripheral\nauditory origin",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          300.21240234375,
+          139.739501953125
+        ],
+        [
+          496.73583984375,
+          139.739501953125
+        ],
+        [
+          496.73583984375,
+          160.39251708984375
+        ],
+        [
+          300.21240234375,
+          160.39251708984375
+        ]
+      ]
+    },
+    {
+      "title": "No general deficit in central auditory temporal acuity",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          300.49884033203125,
+          447.70166015625
+        ],
+        [
+          509.87548828125,
+          447.70166015625
+        ],
+        [
+          509.87548828125,
+          457.3929138183594
+        ],
+        [
+          300.49884033203125,
+          457.3929138183594
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          57.87872314453125,
+          62.4144287109375
+        ],
+        [
+          185.526123046875,
+          62.4144287109375
+        ],
+        [
+          185.526123046875,
+          71.303466796875
+        ],
+        [
+          57.87872314453125,
+          71.303466796875
+        ]
+      ]
+    },
+    {
+      "title": "No deficit in thalamic responses to noise onsets or\nsustained noise",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          41.561279296875,
+          689.8928680419922
+        ],
+        [
+          239.94140625,
+          689.8928680419922
+        ],
+        [
+          239.94140625,
+          710.3929138183594
+        ],
+        [
+          41.561279296875,
+          710.3929138183594
+        ]
+      ]
+    },
+    {
+      "title": "A specific deficit in thalamic activity\nfollowing noise",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          386.47705078125,
+          403.89288330078125
+        ],
+        [
+          528.4962158203125,
+          403.89288330078125
+        ],
+        [
+          528.4962158203125,
+          424.3929138183594
+        ],
+        [
+          386.47705078125,
+          424.3929138183594
+        ]
+      ]
+    },
+    {
+      "title": "Intensity gain-control model with\nonset-sensitive and offset-sensitive\nchannels replicates key features of\nthalamic population PSTHs",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          41.98974609375,
+          62.892333984375
+        ],
+        [
+          181.38427734375,
+          62.892333984375
+        ],
+        [
+          181.38427734375,
+          105.90380859375
+        ],
+        [
+          41.98974609375,
+          105.90380859375
+        ]
+      ]
+    },
+    {
+      "title": "Fewer offset-responsive thalamic neurons in ectopic mice",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          299.06982421875,
+          568.8928833007812
+        ],
+        [
+          525.8203125,
+          568.8928833007812
+        ],
+        [
+          525.8203125,
+          578.3928833007812
+        ],
+        [
+          299.06982421875,
+          578.3928833007812
+        ]
+      ]
+    },
+    {
+      "title": "Offset-responsive cells are exceptionally sensitive to brief\ngaps in noise in nonectopic but not ectopic mice",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          299.64111328125,
+          436.89337158203125
+        ],
+        [
+          525.30029296875,
+          436.89337158203125
+        ],
+        [
+          525.30029296875,
+          457.3934020996094
+        ],
+        [
+          299.64111328125,
+          457.3934020996094
+        ]
+      ]
+    },
+    {
+      "title": "Controls for effects of anesthesia",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          41.73980712890625,
+          205.881591796875
+        ],
+        [
+          171.3417510986328,
+          205.881591796875
+        ],
+        [
+          171.3417510986328,
+          215.39251708984375
+        ],
+        [
+          41.73980712890625,
+          215.39251708984375
+        ]
+      ]
+    },
+    {
+      "title": "Discussion",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          41.846923828125,
+          698.0849685668945
+        ],
+        [
+          93.1201171875,
+          698.0849685668945
+        ],
+        [
+          93.1201171875,
+          710.0849685668945
+        ],
+        [
+          41.846923828125,
+          710.0849685668945
+        ]
+      ]
+    },
+    {
+      "title": "A specific deficit in central auditory activity following\nsound offsets",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          300.498046875,
+          557.892578125
+        ],
+        [
+          510.732421875,
+          557.892578125
+        ],
+        [
+          510.732421875,
+          579.22119140625
+        ],
+        [
+          300.498046875,
+          579.22119140625
+        ]
+      ]
+    },
+    {
+      "title": "Possible origins of the deficit and relation to ectopias",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          42.275390625,
+          370.893310546875
+        ],
+        [
+          251.08154296875,
+          370.893310546875
+        ],
+        [
+          251.08154296875,
+          380.393310546875
+        ],
+        [
+          42.275390625,
+          380.393310546875
+        ]
+      ]
+    },
+    {
+      "title": "Potential implications for humans",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          300.21240234375,
+          557.81103515625
+        ],
+        [
+          436.00299072265625,
+          557.81103515625
+        ],
+        [
+          436.00299072265625,
+          567.392578125
+        ],
+        [
+          300.21240234375,
+          567.392578125
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          42.3468017578125,
+          164.0848388671875
+        ],
+        [
+          93.15199279785156,
+          164.0848388671875
+        ],
+        [
+          93.15199279785156,
+          176.0848388671875
+        ],
+        [
+          42.3468017578125,
+          176.0848388671875
+        ]
+      ]
+    },
+    {
+      "title": "Anderson and Linden \u2022 Two Mechanisms of Auditory Temporal Processing J. Neurosci., February 10, 2016 \u2022 36(6):1977\u20131995 \u2022 1995",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          42.132568359375,
+          38.79107666015625
+        ],
+        [
+          544.0125732421875,
+          38.79107666015625
+        ],
+        [
+          544.0125732421875,
+          46.798828125
+        ],
+        [
+          42.132568359375,
+          46.798828125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          162
+        ],
+        [
+          "Line",
+          65
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Footnote",
+          5
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          364
+        ],
+        [
+          "Line",
+          141
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          321
+        ],
+        [
+          "Line",
+          145
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          649
+        ],
+        [
+          "Line",
+          159
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "TextInlineMath",
+          7
+        ],
+        [
+          "Equation",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          196
+        ],
+        [
+          "Line",
+          71
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          357
+        ],
+        [
+          "Line",
+          129
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          264
+        ],
+        [
+          "Line",
+          92
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          195
+        ],
+        [
+          "Line",
+          77
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          219
+        ],
+        [
+          "Line",
+          77
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          110
+        ],
+        [
+          "Line",
+          18
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          62
+        ],
+        [
+          "Line",
+          11
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          165
+        ],
+        [
+          "Line",
+          54
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          295
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "TableCell",
+          105
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          202
+        ],
+        [
+          "Line",
+          66
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          343
+        ],
+        [
+          "Line",
+          95
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          297
+        ],
+        [
+          "Line",
+          127
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          331
+        ],
+        [
+          "Line",
+          125
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          383
+        ],
+        [
+          "Line",
+          143
+        ],
+        [
+          "Reference",
+          44
+        ],
+        [
+          "ListItem",
+          43
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          220
+        ],
+        [
+          "Line",
+          78
+        ],
+        [
+          "ListItem",
+          26
+        ],
+        [
+          "Reference",
+          26
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/1977.full"
+}

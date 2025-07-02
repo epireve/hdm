@@ -1,0 +1,1281 @@
+{
+  "table_of_contents": [
+    {
+      "title": "HGE: Embedding Temporal Knowledge Graphs in a Product Space of\nHeterogeneous Geometric Subspaces",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          88.453125,
+          97.873046875
+        ],
+        [
+          522.3515625,
+          97.873046875
+        ],
+        [
+          522.3515625,
+          128.16021728515625
+        ],
+        [
+          88.453125,
+          128.16021728515625
+        ]
+      ]
+    },
+    {
+      "title": "Abstract",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          154.7150115966797,
+          218.31646728515625
+        ],
+        [
+          194.537109375,
+          218.31646728515625
+        ],
+        [
+          194.537109375,
+          228.279052734375
+        ],
+        [
+          154.7150115966797,
+          228.279052734375
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          131.70849609375,
+          473.5793151855469
+        ],
+        [
+          214.65769958496094,
+          473.5793151855469
+        ],
+        [
+          214.65769958496094,
+          485.5345153808594
+        ],
+        [
+          131.70849609375,
+          485.5345153808594
+        ]
+      ]
+    },
+    {
+      "title": "2 Preliminaries",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          393.85546875,
+          290.5954284667969
+        ],
+        [
+          482.14178466796875,
+          290.5954284667969
+        ],
+        [
+          482.14178466796875,
+          302.5506286621094
+        ],
+        [
+          393.85546875,
+          302.5506286621094
+        ]
+      ]
+    },
+    {
+      "title": "3 Embedding Model in Heterogeneous\nGeometric Subspaces",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          335.8828125,
+          563.6502532958984
+        ],
+        [
+          541.4765625,
+          563.6502532958984
+        ],
+        [
+          541.4765625,
+          589.5534515380859
+        ],
+        [
+          335.8828125,
+          589.5534515380859
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Embeddings in Geometric Subspaces",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.0419921875,
+          380.844970703125
+        ],
+        [
+          250.98558044433594,
+          380.844970703125
+        ],
+        [
+          250.98558044433594,
+          391.75408935546875
+        ],
+        [
+          53.0419921875,
+          391.75408935546875
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Embeddings in Attention-based Product\nSpace",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.490234375,
+          104.3240966796875
+        ],
+        [
+          265.9420471191406,
+          104.3240966796875
+        ],
+        [
+          265.9420471191406,
+          127.18817138671875
+        ],
+        [
+          53.490234375,
+          127.18817138671875
+        ]
+      ]
+    },
+    {
+      "title": "4 Theoretical Analysis on Temporal Patterns",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          320.34375,
+          475.80780029296875
+        ],
+        [
+          557.61328125,
+          475.80780029296875
+        ],
+        [
+          557.61328125,
+          487.76300048828125
+        ],
+        [
+          320.34375,
+          487.76300048828125
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Static Logical Temporal Patterns",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          52.7431640625,
+          211.341796875
+        ],
+        [
+          232.6376953125,
+          211.341796875
+        ],
+        [
+          232.6376953125,
+          222.53094482421875
+        ],
+        [
+          52.7431640625,
+          222.53094482421875
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Dynamic Logical Temporal Patterns",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          52.7431640625,
+          334.184814453125
+        ],
+        [
+          248.1767578125,
+          334.184814453125
+        ],
+        [
+          248.1767578125,
+          345.09393310546875
+        ],
+        [
+          52.7431640625,
+          345.09393310546875
+        ]
+      ]
+    },
+    {
+      "title": "Definition 8. Relation p is temporary in time",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          53.11669921875,
+          488.8125
+        ],
+        [
+          237.568359375,
+          488.8125
+        ],
+        [
+          237.568359375,
+          498.956787109375
+        ],
+        [
+          53.11669921875,
+          498.956787109375
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Modeling Temporal Patterns",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          52.96728515625,
+          544.8217163085938
+        ],
+        [
+          213.662109375,
+          544.8217163085938
+        ],
+        [
+          213.662109375,
+          556.1015625
+        ],
+        [
+          52.96728515625,
+          556.1015625
+        ]
+      ]
+    },
+    {
+      "title": "5 Experiments",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          395.349609375,
+          54.78680419921875
+        ],
+        [
+          481.412109375,
+          54.78680419921875
+        ],
+        [
+          481.412109375,
+          66.74200439453125
+        ],
+        [
+          395.349609375,
+          66.74200439453125
+        ]
+      ]
+    },
+    {
+      "title": "5.1 Experimental Settings",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          319.4998779296875,
+          70.2037353515625
+        ],
+        [
+          450.6328125,
+          70.2037353515625
+        ],
+        [
+          450.6328125,
+          81.5009765625
+        ],
+        [
+          319.4998779296875,
+          81.5009765625
+        ]
+      ]
+    },
+    {
+      "title": "5.2 HGE's Performance Comparison",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          53.3408203125,
+          263.27484130859375
+        ],
+        [
+          233.8330078125,
+          263.27484130859375
+        ],
+        [
+          233.8330078125,
+          274.18389892578125
+        ],
+        [
+          53.3408203125,
+          274.18389892578125
+        ]
+      ]
+    },
+    {
+      "title": "5.3 Ablation Study",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          53.751708984375,
+          638.9866027832031
+        ],
+        [
+          149.8623046875,
+          638.9866027832031
+        ],
+        [
+          149.8623046875,
+          649.8956909179688
+        ],
+        [
+          53.751708984375,
+          649.8956909179688
+        ]
+      ]
+    },
+    {
+      "title": "nent. From Table 3, we have the following observations:",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          319.5,
+          258.58038330078125
+        ],
+        [
+          543.6484985351562,
+          258.58038330078125
+        ],
+        [
+          543.6484985351562,
+          268.54296875
+        ],
+        [
+          319.5,
+          268.54296875
+        ]
+      ]
+    },
+    {
+      "title": "5.4 Case Study",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          319.447265625,
+          528.0047607421875
+        ],
+        [
+          397.142578125,
+          528.0047607421875
+        ],
+        [
+          397.142578125,
+          538.9138641357422
+        ],
+        [
+          319.447265625,
+          538.9138641357422
+        ]
+      ]
+    },
+    {
+      "title": "6 Related Works",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          126.18017578125,
+          512.8501586914062
+        ],
+        [
+          220.1207275390625,
+          512.8501586914062
+        ],
+        [
+          220.1207275390625,
+          524.8053588867188
+        ],
+        [
+          126.18017578125,
+          524.8053588867188
+        ]
+      ]
+    },
+    {
+      "title": "7 Conclusion",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          401.217041015625,
+          546.8478698730469
+        ],
+        [
+          477.52734375,
+          546.8478698730469
+        ],
+        [
+          477.52734375,
+          558.8030700683594
+        ],
+        [
+          401.217041015625,
+          558.8030700683594
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgments",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          125.5078125,
+          54.787109375
+        ],
+        [
+          220.833984375,
+          54.787109375
+        ],
+        [
+          220.833984375,
+          66.7423095703125
+        ],
+        [
+          125.5078125,
+          66.7423095703125
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          143.4375,
+          158.15802001953125
+        ],
+        [
+          202.0078125,
+          158.15802001953125
+        ],
+        [
+          202.0078125,
+          170.11322021484375
+        ],
+        [
+          143.4375,
+          170.11322021484375
+        ]
+      ]
+    },
+    {
+      "title": "A Allen's Relations",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          117.81298828125,
+          54.787109375
+        ],
+        [
+          227.109375,
+          54.787109375
+        ],
+        [
+          227.109375,
+          66.7423095703125
+        ],
+        [
+          117.81298828125,
+          66.7423095703125
+        ]
+      ]
+    },
+    {
+      "title": "B Extending Backbones to HGE methods",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          61.55859375,
+          387.85919189453125
+        ],
+        [
+          282.8565673828125,
+          387.85919189453125
+        ],
+        [
+          282.8565673828125,
+          399.81439208984375
+        ],
+        [
+          61.55859375,
+          399.81439208984375
+        ]
+      ]
+    },
+    {
+      "title": "C Embeddings in Complex, Dual and\nSplit-Complex Subpaces",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          73.3623046875,
+          632.6069641113281
+        ],
+        [
+          273.8759765625,
+          632.6069641113281
+        ],
+        [
+          273.8759765625,
+          658.5091705322266
+        ],
+        [
+          73.3623046875,
+          658.5091705322266
+        ]
+      ]
+    },
+    {
+      "title": "D Dataset Overview",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          383.260986328125,
+          247.71710205078125
+        ],
+        [
+          494.2410888671875,
+          247.71710205078125
+        ],
+        [
+          494.2410888671875,
+          259.67230224609375
+        ],
+        [
+          383.260986328125,
+          259.67230224609375
+        ]
+      ]
+    },
+    {
+      "title": "E Temporal Pattern Statistics",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          358.892578125,
+          284.97711181640625
+        ],
+        [
+          519.064453125,
+          284.97711181640625
+        ],
+        [
+          519.064453125,
+          296.93231201171875
+        ],
+        [
+          358.892578125,
+          296.93231201171875
+        ]
+      ]
+    },
+    {
+      "title": "F Modeling Various Temporal Patterns",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          334.5679931640625,
+          377.0310974121094
+        ],
+        [
+          543.8671875,
+          377.0310974121094
+        ],
+        [
+          543.8671875,
+          388.9862976074219
+        ],
+        [
+          334.5679931640625,
+          388.9862976074219
+        ]
+      ]
+    },
+    {
+      "title": "Proposition 6. HGE can model inverse patterns introduced\nin Definitions 4 and 6.",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          53.26611328125,
+          214.1070556640625
+        ],
+        [
+          293.44921875,
+          214.1070556640625
+        ],
+        [
+          293.44921875,
+          235.02764892578125
+        ],
+        [
+          53.26611328125,
+          235.02764892578125
+        ]
+      ]
+    },
+    {
+      "title": "G Experiment Details",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          378.81298828125,
+          620.5631561279297
+        ],
+        [
+          498.6877746582031,
+          620.5631561279297
+        ],
+        [
+          498.6877746582031,
+          632.5183563232422
+        ],
+        [
+          378.81298828125,
+          632.5183563232422
+        ]
+      ]
+    },
+    {
+      "title": "H Temporal Structural Patterns on\nGeometric subspaces",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          342.755859375,
+          54.787109375
+        ],
+        [
+          532.8567504882812,
+          54.787109375
+        ],
+        [
+          532.8567504882812,
+          80.6893310546875
+        ],
+        [
+          342.755859375,
+          80.6893310546875
+        ]
+      ]
+    },
+    {
+      "title": "I HGE's Time and Space Usage",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          353.513671875,
+          435.2908935546875
+        ],
+        [
+          524.443359375,
+          435.2908935546875
+        ],
+        [
+          524.443359375,
+          447.24609375
+        ],
+        [
+          353.513671875,
+          447.24609375
+        ]
+      ]
+    },
+    {
+      "title": "J Baseline Selection",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          383.396484375,
+          668.4327926635742
+        ],
+        [
+          493.37945556640625,
+          668.4327926635742
+        ],
+        [
+          493.37945556640625,
+          680.3879928588867
+        ],
+        [
+          383.396484375,
+          680.3879928588867
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          229
+        ],
+        [
+          "Line",
+          76
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          404
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          803
+        ],
+        [
+          "Line",
+          101
+        ],
+        [
+          "TextInlineMath",
+          6
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          881
+        ],
+        [
+          "Line",
+          117
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Equation",
+          6
+        ],
+        [
+          "TextInlineMath",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          619
+        ],
+        [
+          "Line",
+          108
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "TextInlineMath",
+          9
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Footnote",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          312
+        ],
+        [
+          "Line",
+          117
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          283
+        ],
+        [
+          "TableCell",
+          282
+        ],
+        [
+          "Line",
+          92
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          285
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "Text",
+          28
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          8
+        ],
+        [
+          "Line",
+          3
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          688
+        ],
+        [
+          "Line",
+          130
+        ],
+        [
+          "TableCell",
+          42
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "TextInlineMath",
+          7
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Equation",
+          5
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          764
+        ],
+        [
+          "Line",
+          107
+        ],
+        [
+          "TableCell",
+          93
+        ],
+        [
+          "TextInlineMath",
+          6
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          245
+        ],
+        [
+          "Line",
+          64
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Figure",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "FigureGroup",
+          3
+        ],
+        [
+          "TextInlineMath",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "TableCell",
+          138
+        ],
+        [
+          "Span",
+          114
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2312.13680_HGE_Embedding_Temporal_Knowledge_Graphs_in_a_Product_Space_of_Heterogeneous_Geometric_Subspaces"
+}

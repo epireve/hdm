@@ -1,0 +1,956 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Detection-Fusion for Knowledge Graph\nExtraction from Videos",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          21.069091796875,
+          38.851318359375
+        ],
+        [
+          347.490234375,
+          38.851318359375
+        ],
+        [
+          347.490234375,
+          83.07147216796875
+        ],
+        [
+          21.069091796875,
+          83.07147216796875
+        ]
+      ]
+    },
+    {
+      "title": "Abstract",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          191.8040008544922,
+          216.20947265625
+        ],
+        [
+          226.068359375,
+          216.20947265625
+        ],
+        [
+          226.068359375,
+          225.87246704101562
+        ],
+        [
+          191.8040008544922,
+          225.87246704101562
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          25.51200294494629,
+          383.8359375
+        ],
+        [
+          124.88813018798828,
+          383.8359375
+        ],
+        [
+          124.88813018798828,
+          398.7990417480469
+        ],
+        [
+          25.51200294494629,
+          398.7990417480469
+        ]
+      ]
+    },
+    {
+      "title": "2 Related Work",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          24.9134521484375,
+          88.943115234375
+        ],
+        [
+          132.60546875,
+          88.943115234375
+        ],
+        [
+          132.60546875,
+          103.3492431640625
+        ],
+        [
+          24.9134521484375,
+          103.3492431640625
+        ]
+      ]
+    },
+    {
+      "title": "3 Method",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          25.2130126953125,
+          520.23046875
+        ],
+        [
+          95.2103271484375,
+          520.23046875
+        ],
+        [
+          95.2103271484375,
+          535.3840560913086
+        ],
+        [
+          25.2130126953125,
+          535.3840560913086
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Main Model",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          25.2130126953125,
+          547.6904296875
+        ],
+        [
+          115.1760025024414,
+          547.6904296875
+        ],
+        [
+          115.1760025024414,
+          560.205192565918
+        ],
+        [
+          25.2130126953125,
+          560.205192565918
+        ]
+      ]
+    },
+    {
+      "title": "4DAS, LUKASIEWICZ, MAHON: DETECTION-FUSION FOR KG EXTRACTION FROM VIDEOS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          16.475830078125,
+          11.391357421875
+        ],
+        [
+          389.99224853515625,
+          11.391357421875
+        ],
+        [
+          389.99224853515625,
+          20.9493408203125
+        ],
+        [
+          16.475830078125,
+          20.9493408203125
+        ]
+      ]
+    },
+    {
+      "title": "4 Experimental Results",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          16.7254638671875,
+          143.78759765625
+        ],
+        [
+          170.4263153076172,
+          143.78759765625
+        ],
+        [
+          170.4263153076172,
+          159.89422607421875
+        ],
+        [
+          16.7254638671875,
+          159.89422607421875
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Datasets",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          16.85028076171875,
+          170.64404296875
+        ],
+        [
+          87.0655288696289,
+          170.64404296875
+        ],
+        [
+          87.0655288696289,
+          183.60037231445312
+        ],
+        [
+          16.85028076171875,
+          183.60037231445312
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Main Results",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          16.276123046875,
+          288.7822265625
+        ],
+        [
+          112.2353515625,
+          288.7822265625
+        ],
+        [
+          112.2353515625,
+          302.539306640625
+        ],
+        [
+          16.276123046875,
+          302.539306640625
+        ]
+      ]
+    },
+    {
+      "title": "DAS, LUKASIEWICZ, MAHON: DETECTION-FUSION FOR KG EXTRACTION FROM VIDEOS7",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          24.96337890625,
+          11.2027587890625
+        ],
+        [
+          400.01318359375,
+          11.2027587890625
+        ],
+        [
+          400.01318359375,
+          20.9493408203125
+        ],
+        [
+          24.96337890625,
+          20.9493408203125
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Inclusion of Background Knowledge",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          24.96337890625,
+          244.96517944335938
+        ],
+        [
+          238.4501953125,
+          244.96517944335938
+        ],
+        [
+          238.4501953125,
+          256.94677734375
+        ],
+        [
+          24.96337890625,
+          256.94677734375
+        ]
+      ]
+    },
+    {
+      "title": "4.4 Qualitative Results",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          25.2130126953125,
+          452.5931091308594
+        ],
+        [
+          149.4754638671875,
+          452.5931091308594
+        ],
+        [
+          149.4754638671875,
+          464.5483093261719
+        ],
+        [
+          25.2130126953125,
+          464.5483093261719
+        ]
+      ]
+    },
+    {
+      "title": "8DAS, LUKASIEWICZ, MAHON: DETECTION-FUSION FOR KG EXTRACTION FROM VIDEOS",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          15.876708984375,
+          10.50494384765625
+        ],
+        [
+          390.626953125,
+          10.50494384765625
+        ],
+        [
+          390.626953125,
+          20.9493408203125
+        ],
+        [
+          15.876708984375,
+          20.9493408203125
+        ]
+      ]
+    },
+    {
+      "title": "4.5 Ablation Studies",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          17.008010864257812,
+          319.86328125
+        ],
+        [
+          128.6098175048828,
+          319.86328125
+        ],
+        [
+          128.6098175048828,
+          333.26324462890625
+        ],
+        [
+          17.008010864257812,
+          333.26324462890625
+        ]
+      ]
+    },
+    {
+      "title": "5 Conclusion",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          25.33782958984375,
+          446.2998046875
+        ],
+        [
+          115.5917739868164,
+          446.2998046875
+        ],
+        [
+          115.5917739868164,
+          460.7841796875
+        ],
+        [
+          25.33782958984375,
+          460.7841796875
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          17.007999420166016,
+          73.5911865234375
+        ],
+        [
+          84.7257080078125,
+          73.5911865234375
+        ],
+        [
+          84.7257080078125,
+          89.0892333984375
+        ],
+        [
+          17.007999420166016,
+          89.0892333984375
+        ]
+      ]
+    },
+    {
+      "title": "DAS, LUKASIEWICZ, MAHON: DETECTION-FUSION FOR KG EXTRACTION FROM VIDEOS11",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          25.512001037597656,
+          11.31591796875
+        ],
+        [
+          404.6064453125,
+          11.31591796875
+        ],
+        [
+          404.6064453125,
+          20.9493408203125
+        ],
+        [
+          25.512001037597656,
+          20.9493408203125
+        ]
+      ]
+    },
+    {
+      "title": "12DAS, LUKASIEWICZ, MAHON: DETECTION-FUSION FOR KG EXTRACTION FROM VIDEOS",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          16.97509765625,
+          11.25933837890625
+        ],
+        [
+          395.61962890625,
+          11.25933837890625
+        ],
+        [
+          395.61962890625,
+          20.9493408203125
+        ],
+        [
+          16.97509765625,
+          20.9493408203125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          95
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          119
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          140
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          315
+        ],
+        [
+          "Line",
+          58
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          380
+        ],
+        [
+          "Line",
+          88
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          264
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "TableCell",
+          50
+        ],
+        [
+          "TextInlineMath",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          209
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          157
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "TableCell",
+          42
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          153
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          126
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "ListItem",
+          11
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          131
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "ListItem",
+          13
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          92
+        ],
+        [
+          "Line",
+          27
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2025_detection_fusion_kg_extraction_videos"
+}

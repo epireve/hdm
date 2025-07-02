@@ -1,0 +1,996 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Divide and Conquer the EmpiRE:\nA Community-Maintainable Knowledge Graph of\nEmpirical Research in Requirements Engineering",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.9150390625,
+          53.002685546875
+        ],
+        [
+          552.83203125,
+          53.002685546875
+        ],
+        [
+          552.83203125,
+          132.7039794921875
+        ],
+        [
+          59.9150390625,
+          132.7039794921875
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          135.5185546875,
+          573.7347259521484
+        ],
+        [
+          213.3717803955078,
+          573.7347259521484
+        ],
+        [
+          213.3717803955078,
+          583.6973266601562
+        ],
+        [
+          135.5185546875,
+          583.6973266601562
+        ]
+      ]
+    },
+    {
+      "title": "Contribution:",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          50.3525390625,
+          358.7405090332031
+        ],
+        [
+          111.26640319824219,
+          358.7405090332031
+        ],
+        [
+          111.26640319824219,
+          369.123046875
+        ],
+        [
+          50.3525390625,
+          369.123046875
+        ]
+      ]
+    },
+    {
+      "title": "II. BACKGROUND",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          134.84619140625,
+          572.0053253173828
+        ],
+        [
+          212.82064819335938,
+          572.0053253173828
+        ],
+        [
+          212.82064819335938,
+          581.9679260253906
+        ],
+        [
+          134.84619140625,
+          581.9679260253906
+        ]
+      ]
+    },
+    {
+      "title": "III. RELATED WORK",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          127.4501953125,
+          307.634765625
+        ],
+        [
+          219.35916137695312,
+          307.634765625
+        ],
+        [
+          219.35916137695312,
+          318.6260681152344
+        ],
+        [
+          127.4501953125,
+          318.6260681152344
+        ]
+      ]
+    },
+    {
+      "title": "IV. RESEARCH APPROACH",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          115.12353515625,
+          318.1296081542969
+        ],
+        [
+          232.189453125,
+          318.1296081542969
+        ],
+        [
+          232.189453125,
+          328.09222412109375
+        ],
+        [
+          115.12353515625,
+          328.09222412109375
+        ]
+      ]
+    },
+    {
+      "title": "A. Data Collection",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          310.482421875,
+          210.7139892578125
+        ],
+        [
+          391.166015625,
+          210.7139892578125
+        ],
+        [
+          391.166015625,
+          220.67657470703125
+        ],
+        [
+          310.482421875,
+          220.67657470703125
+        ]
+      ]
+    },
+    {
+      "title": "B. Data Extraction",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          311.9765625,
+          496.5118408203125
+        ],
+        [
+          390.8619079589844,
+          496.5118408203125
+        ],
+        [
+          390.8619079589844,
+          506.47442626953125
+        ],
+        [
+          311.9765625,
+          506.47442626953125
+        ]
+      ]
+    },
+    {
+      "title": "C. Data Analysis",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          310.482421875,
+          287.7180480957031
+        ],
+        [
+          383.2704162597656,
+          287.7180480957031
+        ],
+        [
+          383.2704162597656,
+          297.6806335449219
+        ],
+        [
+          310.482421875,
+          297.6806335449219
+        ]
+      ]
+    },
+    {
+      "title": "Listing 1: SPARQL query for competency question 1.",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          63.7998046875,
+          452.82550048828125
+        ],
+        [
+          285.2314453125,
+          452.82550048828125
+        ],
+        [
+          285.2314453125,
+          462.7881164550781
+        ],
+        [
+          63.7998046875,
+          462.7881164550781
+        ]
+      ]
+    },
+    {
+      "title": "V. RESULTS",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          411.2760314941406,
+          166.7724609375
+        ],
+        [
+          464.677734375,
+          166.7724609375
+        ],
+        [
+          464.677734375,
+          177.28411865234375
+        ],
+        [
+          411.2760314941406,
+          177.28411865234375
+        ]
+      ]
+    },
+    {
+      "title": "A. Coverage of the Curated Topic by KG-EmpiRE",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          311.37890625,
+          251.546142578125
+        ],
+        [
+          519.36328125,
+          251.546142578125
+        ],
+        [
+          519.36328125,
+          261.50872802734375
+        ],
+        [
+          311.37890625,
+          261.50872802734375
+        ]
+      ]
+    },
+    {
+      "title": "B. State and Evolution of Empirical Research in RE",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          309.287109375,
+          538.8948822021484
+        ],
+        [
+          528.626953125,
+          538.8948822021484
+        ],
+        [
+          528.626953125,
+          549.140625
+        ],
+        [
+          309.287109375,
+          549.140625
+        ]
+      ]
+    },
+    {
+      "title": "CQ1: How has the proportion of empirical studies evolved?",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          47.88720703125,
+          90.30999755859375
+        ],
+        [
+          296.736328125,
+          90.30999755859375
+        ],
+        [
+          296.736328125,
+          101.900390625
+        ],
+        [
+          47.88720703125,
+          101.900390625
+        ]
+      ]
+    },
+    {
+      "title": "CQ26: How have the proportions of case studies and action\nresearch in the empirical methods used evolved?",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          48.41015625,
+          285.72216796875
+        ],
+        [
+          300.919921875,
+          285.72216796875
+        ],
+        [
+          300.919921875,
+          307.6397399902344
+        ],
+        [
+          48.41015625,
+          307.6397399902344
+        ]
+      ]
+    },
+    {
+      "title": "CQ39: How has the provision of data (the materials used, raw\ndata collected, and study results identified) evolved?",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          48.2607421875,
+          648.5059356689453
+        ],
+        [
+          300.021484375,
+          648.5059356689453
+        ],
+        [
+          300.021484375,
+          670.4235382080078
+        ],
+        [
+          48.2607421875,
+          670.4235382080078
+        ]
+      ]
+    },
+    {
+      "title": "Initial insights from the data analysis",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          311.37890625,
+          151.47900390625
+        ],
+        [
+          465.6909484863281,
+          151.47900390625
+        ],
+        [
+          465.6909484863281,
+          161.44158935546875
+        ],
+        [
+          311.37890625,
+          161.44158935546875
+        ]
+      ]
+    },
+    {
+      "title": "VI. THREATS TO VALIDITY",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          378.615234375,
+          455.8953857421875
+        ],
+        [
+          496.1636962890625,
+          455.8953857421875
+        ],
+        [
+          496.1636962890625,
+          465.8580017089844
+        ],
+        [
+          378.615234375,
+          465.8580017089844
+        ]
+      ]
+    },
+    {
+      "title": "VII. DISCUSSION",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          135.66796875,
+          645.2144012451172
+        ],
+        [
+          212.765625,
+          645.2144012451172
+        ],
+        [
+          212.765625,
+          655.177001953125
+        ],
+        [
+          135.66796875,
+          655.177001953125
+        ]
+      ]
+    },
+    {
+      "title": "VIII. CONCLUSION",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          395.39508056640625,
+          92.37744140625
+        ],
+        [
+          482.30859375,
+          92.37744140625
+        ],
+        [
+          482.30859375,
+          102.42681884765625
+        ],
+        [
+          395.39508056640625,
+          102.42681884765625
+        ]
+      ]
+    },
+    {
+      "title": "DATA AVAILABILITY",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          392.66015625,
+          518.203125
+        ],
+        [
+          482.90625,
+          518.203125
+        ],
+        [
+          482.90625,
+          528.4988098144531
+        ],
+        [
+          392.66015625,
+          528.4988098144531
+        ]
+      ]
+    },
+    {
+      "title": "ACKNOWLEDGMENT",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          392.0625,
+          598.4011993408203
+        ],
+        [
+          481.7109375,
+          598.4011993408203
+        ],
+        [
+          481.7109375,
+          608.3638000488281
+        ],
+        [
+          392.0625,
+          608.3638000488281
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          145.9775390625,
+          51.35443115234375
+        ],
+        [
+          202.7548828125,
+          51.35443115234375
+        ],
+        [
+          202.7548828125,
+          61.3170166015625
+        ],
+        [
+          145.9775390625,
+          61.3170166015625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          286
+        ],
+        [
+          "Line",
+          97
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          417
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          482
+        ],
+        [
+          "Line",
+          101
+        ],
+        [
+          "TableCell",
+          63
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          386
+        ],
+        [
+          "Line",
+          119
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          413
+        ],
+        [
+          "Line",
+          125
+        ],
+        [
+          "TableCell",
+          61
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          396
+        ],
+        [
+          "Line",
+          122
+        ],
+        [
+          "TableCell",
+          30
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          357
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          4
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          251
+        ],
+        [
+          "Line",
+          77
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          336
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          318
+        ],
+        [
+          "Line",
+          108
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          516
+        ],
+        [
+          "Line",
+          148
+        ],
+        [
+          "ListItem",
+          43
+        ],
+        [
+          "Reference",
+          42
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          490
+        ],
+        [
+          "Line",
+          148
+        ],
+        [
+          "ListItem",
+          46
+        ],
+        [
+          "Reference",
+          45
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_arxiv_2306.16791_Divide_and_Conquer_the_EmpiRE_A_Community-Maintainable_Knowledge_Graph_of_Empiri"
+}

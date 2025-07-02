@@ -1,0 +1,853 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Guidelines for designing an automated multimodal textual\nannotation system",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          73.0634765625,
+          81.6943359375
+        ],
+        [
+          535.9031372070312,
+          81.6943359375
+        ],
+        [
+          535.9031372070312,
+          119.9027099609375
+        ],
+        [
+          73.0634765625,
+          119.9027099609375
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          52.36962890625,
+          172.669921875
+        ],
+        [
+          111.94349670410156,
+          172.669921875
+        ],
+        [
+          111.94349670410156,
+          183.63262939453125
+        ],
+        [
+          52.36962890625,
+          183.63262939453125
+        ]
+      ]
+    },
+    {
+      "title": "CCS CONCEPTS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          52.81787109375,
+          316.72265625
+        ],
+        [
+          134.8198699951172,
+          316.72265625
+        ],
+        [
+          134.8198699951172,
+          328.2556457519531
+        ],
+        [
+          52.81787109375,
+          328.2556457519531
+        ]
+      ]
+    },
+    {
+      "title": "KEYWORDS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.0419921875,
+          362.935546875
+        ],
+        [
+          115.66350555419922,
+          362.935546875
+        ],
+        [
+          115.66350555419922,
+          374.2496643066406
+        ],
+        [
+          53.0419921875,
+          374.2496643066406
+        ]
+      ]
+    },
+    {
+      "title": "ACM Reference Format:",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.19140625,
+          393.099609375
+        ],
+        [
+          142.3916015625,
+          393.099609375
+        ],
+        [
+          142.3916015625,
+          402.1875
+        ],
+        [
+          53.19140625,
+          402.1875
+        ]
+      ]
+    },
+    {
+      "title": "1 INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.154052734375,
+          462.12890625
+        ],
+        [
+          156.5290069580078,
+          462.12890625
+        ],
+        [
+          156.5290069580078,
+          473.1356506347656
+        ],
+        [
+          53.154052734375,
+          473.1356506347656
+        ]
+      ]
+    },
+    {
+      "title": "2 RELATED WORKS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          316.458984375,
+          422.296875
+        ],
+        [
+          427.623046875,
+          422.296875
+        ],
+        [
+          427.623046875,
+          433.3016662597656
+        ],
+        [
+          316.458984375,
+          433.3016662597656
+        ]
+      ]
+    },
+    {
+      "title": "3 WHAT IS THE PURPOSE OF DESIGNING\nAND BUILDING THE AUTOMATED\nMULTI-MODAL ANNOTATION SYSTEM?",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          53.0419921875,
+          363.6135559082031
+        ],
+        [
+          277.4619140625,
+          363.6135559082031
+        ],
+        [
+          277.4619140625,
+          400.42083740234375
+        ],
+        [
+          53.0419921875,
+          400.42083740234375
+        ]
+      ]
+    },
+    {
+      "title": "Use Case 1: To revisit a conversation on paper.",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          63.75967025756836,
+          623.8583221435547
+        ],
+        [
+          251.4638671875,
+          623.8583221435547
+        ],
+        [
+          251.4638671875,
+          633.05859375
+        ],
+        [
+          63.75967025756836,
+          633.05859375
+        ]
+      ]
+    },
+    {
+      "title": "4 HOW TO GATHER DATA?",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          315.861328125,
+          630.611572265625
+        ],
+        [
+          466.4387512207031,
+          630.611572265625
+        ],
+        [
+          466.4387512207031,
+          641.5206756591797
+        ],
+        [
+          315.861328125,
+          641.5206756591797
+        ]
+      ]
+    },
+    {
+      "title": "5 PRACTICAL GUIDELINES FOR EFFICIENT\nAND RELIABLE MULTIMODAL FEATURE\nEXTRACTION",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          317.35546875,
+          264.9825439453125
+        ],
+        [
+          549.24609375,
+          264.9825439453125
+        ],
+        [
+          549.24609375,
+          301.7898254394531
+        ],
+        [
+          317.35546875,
+          301.7898254394531
+        ]
+      ]
+    },
+    {
+      "title": "6 WHAT INFORMATION TO PRESENT AND\nWHAT IS THE APPROPRIATE METHOD OF\nPRESENTATION?",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.11669921875,
+          85.4066162109375
+        ],
+        [
+          289.564453125,
+          85.4066162109375
+        ],
+        [
+          289.564453125,
+          122.21392822265625
+        ],
+        [
+          53.11669921875,
+          122.21392822265625
+        ]
+      ]
+    },
+    {
+      "title": "7 CONCLUSION",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          316.458984375,
+          479.6775817871094
+        ],
+        [
+          405.7296142578125,
+          479.6775817871094
+        ],
+        [
+          405.7296142578125,
+          490.74609375
+        ],
+        [
+          316.458984375,
+          490.74609375
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          316.458984375,
+          668.4695663452148
+        ],
+        [
+          387.580078125,
+          668.4695663452148
+        ],
+        [
+          387.580078125,
+          679.3786697387695
+        ],
+        [
+          316.458984375,
+          679.3786697387695
+        ]
+      ]
+    },
+    {
+      "title": "A APPENDICES",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          52.66845703125,
+          83.77294921875
+        ],
+        [
+          141.12158203125,
+          83.77294921875
+        ],
+        [
+          141.12158203125,
+          96.31573486328125
+        ],
+        [
+          52.66845703125,
+          96.31573486328125
+        ]
+      ]
+    },
+    {
+      "title": "A.1 Moore Example",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          52.81787109375,
+          100.8369140625
+        ],
+        [
+          158.97264099121094,
+          100.8369140625
+        ],
+        [
+          158.97264099121094,
+          112.6318359375
+        ],
+        [
+          52.81787109375,
+          112.6318359375
+        ]
+      ]
+    },
+    {
+      "title": "A.2 MONAH Example",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          53.228759765625,
+          276.1171875
+        ],
+        [
+          170.630859375,
+          276.1171875
+        ],
+        [
+          170.630859375,
+          288.4921875
+        ],
+        [
+          53.228759765625,
+          288.4921875
+        ]
+      ]
+    },
+    {
+      "title": "A.3 Gailbot Example",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          53.228759765625,
+          504.28125
+        ],
+        [
+          163.6526336669922,
+          504.28125
+        ],
+        [
+          163.6526336669922,
+          517.4296875
+        ],
+        [
+          53.228759765625,
+          517.4296875
+        ]
+      ]
+    },
+    {
+      "title": "A.4 Courtroom Example",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          315.5625,
+          83.67626953125
+        ],
+        [
+          447.046875,
+          83.67626953125
+        ],
+        [
+          447.046875,
+          97.21142578125
+        ],
+        [
+          315.5625,
+          97.21142578125
+        ]
+      ]
+    },
+    {
+      "title": "A.5 Police Interrogation Example",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          315.5625,
+          297.193359375
+        ],
+        [
+          491.2734375,
+          297.193359375
+        ],
+        [
+          491.2734375,
+          310.1146545410156
+        ],
+        [
+          315.5625,
+          310.1146545410156
+        ]
+      ]
+    },
+    {
+      "title": "A.6 IEMOCAP Example",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          52.294921875,
+          84.69140625
+        ],
+        [
+          179.89453125,
+          84.69140625
+        ],
+        [
+          179.89453125,
+          96.486328125
+        ],
+        [
+          52.294921875,
+          96.486328125
+        ]
+      ]
+    },
+    {
+      "title": "A.7 OpenFace Example",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          52.96728515625,
+          276.41961669921875
+        ],
+        [
+          177.802734375,
+          276.41961669921875
+        ],
+        [
+          177.802734375,
+          287.33203125
+        ],
+        [
+          52.96728515625,
+          287.33203125
+        ]
+      ]
+    },
+    {
+      "title": "A.8 Mondada Example",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          53.079345703125,
+          581.23828125
+        ],
+        [
+          174.9638671875,
+          581.23828125
+        ],
+        [
+          174.9638671875,
+          592.9016723632812
+        ],
+        [
+          53.079345703125,
+          592.9016723632812
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1655
+        ],
+        [
+          "Line",
+          101
+        ],
+        [
+          "Text",
+          15
+        ],
+        [
+          "SectionHeader",
+          7
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1820
+        ],
+        [
+          "Line",
+          114
+        ],
+        [
+          "TableCell",
+          47
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1903
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          2090
+        ],
+        [
+          "Line",
+          115
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          2819
+        ],
+        [
+          "Line",
+          154
+        ],
+        [
+          "ListItem",
+          49
+        ],
+        [
+          "Reference",
+          49
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          444
+        ],
+        [
+          "TableCell",
+          57
+        ],
+        [
+          "Line",
+          30
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Reference",
+          5
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          208
+        ],
+        [
+          "Line",
+          13
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/3610661.3616182"
+}

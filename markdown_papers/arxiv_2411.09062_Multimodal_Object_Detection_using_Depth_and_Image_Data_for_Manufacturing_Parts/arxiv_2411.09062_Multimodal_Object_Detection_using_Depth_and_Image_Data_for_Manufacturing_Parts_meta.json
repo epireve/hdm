@@ -1,0 +1,740 @@
+{
+  "table_of_contents": [
+    {
+      "title": "MULTIMODAL OBJECT DETECTION USING DEPTH AND IMAGE DATA FOR MANUFACTURING PARTS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          65.443359375,
+          120.2716064453125
+        ],
+        [
+          545.2374267578125,
+          120.2716064453125
+        ],
+        [
+          545.2374267578125,
+          130.24420166015625
+        ],
+        [
+          65.443359375,
+          130.24420166015625
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          33.3380126953125,
+          236.865234375
+        ],
+        [
+          90.9931640625,
+          236.865234375
+        ],
+        [
+          90.9931640625,
+          248.080078125
+        ],
+        [
+          33.3380126953125,
+          248.080078125
+        ]
+      ]
+    },
+    {
+      "title": "1. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          35.99998474121094,
+          596.5873718261719
+        ],
+        [
+          118.56005859375,
+          596.5873718261719
+        ],
+        [
+          118.56005859375,
+          605.98828125
+        ],
+        [
+          35.99998474121094,
+          605.98828125
+        ]
+      ]
+    },
+    {
+      "title": "2. MULTIMODAL OBJECT DETECTION MODEL",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          319.67999267578125,
+          495.0
+        ],
+        [
+          521.75390625,
+          495.0
+        ],
+        [
+          521.75390625,
+          504.7235107421875
+        ],
+        [
+          319.67999267578125,
+          504.7235107421875
+        ]
+      ]
+    },
+    {
+      "title": "3. EXPERIMENTAL SETUP",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          35.822021484375,
+          435.05859375
+        ],
+        [
+          151.09288024902344,
+          435.05859375
+        ],
+        [
+          151.09288024902344,
+          444.7684631347656
+        ],
+        [
+          35.822021484375,
+          444.7684631347656
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Assembly Task Board",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          35.93408203125,
+          569.1594085693359
+        ],
+        [
+          147.84521484375,
+          569.1594085693359
+        ],
+        [
+          147.84521484375,
+          578.2254028320312
+        ],
+        [
+          35.93408203125,
+          578.2254028320312
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Sensors and Calibration",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          318.55078125,
+          591.6796875
+        ],
+        [
+          441.1915588378906,
+          591.6796875
+        ],
+        [
+          441.1915588378906,
+          601.3532104492188
+        ],
+        [
+          318.55078125,
+          601.3532104492188
+        ]
+      ]
+    },
+    {
+      "title": "3.3 Generating Depth Maps",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          319.447265625,
+          580.078125
+        ],
+        [
+          438.978515625,
+          580.078125
+        ],
+        [
+          438.978515625,
+          589.4815826416016
+        ],
+        [
+          319.447265625,
+          589.4815826416016
+        ]
+      ]
+    },
+    {
+      "title": "3.4 Data Collection and Labeling",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          35.597900390625,
+          433.125
+        ],
+        [
+          177.61093139648438,
+          433.125
+        ],
+        [
+          177.61093139648438,
+          442.9414978027344
+        ],
+        [
+          35.597900390625,
+          442.9414978027344
+        ]
+      ]
+    },
+    {
+      "title": "3.5 Model Variants",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          317.35546875,
+          38.993408203125
+        ],
+        [
+          402.22265625,
+          38.993408203125
+        ],
+        [
+          402.22265625,
+          48.146484375
+        ],
+        [
+          317.35546875,
+          48.146484375
+        ]
+      ]
+    },
+    {
+      "title": "3.6 Training and Evaluation Setup",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          318.55078125,
+          280.951171875
+        ],
+        [
+          466.5220031738281,
+          280.951171875
+        ],
+        [
+          466.5220031738281,
+          290.0866394042969
+        ],
+        [
+          318.55078125,
+          290.0866394042969
+        ]
+      ]
+    },
+    {
+      "title": "4. RESULTS",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          35.5418701171875,
+          662.44921875
+        ],
+        [
+          89.87255859375,
+          662.44921875
+        ],
+        [
+          89.87255859375,
+          672.1525115966797
+        ],
+        [
+          35.5418701171875,
+          672.1525115966797
+        ]
+      ]
+    },
+    {
+      "title": "5. CONCLUSIONS",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          318.849609375,
+          306.66796875
+        ],
+        [
+          398.5813903808594,
+          306.66796875
+        ],
+        [
+          398.5813903808594,
+          317.425537109375
+        ],
+        [
+          318.849609375,
+          317.425537109375
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          35.5792236328125,
+          416.49609375
+        ],
+        [
+          98.04769897460938,
+          416.49609375
+        ],
+        [
+          98.04769897460938,
+          427.6175231933594
+        ],
+        [
+          35.5792236328125,
+          427.6175231933594
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          177
+        ],
+        [
+          "Line",
+          85
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          262
+        ],
+        [
+          "Line",
+          114
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          250
+        ],
+        [
+          "Line",
+          83
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          186
+        ],
+        [
+          "Line",
+          81
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "PictureGroup",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          271
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          118
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "TableCell",
+          18
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          201
+        ],
+        [
+          "Line",
+          99
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          162
+        ],
+        [
+          "Line",
+          58
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "Reference",
+          9
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          320
+        ],
+        [
+          "Line",
+          105
+        ],
+        [
+          "ListItem",
+          24
+        ],
+        [
+          "Reference",
+          24
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2411.09062_Multimodal_Object_Detection_using_Depth_and_Image_Data_for_Manufacturing_Parts"
+}

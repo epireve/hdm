@@ -12,11 +12,9 @@ As knowledge bases will be increasingly relevant to many domains, we present a s
 
 *Index Terms*—Automated Knowledge Base Construction Frameworks, Big Data, Computational Archival Science, Information Extraction, Software Architecture
 
-# I. INTRODUCTION
+### I. INTRODUCTION
 
 Knowledge bases have been successfully used for various applications, including entity extraction, semantic annotation, entity disambiguation, entity resolution, question answering, and the preservation of the social Web. As an example, many sophisticated widely known applications such as IBM Watson
-
-978-1-7281-0858-2/19/\$31.00 © 2019 IEEE
 
 rely on knowledge bases. Knowledge bases can also benefit, and benefit from, big data technologies: Scalable distributed big data algorithms can be used to harvest knowledge from the Web and large information repositories; the generated knowledge bases can then be used for the interpretation and processing of the ingested Web-scale big data [\[1\]](#page-5-0).
 
@@ -26,9 +24,7 @@ A current area of investigation is automating the construction of knowledge base
 
 There are some factors that make AKBC frameworks less than ideal, however. Among the limitations is scalability. The frameworks rely on vertical scaling (which is typically insufficient for large workloads), or, worse, leave such details to implementors. Another gap is usability. In some frameworks, users are required, for instance, to write complex rules and feature extractors in a scripting language (which requires development resources). Finally, the frameworks offer insufficient support for extensibility. As an example, there is no simple or clean method to add domain-specific features to a knowledge base framework.
 
-In our view, these limitations result from inadequate attention to the overarching system design or architecture, possibly because AKBC is still an active research area. Building a 978-1-7281-0858-2/19/\$31.00 © 2019 IEEE knowledge base construction framework is challenging, after
-
-all, as a number of components of a knowledge base (information extraction, data set creation, etc.) require attention. So far, the focus of most systems has been more on designing the underlying extraction and machine learning algorithms and making them performant, and less on system design. Indeed, we have observed that a framework is usually extracted from the specific, pressing needs of particular applications of interest, and thus such a framework may not generalize to other applications with different requirements.
+In our view, these limitations result from inadequate attention to the overarching system design or architecture, possibly because AKBC is still an active research area. Building a 978-1-7281-0858-2/19/\$31.00 © 2019 IEEE knowledge base construction framework is challenging, after all, as a number of components of a knowledge base (information extraction, data set creation, etc.) require attention. So far, the focus of most systems has been more on designing the underlying extraction and machine learning algorithms and making them performant, and less on system design. Indeed, we have observed that a framework is usually extracted from the specific, pressing needs of particular applications of interest, and thus such a framework may not generalize to other applications with different requirements.
 
 In this paper, therefore, we propose a generic framework that addresses these limitations. Our end goal is to make these frameworks easier to adopt and implement.
 
@@ -41,7 +37,7 @@ The organization of the paper is as follows. We provide background information o
 
 ## II. BACKGROUND
 
-### A. Knowledge Bases in Relevant Domains
+### *A. Knowledge Bases in Relevant Domains*
 
 Knowledge bases have been used in a variety of contexts in archives and related communities. A number of examples are listed below. These projects go beyond simple information extraction techniques used in projects such as [\[3\]](#page-5-2), [\[4\]](#page-5-3).
 
@@ -56,7 +52,7 @@ has been used by a European project to create a querable graph of nested name en
 
 To the best of our knowledge, existing literature does not provide evidence on the use of automated knowledge base frameworks for archives and related domains.
 
-### B. Automated Knowledge Base Construction
+## *B. Automated Knowledge Base Construction*
 
 Knowledge base construction is the process of populating a database with information from text, tables, images, video, and even incomplete knowledge bases.
 
@@ -76,7 +72,7 @@ Finally, some knowledge base frameworks include an error analysis step, whereby 
 
 Besides underlying requirements for precision, high coverage, and being up-to-date, the main requirements of the system are as follows.
 
-## A. Functional Requirements
+## *A. Functional Requirements*
 
 - 1) Support for multiple types and formats of data. AKBC frameworks must offer the capability of processing a diversity of data and data formats.
 - 2) Support for storage and search. The knowledge base framework must store extracted facts in a format that is indexable and queryable.
@@ -84,7 +80,7 @@ Besides underlying requirements for precision, high coverage, and being up-to-da
 - 4) Support for adding domain features. As there is variation between corpora from different domains, it must be possible to add domain-specific features to a knowledge base construction framework to increase the accuracy and completeness of a knowledge base.
 - 5) Support for human feedback. For systems that require any user input, the knowledge base framework should support error analysis to fix (or flag) incorrect or overlyspecific features.
 
-## B. Non-functional Requirements
+## *B. Non-functional Requirements*
 
 - 1) Performance. The system should be performant when training a model or applying inferences.
 - 2) Scaling. The system must be able to scale in order to process a large corpus of potentially billions of documents, containing, in turn, billions of figures and tables. This is increasingly relevant as larger and larger data sets become available, and especially as new forms of archives, social and web, emerge.
@@ -97,7 +93,7 @@ We recognize that an organization that implements a knowledge base system is lik
 
 In this section, we briefly introduce a number of modern knowledge base construction engines and discuss their limitations. For brevity and for adherence to some of the requirements (in particular, flexible feature selection), we restrict our attention to machine learning based systems (as opposed to rule-based systems). We also do not consider open information extraction systems (such as MinIE), as they are more prone to errors (such as duplicate facts due to slight changes in wordings).
 
-## A. Overview
+## *A. Overview*
 
 Fonduer [\[10\]](#page-5-9) is a knowledge base framework concerned with richly formatted data (prevalent in web pages, business reports, product specifications, etc.), where relations and attributes are expressed via combinations of textual, structural, tabular and visual information. The key insight behind Fonduer's extraction approach is that the organization and layout of a document determines the semantics of the data. To represent features of relation candidates, Fonduer uses a bidirectional Long Short-term Memory (LSTM) with attention. Relying on LSTM, along with weak supervision, obviates the need to create large sets of training data by hand, an important consideration since it is difficult to build proper training data at a large scale.
 
@@ -105,7 +101,7 @@ DeepDive [\[2\]](#page-5-1) uses manually created feature extractors to extract 
 
 Alexandria [\[12\]](#page-5-11) also makes use of a probabilistic machine learning model. Alexandria creates a probabilistic program, which it inverts to retrieve the facts, schemas, and entities from a text. Alexandria does not require any supervision (only a single seed example is required).
 
-### B. Missing Features
+## *B. Missing Features*
 
 Table I illustrates how the selected AKBC engines adhere to the requirements postulated in Section III. We observe that the selected engines fulfill some of the requirements, but there are a number of instances where the design of these systems does not adequately address the requirements:
 
@@ -116,27 +112,27 @@ Table I illustrates how the selected AKBC engines adhere to the requirements pos
 
 As these features are missing or inadequately addressed in the selected AKBC frameworks, the frameworks fall short in their intent (often stated explicitly, as in [\[2\]](#page-5-1)) of lessening the burden of domain experts. The end user is still required to do considerable heavy lifting, by learning the internals of a
 
-| Requirement                                                           | <b>Fonduer</b>                             | <b>DeepDive</b>                                                                    | <b>Alexandria</b>                                                            |
-|-----------------------------------------------------------------------|--------------------------------------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| RQ1. Support for multiple<br>types and formats of data                | Multiple formats are supported.            | Multiple formats are supported (including limited supported for image extraction). | Textual Web data is supported.                                               |
-| RQ2. Support for storage<br>and search                                | Relational database                        | Relational database                                                                | N/A                                                                          |
-| RQ3. Support for flexible<br>feature selection                        | Weak supervision                           | Distant supervision                                                                | Automated extraction                                                         |
-| RQ4. Support for adding<br>domain features                            | No specific support.                       | No special support.                                                                | N/A                                                                          |
-| RQ5. Support for human<br>feedback                                    | Reliance on declarative programming.       | Error feedback phase facilitated by SQL queries                                    | N/A                                                                          |
-| RQ6. Performance optimizations (support for minimizing training time) | Low-level optimizations (such as caching). | Low-level techniques (such as buffer replacement)                                  | Low-level optimizations (such as caching).                                   |
-| RQ7. Scaling (support for large data sets)                            | No specific support.                       | Low-level optimizations and vertical scaling.                                      | Support for Microsoft COSMOS distributed computing and Azure Batch framework |
-| RQ8. Usability                                                        | No specific support.                       | No specific support.                                                               | N/A                                                                          |
-| RQ9. Support for transparency and fairness                            | No support.                                | No support.                                                                        | No support.                                                                  |
+| Requirement                                                                    | Fonduer                                          | DeepDive                                                                                      | Alexandria                                                                                           |
+|--------------------------------------------------------------------------------|--------------------------------------------------|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| RQ1. Support for multiple<br>types and formats of data                         | Multiple formats are sup<br>ported.              | Multiple formats are sup<br>ported (including limited<br>supported for image ex<br>traction). | Textual Web data is sup<br>ported.                                                                   |
+| RQ2. Support for storage<br>and search                                         | Relational database                              | Relational database                                                                           | N/A                                                                                                  |
+| RQ3. Support for flexible<br>feature selection                                 | Weak supervision                                 | Distant supervision                                                                           | Automated extraction                                                                                 |
+| RQ4. Support for adding<br>domain features                                     | No specific support.                             | No special support.                                                                           | N/A                                                                                                  |
+| RQ5. Support for human<br>feedback                                             | Reliance<br>on<br>declarative<br>programming.    | Error feedback phase fa<br>cilitated by SQL queries                                           | N/A                                                                                                  |
+| RQ6.<br>Performance<br>optimizations (support for<br>minimizing training time) | Low-level<br>optimizations<br>(such as caching). | Low-level<br>techniques<br>(such<br>as<br>buffer<br>replacement)                              | Low-level<br>optimizations<br>(such as caching).                                                     |
+| RQ7. Scaling (support for<br>large data sets)                                  | No specific support.                             | Low-level<br>optimizations<br>and vertical scaling.                                           | Support<br>for<br>Microsoft<br>COSMOS<br>distributed<br>computing<br>and<br>Azure<br>Batch framework |
+| RQ8. Usability                                                                 | No specific support.                             | No specific support.                                                                          | N/A                                                                                                  |
+| RQ9. Support for trans<br>parency and fairness                                 | No support.                                      | No support.                                                                                   | No support.                                                                                          |
 
 TABLE I: Relation between different knowledge base construction frameworks and requirements presented in Section III.
 
 framework and extending it. The goal of this work, therefore, is to fill this gap by postulating an architecture that takes these considerations into account and arguing that these changes must be accounted for by framework designers.
 
-# V. SYSTEM ARCHITECTURE
+## V. SYSTEM ARCHITECTURE
 
 In this section we outline a proposal for an architecture for knowledge base frameworks. First, we introduce a number of design principles that guide the architecture. Next, we describe an architecture that is consistent with these principles and the set of functional and non-functional requirements from Section III. Finally, we describe a preliminary realization of this architecture, in the form of extensions to a specific knowledge base framework.
 
-### A. Design Principles
+## *A. Design Principles*
 
 Before discussing the architecture, we establish a number of key design principles.
 
@@ -146,7 +142,7 @@ Before discussing the architecture, we establish a number of key design principl
 
 4) *Transparency and fairness aspects should be weighed*. Filtering out discriminative information (often a negative consequence of machine learning systems) at the very source of data generation can prevent biases in upstream applications.
 
-### B. Architecture
+## *B. Architecture*
 
 The system consists of several components, as illustrated in Figure 1. The major components of the system are listed below.
 
@@ -155,13 +151,13 @@ The system consists of several components, as illustrated in Figure 1. The major
 - 3) Persistence middleware. A middleware component allows the replication of extracted relations in the database to a triple store (after transformation into RDF). A relational database enables ACID-based transactions, while a triple store facilitates upstream RDF based applications.
 - 4) Graphical user interface. A dedicated user interface allows end users to provide extraction rules and filters in a user friendly way. The interface also provides a summary of feature candidates flagged for review.
 
-Image /page/4/Figure/0 description: The image shows a workflow diagram for a machine learning pipeline. The pipeline starts with "Documents" which are fed into a "Workflow Engine". The output of the "Workflow Engine" is then fed into a "Spark" cluster, which contains three "Candidate Generator" processes. The output of the first "Candidate Generator" is fed into "Labelling Functions (from end user)". The output of the second "Candidate Generator" is fed into "Candidate Features". The output of the "Candidate Features" is fed into "Fairness API". The output of the "Fairness API" is fed into a second "Spark" cluster, which contains three "Training Data Generator" processes. The output of the "Training Data Generator" processes is fed into "Denoised Label Data". The output of the "Denoised Label Data" is fed into a "TensorFlow" cluster, which contains three "Learner" processes. The output of the "Learner" processes is fed into a "SQL Database", which is then fed into a "Triplestore".
+![](_page_4_Figure_0.jpeg)
 
 Fig. 1: Overview of the system architecture. The API-based design allows for horizontal scalability, usability, and extensibility.
 
 5) Workflow engine. An external workflow engine (such as Airflow) is responsible for programmatically ingesting documents from different source repositories.
 
-### C. Architectural Extensions to Fonduer
+## *C. Architectural Extensions to Fonduer*
 
 To demonstrate our position, we describe the application of these architectural building blocks to a knowledge base framework. The system, named System Architecture for the Generation and Extension of Knowledge Bases (SageKB), is a work in progress. All artifacts are available on the project's website [\[15\]](#page-5-14).
 
@@ -174,7 +170,7 @@ The following are the main components of the system:
 - 4) Distributed weak supervision through Apache Spark and Snorkel. Apache Spark allows Snorkel [\[17\]](#page-5-16) processes, used for weak supervision, to be distributed to many nodes, thus reducing the time for learning.
 - 5) Integration with a fairness API. A separate API helps determine if any of the generated candidate features are discriminative. An example is a scenario where a table in a source document lists neighborhoods in a city and associated crime rates, and a separate table lists neighborhoods and ethnic backgrounds of its residents. A discriminative relation that may end up in the knowledge base could be residents of a particular ethnic background more likely to commit crimes than residents of other ethnic backgrounds. To prevent this, potentially discriminatory features (such as ethnic background) can be monitored and flagged (and if necessary, rejected) by an end user. This novel extension ensures that upstream machine learning applications have less imbalanced source data.
 
-## VI. RELATED WORK
+# VI. RELATED WORK
 
 There are several machine learning based frameworks and algorithms that extract content from figures (such as graphical plots) that are prevalent in scholarly works [\[18\]](#page-5-17), [\[19\]](#page-5-18). These systems suffer from similar architectural limitations as the AKBC frameworks we have discussed and do not adequately address system design issues.
 
@@ -190,7 +186,7 @@ In terms of future work, a logical next step will be creating a user interface t
 
 Finally, an implicit contribution of this paper is raising awareness of the potential of AKBC frameworks and pointing out a number of current limitations. The presented ideas should therefore prove useful to builders and end users of AKBC engines alike. As AKBC is an active area of research, we hope to share our experiences and feedback with the AKBC community [\[22\]](#page-5-21), highlighting areas for future investigation and improvement, from the perspective of computational use cases from this domain.
 
-#### REFERENCES
+### REFERENCES
 
 - <span id="page-5-0"></span>[1] F. M. Suchanek and G. Weikum, "Knowledge bases in the age of big data analytics," *Proc. VLDB Endow.*, vol. 7, no. 13, pp. 1713–1714, Aug. 2014. [Online]. Available:<http://dx.doi.org/10.14778/2733004.2733069>
 - <span id="page-5-1"></span>[2] C. Zhang, "Deepdive: A data management system for automatic knowledge base construction," Ph.D. dissertation, UW Madison, 2015.
@@ -198,11 +194,11 @@ Finally, an implicit contribution of this paper is raising awareness of the pote
 - <span id="page-5-3"></span>[4] M. Won, P. Murrieta-Flores, and B. Martins, "Ensemble named entity recognition (ner): Evaluating ner tools in the identification of place names in historical corpora," *Frontiers in Digital Humanities*, vol. 5, p. 2, 2018. [Online]. Available: [https://www.frontiersin.org/article/10.](https://www.frontiersin.org/article/10.3389/fdigh.2018.00002) [3389/fdigh.2018.00002](https://www.frontiersin.org/article/10.3389/fdigh.2018.00002)
 
 - <span id="page-5-4"></span>[5] D. Maynard and M. A. Greenwood, "Large scale semantic annotation, indexing and search at the national archives," in *Proceedings of the Eight International Conference on Language Resources and Evaluation (LREC'12)*, N. C. C. Chair), K. Choukri, T. Declerck, M. U. Dogan, ˘ B. Maegaard, J. Mariani, A. Moreno, J. Odijk, and S. Piperidis, Eds. Istanbul, Turkey: European Language Resources Association (ELRA), may 2012.
-- <span id="page-5-5"></span>[6] A. Kiryakov, D. Ognyanov, and D. Manov, "Owlim - a pragmatic semantic repository for owl," in *Proceedings of the 2005 International Conference on Web Information Systems Engineering*, ser. WISE'05. Berlin, Heidelberg: Springer-Verlag, 2005, pp. 182–192. [Online]. Available: [http://dx.doi.org/10.1007/11581116](http://dx.doi.org/10.1007/11581116_19)\_19
+- <span id="page-5-5"></span>[6] A. Kiryakov, D. Ognyanov, and D. Manov, "Owlim - a pragmatic semantic repository for owl," in *Proceedings of the 2005 International Conference on Web Information Systems Engineering*, ser. WISE'05. Berlin, Heidelberg: Springer-Verlag, 2005, pp. 182–192. [Online]. Available: [http://dx.doi.org/10.1007/11581116](http://dx.doi.org/10.1007/11581116_19) 19
 - <span id="page-5-6"></span>[7] F. Clavaud, "Building a knowledge base on archival creators at the national archives of france: Issues, methods, and prospects," *Journal of Archival Organization*, vol. 12, no. 1-2, pp. 118–142, 2015. [Online]. Available:<https://doi.org/10.1080/15332748.2015.1001642>
 - <span id="page-5-7"></span>[8] K. Byrne, "Nested named entity recognition in historical archive text," in *International Conference on Semantic Computing (ICSC 2007)*, Sep. 2007, pp. 589–596.
 - <span id="page-5-8"></span>[9] S. Dietze, D. Maynard, E. Demidova, T. Risse, W. Peters, K. Doka, and Y. Stavrakas, "Entity extraction and consolidation for social web content preservation," *Semantic Digital Archives*, p. 18, 2012.
-- <span id="page-5-9"></span>[10] S. Wu, L. Hsiao, X. Cheng, B. Hancock, T. Rekatsinas, P. Levis, and C. Ré, "Fonduer: Knowledge base construction from richly formatted data," in *Proceedings of the 2018 International Conference on Management of Data*. ACM, 2018, pp. 1301–1316.
+- <span id="page-5-9"></span>[10] S. Wu, L. Hsiao, X. Cheng, B. Hancock, T. Rekatsinas, P. Levis, and C. Re, "Fonduer: Knowledge base construction from richly formatted ´ data," in *Proceedings of the 2018 International Conference on Management of Data*. ACM, 2018, pp. 1301–1316.
 - <span id="page-5-10"></span>[11] K. Gashteovski, R. Gemulla, and L. Del Corro, "Minie: minimizing facts in open information extraction," in *Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing*, 2017, pp. 2630– 2640.
 - <span id="page-5-11"></span>[12] J. Winn, J. Guiver, S. Webster, Y. Zaykov, M. Kukla, and D. Fabian, "Alexandria: Unsupervised high-precision knowledge base construction using a probabilistic program," in *Submitted to Automated Knowledge Base Construction*, 2019, under review. [Online]. Available: <https://openreview.net/forum?id=rJgHCgc6pX>
 - <span id="page-5-12"></span>[13] T. Mitchell, W. Cohen, E. Hruschka, P. Talukdar, J. Betteridge, A. Carlson, B. Dalvi, M. Gardner, B. Kisiel, J. Krishnamurthy, N. Lao, K. Mazaitis, T. Mohamed, N. Nakashole, E. Platanios, A. Ritter, M. Samadi, B. Settles, R. Wang, D. Wijaya, A. Gupta, X. Chen, A. Saparov, M. Greaves, and J. Welling, "Never-ending learning," in *Proceedings of the Twenty-Ninth AAAI Conference on Artificial Intelligence (AAAI-15)*, 2015.
@@ -211,7 +207,7 @@ Finally, an implicit contribution of this paper is raising awareness of the pote
 - <span id="page-5-15"></span>[16] *Deep Dive*, 2017 (accessed October 11, 2019), [https://deepdive.stanford.](https://deepdive.stanford.edu) [edu.](https://deepdive.stanford.edu)
 - <span id="page-5-16"></span>[17] *Snorkel*, 2019 (accessed October 11, 2019), [https://www.snorkel.org/.](https://www.snorkel.org/)
 - <span id="page-5-17"></span>[18] N. Siegel, Z. Horvitz, R. Levin, S. Divvala, and A. Farhadi, "Figureseer: Parsing result-figures in research papers," in *Computer Vision – ECCV 2016*, B. Leibe, J. Matas, N. Sebe, and M. Welling, Eds. Cham: Springer International Publishing, 2016, pp. 664–680.
-- <span id="page-5-18"></span>[19] M. Cliche, D. Rosenberg, D. Madeka, and C. Yee, "Scatteract: Automated extraction of data from scatter plots," in *Machine Learning and Knowledge Discovery in Databases*, M. Ceci, J. Hollmen, L. Todorovski, ´ C. Vens, and S. Džeroski, Eds. Cham: Springer International Publishing, 2017, pp. 135–150.
+- <span id="page-5-18"></span>[19] M. Cliche, D. Rosenberg, D. Madeka, and C. Yee, "Scatteract: Automated extraction of data from scatter plots," in *Machine Learning and Knowledge Discovery in Databases*, M. Ceci, J. Hollmen, L. Todorovski, ´ C. Vens, and S. Dzeroski, Eds. Cham: Springer International Publishing, ˇ 2017, pp. 135–150.
 - <span id="page-5-19"></span>[20] S. Ray Choudhury and C. L. Giles, "An architecture for information extraction from figures in digital libraries," in *Proceedings of the 24th International Conference on World Wide Web*, ser. WWW '15 Companion. New York, NY, USA: ACM, 2015, pp. 667–672. [Online]. Available:<http://doi.acm.org/10.1145/2740908.2741712>
-- <span id="page-5-20"></span>[21] F. Niu, C. Zhang, C. Ré, and J. W. Shavlik, "Deepdive: Web-scale knowledge-base construction using statistical learning and inference." *VLDS*, vol. 12, pp. 25–28, 2012.
+- <span id="page-5-20"></span>[21] F. Niu, C. Zhang, C. Re, and J. W. Shavlik, "Deepdive: Web-scale ´ knowledge-base construction using statistical learning and inference." *VLDS*, vol. 12, pp. 25–28, 2012.
 - <span id="page-5-21"></span>[22] *AKBC 2020*, 2019 (accessed October 11, 2019), [https://www.akbc.ws/.](https://www.akbc.ws/)

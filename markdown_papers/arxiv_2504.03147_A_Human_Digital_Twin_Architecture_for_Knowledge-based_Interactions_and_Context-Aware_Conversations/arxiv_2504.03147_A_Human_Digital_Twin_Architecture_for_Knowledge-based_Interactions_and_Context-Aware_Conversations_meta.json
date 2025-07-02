@@ -1,0 +1,1238 @@
+{
+  "table_of_contents": [
+    {
+      "title": "A Human Digital Twin Architecture for Knowledge-based \nInteractions and Context-Aware Conversations",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          81.1318359375,
+          73.62158203125
+        ],
+        [
+          533.4170532226562,
+          73.62158203125
+        ],
+        [
+          533.4170532226562,
+          107.314453125
+        ],
+        [
+          81.1318359375,
+          107.314453125
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          278.760009765625,
+          208.248046875
+        ],
+        [
+          334.6875,
+          208.248046875
+        ],
+        [
+          334.6875,
+          218.96044921875
+        ],
+        [
+          278.760009765625,
+          218.96044921875
+        ]
+      ]
+    },
+    {
+      "title": "ABOUT THE AUTHORS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          250.36407470703125,
+          472.5703125
+        ],
+        [
+          362.478515625,
+          472.5703125
+        ],
+        [
+          362.478515625,
+          483.52789306640625
+        ],
+        [
+          250.36407470703125,
+          483.52789306640625
+        ]
+      ]
+    },
+    {
+      "title": "A Human Digital Twin Architecture for Knowledge-based \nInteractions and Context-Aware Conversations",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          70.822265625,
+          73.283203125
+        ],
+        [
+          544.8195190429688,
+          73.283203125
+        ],
+        [
+          544.8195190429688,
+          107.2177734375
+        ],
+        [
+          70.822265625,
+          107.2177734375
+        ]
+      ]
+    },
+    {
+      "title": "INTRODUCTION",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          71.2705078125,
+          111.6650390625
+        ],
+        [
+          154.41502380371094,
+          111.6650390625
+        ],
+        [
+          154.41502380371094,
+          123.68048095703125
+        ],
+        [
+          71.2705078125,
+          123.68048095703125
+        ]
+      ]
+    },
+    {
+      "title": "RELATED WORK",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          71.2705078125,
+          619.5234375
+        ],
+        [
+          158.01478576660156,
+          619.5234375
+        ],
+        [
+          158.01478576660156,
+          631.125
+        ],
+        [
+          71.2705078125,
+          631.125
+        ]
+      ]
+    },
+    {
+      "title": "Conversational Agents",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          71.158447265625,
+          84.15966796875
+        ],
+        [
+          171.4506072998047,
+          84.15966796875
+        ],
+        [
+          171.4506072998047,
+          95.47119140625
+        ],
+        [
+          71.158447265625,
+          95.47119140625
+        ]
+      ]
+    },
+    {
+      "title": "Generative Pre-training Transformer (GPT) over Manual Information Search Tasks",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          71.2705078125,
+          239.185546875
+        ],
+        [
+          434.49609375,
+          239.185546875
+        ],
+        [
+          434.49609375,
+          250.787109375
+        ],
+        [
+          71.2705078125,
+          250.787109375
+        ]
+      ]
+    },
+    {
+      "title": "Chat GPT-4o",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          71.12109375,
+          348.43359375
+        ],
+        [
+          131.889404296875,
+          348.43359375
+        ],
+        [
+          131.889404296875,
+          360.2798156738281
+        ],
+        [
+          71.12109375,
+          360.2798156738281
+        ]
+      ]
+    },
+    {
+      "title": "Metacognitive AI",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          71.34521484375,
+          446.66015625
+        ],
+        [
+          146.64990234375,
+          446.66015625
+        ],
+        [
+          146.64990234375,
+          458.26171875
+        ],
+        [
+          71.34521484375,
+          458.26171875
+        ]
+      ]
+    },
+    {
+      "title": "Personality, Memory, and Behavior of LLMs in Human Digital Twin Systems",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          71.12109375,
+          578.91796875
+        ],
+        [
+          404.912109375,
+          578.91796875
+        ],
+        [
+          404.912109375,
+          590.6004638671875
+        ],
+        [
+          71.12109375,
+          590.6004638671875
+        ]
+      ]
+    },
+    {
+      "title": "AN ARCHITECTURE FOR HUMAN DIGITAL TWIN",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          71.04638671875,
+          71.78466796875
+        ],
+        [
+          314.1375427246094,
+          71.78466796875
+        ],
+        [
+          314.1375427246094,
+          83.72052001953125
+        ],
+        [
+          71.04638671875,
+          83.72052001953125
+        ]
+      ]
+    },
+    {
+      "title": "Figure 1. HDT System Design",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          238.763671875,
+          395.806640625
+        ],
+        [
+          369.4613342285156,
+          395.806640625
+        ],
+        [
+          369.4613342285156,
+          407.21484375
+        ],
+        [
+          238.763671875,
+          407.21484375
+        ]
+      ]
+    },
+    {
+      "title": "A. Visual Interface",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          71.083740234375,
+          418.04296875
+        ],
+        [
+          154.6435546875,
+          418.04296875
+        ],
+        [
+          154.6435546875,
+          429.64453125
+        ],
+        [
+          71.083740234375,
+          429.64453125
+        ]
+      ]
+    },
+    {
+      "title": "B. AI Module",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          71.158447265625,
+          228.1640625
+        ],
+        [
+          132.380859375,
+          228.1640625
+        ],
+        [
+          132.380859375,
+          240.15234375
+        ],
+        [
+          71.158447265625,
+          240.15234375
+        ]
+      ]
+    },
+    {
+      "title": "Interaction Flow",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          70.9716796875,
+          325.810546875
+        ],
+        [
+          143.5869140625,
+          325.810546875
+        ],
+        [
+          143.5869140625,
+          337.66339111328125
+        ],
+        [
+          70.9716796875,
+          337.66339111328125
+        ]
+      ]
+    },
+    {
+      "title": "HDT SYSTEM PERFORMANCE ANALYSIS SET UP",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          71.12109375,
+          478.7578125
+        ],
+        [
+          311.080078125,
+          478.7578125
+        ],
+        [
+          311.080078125,
+          490.66888427734375
+        ],
+        [
+          71.12109375,
+          490.66888427734375
+        ]
+      ]
+    },
+    {
+      "title": "HDT Physical Embodiment Setup",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          71.2705078125,
+          594.7734375
+        ],
+        [
+          217.845703125,
+          594.7734375
+        ],
+        [
+          217.845703125,
+          606.1351776123047
+        ],
+        [
+          71.2705078125,
+          606.1351776123047
+        ]
+      ]
+    },
+    {
+      "title": "Assessment Procedure",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          71.71875,
+          330.64453125
+        ],
+        [
+          169.13671875,
+          330.64453125
+        ],
+        [
+          169.13671875,
+          341.859375
+        ],
+        [
+          71.71875,
+          341.859375
+        ]
+      ]
+    },
+    {
+      "title": "RESULTS",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          71.34521484375,
+          389.619140625
+        ],
+        [
+          119.15771484375,
+          389.619140625
+        ],
+        [
+          119.15771484375,
+          401.04937744140625
+        ],
+        [
+          71.34521484375,
+          401.04937744140625
+        ]
+      ]
+    },
+    {
+      "title": "Table 1. Summary of HDT System Task Performance",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          191.52000427246094,
+          684.10546875
+        ],
+        [
+          421.646484375,
+          684.10546875
+        ],
+        [
+          421.646484375,
+          695.0004653930664
+        ],
+        [
+          191.52000427246094,
+          695.0004653930664
+        ]
+      ]
+    },
+    {
+      "title": "Phase 1: Pre-assembly and Initial Checks",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          71.2705078125,
+          71.88134765625
+        ],
+        [
+          250.2685546875,
+          71.88134765625
+        ],
+        [
+          250.2685546875,
+          83.72052001953125
+        ],
+        [
+          71.2705078125,
+          83.72052001953125
+        ]
+      ]
+    },
+    {
+      "title": "Scenario 1.1: Pre-check",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          71.19580078125,
+          89.71875
+        ],
+        [
+          170.033203125,
+          89.71875
+        ],
+        [
+          170.033203125,
+          101.17901611328125
+        ],
+        [
+          71.19580078125,
+          101.17901611328125
+        ]
+      ]
+    },
+    {
+      "title": "Scenario 1.2: Identification",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          71.49462890625,
+          365.8359375
+        ],
+        [
+          182.8828125,
+          365.8359375
+        ],
+        [
+          182.8828125,
+          377.5390319824219
+        ],
+        [
+          71.49462890625,
+          377.5390319824219
+        ]
+      ]
+    },
+    {
+      "title": "Phase 2: Instructional Guidance",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          71.419921875,
+          464.0625
+        ],
+        [
+          211.7197265625,
+          464.0625
+        ],
+        [
+          211.7197265625,
+          475.6640625
+        ],
+        [
+          71.419921875,
+          475.6640625
+        ]
+      ]
+    },
+    {
+      "title": "Phase 3: Recommendations/Solutions",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          71.5693359375,
+          585.10546875
+        ],
+        [
+          232.787109375,
+          585.10546875
+        ],
+        [
+          232.787109375,
+          596.6004638671875
+        ],
+        [
+          71.5693359375,
+          596.6004638671875
+        ]
+      ]
+    },
+    {
+      "title": "Phase 4: Emotional Support",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          71.19580078125,
+          72.17138671875
+        ],
+        [
+          193.640625,
+          72.17138671875
+        ],
+        [
+          193.640625,
+          83.72052001953125
+        ],
+        [
+          71.19580078125,
+          83.72052001953125
+        ]
+      ]
+    },
+    {
+      "title": "Phase 5: Assembly Verification",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          71.457275390625,
+          216.369140625
+        ],
+        [
+          206.7890625,
+          216.369140625
+        ],
+        [
+          206.7890625,
+          227.72052001953125
+        ],
+        [
+          71.457275390625,
+          227.72052001953125
+        ]
+      ]
+    },
+    {
+      "title": "Performance Dynamics of Interaction Modules",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          71.34521484375,
+          400.640625
+        ],
+        [
+          274.025390625,
+          400.640625
+        ],
+        [
+          274.025390625,
+          412.2421875
+        ],
+        [
+          71.34521484375,
+          412.2421875
+        ]
+      ]
+    },
+    {
+      "title": "DISCUSSION",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          71.71875,
+          556.48828125
+        ],
+        [
+          135.37551879882812,
+          556.48828125
+        ],
+        [
+          135.37551879882812,
+          567.7747650146484
+        ],
+        [
+          71.71875,
+          567.7747650146484
+        ]
+      ]
+    },
+    {
+      "title": "CONCLUSION & FUTURE WORK",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          71.04638671875,
+          378.984375
+        ],
+        [
+          230.396484375,
+          378.984375
+        ],
+        [
+          230.396484375,
+          389.8125
+        ],
+        [
+          71.04638671875,
+          389.8125
+        ]
+      ]
+    },
+    {
+      "title": "ACKNOWLEDGMENTS",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          71.19580078125,
+          667.08984375
+        ],
+        [
+          184.376953125,
+          667.08984375
+        ],
+        [
+          184.376953125,
+          677.91796875
+        ],
+        [
+          71.19580078125,
+          677.91796875
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          70.822265625,
+          73.760498046875
+        ],
+        [
+          139.7021484375,
+          73.760498046875
+        ],
+        [
+          139.7021484375,
+          83.72052001953125
+        ],
+        [
+          70.822265625,
+          83.72052001953125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          127
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          45
+        ],
+        [
+          "Line",
+          17
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          185
+        ],
+        [
+          "Line",
+          54
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          184
+        ],
+        [
+          "Line",
+          55
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          137
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          199
+        ],
+        [
+          "Line",
+          51
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          126
+        ],
+        [
+          "Line",
+          36
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Figure",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          199
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "TableCell",
+          35
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          233
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "TableCell",
+          33
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          179
+        ],
+        [
+          "Line",
+          55
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          159
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          198
+        ],
+        [
+          "Line",
+          57
+        ],
+        [
+          "ListItem",
+          25
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2504.03147_A_Human_Digital_Twin_Architecture_for_Knowledge-based_Interactions_and_Context-Aware_Conversations"
+}

@@ -1,0 +1,881 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Design Frameworks for Hyper-Connected Social\nXRI Immersive Metaverse Environments",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          66.041015625,
+          53.09869384765625
+        ],
+        [
+          544.5302124023438,
+          53.09869384765625
+        ],
+        [
+          544.5302124023438,
+          104.90399169921875
+        ],
+        [
+          66.041015625,
+          104.90399169921875
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          135.61996459960938,
+          502.8645935058594
+        ],
+        [
+          213.9609375,
+          502.8645935058594
+        ],
+        [
+          213.9609375,
+          512.8272094726562
+        ],
+        [
+          135.61996459960938,
+          512.8272094726562
+        ]
+      ]
+    },
+    {
+      "title": "II. TOWARD A SOCIAL XRI METAVERSE",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          85.46484375,
+          666.4384613037109
+        ],
+        [
+          260.8890686035156,
+          666.4384613037109
+        ],
+        [
+          260.8890686035156,
+          676.4010620117188
+        ],
+        [
+          85.46484375,
+          676.4010620117188
+        ]
+      ]
+    },
+    {
+      "title": "A. Related Work",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          47.73779296875,
+          110.47998046875
+        ],
+        [
+          117.66357421875,
+          110.47998046875
+        ],
+        [
+          117.66357421875,
+          120.7529296875
+        ],
+        [
+          47.73779296875,
+          120.7529296875
+        ]
+      ]
+    },
+    {
+      "title": "B. Defining Characteristics of Social XRI Metaverse Environ-\nments",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          48.33544921875,
+          583.0328979492188
+        ],
+        [
+          300.0215148925781,
+          583.0328979492188
+        ],
+        [
+          300.0215148925781,
+          604.9505004882812
+        ],
+        [
+          48.33544921875,
+          604.9505004882812
+        ]
+      ]
+    },
+    {
+      "title": "III. DESIGN CONSIDERATIONS FOR AN XRI METAVERSE\nEXPERIENCE",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          316.6520080566406,
+          497.3263854980469
+        ],
+        [
+          560.00390625,
+          497.3263854980469
+        ],
+        [
+          560.00390625,
+          519.36328125
+        ],
+        [
+          316.6520080566406,
+          519.36328125
+        ]
+      ]
+    },
+    {
+      "title": "A. Virtual Embodiment",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          48.5595703125,
+          517.808837890625
+        ],
+        [
+          144.1845703125,
+          517.808837890625
+        ],
+        [
+          144.1845703125,
+          528.2578125
+        ],
+        [
+          48.5595703125,
+          528.2578125
+        ]
+      ]
+    },
+    {
+      "title": "B. XRI Interaction",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          47.8125,
+          681.8418350219727
+        ],
+        [
+          125.6260986328125,
+          681.8418350219727
+        ],
+        [
+          125.6260986328125,
+          691.8044357299805
+        ],
+        [
+          47.8125,
+          691.8044357299805
+        ]
+      ]
+    },
+    {
+      "title": "C. Agency Design Method",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          48.111328125,
+          569.7549438476562
+        ],
+        [
+          158.080078125,
+          569.7549438476562
+        ],
+        [
+          158.080078125,
+          579.7175445556641
+        ],
+        [
+          48.111328125,
+          579.7175445556641
+        ]
+      ]
+    },
+    {
+      "title": "IV. A DESIGN ARCHITECTURE FOR SOCIAL MULTI-USER\nXRI METAVERSE ENVIRONMENTS",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          314.3671875,
+          467.2484130859375
+        ],
+        [
+          560.00390625,
+          467.2484130859375
+        ],
+        [
+          560.00390625,
+          489.166015625
+        ],
+        [
+          314.3671875,
+          489.166015625
+        ]
+      ]
+    },
+    {
+      "title": "V. SOCIAL INTERACTION SCENARIOS IN XRI MULTI-USER\nMETAVERSE",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          47.9619140625,
+          510.4914245605469
+        ],
+        [
+          299.7820739746094,
+          510.4914245605469
+        ],
+        [
+          299.7820739746094,
+          532.4090270996094
+        ],
+        [
+          47.9619140625,
+          532.4090270996094
+        ]
+      ]
+    },
+    {
+      "title": "A. Social XRI Multi-user Metaverse Hybrid Interactions in\nLocal Environments",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          47.8125,
+          539.2479553222656
+        ],
+        [
+          300.0215759277344,
+          539.2479553222656
+        ],
+        [
+          300.0215759277344,
+          561.1655578613281
+        ],
+        [
+          47.8125,
+          561.1655578613281
+        ]
+      ]
+    },
+    {
+      "title": "B. Social XRI Multi-user Metaverse Hybrid Interactions\nacross Local and Remote Environments",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          308.689453125,
+          182.0478515625
+        ],
+        [
+          563.0355834960938,
+          182.0478515625
+        ],
+        [
+          563.0355834960938,
+          204.1875
+        ],
+        [
+          308.689453125,
+          204.1875
+        ]
+      ]
+    },
+    {
+      "title": "C. Social XRI Multi-user Metaverse Use-Case Scenarios\nacross Local and Remote Environments",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          48.03662109375,
+          595.0940704345703
+        ],
+        [
+          300.62109375,
+          595.0940704345703
+        ],
+        [
+          300.62109375,
+          617.0116729736328
+        ],
+        [
+          48.03662109375,
+          617.0116729736328
+        ]
+      ]
+    },
+    {
+      "title": "D. Building the Social-XRI Metaverse: Technologies and Im-\nplementation Considerations",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          48.03662109375,
+          349.3481750488281
+        ],
+        [
+          300.322265625,
+          349.3481750488281
+        ],
+        [
+          300.322265625,
+          371.2657470703125
+        ],
+        [
+          48.03662109375,
+          371.2657470703125
+        ]
+      ]
+    },
+    {
+      "title": "VI. DISCUSSION",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          400.130859375,
+          132.7115478515625
+        ],
+        [
+          473.6546325683594,
+          132.7115478515625
+        ],
+        [
+          473.6546325683594,
+          142.67413330078125
+        ],
+        [
+          400.130859375,
+          142.67413330078125
+        ]
+      ]
+    },
+    {
+      "title": "VII. SUMMARY",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          140.37451171875,
+          169.0875244140625
+        ],
+        [
+          208.51382446289062,
+          169.0875244140625
+        ],
+        [
+          208.51382446289062,
+          179.05010986328125
+        ],
+        [
+          140.37451171875,
+          179.05010986328125
+        ]
+      ]
+    },
+    {
+      "title": "ACKNOWLEDGMENT",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          129.2431640625,
+          531.8724060058594
+        ],
+        [
+          217.9445343017578,
+          531.8724060058594
+        ],
+        [
+          217.9445343017578,
+          541.8350067138672
+        ],
+        [
+          129.2431640625,
+          541.8350067138672
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          146.126953125,
+          583.42041015625
+        ],
+        [
+          202.60546875,
+          583.42041015625
+        ],
+        [
+          202.60546875,
+          593.3830108642578
+        ],
+        [
+          146.126953125,
+          593.3830108642578
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          15
+        ],
+        [
+          "Line",
+          8
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          198
+        ],
+        [
+          "Line",
+          93
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          108
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          310
+        ],
+        [
+          "Line",
+          107
+        ],
+        [
+          "ListItem",
+          13
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          645
+        ],
+        [
+          "TableCell",
+          224
+        ],
+        [
+          "Line",
+          87
+        ],
+        [
+          "Text",
+          15
+        ],
+        [
+          "Reference",
+          11
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          145
+        ],
+        [
+          "Line",
+          51
+        ],
+        [
+          "Reference",
+          6
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Footnote",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          57
+        ],
+        [
+          "Line",
+          22
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          216
+        ],
+        [
+          "Line",
+          95
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "Reference",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Footnote",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          72
+        ],
+        [
+          "Line",
+          32
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          258
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "Reference",
+          8
+        ],
+        [
+          "Footnote",
+          6
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListItem",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          271
+        ],
+        [
+          "Line",
+          102
+        ],
+        [
+          "Reference",
+          16
+        ],
+        [
+          "ListItem",
+          15
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2306.06230_"
+}

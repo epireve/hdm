@@ -1,0 +1,1717 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Temporal Fact Reasoning over Hyper-Relational Knowledge Graphs",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          87.91139221191406,
+          70.2755126953125
+        ],
+        [
+          507.53125,
+          70.2755126953125
+        ],
+        [
+          507.53125,
+          84.6224365234375
+        ],
+        [
+          87.91139221191406,
+          84.6224365234375
+        ]
+      ]
+    },
+    {
+      "title": "Abstract",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          157.5849609375,
+          222.16241455078125
+        ],
+        [
+          204.7294921875,
+          222.16241455078125
+        ],
+        [
+          204.7294921875,
+          234.1181640625
+        ],
+        [
+          157.5849609375,
+          234.1181640625
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          69.91650390625,
+          567.6136474609375
+        ],
+        [
+          153.947265625,
+          567.6136474609375
+        ],
+        [
+          153.947265625,
+          579.5694580078125
+        ],
+        [
+          69.91650390625,
+          579.5694580078125
+        ]
+      ]
+    },
+    {
+      "title": "2 Preliminaries and Related Work",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          304.40234375,
+          380.708984375
+        ],
+        [
+          490.0703125,
+          380.708984375
+        ],
+        [
+          490.0703125,
+          392.8150939941406
+        ],
+        [
+          304.40234375,
+          392.8150939941406
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Definition and Problem Statement",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          305.857421875,
+          401.47119140625
+        ],
+        [
+          490.361328125,
+          401.47119140625
+        ],
+        [
+          490.361328125,
+          412.90692138671875
+        ],
+        [
+          305.857421875,
+          412.90692138671875
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Related Work",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          70.06201171875,
+          73.3358154296875
+        ],
+        [
+          160.3374481201172,
+          73.3358154296875
+        ],
+        [
+          160.3374481201172,
+          84.7745361328125
+        ],
+        [
+          70.06201171875,
+          84.7745361328125
+        ]
+      ]
+    },
+    {
+      "title": "3 Proposing New Benchmarks",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          305.857421875,
+          545.162109375
+        ],
+        [
+          469.408203125,
+          545.162109375
+        ],
+        [
+          469.408203125,
+          557.5433654785156
+        ],
+        [
+          305.857421875,
+          557.5433654785156
+        ]
+      ]
+    },
+    {
+      "title": "4 HypeTKG",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          70.2802734375,
+          700.9814453125
+        ],
+        [
+          142.888671875,
+          700.9814453125
+        ],
+        [
+          142.888671875,
+          713.4661102294922
+        ],
+        [
+          70.2802734375,
+          713.4661102294922
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Qualifier-Attentional Time-Aware Graph\nEncoder",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          305.56640625,
+          237.634765625
+        ],
+        [
+          523.828125,
+          237.634765625
+        ],
+        [
+          523.828125,
+          262.19537353515625
+        ],
+        [
+          305.56640625,
+          262.19537353515625
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Qualifier Matching Decoder",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          69.84375,
+          583.80859375
+        ],
+        [
+          227.4287109375,
+          583.80859375
+        ],
+        [
+          227.4287109375,
+          595.0279998779297
+        ],
+        [
+          69.84375,
+          595.0279998779297
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Time-Invariant Knowledge Modeling",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          70.42578125,
+          73.8648681640625
+        ],
+        [
+          269.189453125,
+          73.8648681640625
+        ],
+        [
+          269.189453125,
+          84.7745361328125
+        ],
+        [
+          70.42578125,
+          84.7745361328125
+        ]
+      ]
+    },
+    {
+      "title": "4.4 Parameter Learning",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          70.171142578125,
+          491.82977294921875
+        ],
+        [
+          191.3427734375,
+          491.82977294921875
+        ],
+        [
+          191.3427734375,
+          502.8154296875
+        ],
+        [
+          70.171142578125,
+          502.8154296875
+        ]
+      ]
+    },
+    {
+      "title": "5 Experiments",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          70.389404296875,
+          702.7003784179688
+        ],
+        [
+          154.23828125,
+          702.7003784179688
+        ],
+        [
+          154.23828125,
+          714.6561813354492
+        ],
+        [
+          70.389404296875,
+          714.6561813354492
+        ]
+      ]
+    },
+    {
+      "title": "5.1 Experimental Setting",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          305.56640625,
+          193.1798095703125
+        ],
+        [
+          429.7833251953125,
+          193.1798095703125
+        ],
+        [
+          429.7833251953125,
+          204.0894775390625
+        ],
+        [
+          305.56640625,
+          204.0894775390625
+        ]
+      ]
+    },
+    {
+      "title": "5.2 Comparative Study",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          306.1443176269531,
+          561.5122375488281
+        ],
+        [
+          421.6883850097656,
+          561.5122375488281
+        ],
+        [
+          421.6883850097656,
+          572.4219055175781
+        ],
+        [
+          306.1443176269531,
+          572.4219055175781
+        ]
+      ]
+    },
+    {
+      "title": "5.3 Do TI Relational Knowledge Help HTKG\nReasoning?",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          70.2802734375,
+          311.2275390625
+        ],
+        [
+          288.962158203125,
+          311.2275390625
+        ],
+        [
+          288.962158203125,
+          336.14007568359375
+        ],
+        [
+          70.2802734375,
+          336.14007568359375
+        ]
+      ]
+    },
+    {
+      "title": "5.4 Further Analysis",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          70.243896484375,
+          732.2275390625
+        ],
+        [
+          174.609375,
+          732.2275390625
+        ],
+        [
+          174.609375,
+          744.0054473876953
+        ],
+        [
+          70.243896484375,
+          744.0054473876953
+        ]
+      ]
+    },
+    {
+      "title": "5.5 Case Studies",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          70.134765625,
+          500.759765625
+        ],
+        [
+          154.5007781982422,
+          500.759765625
+        ],
+        [
+          154.5007781982422,
+          511.6988830566406
+        ],
+        [
+          70.134765625,
+          511.6988830566406
+        ]
+      ]
+    },
+    {
+      "title": "6 Conclusion",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          305.275390625,
+          673.1288909912109
+        ],
+        [
+          381.521484375,
+          673.1288909912109
+        ],
+        [
+          381.521484375,
+          685.0846862792969
+        ],
+        [
+          305.275390625,
+          685.0846862792969
+        ]
+      ]
+    },
+    {
+      "title": "7 Limitations",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          70.098388671875,
+          220.57275390625
+        ],
+        [
+          149.0,
+          220.57275390625
+        ],
+        [
+          149.0,
+          232.8880615234375
+        ],
+        [
+          70.098388671875,
+          232.8880615234375
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgement",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          70.42578125,
+          445.4045104980469
+        ],
+        [
+          165.4423828125,
+          445.4045104980469
+        ],
+        [
+          165.4423828125,
+          457.3603210449219
+        ],
+        [
+          70.42578125,
+          457.3603210449219
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          70.171142578125,
+          723.0923843383789
+        ],
+        [
+          126.4462890625,
+          723.0923843383789
+        ],
+        [
+          126.4462890625,
+          735.0481872558594
+        ],
+        [
+          70.171142578125,
+          735.0481872558594
+        ]
+      ]
+    },
+    {
+      "title": "A Additional HTKG example",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          70.35302734375,
+          139.4842529296875
+        ],
+        [
+          230.287109375,
+          139.4842529296875
+        ],
+        [
+          230.287109375,
+          151.44000244140625
+        ],
+        [
+          70.35302734375,
+          151.44000244140625
+        ]
+      ]
+    },
+    {
+      "title": "B YAGO-hy Construction Details",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          69.84375,
+          368.99169921875
+        ],
+        [
+          249.69140625,
+          368.99169921875
+        ],
+        [
+          249.69140625,
+          381.1395263671875
+        ],
+        [
+          69.84375,
+          381.1395263671875
+        ]
+      ]
+    },
+    {
+      "title": "C Why Not Construct ICEWS-Based\nHTKGs?",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          305.56640625,
+          73.09295654296875
+        ],
+        [
+          505.78515625,
+          73.09295654296875
+        ],
+        [
+          505.78515625,
+          98.99737548828125
+        ],
+        [
+          305.56640625,
+          98.99737548828125
+        ]
+      ]
+    },
+    {
+      "title": "D Complexity Analysis",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          306.1443176269531,
+          621.5103149414062
+        ],
+        [
+          433.03125,
+          621.5103149414062
+        ],
+        [
+          433.03125,
+          633.4661102294922
+        ],
+        [
+          306.1443176269531,
+          633.4661102294922
+        ]
+      ]
+    },
+    {
+      "title": "E Evaluation Metrics Details",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          69.9892578125,
+          180.69287109375
+        ],
+        [
+          227.1376953125,
+          180.69287109375
+        ],
+        [
+          227.1376953125,
+          192.92303466796875
+        ],
+        [
+          69.9892578125,
+          192.92303466796875
+        ]
+      ]
+    },
+    {
+      "title": "F Complex Vector Mapping Details",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          69.91650390625,
+          338.86419677734375
+        ],
+        [
+          259.9374694824219,
+          338.86419677734375
+        ],
+        [
+          259.9374694824219,
+          350.82000732421875
+        ],
+        [
+          69.91650390625,
+          350.82000732421875
+        ]
+      ]
+    },
+    {
+      "title": "G Implementation Details",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          69.9892578125,
+          510.626953125
+        ],
+        [
+          211.99472045898438,
+          510.626953125
+        ],
+        [
+          211.99472045898438,
+          522.8215942382812
+        ],
+        [
+          69.9892578125,
+          522.8215942382812
+        ]
+      ]
+    },
+    {
+      "title": "H Can TI Knowledge Improve Reasoning\nover Traditional TKGs?",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          69.91650390625,
+          270.081787109375
+        ],
+        [
+          289.560546875,
+          270.081787109375
+        ],
+        [
+          289.560546875,
+          295.98529052734375
+        ],
+        [
+          69.91650390625,
+          295.98529052734375
+        ]
+      ]
+    },
+    {
+      "title": "I Impact of Qualifier-Augmented Fact\nProportion.",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          69.9892578125,
+          450.7867736816406
+        ],
+        [
+          274.5732421875,
+          450.7867736816406
+        ],
+        [
+          274.5732421875,
+          476.6902770996094
+        ],
+        [
+          69.9892578125,
+          476.6902770996094
+        ]
+      ]
+    },
+    {
+      "title": "J Case Study Details",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          70.78955078125,
+          309.37744140625
+        ],
+        [
+          186.25,
+          309.37744140625
+        ],
+        [
+          186.25,
+          322.03558349609375
+        ],
+        [
+          70.78955078125,
+          322.03558349609375
+        ]
+      ]
+    },
+    {
+      "title": "K Related Work Details",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          69.952880859375,
+          543.1064453125
+        ],
+        [
+          202.1103515625,
+          543.1064453125
+        ],
+        [
+          202.1103515625,
+          555.4952392578125
+        ],
+        [
+          69.952880859375,
+          555.4952392578125
+        ]
+      ]
+    },
+    {
+      "title": "K.1 Traditional KG & TKG Reasoning",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          70.2802734375,
+          568.5885925292969
+        ],
+        [
+          260.69525146484375,
+          568.5885925292969
+        ],
+        [
+          260.69525146484375,
+          579.4982604980469
+        ],
+        [
+          70.2802734375,
+          579.4982604980469
+        ]
+      ]
+    },
+    {
+      "title": "K.2 Hyper-Relational KG Reasoning",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          69.9892578125,
+          109.97802734375
+        ],
+        [
+          250.7099609375,
+          109.97802734375
+        ],
+        [
+          250.7099609375,
+          121.21038818359375
+        ],
+        [
+          69.9892578125,
+          121.21038818359375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          247
+        ],
+        [
+          "Line",
+          91
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Footnote",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          532
+        ],
+        [
+          "Line",
+          134
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "TextInlineMath",
+          4
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Footnote",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          487
+        ],
+        [
+          "Line",
+          117
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          974
+        ],
+        [
+          "Line",
+          213
+        ],
+        [
+          "TableCell",
+          42
+        ],
+        [
+          "TextInlineMath",
+          5
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          842
+        ],
+        [
+          "Line",
+          188
+        ],
+        [
+          "TextInlineMath",
+          7
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          683
+        ],
+        [
+          "Line",
+          157
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "TextInlineMath",
+          4
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          376
+        ],
+        [
+          "TableCell",
+          358
+        ],
+        [
+          "Line",
+          100
+        ],
+        [
+          "Reference",
+          7
+        ],
+        [
+          "Caption",
+          4
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "TableGroup",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          453
+        ],
+        [
+          "Line",
+          95
+        ],
+        [
+          "TableCell",
+          30
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          229
+        ],
+        [
+          "Line",
+          104
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "Reference",
+          8
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          301
+        ],
+        [
+          "Line",
+          115
+        ],
+        [
+          "ListItem",
+          18
+        ],
+        [
+          "Reference",
+          18
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          298
+        ],
+        [
+          "Line",
+          115
+        ],
+        [
+          "ListItem",
+          16
+        ],
+        [
+          "Reference",
+          16
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          296
+        ],
+        [
+          "Line",
+          115
+        ],
+        [
+          "ListItem",
+          17
+        ],
+        [
+          "Reference",
+          17
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          297
+        ],
+        [
+          "Line",
+          89
+        ],
+        [
+          "TableCell",
+          33
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Reference",
+          6
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          587
+        ],
+        [
+          "Line",
+          176
+        ],
+        [
+          "TableCell",
+          38
+        ],
+        [
+          "Reference",
+          20
+        ],
+        [
+          "Footnote",
+          14
+        ],
+        [
+          "TextInlineMath",
+          4
+        ],
+        [
+          "Table",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          357
+        ],
+        [
+          "Line",
+          97
+        ],
+        [
+          "TableCell",
+          94
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Reference",
+          5
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "TableGroup",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          255
+        ],
+        [
+          "TableCell",
+          140
+        ],
+        [
+          "Line",
+          86
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          643
+        ],
+        [
+          "Line",
+          93
+        ],
+        [
+          "TableCell",
+          35
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          454
+        ],
+        [
+          "Line",
+          117
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          14
+        ],
+        [
+          "Line",
+          8
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/temporal_fact_reasoning_hyper_relational_kg_2024"
+}

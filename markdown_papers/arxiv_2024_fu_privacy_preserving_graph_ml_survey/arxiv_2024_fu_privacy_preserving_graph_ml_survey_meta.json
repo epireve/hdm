@@ -1,0 +1,1737 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Privacy-Preserving Graph Machine Learning\nfrom Data to Computation: A Survey",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          114.6005859375,
+          71.5224609375
+        ],
+        [
+          494.26171875,
+          71.5224609375
+        ],
+        [
+          494.26171875,
+          109.3802490234375
+        ],
+        [
+          114.6005859375,
+          109.3802490234375
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.79792022705078,
+          206.89453125
+        ],
+        [
+          118.70947265625,
+          206.89453125
+        ],
+        [
+          118.70947265625,
+          219.65625
+        ],
+        [
+          53.79792022705078,
+          219.65625
+        ]
+      ]
+    },
+    {
+      "title": "1. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.79792022705078,
+          509.7572326660156
+        ],
+        [
+          170.00247192382812,
+          509.7572326660156
+        ],
+        [
+          170.00247192382812,
+          521.7124328613281
+        ],
+        [
+          53.79792022705078,
+          521.7124328613281
+        ]
+      ]
+    },
+    {
+      "title": "2. PRIVACY-PRESERVING GRAPH DATA",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          316.7578125,
+          392.64715576171875
+        ],
+        [
+          551.5643310546875,
+          392.64715576171875
+        ],
+        [
+          551.5643310546875,
+          406.828125
+        ],
+        [
+          316.7578125,
+          406.828125
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Privacy Attackers on Graphs",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          52.4443359375,
+          54.58514404296875
+        ],
+        [
+          229.5,
+          54.58514404296875
+        ],
+        [
+          229.5,
+          66.54034423828125
+        ],
+        [
+          52.4443359375,
+          66.54034423828125
+        ]
+      ]
+    },
+    {
+      "title": "2.1.1 Category of Attackers",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.41552734375,
+          139.11962890625
+        ],
+        [
+          182.583984375,
+          139.11962890625
+        ],
+        [
+          182.583984375,
+          150.07855224609375
+        ],
+        [
+          53.41552734375,
+          150.07855224609375
+        ]
+      ]
+    },
+    {
+      "title": "2.1.2 Goal of Attackers",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.228759765625,
+          560.0405883789062
+        ],
+        [
+          163.55142211914062,
+          560.0405883789062
+        ],
+        [
+          163.55142211914062,
+          570.9994964599609
+        ],
+        [
+          53.228759765625,
+          570.9994964599609
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Background Knowledge for Passive At-\ntacks",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          316.7578125,
+          381.2141418457031
+        ],
+        [
+          557.61328125,
+          381.2141418457031
+        ],
+        [
+          557.61328125,
+          404.746337890625
+        ],
+        [
+          316.7578125,
+          404.746337890625
+        ]
+      ]
+    },
+    {
+      "title": "2.2.1 Background Knowledge for Node Identity Dis-\nclosure",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          315.5625,
+          458.5736083984375
+        ],
+        [
+          556.41796875,
+          458.5736083984375
+        ],
+        [
+          556.41796875,
+          480.3046875
+        ],
+        [
+          315.5625,
+          480.3046875
+        ]
+      ]
+    },
+    {
+      "title": "2.2.2 Background Knowledge for Link Re-Identification",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.3408203125,
+          634.03857421875
+        ],
+        [
+          301.6669921875,
+          634.03857421875
+        ],
+        [
+          301.6669921875,
+          644.9974822998047
+        ],
+        [
+          53.3408203125,
+          644.9974822998047
+        ]
+      ]
+    },
+    {
+      "title": "2.3 Privacy-Preserving Mechanisms",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          314.96484375,
+          538.5361328125
+        ],
+        [
+          508.1551513671875,
+          538.5361328125
+        ],
+        [
+          508.1551513671875,
+          550.4913330078125
+        ],
+        [
+          314.96484375,
+          550.4913330078125
+        ]
+      ]
+    },
+    {
+      "title": "2.3.1 Protection Mechanism Designed for Node Iden-\ntity Dislosure",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          316.16015625,
+          601.8836059570312
+        ],
+        [
+          555.9134521484375,
+          601.8836059570312
+        ],
+        [
+          555.9134521484375,
+          623.3035125732422
+        ],
+        [
+          316.16015625,
+          623.3035125732422
+        ]
+      ]
+    },
+    {
+      "title": "2.3.2 Protection Mechanism Designed for Link Re-\nIdentification",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          315.861328125,
+          275.28350830078125
+        ],
+        [
+          556.119140625,
+          275.28350830078125
+        ],
+        [
+          556.119140625,
+          296.7033996582031
+        ],
+        [
+          315.861328125,
+          296.7033996582031
+        ]
+      ]
+    },
+    {
+      "title": "2.3.3 General Privacy Protection Mechanisms",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          53.19140625,
+          150.52667236328125
+        ],
+        [
+          265.11846923828125,
+          150.52667236328125
+        ],
+        [
+          265.11846923828125,
+          161.485595703125
+        ],
+        [
+          53.19140625,
+          161.485595703125
+        ]
+      ]
+    },
+    {
+      "title": "2.4 Other Aspects of Graph Anonymization",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          316.8118591308594,
+          528.64453125
+        ],
+        [
+          548.05078125,
+          528.64453125
+        ],
+        [
+          548.05078125,
+          540.7122344970703
+        ],
+        [
+          316.8118591308594,
+          540.7122344970703
+        ]
+      ]
+    },
+    {
+      "title": "2.5 Challenges and Future Opportunities",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          53.490234375,
+          168.1259765625
+        ],
+        [
+          271.93359375,
+          168.1259765625
+        ],
+        [
+          271.93359375,
+          180.39337158203125
+        ],
+        [
+          53.490234375,
+          180.39337158203125
+        ]
+      ]
+    },
+    {
+      "title": "2.5.1 Preserving Privacy for Temporal Graphs",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          53.41552734375,
+          221.74462890625
+        ],
+        [
+          266.5546875,
+          221.74462890625
+        ],
+        [
+          266.5546875,
+          232.70355224609375
+        ],
+        [
+          53.41552734375,
+          232.70355224609375
+        ]
+      ]
+    },
+    {
+      "title": "2.5.2 Preserving Privacy for Heterogeneous Graphs",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          52.892578125,
+          378.984619140625
+        ],
+        [
+          290.53216552734375,
+          378.984619140625
+        ],
+        [
+          290.53216552734375,
+          389.9435119628906
+        ],
+        [
+          52.892578125,
+          389.9435119628906
+        ]
+      ]
+    },
+    {
+      "title": "3. GRAPH DATA PRIVACY-PRESERVING\nCOMPUTATION",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          53.0419921875,
+          640.3391265869141
+        ],
+        [
+          293.2998046875,
+          640.3391265869141
+        ],
+        [
+          293.2998046875,
+          666.703125
+        ],
+        [
+          53.0419921875,
+          666.703125
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Framework and Applications of Federated\nLearning",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          315.5625,
+          262.001953125
+        ],
+        [
+          557.015625,
+          262.001953125
+        ],
+        [
+          557.015625,
+          285.6614074707031
+        ],
+        [
+          315.5625,
+          285.6614074707031
+        ]
+      ]
+    },
+    {
+      "title": "3.1.1 Federated Learning Framework",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          316.7578125,
+          368.4116516113281
+        ],
+        [
+          489.6119689941406,
+          368.4116516113281
+        ],
+        [
+          489.6119689941406,
+          379.564453125
+        ],
+        [
+          316.7578125,
+          379.564453125
+        ]
+      ]
+    },
+    {
+      "title": "3.1.2 Application of Graph Federated Learning",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          53.11669921875,
+          601.734375
+        ],
+        [
+          270.140625,
+          601.734375
+        ],
+        [
+          270.140625,
+          613.6884765625
+        ],
+        [
+          53.11669921875,
+          613.6884765625
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Graph-level FL",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          316.458984375,
+          347.466796875
+        ],
+        [
+          422.78289794921875,
+          347.466796875
+        ],
+        [
+          422.78289794921875,
+          360.7693786621094
+        ],
+        [
+          316.458984375,
+          360.7693786621094
+        ]
+      ]
+    },
+    {
+      "title": "3.2.1 Global Federated Learning",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          316.458984375,
+          675.59765625
+        ],
+        [
+          470.056640625,
+          675.59765625
+        ],
+        [
+          470.056640625,
+          687.19921875
+        ],
+        [
+          316.458984375,
+          687.19921875
+        ]
+      ]
+    },
+    {
+      "title": "3.2.2 Personalized Federated Learning",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          316.7578125,
+          215.015625
+        ],
+        [
+          495.6502990722656,
+          215.015625
+        ],
+        [
+          495.6502990722656,
+          226.21746826171875
+        ],
+        [
+          316.7578125,
+          226.21746826171875
+        ]
+      ]
+    },
+    {
+      "title": "3.3 Subgraph-level FL",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          53.602294921875,
+          379.7578125
+        ],
+        [
+          177.6533203125,
+          379.7578125
+        ],
+        [
+          177.6533203125,
+          391.9453430175781
+        ],
+        [
+          53.602294921875,
+          391.9453430175781
+        ]
+      ]
+    },
+    {
+      "title": "3.3.1 Cross-client Propagation",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          315.5625,
+          117.755859375
+        ],
+        [
+          460.3188171386719,
+          117.755859375
+        ],
+        [
+          460.3188171386719,
+          128.970703125
+        ],
+        [
+          315.5625,
+          128.970703125
+        ]
+      ]
+    },
+    {
+      "title": "3.3.2 Missing Neighbors",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          316.458984375,
+          432.3515625
+        ],
+        [
+          432.69140625,
+          432.3515625
+        ],
+        [
+          432.69140625,
+          444.0675354003906
+        ],
+        [
+          316.458984375,
+          444.0675354003906
+        ]
+      ]
+    },
+    {
+      "title": "3.4 Node-level FL",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          316.16015625,
+          695.3203125
+        ],
+        [
+          416.56640625,
+          695.3203125
+        ],
+        [
+          416.56640625,
+          708.0853652954102
+        ],
+        [
+          316.16015625,
+          708.0853652954102
+        ]
+      ]
+    },
+    {
+      "title": "3.4.1 Graph as Communication Network",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          53.7890625,
+          612.3445739746094
+        ],
+        [
+          240.7060546875,
+          612.3445739746094
+        ],
+        [
+          240.7060546875,
+          623.3034820556641
+        ],
+        [
+          53.7890625,
+          623.3034820556641
+        ]
+      ]
+    },
+    {
+      "title": "3.4.2 Graph as Distribution Similarities",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          315.5625,
+          372.9165344238281
+        ],
+        [
+          500.23828125,
+          372.9165344238281
+        ],
+        [
+          500.23828125,
+          383.87542724609375
+        ],
+        [
+          315.5625,
+          383.87542724609375
+        ]
+      ]
+    },
+    {
+      "title": "3.5 Challenges and Future Opportunities",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          316.458984375,
+          623.8750457763672
+        ],
+        [
+          534.4683837890625,
+          623.8750457763672
+        ],
+        [
+          534.4683837890625,
+          635.8302459716797
+        ],
+        [
+          316.458984375,
+          635.8302459716797
+        ]
+      ]
+    },
+    {
+      "title": "3.5.1 Model Heterogeneity for Graph-Level FL",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          315.5625,
+          665.4205169677734
+        ],
+        [
+          531.31640625,
+          665.4205169677734
+        ],
+        [
+          531.31640625,
+          676.3794174194336
+        ],
+        [
+          315.5625,
+          676.3794174194336
+        ]
+      ]
+    },
+    {
+      "title": "3.5.2 Avoiding Cross-Client Transmission for Sub-\ngraph-Level FL",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          52.96728515625,
+          148.19866943359375
+        ],
+        [
+          292.8992919921875,
+          148.19866943359375
+        ],
+        [
+          292.8992919921875,
+          169.61859130859375
+        ],
+        [
+          52.96728515625,
+          169.61859130859375
+        ]
+      ]
+    },
+    {
+      "title": "4. ENVISIONING",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          53.19140625,
+          289.458984375
+        ],
+        [
+          157.0341796875,
+          289.458984375
+        ],
+        [
+          157.0341796875,
+          301.7984619140625
+        ],
+        [
+          53.19140625,
+          301.7984619140625
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Limitation of Current Techniques",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          52.59375,
+          373.8662414550781
+        ],
+        [
+          253.06729125976562,
+          373.8662414550781
+        ],
+        [
+          253.06729125976562,
+          385.8214416503906
+        ],
+        [
+          52.59375,
+          385.8214416503906
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Combination of Privacy-Preserving Graph\nData Generation and Computation",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          315.5625,
+          98.20025634765625
+        ],
+        [
+          557.7212524414062,
+          98.20025634765625
+        ],
+        [
+          557.7212524414062,
+          121.73248291015625
+        ],
+        [
+          315.5625,
+          121.73248291015625
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Future Directions",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          315.263671875,
+          654.2861480712891
+        ],
+        [
+          434.794921875,
+          654.2861480712891
+        ],
+        [
+          434.794921875,
+          666.31640625
+        ],
+        [
+          315.263671875,
+          666.31640625
+        ]
+      ]
+    },
+    {
+      "title": "4.3.1 Distribution of Privacy Budget",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          52.7431640625,
+          55.2041015625
+        ],
+        [
+          222.328125,
+          55.2041015625
+        ],
+        [
+          222.328125,
+          66.515625
+        ],
+        [
+          52.7431640625,
+          66.515625
+        ]
+      ]
+    },
+    {
+      "title": "4.3.2 Parameter Information Disentanglement",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          53.11669921875,
+          275.45269775390625
+        ],
+        [
+          264.6143493652344,
+          275.45269775390625
+        ],
+        [
+          264.6143493652344,
+          286.55859375
+        ],
+        [
+          53.11669921875,
+          286.55859375
+        ]
+      ]
+    },
+    {
+      "title": "5. CONCLUSION",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          53.3408203125,
+          459.3021545410156
+        ],
+        [
+          155.98828125,
+          459.3021545410156
+        ],
+        [
+          155.98828125,
+          471.2573547363281
+        ],
+        [
+          53.3408203125,
+          471.2573547363281
+        ]
+      ]
+    },
+    {
+      "title": "6. ACKNOWLEDGEMENTS",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          53.11669921875,
+          633.3651428222656
+        ],
+        [
+          214.55859375,
+          633.3651428222656
+        ],
+        [
+          214.55859375,
+          645.43359375
+        ],
+        [
+          53.11669921875,
+          645.43359375
+        ]
+      ]
+    },
+    {
+      "title": "7. REFERENCES",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          316.16015625,
+          89.6632080078125
+        ],
+        [
+          418.95703125,
+          89.6632080078125
+        ],
+        [
+          418.95703125,
+          101.618408203125
+        ],
+        [
+          316.16015625,
+          101.618408203125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          224
+        ],
+        [
+          "Line",
+          105
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Footnote",
+          3
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          183
+        ],
+        [
+          "Line",
+          79
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Figure",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "FigureGroup",
+          3
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          371
+        ],
+        [
+          "Line",
+          125
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          645
+        ],
+        [
+          "Line",
+          150
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "TextInlineMath",
+          5
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          699
+        ],
+        [
+          "Line",
+          179
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "TextInlineMath",
+          4
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          682
+        ],
+        [
+          "Line",
+          162
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          335
+        ],
+        [
+          "Line",
+          130
+        ],
+        [
+          "TableCell",
+          15
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          266
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          456
+        ],
+        [
+          "Line",
+          130
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          228
+        ],
+        [
+          "Line",
+          97
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          249
+        ],
+        [
+          "Line",
+          122
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Reference",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          252
+        ],
+        [
+          "Line",
+          100
+        ],
+        [
+          "TableCell",
+          60
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          224
+        ],
+        [
+          "Line",
+          96
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          250
+        ],
+        [
+          "Line",
+          114
+        ],
+        [
+          "ListItem",
+          10
+        ],
+        [
+          "Reference",
+          10
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          309
+        ],
+        [
+          "Line",
+          116
+        ],
+        [
+          "ListItem",
+          20
+        ],
+        [
+          "Reference",
+          20
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          305
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "ListItem",
+          21
+        ],
+        [
+          "Reference",
+          21
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          321
+        ],
+        [
+          "Line",
+          113
+        ],
+        [
+          "ListItem",
+          22
+        ],
+        [
+          "Reference",
+          22
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          293
+        ],
+        [
+          "Line",
+          114
+        ],
+        [
+          "ListItem",
+          19
+        ],
+        [
+          "Reference",
+          19
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          318
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "ListItem",
+          25
+        ],
+        [
+          "Reference",
+          25
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2024_fu_privacy_preserving_graph_ml_survey"
+}

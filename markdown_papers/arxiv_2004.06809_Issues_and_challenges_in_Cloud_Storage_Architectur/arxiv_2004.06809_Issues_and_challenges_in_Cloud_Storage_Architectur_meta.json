@@ -1,0 +1,1450 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Issues and challenges in Cloud Storage\nArchitecture: A Survey",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          48.234375,
+          116.8956298828125
+        ],
+        [
+          391.5,
+          116.8956298828125
+        ],
+        [
+          391.5,
+          162.9656982421875
+        ],
+        [
+          48.234375,
+          162.9656982421875
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          47.91796875,
+          275.65576171875
+        ],
+        [
+          104.765625,
+          275.65576171875
+        ],
+        [
+          104.765625,
+          286.6662902832031
+        ],
+        [
+          47.91796875,
+          286.6662902832031
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          36.703125,
+          555.51708984375
+        ],
+        [
+          115.19168090820312,
+          555.51708984375
+        ],
+        [
+          115.19168090820312,
+          565.4018707275391
+        ],
+        [
+          36.703125,
+          565.4018707275391
+        ]
+      ]
+    },
+    {
+      "title": "II. CLOUD STORAGE CHALLENGES AND POSSIBLE SOLUTIONS",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          35.7890625,
+          517.28466796875
+        ],
+        [
+          315.84173583984375,
+          517.28466796875
+        ],
+        [
+          315.84173583984375,
+          527.98974609375
+        ],
+        [
+          35.7890625,
+          527.98974609375
+        ]
+      ]
+    },
+    {
+      "title": "A. DATA SECURITY ISSUES",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          35.89453125,
+          635.04052734375
+        ],
+        [
+          158.765625,
+          635.04052734375
+        ],
+        [
+          158.765625,
+          646.51025390625
+        ],
+        [
+          35.89453125,
+          646.51025390625
+        ]
+      ]
+    },
+    {
+      "title": "TABLE 1. Basic approaches used in designing data security techniques",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          35.4375,
+          59.3558349609375
+        ],
+        [
+          259.3125,
+          59.3558349609375
+        ],
+        [
+          259.3125,
+          68.7906494140625
+        ],
+        [
+          35.4375,
+          68.7906494140625
+        ]
+      ]
+    },
+    {
+      "title": "1) Confidentiality Issues",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          36.0,
+          200.72021484375
+        ],
+        [
+          134.15625,
+          200.72021484375
+        ],
+        [
+          134.15625,
+          211.11370849609375
+        ],
+        [
+          36.0,
+          211.11370849609375
+        ]
+      ]
+    },
+    {
+      "title": "2) Integrity Issues",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          35.54296875,
+          672.1259765625
+        ],
+        [
+          110.53125,
+          672.1259765625
+        ],
+        [
+          110.53125,
+          682.06640625
+        ],
+        [
+          35.54296875,
+          682.06640625
+        ]
+      ]
+    },
+    {
+      "title": "3) Data Access Issues",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          35.71875,
+          248.89306640625
+        ],
+        [
+          127.35828399658203,
+          248.89306640625
+        ],
+        [
+          127.35828399658203,
+          259.5428466796875
+        ],
+        [
+          35.71875,
+          259.5428466796875
+        ]
+      ]
+    },
+    {
+      "title": "4) Authentication and Authorization Issues",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          35.71875,
+          613.63037109375
+        ],
+        [
+          206.296875,
+          613.63037109375
+        ],
+        [
+          206.296875,
+          624.1756286621094
+        ],
+        [
+          35.71875,
+          624.1756286621094
+        ]
+      ]
+    },
+    {
+      "title": "5) Data Breaches",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          35.9296875,
+          153.4075927734375
+        ],
+        [
+          108.2109375,
+          153.4075927734375
+        ],
+        [
+          108.2109375,
+          164.89776611328125
+        ],
+        [
+          35.9296875,
+          164.89776611328125
+        ]
+      ]
+    },
+    {
+      "title": "B. DATA MANAGEMENT ISSUES",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          36.3515625,
+          317.71142578125
+        ],
+        [
+          178.3125,
+          317.71142578125
+        ],
+        [
+          178.3125,
+          329.5634765625
+        ],
+        [
+          36.3515625,
+          329.5634765625
+        ]
+      ]
+    },
+    {
+      "title": "1) Data Dynamics Issues",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          35.89453125,
+          387.103271484375
+        ],
+        [
+          139.640625,
+          387.103271484375
+        ],
+        [
+          139.640625,
+          398.3818359375
+        ],
+        [
+          35.89453125,
+          398.3818359375
+        ]
+      ]
+    },
+    {
+      "title": "2) Data Segregation Issues",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          35.7890625,
+          671.361328125
+        ],
+        [
+          147.65625,
+          671.361328125
+        ],
+        [
+          147.65625,
+          682.06640625
+        ],
+        [
+          35.7890625,
+          682.06640625
+        ]
+      ]
+    },
+    {
+      "title": "3) Virtualization Issues and Vulnerability",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          35.7890625,
+          371.427978515625
+        ],
+        [
+          198.28125,
+          371.427978515625
+        ],
+        [
+          198.28125,
+          381.83770751953125
+        ],
+        [
+          35.7890625,
+          381.83770751953125
+        ]
+      ]
+    },
+    {
+      "title": "4) Backup Issues",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          35.40234375,
+          586.10302734375
+        ],
+        [
+          108.28125,
+          586.10302734375
+        ],
+        [
+          108.28125,
+          596.0746002197266
+        ],
+        [
+          35.40234375,
+          596.0746002197266
+        ]
+      ]
+    },
+    {
+      "title": "5) Availability",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          35.7890625,
+          61.21966552734375
+        ],
+        [
+          91.6875,
+          61.21966552734375
+        ],
+        [
+          91.6875,
+          71.35125732421875
+        ],
+        [
+          35.7890625,
+          71.35125732421875
+        ]
+      ]
+    },
+    {
+      "title": "6) Data Locality",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          36.03515625,
+          272.406005859375
+        ],
+        [
+          100.828125,
+          272.406005859375
+        ],
+        [
+          100.828125,
+          281.964111328125
+        ],
+        [
+          36.03515625,
+          281.964111328125
+        ]
+      ]
+    },
+    {
+      "title": "III. CLOUD STORAGE FUTURE AND OPPORTUNITIES",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          36.421875,
+          402.205078125
+        ],
+        [
+          265.8360900878906,
+          402.205078125
+        ],
+        [
+          265.8360900878906,
+          412.6421203613281
+        ],
+        [
+          36.421875,
+          412.6421203613281
+        ]
+      ]
+    },
+    {
+      "title": "A. REMOTE ACCESSIBILITY",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          36.0,
+          623.953125
+        ],
+        [
+          159.46875,
+          623.953125
+        ],
+        [
+          159.46875,
+          634.1450500488281
+        ],
+        [
+          36.0,
+          634.1450500488281
+        ]
+      ]
+    },
+    {
+      "title": "B. 5G CONNECTIVITY",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          36.66796875,
+          532.9599609375
+        ],
+        [
+          133.03125,
+          532.9599609375
+        ],
+        [
+          133.03125,
+          544.4296875
+        ],
+        [
+          36.66796875,
+          544.4296875
+        ]
+      ]
+    },
+    {
+      "title": "C. INTERNET OF THINGS (IOT)",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          36.703125,
+          629.3056640625
+        ],
+        [
+          171.140625,
+          629.3056640625
+        ],
+        [
+          171.140625,
+          640.775390625
+        ],
+        [
+          36.703125,
+          640.775390625
+        ]
+      ]
+    },
+    {
+      "title": "D. ARTIFICIAL INTELLIGENCE (AI)",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          36.3515625,
+          60.216064453125
+        ],
+        [
+          188.15625,
+          60.216064453125
+        ],
+        [
+          188.15625,
+          71.3990478515625
+        ],
+        [
+          36.3515625,
+          71.3990478515625
+        ]
+      ]
+    },
+    {
+      "title": "E. USABILITY",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          35.982421875,
+          153.4075927734375
+        ],
+        [
+          98.296875,
+          153.4075927734375
+        ],
+        [
+          98.296875,
+          164.70611572265625
+        ],
+        [
+          35.982421875,
+          164.70611572265625
+        ]
+      ]
+    },
+    {
+      "title": "F. DISASTER RECOVERY",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          36.45703125,
+          271.06787109375
+        ],
+        [
+          147.9375,
+          271.06787109375
+        ],
+        [
+          147.9375,
+          282.0652160644531
+        ],
+        [
+          36.45703125,
+          282.0652160644531
+        ]
+      ]
+    },
+    {
+      "title": "G. COST SAVINGS",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          36.4921875,
+          400.67578125
+        ],
+        [
+          118.8984375,
+          400.67578125
+        ],
+        [
+          118.8984375,
+          411.3811340332031
+        ],
+        [
+          36.4921875,
+          411.3811340332031
+        ]
+      ]
+    },
+    {
+      "title": "H. INVISIBILITY",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          36.2109375,
+          530.28369140625
+        ],
+        [
+          106.3828125,
+          530.28369140625
+        ],
+        [
+          106.3828125,
+          540.98876953125
+        ],
+        [
+          36.2109375,
+          540.98876953125
+        ]
+      ]
+    },
+    {
+      "title": "I. PRIVACY AND SECURITY",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          35.5078125,
+          647.6572265625
+        ],
+        [
+          156.375,
+          647.6572265625
+        ],
+        [
+          156.375,
+          658.3623046875
+        ],
+        [
+          35.5078125,
+          658.3623046875
+        ]
+      ]
+    },
+    {
+      "title": "J. AUTOMATION AND SYNCHRONIZATION",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          36.28125,
+          108.771240234375
+        ],
+        [
+          218.69076538085938,
+          108.771240234375
+        ],
+        [
+          218.69076538085938,
+          119.093994140625
+        ],
+        [
+          36.28125,
+          119.093994140625
+        ]
+      ]
+    },
+    {
+      "title": "K. SHARING AND COLLABORATION",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          36.2109375,
+          284.06689453125
+        ],
+        [
+          196.03125,
+          284.06689453125
+        ],
+        [
+          196.03125,
+          294.917236328125
+        ],
+        [
+          36.2109375,
+          294.917236328125
+        ]
+      ]
+    },
+    {
+      "title": "L. MASSIVE DEVICES AND DATA",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          36.3515625,
+          402.58740234375
+        ],
+        [
+          180.84375,
+          402.58740234375
+        ],
+        [
+          180.84375,
+          413.2231750488281
+        ],
+        [
+          36.3515625,
+          413.2231750488281
+        ]
+      ]
+    },
+    {
+      "title": "IV. CONCLUSION AND FUTURE DIRECTIONS",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          36.28125,
+          496.63916015625
+        ],
+        [
+          230.36502075195312,
+          496.63916015625
+        ],
+        [
+          230.36502075195312,
+          507.619140625
+        ],
+        [
+          36.28125,
+          507.619140625
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          37.16600036621094,
+          61.171875
+        ],
+        [
+          99.4921875,
+          61.171875
+        ],
+        [
+          99.4921875,
+          71.256103515625
+        ],
+        [
+          37.16600036621094,
+          71.256103515625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          145
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          84
+        ],
+        [
+          "Line",
+          21
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          122
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          92
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          123
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "TableCell",
+          9
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          135
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          115
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          123
+        ],
+        [
+          "Line",
+          56
+        ],
+        [
+          "TableCell",
+          44
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          128
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "TableCell",
+          34
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          141
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          72
+        ],
+        [
+          "Line",
+          29
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          108
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          94
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          231
+        ],
+        [
+          "Line",
+          74
+        ],
+        [
+          "ListItem",
+          39
+        ],
+        [
+          "Reference",
+          30
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          252
+        ],
+        [
+          "Line",
+          75
+        ],
+        [
+          "ListItem",
+          45
+        ],
+        [
+          "Reference",
+          40
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          56
+        ],
+        [
+          "Line",
+          18
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "Reference",
+          8
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2004.06809_Issues_and_challenges_in_Cloud_Storage_Architectur"
+}

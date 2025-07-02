@@ -1,0 +1,552 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Advances in Privacy Preserving Federated Learning\nto Realize a Truly Learning Healthcare System",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          51.697265625,
+          53.09869384765625
+        ],
+        [
+          560.2393188476562,
+          53.09869384765625
+        ],
+        [
+          560.2393188476562,
+          104.90399169921875
+        ],
+        [
+          51.697265625,
+          104.90399169921875
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          135.61907958984375,
+          453.411376953125
+        ],
+        [
+          213.37191772460938,
+          453.411376953125
+        ],
+        [
+          213.37191772460938,
+          463.3739929199219
+        ],
+        [
+          135.61907958984375,
+          463.3739929199219
+        ]
+      ]
+    },
+    {
+      "title": "II. PRIVACY PRESERVING FEDERATED LEARNING",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          329.90625,
+          513.6021423339844
+        ],
+        [
+          545.0625,
+          513.6021423339844
+        ],
+        [
+          545.0625,
+          523.5647583007812
+        ],
+        [
+          329.90625,
+          523.5647583007812
+        ]
+      ]
+    },
+    {
+      "title": "III. FEDERATED TRAINING OF MULTIMODAL\nBIOMEDICAL MODELS",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          77.6953125,
+          95.08447265625
+        ],
+        [
+          270.7394714355469,
+          95.08447265625
+        ],
+        [
+          270.7394714355469,
+          117.15606689453125
+        ],
+        [
+          77.6953125,
+          117.15606689453125
+        ]
+      ]
+    },
+    {
+      "title": "A. Multimodal Learning",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          48.073974609375,
+          464.44921875
+        ],
+        [
+          149.5634765625,
+          464.44921875
+        ],
+        [
+          149.5634765625,
+          475.74853515625
+        ],
+        [
+          48.073974609375,
+          475.74853515625
+        ]
+      ]
+    },
+    {
+      "title": "B. Integration of Multimodal Learning in a Federated Setting",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          48.2607421875,
+          320.0899963378906
+        ],
+        [
+          300.1728515625,
+          320.0899963378906
+        ],
+        [
+          300.1728515625,
+          330.0525817871094
+        ],
+        [
+          48.2607421875,
+          330.0525817871094
+        ]
+      ]
+    },
+    {
+      "title": "IV. HIERARCHICAL FL FOR COLLABORATIVE TRAINING\nBEYOND THE TRUST BOUNDARIES",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          316.16015625,
+          287.8072814941406
+        ],
+        [
+          558.2109375,
+          287.8072814941406
+        ],
+        [
+          558.2109375,
+          309.7248840332031
+        ],
+        [
+          316.16015625,
+          309.7248840332031
+        ]
+      ]
+    },
+    {
+      "title": "V. FEDERATED CONTINUOUS LEARNING FOR\nMULTIMODAL BIOMEDICAL MODELS",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          77.79200744628906,
+          260.8504638671875
+        ],
+        [
+          271.2013854980469,
+          260.8504638671875
+        ],
+        [
+          271.2013854980469,
+          282.76806640625
+        ],
+        [
+          77.79200744628906,
+          282.76806640625
+        ]
+      ]
+    },
+    {
+      "title": "VI. COST-AWARE FL ON THE CLOUD",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          357.3630065917969,
+          513.0414733886719
+        ],
+        [
+          517.656494140625,
+          513.0414733886719
+        ],
+        [
+          517.656494140625,
+          523.0040893554688
+        ],
+        [
+          357.3630065917969,
+          523.0040893554688
+        ]
+      ]
+    },
+    {
+      "title": "VII. CONCLUSIONS",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          131.0361328125,
+          403.62347412109375
+        ],
+        [
+          217.3974609375,
+          403.62347412109375
+        ],
+        [
+          217.3974609375,
+          413.5860900878906
+        ],
+        [
+          131.0361328125,
+          413.5860900878906
+        ]
+      ]
+    },
+    {
+      "title": "ACKNOWLEDGMENTS",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          128.3466796875,
+          661.3243865966797
+        ],
+        [
+          220.40904235839844,
+          661.3243865966797
+        ],
+        [
+          220.40904235839844,
+          671.34375
+        ],
+        [
+          128.3466796875,
+          671.34375
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          408.498046875,
+          51.3543701171875
+        ],
+        [
+          465.4124450683594,
+          51.3543701171875
+        ],
+        [
+          465.4124450683594,
+          61.31695556640625
+        ],
+        [
+          408.498046875,
+          61.31695556640625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          231
+        ],
+        [
+          "Line",
+          105
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          190
+        ],
+        [
+          "Line",
+          86
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          238
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          327
+        ],
+        [
+          "Line",
+          121
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          238
+        ],
+        [
+          "Line",
+          101
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          352
+        ],
+        [
+          "Line",
+          113
+        ],
+        [
+          "ListItem",
+          21
+        ],
+        [
+          "Reference",
+          19
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          305
+        ],
+        [
+          "Line",
+          88
+        ],
+        [
+          "ListItem",
+          24
+        ],
+        [
+          "Reference",
+          23
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_arxiv_2409.19756_Advances_in_Privacy_Preserving_Federated_Learning_to_Realize_a_Truly_Learning_Healthcare_System"
+}

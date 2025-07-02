@@ -1,0 +1,604 @@
+{
+  "table_of_contents": [
+    {
+      "title": "arXiv:2307.09225v1 [cs.AI] 18 Jul 2023",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          18.119998931884766,
+          215.40234375
+        ],
+        [
+          35.971435546875,
+          215.40234375
+        ],
+        [
+          35.971435546875,
+          559.2799987792969
+        ],
+        [
+          18.119998931884766,
+          559.2799987792969
+        ]
+      ]
+    },
+    {
+      "title": "Human Body Digital Twin: A Master Plan",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          92.1884765625,
+          53.09869384765625
+        ],
+        [
+          516.375,
+          53.09869384765625
+        ],
+        [
+          516.375,
+          77.00897216796875
+        ],
+        [
+          92.1884765625,
+          77.00897216796875
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          135.5185546875,
+          344.5174865722656
+        ],
+        [
+          213.2138671875,
+          344.5174865722656
+        ],
+        [
+          213.2138671875,
+          354.4801025390625
+        ],
+        [
+          135.5185546875,
+          354.4801025390625
+        ]
+      ]
+    },
+    {
+      "title": "II. FIVE-LEVEL ROADMAP AND RELATED METHODS OF THE\nHUMAN BODY DT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          311.37890625,
+          559.3693389892578
+        ],
+        [
+          562.7947998046875,
+          559.3693389892578
+        ],
+        [
+          562.7947998046875,
+          581.2869415283203
+        ],
+        [
+          311.37890625,
+          581.2869415283203
+        ]
+      ]
+    },
+    {
+      "title": "A. Level 1 - Cross-sectional Model:",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          48.03662109375,
+          645.9509124755859
+        ],
+        [
+          197.82421875,
+          645.9509124755859
+        ],
+        [
+          197.82421875,
+          656.6484375
+        ],
+        [
+          48.03662109375,
+          656.6484375
+        ]
+      ]
+    },
+    {
+      "title": "B. Level 2 - Deductive Model:",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          48.148681640625,
+          115.62890625
+        ],
+        [
+          176.90625,
+          115.62890625
+        ],
+        [
+          176.90625,
+          126.16058349609375
+        ],
+        [
+          48.148681640625,
+          126.16058349609375
+        ]
+      ]
+    },
+    {
+      "title": "C. Level 3 - Editable Model:",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          48.447509765625,
+          362.35546875
+        ],
+        [
+          169.2922821044922,
+          362.35546875
+        ],
+        [
+          169.2922821044922,
+          373.15167236328125
+        ],
+        [
+          48.447509765625,
+          373.15167236328125
+        ]
+      ]
+    },
+    {
+      "title": "D. Level 4 - Evolutionary Model:",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          47.924560546875,
+          669.41015625
+        ],
+        [
+          189.0087890625,
+          669.41015625
+        ],
+        [
+          189.0087890625,
+          680.23828125
+        ],
+        [
+          47.924560546875,
+          680.23828125
+        ]
+      ]
+    },
+    {
+      "title": "E. Level 5 - Explainable Model:",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          310.78125,
+          345.146484375
+        ],
+        [
+          446.1343688964844,
+          345.146484375
+        ],
+        [
+          446.1343688964844,
+          356.209716796875
+        ],
+        [
+          310.78125,
+          356.209716796875
+        ]
+      ]
+    },
+    {
+      "title": "III. PROSPECTIVE APPLICATIONS OF THE HUMAN BODY\nDT",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          52.7431640625,
+          143.666015625
+        ],
+        [
+          294.9922180175781,
+          143.666015625
+        ],
+        [
+          294.9922180175781,
+          165.922119140625
+        ],
+        [
+          52.7431640625,
+          165.922119140625
+        ]
+      ]
+    },
+    {
+      "title": "IV. FURTHER CONSIDERATIONS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          368.455078125,
+          382.078125
+        ],
+        [
+          505.318359375,
+          382.078125
+        ],
+        [
+          505.318359375,
+          392.45916748046875
+        ],
+        [
+          368.455078125,
+          392.45916748046875
+        ]
+      ]
+    },
+    {
+      "title": "A. Necessary Support:",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          311.9779968261719,
+          466.16107177734375
+        ],
+        [
+          404.8393859863281,
+          466.16107177734375
+        ],
+        [
+          404.8393859863281,
+          476.1236572265625
+        ],
+        [
+          311.9779968261719,
+          476.1236572265625
+        ]
+      ]
+    },
+    {
+      "title": "B. Security:",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          311.080078125,
+          681.1220397949219
+        ],
+        [
+          361.5020751953125,
+          681.1220397949219
+        ],
+        [
+          361.5020751953125,
+          691.0846405029297
+        ],
+        [
+          311.080078125,
+          691.0846405029297
+        ]
+      ]
+    },
+    {
+      "title": "C. Cost:",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          48.073974609375,
+          312.88519287109375
+        ],
+        [
+          86.13720703125,
+          312.88519287109375
+        ],
+        [
+          86.13720703125,
+          322.8477783203125
+        ],
+        [
+          48.073974609375,
+          322.8477783203125
+        ]
+      ]
+    },
+    {
+      "title": "D. Ethical Issues:",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          48.33544921875,
+          447.8381042480469
+        ],
+        [
+          123.56394958496094,
+          447.8381042480469
+        ],
+        [
+          123.56394958496094,
+          457.8006896972656
+        ],
+        [
+          48.33544921875,
+          457.8006896972656
+        ]
+      ]
+    },
+    {
+      "title": "V. OUTLOOK",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          145.90283203125,
+          643.2055206298828
+        ],
+        [
+          202.4144744873047,
+          643.2055206298828
+        ],
+        [
+          202.4144744873047,
+          653.1681213378906
+        ],
+        [
+          145.90283203125,
+          653.1681213378906
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          409.39453125,
+          135.3245849609375
+        ],
+        [
+          465.4124755859375,
+          135.3245849609375
+        ],
+        [
+          465.4124755859375,
+          145.28717041015625
+        ],
+        [
+          409.39453125,
+          145.28717041015625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          172
+        ],
+        [
+          "Line",
+          84
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          85
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          208
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          4
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          177
+        ],
+        [
+          "Line",
+          86
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          289
+        ],
+        [
+          "Line",
+          121
+        ],
+        [
+          "ListItem",
+          23
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          91
+        ],
+        [
+          "Line",
+          34
+        ],
+        [
+          "ListItem",
+          13
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2307.09225_Human_Body_Digital_Twin_A_Master_Plan"
+}

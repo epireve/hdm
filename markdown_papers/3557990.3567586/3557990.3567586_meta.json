@@ -1,0 +1,606 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Developing Knowledge Graph Based System for Urban\nComputing",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          90.24609375,
+          80.9208984375
+        ],
+        [
+          520.857421875,
+          80.9208984375
+        ],
+        [
+          520.857421875,
+          119.90936279296875
+        ],
+        [
+          90.24609375,
+          119.90936279296875
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.228759765625,
+          198.56072998046875
+        ],
+        [
+          111.94300079345703,
+          198.56072998046875
+        ],
+        [
+          111.94300079345703,
+          210.181640625
+        ],
+        [
+          53.228759765625,
+          210.181640625
+        ]
+      ]
+    },
+    {
+      "title": "CCS CONCEPTS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.41552734375,
+          443.108642578125
+        ],
+        [
+          134.99560546875,
+          443.108642578125
+        ],
+        [
+          134.99560546875,
+          454.39453125
+        ],
+        [
+          53.41552734375,
+          454.39453125
+        ]
+      ]
+    },
+    {
+      "title": "and reasoning.\nKEYWORDS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.490234375,
+          480.19268798828125
+        ],
+        [
+          115.66293334960938,
+          480.19268798828125
+        ],
+        [
+          115.66293334960938,
+          512.263671875
+        ],
+        [
+          53.490234375,
+          512.263671875
+        ]
+      ]
+    },
+    {
+      "title": "ACM Reference Format:",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.303466796875,
+          532.8984375
+        ],
+        [
+          141.345703125,
+          532.8984375
+        ],
+        [
+          141.345703125,
+          542.1796875
+        ],
+        [
+          53.303466796875,
+          542.1796875
+        ]
+      ]
+    },
+    {
+      "title": "1 INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          317.9549865722656,
+          198.56060791015625
+        ],
+        [
+          421.9453125,
+          198.56060791015625
+        ],
+        [
+          421.9453125,
+          209.98828125
+        ],
+        [
+          317.9549865722656,
+          209.98828125
+        ]
+      ]
+    },
+    {
+      "title": "2 THE URBAN KNOWLEDGE GRAPH SYSTEM",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          52.81787109375,
+          164.858642578125
+        ],
+        [
+          294.05267333984375,
+          164.858642578125
+        ],
+        [
+          294.05267333984375,
+          175.76763916015625
+        ],
+        [
+          52.81787109375,
+          175.76763916015625
+        ]
+      ]
+    },
+    {
+      "title": "2.1 System Architecture",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          53.303466796875,
+          268.96759033203125
+        ],
+        [
+          179.1969451904297,
+          268.96759033203125
+        ],
+        [
+          179.1969451904297,
+          279.8765869140625
+        ],
+        [
+          53.303466796875,
+          279.8765869140625
+        ]
+      ]
+    },
+    {
+      "title": "2.2 UrbanKG Construction",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          317.35546875,
+          188.7906494140625
+        ],
+        [
+          457.3392639160156,
+          188.7906494140625
+        ],
+        [
+          457.3392639160156,
+          199.69964599609375
+        ],
+        [
+          317.35546875,
+          199.69964599609375
+        ]
+      ]
+    },
+    {
+      "title": "Developing Knowledge Graph Based System for Urban Computing GeoKG '22, November 1, 2022, Seattle, WA, USA",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.56494140625,
+          61.63330078125
+        ],
+        [
+          558.2030639648438,
+          61.63330078125
+        ],
+        [
+          558.2030639648438,
+          69.36767578125
+        ],
+        [
+          53.56494140625,
+          69.36767578125
+        ]
+      ]
+    },
+    {
+      "title": "Figure 2: The schema of UrbanKG. The gray nodes correspond\nto the cross-modal types of entities.",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.19140625,
+          377.6126708984375
+        ],
+        [
+          294.1351623535156,
+          377.6126708984375
+        ],
+        [
+          294.1351623535156,
+          397.93359375
+        ],
+        [
+          53.19140625,
+          397.93359375
+        ]
+      ]
+    },
+    {
+      "title": "3 EVALUATION",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          316.7578125,
+          398.3203125
+        ],
+        [
+          403.77606201171875,
+          398.3203125
+        ],
+        [
+          403.77606201171875,
+          409.5386657714844
+        ],
+        [
+          316.7578125,
+          409.5386657714844
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Embedding Analysis",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          317.056640625,
+          414.17578125
+        ],
+        [
+          444.3466491699219,
+          414.17578125
+        ],
+        [
+          444.3466491699219,
+          425.22967529296875
+        ],
+        [
+          317.056640625,
+          425.22967529296875
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Use Cases Analysis",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.378173828125,
+          261.99365234375
+        ],
+        [
+          172.8720703125,
+          261.99365234375
+        ],
+        [
+          172.8720703125,
+          272.90264892578125
+        ],
+        [
+          53.378173828125,
+          272.90264892578125
+        ]
+      ]
+    },
+    {
+      "title": "4 CONCLUSION",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          316.7578125,
+          359.6976318359375
+        ],
+        [
+          405.7287902832031,
+          359.6976318359375
+        ],
+        [
+          405.7287902832031,
+          370.60662841796875
+        ],
+        [
+          316.7578125,
+          370.60662841796875
+        ]
+      ]
+    },
+    {
+      "title": "ACKNOWLEDGMENTS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          316.7578125,
+          482.23760986328125
+        ],
+        [
+          436.2890625,
+          482.23760986328125
+        ],
+        [
+          436.2890625,
+          493.1466369628906
+        ],
+        [
+          316.7578125,
+          493.1466369628906
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          317.35546875,
+          549.9836578369141
+        ],
+        [
+          387.36895751953125,
+          549.9836578369141
+        ],
+        [
+          387.36895751953125,
+          560.8926544189453
+        ],
+        [
+          317.35546875,
+          560.8926544189453
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          255
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Footnote",
+          4
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          324
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "Text",
+          16
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          312
+        ],
+        [
+          "TableCell",
+          99
+        ],
+        [
+          "Line",
+          78
+        ],
+        [
+          "Reference",
+          5
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Figure",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          327
+        ],
+        [
+          "Line",
+          101
+        ],
+        [
+          "TableCell",
+          91
+        ],
+        [
+          "Reference",
+          12
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "ListItem",
+          10
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "TableGroup",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/3557990.3567586"
+}
