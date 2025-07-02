@@ -1,8 +1,8 @@
 ---
-cite_key: blvd_2013
+cite_key: sharma_2025
 title: Temporal Reasoning in AI Systems
-authors: Abhishek Sharma3840 Far West Blvd
-year: 2013
+authors: Abhishek Sharma
+year: 2025
 relevancy: Low
 relevancy_justification: Tangentially related to knowledge management or data systems
 tags:

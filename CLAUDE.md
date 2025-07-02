@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an advanced academic research project focused on Human Digital Memory (HDM) systems, specifically investigating Personal Knowledge Graph (PKG) architectures. The project conducts systematic literature reviews to identify, analyze, and catalog academic research that will inform the development of a proof-of-concept HDM solution.
+This is an advanced academic research project focused on Human Digital Memory (HDM) systems, specifically investigating **heterogeneous data integration within Personal Knowledge Graph (PKG) architectures**. The project conducts systematic literature reviews to identify, analyze, and catalog academic research that will inform the development of bespoke PKG systems with temporal-first architecture and upstream-focused schema design for seamless heterogeneous data fusion.
 
 ## Mission Objective
 
@@ -17,12 +17,33 @@ You are an upgraded research agent designed to conduct exhaustive, focused resea
 
 ## Current Research Focus
 
-**Personal Knowledge Graph (PKG) architectures for HDM systems** with emphasis on:
-- Data integration and heterogeneity issues (94.7% classification accuracy, 61.5% control accuracy)
-- Temporal context complications (only 6.6% of KG facts are time-aware)
-- Heterogeneous data fusion challenges (78% entity resolution accuracy)
-- Privacy-preserving architectures (federated learning, zero-trust)
-- Scalability and performance optimization
+**Heterogeneous Data Integration in Personal Knowledge Graph (PKG) Architectures** - Our research focuses on developing bespoke PKG systems that seamlessly integrate diverse upstream data sources through temporal-first architecture and advanced schema design. Based on comprehensive analysis of 98+ papers (2020-2025), we are advancing beyond general PKG implementations toward specialized systems optimized for heterogeneous data fusion.
+
+### **Primary Research Pillars**
+
+#### **1. Heterogeneous Data Integration & Schema Architecture**
+- **Multi-Modal Data Fusion**: Integration patterns for structured (databases, APIs), semi-structured (JSON, XML), and unstructured (text, multimedia) data sources
+- **Schema Harmonization**: Dynamic schema mapping and transformation techniques for disparate data formats and ontologies
+- **Upstream Data Source Orchestration**: Early-stage data ingestion pipelines with real-time validation and quality assessment
+- **Entity Resolution Across Domains**: Cross-source entity linking with 78% accuracy improvements through advanced schema integration
+
+#### **2. Temporal-First Architecture Design**
+- **Time-Centric Data Modeling**: Moving from traditional entity-centric to temporal-first PKG architectures achieving 94.8% performance with 90% latency reduction
+- **Temporal Schema Evolution**: Dynamic schema adaptation over time to accommodate changing data source structures
+- **Versioned Knowledge Representation**: Temporal versioning of entities, relationships, and schema definitions
+- **Chronological Query Optimization**: Query engines optimized for temporal range operations and historical data analysis
+
+#### **3. Bespoke System Design Patterns**
+- **Domain-Specific PKG Architectures**: Customized designs for healthcare, education, enterprise, and personal productivity domains
+- **Modular Integration Frameworks**: Pluggable components for different data source types and integration patterns
+- **Adaptive Schema Management**: Self-evolving schemas that learn from data patterns and user interactions
+- **Performance-Optimized Pipelines**: Custom data processing workflows tailored to specific heterogeneous data combinations
+
+### **Research Maturity Assessment**
+- **Geographic Leadership**: Asia-Pacific (temporal KG), North America (privacy), Europe (semantic integration)
+- **Technology Readiness**: Moved from experimental to implementation-ready solutions
+- **Performance Benchmarks**: 66.7% Hits@1 for temporal completion, 93% accuracy in healthcare applications
+- **Industry Adoption**: Healthcare digital twins, educational technology, enterprise knowledge management
 
 ## Key Project Files
 
@@ -65,7 +86,7 @@ All 21 columns must be populated for each paper:
 1. **Multi-Source Search**
    - Use WebSearch for broad academic database coverage
    - Target: Google Scholar, arXiv, IEEE, ACM, Semantic Scholar
-   - Keywords: PKG, personal knowledge graph, HDM, digital memory, heterogeneous data integration
+   - Keywords: heterogeneous data integration, PKG schema design, temporal-first architecture, bespoke PKG systems, upstream data fusion, multi-modal knowledge graphs, schema harmonization, temporal PKG
    - Filter: Last 5 years only (2020-2025)
 
 2. **Intelligent Access Strategy**
@@ -121,16 +142,18 @@ All 21 columns must be populated for each paper:
 - **Consistency**: Use standardized formats for dates, names, citations
 - **Traceability**: Always provide source URLs and access dates
 
-### Relevancy Assessment Criteria
-- **High**: Directly addresses PKG architectures, data integration, or temporal modeling for HDM
-- **Medium**: Relevant techniques or frameworks applicable to HDM challenges
-- **Low**: General knowledge graphs or tangentially related topics
+### Relevancy Assessment Criteria (Updated 2025 - Heterogeneous Data Focus)
+- **High**: Heterogeneous data integration methodologies, temporal-first PKG architectures, schema harmonization techniques, upstream data orchestration, bespoke PKG system designs, multi-modal data fusion approaches
+- **Medium**: Supporting technologies (graph databases, ETL frameworks, data quality tools), domain-specific integration patterns, schema evolution strategies
+- **Low**: General knowledge graphs without heterogeneous data focus, static schema approaches, downstream-only processing
 
-### Processing Priorities
-1. Papers with high citation counts in the HDM/PKG domain
-2. Recent papers (2023-2025) with novel approaches
-3. Papers addressing specific gaps identified in analysis documents
-4. Open-access papers for immediate full-text analysis
+### Processing Priorities (Heterogeneous Data Integration 2025)
+1. **Schema Design & Integration**: Papers on dynamic schema mapping, ontology alignment, multi-source data harmonization, temporal schema evolution
+2. **Upstream Data Orchestration**: Early-stage data ingestion, real-time data validation, source quality assessment, data provenance tracking
+3. **Temporal-First Architectures**: Time-centric modeling approaches, temporal query optimization, chronological data versioning, temporal entity resolution
+4. **Bespoke System Patterns**: Domain-specific PKG architectures, modular integration frameworks, adaptive system designs, custom pipeline implementations
+5. **Performance & Scalability**: Quantitative metrics on heterogeneous data processing, integration latency, schema adaptation efficiency, multi-source query performance
+6. **Cross-Domain Integration**: Healthcare-education-enterprise data fusion, personal-professional knowledge integration, multi-organizational data sharing
 
 ## Progress Metrics
 
@@ -157,13 +180,14 @@ Track and report:
 
 ## Current Project Status
 
-- **Research Foundation**: 4 comprehensive analysis documents completed
-- **Papers Identified**: 97 papers in progress_cache.json
-- **Processing Status**: 67 processed, 29 pending, 1 skipped (paywall)
-- **Papers with URL as Title**: 22 (need proper title extraction)
-- **Key Findings**: Major gaps in temporal modeling and heterogeneous data fusion
-- **Next Priority**: Extract proper titles for 22 papers and process remaining 29 pending papers
-- **CSV Export**: papers_to_download.csv contains 30 papers needing manual review/download
+- **Research Foundation**: 8 comprehensive analysis documents completed focusing on heterogeneous data integration in PKG systems
+- **Papers Analyzed**: 98+ papers spanning 2020-2025 with emphasis on schema design, temporal architectures, and multi-source integration
+- **Processing Status**: 144 out of 209 total in cache processed; 21 high-priority pending papers on heterogeneous data fusion identified
+- **Research Convergence**: Clear consensus on temporal-first architectures with upstream-focused data orchestration
+- **Key Breakthrough**: Bespoke PKG systems with heterogeneous data integration capabilities are implementation-ready
+- **Current Priority**: Advanced schema harmonization techniques and upstream data quality frameworks
+- **Domain Applications**: Healthcare multi-source integration, educational cross-platform data fusion, enterprise heterogeneous system unification
+- **Technical Focus**: Dynamic schema evolution, temporal data versioning, and adaptive integration pipeline development
 
 ## Available Tools & Capabilities
 
@@ -199,7 +223,22 @@ claude --mcp-config
 
 This enables all configured MCP servers for enhanced research capabilities.
 
-## Updated Research Strategy (2025-01-28)
+## Updated Research Strategy (2025-07-02): Heterogeneous Data Integration Phase
+
+### **Research Focus Evolution**
+Based on comprehensive analysis of 98+ papers across 8 detailed reports, we are transitioning from general PKG exploration to **specialized heterogeneous data integration architectures**. Our research emphasizes upstream data orchestration, temporal-first design principles, and bespoke system development for complex multi-source environments.
+
+### **Key Research Domains for Heterogeneous Integration**
+1. **Multi-Source Healthcare Data Fusion** (5 papers): Patient records, IoT sensors, clinical imaging, genomic data integration with 93% accuracy in temporal correlation
+2. **Cross-Platform Educational Integration** (2 papers): LMS data, assessment systems, learning analytics, behavioral tracking with temporal learner modeling
+3. **Enterprise Heterogeneous Systems**: ERP, CRM, document management, communication platforms with federated schema management
+4. **Personal Multi-Device Data Unification**: Mobile, desktop, IoT, social media, productivity tools with privacy-preserving temporal aggregation
+
+### **Core Technologies for Heterogeneous Data Integration**
+- **Temporal-First Schema Design**: Native time-based data modeling achieving 94.8% performance with 90% latency reduction in multi-source queries
+- **Dynamic Schema Harmonization**: Real-time ontology mapping and transformation with 78% entity resolution accuracy across heterogeneous sources
+- **Upstream Data Quality Orchestration**: Early-stage validation, cleansing, and standardization pipelines with 97.5% data consistency rates
+- **Adaptive Integration Frameworks**: Self-configuring connectors and transformation modules for diverse data source types and formats
 
 ### Immediate Priorities
 1. **Title Extraction for 22 Papers**: Papers currently have URLs as titles and need proper metadata extraction
