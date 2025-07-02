@@ -24,8 +24,6 @@ images_removed: 2
 keywords: 
 ---
 
-
-
 # Integrating Manifold Knowledge for Global Entity Linking with Heterogeneous Graphs
 
 **Zhibin Chen1,2, Yuting Wu1,3†, Yansong Feng1,3 & Dongyan Zhao1,3**1 Wangxuan Institute of Computer Technology, Peking University, Beijing 100871, China Center for Data Science, Peking University, Beijing 100871, China 3 The MOE Key Laboratory of Computational Linguistics, Peking University, Beijing 100871, China
@@ -33,7 +31,6 @@ keywords:
 
 Citation: Chen, Z.B., et al.: Integrating manifold knowledge for global entity linking with heterogeneous graphs. Data Intelligence 4(1), 20-40 (2022). doi: 10.1162/dint\_a\_00116
 
-Received: October 30, 2021; Revised: December 21, 2021; Accepted: January 11, 2022
 
 ## ABSTRACT
 
@@ -41,7 +38,7 @@ Entity Linking (EL) aims to automatically link the mentions in unstructured docu
 
 <sup>†</sup> Corresponding author: Yuting Wu (Email: wyting@pku.edu.cn; ORCID:0000-0002-7550-3804).
 
-# 1. INTRODUCTION
+## 1. INTRODUCTION
 
 Entity Linking (EL) is the task of mapping entity mentions with specified context in an unstructured document to corresponding entities in a given Knowledge Base (KB), which bridges the gap between abundant unstructured text in large corpus and structured knowledge source, and therefore supports many knowledge-driven natural language processing (NLP) tasks and their methods, such as question answering [1], text classification [2], information extraction [3] and knowledge graph construction [4].
 
@@ -62,13 +59,13 @@ Our contributions can be summarized as follows:
 - We proposed a meticulously designed heterogeneous graph neural network on the constructed graph, which integrates different sources of information and encourages sufficient interactions among them, more precisely characterizing the topic features of candidate entities and better capturing the topical coherence. To the best of our knowledge, this is the first work to employ a heterogeneous graph neural network in Entity Linking tasks.
 - Extensive experiments and analysis on six standard EL datasets demonstrate that our HEGEL achieves state-of-the-art performance over mainstream EL methods.
 
-# 2. R ELATED WORK
+## 2. R ELATED WORK
 
-# *2.1 E ntity Linking*Most existing models not only use local methods relying on local context of individual mentions independently [18, 19, 20, 21, 22, 23], but also use global methods considering the coherence among the linked entities of all mentions by jointly linking on the whole document [9, 13]. Most local methods make use of extracted local features through feature engineering, which includes pair-wise statistic features, like Wikipedia linking frequency, and the similarity scores between mentions and candidate entities, like the mention-entity similarities implemented as cosine similarities between document local contexts and entity Wikipedia titles in [13]. Recently, Pretrained Language Models (PLMs), which achieve leading performance in other natural language processing tasks, are also used in local linking models. The PLM-based linking models focus on unique settings, such as zero-shot [22] and multilingual [23] scenarios, to exploit the superiority of PLMs in understanding tasks under these settings. To alleviate the noise led by the local information, global methods try to model the semantic coherence and relationship between linked entities within the same document. As the global coherence optimization problem is NP-hard, different approximation methods are often used. Apart from traditional methods like loopy belief propagation [8, 11], several works approximate the problem into sequence decision problem [6] or graph learning [5, 7, 14, 16].
+## *2.1 E ntity Linking*Most existing models not only use local methods relying on local context of individual mentions independently [18, 19, 20, 21, 22, 23], but also use global methods considering the coherence among the linked entities of all mentions by jointly linking on the whole document [9, 13]. Most local methods make use of extracted local features through feature engineering, which includes pair-wise statistic features, like Wikipedia linking frequency, and the similarity scores between mentions and candidate entities, like the mention-entity similarities implemented as cosine similarities between document local contexts and entity Wikipedia titles in [13]. Recently, Pretrained Language Models (PLMs), which achieve leading performance in other natural language processing tasks, are also used in local linking models. The PLM-based linking models focus on unique settings, such as zero-shot [22] and multilingual [23] scenarios, to exploit the superiority of PLMs in understanding tasks under these settings. To alleviate the noise led by the local information, global methods try to model the semantic coherence and relationship between linked entities within the same document. As the global coherence optimization problem is NP-hard, different approximation methods are often used. Apart from traditional methods like loopy belief propagation [8, 11], several works approximate the problem into sequence decision problem [6] or graph learning [5, 7, 14, 16].
 
 Following the graph based neural network modeling methods, HEGEL expands the graph utilization in EL task to heterogeneous style, which not only enjoys the strong representation ability of heterogeneous graph structure, but also becomes effective enough because of avoiding other additional inference steps required in sequence-style models.
 
-##*2.2 G raph Neural Networks*Graph Neural Network (GNN) is a strong and flexible framework to learn on data with graph structure. After the Graph Convolutional Network (GCN) [17] appeared, GNN is more and more widely used in many tasks, while several popular GNN architectures, such as GraphSAGE [24] and GAT [25], are proposed to learn the representation on graphs. The natural graph structure entailed in EL task becomes a favorable condition to apply GNN methods to model the global information. NCEL [5] performs GCN on constructed subgraphs for every mention, where the nodes are entity candidates of current mention and surrounding mentions with edges linked from the former to the latter. SGEL [7] combines the features of mention-bymention sequential model and GAT by building a graph containing previous predicted entities, current candidates and later unpredicted mention candidates as nodes. GNED [16] builds a homogeneous graph by embedding the entities and words into the same vector space, and extracts words from the description and context in KB for every candidate to form the nodes and edges.
+## *2.2 G raph Neural Networks*Graph Neural Network (GNN) is a strong and flexible framework to learn on data with graph structure. After the Graph Convolutional Network (GCN) [17] appeared, GNN is more and more widely used in many tasks, while several popular GNN architectures, such as GraphSAGE [24] and GAT [25], are proposed to learn the representation on graphs. The natural graph structure entailed in EL task becomes a favorable condition to apply GNN methods to model the global information. NCEL [5] performs GCN on constructed subgraphs for every mention, where the nodes are entity candidates of current mention and surrounding mentions with edges linked from the former to the latter. SGEL [7] combines the features of mention-bymention sequential model and GAT by building a graph containing previous predicted entities, current candidates and later unpredicted mention candidates as nodes. GNED [16] builds a homogeneous graph by embedding the entities and words into the same vector space, and extracts words from the description and context in KB for every candidate to form the nodes and edges.
 
 As the emergence of massive heterogeneous information, many works about Heterogeneous GNN have been proved to be effective. The mainstream of HGNN models is based on the construction of metapaths [26], but several HGNN architectures free of metapath are proposed recently [10]. Our HEGEL follows these works, and utilizes the heterogeneous structure to model the interactions among different types of linking information.
 
@@ -76,13 +73,13 @@ As the emergence of massive heterogeneous information, many works about Heteroge
 
 Given a list of entity mentions*M* = {*m*1,…*m*|*<sup>M</sup>*|} in a document D, the EL task can be formulated as linking each mention *mi*to its corresponding entity*ei*from the entity collection E of KB or NIL (i.e.,*e NIL <sup>i</sup>*= , which means the mention*mi*cannot be linked to any corresponding entity in E reasonably). Generally speaking, EL methods usually consist of two stages.
 
-####*3.1 C andidate Generation Stage*EL tasks generally start with generating a small list of candidate entities ⊂ 1 2 = { , ,..., }*i ii im*C E*ee e*for the mention*mi*because of the unacceptable computation cost to traverse over the whole entity collection E. Downloaded from http://direct.mit.edu/dint/article-pdf/4/1/20/1985039/dint\_a\_00116.pdf by guest on 30 June 2025
+### *3.1 C andidate Generation Stage*EL tasks generally start with generating a small list of candidate entities ⊂ 1 2 = { , ,..., }*i ii im*C E*ee e*for the mention*mi*because of the unacceptable computation cost to traverse over the whole entity collection E. Downloaded from http://direct.mit.edu/dint/article-pdf/4/1/20/1985039/dint\_a\_00116.pdf by guest on 30 June 2025
 
 For candidate generation, we used the method proposed in [8, 11], which simply uses (1) computed mention-entity prior*pe m*ˆ(| ) by averaging probabilities from mention entity hyperlink statistics of Wikipedia; and (2) the local context-entity similarity, which is simply calculated as the similarity between candidate entity embeddings and average embeddings of context words.
 
 This stage aims to contain the correct entity*ei* into C*<sup>i</sup>*, and the ratio of candidate lists containing corresponding entity is referred to as the*recall*of candidate generation.
 
-#*3.2 Candi date Disambiguation Stage*In this stage, EL methods assign a score calculated in EL model to each candidate*<sup>i</sup> <sup>k</sup> e* and select the top-ranked candidate as the predicted answer, or predict NIL under some specified situations. Most EL methods, including this work, focus on improving performance at this stage. As mentioned in Section 2.1, different local and global models are used to calculate the linking scores. Local methods focus on the corresponding mention itself, regardless of other mentions or linked entities. That is to say, the local methods deal with the linking problem by independent calculation for every mention:
+## *3.2 Candi date Disambiguation Stage*In this stage, EL methods assign a score calculated in EL model to each candidate*<sup>i</sup> <sup>k</sup> e* and select the top-ranked candidate as the predicted answer, or predict NIL under some specified situations. Most EL methods, including this work, focus on improving performance at this stage. As mentioned in Section 2.1, different local and global models are used to calculate the linking scores. Local methods focus on the corresponding mention itself, regardless of other mentions or linked entities. That is to say, the local methods deal with the linking problem by independent calculation for every mention:
 
 $$
 e_i^* = \text{argmax}_{e_{i_k} \in C_i} \Psi_{\text{Local}}(e_{i_k}, m_i), \tag{1}
@@ -96,7 +93,7 @@ $$
 
 where \*\* \* *Eee*= { ,..., } <sup>1</sup>*<sup>n</sup>*is the predicted entity list for entity mentions*M*of document D, and (E,D) is the global function measuring how the entities cohere with each other.
 
-# 4. THE PROPO SED APPROACH
+## 4. THE PROPO SED APPROACH
 
 In addition to separately encoding the local features for every mention within a document as local models do, HEGEL constructs an informative heterogeneous graph for each document and then applies a heterogeneous GNN on it, which encodes the global coherence based on different types of information. Finally, HEGEL combines the local and global features and generates a final score for each mentioncandidate pair.
 
@@ -106,7 +103,7 @@ Figure 2 gives an overview of HEGEL that follows a four-stage processing pipelin
 <!-- Image Description: The image displays two diagrams illustrating a method for global entity linking. The left diagram shows "informative graph construction," representing relationships between entities like "Scotland," "United Kingdom," and "Murrayfield" using mentions and neighbor nodes. The right diagram depicts a propagation and aggregation process within a heterogeneous graph, showing the flow of information between entity (e) and mention (m) nodes. The diagrams showcase the technical approach of combining graph construction and information propagation for improved entity linking accuracy. -->
 **Figure 2.**The overall framework of our proposed model HEGEL with a real experiment case. The blue nodes denote the mentions in one document; the orange nodes denote the candidate entities; the black nodes indicate the neighbors extracted from Wikipedia KB; and the green nodes indicate the keywords extracted from the fi rst sentence of entities in Wikipedia. The heterogeneous graph in right part (c) can provide the discriminative linking information through the fl ow on the topological connections.
 
-##*4.1 Encoding L ocal Features*Given a mention*mi*in D and a candidate entity*i i* <sup>∈</sup>*<sup>k</sup> <sup>e</sup>*<sup>C</sup> , HEGEL computes three types of local features to encode the local mention-entity compatibility. These features consist of (a) the*Mention-Entity Prior*(|)*i i <sup>k</sup> Pe m*, which has been used in candidate generation stage, as referred in Section 3.1; (b) the*Context Similarity*<sup>Ψ</sup> (, )*Ci m k i e c*, which utilizes an attention neural network to compute the similarity between candidate*<sup>i</sup> <sup>k</sup> <sup>e</sup>*and local context*m c*= { ,... } 1 ||*<sup>i</sup> c ww*surrounding*mi*by selecting*K*most relative words from*mi c*, eliminating noisy context words from computation:
+## *4.1 Encoding L ocal Features*Given a mention*mi*in D and a candidate entity*i i* <sup>∈</sup>*<sup>k</sup> <sup>e</sup>*<sup>C</sup> , HEGEL computes three types of local features to encode the local mention-entity compatibility. These features consist of (a) the*Mention-Entity Prior*(|)*i i <sup>k</sup> Pe m*, which has been used in candidate generation stage, as referred in Section 3.1; (b) the*Context Similarity*<sup>Ψ</sup> (, )*Ci m k i e c*, which utilizes an attention neural network to compute the similarity between candidate*<sup>i</sup> <sup>k</sup> <sup>e</sup>*and local context*m c*= { ,... } 1 ||*<sup>i</sup> c ww*surrounding*mi*by selecting*K*most relative words from*mi c*, eliminating noisy context words from computation:
 
 $$
 u(w_j) = \max_{e \in \mathcal{C}_j} v_e^T A v_{w_j} \tag{3}
@@ -147,7 +144,7 @@ $$
 
 where*EmbT*(*t*) is trainable type embedding for type *t*. As the mentions and entities use the same embedding set, *mi*and*<sup>i</sup> <sup>k</sup> <sup>e</sup>*with the same type will have a higher*T*than other different types.
 
-###*4.2 Informative Heterogeneous Graph Construction*
+### *4.2 Informative Heterogeneous Graph Construction*
 
 For the document D, HEGEL builds an informative heterogeneous graph GD to collect different types of linking clues.
 
@@ -159,7 +156,7 @@ After the node set *V*D is generated, HEGEL creates heterogeneous edges between 
 
 In order to avoid the requiring of expertise knowledge and information loss led by the former metapathbased HGNN methods, we designed a novel metapath-free HGNN model. For the heterogeneous graph GD, we represent an edge *e*∈*E*D from node *i*∈*V*D to node *j*∈*V*D with edge type *r* as (*i*, *j*, *r*). Note that in our informative graph, the node type (*ti*,*tj*) can exclusively determine the edge type*r*, and therefore we denote (*ti*,*tj*) as*r*in following explanation.
 
-##*4.3.1 Node Embeddi ngs*For a mention node*m Ment* ∈*<sup>i</sup> v V*, we used a text convolutional neural network (CNN) on the local context*mi c*surrounding*mi*to compute the initial embeddings <sup>+</sup> <sup>∈</sup> <sup>0</sup>*d d cnn h mi h R*:
+## *4.3.1 Node Embeddi ngs*For a mention node*m Ment* ∈*<sup>i</sup> v V*, we used a text convolutional neural network (CNN) on the local context*mi c*surrounding*mi*to compute the initial embeddings <sup>+</sup> <sup>∈</sup> <sup>0</sup>*d d cnn h mi h R*:
 
 $$
 C_{m_j} = \{W_1, ..., W_{|c|}\}\tag{11}
@@ -168,11 +165,11 @@ $$
 $$
 h_{m_i}^0 = \left[\frac{1}{len(m_i)} \sum_{w \in m_i} v_w; CNN(v_{w_1}, ..., v_{w_{|C|}})\right]
 $$
- (12)
+(12)
 
 where , <sup>∈</sup>*dh w wi vv R*are corresponding word embeddings of mention surface words and the mention's*mi c*, respectively, and [;] is concatenating operation. For the nodes in*VEnt*and*VMent*, we naturally used the entity word embeddings <sup>∈</sup> *dh ei v R*and <sup>∈</sup>*dh wi v R*trained in [8] as initial embedding 0 0 ,*e w i i h h*.
 
-#*4.3.2 Inter-Node Propagatio n*A node should receive different types of information from its heterogeneous neighborhood in different ways. Motivated by previous work about metapath [26], HEGEL models the different types of information propagation with multiple feature transformations on different adjacent relations. Taking edge type*r* = (*ti*,*tj*) into consideration, a node*vj*with type*tj*collects information from its neighborhood*N*(*vj*) with type*ti*in*l*-th layer by a Graph Convolutional Network (GCN):
+## *4.3.2 Inter-Node Propagatio n*A node should receive different types of information from its heterogeneous neighborhood in different ways. Motivated by previous work about metapath [26], HEGEL models the different types of information propagation with multiple feature transformations on different adjacent relations. Taking edge type*r* = (*ti*,*tj*) into consideration, a node*vj*with type*tj*collects information from its neighborhood*N*(*vj*) with type*ti*in*l*-th layer by a Graph Convolutional Network (GCN):
 
 $$
 h_{\nu_j, t_i}^{l+1} = \frac{1}{Z} \sum_{\nu_i \in V_{t_i} \cap N(\nu_j)} W_{t_i, t_j}^l h_{\nu_i}^l \tag{13}
@@ -182,7 +179,7 @@ Downloaded from http://direct.mit.edu/dint/article-pdf/4/1/20/1985039/dint\_a\_0
 
 where <sup>∈</sup> , *dl t <sup>l</sup> <sup>i</sup> vi h R*is*vi*'s embedding before the*l*-th layer, <sup>×</sup> <sup>+</sup> ∈ 1, , , *d d l t lt <sup>l</sup> j i t t i j W R*is a trainable matrix in the*l*-th layer, <sup>+</sup> <sup>+</sup> ∈ 1, <sup>1</sup> , *dl t <sup>l</sup> <sup>j</sup> v t j i h R*is*vj*'s new embedding related to*ti*, and*Z* is the normalization factor. Note that for edge types (*ti*,*ti*) connecting nodes with the same type, self-loop connections are added into its edge set.
 
-#*4.3.3 Intra-Node Aggregation*In order to preserve the information from different types of relationship with neighborhoods, for the node*vj*, HEGEL aggregates new embeddings to generate the input*<sup>l</sup>*<sup>+</sup><sup>1</sup>*v j h*for next layer:
+## *4.3.3 Intra-Node Aggregation*In order to preserve the information from different types of relationship with neighborhoods, for the node*vj*, HEGEL aggregates new embeddings to generate the input*<sup>l</sup>*<sup>+</sup><sup>1</sup>*v j h*for next layer:
 
 $$
 h_{v_j}^{l+1} = \sigma(f_{\text{agg}}(h_{v_j, t_i}^{l+1})) \tag{14}
@@ -190,7 +187,7 @@ $$
 
 where <sup>×</sup> → |{ }| :*d ti <sup>d</sup> agg fR R* is the aggregation function transforming the |{*ti*}| input embeddings to an aggregated one, which is implemented as simple summation operation*fagg*({*xi*}) =*xi*. s is an activation function implemented as GELU(·) [28], and <sup>+</sup> <sup>+</sup> <sup>∈</sup> 1, <sup>1</sup>*dl t <sup>l</sup> <sup>j</sup> v j h R*is the output embedding of the*l*-th layer containing all types of one-hop neighborhood of *vj*in heterogeneous graph structure. As all types of neighborhoods can affect the output of current layer and consequently the information propagation in next layer, we believe that, by encouraging full interactions among different types of information in this stage, the*L*layers of internode propagation and intra-node aggregation are able to encourage heterogeneous integrations and interactions among types of information, which are represented by the final output*<sup>L</sup> v j h*.
 
-#*4.3.4 Global Score Calculation*Afterobataining the information-augmented embeddings*<sup>L</sup> mi h*for mention*mi*and*<sup>L</sup> ei k h*for corresponding candidate*<sup>i</sup> <sup>k</sup> e*, we ensure that*dL*,*Ment*=*dL*,*Ent*, HEGEL applies a bi-linear similarity calculation to represent the global compatibility between the mention-candidate pair:
+## *4.3.4 Global Score Calculation*Afterobataining the information-augmented embeddings*<sup>L</sup> mi h*for mention*mi*and*<sup>L</sup> ei k h*for corresponding candidate*<sup>i</sup> <sup>k</sup> e*, we ensure that*dL*,*Ment*=*dL*,*Ent*, HEGEL applies a bi-linear similarity calculation to represent the global compatibility between the mention-candidate pair:
 
 $$
 \Psi_C(e_{i_k}, m_i) = (h_{m_i}^L)^T \cdot D \cdot h_{e_{i_k}}^L \tag{15}
@@ -198,7 +195,7 @@ $$
 
 where <sup>×</sup> ∈ , , *d d L Ment L Ent D R*is a trainable diagonal matrix.
 
-#*4.4 Feature Combining and Model Training*HEGEL combines local features and the global compatibility score to compute the linking score for each candidate*<sup>i</sup> <sup>k</sup> <sup>e</sup>*of mention*mi*:
+## *4.4 Feature Combining and Model Training*HEGEL combines local features and the global compatibility score to compute the linking score for each candidate*<sup>i</sup> <sup>k</sup> <sup>e</sup>*of mention*mi*:
 
 $$
 S(m_i, e_{i_k}) = f([P(e_{i_k} | m_i); \Psi_C(e_{i_k}, c_{m_i}); \Psi_T(e_{i_k}, m_i); \Psi_C(e_{i_k}, m_i)])
@@ -215,25 +212,25 @@ $$
 
 where c > 0 is the margin hyper-parameter, and [*x*]+ is equal to *x*when*x*> 0, or equal to 0 otherwise.
 
-# 5. EXPERIMENTS AND ANALYSIS
+## 5. EXPERIMENTS AND ANALYSIS
 
-##*5.1 Datasets*Fo llowing previous EL practice,we evaluated HEGEL on the benchmark dataset AIDA CoNLL-YAGO [19] for training, validation and the in-domain testing. To examine its cross-domain generalization ability, we used five popular datasets for cross-domain testing: MSNBC [29], AQUAINT [30], ACE2004 [13], CWEB [9] and WIKIPEDIA [9]. Table 1 shows the statistics and corresponding*recall*of candidate generation of all datasets used in our experiments.
+## *5.1 Datasets*Fo llowing previous EL practice,we evaluated HEGEL on the benchmark dataset AIDA CoNLL-YAGO [19] for training, validation and the in-domain testing. To examine its cross-domain generalization ability, we used five popular datasets for cross-domain testing: MSNBC [29], AQUAINT [30], ACE2004 [13], CWEB [9] and WIKIPEDIA [9]. Table 1 shows the statistics and corresponding*recall*of candidate generation of all datasets used in our experiments.
 
-| Dataset            | #Mentions | #Docs | #Ments / #Docs | Recall (%) |
+| Dataset | #Mentions | #Docs | #Ments / #Docs | Recall (%) |
 |--------------------|-----------|-------|----------------|------------|
-| AIDA-train (train) | 18448     | 946   | 19.50          | 100        |
-| AIDA-A (valid)     | 4791      | 216   | 22.18          | 97.72      |
-| AIDA-B (test)      | 4485      | 231   | 19.40          | 98.66      |
-| MSNBC              | 656       | 20    | 32.80          | 98.48      |
-| AQUAINT            | 727       | 50    | 14.54          | 94.09      |
-| ACE2004            | 257       | 36    | 7.14           | 91.44      |
-| CWEB               | 11154     | 320   | 34.86          | 91.90      |
-| WIKIPEDIA          | 6821      | 320   | 21.32          | 93.21      |
+| AIDA-train (train) | 18448 | 946 | 19.50 | 100 |
+| AIDA-A (valid) | 4791 | 216 | 22.18 | 97.72 |
+| AIDA-B (test) | 4485 | 231 | 19.40 | 98.66 |
+| MSNBC | 656 | 20 | 32.80 | 98.48 |
+| AQUAINT | 727 | 50 | 14.54 | 94.09 |
+| ACE2004 | 257 | 36 | 7.14 | 91.44 |
+| CWEB | 11154 | 320 | 34.86 | 91.90 |
+| WIKIPEDIA | 6821 | 320 | 21.32 | 93.21 |
 **Table 1.**The statistics of used datasets.
 
 Note:*Recall*represents the ratio of ground truth entities appearing in the generated candidate lists of corresponding mentions in the datasets.
 
-###*5.2 Model Variant*To examine our claim that the heterogeneous feature of GNN plays a crucial role in HEGEL, we implemented a semi-heterogeneous version of HEGEL, called HEGEL-semi, which shares the parameters of GCN about different node types in every layer, respectively, except the first layer, as the dimensions of input node embeddings are different and unable to be processed in the non-heterogeneous way:
+### *5.2 Model Variant*To examine our claim that the heterogeneous feature of GNN plays a crucial role in HEGEL, we implemented a semi-heterogeneous version of HEGEL, called HEGEL-semi, which shares the parameters of GCN about different node types in every layer, respectively, except the first layer, as the dimensions of input node embeddings are different and unable to be processed in the non-heterogeneous way:
 
 $$
 h_{v_j, t_j}^1 = \frac{1}{Z} \sum_{v_i \in V_{t_j} \cap N(v_j)} W_{t_j, t_j}^0 h_{v_i}^0
@@ -252,13 +249,13 @@ $$
 
 As the*K*1 parameter-sharing layers do not use different parameters to deal with different types of nodes, they do not enjoy the benefit from heterogeneous graph structure. Therefore, the performance of HEGELsemi should be lower than HEGEL according to our claim about the effect of a heterogeneous method.
 
-#### *5.3 Exp eriment Settings*As we used the pre-trained Word2vec [31] word embeddings, and entity embeddings released by [8], the embedding dimension*dh*is fixed to 300. The hyper-parameters are manually tuned based on the validation performance on AIDA-A. CNN output dimension*dcnn*= 64, all informative graph embedding dimensions*dl*,*<sup>t</sup>*= 32,*l*= 1, ...,*L*, number of HGNN layers *L*= 2, margin c = 0.01,*K*= 40, dropout rate is set to 0.5, and*EWW* threshold e = 0.5. To confine the graph size within a computable range, all documents with more than 80 mentions will be split into several documents as average as possible.
+### *5.3 Exp eriment Settings*As we used the pre-trained Word2vec [31] word embeddings, and entity embeddings released by [8], the embedding dimension*dh*is fixed to 300. The hyper-parameters are manually tuned based on the validation performance on AIDA-A. CNN output dimension*dcnn*= 64, all informative graph embedding dimensions*dl*,*<sup>t</sup>*= 32,*l*= 1, ...,*L*, number of HGNN layers *L*= 2, margin c = 0.01,*K*= 40, dropout rate is set to 0.5, and*EWW* threshold e = 0.5. To confine the graph size within a computable range, all documents with more than 80 mentions will be split into several documents as average as possible.
 
 We used Adam optimizer to train HEGEL with a learning rate of a = 2*e*4. The model is evaluated per 3 epochs, and the training process is terminated while the highest validation performance does not exceed 10 evaluations.
 
 Because of achieving the best performance on AIDA-A, HEGEL-semi is implemented under the same settings with HEGEL.
 
-##*5.4 Com pared Baselines*To illustrate the effect of modeling the interactions among different types of information, we evaluated and compared the performance of our HEGEL with nine existing methods on in- and cross-domain datasets:
+## *5.4 Com pared Baselines*To illustrate the effect of modeling the interactions among different types of information, we evaluated and compared the performance of our HEGEL with nine existing methods on in- and cross-domain datasets:
 
 - AIDA [19] builds a graph whose weights are coherent score and similarity, and applies traditional statistics method on it.
 - GLOW [13] designs several statistics features of both local and global with Wikipedia linking structure.
@@ -273,26 +270,26 @@ Because of achieving the best performance on AIDA-A, HEGEL-semi is implemented u
 
 It is worth noting that GNED claims they firstly construct a heterogeneous entity-word graph to model global information, but their nodes are not heterogeneous indeed as entity nodes share the same vector space with words. In addition, they do not apply any heterogeneous architecture in their GNN, as they regard all edges as the same type. Therefore, HEGEL is the first work to employ a heterogeneous GNN in EL tasks to our best knowledge.
 
-#*5.5 Mai n Results*We report the performance of all the compared baselines and our HEGEL in Table 2. The top part shows the performance of non-GNN-based baselines, and other baselines are GNN-based.
+## *5.5 Mai n Results*We report the performance of all the compared baselines and our HEGEL in Table 2. The top part shows the performance of non-GNN-based baselines, and other baselines are GNN-based.
 
-|              | In-domain | Cross-domain |           |           |           |           |
+| | In-domain | Cross-domain | | | | |
 |--------------|-----------|--------------|-----------|-----------|-----------|-----------|
-| Models       | AIDA-B    | MSNBC        | AQUA      | ACE       | CWEB      | WIKI      |
-| Prior p(e m) | 71.51     | 89.3         | 83.2      | 84.4      | 69.8      | 64.2      |
-| AIDA         | -         | 79           | 56        | 80        | 58.6      | 63        |
-| GLOW         | -         | 75           | 83        | 82        | 56.2      | 67.2      |
-| RI           | -         | 90           | 90        | 86        | 67.5      | 73.4      |
-| WNED         | 89        | 92           | 87        | 88        | 77        | 84.5      |
-| Deep-ED      | 92.22     | 93.7         | 88.5      | 88.5      | 77.9      | 77.5      |
-| Ment-Norm    | 93.07     | 93.9         | 88.3      | 89.9      | 77.5      | 78.0      |
-| GNED         | 92.40     | 95.5         | 91.6      | 90.14     | 77.5      | 78.5      |
-| NCEL         | 80        | -            | 87        | 88        | -         | -         |
-| SGEL         | 83        | 80           | 88        | 89        | -         | -         |
-| HEGEL        | 93.65±0.1 | 93.19±0.2    | 85.87±0.3 | 89.33±0.4 | 73.25±0.3 | 75.54±0.1 |
-| - w/o VWord  | 91.94±0.2 | 93.18±0.2    | 85.35±0.4 | 88.40±0.5 | 71.95±0.5 | 74.70±0.2 |
-| - w/o VEnt,2 | 92.22±0.1 | 92.93±0.4    | 85.07±0.7 | 88.93±0.4 | 72.57±0.5 | 75.45±0.2 |
-| HEGEL-semi   | 92.37±0.2 | 92.01±0.7    | 85.82±0.5 | 89.19±0.5 | 72.63±0.5 | 75.23±0.2 |
-| Local        | 91.03     | 91.97        | 84.06     | 86.92     | 71.45     | 74.79     |
+| Models | AIDA-B | MSNBC | AQUA | ACE | CWEB | WIKI |
+| Prior p(e m) | 71.51 | 89.3 | 83.2 | 84.4 | 69.8 | 64.2 |
+| AIDA | - | 79 | 56 | 80 | 58.6 | 63 |
+| GLOW | - | 75 | 83 | 82 | 56.2 | 67.2 |
+| RI | - | 90 | 90 | 86 | 67.5 | 73.4 |
+| WNED | 89 | 92 | 87 | 88 | 77 | 84.5 |
+| Deep-ED | 92.22 | 93.7 | 88.5 | 88.5 | 77.9 | 77.5 |
+| Ment-Norm | 93.07 | 93.9 | 88.3 | 89.9 | 77.5 | 78.0 |
+| GNED | 92.40 | 95.5 | 91.6 | 90.14 | 77.5 | 78.5 |
+| NCEL | 80 | - | 87 | 88 | - | - |
+| SGEL | 83 | 80 | 88 | 89 | - | - |
+| HEGEL | 93.65±0.1 | 93.19±0.2 | 85.87±0.3 | 89.33±0.4 | 73.25±0.3 | 75.54±0.1 |
+| - w/o VWord | 91.94±0.2 | 93.18±0.2 | 85.35±0.4 | 88.40±0.5 | 71.95±0.5 | 74.70±0.2 |
+| - w/o VEnt,2 | 92.22±0.1 | 92.93±0.4 | 85.07±0.7 | 88.93±0.4 | 72.57±0.5 | 75.45±0.2 |
+| HEGEL-semi | 92.37±0.2 | 92.01±0.7 | 85.82±0.5 | 89.19±0.5 | 72.63±0.5 | 75.23±0.2 |
+| Local | 91.03 | 91.97 | 84.06 | 86.92 | 71.45 | 74.79 |
 **Table 2.** Performance on in-domain (AIDA-B) and cross-domain datasets.
 
 Note: We show in-KB accuracy (%) for the in-domain datasets and micro-*F*1 score (%) for the cross-domain datasets, respectively. For HEGEL we show std. deviation obtained over 3 runs.
@@ -307,16 +304,16 @@ As the HEGEL-semi is also implemented under *L*= 2, it contains one heterogeneou
 
 Comparing GNED with our simpler and effective way to extract keywords within the first sentence from the Wikipedia page of corresponding entity, they search on the whole Wikipedia KB to find the hyperlinks to corresponding entity and extract contexts in preprocessing stage, which have to iterate through all |E| entities and become very time-consuming. Even with less keyword evidence, our strategy still ourperforms GNED on in-domain dataset with lower time overhead. GNED accesses more additional linking clues and reach better performance on cross-domain datasets, and we suppose that the richer information can also improve the generalization ability of our HEGEL, and further boost our performance on cross-domain datasets.
 
-#*5.6 Ablation Study*As shown in the bottom part of Table 2, HEGEL boosts the performance of local model with an average improvement of 1.77%, which shows that HEGEL is able to greatly enhance the local model.
+## *5.6 Ablation Study*As shown in the bottom part of Table 2, HEGEL boosts the performance of local model with an average improvement of 1.77%, which shows that HEGEL is able to greatly enhance the local model.
 
 To further examine the effect of our heterogeneous model, we removed the keyword nodes*VWord*and neighbor nodes*VEnt*,2 from *V*D, respectively, and therefore the related edges from *E*D as well. After that, there is a significant drop in performance (0.89% and 0.61% on average, respectively) across datasets, especially in-domain AIDA-B (1.71% and 1.43%). The results demonstrate the effectiveness of introducing the keyword (fine-grained type) information and neighborhood information of candidate entities and modeling the interactions among them, which can help to accurately capture the topical characteristics of candidates.
 
-# *5.7 Analysis*#*5.7. 1 The Impact of Edge Directions*As referred in Section 4.2, HEGEL only keeps one direction for*EEM*and*EWE*. We suppose that adding edges from *VMent*to*VEnt*,1 and from *VEnt*,1 to *VWord*will lead to the over-smooth problem, as candidates to be disambiguated are related to the same mention and maybe the same keywords, where they might entangle with each other and make the disambiguation harder. As expected, the results shown in Table 3 prove that keeping these edges uni-directional can alleviate over-smooth and enhance the performance.
+## *5.7 Analysis*#*5.7. 1 The Impact of Edge Directions*As referred in Section 4.2, HEGEL only keeps one direction for*EEM*and*EWE*. We suppose that adding edges from *VMent*to*VEnt*,1 and from *VEnt*,1 to *VWord*will lead to the over-smooth problem, as candidates to be disambiguated are related to the same mention and maybe the same keywords, where they might entangle with each other and make the disambiguation harder. As expected, the results shown in Table 3 prove that keeping these edges uni-directional can alleviate over-smooth and enhance the performance.
 
- Models AIDA-B Cross-domain avg. HEGEL**93.65 83.44**+*VEnt VWord*93.15 82.93 +*VMent VEnt*92.64 83.03 +Both 91.21 81.81
+Models AIDA-B Cross-domain avg. HEGEL**93.65 83.44**+*VEnt VWord*93.15 82.93 +*VMent VEnt*92.64 83.03 +Both 91.21 81.81
 **Table 3.**Experiment results on changing the directionality of edges.
 
-#*5.7.2 The Impact of the Number of GNN Layers*Despite the powerful ability of GNN to process graph-structured data, most of them are shallow, which means that they do not have many propagation layers. As shown in [32], stacking many layers with nonlinear function will degrade the performance of GNN-based models due to the over-smoothing problem. Therefore, we examined the performance of HEGEL with different number of layers. The results shown in Figure 3 agree with previous GNN-related works as HEGEL with*K*= 2 layers leads to the best performance in EL task. Too many layers will lead to the over-smoothing problem, and 1-layer model is not enough to propagate the heterogeneous information required for the aggregation and interaction on the graph.
+## *5.7.2 The Impact of the Number of GNN Layers*Despite the powerful ability of GNN to process graph-structured data, most of them are shallow, which means that they do not have many propagation layers. As shown in [32], stacking many layers with nonlinear function will degrade the performance of GNN-based models due to the over-smoothing problem. Therefore, we examined the performance of HEGEL with different number of layers. The results shown in Figure 3 agree with previous GNN-related works as HEGEL with*K*= 2 layers leads to the best performance in EL task. Too many layers will lead to the over-smoothing problem, and 1-layer model is not enough to propagate the heterogeneous information required for the aggregation and interaction on the graph.
 
 ![](_page_14_Figure_1.jpeg)
 <!-- Image Description: The image displays a line graph illustrating the F1 scores of a model across five layers (K=1-5). Four lines represent different scenarios: "No residual" and "Residual" conditions, each tested on AIDA-B and a cross-domain dataset. The graph shows how the F1 score varies depending on the layer number and the presence/absence of residual connections, comparing performance across different datasets. The purpose is to evaluate the impact of residual connections and dataset choice on model performance at different layers. -->
@@ -331,29 +328,29 @@ $$
 
 However, as shown in Figure 3, applying residual connection on the model with *K*= 2 causes the dropping of both in-domain and cross-domain performance. Though the residual connection boosts the in-domain performance on the case of*K*≥ 3, they are still not comparable with the best performance of*K*= 2. We thought it might be related to the information handling method varying from layers of HGNN, as the heterogeneous structure in various propagation steps is obviously too different to be handled by the same layer of network correctly.
 
-##*5.7.3 Er ror Analysis*We randomly sampled and analyzed 100 mentions from all mentions that were incorrectly linked by HEGEL from in-domain dataset AIDA-B and the most difficult cross-domain dataset CWEB, respectively. As shown in Table 4, the four major error types contain: (1)*Topic Errors*, which happened when HEGEL links the candidate of different (usually unrelated) topics with gold entity, are the main challenge faced by current global methods; (2) *Similar Entity Error*, which means that the predicated candidate and gold entity have too similar semantics to be disambiguated by local and global information, and might be solved by introducing more information in future works; (3) *Related Entity Error*, which happened when the predicated entity is semantically closely related to the gold one, such as a city and a stadium located in it or a hypernym of gold entity; (4) *Dataset Annotation Errors*, which means the gold entity offered in dataset is wrong and different from the predicted one, only occurs in CWEB.
+## *5.7.3 Er ror Analysis*We randomly sampled and analyzed 100 mentions from all mentions that were incorrectly linked by HEGEL from in-domain dataset AIDA-B and the most difficult cross-domain dataset CWEB, respectively. As shown in Table 4, the four major error types contain: (1)*Topic Errors*, which happened when HEGEL links the candidate of different (usually unrelated) topics with gold entity, are the main challenge faced by current global methods; (2) *Similar Entity Error*, which means that the predicated candidate and gold entity have too similar semantics to be disambiguated by local and global information, and might be solved by introducing more information in future works; (3) *Related Entity Error*, which happened when the predicated entity is semantically closely related to the gold one, such as a city and a stadium located in it or a hypernym of gold entity; (4) *Dataset Annotation Errors*, which means the gold entity offered in dataset is wrong and different from the predicted one, only occurs in CWEB.
 
-| Error types                                        | Examples                                                                                                                                                                                                                          |
+| Error types | Examples |
 |----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Topic Errors<br>AIDA-B: 24%<br>CWEB: 44%           | To win [Timbo]'s trust, Chris chained himself up in the elephant's enclosure<br>HEGELTimbo (a town in Guinea)<br>GoldTimbaland (an American Musician)                                                                           |
-| Similar Entity Errors<br>AIDA-B: 29%<br>CWEB: 24%  | In a gloomy Geneva conference centre built before the dawn of the [Internet],<br>groups of staid offi cials made a<br>HEGELInternet (the worldwide computer network)<br>GoldWorld Wide Web (the global system of pages via URL) |
-| Related Entity Errors<br>AIDA-B:47%<br>CWEB: 29%   | a small rightwing [Christian] civil war militia, Saqr, whose trial was concurrent<br><br>HEGELChristian<br>GoldCatholicism (the largest Christian church)                                                                       |
-| Dataset Annotation Errors<br>AIDA-B:0%<br>CWEB: 3% | Brooks Cole Herring. [B.], 2001, Ethical guidelines in the treatment of<br>compulsive<br>HEGELB.W. Aston (a Texas historian and professor)<br>GoldB (the second letter ?)                                                       |
+| Topic Errors<br>AIDA-B: 24%<br>CWEB: 44% | To win [Timbo]'s trust, Chris chained himself up in the elephant's enclosure<br>HEGELTimbo (a town in Guinea)<br>GoldTimbaland (an American Musician) |
+| Similar Entity Errors<br>AIDA-B: 29%<br>CWEB: 24% | In a gloomy Geneva conference centre built before the dawn of the [Internet],<br>groups of staid offi cials made a<br>HEGELInternet (the worldwide computer network)<br>GoldWorld Wide Web (the global system of pages via URL) |
+| Related Entity Errors<br>AIDA-B:47%<br>CWEB: 29% | a small rightwing [Christian] civil war militia, Saqr, whose trial was concurrent<br><br>HEGELChristian<br>GoldCatholicism (the largest Christian church) |
+| Dataset Annotation Errors<br>AIDA-B:0%<br>CWEB: 3% | Brooks Cole Herring. [B.], 2001, Ethical guidelines in the treatment of<br>compulsive<br>HEGELB.W. Aston (a Texas historian and professor)<br>GoldB (the second letter ?) |
 
 Table 4. The major error types and their examples.
 
 Note: Square brackets denote the current target mentions. Italicized and underlined entities are the prediction results of HEGEL and the gold entities given in datasets, respectively.
 
-# *5.7.4 Case Study*As shown in Figure 2, HEGEL needs to map the mentions "Scotland", "Murrayfield", "Cuttitta" and "England" in the same document to corresponding entities. "Murrayfield" and "Cuttitta" are not ambiguous as they have only one candidate, respectively. However, "Scotland" and "England" are linked to wrong candidates by local model, where our HEGEL outputs the right answers by correctly modeling the interactions among heterogeneous types of information, especially from the neighborhood around "Marcello Cuttitta" (a former rugby union player) and "Rugby Union", and from the respective keywords related to "rugby". Ablation score calculating results shown in Table 5 manifest that information from keyword nodes*VWord*and neighbor nodes*VEnt*,2 and correctly handling the information are both important for HEGEL to correctly capture the topical coherence and model the heterogeneous interactions.
+## *5.7.4 Case Study*As shown in Figure 2, HEGEL needs to map the mentions "Scotland", "Murrayfield", "Cuttitta" and "England" in the same document to corresponding entities. "Murrayfield" and "Cuttitta" are not ambiguous as they have only one candidate, respectively. However, "Scotland" and "England" are linked to wrong candidates by local model, where our HEGEL outputs the right answers by correctly modeling the interactions among heterogeneous types of information, especially from the neighborhood around "Marcello Cuttitta" (a former rugby union player) and "Rugby Union", and from the respective keywords related to "rugby". Ablation score calculating results shown in Table 5 manifest that information from keyword nodes*VWord*and neighbor nodes*VEnt*,2 and correctly handling the information are both important for HEGEL to correctly capture the topical coherence and model the heterogeneous interactions.
 
-| Models   | Scot.country | Scot.team | Eng.football | Eng.rugby |
+| Models | Scot.country | Scot.team | Eng.football | Eng.rugby |
 |----------|---------------|------------|---------------|------------|
-| Gold     | Low           | High       | Low           | High       |
-| HEGEL    | -0.162        | -0.144     | -0.147        | -0.145     |
-| - VWord  | -0.336        | -0.309     | -0.312        | -0.317     |
-| - VEnt,2 | -0.176        | -0.187     | -0.170        | -0.168     |
+| Gold | Low | High | Low | High |
+| HEGEL | -0.162 | -0.144 | -0.147 | -0.145 |
+| - VWord | -0.336 | -0.309 | -0.312 | -0.317 |
+| - VEnt,2 | -0.176 | -0.187 | -0.170 | -0.168 |
 
-| Table 5. Scores in case study. |  |
+| Table 5. Scores in case study. | |
 |--------------------------------|--|
 |--------------------------------|--|
 
@@ -365,11 +362,11 @@ In this paper, we presented HEGEL, a novel graph-based global entity linking met
 
 This work is supported in part by the National Key R&D Program of China (No. 2020AAA0106600) and the Key Laboratory of Science, Technology and Standard in Press Industry (Key Laboratory of Intelligent Press Media Technology).
 
-# AUTHOR CONTRIBUTIONS
+## AUTHOR CONTRIBUTIONS
 
 Z.B. Chen (czb-peking@pku.edu.cn) performed the research, designed the whole methodology, designed and carried out the experiments and analysis, and wrote the manuscript. Y.T. Wu (wyting@pku.edu.cn) proposed the research problems, designed the experiment and analysis, and wrote the manuscript. Y.S. Feng (fengyansong@pku.edu.cn) and D.Y. Zhao (zhaodongyan@pku.edu.cn) proposed the research problems, supervised the research and provided insightful revision on the manuscript. All authors have made valuable and meaningful contributions to the manuscript.
 
-# REFERENCES
+## REFERENCES
 
 - [1] Yih, S. W.t., et al.: Semantic parsing via staged query graph generation: Question answering with knowledge base. In: Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 1: Long Papers), pp. 1321–1331 (2015)
 - [2] Wang, J., et al.: Combining knowledge with deep convolutional neural networks for short text classification. In: Proceedings of the Twenty-Sixth International Joint Conference on Artificial Intelligence (IJCAI), pp. 2915– 2921 (2017)
@@ -407,7 +404,7 @@ Z.B. Chen (czb-peking@pku.edu.cn) performed the research, designed the whole met
 - [32] Chen, M., et al.: Simple and deep graph convolutional networks. In: International Conference on Machine Learning (PMLR), pp. 1725–1735 (2020)
 - [33] He, K., et al.: Deep residual learning for image recognition. In: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 770–778 (2016)
 
-# AUTHOR BIOGRAPHY
+## AUTHOR BIOGRAPHY
 
 ![](_page_19_Picture_2.jpeg)
 <!-- Image Description: The image is a headshot photograph of a young man wearing glasses against a solid blue background. It's a standard author photograph included in an academic paper, likely to provide a visual representation of the author for identification purposes. There are no diagrams, charts, graphs, equations, or other technical illustrations present. -->

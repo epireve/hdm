@@ -30,13 +30,12 @@ images_removed: 0
 keywords: 
 ---
 
-
 # FOCUS ARTICLE
 
 ![](_page_0_Picture_4.jpeg)
 <!-- Image Description: The image shows the logos of WIREs Data Mining and Knowledge Discovery and Wiley. It is a publisher's imprint, indicating the journal in which the paper was published. The image contains no diagrams, charts, graphs, or equations. Its purpose is to provide publication metadata. -->
 
-# A comprehensive survey of personal knowledge graphs
+## A comprehensive survey of personal knowledge graphs
 
 School of Mathematical and Computational Sciences, Indian Association for the Cultivation of Science, Kolkata, West Bengal, India
 
@@ -52,7 +51,7 @@ Edited by: Elisa Bertino, Associate Editor and Witold Pedrycz, Editor-in-Chief
 
 Prantika Chakraborty | Debarshi Kumar Sanyal
 
-#### Abstract
+### Abstract
 
 Information that can encapsulate a person's daily life and its different aspects provides insightful knowledge. This knowledge can prove to be more useful than general knowledge for improving personalized tasks. When it comes to storing such knowledge, personal knowledge graphs (PKGs) come in as handy saviors. PKGs are knowledge graphs which store details that are pertinent to a user but not, in general, useful to the rest of humanity. Conversational agents can access these PKGs to answer queries related to the user's day-to-day life, whereas recommender systems can harness the knowledge stored in PKGs to make personalized suggestions. Despite the immense applicability of PKGs, there has not been significant research in this area. We present an extensive review of PKGs. We categorize them according to the domains in which they are most relevant; in particular, we highlight the use of PKGs in medicine, finance, and education and research. We also categorize the different ways of constructing a PKG based on the source of data required for such constructions. Furthermore, we discuss the limitations of PKGs and suggest directions for future work.
 
@@ -62,11 +61,11 @@ Fundamental Concepts of Data and Knowledge > Human Centricity and User Interacti
 
 Fundamental Concepts of Data and Knowledge > Knowledge Representation Technologies > Artificial Intelligence
 
-#### KEYWORDS
+### KEYWORDS
 
 conversational agent, information extraction, personal knowledge graph, recommender system
 
-# 1 | INTRODUCTION
+## 1 | INTRODUCTION
 
 Knowledge graphs (KGs) have become an integral part of our daily lives in capturing structured human data and its attributes. The information is captured by the KG as entities and the relations between them, and is represented by the nodes and edges of the graph, respectively. This information is usually stored as resource description framework (RDF1 ; Miller, [1998](#page-11-0)) triplets of the type <subject–predicate–object>, which can be queried using applications like SPARQL<sup>2</sup> .
 
@@ -100,11 +99,11 @@ FIGURE 2 Examples of different personal knowledge graphs. (a) Personal knowledge
 
 To the best of our knowledge, this is the first attempt at surveying PKGs and the diverse aspects related to them. The rest of the paper is divided as follows. Section 2 discusses the application domains of PKGs which they have been created for. These include the Health domain, the Finance domain, and the Education and Research domain. As PKG is an emerging research area, we have significantly sparse literature on the topic. Section [3](#page-4-0) discusses the different methods of constructing a PKG based on user utterances, data stored in the system, and a hybrid of both data sources. Section [4](#page-8-0) lists the various application of PKGs in the form of conversational agents and recommender systems. Section [5](#page-9-0) discusses the miscellaneous limitations that one might encounter while using a PKG and the scope of solving such limitations in the form of future works. Finally, Section [6](#page-10-0) concludes the survey.
 
-# 2 | APPLICATION DOMAINS OF PKG
+## 2 | APPLICATION DOMAINS OF PKG
 
 The areas in which PKGs have been primarily used are health, finance, and education and research. Figure [3](#page-3-0) illustrates some of the specific use cases of PKGs in each of these domains. We will now describe the use cases in more detail.
 
-# 1 | Health
+## 1 | Health
 
 The medical domain is a storehouse of patient data, which contain their medical history and health conditions. This makes it a very viable environment for maintaining a PKG for each patient. PKGs can be used to make personalized diet and lifestyle plans for patients suffering from chronic diseases such as diabetes (Shirai et al., [2021](#page-12-0)) by taking their various allergies and eating habits into account and integrating that knowledge with other domain-specific KGs like FoodKG (Haussmann et al., [2019](#page-11-0)). This would make the diet plan truly personalized as a diet endorsed to be healthy and efficient for one patient might not be the same for another, due to the differences in their health conditions and also their treatment styles.
 
@@ -119,17 +118,17 @@ knowledge," "cooking methodology," and "financial conditions" can be incorporate
 
 Human beings have a tendency of looking back at their memories. This, however, becomes challenging for people suffering from memory-altering diseases like dementia. Generating a PKG from the various digital lifelogs that people create in their daily life (Yen et al., [2021](#page-12-0)) can prove to be an asset in such cases. Lifelogs are digital repositories of memories and experiences of a user that have been recorded and captured in some form. Information can be extracted from the user's digital lifelog which includes social media activities, blogs and vlogs, search histories, data from wearables (smart glasses and watches), and chat histories. Once stored in a PKG, a user can explicitly query it to recall their memories, in the "reactive mode." In the "proactive mode," the information retrieval service can get triggered by the user's hesitations or interruptions while recalling experiences in a conversation.
 
-# 2 | Finance
+## 2 | Finance
 
 An upcoming domain of research where PKGs have found significance is the Financial Technology (FinTech) domain. Financial institutes like banks and insurance companies rely heavily on customer data which they can acquire under the Know Your Customer scheme (Mullins et al., [2014](#page-12-0)). These data are crucial for predicting the credit score, and the possibility of committing financial fraud by a customer. It also aids such institutes to be cognizant of their customer's legal status and social media presence. A PKG can be used to store such day-to-day information about a customer (corporate or natural), for various tasks like risk evaluation of insurance companies, customer-specific marketing by banks, and the possibility of defaulting by commercial entities (Chen et al., [2020\)](#page-11-0).
 
-# <span id="page-4-0"></span>2.3 | Education and research
+## <span id="page-4-0"></span>2.3 | Education and research
 
 The post-COVID-19 pandemic-stricken world has seen a boom in the use of e-learning platforms as not just an alternative but at times equivalent to physical classroom learning. A PKG can enhance the learning experience on such platforms (Ilkou, [2022\)](#page-11-0). By taking into account the data generated by users on e-learning platforms, the PKG can help predict the learning path of the user, all the while taking into account the various accessibility options and the academic and psychological profile of the user. It can also help in recommending courses that are better suited to a particular user's needs and capacity, by availing the resources of external knowledge bases like eDoers.<sup>5</sup> The idea of using a PKG to enhance the learning experience can be extended to a group or collaborative setting by taking into account collaborative search or the Searching as Learning technique (Ilkou, [2022](#page-11-0)).
 
 A personal research knowledge graph (PRKG) can be used to simplify the daily tasks of a researcher (Chakraborty et al., [2022](#page-11-0)). A PRKG contains structured information about the research-related activities of a researcher. This information includes but is not limited to their research areas, place of work, published papers, the details of their lab, and so on. With the help of a conversational agent, the PRKG can be utilized to gain knowledge that the researcher might want to access about their professional sphere which is not always feasible for them to keep in mind but can be easily stored in the PRKG. The PRKG aims to link to external KGs that the conversational agent might exploit to provide web search results for queries such as information regarding the upcoming conferences in the research area that is of interest to the researcher. The PRKG can also be used to suggest potential collaborators to the researcher.
 
-# 3 | CONSTRUCTION OF PKG
+## 3 | CONSTRUCTION OF PKG
 
 The construction of a PKG relies greatly on the extraction of entities and relations from the data generated by the user. Such data are generated from the user's conversations, the user's information stored in their system, or both. However, handling such personal data is not trivial. The main challenges that are faced when trying to construct a PKG can be broadly listed as follows:
 
@@ -140,7 +139,7 @@ The construction of a PKG relies greatly on the extraction of entities and relat
 
 In the following subsections, we categorize the various ways of constructing a PKG depending on the source of user data, as shown in Figure [4,](#page-5-0) and how the challenges are overcome.
 
-# 1 | From user utterances
+## 1 | From user utterances
 
 One of the most popular ways of populating a PKG is by obtaining information from conversational data, otherwise referred to as user utterances. The methods that make use of such data are discussed in this subsection.
 
@@ -187,7 +186,7 @@ where Cwi is the set of top <sup>K</sup> words obtained from the masked language
 
 Linking personal entities, for example, my\_city to Kolkata as shown in Figure [1](#page-1-0) becomes challenging with traditional entity linking methods that are not equipped to handle personal information. The CREL architecture (Joko & Hasibi, [2022\)](#page-11-0) is an approach of personal entity and concept linking from users' conversations that solves this hurdle. It consists of a BERT-based model for entity mention detection and a rule-based approach for personal entity detection. In particular, mention detection is carried out using a pre-trained BERT model for BIO label prediction whereas entity disambiguation is carried out by training the REL approach (van Hulst et al., [2020\)](#page-12-0) on the ConEL-2 dataset that was created by the authors.
 
-# 2 | From system-stored data
+## 2 | From system-stored data
 
 Human beings generate a considerable amount of data in their day-to-day activities that gets stored in their personal devices. In this subsection, we look into the various ways such data can be used to populate a PKG.
 
@@ -195,18 +194,18 @@ The data generated every day in the user's smartphone can be exploited in order 
 
 <span id="page-7-0"></span>8 of 13 CHAKRABORTY and SANYAL
 
-| TABLE 1 |  |  |  |  | Interpersonal relation detection performance of the PRIDE model (Tigunova et al., 2021b) on the FiRe and the Series datasets. |
+| TABLE 1 | | | | | Interpersonal relation detection performance of the PRIDE model (Tigunova et al., 2021b) on the FiRe and the Series datasets. |
 |---------|--|--|--|--|-------------------------------------------------------------------------------------------------------------------------------|
 |---------|--|--|--|--|-------------------------------------------------------------------------------------------------------------------------------|
 
-|                              | Cross-val on FiRe |           |        | Train: FiRe, test: Series |           |        |  |
+| | Cross-val on FiRe | | | Train: FiRe, test: Series | | | |
 |------------------------------|-------------------|-----------|--------|---------------------------|-----------|--------|--|
-| Model                        | F1                | Precision | Recall | F1                        | Precision | Recall |  |
-| RNN (Welch et al., 2019)     | 0.11              | 0.11      | 0.15   | 0.10                      | 0.17      | 0.14   |  |
-| BERTddrel (Jia et al., 2021) | 0.20              | 0.20      | 0.25   | 0.14                      | 0.22      | 0.15   |  |
-| HAM (Tigunova et al., 2019)  | 0.23              | 0.25      | 0.22   | 0.16                      | 0.21      | 0.16   |  |
-| BERTconv (Lu et al., 2020)   | 0.27              | 0.25      | 0.33   | 0.25                      | 0.35      | 0.21   |  |
-| PRIDE                        | 0.38              | 0.42      | 0.37   | 0.30                      | 0.43      | 0.29   |  |
+| Model | F1 | Precision | Recall | F1 | Precision | Recall | |
+| RNN (Welch et al., 2019) | 0.11 | 0.11 | 0.15 | 0.10 | 0.17 | 0.14 | |
+| BERTddrel (Jia et al., 2021) | 0.20 | 0.20 | 0.25 | 0.14 | 0.22 | 0.15 | |
+| HAM (Tigunova et al., 2019) | 0.23 | 0.25 | 0.22 | 0.16 | 0.21 | 0.16 | |
+| BERTconv (Lu et al., 2020) | 0.27 | 0.25 | 0.33 | 0.25 | 0.35 | 0.21 | |
+| PRIDE | 0.38 | 0.42 | 0.37 | 0.30 | 0.43 | 0.29 | |
 
 Note: The first set of columns depict cross-validation performance on FiRe while the next set of columns illustrate transfer learning where training is done on FiRe and test on Series dataset (reproduced, with permission, from Tigunova et al., [2021b](#page-12-0)).
 
@@ -214,7 +213,7 @@ uniform form of "2022-1-1 00:00:00." A common knowledge graph (CKG) is construct
 
 Folders and files in a user's system are lucrative sources for the construction of a PKG in the form of hand-made classification structures (Schröder et al., [2022\)](#page-12-0). Since the naming structure of such files and folders might not always follow a rule-based approach and might mostly rely on the whims of the user, a knowledge engineer (or, the "humanin-the-loop") and an artificial intelligence (AI) system join hands to identify a possible schema for the PKG from the names of the user's files and folders, which is then used to populate a PKG after creating a taxonomy and predicting nontaxonomic relations (Schröder et al., [2022\)](#page-12-0).
 
-# 3 | Hybrid
+## 3 | Hybrid
 
 In this subsection, we look into the construction methods for PKG that combine user utterances and other sources of data.
 
@@ -222,17 +221,17 @@ Leveraging social media posts to generate information about the user can be a ch
 
 <span id="page-8-0"></span>TABLE 2 Performance comparison of HAMs (Tigunova et al., [2019\)](#page-12-0), CHARM (Tigunova et al., [2020](#page-12-0)), and DSCGN (Y. Liu, Chen, & Shen, [2022](#page-11-0)) for the task of personal attribute extraction on the datasets Wiki-data (Tigunova et al., [2020](#page-12-0)) and Wiki-category (Tigunova et al., [2020\)](#page-12-0) (reproduced, with permission, from Y. Liu, Chen, & Shen, [2022](#page-11-0)).
 
-|                    |                | Wiki-page  |      |       |      | Wiki-category |      |       |      |
+| | | Wiki-page | | | | Wiki-category | | | |
 |--------------------|----------------|------------|------|-------|------|---------------|------|-------|------|
-|                    |                | profession |      | hobby |      | profession    |      | hobby |      |
-| Labeled utterances | Method         | MRR        | nDCG | MRR   | nDCG | MRR           | nDCG | MRR   | nDCG |
-| No                 | HAMavg         | 0.06       | 0.07 | 0.06  | 0.05 | 0.06          | 0.07 | 0.03  | 0.02 |
-|                    | HAM2attn       | 0.06       | 0.07 | 0.04  | 0.05 | 0.06          | 0.07 | 0.06  | 0.07 |
-|                    | HAMCNN         | 0.20       | 0.18 | 0.22  | 0.14 | 0.27          | 0.34 | 0.17  | 0.27 |
-|                    | HAMCNN<br>attn | 0.21       | 0.28 | 0.13  | 0.10 | 0.25          | 0.31 | 0.16  | 0.25 |
-|                    | DSCGN          | 0.43       | 0.57 | 0.29  | 0.50 | 0.44          | 0.60 | 0.29  | 0.49 |
-| Yes                | CHARMBM25      | 0.29       | 0.46 | 0.24  | 0.47 | 0.28          | 0.47 | 0.21  | 0.43 |
-|                    | CHARM KNRM     | 0.27       | 0.44 | 0.22  | 0.44 | 0.35          | 0.55 | 0.27  | 0.49 |
+| | | profession | | hobby | | profession | | hobby | |
+| Labeled utterances | Method | MRR | nDCG | MRR | nDCG | MRR | nDCG | MRR | nDCG |
+| No | HAMavg | 0.06 | 0.07 | 0.06 | 0.05 | 0.06 | 0.07 | 0.03 | 0.02 |
+| | HAM2attn | 0.06 | 0.07 | 0.04 | 0.05 | 0.06 | 0.07 | 0.06 | 0.07 |
+| | HAMCNN | 0.20 | 0.18 | 0.22 | 0.14 | 0.27 | 0.34 | 0.17 | 0.27 |
+| | HAMCNN<br>attn | 0.21 | 0.28 | 0.13 | 0.10 | 0.25 | 0.31 | 0.16 | 0.25 |
+| | DSCGN | 0.43 | 0.57 | 0.29 | 0.50 | 0.44 | 0.60 | 0.29 | 0.49 |
+| Yes | CHARMBM25 | 0.29 | 0.46 | 0.24 | 0.47 | 0.28 | 0.47 | 0.21 | 0.43 |
+| | CHARM KNRM | 0.27 | 0.44 | 0.22 | 0.44 | 0.35 | 0.55 | 0.27 | 0.49 |
 
 Note: Bold values represent the best performance among all the methods.
 
@@ -244,7 +243,7 @@ Another method to tackle the lack of labeled utterance data for personal attribu
 
 Chakraborty et al. [\(2022](#page-11-0)) advocate several ways to populate a PRKG (PKG for researchers); these include consensual tracking of the user utterances during research meetings, consensual mining of user emails, actively enquiring the researchers for salient information, and carrying out named entity recognition on research papers.
 
-# 4 | APPLICATIONS OF PKG
+## 4 | APPLICATIONS OF PKG
 
 PKGs have found usefulness in various domains which require the personal details of users for the completion of tasks. One of the main applications is the retrieval of important personal information from the PKG via a conversational agent. Users can query their PKGs through the conversational agents, which can then produce the desired response after going through the PKG. Another important application of PKGs is personalized recommendation that utilizes the data in a user's PKG which can reflect the user's likes, dislikes, and requirements. Both the above-stated applications can be combined to create a framework best suited to a user's specific requirements. We elaborate on these two applications below.
 
@@ -254,7 +253,7 @@ Recommender systems: Recommender systems are classified into three types: (i) co
 
 Comparison and combination with large language models: Large language models (LLMs) like OpenAI's ChatGPT<sup>9</sup> and Meta's LLaMA (Touvron et al., [2023\)](#page-12-0) have gained mass popularity for properly following user instructions and carrying out tasks like question-answering, text generation, translation, and recommendation. LLMs, however, are notorious for hallucinating, or generating false and unreliable responses to questions and prompts about knowledge that they do not come across during training (Ji et al., [2023\)](#page-11-0). This can be especially harmful when using LLMs in domains that require precise information, like the medical (Beutel et al., [2023](#page-11-0)) and legal (Sun, [2023\)](#page-12-0) domains. Alternatively, question-answering based on PKGs can yield reliable information due to the exactness of the information stored and the possibility of information updating, unlike LLMs that are trained on fixed data (Omar et al., [2023\)](#page-12-0). Using external knowledge, in the form of PKGs, can enhance an LLM's ability to answer personalized queries almost accurately, without having to predict or hallucinate such answers (Martino et al., [2023;](#page-11-0) Peng et al., [2023](#page-12-0)). LLMs are trained using large sets of publicly available data that might also contain sensitive private information available on the web that might be targets of privacy breach attacks (Carlini et al., [2021](#page-11-0)). Removal of such data is not always ensured and depends on the scrutiny of the authorities in charge of the LLMs. PKGs, on the other hand, provide transparency by giving complete access and control to the user when it comes to the data stored, hence giving more agency to the user over their personal information. Taking into account LLMs' efficiency in information extraction, they can be used as tools for the construction of PKGs as well (Zhu et al., [2023\)](#page-12-0).
 
-# 5 | LIMITATIONS AND FUTURE WORKS
+## 5 | LIMITATIONS AND FUTURE WORKS
 
 We now state some limitations of the works done on PKGs and identify potential directions of future work.
 
@@ -270,23 +269,23 @@ Expanded PKG: Sometimes it might be useful to store information beyond that of t
 
 Construction of datasets: There is a lack of annotated conversational dataset that could be used to train models to extract attributes from a user's conversations. Construction of such datasets may be undertaken, after suitable anonymization, for better training of attribute extraction models.
 
-# 6 | CONCLUSION
+## 6 | CONCLUSION
 
 In this paper, we have made an elaborate study of the available literature on PKGs. We have categorized PKGs according to their domain of applications where their use as a personalized information database has been highlighted. We have further discussed methods for the construction of PKGs from information obtained from user utterances and from the personalized data stored in the user's system. We have explored construction methods that make use of both such data sources. The various applications of the PKGs have also been described. We have also pointed out the limitations of a PKG and identified possible ways of overcoming them in future works.
 
-# AUTHOR CONTRIBUTIONS
+## AUTHOR CONTRIBUTIONS
 
 Prantika Chakraborty: Conceptualization (equal); data curation (lead); formal analysis (lead); methodology (lead); visualization (lead); writing—original draft (lead); writing – review and editing (equal). Debarshi Kumar Sanyal: Conceptualization (equal); funding acquisition (lead); project administration (lead); supervision (lead); writing—review and editing (equal).
 
-# FUNDING INFORMATION
+## FUNDING INFORMATION
 
 This work is partially supported by the Department of Science and Technology, Government of India under grant CRG/2021/000803.
 
-# CONFLICT OF INTEREST STATEMENT
+## CONFLICT OF INTEREST STATEMENT
 
 The authors have declared no conflicts of interest for this article.
 
-# DATA AVAILABILITY STATEMENT
+## DATA AVAILABILITY STATEMENT
 
 Data sharing is not applicable to this article as no new data were created or analyzed in this study.
 
@@ -294,7 +293,7 @@ Data sharing is not applicable to this article as no new data were created or an
 
 Prantika Chakraborty <https://orcid.org/0000-0001-9100-5533> Debarshi Kumar Sanyal <https://orcid.org/0000-0001-8723-5002>
 
-# RELATED WIREs ARTICLES
+## RELATED WIREs ARTICLES
 
 [Using Semantic Web technologies in the development of data warehouses: A systematic mapping](https://doi.org/10.1002/widm.1293) [Introduction to neural network-based question answering over knowledge graphs](https://doi.org/10.1002/widm.1389)
 

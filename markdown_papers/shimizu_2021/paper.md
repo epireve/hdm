@@ -63,27 +63,27 @@ A schema diagram resulting from a na¨ıve combination of these two patterns is 
 ![](_page_1_Figure_1.jpeg)
 <!-- Image Description: The image is a diagram showing relationships in an ontology, likely for a knowledge representation system. Two linked sequences of rectangular and oval nodes illustrate relationships, such as "providesAgentRole" and "performsAgentRole," connecting concepts like "Thing," "AgentRole," "Agent," and "NameStub" which in turn connects to "xsd:string." The diagram visually represents the hierarchical and attribute relationships within the ontology. -->
 
-<span id="page-1-0"></span>Fig. 1. Diagrams for Agent Role pattern (top) and Name Stub pattern (bottom), as per [\[6\]](#page-5-1)
+<span id="page-1-0"></span>Figure 1. Diagrams for Agent Role pattern (top) and Name Stub pattern (bottom), as per [\[6\]](#page-5-1)
 
 ![](_page_1_Figure_3.jpeg)
 <!-- Image Description: The image presents an ontology diagram illustrating relationships between classes. Rectangles represent classes (Thing, Agent, AgentRole, Name), and an ellipse represents a data type (xsd:string). Arrows indicate relationships, labeled with descriptive terms like "providesAgentRole," "assumesAgentRole," and "hasName." The diagram visually defines a hierarchical structure and data types within a domain, likely used to model agents and their roles. -->
 
-<span id="page-1-1"></span>Fig. 2. Diagram for naively joined AgentRole and NameStub patterns
+<span id="page-1-1"></span>Figure 2. Diagram for naively joined AgentRole and NameStub patterns
 
 hand, his book entitled Grief Observed was published under the pseudonym N. W. Clerk. Using the diagram in Figure [2](#page-1-1) to naively encode this information would result in the triples in Figure [3](#page-1-2) which, of course, do not convey which of the two (if in fact any) pseudonym was used for publication of which of the two books. Other example scenarios with essentially the same issue occur if persons or organizations have different legal names in different jurisdictions, may have their name changed at some stage, may use any type of occupational pseudonyms, or in the context of identity falsification using fake names.
 
-| :assumesAgentRole | :sibAuthorRole ,                                                                           |
+| :assumesAgentRole | :sibAuthorRole , |
 |-------------------|--------------------------------------------------------------------------------------------|
-|                   | :goAuthorRole ;                                                                            |
-| :hasName          | :csLewisNameCV ,                                                                           |
-|                   | :csLewisNameNWC ,                                                                          |
-|                   | :csLewisNameCSL .                                                                          |
-| :hasNameAsString  | "N. W. Clerk"^^xsd:string .                                                                |
-| :hasNameAsString  | "Clive Hamilton"^^xsd:string .                                                             |
-| :hasNameAsString  | "C. S. Lewis"^^xsd:string .                                                                |
-|                   | :spiritInBondage :providesAgentRole :sibAuthorRole .<br>:providesAgentRole :goAuthorRole . |
+| | :goAuthorRole ; |
+| :hasName | :csLewisNameCV , |
+| | :csLewisNameNWC , |
+| | :csLewisNameCSL . |
+| :hasNameAsString | "N. W. Clerk"^^xsd:string . |
+| :hasNameAsString | "Clive Hamilton"^^xsd:string . |
+| :hasNameAsString | "C. S. Lewis"^^xsd:string . |
+| | :spiritInBondage :providesAgentRole :sibAuthorRole .<br>:providesAgentRole :goAuthorRole . |
 
-<span id="page-1-2"></span>Fig. 3. Example triples conforming to the diagram in Figure [2,](#page-1-1) for the example case of C. S. Lewis, who published a collection of poems, Spirit in Bondage, under the pseudonym Clive Hamilton. On the other hand, his book entitled Grief Observed was published under the pseudonym N. W. Clerk
+<span id="page-1-2"></span>Figure 3. Example triples conforming to the diagram in Figure [2,](#page-1-1) for the example case of C. S. Lewis, who published a collection of poems, Spirit in Bondage, under the pseudonym Clive Hamilton. On the other hand, his book entitled Grief Observed was published under the pseudonym N. W. Clerk
 
 The remainder of the paper is organized as follows. In Section [2](#page-2-0) we present our pattern diagrammatically. In Section [3](#page-2-1) we provide its axiomatic formalization. This is followed by conclusions in Section [4.](#page-4-0)
 
@@ -94,13 +94,13 @@ The difficulty posed by the diagram in Figure [2](#page-1-1) is, of course, easi
 ![](_page_2_Figure_4.jpeg)
 <!-- Image Description: This image is an ontology diagram illustrating relationships between concepts. Rectangular boxes represent classes ("Thing," "Agent," "AgentRole," "Name"), while the oval represents a data type ("xsd:string"). Arrows show relationships (e.g., "assumesAgentRole," "hasName"), indicating how classes are connected and the data type of attributes. The diagram likely depicts a data model within the paper, defining the structure and relationships of entities. -->
 
-<span id="page-2-2"></span>Fig. 4. Schema Diagram for the Role-Dependent Names pattern
+<span id="page-2-2"></span>Figure 4. Schema Diagram for the Role-Dependent Names pattern
 
 Following this diagram, the example triples in Figure [5](#page-2-3) address the previously discussed C. S. Lewis example.
 
 :sibAuthorRole :hasRoleUnderName :csLewisNameCV . :goAuthorRole :hasRoleUnderName :csLewisNameNWC .
 
-<span id="page-2-3"></span>Fig. 5. Additional triples, completing those in [3,](#page-1-2) for the example case of C. S. Lewis, who published a collection of poems, Spirit in Bondage, under the pseudonym Clive Hamilton. On the other hand, his book entitled Grief Observed was published under the pseudonym N. W. Clerk. The combined set of triples conforms with our Role-Dependent Name pattern, the schema diagram of which is depicted in Figure [4.](#page-2-2)
+<span id="page-2-3"></span>Figure 5. Additional triples, completing those in [3,](#page-1-2) for the example case of C. S. Lewis, who published a collection of poems, Spirit in Bondage, under the pseudonym Clive Hamilton. On the other hand, his book entitled Grief Observed was published under the pseudonym N. W. Clerk. The combined set of triples conforms with our Role-Dependent Name pattern, the schema diagram of which is depicted in Figure [4.](#page-2-2)
 
 ## <span id="page-2-1"></span>3 Pattern Axiomatization
 
@@ -112,21 +112,21 @@ With regard to axiomatization, it is natural to say that every agent must have a
 
 Additionally, we use Inverse Functionality to restrict the number of agents that can assume a apecific AgentRole (4). Concretely, axiom (4) says that an AgentRole can be assumed by at most one Agent. Although this could be done differently, this choice constrains the shape of the RDF graph that complies with the pattern, and thus disambiguates the usage of the pattern.
 
-| Agent v ∃hasName.Name                 |     |
+| Agent v ∃hasName.Name | |
 |---------------------------------------|-----|
-| Agent v ≥0assumesAgentRole.AgentRole  | (2) |
-| ∃assumesAgentRole.AgentRole v Agent   | (3) |
+| Agent v ≥0assumesAgentRole.AgentRole | (2) |
+| ∃assumesAgentRole.AgentRole v Agent | (3) |
 | AgentRole v≤ 1assumesAgentRole−.Agent | (4) |
 
 AgentRoles mean the various roles an Agent can assume. We make use of a Scoped Range axiom to say that if an Agent assumes a Role, then it must be an AgentRole (5). Further, and centrally to this paper, an AgentRole may be assumed under a specific name, and we indicate this using a Structural Tautology axiom (6). The hasRoleUnderName property can furthermore be safely declared to have global range Name, and providesAgentRole can likewise be declared to have range AgentRole.
 
-| Agent v ∀assumesAgentRole.AgentRole | (5) |  |
+| Agent v ∀assumesAgentRole.AgentRole | (5) | |
 |-------------------------------------|-----|--|
 |-------------------------------------|-----|--|
 
 - AgentRole v ≥0hasRoleUnderName.Name (6)
-  - > v ∀hasRoleUnderName.Name (7)
-  - > v ∀providesAgentRole.AgentRole (8)
+- > v ∀hasRoleUnderName.Name (7)
+- > v ∀providesAgentRole.AgentRole (8)
 
 For Name, Inverse Functionality is used to express that a Name can be the name of at most one Agent (9). This is done with a similar motivation as axiom (4) above, i.e. to constrain the possible RDF graphs conforming with the pattern, i.e., to disambiguate use of the pattern. Axioms (10) and (11) declare global range for hasName and global domain for hasNameAsString, respectively.
 
@@ -144,16 +144,16 @@ $$
 
 We add the obvious disjointness axioms (12–14), and then also two role chains axioms, (15) and (16). (15) formalizes that if an agent assumes a role under a Name, then the Agent must have the same name. Similarly, (16) formalizes that if an agent has a name and a role is assumed under that name, then the agent must assume the same Role.
 
-| AgentRole u Agent v ⊥ | (12) |  |
+| AgentRole u Agent v ⊥ | (12) | |
 |-----------------------|------|--|
-|                       |      |  |
+| | | |
 
 Agent u Name v ⊥ (13)
 
 Name u AgentRole v ⊥ (14)
 
 - assumesAgentRole hasRoleUnderName v hasName (15)
-  - hasName hasRoleUnderName<sup>−</sup> v assumesAgentRole (16)
+- hasName hasRoleUnderName<sup>−</sup> v assumesAgentRole (16)
 
 ## <span id="page-4-0"></span>4 Conclusion
 

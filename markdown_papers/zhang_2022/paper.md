@@ -52,6 +52,7 @@ keywords:
 <!-- Image Description: The image is the logo for Hindawi, a publisher of open-access scientific journals. It consists of a stylized graphic element—two interlocking, abstract shapes in teal and green—placed to the left of the "Hindawi" wordmark in dark gray. The logo likely serves as the publisher's identifier within the academic paper. There are no diagrams, charts, graphs, or equations present. -->
 
 # *Research Article*# Building a Knowledge Base of Bridge Maintenance Using Knowledge Graph
+
 **Yang Zhang , <sup>1</sup> Jia Li[u](https://orcid.org/0009-0003-5497-9533) , <sup>1</sup> and Kepeng Ho[u](https://orcid.org/0009-0004-2418-4681) <sup>2</sup>**
 
 *1 School of Highway, Chang'an University, Xi'an 710064, China 2 Henan Provincial Communications Planning and Design Institute Co., Ltd., Zhengzhou 450000, China*Correspondence should be addressed to Yang Zhang; [zhangyangjob@chd.edu.cn](mailto:zhangyangjob@chd.edu.cn)
@@ -79,6 +80,7 @@ Tis study aims to build a knowledge base of bridge maintenance using knowledge g
 Te remaining contents of the paper are organized as follows. Related concepts and method of knowledge graph construction are introduced in Section 2. Section [3](#page-2-0) details processes of establishing the BMKG are presented. Section [4](#page-6-0) illustrates an application case of the BMKG. Diferences between the Neo4j graph database and an RDB in the construction of a knowledge base are discussed in Section [5.](#page-6-0) Finally, the conclusions are drawn in Section [6.](#page-14-0)
 
 ## 2. Knowledge Graph Construction: Related Concepts and Method
+
 *2.1. Related Concepts.*Te term "ontology" fnds its roots in philosophy and refers to the essence of existence, reality, becoming, and the fundamental classifcations of being and their interconnections. In this study, ontology is the conceptualization of the terminology and relationships within a given domain [[15\]](#page-14-0). It is commonly used as a knowledge representation method [\[28](#page-15-0)]. Te BMDO is a bridge maintenance domain ontology, which is used to represent information relevant to bridge maintenance.
 
 A KG primarily depicts the relationships among realworld entities, arranged in a graph structure [[29](#page-15-0)]. Depending on the area covered, KGs can be classifed into <span id="page-2-0"></span>two categories: domain KGs (e.g., geoscience knowledge graph [\[30\]](#page-15-0) and the BMKG in this study) and general KGs (e.g., Freebase [[31\]](#page-15-0)). Domain KGs contain domain-specifc data with diferent attributes and data patterns. In contrast, general KGs emphasize the breadth of knowledge, covering multiple domains, and integrating more entities. However, their knowledge is not as exhaustive and precise as that of domain KGs.
@@ -95,13 +97,14 @@ A knowledge base is a dataset with formal semantics that contains diverse types 
 ![](_page_2_Figure_7.jpeg)
 <!-- Image Description: The Venn diagram illustrates the overlapping features of ontologies and knowledge graphs (KGs). The ontology section includes "axiom" and "function," while the KG section contains "properties of a relation." The overlapping area, representing common elements, shows "class," "instance," and "relation." The diagram visually compares and contrasts the core components of these two knowledge representation methods. -->
 
-Figure 1: Te relationship between an ontology model and a KG.
+**Figure 1:** Te relationship between an ontology model and a KG.
 
 this method, at frst, the bridge maintenance domain ontology (BMDO) is created as the schema layer of the BMKG. And then specifc instances are extracted. As knowledge extraction progresses, the BMDO may be updated when there are challenges in accurately expressing these instances using its current concepts. A suggested workfow of the hybrid approach is illustrated in Figure [3](#page-3-0). Te proposed hybrid method is entirely unrelated to specifc concepts and entities of the BMKG. Hence, the proposed method has better generality than the existing construction method [\[22\]](#page-15-0) of KGs in bridge domain.
 
 Te defnition of a schema layer (steps 1 to 6) draws on the method for ontology construction, and the detailed implementation process is out of scope and can be found in an existing research work [[34](#page-15-0)]. After the defnition, the process of data gathering and knowledge acquisition can take place under the guidance of classes, datatype properties, and object properties. Since bridge maintenance activities are usually performed based on relevant standards, the data sources of the BMKG mainly contain various forms of standards, guides, and manuals. Knowledge acquisition is the process of extracting entities, attributes, and relations. Tis process can be implemented by automatic [\[40\]](#page-15-0) or manual extraction methods. Tis study, as a preliminary exploration, will adopt the manual extraction method to acquire the domain knowledge of bridge maintenance. In the next step, ontology modeling is to formalize domain knowledge with the OWL language. After that, rule reasoning and ontology reasoning are introduced for knowledge graph completion, and consistency check is required for ensuring the quality of an ontology model. In the fnal step (step 14), the OWL ontology fle will be converted and stored in the Neo4j, thereby completing the construction of the BMKG. bridge maintenance domain, and technical terms relevant to properties
 
 ### 3. Establishment of the BMKG
+
 *3.1. Design of the BMDO.*Te BMDO includes a bridge structure ontology, a bridge defect ontology, and a bridge maintenance ontology. Each ontology model generally consists of fve components: class, instance, relation, axiom, and function [\[15](#page-14-0)]. Te BMDO can also be defned as a fve tuple:
 
 $$
@@ -110,32 +113,31 @@ $$
 
 where BMDO refers to the bridge maintenance domain ontology.*C*denotes concepts (also called classes) in the
 
-<span id="page-3-0"></span>
 
-|          | Components of an ontology model             | Components of a KG              |      |  |  |
+| | Components of an ontology model | Components of a KG | | | |
 |----------|---------------------------------------------|---------------------------------|------|--|--|
-|          | Class                                       | Entity type (also called label) |      |  |  |
-|          | Instance                                    | Entity                          | Node |  |  |
-|          | Properties of an instance                   | Properties of an entity         |      |  |  |
-| Relation | Relations between a concept and an instance | Relations                       | Edge |  |  |
-|          | Relations among instances                   | Relations                       |      |  |  |
-| —        | —                                           | Properties of a relation        |      |  |  |
-|          | Axiom                                       | —                               | —    |  |  |
-|          | Function                                    | —                               | —    |  |  |
+| | Class | Entity type (also called label) | | | |
+| | Instance | Entity | Node | | |
+| | Properties of an instance | Properties of an entity | | | |
+| Relation | Relations between a concept and an instance | Relations | Edge | | |
+| | Relations among instances | Relations | | | |
+| — | — | Properties of a relation | | | |
+| | Axiom | — | — | | |
+| | Function | — | — | | |
 
-Table 1: Corresponding relationships between an ontology model and a KG.
+**Table 1:** Corresponding relationships between an ontology model and a KG.
 
 "—" denotes that an ontology model or a KG does not include a corresponding component.
 
 ![](_page_3_Figure_5.jpeg)
 <!-- Image Description: The image is a nested-circle diagram illustrating the relationship between three knowledge graph (KG) concepts. The largest circle represents the general "Knowledge base," encompassing a smaller light-blue circle labeled "KG." Within that is a smaller pale-green circle labeled "BMKG," indicating that BMKG is a subset of KG, which is itself a subset of a broader knowledge base. The diagram visually depicts the hierarchical inclusion of these knowledge graph types within the paper's proposed framework. -->
 
-Figure 2: Te relationship between a knowledge base, a KG, and the BMKG.
+**Figure 2:** Te relationship between a knowledge base, a KG, and the BMKG.
 
 ![](_page_3_Figure_7.jpeg)
 <!-- Image Description: This flowchart depicts a 14-step ontology development process for bridge maintenance knowledge. Steps 1-6 detail ontology creation, including domain definition, term enumeration, and class/property definition. Steps 7-10 describe knowledge acquisition, encompassing data gathering and entity/attribute/relation extraction. Steps 11-14 cover ontology modeling, reasoning, consistency checks, and storage. The flowchart visually organizes the sequential and parallel tasks involved. -->
 
-Figure 3: A workfow for building the BMKG.
+**Figure 3:** A workfow for building the BMKG.
 
 bridge maintenance (e.g., bridge, defect, and maintenance action) can usually be abstracted to the concepts.*I*represents instances (also called individuals), which are specifc objects of concepts. For example, Jiuzhou Channel Bridge (a bridge of Hong Kong-Zhuhai-Macao Bridge) is an instance of the "Bridge" concept.*R*stands for relations, including the relationship between concepts and instances, the relationship among instances, and properties of instances. For example, "has individual" is a relation linking the "Bridge" concept to the "Jiuzhou Channel Bridge" individual. When OWL ontology is used to formalize knowledge, a relationship among instances and a property of instances are also called object property and datatype property, respectively.*F*denotes functions, which are special relations. Rules can often be used to defne custom functions.*A*represents axioms (including constraints on various relations), which are used to describe accepted theoretical knowledge of the bridge maintenance domain. For example, the "Jiuzhou Channel Bridge" individual can have the "length" datatype property, whose value must be numerical.
 
@@ -146,7 +148,7 @@ Te bridge structure ontology is shown in Figure [4](#page-5-0). Te "BridgePortio
 *3.1.2. Bridge Defect Ontology.*During bridge maintenance, bridge engineers need to adopt inspection methods to fnd out defects on bridge elements, identify the causes and hazards of the defects, and then determine evaluating degree of the defects according to the rating scheme for designating the degree of bridge defects [\[41\]](#page-15-0). Te relevant knowledge was modeled in the bridge defect ontology, as shown in Figure [5.](#page-6-0) Bridge defects are regarded as performance measures for assessing bridge condition in China, and each defect has its own rating scheme. In the ontology, the "EvaluationIndicator" concept is proposed to represent these defects, and the "Defciency" concept represents defects that actually occur on bridge elements. However, we found that the existing classifcation of defects is relatively broad in the process of knowledge acquisition. For the same type of bridge defect, its inspection methods, causes, hazards, and repair methods could potentially be diferent [\[43](#page-15-0)]. For example, chalking and faking are two forms of coating deterioration, and their inspection methods are diferent [[36](#page-15-0)]. Considering this situation, we introduced the "subindicator" concept into this ontology. In addition, the existing rating scheme only consists of qualitative descriptions and quantitative descriptions, which is not intuitive [[43](#page-15-0)]. To address the problem, photographs associated with various degrees of bridge defects or subdefects are modeled as legends in this ontology.
 *3.1.3. Bridge Maintenance Ontology.*Determining maintenance actions is one of the core tasks of bridge maintenance. Te results of bridge inspection and assessment should directly serve the decision-making process. However, the current standard [[38](#page-15-0)] only provides broad maintenance actions on bridges in diferent condition ratings, which causes a disconnection between the evaluating degree of bridge defects and maintenance actions. To solve this problem, in the bridge maintenance ontology (as shown in Figure [6](#page-7-0)), a semantic relationship "HasMaintenanceAction" between evaluating degrees and maintenance actions was established. Additionally, in order to support the optimal allocation of bridge maintenance funds, maintenance expenses [[44](#page-15-0)] were incorporated into the bridge maintenance ontology. Te ontology also has covered the last stage of a bridge maintenance project (i.e., quality inspection and evaluation for maintenance engineering), including the "BasicRequirement," "AppearanceQuality," and "MeasurementItem" concepts, which are derived from a current relevant standard [\[45\]](#page-15-0).
 
-####*3.2. Knowledge Modeling*
+### *3.2. Knowledge Modeling*
 
 *3.2.1. Ontology Modeling.*Knowledge modeling of the BMKG refers to adopting the OWL language to formalize domain knowledge of bridge maintenance using Proteg´ e´ 5.2.0 Ontology Editor. Figure [7](#page-8-0) presents partial content of the BMDO model coded in OWL format. Te OWL vocabularies (i.e., elements prefxed with "owl:" in Figure [7](#page-8-0)) are used to express the ontology model. For example, the element prefxed with "owl:ObjectProperty" can defne the "HasSubcomponent" relation. And an additional "owl: inverseOf" constraint is imposed on this relation, which means that the "HasSubcomponent" relation is the inverse property of the "IsSubcomponentOf" relation. Te constraint can provide a foundation for relation completion based on ontology reasoning. Figure [8](#page-9-0) shows a visual representation of the developed BMDO model in the Proteg´ e´ platform.
 *3.2.2. Knowledge Graph Completion.*Although the BMDO has been manually developed, some potential knowledge needs to be excavated, such as the degree of the "Flaking\_1" in the bridge defect ontology. Ontology reasoning and rule reasoning can be applied to mining hidden knowledge to automatically complete the missing relations or attribute values. Two following cases were used to show the process of knowledge graph completion.
@@ -156,7 +158,7 @@ To complete the missing relations, the Pellet 2.2.0 (a reasoning engine) was use
 <span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
 <!-- Image Description: This image is a UML class diagram depicting a hierarchical model of a cable-stayed bridge (Jiuzhou Channel Bridge). It illustrates the bridge's composition, from the top-level BridgeType down to individual sub-elements like `SteelBoxGirder_1`. Relationships such as `HasComponent`, `HasSubcomponent`, and `HasElement` show the structural breakdown. Data types (e.g., `xsd:float` for weight) and properties are also specified. The diagram aims to represent the bridge's ontology for data modeling or analysis within the paper. -->
 
-Figure 4: A schematic of the bridge structure ontology (partial view). HZMB denotes the Hong Kong-Zhuhai-Macao bridge.
+**Figure 4:** A schematic of the bridge structure ontology (partial view). HZMB denotes the Hong Kong-Zhuhai-Macao bridge.
 
 railing are unknown before the reasoning (see Figure [9\(a\)](#page-9-0)). After the reasoning (see Figure [9\(b\)](#page-9-0)), the "Railing" instance has the "HasSubComponent" semantic relationship with the "SteelRailing" and "ConcreteBarrier" instances, and the corresponding explanation related to the inference also is provided in Proteg´ e. Tis indicates that ontology reasoning ´ can automatically expose hidden relationships between instances, and reasoning results are interpretable. After executing the ontology reasoning, the BMDO model containing the inference results can be exported to a new ontology fle, thereby increasing the efciency of ontology construction.
 
@@ -166,26 +168,26 @@ To calculate the degree of the "Flaking\_1," a rule reasoning will be implemente
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
 <!-- Image Description: This image depicts a hierarchical ontology model for bridge defect assessment. It uses a flowchart-like structure showing relationships between concepts (e.g., hazard, material, inspection method) and their properties. Specific examples include "coating deterioration" leading to "discoloration," and flaking assessment using visual inspection and a quantitative description based on relative area. The model also integrates a rating scheme and legend, illustrated with a sample image, linking visual observations to quantitative measures. The ontology connects to a bridge structure ontology, showing how the model integrates within a larger system. -->
 
-Figure 5: A schematic of the bridge defect ontology (partial view).
+**Figure 5:** A schematic of the bridge defect ontology (partial view).
 
 Te OWL ontology fles can be automatically converted and stored into Neo4j using neosemantics plugin. Te bridge maintenance knowledge can be visualized in the form of relational graphs in Neo4j. Figure [12](#page-12-0) presents a schematic diagram of the BMKG.
 
-#### 4. Application Case
+### 4. Application Case
 
 Te BMKG integrates the discrete knowledge of bridge maintenance, such as bridge inspection, bridge evaluation, maintenance decision-making, quality inspection, and evaluation for maintenance engineering. A typical application case is adopted to demonstrate the application value of knowledge graph.
 
 During bridge inspection, a bridge inspector may be required to give suggestions on repairing defects. Te maintenance actions can be recommended through running Cypher query statements in the Neo4j database. Figure [13](#page-12-0) shows the query result of the maintenance actions on the "SteelBoxGirder1" element. From the fgure, it can be seen that a "Flaking\_1" defect with a degree of "3" occurs on the "BoxGirder\_BottomPlate" subelement of the "Steel-BoxGirder\_1" element. When the evaluating degree of a faking is 3, the corresponding maintenance action is "RepairCoating\_4." Terefore, according to these logical chains, the maintenance action on the "SteelBoxGirder1" is "RepairCoating\_4.". Tis result shows that the proposed BMKG can recommend feasible actions and provide a visual interpretation path.
 
-#### 5. Discussion
+### 5. Discussion
 
 In existing practical applications, the bridge maintenance knowledge is represented and stored using an RDB, and related business logics are written in program codes. Figure [14](#page-13-0) presents a partial structure of the domain knowledge. Te original knowledge structure is represented by the solid black lines. Two new concepts (i.e., bridge subcomponent and subindicator) and relationships represented by the dashed red lines are added to the original structure, thus
 
-#### <span id="page-7-0"></span>8 Advances in Civil Engineering
+### <span id="page-7-0"></span>8 Advances in Civil Engineering
 
 ![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image presents a UML diagram detailing a bridge maintenance ontology. It depicts relationships between design requirements, quality inspection methods, repair actions (coatings), and defect ontology (flaking). Boxes represent concepts and actions, arrows show relationships, and a numerical rating scheme is included to assess the degree of flaking. The ontology specifies inspection frequencies, adhesive forces, and cost data (21.6 CNY/10m²) for different repair scenarios. The diagram aims to formalize bridge maintenance procedures and quality standards. -->
 
-Figure 6: A schematic of the bridge maintenance ontology (partial view).
+**Figure 6:** A schematic of the bridge maintenance ontology (partial view).
 
 forming a new knowledge structure. Te contrast between representation results based on the Neo4j graph database and a RDB is demonstrated in Table [3](#page-13-0).
 
@@ -195,51 +197,50 @@ Furthermore, each node of the Neo4j graph database represents a specifc entity, 
 
 In terms of knowledge updating, when two new entities are added (as shown in Figure [14](#page-13-0)), two new nodes and eight new relationships need to be appended to the KG. For the same purpose, the foreign keys of three existing tables (i.e., "Defciency" table, "RatingScheme" table, and "Hazard" table) have to be modifed, and fve new tables require to be appended the RDB. Among these new tables, two foreign keys must also be added to the "BridgeSubcomponent" table
 
-<span id="page-8-0"></span>
 
-| Advances in Civil Engineering                                                                                                                                                                                                            | 9         |
+| Advances in Civil Engineering | 9 |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-|                                                                                                                                                                                                                                          |           |
-| Figure<br>7: Fragment of the BMDO model coded in OWL format.                                                                                                                                                                             |           |
-|                                                                                                                                                                                                                                          |           |
-| and the "Subindicator" table, respectively. In software de<br>In terms of overall development cost, the overall                                                                                                                          |           |
-| development cost of a KG is less compared with an RDB<br>velopment, adding new nodes and relationships in the Neo4j                                                                                                                      |           |
-| graph database has nearly no infuence on the existing<br>based knowledge base. First, for development time of                                                                                                                            |           |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| Figure<br>7: Fragment of the BMDO model coded in OWL format. | |
+| | |
+| and the "Subindicator" table, respectively. In software de<br>In terms of overall development cost, the overall | |
+| development cost of a KG is less compared with an RDB<br>velopment, adding new nodes and relationships in the Neo4j | |
+| graph database has nearly no infuence on the existing<br>based knowledge base. First, for development time of | |
 | program codes. However, the corresponding codes need to<br>a knowledge base, rule reasoning and ontology reasoning<br>be modifed when existing tables of an RDB are modifed.<br>can<br>autocomplete<br>the<br>missing<br>relations<br>or | attribute |
-| Terefore, for bridge maintenance knowledge which needs<br>values during KG construction. Terefore, compared                                                                                                                              |           |
+| Terefore, for bridge maintenance knowledge which needs<br>values during KG construction. Terefore, compared | |
 
 and the "Subindicator" table, respectively. In software development, adding new nodes and relationships in the Neo4j graph database has nearly no infuence on the existing program codes. However, the corresponding codes need to be modifed when existing tables of an RDB are modifed. Terefore, for bridge maintenance knowledge which needs to be updated frequently, the knowledge representation and storage method based on knowledge graphs can be a more
 
@@ -250,40 +251,40 @@ In terms of overall development cost, the overall development cost of a KG is le
 <span id="page-9-0"></span>![](_page_9_Figure_1.jpeg)
 <!-- Image Description: This image is an ontology diagram depicting relationships between various bridge components, evaluation methods, maintenance actions, and costs. Rectangles represent classes (e.g., BridgeComponent, MaintenanceAction), diamonds represent data properties (e.g., RepairCoating_6), and circles represent individuals. Lines show relationships like "has subclass" or "has element". The ontology aims to structure bridge management data, enabling efficient querying and analysis of bridge conditions and maintenance needs. -->
 
-Figure 8: Te BMDO visualization in the Proteg´ e (partial view). ´
+**Figure 8:** Te BMDO visualization in the Proteg´ e (partial view). ´
 
 ![](_page_9_Picture_3.jpeg)
 <!-- Image Description: The image displays a software interface showing ontological modeling of a bridge railing. A hierarchical list shows the railing's class and related bridge components. The main section displays property assertions: "IsComponentOf Cable-stayedBridge" (object property) and "Component Type," "Weight" (data properties with values). This illustrates the knowledge representation of bridge components within a specified ontology. -->
 
-(a) Figure 9: Continued.
+(a) **Figure 9:** Continued.
 
 <span id="page-10-0"></span>![](_page_10_Figure_1.jpeg)
 <!-- Image Description: The image shows a screenshot of a software interface, likely for ontology modeling or knowledge representation. It displays a hierarchical structure of bridge components, with "Railing" as a parent component having "SteelRailing" and "ConcreteBarrier" as subcomponents. A pop-up window details the justification for "SteelRailing" being a subcomponent of "Railing," demonstrating a relationship using "IsSubComponentOf" and its inverse. The purpose is to illustrate the software's capability to represent and reason about component relationships within a complex system. -->
 
-Figure 9: Proteg´ e screenshot of the inference process of ontology reasoning: (a) before the reasoning and (b) after the reasoning. ´
+**Figure 9:** Proteg´ e screenshot of the inference process of ontology reasoning: (a) before the reasoning and (b) after the reasoning. ´
 
 ![](_page_10_Figure_3.jpeg)
 <!-- Image Description: This image shows a software interface displaying a knowledge representation of bridge defects. A hierarchical list shows various bridge components and defects, including "Flaking." A highlighted section details "Flaking_1," specifying its type ("Deficiency"), location ("BoxGirder_BottomPlate"), relative area (0.009f), and degree (3). An explanation panel provides logical rules (SWRL) defining these attributes, demonstrating the system's reasoning process for classifying this specific bridge defect. -->
 
-Figure 10: Te result of rule reasoning.
+**Figure 10:** Te result of rule reasoning.
 
-| Table |  |  |                                                             |  |  |  |
+| Table | | | | | | |
 |-------|--|--|-------------------------------------------------------------|--|--|--|
-|       |  |  | 2: Rating scheme for designating the degree of faking [46]. |  |  |  |
+| | | | 2: Rating scheme for designating the degree of faking [46]. | | | |
 
-| Degree | Quantitative description     | SWRL rule                                                                                                                                                                                 |
+| Degree | Quantitative description | SWRL rule |
 |--------|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0      | Relative area � 0            | Defciency(?defect)^BelongTo(?defect, Flaking)^RelativeArea(?defect,?area)^swrlb:<br>equal(?area,0)- > Defciency(?defect)^Degree(?defect,0)                                                |
-| 1      | 0 < relative area ≤0.001     | Defciency(?defect)^BelongTo(?defect, Flaking)^RelativeArea(?defect,?area)^swrlb:<br>greaterTan(?area,0)^swrlb:lessTanOrEqual(?area,0.001)- > Defciency(?defect)^<br>Degree(?defect,1)     |
-| 2      | 0.001 < relative area ≤0.003 | Defciency(?defect)^BelongTo(?defect, Flaking)^RelativeArea(?defect,?area)^swrlb:<br>greaterTan(?area,0.001)^swrlb:lessTanOrEqual(?area,0.003)- > Defciency(?<br>defect)^Degree(?defect,2) |
-| 3      | 0.003 < relative area ≤0.01  | Defciency(?defect)^BelongTo(?defect, Flaking)^RelativeArea(?defect,?area)^swrlb:<br>greaterTan(?area,0.003)^swrlb:lessTanOrEqual(?area,0.01)- > Defciency(?defect)^<br>Degree(?defect,3)  |
-| 4      | 0.01 < relative area ≤0.03   | Defciency(?defect)^BelongTo(?defect, Flaking)^RelativeArea(?defect,?area)^swrlb:<br>greaterTan(?area,0.01)^swrlb:lessTanOrEqual(?area,0.03)- > Defciency(?defect)^<br>Degree(?defect,4)   |
-| 5      | Relative area >0.15          | Defciency(?defect)^BelongTo(?defect, Flaking)^RelativeArea(?defect,?area)^swrlb:<br>greaterTan(?area,0.15)- > Defciency(?defect)^Degree(?defect,5)                                        |
+| 0 | Relative area � 0 | Defciency(?defect)^BelongTo(?defect, Flaking)^RelativeArea(?defect,?area)^swrlb:<br>equal(?area,0)- > Defciency(?defect)^Degree(?defect,0) |
+| 1 | 0 < relative area ≤0.001 | Defciency(?defect)^BelongTo(?defect, Flaking)^RelativeArea(?defect,?area)^swrlb:<br>greaterTan(?area,0)^swrlb:lessTanOrEqual(?area,0.001)- > Defciency(?defect)^<br>Degree(?defect,1) |
+| 2 | 0.001 < relative area ≤0.003 | Defciency(?defect)^BelongTo(?defect, Flaking)^RelativeArea(?defect,?area)^swrlb:<br>greaterTan(?area,0.001)^swrlb:lessTanOrEqual(?area,0.003)- > Defciency(?<br>defect)^Degree(?defect,2) |
+| 3 | 0.003 < relative area ≤0.01 | Defciency(?defect)^BelongTo(?defect, Flaking)^RelativeArea(?defect,?area)^swrlb:<br>greaterTan(?area,0.003)^swrlb:lessTanOrEqual(?area,0.01)- > Defciency(?defect)^<br>Degree(?defect,3) |
+| 4 | 0.01 < relative area ≤0.03 | Defciency(?defect)^BelongTo(?defect, Flaking)^RelativeArea(?defect,?area)^swrlb:<br>greaterTan(?area,0.01)^swrlb:lessTanOrEqual(?area,0.03)- > Defciency(?defect)^<br>Degree(?defect,4) |
+| 5 | Relative area >0.15 | Defciency(?defect)^BelongTo(?defect, Flaking)^RelativeArea(?defect,?area)^swrlb:<br>greaterTan(?area,0.15)- > Defciency(?defect)^Degree(?defect,5) |
 
 <span id="page-11-0"></span>![](_page_11_Figure_1.jpeg)
 <!-- Image Description: The image displays a technical comparison of asserted and inferred class hierarchies (a, b) within an ontology. Both (a) and (b) show hierarchical tree structures representing bridge-related concepts. (a) shows the asserted hierarchy, while (b) presents the inferred hierarchy expanded by a reasoner. (c) shows a log detailing the inference process, reporting successful computation of class, object, and data property hierarchies and assertions, completing in 2 milliseconds using the Pellet reasoner. -->
 
-Figure 11: Te results of consistency check: (a) before the reasoning, (b) after the reasoning, and (c) the reasoning log.
+**Figure 11:** Te results of consistency check: (a) before the reasoning, (b) after the reasoning, and (c) the reasoning log.
 
 ![](_page_12_Figure_1.jpeg)
 <!-- Image Description: That's not an image containing a diagram, chart, graph, equation, or illustration. It's simply a blurry, low-resolution image showing the numerals "13". There is no technical content to analyze; it appears to be a page number or a section reference, irrelevant without further context from the paper itself. -->
@@ -291,30 +292,30 @@ Figure 11: Te results of consistency check: (a) before the reasoning, (b) after 
 <span id="page-12-0"></span>![](_page_12_Figure_3.jpeg)
 <!-- Image Description: Figure 12 is a partial schematic diagram of a Bridge Maintenance Knowledge Graph (BMKG). It uses a node-and-edge representation to illustrate relationships between bridge components (e.g., SteelBoxGirder), deficiencies (e.g., Flaking), maintenance actions (Repair Coating), and rating schemes. The diagram visually depicts data dependencies and is complemented by a Cypher query example to retrieve specific data based on these relationships. -->
 
-Figure 13: Te query result of the maintenance actions.
+**Figure 13:** Te query result of the maintenance actions.
 
 <span id="page-13-0"></span>![](_page_13_Figure_1.jpeg)
 <!-- Image Description: This diagram shows a conceptual model of bridge component evaluation. Nodes represent concepts like "Bridge Component," "Evaluation Indicator," "Inspection Method," etc. Solid arrows indicate direct relationships, while dashed red arrows depict less direct or more complex relationships. Annotations ("many-to-many," "one-to-many") specify the cardinality of these relationships. The diagram visually depicts the interconnectedness of various factors involved in bridge assessment. -->
 
-Figure 14: A partial structure of domain knowledge of bridge maintenance.
+**Figure 14:** A partial structure of domain knowledge of bridge maintenance.
 
-| Table |  |  |  |  |  |  | 3: Comparison of results based on diferent knowledge representation methods. |  |
+| Table | | | | | | | 3: Comparison of results based on diferent knowledge representation methods. | |
 |-------|--|--|--|--|--|--|------------------------------------------------------------------------------|--|
 |-------|--|--|--|--|--|--|------------------------------------------------------------------------------|--|
 
-|                        |                 | Neo4j graph database    | Relational database |                           |
+| | | Neo4j graph database | Relational database | |
 |------------------------|-----------------|-------------------------|---------------------|---------------------------|
-| Knowledge structure    | Number of nodes | Number of relationships | Number of tables    | Number<br>of foreign keys |
-| (1) Original structure | 7               | 6                       | 10                  | 3                         |
-| (2) New structure      | 9               | 14                      | 15                  | 8                         |
-| (3) Diference          | 2               | 8                       | 5                   | 5                         |
+| Knowledge structure | Number of nodes | Number of relationships | Number of tables | Number<br>of foreign keys |
+| (1) Original structure | 7 | 6 | 10 | 3 |
+| (2) New structure | 9 | 14 | 15 | 8 |
+| (3) Diference | 2 | 8 | 5 | 5 |
 
 Diference denotes the result of subtracting a corresponding value of the "original structure" row from a corresponding value of the "new structure" row.
 
 ![](_page_13_Figure_6.jpeg)
 <!-- Image Description: The image displays a knowledge graph representation of material deficiencies, shown as nodes with attributes like length, width, depth, relative area, corrosion potential, resistivity, and humidity. A relational database table summarizes these attributes for each deficiency type (cracking, flaking, blowhole, steel corrosion, and internal dampness). Each node in the graph is assigned a 'degree', likely representing the severity or importance of the deficiency. The purpose is to illustrate the structured representation of material defect data for use in a knowledge-based system or database. -->
 
-Figure 15: Data sparsity in a relational database.
+**Figure 15:** Data sparsity in a relational database.
 
 ## <span id="page-14-0"></span>6. Conclusions
 
@@ -337,7 +338,7 @@ Te authors declare that they have no conficts of interest.
 
 Tis work was funded by the National Natural Science Foundation of China (Grant number: 51878059).
 
-#### References
+### References
 
 - [1] G. Q. Ren, R. Ding, and H. J. Li, "Building an ontological knowledgebase for bridge maintenance,"*Advances in Engineering Software*, vol. 130, pp. 24–40, 2019.
 - [2] A. P. Chassiakos, P. Vagiotas, and D. D. Teodorakopoulos, "A knowledge-based system for maintenance planning of

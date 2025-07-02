@@ -51,9 +51,9 @@ keywords:
 
 Linyao Yang, Hongyang Chen, *Senior Member, IEEE*, Zhao Li, Xiao Ding, Xindong Wu, *Fellow, IEEE*
 
-*Abstract*—Recently, ChatGPT, a representative large language model (LLM), has gained considerable attention. Due to their powerful emergent abilities, recent LLMs are considered as a possible alternative to structured knowledge bases like knowledge graphs (KGs). However, while LLMs are proficient at learning probabilistic language patterns and engaging in conversations with humans, they, like previous smaller pre-trained language models (PLMs), still have difficulty in recalling facts while generating knowledge-grounded contents. To overcome these limitations, researchers have proposed enhancing data-driven PLMs with knowledge-based KGs to incorporate explicit factual knowledge into PLMs, thus improving their performance in generating texts requiring factual knowledge and providing more informed responses to user queries. This paper reviews the studies on enhancing PLMs with KGs, detailing existing knowledge graph enhanced pre-trained language models (KGPLMs) as well as their applications. Inspired by existing studies on KGPLM, this paper proposes enhancing LLMs with KGs by developing knowledge graph-enhanced large language models (KGLLMs). KGLLM provides a solution to enhance LLMs' factual reasoning ability, opening up new avenues for LLM research.
+**Abstract:** Recently, ChatGPT, a representative large language model (LLM), has gained considerable attention. Due to their powerful emergent abilities, recent LLMs are considered as a possible alternative to structured knowledge bases like knowledge graphs (KGs). However, while LLMs are proficient at learning probabilistic language patterns and engaging in conversations with humans, they, like previous smaller pre-trained language models (PLMs), still have difficulty in recalling facts while generating knowledge-grounded contents. To overcome these limitations, researchers have proposed enhancing data-driven PLMs with knowledge-based KGs to incorporate explicit factual knowledge into PLMs, thus improving their performance in generating texts requiring factual knowledge and providing more informed responses to user queries. This paper reviews the studies on enhancing PLMs with KGs, detailing existing knowledge graph enhanced pre-trained language models (KGPLMs) as well as their applications. Inspired by existing studies on KGPLM, this paper proposes enhancing LLMs with KGs by developing knowledge graph-enhanced large language models (KGLLMs). KGLLM provides a solution to enhance LLMs' factual reasoning ability, opening up new avenues for LLM research.
 
-*Index Terms*—Large language model, Knowledge graph, Chat-GPT, Knowledge reasoning, Knowledge management.
+**Index Terms:** Large language model, Knowledge graph, Chat-GPT, Knowledge reasoning, Knowledge management.
 
 ## I. INTRODUCTION
 
@@ -76,7 +76,7 @@ So far, numerous methods have been proposed for strengthening PLMs with KGs, whi
 ![](_page_1_Figure_1.jpeg)
 <!-- Image Description: The image displays three diagrams illustrating different neural network architectures for processing data represented by `x1`, `x2`, `x3`, `x4`. The first shows an "encoder-only" model where all inputs influence a hidden layer. The second shows a "decoder-only" model with reversed input-output flow. The third demonstrates an "encoder-decoder" model, combining the previous two, with information passing from encoder to decoder. Each architecture uses a fully connected layer between input and output components, [M] and [S] likely represent intermediary processing. The diagrams visually compare these architectures. -->
 
-<span id="page-1-0"></span>Fig. 1. Main frameworks of existing PLMs, in which x<sup>i</sup> is the i-th token of the input sentence, [M] represents the masked token and [S] is the start token.
+<span id="page-1-0"></span>Figure 1. Main frameworks of existing PLMs, in which x<sup>i</sup> is the i-th token of the input sentence, [M] represents the masked token and [S] is the start token.
 
 is still necessary and how to improve the knowledge modeling ability of LLMs, we present a systematic review of relevant studies. We conducted a thorough search for papers related to the keywords "language model" and "knowledge graph". Subsequently, the papers that were most relevant to KGPLM were carefully refined and categorized. In comparison with existing surveys, this paper specifically concentrates on KGPLM and covers a broader range of up-to-date papers. Furthermore, we suggest the development of knowledge graph enhanced large language models (KGLLMs) to tackle the knowledge modeling challenge in LLMs. The main contributions of this paper are summarized as follows:
 
@@ -90,7 +90,7 @@ The remainder of this paper is organized as follows. Section II overviews the ba
 
 PLMs learn dense and continuous representations for words, addressing the issue of feature sparsity encountered in traditional encoding methods and significantly improving performance across various NLP tasks. Consequently, PLM-based methods have gained prominence, leading to the development of various types of PLMs. Recently, PLMs have been scaled to LLMs in order to achieve even better performance. In this section, we provide a comprehensive background of PLMs and offer an overview of their historical development.
 
-###*A. Background of PLMs*PLMs are a type of language model obtained through unsupervised learning [\[20\]](#page-16-14) on a large corpus. They are capable of capturing the structure and characteristics of a language and generating universal representations for words. Following pretraining, PLMs can be fine-tuned for specific downstream tasks like text summarization, text classification, and text generation.
+### *A. Background of PLMs*PLMs are a type of language model obtained through unsupervised learning [\[20\]](#page-16-14) on a large corpus. They are capable of capturing the structure and characteristics of a language and generating universal representations for words. Following pretraining, PLMs can be fine-tuned for specific downstream tasks like text summarization, text classification, and text generation.
 
 The model frameworks used by existing PLMs can be classified into three categories, as illustrated in Fig. [1:](#page-1-0) encoderonly, decoder-only, and encoder-decoder [\[21\]](#page-16-15). The encoderonly framework utilizes a bidirectional transformer to recover masked tokens based on the input sentences, which effectively utilizes contextual information to learn better text representations. More specifically, given an input token sequence ̸ C = (x1, ..., x<sup>T</sup> ) with a few masked tokens M, it models the likelihood of the masked tokens as p(x) = P <sup>x</sup>t∈M p(xt|x̸C). However, due to the lack of a decoder, it cannot be directly applied to text generation tasks. BERT and its improved models mostly adopt the encoder-only framework. The decoder-only framework leverages a unidirectional transformer to predict tokens in an autoregressive fashion, making it suitable for text generation tasks. That is, given the text sequence C = (x1, ..., x<sup>T</sup> ), this framework models the likelihood of the input token sequence as p(x) = Q<sup>T</sup> <sup>t</sup>=1 p(xt|x<t). GPT series and their improved models mostly adopt this framework. Nevertheless, compared with the other two frameworks, the decoderonly framework cannot make use of contextual information and cannot generalize well to other tasks. The encoder-decoder framework constructs a sequence-to-sequence model to predict the current token based on historical context with masked tokens. Its objective can be described as P<sup>T</sup> <sup>t</sup>=1 p(xt|x<t,̸C). This framework excels at tasks that require generating output based on given inputs, yet its encoding and decoding speed is slow compared to the other two frameworks.
 
@@ -105,7 +105,7 @@ It can promote the learning of contextual information, thereby achieving better 
 ![](_page_2_Figure_1.jpeg)
 <!-- Image Description: This figure is a timeline chart showing the evolution of pre-trained language models (PLMs) from 2018 to 2023. It categorizes models as encoder-only, encoder-decoder, or decoder-only, illustrating their lineage through a series of connected boxes representing individual models. Arrows indicate relationships or influences between models. The chart visualizes the development and connections within the field of PLMs over time. -->
 
-<span id="page-2-0"></span>Fig. 2. Milestones of LLMs. Open-source models are represented by solid squares, while closed-source models are represented by hollow squares.
+<span id="page-2-0"></span>Figure 2. Milestones of LLMs. Open-source models are represented by solid squares, while closed-source models are represented by hollow squares.
 
 introduces greater randomness by substituting some tokens with alternative ones and training the model to predict the original tokens, whose loss function is defined as:
 
@@ -127,7 +127,7 @@ $$
 
 where y = 1 if s<sup>1</sup> and s<sup>2</sup> are two consecutive segments extracted from the corpus. Other tasks like deleted token detection (DTD), text infilling, sentence reordering (SR), and document reordering (DR) are also utilized by some PLMs [\[26\]](#page-16-20), which improve their performance in some special tasks.
 
-###*B. Milestones*As an early attempt, Elmo [\[27\]](#page-16-21) employs a bidirectional long short term memory (LSTM) network to learn word representations capturing context. The model is trained with a bidirectional autoregressive language modeling objective, which involves maximizing the following log-likelihood:
+### *B. Milestones*As an early attempt, Elmo [\[27\]](#page-16-21) employs a bidirectional long short term memory (LSTM) network to learn word representations capturing context. The model is trained with a bidirectional autoregressive language modeling objective, which involves maximizing the following log-likelihood:
 
 $$
 \sum_{k=1}^{T} \left( \log p \left( x_t \mid x_1, \dots, x_{t-1}; \Theta_x, \overrightarrow{\Theta}_{LSTM} \right) + \log p \left( x_t \mid x_{t+1}, \dots, x_T; \Theta_x, \overleftarrow{\Theta}_{LSTM} \right) \right), \tag{5}
@@ -140,7 +140,7 @@ Transformer employs a self-attention mechanism to capture the dependence among i
 $$
 \mathbf{h} = softmax(\frac{\mathbf{QK}^{T}}{\sqrt{d_k}})\mathbf{V},
 $$
- (6)
+(6)
 
 where Q, K, and V are the query matrix, key matrix, and value matrix. d<sup>k</sup> is the dimension of the key and query vectors.
 
@@ -149,7 +149,7 @@ Encoder-only PLMs utilize bidirectional Transformer as encoder and employ MLM an
 ![](_page_3_Figure_1.jpeg)
 <!-- Image Description: The flowchart details a four-step process for training a GPT model. Step 1 pre-trains GPT using probabilistic language modeling. Step 2 fine-tunes it via supervised learning using human demonstrations. Step 3 trains a reward model based on human ranking of model outputs. Finally, Step 4 optimizes the GPT model using reinforcement learning guided by the reward model. The diagram visually represents the training pipeline and its constituent learning methods. -->
 
-<span id="page-3-0"></span>Fig. 3. The implementation process of ChatGPT.
+<span id="page-3-0"></span>Figure 3. The implementation process of ChatGPT.
 
 training. RoBERTa [\[29\]](#page-16-23) introduces a set of design choices and training strategies that lead to better performance, significantly enhancing BERT's performance on various benchmarks. DistilBERT [\[30\]](#page-16-24) incorporates knowledge distillation into pretraining, which reduces the size of a BERT model by 40%. Other notable encoder-only PLMs include ERNIE [\[31\]](#page-16-25), AL-BERT [\[25\]](#page-16-19), ELECTRA [\[22\]](#page-16-16), and DeBERTa [\[32\]](#page-16-26).
 
@@ -163,41 +163,40 @@ Here, Θ represents the parameters of the Transformer model. GPT-2 [\[33\]](#pag
 
 In encoder-decoder PLMs, Transformer serves as both encoder and decoder. The encoder generates the latent representations for the input sequence, while the decoder generates the target output text. T5 [\[6\]](#page-16-4) develops a unified framework that converts all NLP tasks into a text-to-text format, leading to exceptional performance on numerous benchmarks. In order to efficiently pre-train sequence-to-sequence models, BART [\[26\]](#page-16-20) adopts a standard neural machine translation architecture and develops a denoising autoencoder.
 
-##*C. Scaling PLMs to LLMs*With the emergence of more and more PLMs, it has been revealed that model scaling can lead to improved performance. By increasing the parameter scale and data scale to a large enough size, it was found that these enlarged models exhibit some special abilities that do not possess by small-scale PLMs. Therefore, recent efforts have been devoted to scaling PLMs to LLMs to empower them with emergent abilities. Typically, LLMs refer to PLMs that consist of hundreds of billions of parameters, such as GLM [\[35\]](#page-16-29), Switch [\[36\]](#page-16-30), Flan T5 [\[37\]](#page-16-31), and ChatGLM [\[38\]](#page-16-32) of the encoder-decoder framework. Besides, most existing LLMs adopt the decoderonly framework. Notable examples of decoder-only LLMs include GPT-3 [\[39\]](#page-16-33), GLaM [\[40\]](#page-16-34), InstructGPT [\[41\]](#page-17-0), PaLM [\[42\]](#page-17-1), LaMDA [\[43\]](#page-17-2), OPT [\[44\]](#page-17-3), LLaMA [\[45\]](#page-17-4), Alpaca [\[46\]](#page-17-5), GPT-4 [\[47\]](#page-17-6), and LLaMA2 [\[48\]](#page-17-7). GPT-3 [\[39\]](#page-16-33) further increases GPT-2's parameters and its training data size, and adopts zeroshot learning and diversity generation technologies, making it possible to learn and execute new tasks without annotated data and generate texts with diverse styles. GPT-3.5 not only increases the model size but also applies novel pre-training methods such as prompt-based extraction of templates (PET), which further improves the accuracy and fluency of generated texts. LLMs have stronger abilities to understand natural language and solve complex NLP tasks than smaller PLMs. GPT-3, for instance, exhibits a remarkable in-context learning ability. It can generate expected outputs for test cases by filling in the word sequence of the input text, relying solely on natural language instructions or demonstrations, without the need for additional training. Conversely, GPT-2 lacks this ability [\[49\]](#page-17-8).
+## *C. Scaling PLMs to LLMs*With the emergence of more and more PLMs, it has been revealed that model scaling can lead to improved performance. By increasing the parameter scale and data scale to a large enough size, it was found that these enlarged models exhibit some special abilities that do not possess by small-scale PLMs. Therefore, recent efforts have been devoted to scaling PLMs to LLMs to empower them with emergent abilities. Typically, LLMs refer to PLMs that consist of hundreds of billions of parameters, such as GLM [\[35\]](#page-16-29), Switch [\[36\]](#page-16-30), Flan T5 [\[37\]](#page-16-31), and ChatGLM [\[38\]](#page-16-32) of the encoder-decoder framework. Besides, most existing LLMs adopt the decoderonly framework. Notable examples of decoder-only LLMs include GPT-3 [\[39\]](#page-16-33), GLaM [\[40\]](#page-16-34), InstructGPT [\[41\]](#page-17-0), PaLM [\[42\]](#page-17-1), LaMDA [\[43\]](#page-17-2), OPT [\[44\]](#page-17-3), LLaMA [\[45\]](#page-17-4), Alpaca [\[46\]](#page-17-5), GPT-4 [\[47\]](#page-17-6), and LLaMA2 [\[48\]](#page-17-7). GPT-3 [\[39\]](#page-16-33) further increases GPT-2's parameters and its training data size, and adopts zeroshot learning and diversity generation technologies, making it possible to learn and execute new tasks without annotated data and generate texts with diverse styles. GPT-3.5 not only increases the model size but also applies novel pre-training methods such as prompt-based extraction of templates (PET), which further improves the accuracy and fluency of generated texts. LLMs have stronger abilities to understand natural language and solve complex NLP tasks than smaller PLMs. GPT-3, for instance, exhibits a remarkable in-context learning ability. It can generate expected outputs for test cases by filling in the word sequence of the input text, relying solely on natural language instructions or demonstrations, without the need for additional training. Conversely, GPT-2 lacks this ability [\[49\]](#page-17-8).
 
 The most remarkable application of LLMs is ChatGPT, which adapts GPT-3.5 for dialogue and demonstrates an amazing conversation ability. The implementation process of ChatGPT is shown in Fig. [3](#page-3-0) [\[50\]](#page-17-9). It first trains GPT on a large-scale corpus and then fine-tunes it on a dataset of labeler demonstrations. After that, it optimizes the model using RLHF [\[51\]](#page-17-10), which trains a reward model to learn from direct feedback provided by human evaluators and optimizes the GPT model by formulating it as a reinforcement learning problem. In this setting, the pre-trained GPT model serves as the policy model that takes small pieces of prompts [\[52\]](#page-17-11) as inputs and returns output texts. The GPT policy model is then optimized using the proximal policy optimization (PPO) algorithm [\[53\]](#page-17-12) against the reward model. Based on the RLHF method, ChatGPT enables GPT to follow the expected instructions of humans and reduces the generation of toxic, biased, and harmful content. Besides, ChatGPT adopts the chain-of-thought strategy [\[54\]](#page-17-13) and is additionally trained on code data, enabling it to solve tasks that require intermediate logical steps.
 
-<span id="page-4-0"></span>
 
-| Model framework | PLM         | Year | Base model  | Pre-training tasks               | Pre-training data size | model size |
+| Model framework | PLM | Year | Base model | Pre-training tasks | Pre-training data size | model size |
 |-----------------|-------------|------|-------------|----------------------------------|------------------------|------------|
-| Encoder-only    | BERT        | 2018 | Transformer | MLM, NSP                         | 3300M words            | 340M       |
-|                 | ERNIE       | 2019 | Transformer | MLM, NSP                         | 4500M subwords         | 114M       |
-|                 | RoBERTa     | 2019 | BERT        | MLM                              | 160GB of text          | 335M       |
-|                 | ALBERT      | 2019 | BERT        | SOP                              | 16GB of text           | 233M       |
-|                 | DistillBERT | 2019 | BERT        | MLM                              | 3300M words            | 66M        |
-|                 | ELECTRA     | 2020 | Transformer | RTD                              | 126GB of text          | 110M       |
-|                 | DeBERTa     | 2020 | Transformer | MLM                              | 78GB of text           | 1.5B       |
-|                 | BART        | 2019 | Transformer | MLM, DTD, text infilling, SR, DR | 160GB of text          | 406M       |
-|                 | T5          | 2019 | Transformer | MLM                              | 20TB of text           | 11B        |
-|                 | Switch      | 2021 | Transformer | MLM                              | 180B tokens            | 1.6T       |
-| Encoder-decoder | GLM         | 2021 | Transformer | Blank infilling                  | 400B tokens            | 130B       |
-|                 | Flan T5     | 2022 | T5          | 1800 fine-tuning tasks           | -                      | 11B        |
-|                 | ChatGLM     | 2023 | GLM         | Blank infilling                  | 1T tokens              | 6B         |
-|                 | GPT         | 2018 | Transformer | Autoregressive language modeling | 800M words             | 117M       |
-|                 | GPT-2       | 2019 | Transformer | Autoregressive language modeling | 40GB of text           | 1.5B       |
-|                 | XLNet       | 2019 | Transformer | Autoregressive language modeling | 33B tokens             | 340M       |
-|                 | GPT-3       | 2020 | Transformer | Autoregressive language modeling | 45TB of text           | 175B       |
-|                 | GLaM        | 2021 | Transformer | Autoregressive language modeling | 1.6T tokens            | 1.2T       |
-|                 | InstructGPT | 2022 | GPT-3       | Autoregressive language modeling | -                      | 175B       |
-|                 | PaLM        | 2022 | Transformer | Autoregressive language modeling | 780B tokens            | 540B       |
-| Decoder-only    | LaMDA       | 2022 | Transformer | Autoregressive language modeling | 768B tokens            | 137B       |
-|                 | OPT         | 2022 | Transformer | Autoregressive language modeling | 180B tokens            | 175B       |
-|                 | ChatGPT     | 2022 | GPT-3.5     | Autoregressive language modeling | -                      | -          |
-|                 | LLaMA       | 2023 | Transformer | Autoregressive language modeling | 1.4T tokens            | 65B        |
-|                 | GPT-4       | 2023 | Transformer | Autoregressive language modeling | 13T tokens             | 1.8T       |
-|                 | Alpaca      | 2023 | LLaMA       | Autoregressive language modeling | 52K data               | 7B         |
-|                 | LLaMA2      | 2023 | Transformer | Autoregressive language modeling | 2T tokens              | 70B        |
+| Encoder-only | BERT | 2018 | Transformer | MLM, NSP | 3300M words | 340M |
+| | ERNIE | 2019 | Transformer | MLM, NSP | 4500M subwords | 114M |
+| | RoBERTa | 2019 | BERT | MLM | 160GB of text | 335M |
+| | ALBERT | 2019 | BERT | SOP | 16GB of text | 233M |
+| | DistillBERT | 2019 | BERT | MLM | 3300M words | 66M |
+| | ELECTRA | 2020 | Transformer | RTD | 126GB of text | 110M |
+| | DeBERTa | 2020 | Transformer | MLM | 78GB of text | 1.5B |
+| | BART | 2019 | Transformer | MLM, DTD, text infilling, SR, DR | 160GB of text | 406M |
+| | T5 | 2019 | Transformer | MLM | 20TB of text | 11B |
+| | Switch | 2021 | Transformer | MLM | 180B tokens | 1.6T |
+| Encoder-decoder | GLM | 2021 | Transformer | Blank infilling | 400B tokens | 130B |
+| | Flan T5 | 2022 | T5 | 1800 fine-tuning tasks | - | 11B |
+| | ChatGLM | 2023 | GLM | Blank infilling | 1T tokens | 6B |
+| | GPT | 2018 | Transformer | Autoregressive language modeling | 800M words | 117M |
+| | GPT-2 | 2019 | Transformer | Autoregressive language modeling | 40GB of text | 1.5B |
+| | XLNet | 2019 | Transformer | Autoregressive language modeling | 33B tokens | 340M |
+| | GPT-3 | 2020 | Transformer | Autoregressive language modeling | 45TB of text | 175B |
+| | GLaM | 2021 | Transformer | Autoregressive language modeling | 1.6T tokens | 1.2T |
+| | InstructGPT | 2022 | GPT-3 | Autoregressive language modeling | - | 175B |
+| | PaLM | 2022 | Transformer | Autoregressive language modeling | 780B tokens | 540B |
+| Decoder-only | LaMDA | 2022 | Transformer | Autoregressive language modeling | 768B tokens | 137B |
+| | OPT | 2022 | Transformer | Autoregressive language modeling | 180B tokens | 175B |
+| | ChatGPT | 2022 | GPT-3.5 | Autoregressive language modeling | - | - |
+| | LLaMA | 2023 | Transformer | Autoregressive language modeling | 1.4T tokens | 65B |
+| | GPT-4 | 2023 | Transformer | Autoregressive language modeling | 13T tokens | 1.8T |
+| | Alpaca | 2023 | LLaMA | Autoregressive language modeling | 52K data | 7B |
+| | LLaMA2 | 2023 | Transformer | Autoregressive language modeling | 2T tokens | 70B |
 
 TABLE I COMPARISON OF DIFFERENT PLMS
 
@@ -205,7 +204,7 @@ Another notable advancement is GPT-4 [\[47\]](#page-17-6), a model that extends 
 
 Table [I](#page-4-0) summarizes the characteristics of the above contextbased PLMs and LLMs. As observed, the parameter size of the largest model has increased year by year.
 
-###*D. Pros and Cons of LLMs*A proliferation of benchmarks and tasks has been leveraged to evaluate the effectiveness and superiority of LLMs. Results from corresponding experiments demonstrate that LLMs achieve much better performance than previous deep learning models and smaller PLMs on a variety of NLP tasks. Besides, LLMs exhibit some emergent abilities and are capable of solving some complex tasks that traditional models and smaller PLMs cannot address. In summary, LLMs have the following superior characteristics.
+### *D. Pros and Cons of LLMs*A proliferation of benchmarks and tasks has been leveraged to evaluate the effectiveness and superiority of LLMs. Results from corresponding experiments demonstrate that LLMs achieve much better performance than previous deep learning models and smaller PLMs on a variety of NLP tasks. Besides, LLMs exhibit some emergent abilities and are capable of solving some complex tasks that traditional models and smaller PLMs cannot address. In summary, LLMs have the following superior characteristics.
 
 Zero-shot Learning. LLMs outperform other models with zero-shot learning on most tasks and even perform better than fine-tuned models on some tasks. An empirical study [\[15\]](#page-16-9) has shown that ChatGPT outperforms previous models with zero-shot learning on 9 of 13 datasets and even outperforms fully fine-tuned task-specific models on 4 tasks. This superior performance is attributed to the rich and diverse input data as well as the large parameter scale of LLMs, which allow them to capture the underlying patterns of natural language with high fidelity, leading to more robust and accurate inferences.
 
@@ -236,7 +235,7 @@ Insufficient Domain Knowledge. Because of the limited availability of domain-spe
 ![](_page_6_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates a model architecture for enhancing pre-trained language models (PLMs). It shows three stages: pre-training (with MLM and NSP tasks), intermediate layers (transformer layers 1-N), and output embeddings. The bottom depicts input processing, combining token, segment, and position embeddings. Three enhancement strategies are outlined: before, during, and post-training, detailing modifications to the input structure, model layers, and fine-tuning methods, respectively. The figure's purpose is to visually explain the proposed architecture and its knowledge integration approach for improving PLM performance. -->
 
-<span id="page-6-0"></span>Fig. 4. Three types of KGPLMs according to the stage of knowledge graph participating in pre-training.
+<span id="page-6-0"></span>Figure 4. Three types of KGPLMs according to the stage of knowledge graph participating in pre-training.
 
 a unified domain LLM development service that leverages domain KGs to enhance the training process, which effectively improves LLMs' performance on domain-specific tasks.
 
@@ -254,40 +253,40 @@ Overall, LLMs have made noteworthy advancements and are considered a prototype o
 
 <span id="page-6-1"></span>In light of the limitations posed by poor factual knowledge modeling ability, researchers have proposed incorporating knowledge into PLMs to improve their performance. In recent years, various KGPLMs have been proposed, which can be categorized into before-training enhancement, during-training
 
-| Method                      |                                  | KGPLM                                                                  |  |  |
+| Method | | KGPLM | | |
 |-----------------------------|----------------------------------|------------------------------------------------------------------------|--|--|
-|                             | Expand input structures          | K-BERT [73], CoLAKE [74], Zhang et al. [75]                            |  |  |
-| Before-training enhancement | Enrich input information         | LUKE [76], E-BERT [77], KALM [78], OAG-BERT [79], DKPLM [80]           |  |  |
-|                             | Generate new data                | AMS [81], KGPT [82], KGLM [83], ATOMIC [84], KEPLER [85]               |  |  |
-|                             | Optimize word masks              | ERNIE [31], WKLM [86], GLM [35]                                        |  |  |
-|                             | Incorporate knowledge encoders   | ERNIE [31], ERNIE 3.0 [87], BERT-MK [88], CokeBERT [89], JointLK [90], |  |  |
-|                             |                                  | KET [91], Liu et al. [92], QA-GNN [93], GreaseLM [67], KLMo [94]       |  |  |
-|                             | Insert knowledge encoding layers | KnowBERT [95], K-BERT [73], CoLAKE [74], JAKET [96], KGBART [97]       |  |  |
-| During-training enhancement | Add independent adapters         | K-Adapter [98], OM-ADAPT [99], DAKI-ALBERT [100], CKGA [101]           |  |  |
-|                             | Modify the pre-training task     | ERNIE [31], LUKE [76], OAG-BERT [79], WKLM [86], SenseBERT [102],      |  |  |
-|                             |                                  | ERICA [103], SentiLARE [104], GLM [35], KEPLER [85], JAKET [96],       |  |  |
-|                             |                                  | ERNIE 2.0 [105], ERNIE 3.0 [87], DRAGON [106], LRLM [107]              |  |  |
-|                             | Fine-tune PLMs with knowledge    | KALA [108], KeBioSum [109], KagNet [110], BioKGLM [111],               |  |  |
-| Post-training enhancement   |                                  | Chang et al. [112]                                                     |  |  |
-|                             | Generate knowledge-based prompts | Chang et al. [112], Andrus et al. [113], KP-PLM [114]                  |  |  |
+| | Expand input structures | K-BERT [73], CoLAKE [74], Zhang et al. [75] | | |
+| Before-training enhancement | Enrich input information | LUKE [76], E-BERT [77], KALM [78], OAG-BERT [79], DKPLM [80] | | |
+| | Generate new data | AMS [81], KGPT [82], KGLM [83], ATOMIC [84], KEPLER [85] | | |
+| | Optimize word masks | ERNIE [31], WKLM [86], GLM [35] | | |
+| | Incorporate knowledge encoders | ERNIE [31], ERNIE 3.0 [87], BERT-MK [88], CokeBERT [89], JointLK [90], | | |
+| | | KET [91], Liu et al. [92], QA-GNN [93], GreaseLM [67], KLMo [94] | | |
+| | Insert knowledge encoding layers | KnowBERT [95], K-BERT [73], CoLAKE [74], JAKET [96], KGBART [97] | | |
+| During-training enhancement | Add independent adapters | K-Adapter [98], OM-ADAPT [99], DAKI-ALBERT [100], CKGA [101] | | |
+| | Modify the pre-training task | ERNIE [31], LUKE [76], OAG-BERT [79], WKLM [86], SenseBERT [102], | | |
+| | | ERICA [103], SentiLARE [104], GLM [35], KEPLER [85], JAKET [96], | | |
+| | | ERNIE 2.0 [105], ERNIE 3.0 [87], DRAGON [106], LRLM [107] | | |
+| | Fine-tune PLMs with knowledge | KALA [108], KeBioSum [109], KagNet [110], BioKGLM [111], | | |
+| Post-training enhancement | | Chang et al. [112] | | |
+| | Generate knowledge-based prompts | Chang et al. [112], Andrus et al. [113], KP-PLM [114] | | |
 
 TABLE II SUMMARY OF KGPLMS
 
 ![](_page_7_Figure_3.jpeg)
 <!-- Image Description: The diagram illustrates a model architecture for knowledge-enhanced text representation. It shows a layered structure, starting with input text, progressing through token, segment, and position embeddings. Knowledge graph information (showing relationships between entities like "Tim Cook," "Apple," "Beijing," and "China") is integrated via knowledge embeddings and a knowledge-guided masking strategy within the transformer layers before pre-training tasks. The diagram's purpose is to visually explain the model's workflow and how external knowledge is incorporated. -->
 
-<span id="page-7-0"></span>Fig. 5. Main framework of before-training enhancement KGPLMs.
+<span id="page-7-0"></span>Figure 5. Main framework of before-training enhancement KGPLMs.
 
 enhancement, and post-training enhancement methods according to the stage at which KGs participate in pre-training, as illustrated in Fig. [4.](#page-6-0)
 
-###*A. Before-training Enhancement KGPLMs*There are two challenges when integrating the knowledge from KGs into PLMs: heterogeneous embedding space and knowledge noise. The first challenge arises from the heterogeneity between text and KG. The second challenge occurs when unrelated knowledge diverts the sentence from its correct meaning. Before-training enhancement methods resolve these issues by unifying text and KG triples into the same input format, the framework of which is shown in Fig. [5.](#page-7-0) Existing studies propose diverse approaches to achieve this goal, including expanding input structures, enriching input information, generating new data, and optimizing word masks.
+### *A. Before-training Enhancement KGPLMs*There are two challenges when integrating the knowledge from KGs into PLMs: heterogeneous embedding space and knowledge noise. The first challenge arises from the heterogeneity between text and KG. The second challenge occurs when unrelated knowledge diverts the sentence from its correct meaning. Before-training enhancement methods resolve these issues by unifying text and KG triples into the same input format, the framework of which is shown in Fig. [5.](#page-7-0) Existing studies propose diverse approaches to achieve this goal, including expanding input structures, enriching input information, generating new data, and optimizing word masks.
 
 Expand Input Structures. Some methods expand the input text into graph structure to merge the structured knowledge of KGs and then convert the merged graph into text for PLM training. For example, K-BERT [\[73\]](#page-17-32) converts texts to sentence trees to inject related triples by fusing them with KG subgraphs and introduces soft-position and visible matrix to overcome the problem of knowledge noise. Moreover, it proposes mask-self-attention, an extension of self-attention, to prevent erroneous semantic alterations by taking advantage of the sentence structure information. Formally, the output from mask-self-attention is computed as:
 
 $$
 h = softmax(\frac{\mathbf{Q}\mathbf{K}^T + \mathbf{M}}{\sqrt{d_k}})\mathbf{V},
 $$
- (8)
+(8)
 
 where M is the visible matrix. CoLAKE [\[74\]](#page-17-33) addresses the heterogeneous embedding space challenge by combining knowledge context and language context into a unified wordknowledge graph. Zhang*et al.*[\[75\]](#page-17-34) employed ConceptNet as the knowledge source and improved the visible matrix to control the information flow, which further improved the performance of K-BERT.
 
@@ -305,14 +304,14 @@ Optimize Word Masks. MLM is the most commonly used pre-training task in PLMs, an
 
 Before-training enhancement methods can improve the semantic standardization and structural level of the corpus, which is helpful for improving the reasoning ability of PLMs [\[117\]](#page-18-29) without improving the model size and training time. Besides, the training data enhanced by KGs can better describe commonsense knowledge, which helps to improve LLMs' commonsense knowledge modeling ability. These methods are more suitable for those domains without sufficient training corpus and can effectively improve LLMs' performance and generalization ability in such domains. However, beforetraining enhancement processing requires additional computational resources and time, making the pre-training process more complex and cumbersome. Besides, it may introduce noise, which can have a negative impact on LLMs' training.
 
-###*B. During-training Enhancement KGPLMs*During-training enhancement methods enable PLMs to learn knowledge directly during training by improving their encoder and training task. Since plain PLMs cannot process text sequences and structured KG simultaneously, some studies have proposed incorporating knowledge encoders or external knowledge modules to enable learning from both text and KGs concurrently. Existing during-training enhancement KGPLMs can be divided into incorporating knowledge encoders, inserting knowledge encoding layers, adding independent adapters, and modifying the pre-training task, as shown in Fig. [6.](#page-9-0)
+### *B. During-training Enhancement KGPLMs*During-training enhancement methods enable PLMs to learn knowledge directly during training by improving their encoder and training task. Since plain PLMs cannot process text sequences and structured KG simultaneously, some studies have proposed incorporating knowledge encoders or external knowledge modules to enable learning from both text and KGs concurrently. Existing during-training enhancement KGPLMs can be divided into incorporating knowledge encoders, inserting knowledge encoding layers, adding independent adapters, and modifying the pre-training task, as shown in Fig. [6.](#page-9-0)
 
 Incorporate Knowledge Encoders. ERNIE [\[31\]](#page-16-25) integrates a knowledge encoder to incorporate KG information, which takes two types of input: the token embedding and the concatenation of the token and entity embeddings. Building on ERNIE, ERNIE 3.0 [\[87\]](#page-17-46) builds a few task-specific modules upon the universal representation module to enable easy customization of the model for natural language understanding and generation tasks. BERT-MK [\[88\]](#page-18-0) utilizes a graph contextualized knowledge embedding module to learn knowledge in subgraphs and incorporates the learned knowledge into the language model for knowledge generalization. CokeBERT [\[89\]](#page-18-1) utilizes three modules to select contextual knowledge and embed knowledge context, where the text encoder computes embeddings for the input text, the knowledge context encoder dynamically selects knowledge context based on textual context and computes knowledge embeddings, while the knowledge fusion encoder fuses textual context and knowledge context embeddings for better language understanding. JointLK [\[90\]](#page-18-2) performs joint reasoning between PLM and a graph neural network (GNN) through a dense bidirectional attention module to effectively fuse and reason over question and KG representations. KET [\[91\]](#page-18-3) interprets contextual utterances using hierarchical self-attention and dynamically leverages external commonsense knowledge using a contextaware affective graph attention mechanism to detect emotions in textual conversations. Liu*et al.*[\[92\]](#page-18-4) proposed a memoryaugmented approach to condition a PLM on a KG, which represents the KG as a set of relation triples and retrieves pertinent relations for a given context to enhance text generation. QA-GNN [\[93\]](#page-18-5) uses a PLM to estimate the importance of nodes to identify relevant knowledge from large KGs, and combines the QA context and KG to form a joint graph. Then, it mutually updates the representations of QA context and KG through graph-based message passing to perform joint reasoning. GreaseLM [\[67\]](#page-17-26) integrates embeddings from a PLM and a GNN through several layers of modality interaction operations. KLMo [\[94\]](#page-18-6) explicitly models the interaction between entity
 
 ![](_page_9_Figure_1.jpeg)
 <!-- Image Description: The diagram illustrates a knowledge-guided pre-training model architecture. Three transformer encoders process input text embeddings. A "knowledge encoding layer" integrates knowledge embeddings into the encoders at layer *i*−1. An adapter module further processes the output of one encoder. The architecture uses multiple transformer layers and integrates knowledge representations to improve pre-training. -->
 
-<span id="page-9-0"></span>Fig. 6. Main framework of during-training enhancement KGPLMs.
+<span id="page-9-0"></span>Figure 6. Main framework of during-training enhancement KGPLMs.
 
 spans in texts and all entities and relations in a contextual KG using a novel knowledge aggregator.
 
@@ -327,13 +326,13 @@ Other methods utilize the multi-task learning mechanism to integrate knowledge r
 ![](_page_10_Figure_1.jpeg)
 <!-- Image Description: The image presents a system architecture diagram for generating text from a knowledge graph. It depicts a layered approach: input text feeds into knowledge retrieval, which accesses a knowledge graph. Retrieved facts undergo knowledge-to-text transformation using a pre-trained language model to produce a final knowledge description. A separate section shows a knowledge graph example (nodes representing person, puzzle, riddle, problem, challenge) with relationships (is_a, used_for, desires), illustrating the knowledge representation used by the system. Finally, a multiple-choice question tests understanding of the knowledge demonstrated. -->
 
-<span id="page-10-0"></span>Fig. 7. Main framework of post-training enhancement KGPLMs.
+<span id="page-10-0"></span>Figure 7. Main framework of post-training enhancement KGPLMs.
 
 of PLMs, simultaneously optimizing knowledge representation and model parameters. KEPLER [\[85\]](#page-17-44) employs a shared encoder to encode texts and entities into a unified semantic space, while simultaneously optimizing knowledge embedding and MLM objectives. JAKET [\[96\]](#page-18-8) jointly models KG and language using two modules, in which the language module and knowledge module mutually assist each other through embeddings. Building upon ERNIE, ERNIE 2.0 [\[105\]](#page-18-17) proposes a continual multi-task learning framework that extracts valuable lexical, syntactic, and semantic information. ERNIE 3.0 [\[87\]](#page-17-46) combines auto-regressive and auto-encoding networks to process multiple pre-training tasks at both language and knowledge levels. DRAGON [\[106\]](#page-18-18) uses a cross-modal encoder that bidirectionally exchanges information between text tokens and KG nodes to produce fused representations and trains this encoder by unifying two self-supervised reasoning tasks: MLM and KG link prediction. LRLM [\[107\]](#page-18-19) parameterizes the joint distribution over the words in a text and the entities therein, leveraging KGs through relations when modeling text.
 
 During-training enhancement methods can adaptively incorporate external knowledge while learning parameters, often leading to improved performance on various downstream tasks. Moreover, they allow for customization to specific domains or tasks by introducing special information or modules. However, they may increase training time as they typically improve the parameter size and could be limited by the scope of knowledge included in the training data. Moreover, with more complex architecture and more parameters, LLMs are more susceptible to overfitting and require more training to maintain generalization. During-training enhancement methods are more suitable for those scenarios that require dealing with multiple complex tasks, and they often perform better on knowledge-grounded tasks than other methods.
 
-###*C. Post-training Enhancement KGPLMs*Post-training enhancement methods typically inject domainspecific knowledge into PLMs through fine-tuning them on additional data and tasks, which improves the model's performance on specific domain tasks. Additionally, with the rapid development of prompt learning [\[118\]](#page-18-30), several recent investigations have proposed automatically generating prompts to improve the outputs of PLMs. The main framework of posttraining enhancement KGPLMs is shown in Fig. [7.](#page-10-0)
+### *C. Post-training Enhancement KGPLMs*Post-training enhancement methods typically inject domainspecific knowledge into PLMs through fine-tuning them on additional data and tasks, which improves the model's performance on specific domain tasks. Additionally, with the rapid development of prompt learning [\[118\]](#page-18-30), several recent investigations have proposed automatically generating prompts to improve the outputs of PLMs. The main framework of posttraining enhancement KGPLMs is shown in Fig. [7.](#page-10-0)
 
 Fine-tune PLMs with Knowledge. KALA [\[108\]](#page-18-20) modulates PLMs' intermediate hidden representations with domain knowledge, which largely outperforms adaptive pre-training models while still being computationally efficient. KeBioSum [\[109\]](#page-18-21) investigates the integration of generative and discriminative training techniques to fuse knowledge into knowledge adapters. It applies adapter fusion to effectively incorporate these knowledge adapters into PLMs for the purpose of finetuning biomedical text summarization tasks. KagNet [\[110\]](#page-18-22) proposes a textual inference framework for answering commonsense questions, which effectively utilizes KGs to provide human-readable results via intermediate attention scores. BioKGLM [\[111\]](#page-18-23) presents a post-training procedure between pre-training and fine-tuning and uses diverse knowledge fusion strategies to facilitate the injection of KGs. Chang*et al.*[\[112\]](#page-18-24) proposed attentively incorporating retrieved tuples from KGs to incorporate commonsense knowledge during fine-tuning.
 
@@ -341,33 +340,32 @@ Generate Knowledge-based Prompts. Bian*et al.*[\[119\]](#page-18-31) presented a
 
 <span id="page-10-1"></span>TABLE III PERFORMANCE IMPROVEMENT OF SOME KGPLMS ON DIFFERENT EVALUATION TASKS COMPARED WITH BERT
 
-| KGPLM     |     | Entity typing Relation classification Question answering |      |
+| KGPLM | | Entity typing Relation classification Question answering | |
 |-----------|-----|----------------------------------------------------------|------|
-| CoLAKE    | 2.8 | 5.6                                                      | —    |
-| LUKE      | 4.6 | 6.7                                                      | 19.2 |
-| KEPLER    | 2.6 | 6                                                        | —    |
-| ERNIE     | 2   | 3.4                                                      | —    |
-| CokeBERT  | 1.3 | 2.7                                                      | —    |
-| K-Adapter | 4.1 | 1.9                                                      | 5.4  |
-| ERICA     | 4.4 | 2.2                                                      | 1.5  |
-| KP-PLM    | 4.6 | 3.8                                                      | —    |
+| CoLAKE | 2.8 | 5.6 | — |
+| LUKE | 4.6 | 6.7 | 19.2 |
+| KEPLER | 2.6 | 6 | — |
+| ERNIE | 2 | 3.4 | — |
+| CokeBERT | 1.3 | 2.7 | — |
+| K-Adapter | 4.1 | 1.9 | 5.4 |
+| ERICA | 4.4 | 2.2 | 1.5 |
+| KP-PLM | 4.6 | 3.8 | — |
 
 Post-training enhancement methods are low-cost and easy to implement, which can effectively improve LLMs' performance on specific tasks. Besides, these methods can guide LLMs to generate text of specific styles and improve the quality and security of LLMs' output. Therefore, post-training enhancement methods are more suitable for domain-specific tasks and text generation scenarios that require sensitive information filtering and risk control. However, the labeling of fine-tuning data and the design of prompts rely on prior knowledge and external resources. If there is a lack of relevant prior knowledge, the optimization effect may be limited. Moreover, these methods may impose certain limitations on the flexibility of LLMs' generations. The generated text may be constrained by prompts and may not be able to be fully freely created.
 
-###*D. Effectiveness and Efficiency of KGPLMs*Most KGPLMs are designed for knowledge-grounded tasks. To evaluate their effectiveness in knowledge modeling, we report their performance on three knowledge-grounded tasks: entity typing, relation classification, and question answering. Table [III](#page-10-1) provides a summary of KGPLMs and their respective improvements over the unenhanced BERT. The reported metric is F1-score. In Table [III,](#page-10-1) the performances of these models on all tasks are higher than BERT, indicating that KGs enhance their knowledge modeling ability.
+### *D. Effectiveness and Efficiency of KGPLMs*Most KGPLMs are designed for knowledge-grounded tasks. To evaluate their effectiveness in knowledge modeling, we report their performance on three knowledge-grounded tasks: entity typing, relation classification, and question answering. Table [III](#page-10-1) provides a summary of KGPLMs and their respective improvements over the unenhanced BERT. The reported metric is F1-score. In Table [III,](#page-10-1) the performances of these models on all tasks are higher than BERT, indicating that KGs enhance their knowledge modeling ability.
 
 TABLE IV THE RUNNING TIME OF BERT AND DIFFERENT KGPLMS
 
-<span id="page-11-0"></span>
 
-| Model   | Pre-training | Fine-tuning | Inference |
+| Model | Pre-training | Fine-tuning | Inference |
 |---------|--------------|-------------|-----------|
-| BERT    | 8.46         | 6.76        | 0.97      |
-| RoBERTa | 9.60         | 7.09        | 1.55      |
-| ERNIE   | 14.71        | 8.19        | 1.95      |
-| KEPLER  | 18.12        | 7.53        | 1.86      |
-| CoLAKE  | 12.46        | 8.02        | 1.91      |
-| DKPLM   | 10.02        | 7.16        | 1.61      |
+| BERT | 8.46 | 6.76 | 0.97 |
+| RoBERTa | 9.60 | 7.09 | 1.55 |
+| ERNIE | 14.71 | 8.19 | 1.95 |
+| KEPLER | 18.12 | 7.53 | 1.86 |
+| CoLAKE | 12.46 | 8.02 | 1.91 |
+| DKPLM | 10.02 | 7.16 | 1.61 |
 
 Typically, the incorporation of knowledge from KGs would lead to a larger parameter size compared with the base PLM. Consequently, the pre-training, fine-tuning and inference time of plain PLMs are consistently shorter than KGPLMs. As the statistical data shown in Table [IV,](#page-11-0) due to these KGPLMs injecting the knowledge encoder module into PLMs, their running time of the three stages are consistently longer than BERT. However, with the incorporation of external knowledge, KGPLMs are easier to be trained with higher performance. For example, KALM with 775M parameters even performs better than GPT-2 on some downstream tasks [\[78\]](#page-17-37), whose parameter size is 1.5B. This implies that we can obtain a satisfactory model with smaller parameter size and fewer training resources.
 
@@ -388,7 +386,7 @@ Question Answering. Question answering systems need to choose the correct answer
 ![](_page_12_Figure_1.jpeg)
 <!-- Image Description: The image illustrates a model architecture for natural language processing. It depicts a two-stage process: pretraining and fine-tuning. Pretraining uses a transformer to process word and entity embeddings, generating output embeddings through application-related tasks. Fine-tuning then adapts this model to specific downstream tasks (sentiment analysis, relation extraction, named entity recognition), each using a separate transformer layer that processes input embeddings and generates task-specific output embeddings. The diagram uses boxes to represent embedding types and layers, and plus signs to indicate addition operations. -->
 
-<span id="page-12-0"></span>Fig. 8. The framework for KGPLMs to realize various applications.
+<span id="page-12-0"></span>Figure 8. The framework for KGPLMs to realize various applications.
 
 it. Although PLMs have made remarkable achievements on many question answering tasks [\[132\]](#page-19-1), they do not empirically perform well on structured reasoning. On the other hand, KGs are more suitable for structured reasoning and enable explainable predictions. Therefore, a few studies have proposed integrating PLMs with KGs to conduct structured reasoning and enable explainable predictions. Some methods incorporate KGs into PLMs while training them, such as QA-GNN [\[93\]](#page-18-5) and WKLM [\[86\]](#page-17-45). Another line of research uses KGs to augment PLMs during answer inference. OreoLM [\[133\]](#page-19-2), for example, incorporates a novel knowledge interaction layer into PLMs that interact with a differentiable knowledge graph reasoning module for collaborative reasoning. Here, PLMs guide KGs in walking towards desired answers while retrieved knowledge enhances PLMs. Experiments on common benchmarks illustrate that KGPLMs outperform traditional PLMs after KG incorporation.
 
@@ -417,7 +415,7 @@ Recent advancements in training PLMs on a large corpus have led to a surge of im
 ![](_page_13_Figure_1.jpeg)
 <!-- Image Description: The image displays two knowledge graph-based question-answering methods. The left side shows a knowledge graph traversal approach, where a query about Barack Obama's birthplace leads to the answer "Hawaii" via relationship links. The right side illustrates a BERT-based approach, using a masked language model to fill in "[MASK]" within the question "Barack was born in [MASK]" resulting in the same answer. The diagrams compare different techniques for knowledge-based QA. -->
 
-<span id="page-13-0"></span>Fig. 9. Querying KGs and PLMs for factual knowledge, in which the left part represents directly querying factual knowledge from KGs while the right part represents querying factual knowledge from PLMs by asking them to fill in masked tokens in sequences.
+<span id="page-13-0"></span>Figure 9. Querying KGs and PLMs for factual knowledge, in which the left part represents directly querying factual knowledge from KGs while the right part represents querying factual knowledge from PLMs by asking them to fill in masked tokens in sequences.
 
 that PLMs contain relational knowledge and can recall stored facts without fine-tuning. Talmor*et al.*[\[139\]](#page-19-8) developed eight cloze-style reasoning tasks to test the knowledge captured in BERT and RoBERTa. They found that different PLMs exhibit qualitatively different reasoning abilities and do not reason in an abstract manner but instead rely on context. Heinzerling and Inui [\[10\]](#page-16-35) evaluated PLMs' ability to store millions of entity facts and query these facts via experimental tests with three entity representations. Their experimental results provide a proof-of-concept for PLMs as knowledge bases.
 
@@ -437,16 +435,16 @@ To conclude, LLMs still face challenges in remembering large amounts of complex 
 
 In the preceding sections, we have analyzed and compared existing KGPLMs. Despite demonstrating proficiency in a wide range of NLP tasks, the complexity of knowledge and language continues to pose unresolved challenges for KGPLMs. Furthermore, despite substantial improvements in generated text quality and learned facts with models scaling beyond 100B parameters, LLMs are still prone to unfactual responses and commonsense errors. Their predictions are highly dependent on input text, and minor variations in phrasing and word choice can lead to such errors. One potential solution is to enhance LLMs with KGs to improve their learning of factual knowledge, a topic that has not been thoroughly studied yet. Thus, we propose to enhance LLMs with KGs using techniques utilized by KGPLMs to achieve fact-aware language modeling.
 
-###*A. Overall Framework*The development framework for KGLLMs based on existing technologies is depicted in Fig. [10.](#page-14-0) Since LLMs primarily scale the size of parameters and training data from PLMs, their model architecture and training methods remain largely unchanged. Hence, all three types of KGPLM methods introduced before can be applied to developing KGLLMs. The before-training enhancement approaches can be utilized to construct KG-extended text, improving input quality and integrating factual information into the input. The during-training enhancement methods can be employed to adaptively fuse textual knowledge and structural knowledge to learn knowledgeenhanced word representations. Graph encoders, such as GNN, can serve as knowledge encoders, while attention mechanisms can be utilized to design the knowledge fusion module. Multi-task learning, including knowledge-guided pre-training tasks, helps improve LLMs' learning of factual knowledge. The post-training enhancement methods can be utilized to
+### *A. Overall Framework*The development framework for KGLLMs based on existing technologies is depicted in Fig. [10.](#page-14-0) Since LLMs primarily scale the size of parameters and training data from PLMs, their model architecture and training methods remain largely unchanged. Hence, all three types of KGPLM methods introduced before can be applied to developing KGLLMs. The before-training enhancement approaches can be utilized to construct KG-extended text, improving input quality and integrating factual information into the input. The during-training enhancement methods can be employed to adaptively fuse textual knowledge and structural knowledge to learn knowledgeenhanced word representations. Graph encoders, such as GNN, can serve as knowledge encoders, while attention mechanisms can be utilized to design the knowledge fusion module. Multi-task learning, including knowledge-guided pre-training tasks, helps improve LLMs' learning of factual knowledge. The post-training enhancement methods can be utilized to
 
 ![](_page_14_Figure_7.jpeg)
 <!-- Image Description: This flowchart illustrates a knowledge-enhanced text processing model. It depicts a multi-stage architecture incorporating a knowledge fusion module that combines information from a text encoder and a knowledge encoder. The knowledge encoder processes input extended with knowledge from a knowledge graph (e.g., Wikipedia). The combined output then undergoes knowledge-guided pre-training, fine-tuning, and prompt tuning stages sequentially. The diagram shows the data flow and processing steps, highlighting the integration of external knowledge into the model. -->
 
-<span id="page-14-0"></span>Fig. 10. Technical framework of developing KGLLMs.
+<span id="page-14-0"></span>Figure 10. Technical framework of developing KGLLMs.
 
 further improve the performance of LLMs on some domainspecific tasks by fine-tuning them on knowledge-extended data or knowledge-grounded tasks. Moreover, one of the most important recent advancements of LLMs is prompt learning, which effectively improves the quality of generated text and enhance LLMs' generalization capability by inserting text pieces into the input. In prompt learning, selecting suitable prompt templates for specific tasks is crucial for enhancing model performance, requiring domain expertise. Therefore, KGs can be integrated into constructing prompt templates to make use of domain knowledge, which is expected to improve the model's understanding of domain factual knowledge by guiding LLMs with knowledge prompts.
 
-###*B. Discussion and Future Directions*In addition to knowledge graph enhancement methods, there are also other enhancement methods that can be used to improve LLMs' factual language modeling ability. Typically, these methods include data augmentation and retrieval augmentation. Data augmentation involves refining the training data during pretraining and emphasizing informative words, emphasizing the importance of the training corpus in equipping the model with factual knowledge. Compared with knowledge graph enhancement methods, these approaches utilize implicit knowledge to model factual knowledge in text and ignore the relationships between entities. Retrieval augmentation has emerged as a widely adopted approach, allowing LLMs to retrieve external data from databases [\[149\]](#page-19-18) or tools and pass it to LLMs in the form of prompts or embeddings to improve LLMs' generations. These methods can address some challenges faced by plain LLMs, such as outdated information and the inability to memorize. However, they cannot fundamentally improve LLMs' knowledge modeling ability since they do not change LLMs' parameters.
+### *B. Discussion and Future Directions*In addition to knowledge graph enhancement methods, there are also other enhancement methods that can be used to improve LLMs' factual language modeling ability. Typically, these methods include data augmentation and retrieval augmentation. Data augmentation involves refining the training data during pretraining and emphasizing informative words, emphasizing the importance of the training corpus in equipping the model with factual knowledge. Compared with knowledge graph enhancement methods, these approaches utilize implicit knowledge to model factual knowledge in text and ignore the relationships between entities. Retrieval augmentation has emerged as a widely adopted approach, allowing LLMs to retrieve external data from databases [\[149\]](#page-19-18) or tools and pass it to LLMs in the form of prompts or embeddings to improve LLMs' generations. These methods can address some challenges faced by plain LLMs, such as outdated information and the inability to memorize. However, they cannot fundamentally improve LLMs' knowledge modeling ability since they do not change LLMs' parameters.
 
 Besides, some plugins have been developed to enhance the capabilities of LLMs in the context of a knowledge base. For example, the Browsing plugin can call search engines to access real-time information on the website; the Retrieval plugin[7](#page-15-0) uses OpenAI embeddings to index and search documents in vector databases; the Wolfram[8](#page-15-1) plugin enables ChatGPT to provide more comprehensive and accurate answers by giving it access to the Wolfram Alpha knowledge base; the Expedia plugin[9](#page-15-2) enables ChatGPT to provide personalized travel recommendations with the help of Expedia's entity graph.
 

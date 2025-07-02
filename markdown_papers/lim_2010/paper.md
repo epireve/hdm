@@ -38,7 +38,7 @@ SAP Research, Sophia Antipolis, France hoon.wei.lim@sap.com
 
 **Abstract.**Petabyte-scale file systems are often extremely large, containing gigabytes or terabytes of data that can be spread across hundreds or thousands of storage devices. Hence, the cost of security operations can be very high. Recent security proposals for large-scale file systems have been focussing on the use of hybrid symmetric and asymmetric key cryptographic techniques, in order to strive for a balance between security and performance. However, key management issues, such as distribution, renewal and revocation of keys, have not been explicitly addressed. In this paper, we first show that key management can be very challenging and costly in large-scale systems, and can have significant impact on the scalability of the systems. We then propose a file system security architecture which makes use of lightweight key management techniques. Our approach not only addresses essential key management concerns, it also improves existing proposals with stronger security and better usability.
 
-# 1 Introduction
+## 1 Introduction
 
 Cryptographic key management, such as generation, distribution, storage, renewal and revocation of keys, is the foundation for securing a system. It can be very challenging, particularly for petabyte-scale, open distributed file systems because the cost of managing keys may be far higher than the cost of executing security mechanisms o[r](#page-12-0) [pro](#page-13-0)tocols in which the keys are used. Files in such systems are often extremely large, containing terabytes of data, which can be [s](#page-13-1)pread across thousands of devices and accessed by thousands of clients [14,23]. While it is possible that the authenticated public key of each storage device is made available to all clients within the system, it can be very difficult and costly for the clients to manage such large sets of public keys, particularly in terms of key renewal and revocation.
 
@@ -58,7 +58,7 @@ Managing public keys, such as authenticating public keys and checking for their 
 
 In the nex[t se](#page-14-1)ction, we provide related work in large-scale file system security. In Section 3, we present our proposal for a file system security architecture. We also describe a security model, key management, an authenticated key agreement protocol and its security and performance analyses. We conclude in Section 4.
 
-# 2 Re[la](#page-12-1)ted Work
+## 2 Re[la](#page-12-1)ted Work
 
 Most [earl](#page-13-3)ier work in securing large-scale distributed file systems, for example [11,12], employed Kerberos [20] for performing authentication and enforcing access control. Kerberos, being based on symmetric key cryptography, is usually regarded as a very efficient approach. However, it is generally believed to be more suitable for rather closed, well-connected distributed environments.
 
@@ -82,7 +82,7 @@ In order to access files on specific storage devices, the client then obtains a 
 
 Nevertheless, the assumption of Maat and other proposals which requires user public keys to be made available to all storage devices seems impractical. This is because users may join or leave the systems over time, and thus new public keys would be generated or existing public k[ey](#page-12-0)[s](#page-13-0) [w](#page-13-0)ould be revoked. It is not clear how new or revoked public keys can be communicated to all users in the systems on a timely basis.
 
-# <span id="page-3-0"></span>3 File System Security Architecture
+## <span id="page-3-0"></span>3 File System Security Architecture
 
 Our proposal of a file system security architecture (FSSA) is based on the current model for object storage devices or network-attached disks [2,19]. Unlike existing
 
@@ -93,7 +93,7 @@ proposals, however, we emphasise simplified, lightweight k[ey](#page-4-0) manage
 ![](_page_4_Figure_2.jpeg)
 <!-- Image Description: The diagram illustrates a secure file access system. A user (client) requests a file (1), the metadata server provides a capability (2), and the storage device returns the requested file (4) after receiving an I/O request and the capability (3). The dashed line shows the initial transfer of key material (0) to the storage device. The image details the flow of information and capabilities required for secure file access. -->
 
-<span id="page-4-0"></span>**Fig. 1.**Architectural view of FSSA
+<span id="page-4-0"></span>**Figure 1.**Architectural view of FSSA
 
 Notice that for simplicity of exposition, in this section, we only consider the case of a single metadata server handling metadata and facilitating clients' access to storage devices. Our approach can be extended straightforwardly to cope with multiple servers. We also assume that each client can access to a relatively large number of storage devices,*i.e.* on the orders of hundreds or thousands.
 
@@ -154,7 +154,7 @@ $$
 \begin{aligned}[t] (1) \ C &\rightarrow S: \ \text{open}(\text{path},\text{mode}), g^c, T_C, \\ \text{MAC}_{CS}(\text{open}(\text{path},\text{mode}), g^c, T_C) \\ (2) \ S &\rightarrow C: \ \text{access_info}, \mathrm{Sig}_S(\text{access_info}, g^c, T_C) \\ (3) \ C &\rightarrow D: \ \text{operate}(\text{object_id}), \text{access_info}, g^c, T_C \\ \text{MAC}_{CD_0}(\text{operate}(\text{object_id})), \\ \text{Sig}_S(\text{access_info}, g^c, T_C) \\ (4) \ D &\rightarrow C: g^d, \text{MAC}_{CD_0}(g^d, T_C) \end{aligned}
 $$
 
-**Fig. 2.**Authen[tic](#page-13-9)[ate](#page-14-5)d key agreement protocol in FSSA
+**Figure 2.**Authen[tic](#page-13-9)[ate](#page-14-5)d key agreement protocol in FSSA
 
 We assume that the client (acting on a user's behalf) and the server can authenticate each other and establish a session key*KCS*using the classic hybrid username/password and TLS/SSL handshake method, for example. (Note that the server-authenticated TLS handshake does not require a client public key certificate [7].) Alternatively, Kerberos or any well-studied password-based authenticated key agreement protocol, such as [4,25], can be used.
 
@@ -216,11 +216,11 @@ We have described how key management is simplified in FSSA in comparison with Ma
 
 We implemented the protocols for both FSSA and Maat in C++, using the Crypto++ library 5.5 [6]. The codes were compiled with Microsoft Visual C++ 2005 SP1 and run on Intel Core 2/2.20 GHz processor, 2014 MB memory and under Windows Vista in 32-bit mode. We use widely deployed and typical choices of cryptographic algorithms/schemes for our comparison: HMAC (SHA-1), AES (CBC-MAC), RSA-1024 encryption and signature schemes, and DH-1024 key agreement. The implementation of the algorithms/schemes makes use of optimisation techniques to improve their performance, for example, pre-computation of key generation when possible, and the use of the Chinese Remainder Theorem (CRT) method for faster RSA decryption (or signature generation).
 
-|        | Maat-I | Maat-II | FSSA-KA |
+| | Maat-I | Maat-II | FSSA-KA |
 |--------|--------|---------|---------|
-| Server | 1.232  | 1.316   | 1.227   |
-| Client | 1.346  | 0.085   | 1.440   |
-|        |        |         |         |
+| Server | 1.232 | 1.316 | 1.227 |
+| Client | 1.346 | 0.085 | 1.440 |
+| | | | |
 
 **Table 1.**A comparison of computational cost for one protocol run in milliseconds
 
@@ -228,7 +228,7 @@ Table 1 shows the actual computation times (in ms) incurred by different entitie
 
 From Table 1, the total time required to perform the FSSA-KA protocol is comparable to that of one round of the combined Maat-I & Maat-II protocols. We note that, in fact, it is difficult to compare the performance of Maat and FSSA using their underlying protocols for obvious reasons. While it is a sensible design strategy that Maat relies on long-term session keys shared between clients and storage devices to improve efficiency and scalability, other key management issues (which we described in earlier sections) have not been addressed. The cost for dealing with these issues may be far higher than the cost of the protocols themselves. Furthermore, the Maat-I & Maat-II protocols do not provide forward secrecy. On the other hand, the design principle of the FSSA-KA protocol takes into consideration various key management limitations in Maat, a stronger security model (providing forward secrecy) and the usability concern.
 
-# 4 Conclusions and Future Work
+## 4 Conclusions and Future Work
 
 Many recent security proposals for large-scale file systems which employ hybrid symmetric and asymmetric key cryptographic techniques did not make use of realistic key management assumptions. In this paper, we considered and addressed key management issues, which could have caused significant efficiency and scalability issues to many existing proposals. In our approach, we adopted lightweight Diffie-Hellman key agreement techniques for session key establishment between a client and a storage device. We also improved the usability of existing security proposals by making use of short-lived credential or key materials. This way, users are not required to manage potentially a large amount of long-term public keys of storage devices. Moreover, we raised the security bar of large-scale distributed file systems by introducing forward secrecy to protect data exchanged in past security sessions.
 
@@ -237,7 +237,7 @@ At the time of writing, Maat is arguably the most efficient security solution fo
 For future work, we intend to implement our proposal using a real distributed file system to analyse how much cost savings we can get in terms of key management, and to identify other potential advantages or limitations of our approach.
 **Acknowledgement.** The author would like to thank Philip Robinson for very helpful discussions and the anonymous referees for very useful comments.
 
-# References
+## References
 
 - <span id="page-12-1"></span>1. Adya, A., Bolosky, W.J., Castro, M., Cermak, G., Chaiken, R., Douceur, J.R., Howell, J., Lorch, J.R., Theimer, M., Wattenhofer, R.: FARSITE: Federated, available, and reliable storage for an incompletely trusted environment. In: Proceedings of the 5th Symposium on Operating System Design and Implementation (OSDI 2002) (December 2002)
 - <span id="page-12-0"></span>2. Aguilera, M.K., Ji, M., Lillibridge, M., MacCormick, J., Oertli, E., Andersen, D.G., Burrows, M., Mann, T., Thekkath, C.A.: Block-level security for network-attached disks. In: Proceedings of the FAST 2003 Conference on File and Storage Technologies, March 2003, USENIX (2003)

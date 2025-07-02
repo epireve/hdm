@@ -30,7 +30,6 @@ images_removed: 0
 keywords: 
 ---
 
-
 # A Survey on Temporal Knowledge Graph: Representation Learning and Applications
 
 Li Caia,b, Xin Mao<sup>a</sup> , Yuhao Zhou<sup>a</sup> , Zhaoguang Long<sup>a</sup> , Changxu Wu<sup>c</sup> , Man Lana,<sup>∗</sup>
@@ -60,7 +59,7 @@ Existing KGs ignore the timestamp indicating when a fact occurred and cannot ref
 ![](_page_1_Figure_3.jpeg)
 <!-- Image Description: This diagram depicts the interactions between Barack Obama, Iran, and Iraq in June 2014. It uses a tripartite structure, with Obama at the apex. Arrows labeled with dates and descriptions illustrate actions such as statements, military aid provision, and peacekeeping offers. The image visually represents the flow of diplomatic and military engagement among the three entities during a specific period. The purpose is to show the sequence and nature of political and military actions in a concise visual format. -->
 
-<span id="page-1-0"></span>Figure 1: An example of temporal knowledge graph (a subgraph of ICEWS14).
+<span id="page-1-0"></span>**Figure 1:** An example of temporal knowledge graph (a subgraph of ICEWS14).
 
 The emergence of TKGs has led to increased researcher interest in temporal knowledge graph representation learning (TKGRL) [\[53\]](#page-31-1). The acquired lowdimensional vector representations are capable of modelling the dynamics of entities and relations over time, thereby improving downstream applications such as time-aware knowledge reasoning [\[34\]](#page-28-3), entity alignment [\[81\]](#page-34-0), and question answering [\[59\]](#page-31-2).
 
@@ -79,7 +78,7 @@ A temporal knowledge graph is a directed multi-relational graph containing struc
 ![](_page_3_Figure_0.jpeg)
 <!-- Image Description: The image illustrates a knowledge graph (KG) transformation process. It begins with a tree-like KG representation ("TKG"), then shows its transformation into a matrix representation. This matrix is further processed and applied to three knowledge reasoning tasks: knowledge reasoning, entity alignment, and question answering. The final section displays example knowledge graph structures for each application, demonstrating how the transformed representation is used in practice. -->
 
-<span id="page-3-0"></span>Figure 2: Temporal knowledge graph representation learning and applications.
+<span id="page-3-0"></span>**Figure 2:** Temporal knowledge graph representation learning and applications.
 
 Take Figure [1](#page-1-0) for example, where the entity set E contains (Barack Obama, Iran, Iraq), the relation set contains (make statement, express intent to provide military aid, provide military aid, provide military protection or peacekeeping, receive deployment peacekeeper), the time set contains (2014-6-18, 2014-6-19, 2014-6-20, 2014-6-22), and the fact set contains ((Iran, Provide military protection or peacekeeping, Iraq, 2014-6-18)), (Iraq, receive deployment peacekeeper, Iran, 2014-6-18), (Barack Obama, Make statement, Iran, 2014-6-19), (Iran, Make statement, Barack Obama, 2014-6-20),(Barack Obama, express intent to provide military aid, Iraq, 2014-6-19), (Barack Obama, provide military aid, Iraq, 2014-6-22)).
 
@@ -97,20 +96,20 @@ Wikidata The Wikidata [\[73\]](#page-33-0) is a collaborative, multilingual auxi
 
 YAGO The YAGO [\[32\]](#page-28-2) is a linked database developed by the Max Planck Institute in Germany. YAGO integrates data from Wikipedia, WordNet, and
 
-| Applications        | Datasets   | E             | R       | T     | F               |
+| Applications | Datasets | E | R | T | F |
 |---------------------|------------|---------------|---------|-------|-----------------|
-| Knowledge Reasoning | ICEWS18    | 23,033        | 256     | 304   | 468,558         |
-|                     | ICEWS14    | 7,128         | 230     | 365   | 90,730          |
-|                     | ICEWS05-15 | 10,488        | 251     | 4,017 | 461,329         |
-|                     | GDELT      | 7,691         | 240     | 2,751 | 2,278,405       |
-|                     | Wikidata   | 12,554        | 24      | 232   | 669,934         |
-|                     | YAGO       | 10,623        | 10      | 189   | 201,089         |
-| Entity Alignment    | DICEWS     | 9,517/9,537   | 247/246 | 4,017 | 307,552/307,553 |
-|                     | YAGO-WIKI  | 49,626/49,222 | 11/30   | 245   | 221,050/317,814 |
-| Question Answering  | ICEWS21    | -             | 253     | 243   | -               |
-|                     | Wikidata   | 432,715       | 814     | 1,726 | 7,224,361       |
+| Knowledge Reasoning | ICEWS18 | 23,033 | 256 | 304 | 468,558 |
+| | ICEWS14 | 7,128 | 230 | 365 | 90,730 |
+| | ICEWS05-15 | 10,488 | 251 | 4,017 | 461,329 |
+| | GDELT | 7,691 | 240 | 2,751 | 2,278,405 |
+| | Wikidata | 12,554 | 24 | 232 | 669,934 |
+| | YAGO | 10,623 | 10 | 189 | 201,089 |
+| Entity Alignment | DICEWS | 9,517/9,537 | 247/246 | 4,017 | 307,552/307,553 |
+| | YAGO-WIKI | 49,626/49,222 | 11/30 | 245 | 221,050/317,814 |
+| Question Answering | ICEWS21 | - | 253 | 243 | - |
+| | Wikidata | 432,715 | 814 | 1,726 | 7,224,361 |
 
-<span id="page-4-0"></span>Table 1: Statistics of Datasets for Temporal Knowledge Graphs in different applications
+<span id="page-4-0"></span>**Table 1:** Statistics of Datasets for Temporal Knowledge Graphs in different applications
 
 GeoNames. YAGO integrates WordNet's word definitions with Wikipedia's classification system, adding temporal and spatial information to many knowledge items.
 
@@ -125,7 +124,7 @@ MRR The MRR represents the average of the reciprocal ranks of the correct answer
 $$
 MRR = \frac{1}{|S|} \sum_{i=1}^{|S|} \frac{1}{rank_i}
 $$
- (1)
+(1)
 
 where S is the set of all correct answers, |S| is the number of the sets. The predicted result is a set sorted by the probability of the answer from high to low, and rank<sup>i</sup> is the rank of the i-th correct answer in the prediction result. The higher the MRR, the better the performance.
 
@@ -139,7 +138,7 @@ $$
 ![](_page_5_Figure_0.jpeg)
 <!-- Image Description: This image is a hierarchical diagram categorizing techniques for temporal knowledge graph representation learning. The left side lists broad categories (Transformation, Decomposition, etc.), each branching to specific methods (e.g., Graph Neural Network, Autoregression). The right side shows related approaches used for translation, rotation, and other tasks within the broader context of temporal knowledge graph representation. The diagram's purpose is to systematically organize and present a survey of existing methods in the field. -->
 
-<span id="page-5-0"></span>Figure 3: The categorization of temporal knowledge graph representation learning methods.
+<span id="page-5-0"></span>**Figure 3:** The categorization of temporal knowledge graph representation learning methods.
 
 where the |S| and rank<sup>i</sup> are the same as above, I(·) is the indicator function (If the condition (rank<sup>i</sup> ≤ k) is true, the function value is 1, otherwise 0). Typically, k is 1, 3, 5 or 10. Hit@1 represents the percentage that the first-rank predicted result is the correct answer, equivalent to the Accuracy. Hit@10 represents the percentage of the top ten predictions containing correct answers. The higher the Hit@k, the better the performance.
 
@@ -147,27 +146,27 @@ where the |S| and rank<sup>i</sup> are the same as above, I(·) is the indicator
 
 Compared to KGs, TKGs contain additional timestamps, which are taken into account in the construction of TKGRL methods. These methods can be broadly categorized into transformation-based, decomposition-based, graph neural networks-based, and capsule network-based approaches. Additionally, temporal knowledge graphs can be viewed as sequences of snapshots captured at different timestamps or events that occur over continuous time, and can be learned using autoregressive and temporal point process techniques. Moreover, some methods prioritize interpretability, language model, and few-shot learning. Thus, based on the core technologies employed by TKGRL methods, we group them into the following categories: transformation-based methods,
 
-<span id="page-6-0"></span>Table 2: Notations and descriptions
+<span id="page-6-0"></span>**Table 2:** Notations and descriptions
 
-| Notation            | Description                                                      |
+| Notation | Description |
 |---------------------|------------------------------------------------------------------|
-| E, R, T, F          | The sets of entities, relations, timestamps, and facts           |
-| (h, r, t, τ )       | A quadruple of head entity, relation, tail entity and timestamps |
-| h, r, t, τ          | Embedding of head entity, relation, tail entity and timestamps   |
-| hτ<br>, rτ<br>, tτ  | Temporal embedding of head entity, relation, and tail entity     |
-| τe, τr              | Entity and relation embedding of time                            |
-| R,<br>C,<br>H,<br>G | Set of real, complex, hypercomplex and multivectors              |
-| ∥ · ∥1/2            | L1-norm or L2-norm                                               |
-| d(a, b)             | Distance between a and b                                         |
-| w,W,W               | Parameters in vector, matrix, and order 3 tensor form            |
-| ◦                   | Hadamard (element-wise) product                                  |
-| ⊗                   | Kronecker product                                                |
-| ⊙                   | Hamilton product                                                 |
-| ⟨·⟩                 | Dot product                                                      |
-| re(t)               | Real vector component of t                                       |
-| t                   | Conjugate vector component of t                                  |
-| −1<br>r             | Inverse of vector r                                              |
-| wT                  | Transposition of vector w                                        |
+| E, R, T, F | The sets of entities, relations, timestamps, and facts |
+| (h, r, t, τ ) | A quadruple of head entity, relation, tail entity and timestamps |
+| h, r, t, τ | Embedding of head entity, relation, tail entity and timestamps |
+| hτ<br>, rτ<br>, tτ | Temporal embedding of head entity, relation, and tail entity |
+| τe, τr | Entity and relation embedding of time |
+| R,<br>C,<br>H,<br>G | Set of real, complex, hypercomplex and multivectors |
+| ∥ · ∥1/2 | L1-norm or L2-norm |
+| d(a, b) | Distance between a and b |
+| w,W,W | Parameters in vector, matrix, and order 3 tensor form |
+| ◦ | Hadamard (element-wise) product |
+| ⊗ | Kronecker product |
+| ⊙ | Hamilton product |
+| ⟨·⟩ | Dot product |
+| re(t) | Real vector component of t |
+| t | Conjugate vector component of t |
+| −1<br>r | Inverse of vector r |
+| wT | Transposition of vector w |
 
 decomposition-based methods, graph neural networks-based methods, capsule network-based methods, autoregression-based methods, temporal point processbased methods, interpretability-based methods, language model methods, fewshot learning methods, and others. A visualization of the categorization of TKGRL methods is presented in Figure [3.](#page-5-0)
 
@@ -313,56 +312,56 @@ Geometric model The transformation models represent TKGs in a Euclidean space, w
 
 BoxTE [\[52\]](#page-30-7) is an innovative model that builds on the work of BoxE [\[1\]](#page-24-3) and proposes a flexible and powerful framework that is fully expressive and inductive. It represents entities using a formulation that combines a base position vector h, t ∈ R d , a translational bump vector bh, b<sup>t</sup> ∈ R d , and a time bump vector τ <sup>r</sup> ∈ R d . Specifically, the entity representations are defined as
 
-| Category                            | Model                    | Representation space | Encoder                                                                                                                      | Decoder                                                                                                              |
+| Category | Model | Representation space | Encoder | Decoder |
 |-------------------------------------|--------------------------|----------------------|------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-|                                     | TTransE(2018)            | R<br>d               |                                                                                                                              |                                                                                                                      |
-| Transformation                      |                          | R<br>d               | -                                                                                                                            | ∥h + r + τ − t∥1/2                                                                                                   |
-|                                     | TA-TransE(2018)          | R<br>d               | rseq = LSTM(r : τ )<br>hτ = h − (wT                                                                                          | ∥h + rseq − t∥2                                                                                                      |
-|                                     | HyTE(2018)<br>Tero(2020) | C<br>d               | τ h)wτ                                                                                                                       | ∥hτ + rτ − tτ ∥1/2                                                                                                   |
-|                                     | ChronoR(2021)            | R<br>d×k             | hτ = h ◦ τ                                                                                                                   | ∥hτ + r − tτ ∥                                                                                                       |
-|                                     | RotateQVS(2022)          | Qd                   | hr,τ = h ◦ [r τ ] ◦ r2<br>hτ = τ hτ −1                                                                                       | ⟨hr,τ , t⟩                                                                                                           |
-|                                     |                          |                      | e[n]σ(w[n]τ + b[n]), 1 ≤ n ≤ γd                                                                                              | ∥hτ + r − tτ ∥                                                                                                       |
-| Decomposition                       | DE-SimplE(2020)          | R<br>d               | eτ [n] =<br>γd ≤ n ≤ d<br>e[n],                                                                                              | 1<br>tτ , r−1<br>(⟨hτ , r, tτ ⟩ +<br>, hτ<br>)<br>2                                                                  |
-|                                     | T-SimplE(2020)           | R<br>d               | -                                                                                                                            | 1<br>t, r−1<br>(⟨h, r, t, τ ⟩ +<br>, h, τ<br>)<br>2                                                                  |
-|                                     | TComplEx(2020)           | C<br>d               | -                                                                                                                            | re(<br>h, r, t, τ<br>)                                                                                               |
-|                                     | TLT-KGE(2022)            | Hd                   | q<br>h<br>τ = ha + hbi + τe,cj + τe,dk,<br>q<br>t<br>τ = ta + tbi + τe,cj + τe,dk,<br>q<br>r<br>τ = ra + rbi + τr,cj + τr,dk | q<br>q<br>q<br>q<br>q<br>q<br>′, t<br>⟨h<br>τ ⊙ r<br>, t<br>τ ⟩ + ⟨(h<br>τ ⊙ r<br>τ )<br>τ ⟩<br>τ                    |
-|                                     | TuckERT(2022)            | R<br>d               | -                                                                                                                            | ⟨M; h, r, t, τ ⟩                                                                                                     |
-| Graph Neural Networks TEA-GNN(2021) |                          | R<br>d               | Time-aware GNN                                                                                                               | -                                                                                                                    |
-|                                     | TREA(2022)               | R<br>d               | Temporal Relational GAT                                                                                                      | -                                                                                                                    |
-|                                     | DEGAT(2022)              | R<br>d               | GAT                                                                                                                          | DE-ConvKB                                                                                                            |
-|                                     | 2TKG(2023)<br>L          | R<br>d               | R-GCN + GRU                                                                                                                  | ConvTransE                                                                                                           |
-| Capsule Network                     | TempCaps(2022)           | R<br>d               | Temporal Capsule Network                                                                                                     | MLP                                                                                                                  |
-|                                     | BiQCap(2023)             | Hd                   | Biquaternion + Capsule Network                                                                                               | MLP                                                                                                                  |
-|                                     | DuCape(2023)             | Hd                   | Dual Quaternion + Capsule Network                                                                                            | MLP                                                                                                                  |
-| Autoregression                      | RE-NET(2020)             | R<br>d               | R-GCN + GRU                                                                                                                  | MLP                                                                                                                  |
-|                                     | Glean(2020)              | R<br>d               | (CompGNC + GCN) + RNN                                                                                                        | -                                                                                                                    |
-|                                     | RE-GCN(2021)             | R<br>d               | relation-aware GCN + GRU                                                                                                     | ConvTransE                                                                                                           |
-|                                     | TiRGN(2022)              | R<br>d               | relation-aware GCN + GRU                                                                                                     | Time-ConvTransE                                                                                                      |
-|                                     | Cen(2022)                | R<br>d               | relation-aware GCN + GRU                                                                                                     | CNN                                                                                                                  |
-| TPP                                 | Know-Evolve(2017)        | R<br>d               | Rayleigh process                                                                                                             | -                                                                                                                    |
-|                                     | GHNN(2020)               | R<br>d               | Graph Hawkes Process                                                                                                         | -                                                                                                                    |
-|                                     | EvoKG(2022)              | R<br>d               | Structure module + Temporal module                                                                                           | -                                                                                                                    |
-| Interpretability                    | xERTE(2021)              | R<br>d               | TRGA                                                                                                                         | -                                                                                                                    |
-|                                     | CluSTeR(2021)            | R<br>d               | RL + R-GCN + GRU                                                                                                             | -                                                                                                                    |
-|                                     | TiTer(2021)              | R<br>d               | RL                                                                                                                           | -                                                                                                                    |
-| Language model                      | ICLTKG(2023)             | R<br>d               | -                                                                                                                            | Transformer                                                                                                          |
-|                                     | zrLLM(2023)              | R<br>d               | -                                                                                                                            | Transformer                                                                                                          |
-|                                     | ECOLA(2022)              | R<br>d               | -                                                                                                                            | Transformer + Dyernie                                                                                                |
-|                                     | GENTKG(2023)             | R<br>d               | -                                                                                                                            | Transformer                                                                                                          |
-|                                     | Chain of History(2024)   | R<br>d               | -                                                                                                                            | Transformer                                                                                                          |
-| Few-shot Learning                   | MetaTKG(2022)            | R<br>d               | REGCN                                                                                                                        | -                                                                                                                    |
-|                                     | MetaTKGR(2022)           | R<br>d               | Time-aware GAT                                                                                                               | -                                                                                                                    |
-|                                     | TR-Match(2023)           | R<br>d               | Time-Relation Attention                                                                                                      | -                                                                                                                    |
-|                                     | MTKGE(2023)              | R<br>d               | RPPG + TSPG + GCN                                                                                                            | -                                                                                                                    |
-| Others                              | CygNet(2021)             | R<br>d               | Copy mode+ Generation mode                                                                                                   | -                                                                                                                    |
-|                                     | TANGO(2021)              | R<br>d               | MGCN + Trans + ODE Solver                                                                                                    | Distmult or TuckER                                                                                                   |
-|                                     | Dyernie(2020)            | R<br>d               | (i)) + ve(i) )<br>τ = expKi<br>(logKi<br>(i)<br>e<br>(e<br>0<br>0                                                            | Pk<br>(i) ⊗Ki h<br>(i)<br>i=1 −dM<br>(P<br>,<br>ni Ki<br>τ<br>(i)) + b<br>(i)<br>(i)<br>(i)<br>t<br>τ ⊕Ki p<br>h + b |
-|                                     |                          |                      | r(h,t) = h + bt,<br>h                                                                                                        | t                                                                                                                    |
-|                                     | BoxTE(2022)              | R<br>d               | tr(h,t) = t + bh,<br>rh τ = rh − τ<br>r<br>,                                                                                 | r(h,t)<br>, rh τ<br>)∥ + ∥d(tr(h,t)<br>t τ<br>∥d(h<br>, r<br>)∥                                                      |
-|                                     | TGeomE(2023)             | Gn×d                 | t τ = r<br>t − τ<br>r<br>r<br>h, r, t = [M1, , Mk]                                                                           | Sc(h ⊗n r ⊗n t), 1                                                                                                   |
-|                                     |                          |                      |                                                                                                                              |                                                                                                                      |
+| | TTransE(2018) | R<br>d | | |
+| Transformation | | R<br>d | - | ∥h + r + τ − t∥1/2 |
+| | TA-TransE(2018) | R<br>d | rseq = LSTM(r : τ )<br>hτ = h − (wT | ∥h + rseq − t∥2 |
+| | HyTE(2018)<br>Tero(2020) | C<br>d | τ h)wτ | ∥hτ + rτ − tτ ∥1/2 |
+| | ChronoR(2021) | R<br>d×k | hτ = h ◦ τ | ∥hτ + r − tτ ∥ |
+| | RotateQVS(2022) | Qd | hr,τ = h ◦ [r τ ] ◦ r2<br>hτ = τ hτ −1 | ⟨hr,τ , t⟩ |
+| | | | e[n]σ(w[n]τ + b[n]), 1 ≤ n ≤ γd | ∥hτ + r − tτ ∥ |
+| Decomposition | DE-SimplE(2020) | R<br>d | eτ [n] =<br>γd ≤ n ≤ d<br>e[n], | 1<br>tτ , r−1<br>(⟨hτ , r, tτ ⟩ +<br>, hτ<br>)<br>2 |
+| | T-SimplE(2020) | R<br>d | - | 1<br>t, r−1<br>(⟨h, r, t, τ ⟩ +<br>, h, τ<br>)<br>2 |
+| | TComplEx(2020) | C<br>d | - | re(<br>h, r, t, τ<br>) |
+| | TLT-KGE(2022) | Hd | q<br>h<br>τ = ha + hbi + τe,cj + τe,dk,<br>q<br>t<br>τ = ta + tbi + τe,cj + τe,dk,<br>q<br>r<br>τ = ra + rbi + τr,cj + τr,dk | q<br>q<br>q<br>q<br>q<br>q<br>′, t<br>⟨h<br>τ ⊙ r<br>, t<br>τ ⟩ + ⟨(h<br>τ ⊙ r<br>τ )<br>τ ⟩<br>τ |
+| | TuckERT(2022) | R<br>d | - | ⟨M; h, r, t, τ ⟩ |
+| Graph Neural Networks TEA-GNN(2021) | | R<br>d | Time-aware GNN | - |
+| | TREA(2022) | R<br>d | Temporal Relational GAT | - |
+| | DEGAT(2022) | R<br>d | GAT | DE-ConvKB |
+| | 2TKG(2023)<br>L | R<br>d | R-GCN + GRU | ConvTransE |
+| Capsule Network | TempCaps(2022) | R<br>d | Temporal Capsule Network | MLP |
+| | BiQCap(2023) | Hd | Biquaternion + Capsule Network | MLP |
+| | DuCape(2023) | Hd | Dual Quaternion + Capsule Network | MLP |
+| Autoregression | RE-NET(2020) | R<br>d | R-GCN + GRU | MLP |
+| | Glean(2020) | R<br>d | (CompGNC + GCN) + RNN | - |
+| | RE-GCN(2021) | R<br>d | relation-aware GCN + GRU | ConvTransE |
+| | TiRGN(2022) | R<br>d | relation-aware GCN + GRU | Time-ConvTransE |
+| | Cen(2022) | R<br>d | relation-aware GCN + GRU | CNN |
+| TPP | Know-Evolve(2017) | R<br>d | Rayleigh process | - |
+| | GHNN(2020) | R<br>d | Graph Hawkes Process | - |
+| | EvoKG(2022) | R<br>d | Structure module + Temporal module | - |
+| Interpretability | xERTE(2021) | R<br>d | TRGA | - |
+| | CluSTeR(2021) | R<br>d | RL + R-GCN + GRU | - |
+| | TiTer(2021) | R<br>d | RL | - |
+| Language model | ICLTKG(2023) | R<br>d | - | Transformer |
+| | zrLLM(2023) | R<br>d | - | Transformer |
+| | ECOLA(2022) | R<br>d | - | Transformer + Dyernie |
+| | GENTKG(2023) | R<br>d | - | Transformer |
+| | Chain of History(2024) | R<br>d | - | Transformer |
+| Few-shot Learning | MetaTKG(2022) | R<br>d | REGCN | - |
+| | MetaTKGR(2022) | R<br>d | Time-aware GAT | - |
+| | TR-Match(2023) | R<br>d | Time-Relation Attention | - |
+| | MTKGE(2023) | R<br>d | RPPG + TSPG + GCN | - |
+| Others | CygNet(2021) | R<br>d | Copy mode+ Generation mode | - |
+| | TANGO(2021) | R<br>d | MGCN + Trans + ODE Solver | Distmult or TuckER |
+| | Dyernie(2020) | R<br>d | (i)) + ve(i) )<br>τ = expKi<br>(logKi<br>(i)<br>e<br>(e<br>0<br>0 | Pk<br>(i) ⊗Ki h<br>(i)<br>i=1 −dM<br>(P<br>,<br>ni Ki<br>τ<br>(i)) + b<br>(i)<br>(i)<br>(i)<br>t<br>τ ⊕Ki p<br>h + b |
+| | | | r(h,t) = h + bt,<br>h | t |
+| | BoxTE(2022) | R<br>d | tr(h,t) = t + bh,<br>rh τ = rh − τ<br>r<br>, | r(h,t)<br>, rh τ<br>)∥ + ∥d(tr(h,t)<br>t τ<br>∥d(h<br>, r<br>)∥ |
+| | TGeomE(2023) | Gn×d | t τ = r<br>t − τ<br>r<br>r<br>h, r, t = [M1, , Mk] | Sc(h ⊗n r ⊗n t), 1 |
+| | | | | |
 
-<span id="page-18-0"></span>Table 3: A summary of recent TKGRL methods.
+<span id="page-18-0"></span>**Table 3:** A summary of recent TKGRL methods.
 
 h <sup>r</sup>(h,t|τ) = h + b<sup>t</sup> + τ r , t <sup>r</sup>(h,t|τ) = t+ b<sup>h</sup> + τ r . Furthermore, BoxTE represents boxes using a time-induced relation head box r <sup>h</sup>|<sup>τ</sup> = r <sup>h</sup> − τ <sup>r</sup> and a timeinduced relation tail box r <sup>t</sup>|<sup>τ</sup> = r <sup>t</sup> −τ r . To determine whether a fact r(h, t|τ ) holds, BoxTE checks if the representations for h and t lie within their corresponding boxes. This is expressed mathematically as follows: h <sup>r</sup>(h,t|τ) ∈ r h, and t <sup>r</sup>(h,t|τ) ∈ r t . By substracting τ r from both sides, it obtains the equivalent expressions: h <sup>r</sup>(h,t) ∈ r h|τ , t <sup>r</sup>(h,t) ∈ r t|τ . BoxTE enables the model to capture rigid inference patterns and cross-time inference patterns, thereby making it a powerful tool for TKGRL.
 

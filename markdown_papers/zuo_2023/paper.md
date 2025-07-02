@@ -129,11 +129,11 @@ $$
 ![](_page_2_Figure_0.jpeg)
 <!-- Image Description: This flowchart depicts a medical diagnosis system. Medical text input undergoes chunking, entity extraction (stored in a database), and relation extraction (also stored). These databases feed into a medical knowledge graph, integrated with large language models (LLMs). A multi-agent system, including a GP-LLM and several agents, processes this graph to provide a diagnostic response to a user's clinical question. The system incorporates human-guided reasoning. -->
 
-Figure 1: An overview of the KG4Diagnosis framework. The system includes the following components: (1) input medical text is segmented into chunks and processed through entity extraction and relation extraction modules; (2) extracted entities and relations are stored in dedicated databases; (3) these databases are utilized to construct the medical KG; (4) the medical KG is integrated with LLMs and MAS to enhance diagnostic reasoning; (5) diagnostic responses are delivered to user endpoints, supported by human-guided reasoning. The framework highlights a structured approach to medical text processing, accurate knowledge graph construction, and collaborative reasoning for advanced diagnostic outcomes.
+**Figure 1:** An overview of the KG4Diagnosis framework. The system includes the following components: (1) input medical text is segmented into chunks and processed through entity extraction and relation extraction modules; (2) extracted entities and relations are stored in dedicated databases; (3) these databases are utilized to construct the medical KG; (4) the medical KG is integrated with LLMs and MAS to enhance diagnostic reasoning; (5) diagnostic responses are delivered to user endpoints, supported by human-guided reasoning. The framework highlights a structured approach to medical text processing, accurate knowledge graph construction, and collaborative reasoning for advanced diagnostic outcomes.
 **Diagnosis Example**![](_page_2_Figure_3.jpeg)
 <!-- Image Description: The image displays a flowchart illustrating a dialogue between a patient, a doctor, and an AI medical system regarding tinnitus. Each box shows an exchange, with the patient describing symptoms, the doctor asking clarifying questions, and the AI providing potential causes and treatment advice based on the conversation. The flowchart visualizes the AI's role in assisting with diagnosis and treatment recommendations within a medical consultation. -->
 
-Figure 2: An example of a diagnostic conversation illustrating interactions between a patient, a doctor, and an AI medical assistant. The patient describes symptoms, the doctor asks clarifying questions, and the AI provides explanations and suggestions. This dialogue highlights the collaborative diagnostic process and how AI systems can assist in providing personalized medical advice.
+**Figure 2:** An example of a diagnostic conversation illustrating interactions between a patient, a doctor, and an AI medical assistant. The patient describes symptoms, the doctor asks clarifying questions, and the AI provides explanations and suggestions. This dialogue highlights the collaborative diagnostic process and how AI systems can assist in providing personalized medical advice.
 
 where E represents the set of medical entities, such as diseases, drugs, symptoms, etc.
 
@@ -162,7 +162,7 @@ The construction of the knowledge graph is based on the extracted entities and r
 $$
 G = (V, E)
 $$
- where  $V = E$  and  $E = R$
+where $V = E$ and $E = R$
 
 The nodes represent entities, and the edges represent relationships.
 
@@ -210,7 +210,7 @@ Output<sub>GP</sub> = {
 $$
 \begin{cases} \text{Referral to Consultant-LLM}, & \text{if } P_{GP}(x \mid q) < \tau \text{ or } x \in X_s, \\ \text{Diagnosis: } x, & \text{otherwise.} \end{cases}
 $$
- (3)
+(3)
 
 Consultant-LLMs: Specialized Diagnostic Agents Each Consultant-LLM is optimized for a specific medical domain, such as rheumatology. Let Agent<sup>i</sup> represent the i th Consultant-LLM, where i = 1, 2, . . . , n and n = 4 (cardiology, neurology, endocrinology and rheumatology) in this framework. The confidence function for Agent<sup>i</sup> diagnosing a condition y from query q is defined as:
 
@@ -233,7 +233,7 @@ Inter-Agent Communication Protocol The referral and communication processes ensu
 $$
 T(A, B, q) = \phi(q), \quad \phi : Q \to Q'
 $$
- (6)
+(6)
 
 where ϕ transforms q into a format compatible with the receiving agent B. Feedback to the GP-LLM updates its knowledge base KGP as follows:
 
@@ -277,7 +277,7 @@ Given the framework's comprehensive scope and innovative approach to medical dia
 ![](_page_4_Figure_9.jpeg)
 <!-- Image Description: This conceptual diagram depicts obesity and its related factors. A central node, "Obesity," connects to several others representing treatments (bariatric surgery, Wegovy), symptoms (difficulty in physical activity, breathlessness, excess body weight), and BMI categories (30-35, 35-40, >40). Arrows indicate relationships, labeled as "HAS_CONDITION," "HAS_SYMPTOM," "HAS_CATEGORY," or "TREATED_BY," illustrating the multifaceted nature of obesity. The diagram's purpose is to visually represent the interconnectedness of these elements within the context of the paper. -->
 
-Figure 3: Example 1 illustrates the complexity of obesity, highlighting its core condition along with related factors such as patient status and bariatric surgery. It also depicts associated drug and BMI categorization, emphasizing the interconnectedness of these elements in understanding obesity as a multifaceted health condition.
+**Figure 3:** Example 1 illustrates the complexity of obesity, highlighting its core condition along with related factors such as patient status and bariatric surgery. It also depicts associated drug and BMI categorization, emphasizing the interconnectedness of these elements in understanding obesity as a multifaceted health condition.
 
 for assessing medical AI systems and will be made publicly available through our GitHub repository upon completion. The forthcoming benchmark aims to establish new standards for evaluating hierarchical multi-agent systems in medical applications, facilitating future research and development in this critical domain.
 
@@ -292,7 +292,7 @@ The combination of automated knowledge graph construction with hierarchical mult
 ![](_page_5_Figure_0.jpeg)
 <!-- Image Description: This image is a knowledge graph depicting relationships between Type 2 Diabetes and related conditions and symptoms. Nodes represent concepts (e.g., Type 2 Diabetes, Heart Attack, Metformin) and edges represent relationships (e.g., "HAS_SYMPTOM," "TREATED_BY"). The graph visually organizes the interconnections, showing how various cardiovascular diseases, symptoms, and treatments relate to Type 2 Diabetes. It aids in understanding the complex interplay of factors within this disease area. -->
 
-Figure 4: Example 2 illustrates the expertise of the knowledge graph in the field of obesity. This knowledge graph highlights how certain drugs, such as Ozempic, not only aid in weight management but also reduce cardiovascular risk. Connections between obesity, Type 2 Diabetes, and cardiovascular diseases are depicted, showing their shared symptoms, treatments, and comorbidities. The graph underscores the multifaceted role of medications in addressing complex health conditions.
+**Figure 4:** Example 2 illustrates the expertise of the knowledge graph in the field of obesity. This knowledge graph highlights how certain drugs, such as Ozempic, not only aid in weight management but also reduce cardiovascular risk. Connections between obesity, Type 2 Diabetes, and cardiovascular diseases are depicted, showing their shared symptoms, treatments, and comorbidities. The graph underscores the multifaceted role of medications in addressing complex health conditions.
 
 methods.
 
@@ -321,7 +321,7 @@ Hybrid Symbolic-Neural Approaches: Hybrid approaches combining symbolic reasonin
 ![](_page_6_Figure_0.jpeg)
 <!-- Image Description: The image displays a network graph visualizing relationships between medical concepts. Nodes, color-coded to represent categories (action, symptom, category, etc.), represent individual concepts. Edges connecting nodes illustrate relationships between these concepts. The central cluster suggests a core set of highly interconnected concepts, radiating outwards to less central terms. The graph likely serves to illustrate the structure and complexity of medical knowledge within the paper's specific domain. -->
 
-Figure 5: A visualization of the KG4Diagnosis full medical knowledge graph. Nodes represent different medical concepts, such as actions, symptoms, categories, and conditions, as indicated by the color legend. Edges signify relationships between these concepts, enabling structured representation and advanced diagnostic reasoning. The densely connected central region highlights the core interactions between treatments, symptoms, and diagnostics, while peripheral nodes provide additional contextual details. This hierarchical structure integrates medical data to facilitate multi-agent collaboration and human-guided reasoning.
+**Figure 5:** A visualization of the KG4Diagnosis full medical knowledge graph. Nodes represent different medical concepts, such as actions, symptoms, categories, and conditions, as indicated by the color legend. Edges signify relationships between these concepts, enabling structured representation and advanced diagnostic reasoning. The densely connected central region highlights the core interactions between treatments, symptoms, and diagnostics, while peripheral nodes provide additional contextual details. This hierarchical structure integrates medical data to facilitate multi-agent collaboration and human-guided reasoning.
 
 ance interpretability with adaptability. These systems integrate knowledge-driven reasoning with data-driven learning, though they require well-curated inputs and face computational scalability challenges (Wu, Zhang, and Lin 2023). Recent innovations in multimodal integration have expanded KG capabilities to incorporate diverse data types, including clinical notes, medical imaging, and laboratory results, although standardization and fusion challenges remain (Zhou et al. 2022).
 

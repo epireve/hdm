@@ -79,7 +79,7 @@ Learning from graph-structured data has become ubiquitous in many applications s
 
 (b) Novel Temporal Heterogeneous Graphs
 
-Figure 1: Existing benchmark datasets (yellow) vs. novel datasets in TGB 2.0 for TKG (a) marked in orange and THG (b) marked in green. Circle sizes correspond to the number of timestamps. TGB 2.0 datasets are significantly larger than existing datasets in number of nodes, edges and timestamps.
+**Figure 1:** Existing benchmark datasets (yellow) vs. novel datasets in TGB 2.0 for TKG (a) marked in orange and THG (b) marked in green. Circle sizes correspond to the number of timestamps. TGB 2.0 datasets are significantly larger than existing datasets in number of nodes, edges and timestamps.
 
 Inconsistent Evaluation. Evaluation for multi-relational temporal graphs faces significant challenges. Recently, it was shown that existing evaluation for TKGs has inconsistencies in a) the evaluation metrics, b) mixing multi-step and single-step prediction settings and c) using different versions of the same dataset [\[16\]](#page-9-1). Similar inconsistencies have been observed in related areas such as link prediction on static knowledge graphs [\[67,](#page-12-4) [60\]](#page-12-5), node and graph classification on static graphs [\[64,](#page-12-6) [13\]](#page-9-2), and temporal graph link prediction [\[28\]](#page-10-1). In addition, for link prediction on THGs, existing evaluation often includes a single random negative per positive edge [\[38,](#page-11-4) [72\]](#page-13-1), leading to over-optimistic performances, inconsistent evaluation, and reducing performance differentiation between methods [\[57\]](#page-12-7).
 
@@ -108,7 +108,7 @@ Time Representations. There are two approaches for representing time in temporal
 
 ### 3 Related Work
 
-#### TKG Methods.
+### TKG Methods.
 
 Most TKG forecasting methods utilize a discrete time representation, except for [\[24\]](#page-10-7). Some methods integrate the message-passing paradigm from static graphs [\[63,](#page-12-9) [53\]](#page-12-10) with sequential techniques [\[32,](#page-10-8) [41,](#page-11-2) [22,](#page-10-9) [23,](#page-10-10) [39,](#page-11-5) [45\]](#page-11-6). Other approaches combine Reinforcement Learning with temporal reasoning for future link prediction [\[40,](#page-11-7) [66\]](#page-12-8). Rule-based methods [\[47,](#page-11-3) [34,](#page-11-8) [52,](#page-12-11) [48,](#page-11-9) [44\]](#page-11-10) employ strategies to learn temporal logic rules while others [\[76,](#page-13-2) [71,](#page-13-3) [75\]](#page-13-4) combines a blend of different methodologies. More details are in Appendix [G.1.](#page-23-0) For more comprehensive discussions on methods and applications of TKG, we refer to the surveys [\[8\]](#page-9-4), [\[9\]](#page-9-5), [\[43\]](#page-11-11), and [\[69\]](#page-13-5). For TKG forecasting, common benchmark datasets include YAGO [\[51\]](#page-12-12), WIKI [\[36,](#page-11-12) [31\]](#page-10-11), GDELT [\[37\]](#page-11-13) and the Integrated Crisis Early Warning System (ICEWS) dataset [\[6\]](#page-9-6). However, these datasets are orders of magnitude smaller than our TKG datasets in number of nodes, edges and timestamps. In tkgl-icews, we include the full ICEWS dataset [\[6\]](#page-9-6) spanning 28 years when comparing to prior versions containing only one or a
 
@@ -132,24 +132,24 @@ tkgl-icews. This TKG dataset is extracted from the [ICEWS Coded Event Data](http
 
 <span id="page-3-0"></span><sup>2</sup>We detail the exact number of timestamps and edges for each subset in Appendix [F.8](#page-22-0)
 
-<span id="page-4-0"></span>Table 1: Dataset information including common statistics and the proportion of Inductive Test nodes (Induct. Test Nodes), the Direct Recurrency Degree (DRec), the Recurrency Degree (Rec), the Consecutiveness Value (Con), as well as the mean number of edges and nodes per timestep (Mean Edges/Ts. and Mean Nodes/Ts.)
+<span id="page-4-0"></span>**Table 1:** Dataset information including common statistics and the proportion of Inductive Test nodes (Induct. Test Nodes), the Direct Recurrency Degree (DRec), the Recurrency Degree (Rec), the Consecutiveness Value (Con), as well as the mean number of edges and nodes per timestep (Mean Edges/Ts. and Mean Nodes/Ts.)
 
-|                    | Temporal Knowledge Graphs (tkgl-) |           |            | Temporal Heterogeneous Graphs (thgl-) |           |            |            |            |
+| | Temporal Knowledge Graphs (tkgl-) | | | Temporal Heterogeneous Graphs (thgl-) | | | | |
 |--------------------|-----------------------------------|-----------|------------|---------------------------------------|-----------|------------|------------|------------|
-| Dataset            | smallpedia                        | polecat   | icews      | wikidata                              | software  | forum      | github     | myket      |
-| Domain             | knowledge                         | political | political  | knowledge                             | software  | social.    | software   | interac.   |
-| # Quadruples       | 550,376                           | 1,779,610 | 15,513,446 | 9,856,203                             | 1,489,806 | 23,757,707 | 17,499,577 | 53,632,788 |
-| # Nodes            | 47,433                            | 150,931   | 87,856     | 1,226,440                             | 681,927   | 152,816    | 5,856,765  | 1,530,835  |
-| # Edge Types       | 283                               | 16        | 391        | 596                                   | 14        | 2          | 14         | 2          |
-| # Node Types       | -                                 | -         | -          | -                                     | 4         | 2          | 4          | 2          |
-| # Timesteps        | 125                               | 1,826     | 10,224     | 2,025                                 | 689,549   | 2,558,457  | 2,510,415  | 14,828,090 |
-| Granularity        | year                              | day       | day        | year                                  | second    | second     | second     | second     |
-| Induct. Test Nodes | 0.26                              | 0.12      | 0.05       | 0.34                                  | 0.13      | 0.02       | 0.14       | 0.01       |
-| DRec               | 0.71                              | 0.07      | 0.11       | 0.61                                  | 0.00      | 0.00       | 0.00       | 0.00       |
-| Rec                | 0.72                              | 0.43      | 0.63       | 0.61                                  | 0.10      | 0.63       | 0.01       | 0.37       |
-| Con                | 5.82                              | 1.07      | 1.14       | 5.05                                  | 1.00      | 1.00       | 1.00       | 1.00       |
-| Mean Edges/Ts.     | 4,403.01                          | 974.59    | 1,516.91   | 4,867.26                              | 0.56      | 8.87       | 6.54       | 3.15       |
-| Mean Nodes/Ts.     | 5,289.16                          | 550.60    | 1,008.65   | 5,772.16                              | 0.86      | 12.96      | 9.77       | 6.24       |
+| Dataset | smallpedia | polecat | icews | wikidata | software | forum | github | myket |
+| Domain | knowledge | political | political | knowledge | software | social. | software | interac. |
+| # Quadruples | 550,376 | 1,779,610 | 15,513,446 | 9,856,203 | 1,489,806 | 23,757,707 | 17,499,577 | 53,632,788 |
+| # Nodes | 47,433 | 150,931 | 87,856 | 1,226,440 | 681,927 | 152,816 | 5,856,765 | 1,530,835 |
+| # Edge Types | 283 | 16 | 391 | 596 | 14 | 2 | 14 | 2 |
+| # Node Types | - | - | - | - | 4 | 2 | 4 | 2 |
+| # Timesteps | 125 | 1,826 | 10,224 | 2,025 | 689,549 | 2,558,457 | 2,510,415 | 14,828,090 |
+| Granularity | year | day | day | year | second | second | second | second |
+| Induct. Test Nodes | 0.26 | 0.12 | 0.05 | 0.34 | 0.13 | 0.02 | 0.14 | 0.01 |
+| DRec | 0.71 | 0.07 | 0.11 | 0.61 | 0.00 | 0.00 | 0.00 | 0.00 |
+| Rec | 0.72 | 0.43 | 0.63 | 0.61 | 0.10 | 0.63 | 0.01 | 0.37 |
+| Con | 5.82 | 1.07 | 1.14 | 5.05 | 1.00 | 1.00 | 1.00 | 1.00 |
+| Mean Edges/Ts. | 4,403.01 | 974.59 | 1,516.91 | 4,867.26 | 0.56 | 8.87 | 6.54 | 3.15 |
+| Mean Nodes/Ts. | 5,289.16 | 550.60 | 1,008.65 | 5,772.16 | 0.86 | 12.96 | 9.77 | 6.24 |
 
 based on the CAMEO taxonomy of events [\[18\]](#page-10-15) which is optimized for the study of mediation and contains a number of tertiary sub-categories specific to mediation. When compared to PLOVER ontology in tkgl-polecat, the CAMEO codes have more event types (391 compared to 16). The task is to predict future interactions between political actors.
 
@@ -168,7 +168,7 @@ Varying Scale. Table [1](#page-4-0) shows the detailed characteristics of all da
 Table [1](#page-4-0) reports dataset statistics: the*Proportion of Inductive Test Nodes (Induct. Test Nodes)*is the proportion of nodes in the test set that have not been seen during training. The*Recurrency Degree*<span id="page-5-0"></span>![](_page_5_Figure_0.jpeg)
 <!-- Image Description: The image contains two line graphs showing the mean and min-max range of the number of edges over time. (a) displays data for "tkgl-smallpedia" over years (1900-2024), exhibiting an increasing trend with fluctuations. (b) shows data for "thgl-software" over seconds within a specific timeframe (2024-01-01 to 2024-02-01), revealing highly sporadic edge counts. Both graphs illustrate temporal edge variations in different datasets. -->
 
-Figure 2: Number of edges over time
+**Figure 2:** Number of edges over time
 *(Rec)*, which is defined as the fraction of test temporal triples (s, r, o, t+) for which there exists a k < t<sup>+</sup> such that (s, r, o, k) ∈ G. The *Direct Recurrency Degree (DRec)*which is the fraction of temporal triples (s, r, o, t+) for which it holds that (s, r, o, t<sup>+</sup> − 1) ∈ G [\[15\]](#page-9-9). Also, we represent a novel metric called*Consecutiveness Value (Con)*, which quantifies if a given temporal triples repeats at consecutive timestamps by averaging the maximum number of consecutive timesteps during which a triple holds true across all triples in the dataset. Intuitively, fact-based relations which are true across multiple consecutive time steps will result in a higher *Consecutiveness Value*.
 
 Diverse Statistics. TGB 2.0 datasets exhibits diverse dataset statistics. For example, tkgl-wikidata, tkgl-smallpedia, tkgl-polecat and thgl-software all have more than 10% test nodes that are inductive (i.e. nodes unseen in the training set), thus testing the inductive capability of methods. Variations in the recurrence of relations are evident with tkgl-smallpedia and tkgl-wikidata showing higher Recurrency Degrees compared to others. The DRec highlights the disparities between THG and TKG datasets, where the finer, second-wise time granularity of THG leads to a DRec of 0 implying no repetition of facts across subsequent time steps. On TKG datasets, the high Consecutiveness Value for tkgl-smallpedia and tkgl-wikidata exhibit a prevalence of long-lasting facts, contrasting with tkgl-icews and tkgl-polecat which documents political events. In comparison, THG datasets describe one-time events, thus displaying lower Con values.
@@ -184,64 +184,62 @@ Evaluation Protocol. In TGB 2.0, we focus on the *dynamic link property predicti
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
 <!-- Image Description: The image contains two pie charts (a) and (b), showing percentage breakdowns of contributor activities in two different software projects: "tkgl-smallpedia" and "tkgl-software". Chart (a) categorizes contributions by member roles (e.g., team member, employer), while chart (b) categorizes contributions by activity type and repository (e.g., pull request opened, issue closed). The charts illustrate the relative frequency of different contribution types within each project. -->
 
-Figure 3: Most frequent relation types for tkgl-smallpedia and thgl-software datasets.*Others*refers to all remaining relations not shown here.
+**Figure 3:** Most frequent relation types for tkgl-smallpedia and thgl-software datasets.*Others*refers to all remaining relations not shown here.
 
 reciprocals of the ranks of the first relevant item in a list of results. The time-aware filtered MRR removes any edge that are known to be true at the same time as the true edge (i.e. temporal conflicts) from the list of possible destinations. For THG datasets, we predict the tails of queries (s, r, ?, t+), as in [\[38,](#page-11-4) [61\]](#page-12-2). Following the practice in TKG literature [\[16\]](#page-9-1), we predict entities in both directions for TKG datasets, namely both (s, r, ?, t+) and (?, r, o, t+), achieved by introducing inverse relations where the head and tail of an existing relation is inverted. Due to the large size of TGB 2.0 datasets, we select the number of negative edges q for each dataset considering the trade-off between the evaluation completeness and the test inference time. Therefore, we utilize two negative sampling strategies for evaluation:*1-vs-all*and*1-vs-*q. For both strategies, the temporal conflicts are removed for correctness. All negative samples are then pre-generated to ensure reproducible evaluation. Lastly, any methods that uses more than 40 GB GPU memory or runs for more than a week are considered as Out Of Memory (OOM) or Out Of Time (OOT), respectively.
 
 *1-vs-all*. For datasets with a small number of nodes, it is possible to evaluate with all the possible destinations, thus achieving a comprehensive evaluation. In TGB 2.0, we use *1-vs-all*strategy for tkgl-smallpedia, tkgl-polecat and tkgl-icews due to their smaller node size (see Table [1\)](#page-4-0).
 *1-vs-*q. For datasets with a large number of nodes, sampling q negative edges is required to achieve a practically feasible inference time. We find that randomly sampling the negative edges, omitting the edge types, results in over-optimistic MRRs, making the prediction easy. We thus propose to incorporate the edge type information into the negative sampling process for more robust evaluation. For the large TKG dataset tkgl-wikidata, we first identify possible tails for each edge type throughout the dataset and then sample the negatives based on the edge type of the query. If there are not enough tails in a given edge type, we then randomly sample the remaining ones. For all THG datasets, we sample all destination nodes with the same node type as the true destination node, thus considering the tail node type associated with a given edge type. We conduct an ablation study to show the effectiveness of our sampling strategy in Appendix [F.5](#page-21-0) on the tkgl-smallpedia dataset. We find that our sampling results in closer MRR to that of the *1-vs-all*than random sampling.
 
-#### 1 Temporal Knowledge Graph Experiments
+### 1 Temporal Knowledge Graph Experiments
 
 For TKG experiments, we include RE-GCN [\[41\]](#page-11-2), TLogic [\[47\]](#page-11-3), CEN [\[39\]](#page-11-5) as well as two deterministic heuristic baselines: the Recurrency Baseline (RecB) [\[15\]](#page-9-9) and EdgeBank [\[57\]](#page-12-7). For RecB, we report two versions where applicable: RecBdefault which uses default values for its two parameters, and RecBtrain which selects the optimal values for these based on performance on the validation set. For EdgeBank, we report two versions following [\[57\]](#page-12-7), EdgeBanktw, which accounts for information from a fixed past time window, and EdgeBank∞, which uses information from all past temporal triples. Method details and compute resources are in Appendix [G](#page-23-2) and Appendix [F.1,](#page-17-0) respectively.
 
 We report the average performance and standard deviation across 5 runs for each method in Table [2.](#page-7-0) The runtimes and GPU usage results are in Appendix [F.3](#page-19-0) and [F.2.](#page-18-0) In particular, several methods encountered out of memory or out of time errors on some datasets. The results reveals
 
-<span id="page-7-0"></span>
 
-| Table 2: MRR results for Temporal Knowledge Graph Link Prediction task. We report the average |  |
+| **Table 2:** MRR results for Temporal Knowledge Graph Link Prediction task. We report the average | |
 |-----------------------------------------------------------------------------------------------|--|
-| and standard deviation across 5 runs. First place is bolded, second place underlined.         |  |
+| and standard deviation across 5 runs. First place is bolded, second place underlined. | |
 
-<span id="page-7-1"></span>
 
-|                                                                                            | tkgl-smallpedia                               |                                               | tkgl-polecat                          |                                               | tkgl-icews                                             | tkgl-wikidata                         |                                        |
+| | tkgl-smallpedia | | tkgl-polecat | | tkgl-icews | tkgl-wikidata | |
 |--------------------------------------------------------------------------------------------|-----------------------------------------------|-----------------------------------------------|---------------------------------------|-----------------------------------------------|--------------------------------------------------------|---------------------------------------|----------------------------------------|
-| Method<br>Validation                                                                       | Test                                          | Validation                                    | Test                                  | Validation                                    | Test                                                   | Validation                            | Test                                   |
-| EdgeBanktw [57]<br>0.457                                                                   | 0.353                                         | 0.058                                         | 0.056                                 | 0.020                                         | 0.020                                                  | 0.633                                 | 0.535                                  |
-| EdgeBank∞ [57]<br>0.401                                                                    | 0.333                                         | 0.048                                         | 0.045                                 | 0.008                                         | 0.009                                                  | 0.632                                 | 0.535                                  |
-| RecBtrain [15]<br>0.639                                                                    | 0.605                                         | 0.203                                         | 0.198                                 | 0.270                                         | 0.211                                                  | OOT                                   | OOT                                    |
-| RecBdefault [15]<br>0.542                                                                  | 0.486                                         | 0.170                                         | 0.167                                 | 0.264                                         | 0.206                                                  | OOT                                   | OOT                                    |
-| RE-GCN [41]<br>0.631±0.001                                                                 | 0.594±0.001                                   | 0.191±0.003                                   | 0.175±0.002                           | 0.232±0.003                                   | 0.182±0.003                                            | OOM                                   | OOM                                    |
-| CEN [39]<br>0.646±0.001                                                                    | 0.612±0.001                                   | 0.204±0.002                                   | 0.184±0.002                           | 0.244±0.002                                   | 0.187±0.003                                            | OOM                                   | OOM                                    |
-| TLogic [47]<br>0.631±0.000                                                                 | 0.595±0.001                                   | 0.236±0.001                                   | 0.228±0.001                           | 0.287±0.001                                   | 0.186±0.001                                            | OOT                                   | OOT                                    |
-| (a) tkgl-polecat                                                                           |                                               |                                               | (b) tkgl-icews                        |                                               |                                                        | (c) tkgl-smallpedia                   |                                        |
-| 0.25<br>0.20<br>0.15<br>MRR<br>0.10<br>REGCN<br>0.05<br>CEN<br>Recurrency Baseline<br>0.00 | 1.0<br>0.8<br>0.6<br>MRR<br>0.4<br>0.2<br>0.0 | 0.6<br>0.5<br>0.4<br>0.3<br>0.2<br>0.1<br>0.0 | REGCN<br>CEN<br>Recurrency Baseline   | 1.0<br>0.8<br>0.6<br>MRR<br>0.4<br>0.2<br>0.0 | 1.0<br>0.8<br>0.6<br>0.4<br>REGCN<br>0.2<br>CEN<br>0.0 | Recurrency Baseline                   | 1.0<br>0.8<br>0.6<br>0.4<br>0.2<br>0.0 |
-| 6<br>8<br>7<br>11<br>10<br>0<br>1<br>2<br>3<br>13<br>Relation                              |                                               | 2<br>18<br>16<br>40                           | 43<br>42<br>6<br>25<br>26<br>Relation | 0                                             | 13<br>30<br>39<br>11                                   | 48<br>69<br>86<br>2<br>37<br>Relation | 0                                      |
+| Method<br>Validation | Test | Validation | Test | Validation | Test | Validation | Test |
+| EdgeBanktw [57]<br>0.457 | 0.353 | 0.058 | 0.056 | 0.020 | 0.020 | 0.633 | 0.535 |
+| EdgeBank∞ [57]<br>0.401 | 0.333 | 0.048 | 0.045 | 0.008 | 0.009 | 0.632 | 0.535 |
+| RecBtrain [15]<br>0.639 | 0.605 | 0.203 | 0.198 | 0.270 | 0.211 | OOT | OOT |
+| RecBdefault [15]<br>0.542 | 0.486 | 0.170 | 0.167 | 0.264 | 0.206 | OOT | OOT |
+| RE-GCN [41]<br>0.631±0.001 | 0.594±0.001 | 0.191±0.003 | 0.175±0.002 | 0.232±0.003 | 0.182±0.003 | OOM | OOM |
+| CEN [39]<br>0.646±0.001 | 0.612±0.001 | 0.204±0.002 | 0.184±0.002 | 0.244±0.002 | 0.187±0.003 | OOM | OOM |
+| TLogic [47]<br>0.631±0.000 | 0.595±0.001 | 0.236±0.001 | 0.228±0.001 | 0.287±0.001 | 0.186±0.001 | OOT | OOT |
+| (a) tkgl-polecat | | | (b) tkgl-icews | | | (c) tkgl-smallpedia | |
+| 0.25<br>0.20<br>0.15<br>MRR<br>0.10<br>REGCN<br>0.05<br>CEN<br>Recurrency Baseline<br>0.00 | 1.0<br>0.8<br>0.6<br>MRR<br>0.4<br>0.2<br>0.0 | 0.6<br>0.5<br>0.4<br>0.3<br>0.2<br>0.1<br>0.0 | REGCN<br>CEN<br>Recurrency Baseline | 1.0<br>0.8<br>0.6<br>MRR<br>0.4<br>0.2<br>0.0 | 1.0<br>0.8<br>0.6<br>0.4<br>REGCN<br>0.2<br>CEN<br>0.0 | Recurrency Baseline | 1.0<br>0.8<br>0.6<br>0.4<br>0.2<br>0.0 |
+| 6<br>8<br>7<br>11<br>10<br>0<br>1<br>2<br>3<br>13<br>Relation | | 2<br>18<br>16<br>40 | 43<br>42<br>6<br>25<br>26<br>Relation | 0 | 13<br>30<br>39<br>11 | 48<br>69<br>86<br>2<br>37<br>Relation | 0 |
 
-Figure 4: MRR per relation for the 10 highest occuring relations for three TKG datasets for RE-GCN, CEN and RecBtrain. The color indicates the Recurrency Degree value for relation type. The relations for each dataset are ordered by decreasing Recurrency Degrees.
+**Figure 4:** MRR per relation for the 10 highest occuring relations for three TKG datasets for RE-GCN, CEN and RecBtrain. The color indicates the Recurrency Degree value for relation type. The relations for each dataset are ordered by decreasing Recurrency Degrees.
 
 that no single method exhibits superior performance across all four datasets. Surprisingly, the RecB heuristic performs competitively across most datasets while being among the best performing on tkgl-smallpedia and tkgl-icews, underscoring the importance of including simple baselines in comparison and suggesting potential areas for improvement in other methods. The Edgebank heuristic, originally designed for homogenous temporal graphs, exhibits low performance, highlighting the importance of utilizing the rich multi-relational information for TKG learning. On the large tkgl-wikidata dataset, however, Edgebank is the only method that can scale to such size, likely due to the fact that it omits edge type information. This highlights the need for scalable methods. On another note, methods achieve higher MRRs on datasets characterized by high Recurrency Degrees and Consecutiveness values (tkgl-smallpedia, tkgl-wikidata), despite the presence of a considerable number of inductive nodes in these datasets.
 
 Per-relation Analysis. Figure [4](#page-7-1) illustrates the performance per relation of selected methods across three datasets [3](#page-7-2) . For each dataset, we show the ten most frequent relations, ordered by decreasing Recurrency Degree with the color reflecting the Recurrency Degree of each relation. Note that the yaxis scale varies across datasets. We observe distinct patterns in relation-specific performance across datasets: while results on tkgl-polecat exhibit consistent performance across relations, suggesting a relative homogeneity, results on the tkgl-smallpedia dataset shows significant variance, indicating a higher degree of variation among relations. Interestingly, there is strong correlation between the Recurrency Degree and performance, most evident within the tkgl-smallpedia dataset.
 
-#### 2 Temporal Heterogenous Graph Experiments
+### 2 Temporal Heterogenous Graph Experiments
 
 For THG experiments, we include TGN [\[61\]](#page-12-2) (with and without edge type information), STHN [\[38\]](#page-11-4), RecB [\[15\]](#page-9-9), and EdgeBank [\[57\]](#page-12-7). Table [3](#page-8-0) reports the average performance and standard deviation across 5 runs for each method. Scalability is a significant challenge for THG methods on large datasets such as thgl-forum and thgl-myket, more details can be found in Appendix [F.](#page-17-1) Most methods either are out of memory or out of time for these datasets. STHN achieves the highest performance on thgl-software dataset showing methods designed for THG can achieve significant performance gain. However, STHN is the least scalable, requiring 185 GB of memory for thgl-software to compute subgraphs and unable to scale to other datasets. The widely-used TGN model [\[61\]](#page-12-2) for single-relation temporal graph learning is also adapted here, with a modification to incorporate the edge type information as edge feature. We observe significant improvement when TGN utilizes edge
 
 <span id="page-7-2"></span><sup>3</sup>The relation description can be found based on their relation ID in Figure [7](#page-18-1) in Appendix.
 
-<span id="page-8-0"></span>Table 3: MRR results for*Temporal Heterogeneous Graph Link Prediction*task. We report the average and standard deviation across 5 runs. First place is bolded, second place underlined.
+<span id="page-8-0"></span>**Table 3:** MRR results for*Temporal Heterogeneous Graph Link Prediction*task. We report the average and standard deviation across 5 runs. First place is bolded, second place underlined.
 
-|                    | thgl-software |             | thgl-forum  |             | thgl-github |       | thgl-myket |       |
+| | thgl-software | | thgl-forum | | thgl-github | | thgl-myket | |
 |--------------------|---------------|-------------|-------------|-------------|-------------|-------|------------|-------|
-| Method             | Validation    | Test        | Validation  | Test        | Validation  | Test  | Validation | Test  |
-| EdgeBanktw<br>[57] | 0.279         | 0.288       | 0.534       | 0.534       | 0.355       | 0.374 | 0.248      | 0.245 |
-| EdgeBank∞<br>[57]  | 0.399         | 0.449       | 0.612       | 0.617       | 0.403       | 0.413 | 0.430      | 0.456 |
-| RecBdefault [15]   | 0.106         | 0.099       | 0.552       | 0.561       | OOT         | OOT   | OOT        | OOT   |
-| TGN [61]           | 0.299±0.012   | 0.324±0.017 | 0.598±0.086 | 0.649±0.097 | OOM         | OOM   | OOM        | OOM   |
-| TGNedge-type       | 0.376±0.010   | 0.424±0.013 | 0.767±0.005 | 0.729±0.009 | OOM         | OOM   | OOM        | OOM   |
-| STHN [38]          | 0.764±0.025   | 0.731±0.005 | OOM         | OOM         | OOM         | OOM   | OOM        | OOM   |
+| Method | Validation | Test | Validation | Test | Validation | Test | Validation | Test |
+| EdgeBanktw<br>[57] | 0.279 | 0.288 | 0.534 | 0.534 | 0.355 | 0.374 | 0.248 | 0.245 |
+| EdgeBank∞<br>[57] | 0.399 | 0.449 | 0.612 | 0.617 | 0.403 | 0.413 | 0.430 | 0.456 |
+| RecBdefault [15] | 0.106 | 0.099 | 0.552 | 0.561 | OOT | OOT | OOT | OOT |
+| TGN [61] | 0.299±0.012 | 0.324±0.017 | 0.598±0.086 | 0.649±0.097 | OOM | OOM | OOM | OOM |
+| TGNedge-type | 0.376±0.010 | 0.424±0.013 | 0.767±0.005 | 0.729±0.009 | OOM | OOM | OOM | OOM |
+| STHN [38] | 0.764±0.025 | 0.731±0.005 | OOM | OOM | OOM | OOM | OOM | OOM |
 
 type data, thus showing the potential to leverage the multi-relational information in THGs. Lastly, EdgeBank achieves competitive performance with that of TGN while being scalable to large datasets. Thus, it is important to evaluate against simple baselines to understand method performances.
 
@@ -389,7 +387,7 @@ tkgl-icews [\(scripts\)](https://github.com/shenyangHuang/TGB/tree/main/tgb/data
 <span id="page-16-1"></span>![](_page_16_Figure_0.jpeg)
 <!-- Image Description: The image displays four time-series plots (a-d) showing the number of edges over time for four different knowledge graphs (tkgl-polecat, tkgl-icews, tkgl-smallpedia, tkgl-wikidata). Each plot shows the mean number of edges and the min-max range, with the x-axis representing time (days or years) and the y-axis representing the number of edges. The plots illustrate the growth and fluctuation of edges in these knowledge graphs over their respective lifespans. -->
 
-Figure 5: Dataset Edges over time for TKG.
+**Figure 5:** Dataset Edges over time for TKG.
 
 thgl-github [\(scripts\)](https://github.com/shenyangHuang/TGB/tree/main/tgb/datasets/thgl_github). The raw data is extracted from [GH Arxiv,](https://www.gharchive.org/) containing the data from March 2024. We then extract 14 relations based on the common activities on Github. We also removed the issue comment and pr review comment node types as they are often one time nodes which rarely repeat, and kept nodes which have at least two edges in the dataset.
 
@@ -406,7 +404,7 @@ Figure [5](#page-16-1) shows how the number of edges change over time for TKG da
 <span id="page-17-2"></span>![](_page_17_Figure_0.jpeg)
 <!-- Image Description: The image contains four time-series plots visualizing the mean and min-max range of the number of edges in four different systems (thgl-software, thgl-forum, thgl-myket, thgl-github) over time. Each plot shows a line representing the mean number of edges and error bars indicating the min-max range. The x-axis represents time, and the y-axis represents the number of edges. The plots aim to show the temporal dynamics of edge counts in these systems. -->
 
-Figure 6: Dataset Edges over time for THG.
+**Figure 6:** Dataset Edges over time for THG.
 
 entails an event occurrence. THG datasets exhibit instances of exceptionally high edge counts per timestep, such as in the case of thgl-forum with up to 120 edges per timestamp.
 
@@ -416,103 +414,103 @@ Figure [7](#page-18-1) shows the top ten most frequent edge types in TKG dataset
 
 In the following, we provide additional experimental details such as the computing resources, resource consumption, hyperparameters, and runtime statistics.
 
-#### <span id="page-17-0"></span>F.1 Computing Resources
+### <span id="page-17-0"></span>F.1 Computing Resources
 
 We ran all experiments on either [Narval](https://docs.alliancecan.ca/wiki/Narval/en) or [Béluga](https://docs.alliancecan.ca/wiki/Béluga/en) cluster of [Digital Research Alliance of Canada](https://www.alliancecan.ca/en) or the [Mila, Québec AI Institute](https://mila.quebec/en) cluster. For the experiments on the Narval cluster, we ran each experiment on a Nvidia A100 (40G memory) GPU with 4 CPU nodes (from either of the AMD Rome 7532 @ 2.40 GHz 256M cache L3, AMD Rome 7502 @ 2.50 GHz 128M cache L3, or AMD Milan 7413 @ 2.65 GHz 128M cache L3 available type) each with 100GB memory. For experiments on the Béluga cluster, we ran each experiments on a NVidia V100SXM2 (16G memory) GPU wiht 4 CPU nodes (from Intel Gold 6148 Skylake @ 2.4 GHz) each with 100GB memory. For the experiments on the Mila cluster, we ran each experiment on an RTX8000 (40G memory) GPU or an V100 (32G memory) GPU with 4 CPU nodes (from either of the AMD Rome 7532 @ 2.40 GHz 256M cache L3, AMD Rome 7502 @ 2.50 GHz 128M cache L3, or AMD Milan 7413 @ 2.65 GHz 128M cache L3 available type). The upper limit of RAM was set to 1056GB.
 
 <span id="page-18-1"></span>![](_page_18_Figure_0.jpeg)
 <!-- Image Description: The image displays four pie charts (a-d), each visualizing the distribution of different relation types within four distinct knowledge graphs: tkgl-polecat, tkgl-smallpedia, tkgl-icews, and tkgl-wikidata. Each slice represents a specific relation type, with its percentage of the total relations indicated. The charts illustrate the relative frequency of various relationships within each knowledge graph, providing a visual comparison of their relational structures. Labels clarify the meaning of each relation type and its frequency. -->
 
-Figure 7: Edge type ratios in TGB 2.0 TKGs. We include the 10 most frequent edge types.
+**Figure 7:** Edge type ratios in TGB 2.0 TKGs. We include the 10 most frequent edge types.
 
-<span id="page-18-2"></span>Table 4: GPU memory usage in GB for the *Temporal Knowledge Graph Link Prediction*task for the methods that run on GPU. We report the average across 5 runs.
+<span id="page-18-2"></span>**Table 4:** GPU memory usage in GB for the *Temporal Knowledge Graph Link Prediction*task for the methods that run on GPU. We report the average across 5 runs.
 
-| Method      | tkgl-smallpedia | tkgl-polecat | tkgl-icews | tkgl-wikidata |
+| Method | tkgl-smallpedia | tkgl-polecat | tkgl-icews | tkgl-wikidata |
 |-------------|-----------------|--------------|------------|---------------|
-| RE-GCN [41] | 20.9            | 21.2         | 24.3       | OOM           |
-| CEN [39]    | 28.8            | 41.0         | 31.6       | OOM           |
+| RE-GCN [41] | 20.9 | 21.2 | 24.3 | OOM |
+| CEN [39] | 28.8 | 41.0 | 31.6 | OOM |
 
 A seven-day time limit was considered for each experiment. For all non deterministic methods, i.e. all methods besides Edgebank and the Recurrency Baseline, we repeated each experiments five times and reported the average and standard deviation of different runs. It is noteworthy that except for the reported baseline results, the other models, all evaluated by their original source code, throw an out of memory error or do not finish in the given time limit for the medium and large datasets on all available resources including Narval, Béluga, and Mila clusters.
 
-#### <span id="page-18-0"></span>F.2 GPU Usage Comparison
+### <span id="page-18-0"></span>F.2 GPU Usage Comparison
 
 In Table [4](#page-18-2) and [5,](#page-19-2) we report the average GPU usage of TKG and THG methods on the dataset across 5 trials. Note that the Recurrency Baseline, EdgeBank, and TLogic only require CPU thus no GPU usage is reported. For TKG, some methods such as CEN on tkgl-polecat have higher GPU usage when compared to others. For THG, scalability is a significant issue, as most methods involve high GPU usage and often result in out-of-memory errors, especially with larger datasets. Although STHN maintains manageable GPU usage, it requires substantial RAM to compute the subgraphs, making it impractical for use in all environments.
 
 <span id="page-19-1"></span>![](_page_19_Figure_0.jpeg)
 <!-- Image Description: This image displays four pie charts (a-d) showing the distribution of user activities across different platforms: thgl-software, thgl-forum, thgl-github, and thgl-myket. Each chart segments activity types (e.g., user opened PR, issue closed) with corresponding percentages. The charts illustrate the relative proportions of various user interactions within each platform, providing a visual comparison of activity patterns across different development and community engagement spaces. -->
 
-Figure 8: Edge type ration in TGB 2.0 THGs.
+**Figure 8:** Edge type ration in TGB 2.0 THGs.
 
-<span id="page-19-2"></span>Table 5: GPU memory usage in GB for*Temporal Heterogeneous Graph Link Prediction*task. We report the average across 5 runs.
+<span id="page-19-2"></span>**Table 5:** GPU memory usage in GB for*Temporal Heterogeneous Graph Link Prediction*task. We report the average across 5 runs.
 
-| Method       | thgl-software | thgl-forum | thgl-myket | thgl-github |
+| Method | thgl-software | thgl-forum | thgl-myket | thgl-github |
 |--------------|---------------|------------|------------|-------------|
-| TGN [61]     | 7             | 8          | -          | -           |
-| TGNedge-type | 10            | 12         | -          | -           |
-| STHN [38]    | 15            | -          | -          | -           |
+| TGN [61] | 7 | 8 | - | - |
+| TGNedge-type | 10 | 12 | - | - |
+| STHN [38] | 15 | - | - | - |
 
-#### <span id="page-19-0"></span>F.3 Runtime Comparison
+### <span id="page-19-0"></span>F.3 Runtime Comparison
 
 In Table [6](#page-20-0) and Table [7](#page-20-1) we report the inference times as well as the total time for training, validation and testing for each method for TKG and THG experiments. For the non-deterministic methods, we report the average across 5 runs. The tables illustrate that both, inference times, as well as total times vary significantly across methods.
 
-#### F.3.1 Hyperparameters
+### F.3.1 Hyperparameters
 
 If not stated otherwise, for each method we use the hyperparameter setting as reported in the original papers, please see Table [8.](#page-20-2) Whereas further hyperparameter tuning could further improve
 
-<span id="page-20-0"></span>Table 6: Inference time as well as total train and validation times for*Temporal Knowledge Graph Link Prediction*task in seconds. For non-deterministic methods, we report the average across 5 different runs.
+<span id="page-20-0"></span>**Table 6:** Inference time as well as total train and validation times for*Temporal Knowledge Graph Link Prediction*task in seconds. For non-deterministic methods, we report the average across 5 different runs.
 
-|                                   | tkgl-smallpedia |        |        | tkgl-polecat |         | tkgl-icews | tkgl-wikidata |       |
+| | tkgl-smallpedia | | | tkgl-polecat | | tkgl-icews | tkgl-wikidata | |
 |-----------------------------------|-----------------|--------|--------|--------------|---------|------------|---------------|-------|
-| Method                            | Test            | Total  | Test   | Total        | Test    | Total      | Test          | Total |
-| EdgeBanktw<br>[57]                | 2,935           | 5,810  | 46,629 | 94,475       | 311,278 | 600,929    | 5,445         | 8,875 |
-| EdgeBank∞<br>[57]                 | 4,417           | 8,259  | 31,713 | 64,157       | 203,268 | 412,774    | 4,814         | 7,923 |
-| RecurrencyBaselinetrain<br>[15]   | 310             | 9,895  | 3,392  | 80,378       | 3,928   | 148,710    | -             | -     |
-| RecurrencyBaselinedefault<br>[15] | 316             | 659    | 4,500  | 8,343        | 11,756  | 30,110     | -             | -     |
-| RE-GCN [41]                       | 165             | 3,895  | 1,766  | 45,877       | 6,848   | 114,370    | -             | -     |
-| CEN [39]                          | 331             | 14,493 | 2,726  | 77,953       | 8,999   | 202,477    | -             | -     |
-| TLogic [47]                       | 331             | 803    | 75,654 | 138,636      | 60,413  | 128,391    | -             | -     |
+| Method | Test | Total | Test | Total | Test | Total | Test | Total |
+| EdgeBanktw<br>[57] | 2,935 | 5,810 | 46,629 | 94,475 | 311,278 | 600,929 | 5,445 | 8,875 |
+| EdgeBank∞<br>[57] | 4,417 | 8,259 | 31,713 | 64,157 | 203,268 | 412,774 | 4,814 | 7,923 |
+| RecurrencyBaselinetrain<br>[15] | 310 | 9,895 | 3,392 | 80,378 | 3,928 | 148,710 | - | - |
+| RecurrencyBaselinedefault<br>[15] | 316 | 659 | 4,500 | 8,343 | 11,756 | 30,110 | - | - |
+| RE-GCN [41] | 165 | 3,895 | 1,766 | 45,877 | 6,848 | 114,370 | - | - |
+| CEN [39] | 331 | 14,493 | 2,726 | 77,953 | 8,999 | 202,477 | - | - |
+| TLogic [47] | 331 | 803 | 75,654 | 138,636 | 60,413 | 128,391 | - | - |
 
-<span id="page-20-1"></span>Table 7: Inference time as well as total train and validation time for*Temporal Heterogeneous Graph Link Prediction*task in seconds. For the non-deterministic methods, we report the average across 5 different runs.
+<span id="page-20-1"></span>**Table 7:** Inference time as well as total train and validation time for*Temporal Heterogeneous Graph Link Prediction*task in seconds. For the non-deterministic methods, we report the average across 5 different runs.
 
-|                                   |        | thgl-software |        | thgl-forum | thgl-myket |        | thgl-github |       |
+| | | thgl-software | | thgl-forum | thgl-myket | | thgl-github | |
 |-----------------------------------|--------|---------------|--------|------------|------------|--------|-------------|-------|
-| Method                            | Test   | Total         | Test   | Total      | Test       | Total  | Test        | Total |
-| EdgeBanktw<br>[57]                | 102    | 203           | 1,158  | 2,329      | 4,820      | 9,603  | 295         | 301   |
-| EdgeBank∞<br>[57]                 | 107    | 212           | 1,148  | 2,303      | 4,956      | 10,017 | 282         | 296   |
-| RecurrencyBaselinedefault<br>[15] | 62,259 | 114,124       | 32,539 | 65,114     | -          | -      | -           | -     |
-| TGN [61]                          | 686    | 66,290        | 7,654  | 8,8659     | -          | -      | -           | -     |
-| TGNedge-type                      | 567    | 39,427        | 8,241  | 111,494    | -          | -      | -           | -     |
-| STHN [38]                         | 52,101 | 102,943       | -      | -          | -          | -      | -           | -     |
+| Method | Test | Total | Test | Total | Test | Total | Test | Total |
+| EdgeBanktw<br>[57] | 102 | 203 | 1,158 | 2,329 | 4,820 | 9,603 | 295 | 301 |
+| EdgeBank∞<br>[57] | 107 | 212 | 1,148 | 2,303 | 4,956 | 10,017 | 282 | 296 |
+| RecurrencyBaselinedefault<br>[15] | 62,259 | 114,124 | 32,539 | 65,114 | - | - | - | - |
+| TGN [61] | 686 | 66,290 | 7,654 | 8,8659 | - | - | - | - |
+| TGNedge-type | 567 | 39,427 | 8,241 | 111,494 | - | - | - | - |
+| STHN [38] | 52,101 | 102,943 | - | - | - | - | - | - |
 
 performance of each method, it was out of scope for this work. We only change the hyperparameter values if the methods would not finish with the given time or memory limit. In this case, we follow recommendations from [\[16\]](#page-9-1) (to decrease rule length and window size for TLogic), from the authors of [\[15\]](#page-9-9) (to decrease the window length for the Recurrency Baseline), and from the authors of [\[41\]](#page-11-2) (to decrease the history length for RE-GCN and CEN).
 
-| Method       | Hyperparameter Values                                                                                                                                                         |                           |
+| Method | Hyperparameter Values | |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-|              | All Datasets                                                                                                                                                                  | Dataset-specific          |
-| TLogic       | rule_lengths = 1, window = 0, top_k = 20                                                                                                                                      | tkgl-icews: window = 500  |
-| RE-GCN       | n_hidden = 200, n_layers = 2, dropout = 0.2, lr = 0.001,<br>n_bases = 100, train_history_len = 3, test_history_len = 3                                                        |                           |
-| CEN          | n_hidden = 200, n_layers = 2, dropout = 0.2, lr = 0.001,<br>n_bases = 100, n_layers = 2, train_history_len = 3<br>test_history_len = 3, start_history_len = 2, dilate_len = 1 |                           |
-| RecBdefault  | λ = 0.1, α = 0.99, window = 0                                                                                                                                                 | tkgl-icews: window = 500  |
-| RecBtrain    | λ = 0.1, α = 0.99, window = 0                                                                                                                                                 | tkgl-icews : window = 100 |
-| TGN          | lr = 1e − 04, mem_dim = 100, time_dim = 100, emb_dim = 100,<br>num_neighbors = 10                                                                                             |                           |
-| TGNedge-type | lr = 1e − 04, mem_dim = 100, time_dim = 100, emb_dim = 100,<br>num_neighbors = 10, edge_emb_dim = 16                                                                          |                           |
-| STHN         | lr = 5e − 04, max_edges = 50, window_size = 5, dropout = 0.1,<br>time_dims = 100, hidden_dims = 100                                                                           |                           |
+| | All Datasets | Dataset-specific |
+| TLogic | rule_lengths = 1, window = 0, top_k = 20 | tkgl-icews: window = 500 |
+| RE-GCN | n_hidden = 200, n_layers = 2, dropout = 0.2, lr = 0.001,<br>n_bases = 100, train_history_len = 3, test_history_len = 3 | |
+| CEN | n_hidden = 200, n_layers = 2, dropout = 0.2, lr = 0.001,<br>n_bases = 100, n_layers = 2, train_history_len = 3<br>test_history_len = 3, start_history_len = 2, dilate_len = 1 | |
+| RecBdefault | λ = 0.1, α = 0.99, window = 0 | tkgl-icews: window = 500 |
+| RecBtrain | λ = 0.1, α = 0.99, window = 0 | tkgl-icews : window = 100 |
+| TGN | lr = 1e − 04, mem_dim = 100, time_dim = 100, emb_dim = 100,<br>num_neighbors = 10 | |
+| TGNedge-type | lr = 1e − 04, mem_dim = 100, time_dim = 100, emb_dim = 100,<br>num_neighbors = 10, edge_emb_dim = 16 | |
+| STHN | lr = 5e − 04, max_edges = 50, window_size = 5, dropout = 0.1,<br>time_dims = 100, hidden_dims = 100 | |
 
-<span id="page-20-2"></span>Table 8: Hyperparameter choices for each method for All datasets. Values that are different from the original papers are bolded. In case we modify the values for different datasets, we report so in the column*Dataset-specific.*
+<span id="page-20-2"></span>**Table 8:** Hyperparameter choices for each method for All datasets. Values that are different from the original papers are bolded. In case we modify the values for different datasets, we report so in the column*Dataset-specific.*
 
-| Strategy  | Method              | MRR   |       | Runtime [s.] |       |
+| Strategy | Method | MRR | | Runtime [s.] | |
 |-----------|---------------------|-------|-------|--------------|-------|
-|           |                     | valid | test  | test         | total |
-| 1-vs-1000 | RecBdefault<br>[15] | 0.755 | 0.734 | 278          | 692   |
-| (random)  | EdgeBanktw<br>[57]  | 0.706 | 0.576 | 72           | 141   |
-| 1-vs-1000 | RecBdefault<br>[15] | 0.642 | 0.608 | 282          | 703   |
-| (ours)    | EdgeBanktw<br>[57]  | 0.612 | 0.495 | 104          | 210   |
-| 1-vs-all  | RecBdefault<br>[15] | 0.542 | 0.486 | 316          | 659   |
-|           | EdgeBanktw<br>[57]  | 0.457 | 0.353 | 2935         | 5810  |
+| | | valid | test | test | total |
+| 1-vs-1000 | RecBdefault<br>[15] | 0.755 | 0.734 | 278 | 692 |
+| (random) | EdgeBanktw<br>[57] | 0.706 | 0.576 | 72 | 141 |
+| 1-vs-1000 | RecBdefault<br>[15] | 0.642 | 0.608 | 282 | 703 |
+| (ours) | EdgeBanktw<br>[57] | 0.612 | 0.495 | 104 | 210 |
+| 1-vs-all | RecBdefault<br>[15] | 0.542 | 0.486 | 316 | 659 |
+| | EdgeBanktw<br>[57] | 0.457 | 0.353 | 2935 | 5810 |
 
-<span id="page-21-1"></span>Table 9: MRR and Runtime for Edgebank and the Recurrency Baseline (RecB) on the tkgl-smallpedia dataset for three different strategies for Negative Sample Generation.
+<span id="page-21-1"></span>**Table 9:** MRR and Runtime for Edgebank and the Recurrency Baseline (RecB) on the tkgl-smallpedia dataset for three different strategies for Negative Sample Generation.
 
-#### F.4 Experimental Observations
+### F.4 Experimental Observations
 
 Several methods encountered memory limitations or did not complete within the designated time constraints. Thus, as described in Section [5,](#page-5-1) their performance is not reported. In the following, we provide additional details on the problems of individual methods:
 
@@ -522,40 +520,40 @@ Several methods encountered memory limitations or did not complete within the de
 - STHN model has very high memory consumption, requires 185 GB of RAM on the small thgl-software dataset (mostly due to subgraph computations). On the rest of THG datasets, it rans out of memory.
 - TGN and TGNedge-type run out of GPU memory for both thgl-myket and thgl-github, even if limiting embedding dimension to time\_dim = mem\_dim = emb\_dim = 16 and edgeType\_dim = 16.
 
-#### <span id="page-21-0"></span>F.5 Ablation Study on Negative Sample Generation
+### <span id="page-21-0"></span>F.5 Ablation Study on Negative Sample Generation
 
 Here, we compare results for evaluation on the full set of nodes (*1-vs-all*) versus a limited number of negative samples q (*1-vs-*q). We also compare our sampling method based on destination nodes of each edge type (*1-vs-*q (ours)) with that of random sampling (*1-vs-*q (random)). We select the tkgl-smallpedia dataset and report results for the Recurrency Baseline as well as Edgebank, as both methods perform competitively while being deterministic. Table [9](#page-21-1) confirms expectations: random negative sampling yields the highest MRR values. MRR values for our destination-aware negative sampling demonstrate a closer proximity to the full sampling (*1-vs-all*) for both methodologies. Notably, employing the 1-vs-all approach yields the lowest MRR for both test and validation sets, underscoring the importance of comprehensive evaluations whenever feasible. However, particularly evident in the case of Edgebank, the adoption of negative sampling significantly reduces test time, changing from approximately 3000 seconds to 70 seconds.
 
-#### F.6 Details on Evaluation Protocol
+### F.6 Details on Evaluation Protocol
 
 As described in section [1,](#page-0-0) we compute the time-aware *Mean Reciprocal Rank*[\[16\]](#page-9-1). Specifically, for each test edge (stest, rtest, otest, ttest), we evaluate the models prediction by removing the object otest from the test query, (stest, rtest, ?, ttest). The model then assigns scores to all possible entities for the object position, which are subsequently ranked in descending order. This is repeated for subject prediction. The MRR is calculated as the mean of the reciprocal of these ranks across all test queries. In applying the*time-aware filter setting*, we filter out quadruples that have the same timestamp as the test query. For example, for a test query (France, wins, Basketball Match, 2025-05-19) a model's
 
-| Method                            |       | tkgl-smallpedia |       | tkgl-polecat |       | tkgl-icews |       | tkgl-wikidata |
+| Method | | tkgl-smallpedia | | tkgl-polecat | | tkgl-icews | | tkgl-wikidata |
 |-----------------------------------|-------|-----------------|-------|--------------|-------|------------|-------|---------------|
-| Test Score                        | MRR   | H@10            | MRR   | H@10         | MRR   | H@10       | MRR   | H@10          |
-| EdgeBanktw<br>[57]                | 0.353 | 0.566           | 0.056 | 0.119        | 0.020 | 0.058      | 0.535 | 0.596         |
-| EdgeBank∞<br>[57]                 | 0.333 | 0.562           | 0.045 | 0.094        | 0.009 | 0.014      | 0.535 | 0.596         |
-| RecurrencyBaselinetrain<br>[15]   | 0.605 | 0.716           | 0.198 | 0.317        | 0.211 | 0.324      | -     | -             |
-| RecurrencyBaselinedefault<br>[15] | 0.486 | 0.651           | 0.167 | 0.264        | 0.206 | 0.324      | -     | -             |
-| RE-GCN [41]                       | 0.594 | 0.687           | 0.175 | 0.292        | 0.182 | 0.331      | -     | -             |
-| CEN [39]                          | 0.612 | 0.705           | 0.184 | 0.323        | 0.187 | 0.334      | -     | -             |
-| TLogic [47]                       | 0.595 | 0.707           | 0.228 | 0.378        | 0.186 | 0.301      | -     | -             |
+| Test Score | MRR | H@10 | MRR | H@10 | MRR | H@10 | MRR | H@10 |
+| EdgeBanktw<br>[57] | 0.353 | 0.566 | 0.056 | 0.119 | 0.020 | 0.058 | 0.535 | 0.596 |
+| EdgeBank∞<br>[57] | 0.333 | 0.562 | 0.045 | 0.094 | 0.009 | 0.014 | 0.535 | 0.596 |
+| RecurrencyBaselinetrain<br>[15] | 0.605 | 0.716 | 0.198 | 0.317 | 0.211 | 0.324 | - | - |
+| RecurrencyBaselinedefault<br>[15] | 0.486 | 0.651 | 0.167 | 0.264 | 0.206 | 0.324 | - | - |
+| RE-GCN [41] | 0.594 | 0.687 | 0.175 | 0.292 | 0.182 | 0.331 | - | - |
+| CEN [39] | 0.612 | 0.705 | 0.184 | 0.323 | 0.187 | 0.334 | - | - |
+| TLogic [47] | 0.595 | 0.707 | 0.228 | 0.378 | 0.186 | 0.301 | - | - |
 
-<span id="page-22-2"></span>Table 10: Comparison of test results when using Hits at 10 (H@10) vs. MRR metric for *Temporal Knowledge Graph Link Prediction*task.
+<span id="page-22-2"></span>**Table 10:** Comparison of test results when using Hits at 10 (H@10) vs. MRR metric for *Temporal Knowledge Graph Link Prediction*task.
 
-<span id="page-22-3"></span>Table 11: Number of Edges and timestamps for train, validation and test set for each dataset in TGB 2.0.
+<span id="page-22-3"></span>**Table 11:** Number of Edges and timestamps for train, validation and test set for each dataset in TGB 2.0.
 
-|                    |            |           | Temporal Knowledge Graphs (tkgl-) | Temporal Heterogeneous Graphs (thgl-) |           |            |            |            |
+| | | | Temporal Knowledge Graphs (tkgl-) | Temporal Heterogeneous Graphs (thgl-) | | | | |
 |--------------------|------------|-----------|-----------------------------------|---------------------------------------|-----------|------------|------------|------------|
-| Dataset            | smallpedia | polecat   | icews                             | wikidata                              | software  | forum      | github     | myket      |
-| # Train Quadruples | 387,757    | 1,246,556 | 10,861,600                        | 6,982,503                             | 1,042,866 | 16,630,396 | 12,249,711 | 37,542,951 |
-| # Valid Quadruples | 81,033     | 266,736   | 2,326,157                         | 1,434,950                             | 223,469   | 3,563,658  | 2,624,934  | 8,044,922  |
-| # Test Quadruples  | 81,586     | 266,318   | 2,325,689                         | 1,438,750                             | 223,471   | 3,563,653  | 2,624,932  | 804,4915   |
-| # All Quadruples   | 550,376    | 1,779,610 | 15,513,446                        | 9,856,203                             | 1,489,806 | 23,757,707 | 17,499,577 | 53,632,788 |
-| # Train Timesteps  | 98         | 1,193     | 7,187                             | 1,999                                 | 485,863   | 1,805,376  | 1,703,696  | 9,935,183  |
-| # Valid Timesteps  | 10         | 329       | 1,341                             | 12                                    | 99,500    | 393,000    | 382,882    | 2,274,936  |
-| # Test Timesteps   | 17         | 304       | 1,696                             | 14                                    | 104,186   | 360,081    | 423,837    | 2,617,971  |
-| # All Timesteps    | 125        | 1,826     | 10,224                            | 2,025                                 | 689,549   | 2,558,457  | 2,510,415  | 14,828,090 |
+| Dataset | smallpedia | polecat | icews | wikidata | software | forum | github | myket |
+| # Train Quadruples | 387,757 | 1,246,556 | 10,861,600 | 6,982,503 | 1,042,866 | 16,630,396 | 12,249,711 | 37,542,951 |
+| # Valid Quadruples | 81,033 | 266,736 | 2,326,157 | 1,434,950 | 223,469 | 3,563,658 | 2,624,934 | 8,044,922 |
+| # Test Quadruples | 81,586 | 266,318 | 2,325,689 | 1,438,750 | 223,471 | 3,563,653 | 2,624,932 | 804,4915 |
+| # All Quadruples | 550,376 | 1,779,610 | 15,513,446 | 9,856,203 | 1,489,806 | 23,757,707 | 17,499,577 | 53,632,788 |
+| # Train Timesteps | 98 | 1,193 | 7,187 | 1,999 | 485,863 | 1,805,376 | 1,703,696 | 9,935,183 |
+| # Valid Timesteps | 10 | 329 | 1,341 | 12 | 99,500 | 393,000 | 382,882 | 2,274,936 |
+| # Test Timesteps | 17 | 304 | 1,696 | 14 | 104,186 | 360,081 | 423,837 | 2,617,971 |
+| # All Timesteps | 125 | 1,826 | 10,224 | 2,025 | 689,549 | 2,558,457 | 2,510,415 | 14,828,090 |
 
 prediction (France, wins, Soccer Match, 2025-05-19) would be excluded if (France, wins, Soccer Match, 2025-05-19) is present in the test set. However, it would not be filtered out if (France, wins, Soccer Match, 2025-03-09) is present in the test set.
 
@@ -590,7 +588,7 @@ For our experiments we select methods from a variety of methods from the previou
 -*TLogic [\[47\]](#page-11-3)*is a symbolic framework that learns temporal logic rules via temporal random walks, traversing edges backward in time through the graph. It applies these rules to events preceding the query, considering both the confidence of the rules and the time differences for scoring answer candidates.
 - Recurrency Baseline [\[15\]](#page-9-9) is a baseline method that predicts recurring facts by combining scores based on strict recurrency, considering the recency and frequency of these facts, and scores based on relaxed recurrency, which accounts for the recurrence of parts of the query. Two versions of this baseline are tested: RecBdefault, which uses default parameter values, and RecBtrain, which selects parameter values based on a grid search considering performance on the validation set.
 
-#### <span id="page-23-1"></span>G.2 Temporal Heterogeneous Graph Forecasting
+### <span id="page-23-1"></span>G.2 Temporal Heterogeneous Graph Forecasting
 
 -*TGN [\[61\]](#page-12-2)*represents a comprehensive framework designed for learning on dynamic graphs in continuous time. Its components include a memory module, message function, message aggregator, memory updater, and embedding module. During testing, TGN updates the memories of nodes with edges that have been newly observed. Additionally, to incorporate edge types into TGN, we devised a variant of TGN capable of utilizing edge type information. This was achieved by generating embeddings from the edge types, which were then concatenated with the original messages within the TGN model.
 -*STHN [\[38\]](#page-11-4)*designed for continuous-time link prediction on Temporal heterogeneous networks that efficiently manages dynamic interactions. The architecture consists of a*Heterogeneous Link Encoder*with type and time encoding components, which embed historical interactions to produce a temporal link representation. The process continues with*Semantic Patches Fusion*, where sequential representations are divided into different patches treated as token inputs for the Encoder, and average mean pooling compresses these into a single vector. Finally, the framework combines the representations of nodes u and v, utilizing a fully connected layer and *CrossEntropy* loss for link prediction, effectively capturing complex temporal information and long-term dependencies.
@@ -599,13 +597,13 @@ For our experiments we select methods from a variety of methods from the previou
 
 This section answers questions about this work based on Datasheets for Datasets [\[17\]](#page-9-16).
 
-#### H.0.1 Motivation
+### H.0.1 Motivation
 
 - For what purpose was the dataset created? Was there a specific task in mind? Was there a specific gap that needed to be filled? Please provide a description. TGB 2.0 is curated for realistic, reproducible and robust evaluation for temporal multi-relational graphs. Specifically there are four TKG datasets and four THG datasets, all designed for the dynamic link property prediction task.
 - Who created the dataset (e.g., which team, research group) and on behalf of which entity (e.g., company, institution, organization)? thgl-software and thgl-github datasets are based on Github data collected by GH Arxiv. thgl-forum dataset is derived from user and subreddit interactions on Reddit. thgl-myket dataset was generated by the data team of the Myket Android application market. tkgl-smallpedia and tkgl-wikidata datasets are constructed from the Wikidata Knowledge Graph. tkgl-polecat is based on the POLitical Event Classification, Attributes, and Types (POLE-CAT) dataset. tkgl-icews is extracted from the ICEWS Coded Event Data. Detailed Dataset information is found in Section [4.](#page-3-1)
 - Who funded the creation of the dataset? If there is an associated grant, please provide the name of the grantor and the grant name and number. Funding information is provided in Acknowledgement Section.
 
-#### H.0.2 Composition
+### H.0.2 Composition
 
 • What do the instances that comprise the dataset represent (e.g., documents, photos, people, countries)? Are there multiple types of instances (e.g., movies, users, and ratings; people and interactions between them; nodes and edges)? Please provide a description.
 
@@ -663,7 +661,7 @@ No, we have anonmyzied users' information where appropriate.
 
 No.
 
-#### H.0.3 Collection Process
+### H.0.3 Collection Process
 
 • How was the data associated with each instance acquired? Was the data directly observable (e.g., raw text, movie ratings), reported by subjects (e.g., survey responses), or indirectly inferred/derived from other data (e.g., part-of-speech tags, model-based guesses for age or language)? If the data was reported by subjects or indirectly inferred/derived from other data, was the data validated/verified? If so, please describe how.
 
@@ -704,7 +702,7 @@ We use public data sources where data is already collected. The data collection 
 
 No, however the datasets are for temporal graph research purposes only, they are used to benchmark existing methods and have been anonymized appropriately.
 
-#### H.0.4 Preprocessing/cleaning/labeling
+### H.0.4 Preprocessing/cleaning/labeling
 
 - Was any preprocessing/cleaning/labeling of the data done (e.g., discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values)? If so, please provide a description. If not, you may skip the remaining questions in this section. No.
 - Was the "raw" data saved in addition to the preprocessed/cleaned/labeled data (e.g., to support unanticipated future uses)? If so, please provide a link or other access point to the "raw" data.
@@ -713,7 +711,7 @@ No, however the datasets are for temporal graph research purposes only, they are
 
 • Is the software that was used to preprocess/clean/label the data available? If so, please provide a link or other access point. [N/A]
 
-#### H.0.5 Uses
+### H.0.5 Uses
 
 - Has the dataset been used for any tasks already? If so, please provide a description. Yes, all datasets have been tested and benchmarked in this work, see Section [5.](#page-5-1)
 - Is there a repository that links to any or all papers or systems that use the dataset? If so, please provide a link or other access point.
@@ -732,7 +730,7 @@ No, the datasets are for benchmarking purposes only and for researchers.
 
 No and we discuss potential negative impacts in Appendix [A.](#page-14-2)
 
-#### H.0.6 Distribution
+### H.0.6 Distribution
 
 • Will the dataset be distributed to third parties outside of the entity (e.g., company, institution, organization) on behalf of which the dataset was created? If so, please provide a description.
 
@@ -748,7 +746,7 @@ Yes, the DOI for the project is <https://zenodo.org/records/11480522> (will poin
 - Have any third parties imposed IP-based or other restrictions on the data associated with the instances? If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms, as well as any fees associated with these restrictions. All license terms are discussed in Appendix [C.](#page-14-1)
 - Do any export controls or other regulatory restrictions apply to the dataset or to individual instances? If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any supporting documentation. No.
 
-#### H.0.7 Maintenance
+### H.0.7 Maintenance
 
 - Who will be supporting/hosting/maintaining the dataset? TGB 2.0 datasets are maintained via [Digital Research Alliance of Canada](https://alliancecan.ca/en) (funded by the Government of Canada).
 - How can the owner/curator/manager of the dataset be contacted (e.g., email address)? The curator of the dataset (Shenyang Huang) can be contacted via email: [shenyang.huang@](shenyang.huang@mail.mcgill.ca) [mail.mcgill.ca](shenyang.huang@mail.mcgill.ca)

@@ -54,7 +54,7 @@ keywords:
 ![](_page_0_Picture_3.jpeg)
 <!-- Image Description: The image is a simple rectangular button with the text "Check for updates." A small circular icon, possibly indicating software updates, precedes the text. The button likely serves as a user interface element within the paper, illustrating a step in a process or indicating a software feature. No diagrams, charts, graphs, or equations are present. -->
 
-# Group verifiable secure aggregate federated learning based on secret sharing
+## Group verifiable secure aggregate federated learning based on secret sharing
 
 **Sufang Zhou1,2, LinWang1, Liangyi Chen1, Yifeng Wang1 & KeYuan1,3**
 
@@ -90,13 +90,13 @@ In FL, privacy and security have always been key challenges. Existing privacy-pr
 
 Liu et al[.28](#page-15-24) proposed replacing the conventional Diffie–Hellman key exchange protocol with homomorphic pseudorandom generators, which somewhat lowers communication and computing overhead. However, it cannot effectively handle user dropouts. Kadhe et al.[29](#page-15-25) proposed a FastSecAgg scheme based on Fast Fourier Transform (FFT) and multi-secret sharing, but it can only tolerate a fixed proportion of user dropouts, which may lead to system instability in practical applications. Bonawitz et al[.27](#page-15-23) used a double masking scheme where model efficiency falls as the user dropout ratio rises. Therefore, EPPDA[30](#page-15-26) and AHSecAg[g31](#page-15-27) utilize the homomorphism of secret sharing to encrypt model parameters using only a single mask, significantly reducing computational overhead without affecting the user's offline processing capabilities and model accuracy. Additionally, Xu et al[.32](#page-15-28) proposed LaF, a lattice-based communication-efficient federated learning protocol that achieves post-quantum security. LaF replaces the multi-round communication of Shamir's secret sharing with secret updates, thereby improving efficiency. However, it still suffers from the high computational overhead of the dual-masking scheme during the aggregation phase. Moreover, lattice-based cryptographic methods inherently require significant computational resources, which can impose a substantial burden on IoT devices with limited processing capabilities.
 
-#### Verifiable federated learning
+### Verifiable federated learning
 
 In FL, the aggregation server plays a critical role in consolidating model parameters from various clients. Consequently, this central component may become a prime target for malicious attacks. One major problem is the potential single point of failure, in which the aggregation server might undermine the integrity of the aggregate findings, resulting in an erroneous global model and jeopardizing the system's overall security and accuracy. To safeguard the aggregation process and ensure its integrity and reliability, it is imperative to design verifiable secure aggregation schemes. Xu et al.[33](#page-15-29) introduced VerifyNet, the first verifiable secure FL scheme. This solution incorporates homomorphic hash functions into a double-masking security protocol to ensure that the server's aggregate results are correct. Specifically, VerifyNet employs homomorphic encryption properties to hash the aggregation results, ensuring that even under attack, the aggregation server cannot tamper with or forge these results. However, the introduction of homomorphic hashing and pseudorandom number encryption in VerifyNet significantly increases computational and communication overhead, which can limit its performance in high-concurrency or large-scale user environments. To mitigate the overhead in VerifyNet, Guo et al[.34](#page-15-30) introduced the VeriFL scheme, which integrates homomorphic hashing with equivalent commitments, Zhou et al[.35](#page-15-31) designed a non-traceable, low-communication verification scheme PVFL using homomorphic hashing and signature. However, VeriFL and PVFL still rely on homomorphic hashing, therefore, remain expensive in terms of computation and communication overhead. To address the high overhead associated with homomorphic hashing, Hahn et al[.36](#page-15-32) proposed the VERSA scheme. VERSA employs lightweight pseudorandom generators (PRGs) as a substitute for homomorphic hashing to verify the correctness of aggregation results. This approach significantly lowers the verification process's computing overhead, enhancing verification efficiency by several orders of magnitude compared to previous schemes. Despite the significant performance improvements offered by VERSA, the system still necessitates interaction between each user and the server. This requirement places a substantial burden on the aggregation server, potentially impacting the overall efficiency of the system. To further enhance verification efficiency, G-VCFL[37](#page-15-33) adopts a chain-grouping strategy, decomposing verification tasks into multiple intra-group operations.To further enhance verification efficiency, G-VCFL[37](#page-15-33) adopts a chain-grouping strategy, decomposing verification tasks into multiple intra-group operations. This approach minimizes the number of users each aggregation server must process, substantially improving verification efficiency while optimizing verification performance. However, a notable drawback of G-VCFL is its limited robustness in dynamic environments, particularly in handling user dropouts. When a user exits, the entire group is unable to participate in subsequent aggregation processes, which undermines the system's adaptability to changing conditions.
 
 Based on the above research work, we propose a grouping verifiable FL scheme based on secret sharing, considering the efficiency, verifiability and fault tolerance of the security aggregation scheme. It does not use linear homomorphic hashing, uploads lightweight authentication tags to aggregation services, and users only need to secretly share with group users, so the computing overhead of both users and servers is greatly reduced. Therefore, this scheme is better suited to FL in large-scale user scenarios with limited computational resources.
 
-#### Preliminary Federated learning
+### Preliminary Federated learning
 
 <span id="page-2-0"></span>Federated learning[5](#page-15-4) generally involves a server and*N*users, each possessing a local dataset*Di*. Each user performs multiple rounds of iterative training on *Di*, generating a local model, and then sends updates of these models (such as gradients or parameters) to the server. The server usually uses the FedAvg algorithm (Eq. ([1\)](#page-2-0)) for aggregation to generate global model, which is then returned to all participating users:
 
@@ -107,7 +107,7 @@ $$
 
 The user starts a fresh cycle of training, which continues until the model converges or meets predefined termination conditions. However, there is still a possibility of privacy leakage during this process. Attackers may intercept intermediate parameters to obtain the user's sensitive information. As a result, it is critical to ensure the model's local parameters are secure and that the model training is executed correctly.
 
-#### Shamir secret sharing
+### Shamir secret sharing
 
 Shamir's Secret Sharin[g38](#page-15-34) is a classic cryptographic algorithm. Its main idea is to divide a secret into multiple secret shares using a polynomial and distribute them to multiple holders. As long as a sufficient number of holders participate (at least the threshold *t*), they can jointly reconstruct the secret; however, if the number of holders is insufficient to meet the threshold, the secret cannot be reconstructed. This method ensures that during the secret distribution process, no single holder can independently learn the secret, thereby enhancing the security of the data.
 
@@ -118,7 +118,7 @@ In the Shamir secret sharing scheme, the secret *s*is a number sampled over a fi
 
 Additionally, Shamir's secret sharing has homomorphic additivity[39](#page-15-35), which means that the sum of the shares of different secrets can be used to reconstruct the sum of the secrets. For example, if two secrets*s*1*, s*2 are shared among the user set *U*, their secret shares *{*(*i, s*<sup>1</sup>*,i*)*}<sup>i</sup>∈<sup>U</sup> , {*(*i, s*<sup>2</sup>*,i*)*}<sup>i</sup>∈<sup>U</sup>*are generated. When at least*<sup>t</sup>*users participate in the reconstruction, the sum of the secrets can be reconstructed through the reconstruction algorithm SSS.recons (*{*(*i, s*<sup>1</sup>*,i*<sup>+</sup>*<sup>s</sup>*<sup>2</sup>*,i*)*}<sup>i</sup>∈U′ , t*) *→ s*<sup>1</sup> + *s*2.
 
-#### Diffie–Hellman key agreement
+### Diffie–Hellman key agreement
 
 The Diffie–Hellman key exchange protoco[l40](#page-15-36) is a key exchange protocol in public key cryptography that enables secure communication between two parties in an insecure environment. The basic idea is to allow two parties to obtain a shared symmetric key without exchanging any secret information. The Diffie–Hellman key exchange protocol consists of three algorithms: KE.pa, KE.gen, KE.ag.
 
@@ -134,11 +134,11 @@ with user*i*. Thus, a symmetric session key *sij*= (*g<sup>s</sup>sk j* )*<sup>s
 
 two users.
 
-#### Authenticated encryption
+### Authenticated encryption
 
 Authenticated Encryption (AE[\)41](#page-16-0) is a cryptographic technique that integrates encryption and authentication functions to enhance data security. AE typically comprises two primary components: AE.enc for encryption and AE.dec for decryption. During the encryption process, the sender employs a shared symmetric key to encrypt the data and generates an accompanying authentication tag. This tag serves a dual purpose: it confirms the correctness of the data content and verifies that the data has not been altered. Upon receiving the encrypted data, the receiver utilizes the decryption algorithm to first recover the plaintext and subsequently verify the authentication tag, ensuring both the data integrity and the reliability of its origin. The correctness of this process can be mathematically represented as AE.dec (*c,* AE.enc (*c, m*)) = *m* (*∀c, ∀m*), where *c*denotes the symmetric key and*m* denotes the plaintext.
 
-#### Digital signature
+### Digital signature
 
 Digital signature[42](#page-16-1) is an important cryptographic technology in information security. Its primary purpose is to validate the provenance of information, ensure data integrity, and prevent data from being tampered with during transmission. It is often based on public key cryptography and implemented using a key pair. The specific procedure includes: SIG*.*gen, SIG*.*sign, SIG*.*ver.
 
@@ -148,7 +148,7 @@ Digital signature[42](#page-16-1) is an important cryptographic technology in in
 
 ### System model
 
-#### Threat model
+### Threat model
 
 In this study, we consider two primary threat models to thoroughly evaluate the security of our protocol under different attack scenarios:
 
@@ -158,7 +158,7 @@ In this study, we consider two primary threat models to thoroughly evaluate the 
 
 In addition to the threats posed by users and external attackers, we also assume that the server may be malicious. The server is often in charge of aggregating model changes from several users and broadcasting the global model to all participants. However, a malicious server may exploit its control over the aggregation process to introduce bias into the global model and propagate these incorrect model parameters to the users. This not only affects the accuracy of the global model but may also lead to data leakage.
 
-#### Design objectives
+### Design objectives
 
 Our protocol is designed to enable the server to aggregate models without accessing users' local model information, thereby effectively defending against inference attacks and server-initiated tampering attacks, while achieving the following key security properties:
 
@@ -166,7 +166,7 @@ Our protocol is designed to enable the server to aggregate models without access
 -**Privacy:**Privacy protection primarily addresses internal threats, especially from malicious server behavior. The server is restricted to accessing only the model parameters submitted by users, which are both encrypted and masked. This ensures that the server cannot access the users' raw local models, thereby safeguarding sensitive information. Additionally, users are unable to learn each other's models, preventing privacy leakage due to model exchanges or mutual inference.
 -**Correctness:**Correctness guarantees that the aggregation results cannot be altered by the server, ensuring that the global model received by each user is completely correct. By introducing an anti-tampering mechanism, the data in the aggregation process cannot be tampered with, thereby maintaining the accuracy and integrity of the global model and ensuring that users can always obtain correct updated information.
 
-#### System architecture
+### System architecture
 
 The participants in the system include users, multiple aggregation servers, and a central server:
 
@@ -193,7 +193,7 @@ key*si,j*. This key is then used to encrypt the secret shares. To protect the pr
 <span id="page-5-1"></span>![](_page_5_Figure_3.jpeg)
 <!-- Image Description: This flowchart depicts a three-phase secure aggregation protocol. Phase 0 initializes key generation and public key distribution. Phase 1 involves masked input computation, secret sharing, and encrypted share exchange among users and an aggregation server. Phase 2 aggregates partial results. Phase 3 verifies the final aggregated result (G, δ) using a modular arithmetic equation (δ = α·G (mod R)). The diagram shows data flow between a user, aggregation server, and central server. -->
 
-#### Figure 2. GVSA interactive view.
+### Figure 2. GVSA interactive view.
 
 ## GVSA design
 
@@ -211,14 +211,14 @@ Furthermore, since devices may drop out or join the system at any time, we regen
 
 in a given round will not compromise the security of previous rounds. For expired historical keys, users will permanently delete and erase them from memory upon expiration to eliminate potential security risks.
 
-#### Model training and masking
+### Model training and masking
 
 Users access their local data*Di*and train to generate the local model:
 
 $$
 w_i = G - \eta \nabla \mathcal{L}(G, D_i)
 $$
- (2)
+(2)
 
 where*wi*represents the updated local model and*L*() represents the loss function.
 
@@ -250,7 +250,7 @@ $$
 
 where *◦*denotes the Hadamard product operation. To prevent honest-but-curious users from stealing the model parameters of other honest users, we use a random mask*bi*instead of the unified vector*b*used in the G-VCFL scheme (which is generated by function*F* (*x*) = *a ◦ x*+*b*). Only when at least *t*users collude can the real mask*bi*be reconstructed. Therefore, even if some users in the system, driven by curiosity or malicious intent, obtain the verification tags of other honest users, they will still be unable to infer the original model parameters from them. The verification tag*δi*need to be sent to the aggregation server along with the masked model*ϑi*.
 
-#### Secure aggregation
+### Secure aggregation
 
 After the server receives the masked models *ϑi*uploaded by the users, it generates a user list*U<sup>l</sup>* 3*, U<sup>l</sup>*<sup>3</sup>*<sup>⊂</sup> <sup>U</sup><sup>l</sup>*<sup>2</sup> and performs the aggregation operation:
 
@@ -291,7 +291,7 @@ $$
 
 Finally, the central server broadcasts the aggregated results*G, δ* to all users.
 
-#### Aggregation result verification
+### Aggregation result verification
 
 <span id="page-7-0"></span>After receiving the aggregate result, the user verifies the correctness of the global model using the global verification tag and checks whether the Eq. [\(12\)](#page-7-0) holds:
 
@@ -301,7 +301,7 @@ $$
 
 If the equation holds, this indicates that the aggregation result sent by the server is correct, and the users can proceed to the next round of training iterations.
 
-#### Security analysis
+### Security analysis
 
 In this section, we analyze the security of the protocol under the assumption of honest-but-curious participants and the presence of malicious adversaries. Lemma [1](#page-8-0) is used to demonstrate that if users submit their local models as genuine inputs and add random numbers for masking, the resulting outputs will appear uniformly random.
 
@@ -313,7 +313,7 @@ $$
 
 Where*<sup>c</sup> ≡*denotes that the two sets of computed results are indistinguishable.
 
-#### Security in honest-but-curious setting
+### Security in honest-but-curious setting
 
 Here, we assume that the protocol is executed in an honest-but-curious environment, where participants do not actively launch attacks but may individually or collaboratively infer other users' private information. Since users may drop out during any round of communication, we categorize users into four types:*U*<sup>4</sup> *⊆ U*<sup>3</sup> *⊆ U*<sup>2</sup> *⊆ U*<sup>1</sup> *⊆ U*, where*U*represents all users within a group,*U*1 represents users participating in key sharing within the group, *U*2 represents users participating in secret share distribution within the group, *U*3 represents users participating in model aggregation within the group, and *U*4 represents users participating in secret reconstruction within the group. The aggregation server is denoted as *S*, and the subset of participants is denoted as *A* ,*A ⊆ U ∪ S*. The joint view of the parties in *A* can be treated as a random variable REAL*U,k,t <sup>A</sup>* (*w<sup>U</sup> , U*1*, U*2*, U*3*, U*4), with the threshold for participating in the secret sharing algorithm denoted as and the security parameter as *k*.
 
@@ -346,7 +346,7 @@ Hyb5 In this hybrid, we simulate an honest user*<sup>i</sup> <sup>∈</sup> <sup
 
 Thus, the simulator completes the proof, demonstrating that SIM, without knowing the model parameters of all users, can simulate REAL*k,t <sup>A</sup>* , and that the output of SIM is computationally indistinguishable from REAL*k,t A*. □
 
-#### Security against active attacks
+### Security against active attacks
 
 We consider active adversaries to include external attackers and malicious servers. During the communication process, we employ a series of encryption algorithms to ensure the confidentiality of the transmitted data, effectively preventing adversaries from intercepting the ciphertext to gain access to any confidential information or disrupt the protocol.
 
@@ -354,11 +354,11 @@ Specifically, during key sharing among users, digital signature techniques ensur
 
 Additionally, considering that a malicious server might alter the aggregation results, we employ a double aggregation strategy to ensure the correctness of the results. After completing the aggregation calculation, the central server will return the final aggregation result*G*and the corresponding verification tag*δ*to the user. Once each user receives this information, they need to verify whether equation*δ*=*a ◦ G*(mod*R*) holds. If the equation holds, the user can confirm the correctness of the aggregation result. This verification process not only guarantees the integrity and security of the data during transmission and computation but also effectively prevents the possibility of malicious tampering or incorrect calculations.
 
-#### Evaluation
+### Evaluation
 
 In this section, we evaluate the performance of GVSA through experiments and compare it with existing stateof-the-art schemes, including PPML[27,](#page-15-23) EPPD[A30](#page-15-26), and VerS[A36](#page-15-32). The comparison aims to demonstrate that GVSA achieves a higher level of security while improving efficiency.
 
-#### Experimental setup
+### Experimental setup
 
 We implemented the GVSA, PPML[27,](#page-15-23) EPPD[A30](#page-15-26), and VerSA[36](#page-15-32) protocols in Python on an Intel Core i7-10700 CPU @ 2.90 GHz, using the PyTorch framework for building and training neural networks. To comprehensively evaluate the performance and efficiency of these protocols, we selected three datasets: MNIST, CIFAR10, and SVHN. The MNIST dataset contains 70,000 grayscale images of handwritten digits, with 60,000 used for training and 10,000 for testing. We employed a Multilayer Perceptron (MLP) model with two hidden layers and a softmax activation function for training. The CIFAR10 dataset consists of 60,000 color images of natural scenes, with 50,000 for training and 10,000 for testing. For this dataset, we used a Convolutional Neural Network (CNN) with three convolutional layers, two fully connected layers, and ReLU activation for image classification. The SVHN dataset contains 73,257 training images and 26,032 test images. The model used for training consists of 3 convolutional layers and 3 fully connected layers, with ReLU as the activation function. In the experimental setup, the datasets were randomly divided and assigned to different users. Local training for each user involved setting initial learning rates of 0.001 (for MNIST and SVHN) and 0.04 (for CIFAR10), using the SGD optimizer with 0.9 momentum, and a batch size of 100 per epoch. These settings allowed us to simulate realistic federated learning scenarios and perform a comparative analysis of various security protocols' performance.
 
@@ -367,22 +367,21 @@ We implemented the GVSA, PPML[27,](#page-15-23) EPPD[A30](#page-15-26), and VerS
 
 **Figure 3**. Model accuracy of FedAvg and GVSA.
 
-<span id="page-10-1"></span>
 
-|         | Key distribution (ms) | Secret sharing (ms) | Model training and masking (ms) | Aggregation (ms) | Verify (ms) |
+| | Key distribution (ms) | Secret sharing (ms) | Model training and masking (ms) | Aggregation (ms) | Verify (ms) |
 |---------|-----------------------|---------------------|---------------------------------|------------------|-------------|
-| PPML27  | 40.66                 | 15.88               | 624.95                          | 665.13           |             |
-| EPPDA30 | 40.87                 | 15.37               | 625.59                          | 27.56            |             |
-| VerSA36 | 40.77                 | 16.01               | 628.86                          | 687.13           | 0.21        |
-| GVSA    | 40.83                 | 1.54                | 628.19                          | 2.93             | 0.19        |
+| PPML27 | 40.66 | 15.88 | 624.95 | 665.13 | |
+| EPPDA30 | 40.87 | 15.37 | 625.59 | 27.56 | |
+| VerSA36 | 40.77 | 16.01 | 628.86 | 687.13 | 0.21 |
+| GVSA | 40.83 | 1.54 | 628.19 | 2.93 | 0.19 |
 
 **Table 1**. Computational overhead of completing one round of training.
 
-#### Experimental results
+### Experimental results
 
-#### *Model accuracy*To assess the impact of GVSA on model accuracy, we conducted a systematic experiment on the MNIST, CIFAR10, and SVHN datasets. The experiment simulated a scenario with 100 users participating in 50 rounds of federated training, assuming all users remained online throughout the training process to simplify the analysis and focus on the algorithm's performance. The experimental results, shown in Fig. [3,](#page-10-0) demonstrate that the convergence curves of GVSA and FedAvg[5](#page-15-4) closely align across different datasets. The model accuracy steadily improves with the number of training rounds, reaching convergence at round 40 (MNIST), round 45 (CIFAR10), and round 35 (SVHN), respectively. Ultimately, the model accuracy of GVSA is almost identical to that of FedAvg (MNIST: GVSA 0.888 vs FedAvg 0.885; CIFAR10: GVSA 0.639 vs FedAvg 0.638; SVHN: GVSA 0.911 vs FedAvg 0.909). This result validates two key characteristics of the GVSA security scheme: first, the collaborative design based on random number masking and Shamir's secret sharing ensures that the masking factors are accurately canceled out during global aggregation, allowing for the lossless recovery of gradient information; second, the decoupling of secure operations from model updates ensures that the encryption process only affects the gradient transmission phase, without interfering with parameter update logic. In conclusion, GVSA ensures privacy security while fully preserving model performance, demonstrating an efficient balance between privacy protection and model accuracy.
+### *Model accuracy*To assess the impact of GVSA on model accuracy, we conducted a systematic experiment on the MNIST, CIFAR10, and SVHN datasets. The experiment simulated a scenario with 100 users participating in 50 rounds of federated training, assuming all users remained online throughout the training process to simplify the analysis and focus on the algorithm's performance. The experimental results, shown in Fig. [3,](#page-10-0) demonstrate that the convergence curves of GVSA and FedAvg[5](#page-15-4) closely align across different datasets. The model accuracy steadily improves with the number of training rounds, reaching convergence at round 40 (MNIST), round 45 (CIFAR10), and round 35 (SVHN), respectively. Ultimately, the model accuracy of GVSA is almost identical to that of FedAvg (MNIST: GVSA 0.888 vs FedAvg 0.885; CIFAR10: GVSA 0.639 vs FedAvg 0.638; SVHN: GVSA 0.911 vs FedAvg 0.909). This result validates two key characteristics of the GVSA security scheme: first, the collaborative design based on random number masking and Shamir's secret sharing ensures that the masking factors are accurately canceled out during global aggregation, allowing for the lossless recovery of gradient information; second, the decoupling of secure operations from model updates ensures that the encryption process only affects the gradient transmission phase, without interfering with parameter update logic. In conclusion, GVSA ensures privacy security while fully preserving model performance, demonstrating an efficient balance between privacy protection and model accuracy.
 
-####*Computational overhead*
+### *Computational overhead*
 
 We compared the computational overhead of GVSA, PPML[27](#page-15-23), EPPD[A30](#page-15-26), and VerS[A36](#page-15-32) across the key distribution, secret sharing, model masking, validation, and aggregation phases. Table [1](#page-10-1) displays each user's runtime for every step. The computing overhead of the user is primarily derived from four steps: key distribution, secret sharing, model masking, and validation. In the key distribution phase, users generate Diffie–Hellman public-private key pairs and key pairs for digital signatures, and perform signing operations. In the secret sharing phase, users verify the correctness of signatures and generate symmetric keys. Users share random masks using secret sharing and symmetrically encrypt the secret shares. In the model masking phase, users train the model, encrypt it with random masks, and generate validation tags. In the validation phase, users verify the correctness of the global model parameters issued by the central server.
 
@@ -392,21 +391,20 @@ To evaluate the scalability of GVSA, we measured the computational overhead for 
 
 In conclusion, GVSA significantly reduces the computational overhead on both the user and server sides through the introduction of the grouping strategy, demonstrating its advantage in computational efficiency. However, in large-scale federated learning environments, GVSA may impose additional burdens on devices with limited computational resources.
 
-#### *Verification overhead comparison*In the process of preventing server tampering, the main computational overhead comes from the generation of verification tags, aggregation, and the verification of aggregation results. These operations involve only linear operations on the model parameters, with a computational complexity of*O*(2*m*+*mn*) , where *m*represents the model parameter dimension and*n*is the number of users. In contrast, operations such as key generation, secret sharing, and model training involve more complex computations. Specifically, the computational complexity of the key generation phase is as high as*O*(*k*<sup>3</sup>), where *k*is the key bit length, while the secret sharing process, which involves encryption operations, has a complexity of*O*(*k*<sup>3</sup> + *n*<sup>2</sup> + *nk*). The complexity of model training and masking is *O*(*T*+*m*) , where *T*is the training time, influenced by factors such as data size and model complexity, and the computational overhead of global model aggregation is*O*(*n*<sup>2</sup> + 2*mn*) . Overall, the total computational complexity of other operations needed to complete one round of training is *O*(2*k*<sup>3</sup> + *nk* + 2*n*<sup>2</sup> + *T*+*m* + 2*mn*). In most cases, the complexity of model training is much higher than that of other encryption and verification operations, so the generation of verification tags and aggregation result verification, as relatively lightweight tasks, do not significantly increase the system's burden.
+### *Verification overhead comparison*In the process of preventing server tampering, the main computational overhead comes from the generation of verification tags, aggregation, and the verification of aggregation results. These operations involve only linear operations on the model parameters, with a computational complexity of*O*(2*m*+*mn*) , where *m*represents the model parameter dimension and*n*is the number of users. In contrast, operations such as key generation, secret sharing, and model training involve more complex computations. Specifically, the computational complexity of the key generation phase is as high as*O*(*k*<sup>3</sup>), where *k*is the key bit length, while the secret sharing process, which involves encryption operations, has a complexity of*O*(*k*<sup>3</sup> + *n*<sup>2</sup> + *nk*). The complexity of model training and masking is *O*(*T*+*m*) , where *T*is the training time, influenced by factors such as data size and model complexity, and the computational overhead of global model aggregation is*O*(*n*<sup>2</sup> + 2*mn*) . Overall, the total computational complexity of other operations needed to complete one round of training is *O*(2*k*<sup>3</sup> + *nk* + 2*n*<sup>2</sup> + *T*+*m* + 2*mn*). In most cases, the complexity of model training is much higher than that of other encryption and verification operations, so the generation of verification tags and aggregation result verification, as relatively lightweight tasks, do not significantly increase the system's burden.
 
 In Fig. [4](#page-12-0), we systematically evaluate and compare the computational overhead on the user side under verification and non-verification settings. The experimental results indicate that the computational overhead introduced by the verification process is relatively small, and the total computational overhead per user increases gradually with the scaling of gradient parameters and the number of users. Specifically, Fig. [4a](#page-12-0) shows that, compared to the non-verification setting, the verification overhead is not affected by the number of users, with only slight fluctuations in the difference caused by the experimental platform. Figure [4b](#page-12-0) further demonstrates that the verification overhead is positively correlated with the gradient parameter size, as the verification overhead mainly depends on the number of gradients each user processes; the larger the parameter size, the longer the verification time required. However, compared to the overall computational overhead per training round, the additional overhead introduced by the verification process always accounts for less than 8%. Notably, in a typical scenario with 100 users and a total of 50,000 gradients in the system, the average time per user for completing a parameter update iteration in the GVSA scheme is only 213 ms, fully reflecting its efficiency. Therefore, the GVSA scheme ensures computational security while verifying aggregation results quickly with low overhead, meeting the needs of practical deployment.
 
 Additionally, in Fig. [5](#page-12-1), we evaluate and compare the computational overhead on the server side under verification and non-verification settings. As shown in Fig. [5,](#page-12-1) the server's running time increases linearly with the scaling of gradient parameters or the number of users, as the amount of parameters the server needs to aggregate is proportional to the system size. For example, when the number of users increases from 100 to 500, the server's verification time increases by approximately 14.12*×*, and when the gradient parameter size increases from 10,000 to 50,000, the verification time increases by approximately 6*×*. Nonetheless, the verification overhead always accounts for less than 12% of the total computational overhead on the server side, indicating that the GVSA scheme is also efficient on the server side. This characteristic allows GVSA to maintain a low
 
-<span id="page-11-0"></span>
 
-|     | Key distribution (ms) | Secret sharing (ms) | Model training and masking (ms) | Aggregation (ms) | Verify (ms) |
+| | Key distribution (ms) | Secret sharing (ms) | Model training and masking (ms) | Aggregation (ms) | Verify (ms) |
 |-----|-----------------------|---------------------|---------------------------------|------------------|-------------|
-| 100 | 40.83                 | 1.54                | 625.19                          | 2.93             | 0.19        |
-| 200 | 41.40                 | 3.19                | 627.33                          | 6.51             | 0.22        |
-| 300 | 42.76                 | 5.38                | 623.13                          | 9.37             | 0.18        |
-| 400 | 43.37                 | 7.27                | 631.65                          | 11.54            | 0.19        |
-| 500 | 45.01                 | 9.13                | 625.82                          | 18.91            | 0.21        |
+| 100 | 40.83 | 1.54 | 625.19 | 2.93 | 0.19 |
+| 200 | 41.40 | 3.19 | 627.33 | 6.51 | 0.22 |
+| 300 | 42.76 | 5.38 | 623.13 | 9.37 | 0.18 |
+| 400 | 43.37 | 7.27 | 631.65 | 11.54 | 0.19 |
+| 500 | 45.01 | 9.13 | 625.82 | 18.91 | 0.21 |
 
 **Table 2**. The computational overhead of GVSA for one training round with varying user numbers.
 
@@ -423,7 +421,7 @@ Additionally, in Fig. [5](#page-12-1), we evaluate and compare the computational
 
 computational load in large-scale federated learning scenarios while ensuring the reliability and security of aggregation results.
 
-#### *User dropout*During training, user dropouts are inevitable due to network fluctuations, hardware failures, and other reasons. Therefore, we evaluated the computational overhead of the GVSA protocol under different user dropout rates (0%, 10%, 20%, 30%). Figure [6](#page-13-0) shows the runtime for each user. According to the experimental findings, individual user runtime is little impacted by the user dropout rate. This is because user dropouts only affect the summing of secret shares, and the dropouts reduce the number of secret shares that need to be aggregated. However, this process incurs minimal computational overhead compared to the total computational overhead of the user. Figure [7](#page-13-1) shows the server's runtime. We discovered that the user dropout rate significantly affects the server's computational overhead. The server's runtime reduces as the rate of user dropout increases. The
+### *User dropout*During training, user dropouts are inevitable due to network fluctuations, hardware failures, and other reasons. Therefore, we evaluated the computational overhead of the GVSA protocol under different user dropout rates (0%, 10%, 20%, 30%). Figure [6](#page-13-0) shows the runtime for each user. According to the experimental findings, individual user runtime is little impacted by the user dropout rate. This is because user dropouts only affect the summing of secret shares, and the dropouts reduce the number of secret shares that need to be aggregated. However, this process incurs minimal computational overhead compared to the total computational overhead of the user. Figure [7](#page-13-1) shows the server's runtime. We discovered that the user dropout rate significantly affects the server's computational overhead. The server's runtime reduces as the rate of user dropout increases. The
 
 <span id="page-13-0"></span>![](_page_13_Figure_1.jpeg)
 <!-- Image Description: The image contains two line graphs (a) and (b) showing running time (in milliseconds) of a system under varying conditions. Graph (a) plots running time against the number of users, while (b) plots running time against the number of gradients per user. Both graphs show results for different dropout percentages (0%, 10%, 20%, 30%), illustrating the impact of dropout on running time as a function of system scale (number of users and gradients). The purpose is to present empirical performance results related to dropout rate and system scalability. -->
@@ -436,22 +434,21 @@ computational load in large-scale federated learning scenarios while ensuring th
 
 server's computational process includes secret reconstruction by the aggregation server, parameter aggregation, and validation tag aggregation, as well as parameter and validation tag aggregation by the central server. It is noteworthy that the secret reconstruction phase is unaffected by user dropouts because this process only requires one secret reconstruction. As the user dropout rate increases, the amount of computation in the parameter aggregation and validation tag aggregation phases for both the aggregation server and the central server decreases significantly. Furthermore, as shown in Fig. [7](#page-13-1), the impact of user dropout rate on server computational overhead becomes more significant as the number of users and gradients increases. Compared to the PPML[27](#page-15-23), EPPD[A30](#page-15-26), and VerS[A36](#page-15-32) schemes, which use dual-mask strategies, these schemes see an increase in server computational overhead as the user dropout rate rises. In contrast, our GVSA protocol shows a clear advantage in handling user dropouts, effectively reducing the server's computational burden.
 
-<span id="page-14-0"></span>
 
-| Function    | Data privacy | Verifiability | Robustness to Dropout | Efficiency |
+| Function | Data privacy | Verifiability | Robustness to Dropout | Efficiency |
 |-------------|--------------|---------------|-----------------------|------------|
-| G-VCFL37    | ✓            | ✓             |                       | ✓          |
-| PPML27      | ✓            |               | ✓                     |            |
-| VerifyNet33 | ✓            | ✓             | ✓                     |            |
-| EPPDA30     | ✓            |               | ✓                     | ✓          |
-| VerSA36     | ✓            | ✓             | ✓                     |            |
-| GVSA        | ✓            | ✓             | ✓                     | ✓          |
+| G-VCFL37 | ✓ | ✓ | | ✓ |
+| PPML27 | ✓ | | ✓ | |
+| VerifyNet33 | ✓ | ✓ | ✓ | |
+| EPPDA30 | ✓ | | ✓ | ✓ |
+| VerSA36 | ✓ | ✓ | ✓ | |
+| GVSA | ✓ | ✓ | ✓ | ✓ |
 
 **Table 3**. Comparison of privacy-preserving schemes features.
 
-#### *Functional comparison*To comprehensively evaluate GVSA's functionality, we compared GVSA with existing works. The results are shown in Table [3](#page-14-0). Specifically, all the schemes in the table can protect user data privacy, and except for G-VCF[L37](#page-15-33), all can resist user dropouts. Compared to PPML[27](#page-15-23) and EPPD[A30](#page-15-26), GVSA improves security by adding a validation process, making it resistant to malicious server attacks. Compared to VerifyNe[t33](#page-15-29) and VerS[A36](#page-15-32), GVSA further reduces computational overhead by employing a more lightweight validation method and a grouping strategy, offering more efficient performance.
+### *Functional comparison*To comprehensively evaluate GVSA's functionality, we compared GVSA with existing works. The results are shown in Table [3](#page-14-0). Specifically, all the schemes in the table can protect user data privacy, and except for G-VCF[L37](#page-15-33), all can resist user dropouts. Compared to PPML[27](#page-15-23) and EPPD[A30](#page-15-26), GVSA improves security by adding a validation process, making it resistant to malicious server attacks. Compared to VerifyNe[t33](#page-15-29) and VerS[A36](#page-15-32), GVSA further reduces computational overhead by employing a more lightweight validation method and a grouping strategy, offering more efficient performance.
 
-#### Discuss and future work
+### Discuss and future work
 
 Although GVSA demonstrates excellent performance and security in experiments, it still faces a series of challenges in practical deployment. First, this paper assumes synchronized updates, but in real-world environments, network latency may lead to asynchronous updates. Asynchronous updates can cause instability in the global model training process, slow down model convergence, or prevent it from converging correctly, possibly resulting in a suboptimal solution. To address this, we plan to introduce an adaptive update mechanism in our future work, where each user dynamically adjusts their update frequency based on their computational and communication state, in order to mitigate the impact of latency on the overall system process.
 
@@ -461,17 +458,16 @@ The current GVSA scheme focuses on the security aggregation logic at the protoco
 
 In addition, the practical deployment of GVSA must also consider regulatory compliance, ethical, and logistical issues. Differences in data privacy regulations across regions may impact the compliance of GVSA, especially in cross-border data flows and audits. Therefore, the system must be adaptable to various regulatory requirements and provide transparent auditing mechanisms. Furthermore, in certain scenarios, there may be issues of model unfairness or bias, so it is crucial to ensure that the model is fair and non-discriminatory for a diverse user base. Lastly, although GVSA accounts for fault tolerance, device resource limitations, failures, and network fluctuations may still affect the system's stability and accuracy. In practical deployment, we will further consider these issues to ensure the wide applicability and long-term stability of GVSA.
 
-#### Conclusion
+### Conclusion
 
 In this article, we proposed the GVSA protocol for secure aggregation in FL. GVSA employs a lightweight validation method to ensure the correctness of aggregation results, effectively preventing malicious server attacks. Additionally, by introducing a secret sharing strategy, GVSA can tolerate user dropouts, making the scheme particularly suitable for mobile application scenarios. Furthermore, GVSA improves the efficiency of FL by using a grouping strategy while ensuring security. However, GVSA still has limitations in large-scale practical deployment, and we will further optimize its efficiency and security in future work.
 
-#### Data availability
+### Data availability
 
 The datasets analysed during the current study are available in the MNIST repository, [http://yann.lecun.com/ex](http://yann.lecun.com/exdb/mnist/) [db/mnist/,](http://yann.lecun.com/exdb/mnist/) CIFAR10 repository, [https://www.cs.toronto.edu/~kriz/cifar.html,](https://www.cs.toronto.edu/%7ekriz/cifar.html) and SVHN repository, [http://ufld](http://ufldl.stanford.edu/housenumbers/) [l.stanford.edu/housenumbers/](http://ufldl.stanford.edu/housenumbers/).
 
-Received: 7 January 2025; Accepted: 13 March 2025
 
-#### References
+### References
 
 - <span id="page-15-0"></span>1. Krizhevsky, A., Sutskever, I. & Hinton, G. E. Imagenet classification with deep convolutional neural networks.*Commun. ACM* **60**, 84–90.<https://doi.org/10.1145/3065386>(2017).
 - <span id="page-15-1"></span>2. Kiran, B. et al. Deep reinforcement learning for autonomous driving: A survey. *IEEE Trans. Intell. Transp. Syst.* **23**, 4909–4926. <https://doi.org/10.1109/TITS.2021.3054625> (2020).
@@ -509,9 +505,9 @@ Received: 7 January 2025; Accepted: 13 March 2025
 - <span id="page-15-30"></span>34. Guo, X. et al. Verifl: Communication-efficient and fast verifiable aggregation for federated learning. *IEEE Trans. Inf. Forensics Secur.* **16**, 1736–1751. <https://doi.org/10.1109/TIFS.2020.3043139>(2020).
 - <span id="page-15-31"></span>35. Zhou, H., Yang, G., Huang, Y., Dai, H. & Xiang, Y. Privacy-preserving and verifiable federated learning framework for edge computing. *IEEE Trans. Inf. Forensics Secur.* **18**, 565–580.<https://doi.org/10.1109/TIFS.2022.3227435> (2022).
 - <span id="page-15-33"></span><span id="page-15-32"></span>36. Hahn, C., Kim, H., Kim, M. & Hur, J. Versa: Verifiable secure aggregation for cross-device federated learning. *IEEE Trans. Dependable Secure Comput.* **20**, 36–52 (2021).
-  - 37. Zhang, Z. et al. G-vcfl: Grouped verifiable chained privacy-preserving federated learning. *IEEE Trans. Netw. Serv. Manag.* **19**, 4219–4231. <https://doi.org/10.1109/TNSM.2022.3196404> (2022).
-  - 38. Shamir, A. How to share a secret. *Commun. ACM* **22**, 612–613. <https://doi.org/10.1145/359168.359176>(1979).
-  - 39. Goldreich, O. Secure multi-party computation. *Manuscr. Prelim. Vers.* **78**, 1–108 (1998).
+- 37. Zhang, Z. et al. G-vcfl: Grouped verifiable chained privacy-preserving federated learning. *IEEE Trans. Netw. Serv. Manag.* **19**, 4219–4231. <https://doi.org/10.1109/TNSM.2022.3196404> (2022).
+- 38. Shamir, A. How to share a secret. *Commun. ACM* **22**, 612–613. <https://doi.org/10.1145/359168.359176>(1979).
+- 39. Goldreich, O. Secure multi-party computation. *Manuscr. Prelim. Vers.* **78**, 1–108 (1998).
 - <span id="page-15-36"></span><span id="page-15-35"></span><span id="page-15-34"></span>40. Diffie, W. & Hellman, M. E. New directions in cryptography. In *Democratizing Cryptography: The Work of Whitfield Diffie and Martin Hellman*365–390 (2022).
 
 - <span id="page-16-0"></span>41. Needham, R. M. & Schroeder, M. D. Using encryption for authentication in large networks of computers.*Commun. ACM* **21**, 993–999 (1978).
@@ -523,25 +519,26 @@ Received: 7 January 2025; Accepted: 13 March 2025
 - 47. Dong, C. A. et al. IEEE/ACM 21st international symposium on cluster. In*Cloud and Internet Computing (CCGrid)*622–624. <https://doi.org/10.1109/CCGrid51090.2021.00074>(2021).
 - <span id="page-16-6"></span>48. Yao, A.*et al.*A novel security framework for edge computing based uav delivery system. In*2021 IEEE 20th International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom)*1031–1038. [https://doi.org/10.1109/TrustCom5337](https://doi.org/10.1109/TrustCom53373.2021.00142) [3.2021.00142](https://doi.org/10.1109/TrustCom53373.2021.00142) (2021).
 
-#### Acknowledgements
+### Acknowledgements
 
 This work is supported by the Henan Province Science Foundation of Young Scholars (No. 242300420678), the National Natural Science Foundation of China (Nos. 62202375 and 62106066).
 
-#### Author contributions
+### Author contributions
 
 S.Z. and K.Y. provided technical support and financial guarantee for the article, L.W. wrote the main manuscript text, L.C. and Y.W. checked the formulas and pictures. All authors reviewed the manuscript.
 
-#### Declarations
+### Declarations
 
-#### Competing interests
+### Competing interests
 
 The authors declare no competing interests.
 
-#### Ethics declarations
+### Ethics declarations
 
 This study does not involve human participants. The term "participants" in this manuscript refers to computational entities (e.g., server and user device) in the federated learning framework.
 
-#### Additional information
+### Additional information
+
 **Correspondence**and requests for materials should be addressed to K.Y.
 **Reprints and permissions information**is available at www.nature.com/reprints.
 **Publisher's note**Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.

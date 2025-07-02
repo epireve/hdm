@@ -24,9 +24,6 @@ keywords:
 - re-enabling
 ---
 
-
-
-
 # En4S: Enabling SLOs in Serverless Storage Systems
 
 [Minghao Xie](https://orcid.org/1234-5678-9012) UC Santa Cruz USA mhxie@ucsc.edu
@@ -44,7 +41,7 @@ We introduce En4S, a high-performance, flash-based storage system designed for d
 ![](_page_0_Picture_8.jpeg)
 <!-- Image Description: The image displays a Creative Commons license logo. Specifically, it shows the CC (Creative Commons) symbol, a person symbol representing attribution, and the letters "BY," signifying a "Attribution" license. This indicates that the work is licensed under a Creative Commons Attribution license, allowing others to share and adapt the work with proper attribution to the original creator. -->
 
-[This work is licensed under a Creative Commons Attribution International](https://creativecommons.org/licenses/by/4.0/)  4.0 License.
+[This work is licensed under a Creative Commons Attribution International](https://creativecommons.org/licenses/by/4.0/) 4.0 License.
 
 SoCC '24, November 20–22, 2024, Redmond, WA, USA © 2024 Copyright held by the owner/author(s).
 
@@ -109,7 +106,7 @@ While these works reduce the cost of ephemeral storage systems, they provide onl
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
 <!-- Image Description: The image presents two line graphs illustrating read latency (p95 tail latency in microseconds) against IOPS (Input/Output Operations Per Second). The left graph shows latency versus 4KiB IOPS, while the right graph depicts latency versus weighted IOPS, including Service Level Objectives (SLOs) at 500µs, 1000µs, and 2000µs. Both graphs use different colors to represent percentiles of read operations (50%, 75%, 90%, 100%). The purpose is to compare read latency performance under varying IOPS loads and different percentile ranges. -->
 
-(a) SSD Performance Profile (b) Calibrated Cost Model Figure 1: EC2 Instance Storage (of i3.xlarge) Performance Analysis: (a) SSD tail latency across different IOPS and read/write ratios; (b) Request cost model for various read/write ratios.
+(a) SSD Performance Profile (b) Calibrated Cost Model **Figure 1:** EC2 Instance Storage (of i3.xlarge) Performance Analysis: (a) SSD tail latency across different IOPS and read/write ratios; (b) Request cost model for various read/write ratios.
 
 optimization over performance guarantees. Its multi-tiered storage approach introduces additional latency and complexity when catering to applications with stringent performance requirements. Jiffy focuses on a single storage medium and effectively utilizes the limited DRAM capacity with its leasebased allocation. However, its reliance on DRAM makes it cost-prohibitive at scale and limits its ability to handle large volumes of data efficiently. Jiffy does not adequately address the need for performance predictability under high tenant concurrency and bursty workloads, which are common in serverless environments. However, it remains constrained by the high cost of DRAM and does not scale effectively, as demonstrated in our evaluation in Fig. [9.](#page-11-0) Moreover, neither Pocket nor Jiffy provides robust mechanisms for enforcing performance SLOs across a diverse set of tenants, leading to unpredictable performance and potential SLO violations.
 
@@ -178,7 +175,7 @@ Cloud applications often exhibit bursty demand patterns, and one of the primary 
 
 (a) Goodput Performance (b) Goodput Timeline
 
-Figure 3: Burst Control Analysis: (a) The aggregated 4KiB goodput performance (75%rd) with increasing burst allowance ratio for LC tenants, running with 100, 500, and 1000 tenants. (b) Goodput performance with 25-ms windows over time, running with one malicious LC tenant LC G0 (50%rd), one benign LC tenant LC G1 (90%rd), and one BE tenant (100%rd).
+**Figure 3:** Burst Control Analysis: (a) The aggregated 4KiB goodput performance (75%rd) with increasing burst allowance ratio for LC tenants, running with 100, 500, and 1000 tenants. (b) Goodput performance with 25-ms windows over time, running with one malicious LC tenant LC G0 (50%rd), one benign LC tenant LC G1 (90%rd), and one BE tenant (100%rd).
 
 Most QoS schedulers adopt work-conserving techniques to maintain high utilization levels. For example, ReFlex sets a fixed burst allowance limit for every tenant, which is defined as the number of tokens a tenant can temporarily exceed above its rate limit, in proportion to their IOPS requirements. For 100, 500, and 1000 unique SLOs, we vary the burst allowance settings from 5% to 50% in the improved version of ReFlex.
 
@@ -197,7 +194,7 @@ SoCC '24, November 20–22, 2024, Redmond, WA, USA Minghao Xie, Chen Qian, and H
 
 (a) Latency Performance (b) Submission Timeline
 
-Figure 4: LC Ratio Impact: (a) GET tail latency (75%rd) performance under increasing the LC ratio among 400 tenants with the same load breakdown for LC tenants (50K) and BE tenants (150K). (b) The number of requests scheduled for LC or BE tenants (count for BE shown as negative value) in the sliding 512-schedule windows over time at 75% LC ratio.
+**Figure 4:** LC Ratio Impact: (a) GET tail latency (75%rd) performance under increasing the LC ratio among 400 tenants with the same load breakdown for LC tenants (50K) and BE tenants (150K). (b) The number of requests scheduled for LC or BE tenants (count for BE shown as negative value) in the sliding 512-schedule windows over time at 75% LC ratio.
 
 ## <span id="page-5-1"></span>3.3 Service Differentiation Failures at Scale
 
@@ -234,7 +231,7 @@ Figure [5](#page-6-0) presents the design of the En4S scheduler: In the dynamic 
 <span id="page-6-0"></span>![](_page_6_Figure_2.jpeg)
 <!-- Image Description: This diagram illustrates a resource management system. It shows a request pool feeding into active and inactive tenant queues. Requests are dequeued and processed via a token reclaim control and adaptive burst control mechanism. A control queue (CQ) and a service queue (SQ) manage request flow, represented visually by colored blocks indicating request sizes, to a TX (transmitter). The diagram details the system's dynamic tenant handling, request processing, and queuing strategies. -->
 
-Figure 5: En4S Scheduler Design
+**Figure 5:** En4S Scheduler Design
 
 resource allocation by reclaiming unused tokens at appropriate intervals. This process helps distinguish between LC and BE tenants, allowing LC tenants to receive prioritized access to the system resources while maintaining overall efficiency.
 
@@ -258,42 +255,42 @@ shared memory pool similar to the request pool. We maintain a per-core tenant ma
 
 ## <span id="page-7-0"></span>Algorithm 1 Scheduling Algorithm
 
-| 1:  | function Schedule                                    |
+| 1: | function Schedule |
 |-----|------------------------------------------------------|
-| 2:  | for 𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>in<br>𝑎𝑐𝑡𝑖𝑣𝑒_𝑙𝑐_𝑡𝑒𝑛𝑎𝑛𝑡𝑠<br>do         |
-| 3:  | while 𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>.𝑛𝑜𝑡_𝑒𝑚𝑝𝑡𝑦()<br>do                  |
-| 4:  | if 𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠𝑠𝑠𝑑<br>𝑙𝑐_𝑡ℎ𝑟𝑒𝑠ℎ𝑜𝑙𝑑_𝑚𝑎𝑥<br>≥<br>then      |
-| 5:  | return                                               |
-| 6:  | 𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>.𝑐𝑟𝑒𝑑𝑖𝑡<br>+=                             |
-| 7:  | 𝑔𝑒𝑡_𝑐𝑟𝑒𝑑𝑖𝑡(𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>.𝑆𝐿𝑂, 𝑡𝑖𝑚𝑒Δ)                   |
-| 8:  | 𝑎𝑙𝑙𝑜𝑤𝑒𝑑_𝑏𝑢𝑟𝑠𝑡<br>= 𝑎𝑐𝑞𝑢𝑖𝑟𝑒_𝑏𝑢𝑟𝑠𝑡(𝑡𝑒𝑛𝑎𝑛𝑡𝑖)            |
-| 9:  | −𝑎𝑙𝑙𝑜𝑤𝑒𝑑_𝑏𝑢𝑟𝑠𝑡<br>if 𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>.𝑐𝑟𝑒𝑑𝑖𝑡<br><<br>then |
-| 10: | 𝑎𝑐𝑡𝑖𝑣𝑒_𝑙𝑐_𝑡𝑒𝑛𝑎𝑛𝑡𝑠.𝑟𝑒𝑞𝑢𝑒𝑢𝑒<br>(𝑡𝑒𝑛𝑎𝑛𝑡𝑖)               |
-| 11: | break                                                |
-| 12: | 𝑠𝑢𝑏𝑚𝑖𝑡(𝑟𝑒𝑞_𝑝𝑜𝑜𝑙.𝑝𝑜𝑝_𝑓 𝑟𝑜𝑛𝑡(𝑡𝑒𝑛𝑎𝑛𝑡𝑖))                 |
-| 13: | 𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>.𝑐𝑟𝑒𝑑𝑖𝑡<br>𝑐𝑜𝑠𝑡(𝑛𝑒𝑥𝑡_𝑟𝑒𝑞𝑢𝑒𝑠𝑡)<br>−=       |
-| 14: | 𝑎𝑐𝑡𝑖𝑣𝑒_𝑙𝑐_𝑡𝑒𝑛𝑎𝑛𝑡𝑠.𝑑𝑒𝑞𝑢𝑒𝑢𝑒<br>(𝑡𝑒𝑛𝑎𝑛𝑡𝑖)               |
-| 15: | if 𝑐𝑢𝑟𝑟_𝑡𝑖𝑚𝑒<br>><br>𝑟𝑒𝑐𝑙𝑎𝑖𝑚_𝑡𝑖𝑚𝑒<br>then            |
-| 16: | 𝑟𝑒𝑐𝑙𝑎𝑖𝑚_𝑡𝑜𝑘𝑒𝑛𝑠(𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>, 𝐿𝐶𝑑)                     |
-| 17: | for 𝑡𝑒𝑛𝑎𝑛𝑡𝑗<br>in<br>𝑎𝑐𝑡𝑖𝑣𝑒_𝑏𝑒_𝑡𝑒𝑛𝑎𝑛𝑡𝑠<br>do         |
-| 18: | 𝑡𝑒𝑛𝑎𝑛𝑡𝑗<br>.𝑐𝑟𝑒𝑑𝑖𝑡<br>+=                             |
-| 19: | 𝑔𝑒𝑡_𝑐𝑟𝑒𝑑𝑖𝑡(𝑛𝑢𝑚_𝑏𝑒_𝑡𝑒𝑛𝑎𝑛𝑡𝑠, 𝑡𝑖𝑚𝑒Δ)                    |
-| 20: | 𝑏𝑒_𝑡𝑜𝑘𝑒𝑛𝑠<br>= 𝑡𝑒𝑛𝑎𝑛𝑡𝑗<br>.𝑐𝑟𝑒𝑑𝑖𝑡                    |
-| 21: | 𝑏𝑒_𝑡𝑜𝑘𝑒𝑛𝑠<br>𝑔𝑙𝑜𝑏𝑎𝑙_𝑡𝑜𝑘𝑒𝑛𝑠_𝑑𝑒𝑐(𝑑𝑒𝑚𝑎𝑛𝑑𝑗)<br>+=        |
-| 22: | .𝑛𝑜𝑡_𝑒𝑚𝑝𝑡𝑦()<br>while 𝑡𝑒𝑛𝑎𝑛𝑡𝑗<br>do                  |
-| 23: | if 𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠𝑠𝑠𝑑<br>𝑏𝑒_𝑡ℎ𝑟𝑒𝑠ℎ𝑜𝑙𝑑_𝑚𝑎𝑥<br>≥<br>then      |
-| 24: | return                                               |
-| 25: | if 𝑏𝑒_𝑡𝑜𝑘𝑒𝑛𝑠<br>><br>𝑐𝑜𝑠𝑡(𝑛𝑒𝑥𝑡_𝑟𝑒𝑞𝑢𝑒𝑠𝑡)<br>then      |
-| 26: | 𝑠𝑢𝑏𝑚𝑖𝑡(𝑟𝑒𝑞_𝑝𝑜𝑜𝑙.𝑝𝑜𝑝_𝑓 𝑟𝑜𝑛𝑡(𝑡𝑒𝑛𝑎𝑛𝑡𝑗))                 |
-| 27: | 𝑏𝑒_𝑡𝑜𝑘𝑒𝑛𝑠<br>𝑐𝑜𝑠𝑡(𝑛𝑒𝑥𝑡_𝑟𝑒𝑞𝑢𝑒𝑠𝑡)<br>−=                |
-| 28: | else                                                 |
-| 29: | 𝑎𝑐𝑡𝑖𝑣𝑒_𝑏𝑒_𝑡𝑒𝑛𝑎𝑛𝑡𝑠.𝑟𝑒𝑞𝑢𝑒𝑢𝑒<br>(𝑡𝑒𝑛𝑎𝑛𝑡𝑗)               |
-| 30: | break                                                |
-| 31: | 𝑎𝑐𝑡𝑖𝑣𝑒_𝑏𝑒_𝑡𝑒𝑛𝑎𝑛𝑡𝑠.𝑑𝑒𝑞𝑢𝑒𝑢𝑒<br>(𝑡𝑒𝑛𝑎𝑛𝑡𝑗)               |
-| 32: | 𝑡𝑒𝑛𝑎𝑛𝑡𝑗<br>.𝑐𝑟𝑒𝑑𝑖𝑡<br>=                              |
-| 33: | 𝑠𝑎𝑣𝑒_𝑐𝑟𝑒𝑑𝑖𝑡(𝑑𝑒𝑚𝑎𝑛𝑑𝑗<br>, 𝑏𝑒_𝑡𝑜𝑘𝑒𝑛𝑠)                  |
-| 34: | 𝑏𝑒_𝑡𝑜𝑘𝑒𝑛𝑠<br>𝑡𝑒𝑛𝑎𝑛𝑡𝑗<br>.𝑐𝑟𝑒𝑑𝑖𝑡<br>−=                |
-| 35: | 𝑟𝑒𝑐𝑙𝑎𝑖𝑚_𝑡𝑜𝑘𝑒𝑛𝑠(𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>, 𝐵𝐸)                      |
+| 2: | for 𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>in<br>𝑎𝑐𝑡𝑖𝑣𝑒_𝑙𝑐_𝑡𝑒𝑛𝑎𝑛𝑡𝑠<br>do |
+| 3: | while 𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>.𝑛𝑜𝑡_𝑒𝑚𝑝𝑡𝑦()<br>do |
+| 4: | if 𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠𝑠𝑠𝑑<br>𝑙𝑐_𝑡ℎ𝑟𝑒𝑠ℎ𝑜𝑙𝑑_𝑚𝑎𝑥<br>≥<br>then |
+| 5: | return |
+| 6: | 𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>.𝑐𝑟𝑒𝑑𝑖𝑡<br>+= |
+| 7: | 𝑔𝑒𝑡_𝑐𝑟𝑒𝑑𝑖𝑡(𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>.𝑆𝐿𝑂, 𝑡𝑖𝑚𝑒Δ) |
+| 8: | 𝑎𝑙𝑙𝑜𝑤𝑒𝑑_𝑏𝑢𝑟𝑠𝑡<br>= 𝑎𝑐𝑞𝑢𝑖𝑟𝑒_𝑏𝑢𝑟𝑠𝑡(𝑡𝑒𝑛𝑎𝑛𝑡𝑖) |
+| 9: | −𝑎𝑙𝑙𝑜𝑤𝑒𝑑_𝑏𝑢𝑟𝑠𝑡<br>if 𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>.𝑐𝑟𝑒𝑑𝑖𝑡<br><<br>then |
+| 10: | 𝑎𝑐𝑡𝑖𝑣𝑒_𝑙𝑐_𝑡𝑒𝑛𝑎𝑛𝑡𝑠.𝑟𝑒𝑞𝑢𝑒𝑢𝑒<br>(𝑡𝑒𝑛𝑎𝑛𝑡𝑖) |
+| 11: | break |
+| 12: | 𝑠𝑢𝑏𝑚𝑖𝑡(𝑟𝑒𝑞_𝑝𝑜𝑜𝑙.𝑝𝑜𝑝_𝑓 𝑟𝑜𝑛𝑡(𝑡𝑒𝑛𝑎𝑛𝑡𝑖)) |
+| 13: | 𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>.𝑐𝑟𝑒𝑑𝑖𝑡<br>𝑐𝑜𝑠𝑡(𝑛𝑒𝑥𝑡_𝑟𝑒𝑞𝑢𝑒𝑠𝑡)<br>−= |
+| 14: | 𝑎𝑐𝑡𝑖𝑣𝑒_𝑙𝑐_𝑡𝑒𝑛𝑎𝑛𝑡𝑠.𝑑𝑒𝑞𝑢𝑒𝑢𝑒<br>(𝑡𝑒𝑛𝑎𝑛𝑡𝑖) |
+| 15: | if 𝑐𝑢𝑟𝑟_𝑡𝑖𝑚𝑒<br>><br>𝑟𝑒𝑐𝑙𝑎𝑖𝑚_𝑡𝑖𝑚𝑒<br>then |
+| 16: | 𝑟𝑒𝑐𝑙𝑎𝑖𝑚_𝑡𝑜𝑘𝑒𝑛𝑠(𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>, 𝐿𝐶𝑑) |
+| 17: | for 𝑡𝑒𝑛𝑎𝑛𝑡𝑗<br>in<br>𝑎𝑐𝑡𝑖𝑣𝑒_𝑏𝑒_𝑡𝑒𝑛𝑎𝑛𝑡𝑠<br>do |
+| 18: | 𝑡𝑒𝑛𝑎𝑛𝑡𝑗<br>.𝑐𝑟𝑒𝑑𝑖𝑡<br>+= |
+| 19: | 𝑔𝑒𝑡_𝑐𝑟𝑒𝑑𝑖𝑡(𝑛𝑢𝑚_𝑏𝑒_𝑡𝑒𝑛𝑎𝑛𝑡𝑠, 𝑡𝑖𝑚𝑒Δ) |
+| 20: | 𝑏𝑒_𝑡𝑜𝑘𝑒𝑛𝑠<br>= 𝑡𝑒𝑛𝑎𝑛𝑡𝑗<br>.𝑐𝑟𝑒𝑑𝑖𝑡 |
+| 21: | 𝑏𝑒_𝑡𝑜𝑘𝑒𝑛𝑠<br>𝑔𝑙𝑜𝑏𝑎𝑙_𝑡𝑜𝑘𝑒𝑛𝑠_𝑑𝑒𝑐(𝑑𝑒𝑚𝑎𝑛𝑑𝑗)<br>+= |
+| 22: | .𝑛𝑜𝑡_𝑒𝑚𝑝𝑡𝑦()<br>while 𝑡𝑒𝑛𝑎𝑛𝑡𝑗<br>do |
+| 23: | if 𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠𝑠𝑠𝑑<br>𝑏𝑒_𝑡ℎ𝑟𝑒𝑠ℎ𝑜𝑙𝑑_𝑚𝑎𝑥<br>≥<br>then |
+| 24: | return |
+| 25: | if 𝑏𝑒_𝑡𝑜𝑘𝑒𝑛𝑠<br>><br>𝑐𝑜𝑠𝑡(𝑛𝑒𝑥𝑡_𝑟𝑒𝑞𝑢𝑒𝑠𝑡)<br>then |
+| 26: | 𝑠𝑢𝑏𝑚𝑖𝑡(𝑟𝑒𝑞_𝑝𝑜𝑜𝑙.𝑝𝑜𝑝_𝑓 𝑟𝑜𝑛𝑡(𝑡𝑒𝑛𝑎𝑛𝑡𝑗)) |
+| 27: | 𝑏𝑒_𝑡𝑜𝑘𝑒𝑛𝑠<br>𝑐𝑜𝑠𝑡(𝑛𝑒𝑥𝑡_𝑟𝑒𝑞𝑢𝑒𝑠𝑡)<br>−= |
+| 28: | else |
+| 29: | 𝑎𝑐𝑡𝑖𝑣𝑒_𝑏𝑒_𝑡𝑒𝑛𝑎𝑛𝑡𝑠.𝑟𝑒𝑞𝑢𝑒𝑢𝑒<br>(𝑡𝑒𝑛𝑎𝑛𝑡𝑗) |
+| 30: | break |
+| 31: | 𝑎𝑐𝑡𝑖𝑣𝑒_𝑏𝑒_𝑡𝑒𝑛𝑎𝑛𝑡𝑠.𝑑𝑒𝑞𝑢𝑒𝑢𝑒<br>(𝑡𝑒𝑛𝑎𝑛𝑡𝑗) |
+| 32: | 𝑡𝑒𝑛𝑎𝑛𝑡𝑗<br>.𝑐𝑟𝑒𝑑𝑖𝑡<br>= |
+| 33: | 𝑠𝑎𝑣𝑒_𝑐𝑟𝑒𝑑𝑖𝑡(𝑑𝑒𝑚𝑎𝑛𝑑𝑗<br>, 𝑏𝑒_𝑡𝑜𝑘𝑒𝑛𝑠) |
+| 34: | 𝑏𝑒_𝑡𝑜𝑘𝑒𝑛𝑠<br>𝑡𝑒𝑛𝑎𝑛𝑡𝑗<br>.𝑐𝑟𝑒𝑑𝑖𝑡<br>−= |
+| 35: | 𝑟𝑒𝑐𝑙𝑎𝑖𝑚_𝑡𝑜𝑘𝑒𝑛𝑠(𝑡𝑒𝑛𝑎𝑛𝑡𝑖<br>, 𝐵𝐸) |
 
 critical. This helps release processing pressure when the CPU is busy while not blocking newly joined tenants for too long.
 
@@ -315,16 +312,15 @@ In our analysis of SLO enforcement challenges (Section [3.3\)](#page-5-1), we id
 
 The original idea was to share unused portions of registered IOPS for LC tenants with BE tenants. This technique to tolerate bursty workloads inevitably leaks extra tokens to BE tenants when some LC tenants are not active. When they
 
-<span id="page-8-2"></span>
 
-| Client APIs                           | Descriptions                                                                                                                                                                       |  |  |  |
+| Client APIs | Descriptions | | | |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|
-| __init__(controller, context)         | Initiates or loads a context with EMD, returning a handler.                                                                                                                        |  |  |  |
-| allocate / free(handler, job_ctx)     | Explicitly allocates or frees a job with capacity, with job-level SLO hints.<br>allocates storage resources, must called for each new job.                                         |  |  |  |
-| __enter__(handler, flow_hints)        | Handler optionally registers or updates a flow with latency/IOPS/(rw_ratio) SLO.<br>The controller will verify job limits and then return the connection to storage nodes.         |  |  |  |
-| __exit__(handler)                     | Handler closes connections to nodes and deregisters the flow for the connection in<br>that job. Flushes all the EMD for all shared mutable objects to the store in the controller. |  |  |  |
-| put / get / update(handler, id, data) | Puts, gets, or updates an object to assigned nodes, returning an object future.                                                                                                    |  |  |  |
-| invoke(handler, func_to_contexts)     | Invokes stateful functions with encoded contexts and EMD in the payload.                                                                                                           |  |  |  |
+| __init__(controller, context) | Initiates or loads a context with EMD, returning a handler. | | | |
+| allocate / free(handler, job_ctx) | Explicitly allocates or frees a job with capacity, with job-level SLO hints.<br>allocates storage resources, must called for each new job. | | | |
+| __enter__(handler, flow_hints) | Handler optionally registers or updates a flow with latency/IOPS/(rw_ratio) SLO.<br>The controller will verify job limits and then return the connection to storage nodes. | | | |
+| __exit__(handler) | Handler closes connections to nodes and deregisters the flow for the connection in<br>that job. Flushes all the EMD for all shared mutable objects to the store in the controller. | | | |
+| put / get / update(handler, id, data) | Puts, gets, or updates an object to assigned nodes, returning an object future. | | | |
+| invoke(handler, func_to_contexts) | Invokes stateful functions with encoded contexts and EMD in the payload. | | | |
 
 ### Table 1: Available APIs in En4S Client Library
 
@@ -392,18 +388,17 @@ $$
 
 As shown in Fig. [1,](#page-2-0) we calibrate the model for the NVMe SSD on AWS i3.xlarge storage nodes to calculate the token
 
-<span id="page-10-2"></span>
 
-| Server      | EC2      | Cap   | 4K Thpt | Cost (\$) / IO     |
+| Server | EC2 | Cap | 4K Thpt | Cost (\$) / IO |
 |-------------|----------|-------|---------|--------------------|
-| Function    | Instance | (TB)  | (KIOPS) | at Full speed      |
-| En4S        | i3.l     | 0.475 | 100     | 10−10<br>4.33<br>× |
-| Storage     | i3.x     | 0.95  | 200     | 10−10<br>4.33<br>× |
-| Candidates  | i3.2xl   | 1.90  | 236     | 10−10<br>7.34<br>× |
-| Controller3 | m5.2x    | 0     | 200*16  | 10−11<br>1.67<br>× |
-| Jiffy       | m5.16xl  | .256  | 600     | 10−9<br>1.42<br>×  |
+| Function | Instance | (TB) | (KIOPS) | at Full speed |
+| En4S | i3.l | 0.475 | 100 | 10−10<br>4.33<br>× |
+| Storage | i3.x | 0.95 | 200 | 10−10<br>4.33<br>× |
+| Candidates | i3.2xl | 1.90 | 236 | 10−10<br>7.34<br>× |
+| Controller3 | m5.2x | 0 | 200*16 | 10−11<br>1.67<br>× |
+| Jiffy | m5.16xl | .256 | 600 | 10−9<br>1.42<br>× |
 
-Table 2: Different AWS EC2 instances used for Jiffy and En4S clusters in US-West region
+**Table 2:** Different AWS EC2 instances used for Jiffy and En4S clusters in US-West region
 
 weight for SET and GET operations. With lower than 90%, the value for is 7 tokens for the SSDs. This means each SET operation is approximately 7 times as expensive as a GET operation. With lower than 75%, the weight increases to 8 tokens, and it further increases to 10 tokens if is below 50%. The can be calculated with the tenant-provided ratio hint. We can also maintain a sliding window to use the past read ratio to approximately estimate the cost of the future requests.
 
@@ -424,12 +419,12 @@ Since the storage stack can achieve millions of IOPS with a single core [\[59\]]
 <span id="page-10-0"></span>![](_page_10_Figure_13.jpeg)
 <!-- Image Description: The image contains two line graphs showing tail latency (in microseconds) versus requested KIOPS (thousands of input/output operations per second) for 4KiB and 1KiB GET requests. Each graph displays 10th, 50th, and 95th percentile latencies. The 4KiB graph shows a relatively stable latency until a sharp increase near 250 KIOPS. The 1KiB graph exhibits stable latency until a similar but more pronounced increase around 950 KIOPS. The graphs illustrate the impact of request size and KIOPS on latency. -->
 
-Figure 7: Single-Core Tail Latency Analysis on i3.xlarge with 100% GET : (a) 4KiB requests (left), (b) 1KiB requests (right).
+**Figure 7:** Single-Core Tail Latency Analysis on i3.xlarge with 100% GET : (a) 4KiB requests (left), (b) 1KiB requests (right).
 
 <span id="page-10-3"></span>![](_page_10_Figure_15.jpeg)
 <!-- Image Description: The image contains three line graphs comparing the average wait time of two systems, ReFlex and En4S, under varying conditions. Each graph represents a different load capacity (LC) ratio (25%, 50%, 75%). The x-axis shows the number of service level objectives (SLOs), and the y-axis displays the average wait time on a logarithmic scale. Different colored markers and shaded areas represent different batch sizes (4, 16, 64), showing the effect of batch processing on wait time for each system across varying SLOs and LC ratios. The purpose is to illustrate the performance comparison of ReFlex and En4S under diverse workload conditions. -->
 
-Figure 8: Scheduler Efficiency Analysis: total request wait time by increasing number of unique SLOs varying LC ratio at 25%, 50%, and 75% and varying batch size at 4, 16, and 64.
+**Figure 8:** Scheduler Efficiency Analysis: total request wait time by increasing number of unique SLOs varying LC ratio at 25%, 50%, and 75% and varying batch size at 4, 16, and 64.
 
 network bandwidth limitations present in larger nodes like the i3.2xlarge, while minimizing cost per IO at full speed (see Table [2\)](#page-10-2). This choice ensures flexibility in resource allocation with the lowest proportional cost. We provisioned a VPC in the same region to minimize network latency between servers and clients.
 
@@ -444,7 +439,7 @@ SoCC '24, November 20–22, 2024, Redmond, WA, USA Minghao Xie, Chen Qian, and H
 <span id="page-11-0"></span>![](_page_11_Figure_2.jpeg)
 <!-- Image Description: The image presents four grouped bar charts comparing the network "goodput" (in Mbps) of four different systems (Jiffy, Raw, ReFlex, En4S) under varying numbers of tenants and service level objectives (SLOs). Each bar within a group represents a different SLO (<0.5ms, <1.0ms, <2.0ms) or the absence of an SLO. The charts illustrate how goodput changes with increasing numbers of tenants (20, 100, 500, 1000) for each system and SLO configuration. The purpose is to demonstrate the performance scaling characteristics of the systems under different SLO constraints. -->
 
-Figure 9: Goodput Performance Analysis Across Tenant Scales: This Figure illustrates the goodput performance for configurations of 20, 100, and 1000 tenants, focusing on the achievable goodput under latency thresholds of 0.5ms, 1ms, and 2ms, alongside scenarios without SLO requirements. Comparative performance evaluation of ReFlex and En4S schedulers on i3.xlarge instances and En4S is presented, with additional benchmark results for Jiffy, utilizing its native stack and APIs.
+**Figure 9:** Goodput Performance Analysis Across Tenant Scales: This Figure illustrates the goodput performance for configurations of 20, 100, and 1000 tenants, focusing on the achievable goodput under latency thresholds of 0.5ms, 1ms, and 2ms, alongside scenarios without SLO requirements. Comparative performance evaluation of ReFlex and En4S schedulers on i3.xlarge instances and En4S is presented, with additional benchmark results for Jiffy, utilizing its native stack and APIs.
 
 ETL Pipeline: This classic serverless application involves Extract, Transform, and Load (ETL) operations, where diverse computational tasks occur between IO accesses. To standardize our evaluation, we omit computation between IO operations due to the variability of such tasks (latencywise). In our experiments, each invocation is configured with 8 pipelines, each containing four stages, and we run 16 parallel invocations.
 
@@ -465,7 +460,7 @@ En4S: Enabling SLOs in Serverless Storage Systems SoCC '24, November 20–22, 20
 <span id="page-12-0"></span>![](_page_12_Figure_1.jpeg)
 <!-- Image Description: The figure displays two grouped bar charts comparing the throughput and goodput of three scheduling algorithms: En4S, ReFlex, and FCFS. The left chart shows performance across different tenant groups (LC G0, LC G1, BE G0, BE G1), each with 250 service level objectives (SLOs). The right chart presents an aggregated comparison of the three algorithms. The y-axis represents IOPS percentage. The charts illustrate the relative performance of each algorithm under various conditions, showing throughput and goodput for each. -->
 
-Figure 10: SLO Enforcement Benchmark for 1000 Tenants: categorized into four groups based on their SLO criticality and average read ratio, LC Tenant Group 1 (LC G0) at 100%, LC Tenant Group 1 (LC G1) at 80%, BE Tenant Group 0 (BE G0) at 95%, and BE Tenant (BE G1) at 25%. The analysis juxtaposes the performance of En4S, ReFlex, and FCFS schedulers in terms of achieved throughput and goodput as a percentage of maximum capacity. The left subplot illustrates individual scheduler performance, while the right subplot aggregates throughput and goodput metrics across all schedulers.
+**Figure 10:** SLO Enforcement Benchmark for 1000 Tenants: categorized into four groups based on their SLO criticality and average read ratio, LC Tenant Group 1 (LC G0) at 100%, LC Tenant Group 1 (LC G1) at 80%, BE Tenant Group 0 (BE G0) at 95%, and BE Tenant (BE G1) at 25%. The analysis juxtaposes the performance of En4S, ReFlex, and FCFS schedulers in terms of achieved throughput and goodput as a percentage of maximum capacity. The left subplot illustrates individual scheduler performance, while the right subplot aggregates throughput and goodput metrics across all schedulers.
 
 and the actual process time (based on the schedulers' decisions). This penalty, the extra queuing delay, represents the cost of enforcing per-tenant SLOs and differentiating service to tenants.
 
@@ -480,7 +475,7 @@ LC Ratio Impact. An increased number of latency-critical tenants degrades all sc
 <span id="page-12-1"></span>![](_page_12_Figure_9.jpeg)
 <!-- Image Description: The image contains two time-series line graphs showing IOPS (Input/Output Operations Per Second) and goodput. The left graph displays fluctuating IOPS for LC G0 (blue), LC G1 (orange), and BE (green) over time, with horizontal dashed lines indicating thresholds. The right graph shows the goodput of the same components, exhibiting a step-like pattern for LC G0, reflecting periods of high and low activity. Both graphs illustrate performance characteristics, likely to evaluate system behavior or a specific algorithm's response under different conditions. -->
 
-(a) Aggressive Control (3‰) (b) Conservative Control (3%) Figure 11: En4S with burst control Enabled, goodput performance with 25-ms windows over time, running with one malicious LC tenant LC G0 (75%rd), one benign LC tenant LC G1 (90%rd), and one BE tenant group (100%rd). (a) and (b) showcases IOPS and goodput performance with different burst control sensitivity
+(a) Aggressive Control (3‰) (b) Conservative Control (3%) **Figure 11:** En4S with burst control Enabled, goodput performance with 25-ms windows over time, running with one malicious LC tenant LC G0 (75%rd), one benign LC tenant LC G1 (90%rd), and one BE tenant group (100%rd). (a) and (b) showcases IOPS and goodput performance with different burst control sensitivity
 
 These observations indicate that our scheduler not only handles a higher volume of requests more efficiently but also adapts better to varying conditions such as different batch sizes and LC ratios. The results demonstrate the robustness and flexibility of our scheduling mechanism in diverse operational scenarios.
 
@@ -497,7 +492,7 @@ ReFlex also experiences performance degradation due to the scheduling overheads 
 <span id="page-13-0"></span>![](_page_13_Figure_2.jpeg)
 <!-- Image Description: The image presents a performance comparison of three storage systems (FCFS, ReFlex, En4S) across varying load conditions (LC Ratio: 20%, 40%, 60%, 80%). Each panel shows two bar graphs: one for KIOPS (thousands of input/output operations per second), representing throughput, and another for read P95 latency (milliseconds), representing response time. Horizontal dashed lines indicate service level objectives (SLOs) for different groups (G0-G4). The purpose is to illustrate the impact of load on performance and the relative strengths of each storage system under varying conditions. -->
 
-Figure 12: IOPS and Tail Latency Enforcement Results with different LC Ratios, LC tenants and BE tenants are requesting 50K and 150K 75% Random 4KiB IOPS combined respectively. Each group is consist of 50 unique tenants
+**Figure 12:** IOPS and Tail Latency Enforcement Results with different LC Ratios, LC tenants and BE tenants are requesting 50K and 150K 75% Random 4KiB IOPS combined respectively. Each group is consist of 50 unique tenants
 
 while the BE groups generate 30K and 15K IOPS respectively. Read ratios vary across groups: 100% for LC G0, 80% for LC G1, 95% for BE G0, and 25% for BE G1.
 
@@ -515,7 +510,6 @@ Figure [11](#page-12-1) illustrates that with aggressive burst control, LC G0 al
 
 In contrast, En4S ensured consistent performance predictability across all four scenarios, with approximately saturated performance at our profiled maximum IOPS of 72K for 75% read operations. This is attributed to En4S's reclaim control, which successfully protects temporarily unused LC tokens from leaking to BE requests. At an LC ratio of 80%, LC tenants G2 and G3, which have smaller flow sizes, are sacrificed due to token leaks as they are less frequently activated because of their lower IOPS.
 
-<span id="page-14-1"></span>
 
 ![](_page_14_Figure_2.jpeg)
 <!-- Image Description: The figure presents a comparative analysis of three serverless platforms (S3, Jiffy, En4S) across three workload types (ETL pipelines, serverless stream processing, ML analytics). Subfigures (a), (b), and (c) show bar charts illustrating cumulative IO latency, latency predictability (max-to-min ratio), and normalized worst-case cost, respectively. Each bar chart compares performance metrics across the three platforms for each workload type. Subfigure (c) further breaks down cost into Lambda, network, and storage components for each platform. The purpose is to quantitatively compare the platforms' performance, predictability, and cost-effectiveness for various workloads. -->

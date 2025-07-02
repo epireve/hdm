@@ -37,7 +37,7 @@ Wei Wei1,e
 
 1 Information Center of Guizhou Power Grid Co., Ltd Guiyang, Guizhou, 550000, China <sup>e</sup>e-mail: 47765382@qq.com
 
-*Abstract***—This thesis presents an innovative method for automated monitoring of enterprise microservices networks using a database knowledge graph, addressing the challenges of traditional monitoring systems that often fail to effectively manage the complex dynamics of microservices architectures. By integrating advanced Natural Language Processing (NLP) and Long Short-Term Memory (LSTM) networks, this method processes vast amounts of real-time and historical data to proactively predict system failures and optimize resource allocation. The key innovation lies in the application of a knowledge graph that enhances predictive maintenance capabilities and facilitates performance optimization through intelligent data analysis and pattern recognition. This approach not only improves operational efficiency but also reduces downtime, thereby significantly enhancing network management in enterprise environments. Our research confirms that knowledge graphs can provide a scalable and dynamic solution to adapt to diverse enterprise requirements.** 979-8-3503-6614-3/24/\$31.00 ©2024 IEEE 567 2024 6th International Conference on Electronics and Communication, Network and Computer Technology (ECNCT) | 979-8-3503-6614-3/24/\$31.00 ©2024 IEEE | DOI: 10.1109/ECNCT63103.2024.10704355
+**Abstract:** **—This thesis presents an innovative method for automated monitoring of enterprise microservices networks using a database knowledge graph, addressing the challenges of traditional monitoring systems that often fail to effectively manage the complex dynamics of microservices architectures. By integrating advanced Natural Language Processing (NLP) and Long Short-Term Memory (LSTM) networks, this method processes vast amounts of real-time and historical data to proactively predict system failures and optimize resource allocation. The key innovation lies in the application of a knowledge graph that enhances predictive maintenance capabilities and facilitates performance optimization through intelligent data analysis and pattern recognition. This approach not only improves operational efficiency but also reduces downtime, thereby significantly enhancing network management in enterprise environments. Our research confirms that knowledge graphs can provide a scalable and dynamic solution to adapt to diverse enterprise requirements.** 979-8-3503-6614-3/24/\$31.00 ©2024 IEEE 567 2024 6th International Conference on Electronics and Communication, Network and Computer Technology (ECNCT) | 979-8-3503-6614-3/24/\$31.00 ©2024 IEEE | DOI: 10.1109/ECNCT63103.2024.10704355
 
 *Keywords- Knowledge Graph, Microservices Monitoring, Predictive Maintenance, Network Operations Management*
 
@@ -55,7 +55,7 @@ Scholars like Newman [6] have discussed the architectural complexities and the i
 
 In response to these challenges, this research proposes a novel approach to enhance the operational monitoring and management of microservices networks through the integration of a database knowledge graph. By utilizing data processing techniques, including Natural Language Processing (NLP) and Bidirectional Encoder Representations from Transformers (BERT), our method not only processes vast amounts of operational data in real-time but also proactively predicts potential failures and optimizes resource allocation. This innovative approach aims to address the shortcomings identified in existing methodologies by providing a dynamic, scalable, and highly adaptive monitoring solution, thereby improving system reliability and operational efficiency. This paper will elaborate on the theoretical foundation, implementation process, and the potential broad applications of knowledge graphs in microservices network operations.
 
-# II. FUNDAMENTALS OF MICROSERVICES ARCHITECTURE AND KNOWLEDGE GRAPHS
+## II. FUNDAMENTALS OF MICROSERVICES ARCHITECTURE AND KNOWLEDGE GRAPHS
 
 ## *A. Architecture Design*
 
@@ -76,7 +76,7 @@ Due to the inherently distributed nature of microservices, each service typicall
 (2) Command Query Responsibility Separation (CQRS): CQRS distinctively separates write operations (commands) from read operations (queries), which permits the independent scaling of each operation type. This separation enhances system performance by allowing read-intensive operations to leverage different scaling strategies from write-intensive operations. Consequently, this architecture significantly improves system responsiveness and processing capabilities by tailoring resource allocation to the distinct needs of read and write workloads.
 
 ![](_page_1_Figure_12.jpeg)
-<!-- Image Description: This diagram illustrates a microservices architecture.  It shows the interactions between components including an API gateway (Kong, Zuul), configuration service (Spring Cloud Config), circuit breaker (Hystrix), Kubernetes, service discovery (Consul, Eureka), event sourcing, CQRS, and databases. Arrows depict data flow and functional relationships, illustrating how these components work together within the microservices system. The diagram's purpose is to visually represent the system's architecture and component interactions. -->
+<!-- Image Description: This diagram illustrates a microservices architecture. It shows the interactions between components including an API gateway (Kong, Zuul), configuration service (Spring Cloud Config), circuit breaker (Hystrix), Kubernetes, service discovery (Consul, Eureka), event sourcing, CQRS, and databases. Arrows depict data flow and functional relationships, illustrating how these components work together within the microservices system. The diagram's purpose is to visually represent the system's architecture and component interactions. -->
 
 Figure 1. System architecture map
 
@@ -102,7 +102,7 @@ Knowledge graphs represent a sophisticated semantic network that maps out the my
 
 ## *A. Knowledge Graph Construction Process*
 
- The knowledge graph construction process in this system unfolds in three main stages, detailed in Figure 2, which illustrates the entire workflow of the knowledge graph system development.
+The knowledge graph construction process in this system unfolds in three main stages, detailed in Figure 2, which illustrates the entire workflow of the knowledge graph system development.
 
 (1) Data Acquisition and Extraction: A proprietary data collection tool is employed to gather both structured and unstructured data from the O&M system. This dataset includes system logs, configuration information, monitoring data, and user operation history. These form the foundational raw data for constructing the knowledge graph. Utilizing natural language processing and additional relevant algorithms, the system conducts a thorough analysis of these unstructured data sets to identify crucial entities, delineate relationships among them, and uncover fundamental events. This meticulous process effectively distills the essential knowledge elements required for the graph.
 
@@ -111,11 +111,11 @@ Knowledge graphs represent a sophisticated semantic network that maps out the my
 (3) Knowledge Integration and Entity Resolution: In this final phase, the pre-processed data is transformed into a structured format, which is then further integrated. The application of entity linking and disambiguation techniques allows the system to resolve any ambiguities between entities, thereby constructing a high-quality knowledge base. This enhanced knowledge base serves as the fundamental data resource for subsequent knowledge reasoning and discovery processes.
 
 ![](_page_2_Figure_13.jpeg)
-<!-- Image Description: The flowchart illustrates a knowledge graph construction process.  It begins with raw data (structured, semi-structured, unstructured) undergoing data integration (physical, relationship, attribute, and knowledge extraction).  This feeds into preliminary knowledge representation, followed by entity disambiguation, coreference resolution, and entity alignment to achieve standard knowledge representation.  Data standardization, model building using existing knowledge, and model revision are incorporated. Finally, knowledge reasoning, discovery, and quality assessment produce the knowledge graph. -->
+<!-- Image Description: The flowchart illustrates a knowledge graph construction process. It begins with raw data (structured, semi-structured, unstructured) undergoing data integration (physical, relationship, attribute, and knowledge extraction). This feeds into preliminary knowledge representation, followed by entity disambiguation, coreference resolution, and entity alignment to achieve standard knowledge representation. Data standardization, model building using existing knowledge, and model revision are incorporated. Finally, knowledge reasoning, discovery, and quality assessment produce the knowledge graph. -->
 
 Figure 2. The process of building a knowledge graph system
 
-# *B. Knowledge Graph Applications in Microservice Network Operations Automation*
+## *B. Knowledge Graph Applications in Microservice Network Operations Automation*
 
 In the operation and maintenance management of microservice architecture, the application of knowledge graph can significantly improve the speed of troubleshooting, optimize system configuration management, and enhance the efficiency of performance monitoring and automated maintenance.
 
@@ -127,7 +127,7 @@ The system will automatically collect data from a variety of sensors including v
 
 The knowledge graph will determine the optimal configuration based on real-time and historical data analysis. For example, it can analyze load changes in different seasons and time periods to automatically adjust distribution strategies and optimize power allocation and consumption. Based on the current load demand and forecast data of the grid, the system can dynamically adjust resource allocation, such as the load capacity of transformers and the scheduling strategy for inter-area transmission, to ensure the efficient operation of the grid.
 
-# (3) Performance management
+## (3) Performance management
 
 Implementing a real-time performance management system is essential to ensure the efficient operation of the power system, and knowledge mapping provides important data support here. By integrating Knowledge Graph with a real-time monitoring system, O&M teams can comprehensively monitor the performance metrics of all critical equipment. The knowledge graph helps analyze past performance trends and predict possible maintenance needs and performance bottlenecks. Knowledge Graph provides decision support to help O&M teams make quick decisions based on performance data, such as adjusting operational policies or performing equipment maintenance.
 
@@ -168,7 +168,7 @@ For time-series data like performance metrics and sequential log entries, LSTM n
 In integrating knowledge graphs with monitoring tools, we focus on system logs and user activity data. By applying Natural Language Processing (NLP) techniques, we successfully identify key entities such as microservice components, error codes, and operational states and their dependencies. Utilizing Named Entity Recognition (NER), we clarified the causal chain between error messages and service outages. These NLP techniques achieved 85.49% accuracy. In contrast, we also used LSTM,GPT3 and BERT models for time-series analysis of system performance metrics (e.g., CPU utilization and memory load). While the LSTM network performs well in time series analysis with 95.67% accuracy in predicting resource usage, it has limited ability to handle long-range dependencies. The BERT model, on the other hand, performs superiorly in capturing complex patterns and long-range dependencies through its bidirectional coding and self-attention mechanisms [17, 18]. When analyzing with BERT, the accuracy of predicting resource usage increased to 97.85%, enabling more effective prediction of resource usage in the next hour. These integrated techniques not only improve monitoring accuracy, but also optimize resource management, as shown in Figures 3 and 4.
 
 ![](_page_4_Figure_1.jpeg)
-<!-- Image Description: Figure 3 presents two graphs.  The top bar graph compares the accuracy of four methods (NER, LSTM, BERT, GPT-3) for a task, showing GPT-3 and BERT achieving highest accuracy (96.5% and 97.85%, respectively). The bottom line graph displays the actual CPU usage over time and compares it to the CPU usage predictions made by each of the four methods.  This illustrates the predictive performance of each method, comparing their predictions against real-world data. -->
+<!-- Image Description: Figure 3 presents two graphs. The top bar graph compares the accuracy of four methods (NER, LSTM, BERT, GPT-3) for a task, showing GPT-3 and BERT achieving highest accuracy (96.5% and 97.85%, respectively). The bottom line graph displays the actual CPU usage over time and compares it to the CPU usage predictions made by each of the four methods. This illustrates the predictive performance of each method, comparing their predictions against real-world data. -->
 
 Figure 4. Line graph of predicted CPU utilization trend
 
@@ -194,14 +194,14 @@ Table1 is a summary table highlighting the simulated performance metrics of know
 
 TABLE I. Knowledge Graph Performance Metrics
 
-| Feature                                  | Data                  | Analysis Results                                              |
+| Feature | Data | Analysis Results |
 |------------------------------------------|-----------------------|---------------------------------------------------------------|
-| Fault Prediction<br>Accuracy             | 88.74%                | Effective prediction from<br>historical data.                 |
-| Early Warning Time                       | 72 hours              | Sufficient time for preventive<br>actions.                    |
-| Anomaly Detection                        | 15 times per<br>month | High sensitivity and swift<br>response to anomalies.          |
-| Load Prediction<br>Accuracy              | 92.38%                | Ensures timely resource<br>allocation during peak times.      |
-| Resource Optimization<br>Recommendations | 30 times per<br>month | Enhances system efficiency<br>and reduces wastage.            |
-| Successful Fault<br>Prevention           | 5 incidents           | Proves practical effectiveness<br>in preventing major faults. |
+| Fault Prediction<br>Accuracy | 88.74% | Effective prediction from<br>historical data. |
+| Early Warning Time | 72 hours | Sufficient time for preventive<br>actions. |
+| Anomaly Detection | 15 times per<br>month | High sensitivity and swift<br>response to anomalies. |
+| Load Prediction<br>Accuracy | 92.38% | Ensures timely resource<br>allocation during peak times. |
+| Resource Optimization<br>Recommendations | 30 times per<br>month | Enhances system efficiency<br>and reduces wastage. |
+| Successful Fault<br>Prevention | 5 incidents | Proves practical effectiveness<br>in preventing major faults. |
 
 ## V. CONCLUSION
 

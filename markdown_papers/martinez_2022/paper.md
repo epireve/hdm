@@ -25,9 +25,6 @@ keywords:
 - multimodal learning
 ---
 
-
-
-
 # Lessons Learnt from a Multimodal Learning Analytics Deployment In-the-Wild
 
 [ROBERTO MARTINEZ-MALDONADO](https://orcid.org/0000-0002-8375-1816) and [VANESSA ECHEVERRIA,](https://orcid.org/0000-0002-2022-9588) Monash University, Australia and Escuela Superior Politécnica del Litoral, Ecuador [GLORIA](https://orcid.org/0000-0003-2681-4451)[FERNANDEZ-NIETO,](https://orcid.org/0000-0003-2681-4451) [LIXIANG YAN,](https://orcid.org/0000-0003-3818-045X) [LINXUAN ZHAO,](https://orcid.org/0000-0001-5564-0185) [RIORDAN ALFREDO,](https://orcid.org/0000-0001-5440-6143) XINYU LI, [SAMANTHA DIX,](https://orcid.org/0000-0003-4414-7445) [HOLLIE JAGGARD,](https://orcid.org/0000-0002-6741-3024) [ROSIE](https://orcid.org/0000-0001-8887-3188)[WOTHERSPOON, and](https://orcid.org/0000-0001-8887-3188) ABRA OSBORNE, Monash University, Australia [SIMON BUCKINGHAM SHUM,](https://orcid.org/0000-0002-6334-7429) University of Technology Sydney, Australia [DRAGAN GAŠEVIĆ,](https://orcid.org/0000-0001-9265-1908) Monash University, Australia
@@ -53,13 +50,13 @@ Permission to make digital or hard copies of all or part of this work for person
 Roberto Martinez-Maldonado, Vanessa Echeverria, Gloria Fernandez-Nieto, Lixiang Yan, Linxuan Zhao, Riordan Alfredo, Xinyu Li, Samantha Dix, Hollie Jaggard, Rosie Wotherspoon, Abra Osborne, Simon Buckingham Shum, and Dragan Gašević. 2023. Lessons Learnt from a Multimodal Learning Analytics Deployment In-the-Wild.*ACM Trans. Comput.-Hum. Interact.*31, 1, Article 8 (November 2023), 41 pages. <https://doi.org/10.1145/3622784>
 
 ### 1 INTRODUCTION
+
 **Multimodal Learning Analytics** (**MMLA**) is a relatively new area that formally emerged as such in 2012 at the ACM International Conference of Multimodal Interaction (ICMI'12) [\[90\]](#page-38-0). Since then, MMLA innovations have been opening exciting new avenues for supporting and generating a deep understanding of human learning by embracing the complexity of learners and their learning activities. MMLA systems are pushing the boundaries in educational research by de-emphasising the computational analysis of student interactions via online learning systems based on input devices such as the mouse and the keyboard [\[113\]](#page-39-0). In contrast, MMLA emphasises the many ways in which students interact with other students—fully mediated [\[109\]](#page-39-0), partly mediated [\[93\]](#page-38-0) or unmediated [\[104\]](#page-39-0) by technology—with both teachers [\[28\]](#page-35-0), and with physical learning environments [\[114\]](#page-39-0). MMLA research also investigates learner attributes that are hard to automatically analyse without the use of specialised sensing systems, such as student emotions [\[38\]](#page-36-0), cognitive states [\[58\]](#page-37-0), distraction [\[51\]](#page-36-0), and stress [\[85\]](#page-38-0). In practice, MMLA endeavours often make use of sensors, such as eye-trackers, positioning systems, wearable microphones and physiological writs/chest bands, and advanced audio and video processing algorithms [\[7,](#page-34-0) [117\]](#page-40-0) that generate large amounts of multimodal data that can be analysed to gain a more holistic view of intrinsically complex human learning phenomena such as problem-based learning [\[54\]](#page-36-0), effective collocated collaboration [\[92,](#page-38-0) [102\]](#page-39-0) and teamwork [\[34\]](#page-35-0), self-regulated learning [\[8\]](#page-34-0), engagement in adaptive online learning [\[79\]](#page-38-0), socially-shared regulated learning [\[70\]](#page-37-0), effective public speech [\[73\]](#page-37-0), motor learning [\[26\]](#page-35-0), and classroom teaching [\[3,](#page-34-0) [82\]](#page-38-0). In a sense, MMLA aims at crystallising Mark Weiser's vision [\[110\]](#page-39-0) in educational contexts by creating learning spaces enhanced with ubiquitous computing capabilities to augment teachers' and students' activities. This can be achieved by creating applications that automate the capture of the lived experiences occurring in the learning space to allow later access to those experiences by educational stakeholders [\[1\]](#page-34-0) for the purpose of supporting reflection and learning [\[16\]](#page-34-0). Yet, enhancing learning environments with such sensing capabilities can easily impose practical challenges, such as elevating the cost of implementation and making it harder to scale up the MMLA deployments in relation to fully digital **learning analytics** (**LA**) solutions.
 
 Although recent literature reviews suggest that most MMLA solutions rely on video and audio analysis [\[7,](#page-34-0) [117\]](#page-40-0) (which should not be, in principle, too costly), MMLA researchers consistently report that most current MMLA systems only reach the prototype stage [\[24,](#page-35-0) [72\]](#page-37-0). Several practical challenges have been identified as potential threats to the broader adoption of MMLA that can ultimately impact the effectiveness of such innovations in supporting teaching and learning. Challenges include those related to the complexity of some sensor installation requirements and lack of technology readiness to enable full-scale deployments [\[21,](#page-35-0) [72\]](#page-37-0); lack of maturity from an analysis perspective to find causal relationships in multimodal data that can translate into actual improvements in learning outcomes [\[7\]](#page-34-0); misalignment between the technological MMLA innovation and the learning design [\[97\]](#page-39-0); and ethical concerns that can ultimately dissuade educational stakeholders from adopting such complex solutions [\[7,](#page-34-0) [23,](#page-35-0) [24\]](#page-35-0). While the number of small-scale laboratory studies—conducted under controlled conditions—is similar to the number of small-scale ecological (authentic) studies that have deployed sensors at the classroom level [\[20\]](#page-35-0), the majority of MMLA
 
-<span id="page-2-0"></span>
 
-Fig. 1. Sensors deployed in the high-fidelity simulation with a team of four students and two educators enacting the roles of a patient's relative and a doctor who provides some information.
+Figure 1. Sensors deployed in the high-fidelity simulation with a team of four students and two educators enacting the roles of a patient's relative and a doctor who provides some information.
 
 studies (more than two-thirds, according to a recent literature review by Yan et al. [\[117\]](#page-40-0)) do not report enough methodological details to allow other researchers to replicate or learn from such deployments. Moreover, there is a lack of relatively large-scale studies conducted under authentic conditions that close the "data loop", that is, transitioning from multimodal data collection and analysis to the provision of some form of end-user interface [\[117\]](#page-40-0), which is one of the ultimate goals in LA research [\[111\]](#page-39-0). This makes it hard for MMLA researchers to fully understand the extent of the challenges involved in deploying MMLA innovations *in-the-wild*(i.e., a deployment that is as naturalistic as possible). In-the-wild studies are commonly conducted in**human–computer interaction** (**HCI**) research with the aim of investigating the implications of embedding new technology interventions in everyday situations [\[22,](#page-35-0) [84\]](#page-38-0). Conducting MMLA in-the-wild studies can thus contribute to understanding the challenges that need to be addressed to maximise the adoption of MMLA innovations.
 
@@ -123,9 +120,8 @@ Verbal communication is essential in learning about patient care management and 
 
 Before entering the simulation classroom, consenting students were asked to wear a number of devices, namely, (1) a wireless headset with an unidirectional microphone; (2) a physiological Empatica E4 wristband, with built-in sensors to capture heart rate variability, electrodermal skin activity among other physiological measures that can be related to stress and arousal; and (3) a Pozyx indoor positioning locator, with built-in sensors that capture*x-y*position and body orientation of each student in the learning space (see Figure [2\)](#page-7-0). Each set of sensors was colour-coded according to the role enacted by each student (i.e., red and blue for graduate nurses, and yellow and green
 
-<span id="page-7-0"></span>
 
-Fig. 2. MMLA deployed in an authentic healthcare education setting. Left: Illustration of a student wearing the sensors during a team simulation. Right: Each sensor set to be worn by each student within a team (A– an indoor positioning locator inside a belly bag, B–a wireless microphone, and C–a physiological wristband) was placed by the teaching team on coloured trays to enable easy access to and organisation of the sensors during and between classes.
+Figure 2. MMLA deployed in an authentic healthcare education setting. Left: Illustration of a student wearing the sensors during a team simulation. Right: Each sensor set to be worn by each student within a team (A– an indoor positioning locator inside a belly bag, B–a wireless microphone, and C–a physiological wristband) was placed by the teaching team on coloured trays to enable easy access to and organisation of the sensors during and between classes.
 
 for ward nurses). The simulation room was already equipped with a set of built-in video cameras, and an additional 180-degree video camera was added to the set-up.
 
@@ -153,41 +149,41 @@ For instance, Figure [3](#page-9-0) (right) displays one of these visualisations
 
 The second visualisation is a bar chart that summarises x-y positioning data automatically coded according to primary and secondary tasks (see details in Reference [\[115\]](#page-39-0)), which is crucial for understanding teamwork prioritisation. The third visualisation is a sociogram (a network-based chart) often used to depict the extent of verbal communication among team members (e.g., Reference [\[43\]](#page-36-0)). It is important to note that while physiological data was captured in this study and analysed for research purposes [\[116\]](#page-39-0), we were not able to obtain real-time data and analytics as explained above. The impact of technical issues on the learning experience is discussed in detail
 
-# <span id="page-9-0"></span>8:10 R. Martinez-Maldonado et al.
+## <span id="page-9-0"></span>8:10 R. Martinez-Maldonado et al.
 
-Fig. 3. Left: A teacher leading a team debrief using positioning and audio data in the MMLA dashboard. Right: The MMLA dashboard providing a menu of visualisations at the top. The selected example visualisation shows whether students, according to their role/colour, were speaking or not at certain positions of the learning space (see hexagons filled with student's colour or in grey, respectively).
+Figure 3. Left: A teacher leading a team debrief using positioning and audio data in the MMLA dashboard. Right: The MMLA dashboard providing a menu of visualisations at the top. The selected example visualisation shows whether students, according to their role/colour, were speaking or not at certain positions of the learning space (see hexagons filled with student's colour or in grey, respectively).
 
 later in Section [5.1.3.](#page-13-0) Further details about these visualisations go beyond the purpose of this article, which is focused on reporting the lessons learnt from the iterative deployment as a whole. Nonetheless, details and the source-code can also be found in our [YarnSense](https://teamwork-analytics.github.io/yarn-sense) repository.
 
-# 4 METHODS
+## 4 METHODS
 
 ## 4.1 Research "In-the-Wild"
 
 The phrase "research in-the-wild" is used in HCI studies to differentiate between research conducted in lab-based environments and research that involves embedding new technology interventions in everyday situations [\[22\]](#page-35-0). Arguably [\[86\]](#page-38-0), a key tenet of studies conducted in-the-wild is that they can provide more ecologically valid findings compared with typical measures collected under controlled conditions [\[9\]](#page-34-0). Indeed, in-the-wild studies often have to deal with a number of practical and ethical challenges and uncertainties rarely discussed in published studies [\[84\]](#page-38-0). Carefully identifying these can reveal the biases and the logistics that researchers and designers should consider to design and deploy emerging technologies in a specific context. Based on Rogers and Marshall's proposed framework [\[84\]](#page-38-0) to design for and analyse in-the-wild research, other authors, such as Balestrini et al. [\[9\]](#page-34-0), have suggested analysis approaches to identify practical challenges that can arise in an in-the-wild study. Moreover, in-the-wild research is often iterative since the valuable insights gained from real-world deployments that can inform subsequent redesigns (e.g., References [\[87,](#page-38-0) [101,](#page-39-0) [105\]](#page-39-0)). Inspired by this work [\[9\]](#page-34-0), we explored the main logistic, privacy and ethical challenges when designing and deploying MMLA research in-the-wild, organised around five main themes: (1) *space and place*—what is the impact of the computational system on the existing setting?; (2) *technology*—how was the technology used?—in this case, the data and the analytics; (3) *design*—what was the impact of the design approach?—in this case, human-centred design; (4) *social factors*—what are the stakeholders' concerns and expectations?; and (5) *sustainability*– what is needed for the new technology to be used continuously over time?
 
-# 4.2 Sources of Evidence
+## 4.2 Sources of Evidence
 
 Table [1](#page-10-0) summarises the sources of evidence captured from students, teachers, and the researcher team, using a set of interviews and surveys. This section describes how the questions asked in these cover the five themes introduced above.
 
 In the first iteration of the study, all participating students were asked to rate their perception of the intrusiveness of the sensing technology in the learning space (theme 1) using a seven-point
 
-| Iteration | Participants | Sources of evidence    | Themes explored        |
+| Iteration | Participants | Sources of evidence | Themes explored |
 |-----------|--------------|------------------------|------------------------|
-| 1         | Students     | Survey (N<br>= 253)    | (1) Space and place    |
-|           |              |                        | (1) Space and place    |
-|           | Students     | Interviews (N<br>= 20) | (2) Data and analytics |
-|           |              |                        | (4) Social factors     |
-| 2         | Students     | Survey (N<br>= 47)     | (2) Data and analytics |
-|           | Teachers     | Survey (N<br>= 11)     | (2) Data and analytics |
-|           | Teachers     | Interviews (N<br>= 4)  | (1) Space and place    |
-|           |              |                        | (2) Data and analytics |
-|           |              |                        | (3) Human-centredness  |
-|           |              |                        | (4) Social factors     |
-|           |              |                        | (5) Sustainability     |
-|           | Researchers  | Survey (N<br>= 5)      | (1) Space and place    |
-|           |              |                        | (3) Human-centredness  |
-|           |              |                        | (4) Social factors     |
-|           |              |                        | (5) Sustainability     |
+| 1 | Students | Survey (N<br>= 253) | (1) Space and place |
+| | | | (1) Space and place |
+| | Students | Interviews (N<br>= 20) | (2) Data and analytics |
+| | | | (4) Social factors |
+| 2 | Students | Survey (N<br>= 47) | (2) Data and analytics |
+| | Teachers | Survey (N<br>= 11) | (2) Data and analytics |
+| | Teachers | Interviews (N<br>= 4) | (1) Space and place |
+| | | | (2) Data and analytics |
+| | | | (3) Human-centredness |
+| | | | (4) Social factors |
+| | | | (5) Sustainability |
+| | Researchers | Survey (N<br>= 5) | (1) Space and place |
+| | | | (3) Human-centredness |
+| | | | (4) Social factors |
+| | | | (5) Sustainability |
 
 <span id="page-10-0"></span>Table 1. Sources of Evidence and Themes Explored Inspired by Balestrini et al's Approach [\[9\]](#page-34-0)
 
@@ -324,7 +320,7 @@ In this section, we summarise the lessons learnt from our MMLA in-the-wild deplo
 
 This section summarises the main key logistical, privacy and ethical challenges that emerged from our complex MMLA, in-the-wild study and a set of implications for advancing HCI and LA research, as follows.
 
-*Space and place*-**Intrusiveness**—While students did not report discomfort in wearing sensors, teachers can still get concerned about their potential *distracting factor*and some students can feel*stressed*about being monitored.
+**Space and place:** **Intrusiveness**—While students did not report discomfort in wearing sensors, teachers can still get concerned about their potential *distracting factor*and some students can feel*stressed*about being monitored.
 -**MMLA Technology readiness**—The lack of MMLA technology readiness can severely impact the lesson plan. Teachers need to play an active role to create *strategies to moderate*the sensing/analytics technologies, and minimise potential disruptions and setup time.
 -**Unexpected issues during the MMLA deployment**—While several technical issues that can emerge during the MMLA deployment are beyond the control of the research team, reducing the number of devices used can minimise potential technical failures. Some highend sensors may need to be replaced with less expensive sensors, that may capture coarser data, if the change increases *reliability*.
 - **Multimodal data quality, portability of sensors and affordability**—At least currently, a tradeoff may exist between capturing *high quality*data and the portability and affordability of the sensing technology.
@@ -336,7 +332,8 @@ These findings supply empirical evidence that offers specific directions to addr
 
 These findings provide insights for HCI researchers working with data and analytics in educational contexts. Key deployment actions to consider include: (1) effectively communicating the educational purpose of MMLA deployments to educational stakeholders (for example, empowering rather than replacing the teacher) to maximise the chances of user acceptance; (2) addressing concerns related to data incompleteness and trustworthiness to minimise potential harm due to data misinterpretation; (3) understanding the impact of data visualisation design on user trust; and (4) supporting teachers and students in developing data literacy skills and providing contextual and explainable information to enable effective interpretation and use of MMLA visual interfaces. These actions are connected to emerging research in the areas of Human-Centred AI, seeking to develop mechanisms to ensure the development of trustworthy AI systems [\[67,](#page-37-0) [68,](#page-37-0) [93\]](#page-38-0); and AI literacy in HCI [\[52\]](#page-36-0) education [\[69\]](#page-37-0), seeking to equip people and educational stakeholders with the skills needed to understand how to effectively make use of data.
 
-###*Design: human-centredness*-**Human-centred design, teaching and learning**—Teachers' appreciation of partnering with researchers in the design process can lead to creating MMLA systems aligned with teaching practices and learning goals.
+### *Design: human-centredness*-**Human-centred design, teaching and learning**—Teachers' appreciation of partnering with researchers in the design process can lead to creating MMLA systems aligned with teaching practices and learning goals.
+
 - **Human-centred MMLA and research innovation**—Involving teachers and students in the design process contributes to the validation of the MMLA interfaces according to the learning design and to the improvement of the logistics of the MMLA research study.
 
 Aligning technical aspects of tool design with the pedagogical design remains a persistent challenge in learning analytics [\[46\]](#page-36-0). HCI-related areas like Human-Centered Design [\[77\]](#page-38-0) and, more
@@ -344,11 +341,13 @@ Aligning technical aspects of tool design with the pedagogical design remains a 
 specifically, Human-Centered AI [\[98\]](#page-39-0) can provide with tools and conceptual frameworks to effectively engage with educational stakeholders' views and values with respect to culturally aware uses of AI [\[107\]](#page-39-0). Our findings address Oviatt's [\[78\]](#page-38-0) call for the establishment of collaborative relationships with educational stakeholders in the design of learner-focused MMLA systems. Key actions to consider include: (1) involving teachers in the design process to align MMLA visual interfaces with teaching practices and learning goals; (2) considering students' perspectives and reactions in the design process for ethical technology deployment; (3) combining expertise from various fields, such as LA and educational research, and the area of application (i.e., nursing teaching in our study), to develop contextualised learning tools; and (4) prioritising educational needs over data-driven innovation while collaborating with teachers and students in MMLA design for valuable insights in algorithm development and learning design characteristics.
 
 ### *Social factors*-**Consenting and participation strategies**—It is challenging to explain to students what a complex MMLA study entails. Providing too many technical details about the sensors and the analytics in advance does not necessarily contribute to clarity. Explaining the complexity of the MMLA deployment *in person*can enable students to ask clarification questions and then provide informed consent.
+
 -**Data privacy and sharing**—Students were willing to share their multimodal data with others if their privacy is preserved and the purpose is limited to supporting learning. While most students see their multimodal data as only beneficial to themselves, some students can see the potential benefit to make their data available to other students to learn from their experiences or for teachers to improve the design of the learning tasks.
 
 Preliminary work, such as that of Beardsley et al. [\[12\]](#page-34-0), has started to delve into the unique challenges of securing consent from students interacting with MMLA tools. However, our study illuminates further how students can make informed decisions about their participation in MMLA studies and share their multimodal data based on the types of data used in a specific MMLA innovation. These findings can provide key insights for HCI researchers examining the sociotechnical aspects of data-intensive educational systems. Crucial actions to contemplate include: (1) further investigating the enhancement of fully informed consenting and participation strategies to optimise student engagement and comprehension of AI and sensing technologies' implications; (2) striking a balance between technical complexity and simplicity in consent forms and research descriptions; (3) utilising in-person approaches for enhanced clarity; and (4) considering students' perspectives on data privacy and sharing to respect their preferences and enrich learning experiences.
 
 ### *Sustainability*-**Technological sustainability**—A potential strategy to maximise long-term technical sustainability is a lightweight *microservices-based architecture*that can enable attaching and detaching heterogeneous sensors as required.
+
 -**MMLA appropriation in the classroom**—A potential strategy to maximise adoption and technology appropriation includes embedding sensing capabilities into the classroom, providing a high degree of user control, providing training to teachers on system usage and data interpretation, and keeping the need for support from a technical actor to a minimum extent.
 
 These findings correspond with recent efforts within HCI to emphasise human-centeredness in designing sustainable data applications for the built environment [\[4,](#page-34-0) [108\]](#page-39-0). They also respond to a clear need identified in the current literature for the development of more sustainable MMLA systems [\[117\]](#page-40-0). To underline our contributions towards sustainability in MMLA systems, we propose the following initiatives: (1) developing flexible, detachable microservices-based architectures to support adaptability and minimise data loss; (2) designing easily deployable systems tailored for non-expert users, facilitating seamless integration into teaching practices; (3) if possible, embedding multimodal sensors within the classroom environment, ensuring high user control; and (4) provide essential training and accessible technical support, empowering teachers to effectively use and interpret multimodal data representations.
@@ -357,12 +356,12 @@ These findings correspond with recent efforts within HCI to emphasise human-cent
 
 The lessons learnt from our in-the-wild MMLA study have several implications for practice. We summarise these into the following three recommendations to provide guidance for researchers, developers and designers to make informed decisions about the effective deployment of MMLA in-the-wild.
 
-*Forging design partnerships with teachers and students***.**The more sensors are used to capture activity in complex educational scenarios that involve non-computer mediated interactions, or ill-defined, open tasks such as in teamwork, the more complex the meaning-making process becomes to move from data to insights [\[30\]](#page-35-0). Thus, as rich data infrastructures become more commonplace in educational contexts [\[41\]](#page-36-0), it is also becoming critical to forge strong partnership relationships among teachers, students, educational decision-makers, researchers and developers. This has the potential to ensure that algorithmic outputs and data representations are meaningful and aligned to local learning objectives and pedagogical values [\[2\]](#page-34-0). Indeed, some educational researchers have started to utilise the body of knowledge and practice from design communities, such as participatory design and co-design, in data-intensive educational contexts [\[17\]](#page-35-0). However, following human-centred design approaches is yet to be seen in MMLA according to the most recent review [\[117\]](#page-40-0).
+**Forging design partnerships with teachers and students:** **.**The more sensors are used to capture activity in complex educational scenarios that involve non-computer mediated interactions, or ill-defined, open tasks such as in teamwork, the more complex the meaning-making process becomes to move from data to insights [\[30\]](#page-35-0). Thus, as rich data infrastructures become more commonplace in educational contexts [\[41\]](#page-36-0), it is also becoming critical to forge strong partnership relationships among teachers, students, educational decision-makers, researchers and developers. This has the potential to ensure that algorithmic outputs and data representations are meaningful and aligned to local learning objectives and pedagogical values [\[2\]](#page-34-0). Indeed, some educational researchers have started to utilise the body of knowledge and practice from design communities, such as participatory design and co-design, in data-intensive educational contexts [\[17\]](#page-35-0). However, following human-centred design approaches is yet to be seen in MMLA according to the most recent review [\[117\]](#page-40-0).
 
 In our study, several practical challenges in the MMLA deployment demanded expertise from a wide range of areas (such as LA, interaction design, and information visualisation), plus knowledge from stakeholders contributing insights and evidence from their lived experiences. By giving an active voice to students and involving teachers in the design process, we were able to identify the key practical challenges that can easily undermine adoption if they are not addressed in a timely manner. Teacher/student involvement was also critical to give meaning to the complex multimodal data streams both for research purposes, and to design the MMLA dashboard aimed at end-users. An indicator of the success of the teachers' partnering experience, is that once they reflected on the value of the MMLA deployment, they wanted to move the deployment to happen as a part of their regular classes, potentially making the transition from research to practice an immediate possibility.
 
 Yet, much work is still required to develop specific guidelines to create human-centred MMLA systems. For example, the rapidly growing human-centred AI [\[98\]](#page-39-0) movement within and beyond HCI has much to offer to the design and development of MMLA systems to ensure that novel AI tools are effectively in service of students and teachers. Moreover, researchers and developers may want to address the complexity of visual interfaces of multimodal data by grounding their designs in key Information Visualisation principles aimed at scaffolding the interpretation of large amounts of data by non-technical users (e.g., by applying data visualisation guidance [\[18\]](#page-35-0) or data storytelling [\[60\]](#page-37-0) principles).
-*Designing MMLA considering data imperfection and teacher control***.**In Jeffrey Heer's view [\[42\]](#page-36-0),*AI methods can be applied to helpfully reshape, rather than replace, human labor*. In our study, the ultimate aim is not to replace the teacher but augment their repertoire of tools they can use to
+**Designing MMLA considering data imperfection and teacher control:** **.**In Jeffrey Heer's view [\[42\]](#page-36-0),*AI methods can be applied to helpfully reshape, rather than replace, human labor*. In our study, the ultimate aim is not to replace the teacher but augment their repertoire of tools they can use to
 
 support students' reflective thinking through data interfaces. For example, multimodal behaviour visualisations can simplify teachers' analysis of video recordings, enabling more efficient use by highlighting meaningful clips without the need to watch the entire session. Yet, the data captured from the physical world through sensing devices are often incomplete, noisy, and unreliable [\[10\]](#page-34-0). Moreover, beyond the use of multimodal data, it has been reported that there is commonly a disconnection between any logged data and higher-order educational constructs [\[30,](#page-35-0) [56\]](#page-37-0). This means that the design of effective MMLA interfaces needs to deal with data incompleteness and partial models of the actual learning activity. Creating MMLA systems that perform fully automated actions based on these incomplete data is risky, and cannot be recommended at this level of MMLA maturity.
 
@@ -425,17 +424,17 @@ A total of 20 students participated in the interview during Iteration 1 of the s
 
 The following survey questions were handled to the teaching team at the end of the debrief session. A total of 11 teachers answered the survey in the Iteration 2 of the study.
 
-# Theme 2: Data and Analytics
+## Theme 2: Data and Analytics
 
 - How did you integrate the data into the debrief?
 - Did you think the data assisted student learning?
 - Did you find using the data during the debrief challenging? Why?
 
-# A.3 Senior Teaching Team Interview
+## A.3 Senior Teaching Team Interview
 
 In this interview, a total of 4 teachers participated in Iteration 2 of the study. Teachers were asked the following questions:
 
-# Theme 1: Space and Place
+## Theme 1: Space and Place
 
 - How intrusive was it to equip students, teaching staff and the simulation space with various sensors?
 
@@ -445,7 +444,7 @@ In this interview, a total of 4 teachers participated in Iteration 2 of the stud
 
 - Do you think you (or other teachers) may need some training with the tool beforehand?
 
-# Theme 2: Data and Analytics
+## Theme 2: Data and Analytics
 
 - How did you use the "tool" (slides) during the debrief? For what purposes?
 
@@ -459,11 +458,11 @@ Did you also use the visualisations for cases where the data were incomplete (fo
 
 - How can we improve the system so you can trust more on the data?
 
-# Theme 3: Human-Centredness
+## Theme 3: Human-Centredness
 
 - To what extent do you value the collaboration with LA researchers to design this technology with them? What motivates you to do that?
 
-# Theme 4: Social Factors
+## Theme 4: Social Factors
 
 - What do you think about the consenting strategy from last year's study (iteration 1) in comparison to the one for this year's study (iteration 2)?
 
@@ -473,17 +472,17 @@ Did you also use the visualisations for cases where the data were incomplete (fo
 
 - Besides the students and the teacher leading the debrief, who do you think would benefit from looking at the visualisations shown in the tool used in the debrief?
 
-# Theme 5: Sustainability
+## Theme 5: Sustainability
 
 - How can we run our research studies in the future in a more sustainable way?
 
 - What steps would be needed to make our current system into a real-world application without the help of a team of researchers behind it?
 
-# A.4 Researchers' Survey
+## A.4 Researchers' Survey
 
 At the end of Iteration 2 of the study, five researchers from our team were asked to fill in a survey, comprised of the following questions:
 
-# Theme 1: Space and Place
+## Theme 1: Space and Place
 
 - How complex was it to transport, install, and configure the equipment before the data collection location?
 
@@ -507,7 +506,7 @@ At the end of Iteration 2 of the study, five researchers from our team were aske
 
 - Please share your ideas on what you think can be done differently regarding the consenting strategies for a future study/data collection.
 
-# Theme 5: Sustainability
+## Theme 5: Sustainability
 
 - How can we run our research studies in the future in a more sustainable way?
 
@@ -515,13 +514,13 @@ At the end of Iteration 2 of the study, five researchers from our team were aske
 
 - What steps would be needed to make our current system into a real-world application without the help of a team of researchers behind it?
 
-# A.5 Student's Survey
+## A.5 Student's Survey
 
 A total of 47 students completed a survey during Iteration 2 of the study. Students were asked the following questions about the visualisations presented in the MMLA dashboard:
 
 ## Theme 2: Data and Analytics
 
-###*Visualisation 1: Team Communication*Please review the following visualisation that represents the data we collected during your simulation. Reflect on what it may represent and answer the questions below.
+### *Visualisation 1: Team Communication*Please review the following visualisation that represents the data we collected during your simulation. Reflect on what it may represent and answer the questions below.
 
 ![](_page_31_Figure_22.jpeg)
 <!-- Image Description: The image is a directed graph visualizing communication patterns. Nodes represent students (colored circles, size indicating speaking time) and other roles (uncircled). Arrows show communication direction. The graph illustrates the flow of communication between students and other participants (doctor, patient, relatives) within a specific context, likely a study of communication dynamics. -->
@@ -538,7 +537,7 @@ A total of 47 students completed a survey during Iteration 2 of the study. Stude
 
 - Do you have any comments on how this visualisation can be improved, or would you add something to the visualisation to make it more straightforward?
 
-##*Visualisation 2: Team Speaking and Positioning*Please review the following visualisation that represents the data we collected during your simulation. Reflect on what it may represent and answer the questions below.
+## *Visualisation 2: Team Speaking and Positioning*Please review the following visualisation that represents the data we collected during your simulation. Reflect on what it may represent and answer the questions below.
 
 ![](_page_32_Figure_11.jpeg)
 <!-- Image Description: The image displays a hexbin plot visualizing student movement and speech within a hospital ward. Color-coded hexagons represent student location and speaking frequency: fully colored hexagons indicate frequent speech, while grey hexagons show minimal speech. The plot is overlaid on a ward map showing beds and equipment, allowing for spatial analysis of student behavior over time. A timeline on the right indicates key events. -->
@@ -553,7 +552,7 @@ A total of 47 students completed a survey during Iteration 2 of the study. Stude
 
 - Do you have any comments on how this visualisation can be improved, or would you add something to the visualisation to make it more straightforward?
 
-#*Visualisation 3: Team Prioritisation*Please review the following visualisation that represents the data we collected during your simulation. Reflect on what it may represent and answer the questions below.
+## *Visualisation 3: Team Prioritisation*Please review the following visualisation that represents the data we collected during your simulation. Reflect on what it may represent and answer the questions below.
 
 ![](_page_33_Figure_3.jpeg)
 <!-- Image Description: The bar chart compares a team's task prioritization behaviors to averages from highly effective teams in 2021. Light blue bars show the 2021 averages across six behaviors (working together/individually on primary/secondary tasks, team discussion, task transition), while orange bars represent the focal team's time spent on each behavior. The chart's purpose is to analyze the team's efficiency by benchmarking against high-performing teams, identifying areas for improvement. -->

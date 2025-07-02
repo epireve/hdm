@@ -32,19 +32,19 @@ North Carolina State University, Raleigh, North Carolina, USA
 
 Emails: kmschat2@ncsu.edu, hpeiyu@ncsu.edu, agulyuk@ncsu.edu, ygyingh@ncsu.edu, rychirko@ncsu.edu
 
-*Abstract*—Knowledge graphs *(KGs),* with their flexible encoding of heterogeneous data, have been increasingly used in a variety of applications. At the same time, domain data are routinely stored in formats such as spreadsheets, text, or figures. Storing such data in KGs can open the door to more complex types of analytics, which might not be supported by the data sources taken in isolation. Giving domain experts the option to use a predefined automated workflow for integrating heterogeneous data from multiple sources into a single unified KG could significantly alleviate their data-integration time and resource burden, while potentially resulting in higher-quality KG data capable of enabling meaningful rule mining and machine learning.
+**Abstract:** Knowledge graphs *(KGs),* with their flexible encoding of heterogeneous data, have been increasingly used in a variety of applications. At the same time, domain data are routinely stored in formats such as spreadsheets, text, or figures. Storing such data in KGs can open the door to more complex types of analytics, which might not be supported by the data sources taken in isolation. Giving domain experts the option to use a predefined automated workflow for integrating heterogeneous data from multiple sources into a single unified KG could significantly alleviate their data-integration time and resource burden, while potentially resulting in higher-quality KG data capable of enabling meaningful rule mining and machine learning.
 
 In this paper we introduce a domain-agnostic workflow called *BUILD-KG* for integrating heterogeneous scientific and experimental data from multiple sources into a single unified KG potentially enabling richer analytics. BUILD-KG is broadly applicable, accepting input data in popular structured and unstructured formats. BUILD-KG is also designed to be carried out with end users as humans-in-the-loop, which makes it domain aware. We present the workflow, report on our experiences with applying it to scientific and experimental data in the materials science domain, and provide suggestions for involving domain scientists in BUILD-KG as humans-in-the-loop.
 
-*Index Terms*—Integrating heterogeneous data into knowledge graphs, domain-agnostic integration workflow enabling richer data analytics, domain experts as humans in the loop.
+**Index Terms:** Integrating heterogeneous data into knowledge graphs, domain-agnostic integration workflow enabling richer data analytics, domain experts as humans in the loop.
 
-#### **I . Introduction****
+### **I . Introduction****
 
 Recent years have seen a rise in the popularity of knowledge graphs *(KGs)* in many applications. KGs store real-world facts in the format of *subject-predicate-object* (*s, p, o*) *triples,* where the subject *s* and object *0* are KG nodes representing realworld entities, and the predicate *p* indicates the real-world relationship between them. This format can be used to flexibly encode large-scale heterogeneous data, making KGs well suited for a variety of applications. At the same time, domain data are in many cases routinely stored in other formats, e.g., as spreadsheets, text, or figures. While such formats can be familiar and intuitive to users, storing the same data in KGs can open the door to more complex types of analysis, such as rule mining and machine learning. Moreover, combining heterogeneous data from multiple sources into a single unified KG could lead to even richer analytics not supported by the sources taken in isolation. As such, the KG format can be preferable to other data-storage formats in many scenarios.
 
-Consider a motivating example arising from the use case that we work with in this paper. Figs. l(a)-(b) show fragments of the large-scale data coming from two materials-science teams working in the Science and Technologies for Phosphorus Sustainability (STEPS) Center.1 While both teams study interactions between phosphate-binding proteins *(PBPs)* and phosphate ions in solvents, they do not use the exact same materials, nor do they use the same experimental procedures or settings. Moreover, they do not use the same storage format for their data: The first team stores their data as *spreadsheets* in (Data) Source 1, see Fig. 1(a), while the second team stores data as *regularized text* and *images* in Source 2, see Fig. 1(b).
+Consider a motivating example arising from the use case that we work with in this paper. Figs. l(a)-(b) show fragments of the large-scale data coming from two materials-science teams working in the Science and Technologies for Phosphorus Sustainability (STEPS) Center.1 While both teams study interactions between phosphate-binding proteins *(PBPs)* and phosphate ions in solvents, they do not use the exact same materials, nor do they use the same experimental procedures or settings. Moreover, they do not use the same storage format for their data: The first team stores their data as *spreadsheets* in (Data) Source 1, see Figure 1(a), while the second team stores data as *regularized text* and *images* in Source 2, see Figure 1(b).
 
-The research teams would like to *improve the utilization of their large-scale scientific and experimental data,* by *integrating the data into a single unified KG.* Fig. 1(c) shows one such possible KG, which would allow the researchers to accelerate scientific discovery compared to what could be supported by their isolated source data. The desired integration process would involve conversion of the heterogeneous source data into the KG format. It would also involve combining the resulting KG fragments in a way that would ensure overlap in the shared entities, with potential addition of extra connections across the converted sources, see the dashed edges in Fig. 1(c).
+The research teams would like to *improve the utilization of their large-scale scientific and experimental data,* by *integrating the data into a single unified KG.* Figure 1(c) shows one such possible KG, which would allow the researchers to accelerate scientific discovery compared to what could be supported by their isolated source data. The desired integration process would involve conversion of the heterogeneous source data into the KG format. It would also involve combining the resulting KG fragments in a way that would ensure overlap in the shared entities, with potential addition of extra connections across the converted sources, see the dashed edges in Figure 1(c).
 
 Integrating their data into a KG might not be trivial for the research teams to accomplish on their own. Further, adding the extra connections across the converted sources might be a challenge in case the teams are not very familiar with each other's projects. These issues could make it difficult for unassisted domain scientists to integrate their data effectively into the unified KG format that could enable richer analytics.
 
@@ -55,9 +55,9 @@ Given enough time and resources, domain scientists could certainly solve their K
 **This research has been supported by the National Science Foundation under Grant No. CBET-2019435.**
 
 ![](_page_1_Figure_0.jpeg)
-<!-- Image Description: The image contains three parts: (a) a table summarizing experimental conditions (temperature, protein, solution, ion, and absorbance); (b) a line graph showing Root Mean Squared Fluctuation (RMSF) versus residue number for a protein-ligand interaction; and (c) a knowledge graph representing relationships between experimental data and simulation results, linking various entities like trials, proteins, temperatures, and measured parameters.  The image illustrates how the data sources are integrated into a knowledge graph. -->
+<!-- Image Description: The image contains three parts: (a) a table summarizing experimental conditions (temperature, protein, solution, ion, and absorbance); (b) a line graph showing Root Mean Squared Fluctuation (RMSF) versus residue number for a protein-ligand interaction; and (c) a knowledge graph representing relationships between experimental data and simulation results, linking various entities like trials, proteins, temperatures, and measured parameters. The image illustrates how the data sources are integrated into a knowledge graph. -->
 
-**Fig. 1. The motivating example for our proposed BUILD-KG workflow, showcasing a scenario in which data o f different types from multiple sources (a)-(b) need to be converted into a single unified KG (c). Source 1 (a) provides** *spreadsheet data,* **while Source 2 (b) provides** *images* **and** *regularized text* **data. A KG capturing and connecting these data is shown in (c). The dashed edges in (c) provide examples of relationships between entities across the data sources.**
+**Figure 1. The motivating example for our proposed BUILD-KG workflow, showcasing a scenario in which data o f different types from multiple sources (a)-(b) need to be converted into a single unified KG (c). Source 1 (a) provides** *spreadsheet data,* **while Source 2 (b) provides** *images* **and** *regularized text* **data. A KG capturing and connecting these data is shown in (c). The dashed edges in (c) provide examples of relationships between entities across the data sources.**
 
 In this paper we introduce a domain-agnostic workflow called *BUILD-KG* for integrating heterogeneous scientific and experimental data from multiple sources into a single unified KG potentially enabling richer analytics. By design, BUILD-KG is broadly applicable, accepting input data in popular structured and unstructured storage formats. To enable appropriate processing of domain-specific data, it accepts inputs from domain scientists regarding the semantics and handling of the data, in an effort to ensure that the resulting KG will be accurate and useful for their needs. This makes BUILD-KG *domain agnostic* and *domain aware* at the same time. Moreover, the workflow is designed to be carried out with end users as humans-in-the-loop. In this way, BUILD-KG enables domain scientists to facilitate the KG construction and verify that the end result will align with their expectations, potentially enabling acceleration of scientific discovery.
 
@@ -76,7 +76,7 @@ flow, and report on our experiences with applying it to scientific and experimen
 
 The remainder of this paper is organized as follows. We review related work in Section II and provide a problem statement in Section in. In Section IV we introduce the proposed BUILD-KG workflow, illustrating it in Section V with a STEPS-center materials-science use case. In Section VI we describe the role of humans-in-the-loop in the BUILD-KG workflow. We conclude in Section VII.
 
-# II. Related Work**
+## II. Related Work**
 
 Our work is most closely related to the topic of knowledgegraph *(KG)* construction, see, e.g., [l]-[3], [12]-[15]. KG construction is a complex process, with approaches ranging from fully manual to semi-automatic to fully automatic. Since fully manual construction is not scalable and fully-automated construction is error prone, most KG-construction approaches, including ours, are semi-automatic.
 
@@ -88,7 +88,7 @@ Domain-specific KG construction has become popular due to the nuances present in
 
 To handle textual data, our BUILD-KG workflow includes an NLP component that performs named entity recognition *(NER)* [16]. Despite the recent advances in pretrained NER models, most are trained on common-sense and commonknowledge corpora, see, e.g., WikiBERT [17] and bert-base-NER [18], [19]. Such general models may not always perform well on domain-specific texts. Pretrained language models have also been built in some scientific domains, e.g., [20], [21] in the biomedical domain and [22], [23] in the MS domain. However, in our MS use case, these MS pretrained language models cannot achieve a high prediction accuracy, due to the variety in language used by scientists in different subdomains of MS. Thus, in our proposed BUILD-KG workflow, to complete the NER step we use the NLP tool f l a i r [24], as it allows users to easily build their own language model.
 
-#### **III . Problem Statement****
+### **III . Problem Statement****
 
 We define a *knowledge graph (KG) Q* as a 5-tuple *Q = (£,T,4>,V,£),* where *£* is the set of *entities, T* is the set of *entity-types, <f>: £ —> T* is the *entity-type labeling function, V* is the set of *predicates,* and £ C *£* x *V* x *£* is the set of *triples.* Each element (*s,p,o*) G £ is called a *triple* and represents the real-world fact that the *subject s* has a relationship of type *p* with the *object o.* For example, the triple *(Solution 01,* c o n ta in s , *orthophosphate)* represents the fact that "the solution with ID 01 contains orthophosphate."
 
@@ -98,7 +98,7 @@ To limit the scope of this general problem for this paper, we focus on three dis
 
 relationships between them that are specified in triple sheets and can be encoded as KG edges. *Images with annotations* consist of sets of figures, graphics, etc. that are annotated with additional sets of properties of interest (metadata) stored in annotations files. *Regularized text data* consist of sets of sentences that share a similar structure, in the sense that similar entities or entities of the same type appear in the same general location in the sentence. This parallel structure allows for a "universal form" to be extracted, such that each sentence in the set is an instantiation of the universal form. The entities in each sentence have relationships between them that are specified in triple sheets and can be encoded as KG edges. More detailed descriptions of these data types can be found in Section IV.
 
-# IV. **The BUILD-KG Workflow**
+## IV. **The BUILD-KG Workflow**
 
 We now introduce our proposed domain-agnostic BUILD-KG workflow for integrating heterogeneous data into a knowledge graph *(KG)* that could enable richer analytics not supported by the sources taken in isolation. In Sections IV-A-IV-C we present procedures for constructing KGs from *spreadsheet data, images with annotations,* and *regularized text data,* respectively. Then, in Section IV-D we outline the procedure for combining data in multiple formats into a unified KG.
 
@@ -116,16 +116,16 @@ Algorithm 1: Converting spreadsheet data into a KG.
 
 ```
 Input: Data sheet D and triple sheet T.
-Output: A KG Q containing the data from D in the format 
-   specified by T.
+Output: A KG Q containing the data from D in the format
+specified by T.
 1: Q <— 0؛ // initialize the KG Q
-   // Create a node of Q for each entity:
-2: for row e D do 
+// Create a node of Q for each entity:
+2: for row e D do
 3: for column £ ٠ do
 4: e 4— D [row] [column]; t f - column.name՛,
 5: ،7 ،/ U create node of type t for e;
-   // Create all the edges of ٥:
-6: for sType,p,oType £ T do 
+// Create all the edges of ٥:
+6: for sType,p,oType £ T do
 7: for row; £ D do
 8: s 4— row[sType\\ o i— row;[oType];
 9: -؛ ٠ — Q Ucreate edge of type p from s to o ;
@@ -138,7 +138,7 @@ by the triple sheet T. The entity set *£* of *Q* consists of all the unique ent
 
 First, to create all the nodes of *Q,* the algorithm extracts from the data sheet *D* (fines 2-5) each entity e along with its type *t* (line 4), and creates the corresponding node of type *t* in the KG *Q* (fine 5). If the Neo4j system [25] is used for storing and processing the KG data, this process can be implemented via the following Cypher [26] query:
 
-# MERGE (n : *t* ) SET n.id = e
+## MERGE (n : *t* ) SET n.id = e
 
 In Cypher, the keyword MERGE is used to either identify an already existing node pattern in the graph, or to create a new node pattern if one does not exist. Thus, the above query will create a node n in *Q* of type *t* with the unique identifier e only if a node corresponding to e does not already exist in *Q.* In this way, Algorithm 1 guarantees that only a single node will be created for each unique entity in the data sheet *D.*
 
@@ -180,8 +180,8 @@ We now describe construction of a KG from *regularized text data.* To handle the
 
 *1) The Input Data:* The input data consist of (1) a set *S* of regularized sentences, some of which are tagged sentences *S T* c *S,* and (2) a triple sheet *T* formatted as described in Section IV-A1. *Regularized* means that the sentences share a similar structure. E.g., consider the sentences:
 
-- ٠ Fig. 1 shows the RMSD for the interaction between 2HP and E. coli in clean water.
-- ٠ Fig. 3 shows the radius of gyration for the interaction between dihydrogen phosphate and E. coli in multi-ion water.
+- ٠ Figure 1 shows the RMSD for the interaction between 2HP and E. coli in clean water.
+- ٠ Figure 3 shows the radius of gyration for the interaction between dihydrogen phosphate and E. coli in multi-ion water.
 
 The shared structure can be specified as "<Figure> shows the <Parameter> for the <Process> between <Ion> and <Protein> in <Solvent>."
 
@@ -201,7 +201,7 @@ If the set *S T* C *S* is too small for successful training of a NER model, then
 
 The trained model is used to provide tags for the remaining sentences in *S \ S T.* Then, a data sheet *D* is generated from the complete set of tagged sentences *S,* just as for the spreadsheet data format, see Section IV-Al. The column headers of *D* are the NER tags (aside from 0), and each row corresponds to a sentence in *S,* with the t-tagged entities in *S* appearing in the columns of *D* with column header t . The resulting data sheet *D* and the triple sheet *T* are passed as inputs to Algorithm 1, which returns the output KG *Q.*
 
-#### *D. Assembling a KG from Multiple Data Types and Data Sets*
+### *D. Assembling a KG from Multiple Data Types and Data Sets*
 
 We now discuss the scenario in which a KG is created by combining data of multiple types. The KG can be constructed by using our proposed procedures for the corresponding data types, see Sections IV-A-IV-C. The data from individual sources can be converted one source at a time into a single unified KG, by executing Algorithm 1 on each source and using the same KG *Q* for all the runs. To ensure that the data align and connect properly, one must pay particular attention to the terminology used across the sources. Terms representing the same entity/concept should be unified across the sources, such that the MERGE queries executed during the
 
@@ -211,15 +211,15 @@ In this scenario, we recommend maintaining data provenance when constructing the
 
 In addition to ensuring that the same nodes are used when entities are shared across the input data sets, domain scientists might also choose to add to the KG extra edges connecting nodes across the converted source data, to express extra relationships based on domain semantics. Our proposed BUILD-KG workflow makes this possible with additional inputs. Domain scientists can input a set of specific (*s,p ,o*) triples that would connect entities *s* and *o* via predicate *p* across the converted source data. These triples can be added to the KG using the command of fine 9 in Algorithm 1.
 
-#### **V . T h e U s e C a s e w i t h M a t e r i a l s S c i e n c e D a t a**
+### **V . T h e U s e C a s e w i t h M a t e r i a l s S c i e n c e D a t a**
 
 In this section we outline our implementation of the proposed BUILD-KG workflow, and illustrate its application to a use case in the materials-science *(MS)* domain. Section V-A describes the tools used in our implementation of the BUILD-KG workflow, and Section V-B presents the source data for the use case. Sections V-C-V-E describe our instantiations of the workflow for the use-case MS *spreadsheet data, images with annotations,* and *regularized text data,* respectively. Finally, Section V-F describes the process of assembling a single unified KG from the three use-case data sets.
 
-# *A. Tools Used in our Implementation of BUILD-KG*
+## *A. Tools Used in our Implementation of BUILD-KG*
 
 Implementing the BUILD-KG workflow requires a graph data-management system (DBMS), a graph query language, and a programming language. In our implementation, we used the Neo4j graph DBMS [25] with the Cypher graph query language [26]. The workflow was implemented in Python [28], including its publicly available package py2neo [29] for connecting to Neo4j and executing Cypher queries within Python code. For the named entity recognition (NER) model, we used the f l a i r [24] package in Python. As training the NER model requires a data corpus and a tagger, for our use case we built the corpus by using the ColumnCorpus object in flair, with SequenceTagger from flair as the tagger. To train the SequenceTagger, we used the popular word-embedding model GloVe [30].
 
-#### *B. The Source Data in the Materials Science Use Case*
+### *B. The Source Data in the Materials Science Use Case*
 
 As a use case for testing the proposed BUILD-KG workflow, we used data provided by researchers in the Science and Technologies for Phosphorus Sustainability (STEPS) Center. STEPS is sustainability driven, with a focus on creating systems that would allow successful capture of phosphates from a variety of environments. To build such systems, one needs to consider materials with high affinity to phosphate binding, low toxicity, and amenability to being easily cleaned or destroyed. Possible solutions include soft materials, such as bio-inspired proteins found in plants or microorganisms.
 
@@ -235,7 +235,7 @@ The data sets generated by STEPS scientists are as follows:
 
 The data for the MD simulations consist of input files (systems configurations, scripts, etc.), output data (files representing the dynamics of the systems across the simulation), and summary data (parameters derived from the systems via analysis). We used the summary data, which include various figures, together with their captions and descriptions.
 
-#### *C. Constructing a KG from the MS Spreadsheet Data*
+### *C. Constructing a KG from the MS Spreadsheet Data*
 
 In this section we discuss our experience of constructing a KG from the *spreadsheet data* in our MS use case. Those data come from Data Set 1, see Section V-Bl for the details.
 
@@ -247,14 +247,14 @@ Table II shows a fragment of the triple sheet *T,* which specifies the triple ty
 
 *3) The Conversion Process:* We implemented the spreadsheet-conversion procedure of Algorithm 1, see Section IV-A3, in Python [28] using the py2neo [29] package to connect to our graph database stored in Neo4j [25]. Using the data sheet *D* and the triple sheet *T* of Section V-Cl as its inputs, Algorithm 1 returned the KG *Qi* = (£!, 7i, 0!, *Vi,* £!) described in Section V-C2.
 
-#### *D. Constructing a KG from the MS Images with Annotations*
+### *D. Constructing a KG from the MS Images with Annotations*
 
 In this section we discuss our experience of constructing a KG from the *images with annotations* in our MS use case. The data come from Data Set 2, see Section V-B2 for the details.
 
 ![](_page_6_Figure_8.jpeg)
-<!-- Image Description: The bar graph displays the percentage of phosphorus removal at different temperatures (10°C, 20°C, 30°C, and 40°C).  Phosphorus removal increases slightly with temperature from 10°C to 20°C, then plateaus. The purpose is to illustrate the relationship between temperature and phosphorus removal efficiency, likely in the context of a water treatment or environmental remediation process. -->
+<!-- Image Description: The bar graph displays the percentage of phosphorus removal at different temperatures (10°C, 20°C, 30°C, and 40°C). Phosphorus removal increases slightly with temperature from 10°C to 20°C, then plateaus. The purpose is to illustrate the relationship between temperature and phosphorus removal efficiency, likely in the context of a water treatment or environmental remediation process. -->
 
-Fig. 2. An image from Data Set 2 described in Section V-B2.
+Figure 2. An image from Data Set 2 described in Section V-B2.
 
 *1) The Input Data:* To align with the required input format specified in Section IV-B1, we used the set of images *I* provided by Data Set 2, and compiled all the annotations into a single annotations file *A* with one row of annotations per file in *I.* Figure 2 shows a sample image from the set *I* of images in Data Set 2; this is a graph generated by MS researchers to summarize their experimental results. Table III shows the annotations for the image of Figure 2, which comprise a single line in the annotations file *A.* The annotations, i.e., properties of interest of the image, include in this case *title, x-axis, y-axis, description,* and *meaning.* E.g., the first annotation indicates that the image *title* is "Removal vs. Temperature."
 
@@ -262,32 +262,32 @@ Fig. 2. An image from Data Set 2 described in Section V-B2.
 
 *3) The Conversion Process:* Following the procedure of Section IV-B3, we converted the set of images *I* and the annotations file *A* of Section V-Dl into the spreadsheet data format, obtaining a data sheet *D* and a triple sheet *T.* The adaptation procedure, described in Section IV-B3, was implemented as a Python [28] script. Table IV shows the data sheet *D* generated for the inputs *I* and *A,* see Section V-Dl. *D* consists of the image annotations *A* with an additional column indicating the image corresponding to the annotations. Table V shows a fragment of the triple sheet *T,* which contains a single row for each column in the annotations file *A.* We passed these inputs *D* and *T* into our implementation of Algorithm 1 of Section V-C3, which returned the KG *G2 =* (£2, 72,02؛, *V<sup>2</sup> ,C2)* described in Section V-D2.
 
-# *E. Constructing a KG from the MS Regularized Text Data*
+## *E. Constructing a KG from the MS Regularized Text Data*
 
 In this section we discuss our experience of constructing a KG from *regularized text data* in our MS use case. These data
 
 Fr a g m e n t o f t h e data s h e e t fr o m Data Se t 1 (se e Se c t io n V -B l) in g e s t e d w it h t h e data in Ta b l e **II** b y t h e c o n v e r s io n pr o c e d u r e o f Se c t io n **IV-A3** f o r s p r e a d s h e e t d a ta . Ea c h ro w d e s c r ib e s a s in g l e data o b je c t , a n d t h e c o l u m n s r e p r e s e n t d if f e r e n t e n t it ie s . **TABLE I**
 
-| Trial    | Protein | Solution | Solvent     | Ion            | Temperature (°C ) | Absorbance (nm) | Original Cone. (mg/L) |
+| Trial | Protein | Solution | Solvent | Ion | Temperature (°C ) | Absorbance (nm) | Original Cone. (mg/L) |
 |----------|---------|----------|-------------|----------------|-------------------|-----------------|-----------------------|
-| Tem pi.1 | E. coli | Temp 01  | clean water | orthophosphate | 10                | 0.234           | 1.12                  |
-| Templ.2  | E. coli | Temp 01  | clean water | orthophosphate | 10                | 0.240           | 1.12                  |
-| Templ.3  | E. coli | Temp 01  | clean water | orthophosphate | 10                | 0.226           | 1.12                  |
+| Tem pi.1 | E. coli | Temp 01 | clean water | orthophosphate | 10 | 0.234 | 1.12 |
+| Templ.2 | E. coli | Temp 01 | clean water | orthophosphate | 10 | 0.240 | 1.12 |
+| Templ.3 | E. coli | Temp 01 | clean water | orthophosphate | 10 | 0.226 | 1.12 |
 
-| TABLE E |  |  |
+| TABLE E | | |
 |---------|--|--|
-|         |  |  |
+| | | |
 
 Fr a g m e n t o f t h e t r ip l e sh e e t f o r Data Se t 1 (se e Se c t io n **V -B l)** in g e s t e d w it h th e data i n Ta b l e **I** b y t h e c o n v e r s io n pr o c e d u r e o f Se c t io n **IV-**A3 f o r s p r e a d s h e e t d a ta . Ea c h r o w d e s c r ib e s a t r ip l e t y p e o f t h e fo r m *(su bjectT ype, p, objectT ype).*
 
-| Subject  | Predicate               | Object     |
+| Subject | Predicate | Object |
 |----------|-------------------------|------------|
-| Trial    | u s e d j p r o t e i n | Protein    |
-| Trial    | used-environment        | Solution   |
-| Protein  | u s s d .o n            | Solution   |
-| Protein  | h a d p r o p e r t y   | Absorbance |
-| Solution | c o n t a i n s         | Solvent    |
-| Solution | contains                | Ion        |
+| Trial | u s e d j p r o t e i n | Protein |
+| Trial | used-environment | Solution |
+| Protein | u s s d .o n | Solution |
+| Protein | h a d p r o p e r t y | Absorbance |
+| Solution | c o n t a i n s | Solvent |
+| Solution | contains | Ion |
 
 come from Data Set 3, see Section V-B3 for the details.
 
@@ -305,7 +305,7 @@ Next, we used the toined model to provide tags for h e sentences *S \ S T.* Then
 
 Finally, we passed the newly generated data sheet *D* and the triple sheet *T* (see Section V-E1) to our implementation of Algorithm 1 of Section V-C3. The nin of Algorithm 1 rehirned th^KG *3£)* **= 3ج***,T3, 4>3,V3,£ 3)* described in Section V-E2.
 
-# *F. Assembling a KG jrom Multiple Data Types 0س Data Sets*
+## *F. Assembling a KG jrom Multiple Data Types 0س Data Sets*
 
 For our use case, it would be valuable to h e domain scientists if file KGs **<sup>2</sup> ج اج,** , and **3ج** were imified into a single KG. As discussed in Section IV-D, this can be accomplished by building a single KG ج using the BUILD-KG conversion process for each data type and each data set. Executing the conversion processes of Sections V-C3, V-D3, and V-E3 resifited in h e KG *Q* with the contents of file KGs **ج ااج <sup>2</sup> ل**and **<sup>3</sup>ج** described ئ Sections V-C2, V-D2, and V-E2, respectively, with *g* having the unified ontology of the three KGs. Further, each node or edge that is sharetl between **<sup>2</sup> ج اج,** , and **3ج** was mapped by BUIED KG into the same node or edge in **ج.**
 
@@ -317,65 +317,65 @@ The domain scientists were also looking for additional relationships that would 
 
 Th e a n n o ta tio n s fr o m Data Se t **2** d e s c r ib e d in Se c t io n **V -B2** fo r t h e im a g e sh o w n in Fig u r e **2.** Th e a n n o ta tio n s h a v e b e e n u se d a s INPUTS TO THE CONVERSION PROCEDURE OF SECTION **IV-B3** FOR IMAGES WITH ANNOTATIONS.
 
-| title       | x-axis      | ؛/-axis          | description                               | meaning                           |
+| title | x-axis | ؛/-axis | description | meaning |
 |-------------|-------------|------------------|-------------------------------------------|-----------------------------------|
-| Removal vs. | temperature | removal rate (%) | Removal rate as a function of temperature | The amount of phosphate that is   |
-| Temperature |             |                  | (the temperature-dependence of removal)   | removed at different temperatures |
+| Removal vs. | temperature | removal rate (%) | Removal rate as a function of temperature | The amount of phosphate that is |
+| Temperature | | | (the temperature-dependence of removal) | removed at different temperatures |
 
 **TABLE IV**
 
 THE DATA SHEET GENERATED WHEN EXECUTING THE CONVERSION PROCEDURE OF SECTION **IV-B3** FOR IMAGES WITH ANNOTATIONS; THE PROCEDURE USED AS INPUTS THE IMAGE SHOWN IN FIGURE **2** AND ITS ANNOTATIONS SHOWN IN TABLE **III.**
 
-| Image    | title       | x-axis      | ؟/-axis          | description                               | meaning                           |
+| Image | title | x-axis | ؟/-axis | description | meaning |
 |----------|-------------|-------------|------------------|-------------------------------------------|-----------------------------------|
-| Figure 2 | Removal vs. | temperature | removal rate (%) | Removal rate as a function of temperature | The amount of phosphate that is   |
-|          | Temperature |             |                  | (the temperature-dependence of removal)   | removed at different temperatures |
+| Figure 2 | Removal vs. | temperature | removal rate (%) | Removal rate as a function of temperature | The amount of phosphate that is |
+| | Temperature | | | (the temperature-dependence of removal) | removed at different temperatures |
 
-#### **TABLE V**
+### **TABLE V**
 
 Fr a g m e n t o f t h e t r ip l e s h e e t g e n e r a t e d w h e n e x e c u t in g th e CONVERSION PROCEDURE OF SECTION IV-B3 ON THE IMAGE OF FIGURE 2 AND ITS ANNOTATIONS SHOWN IN TABLE **III.**
 
-| Subject | Predicate    |        |  |
+| Subject | Predicate | | |
 |---------|--------------|--------|--|
-| Image   | has_property | title  |  |
-| Image   | has_property | x-axis |  |
-| Image   | has_property | y-axis |  |
+| Image | has_property | title | |
+| Image | has_property | x-axis | |
+| Image | has_property | y-axis | |
 
-#### **TABLE VI**
+### **TABLE VI**
 
 Fr a g m e n t o f t h e t r ip l e s h e e t f o r t h e Data Se t **3** o f Se c t io n **V -B3,** u se d a s a n in p u t to t h e c o n v e r s io n pr o c e d u r e o f Se c t io n **IV-C3** f o r r e g u l a r iz e d t e x t data . Ea c h ro w d e s c r ib e s a t r ip l e t y p e OF t h e FORM (*su b jectT yp e, p, objectT ype).*
 
-| Subject | Predicate             | Object<br>Process |  |
+| Subject | Predicate | Object<br>Process | |
 |---------|-----------------------|-------------------|--|
-| Figure  | illustrates           |                   |  |
-| Process | measured_by           | Parameter         |  |
-| Process | involves<br>IonMD     |                   |  |
-| Process | involves<br>ProteinMD |                   |  |
-| Process | occurs_in             | SolventMD         |  |
+| Figure | illustrates | | |
+| Process | measured_by | Parameter | |
+| Process | involves<br>IonMD | | |
+| Process | involves<br>ProteinMD | | |
+| Process | occurs_in | SolventMD | |
 
 thus enabling richer analytics on *Q* than what the data sets or even *Gu G<sup>2</sup> ,* and *G3* could allow in isolation. To this end, the scientists provided a set of (*s,p ,* 0) triples to connect such entities; *s* and 0 would come from different data sets but have the relationship *p* between them in *Q.* An example of such a triple is *(2HP,* simulates, *orthophosphate),* where *2HP* is a node of type IonMD in Data Set 3 (see Section V-El) and *orthophosphate* is a node of type Ion in Data Set 1 (see Section V-Cl). The triple, see Figure 1, indicates that the IonMD *2HP* is used to simulate the Ion *orthophosphate* in molecular-dynamics simulations. We added the triples to *G* via the Cypher query implementing line 9 of Algorithm 1.
 
 These steps completed our BUILD-KG conversion and unification process for the use case. We provided the resulting KG *G* to the STEPS scientists for their further use and exploration.
 
-#### **TABLE VII**
+### **TABLE VII**
 
 Th e data s h e e t g en e r a t ed b y t h e c o n v e r s io n pr o c e d u r e o f Se c t io n **IV-C3** f o r r e g u l a r iz e d t e x t data f o r t h e sa m pl e ta g g ed SENTENCE OF SECTION **V -E l** FROM THE **DATA** SET **3** OF SECTION **V-B3.**
 
-| Figure   | Parameter | Process     | IonMD | ProteinMD | SolventMD   |
+| Figure | Parameter | Process | IonMD | ProteinMD | SolventMD |
 |----------|-----------|-------------|-------|-----------|-------------|
-| Figure 1 | RMSD      | interaction | 2HP   | E. coli   | clean water |
+| Figure 1 | RMSD | interaction | 2HP | E. coli | clean water |
 
 **t a b l e v m** Sa m p l e se m a n t ic se n t e n c e s g en e r a t ed b a se d o n a s e m a n t ic DESCRIPTION OF DATA SET 1 PRESENTED IN SECTION V -B l.
 
-| Defines     | Semantic sentence                                         |  |
+| Defines | Semantic sentence | |
 |-------------|-----------------------------------------------------------|--|
-| Entity-type | E. coli is a Protein.                                     |  |
-| Entity-type | Water containing orthophosphate is a Solution.            |  |
-| Predicate   | An experimental trial resulted in 0.234 nm of absorbance. |  |
-| Predicate   | A solution had an original concentration of 1.12 mg/L.    |  |
-| Predicate   | The protein E. coli was used on solution Temp 01.         |  |
+| Entity-type | E. coli is a Protein. | |
+| Entity-type | Water containing orthophosphate is a Solution. | |
+| Predicate | An experimental trial resulted in 0.234 nm of absorbance. | |
+| Predicate | A solution had an original concentration of 1.12 mg/L. | |
+| Predicate | The protein E. coli was used on solution Temp 01. | |
 
-#### **V I . H u m a n s -i n - t h e - L o o p i n t h e W o r k f l o w**
+### **V I . H u m a n s -i n - t h e - L o o p i n t h e W o r k f l o w**
 
 We now detail the preprocessing steps that should be taken in order to properly format the data that are to be integrated by our proposed BUILD-KG workflow. This preprocessing involves close collaboration with domain scientists as humansin-the-loop, and is needed for achieving full understanding of their data and for ensuring that the data are captured in the knowledge graph *(KG)* as accurately as possible.
 
@@ -392,11 +392,11 @@ After the generation of the semantic sentences, domain scientists validate them 
 
 Steps 2 and 3 can be repeated as many times as necessary to produce an integrated KG that satisfies the needs of the domain scientists. Such a KG will have a proper structural and semantic representation of the original data, and will provide insightful connections (junction points) across the data. Once this iterative process is done, in Step 4 the raw data can be reformatted to match the BUILD-KG input-format requirements. In our use case, the semantic sentences shown in Table VIII were used to generate the spreadsheet data-type inputs shown in Tables I and II and discussed in Section V-Cl.
 
-#### VII. **<sup>C</sup> o n c l u s i o n**
+### VII. **<sup>C</sup> o n c l u s i o n**
 
 In this paper we introduced a domain-agnostic workflow called BUILD-KG for integrating heterogeneous scientific and experimental data from multiple sources into a single unified KG that can enable richer data analytics. BUILD-KG is broadly applicable, accepting input data in popular structured and unstructured storage formats. It is also designed to be carried out with end users as humans-in-the-loop, which makes BUILD-KG domain aware. We presented the BUILD-KG workflow, reported on our experiences with applying it to data in the materials-science domain, and provided suggestions on involving domain scientists in BUILD-KG as humans-inthe-loop. We posit that our proposed BUILD-KG workflow can enable domain scientists to seamlessly convert their data into the KG format, unify their data with those shared by other domain scientists, and then apply to the resulting KG dataanalysis tasks, such as rule mining and machine learning, that may not be supported by the data sources taken in isolation. In this way, the BUILD-KG workflow can make KGs more accessible to domain scientists, thus encouraging greater use and exploration, while increasing collaboration and richness of research results. Our future work includes expanding the proposed collection of conversion procedures within BUILD-KG to include other popular data-storage formats.
 
-#### **R e f e r e n c e s**
+### **R e f e r e n c e s**
 
 **[1] A. Bosselut, H. Rashkin** *et al.,* **"COMET: Commonsense Transformers for Automatic Knowledge Graph Construction," 2019.**
 

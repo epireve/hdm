@@ -30,7 +30,6 @@ keywords:
 - state-of-the-art
 ---
 
-
 # Dynamic Graph Neural Networks for Sequential Recommendation
 
 Mengqi Zhang, Shu Wu, *Member, IEEE,*Xueli Yu, Qiang Liu,*Member, IEEE,*Liang Wang,*Fellow, IEEE*
@@ -40,7 +39,7 @@ Mengqi Zhang, Shu Wu, *Member, IEEE,*Xueli Yu, Qiang Liu,*Member, IEEE,*Liang Wa
 ✦
 **Index Terms**—Sequential Recommendation, Dynamic Collaborative Signals, Dynamic Graph Neural Networks.
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 WITH dramatic growth of the amount of information on the Internet, recommender systems have been applied to help users alleviate the problem of information overload in online services, such as e-commerce, search engines, and social media. Recently, several collaborative filtering methods have been proposed, which focus on static user-item interactions [\[1\]](#page-10-0), [\[2\]](#page-10-1), [\[3\]](#page-10-2), but ignoring the rich historical sequential information of users. However, user preferences change dynamically over time, varying with the historical interacted items. Therefore, sequential recommendation has attracted lots of attention, which seeks to utilize the sequential information from each user's interaction history to make accurate predictions.
 
@@ -59,12 +58,12 @@ Consequently, the above two aspects result in the diffi-
 <sup>•</sup>*Mengqi Zhang, Shu Wu, Qiang Liu, and Liang Wang are with the Center for Research on Intelligent Perception and Computing (CRIPAC), Institute of Automation, Chinese Academy of Sciences, Beijing 100190, China, and also with the School of Artificial Intelligence, University of Chinese Academy of Sciences, Beijing 101408, China (E-mail: mengqi.zhang@cripac.ia.ac.cn, shu.wu@nlpr.ia.ac.cn, qiang.liu@nlpr.ia.ac.cn, wangliang@nlpr.ia.ac.cn).*<sup>•</sup>*Xueli Yu is with Beijing Institute for General Artificial Intelligence (BIGAI), Beijing, China (E-mail: yuxueli@bigai.ai).*<span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
 <!-- Image Description: The image illustrates a sequence prediction problem. The left shows multiple input sequences (`u1`, `u2`, `u3`) of nodes (labeled `i1`, `i2`, etc.), connected by arrows indicating order. The right depicts how these sequences are used for training a model. Multiple sequences are presented for training, followed by a testing sequence where the model predicts the missing node. The figure uses node-arrow diagrams to visually represent the input and output data for training and testing a sequential model. -->
 
- ? (a) The left figure presents differnt sequences of u1, u<sup>2</sup> and u3. Our goal is to predict the next interaction of u1. The figure on the right illustrates the training and testing paradigm of most sequential models. : ()**User sequences**?**Testing**<span id="page-1-1"></span>![](_page_1_Figure_3.jpeg)
+? (a) The left figure presents differnt sequences of u1, u<sup>2</sup> and u3. Our goal is to predict the next interaction of u1. The figure on the right illustrates the training and testing paradigm of most sequential models. : ()**User sequences**?**Testing**<span id="page-1-1"></span>![](_page_1_Figure_3.jpeg)
 <!-- Image Description: The image shows a sequence of three graphs ($t_1$, $t_2$, $t_3$) illustrating a graph evolution process. Nodes are colored green (u) or gold (i). The graphs depict changes in connections between nodes over time. A dashed arrow shows a node's movement from $t_1$ to $t_2$. The final graph ($t_3$) shows an uncertain connection indicated by a dashed arrow ending with a question mark. The image likely illustrates a dynamic graph model or algorithm, demonstrating its step-by-step operation. -->
 
 () (b) Interaction of user-item graph composed of u1, u<sup>2</sup> and u<sup>3</sup> at different times. Each edge represents the interaction between user and item, and has time attribute. The node u<sup>1</sup> is the target user to predict. The solid line indicates the interaction that has occurred at the current time. The dotted arrow represents the next interactions of u1. The timestamp sequence of u<sup>1</sup> is (t1, t2, t3).
 
-Fig. 1: Illustration of user-item sequential interaction. Figure (a) illustrates the interaction sequences of u1, u<sup>2</sup> and u3. Figure (b) is the user-item interaction graph composed of u1, u<sup>2</sup> and u<sup>3</sup> at different times, which can be seen as a refined representation of Figure (a).
+**Figure 1:** Illustration of user-item sequential interaction. Figure (a) illustrates the interaction sequences of u1, u<sup>2</sup> and u3. Figure (b) is the user-item interaction graph composed of u1, u<sup>2</sup> and u<sup>3</sup> at different times, which can be seen as a refined representation of Figure (a).
 
 culty of accurately capturing user preference in sequential recommendation. To deal with these challenges, two important problems need to be solved:
 
@@ -82,7 +81,7 @@ To this end, inspired by dynamic graph representation learning [\[18\]](#page-10
 - 2: <sup>4</sup> → <sup>1</sup> → <sup>2</sup> → <sup>5</sup> • We propose DGSR, a new sequential recommendation framework based on dynamic graph neural networks.
 - 3: <sup>2</sup> → <sup>3</sup> → <sup>6</sup> → <sup>7</sup> 1: <sup>1</sup> → <sup>2</sup> → <sup>3</sup> → ? 2: <sup>4</sup> → <sup>1</sup> → <sup>2</sup> → <sup>5</sup> • We conduct empirical studies on three real-world datasets. Extensive experiments demonstrate the effectiveness of DGSR.
 
-# 2 RELATED WORK
+## 2 RELATED WORK
 
 ## 2.1 Sequential Recommendation
 
@@ -102,7 +101,7 @@ However, in many applications, the graph data change over time, such as academic
 
 Although some of the above-mentioned dynamic methods are tested on e-commerce data sets, they are not adapt to sequential recommendation scenarios. As far as we know, there is no study to illustrate the sequential recommendation problem from the perspective of dynamic graphs.
 
-# 3 PRELIMINARIES
+## 3 PRELIMINARIES
 
 In this section, we describe problems about sequential recommendation and dynamic graph.
 
@@ -118,7 +117,7 @@ Generally, there are two types of dynamic graphs [\[44\]](#page-11-6), which are
 
 A dynamic network can be defined as G = (V, E, T ), where V = {v1, v2, · · · , vn} is the node set and e ∈ E represents the interaction between v<sup>i</sup> and v<sup>j</sup> at time t ∈ T , so edge eij between v<sup>i</sup> and v<sup>j</sup> is generally represented by triplet (v<sup>i</sup> , v<sup>j</sup> , t). In some cases, t can also indicate the order of interactions between two nodes. By recording the time or order of each edge, a dynamic graph can capture the evolution of the relationship between nodes. Dynamic graph embedding aims to learn mapping function f : V → R d , where d is the number of embedding dimensions.
 
-# 4 METHODOLOGY
+## 4 METHODOLOGY
 
 We now present the proposed DGSR model, the framework of which is illustrated in Figure [2.](#page-3-2) There are four components in the architecture: 1)*Dynamic Graph Construction*is to convert all sequences of users to a dynamic graph; 2)*Sub-graph Sampling*is to extract sub-graphs which contain user's sequence and its related sequences; 3)*Dynamic Graph Recommendation Networks*(DGRN) contains message propagation mechanism and node update part to encode each user preference from the sub-graph; and 4)*Predication Layer*aggregates the user's refined embeddings learned from DGRN, and predicts which item node will be most likely linked with the user node next. Algorithm [2](#page-6-1) provides the pseudo-code of the overall framework.
 
@@ -129,7 +128,7 @@ In this section, we describe how to convert all user sequences into a dynamic gr
 <span id="page-3-2"></span>![](_page_3_Figure_2.jpeg)
 <!-- Image Description: This figure illustrates a dynamic graph recommendation network. It depicts user sequences transforming into dynamic graphs via sub-graph sampling. These graphs are then processed through a network incorporating long-term and short-term information (item-user and user-item interactions). The final stage shows a prediction layer that aggregates information to generate recommendations, represented by the output ŷ. The diagram uses nodes and edges to represent users and items, respectively, and color-coding to differentiate temporal information and processed embeddings. -->
 
-Fig. 2: Overview of DGSR framework. Take predicting the next interaction of u1's sequence (i1, i2, i3) as an example. The corresponding timestamp sequence is (t1, t2, t3). We first convert u1' sequence and its related sequences into dynamic graph G t3 , each edge represents the interaction between user and item, and has time attribute. The edges represented by the dotted line are interactions that occurred after t3, which is not included in G t3 (Section [4.1\)](#page-2-0). Then we sample a m-order sub-graph G m u<sup>1</sup> (t3) from G t3 (Section [4.2\)](#page-3-0). Following this, the well-designed Dynamic Graph Recommendation Networks propagate and aggregate the information among different user sequences (Section [4.3\)](#page-3-1). Finally, we concatenate user node embedding of each layer for final predication (Section [4.4\)](#page-5-0).
+**Figure 2:** Overview of DGSR framework. Take predicting the next interaction of u1's sequence (i1, i2, i3) as an example. The corresponding timestamp sequence is (t1, t2, t3). We first convert u1' sequence and its related sequences into dynamic graph G t3 , each edge represents the interaction between user and item, and has time attribute. The edges represented by the dotted line are interactions that occurred after t3, which is not included in G t3 (Section [4.1\)](#page-2-0). Then we sample a m-order sub-graph G m u<sup>1</sup> (t3) from G t3 (Section [4.2\)](#page-3-0). Following this, the well-designed Dynamic Graph Recommendation Networks propagate and aggregate the information among different user sequences (Section [4.3\)](#page-3-1). Finally, we concatenate user node embedding of each layer for final predication (Section [4.4\)](#page-5-0).
 
 i, and e can be represented by the quintuple (u, i, t, o<sup>i</sup> u , o<sup>u</sup> i ). t describes the timestamp when the interaction occurred. Besides, distinguished with the definition of the conventional dynamic graph, o i u is the order of u−i interaction, that is, the position of item i in all items that the u has interacted with. o u i refers to the order of u in all user nodes that have interacted with item i. For example, u1's sequence and timestamp sequence are (i1, i2, i3) and (t1, t2, t3), respectively. u2's sequence and timestamp sequence are (i2, i3, i1) and (t4, t5, t6), where t<sup>1</sup> < t<sup>2</sup> < t<sup>3</sup> < t<sup>4</sup> < t<sup>5</sup> < t6. The edges between users and its interaction items can be written as (u1, i1, t1, 1, 1), (u1, i2, t2, 2, 1), (u1, i3, t3, 3, 1), (u2, i2, t4, 1, 2), (u2, i1, t5, 2, 2), and (u2, i3, t6, 3, 2).
 
@@ -175,7 +174,8 @@ The message propagation mechanism aims to learn the message propagation informat
 
 neighbors of item also reflect its two types of character. On the one hand, the*long-term character*can reflect the general characters of the item. For example, the*wealthy*people usually buy*high-end*cosmetics. On the other hand,*short-term character*reflects the newest property of item. For example, many non-sports enthusiasts may also buy jerseys or player posters during the World Cup. This part of consumers' behavior means the positioning of soccer equipment has changed from professionalism to universality in this period. However, most existing sequential recommendation methods fail to explicitly capture the impact of user nodes on the item node. To settle this problem, we also consider the message propagation from user to item.
 
-##*4.3.1 Message Propagation Mechanism*In this subsection, we discuss the message propagation mechanism of DGRN, which includes the encoding of longterm and short-term information.
+## *4.3.1 Message Propagation Mechanism*In this subsection, we discuss the message propagation mechanism of DGRN, which includes the encoding of longterm and short-term information.
+
 *Long-term Information.*To capture the long-term information of each node from its neighbors, we reference graph neural networks and recurrent neural network, which explicitly consider the relationship of nodes with their neighbors and sequence dependence of neighbors, respectively. Furthermore, we also design an order-aware attention mechanism that is more suitable for dynamic sequential recommendation.
 
 •**Graph Convolution Neural Networks**. GCN [\[13\]](#page-10-12) is an intuitive approach that aggregate all neighbor node embedding directly:
@@ -188,7 +188,7 @@ $$
 $$
 \mathbf{h}_i^L = \frac{1}{|\mathcal{N}_i|} \sum_{i \in \mathcal{N}_i} \mathbf{W_2}^{(l-1)} \mathbf{h}_u^{(l-1)},
 $$
- (2)
+(2)
 
 where W<sup>1</sup> (l−1) , W<sup>2</sup> (l−1) ∈ R d×d are encoding matrix parameters of item and user in the l−1-th layer, where |Nu| and |N<sup>i</sup> | is the number of u's and i's neighbor nodes.
 
@@ -197,7 +197,7 @@ where W<sup>1</sup> (l−1) , W<sup>2</sup> (l−1) ∈ R d×d are encoding matr
 $$
 \mathbf{h}_u^L = \text{GRU}_U^{(l)}\left(\mathbf{h}_{i_1}^{(l-1)}, \cdots, \mathbf{h}_{i_{|\mathcal{N}_u|}}^{(l-1)}\right), i \in \mathcal{N}_u,
 $$
- (3)
+(3)
 
 $$
 \mathbf{h}_i^L = \text{GRU}_I^{(l)}\left(\mathbf{h}_{u_1}^{(l-1)}, \cdots, \mathbf{h}_{u_{|N_i|}}^{(l-1)}\right), u \in \mathcal{N}_i, \quad (4)
@@ -266,6 +266,7 @@ $$
 where parameters W<sup>3</sup> and W<sup>4</sup> ∈ R d is to control the weight of last interaction.
 
 ## *4.3.2 Node updating*In this stage, we aggregate the long-term embedding, shortterm embedding, and the previous layer embedding to update the node's representation of G m u (tk).
+
 *User node updating.*For user node, the representation updating rule from l−1-th layer to l-th layer can be formulated as
 
 $$
@@ -290,7 +291,7 @@ After acting L-layers DGRN on G m u (tk), we obtain the multiple embedding {h (0
 $$
 \mathbf{h}_{\mathbf{u}} = \mathbf{h}_u^{(0)} \parallel \mathbf{h}_u^{(1)} \cdots \parallel \mathbf{h}_u^{(L)}.
 $$
- (17)
+(17)
 
 For a given candidate item i ∈ I, the link function is defined as
 
@@ -330,19 +331,18 @@ There are also some models [\[26\]](#page-10-25), [\[27\]](#page-10-26), [\[29\]
 
 TABLE 1: The statistics of the datasets.
 
-<span id="page-6-3"></span>
 
-| Datasets          | Beauty  | Games   | CDs     |
+| Datasets | Beauty | Games | CDs |
 |-------------------|---------|---------|---------|
-| # of Users        | 52,024  | 31,013  | 17,052  |
-| # of Items        | 57,289  | 23,715  | 35,118  |
+| # of Users | 52,024 | 31,013 | 17,052 |
+| # of Items | 57,289 | 23,715 | 35,118 |
 | # of Interactions | 394,908 | 287,107 | 472,265 |
-| Average length    | 7.6     | 9.3     | 27.6    |
-| Density           | 0.01%   | 0.04%   | 0.08%   |
+| Average length | 7.6 | 9.3 | 27.6 |
+| Density | 0.01% | 0.04% | 0.08% |
 
 and target sequence but fails to utilize the fine-grained interaction information of users, including the interaction-order between each item with all users that interact with it. Compared with that, our model measures the similarity between different sequences based on the well-designed message passing mechanism, which could improve the utilization of interactions between users and items. HyperRec [\[26\]](#page-10-25) adopts hypergraph to associate the high-order correlations connections between items in each period. Nonetheless, hypergraph is a rough way to model user-item interaction, which results in much-refined information being neglected, such as the explicit order information in each cross sequence. The dynamic graph constructed by our DGSR can be more flexible to represent richer interaction information. In social recommendation, DGRec [\[28\]](#page-10-27) explicitly associate different user sequences through social attribute information, but not all data have social relationship attributes in sequential recommendation scenario. Our model can also explicitly associate different user sequences without relying on other auxiliary information.
 
-# 5 EXPERIMENTS
+## 5 EXPERIMENTS
 
 In this section, we perform experiments on three real-world datasets to evaluate the performance of our model. We aim to answer the following questions through experiments.
 
@@ -360,14 +360,14 @@ All of these datasets contain the timestamps or specific dates of interactions. 
 
 <span id="page-7-1"></span>TABLE 2: Performance of DGSR and compared methods in terms of Hit@10 and NDCG@10. The best results is boldfaced. The underlined numbers is the second best results. "Gain" means the improvement over the best compared methods.
 
-| Datasets | Metric  | BPR-MF | FPMC  | GRU4Rec+ | Caser | SASRec | SR-GNN | HGN   | TiSASRec | HyperRec | DGSR  | Gain   |
+| Datasets | Metric | BPR-MF | FPMC | GRU4Rec+ | Caser | SASRec | SR-GNN | HGN | TiSASRec | HyperRec | DGSR | Gain |
 |----------|---------|--------|-------|----------|-------|--------|--------|-------|----------|----------|-------|--------|
-| Beauty   | NDCG@10 | 21.83  | 28.91 | 26.42    | 25.47 | 32.19  | 32.33  | 32.47 | 30.45    | 23.26    | 35.90 | 10.56% |
-|          | Hit@10  | 37.75  | 43.10 | 43.98    | 42.64 | 48.54  | 48.62  | 48.63 | 46.87    | 34.71    | 52.40 | 7.75%  |
-| Games    | NDCG@10 | 28.75  | 46.80 | 45.64    | 45.93 | 53.60  | 53.25  | 49.34 | 50.19    | 48.96    | 55.70 | 3.92%  |
-|          | Hit@10  | 37.75  | 68.02 | 67.15    | 68.83 | 73.98  | 73.49  | 71.42 | 71.85    | 71.24    | 75.57 | 2.15%  |
-| CDs      | NDCG@10 | 36.26  | 33.55 | 44.52    | 45.85 | 49.23  | 48.95  | 49.34 | 48.97    | 47.16    | 51.22 | 3.81%  |
-|          | Hit@10  | 56.27  | 51.22 | 67.84    | 68.65 | 71.32  | 69.63  | 71.42 | 71.00    | 71.02    | 72.43 | 1.41%  |
+| Beauty | NDCG@10 | 21.83 | 28.91 | 26.42 | 25.47 | 32.19 | 32.33 | 32.47 | 30.45 | 23.26 | 35.90 | 10.56% |
+| | Hit@10 | 37.75 | 43.10 | 43.98 | 42.64 | 48.54 | 48.62 | 48.63 | 46.87 | 34.71 | 52.40 | 7.75% |
+| Games | NDCG@10 | 28.75 | 46.80 | 45.64 | 45.93 | 53.60 | 53.25 | 49.34 | 50.19 | 48.96 | 55.70 | 3.92% |
+| | Hit@10 | 37.75 | 68.02 | 67.15 | 68.83 | 73.98 | 73.49 | 71.42 | 71.85 | 71.24 | 75.57 | 2.15% |
+| CDs | NDCG@10 | 36.26 | 33.55 | 44.52 | 45.85 | 49.23 | 48.95 | 49.34 | 48.97 | 47.16 | 51.22 | 3.81% |
+| | Hit@10 | 56.27 | 51.22 | 67.84 | 68.65 | 71.32 | 69.63 | 71.42 | 71.00 | 71.02 | 72.43 | 1.41% |
 
 for testing, the second recent item for validation, and the remaining items for the training set. To fully capture the dynamic collaborative signals, we segment each sequence S u into a series of sequences and labels. For example, for an input S <sup>u</sup> = (i1, i2, i3, i4) and T <sup>u</sup> = (t1, t2, t3, t4), we generate sequences and labels as [i1] → i2, [i1, i2] → i<sup>3</sup> and [i1, i2, i3] → i4. Then, the corresponding sub-graph and the node to linked are (G m u (t1), i2), (G m u (t2), i3), and (G m u (t3), i4). These processing can be take before training and testing.
 
@@ -385,11 +385,11 @@ for testing, the second recent item for validation, and the remaining items for 
 -**TiSASRec**[\[23\]](#page-10-22), interval aware self-attention based model, which models both the absolute positions as well as the time intervals between them in a sequence.
 -**HyperRec**[\[26\]](#page-10-25), a hypergraphs based model, which adopts hypergraph to capture multi-order connections between items for next-item recommendation.
 
-##*5.2.2 Evaluation Metrics*We adopt two widely-used metrics [\[11\]](#page-10-10), Hit@K and NDCG@K, to evaluate all methods. Hit@K indicates the proportion of the ground-truth items among the top@K items, while NDCG@K is position-aware metric, and higher NDCG means target items tend to have more top rank
+## *5.2.2 Evaluation Metrics*We adopt two widely-used metrics [\[11\]](#page-10-10), Hit@K and NDCG@K, to evaluate all methods. Hit@K indicates the proportion of the ground-truth items among the top@K items, while NDCG@K is position-aware metric, and higher NDCG means target items tend to have more top rank
 
 positions. Following [\[11\]](#page-10-10), [\[23\]](#page-10-22), for each test sample, we randomly sample 100 negative items, and rank these items with the ground-truth item. We evaluate Hit@K and NDCG@K based on these 101 items. By default, we set K=10.
 
-##*5.2.3 Parameter Setup*We implement our DGSR model in*DGL*Library[2](#page-7-0) [\[50\]](#page-11-12). The embedding size is fixed to 50 for all methods. The maximum sequence length n is set to 50. The optimizer is the Adam optimizer [\[51\]](#page-11-13), the learning rate is set to 0.01. Batch size is 50. λ is 1e-4. We set the order of sub-graph sampling m to 4. The DAN layer number L is set to 3 for Beauty and CDs, 2 for Games. We run the evaluation four times with different random seeds and report the mean value of each method. For the compared methods, we use the default hyperparameters except for dimensions. All experiments are conducted on a computer server with eight NVIDIA GeForce RX2080Ti (11GB) and four Intel Xeon E5-2660 v4 CPUs.
+## *5.2.3 Parameter Setup*We implement our DGSR model in*DGL*Library[2](#page-7-0) [\[50\]](#page-11-12). The embedding size is fixed to 50 for all methods. The maximum sequence length n is set to 50. The optimizer is the Adam optimizer [\[51\]](#page-11-13), the learning rate is set to 0.01. Batch size is 50. λ is 1e-4. We set the order of sub-graph sampling m to 4. The DAN layer number L is set to 3 for Beauty and CDs, 2 for Games. We run the evaluation four times with different random seeds and report the mean value of each method. For the compared methods, we use the default hyperparameters except for dimensions. All experiments are conducted on a computer server with eight NVIDIA GeForce RX2080Ti (11GB) and four Intel Xeon E5-2660 v4 CPUs.
 
 ## 5.3 Performance Comparison (RQ1)
 
@@ -399,31 +399,30 @@ We first report the performance of all the methods. Table [2](#page-7-1) summari
 
 <span id="page-7-0"></span>2. https://www.dgl.ai/
 
-<span id="page-8-0"></span>
 
-| TABLE 3: Performance of compared with different model variants in terms of NGCD@10 and Hit@10 ("−" indicates DGSR |  |
+| TABLE 3: Performance of compared with different model variants in terms of NGCD@10 and Hit@10 ("−" indicates DGSR | |
 |-------------------------------------------------------------------------------------------------------------------|--|
-| does not consider the setting of this part).                                                                      |  |
+| does not consider the setting of this part). | |
 
-| Variants | Ablation  |            | Beauty  |        | Games   |        | CDs     |        |
+| Variants | Ablation | | Beauty | | Games | | CDs | |
 |----------|-----------|------------|---------|--------|---------|--------|---------|--------|
-|          | Long-term | Short-term | NDCG@10 | Hit@10 | NDCG@10 | Hit@10 | NDCG@10 | Hit@10 |
-| DGSR-G   | GCN       | –          | 33.75   | 49.94  | 53.44   | 73.23  | 48.66   | 70.43  |
-| DGSR-R   | RNN       | –          | 34.81   | 50.90  | 54.70   | 74.73  | 49.57   | 71.22  |
-| DGSR-D   | DAT       | –          | 35.25   | 51.36  | 55.12   | 74.83  | 49.66   | 71.26  |
-| DGSR-L   | –         | Last       | 30.87   | 46.13  | 52.43   | 72.18  | 46.23   | 67.38  |
-| DGSR-A   | –         | ATT        | 34.76   | 51.00  | 54.30   | 74.32  | 48.78   | 70.09  |
-| DGSR-GL  | GCN       | Last       | 35.24   | 51.18  | 54.76   | 74.58  | 49.62   | 70.76  |
-| DGSR-RL  | RNN       | Last       | 35.47   | 51.68  | 54.86   | 74.84  | 50.26   | 71.24  |
-| DGSR-DL  | DAT       | Last       | 35.62   | 51.92  | 55.53   | 75.07  | 50.72   | 72.06  |
-| DGSR-GA  | GCN       | ATT        | 35.00   | 51.05  | 54.97   | 74.78  | 50.05   | 71.46  |
-| DGSR-RA  | RNN       | ATT        | 35.17   | 51.46  | 55.02   | 74.88  | 51.19   | 72.55  |
-| DGSR-DA  | DAT       | ATT        | 35.90   | 52.40  | 55.70   | 75.57  | 51.22   | 72.43  |
+| | Long-term | Short-term | NDCG@10 | Hit@10 | NDCG@10 | Hit@10 | NDCG@10 | Hit@10 |
+| DGSR-G | GCN | – | 33.75 | 49.94 | 53.44 | 73.23 | 48.66 | 70.43 |
+| DGSR-R | RNN | – | 34.81 | 50.90 | 54.70 | 74.73 | 49.57 | 71.22 |
+| DGSR-D | DAT | – | 35.25 | 51.36 | 55.12 | 74.83 | 49.66 | 71.26 |
+| DGSR-L | – | Last | 30.87 | 46.13 | 52.43 | 72.18 | 46.23 | 67.38 |
+| DGSR-A | – | ATT | 34.76 | 51.00 | 54.30 | 74.32 | 48.78 | 70.09 |
+| DGSR-GL | GCN | Last | 35.24 | 51.18 | 54.76 | 74.58 | 49.62 | 70.76 |
+| DGSR-RL | RNN | Last | 35.47 | 51.68 | 54.86 | 74.84 | 50.26 | 71.24 |
+| DGSR-DL | DAT | Last | 35.62 | 51.92 | 55.53 | 75.07 | 50.72 | 72.06 |
+| DGSR-GA | GCN | ATT | 35.00 | 51.05 | 54.97 | 74.78 | 50.05 | 71.46 |
+| DGSR-RA | RNN | ATT | 35.17 | 51.46 | 55.02 | 74.88 | 51.19 | 72.55 |
+| DGSR-DA | DAT | ATT | 35.90 | 52.40 | 55.70 | 75.57 | 51.22 | 72.43 |
 
 - SASRec, HGN, SR-GNN, and TiSASRec achieve better performance than neural methods GRU4Rec+ and Caser. One possible reason is that they could explicitly capture the item-item relations by employing attention or hierarchical gating mechanism. Caser generally achieves better performance than GRU4Rec+ in most cases. Such improvement might be attributed to the CNN module, which could capture the more complex behavior pattern than the GRU net. Compared with the excellent performance in the session-based recommendation scenario, the performance of SR-GNN is flat in the sequential recommendation. One possible reason that the lack of repetitiveness of our data, making it challenging for the user sequence to form a graph structure.
 - BPR-MF achieves poor performance on three datasets. Since BPR-MF can only capture users' general interests, it is challenging to model the user's behavior sequence. GRU4Rec+ slightly underperforms FPMC in Beauty and Games while performing better in CDs. The reason might be that FPMC focuses on dynamic transitions of items, so they perform better on sparse datasets [\[23\]](#page-10-22).
 
-# 5.4 Study of Dynamic Graph Recommendation Networks (RQ2)
+## 5.4 Study of Dynamic Graph Recommendation Networks (RQ2)
 
 To investigate DGRN component's superiority in DGSR, we compare DGSR with different variants on Games, Beauty and CDs datasets, which set the various modules for encoding long-term and short-term information. We show the variant models and their results in Table [3](#page-8-0) and have the following findings:
 
@@ -431,11 +430,11 @@ To investigate DGRN component's superiority in DGSR, we compare DGSR with differ
 
 • All variants with two modules (long-term and shortterm) are consistently superior to variants with single module (long-term or short term). It illustrates the necessity of combining long-term and short-term information. Although DGSR-R performs better than DGSR-D in Beauty, DGSR-DA is superior to DGSR-RA and DGSR-RL. One possible reason is that DGSR-DA considers the relationship between central node and neighbor nodes, which is conducive to information propagation in the dynamic graph. In contrast, DGSR-RL and DGSR-RA only focus on the interactions of neighbors and ignore the roles of central node.
 
-# 5.5 The Sensitivity of Hyper-parameters (RQ3)
+## 5.5 The Sensitivity of Hyper-parameters (RQ3)
 
 To explore the effect of explicit modeling dynamic collaborative information among user sequences on DGSR, we study how three hyperparameters, the DGRN layer number l, the order of sub-graph, and the maximum length of user sequence n , affect the performance of DGSR.
 
-#*5.5.1 Effect of DGRN Layer numbers*We conduct our method with different DGRN layer number l on Games and Beauty data set. DGSR-0 represents only use user embedding and last item embedding for recommendation. DGSR-1 represents the DGRN with one layer, indicating to use only intra sequence information for prediction. DGSR-l (l>1) indicates DGSR could utilize lorder user sequence information to make predication. From Figure [3,](#page-9-0) we find that:
+## *5.5.1 Effect of DGRN Layer numbers*We conduct our method with different DGRN layer number l on Games and Beauty data set. DGSR-0 represents only use user embedding and last item embedding for recommendation. DGSR-1 represents the DGRN with one layer, indicating to use only intra sequence information for prediction. DGSR-l (l>1) indicates DGSR could utilize lorder user sequence information to make predication. From Figure [3,](#page-9-0) we find that:
 
 • Increasing the layer of DGSR is capable of promoting the performance substantially. It demonstrates that exploiting high-order user sequences information explicitly can effectively improve recommendation performance. DGSR-2 and DGSR-3 achieve the best performance on Games and Beauty, respectively. One possible
 
@@ -448,39 +447,39 @@ To explore the effect of explicit modeling dynamic collaborative information amo
 <span id="page-9-1"></span>![](_page_9_Figure_3.jpeg)
 <!-- Image Description: This image contains two line graphs comparing Hit@10 and NDCG@10 values across different orders of sub-graphs for two datasets: "Games" and "Beauty." Each graph shows how these metrics, presumably evaluating ranking performance, change as the sub-graph order increases from 1 to 4. The purpose is to illustrate the impact of sub-graph order on the effectiveness of a ranking algorithm within the context of the paper's methodology. -->
 
-Fig. 4: Effect of the sub-graph sampling size (the y-axis on the left is Hit@10 value, and the right is NGCD@10 value)
+**Figure 4:** Effect of the sub-graph sampling size (the y-axis on the left is Hit@10 value, and the right is NGCD@10 value)
 
 reason is that Beauty is sparser than Games, a larger number of layers may be required to introduce a more contextual information.
 
 - When further stacking propagation layer, we find that the performance of DGSR-3 and DGSR-4 begin to deteriorate. The reason might be that the use of far more propagation layers may lead to over smoothing, which is also consistent to the findings in [\[52\]](#page-11-14).
 - DGSR-1 consistently outperform DGSR-0 in all cases, even outperforms most baselines. We attribute to the power of the message propagation mechanism in dynamic graph recommendation networks, which could effectively encode the order information in user sequences to extra users' dynamic preferences accurately.
 
-#*5.5.2 Effect of the sub-graph sampling size*We conduct our method with different sub-graph sampling size. The order of sub-graph m determines the size of the sampling. In particular, we search the m in the range of {1, 2, 3, 4}. The results in Figure [4](#page-9-1) show that when m is increased from 1 to 3, the model performance can be effectively improved. The reason is that a larger-sized subgraph can provide more dynamic contextual information for each user sequence to assist in prediction. With the increase of m, the model performance tends to be stable because of the limitation of the number of DGRN layers. In practice, we cannot blindly increase the value of m because the subgraph size increases exponentially with the increase of m, which will cause stuck for our training or testing.
+## *5.5.2 Effect of the sub-graph sampling size*We conduct our method with different sub-graph sampling size. The order of sub-graph m determines the size of the sampling. In particular, we search the m in the range of {1, 2, 3, 4}. The results in Figure [4](#page-9-1) show that when m is increased from 1 to 3, the model performance can be effectively improved. The reason is that a larger-sized subgraph can provide more dynamic contextual information for each user sequence to assist in prediction. With the increase of m, the model performance tends to be stable because of the limitation of the number of DGRN layers. In practice, we cannot blindly increase the value of m because the subgraph size increases exponentially with the increase of m, which will cause stuck for our training or testing.
 
-#*5.5.3 Effect of the maximum sequence length*We train and test our method on the Games and Beauty datasets with n from 10 to 60, while keeping other optimal
+## *5.5.3 Effect of the maximum sequence length*We train and test our method on the Games and Beauty datasets with n from 10 to 60, while keeping other optimal
 
 <span id="page-9-2"></span>![](_page_9_Figure_12.jpeg)
 <!-- Image Description: The image contains two line graphs comparing the performance of two models, DGSR and DGSR-1, on two datasets: Games and Beauty. The x-axis represents the maximum sequence length, and the y-axis shows the Hit@10 metric (%). Each graph illustrates how the Hit@10 performance of both models changes with varying sequence lengths, allowing for a comparison of their effectiveness across different input lengths. The purpose is to demonstrate the impact of sequence length on the recommendation accuracy of the proposed models. -->
 
-Fig. 5: Effect of the maximum length of user sequence
+**Figure 5:** Effect of the maximum length of user sequence
 
 <span id="page-9-3"></span>![](_page_9_Figure_14.jpeg)
 <!-- Image Description: The image contains two line graphs comparing Hit@10 and NDCG@10 metrics across varying embedding sizes for two datasets: "Games" (a) and "Beauty" (b). Each graph plots the performance (in percentage) of Hit@10 (red circles) and NDCG@10 (blue squares) against embedding size. The purpose is to demonstrate the impact of embedding size on the model's performance using these two evaluation metrics for different datasets. -->
 
-Fig. 6: Effect of the embedding size (the y-axis on the left is Hit@10 value, and the right is NGCD@10 value)
+**Figure 6:** Effect of the embedding size (the y-axis on the left is Hit@10 value, and the right is NGCD@10 value)
 
 hyperparameters unchanged. Besides, to further investigate the benefit of explicitly utilizing the dynamic collaborative information, we also conduct DGSR-1 with different n. Figure [5](#page-9-2) shows the Hit@10 results. We have the following findings:
 
 - Increasing the n of DGSR from 10 to 50 consistently improves the performance of Games data. DGSR performs better on the beauty when set n to be 20 and 50. However, blindly increasing the n does not necessarily improve the performance of DGSR and DGSR-1. It is likely to bring noise and cause the performance to attenuate.
 - Compared with DGSR-1, DGSR performs better than DGSR-1 at each value of n. To be specific, even when n is set to 10, DGSR is still better than the best performance of DGSR-1, which implies that explicitly utilizing high-order contextual information of user sequence can alleviate the issue of insufficient user history information, thus improving the performance of recommendation.
 
-##*5.5.4 Effect of the embedding size*We further analyse the impact of different dimensionality of embeddings. Figure [6](#page-9-3) describes the performance of model under the embedding size from 16 to 80. We can observe that the performance of model gradually improves as the dimensionality increases. With the further increase of the dimensionality, the performance tends to be stable. This verifies the stability of our model in different dimensions.
+## *5.5.4 Effect of the embedding size*We further analyse the impact of different dimensionality of embeddings. Figure [6](#page-9-3) describes the performance of model under the embedding size from 16 to 80. We can observe that the performance of model gradually improves as the dimensionality increases. With the further increase of the dimensionality, the performance tends to be stable. This verifies the stability of our model in different dimensions.
 
-# 6 CONCLUSION
+## 6 CONCLUSION
 
 This work explores explicitly modeling dynamic collaborative information among different user sequences in sequential recommendation. Inspired by dynamic graph neural networks, we propose a novel method, DGSR. In DGSR, all user sequences are converted into a dynamic graph, which contains the chronological order and timestamps of useritem interactions. The key of DGSR is the well-designed Dynamic Graph Recommendation Network, which realizes the explicit encoding of the dynamic collaborative information among different user sequences. The next-item prediction task is finally converted into a node-link prediction of the dynamic graph so that the model can be trained end-to-end. Extensive experiments on three real-world datasets verify the effectiveness and rationality of DGSR.
 
-# REFERENCES
+## REFERENCES
 
 - <span id="page-10-0"></span>[1] B. Sarwar, G. Karypis, J. Konstan, and J. Riedl, "Item-based collaborative filtering recommendation algorithms," in*Proceedings of the 10th international conference on World Wide Web*, 2001, pp. 285–295.
 - <span id="page-10-1"></span>[2] X. He, L. Liao, H. Zhang, L. Nie, X. Hu, and T.-S. Chua, "Neural collaborative filtering," in *Proceedings of the 26th international conference on world wide web*, 2017, pp. 173–182.

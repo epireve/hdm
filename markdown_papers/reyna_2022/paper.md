@@ -112,57 +112,57 @@ The unofficial phase (February 1, 2022 to April 8, 2022) introduced the teams to
 
 Between the unofficial phase and official phase, we took a hiatus (April 9, 2022 to April 30, 2022) to improve the Challenge in response to feedback from teams, the broader community, and our collaborators.
 
-<span id="page-4-0"></span>Table 1: Demographic, murmur, and clinical outcome information provided with the training, validation, and test sets for the Challenge data; nan values indicate unknown or missing values.
+<span id="page-4-0"></span>**Table 1:** Demographic, murmur, and clinical outcome information provided with the training, validation, and test sets for the Challenge data; nan values indicate unknown or missing values.
 
-| Variable        | Short description                                 | Possible values                  | Datasets         |
+| Variable | Short description | Possible values | Datasets |
 |-----------------|---------------------------------------------------|----------------------------------|------------------|
-| Age             | Age category                                      | Neonate, Infant, Child,          | Training,        |
-|                 |                                                   | Adolescent, Young Adult, nan     | validation, test |
-| Sex             | Reported sex                                      | Female, Male                     | Training,        |
-|                 |                                                   |                                  | validation, test |
-| Height          | Height in centimeters                             | Positive number or nan           | Training,        |
-|                 |                                                   |                                  | validation, test |
-| Weight          | Weight in kilograms                               | Positive number or nan           | Training,        |
-|                 |                                                   |                                  | validation, test |
-| Pregnancy       | Reported pregnancy status                         | True, False                      | Training,        |
-| status          |                                                   |                                  | validation, test |
-| Murmur          | Indicates if a murmur                             | Present, Absent, Unknown         | Training         |
-|                 | is present, absent, or                            |                                  |                  |
-|                 | unidentifiable for the annotator;                 |                                  |                  |
-|                 | a Challenge label                                 |                                  |                  |
-| Murmur          | Auscultation locations for                        | PV, TV, AV, MV, Phc, nan         | Training         |
-| locations       | observed murmurs                                  | (concatenated with +)            |                  |
-| Most audible    | Auscultation location where                       | PV, TV, AV, MV, Phc, nan         | Training         |
-| location        | murmurs sounded most intense                      |                                  |                  |
-| Systolic murmur | Timing of the murmur within                       | Early-systolic, Mid-systolic,    | Training         |
-| timing          | the systolic period                               | Late-systolic, Holosystolic, nan |                  |
-| Systolic murmur | Shape of the murmur in the                        | Crescendo, Decrescendo,          | Training         |
-| shape           | systolic period                                   | Diamond, Plateau, nan            |                  |
-| Systolic murmur | Pitch of the murmur in the                        | Low, Medium, High, nan           | Training         |
-| pitch           | systolic period                                   |                                  |                  |
-| Systolic murmur | Grading of the murmur in the                      | I/VI, II/VI, III/VI, nan         | Training         |
-| grading         | systolic period according to the                  |                                  |                  |
-| Systolic murmur | Levine scale [11]<br>Quality of the murmur in the |                                  | Training         |
-| quality         | systolic period                                   | Blowing, Harsh, Musical, nan     |                  |
-| Diastolic       | Timing of the murmur within                       | Early-diastolic, Mid-diastolic,  | Training         |
-| murmur timing   | the diastolic period                              | Holodiastolic, nan               |                  |
-| Diastolic       | Shape of the murmur in the                        | Decrescendo, Plateau, nan        | Training         |
-| murmur shape    | diastolic period                                  |                                  |                  |
-| Diastolic       | Pitch of the murmur in the                        | Low, Medium, High, nan           | Training         |
-| murmur pitch    | diastolic period                                  |                                  |                  |
-| Diastolic       | Grading of the murmur in the                      | I/IV, II/IV, III/IV, nan         | Training         |
-| murmur grading  | diastolic period                                  |                                  |                  |
-| Diastolic       | Quality of the murmur in the                      | Blowing, Harsh, nan              | Training         |
-| murmur quality  | diastolic period                                  |                                  |                  |
-| Outcome         | Indicates normal or abnormal                      | Normal, Abnormal                 | Training         |
-|                 | clinical outcome as diagnosed                     |                                  |                  |
-|                 | by the medical expert; a                          |                                  |                  |
-|                 | Challenge label                                   |                                  |                  |
-| Campaign        | Screening campaign attended                       | CC2014, CC2015                   | Training         |
-|                 | by the patient                                    |                                  |                  |
-| Additional ID   | Other patient identifier for                      | Patient identifier               | Training         |
-|                 | patients who attended both                        |                                  |                  |
-|                 | screening campaigns                               |                                  |                  |
+| Age | Age category | Neonate, Infant, Child, | Training, |
+| | | Adolescent, Young Adult, nan | validation, test |
+| Sex | Reported sex | Female, Male | Training, |
+| | | | validation, test |
+| Height | Height in centimeters | Positive number or nan | Training, |
+| | | | validation, test |
+| Weight | Weight in kilograms | Positive number or nan | Training, |
+| | | | validation, test |
+| Pregnancy | Reported pregnancy status | True, False | Training, |
+| status | | | validation, test |
+| Murmur | Indicates if a murmur | Present, Absent, Unknown | Training |
+| | is present, absent, or | | |
+| | unidentifiable for the annotator; | | |
+| | a Challenge label | | |
+| Murmur | Auscultation locations for | PV, TV, AV, MV, Phc, nan | Training |
+| locations | observed murmurs | (concatenated with +) | |
+| Most audible | Auscultation location where | PV, TV, AV, MV, Phc, nan | Training |
+| location | murmurs sounded most intense | | |
+| Systolic murmur | Timing of the murmur within | Early-systolic, Mid-systolic, | Training |
+| timing | the systolic period | Late-systolic, Holosystolic, nan | |
+| Systolic murmur | Shape of the murmur in the | Crescendo, Decrescendo, | Training |
+| shape | systolic period | Diamond, Plateau, nan | |
+| Systolic murmur | Pitch of the murmur in the | Low, Medium, High, nan | Training |
+| pitch | systolic period | | |
+| Systolic murmur | Grading of the murmur in the | I/VI, II/VI, III/VI, nan | Training |
+| grading | systolic period according to the | | |
+| Systolic murmur | Levine scale [11]<br>Quality of the murmur in the | | Training |
+| quality | systolic period | Blowing, Harsh, Musical, nan | |
+| Diastolic | Timing of the murmur within | Early-diastolic, Mid-diastolic, | Training |
+| murmur timing | the diastolic period | Holodiastolic, nan | |
+| Diastolic | Shape of the murmur in the | Decrescendo, Plateau, nan | Training |
+| murmur shape | diastolic period | | |
+| Diastolic | Pitch of the murmur in the | Low, Medium, High, nan | Training |
+| murmur pitch | diastolic period | | |
+| Diastolic | Grading of the murmur in the | I/IV, II/IV, III/IV, nan | Training |
+| murmur grading | diastolic period | | |
+| Diastolic | Quality of the murmur in the | Blowing, Harsh, nan | Training |
+| murmur quality | diastolic period | | |
+| Outcome | Indicates normal or abnormal | Normal, Abnormal | Training |
+| | clinical outcome as diagnosed | | |
+| | by the medical expert; a | | |
+| | Challenge label | | |
+| Campaign | Screening campaign attended | CC2014, CC2015 | Training |
+| | by the patient | | |
+| Additional ID | Other patient identifier for | Patient identifier | Training |
+| | patients who attended both | | |
+| | screening campaigns | | |
 
 The official phase (May 1, 2022 to August 15, 2022) allowed the teams to refine their approaches for the Challenge. We updated the Challenge objectives, data, example classifiers, and evaluation metric at the beginning of the official phase. We again invited teams to submit their code for evaluation, and we will score at most 10 entries from each
 
@@ -199,22 +199,20 @@ Weighted Accuracy Metric We introduced a weighted accuracy metric to evaluate th
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image is a flowchart depicting a two-stage diagnostic process. A patient undergoes algorithmic pre-screening, resulting in a positive or negative result. Positive results proceed to expert screening and diagnosis. A 2x2 confusion matrix then displays the four possible outcomes: true positive (treatment), false positive (false alarm), false negative (missed/delayed treatment), and true negative (no treatment). The diagram illustrates the diagnostic pathway and potential errors. -->
 
-Figure 1: Screening and diagnosis pipeline for the Challenge. All patients receive algorithmic pre-screening, and patients with positive results from algorithmic pre-screening receive confirmatory expert screening and diagnosis. (i) Patients with positive results from algorithmic pre-screening and expert screening and diagnosis receive treatment; they are true positive cases. Patients with positive results from algorithmic pre-screening and negative results from expert screening and diagnosis do not receive treatment; they are false positive cases or false alarms. Patients with negative results from algorithmic prescreening who would have received positive results according to the expert annotations have missed or delayed treatment; they are false negative cases. Patients with negative results from algorithmic pre-screening who would have also received negative results from expert screening and diagnosis also do not receive treatment; they are true negative cases.
+**Figure 1:** Screening and diagnosis pipeline for the Challenge. All patients receive algorithmic pre-screening, and patients with positive results from algorithmic pre-screening receive confirmatory expert screening and diagnosis. (i) Patients with positive results from algorithmic pre-screening and expert screening and diagnosis receive treatment; they are true positive cases. Patients with positive results from algorithmic pre-screening and negative results from expert screening and diagnosis do not receive treatment; they are false positive cases or false alarms. Patients with negative results from algorithmic prescreening who would have received positive results according to the expert annotations have missed or delayed treatment; they are false negative cases. Patients with negative results from algorithmic pre-screening who would have also received negative results from expert screening and diagnosis also do not receive treatment; they are true negative cases.
 
-<span id="page-7-1"></span>
 
-|                   |         | Murmur Expert |         |        |
+| | | Murmur Expert | | |
 |-------------------|---------|---------------|---------|--------|
-|                   |         | Present       | Unknown | Absent |
-|                   | Present | mPP           | mPU     | mPA    |
-| Murmur Classifier | Unknown | mUP           | mUU     | mUA    |
-|                   | Absent  | mAP           | mAU     | mAA    |
+| | | Present | Unknown | Absent |
+| | Present | mPP | mPU | mPA |
+| Murmur Classifier | Unknown | mUP | mUU | mUA |
+| | Absent | mAP | mAU | mAA |
 
-Table 2: Confusion matrix for murmur detection with three classes: murmur present, murmur unknown, and murmur absent. The columns are the ground truth labels from the human annotator, and the rows are the classifier outputs. Each entry of the confusion matrix provides the number of patients with each classifier output for each ground truth label.
+**Table 2:** Confusion matrix for murmur detection with three classes: murmur present, murmur unknown, and murmur absent. The columns are the ground truth labels from the human annotator, and the rows are the classifier outputs. Each entry of the confusion matrix provides the number of patients with each classifier output for each ground truth label.
 
 We defined a weighted accuracy metric for the murmur detection task as
 
-<span id="page-8-0"></span>
 $$
 a_{\text{murmur}} = \frac{5m_{\text{PP}} + 3m_{\text{UU}} + m_{\text{AA}}}{5(m_{\text{PP}} + m_{\text{UP}} + m_{\text{AP}}) + 3(m_{\text{PU}} + m_{\text{UU}} + m_{\text{AU}}) + (m_{\text{PA}} + m_{\text{UA}} + m_{\text{AA}})},\tag{1}
 $$
@@ -233,15 +231,14 @@ For each patient encounter, the algorithm interprets the PCG recordings and demo
 
 We associated each of these steps with a cost: the costs of algorithmic pre-screening, the costs of expert screening, the costs of timely treatment, and the cost of delayed or missed treatment.
 
-<span id="page-9-1"></span>
 
-|                             |          | Clinical Outcome Expert |        |
+| | | Clinical Outcome Expert | |
 |-----------------------------|----------|-------------------------|--------|
-|                             |          | Abnormal                | Normal |
-|                             | Abnormal | nTP                     | nFP    |
-| Clinical Outcome Classifier | Normal   | nFN                     | nTN    |
+| | | Abnormal | Normal |
+| | Abnormal | nTP | nFP |
+| Clinical Outcome Classifier | Normal | nFN | nTN |
 
-Table 3: Confusion matrix for clinical outcome detection with two classes: clinical outcome abnormal and clinical outcome normal. The columns are the ground truth labels from the human annotator, and the rows are the classifier outputs. Each entry of the confusion matrix is the number of patients with the classifier outputs for the ground truth labels.
+**Table 3:** Confusion matrix for clinical outcome detection with two classes: clinical outcome abnormal and clinical outcome normal. The columns are the ground truth labels from the human annotator, and the rows are the classifier outputs. Each entry of the confusion matrix is the number of patients with the classifier outputs for the ground truth labels.
 
 For simplicity, we assumed that algorithmic pre-screening has a relatively small cost that depends linearly on the number of pre-screenings. We also assume that timely treatments and delayed or missed treatments have relatively large costs that, on average, depend linearly on the number of individuals. Given our focus on the ability of algorithmic pre-screening to reduce human screening of patients with normal cardiac function, we assumed that expert screening has an intermediate cost that depends non-linearly on the number of screenings as well as the infrastructure and capacity of the healthcare system[‡](#page-9-0) Screening far below the capacity of the healthcare system is inefficient and incurs a low total cost but high average cost. Screening above the capacity of the healthcare system is highly inefficient and incurs both a high average cost and a high total cost.
 
@@ -283,20 +280,18 @@ $$
 
 (b) Mean per-screening expert screening cost gexpert(x)/x, i.e., the total expert screening cost for a patient cohort divided by the number of patients in the cohort and the fraction of screenings in the cohort.
 
-Figure 2: The expert screening cost gexpert(x) defined for the Challenge: mean cost for screening a fraction x of a patient cohort for cardiac abnormalities.
+**Figure 2:** The expert screening cost gexpert(x) defined for the Challenge: mean cost for screening a fraction x of a patient cohort for cardiac abnormalities.
 
 as the total cost of s missed or delayed treatments.
 
 To capture the utility of algorithmic pre-screening, we assumed the cost for expert screening was non-linear. We defined
 
-<span id="page-10-0"></span>
 $$
 f_{\text{expert}}(s, t) = \left(25 + 397 \frac{s}{t} - 1718 \frac{s^2}{t^2} + 11296 \frac{s^4}{t^4}\right)t\tag{6}
 $$
 
 as the total cost of s screenings by a human expert out of a population of t patients so that
 
-<span id="page-10-1"></span>
 $$
 g_{\text{expert}}(x) = 25 + 397x - 1718x^2 + 11296x^4 \tag{7}
 $$
@@ -307,7 +302,6 @@ To compare costs for databases with different numbers of patients, e.g., the tra
 
 treatment with algorithmic pre-screening as
 
-<span id="page-11-1"></span>
 $$
 c_{\text{outcome}} = \frac{c_{\text{outcome}}^{\text{total}}}{n_{\text{patients}}}.\tag{8}
 $$
@@ -357,13 +351,12 @@ RTI2018-101475-BI00, jointly with the Fondo Europeo de Desarrollo Regional (FEDE
 
 Clinical Outcome Expert
 
-<span id="page-14-0"></span>
 
-|                   |         | Abnormal | Normal |
+| | | Abnormal | Normal |
 |-------------------|---------|----------|--------|
-|                   | Present | oPA      | oPN    |
-| Murmur Classifier | Unknown | oUA      | oUN    |
-|                   | Absent  | oAA      | oAN    |
+| | Present | oPA | oPN |
+| Murmur Classifier | Unknown | oUA | oUN |
+| | Absent | oAA | oAN |
 
 Table A1: Confusion matrix for murmur detection task with three classes (murmur present, murmur unknown, and murmur absent) using clinical outcomes with two classes (clinical outcome abnormal and clinical outcome normal). The columns are the ground truth labels from the human annotator, and the rows are the classifier outputs. Each entry of the confusion matrix is the number of patients with the classifier outputs for the ground truth labels.
 
@@ -388,9 +381,9 @@ $$
 c_{\text{outcome}}^{\text{total}} = f_{\text{algorithm}}(n_{\text{patients}})
 $$
 
-+  $f_{\text{expert}}(o_{\text{PA}} + o_{\text{PN}} + o_{\text{UA}} + o_{\text{UN}}, n_{\text{patients}})$
-+  $f_{\text{treatment}}(o_{\text{PA}} + o_{\text{UA}})$
-+  $f_{\text{error}}(o_{\text{AA}}),$  (A.2)
++ $f_{\text{expert}}(o_{\text{PA}} + o_{\text{PN}} + o_{\text{UA}} + o_{\text{UN}}, n_{\text{patients}})$
++ $f_{\text{treatment}}(o_{\text{PA}} + o_{\text{UA}})$
++ $f_{\text{error}}(o_{\text{AA}}),$ (A.2)
 
 where Table [A1](#page-14-0) defines a three-by-two confusion matrix O = [oij ] for the clinical outcome abnormal and normal classes, npatients is the total number of patients, and falgorithm, fexpert, ftreatment, ferror are defined above.
 

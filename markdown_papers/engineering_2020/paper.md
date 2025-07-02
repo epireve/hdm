@@ -24,7 +24,6 @@ keywords:
 - quality-focused
 ---
 
-
 # Quality-focused design patterns for digital twin systems Preprint not peer reviewed
 
 Carlo Humana1, Anton H Bassona2\*, Karel Krugera3 <sup>a</sup>Department of Mechanical and Mechatronic Engineering, Stellenbosch University, Stellenbosch, 7600, South Africa
@@ -33,7 +32,7 @@ Carlo Humana1, Anton H Bassona2\*, Karel Krugera3 <sup>a</sup>Department of Mech
 
 > > \*Corresponding author
 
-# Quality-focused design patterns for digital twin systems Preprint not peer reviewed
+## Quality-focused design patterns for digital twin systems Preprint not peer reviewed
 
 ## Abstract
 
@@ -62,7 +61,7 @@ specific design decisions. However, the reference architecture includes DT hiera
 
 The next section of the paper considers related design patterns reported in literature (space limitations preclude a more complete review of DTs and SOAs). Thereafter, the reference architecture that the design patterns are based on, is outlined. This is followed by a discussion of the design patterns for the four quality attributes, an evaluation of the patterns, a discussion, and a conclusion.
 
-# 2 Related work
+## 2 Related work
 
 Existing DT design patterns focus on designing a single DT or a microservices SOA, whereas the design patterns presented in this paper focus of the design of a system of DTs that can include both approaches.
 
@@ -76,7 +75,7 @@ Existing DT design patterns focus on designing a single DT or a microservices SO
 - Creational patterns: Patterns related to how DTs could be realised in terms of modelling strategies, e.g. machine learning vs physics simulations with data augmentation.
 - Computational patterns: Patterns that describe how computational load can be handled for more efficient operation.
 
- Insight patterns: Patterns that describe how DTs can be used with other resources to create insight. This is further discussed below as part of the service patterns.
+Insight patterns: Patterns that describe how DTs can be used with other resources to create insight. This is further discussed below as part of the service patterns.
 
 [22] identified eight *service patterns*. The term *service pattern* relates to the general aspects of the services which can be applied to numerous contexts. The service patterns include:
 
@@ -98,11 +97,11 @@ Microservices architectures also typically follow certain design patterns for sp
 - Distribution: Patterns aimed at improving the distribution of the services in a logical way or aimed at providing an organisation structure to help with integration of other systems.
 - Fault tolerance: Patterns that help improve reliability through fault detection, diagnostics, isolation, and handling.
 
- Supplementary: Patterns that address more specific problems that can be used to complement/supplement other patterns.
+Supplementary: Patterns that address more specific problems that can be used to complement/supplement other patterns.
 
 As with DTs, the design patterns published for microservices do not focus on quality attributes.
 
-# <span id="page-5-0"></span>3 Reference digital twin system architecture
+## <span id="page-5-0"></span>3 Reference digital twin system architecture
 
 The first subsection of this section provides an overview of the reference architecture used in the design patterns. The subsequent subsections outline the features of the main components that are directly relevant to the design patterns.
 
@@ -119,7 +118,7 @@ Given a complex physical system with the above requirements, the overall purpose
 ![](_page_6_Figure_1.jpeg)
 <!-- Image Description: Figure 1 is a reference architecture diagram showing a hierarchical structure for design patterns. It illustrates components like management services (authentication, configuration storage), a service network (orchestration), and an aggregation hierarchy representing the physical system in virtual space (data capturing, storage, modelling). The diagram uses boxes and circles to represent different elements and their relationships, clarifying how various components interact within the system. -->
 
-<span id="page-6-0"></span>**Figure 1: Reference architecture for the design patterns [16]**## <span id="page-6-1"></span>3.2 Aggregation hierarchy
+<span id="page-6-0"></span>****Figure 1:** Reference architecture for the design patterns [16]**## <span id="page-6-1"></span>3.2 Aggregation hierarchy
 
 The DT aggregation hierarchy represents the physical system in virtual space, including data capturing, data storage, and system modelling. Each DT also
 
@@ -158,14 +157,14 @@ The management services improve the reliability and interoperability of the DT a
 - Directory service (DS in Figure 1), which serves as a central metadata repository that can be queried for discovery information about DTs and services within the system.
 - DT monitoring service (DTM in Figure 1), which is responsible for health and load monitoring of individual DTs to ensure acceptable availability of the DTs.
 
- Configuration server (CS in Figure 1), which is a central server that contains the start-up and operation configuration settings for the different digital components of the system.
+Configuration server (CS in Figure 1), which is a central server that contains the start-up and operation configuration settings for the different digital components of the system.
 
 For usability and interoperability, the primary users' interactions with the overall system are handled by the following:
 
 - Central user interface (CUI in Figure 1), which provides a single entry-point into the system of DTs.
 - Gateway service (G in Figure 1), which routes service requests to the appropriate services or DTs.
 
-# 4 Design patterns
+## 4 Design patterns
 
 The reference architecture described in Section 3 is intentionally general and adaptable. Applying it to a specific case involves many trade-offs and design choices between alternatives. The design patterns presented here aim to reduce the range of choices by prioritising a particular, pre-selected quality attribute and recommending related design choices, thereby simplifying and accelerating the design process. Preprint not peer reviewed
 
@@ -177,36 +176,35 @@ The next section discusses the selection of quality attributes used to focus the
 
 Each design pattern focusses on a particular quality attribute. The choice of attributes is therefore important. Table 1 gives relevant attributes, which were derived from the SQauRE model for software quality [30].
 
-|                                                                                | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | d<br>Sub-attributes                                                                                                        |  |  |
+| | Definition | d<br>Sub-attributes | | |
 |--------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|--|--|
-| Performance<br>efficiency                                                      | The system's performance relative to<br>the amount of resources used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | e<br>Time behaviour, resource<br>utilisation, capacity.                                                                    |  |  |
-| Compatibility                                                                  | The system's ability to exchange<br>information with other systems and/or<br>to perform its functions despite sharing<br>a hardware or software environment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | w<br>Co-existence,<br>e<br>interoperability.<br>i<br>v<br>Maturity, availability, fault<br>tolerance, recoverability.<br>e |  |  |
-| Reliability                                                                    | The system's ability to perform<br>specified functions under specified<br>conditions for a specified period of<br>time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                            |  |  |
-| Maintainability                                                                | The system's ability to allow for<br>r<br>effective and efficient modification to<br>improve, correct or adapt to changes in<br>the environment and requirements.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | r<br>Modularity, reusability,<br>analysability, modifiability,<br>testability.                                             |  |  |
-| Portability                                                                    | e<br>The system's ability to be transferred<br>e<br>between hardware and software<br>environments, as well as between<br>p<br>operational and usage environments.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Adaptability, installability,<br>replaceability.                                                                           |  |  |
-|                                                                                | Performance efficiency and reliability are used for two design patters below.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                            |  |  |
-| reconfigurability design pattern.<br>n<br>i<br>r<br>p<br>design patterns.<br>e | t<br>o<br>Experience has shown that the maintainability and portability design patterns<br>lead to very similar design choices for systems of digital twins. Therefore, in the<br>design patterns presented below, these quality attributes are addressed in the<br>n<br>t<br>In the design of systems of DTs, design choices that relate to the compatibility<br>metric in Table 1 are dominated by interoperability aspects. Therefore,<br>interoperability is used to name the design pattern to clarify its focus.<br>Security could also be seen as a quality attribute; however, in the present<br>context, this aspect can be addressed by giving preference to the use of widely<br>accepted standards for all aspects of the implementation. Security, therefore,<br>need not be considered for a separate design pattern, but rather applies to all |                                                                                                                            |  |  |
+| Performance<br>efficiency | The system's performance relative to<br>the amount of resources used. | e<br>Time behaviour, resource<br>utilisation, capacity. | | |
+| Compatibility | The system's ability to exchange<br>information with other systems and/or<br>to perform its functions despite sharing<br>a hardware or software environment. | w<br>Co-existence,<br>e<br>interoperability.<br>i<br>v<br>Maturity, availability, fault<br>tolerance, recoverability.<br>e | | |
+| Reliability | The system's ability to perform<br>specified functions under specified<br>conditions for a specified period of<br>time. | | | |
+| Maintainability | The system's ability to allow for<br>r<br>effective and efficient modification to<br>improve, correct or adapt to changes in<br>the environment and requirements. | r<br>Modularity, reusability,<br>analysability, modifiability,<br>testability. | | |
+| Portability | e<br>The system's ability to be transferred<br>e<br>between hardware and software<br>environments, as well as between<br>p<br>operational and usage environments. | Adaptability, installability,<br>replaceability. | | |
+| | Performance efficiency and reliability are used for two design patters below. | | | |
+| reconfigurability design pattern.<br>n<br>i<br>r<br>p<br>design patterns.<br>e | t<br>o<br>Experience has shown that the maintainability and portability design patterns<br>lead to very similar design choices for systems of digital twins. Therefore, in the<br>design patterns presented below, these quality attributes are addressed in the<br>n<br>t<br>In the design of systems of DTs, design choices that relate to the compatibility<br>metric in Table 1 are dominated by interoperability aspects. Therefore,<br>interoperability is used to name the design pattern to clarify its focus.<br>Security could also be seen as a quality attribute; however, in the present<br>context, this aspect can be addressed by giving preference to the use of widely<br>accepted standards for all aspects of the implementation. Security, therefore,<br>need not be considered for a separate design pattern, but rather applies to all | | | |
 
 ### <span id="page-10-0"></span>Table 1: Typical quality attributes for design pattern focus
 
 ## <span id="page-11-1"></span>4.2 Structure of design patterns
 
-|                                                            | The design patterns presented in this paper were derived from a more general<br>e<br>design framework [16][18]. The design framework starts with a needs analysis,<br>which results in lists of prioritised functional requirements and non-functional<br>w<br>requirements. The non-functional requirements often include quality attributes.<br>The next steps in the design framework include identifying the potential DTs<br>(considering separation of concerns and span of reality) and services mapping<br>e<br>(allocating each service to either a DT or the services network). Quality<br>i<br>considerations have particular influence in the subsequent refinement of the<br>aggregation architecture and the related implementation decisions. The final<br>v<br>step of the design framework focusses on validation testing.<br>e<br>Each of the design patterns below are documented according to the aspects<br>outlined in Table 2, which follows from the above-mentioned design framework. |  |  |  |
+| | The design patterns presented in this paper were derived from a more general<br>e<br>design framework [16][18]. The design framework starts with a needs analysis,<br>which results in lists of prioritised functional requirements and non-functional<br>w<br>requirements. The non-functional requirements often include quality attributes.<br>The next steps in the design framework include identifying the potential DTs<br>(considering separation of concerns and span of reality) and services mapping<br>e<br>(allocating each service to either a DT or the services network). Quality<br>i<br>considerations have particular influence in the subsequent refinement of the<br>aggregation architecture and the related implementation decisions. The final<br>v<br>step of the design framework focusses on validation testing.<br>e<br>Each of the design patterns below are documented according to the aspects<br>outlined in Table 2, which follows from the above-mentioned design framework. | | | |
 |------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|
-|                                                            | r<br>Table 2: Aspects used to document the design patterns<br>r                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |  |  |  |
-| Aspect                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |  |  |
-| Name                                                       | e<br>The name of the design pattern, which corresponds to a<br>quality attribute.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |  |  |  |
-| Related priorities                                         | e<br>p<br>These are requirements that are related to the quality<br>attribute in question and in some cases the terms are used<br>synonymously.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |  |  |  |
-| Related needs (problem<br>and context)                     | t<br>Typical system needs that necessitate the emphasis of the<br>particular quality attribute that the pattern enforces.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |  |  |  |
-| Conflicts                                                  | o<br>Quality attributes and other system aspects that may require<br>n<br>conflicting design choices.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |  |  |  |
-| Recommended<br>t<br>aggregation choices                    | Typical high-level architectural choices that influence the<br>quality of the DTs and services.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |  |  |  |
-|                                                            | Typical detailed architectural choices that influence the<br>quality of the DTs and services.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |  |  |  |
-| Recommended<br>implementation choices                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |  |  |  |
-| n<br>i<br>r<br>Supplementary (or<br>p<br>related) patterns | More specific design patterns that complement the design<br>patterns proposed in this paper.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |  |  |  |
+| | r<br>**Table 2:** Aspects used to document the design patterns<br>r | | | |
+| Aspect | Description | | | |
+| Name | e<br>The name of the design pattern, which corresponds to a<br>quality attribute. | | | |
+| Related priorities | e<br>p<br>These are requirements that are related to the quality<br>attribute in question and in some cases the terms are used<br>synonymously. | | | |
+| Related needs (problem<br>and context) | t<br>Typical system needs that necessitate the emphasis of the<br>particular quality attribute that the pattern enforces. | | | |
+| Conflicts | o<br>Quality attributes and other system aspects that may require<br>n<br>conflicting design choices. | | | |
+| Recommended<br>t<br>aggregation choices | Typical high-level architectural choices that influence the<br>quality of the DTs and services. | | | |
+| | Typical detailed architectural choices that influence the<br>quality of the DTs and services. | | | |
+| Recommended<br>implementation choices | | | | |
+| n<br>i<br>r<br>Supplementary (or<br>p<br>related) patterns | More specific design patterns that complement the design<br>patterns proposed in this paper. | | | |
 
-<span id="page-11-0"></span>
 
-| Table 2: Aspects used to document the design patterns |  |  |  |  |  |
+| **Table 2:** Aspects used to document the design patterns | | | | | |
 |-------------------------------------------------------|--|--|--|--|--|
 |-------------------------------------------------------|--|--|--|--|--|
 
@@ -223,33 +221,33 @@ Related priorities: Responsiveness, scalability, timeliness, capacity, resource 
 - The interconnectedness of complex systems results in large networks of diverse components where each component displays individual behaviour, while also contributing to a complex collective behaviour [34]. To represent such a system digitally, a*large amount of data*must be captured and exchanged resulting in high levels of data traffic and complex processing [35]. Therefore, the system of DTs must have the capacity to capture, process, transmit, and store a large amount of data in a timely manner [36][37].
 - The system of DTs is intended to help users make better decisions related to their area of interest. Therefore, the system of DTs must be*responsive to user interactions* despite high system loads.
 
-#### Conflicts:
+### Conflicts:
 
- Interoperability: The use of intermediaries, such as brokers, middleware, or directories, is a common way to improve interoperability. However, such intermediaries can increase latency since they create extra communication steps and they often perform protocol conversions that require additional processing time. Furthermore, such intermediaries can become communication bottlenecks if they are not properly designed [38]. Highperformance middleware technologies typically find a good balance between interoperability and performance efficiency by making use of concepts such as load balancing and message queueing. Preprint not peer reviewed
+Interoperability: The use of intermediaries, such as brokers, middleware, or directories, is a common way to improve interoperability. However, such intermediaries can increase latency since they create extra communication steps and they often perform protocol conversions that require additional processing time. Furthermore, such intermediaries can become communication bottlenecks if they are not properly designed [38]. Highperformance middleware technologies typically find a good balance between interoperability and performance efficiency by making use of concepts such as load balancing and message queueing. Preprint not peer reviewed
 
 - Data detail: In the context of modelling within DTs, high fidelity models require more detailed data and thus more processing, storage, and network bandwidth than lower fidelity models [39]. As a result, more resources must be utilised to manage the increased data load and possibly the increased latency. Therefore, it is important to determine what level of data detail is required by models and services. In some cases, it is useful to reduce data dimensionality to improve the comprehensibility of the data, even though some detail is lost [40]. Furthermore, structuring data to minimise the number of data queries is a way of retaining detail with minimal effect on time behaviour. Pre-computing computationally expensive queries and storing the results of those queries is also common [40], but there is then a trade-off between computational and storage resources that needs to be justified. It is also important to consider data management aspects and how those influence the performance efficiency. For example, when strong data consistency is required, latency is often increased and data persistence management requires long-term storage. Preprint not peer reviewed
-  - Portability: In the context of distributed software systems, there is a conflict between generalisation (the software's ability to handle a variety of scenarios without having to change the software) and specialisation (the software's ability to perform a specific task exceptionally well). Generalisation prioritises portability, particularly adaptability, whereas specialisation prioritises time performance and resource efficiency. [31]
-  - Security: There is always a trade-off between security and performance because security requires additional processing and possibly extra communication steps and storage. For example, encryption and decryption increase message size and overhead [38], authentication and authorisation can cause large initial delays in communication while a secure connection is being established, and security aspects such as non-repudiation and accountability require logging and thus additional storage. Security is always a concern in software systems and should never be sacrificed. However, there are degrees of security and there are some methods of ensuring security that do not influence performance too significantly. Typically, this includes using industry standards for security, such as the SSL/TLS protocol and the OAuth protocol, and making use of reputable cryptographic libraries.
+- Portability: In the context of distributed software systems, there is a conflict between generalisation (the software's ability to handle a variety of scenarios without having to change the software) and specialisation (the software's ability to perform a specific task exceptionally well). Generalisation prioritises portability, particularly adaptability, whereas specialisation prioritises time performance and resource efficiency. [31]
+- Security: There is always a trade-off between security and performance because security requires additional processing and possibly extra communication steps and storage. For example, encryption and decryption increase message size and overhead [38], authentication and authorisation can cause large initial delays in communication while a secure connection is being established, and security aspects such as non-repudiation and accountability require logging and thus additional storage. Security is always a concern in software systems and should never be sacrificed. However, there are degrees of security and there are some methods of ensuring security that do not influence performance too significantly. Typically, this includes using industry standards for security, such as the SSL/TLS protocol and the OAuth protocol, and making use of reputable cryptographic libraries.
 
-#### Recommended aggregation choices:
+### Recommended aggregation choices:
 
- Design for the separation of concerns and the distribution of load across multiple DTs to improve the performance of large systems, i.e. to enhance scalability. When a large number of similar physical entities are present, they should each be presented by a DTI, so that the number of DTIs can grow as the system scales up, providing horizontal scalability [41]. If a DTA that
+Design for the separation of concerns and the distribution of load across multiple DTs to improve the performance of large systems, i.e. to enhance scalability. When a large number of similar physical entities are present, they should each be presented by a DTI, so that the number of DTIs can grow as the system scales up, providing horizontal scalability [41]. If a DTA that
 
 integrates a large number of DTIs becomes a bottleneck, more DTAs of the same type can be added to share the load, thus providing z-axis scalability [42].
 
 - Define the data scope narrowly to improve query response times. This includes:
-  - Make use of only the necessary level of detail. The higher the level of detail, the more processing is required and thus the slower the queries are.
+- Make use of only the necessary level of detail. The higher the level of detail, the more processing is required and thus the slower the queries are.
 - As the physical scope gets larger, reduce the level of detail of the data further. This is generally possible because longer-term decision-making is typically applied at a higher level within a system hierarchy with aggregated data [40][43]. Preprint not peer reviewed
-  - Use DTs to encapsulate data and service functionality as opposed to orchestrating functionality among multiple services or DTs.
-  - Give preference to pre-storage aggregation (as defined in Section 3.2) to reduce latencies and/or to reduce storage requirements, which implies:
-    - Pre-process and pre-structure data before storage, such as removing duplicate values, data homogenisation, and data synchronisation.
-    - Exchange data through a messaging mechanism internal to the aggregation hierarchy software platform for more rapid data propagation to the higher levels of aggregation.
-  - Give preference to local aggregation (as opposed to cloud aggregation) to increase throughput and to reduce latencies. This includes:
-    - Use local infrastructure (i.e. local devices and fog servers) for reduced latencies and increased throughput.
-    - Reduce the physical distance between the platforms that host DTs for reduced latencies.
-    - Avoid limitations imposed by cloud platforms such as throttling.
-  - Aggregate through stream processing (nearly continuously) or micro-batch processing (frequently, in small batches), rather than in occasional large batches.
-  - Perform aggregation and other data processing at the lowest feasible level of the DT hierarchy (within the constraints of the available computational resources), to avoid higher-level DTs becoming bottlenecks.
+- Use DTs to encapsulate data and service functionality as opposed to orchestrating functionality among multiple services or DTs.
+- Give preference to pre-storage aggregation (as defined in Section 3.2) to reduce latencies and/or to reduce storage requirements, which implies:
+- Pre-process and pre-structure data before storage, such as removing duplicate values, data homogenisation, and data synchronisation.
+- Exchange data through a messaging mechanism internal to the aggregation hierarchy software platform for more rapid data propagation to the higher levels of aggregation.
+- Give preference to local aggregation (as opposed to cloud aggregation) to increase throughput and to reduce latencies. This includes:
+- Use local infrastructure (i.e. local devices and fog servers) for reduced latencies and increased throughput.
+- Reduce the physical distance between the platforms that host DTs for reduced latencies.
+- Avoid limitations imposed by cloud platforms such as throttling.
+- Aggregate through stream processing (nearly continuously) or micro-batch processing (frequently, in small batches), rather than in occasional large batches.
+- Perform aggregation and other data processing at the lowest feasible level of the DT hierarchy (within the constraints of the available computational resources), to avoid higher-level DTs becoming bottlenecks.
 
 Recommended implementation choices:
 
@@ -258,15 +256,15 @@ Recommended implementation choices:
 - Minimise data formatting and protocol conversions, e.g. by using a commonly agreed upon format and protocol.
 - Use request-response messaging patterns if lower point-to-point latencies are a priority, but consider that publish-subscribe patterns are more scalable. Some message-oriented middleware may allow for both.
 - Use NoSQL databases, which typically support higher throughput and lower latencies than SQL databases. Also, NoSQL databases are more scalable. Using a specialised storage solution such as a time-series data store or a keyvalue store for temporary storage may also be useful. Preprint not peer reviewed
-  - Use local infrastructure or private cloud offerings where possible. Furthermore, hosting DTs and services in containers will allow for elasticity which is good for resource efficiency and it makes load balancing easier.
+- Use local infrastructure or private cloud offerings where possible. Furthermore, hosting DTs and services in containers will allow for elasticity which is good for resource efficiency and it makes load balancing easier.
 
-#### Supplementary patterns:
+### Supplementary patterns:
 
 - Multi-threading can reduce I/O latency and multi-processing can reduce computational latency. However, this is also dependent on the resources that are available in the DTs.
 - A component can save resources by delegating some functions to other components, particularly processing intensive workloads. For example, a local device can use a secure fog server as a proxy where the fog server performs security services.
 - Caching frequently queried data as opposed to accessing the database for every query can greatly reduce latencies but at the cost of higher memory usage.
 
-#### Testing metrics:
+### Testing metrics:
 
 - Latency of network communications, computations, and I/O operations.
 - Throughput of network, computations, and I/O operations.
@@ -285,22 +283,22 @@ Related priorities: Maturity, resilience, robustness, stability, recoverability,
 - Suitability for safety critical systems, such as responding to alerts.
 - Disturbance handling (unexpected inputs and disruptions to the system's functioning).
 
-#### Conflicts:
+### Conflicts:
 
- Agility is useful to reduce the time-to-market of software and it is useful to adapt to constantly changing user needs. However, these changes increase the risk of introducing new faults and failures into the current system and thus they increase the risk of downtime [6][28].
+Agility is useful to reduce the time-to-market of software and it is useful to adapt to constantly changing user needs. However, these changes increase the risk of introducing new faults and failures into the current system and thus they increase the risk of downtime [6][28].
 
-#### Recommended aggregation choices:
+### Recommended aggregation choices:
 
 - Design for separation of concerns (distribution of functional logic) and the distribution of load to allow for fault isolation, for example by separating services and distributing them. Also, promote independence of the DTs that host the services.
 - Let functions like remote monitoring be performed by the lowest possible DTs in the aggregation hierarchy so that the communication failures or failure of higher-level DTs or DTs elsewhere in the hierarchy will not affect those functions. The encapsulation of functionality within a persistent and dedicated DT is also more reliable than service orchestration which relies on external connections. Preprint not peer reviewed
-  - Aggregate data after it has been stored. It is generally better for reliability because data is stored before it is transferred or manipulated, which allows for some redundancy. If latency is also important, a key-value store with periodic persistence, such as Redis, can be used as low latency temporary storage before aggregation.
-  - Use local aggregation. It is generally more reliable, if the computational resources are available, because the low latencies and high throughput of a local network allows for a higher capacity for interaction. Stream processing and micro-batch processing should be used for aggregation to avoid large batch failures.
+- Aggregate data after it has been stored. It is generally better for reliability because data is stored before it is transferred or manipulated, which allows for some redundancy. If latency is also important, a key-value store with periodic persistence, such as Redis, can be used as low latency temporary storage before aggregation.
+- Use local aggregation. It is generally more reliable, if the computational resources are available, because the low latencies and high throughput of a local network allows for a higher capacity for interaction. Stream processing and micro-batch processing should be used for aggregation to avoid large batch failures.
 
 - Employ redundancy, replication, and partitioning. This means that if one DT or service fails, another is available to continue the work (replication) or if one DT or service fails, the failure does not affect all the data (partitioning). Data is often stored at multiple levels of the system to build redundancy into the system. Preprint not peer reviewed
-  - Keep the infrastructure load below a reliable upper bound that has been established through experimentation. This means that infrastructure has been tested at a certain load, at which it is able to compensate for (most) disturbances.
-  - Limit dependencies on external networks and systems; where dependencies still exist, ensure good fault handling as well as redundancy features (such as locally storing data before sending it over a network).
+- Keep the infrastructure load below a reliable upper bound that has been established through experimentation. This means that infrastructure has been tested at a certain load, at which it is able to compensate for (most) disturbances.
+- Limit dependencies on external networks and systems; where dependencies still exist, ensure good fault handling as well as redundancy features (such as locally storing data before sending it over a network).
 
-#### Recommended implementation choices:
+### Recommended implementation choices:
 
 - Use a system monitoring service or monitoring platform to ensure that infrastructure is not being overloaded and to ensure that software behaviour is as expected. At the very least, use a heartbeat protocol or watchdog services.
 - Use reputable communication middleware that is reliable and scalable. Communication middleware decouples software components (here DTs and microservices) to allow for asynchronous communication and independent processing. Middleware typically uses short-term and temporary storage, which provides some redundancy.
@@ -309,14 +307,14 @@ Related priorities: Maturity, resilience, robustness, stability, recoverability,
 - Host software in virtual machines because it provides good resource isolation, as well as operating environment isolation. When hosting publicly available software, hosting on a cloud platform allows for highly scalable hosting environments. However, local machine buffer storage still may be desired to reduce data loss due to network problems.
 - Use containers to provide resource and operating environment isolation. Containers further enhance reliable re-use of software.
 
-#### Supplementary patterns:
+### Supplementary patterns:
 
 - Safe state logic is used to handle external failures or unexpected inputs.
 - When introducing replacement systems, a split loading approach is used to gradually phase one system in while phasing the other system out. For
 
 example, when a new version of a service is available, the load can be split between the old and the new version until the new version proves adequately reliable. Cloud platforms, such as Google Cloud Platform, provide services that enable this type of load splitting.
 
-#### Testing metrics:
+### Testing metrics:
 
 - Percentage uptime within a given time period.
 - The number of independent faults within a given time period
@@ -335,24 +333,24 @@ Related priorities: Maintainability, portability, modularity, modifiability, reu
 - Long-term system maintenance and extension, including the upgrading of technologies in the system.
 - Automating system support tasks, such as testing, (re)deployment, fault handling, and configuration of DTs.
 
-#### Conflicts:
+### Conflicts:
 
 - Security: reconfigurable systems typically are more modular, which introduces more interfaces and communication that can be attacked.
 - Performance efficiency: some performance focussed recommendations given above counter reconfigurability, e.g. narrowing the scope of data, preferring to encapsulate services with digital twins rather than in the services network, using pre-storage aggregation (as defined in Section 3.2), minimising the number of communication intermediaries, using requestresponse (rather than publish-subscribe) protocols, etc. Preprint not peer reviewed
-  - Minimise the physical distance between communication source and destination platforms: reconfigurable systems are usually more distributed.
+- Minimise the physical distance between communication source and destination platforms: reconfigurable systems are usually more distributed.
 
- Reliability: reconfiguring a system potentially introduces new errors and unexpected behaviours.
+Reliability: reconfiguring a system potentially introduces new errors and unexpected behaviours.
 
-#### Recommended aggregation choices:
+### Recommended aggregation choices:
 
 - The separation of concerns and modularity help make components more replaceable and interchangeable. Therefore, use loosely-coupled and highly cohesive software entities, i.e. nearly independent entities that are able to integrate easily. This allows for the separation of functional responsibilities and software entities can delegate functions to other entities, which helps to reduce the size of the code base. Preprint not peer reviewed
-  - Use clearly defined and simple interfaces for DTs and services and, thus, it is likely that there may be many, simpler DTs and/or services.
-  - Place a service that only relies on data from a well-defined span of reality with a DT that represents that span of reality. This combination will be easier to reconfigure as a unit.
-  - Avoid duplicating processing logic in multiple DTs or services so that, if the logic needs to change, it is easier to maintain consistency. However, centralising logic may cause system bottlenecks.
-  - Centralise connectivity metadata, e.g. in a directory service, so that changes to communication destinations or data sources are easy to maintain. This principle can be applied more widely, by general keeping a single source of truth for all data.
-  - Use cloud platforms that provide tools to manage complex architectures, including extensive diagnostic tools. These tools can speed up reconfiguration and, in particular, reduce testing and ramp-up time after reconfiguration. However, using cloud platforms does increase reliance on internet connectivity and network infrastructure.
+- Use clearly defined and simple interfaces for DTs and services and, thus, it is likely that there may be many, simpler DTs and/or services.
+- Place a service that only relies on data from a well-defined span of reality with a DT that represents that span of reality. This combination will be easier to reconfigure as a unit.
+- Avoid duplicating processing logic in multiple DTs or services so that, if the logic needs to change, it is easier to maintain consistency. However, centralising logic may cause system bottlenecks.
+- Centralise connectivity metadata, e.g. in a directory service, so that changes to communication destinations or data sources are easy to maintain. This principle can be applied more widely, by general keeping a single source of truth for all data.
+- Use cloud platforms that provide tools to manage complex architectures, including extensive diagnostic tools. These tools can speed up reconfiguration and, in particular, reduce testing and ramp-up time after reconfiguration. However, using cloud platforms does increase reliance on internet connectivity and network infrastructure.
 
-#### Recommended implementation choices:
+### Recommended implementation choices:
 
 - Use management services to provide common functions, such as a user interface gateway (to decouple user interfaces from the internal architecture of the system of DTs) and a single sign-on security system (to centralise security logic).
 - Use management services, such as a central configuration server and orchestrator service, to centralise configuration data of multiple software entities.
@@ -364,13 +362,13 @@ unintended side-effects of a reconfiguration. Some middleware can support multip
 - Use cloud platforms' "serverless" computing which means that long-term server related maintenance is delegated to the cloud service provider.
 - Use containers to provide resource and operating environment isolation. Furthermore, containers are usually deployed with a cluster manager which can help with load-balancing and performance monitoring.
 
-#### Supplementary patterns:
+### Supplementary patterns:
 
 - Code versioning software such as GitHub should be used.
 - The system should be developed incrementally, in synergy with the reconfigurability of the system.
 - Thorough documentation of interfaces and documentation management should be emphasised to support long-term maintenance and reconfigurability.
 
-#### Testing metrics:
+### Testing metrics:
 
 - The time it takes to add, remove or change a system component without introducing failures.
 - The rate of software reuse.
@@ -397,28 +395,28 @@ Related needs:
 - Security, as for the reconfigurability design pattern.
 - Performance efficiency, as for the reconfigurability design pattern.
 
-#### Recommended aggregation choices:
+### Recommended aggregation choices:
 
 - Homogenise and structure data before storage to make the data more understandable and to allow for easier querying.
 - Use the services network to integrate external data and external services so that there is, preferably, a single point of entry in the system of DTs for each external data source and service. Such an interfacing service should hide the peculiarities of the external data source or service and the interfaces this service exposes internally to the remainder of the system of DTs should be consistent with the patterns used in this system. Preprint not peer reviewed
-  - Apply the separation of concerns and modularity recommendations for the reconfigurability design pattern because they also aid interoperability.
+- Apply the separation of concerns and modularity recommendations for the reconfigurability design pattern because they also aid interoperability.
 
-#### Recommended implementation choices:
+### Recommended implementation choices:
 
 - Apply the implementation recommendations for the reconfigurability design pattern.
 - If the system of DTs relies on external data, take into account the long-term availability of that data and the latency for accessing it. These two factors will indicate whether the system of DTs should duplicate the data or only maintain a connection to the external data source.
 
-#### Supplementary patterns:
+### Supplementary patterns:
 
 - The aim is to ensure syntactically and semantically consistent data formats across different DTs and services; incorporate metadata to provide context.
 - Preference is given to open standards, particularly security standards.
 
-#### Testing metrics:
+### Testing metrics:
 
 - The time required to integrate new components.
 - The time required to establish interfaces with external components.
 
-# <span id="page-22-0"></span>5 Evaluation and results
+## <span id="page-22-0"></span>5 Evaluation and results
 
 Evaluating the design patterns is very challenging because they are intended to be generally valid or useful. It is infeasible to demonstrate or evaluate their range of application, in terms of types of physical systems and expertise of the users of the design patterns. A feasible approach is to apply the design patterns in a range of case studies that are selected to give some measure of their effectiveness and utility.
 
@@ -435,7 +433,7 @@ Pre-storage, local aggregation is performed through stream processing within the
 ![](_page_23_Figure_1.jpeg)
 <!-- Image Description: Figure 2 depicts a digital twin system architecture for a heliostat field. It's a diagram showing a user interacting with web applications that communicate with a DTA (Digital Twin Aggregate) and DTIs (Digital Twin Instances) via a gateway and broker using REST APIs and a pub-sub messaging system. Local, pre-storage, and post-storage data aggregation methods are highlighted. The purpose is to illustrate the system's architecture and data flow for anomaly detection. -->
 
-<span id="page-23-0"></span>**Figure 2: Heliostat field digital twin system architecture [16]**
+<span id="page-23-0"></span>****Figure 2:** Heliostat field digital twin system architecture [16]**
 
 ## 5.2 Water distribution system case study
 
@@ -446,7 +444,7 @@ The aggregation and communication architecture for this case study are shown in 
 ![](_page_24_Figure_1.jpeg)
 <!-- Image Description: Figure 3 depicts the architecture of a water distribution system's data telemetry infrastructure. A diagram shows the system's components (DTIs and DTAs) distributed across local devices and the cloud, connected via a message-oriented middleware and a gateway. Local brokers handle pre-storage aggregation while the gateway performs post-storage aggregation and batch processing. The design emphasizes fault isolation and reliability through separation of concerns and local services. -->
 
-<span id="page-24-0"></span>**Figure 3: DT system architecture for a water distribution system [16]**
+<span id="page-24-0"></span>****Figure 3:** DT system architecture for a water distribution system [16]**
 
 For reliability, the following design choices were made:
 
@@ -473,7 +471,7 @@ This case study does not consider the internal architecture of the constituent D
 ![](_page_26_Figure_0.jpeg)
 <!-- Image Description: Figure 4 presents a hierarchical architecture for a smart city's data transfer (DT) system. The diagram uses boxes and connecting lines to illustrate the flow of data between various levels: City DT, Ward DTs, and Land Use Area DTs. Each level utilizes message-oriented middleware. The architecture emphasizes pre-storage aggregation for efficiency and interoperability, addressing the challenges of large data volumes in smart cities. -->
 
-<span id="page-26-0"></span>**Figure 4: Smart city system of DTs architecture [16]**Figure 4 shows the DT system architecture that was arrived at here.
+<span id="page-26-0"></span>****Figure 4:** Smart city system of DTs architecture [16]**Figure 4 shows the DT system architecture that was arrived at here.
 
 Due to the large amount of data in a smart city, performance efficiency requires attention to long term data storage requirements. Here it is assumed that, if a constituent DT exists in its own right, it provides for its own internal storage and aggregation requirements. Only the storage and aggregation requirements associated with DTAs added specifically for the smart city system, are considered here. Pre-storage aggregation (as defined in Section 3.2) within the DT hierarchy will be preferred, where the DTs have short-term storage to provide some redundancy. Pre-storage aggregation will allow for processing (e.g. homogenisation) and structuring of the data before it is stored in a long-term repository to support interoperability and storage-related performance
 
@@ -495,7 +493,7 @@ In terms of hosting, services that require low latencies, higher security standa
 
 Furthermore, services that require stricter security measures or greater isolation can make use of virtual machines, but the most popular hosting option is likely to be containers. Containers' ability to allocate resources dynamically allows for more efficient resource utilisation and containers provide more support for performance and reliability monitoring. Furthermore, periodically invoked services will also benefit from containers' ability to deploy faster.
 
-# 6 Discussion
+## 6 Discussion
 
 Design patterns are intended to provide proven solutions to general problems, which in turn help to produce higher quality software with reduced development effort. A thorough evaluation of such design patterns is not feasible, as explained in the introductory paragraph of Section 5, but the three disparate case studies
 
@@ -509,7 +507,7 @@ The results above show that quality attributes provide a useful focus for the de
 
 The authors' experience is that the design patterns helped to design better systems and to design systems faster. The design patterns also guide the designer in identifying the design aspects important for a specific quality attribute, including where trade-offs may be required. The results are unavoidably subjective because there are no equivalent digital twin design patters to compare to and neither are there digital twin system designs published in sufficient detail so that they can serve as controls for comparison.
 
-# 7 Conclusion
+## 7 Conclusion
 
 Designing a system of DTs for a complex system involves an extensive array of options and considerations that relate to the specific context and purpose of the DT system. The paper presents four quality-attribute focussed design patterns for a system of DTs. The design patterns prioritise, respectively, performance efficiency, reliability, reconfigurability, and interoperability. Aggregation and implementation recommendations are presented for each design pattern. The design patterns are based on a reference architecture that includes a DT aggregation hierarchy, a services network, and a set of management services. Preprint not peer reviewed The architecture was devised to meet the requirements imposed by complex systems.
 
@@ -519,7 +517,7 @@ The paper presents some evidence that the design patterns presented here help to
 
 A limitation of the design patterns is that they do not help in quantifying the effects of trade-off decisions. The case study results presented give limited evidence of the validity of the design patterns, but [16] and [18] give some evaluation of the architectures presented in this paper. Further application is required to evaluate their generality and validity. Also, the extent to which these design patterns do improve the productivity of the design process, requires further research. The design patterns' suitability for adaptation to other reference architectures, should also be considered. Preprint not peer reviewed
 
-# Acknowledgements
+## Acknowledgements
 
 This work was supported by the Horizon 2020 PREMA project [award number 820561]. The project investigates concentrated solar thermal (CST) power, inter alia, for pre-heating of manganese ferroalloys to save energy and reduce CO<sup>2</sup> emissions. Industry 4.0 technologies and concepts can play an important role, as it can increase the level of automation and improve the reliability of CST plants.
 
@@ -539,20 +537,20 @@ Other than providing funding, the sponsors did not influence any research or pub
 - [9] Minerva, R., Lee, G.M. & Crespi, N. 2020. *Digital Twin in the IoT Context: A Survey on Technical Features, Scenarios, and Architectural Models*. Proceedings of the IEEE. 108(10): 1785–1824.
 - [10] Ciavotta, M., Bettoni, A. & Izzo, G. 2018. *Interoperable meta model for simulation-in-the-loop.*in Proceedings - 2018 IEEE Industrial Cyber-Physical Systems, ICPS 2018 IEEE. 702–707.
 - [11] Lutze, R. 2019.*Digital Twins in eHealth: Prospects and Challenges Focussing on Information Management*. in Proceedings - 2019 IEEE International Conference on Engineering, Technology and Innovation, ICE/ITMC 2019. Preprint not peer reviewed
-  - [12] Redelinghuys, A.J.H., Kruger, K. & Basson, A.H. 2020. *A six-layer architecture for digital twins with aggregation*. Studies in Computational Intelligence. 853: 171–182.
-  - [13] Villalonga, A., Negri, E., Fumagalli, L., Macchi, M., Castaño, F. & Haber, R. 2020. *Local Decision Making based on Distributed Digital Twin Framework*. in IFAC World Congress 2020. 53: 10568–10573.
+- [12] Redelinghuys, A.J.H., Kruger, K. & Basson, A.H. 2020. *A six-layer architecture for digital twins with aggregation*. Studies in Computational Intelligence. 853: 171–182.
+- [13] Villalonga, A., Negri, E., Fumagalli, L., Macchi, M., Castaño, F. & Haber, R. 2020. *Local Decision Making based on Distributed Digital Twin Framework*. in IFAC World Congress 2020. 53: 10568–10573.
 
 - [14] Lutters, E. & Damgrave, R. 2019. *The development of Pilot Production Environments based on digital twins and virtual dashboards*. in Procedia CIRP Vol. 84. Elsevier B.V. 94–99.
 - [15] Kruger, K, Human, C, Basson, AH. 2022. *Towards the Integration of Digital Twins and Service-Oriented Architectures.*Studies in Computational Intelligence: International Workshop on Service Orientation in Holonic and Multi-Agent Manufacturing. 1034: 131-144. doi: 10.1007/978-3-030-99108- 1\_10. Preprint not peer reviewed
-  - [16] Human, C. 2022. A Design Framework for Aggregation in a System of Digital Twins, PhD Dissertation, Stellenbosch University, Stellenbosch, South Africa.
-  - [17] Tekinerdogan, B. & Verdouw, C. 2020.*Systems Architecture Design Pattern Catalog for Developing Digital Twins*. Sensors. 20: 5103. doi: 10.3390/s20185103.
-  - [18] Human, C , Basson, AH, Kruger, K. 2023. *A design framework for a system of digital twins and services.*Computers in Industry. 144: 103796. doi: 10.1016/j.compind.2022.103796.
-  - [19] Erikstad, S.O. 2018.*Design Patterns for Digital Twin Solutions in Marine Systems Design and Operations*. COMPIT' 18: 17th International Conference on Computer and IT Applications in the Maritime Industries. Pavone, Italy.
-  - [20] Bourque, P. & Fairley, R.E. 2014. *Guide to the software engineering body of knowledge (SWEBOK)*V3.0. IEEE Computer Society.
-  - [21] Aderaldo, C.M., Mendonça, N.C., Pahl, C. & Jamshidi, P. 2017.*Benchmark Requirements for Microservices Architecture Research*. in Proceedings - 2017 IEEE/ACM 1st International Workshop on Establishing the Community-Wide Infrastructure for Architecture-Based Software Engineering, ECASE 2017. 8– 13.
-  - [22] Erikstad, S.O. & Bekker, A. 2021*. Design Patterns for Intelligent Services Based on Digital Twins*. In Bertram V. (ed.) 20th International Conference on Computer and IT Applications in the Maritime Industries. 235–245.
-  - [23] Taibi, D., Lenarduzzi, V. & Pahl, C. 2018. *Architectural patterns for microservices: A systematic mapping study*. in CLOSER 2018 - Proceedings of the 8th International Conference on Cloud Computing and Services Science. 221–232.
-  - [24] Aksakalli, I.KÇelik, T., Can, A.B. & Tekinerdogan, B. 2021. *Deployment and communication patterns in microservice architectures: A systematic*
+- [16] Human, C. 2022. A Design Framework for Aggregation in a System of Digital Twins, PhD Dissertation, Stellenbosch University, Stellenbosch, South Africa.
+- [17] Tekinerdogan, B. & Verdouw, C. 2020.*Systems Architecture Design Pattern Catalog for Developing Digital Twins*. Sensors. 20: 5103. doi: 10.3390/s20185103.
+- [18] Human, C , Basson, AH, Kruger, K. 2023. *A design framework for a system of digital twins and services.*Computers in Industry. 144: 103796. doi: 10.1016/j.compind.2022.103796.
+- [19] Erikstad, S.O. 2018.*Design Patterns for Digital Twin Solutions in Marine Systems Design and Operations*. COMPIT' 18: 17th International Conference on Computer and IT Applications in the Maritime Industries. Pavone, Italy.
+- [20] Bourque, P. & Fairley, R.E. 2014. *Guide to the software engineering body of knowledge (SWEBOK)*V3.0. IEEE Computer Society.
+- [21] Aderaldo, C.M., Mendonça, N.C., Pahl, C. & Jamshidi, P. 2017.*Benchmark Requirements for Microservices Architecture Research*. in Proceedings - 2017 IEEE/ACM 1st International Workshop on Establishing the Community-Wide Infrastructure for Architecture-Based Software Engineering, ECASE 2017. 8– 13.
+- [22] Erikstad, S.O. & Bekker, A. 2021*. Design Patterns for Intelligent Services Based on Digital Twins*. In Bertram V. (ed.) 20th International Conference on Computer and IT Applications in the Maritime Industries. 235–245.
+- [23] Taibi, D., Lenarduzzi, V. & Pahl, C. 2018. *Architectural patterns for microservices: A systematic mapping study*. in CLOSER 2018 - Proceedings of the 8th International Conference on Cloud Computing and Services Science. 221–232.
+- [24] Aksakalli, I.KÇelik, T., Can, A.B. & Tekinerdogan, B. 2021. *Deployment and communication patterns in microservice architectures: A systematic*
 
 *literature review*. Journal of Systems and Software. 180: 111014. Doi: 10.1016/J.JSS.2021.111014.
 
@@ -560,11 +558,11 @@ Other than providing funding, the sponsors did not influence any research or pub
 - [26] Harper, E., Malakuti, S. & Ganz, C. 2019*. Digital Twin Architecture and Standards*. IIC Journal of Innovation. (November):1–12.
 - [27] O'Donovan, P., Leahy, K., Bruton, K. & O'Sullivan, D.T.J. 2015. *An industrial big data pipeline for data-driven analytics maintenance applications in largescale smart manufacturing facilities*. Journal of Big Data. 2:25(1): 1–26.
 - [28] Ciavotta, M., Maso, G.D., Rovere, D., Tsvetanov, R. & Menato, S. 2020. *Towards the Digital Factory: A Microservices-Based Middleware for Real-to-Digital Synchronization*. In: Bucchiarone, A. *et al*. (eds) Microservices. Springer, Cham. 273–297. Preprint not peer reviewed
-  - [29] Santana, C., Andrade, L., Delicato, F.C. & Prazeres, C. 2021. *Increasing the availability of IoT applications with reactive microservices*. Service Oriented Computing and Applications. 15(2): 109–126.
-  - [30] BSI, ISO & IEC 25010. 2011. *Systems and software engineering Systems and software Quality Requirements and Evaluation (SQuaRE) — System and software quality models*. BSI Standard Publication. First Edition.
-  - [31] Lindsay, D., Gill, S.S., Smirnova, D. & Garraghan, P. 2021. *The evolution of distributed computing systems: from fundamental to new frontiers*. Computing 103: 1859-1878.
-  - [32] Pourghebleh, B. & Navimipour, N.J. 2017. *Data aggregation mechanisms in the Internet of things: A systematic review of the literature and recommendations for future research*. Journal of Network and Computer Applications. 97(April): 23–34.
-  - [33] Ullah, A., Azeem, M., Ashraf, H., Alaboudi, A.A., Humayun, M. & Jhanjhi, N.Z. 2021. *Secure Healthcare Data Aggregation and Transmission in IoT - A Survey*. IEEE Access. 9: 16849–16865.
+- [29] Santana, C., Andrade, L., Delicato, F.C. & Prazeres, C. 2021. *Increasing the availability of IoT applications with reactive microservices*. Service Oriented Computing and Applications. 15(2): 109–126.
+- [30] BSI, ISO & IEC 25010. 2011. *Systems and software engineering Systems and software Quality Requirements and Evaluation (SQuaRE) — System and software quality models*. BSI Standard Publication. First Edition.
+- [31] Lindsay, D., Gill, S.S., Smirnova, D. & Garraghan, P. 2021. *The evolution of distributed computing systems: from fundamental to new frontiers*. Computing 103: 1859-1878.
+- [32] Pourghebleh, B. & Navimipour, N.J. 2017. *Data aggregation mechanisms in the Internet of things: A systematic review of the literature and recommendations for future research*. Journal of Network and Computer Applications. 97(April): 23–34.
+- [33] Ullah, A., Azeem, M., Ashraf, H., Alaboudi, A.A., Humayun, M. & Jhanjhi, N.Z. 2021. *Secure Healthcare Data Aggregation and Transmission in IoT - A Survey*. IEEE Access. 9: 16849–16865.
 
 [34] Mitchell, M. 2009. Complexity: A Guided Tour. Oxford University Press, Inc.
 
@@ -574,8 +572,8 @@ Other than providing funding, the sponsors did not influence any research or pub
 - [38] O'Brien, L., Merson, P. & Bass, L. 2007. *Quality attributes for service-oriented architectures*. in Proceedings - ICSE 2007 Workshops: International Workshop on Systems Development in SOA Environments, SDSOA'07. 3–9.
 - [39] VanDerHorn, E. & Mahadevan, S. 2021. *Digital Twin: Generalization, characterization and implementation*. Decision Support Systems. 145 (February): 113524.
 - [40] Fadlalla, A. 2005. *An experimental investigation of the impact of aggregation on the performance of data mining with logistic regression*. Information and Management. 42(5): 695–707. Preprint not peer reviewed
-  - [41] Tovarnitchi, V.M. 2019. *Designing distributed, scalable and extensible system using reactive architectures*. in Proceedings - 2019 22nd International Conference on Control Systems and Computer Science, CSCS 2019. 484–488.
-  - [42] Abbott, M. 2020. *The Scale Cube*. [Online], Available: https://akfpartners.com/growth-blog/scale-cube [2021, September 20].
-  - [43] Simon, H.A. 1996. The Sciences of the Artificial*.*Cambridge, Massachusetts: MIT Press.
-  - [44] Malan, K.J. 2014.*A Heliostat Field Control System*. MEng Thesis. Stellenbosch University, Stellenbosch, South Africa.
-  - [45] Silva, B.N., Khan, M. & Han, K. 2018. *Towards sustainable smart cities: A review of trends, architectures, components, and open challenges in smart cities.* Sustainable Cities and Society. 38(February): 697–713.
+- [41] Tovarnitchi, V.M. 2019. *Designing distributed, scalable and extensible system using reactive architectures*. in Proceedings - 2019 22nd International Conference on Control Systems and Computer Science, CSCS 2019. 484–488.
+- [42] Abbott, M. 2020. *The Scale Cube*. [Online], Available: https://akfpartners.com/growth-blog/scale-cube [2021, September 20].
+- [43] Simon, H.A. 1996. The Sciences of the Artificial*.*Cambridge, Massachusetts: MIT Press.
+- [44] Malan, K.J. 2014.*A Heliostat Field Control System*. MEng Thesis. Stellenbosch University, Stellenbosch, South Africa.
+- [45] Silva, B.N., Khan, M. & Han, K. 2018. *Towards sustainable smart cities: A review of trends, architectures, components, and open challenges in smart cities.* Sustainable Cities and Society. 38(February): 697–713.

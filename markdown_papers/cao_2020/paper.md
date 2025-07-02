@@ -29,9 +29,9 @@ tags:
 
 Lei Cao, Huijun Zhang, and Ling Feng *Senior Member, IEEE*
 
-*Abstract*—A large number of individuals are suffering from suicidal ideation in the world. There are a number of causes behind why an individual might suffer from suicidal ideation. As the most popular platform for self-expression, emotion release, and personal interaction, individuals may exhibit a number of symptoms of suicidal ideation on social media. Nevertheless, challenges from both data and knowledge aspects remain as obstacles, constraining the social media-based detection performance. Data implicitness and sparsity make it difficult to discover the inner true intentions of individuals based on their posts. Inspired by psychological studies, we build and unify a high-level suicide-oriented knowledge graph with deep neural networks for suicidal ideation detection on social media. We further design a two-layered attention mechanism to explicitly reason and establish key risk factors to individual's suicidal ideation. The performance study on microblog and Reddit shows that: 1) with the constructed personal knowledge graph, the social media-based suicidal ideation detection can achieve over 93% accuracy; and 2) among the six categories of personal factors, *post, personality,* and *experience* are the top-3 key indicators. Under these categories, *posted text*, *stress level*, *stress duration*, *posted image*, and *ruminant thinking* contribute to one's suicidal ideation detection.
+**Abstract:** A large number of individuals are suffering from suicidal ideation in the world. There are a number of causes behind why an individual might suffer from suicidal ideation. As the most popular platform for self-expression, emotion release, and personal interaction, individuals may exhibit a number of symptoms of suicidal ideation on social media. Nevertheless, challenges from both data and knowledge aspects remain as obstacles, constraining the social media-based detection performance. Data implicitness and sparsity make it difficult to discover the inner true intentions of individuals based on their posts. Inspired by psychological studies, we build and unify a high-level suicide-oriented knowledge graph with deep neural networks for suicidal ideation detection on social media. We further design a two-layered attention mechanism to explicitly reason and establish key risk factors to individual's suicidal ideation. The performance study on microblog and Reddit shows that: 1) with the constructed personal knowledge graph, the social media-based suicidal ideation detection can achieve over 93% accuracy; and 2) among the six categories of personal factors, *post, personality,* and *experience* are the top-3 key indicators. Under these categories, *posted text*, *stress level*, *stress duration*, *posted image*, and *ruminant thinking* contribute to one's suicidal ideation detection.
 
-*Index Terms*—Suicidal ideation detection, social media, personal knowledge graph, social interaction.
+**Index Terms:** Suicidal ideation detection, social media, personal knowledge graph, social interaction.
 
 ## I. INTRODUCTION
 
@@ -53,14 +53,13 @@ The authors are with the Department of Computer Science and Technology, Centre f
 
 E-mail: cao-l17@mails.tsinghua.edu.cn, zhang-hj17@mails.tsinghua.edu.cn, fengling@mail.tsinghua.edu.cn
 
-<span id="page-1-0"></span>
 
-| User | <b>Normal Posts</b>                                                                                                                                                                                                                                     | <b>Hidden Tree Hole Posts</b>                                                                                                                                                                                                                                                                                                               |
+| User | <b>Normal Posts</b> | <b>Hidden Tree Hole Posts</b> |
 |------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | 2018-06-15 12:31:53<br>"What to buy after getting the salary?"<br>2018-06-18 21:45:22<br>"I sang a song today. It's ugly.<br>Everyone laughed at me. Who cares?"<br>2018-06-19 08:12:13<br>"Ohh! Today is a new day. Good<br>things happen one by one." | 2018-06-17 17:11:05<br>"In fact, I am dead, I am a worthless person. My work<br>is a failure."<br>2018-06-18 19:31:27<br>"No place to go, timid, no matter where I go, I am still<br>like this! Incurable! The place I want to go to heaven."<br>2018-06-19 05:45:00<br>"No meaning to live. I am like a corpse, who can<br>understand me?" |
-| 2    | 2019-05-25 22:15:10<br>"My birthday! Thanks for the happy<br>moment!"<br>2019-05-26 07:00:00<br>"Breakfast is delicious!"                                                                                                                               | 2019-05-25 23:55:15<br>"Today is my birthday, but I seem to have passed away."<br>2019-05-26 01:29:11<br>"I want to kill myself, living with my parents without a<br>job. So hard to find a satisfactory one."                                                                                                                              |
+| 1 | 2018-06-15 12:31:53<br>"What to buy after getting the salary?"<br>2018-06-18 21:45:22<br>"I sang a song today. It's ugly.<br>Everyone laughed at me. Who cares?"<br>2018-06-19 08:12:13<br>"Ohh! Today is a new day. Good<br>things happen one by one." | 2018-06-17 17:11:05<br>"In fact, I am dead, I am a worthless person. My work<br>is a failure."<br>2018-06-18 19:31:27<br>"No place to go, timid, no matter where I go, I am still<br>like this! Incurable! The place I want to go to heaven."<br>2018-06-19 05:45:00<br>"No meaning to live. I am like a corpse, who can<br>understand me?" |
+| 2 | 2019-05-25 22:15:10<br>"My birthday! Thanks for the happy<br>moment!"<br>2019-05-26 07:00:00<br>"Breakfast is delicious!" | 2019-05-25 23:55:15<br>"Today is my birthday, but I seem to have passed away."<br>2019-05-26 01:29:11<br>"I want to kill myself, living with my parents without a<br>job. So hard to find a satisfactory one." |
 
-Fig. 1: Two users' normal posts versus their hidden tree hole posts on Sina Weibo.
+**Figure 1:** Two users' normal posts versus their hidden tree hole posts on Sina Weibo.
 
 To further examine the differences between users' normal posts and their commenting posts in the hidden tree hole, we crawled and analyzed 3,652 individuals' posts from May 1, 2018 to April 30, 2019 on Sina Weibo. As Table [I](#page-1-1) shows, their posting contents were quite different. The hidden tree hole posts focused more on oneself through more self-concern words (like "I", "me", "my", "mine", "am", etc.) rather than others-concern words, and they used more suicide-related words than the normal posts, demonstrating users' willingness and directives to express their inner suicidal thoughts in the hidden tree hole. On the contrary, the users were reluctant to show their feelings in the open normal posts, and they used more others-concern (such as "they", "their", "she", "he", etc.) words than the tree hole posts. Such phenomena challenge the suicide risk detection through the normal posts.
 
@@ -70,30 +69,30 @@ To illustrate, we identified 3,652 users which made both normal posts and hidden
 
 <span id="page-1-1"></span>TABLE I STATISTICS OF USERS' NORMAL POSTS VS. HIDDEN TREE HOLE POSTS ON SINA WEIBO BASED ON 3,652 USERS FROM MAY 1, 2018 TO APRIL 30, 2019.
 
-| Perspective                                     | Posts   | Normal Hidden Tree<br>Hole Posts |
+| Perspective | Posts | Normal Hidden Tree<br>Hole Posts |
 |-------------------------------------------------|---------|----------------------------------|
-| Prop. of posts containing self-concern words    | 43%     | 50%                              |
-| Prop. of posts containing others-concern words  | 8%      | 6%                               |
-| Prop. of posts containing suicide-related words | 31%     | 95%                              |
-| Prop. of self-concern words per post            | 4%      | 9%                               |
-| Prop. of others-concern words per post          | 8%      | 1%                               |
-| Prop. of suicide-related words per post         | 0.02%   | 0.3%                             |
-| Total post number                               | 252,901 | 190,087                          |
+| Prop. of posts containing self-concern words | 43% | 50% |
+| Prop. of posts containing others-concern words | 8% | 6% |
+| Prop. of posts containing suicide-related words | 31% | 95% |
+| Prop. of self-concern words per post | 4% | 9% |
+| Prop. of others-concern words per post | 8% | 1% |
+| Prop. of suicide-related words per post | 0.02% | 0.3% |
+| Total post number | 252,901 | 190,087 |
 
 their blogs contained no suicide-related words at all. We called this group of users *ordinary users*. From Figure [2,](#page-2-0) we can find that users with suicidal thoughts made much less normal posts than ordinary users. Overall, the majority of this group of users had less than 1 normal post per week, verifying the serious data sparsity problem.
 
 Moreover, due to violent emotional fluctuations, individuals with suicidal ideation tend to delete their previous posts related to suicidal ideation, striving to hide the true inner intentions. We counted the number of normal posts from the 7,329 users (3,652 with suicidal ideation and 3,677 ordinary users) in one year from 2018.05.01 to 2019.04.30 twice (one on 2019.04.30, and the other on 2019.08.31), and discovered
 
-# <span id="page-2-1"></span>TABLE II STATISTICS OF DELETED NORMAL POST NUMBERS BASED ON 7,329 USERS (3,652 WITH SUICIDAL IDEATION AND 3,677 NORMAL USERS) FROM MAY 1, 2018 TO APRIL 30, 2019 ON SINA WEIBO.
+## <span id="page-2-1"></span>TABLE II STATISTICS OF DELETED NORMAL POST NUMBERS BASED ON 7,329 USERS (3,652 WITH SUICIDAL IDEATION AND 3,677 NORMAL USERS) FROM MAY 1, 2018 TO APRIL 30, 2019 ON SINA WEIBO.
 
 <span id="page-2-0"></span>![](_page_2_Figure_1.jpeg)
-<!-- Image Description: Figure 3 presents histograms showing the distribution of normal posts for users with and without suicidal ideation, along with a table summarizing user deletion rates.  A social network graph illustrates connections between a user exhibiting suicidal ideation and two friends,  and example posts are provided for each user to show the data sparsity challenge in detection. The histograms show post counts, while the table presents the number and proportion of users who deleted posts after three months. -->
+<!-- Image Description: Figure 3 presents histograms showing the distribution of normal posts for users with and without suicidal ideation, along with a table summarizing user deletion rates. A social network graph illustrates connections between a user exhibiting suicidal ideation and two friends, and example posts are provided for each user to show the data sparsity challenge in detection. The histograms show post counts, while the table presents the number and proportion of users who deleted posts after three months. -->
 
 <span id="page-2-2"></span>Although there has been a large body of research addressing the task of suicidal ideation based on social media, the detection performance remains to be constrained due to the disparity between the informal language used by social media users and the concepts defined by domain experts in medical knowledge bases [\[19,](#page-14-5) [20,](#page-14-6) [21\]](#page-14-7). Moreover, methods based on domain knowledge have been successful in many fields [\[22,](#page-14-8) [23,](#page-14-9) [24\]](#page-14-10). To fill the gap, recently, [\[19\]](#page-14-5) incorporated domain specific knowledge into a learning framework to predict the severity of suicide risk for a Redditor user. Specifically, it employed two medical lexicons (TwADR-L and AskaPatient) to map social media contents to medical concepts [\[25\]](#page-14-11), and identified contents with negative emotions based on anonymized and annotated suicide notes available from Informatics for Integrating Biology and the Bedside (i2b2) challenge. It further developed a suicide risk severity lexicon using medical knowledge bases and suicide ontology to detect cues relevant to suicidal thoughts and actions, and used language modeling, medical entity recognition and normalization and negation detection to create a gold standard dataset of 500 Redditors developed by four practicing psychiatrists [\[19\]](#page-14-5).
 
 The work [\[19\]](#page-14-5) proved that utilizing domain specific knowledge is a promising approach for suicidal ideation analysis. In reality, there could be a large number of causes behind why an individual might suffer from suicidal ideation. It is of extreme importance that the suicidal ideation detection method should be able to recognize the warning signs or symptoms around the individual who is suffering, and involve them to improve the detection performance. However, few contribution measurements of different indicators in relation to individual's *personal information* (display image on social media, gender,
 
-Fig. 2: Distributions of normal post numbers from 7,329 users (3,652 with suicidal ideation and 3,677 ordinary users) from May 1,2018 to April 30,2019 on Sina Weibo.
+**Figure 2:** Distributions of normal post numbers from 7,329 users (3,652 with suicidal ideation and 3,677 ordinary users) from May 1,2018 to April 30,2019 on Sina Weibo.
 
 (b) Ordinary users
 
@@ -148,9 +147,9 @@ Different from the previous work, in this study, we looked beyond individual's p
 We define the terminology for representing the nodes and edges of the personal suicide-oriented knowledge graph, and then convert the extracted data from individuals' social media accounts to instantiate such a personal knowledge graph. Inspired by the psychological investigation into the predictors of suicide risk [\[61,](#page-15-4) [62,](#page-15-5) [63,](#page-15-6) [64,](#page-15-7) [65,](#page-15-8) [66,](#page-15-9) [67\]](#page-15-10), we extracted and analyzed individuals' relevant social media behaviors from the following six perspectives (i.e., *personal information, personality, experience, post behavior, emotion expression,* and *social interaction*), as shown in Figure [4.](#page-4-0)
 
 <span id="page-4-0"></span>![](_page_4_Figure_10.jpeg)
-<!-- Image Description: This figure is a network graph illustrating factors associated with user behavior, specifically focusing on suicide risk assessment.  Light green circles represent user attributes (e.g., age, gender, psychological disorder), while peach circles represent intermediate factors (e.g., personality, experience, post-behavior). Darker gray circles represent the central "User" node, connected to both user attributes and social interaction metrics (following/follower numbers).  The graph visualizes relationships between various personal characteristics, online behavior, and potential suicide indicators. -->
+<!-- Image Description: This figure is a network graph illustrating factors associated with user behavior, specifically focusing on suicide risk assessment. Light green circles represent user attributes (e.g., age, gender, psychological disorder), while peach circles represent intermediate factors (e.g., personality, experience, post-behavior). Darker gray circles represent the central "User" node, connected to both user attributes and social interaction metrics (following/follower numbers). The graph visualizes relationships between various personal characteristics, online behavior, and potential suicide indicators. -->
 
-Fig. 4: The ontology of the social media-based suicide-oriented knowledge graph.
+**Figure 4:** The ontology of the social media-based suicide-oriented knowledge graph.
 
 *1) Personal Information (Gender, Age, Location):* Based on the previous study result that suffering women are three times more likely than suffering men to attempt suicide [\[61\]](#page-15-4), we captured user u's personal details including gender, age, and location from his microblog account, and involved them into the personal knowledge graph.
 
@@ -172,12 +171,12 @@ To assess the extent of one's *pursuing perfection* characteristic, we identifie
 
 We measured user's pursuing perfection and ruminant thinking based on the mean proportion of perfection-related and ruminant-related words per post, respectively. Let P(u) denote the set of posts made by user u. For each post p ∈ P(u), as-
 
-# <span id="page-5-0"></span>TABLE III TYPICAL PERFECTION-RELATED AND RUMINANT THINKING-RELATED WORDS.
+## <span id="page-5-0"></span>TABLE III TYPICAL PERFECTION-RELATED AND RUMINANT THINKING-RELATED WORDS.
 
-| Type                            | Words                                                                                                                                                                                                                                                      |
+| Type | Words |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Perfection<br>Related           | perfect, perfectionist, perfection, stupid, wrong, upset,<br>mood, struggle, goal, realistic, not enough, lose, loser,<br>failure, imperfect, compete, force, negative, disappoint,<br>despair, letdown, useless, always, never, still, upset, prob<br>lem |
-| Ruminant<br>Thinking<br>Related | regret, repent, rue, penitent, confess, hate, self-blame,<br>grievance, complaint, injustice, unfairness, growl, discon<br>tent, lose, loser, owe, sinner, die                                                                                             |
+| Perfection<br>Related | perfect, perfectionist, perfection, stupid, wrong, upset,<br>mood, struggle, goal, realistic, not enough, lose, loser,<br>failure, imperfect, compete, force, negative, disappoint,<br>despair, letdown, useless, always, never, still, upset, prob<br>lem |
+| Ruminant<br>Thinking<br>Related | regret, repent, rue, penitent, confess, hate, self-blame,<br>grievance, complaint, injustice, unfairness, growl, discon<br>tent, lose, loser, owe, sinner, die |
 
 sume function pwordNum(p, u) and rwordNum(p, u) return the number of perfection-related and ruminant-related words in p, respectively.
 
@@ -193,8 +192,8 @@ We measured user u's interpersonal sensitivity by counting how many times the us
 $$
 Sensitive(u) =
 $$
-  
-  $|\{s \mid s \in \mathcal{S}(u) \land s_c = "interpersonal relation"\}|$ 
+
+$|\{s \mid s \in \mathcal{S}(u) \land s_c = "interpersonal relation"\}|$
 
 where S(u) is a set of stressful periods detected from user u's posts, and s=(sp, s<sup>l</sup> , sc) is one of it in S(u).
 
@@ -209,9 +208,9 @@ $$
 The last output of LSTM was out<sup>n</sup> ∈ R <sup>1</sup>×<sup>300</sup>. To reduce the computational complexity of subsequent calculations, a fully
 
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
-<!-- Image Description: The image presents a diagram of a recurrent neural network architecture.  It shows the sequential processing of text and image data (using BERT and ResNet, respectively) at each time step (Post 1, Post 2,..., Post n).  Features are concatenated, fed into an LSTM, and the LSTM outputs are then processed by a fully connected network to produce the final PostBehavior(u) output. The diagram illustrates the model's temporal processing of multimodal data. -->
+<!-- Image Description: The image presents a diagram of a recurrent neural network architecture. It shows the sequential processing of text and image data (using BERT and ResNet, respectively) at each time step (Post 1, Post 2,..., Post n). Features are concatenated, fed into an LSTM, and the LSTM outputs are then processed by a fully connected network to produce the final PostBehavior(u) output. The diagram illustrates the model's temporal processing of multimodal data. -->
 
-Fig. 5: The framework for learning user u's post behavior.
+**Figure 5:** The framework for learning user u's post behavior.
 
 connected layer was used to generate a 30-dimensional vector as the value of user's *post behavior* property:
 
@@ -245,39 +244,38 @@ We designed a property attention mechanism and neighbour attention mechanism to 
 
 TABLE IV STATISTICS OF USERS' PERSONAL SUICIDE-ORIENTED KNOWLEDGE GRAPHS ON WEIBO.
 
-<span id="page-7-0"></span>
 
-| Category    | Properties                                                | Users with Suicidal Ideation     | Ordinary Users without Suicidal<br>Ideation |
+| Category | Properties | Users with Suicidal Ideation | Ordinary Users without Suicidal<br>Ideation |
 |-------------|-----------------------------------------------------------|----------------------------------|---------------------------------------------|
-|             | Gender (male,female,unknown)                              | (21.3%, 78.5%, 0.2%)             | (50.6%, 42.3%, 7.1%)                        |
-| Personal    | Age on average                                            | 25.8                             | 28.3                                        |
-| Information | Location (east, south, north, south-west, north-west, mid | (18.8%, 10.5%, 7.4%, 6.6%, 3.0%, | (25.0%,<br>15.0%,<br>15.7%,<br>5.8%,        |
-|             | dle, north-east, unknown)                                 | 7.0%, 3.3%, 43.5%)               | 2.9%, 7.9%, 5.3%, 22.3%)                    |
-|             | Pursuing Perfection                                       | 0.25%                            | 0.17%                                       |
-| Personality | Ruminant Thinking                                         | 0.086%                           | 0.052%                                      |
-|             | Interpersonal Sensitive                                   | 1.3                              | 1.0                                         |
-|             | Number of Stressful Periods                               | 2.1                              | 1.8                                         |
-| Experience  | Psychological Disorder                                    | 0.1%                             | 0.03%                                       |
-|             | Previous Attempt                                          | 3.5%                             | 0.1%                                        |
-| Post        | Number of Texts                                           | 252,901                          | 491,130                                     |
-| Behavior    | Number of Images                                          | 93,461                           | 260,667                                     |
-|             | Proportion of Suicide Words Per Post                      | 0.034%                           | 0.016%                                      |
-| Emotion     | Proportion of Last Words Per Post                         | 0.0013%                          | 0.000023%                                   |
-| Expression  | Proportion of Future Words Per Post                       | 0.031%                           | 0.045%                                      |
-|             | Proportion of Negation Words Per Post                     | 0.012%                           | 0.009%                                      |
-|             | Proportion of Self-Concern Words Per Post                 | 0.079%                           | 0.029%                                      |
-|             | Emotion Transition (love-joy, love-anxiety/sorrow)        | (0.1, 0.5)                       | (0.3, 0.1)                                  |
-|             | Following Number                                          | 207.0                            | 378.1                                       |
-| Social      | Follower Number                                           | 566.9                            | 1515.3                                      |
-| Interaction | Mention/Forward/Agree Number                              | 3.4                              | 10.9                                        |
-|             | Number of Neighbour Users                                 | 4.3                              | 5.1                                         |
+| | Gender (male,female,unknown) | (21.3%, 78.5%, 0.2%) | (50.6%, 42.3%, 7.1%) |
+| Personal | Age on average | 25.8 | 28.3 |
+| Information | Location (east, south, north, south-west, north-west, mid | (18.8%, 10.5%, 7.4%, 6.6%, 3.0%, | (25.0%,<br>15.0%,<br>15.7%,<br>5.8%, |
+| | dle, north-east, unknown) | 7.0%, 3.3%, 43.5%) | 2.9%, 7.9%, 5.3%, 22.3%) |
+| | Pursuing Perfection | 0.25% | 0.17% |
+| Personality | Ruminant Thinking | 0.086% | 0.052% |
+| | Interpersonal Sensitive | 1.3 | 1.0 |
+| | Number of Stressful Periods | 2.1 | 1.8 |
+| Experience | Psychological Disorder | 0.1% | 0.03% |
+| | Previous Attempt | 3.5% | 0.1% |
+| Post | Number of Texts | 252,901 | 491,130 |
+| Behavior | Number of Images | 93,461 | 260,667 |
+| | Proportion of Suicide Words Per Post | 0.034% | 0.016% |
+| Emotion | Proportion of Last Words Per Post | 0.0013% | 0.000023% |
+| Expression | Proportion of Future Words Per Post | 0.031% | 0.045% |
+| | Proportion of Negation Words Per Post | 0.012% | 0.009% |
+| | Proportion of Self-Concern Words Per Post | 0.079% | 0.029% |
+| | Emotion Transition (love-joy, love-anxiety/sorrow) | (0.1, 0.5) | (0.3, 0.1) |
+| | Following Number | 207.0 | 378.1 |
+| Social | Follower Number | 566.9 | 1515.3 |
+| Interaction | Mention/Forward/Agree Number | 3.4 | 10.9 |
+| | Number of Neighbour Users | 4.3 | 5.1 |
 
 To compute the significance of different properties, we enforced P<sup>u</sup> with a property attention vector α ∈ R <sup>1</sup>×<sup>61</sup> and acquired a new property vector P 0 <sup>u</sup> ∈ R 61×1 :
 
 $$
 P'_u = P_u \times \alpha^T,
 $$
-  
+
 \n
 $$
 \alpha = softmax((P_u)^T W_1 + b_1),
@@ -310,9 +308,9 @@ C<sup>u</sup> = [cu,1, cu,2, · · · , cu,|Nu<sup>|</sup> ] ∈ R 1×|Nu|
 where |Nu| is the number of u's direct neighbours.
 
 ![](_page_7_Figure_15.jpeg)
-<!-- Image Description: This flowchart depicts a suicidal ideation detection model.  It processes a social media user's data through several stages: building a personal suicide-oriented knowledge graph from user properties (represented as a node-link diagram), employing property attention and a fully connected network, incorporating neighbor attention and another fully connected network based on a social graph (a visual representation of user connections), followed by aggregation and a final softmax layer to output a suicidal ideation detection result. -->
+<!-- Image Description: This flowchart depicts a suicidal ideation detection model. It processes a social media user's data through several stages: building a personal suicide-oriented knowledge graph from user properties (represented as a node-link diagram), employing property attention and a fully connected network, incorporating neighbor attention and another fully connected network based on a social graph (a visual representation of user connections), followed by aggregation and a final softmax layer to output a suicidal ideation detection result. -->
 
-Fig. 6: Architecture of the personal knowledge graph based suicidal ideation detection.
+**Figure 6:** Architecture of the personal knowledge graph based suicidal ideation detection.
 
 A softmax function was then applied to compute a series of scores B<sup>u</sup> = [βu,1, βu,2, · · · , βu,|Nu<sup>|</sup> ] ∈ R 1×|Nu| to represent the influences of neighbour users N upon user u. The higher the score is, the bigger the suicidal influence is.
 
@@ -377,13 +375,12 @@ We compared the performance of our personal suicideoriented knowledge graph base
 
 TABLE V STATISTIC OF DATA COLLECTED FROM SINA WEIBO.
 
-<span id="page-9-0"></span>
 
-|                                    | # Users | # Normal Posts | # Normal Posts with Images | # Neighbour Users to be followed |
+| | # Users | # Normal Posts | # Normal Posts with Images | # Neighbour Users to be followed |
 |------------------------------------|---------|----------------|----------------------------|----------------------------------|
-| Users with suicidal ideation       | 3,652   | 252,901        | 93,461                     | 4.3                              |
-| Ordinary users without non-suicide | 3,677   | 491,130        | 260,667                    | 5.1                              |
-| Total users                        | 7,329   | 744,031        | 354,128                    | 4.7                              |
+| Users with suicidal ideation | 3,652 | 252,901 | 93,461 | 4.3 |
+| Ordinary users without non-suicide | 3,677 | 491,130 | 260,667 | 5.1 |
+| Total users | 7,329 | 744,031 | 354,128 | 4.7 |
 
 social network formed between different users posting about suicidality are concerned to identify and explore users' suicidal ideation.
 
@@ -405,12 +402,12 @@ where true positive (TP), false positive (FP), true negative (TN), and false neg
 
 As toward Reddit dataset there were more than two classes (actually 5), we employed a commonly used multi-class macro-F1-measure, which calculates F1-measure for each class, and then finds their un-weighted mean.
 
-# <span id="page-9-1"></span>TABLE VI CONFUSION MATRIX USED TO EVALUATE THE PERFORMANCE.
+## <span id="page-9-1"></span>TABLE VI CONFUSION MATRIX USED TO EVALUATE THE PERFORMANCE.
 
-| Detected<br>Actual | Positive            | Negative            |
+| Detected<br>Actual | Positive | Negative |
 |--------------------|---------------------|---------------------|
-| Positive           | True Positive (TP)  | False Negative (FN) |
-| Negative           | False Positive (FP) | True Negative (TN)  |
+| Positive | True Positive (TP) | False Negative (FN) |
+| Negative | False Positive (FP) | True Negative (TN) |
 
 ## *C. Effectiveness of Involving Personal Suicide-Oriented Knowledge Graphs in Suicidal Ideation Detection*
 
@@ -418,23 +415,23 @@ Table [VII](#page-9-2) shows that, with the considerations of visual information
 
 <span id="page-9-2"></span>TABLE VII PERFORMANCE COMPARISON ON THE SINA WEIBO DATASET.
 
-| Method             | Acc.   | F1.    | Prec.  | Rec.   |
+| Method | Acc. | F1. | Prec. | Rec. |
 |--------------------|--------|--------|--------|--------|
-| CNN                | 86.77% | 84.47% | 84.19% | 84.77% |
-| LSTM+Attention     | 88.89% | 88.10% | 88.56% | 87.65% |
-| SDM                | 91.35% | 90.97% | 90.11% | 91.85% |
+| CNN | 86.77% | 84.47% | 84.19% | 84.77% |
+| LSTM+Attention | 88.89% | 88.10% | 88.56% | 87.65% |
+| SDM | 91.35% | 90.97% | 90.11% | 91.85% |
 | Text+History+Graph | 91.56% | 91.81% | 91.85% | 91.77% |
-| KG-based method    | 93.74% | 93.69% | 93.75% | 93.64% |
+| KG-based method | 93.74% | 93.69% | 93.75% | 93.64% |
 
 <span id="page-9-3"></span>TABLE VIII PERFORMANCE COMPARISON ON THE REDDIT DATASET.
 
-| Method             | Acc.   | macro.F1. Prec. |        | Rec.   |
+| Method | Acc. | macro.F1. Prec. | | Rec. |
 |--------------------|--------|-----------------|--------|--------|
-| CNN                | 52.31% | 52.61%          | 53.05% | 52.19% |
-| LSTM+Attention     | 55.12% | 54.49%          | 53.16% | 55.89% |
-| SDM                | 60.58% | 60.44%          | 60.31% | 60.58% |
-| Text+History+Graph | 59.61% | 59.02%          | 58.42% | 59.64% |
-| KG-based method    | 65.92% | 65.93%          | 65.35% | 66.21% |
+| CNN | 52.31% | 52.61% | 53.05% | 52.19% |
+| LSTM+Attention | 55.12% | 54.49% | 53.16% | 55.89% |
+| SDM | 60.58% | 60.44% | 60.31% | 60.58% |
+| Text+History+Graph | 59.61% | 59.02% | 58.42% | 59.64% |
+| KG-based method | 65.92% | 65.93% | 65.35% | 66.21% |
 
 Since five-class classification is a harder task than twoclass classification, and the modalities of the Reddit dataset are less than that of the Sina Weibo dataset, the overall performance of all the methods dropped, compared with that on the Sina Weibo dataset, as shown in Table [VIII.](#page-9-3) Without the contribution of social graph, the performance of the Text+History+Graph method dropped to 59.61% and 59.02% in accuracy and F1-measure, respectively, which were worse than the SDM method. With the help of personal suicide-oriented knowledge graph, the KG-based method still outperformed the rest methods.
 
@@ -446,20 +443,20 @@ It is worth mentioning here that the property+neighbour attention strategy drew 
 
 <span id="page-10-0"></span>TABLE IX PERFORMANCE OF PROPERTY AND NEIGHBOUR ATTENTION MECHANISMS.
 
-| Method                       | Acc.   | F1.    | Prec.  | Rec.   |
+| Method | Acc. | F1. | Prec. | Rec. |
 |------------------------------|--------|--------|--------|--------|
-| avg-weight-property          | 92.55% | 93.23% | 93.55% | 92.91% |
-| avg-weight-neighbour         | 92.17% | 93.02% | 93.17% | 92.88% |
-| random-weight-property       | 90.12% | 89.56% | 89.49% | 89.63% |
-| random-weight-neighbour      | 91.86% | 92.16% | 92.55% | 91.77% |
+| avg-weight-property | 92.55% | 93.23% | 93.55% | 92.91% |
+| avg-weight-neighbour | 92.17% | 93.02% | 93.17% | 92.88% |
+| random-weight-property | 90.12% | 89.56% | 89.49% | 89.63% |
+| random-weight-neighbour | 91.86% | 92.16% | 92.55% | 91.77% |
 | property+neighbour attention | 93.74% | 93.69% | 93.75% | 93.64% |
 
 <span id="page-10-1"></span>TABLE X PERFORMANCE OF USING DIFFERENT GRAPH NEURAL NETWORK (GNN) MODELS.
 
-| Method                                         | Acc.   | F1.    | Prec.  | Rec.   |
+| Method | Acc. | F1. | Prec. | Rec. |
 |------------------------------------------------|--------|--------|--------|--------|
-| GCN                                            | 92.26% | 92.69% | 92.86% | 92.54% |
-| GraphSAE                                       | 92.49% | 91.16% | 90.89% | 91.43% |
+| GCN | 92.26% | 92.69% | 92.86% | 92.54% |
+| GraphSAE | 92.49% | 91.16% | 90.89% | 91.43% |
 | GAT-inspired<br>(property+neighbour attention) | 93.74% | 93.69% | 93.75% | 93.64% |
 
 than those of the other two well-known GNN models (GCN [\[79\]](#page-15-22) and GraphSAGE [\[80\]](#page-15-23)), which are commonly used for neighbour information aggregation. As illustrated in Table [X,](#page-10-1) after replacing the neighbour attention module with the GCN method or GraphSAGE method, there are obvious declines about more than 1.25%, in accuracy and 1% in F1-measure on the Weibo dataset, since the neighbour attention mechanism can derive the different influence from one's different neighbour users.
@@ -473,21 +470,21 @@ Formally, let F be a category, and f be a vector value in the domain of category
 $$
 InfoGain(y|F) = H(y) - H(y|F)
 $$
-  
-where  $H(y) = -\sum_{y \in \{y_1, y_0\}} Prob(y) logProb(y)$ ,  
- $H(y|F) = \sum_{f \in Dom(F)} Prob(F = f) H(y|F = f)$ ,  
- $H(y|f) = \sum_{y \in \{y_1, y_0\}} Prob(y|F = f) logProb(y|F = f)$ .
+
+where $H(y) = -\sum_{y \in \{y_1, y_0\}} Prob(y) logProb(y)$ ,
+$H(y|F) = \sum_{f \in Dom(F)} Prob(F = f) H(y|F = f)$ ,
+$H(y|f) = \sum_{y \in \{y_1, y_0\}} Prob(y|F = f) logProb(y|F = f)$ .
 
 We firstly considered the six categories of personal properties (*Personal Information, Personality, Experience, Post Behaviors, Emotion Expression*, and *Social Interaction*) in one's personal suicide-oriented knowledge graph, and then delved into the concrete properties of the key categories.
 
 To ease the computation, for a property which takes continuous values (like *Age*, *Pursuing Perfection*, *Ruminant Thinking*, *Interpersonal Sensitive*, *Stress Duration*, *Stress Level*, *Stress Category*, *Suicide Words*, *Last Words*, *Future Words*, *Negation*
 
 <span id="page-10-2"></span>![](_page_10_Figure_11.jpeg)
-<!-- Image Description: This bar chart displays information gain values for different categories of online social interaction data.  "Post Behavior" shows the highest information gain (0.33), followed by "Personality" (0.28).  The remaining categories ("Experience," "Emotion Expression," "Social Interaction," and "Personal Information") exhibit progressively lower information gain values, with "Personal Information" having the lowest (0.04).  The chart likely illustrates the relative importance of various data types for a specific task within the paper, such as user profiling or prediction modeling. -->
+<!-- Image Description: This bar chart displays information gain values for different categories of online social interaction data. "Post Behavior" shows the highest information gain (0.33), followed by "Personality" (0.28). The remaining categories ("Experience," "Emotion Expression," "Social Interaction," and "Personal Information") exhibit progressively lower information gain values, with "Personal Information" having the lowest (0.04). The chart likely illustrates the relative importance of various data types for a specific task within the paper, such as user profiling or prediction modeling. -->
 
-Fig. 7: Information gains of the top-3 categories.
+**Figure 7:** Information gains of the top-3 categories.
 
-*Words*, *Self-Concerns Words*, *Following Number*, *Follower Number*, and *Mention/Forward/Agree Number*), we used the mean to divide all its values into two classes, and transformed the domain of the property into {0, 1}. The domains of discrete property values (like *Location*, *Gender* and *Emotion Transition*) remained unchanged.
+**Words:** , *Self-Concerns Words*, *Following Number*, *Follower Number*, and *Mention/Forward/Agree Number*), we used the mean to divide all its values into two classes, and transformed the domain of the property into {0, 1}. The domains of discrete property values (like *Location*, *Gender* and *Emotion Transition*) remained unchanged.
 
 We mapped the *Texts* property values under the *Post Behavior* category to three classes based on the emotional polarities given by SnowNLP (https://github.com/isnowfy/snownlp). Assume user u wrote a sequence of texts T exts(u) in his posts.
 
@@ -503,11 +500,11 @@ $$
 Class(Images(u)) = \left\{ \begin{array}{ll} 0 & \text{if } B(Images(u)) < 0.5 \land \\ & W(Images(u)) < 0.5; \\ 1 & \text{if } B(Images(u)) < 0.5 \land \\ & W(Images(u)) \geq 0.5; \\ 2 & \text{if } B(Images(u)) \geq 0.5 \land \\ & W(Images(u) < 0.5; \\ 3 & \text{if } B(Images(u)) \geq 0.5 \land \\ & W(Images(u)) \geq 0.5 \end{array} \right.
 $$
 
-where 
+where
 $$
 B(Images(u)) = \frac{\sum_{i \in Images(u)} RGB-Bright(i)}{|Images(u)|},
 $$
- and  $W(Images(u)) = \frac{\sum_{i \in Images(u)} RGB-Warm(i)}{|Images(u)|}.$ 
+and $W(Images(u)) = \frac{\sum_{i \in Images(u)} RGB-Warm(i)}{|Images(u)|}.$
 
 Figure [7](#page-10-2) shows the average information gain of each category in the detection of suicidal ideation. From the result presented, we can see that all the listed categories brought positive impact on suicidal detection, and the top-3 categories were *Post Behavior*, *Personality*, and *Experience*, whose information gains were 0.33, 0.28, and 0.21, respectively.
 
@@ -516,23 +513,23 @@ We further looked into all the categories, and examined the contributions from t
 To be more illustrative in the detection of suicidal ideation, we conducted a further feature selection experiment. From the
 
 <span id="page-11-0"></span>![](_page_11_Figure_0.jpeg)
-<!-- Image Description: The bar chart displays the information gain of various features in a model, likely for suicide risk prediction.  "Text" has the highest information gain (0.39), followed by "Stress Level" (0.25) and "Stress Duration" (0.21).  The chart shows the relative importance of different features (e.g., text, stress levels, image content) in predicting the outcome.  Features with lower information gain values are less informative to the model. -->
+<!-- Image Description: The bar chart displays the information gain of various features in a model, likely for suicide risk prediction. "Text" has the highest information gain (0.39), followed by "Stress Level" (0.25) and "Stress Duration" (0.21). The chart shows the relative importance of different features (e.g., text, stress levels, image content) in predicting the outcome. Features with lower information gain values are less informative to the model. -->
 
-Fig. 8: Information gains of all the properties from personal suicide-oriented knowledge graph.
+**Figure 8:** Information gains of all the properties from personal suicide-oriented knowledge graph.
 
 <span id="page-11-2"></span>TABLE XI DERIVED FIVE TEST DATASETS CONTAINING DIFFERENT PROPORTIONS OF USERS WITH ANTI-REAL POSTS.
 
-|                                     | T D1      | T D2     | T D3       | T D4       | T D5   |
+| | T D1 | T D2 | T D3 | T D4 | T D5 |
 |-------------------------------------|-----------|----------|------------|------------|--------|
-| # Users with suicidal ideation      | 43        | 100      | 200        | 300        | 257    |
-| # with anti-real posts              | 43 (100%) | 43 (43%) | 43 (21.5%) | 43 (14.3%) | 0 (0%) |
-| # without anti-real posts           | 0         | 57       | 157        | 257        | 257    |
-| # Ordinary users (random selection) | 43        | 100      | 200        | 300        | 257    |
+| # Users with suicidal ideation | 43 | 100 | 200 | 300 | 257 |
+| # with anti-real posts | 43 (100%) | 43 (43%) | 43 (21.5%) | 43 (14.3%) | 0 (0%) |
+| # without anti-real posts | 0 | 57 | 157 | 257 | 257 |
+| # Ordinary users (random selection) | 43 | 100 | 200 | 300 | 257 |
 
 <span id="page-11-1"></span>![](_page_11_Figure_4.jpeg)
-<!-- Image Description: The image displays a line graph comparing the information gain of two metrics, Accuracy (Acc) and F1-score (F1), across five different methods.  The x-axis represents the methods: a KG-based method and four variations removing top-ranked elements (1, 3, 5, and 10). The y-axis shows information gain. Both Acc and F1 decrease as more top-ranked elements are removed, indicating that these elements significantly contribute to the overall performance. The graph illustrates the impact of top-ranked elements on model performance. -->
+<!-- Image Description: The image displays a line graph comparing the information gain of two metrics, Accuracy (Acc) and F1-score (F1), across five different methods. The x-axis represents the methods: a KG-based method and four variations removing top-ranked elements (1, 3, 5, and 10). The y-axis shows information gain. Both Acc and F1 decrease as more top-ranked elements are removed, indicating that these elements significantly contribute to the overall performance. The graph illustrates the impact of top-ranked elements on model performance. -->
 
-Fig. 9: Results of the feature selection experiment through removing the top-x key properties in information gain (where x=1,3,5,10).
+**Figure 9:** Results of the feature selection experiment through removing the top-x key properties in information gain (where x=1,3,5,10).
 
 result presented in Figure [9,](#page-11-1) we note that after removing the top-x key properties in information gain (where x=1,3,5,10), both accuracy and F1-measure kept declining, verifying the effectiveness of the key properties in suicidal risk analysis.
 
@@ -542,13 +539,13 @@ Due to the less restrictive and free-style nature of the social media, the prese
 
 <span id="page-11-3"></span>TABLE XII DETECTION PERFORMANCE ON THE FIVE DERIVED TEST DATASETS CONTAINING DIFFERENT PROPORTIONS OF USERS WITH ANTI-REAL POSTS.
 
-| Method             | T D1   | T D2   | T D3   | T D4   | T D5   |
+| Method | T D1 | T D2 | T D3 | T D4 | T D5 |
 |--------------------|--------|--------|--------|--------|--------|
-| CNN                | 65.75% | 73.73% | 82.97% | 86.77% | 90.12% |
-| LSTM+Attention     | 67.27% | 76.54% | 84.23% | 88.89% | 92.12% |
-| SDM                | 74.98% | 82.31% | 87.59% | 91.35% | 94.03% |
+| CNN | 65.75% | 73.73% | 82.97% | 86.77% | 90.12% |
+| LSTM+Attention | 67.27% | 76.54% | 84.23% | 88.89% | 92.12% |
+| SDM | 74.98% | 82.31% | 87.59% | 91.35% | 94.03% |
 | Text+History+Graph | 75.61% | 83.59% | 88.64% | 91.56% | 94.06% |
-| KG-based method    | 80.08% | 88.11% | 90.76% | 93.74% | 95.45% |
+| KG-based method | 80.08% | 88.11% | 90.76% | 93.74% | 95.45% |
 | –On suicidal users | 66.51% | 82.33% | 88.06% | 93.97% | 97.58% |
 | –On ordinary users | 93.65% | 93.89% | 93.46% | 93.51% | 93.51% |
 
@@ -558,24 +555,24 @@ Our test Sina Weibo dataset contains 300 users with suicidal ideation and 300 or
 
 Table [XII](#page-11-3) lists the performance of all the methods on the five different test datasets. Our knowledge graph based method outperforms all the other methods in the four metrics. The less proportions of the users with anti-real posts, the higher
 
-# <span id="page-12-0"></span>TABLE XIII DERIVED TEST DATASET CONTAINING USERS WITH LESS THAN 5 POSTS THROUGHOUT THE YEAR.
+## <span id="page-12-0"></span>TABLE XIII DERIVED TEST DATASET CONTAINING USERS WITH LESS THAN 5 POSTS THROUGHOUT THE YEAR.
 
-|                                | T D6 |
+| | T D6 |
 |--------------------------------|------|
-| # Users with suicidal ideation | 88   |
-| # Ordinary users               | 88   |
+| # Users with suicidal ideation | 88 |
+| # Ordinary users | 88 |
 
-# TABLE XIV
+## TABLE XIV
 
 <span id="page-12-1"></span>DETECTION PERFORMANCE ON THE DERIVED TEST DATASET CONTAINING USERS WITH ONLY A FEW POSTS.
 
-| Method             | Acc.   | F1.    | Prec.  | Rec.   |
+| Method | Acc. | F1. | Prec. | Rec. |
 |--------------------|--------|--------|--------|--------|
-| CNN                | 72.35% | 72.38% | 72.12% | 72.65% |
-| LSTM+Attention     | 74.56% | 74.91% | 74.98% | 74.84% |
-| SDM                | 85.49% | 85.36% | 85.46% | 85.26% |
+| CNN | 72.35% | 72.38% | 72.12% | 72.65% |
+| LSTM+Attention | 74.56% | 74.91% | 74.98% | 74.84% |
+| SDM | 85.49% | 85.36% | 85.46% | 85.26% |
 | Text+History+Graph | 86.88% | 86.52% | 86.49% | 86.55% |
-| KG-based method    | 89.73% | 89.49% | 89.92% | 89.49% |
+| KG-based method | 89.73% | 89.49% | 89.92% | 89.49% |
 | –On suicidal users | 92.04% | 90.00% | 88.04% | 92.04% |
 | –On ordinary users | 87.50% | 89.53% | 91.67% | 87.50% |
 
@@ -595,19 +592,18 @@ With the help of the supportive information, our knowledge graph based method co
 
 TABLE XV PERFORMANCE ON THE NEW DATASET.
 
-<span id="page-12-2"></span>
 
-| Method             | Acc.   | F1.    | Prec.  | Rec.   |
+| Method | Acc. | F1. | Prec. | Rec. |
 |--------------------|--------|--------|--------|--------|
-| CNN                | 87.56% | 87.65% | 87.61% | 87.69% |
-| LSTM+Attention     | 88.86% | 87.99% | 88.23% | 87.77% |
-| SDM                | 91.78% | 90.87% | 90.28% | 91.47% |
+| CNN | 87.56% | 87.65% | 87.61% | 87.69% |
+| LSTM+Attention | 88.86% | 87.99% | 88.23% | 87.77% |
+| SDM | 91.78% | 90.87% | 90.28% | 91.47% |
 | Text+History+Graph | 92.01% | 91.62% | 91.76% | 91.48% |
-| KG-based method    | 94.53% | 94.31% | 94.45% | 94.18% |
+| KG-based method | 94.53% | 94.31% | 94.45% | 94.18% |
 
 <span id="page-12-3"></span>TABLE XVI RESULTS OF THE ABLATION STUDY ON THE SINA WEIBO DATASET.
 
-| Method                               | Acc.             | F1.              | Prec.            | Rec.             |
+| Method | Acc. | F1. | Prec. | Rec. |
 |--------------------------------------|------------------|------------------|------------------|------------------|
 | KG-based method<br>Without-KG method | 93.74%<br>89.59% | 93.69%<br>89.21% | 93.75%<br>89.68% | 93.64%<br>88.74% |
 
@@ -621,10 +617,10 @@ As the introduction of the user knowledge graph is essential in this study, we c
 
 <span id="page-12-4"></span>TABLE XVII RESULTS OF THE ABLATION STUDY ON THE REDDIT DATASET.
 
-| Method            | Acc.   | macro.F1. Prec. |        | Rec.   |
+| Method | Acc. | macro.F1. Prec. | | Rec. |
 |-------------------|--------|-----------------|--------|--------|
-| KG-based method   | 65.92% | 65.93%          | 65.35% | 66.21% |
-| Without-KG method | 58.34% | 59.02%          | 59.41% | 58.63% |
+| KG-based method | 65.92% | 65.93% | 65.35% | 66.21% |
+| Without-KG method | 58.34% | 59.02% | 59.41% | 58.63% |
 
 ## *H. Training and Inference Time Costs*
 
@@ -638,15 +634,15 @@ Keeping ethical considerations in mind is essential for the task of suicidal ide
 
 <span id="page-13-13"></span>TABLE XVIII TRAINING AND INFERENCE TIME COSTS OF THE METHODS ON SINA WEIBO DATASET.
 
-| Method                | Training Time | Inference<br>Time(batch) |
+| Method | Training Time | Inference<br>Time(batch) |
 |-----------------------|---------------|--------------------------|
-| CNN (text)            | 56.7 mins     | 37.9 seconds             |
-| LSTM+Attention (text) | 282.4 mins    | 49.6 seconds             |
-| SDM (text+image)      | 362.3 mins    | 55.4 seconds             |
-| Text+History+Graph    | 286.8 mins    | 50.8 seconds             |
-| (text+graph)          |               |                          |
-| KG-based<br>method    | 386.5 mins    | 56.4 seconds             |
-| (text+image+graph+KG) |               |                          |
+| CNN (text) | 56.7 mins | 37.9 seconds |
+| LSTM+Attention (text) | 282.4 mins | 49.6 seconds |
+| SDM (text+image) | 362.3 mins | 55.4 seconds |
+| Text+History+Graph | 286.8 mins | 50.8 seconds |
+| (text+graph) | | |
+| KG-based<br>method | 386.5 mins | 56.4 seconds |
+| (text+image+graph+KG) | | |
 
 name, age, posts, etc.) was crawled from the public social media, and was only used for research. We anonymized the data before labeling. There was no interaction or intervention with the subjects.
 
@@ -684,7 +680,7 @@ The work is supported by the National Natural Science Foundation of China (61872
 - <span id="page-13-11"></span>[12] Q. Cheng, T. M. Li, C. L. Kwok, T. Zhu, and P. S. Yip, "Assessing suicide risk and emotional distress in chinese social media: a text mining and machine learning study," *Journal of Medical Internet Research*, vol. 19, no. 7, p. e243, 2017.
 - <span id="page-13-12"></span>[13] J. Du, Y. Zhang, J. Luo, Y. Jia, Q. Wei, C. Tao, and H. Xu, "Extracting psychiatric stressors for suicide from social media using deep learning,"
 
-*BMC medical informatics and decision making*, vol. 18, no. 2, p. 43, 2018.
+**BMC medical informatics and decision making:** , vol. 18, no. 2, p. 43, 2018.
 
 - <span id="page-14-0"></span>[14] R. Sawhney, P. Manchanda, P. Mathur, R. Shah, and R. Singh, "Exploring and learning suicidal ideation connotations on social media with deep learning," in *Proc. 9th Workshop on Computational Approaches to Subjectivity, Sentiment and Social Media Analysis*, 2018, pp. 167–175.
 - <span id="page-14-1"></span>[15] G. Coppersmith, R. Leary, P. Crutchley, and A. Fine, "Natural language processing of social media as screening for suicide risk," *Biomedical informatics insights*, vol. 10, p. 1178222618792860, 2018.
@@ -766,16 +762,16 @@ chinese linguistic inquiry and word count dictionary." *Chinese Journal of Psych
 - <span id="page-15-25"></span>[82] K. Lai and C. Mcbride-Chang, "Suicidal ideation, parenting style, and family climate among hong kong adolescents," *Int J. Psychology*, vol. 36, no. 2, pp. 81–87, 2001.
 
 ![](_page_15_Picture_28.jpeg)
-<!-- Image Description: That's not a technical image; it's a headshot photograph of a person.  There are no diagrams, charts, graphs, equations, or technical illustrations.  In the context of an academic paper, this image likely serves as an author photo. -->
+<!-- Image Description: That's not a technical image; it's a headshot photograph of a person. There are no diagrams, charts, graphs, equations, or technical illustrations. In the context of an academic paper, this image likely serves as an author photo. -->
 
 Lei Cao is a PhD candidate in the Department of Computer Science and Technology, Tsinghua University, Beijing, China. His research interests include computational psychology and sentiment analysis.
 
 ![](_page_15_Picture_30.jpeg)
-<!-- Image Description: That's not a diagram, chart, graph, equation, or technical illustration; it's a photograph of a person.  Specifically, it appears to be a headshot, likely an author photograph included in an academic paper to identify one of the authors.  It has no technical content relevant to the paper's findings or methods. -->
+<!-- Image Description: That's not a diagram, chart, graph, equation, or technical illustration; it's a photograph of a person. Specifically, it appears to be a headshot, likely an author photograph included in an academic paper to identify one of the authors. It has no technical content relevant to the paper's findings or methods. -->
 
 Huijun Zhang is a PhD candidate in the Department of Computer Science and Technology, Tsinghua University, Beijing, China. Her research interests include computational psychology and sentiment analysis.
 
 ![](_page_15_Picture_32.jpeg)
-<!-- Image Description: That's not a technical image; it's a headshot photograph of a person.  There are no diagrams, charts, graphs, equations, or technical illustrations present. The image is likely an author portrait included for identification purposes within the academic paper.  It does not contain any technical data or representational information related to the paper's subject matter. -->
+<!-- Image Description: That's not a technical image; it's a headshot photograph of a person. There are no diagrams, charts, graphs, equations, or technical illustrations present. The image is likely an author portrait included for identification purposes within the academic paper. It does not contain any technical data or representational information related to the paper's subject matter. -->
 
 Ling Feng is a professor of computer science and technology with Tsinghua University, China. Her research interests include computational mental healthcare, context-aware data management and services toward ambient intelligence, data mining and warehousing, and distributed object-oriented database systems.

@@ -1,10 +1,10 @@
 ---
-cite_key: challenges_2021
-title: XIN PENG, Fudan University, China CHONG WANG, Fudan University, China MINGWEI LIU, Sun Yat-sen University, China YILING LOU, Fudan University, China YIJIAN WU, Fudan University, China
-authors: To address these challenges, we propose the concept, framework of Code Digital Twin, a conceptual representation of tacit knowledge that encapsulates the concepts, functionalities, design rationales behind code elements, co-evolving with the software. The framework structures tacit knowledge into two key categories: the artifact-oriented backbone, which establishes a foundational structure by linking concepts, functionalities to software artifacts, the rationale-centric explanations, which enrich this foundation by capturing the decisions that have shaped the system's design, evolution. The methodology for realizing a code digital twin combines structured, unstructured knowledge representations, integrating knowledge graphs, frames, textual descriptions to capture domain concepts
-year: 2021
-doi: 10.1145/3611643.3616317
-url: https://doi.org/10.1145/3611643.3616317
+cite_key: peng_2025
+title: Code Digital Twin: Empowering LLMs with Tacit Knowledge for Complex Software Maintenance
+authors: Xin Peng, Chong Wang, Mingwei Liu, Yiling Lou, Yijian Wu
+year: 2025
+doi: 10.48550/arXiv.2503.07967
+url: https://doi.org/10.48550/arXiv.2503.07967
 relevancy: Medium
 relevancy_justification: Contains relevant concepts applicable to HDM systems
 tags:
@@ -24,7 +24,6 @@ images_kept: 2
 images_removed: 0
 keywords: 
 ---
-
 
 XIN PENG, Fudan University, China CHONG WANG, Fudan University, China MINGWEI LIU, Sun Yat-sen University, China YILING LOU, Fudan University, China YIJIAN WU, Fudan University, China
 
@@ -107,7 +106,7 @@ We propose a methodology for realizing the code digital twin, including principl
 
 3.2.3 Co-Evolution and Incremental Update. The pipeline must support incremental updates to maintain alignment with the real-time status of the software artifacts and related assets. As the software evolves, the knowledge and representation within the code digital model are updated synchronously.
 
-# 3 Application and Impact
+## 3 Application and Impact
 
 The code digital twin enables intelligent applications for complex software systems, categorized into three modes of collaboration between developers, LLMs, and the digital twin:
 
@@ -117,11 +116,11 @@ The code digital twin enables intelligent applications for complex software syst
 
 Overall, the code digital twin will revolutionize the management and evolution of long-term complex software systems, enabling more efficient development, maintenance, and adaptation over time.
 
-# 4 Research Agenda
+## 4 Research Agenda
 
 To implement the code digital twin framework, we outline the following research agenda and identify actionable challenges and opportunities.
 
-# 1 Synergistic Knowledge Representation
+## 1 Synergistic Knowledge Representation
 
 The goal is to develop a scalable framework for representing complex software knowledge in a digital twin model. This framework should integrate structured representations to organize code, design decisions, documentation, and historical changes, alongside unstructured representations for richer context. It should emphasize higher-level relationships and adapt to software changes. The key challenges and opportunities are outlined below:
 
@@ -130,7 +129,7 @@ The goal is to develop a scalable framework for representing complex software kn
 - Integrating Structured and Unstructured Knowledge. Combining structured data (e.g., code, class hierarchies) with unstructured data (e.g., documentation, design rationale) into a unified model is complex. Actionable research should focus on creating hybrid models that integrate knowledge graphs with NLP-driven text extraction, enabling both automated LLM reasoning and human interpretation for software development and maintenance.
 - Managing Ambiguity and Knowledge Versioning. Handling uncertain or evolving knowledge, such as design decision trade-offs, is a major challenge. Research should focus on using techniques like probabilistic reasoning and knowledge versioning to address ambiguity, ensuring the digital twin remains adaptable and coherent as the software evolves.
 
-# 2 Automatic Construction Pipeline
+## 2 Automatic Construction Pipeline
 
 The goal is to establish an efficient, accurate, and cost-effective pipeline for automatically extracting and structuring knowledge from software artifacts. This pipeline should integrate with the digital twin, ensuring continuous updates as the software system evolves. The key challenges and actionable opportunities are outlined below:
 
@@ -164,7 +163,7 @@ The goal of a co-evolving twin is to ensure that the code digital twin remains a
 
 • Tracking the Impact of Code Changes. Assessing the impact of software changes on the accumulated knowledge in the code digital twin can be challenging. Mechanisms that trace code changes and evaluate their effect on the digital twin's knowledge will help ensure the digital twin remains responsive and accurate in reflecting the evolving system requirements.
 
-# 5 Related Work
+## 5 Related Work
 
 Repository-level code generation with LLMs. Repository-level code completion involves generating code based on cross-file context within a repository. Two main techniques assist LLMs in this task: Retrieval-Augmented Generation (RAG) [\[5,](#page-8-2) [7,](#page-8-3) [28,](#page-9-0) [33\]](#page-9-1), which retrieves similar code snippets, and static analysis [\[1,](#page-8-4) [5,](#page-8-2) [7,](#page-8-3) [18,](#page-8-5) [27\]](#page-9-2), which uses imported files or API lists. However, both approaches face challenges: retrieved snippets may not always help, and static analysis can be inaccurate, especially for dynamically typed languages. Despite advances in LLMs, accurate repository-level code completion remains difficult due to cross-file context complexities and limitations of current techniques.
 

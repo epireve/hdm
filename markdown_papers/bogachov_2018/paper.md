@@ -33,13 +33,13 @@ keywords:
 
 <sup>1</sup>McGill University, Montreal, QC, Canada
 
-# ABSTRACT
+## ABSTRACT
 
 *Despite recent advancements in domain adaptation techniques for large language models, these methods remain computationally intensive, and the resulting models can still exhibit hallucination issues. Most existing adaptation methods do not prioritize reducing the computational resources required for finetuning and inference of language models. Hallucination issues have gradually decreased with each new model release. However, they remain prevalent in engineering contexts, where generating well-structured text with minimal errors and inconsistencies is critical. This work introduces a novel approach called the Small Language Graph (SLG), which is a lightweight adaptation solution designed to address the two key challenges outlined above. The system is structured in the form of a graph, where each node represents a lightweight expert—a small language model finetuned on specific and concise texts. The results of this study have shown that SLG was able to surpass conventional fine-tuning methods on the Exact Match metric by 3 times. Additionally, the fine-tuning process was 1.7 times faster compared to that of a larger stand-alone language model. These findings introduce a potential for small to medium-sized engineering companies to confidently use generative AI technologies, such as LLMs, without the necessity to invest in expensive computational resources. Also, the graph architecture and the small size of expert nodes offer a possible opportunity for distributed AI systems, thus potentially diverting the global need for expensive centralized compute clusters.*
 
-# Keywords: Large Language Model, Fine-tuning, Adaptation, Small Language Model, Small Language Graph, Generative AI
+## Keywords: Large Language Model, Fine-tuning, Adaptation, Small Language Model, Small Language Graph, Generative AI
 
-# <span id="page-0-0"></span>1. INTRODUCTION
+## <span id="page-0-0"></span>1. INTRODUCTION
 
 In recent years, Large Language Models (LLMs) have experienced a surge in popularity due to their ability to process and generate extensive amounts of data in response to user-defined queries. Major technology companies have been competing to deliver the most advanced LLMs on the market, resulting in models equipped with vast amounts of publicly available online knowledge. The most prominent examples of such systems in use are closed-source ChatGPT [\[1\]](#page-7-0), Gemini [\[2\]](#page-7-1), and open-source Llama models [\[3\]](#page-7-2). These systems can serve as effective assistants in domains grounded in well-established knowledge, where relevant information is readily or easily accessible through opensource data such as mathematics, law, and biology.
 
@@ -67,7 +67,7 @@ This study proposes the following classification of technologies used to tackle 
 
 Prompt engineering offers several advantages, including easy access to preferred LLM systems, rapid interaction, swift generation of desired information, and the ability for users to focus on creative tasks rather than the meticulous process of searching for and extracting knowledge. Ready-to-use models are accessible online through platforms, such as OpenAI [\[1\]](#page-7-0), Gemini [\[2\]](#page-7-1), etc. These platforms are user-friendly and provide access to their basic models free of charge. Studies conducted on prompt engineering [\[17](#page-8-1)[–19\]](#page-8-2) as a method to augment human knowledge have shown the usefulness of LLMs to tackle text generation tasks and speed up workflows. Among the advantages of prompt engineering are ease of access to the LLM systems of choice, fast interaction, quick generation of requested information, and the possibility for users to concentrate on creativity rather than on the scrutinized process of knowledge search and extraction. However, this method has significant drawbacks. LLM systems like ChatGPT [\[1\]](#page-7-0) are prone to bias and hallucinations [\[20\]](#page-8-3). Also, as specified in [\[17,](#page-8-1) [18\]](#page-8-4), LLMs are sensitive to the quality of user prompts. Prompt sensitivity leads to high variability in LLM responses to similar questions that are phrased differently. Moreover, LLM systems lack the cognitive ability to truly understand context and rely solely on probability distributions when generating text [\[15\]](#page-7-13). Agents [\[4](#page-7-3)[–6\]](#page-7-4) offer a partial solution to the issues outlined above; however, they cannot address cases where user queries involve knowledge that is not accessible online.
 
-# 2.2. Fine-tuning
+## 2.2. Fine-tuning
 
 One approach to overcoming the limitation of inaccessible online knowledge is to ingest proprietary or non-public data into a pre-trained LLM. The most commonly known way of ingestion is fine-tuning. From a macro perspective, fine-tuning techniques can be classified into two major approaches: fine-tuning by means of modifying a base pre-trained model and fine-tuning by means of adding new layers or adapters on top of a base pre-trained model while keeping a base model unchanged.
 
@@ -77,7 +77,7 @@ In contrast, a notable example of LLM adaptation through the addition of extra l
 
 It is worth noting that the above-mentioned reported literature lacks hallucination tests. Since all of the described methods involve fine-tuning LLMs on data from whole domains, knowledge overshadowing [\[16\]](#page-8-0) mentioned in Section [1](#page-0-0) could occur, thus invoking hallucinations.
 
-# <span id="page-1-1"></span>2.3. RAG systems
+## <span id="page-1-1"></span>2.3. RAG systems
 
 One of the most impactful technologies potentially able to solve the hallucination phenomenon in LLMs is RAG. Originally introduced in [\[25\]](#page-8-9), this method was welcomed by researchers and professionals around the world not only as a way to fight hallucinations but also as a strong option to augment knowledge of any LLM [\[26,](#page-8-10) [27\]](#page-8-11).
 
@@ -87,7 +87,7 @@ One of the latest developments in RAG was shared in [\[28\]](#page-8-12). This r
 
 Consequently, it implies that RAG is not a panacea for all deficiencies of LLMs. This methodology struggles with noisy data and is sporadically incapable of providing negative rejection, an ability to refuse answering a question when retrieved documents lack relevant information [\[29\]](#page-8-13).
 
-# 2.4. LLMs in engineering
+## 2.4. LLMs in engineering
 
 One of the most recent works devoted to adapting LLMs in engineering domains employing prompt engineering [\[30\]](#page-8-14) introduces a novel method to extract aviation accident causality information. The approach presented in this paper is compared with existing LLM-based information extraction methods and is reported to outperform them by achieving higher accuracy, requiring less annotated data, and handling unstructured text more effectively. However, this method struggles with processing ambiguous texts and requires high computational resources.
 
@@ -116,10 +116,10 @@ An example of such overlapping could happen when two or more engineering procedu
 
 <span id="page-2-2"></span>**TABLE 1: EXAMPLE OF DATA OVERLAPPING FROM [\[33\]](#page-9-1).**
 
-|            | Sentence                                                                                                                                                                                           |  |
+| | Sentence | |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|
-| Sentence 1 | Damage which would involve a typical<br>skin repair can be described as damage that<br>requires modification, such as material re<br>placement or patching.                                        |  |
-| Sentence 2 | Damage which would involve a control<br>surface repair:<br>After the repair is com<br>pleted, the control surface balance must be<br>checked as described in Flight Control Sur<br>face Balancing. |  |
+| Sentence 1 | Damage which would involve a typical<br>skin repair can be described as damage that<br>requires modification, such as material re<br>placement or patching. | |
+| Sentence 2 | Damage which would involve a control<br>surface repair:<br>After the repair is com<br>pleted, the control surface balance must be<br>checked as described in Flight Control Sur<br>face Balancing. | |
 
 To avoid overlapping, training data chunks were isolated from each other. A schematic example of an ideal training dataset split would look as shown in Figure [2,](#page-3-1) where each bubble represents a small chunk of the whole training dataset. Each chunk is used to fine-tune only one expert in the SLG system. This way, each expert receives isolated knowledge, thus eliminating data overlap.
 
@@ -136,7 +136,7 @@ It is important to note that this data chunking method is wellsuited to most eng
 
 Also, it is essential to highlight that all image data was removed from the dataset due to the text-only focus of this specific research.
 
-# 3.2. SLG
+## 3.2. SLG
 
 The methodology used to build the SLG system is based on graphs, as shown in Figure [3.](#page-4-1) In the flowchart, it is assumed that the user's query is about fuselage repairs. The process follows the green arrows. The query is first directed to the orchestrator, which then queries the fuselage repairs expert. A response is returned to the user, and the process concludes at the end block.
 
@@ -150,7 +150,7 @@ To perform inference within the SLG system, the orchestrator receives a user que
 
 A detailed evaluation of the proposed method is presented in Section [4,](#page-3-0) with Table [4](#page-6-0) providing a comprehensive list of all hyperparameters used.
 
-# <span id="page-3-0"></span>4. EXPERIMENTS
+## <span id="page-3-0"></span>4. EXPERIMENTS
 
 This section describes the experimentation setup, followed by the fine-tuning strategy of all tested models.
 
@@ -181,11 +181,11 @@ For the full fine-tuning pipeline refer to 'finetune.py' [\[37\]](#page-9-5) mod
 
 <span id="page-4-2"></span>**TABLE 2: SLG EXPERTS AND ORCHESTRATOR QUESTION-ANSWER PAIRS EXAMPLE [\[33\]](#page-9-1).**
 
-| Orchestrator answer           | Common question                                                                                                                                                                                                                                                             | Expert answer                                                                                                                                                                                                                                                                                                                  |
+| Orchestrator answer | Common question | Expert answer |
 |-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | WING DAMAGE<br>CLASSIFICATION | What are the key factors that deter<br>mine whether damage to the wing fuel<br>bay spars or ribs can be addressed<br>through repair or requires replace<br>ment, considering the criteria out<br>lined for negligible, repairable, and<br>replacement-necessitating damage? | Wing Fuel Bay Spars/Rib Damage Criteria.<br>Negligible damage: Any smooth dents in the<br>wing fuel spar and ribs that have no evidence<br>of tears, cracks, or penetrations – which are<br>not stress wrinkles and do not change (oil<br>can, or pop in and out) with internal pressure<br>– are considered negligible damage |
 
-# <span id="page-4-3"></span>4.3. Results
+## <span id="page-4-3"></span>4.3. Results
 
 Overall, the initial experimental results demonstrate the efficiency of the SLG system, built on smaller Llama-3.2-1B-Instruct models [\[13\]](#page-7-11), outperforming both the stand-alone Llama-3.1-8B-Instruct [\[36\]](#page-9-4) and the stand-alone Llama-3.2-1B-Instruct [\[13\]](#page-7-11) models.
 
@@ -199,7 +199,7 @@ Furthermore, SLG has the potential to exhibit better performance on all three me
 
 Lastly, yet importantly, SLG is able to be fine-tuned and inferred on only one NVIDIA RTX 4090 (24GB VRAM) Graphics Processing Unit (GPU), which makes the system undoubtedly lightweight.
 
-# <span id="page-4-0"></span>5. LIMITATIONS AND FUTURE WORK
+## <span id="page-4-0"></span>5. LIMITATIONS AND FUTURE WORK
 
 Although SLG demonstrated significant potential in generating engineering texts, it has certain limitations and requires future adjustments.
 
@@ -210,53 +210,53 @@ One notable constraint of this research is its limit to only two models for comp
 
 <span id="page-5-0"></span>**FIGURE 4: EXPERIMENT CHARTS.**<span id="page-6-1"></span>
 
-| TABLE 3: TUNED HYPERPARAMETERS. |  |  |  |  |  |  |
+| TABLE 3: TUNED HYPERPARAMETERS. | | | | | | |
 |---------------------------------|--|--|--|--|--|--|
 |---------------------------------|--|--|--|--|--|--|
 
 | Experiment # | Learning rate | LoRA rank | Gradient accumulation | LoRA alpha |
 |--------------|---------------|-----------|-----------------------|------------|
-| 1            | 1e-5          | 4         | 2                     | 8          |
-| 2            | 1e-4          | 4         | 2                     | 8          |
-| 3            | 1e-3          | 4         | 2                     | 8          |
-| 4            | 1e-3          | 8         | 2                     | 8          |
-| 5            | 1e-3          | 16        | 2                     | 8          |
-| 6            | 1e-3          | 32        | 2                     | 8          |
-| 7            | 1e-3          | 16        | 2                     | 8          |
-| 8            | 1e-3          | 16        | 4                     | 8          |
-| 9            | 1e-3          | 16        | 8                     | 8          |
-| 10           | 1e-3          | 16        | 2                     | 8          |
-| 11           | 1e-3          | 16        | 2                     | 16         |
-| 12           | 1e-3          | 16        | 2                     | 32         |
-| 13           | 1e-3          | 16        | 2                     | 64         |
+| 1 | 1e-5 | 4 | 2 | 8 |
+| 2 | 1e-4 | 4 | 2 | 8 |
+| 3 | 1e-3 | 4 | 2 | 8 |
+| 4 | 1e-3 | 8 | 2 | 8 |
+| 5 | 1e-3 | 16 | 2 | 8 |
+| 6 | 1e-3 | 32 | 2 | 8 |
+| 7 | 1e-3 | 16 | 2 | 8 |
+| 8 | 1e-3 | 16 | 4 | 8 |
+| 9 | 1e-3 | 16 | 8 | 8 |
+| 10 | 1e-3 | 16 | 2 | 8 |
+| 11 | 1e-3 | 16 | 2 | 16 |
+| 12 | 1e-3 | 16 | 2 | 32 |
+| 13 | 1e-3 | 16 | 2 | 64 |
 
 ## <span id="page-6-0"></span>TABLE 4: HYPERPARAMETERS USED FOR FINE-TUNING.
 
-| Hyperparameter              | Value              |
+| Hyperparameter | Value |
 |-----------------------------|--------------------|
-| LoRA alpha                  | Refer to Table 3   |
-| LoRA r                      | Refer to Table 3   |
-| LoRA dropout                | 0.05               |
-| LoRA task_type              | CAUSAL_LM          |
-| learning_rate               | Refer to Table 3   |
-| gradient_accumulation_steps | Refer to Table 3   |
-| weight_decay                | 0.001              |
-| label_smoothing_factor      | 0.01               |
-| optim                       | adamw_torch        |
-| num_train_epochs            | 25 (early stopped) |
-| early_stopping_patience     | 3                  |
-| eval_strategy               | epoch              |
-| save_strategy               | epoch              |
-| fp16                        | True               |
-| per_device_train_batch_size | 2                  |
-| per_device_eval_batch_size  | 2                  |
-| adam_beta1                  | 0.9                |
-| adam_beta2                  | 0.999              |
-| max_grad_norm               | 0.5                |
-| warmup_ratio                | 0.03               |
-| lr_scheduler_type           | linear             |
-| load_best_model_at_end      | True               |
-| save_total_limit            | 4                  |
+| LoRA alpha | Refer to Table 3 |
+| LoRA r | Refer to Table 3 |
+| LoRA dropout | 0.05 |
+| LoRA task_type | CAUSAL_LM |
+| learning_rate | Refer to Table 3 |
+| gradient_accumulation_steps | Refer to Table 3 |
+| weight_decay | 0.001 |
+| label_smoothing_factor | 0.01 |
+| optim | adamw_torch |
+| num_train_epochs | 25 (early stopped) |
+| early_stopping_patience | 3 |
+| eval_strategy | epoch |
+| save_strategy | epoch |
+| fp16 | True |
+| per_device_train_batch_size | 2 |
+| per_device_eval_batch_size | 2 |
+| adam_beta1 | 0.9 |
+| adam_beta2 | 0.999 |
+| max_grad_norm | 0.5 |
+| warmup_ratio | 0.03 |
+| lr_scheduler_type | linear |
+| load_best_model_at_end | True |
+| save_total_limit | 4 |
 
 other hand, demonstrates better results than GPT-4o on most benchmarks [\[38\]](#page-9-6); thus, it is a great candidate for comparisons. Also, the experimentation in this research focuses on tuning 4 hyperparameters only, while it is beneficial to extend the experimentation towards other potentially significant hyperparameters, namely, weight decay, learning rate scheduler, warmup ratio, and max gradient norm.
 
@@ -264,17 +264,17 @@ Another shortcoming lies in the limited hallucinations check. This study uses EM
 
 ### <span id="page-6-3"></span>TABLE 5: FINE-TUNING TIME COMPARISON.
 
-| Model             | Average fine-tuning time |
+| Model | Average fine-tuning time |
 |-------------------|--------------------------|
-| SLG               | 3475 seconds             |
-| Llama-3.1-8B [36] | 5891 seconds             |
-| Llama-3.2-1B [13] | 2163 seconds             |
+| SLG | 3475 seconds |
+| Llama-3.1-8B [36] | 5891 seconds |
+| Llama-3.2-1B [13] | 2163 seconds |
 
-#### <span id="page-6-2"></span>TABLE 6: BEST EXPERIMENT METRICS.
+### <span id="page-6-2"></span>TABLE 6: BEST EXPERIMENT METRICS.
 
-| Model             | R-L  | EM   | M    |
+| Model | R-L | EM | M |
 |-------------------|------|------|------|
-| SLG               | 0.41 | 0.12 | 0.50 |
+| SLG | 0.41 | 0.12 | 0.50 |
 | Llama-3.1-8B [36] | 0.46 | 0.05 | 0.55 |
 | Llama-3.2-1B [13] | 0.43 | 0.04 | 0.51 |
 
@@ -320,7 +320,7 @@ et al. "Llama: Open and efficient foundation language models. CoRR, abs/2302.139
 - <span id="page-7-11"></span>[13] Meta. "meta-llama/Llama-3.2-1B-Instruct." [https://](https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct) [huggingface.co/meta-llama/Llama-3.2-1B-Instruct.](https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct) Accessed: February 26, 2025.
 - <span id="page-7-12"></span>[14] Grattafiori, Aaron, Dubey, Abhimanyu, Jauhri, Abhinav, Pandey, Abhinav, Kadian, Abhishek and et al. "The Llama 3 Herd of Models." *arXiv*(2024)URL [2407.21783,](2407.21783) URL [https://arxiv.org/abs/2407.21783.](https://arxiv.org/abs/2407.21783)
 - <span id="page-7-13"></span>[15] Zečević, Matej, Willig, Moritz, Dhami, Devendra Singh and Kersting, Kristian. "Causal Parrots: Large Language Models May Talk Causality But Are Not Causal."
-*Transactions on Machine Learning Research*(2023)URL [https://openreview.net/forum?id=tv46tCzs83.](https://openreview.net/forum?id=tv46tCzs83)
+**Transactions on Machine Learning Research:** (2023)URL [https://openreview.net/forum?id=tv46tCzs83.](https://openreview.net/forum?id=tv46tCzs83)
 
 - <span id="page-8-0"></span>[16] Zhang, Yuji, Li, Sha, Liu, Jiateng, Yu, Pengfei, Fung, Yi R., Li, Jing, Li, Manling and Ji, Heng. "Knowledge Overshadowing Causes Amalgamated Hallucination in Large Language Models." (2024). URL [2407.08039,](2407.08039) URL [https://arxiv.org/abs/2407.08039.](https://arxiv.org/abs/2407.08039)
 - <span id="page-8-1"></span>[17] Ma, Kevin, Grandi, Daniele, McComb, Christopher and Goucher-Lambert, Kosa. "Conceptual Design Generation Using Large Language Models." Vol. 6. 2023. URL [https://www.scopus.com/](https://www.scopus.com/inward/record.uri?eid=2-s2.0-85178515903&doi=10.1115%2fdetc2023-116838&partnerID=40&md5=217f1f20efe1f68b5e3fb387cc5d7da1) [inward/record.uri?eid=2-s2.0-85178515903&doi=](https://www.scopus.com/inward/record.uri?eid=2-s2.0-85178515903&doi=10.1115%2fdetc2023-116838&partnerID=40&md5=217f1f20efe1f68b5e3fb387cc5d7da1) [10.1115%2fdetc2023-116838&partnerID=40&md5=](https://www.scopus.com/inward/record.uri?eid=2-s2.0-85178515903&doi=10.1115%2fdetc2023-116838&partnerID=40&md5=217f1f20efe1f68b5e3fb387cc5d7da1) [217f1f20efe1f68b5e3fb387cc5d7da1.](https://www.scopus.com/inward/record.uri?eid=2-s2.0-85178515903&doi=10.1115%2fdetc2023-116838&partnerID=40&md5=217f1f20efe1f68b5e3fb387cc5d7da1)

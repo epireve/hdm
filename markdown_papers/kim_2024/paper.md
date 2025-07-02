@@ -31,7 +31,6 @@ keywords:
 - open-sourced
 ---
 
-
 # Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve Partially Observable Markov Decision Processes
 
 Taewoon Kim<sup>1</sup> , Vincent Franc¸ois-Lavet<sup>1</sup> , Michael Cochez<sup>1</sup> ,
@@ -42,7 +41,7 @@ Taewoon Kim<sup>1</sup> , Vincent Franc¸ois-Lavet<sup>1</sup> , Michael Cochez<
 
 Humans observe only part of their environment at any moment but can still make complex, long-term decisions thanks to our long-term memory. To test how an AI can learn and utilize its long-term memory, we have developed a partially observable Markov decision processes (POMDP) environment, where the agent has to answer questions while navigating a maze. The environment is completely knowledge graph (KG) based, where the hidden states are dynamic KGs. A KG is both human- and machine-readable, making it easy to see what the agents remember and forget. We train and compare agents with different memory systems, to shed light on how human brains work when it comes to managing its own memory. By repurposing the given learning objective as learning a memory management policy, we were able to capture the most likely hidden state, which is not only interpretable but also reusable. The code is open-sourced at [https://github.com/humemai/agent-room-env-v2-lstm.](https://github.com/humemai/agent-room-env-v2-lstm)
 
-# 1 Introduction
+## 1 Introduction
 
 The cognitive science theory suggests that humans have long-term memory [\(Tulving 1983,](#page-9-0) [1985;](#page-9-1) [Tulving and Thom](#page-9-2)[son 1973\)](#page-9-2). This allows humans to solve various tasks, although they can only observe the world partially. For example, when trying to navigate through a familiar city, humans rely on stored memories of the layout and landmarks. This enables the recall of past experiences, aiding in decisionmaking and problem-solving even when immediate sensory input is limited. Similarly, when answering a question, humans draw on long-term memory to retrieve relevant facts, concepts, and previous knowledge.
 
@@ -56,7 +55,7 @@ The contributions of this paper are as follows.
 - Comparative Analysis of Memory Systems: We compare agents with different memory systems and discuss parallels with how human brains work when it comes to managing its own memory systems.
 - Optimal Memory Management Policy: We show that the best agent is the one that repurposes the given learning objectives as learning a memory management policy, allowing itself to capture the most likely hidden state, which is not only interpretable but also reusable.
 
-# 2 Background
+## 2 Background
 
 ## 1 A Machine With Human-Like Memory Systems
 
@@ -88,7 +87,7 @@ Updating the belief state is computationally expensive because it involves maint
 
 A simple way to mitigate this computational expense, especially in the era of deep learning, is to use the history of the past τ observations h (τ) <sup>t</sup> = (ot−τ+1, . . . , ot) as the estimated state sˆt, with which we learn the policy π(a<sup>t</sup> | ˆst). Although not perfect, this alleviates the need to maintain or update the belief state bt.
 
-# 3 Methodology
+## 3 Methodology
 
 ## 1 The Rooms Environment
 
@@ -114,7 +113,7 @@ The environment randomly samples a triple from its current hidden state and turn
 
 The Rooms environment is highly configurable, allowing for a wide range of experimental setups. Researchers can adjust various parameters such as the question frequency, the total number of questions, the number of rooms, the room layout, the number and types of objects, and the number of steps per episode, etc. This flexibility enables the creation of diverse scenarios and difficulty levels.
 
-# 2 Agents and Their Learning Objectives
+## 2 Agents and Their Learning Objectives
 
 Baseline The baseline agent utilizes the history of the past τ observations, denoted as h (τ) <sup>t</sup> = (ot−τ+1, . . . , ot), to represent the current estimated state sˆt. This approach is the most straightforward method. For the question-answering function f qa, the agent employs a simple strategy: use the most recent relevant memory to answer the question. This strategy assumes that the most recent observation contains the most accurate and relevant information for the question.
 
@@ -133,13 +132,13 @@ We aim to learn the function f mm using RL. To achieve this, we "fix" the explor
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
 <!-- Image Description: This diagram depicts a house layout, divided into rooms with directional arrows indicating movement between them. Each room contains labeled objects or occupants represented by small icons. The purpose is likely to illustrate a spatial reasoning or object location problem within the context of a robotics or AI paper, using the house as a simulated environment. The robot icon in the closet suggests a focus on robot navigation or task completion. -->
 
-Figure 1: An illustration of a hidden state s<sup>t</sup> (in white) and partial observation o<sup>t</sup> (in gray).
+**Figure 1:** An illustration of a hidden state s<sup>t</sup> (in white) and partial observation o<sup>t</sup> (in gray).
 
 random rooms while avoiding walls, utilizing the long-term memory." For the question-answering function f qa, we use the strategy of "look up the most recent or the strongest relevant memory." By doing this, we have repurposed the original learning objective into learning the memory management policy π mm(a mm t |Mlong t−1 ,Mshort t ), where a mm t represents one of the three memory management actions. As for π mm, the "current state" is the current memory and the "next state" is the next memory. Figure [3](#page-5-0) shows the four steps involved in training.
 
 The learning process involves two distinct phases. First, we focus on learning π mm(a mm t |Mlong t−1 ,Mshort t ). This phase ensures that the agent can effectively manage its long-term memory by deciding which observations to store as episodic or semantic memories, or which to forget. Once this is optimized, we proceed to the second phase, which involves learning the exploration policy π explore(a explore t |Mlong t ), by taking advantage of the function f mm learned in the first
 
- ["Riley", "atlocation", "Cellar", 99], ["Keys", "atlocation", "Garage", 99], ["Book", "atlocation", "Lounge", 99], ["Toy", "atlocation", "Attic", 99], ["Towel", "atlocation", "Bath", 99], ["Tool", "atlocation", "Garage", 99], ["Blanket", "atlocation", "Balcony", 99], ["Bag", "atlocation", "Foyer", 99] ]) phase. In this phase, the agent uses its long-term memory to make informed navigation decisions within the environment. Here, the "current state" for π explore is the current long-term memory Mlong t , and the "next state" is Mlong <sup>t</sup>+1, updated by Mlong <sup>t</sup>+1 = f mm(Mlong t ,Mshort <sup>t</sup>+1 , amm <sup>t</sup>+1)
+["Riley", "atlocation", "Cellar", 99], ["Keys", "atlocation", "Garage", 99], ["Book", "atlocation", "Lounge", 99], ["Toy", "atlocation", "Attic", 99], ["Towel", "atlocation", "Bath", 99], ["Tool", "atlocation", "Garage", 99], ["Blanket", "atlocation", "Balcony", 99], ["Bag", "atlocation", "Foyer", 99] ]) phase. In this phase, the agent uses its long-term memory to make informed navigation decisions within the environment. Here, the "current state" for π explore is the current long-term memory Mlong t , and the "next state" is Mlong <sup>t</sup>+1, updated by Mlong <sup>t</sup>+1 = f mm(Mlong t ,Mshort <sup>t</sup>+1 , amm <sup>t</sup>+1)
 
 An advantage of this two-phase approach is that the human-like long-term memory can effectively capture the most likely snapshot of the environment (the most likely hidden state). This enables the agent to make well-informed decisions on exploration and question-answering.
 
@@ -150,21 +149,21 @@ Given the discrete nature of the action spaces for both the baseline and the Hum
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
 <!-- Image Description: The image is a directed graph representing a spatial knowledge base. Nodes represent locations (e.g., "Living Room," "Kitchen," "Garage") and objects ("Chair," "Desk"). Edges, labeled with directions (north, south, east, west), indicate spatial relationships between them. "atLocation" labels on some edges suggest object placement within locations. The graph likely serves to illustrate a spatial reasoning system or knowledge representation used in the paper. -->
 
-Figure 2: A hidden state s<sup>t</sup> (in white) and partial observation o<sup>t</sup> (in gray) represented as a KG.
+**Figure 2:** A hidden state s<sup>t</sup> (in white) and partial observation o<sup>t</sup> (in gray) represented as a KG.
 
 value and advantage in the deep Q-networks (DQN), i.e., dueling network [\(Wang et al. 2016\)](#page-9-14), to generalize learning across actions. A stochastic gradient descent algorithm, Adam [\(Kingma and Ba 2015\)](#page-9-15), was used to minimize the temporal difference (TD):
 
 $$
 \mathcal{L}(\theta) = \mathbb{E}_{(s,a,r,s') \sim D} \left[ (y - Q(s,a;\theta))^2 \right]
 $$
- (2)
+(2)
 
 where
 
 $$
 y = r + \gamma Q(s', \arg\max_{a'} Q(s', a'; \theta); \theta^{-})
 $$
- (3)
+(3)
 
 In the above equations, L(θ) represents the TD loss function. (s, a, r, s′ ) are the state, action, reward, and next state, respectively, sampled from the replay buffer D. Q(s, a; θ) is the Q-value predicted by the current Q-network parameterized by θ. y is the target value computed using the reward r and the discounted maximum Q-value of the next state s ′ . γ is the discount factor. θ <sup>−</sup> represents the parameters of the target Q-network, which are periodically updated with θ.
 
@@ -179,7 +178,7 @@ As for π mm, out of Nobservations observations within a given
 <span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
 <!-- Image Description: This image from an academic paper illustrates a memory management system. It uses diagrams to represent stages: 1) observation moving to short-term memory; 2) short-term memory transfer to episodic or semantic long-term memory (shown as node graphs); 3) querying long-term memory based on location and timestamp; and 4) pathfinding in a room graph using "strength" weighted edges to determine navigation decisions. The robot icons highlight agent interaction with the system. -->
 
-Figure 3: A visualization of the four steps involved in training.
+**Figure 3:** A visualization of the four steps involved in training.
 
 room, only one of them gets stored as a short-term memory at a time. This is because each quadruple (short-term memory) requires an action. In the end, all Nobservations of them will be moved to the episodic, semantic, or be forgotten, but they are done sequentially, not all at once.
 
@@ -187,7 +186,7 @@ The algorithm is simpler for the baseline agent, since it does not have differen
 
 KGE converts a symbolic KG into a list of learnable embeddings. Batch processing for the LSTM requires padding to ensure all samples are of equal length. Memories are ordered to help the LSTM discern the relative differences in qualifier values, such as which memories were stored earlier and which have higher strength values. The output of the LSTM is the final-hidden representation, which encapsulates the processed information from the sequence of memories. max val is the maximum number of steps in an episode, e.g., 100. s helps adjust the influence of different qualifiers based on their significance. A performs attention to weigh the contributions of different memory types. The dueling network architecture is integrated within the MLP. Figure [4](#page-6-0) shows the DQN architecture for the HumemAI agent.
 
-# 4 Experiments
+## 4 Experiments
 
 We evaluate with varying sizes of memory to see how it influences the performance. Additionally, for the HumemAI agent, we create two extra variants for ablation: one utilizing only an episodic memory and the other utilizing only semantic. This allows us to analyze the individual contributions of each memory type to the overall performance.
 
@@ -196,7 +195,7 @@ We designed the training setup to ensure fair comparison between all agents. Hum
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
 <!-- Image Description: This diagram illustrates an attention-based model architecture for Q-value estimation. It uses three LSTM networks: one for short-term observations, and two for long-term memory (episodic and semantic). These LSTMs feed into an attention mechanism, which processes the information and outputs to a Multilayer Perceptron (MLP) that produces Q-values. The diagram visually depicts the information flow and the different memory types involved in the model. -->
 
-Figure 4: Diagram of the DQN architecture for the HumemAI agent, illustrating the steps from memory as KGs to Q-value calculation. The Q-values can be for either memory management actions or exploration actions.
+**Figure 4:** Diagram of the DQN architecture for the HumemAI agent, illustrating the steps from memory as KGs to Q-value calculation. The Q-values can be for either memory management actions or exploration actions.
 
 hyperparameters remain constant across agents. We select the best-performing model from training and runs in a separate test environment with a greedy policy. We ran in total of 5 runs. Table [1](#page-8-7) shows the overall results.
 
@@ -206,7 +205,7 @@ Figure [5](#page-7-0) illustrates the attention weights of π mm and π explore 
 
 Figure [6](#page-11-0) illustrates the agent's memory systems at the final time step of a test episode. It essentially captures the summarization of the hidden state, e.g., maze layout, object locations, etc. It can be seen that most of the episodic memories were captured in the beginning of the episode, while most of the semantic memories were captured in the later time horizon, confirming our attention analysis. This memory distribution demonstrates the agent's ability to adapt its storage strategy based on the nature of the information and its relevance to the task at hand.
 
-# 5 Related Work
+## 5 Related Work
 
 Our work stands at the intersection of cognitive science, KG, and RL, and while there has been significant research in each of these areas individually, there is relatively little work that combines them to address the challenges of POMDPs.
 
@@ -219,7 +218,7 @@ Memory-based RL approaches, such as those by Ming et al. [\(Meng, Gorbet, and Ku
 <span id="page-7-1"></span><span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
 <!-- Image Description: The image displays two line graphs visualizing attention weights over time for two different policies, π<sup>mm</sup> and π<sup>explore</sup>. Graph (a) shows the "short," "episodic," and "semantic" attention weights changing over the number of π<sup>mm</sup> actions. Graph (b) shows "episodic" and "semantic" weights for π<sup>explore</sup> actions. The graphs illustrate the evolution of attention weight values across different policy types and actions, likely to demonstrate the model's learning process or behavior. -->
 
-Figure 5: Attention weights of π mm and π explore, respectively, over time for the HumemAI agent with capacity = 48
+**Figure 5:** Attention weights of π mm and π explore, respectively, over time for the HumemAI agent with capacity = 48
 
 In a similar vein, Han et al. [\(Han et al. 2019\)](#page-8-9) integrate RL with memory systems to improve questionanswering performance. However, their memory system lacks the structured, interpretable nature of KGs, relying instead on numeric embeddings. Demir [\(Demir 2023\)](#page-8-10) introduces memory-modifying actions and intrinsic motivation to guide memory retention in partially observable environments, focusing on event sequences without employing KGs.
 
@@ -229,17 +228,17 @@ Incorporating KGs into RL has primarily focused on KG reasoning [\(Wan et al. 20
 
 Several works use KGs as prior knowledge to enhance RL performance. Hopner et al. [\(Hopner, Tiddi, and van Hoof](#page-9-26) ¨ [2022\)](#page-9-26) improve sample efficiency by leveraging KGs, while Piplai et al. [\(Piplai et al. 2020\)](#page-9-27) guide exploration using KGs. Chen et al. [\(Chen et al. 2022\)](#page-8-12) employ RL to learn rule mining within KGs. These approaches highlight the benefits of integrating KGs with RL but do not focus on the human-like memory systems or the partially observable environments that our work addresses.
 
-# 6 Conclusion
+## 6 Conclusion
 
 We introduced an approach to solving POMDPs by leveraging KG-based human-like memory systems. We developed the Rooms Environment with varying levels of complexity, where agents navigate and answer questions based on partial observations. We compared a baseline agent with observation history to the HumemAI agent, which incorporates episodic and semantic memory. Results show that our agent that aims to capture the most likely hidden state outperforms the baseline.
 
 There is room for improvement in our paper. For example, jointly learning memory management and exploration policies could yield better performance. Additionally, exploring other function approximators, such as graph neural networks (GNNs), might offer improvements over the currently used LSTM. Transitioning from handcrafted question-answering functions to learning them directly could also be beneficial.
 
-# 7 Acknowledgments
+## 7 Acknowledgments
 
 This research was (partially) funded by the Hybrid Intelligence Center, a 10-year program funded by the Dutch Ministry of Education, Culture and Science through the Netherlands Organization for Scientific Research, [https://](https://www.hybrid-intelligence-centre.nl/) [www.hybrid-intelligence-centre.nl/.](https://www.hybrid-intelligence-centre.nl/)
 
-# References
+## References
 
 <span id="page-7-2"></span>Anderson, J. R. 2007.*How Can the Human Mind Occur in the Physical Universe?*Oxford University Press. ISBN 9780195324259.
 
@@ -283,26 +282,25 @@ $$
 
 <span id="page-8-11"></span>Das, R.; Dhuliawala, S.; Zaheer, M.; Vilnis, L.; Durugkar, I.; Krishnamurthy, A.; Smola, A.; and McCallum, A. 2018. Go for a Walk and Arrive at the Answer: Reasoning Over
 
-<span id="page-8-7"></span>
 
-| Capacity | Agent Type  | Phase 1   | Phase 2   |
+| Capacity | Agent Type | Phase 1 | Phase 2 |
 |----------|-------------|-----------|-----------|
-| 12       | HumemAI     | 105 (±37) | 160 (±30) |
-|          | HumemAI (E) | 191 (±42) | 194 (±29) |
-|          | HumemAI (S) | 111 (±43) | 124 (±65) |
-|          | Baseline    | N/A       | 144 (±14) |
-| 24       | HumemAI     | 127 (±26) | 214 (±64) |
-|          | HumemAI (E) | 227 (±21) | 209 (±30) |
-|          | HumemAI (S) | 98 (±45)  | 112 (±79) |
-|          | Baseline    | N/A       | 138 (±52) |
-| 48       | HumemAI     | 118 (±18) | 235 (±37) |
-|          | HumemAI (E) | 201 (±42) | 225 (±25) |
-|          | HumemAI (S) | 192 (±13) | 226 (±97) |
-|          | Baseline    | N/A       | 200 (±15) |
-| 96       | Baseline    | N/A       | 155 (±77) |
-| 192      | Baseline    | N/A       | 144 (±68) |
+| 12 | HumemAI | 105 (±37) | 160 (±30) |
+| | HumemAI (E) | 191 (±42) | 194 (±29) |
+| | HumemAI (S) | 111 (±43) | 124 (±65) |
+| | Baseline | N/A | 144 (±14) |
+| 24 | HumemAI | 127 (±26) | 214 (±64) |
+| | HumemAI (E) | 227 (±21) | 209 (±30) |
+| | HumemAI (S) | 98 (±45) | 112 (±79) |
+| | Baseline | N/A | 138 (±52) |
+| 48 | HumemAI | 118 (±18) | 235 (±37) |
+| | HumemAI (E) | 201 (±42) | 225 (±25) |
+| | HumemAI (S) | 192 (±13) | 226 (±97) |
+| | Baseline | N/A | 200 (±15) |
+| 96 | Baseline | N/A | 155 (±77) |
+| 192 | Baseline | N/A | 144 (±68) |
 
-Table 1: Average test episode rewards (±σ) for various agent types and capacities, after 5 random seeded runs. Capacity denotes the maximum number of memories stored. HumemAI (E) is only with episodic, while (S) is only with semantic. The best performing agent per capacity is in bold. The Phase 1 column represents the phase where we learn π mm while f explore remains fixed with a heuristic. Phase 2 denotes the phase where we learn π explore while f mm is the neural network learned from Phase 1. One episode consists of 100 steps, where each step involves 10 random questions, resulting in a total of 1,000 questions. Although a theoretical maximum episode reward is 1,000, this is unattainable in practice, as the agent cannot maintain a complete hidden state in its memory throughout the entire episode.
+**Table 1:** Average test episode rewards (±σ) for various agent types and capacities, after 5 random seeded runs. Capacity denotes the maximum number of memories stored. HumemAI (E) is only with episodic, while (S) is only with semantic. The best performing agent per capacity is in bold. The Phase 1 column represents the phase where we learn π mm while f explore remains fixed with a heuristic. Phase 2 denotes the phase where we learn π explore while f mm is the neural network learned from Phase 1. One episode consists of 100 steps, where each step involves 10 random questions, resulting in a total of 1,000 questions. Although a theoretical maximum episode reward is 1,000, this is unattainable in practice, as the agent cannot maintain a complete hidden state in its memory throughout the entire episode.
 
 Paths in Knowledge Bases using Reinforcement Learning. In *International Conference on Learning Representations*.
 
@@ -385,4 +383,4 @@ M. 2017. Neuroscience-Inspired Artificial Intelligence. *Neuron*, 95: 245–258.
 <span id="page-11-0"></span>![](_page_11_Figure_0.jpeg)
 <!-- Image Description: The image displays a directed graph, likely representing a spatial-temporal knowledge graph. Nodes represent locations (e.g., "Bath," "Office," "Study") and agents ("Sam," "Nurse"). Edges depict movements or interactions, labeled with direction ("north," "east") and timestamps or "strength" values. The graph's purpose is to illustrate the relationships between locations and agents over time, potentially for reasoning or pathfinding within a specific environment. The two distinct node colors might indicate different types of entities. -->
 
-Figure 6: An example of the agent's (HumemAI with capacity = 48) memory systems, Mt=99. There are 7 short-term, 24 episodic, and 24 semantic memories. The nodes are colored differently by the memory type.
+**Figure 6:** An example of the agent's (HumemAI with capacity = 48) memory systems, Mt=99. There are 7 short-term, 24 episodic, and 24 semantic memories. The nodes are colored differently by the memory type.

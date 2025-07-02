@@ -27,16 +27,16 @@ keywords:
 
 # Research
 
-# A human digital twin for the M‑Machine
+## A human digital twin for the M‑Machine
 
-**Pertti Saariluoma1  [·](http://orcid.org/0000-0001-7331-8448) Mari Myllylä[1](http://orcid.org/0000-0002-9753-373X) · Antero Karvonen2 · Mika Luimula3  [·](http://orcid.org/0000-0001-6368-1366) Jami Aho<sup>3</sup>**Received: 22 December 2023 / Accepted: 26 August 2024 © The Author(s) 2024 OPEN
+**Pertti Saariluoma1 [·](http://orcid.org/0000-0001-7331-8448) Mari Myllylä[1](http://orcid.org/0000-0002-9753-373X) · Antero Karvonen2 · Mika Luimula3 [·](http://orcid.org/0000-0001-6368-1366) Jami Aho<sup>3</sup>**Received: 22 December 2023 / Accepted: 26 August 2024 © The Author(s) 2024 OPEN
 
 ## Abstract
 
 Human digital twins are computational models of the human actions involved in interacting and operating technical artifacts. Such models provide a conceptual and practical tool for artifcial intelligence designers when they seek to replace human work with intelligent machines. Indeed, digital twins have long served as models of technical and cyber-physical processes. Human digital twins have such models as their foundations but also include models of human actions. As a result, human digital twin models enable technology designers to model how people interact with intelligent technical artifacts. Yet, development of human digital twins is associated with certain conceptual problems. To clarify the basic idea, we constructed a human digital twin for Minsky's M-Machine. The abstract conceptual structure of this machine and its generality allowed us to analyze the general properties of human digital twins, their design, and their use as tools in designing intelligent technologies.
 **Keywords** User modeling · Interaction design · HTI design theory · Human digital twins · M-machine · Design science · Cognitive mimetics
 
-# 1 Introduction
+## 1 Introduction
 
 Society 5.0 and its industrial component, Industry 5.0 programs, are changing thinking regarding technology design [[1–](#page-10-0)[3](#page-10-1)]. In the future, the focus of design will likely be as much on what people do with technologies as on the actual physical or cyber-physical artifacts [\[4\]](#page-10-2). The ultimate motivation for this changing perspective is the emergence of intelligent technologies and artifcial intelligence (AI). Future technologies will be able to perform tasks that previously only people could perform [\[5](#page-10-3), [6\]](#page-10-4). The efciency of new technologies makes it necessary to shift the focus of design to more holistic concepts, including what people will do with future technical artifacts. Indeed, it is no longer wise to separate technical artifacts from their social efects during design processes.
 
@@ -108,18 +108,18 @@ However, the cyber-physical world operates in causally organized, physically or 
 
 If similar benefts are to be gained from DTs, the models need to mimic human thought and action to a degree that is ft for purpose. Cognitive mimetics and HDTs form a natural pair from this perspective. In practice, human actions should be harmonized with the actions of technical artifacts in models; however, thanks to diferences in the principles that human minds follow, it is essential to use paradigms that best ft mental operations, such as perception, attention, language, and thinking [[15\]](#page-10-13). Such models have been developed, for example, within cognitive psychology, over the years, beginning with the Turing machine [[22\]](#page-10-19), test–operate–test–exit (TOTE) model [\[37\]](#page-11-14), and physical symbol systems [\[17\]](#page-10-15) as well as the goals–operators–methods–selection (GOMS)—[\[30](#page-11-7)] and adaptive character of thought–rational (ACT–R)-like [[15](#page-10-13)] architectures. Moreover, additional kinds of models have been built based on neural networks [\[38](#page-11-15)[–40\]](#page-11-16). In this paper,
 
-#### <span id="page-4-0"></span>Fig. 1 The M-Machine (adapted from [\[5](#page-10-3)])
+### <span id="page-4-0"></span>Fig. 1 The M-Machine (adapted from [\[5](#page-10-3)])
 
 ![](_page_4_Figure_4.jpeg)
 <!-- Image Description: The image presents two schematic diagrams illustrating a system model. The top diagram shows a module "M" receiving inputs (S) and producing outputs (R) via multiple channels. The bottom diagram expands this, showing module "M" connected to an input unit ("U") and an output unit ("EN") through an intermediary processing unit ("HIP"). Arrows indicate the direction of information flow, illustrating the system's architecture and data processing stages within the context of the paper. -->
 
-<span id="page-4-1"></span>**Fig. 2**A human digital twin for the M-Machine. U=user or operator, HIP=human interaction point, M=machine, and EN=(action) environment
+<span id="page-4-1"></span>**Figure 2**A human digital twin for the M-Machine. U=user or operator, HIP=human interaction point, M=machine, and EN=(action) environment
 
 we suggest an additional model of human action in process control that we refer to as the ideal–exception–correction (IEC) model [\[20\]](#page-10-17). The proposed model is characteristic of industrial control processes.
 
 In constructing HDTs our model specifcally focusses on human information processing. Human mind represents situations, actions and information contents in mind and uses the properties of information contents in the minds of users to solve interaction design problems. Thus, diferently from many approaches thoroughly revied in a recent study [[41,](#page-11-17) Table 5], we look humans in HDTs as human information processing systems and focus especially on relevant information contents ofpercepts, thoughts and mental representations, i.e. on mental contents [[42\]](#page-11-18).
 
-# 5 The M‑Machine
+## 5 The M‑Machine
 
 One way to develop an HDT is to design it based on an abstract conceptual machine, which could be, for example, a Turing machine, fnite automaton machine, post-Turing machine, or Kleene machine [[43\]](#page-11-19). The basic idea behind such a theoretical approach is to conceptualize key problems with a general conceptual model. If some aspect of designing an HDT would become obvious when designing an HDT for a general machine, the same problem would emerge with any concrete solution.
 
@@ -217,7 +217,6 @@ As mentioned above, IEC is an abbreviation for the terms "ideal," "exception," a
 
 The IEC model first defines the HIP space by registering all the state descriptions of the M-Machine and all the possible states of control tools. The HIP space can be seen as a Cartesian product of the binary pairs of the observable M-Machine states (oms) and all states of controls (cs) and their possible states:
 
-<span id="page-8-0"></span>
 $$
 (C1 (oms1, cs1)) x ... . . x (Cmn (omsn ... . . csn))
 $$
@@ -262,7 +261,8 @@ HDTs provide a good tool for conceptual engineering when working toward holistic
 **Data availability**No datasets were generated or analysed during the current study.
 **Code availability**Not applicable.
 
-#### Declarations
+### Declarations
+
 **Competing interests**The authors declare no competing interests.
 **Open Access**This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modifed the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit [http://creativeco](http://creativecommons.org/licenses/by-nc-nd/4.0/) [mmons.org/licenses/by-nc-nd/4.0/.](http://creativecommons.org/licenses/by-nc-nd/4.0/)
 

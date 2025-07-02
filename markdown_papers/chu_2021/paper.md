@@ -21,24 +21,22 @@ keywords:
 - temporal reasoning
 ---
 
-
-
 # TIMEBENCH: A Comprehensive Evaluation of Temporal Reasoning Abilities in Large Language Models
 
 Zheng Chu<sup>1</sup> , Jingchang Chen<sup>1</sup> , Qianglong Chen<sup>2</sup> , Weijiang Yu<sup>3</sup> , Haotian Wang<sup>1</sup> , Ming Liu<sup>1</sup>,4\*, Bing Qin<sup>1</sup>,<sup>4</sup> <sup>1</sup>Harbin Institute of Technology, Harbin, China <sup>2</sup>Zhejiang University <sup>3</sup>Sun Yat-sen University <sup>4</sup>Peng Cheng Laboratory {zchu,jcchen,mliu,qinb}@ir.hit.edu.cn {chenqianglong.ai, wanght1998, weijiangyu8}@gmail.com
 
-# Abstract
+## Abstract
 
 Grasping the concept of time is a fundamental facet of human cognition, indispensable for truly comprehending the intricacies of the world. Previous studies typically focus on specific aspects of time, lacking a comprehensive temporal reasoning benchmark. To address this, we propose TIMEBENCH, a comprehensive hierarchical temporal reasoning benchmark that covers a broad spectrum of temporal reasoning phenomena. TIMEBENCH provides a thorough evaluation for investigating the temporal reasoning capabilities of large language models. We conduct extensive experiments on GPT-4, LLaMA2, and other popular LLMs under various settings. Our experimental results indicate a significant performance gap between the state-of-the-art LLMs and humans, highlighting that there is still a considerable distance to cover in temporal reasoning. Besides, LLMs exhibit capability discrepancies across different reasoning categories. Furthermore, we thoroughly analyze the impact of multiple aspects on temporal reasoning and emphasize the associated challenges. We aspire for TIMEBENCH to serve as a comprehensive benchmark, fostering research in temporal reasoning[1](#page-0-0) .
 
-# 1 Introduction
+## 1 Introduction
 
 Time flies over us, but leaves its shadow behind. Understanding time is a crucial part of human comprehension of the world. Envision the blossoming of flowers, and you'll associate it with the arrival of spring. The ponder within it encompasses the intricate interplay of world knowledge, causality, and event temporal relationships. Temporal reasoning, in contrast to reasoning of a singular nature, comes with inherent complexity, encompassing implicit arithmetic, logical implications, and world knowledge. It is a form of integrated reasoning built upon
 
 <span id="page-0-1"></span>![](_page_0_Figure_8.jpeg)
 <!-- Image Description: The image displays a radar chart comparing the performance of several large language models (LLMs) – GPT-4, LLaMA 2 (70B and 13B parameter versions), and Mistral – against human performance across eight reasoning tasks. Each axis represents a different task (e.g., TimeXNLI, Arith, DurationQA), and the radial distance from the center indicates the model's score on that task. The chart allows for a visual comparison of the LLMs' strengths and weaknesses across various reasoning domains relative to human performance. -->
 
-Figure 1: A brief overview of human and LLMs' performance on TimeBench. Human scores are annotated.
+**Figure 1:** A brief overview of human and LLMs' performance on TimeBench. Human scores are annotated.
 
 foundational reasoning like mathematical and logical reasoning [\(Cobbe et al.,](#page-10-0) [2021;](#page-10-0) [Mishra et al.,](#page-11-0) [2022;](#page-11-0) [Yu et al.,](#page-12-0) [2020\)](#page-12-0). Recently, large language models (LLMs) have demonstrated remarkable performance in complex reasoning [\(Hendrycks et al.,](#page-10-1) [2021;](#page-10-1) [Srivastava et al.,](#page-11-1) [2022;](#page-11-1) [Brown et al.,](#page-9-0) [2020;](#page-9-0) [Chowdhery et al.,](#page-9-1) [2023;](#page-9-1) [OpenAI,](#page-11-2) [2023;](#page-11-2) [Touvron](#page-11-3) [et al.,](#page-11-3) [2023\)](#page-11-3), but their performance in temporal reasoning has not yet been extensively explored.
 
@@ -60,7 +58,7 @@ We aspire for temporal reasoning to garner increased attention within the resear
 - We conduct extensive experiments with several LLMs, revealing a significant gap between even SOTA LLM and humans, indicating substantial research opportunities in this field.
 - By conducting a thorough analysis, we reveal the dilemmas that LLMs face in temporal reasoning and identify potential solutions.
 
-# 2 TIMEBENCH Benchmark
+## 2 TIMEBENCH Benchmark
 
 ## 1 Benchmark Design Principal
 
@@ -78,15 +76,15 @@ Temporal Commonsense assesses the understanding of temporal world knowledge, inc
 
 Event-Time Relations assesses the model's grounding capability to establish temporal relationships between events and their temporal context, thereby enabling models to grasp the progression
 
-#### <span id="page-2-0"></span>DATE ARITH
+### <span id="page-2-0"></span>DATE ARITH
 
 Q: *What is the time 2 year and 4 month before Mar, 1755*A: Nov, 1752
 
-# TIMEX NLI
+## TIMEX NLI
 
 Premise:*On 28th May 1967, I graduated.*Hypothesis:*Before 23rd October 1920, I graduated.*A: Contradiction
 
-Table 1: Examples of symbolic temporal reasoning
+**Table 1:** Examples of symbolic temporal reasoning
 
 ## <span id="page-2-1"></span>MCTACO
 
@@ -96,11 +94,11 @@ C:*Ransome looks after her as well as for young Fern Simon , who has declared he
 
 Dialog:*... Person1: Do you go to work by train every day Person2: Yes . I commute <MASK> a week by train...*O: five days, 25 days, a minute, six days
 
-#### SITUATEDGEN
+### SITUATEDGEN
 
 Keywords:*axis, one day, one month, Earth, Moon*A: Earth rotates on its axis once in one day. It takes one month for the Moon to rotate on its axis.
 
-Table 2: Examples of commonsense temporal reasoning.
+**Table 2:** Examples of commonsense temporal reasoning.
 
 and transformations of events as they dynamically evolve through time.
 
@@ -108,7 +106,7 @@ Event-Event Relations not only involve eventtime grounding but also introduce mu
 
 Implicit Temporal Reasoning involves going beyond the surface of texts, engaging in deeper reasoning such as drawing upon temporal commonsense, identifying implicit temporal factors and discerning hidden temporal relationships among events. Implicit temporal reasoning is pivotal in complex real-world scenarios where events and time are intricately interwoven.
 
-# 3 Symbolic Temporal Reasoning
+## 3 Symbolic Temporal Reasoning
 
 To evaluate the language model's comprehension of abstract time expressions, we utilize two symbolic reasoning tasks stripped of semantic content: date arithmetic and time expression inference. Table [1](#page-2-0) shows examples of symbolic temporal reasoning.
 
@@ -122,7 +120,7 @@ C:*... After the French evacuated Egypt in 1801, Hurshid Pasha was named governo
 
 C:*... Peter Corke works for Queensland University of Technology from Jan, 2010 to Dec, 2022. Peter Corke works for Commonwealth Scientific from Jan, 1984 to Jan, 2009. ...*Q:*Which employer did Peter Corke work for before Queensland University of Technology?*A: Commonwealth Scientific
 
-Table 3: Examples of event temporal reasoning.
+**Table 3:** Examples of event temporal reasoning.
 
 Date Arithmetic [\(Tan et al.,](#page-11-5) [2023\)](#page-11-5) assesses the model's grasp of abstract date calculation. When provided with a date, the model needs to accurately calculate the date a certain amount of time before or after the given date. The smallest unit is one day.
 
@@ -140,7 +138,7 @@ TimeDial [\(Qin et al.,](#page-11-7) [2021\)](#page-11-7) considers temporal com
 
 SituatedGen [\(Zhang and Wan,](#page-12-6) [2023\)](#page-12-6) considers generative commonsense reasoning in a constrained text generation scenario. Given a set of contrasting keywords, the model needs to choose appropriate keywords for each sentence and generate a pair of contrasting sentences that satisfy temporal commonsense.
 
-# 5 Event Temporal Reasoning
+## 5 Event Temporal Reasoning
 
 Event temporal reasoning assesses the model's understanding of relationships between events and time in real-world scenarios, as well as its ability to reasoning under certain temporal or event constraints. Examples are shown in Table [3.](#page-2-2)
 
@@ -156,7 +154,7 @@ TRACIE [\(Zhou et al.,](#page-13-1) [2021\)](#page-13-1) evaluates the model's c
 
 TIMEBENCH is a multispectral benchmark encompassing four task types: free-form reading comprehension, natural language inference, constrained text generation, and multi-select questions. For detailed task types and their corresponding evaluation metrics, please refer to Appendix [A.3](#page-14-0) and [A.4.](#page-14-1)
 
-# 3 Methodology
+## 3 Methodology
 
 We perform evaluations using the prompt-based approach, including standard prompting and chainof-thought prompting. Experiments are conducted under both zero-shot and few-shot settings.
 
@@ -165,7 +163,7 @@ Standard Prompting We formulate specific instructions for each task. In the zero
 $$
 prompt_{zs}^{sp} = \{INST\} \{Q\}
 $$
- (1)
+(1)
 
 $$
 prompt_{fs}^{sp} = \{INST\} \{Q_1\} \{A_1\}..\{Q\} \quad (2)
@@ -181,19 +179,19 @@ $$
 prompt_{fs}^{cot} = \{INST\} \{Q_1\} \{R_1\} \{A_1\} ...\{Q\} (4)
 $$
 
-# 4 Experimental Setup
+## 4 Experimental Setup
 
 ## 1 Models
 
 We evaluate several popular LLMs, including both open-source and proprietary models, with parameter sizes ranging from 6B to 70B.[2](#page-3-0) The complete list of models can be found in Appendix [B.1.](#page-14-2)
 
-# 2 Implementation Details
+## 2 Implementation Details
 
 We access proprietary models through Azure API 0613 version. For open-source models, we deploy them locally through FastAPI. We set the temperature to 0.0 for greedy decoding in all experiments. To improve answer extraction accuracy, we prompt models with trigger*Therefore, the answer is*before model outputs to deduce final answers.
 
-# 5 Experimental Results
+## 5 Experimental Results
 
-# 1 Few-shot Results
+## 1 Few-shot Results
 
 Table [4](#page-4-0) presents the experimental results under few-shot settings. GPT-4 achieves the best performance across three categories, while LLaMA270b and GPT-3.5 rank in the second tier. However, there remains a substantial gap of 19.4% between the most powerful LLM and humans.
 
@@ -201,81 +199,79 @@ In symbolic temporal reasoning tasks, GPT-4 demonstrates exceptional performance
 
 <span id="page-3-0"></span><sup>2</sup> Since OpenAI has never disclosed the scale of ChatGPT series, 6B to 70B here refers to ChatGLM36B to LLaMA270B.
 
-<span id="page-4-0"></span>
 
-|                              |    |                | Symbolic                                       |                                                        |              | Commonsense |                        |                                          |  | Event Temporal                                                           |    |             |                              |              | Overall      |                        |              |
+| | | | Symbolic | | | Commonsense | | | | Event Temporal | | | | | Overall | | |
 |------------------------------|----|----------------|------------------------------------------------|--------------------------------------------------------|--------------|-------------|------------------------|------------------------------------------|--|--------------------------------------------------------------------------|----|-------------|------------------------------|--------------|--------------|------------------------|--------------|
-| Method                       | s1 | TimeXNLI<br>s2 | s3                                             |                                                        |              |             |                        | Arith DQA McT. TiD. SitGen TimeQA        |  | MenatQA<br>Exp. Imp. Sco. Ord. Ctf.                                      | L2 | TempR<br>L3 | TRACIE Sym. Comm. Event Avg. |              |              |                        |              |
-| Human                        |    |                |                                                | 98.0 96.0 92.0 100.0 80.8                              |              |             | 87.1 97.8              | 100.0 93.3 91.1 85.6 87.3 79.9 97.1 95.3 |  |                                                                          |    |             | 82.5                         | 96.5         | 91.4         | 89.0                   | 91.5         |
-| GPT-4<br>+ FS CoT            |    |                |                                                | 85.3 73.3 53.3 100.0 64.8<br>92.0 84.0 64.0 100.0 55.1 |              |             | 88.3 94.6<br>72.3 93.4 | 88.6<br>-                                |  | 73.7 51.0 72.4 54.8 28.7 92.4 95.9<br>66.9 52.8 65.3 52.6 25.9 96.9 94.6 |    |             | 62.8<br>66.4                 | 78.0<br>85.0 | 84.1<br>73.6 | 66.5<br>65.2           | 73.7<br>72.1 |
-| GPT-3.5<br>+ FS CoT          |    |                |                                                | 52.0 68.4 31.6 63.6<br>51.6 71.8 36.6 84.4             | 67.7<br>41.2 |             | 71.2 76.4<br>38.1 71.1 | 79.1<br>-                                |  | 66.1 48.4 43.2 51.6 17.9 84.7 78.0<br>68.0 47.0 42.5 41.7 37.8 89.9 76.6 |    |             | 55.0<br>50.2                 | 53.9<br>61.1 | 73.6<br>50.1 | 55.6 59.7<br>56.7 56.6 |              |
-| LLaMA2†<br>70b<br>+ FS CoT   |    |                | 55.0 61.0 37.0 82.0<br>52.0 73.0 39.0 79.5     |                                                        | 67.4<br>62.3 |             | 85.3 82.7<br>79.1 61.1 | 74.9<br>-                                |  | 66.7 48.3 61.4 42.5 33.8 85.2 85.4<br>64.3 43.0 57.7 45.2 53.1 87.5 81.6 |    |             | 61.0<br>67.0                 | 58.8<br>60.9 | 77.6<br>67.5 | 60.5 64.4<br>62.4 63.0 |              |
-| LLaMA2†<br>13b<br>+ FS CoT   |    |                | 50.0 54.0 30.0 29.5<br>40.0 61.0 37.0 52.0     |                                                        | 53.3<br>59.3 |             | 66.0 55.6<br>68.8 40.8 | 64.8<br>-                                |  | 59.3 48.6 49.6 43.4 37.5 78.7 62.7<br>59.4 49.1 58.4 43.8 44.1 78.0 68.2 |    |             | 58.0<br>58.0                 | 40.9<br>47.5 | 59.9<br>56.3 | 54.7<br>57.4           | 52.6<br>54.5 |
-| LLaMA2†<br>7b<br>+ FS CoT    |    |                | 26.0 50.0 30.0 20.0<br>37.0 52.0 36.0 25.5     |                                                        | 54.5<br>56.9 |             | 59.6 45.2<br>67.0 41.9 | 62.4<br>-                                |  | 54.4 45.3 49.8 41.9 35.8 64.0 53.3<br>45.6 36.1 50.9 38.0 57.3 59.7 57.7 |    |             | 49.0<br>50.0                 | 31.5<br>37.6 | 55.4<br>55.3 | 49.2<br>49.4           | 46.3<br>47.4 |
-| Baichuan2†<br>+ FS CoT       |    |                | 13b 38.0 48.0 33.0 42.5<br>50.0 56.0 34.0 47.0 |                                                        | 54.8<br>62.0 |             | 73.0 45.7<br>69.3 43.8 | 64.9<br>-                                |  | 59.4 54.2 52.7 38.0 21.4 77.3 63.5<br>58.2 49.6 49.8 40.1 45.6 81.3 65.6 |    |             | 54.0<br>60.0                 | 40.4<br>46.8 | 59.6<br>58.4 | 52.6<br>56.3           | 51.3<br>54.2 |
-| Baichuan2†<br>7b<br>+ FS CoT |    |                | 27.0 66.0 41.0 32.5<br>30.0 56.0 34.0 34.0     |                                                        | 59.8<br>57.0 |             | 69.4 34.3<br>69.5 44.5 | 59.8<br>-                                |  | 53.8 50.2 49.6 38.5 22.9 65.9 51.0<br>51.2 40.7 46.4 32.6 46.3 61.5 64.1 |    |             | 55.0<br>53.0                 | 41.6<br>38.5 | 55.8<br>57.0 | 48.4<br>49.5           | 48.5<br>48.1 |
-| Mistral†<br>7b<br>+ FS CoT   |    |                | 48.0 53.0 38.0 41.0<br>57.0 63.0 35.0 54.0     |                                                        | 61.8<br>61.8 |             | 76.2 61.8<br>45.7 57.3 | 58.3<br>-                                |  | 55.9 45.3 49.4 47.8 45.5 76.7 74.8<br>60.4 46.2 57.2 47.9 33.2 65.9 67.9 |    |             | 53.0<br>57.0                 | 45.0<br>52.3 | 64.5<br>54.9 | 56.1<br>54.5           | 55.4<br>54.0 |
-| ChatGLM3†<br>+ FS CoT        |    |                | 6b 48.0 70.0 32.0 35.0<br>47.0 68.0 32.0 46.0  |                                                        | 51.8<br>53.9 |             | 62.6 55.0<br>64.3 56.5 | 61.6<br>-                                |  | 57.2 26.3 35.4 41.5 22.5 76.4 55.9<br>52.5 24.5 35.0 40.2 22.5 79.4 60.3 |    |             | 58.0<br>54.0                 | 46.3<br>48.3 | 57.8<br>58.2 | 46.7<br>46.1           | 49.3<br>49.1 |
+| Method | s1 | TimeXNLI<br>s2 | s3 | | | | | Arith DQA McT. TiD. SitGen TimeQA | | MenatQA<br>Exp. Imp. Sco. Ord. Ctf. | L2 | TempR<br>L3 | TRACIE Sym. Comm. Event Avg. | | | | |
+| Human | | | | 98.0 96.0 92.0 100.0 80.8 | | | 87.1 97.8 | 100.0 93.3 91.1 85.6 87.3 79.9 97.1 95.3 | | | | | 82.5 | 96.5 | 91.4 | 89.0 | 91.5 |
+| GPT-4<br>+ FS CoT | | | | 85.3 73.3 53.3 100.0 64.8<br>92.0 84.0 64.0 100.0 55.1 | | | 88.3 94.6<br>72.3 93.4 | 88.6<br>- | | 73.7 51.0 72.4 54.8 28.7 92.4 95.9<br>66.9 52.8 65.3 52.6 25.9 96.9 94.6 | | | 62.8<br>66.4 | 78.0<br>85.0 | 84.1<br>73.6 | 66.5<br>65.2 | 73.7<br>72.1 |
+| GPT-3.5<br>+ FS CoT | | | | 52.0 68.4 31.6 63.6<br>51.6 71.8 36.6 84.4 | 67.7<br>41.2 | | 71.2 76.4<br>38.1 71.1 | 79.1<br>- | | 66.1 48.4 43.2 51.6 17.9 84.7 78.0<br>68.0 47.0 42.5 41.7 37.8 89.9 76.6 | | | 55.0<br>50.2 | 53.9<br>61.1 | 73.6<br>50.1 | 55.6 59.7<br>56.7 56.6 | |
+| LLaMA2†<br>70b<br>+ FS CoT | | | 55.0 61.0 37.0 82.0<br>52.0 73.0 39.0 79.5 | | 67.4<br>62.3 | | 85.3 82.7<br>79.1 61.1 | 74.9<br>- | | 66.7 48.3 61.4 42.5 33.8 85.2 85.4<br>64.3 43.0 57.7 45.2 53.1 87.5 81.6 | | | 61.0<br>67.0 | 58.8<br>60.9 | 77.6<br>67.5 | 60.5 64.4<br>62.4 63.0 | |
+| LLaMA2†<br>13b<br>+ FS CoT | | | 50.0 54.0 30.0 29.5<br>40.0 61.0 37.0 52.0 | | 53.3<br>59.3 | | 66.0 55.6<br>68.8 40.8 | 64.8<br>- | | 59.3 48.6 49.6 43.4 37.5 78.7 62.7<br>59.4 49.1 58.4 43.8 44.1 78.0 68.2 | | | 58.0<br>58.0 | 40.9<br>47.5 | 59.9<br>56.3 | 54.7<br>57.4 | 52.6<br>54.5 |
+| LLaMA2†<br>7b<br>+ FS CoT | | | 26.0 50.0 30.0 20.0<br>37.0 52.0 36.0 25.5 | | 54.5<br>56.9 | | 59.6 45.2<br>67.0 41.9 | 62.4<br>- | | 54.4 45.3 49.8 41.9 35.8 64.0 53.3<br>45.6 36.1 50.9 38.0 57.3 59.7 57.7 | | | 49.0<br>50.0 | 31.5<br>37.6 | 55.4<br>55.3 | 49.2<br>49.4 | 46.3<br>47.4 |
+| Baichuan2†<br>+ FS CoT | | | 13b 38.0 48.0 33.0 42.5<br>50.0 56.0 34.0 47.0 | | 54.8<br>62.0 | | 73.0 45.7<br>69.3 43.8 | 64.9<br>- | | 59.4 54.2 52.7 38.0 21.4 77.3 63.5<br>58.2 49.6 49.8 40.1 45.6 81.3 65.6 | | | 54.0<br>60.0 | 40.4<br>46.8 | 59.6<br>58.4 | 52.6<br>56.3 | 51.3<br>54.2 |
+| Baichuan2†<br>7b<br>+ FS CoT | | | 27.0 66.0 41.0 32.5<br>30.0 56.0 34.0 34.0 | | 59.8<br>57.0 | | 69.4 34.3<br>69.5 44.5 | 59.8<br>- | | 53.8 50.2 49.6 38.5 22.9 65.9 51.0<br>51.2 40.7 46.4 32.6 46.3 61.5 64.1 | | | 55.0<br>53.0 | 41.6<br>38.5 | 55.8<br>57.0 | 48.4<br>49.5 | 48.5<br>48.1 |
+| Mistral†<br>7b<br>+ FS CoT | | | 48.0 53.0 38.0 41.0<br>57.0 63.0 35.0 54.0 | | 61.8<br>61.8 | | 76.2 61.8<br>45.7 57.3 | 58.3<br>- | | 55.9 45.3 49.4 47.8 45.5 76.7 74.8<br>60.4 46.2 57.2 47.9 33.2 65.9 67.9 | | | 53.0<br>57.0 | 45.0<br>52.3 | 64.5<br>54.9 | 56.1<br>54.5 | 55.4<br>54.0 |
+| ChatGLM3†<br>+ FS CoT | | | 6b 48.0 70.0 32.0 35.0<br>47.0 68.0 32.0 46.0 | | 51.8<br>53.9 | | 62.6 55.0<br>64.3 56.5 | 61.6<br>- | | 57.2 26.3 35.4 41.5 22.5 76.4 55.9<br>52.5 24.5 35.0 40.2 22.5 79.4 60.3 | | | 58.0<br>54.0 | 46.3<br>48.3 | 57.8<br>58.2 | 46.7<br>46.1 | 49.3<br>49.1 |
 
-Table 4: Experimental results under few-shot settings (standard prompting by default). † denotes the base model without alignment. Global top-3 results are bold. Figure [8](#page-16-1) provides a horizontal comparison of the performance of all models. Full results in Appendix [B.2.](#page-15-1)
+**Table 4:** Experimental results under few-shot settings (standard prompting by default). † denotes the base model without alignment. Global top-3 results are bold. Figure [8](#page-16-1) provides a horizontal comparison of the performance of all models. Full results in Appendix [B.2.](#page-15-1)
 
 other models exhibit a significant decline in comparison to GPT-4. In commonsense temporal reasoning tasks, GPT4 lags behind humans by only 8.0%, indicating its powerful internal knowledge reservoir. With the model scale shrinking, its knowledge reservoir also decreases gradually, leading to a decline in performance. Notably, there is a significant gap of 25.2% between LLMs and humans in event temporal reasoning, which suggests that LLMs encounter major challenges in modeling intricate event-time relationships.
 
-# 2 Zero-shot Results
+## 2 Zero-shot Results
 
 Experimental results of alignment models under zero-shot settings are shown in Table [5.](#page-5-0) In zeroshot settings, GPT-4 and GPT-3.5 rank first and second, respectively, and they significantly outperform all open-source models by a large margin. It is noteworthy that open-source models exhibit a larger performance decline compared to proprietary models when transitioning from few-shot to zero-shot scenarios. GPT, Baichuan2 and LLaMA2 suffer drops of 5.6%, 14.6% and 27.2%, respectively. We attribute this performance decline to the quality of alignment. Restricted by their limited instruction-following capability, open-source models struggle to fully unleash their performance
 
 <span id="page-4-1"></span>![](_page_4_Figure_5.jpeg)
 <!-- Image Description: This bar chart displays performance comparison results across four categories (Symbolic, Commonsense, Event, Overall). Two systems, ZS and FS, are evaluated, each with and without a "CoT" (Chain of Thought) prompting method. The chart shows the percentage scores for each system and condition, revealing the impact of CoT prompting on performance in different reasoning tasks. Higher bars indicate better performance. -->
 
-Figure 2: Performance gap with and without CoT prompting. The results are averaged from GPT-4, GPT-3.5, Baichuan2<sup>13</sup>b, LLaMA2<sup>70</sup><sup>b</sup> and Mistral<sup>7</sup>b.
+**Figure 2:** Performance gap with and without CoT prompting. The results are averaged from GPT-4, GPT-3.5, Baichuan2<sup>13</sup>b, LLaMA2<sup>70</sup><sup>b</sup> and Mistral<sup>7</sup>b.
 
 solely through instructions. Therefore, few-shot prompting is a better approach for stimulating their temporal reasoning abilities.
 
-# 3 Chain-of-Thought in Temporal Reasoning
+## 3 Chain-of-Thought in Temporal Reasoning
 
 Previous research has found that chain-of-thought prompting can enhance the model's reasoning ability [\(Wei et al.,](#page-12-4) [2022;](#page-12-4) [Kojima et al.,](#page-10-5) [2022\)](#page-10-5). We aim to explore the following questions:*Does CoT prompting bring consistent improvement in temporal reasoning?*Due to the diversity of temporal reasoning, the above question has not yet been definitively answered. To investigate this, we select several popular LLMs and analyze their performance affected by chain-of-thought prompting.
 
-<span id="page-5-0"></span>
 
-|                                           |    |                                  | Symbolic                                   |                           |              | Commonsense  |                        |                                          |  | Event Temporal                                                           |    |             |                              |              | Overall      |                        |              |
+| | | | Symbolic | | | Commonsense | | | | Event Temporal | | | | | Overall | | |
 |-------------------------------------------|----|----------------------------------|--------------------------------------------|---------------------------|--------------|--------------|------------------------|------------------------------------------|--|--------------------------------------------------------------------------|----|-------------|------------------------------|--------------|--------------|------------------------|--------------|
-| Method                                    | s1 | TimeXNLI<br>s2                   | s3                                         |                           |              |              |                        | Arith DQA McT. TiD. SitGen TimeQA        |  | MenatQA<br>Exp. Imp. Sco. Ord. Ctf.                                      | L2 | TempR<br>L3 | TRACIE Sym. Comm. Event Avg. |              |              |                        |              |
-| Human                                     |    |                                  |                                            | 98.0 96.0 92.0 100.0 80.8 |              |              | 87.1 97.8              | 100.0 93.3 91.1 85.6 87.3 79.9 97.1 95.3 |  |                                                                          |    |             | 82.5                         | 96.5         | 91.4         | 89.0                   | 91.5         |
-| GPT-4<br>+ CoT                            |    |                                  | 78.6 76.0 50.7 98.0<br>80.0 76.0 60.0 92.0 |                           | 59.2<br>58.1 |              | 80.0 91.1<br>82.6 89.3 | 59.3<br>-                                |  | 60.6 46.5 57.0 57.0 23.1 95.3 95.0<br>61.3 41.2 54.6 59.6 22.6 97.0 94.5 |    |             | 64.8<br>58.0                 | 75.8<br>77.0 | 72.4<br>76.7 | 62.4 68.3<br>61.1 68.5 |              |
-| GPT-3.5<br>+ CoT                          |    |                                  | 45.4 67.6 31.2 97.0<br>33.6 64.8 33.6 71.0 |                           | 50.5<br>23.2 |              | 68.6 69.1<br>45.1 67.0 | 62.3<br>-                                |  | 70.8 35.4 40.9 43.9 22.9 81.2 73.8<br>64.4 35.1 39.7 42.9 26.3 57.6 68.1 |    |             | 57.4<br>52.0                 | 60.3<br>50.8 | 62.6<br>45.1 | 53.3<br>48.3           | 57.4<br>48.3 |
-| LLaMA270b<br>+ CoT                        |    |                                  | 44.0 47.0 32.0 78.5<br>30.0 66.0 28.0 53.5 |                           | 59.2<br>57.3 |              | 68.9 57.0<br>67.1 58.6 | 25.0                                     |  | 40.8 40.6 18.9 16.6 12.0 63.5 54.5<br>31.4 19.5 12.2 12.7 20.8 37.5 40.5 |    |             | 48.0<br>51.0                 | 50.4<br>44.4 | 52.5<br>61.0 | 36.8<br>28.2           | 44.1<br>39.1 |
-| LLaMA213b<br>+ CoT                        |    | 36.0 50.0 38.0                   | 30.0 49.0 34.0 22.5                        | 6.0                       | 38.5<br>39.2 |              | 40.6 35.4<br>51.7 36.9 | 57.9<br>-                                |  | 61.9 30.5 46.1 36.1 26.9 53.1 69.4<br>58.7 38.9 40.9 32.5 33.6 58.0 68.4 |    |             | 49.0<br>47.0                 | 33.9<br>32.5 | 43.1<br>42.6 | 46.6<br>47.3           | 42.6<br>42.4 |
-| LLaMA27b<br>+ CoT                         |    | 44.0 50.0 33.0                   | 39.0 53.0 30.0 13.0                        | 5.0                       | 39.3<br>35.0 | 41.0<br>40.0 | 6.3<br>1.7             | 24.5<br>-                                |  | 49.0 29.0 26.8 21.1 16.0 63.9 47.9<br>49.9 31.6 31.4 24.5 17.8 56.9 48.1 |    |             | 49.0<br>46.0                 | 33.8<br>33.0 | 27.8<br>25.6 | 37.8<br>38.3           | 34.3<br>34.3 |
-| Baichuan213b 41.0 61.0 37.0 12.5<br>+ CoT |    |                                  | 40.0 57.0 31.0 10.0                        |                           | 52.0<br>44.6 |              | 63.4 57.7<br>61.9 58.1 | 52.2<br>-                                |  | 55.4 34.6 48.8 44.3 39.5 57.4 61.4<br>41.5 40.9 52.0 38.5 43.2 62.8 64.3 |    |             | 49.0<br>55.0                 | 37.9<br>34.5 | 56.3<br>54.9 | 48.8<br>49.8           | 48.0<br>46.7 |
-| Baichuan27b<br>+ CoT                      |    | 35.0 50.0 37.0<br>38.0 43.0 32.0 |                                            | 4.5<br>1.0                | 47.9<br>37.9 |              | 55.3 54.3<br>58.0 44.2 | 42.0<br>-                                |  | 41.5 34.7 35.2 31.2 20.4 43.4 47.7<br>53.5 38.8 39.9 33.2 29.3 41.2 47.2 |    |             | 55.0<br>54.0                 | 31.6<br>28.5 | 49.9<br>46.7 | 38.6<br>42.1           | 39.7<br>39.4 |
-| Vicuna1.513b 35.0 50.0 36.0 15.0<br>+ CoT |    | 42.0 51.0 37.0                   |                                            | 3.0                       | 39.2<br>29.8 |              | 59.1 34.2<br>50.0 33.7 | 51.8<br>-                                |  | 60.4 37.0 46.8 37.4 23.2 42.1 43.6<br>56.9 36.4 38.2 37.7 20.4 49.0 49.1 |    |             | 46.0<br>51.0                 | 34.0<br>33.3 | 46.1<br>37.8 | 42.1<br>42.3           | 41.1<br>39.0 |
-| Vicuna1.57b<br>+ CoT                      |    | 37.0 58.0 43.0<br>36.0 50.0 36.0 |                                            | 5.0<br>1.5                | 40.4<br>39.4 |              | 52.5 32.0<br>49.2 36.2 | 47.8<br>-                                |  | 47.1 18.5 35.7 25.7 17.3 33.0 46.8<br>40.9 24.6 26.2 28.5 25.0 27.7 40.3 |    |             | 54.0<br>54.0                 | 35.8<br>30.9 | 43.2<br>41.6 | 34.8<br>33.4           | 37.1<br>34.4 |
-| FLANT511b<br>+ CoT                        |    | 53.0 63.0 43.0                   | 56.0 66.0 45.0                             | 0.0<br>0.0                | 52.0<br>49.7 |              | 65.0 47.7<br>63.4 42.7 | 49.5<br>-                                |  | 61.7 26.8 33.6 52.2 21.8 87.9 83.9<br>64.4 28.2 41.6 50.2 30.6 79.5 68.9 |    |             | 64.0<br>55.0                 | 39.8<br>41.8 | 53.6<br>51.9 | 54.0<br>52.3           | 50.3<br>49.4 |
-| Mistral7b<br>+ CoT                        |    |                                  | 47.0 50.0 43.0 26.5<br>38.0 56.0 35.0 16.5 |                           | 49.8<br>36.6 |              | 58.8 23.2<br>49.3 19.3 | 58.3<br>-                                |  | 28.2 21.4 24.3 22.3 21.7 39.6 31.6<br>31.3 22.4 21.1 24.9 25.6 34.0 31.2 |    |             | 51.0<br>61.0                 | 41.6<br>36.4 | 47.5<br>35.1 | 30.0<br>31.4           | 37.3<br>33.5 |
-| ChatGLM36b 38.0 50.0 34.0<br>+ CoT        |    | 27.0 49.0 37.0                   |                                            | 2.0<br>0.0                | 34.1<br>24.8 |              | 43.6 56.7<br>37.1 44.8 | 38.9<br>-                                |  | 41.2 31.7 33.8 26.0 32.2 57.0 54.0<br>41.7 25.4 34.6 28.1 41.2 44.5 52.0 |    |             | 50.0<br>48.0                 | 31.0<br>28.3 | 43.3<br>35.6 | 40.7<br>39.4           | 39.0<br>35.7 |
+| Method | s1 | TimeXNLI<br>s2 | s3 | | | | | Arith DQA McT. TiD. SitGen TimeQA | | MenatQA<br>Exp. Imp. Sco. Ord. Ctf. | L2 | TempR<br>L3 | TRACIE Sym. Comm. Event Avg. | | | | |
+| Human | | | | 98.0 96.0 92.0 100.0 80.8 | | | 87.1 97.8 | 100.0 93.3 91.1 85.6 87.3 79.9 97.1 95.3 | | | | | 82.5 | 96.5 | 91.4 | 89.0 | 91.5 |
+| GPT-4<br>+ CoT | | | 78.6 76.0 50.7 98.0<br>80.0 76.0 60.0 92.0 | | 59.2<br>58.1 | | 80.0 91.1<br>82.6 89.3 | 59.3<br>- | | 60.6 46.5 57.0 57.0 23.1 95.3 95.0<br>61.3 41.2 54.6 59.6 22.6 97.0 94.5 | | | 64.8<br>58.0 | 75.8<br>77.0 | 72.4<br>76.7 | 62.4 68.3<br>61.1 68.5 | |
+| GPT-3.5<br>+ CoT | | | 45.4 67.6 31.2 97.0<br>33.6 64.8 33.6 71.0 | | 50.5<br>23.2 | | 68.6 69.1<br>45.1 67.0 | 62.3<br>- | | 70.8 35.4 40.9 43.9 22.9 81.2 73.8<br>64.4 35.1 39.7 42.9 26.3 57.6 68.1 | | | 57.4<br>52.0 | 60.3<br>50.8 | 62.6<br>45.1 | 53.3<br>48.3 | 57.4<br>48.3 |
+| LLaMA270b<br>+ CoT | | | 44.0 47.0 32.0 78.5<br>30.0 66.0 28.0 53.5 | | 59.2<br>57.3 | | 68.9 57.0<br>67.1 58.6 | 25.0 | | 40.8 40.6 18.9 16.6 12.0 63.5 54.5<br>31.4 19.5 12.2 12.7 20.8 37.5 40.5 | | | 48.0<br>51.0 | 50.4<br>44.4 | 52.5<br>61.0 | 36.8<br>28.2 | 44.1<br>39.1 |
+| LLaMA213b<br>+ CoT | | 36.0 50.0 38.0 | 30.0 49.0 34.0 22.5 | 6.0 | 38.5<br>39.2 | | 40.6 35.4<br>51.7 36.9 | 57.9<br>- | | 61.9 30.5 46.1 36.1 26.9 53.1 69.4<br>58.7 38.9 40.9 32.5 33.6 58.0 68.4 | | | 49.0<br>47.0 | 33.9<br>32.5 | 43.1<br>42.6 | 46.6<br>47.3 | 42.6<br>42.4 |
+| LLaMA27b<br>+ CoT | | 44.0 50.0 33.0 | 39.0 53.0 30.0 13.0 | 5.0 | 39.3<br>35.0 | 41.0<br>40.0 | 6.3<br>1.7 | 24.5<br>- | | 49.0 29.0 26.8 21.1 16.0 63.9 47.9<br>49.9 31.6 31.4 24.5 17.8 56.9 48.1 | | | 49.0<br>46.0 | 33.8<br>33.0 | 27.8<br>25.6 | 37.8<br>38.3 | 34.3<br>34.3 |
+| Baichuan213b 41.0 61.0 37.0 12.5<br>+ CoT | | | 40.0 57.0 31.0 10.0 | | 52.0<br>44.6 | | 63.4 57.7<br>61.9 58.1 | 52.2<br>- | | 55.4 34.6 48.8 44.3 39.5 57.4 61.4<br>41.5 40.9 52.0 38.5 43.2 62.8 64.3 | | | 49.0<br>55.0 | 37.9<br>34.5 | 56.3<br>54.9 | 48.8<br>49.8 | 48.0<br>46.7 |
+| Baichuan27b<br>+ CoT | | 35.0 50.0 37.0<br>38.0 43.0 32.0 | | 4.5<br>1.0 | 47.9<br>37.9 | | 55.3 54.3<br>58.0 44.2 | 42.0<br>- | | 41.5 34.7 35.2 31.2 20.4 43.4 47.7<br>53.5 38.8 39.9 33.2 29.3 41.2 47.2 | | | 55.0<br>54.0 | 31.6<br>28.5 | 49.9<br>46.7 | 38.6<br>42.1 | 39.7<br>39.4 |
+| Vicuna1.513b 35.0 50.0 36.0 15.0<br>+ CoT | | 42.0 51.0 37.0 | | 3.0 | 39.2<br>29.8 | | 59.1 34.2<br>50.0 33.7 | 51.8<br>- | | 60.4 37.0 46.8 37.4 23.2 42.1 43.6<br>56.9 36.4 38.2 37.7 20.4 49.0 49.1 | | | 46.0<br>51.0 | 34.0<br>33.3 | 46.1<br>37.8 | 42.1<br>42.3 | 41.1<br>39.0 |
+| Vicuna1.57b<br>+ CoT | | 37.0 58.0 43.0<br>36.0 50.0 36.0 | | 5.0<br>1.5 | 40.4<br>39.4 | | 52.5 32.0<br>49.2 36.2 | 47.8<br>- | | 47.1 18.5 35.7 25.7 17.3 33.0 46.8<br>40.9 24.6 26.2 28.5 25.0 27.7 40.3 | | | 54.0<br>54.0 | 35.8<br>30.9 | 43.2<br>41.6 | 34.8<br>33.4 | 37.1<br>34.4 |
+| FLANT511b<br>+ CoT | | 53.0 63.0 43.0 | 56.0 66.0 45.0 | 0.0<br>0.0 | 52.0<br>49.7 | | 65.0 47.7<br>63.4 42.7 | 49.5<br>- | | 61.7 26.8 33.6 52.2 21.8 87.9 83.9<br>64.4 28.2 41.6 50.2 30.6 79.5 68.9 | | | 64.0<br>55.0 | 39.8<br>41.8 | 53.6<br>51.9 | 54.0<br>52.3 | 50.3<br>49.4 |
+| Mistral7b<br>+ CoT | | | 47.0 50.0 43.0 26.5<br>38.0 56.0 35.0 16.5 | | 49.8<br>36.6 | | 58.8 23.2<br>49.3 19.3 | 58.3<br>- | | 28.2 21.4 24.3 22.3 21.7 39.6 31.6<br>31.3 22.4 21.1 24.9 25.6 34.0 31.2 | | | 51.0<br>61.0 | 41.6<br>36.4 | 47.5<br>35.1 | 30.0<br>31.4 | 37.3<br>33.5 |
+| ChatGLM36b 38.0 50.0 34.0<br>+ CoT | | 27.0 49.0 37.0 | | 2.0<br>0.0 | 34.1<br>24.8 | | 43.6 56.7<br>37.1 44.8 | 38.9<br>- | | 41.2 31.7 33.8 26.0 32.2 57.0 54.0<br>41.7 25.4 34.6 28.1 41.2 44.5 52.0 | | | 50.0<br>48.0 | 31.0<br>28.3 | 43.3<br>35.6 | 40.7<br>39.4 | 39.0<br>35.7 |
 
-Table 5: Experimental results under zero-shot settings (standart prompting by default). All models are alignment models (-chat or -instruct). Global top-3 results are bold.
+**Table 5:** Experimental results under zero-shot settings (standart prompting by default). All models are alignment models (-chat or -instruct). Global top-3 results are bold.
 
 Chain-of-thought reasoning is not consistently effective. As illustrated in Figure [2,](#page-4-1) introducing zero-shot CoT prompting results in consistent declines, with an overall decrease of 7.4%. In the fewshot scenario, CoT prompting also fails to yield consistent improvements, varying depending on the task. There is a 10.8% improvement in symbolic reasoning, while a significant decline of 15.2% in commonsense reasoning. In event temporal reasoning, there is a slight improvement of 1.3%. Next, we will conduct a more detailed analysis of the impact of CoT on specific tasks.
 
 Impact of CoT prompting across tasks. In order to explore the impact of CoT on various tasks thoroughly, we delve into the performance changes of each model across specific tasks within each category, as illustrated in Figure [3.](#page-6-0) In the zeroshot setting, open-source models achieve a slight improvement in event temporal reasoning with chain-of-thought prompting, while in other cases, they face performance degradation. While in the few-shot setting, almost all models exhibit significant improvement in symbolic temporal reasoning, with a concurrent prevalent decline in commonsense temporal reasoning. We attribute this to the knowledge sensitivity inherent in commonsense reasoning, where step-by-step reasoning cannot compensate for the lack of knowledge. In event temporal reasoning, improvements mainly stem from datasets involving implicit multi-step reasoning (MenatQA and TempReason), indicating that CoT is more effective for multi-hop questions. In summary, zero-shot CoT consistently has a negative impact on temporal reasoning. While in fewshot scenario, CoT has a positive impact on symbolic and complex tasks, while negatively affecting knowledge-sensitive tasks.
 
-# 6 Analysis and Discussion
+## 6 Analysis and Discussion
 
-# 1 Scaling Effect of Model Size
+## 1 Scaling Effect of Model Size
 
 We investigate how the scale of models affects temporal reasoning capabilities. The trend is illustrated in Figure [4.](#page-6-1) As the model scale increases, there is a notable improvement in performance. When the parameter size expands from 7B to 13B, LLaMA2 and Baichuan2 show improvements of
 
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
 <!-- Image Description: This image presents two heatmaps comparing the performance of several large language models (LLMs) across various evaluation metrics. The top heatmap shows zero-shot performance, while the bottom shows few-shot performance. Each cell's color intensity represents a score (indicated by the color bar), reflecting the LLM's performance on a specific metric (e.g., TimeXNLI, Arith, Overall). The heatmaps visually compare the LLMs' strengths and weaknesses across different tasks and evaluation methods. -->
 
-Figure 3: ∆Score between the chain-of-thought prompting and direct I-O prompting. Top: zero-shot setting, Bottom: few-shot setting, Left: variation in each task, Right: averaged variation in the symbolic, commonsense, event, and overall tasks.
+**Figure 3:** ∆Score between the chain-of-thought prompting and direct I-O prompting. Top: zero-shot setting, Bottom: few-shot setting, Left: variation in each task, Right: averaged variation in the symbolic, commonsense, event, and overall tasks.
 
 <span id="page-6-1"></span>![](_page_6_Figure_2.jpeg)
 <!-- Image Description: The image displays a line graph comparing the performance of four large language models (Baichuan2, ChatGLM3, LLaMA2, Mistral) across different model sizes (6b/7b, 13b, 70b). The y-axis represents an unspecified performance metric, and the x-axis represents the model size in billions of parameters (B). The graph shows a generally positive correlation between model size and performance for each model, with LLaMA2 exhibiting the strongest performance increase with size. -->
 
-Figure 4: Scaling effect of model size and overall temporal reasoning performance. The x-axis (model size) is shown in the log scale. Results show a log-linearity between parameter size and performance.
+**Figure 4:** Scaling effect of model size and overall temporal reasoning performance. The x-axis (model size) is shown in the log scale. Results show a log-linearity between parameter size and performance.
 
 13.0% and 10.5%, respectively. Furthermore, when LLaMA scales up to 70B, the trend of performance improvement continues without stopping. The overall improvement follows a log-linear relationship with scale. There are no significant performance differences among LLaMA2, Baichuan2, and ChatGLM3 under similar parameter specifications, while Mistral demonstrates impressive prowess, outperforming all other 13B models with nearly half the number of parameters.
 
@@ -283,17 +279,16 @@ Figure 4: Scaling effect of model size and overall temporal reasoning performanc
 
 LLMs underperform in (multi-hop) symbolic reasoning Except for GPT-4, the performance of all other models in symbolic temporal reasoning is unsatisfactory. A noticeable decrease is observed in duration-conversion task compared to other atomic tasks (25% in GPT-4 and 27% in LLaMA270b). This is because the duration-conversion task (s3)
 
-<span id="page-6-2"></span>
 
-| Model             | Order  | Duration | Freq.  | Stationarity | Typical | Avg. |
+| Model | Order | Duration | Freq. | Stationarity | Typical | Avg. |
 |-------------------|--------|----------|--------|--------------|---------|------|
-| GPT-4             | 76.4 ↓ | 92.8 ↑   | 83.3 ↑ | 71.4 ↓       | 54.5 ↓  | 77.5 |
-| GPT-3.5           | 50.5 ↑ | 39.8 ↓   | 55.2 ↑ | 48.4 ↑       | 28.7 ↓  | 43.5 |
-| Baichuan2†<br>13b | 40.5 ↓ | 51.8 ↑   | 43.7 ↑ | 46.2 ↑       | 29.8 ↓  | 42.5 |
-| LLaMA2†<br>70b    | 65.2 ↑ | 72.1 ↑   | 66.3 ↑ | 36.3 ↓       | 52.7 ↓  | 63.0 |
-| Mistral†<br>7b    | 27.0 ↓ | 44.4 ↑   | 58.3 ↑ | 38.5 ↓       | 38.3 ↓  | 42.5 |
+| GPT-4 | 76.4 ↓ | 92.8 ↑ | 83.3 ↑ | 71.4 ↓ | 54.5 ↓ | 77.5 |
+| GPT-3.5 | 50.5 ↑ | 39.8 ↓ | 55.2 ↑ | 48.4 ↑ | 28.7 ↓ | 43.5 |
+| Baichuan2†<br>13b | 40.5 ↓ | 51.8 ↑ | 43.7 ↑ | 46.2 ↑ | 29.8 ↓ | 42.5 |
+| LLaMA2†<br>70b | 65.2 ↑ | 72.1 ↑ | 66.3 ↑ | 36.3 ↓ | 52.7 ↓ | 63.0 |
+| Mistral†<br>7b | 27.0 ↓ | 44.4 ↑ | 58.3 ↑ | 38.5 ↓ | 38.3 ↓ | 42.5 |
 
-Table 6: Results in each temporal commonsense aspect under few-shot setting. Models with † are base models. Red ↓ and Green ↑ represent the performance is lower or higher than its average performance. Metric is EM.
+**Table 6:** Results in each temporal commonsense aspect under few-shot setting. Models with † are base models. Red ↓ and Green ↑ represent the performance is lower or higher than its average performance. Metric is EM.
 
 necessitates a two-step reasoning process. It first unifies time units, and subsequently engages in numerical comparison. In contrast, other atomic tasks (s1, s2 and arithmetic) can be completed with a single reasoning step. In summary, LLMs perform poorly in symbolic temporal reasoning and exhibit more pronounced declines when encountering multi-step reasoning.
 
@@ -304,7 +299,7 @@ LLMs exhibit poor implicit temporal reasoning capabilities. When comparing expli
 <span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
 <!-- Image Description: This bar chart compares the performance of "Base" and "Align" models across various large language models (LLMs). The x-axis lists different LLMs (e.g., LLaMA270b, Vicuna1.513b), while the y-axis represents a performance metric (unspecified). Each LLM has two bars, showing its score for both Base and Align versions. The chart likely illustrates the impact of an alignment technique on LLM performance within the paper. -->
 
-Figure 5: Performance difference between base and alignment models under few-shot setting. Baichuan2 and LLaMA2 are aligned with SFT and RLHF. Vicuna, Mistral and ChatGLM3 are aligned with only SFT.
+**Figure 5:** Performance difference between base and alignment models under few-shot setting. Baichuan2 and LLaMA2 are aligned with SFT and RLHF. Vicuna, Mistral and ChatGLM3 are aligned with only SFT.
 
 LLMs are good factual reasoners rather than factual extractors When humans engage in temporal reasoning, it generally involves two steps: first, extracting time-fact pairs from the context, and then performing fact-based reasoning. TempReason provides extracted facts for conducting fact-based reasoning. By comparing the model's performance in context-based (TimeQA) against fact-based (TempReason) reasoning, we identify the bottleneck in event temporal reasoning. LLMs excel in TempReason, which signifies their strong capability in fact-based reasoning. However, their performance in context-based reasoning is significantly weaker compared to their performance in fact-based reasoning. This implies that errors could arise during the extraction of time-sensitive facts from the context. We attribute this performance gap to the model's deficiency in factual extraction capabilities Thus, we consider LLMs to be strong factual reasoners rather than factual extractors in event temporal reasoning.
 
@@ -314,7 +309,7 @@ In the experiments mentioned earlier (Table [5\)](#page-5-0), we observe a sharp
 
 resulting in situations where the model deviates from the demonstrations. Furthermore, we believe that the lack of temporal reasoning-related training data in alignment exacerbates this issue, leading to disparities between different reasoning capabilities, such as mathematical and temporal reasoning.
 
-#### 4 Error Analysis
+### 4 Error Analysis
 
 We manually analyze 100 predictions by GPT-4, GPT-3.5 and LLaMa2-base70<sup>b</sup> from each subtask. The visualization of errors is shown in Figure [6.](#page-8-0)
 
@@ -325,10 +320,10 @@ Commonsense Reasoning We categorize the errors of commonsense reasoning into two
 Event Temporal Reasoning We categorize the errors of event temporal reasoning into four groups: (a)*No Answer*: The model is unable to find the answer in the context. (b) *Reasoning Error*: The model encounters reasoning errors. (c) *Halluci-*<span id="page-8-0"></span>![](_page_8_Figure_0.jpeg)
 <!-- Image Description: This figure presents three bar charts comparing reasoning errors of GPT-4, GPT-3.5, and LLaMA2 across different reasoning categories. The charts are titled "Symbolic," "Commonsense," and "Event Temporal," representing different reasoning domains. Each bar within a chart shows the error count for a specific reasoning aspect (e.g., computation, frequency, metric limit) for each model. The figure illustrates the relative strengths and weaknesses of the models in various reasoning tasks. -->
 
-Figure 6: Error analysis for Symbolic, Commonsense, and Event Temporal. We select 100 test samples from each subtask for GPT-4, GPT-3.5 and LLaMa2-base70b.
+**Figure 6:** Error analysis for Symbolic, Commonsense, and Event Temporal. We select 100 test samples from each subtask for GPT-4, GPT-3.5 and LLaMa2-base70b.
 *nation*: The model's prediction does not exist in the context, known as hallucination reasoning. (d) *Metric*: The model's prediction is correct, but the metric is limited by the evaluation criteria. It can be observed that, except for reasoning errors, failures to provide answers account for approximately 30%, indicating that models still have flaws in grounding temporal facts from context. Additionally, models occasionally experience hallucination phenomena, leading to erroneous reasoning.
 
-# 7 Related Work
+## 7 Related Work
 
 ## 1 Temporal Reasoning
 
@@ -344,19 +339,19 @@ Distinguished from other works, TIMEBENCH is multispectral, offering a comprehen
 
 In recent years, there has been rapid progress in the research of large language models (LLM) [\(Zhao](#page-13-3) [et al.,](#page-13-3) [2023\)](#page-13-3). They exhibit outstanding performance across a multitude of tasks without the need for finetuning [\(Brown et al.,](#page-9-0) [2020;](#page-9-0) [Kojima et al.,](#page-10-5) [2022\)](#page-10-5). Furthermore, they have achieved astonishing results in complex reasoning tasks, such as mathematical reasoning [\(Cobbe et al.,](#page-10-0) [2021;](#page-10-0) [Mishra](#page-11-0) [et al.,](#page-11-0) [2022\)](#page-11-0) and logical reasoning [\(Yu et al.,](#page-12-0) [2020;](#page-12-0) [Liu et al.,](#page-10-14) [2023\)](#page-10-14). Moreover, some studies suggest that the chain-of-thought prompting can further enhance the model's capabilities in complex reasoning scenarios [\(Wei et al.,](#page-12-4) [2022;](#page-12-4) [Kojima et al.,](#page-10-5) [2022;](#page-10-5) [Chu et al.,](#page-9-6) [2024;](#page-9-6) [Zhang et al.,](#page-12-13) [2023\)](#page-12-13).
 
-# 8 Conclusion
+## 8 Conclusion
 
 Temporal reasoning entails inherent diversity and complexity. The lack of a comprehensive benchmark makes it challenging to quantify LLMs' temporal reasoning capabilities. In this work, we present TIMEBENCH, a comprehensive and hierarchical benchmark for LLM temporal reasoning, tailored to mirror temporal reasoning in complex scenarios. We conduct extensive experiments on state-of-the-art LLMs to investigate their temporal reasoning capabilities. Our findings indicate a substantial gap between state-of-the-art LLMs and human performance, emphasizing the need for further research in this area. Moreover, we provide a meticulous analysis and discussion, outlining the current challenges that models face and suggesting potential directions for improvement.
 
-# Limitations
+## Limitations
 
 TimeBench is a comprehensive benchmark to quantify the temporal reasoning capabilities of LLMs. While we have taken various factors into account, there are a few limitations. Firstly, our evaluation only applied prompt-based method under zero-shot and few-shot setting, lacking evaluations specifically tailored for models fine-tuned on the temporal domain. Secondly, the instructions and demonstrations were manually crafted, which may potentially lead to discrepancies in prompts interpretation among different LLMs. Thirdly, the dataset constituting the benchmark includes data from past years and a portion sourced from Wikipedia, which may contaminate the training corpus of LLMs.
 
-# Acknowledgements
+## Acknowledgements
 
 The research in this article is supported by the National Key Research and Development Project (2021YFF0901602), the National Science Foundation of China (U22B2059, 62276083), and Shenzhen Foundational Research Funding (JCYJ20200109113441941), Major Key Project of PCL (PCL2021A06). Ming Liu is the corresponding author.
 
-# References
+## References
 
 - <span id="page-9-8"></span>Joshua Ainslie, James Lee-Thorp, Michiel de Jong, Yury Zemlyanskiy, Federico Lebrón, and Sumit Sanghai. 2023. [GQA: training generalized multi-query trans](https://doi.org/10.18653/V1/2023.EMNLP-MAIN.298)[former models from multi-head checkpoints.](https://doi.org/10.18653/V1/2023.EMNLP-MAIN.298) In *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing, EMNLP 2023, Singapore, December 6-10, 2023*, pages 4895–4901. Association for Computational Linguistics.
 - <span id="page-9-7"></span>Satanjeev Banerjee and Alon Lavie. 2005. Meteor: An automatic metric for mt evaluation with improved correlation with human judgments. In *Proceedings of the acl workshop on intrinsic and extrinsic evaluation measures for machine translation and/or summarization*, pages 65–72.
@@ -434,11 +429,11 @@ Zheng Yan, Iliyan Zarov, Yuchen Zhang, Angela Fan, Melanie Kambadur, Sharan Nara
 - <span id="page-13-1"></span>Ben Zhou, Kyle Richardson, Qiang Ning, Tushar Khot, Ashish Sabharwal, and Dan Roth. 2021. [Temporal](https://doi.org/10.18653/V1/2021.NAACL-MAIN.107) [reasoning on implicit events from distant supervision.](https://doi.org/10.18653/V1/2021.NAACL-MAIN.107) In *Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, NAACL-HLT 2021, Online, June 6-11, 2021*, pages 1361–1371. Association for Computational Linguistics.
 - <span id="page-13-2"></span>Xinyu Zhu, Cheng Yang, Bei Chen, Siheng Li, Jian-Guang Lou, and Yujiu Yang. 2023. [Question an](https://doi.org/10.18653/V1/2023.EMNLP-MAIN.787)[swering as programming for solving time-sensitive](https://doi.org/10.18653/V1/2023.EMNLP-MAIN.787) [questions.](https://doi.org/10.18653/V1/2023.EMNLP-MAIN.787) In *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing, EMNLP 2023, Singapore, December 6-10, 2023*, pages 12775–12790. Association for Computational Linguistics.
 
-# A TIMEBENCH Details
+## A TIMEBENCH Details
 
 TIMEBENCH features 3 major categories, 10 tasks and 15 subtasks, each with distinct challenges, totaling 19,000 instances. Detailed statistics are available in Figure [7](#page-15-2) and Table [7.](#page-16-0)
 
-# A.1 Benchmark Construction
+## A.1 Benchmark Construction
 
 TimeX Arithmetic [\(Tan et al.,](#page-11-5) [2023\)](#page-11-5) TimeX Arithmetic data is derived from the *l1: time-time*reasoning data in TempReason. We retain 4,000 instances, where time expressions are calculated with a minimum unit of one day.
 
@@ -480,7 +475,7 @@ Free-form Reading Comprehension requires models to answer questions based on the
 
 Constrained Text Generation refers to the task of generating text under certain constraints. The task is keyword-constrained text generation, where the model takes keywords as input and outputs sentences that include those keywords.
 
-#### <span id="page-14-1"></span>A.4 Evaluation Metrics
+### <span id="page-14-1"></span>A.4 Evaluation Metrics
 
 Accuracy is used for NLI and date arithmetic tasks. M-S tasks are evaluated using option-level EM and F1. FRC tasks (excluding date arithmetic) are assessed with token-level EM and F1. For CTG task, we take the average of multiple generation metrics, which are outlined as follows.
 
@@ -492,7 +487,7 @@ S = BLEU-4 + METEOR + ROUGE-L + CIDER/10 + MATCH
 
 As the overall score S does not represent a percentile, we proceed to normalize the models' scores to align with humans' relative performance levels.
 
-# B Supplemental Materials
+## B Supplemental Materials
 
 ## <span id="page-14-2"></span>B.1 Models
 
@@ -505,7 +500,7 @@ ChatGPT-3.5/GPT-4 [\(Ouyang et al.,](#page-11-4) [2022;](#page-11-4) [Ope](#page
 
 Symbolic Common Sense Event Temporal
 
-Figure 7: The quantity and proportion of data for each task and its respective subtasks within TIMEBENCH.
+**Figure 7:** The quantity and proportion of data for each task and its respective subtasks within TIMEBENCH.
 
 through SFT and RLHF based on GPT-3 [\(Brown](#page-9-0) [et al.,](#page-9-0) [2020\)](#page-9-0). GPT-4 is an upgraded version of Chat-GPT with enhanced reasoning capabilities, making it the most powerful LLM. Unless otherwise stated, ChatGPT refers to*gpt-3.5-turbo-0613*and GPT-4 refers to*gpt-4-0613*.
 
@@ -519,11 +514,11 @@ ChatGLM3 [\(Zeng et al.,](#page-12-3) [2023\)](#page-12-3) is an open-source bil
 
 FLAN-T5 [\(Chung et al.,](#page-10-4) [2022\)](#page-10-4) is an open-source instruction model built on top of T5 [\(Raffel et al.,](#page-11-13) [2020\)](#page-11-13) through instruction fine-tuning.
 
-# <span id="page-15-1"></span>B.2 Full Results
+## <span id="page-15-1"></span>B.2 Full Results
 
 The overall score is derived from the average of all corresponding metrics. For brevity, we omit some F1 scores in tables in the main text. Please refer to Table [9](#page-18-0) for the full experimental results. The full results of SituatedGen can be found in Table [8.](#page-17-0)
 
-# <span id="page-15-0"></span>B.3 Prompts
+## <span id="page-15-0"></span>B.3 Prompts
 
 The prompt formats are showcased in Figure [9.](#page-20-0) The demonstrations can be found from Figure [10](#page-21-0) to [18.](#page-24-0)
 
@@ -532,140 +527,136 @@ The prompt formats are showcased in Figure [9.](#page-20-0) The demonstrations c
 <span id="page-16-1"></span>![](_page_16_Figure_0.jpeg)
 <!-- Image Description: The image presents two sets of grouped bar charts comparing the performance of several large language models (GPT-4, GPT-3.5, LLaMA variants, Baichuan, Mistral, and ChatGLM) across three task categories (Symbolic, Commonsense, Event) and an overall average. Each bar represents a model's performance score (likely accuracy or F1-score) for a specific task. The top chart shows one evaluation metric, while the bottom chart displays a second, distinct metric. The purpose is to quantitatively compare the capabilities of different language models in reasoning tasks. -->
 
-Figure 8: Performance comparison between state-of-the-art LLMs. Up: GPT-4/3.5 and alignment models under zero-shot setting. Down: GPT-4/3.5 and base models under few-shot setting.
+**Figure 8:** Performance comparison between state-of-the-art LLMs. Up: GPT-4/3.5 and alignment models under zero-shot setting. Down: GPT-4/3.5 and base models under few-shot setting.
 
-<span id="page-16-0"></span>
 
-| Dataset          | Format | #      | Challenges                              |
+| Dataset | Format | # | Challenges |
 |------------------|--------|--------|-----------------------------------------|
-| Symbolic         |        |        |                                         |
-| TimeX Arith      | FRC    | 4,000  | TimeX Arithmetic                        |
-| TimeX NLI        | NLI    | 6,965  | TimeX Causality                         |
-| - Order          | -      | 2,213  | order                                   |
-| - Duration       | -      | 2,332  | duration                                |
-| - Conversion     | -      | 2,420  | duration + time unit conversion         |
-| Commonsense      |        |        |                                         |
-| MCTACO           | M-S    | 852    | Temporal Commonsense                    |
-| TimeDial         | M-S    | 1,446  | Temporal Commonsense                    |
-| DurationQA       | M-S    | 687    | Event Duration                          |
-| SituatedGen      | CTG    | 115    | Temporal Commonsense                    |
-| Event            |        |        |                                         |
-| TimeQA           | FRC    | 1,000  | Context-based Reasoning                 |
-| - Explicit       | -      | 500    | explicit, event-time reasoning          |
-| - Implicit       | -      | 500    | implicit, event-time reasoning          |
-| MenatQA          | FRC    | 1,599  | Implicit, Context-based Reasoning       |
-| - Order          | -      | 400    | event-time reasoning                    |
-| - Scope          | -      | 400    | event-time reasoning                    |
-| - Counterfactual | -      | 400    | event-time reasoning                    |
-| TempReason       | FRC    | 1,876  | Implicit, Fact-based Reasoning          |
-| - l2 (e2t)       | -      | 839    | event-time reasoning                    |
-| - l3 (e2e)       | -      | 1,037  | event-event reasoning                   |
-| TRACIE           | NLI    | 500    | Implicit, Implied Event-Event Reasoning |
-| In total         |        | 19,000 |                                         |
+| Symbolic | | | |
+| TimeX Arith | FRC | 4,000 | TimeX Arithmetic |
+| TimeX NLI | NLI | 6,965 | TimeX Causality |
+| - Order | - | 2,213 | order |
+| - Duration | - | 2,332 | duration |
+| - Conversion | - | 2,420 | duration + time unit conversion |
+| Commonsense | | | |
+| MCTACO | M-S | 852 | Temporal Commonsense |
+| TimeDial | M-S | 1,446 | Temporal Commonsense |
+| DurationQA | M-S | 687 | Event Duration |
+| SituatedGen | CTG | 115 | Temporal Commonsense |
+| Event | | | |
+| TimeQA | FRC | 1,000 | Context-based Reasoning |
+| - Explicit | - | 500 | explicit, event-time reasoning |
+| - Implicit | - | 500 | implicit, event-time reasoning |
+| MenatQA | FRC | 1,599 | Implicit, Context-based Reasoning |
+| - Order | - | 400 | event-time reasoning |
+| - Scope | - | 400 | event-time reasoning |
+| - Counterfactual | - | 400 | event-time reasoning |
+| TempReason | FRC | 1,876 | Implicit, Fact-based Reasoning |
+| - l2 (e2t) | - | 839 | event-time reasoning |
+| - l3 (e2e) | - | 1,037 | event-event reasoning |
+| TRACIE | NLI | 500 | Implicit, Implied Event-Event Reasoning |
+| In total | | 19,000 | |
 
-Table 7: The statistics, task formats and challenges in TIMEBENCH.
+**Table 7:** The statistics, task formats and challenges in TIMEBENCH.
 
-<span id="page-17-0"></span>
 
-| Method            | BLEU-4 | METEOR | ROUGE-L | CIDEr  | MATCH | Overall | Norm  |
+| Method | BLEU-4 | METEOR | ROUGE-L | CIDEr | MATCH | Overall | Norm |
 |-------------------|--------|--------|---------|--------|-------|---------|-------|
-| Human             | 39.9   | 40.4   | 56.3    | 397    | 98.1  | 274.4   | 100.0 |
-| GPT-4             | 8.23   | 31.27  | 28.84   | 38.45  | 90.41 | 162.59  | 59.25 |
-| + FS              | 28.64  | 38.99  | 55.69   | 298.64 | 90.11 | 243.29  | 88.66 |
-| GPT-3.5           | 13.38  | 30.12  | 35.91   | 125.41 | 78.76 | 170.70  | 62.21 |
-| + FS              | 27.24  | 33.77  | 51.18   | 282.75 | 76.54 | 217.01  | 79.08 |
-| LLaMA270b         | 5.15   | 13.62  | 15.83   | 22.07  | 31.79 | 68.60   | 25.00 |
-| + FS              | 19.10  | 29.09  | 41.74   | 171.36 | 65.29 | 172.35  | 62.81 |
-| LLaMA213b         | 4.66   | 21.43  | 20.80   | 17.72  | 61.62 | 110.28  | 40.19 |
-| + FS              | 15.15  | 27.49  | 37.55   | 138.13 | 64.94 | 158.93  | 57.92 |
-| LLaMA27b          | 2.77   | 13.46  | 14.69   | 14.34  | 34.83 | 67.18   | 24.48 |
-| + FS              | 6.90   | 15.82  | 21.77   | 52.99  | 33.81 | 83.60   | 30.47 |
-| Baichuan213b      | 8.33   | 25.86  | 30.07   | 82.63  | 70.63 | 143.15  | 52.17 |
-| + FS              | 15.79  | 30.23  | 40.96   | 169.14 | 71.01 | 174.91  | 63.74 |
-| Baichuan27b       | 5.17   | 21.99  | 23.73   | 44.80  | 59.85 | 115.22  | 41.99 |
-| + FS              | 15.06  | 23.45  | 32.29   | 137.94 | 52.04 | 136.64  | 49.79 |
-| Vicuna1.513b      | 7.73   | 26.35  | 29.15   | 69.16  | 71.91 | 142.06  | 51.77 |
-| + FS              | 6.85   | 18.66  | 25.99   | 92.96  | 46.19 | 106.99  | 38.99 |
-| Vicuna1.57b       | 6.29   | 24.34  | 26.91   | 46.90  | 68.84 | 131.07  | 47.77 |
-| + FS              | 20.71  | 30.19  | 45.20   | 203.20 | 67.58 | 184.00  | 67.05 |
-| FLAN-T5           | 16.20  | 24.43  | 29.38   | 95.17  | 56.38 | 135.91  | 49.53 |
-| + FS              | 12.88  | 30.38  | 36.27   | 92.20  | 76.44 | 165.19  | 60.20 |
-| Mistral7b         | 5.82   | 22.89  | 24.19   | 44.03  | 63.74 | 121.03  | 44.11 |
-| + FS              | 18.96  | 29.02  | 43.15   | 185.61 | 63.24 | 172.93  | 63.02 |
-| ChatGLM36b        | 6.56   | 21.11  | 21.96   | 41.48  | 53.02 | 106.80  | 38.92 |
-| + FS              | 10.53  | 24.17  | 33.44   | 124.50 | 56.94 | 137.53  | 50.12 |
-| LLaMA2†<br>70b    | 22.34  | 33.03  | 50.93   | 243.31 | 74.96 | 205.59  | 74.92 |
-| LLaMA2†<br>13b    | 17.54  | 29.44  | 45.21   | 200.14 | 65.64 | 177.84  | 64.81 |
-| LLaMA2†<br>7b     | 17.49  | 28.33  | 45.24   | 202.08 | 59.98 | 171.25  | 62.41 |
-| Baichuan2†<br>13b | 17.86  | 29.75  | 44.28   | 198.83 | 66.35 | 178.12  | 64.91 |
-| Baichuan2†<br>7b  | 15.30  | 27.54  | 41.80   | 171.59 | 62.40 | 164.20  | 59.84 |
-| Mistral†<br>7b    | 14.54  | 27.39  | 41.72   | 168.89 | 59.42 | 159.96  | 58.30 |
-| ChatGLM3†<br>6b   | 17.11  | 29.35  | 40.74   | 156.49 | 66.18 | 169.02  | 61.60 |
+| Human | 39.9 | 40.4 | 56.3 | 397 | 98.1 | 274.4 | 100.0 |
+| GPT-4 | 8.23 | 31.27 | 28.84 | 38.45 | 90.41 | 162.59 | 59.25 |
+| + FS | 28.64 | 38.99 | 55.69 | 298.64 | 90.11 | 243.29 | 88.66 |
+| GPT-3.5 | 13.38 | 30.12 | 35.91 | 125.41 | 78.76 | 170.70 | 62.21 |
+| + FS | 27.24 | 33.77 | 51.18 | 282.75 | 76.54 | 217.01 | 79.08 |
+| LLaMA270b | 5.15 | 13.62 | 15.83 | 22.07 | 31.79 | 68.60 | 25.00 |
+| + FS | 19.10 | 29.09 | 41.74 | 171.36 | 65.29 | 172.35 | 62.81 |
+| LLaMA213b | 4.66 | 21.43 | 20.80 | 17.72 | 61.62 | 110.28 | 40.19 |
+| + FS | 15.15 | 27.49 | 37.55 | 138.13 | 64.94 | 158.93 | 57.92 |
+| LLaMA27b | 2.77 | 13.46 | 14.69 | 14.34 | 34.83 | 67.18 | 24.48 |
+| + FS | 6.90 | 15.82 | 21.77 | 52.99 | 33.81 | 83.60 | 30.47 |
+| Baichuan213b | 8.33 | 25.86 | 30.07 | 82.63 | 70.63 | 143.15 | 52.17 |
+| + FS | 15.79 | 30.23 | 40.96 | 169.14 | 71.01 | 174.91 | 63.74 |
+| Baichuan27b | 5.17 | 21.99 | 23.73 | 44.80 | 59.85 | 115.22 | 41.99 |
+| + FS | 15.06 | 23.45 | 32.29 | 137.94 | 52.04 | 136.64 | 49.79 |
+| Vicuna1.513b | 7.73 | 26.35 | 29.15 | 69.16 | 71.91 | 142.06 | 51.77 |
+| + FS | 6.85 | 18.66 | 25.99 | 92.96 | 46.19 | 106.99 | 38.99 |
+| Vicuna1.57b | 6.29 | 24.34 | 26.91 | 46.90 | 68.84 | 131.07 | 47.77 |
+| + FS | 20.71 | 30.19 | 45.20 | 203.20 | 67.58 | 184.00 | 67.05 |
+| FLAN-T5 | 16.20 | 24.43 | 29.38 | 95.17 | 56.38 | 135.91 | 49.53 |
+| + FS | 12.88 | 30.38 | 36.27 | 92.20 | 76.44 | 165.19 | 60.20 |
+| Mistral7b | 5.82 | 22.89 | 24.19 | 44.03 | 63.74 | 121.03 | 44.11 |
+| + FS | 18.96 | 29.02 | 43.15 | 185.61 | 63.24 | 172.93 | 63.02 |
+| ChatGLM36b | 6.56 | 21.11 | 21.96 | 41.48 | 53.02 | 106.80 | 38.92 |
+| + FS | 10.53 | 24.17 | 33.44 | 124.50 | 56.94 | 137.53 | 50.12 |
+| LLaMA2†<br>70b | 22.34 | 33.03 | 50.93 | 243.31 | 74.96 | 205.59 | 74.92 |
+| LLaMA2†<br>13b | 17.54 | 29.44 | 45.21 | 200.14 | 65.64 | 177.84 | 64.81 |
+| LLaMA2†<br>7b | 17.49 | 28.33 | 45.24 | 202.08 | 59.98 | 171.25 | 62.41 |
+| Baichuan2†<br>13b | 17.86 | 29.75 | 44.28 | 198.83 | 66.35 | 178.12 | 64.91 |
+| Baichuan2†<br>7b | 15.30 | 27.54 | 41.80 | 171.59 | 62.40 | 164.20 | 59.84 |
+| Mistral†<br>7b | 14.54 | 27.39 | 41.72 | 168.89 | 59.42 | 159.96 | 58.30 |
+| ChatGLM3†<br>6b | 17.11 | 29.35 | 40.74 | 156.49 | 66.18 | 169.02 | 61.60 |
 
-Table 8: Full results of SituatedGen. Aligned models are under zero-shot setting by default. The top-3 results are bold. Methods with † are base models without alignment, under few-shot setting. We consider human performance as 100 points and normalize models' results accordingly.
+**Table 8:** Full results of SituatedGen. Aligned models are under zero-shot setting by default. The top-3 results are bold. Methods with † are base models without alignment, under few-shot setting. We consider human performance as 100 points and normalize models' results accordingly.
 
-<span id="page-18-0"></span>
 
-|                                           |                                                                                              | Symbolic                       |                              |                              |                                                              | Commonsense                                      |                                                        |                                                              |                              |                              |                              |                              |                              |                              | Event                        |                              |                              |                              |                              |                              |                              |                              | Overall                      |                              |                              |
+| | | Symbolic | | | | Commonsense | | | | | | | | | Event | | | | | | | | Overall | | |
 |-------------------------------------------|----------------------------------------------------------------------------------------------|--------------------------------|------------------------------|------------------------------|--------------------------------------------------------------|--------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-| Method                                    | s3<br>TimeXNLI<br>s2<br>s1                                                                   | Date Arith<br>Acc              | EM                           | DurationQA<br>F1             | McTACO<br>F1<br>EM                                           | TimeDial<br>EM                                   | SitGen<br>Norm<br>F1                                   | E-F1<br>E-EM                                                 | H-EM<br>TimeQA               | H-F1                         | S-EM                         | S-F1                         | O-EM                         | O-F1<br>MenatQA              | C-EM                         | C-F1                         | L2-EM                        | TempReason<br>L2-F1          | L3-EM                        | L3-F1                        | TRACIE Sym.<br>Acc           |                              | Comm.                        | Event                        | Avg.                         |
-| Human                                     | 92.0<br>96.0<br>98.0                                                                         | 100.0                          | 64.0                         | 80.8                         | 87.1<br>75.8                                                 | 97.8                                             | 100.0<br>97.8                                          | 93.3<br>89.0                                                 | 87.0                         | 91.1                         | 82.0                         | 85.6                         | 84.0                         | 87.3                         | 76.0                         | 79.9                         | 96.0                         | 97.1                         | 94.0                         | 95.3                         | 82.5                         | 96.5                         | 91.4                         | 89.0                         | 91.5                         |
-| + FS CoT<br>+ CoT<br>GPT-4<br>+ FS        | 50.7<br>60.0<br>64.0<br>53.3<br>76.0<br>76.0<br>73.3<br>84.0<br>78.6<br>80.0<br>92.0<br>85.3 | 100.0<br>100.0<br>98.0<br>92.0 | 35.0<br>35.0<br>51.0<br>42.0 | 59.2<br>64.8<br>58.1<br>55.1 | 80.0<br>82.6<br>88.3<br>72.3<br>61.2<br>67.0<br>77.6<br>68.0 | 72.0<br>65.0<br>85.0<br>79.0                     | 88.6<br>59.3<br>-<br>-<br>94.6<br>93.4<br>89.3<br>91.1 | 60.6<br>73.7<br>66.9<br>61.3<br>48.9<br>50.0<br>59.2<br>48.0 | 40.4<br>33.0<br>40.0<br>44.4 | 41.2<br>51.0<br>52.8<br>46.5 | 44.4<br>43.4<br>59.6<br>48.5 | 57.0<br>54.6<br>72.4<br>65.3 | 49.0<br>53.0<br>48.0<br>44.0 | 57.0<br>59.6<br>54.8<br>52.6 | 22.0<br>20.0<br>22.0<br>25.3 | 22.6<br>28.7<br>25.9<br>23.1 | 91.0<br>93.0<br>86.0<br>91.0 | 95.3<br>97.0<br>92.4<br>96.9 | 94.0<br>93.0<br>94.8<br>93.0 | 95.0<br>94.5<br>95.9<br>94.6 | 58.0<br>66.4<br>64.8<br>62.8 | 75.8<br>77.0<br>78.0<br>85.0 | 72.4<br>76.7<br>84.1<br>73.6 | 62.4<br>66.5<br>65.2<br>61.1 | 68.3<br>68.5<br>73.7<br>72.1 |
-| + FS CoT<br>GPT-3.5<br>+ CoT<br>+ FS      | 31.2<br>33.6<br>31.6<br>36.6<br>67.6<br>64.8<br>68.4<br>71.8<br>45.4<br>33.6<br>52.0<br>51.6 | 97.0<br>71.0<br>63.6<br>84.4   | 19.2<br>12.4<br>42.8<br>20.8 | 23.2<br>67.7<br>41.2<br>50.5 | 68.6<br>45.1<br>43.5<br>21.4<br>34.1<br>28.1                 | 71.2 47.8 76.4<br>38.1 48.3 71.1<br>39.2<br>34.6 | 62.3<br>79.1<br>-<br>-<br>67.0<br>69.1                 | 70.8<br>64.4<br>68.0<br>66.1<br>60.5<br>52.5<br>53.8<br>56.5 | 29.5<br>29.0<br>37.9<br>37.5 | 35.4<br>48.4<br>47.0<br>35.1 | 36.5<br>35.8<br>37.8<br>38.1 | 40.9<br>39.7<br>43.2<br>42.5 | 43.5<br>37.5<br>38.5<br>37.5 | 43.9<br>42.9<br>51.6<br>41.7 | 21.0<br>24.0<br>16.0<br>33.0 | 22.9<br>26.3<br>17.9<br>37.8 | 73.6<br>32.0<br>86.2<br>77.7 | 81.2<br>57.6<br>84.7<br>89.9 | 54.2<br>70.0<br>68.0<br>61.8 | 73.8<br>78.0<br>76.6<br>68.1 | 57.4<br>52.0<br>55.0<br>50.2 | 60.3<br>50.8<br>53.9<br>61.1 | 62.6<br>73.6<br>45.1<br>50.1 | 53.3<br>48.3<br>55.6<br>56.7 | 57.4<br>48.3<br>59.7<br>56.6 |
-| LLaMA270b<br>+ FS CoT<br>+ CoT<br>+ FS    | 32.0<br>30.0 66.0 28.0<br>38.0<br>63.0 40.0<br>47.0<br>42.0<br>44.0<br>49.0<br>54.0          | 78.5<br>53.5<br>62.0<br>69.5   | 12.7<br>8.0<br>1.3<br>8.0    | 59.2<br>61.2<br>55.2<br>57.3 | 68.9<br>66.5<br>67.1<br>62.1<br>23.0<br>21.0<br>13.0<br>21.5 | 10.0 57.0<br>9.0<br>6.0<br>6.0                   | 25.0<br>62.8<br>58.6<br>56.4<br>56.6                   | 31.4<br>50.9<br>40.8<br>51.1<br>28.0<br>17.0<br>41.0<br>36.6 | 31.0<br>13.0<br>16.0<br>34.0 | 40.6<br>20.0<br>42.4<br>19.5 | 28.0<br>8.0<br>5.0<br>8.0    | 18.9<br>12.2<br>16.4<br>38.6 | 11.0<br>17.0<br>19.0<br>8.0  | 16.6<br>12.7<br>19.9<br>29.3 | 18.0<br>18.0<br>18.0<br>9.0  | 12.0<br>20.8<br>18.7<br>21.9 | 50.0<br>12.0<br>34.0<br>77.0 | 63.5<br>37.5<br>52.2<br>83.1 | 39.0<br>20.0<br>31.0<br>65.0 | 54.5<br>40.5<br>74.7<br>41.1 | 48.0<br>51.0<br>51.0<br>57.0 | 50.4<br>44.4<br>47.8<br>56.6 | 52.5<br>61.0<br>61.8<br>57.9 | 36.8<br>28.2<br>33.8<br>49.7 | 44.3<br>53.2<br>44.1<br>39.1 |
-| LLaMA213b<br>+ FS CoT<br>+ CoT<br>+ FS    | 34.0<br>38.0<br>60.0<br>50.0<br>49.0<br>50.0<br>57.0<br>55.0<br>30.0<br>36.0<br>43.0<br>37.0 | 22.5<br>20.5<br>33.0<br>6.0    | 12.0<br>4.0<br>7.3<br>9.0    | 39.2<br>38.5<br>46.8<br>49.5 | 40.6<br>14.0 51.7<br>45.6<br>11.0<br>8.5<br>8.0              | 10.0<br>10.0<br>15.0<br>8.0<br>66.6              | 57.9<br>40.2<br>-<br>-<br>35.4<br>36.9<br>62.3<br>44.5 | 61.9<br>34.2<br>46.0<br>58.7<br>46.0<br>45.0<br>24.0<br>35.0 | 21.0<br>30.0<br>17.0<br>21.0 | 38.9<br>18.4<br>25.4<br>30.5 | 28.0<br>20.0<br>11.0<br>34.0 | 40.9<br>25.9<br>46.7<br>46.1 | 23.0<br>18.0<br>23.0<br>5.0  | 32.5<br>14.6<br>36.5<br>36.1 | 18.0<br>21.0<br>22.0<br>7.0  | 26.9<br>33.6<br>33.3<br>16.5 | 43.0<br>43.0<br>54.0<br>72.0 | 58.0<br>80.8<br>53.1<br>68.1 | 55.0<br>56.0<br>50.0<br>54.0 | 69.4<br>68.4<br>64.8<br>66.2 | 49.0<br>47.0<br>47.0<br>50.0 | 33.9<br>32.5<br>45.1<br>43.8 | 42.6<br>54.0<br>46.5<br>43.1 | 46.6<br>47.3<br>38.3<br>46.0 | 42.6<br>42.4<br>43.9<br>45.5 |
-| LLaMA27b<br>+ FS CoT<br>+ CoT<br>+ FS     | 30.0<br>33.0<br>60.0 34.0<br>51.0 36.0<br>53.0<br>44.0 50.0<br>39.0<br>44.0<br>38.0          | 13.0<br>11.0<br>14.5<br>5.0    | 11.0<br>2.7<br>2.7<br>4.0    | 35.0<br>39.3<br>62.8<br>42.8 | 41.0<br>40.0<br>65.6<br>64.7<br>25.0<br>4.0<br>4.5<br>8.0    | 13.0<br>1.0<br>1.0<br>8.0                        | 30.5<br>24.5<br>-<br>-<br>40.0<br>53.4<br>6.3<br>1.7   | 49.0<br>49.9<br>53.5<br>50.8<br>37.0<br>27.0<br>36.0<br>36.0 | 14.0<br>17.0<br>20.0<br>21.0 | 29.0<br>31.6<br>29.4<br>34.1 | 11.0<br>7.0<br>5.0<br>1.0    | 26.8<br>31.4<br>13.6<br>22.3 | 10.0<br>8.0<br>6.0<br>3.0    | 24.5<br>18.0<br>11.2<br>21.1 | 9.0<br>7.0<br>6.0<br>5.0     | 16.0<br>17.8<br>17.9<br>14.0 | 48.0<br>44.0<br>12.0<br>22.0 | 63.9<br>56.9<br>36.3<br>46.7 | 32.0<br>32.0<br>23.0<br>21.0 | 47.9<br>48.1<br>44.3<br>42.3 | 49.0<br>46.0<br>53.0<br>51.0 | 33.8<br>33.0<br>37.3<br>34.9 | 27.8<br>25.6<br>49.5<br>53.9 | 37.8<br>38.3<br>34.0<br>33.3 | 34.3<br>34.3<br>38.7<br>37.8 |
-| Baichuan213b<br>+ FS CoT<br>+ CoT<br>+ FS | 41.0 61.0 37.0<br>31.0<br>40.0<br>45.0 54.0 48.0<br>57.0<br>59.0<br>40.0<br>43.0             | 12.5<br>10.0<br>42.5<br>47.0   | 24.7<br>10.7<br>4.0<br>3.3   | 52.0<br>44.6<br>62.1<br>44.4 | 70.2<br>63.4<br>61.9<br>68.8<br>20.0<br>27.5<br>27.0<br>18.5 | 15.0<br>13.0<br>18.0<br>15.0                     | 52.2<br>63.7<br>-<br>-<br>58.9<br>55.0<br>57.7<br>58.1 | 55.4<br>60.7<br>41.5<br>57.8<br>45.0<br>36.0<br>47.0<br>43.0 | 29.0<br>36.0<br>35.0<br>27.0 | 34.6<br>40.9<br>45.7<br>36.7 | 31.0<br>39.0<br>37.0<br>38.0 | 48.8<br>52.0<br>51.9<br>49.8 | 34.0<br>27.0<br>31.0<br>34.0 | 44.3<br>38.5<br>41.5<br>40.7 | 30.0<br>29.0<br>19.0<br>33.0 | 39.5<br>43.2<br>31.8<br>43.0 | 40.0<br>46.0<br>73.0<br>72.8 | 57.4<br>62.8<br>81.1<br>80.4 | 45.0<br>46.0<br>48.0<br>43.0 | 61.4<br>64.3<br>59.4<br>60.2 | 49.0<br>55.0<br>48.0<br>44.0 | 37.9<br>34.5<br>48.5<br>46.1 | 63.7<br>56.3<br>54.9<br>56.1 | 48.8<br>49.8<br>52.5<br>51.6 | 48.0<br>46.7<br>53.7<br>51.7 |
-| Baichuan27b<br>+ FS CoT<br>+ CoT<br>+ FS  | 35.0 50.0 37.0<br>32.0<br>40.0 50.0 36.0<br>50.0 36.0<br>43.0<br>38.0<br>41.0                | 20.0<br>23.5<br>4.5<br>1.0     | 28.7<br>13.0<br>4.0<br>5.3   | 59.4<br>47.9<br>37.9<br>45.7 | 58.0<br>55.3<br>66.9<br>58.1<br>13.0<br>26.5<br>10.5<br>17.5 | 15.0<br>15.0<br>17.0<br>7.0                      | 42.0<br>49.8<br>-<br>-<br>44.2<br>53.0<br>39.2<br>54.3 | 60.7<br>51.2<br>41.5<br>53.5<br>26.0<br>41.0<br>45.0<br>36.0 | 20.0<br>28.0<br>30.0<br>29.0 | 34.7<br>38.8<br>43.0<br>42.1 | 20.0<br>29.0<br>27.0<br>42.0 | 35.2<br>39.9<br>37.8<br>52.5 | 19.0<br>23.0<br>23.0<br>25.0 | 31.2<br>33.2<br>35.7<br>39.3 | 18.0<br>10.0<br>20.0<br>6.0  | 20.4<br>29.3<br>20.4<br>31.0 | 22.0<br>21.0<br>40.0<br>57.0 | 43.4<br>41.2<br>57.4<br>70.1 | 29.0<br>29.0<br>37.0<br>39.0 | 47.7<br>47.2<br>53.0<br>60.2 | 55.0<br>54.0<br>51.0<br>49.0 | 31.6<br>28.5<br>36.5<br>37.6 | 49.9<br>46.7<br>57.3<br>47.7 | 38.6<br>44.8<br>49.5<br>42.1 | 39.7<br>39.4<br>45.8<br>46.0 |
-| Vicuna1.513b<br>+ FS CoT<br>+ CoT<br>+ FS | 36.0<br>37.0<br>38.0<br>39.0<br>50.0<br>51.0<br>48.0 57.0<br>38.0 59.0<br>35.0<br>42.0       | 15.0<br>30.5<br>39.5<br>3.0    | 10.7<br>8.0<br>1.3<br>7.3    | 39.2<br>37.4<br>29.8<br>33.6 | 50.0<br>57.0<br>45.8<br>59.1<br>27.5<br>14.0<br>21.5<br>11.5 | 12.0 41.6<br>13.0 40.3<br>7.0<br>7.0             | 51.8<br>39.0<br>-<br>-<br>34.2<br>33.7                 | 60.4<br>56.9<br>59.5<br>58.3<br>43.0<br>44.0<br>45.0<br>47.0 | 29.0<br>31.0<br>23.0<br>27.0 | 37.0<br>36.4<br>25.9<br>30.7 | 38.0<br>16.0<br>38.0<br>39.0 | 46.8<br>38.2<br>42.6<br>48.1 | 22.0<br>25.0<br>26.0<br>31.0 | 37.4<br>37.7<br>41.4<br>35.9 | 17.0<br>13.0<br>18.0<br>26.0 | 23.2<br>20.4<br>31.2<br>20.1 | 14.0<br>31.0<br>51.0<br>71.0 | 49.0<br>61.8<br>77.5<br>42.1 | 13.0<br>29.0<br>28.0<br>53.0 | 43.6<br>42.6<br>65.5<br>49.1 | 46.0<br>51.0<br>56.0<br>52.0 | 34.0<br>33.3<br>43.4<br>43.9 | 46.1<br>37.8<br>42.5<br>41.6 | 42.3<br>43.6<br>50.1<br>42.1 | 39.0<br>43.3<br>46.7<br>41.1 |
-| Vicuna1.57b<br>+ FS CoT<br>+ CoT<br>+ FS  | 43.0<br>36.0<br>37.0<br>35.0<br>37.0 58.0<br>50.0<br>43.0 57.0<br>54.0<br>36.0<br>35.0       | 5.0<br>1.5<br>8.5<br>8.0       | 1.3<br>1.3<br>3.3<br>2.7     | 44.6<br>37.2<br>40.4<br>39.4 | 49.2<br>52.5<br>42.1<br>10.0<br>9.5<br>8.5<br>5.5            | 47.5 10.0<br>6.0<br>9.0<br>7.0                   | 47.8<br>67.1<br>-<br>-<br>32.0<br>36.2<br>36.8<br>41.3 | 40.9<br>31.9<br>39.9<br>47.1<br>35.0<br>30.0<br>24.0<br>31.0 | 11.0<br>14.0<br>12.0<br>13.0 | 24.6<br>14.9<br>16.6<br>18.5 | 20.0<br>16.0<br>16.0<br>15.0 | 35.7<br>26.2<br>21.8<br>26.7 | 15.0<br>14.0<br>20.0<br>15.0 | 25.7<br>28.5<br>27.5<br>23.8 | 12.0<br>12.0<br>17.0<br>16.0 | 17.3<br>25.0<br>22.2<br>23.1 | 14.0<br>13.0<br>55.0<br>9.0  | 33.0<br>27.7<br>34.3<br>66.3 | 14.0<br>32.0<br>7.0<br>6.0   | 46.8<br>40.3<br>32.2<br>48.1 | 54.0<br>54.0<br>54.0<br>43.0 | 35.8<br>30.9<br>36.4<br>33.0 | 47.7<br>43.2<br>41.6<br>42.0 | 34.8<br>33.4<br>29.9<br>35.9 | 37.1<br>34.4<br>35.9<br>36.4 |
-| FLANT511b<br>+ FS CoT<br>+ CoT<br>+ FS    | 43.0<br>45.0<br>43.0<br>46.0<br>63.0<br>56.0 66.0<br>65.0<br>54.0 68.0<br>53.0<br>53.0       | 0.0<br>0.0<br>3.5<br>3.5       | 4.0<br>4.7<br>4.0<br>4.0     | 52.0<br>50.2<br>49.7<br>50.7 | 65.0<br>64.0<br>65.8<br>14.0<br>15.5<br>13.0<br>14.5         | 11.0 43.7<br>63.4 13.0 42.7<br>13.0<br>9.0       | 60.2<br>49.5<br>-<br>-<br>35.0<br>47.7                 | 64.4<br>59.4<br>61.7<br>64.3<br>56.0<br>57.6<br>55.0<br>54.0 | 24.0<br>23.9<br>23.0<br>19.0 | 26.8<br>28.2<br>25.0<br>21.2 | 31.0<br>39.0<br>31.0<br>34.0 | 33.6<br>41.6<br>33.6<br>36.6 | 48.0<br>46.0<br>47.0<br>45.0 | 52.2<br>50.2<br>50.6<br>49.2 | 20.0<br>28.0<br>21.0<br>20.0 | 21.8<br>30.6<br>22.5<br>21.7 | 84.0<br>73.0<br>82.0<br>89.0 | 87.9<br>79.5<br>87.0<br>93.8 | 78.0<br>57.0<br>78.0<br>72.0 | 83.9<br>68.9<br>84.5<br>79.7 | 64.0<br>55.0<br>65.0<br>66.0 | 39.8<br>41.8<br>42.9<br>41.1 | 53.6<br>51.9<br>52.8<br>52.8 | 54.0<br>52.3<br>54.1<br>53.5 | 50.3<br>49.4<br>50.5<br>50.5 |
-| Mistral7b<br>+ CoT<br>+ FS                | 50.0 43.0<br>35.0<br>35.0<br>56.0<br>51.0 57.0<br>47.0<br>38.0                               | 26.5<br>16.5<br>18.0           | 13.3<br>12.0<br>11.3         | 49.8<br>36.6<br>55.8         | 71.0<br>58.8<br>49.3<br>15.0<br>25.5<br>14.5                 | 13.0<br>6.0<br>8.0                               | 63.0<br>58.3<br>-<br>23.2<br>52.9<br>19.3              | 28.2<br>43.5<br>31.3<br>13.0<br>24.0<br>7.0                  | 11.0<br>12.0<br>5.0          | 21.4<br>22.4<br>23.9         | 4.0<br>8.0<br>4.0            | 24.3<br>21.1<br>21.3         | 14.0<br>7.0<br>7.0           | 22.3<br>24.9<br>21.2         | 12.0<br>4.0<br>7.0           | 21.7<br>25.6<br>23.0         | 23.0<br>2.0<br>5.0           | 39.6<br>34.0<br>48.9         | 23.0<br>1.0<br>4.0           | 31.6<br>31.2<br>44.9         | 51.0<br>61.0<br>57.0         | 41.6<br>36.4<br>40.3         | 60.7<br>47.5<br>35.1         | 30.0<br>31.4<br>35.5         | 37.3<br>33.5<br>43.0         |
+| Method | s3<br>TimeXNLI<br>s2<br>s1 | Date Arith<br>Acc | EM | DurationQA<br>F1 | McTACO<br>F1<br>EM | TimeDial<br>EM | SitGen<br>Norm<br>F1 | E-F1<br>E-EM | H-EM<br>TimeQA | H-F1 | S-EM | S-F1 | O-EM | O-F1<br>MenatQA | C-EM | C-F1 | L2-EM | TempReason<br>L2-F1 | L3-EM | L3-F1 | TRACIE Sym.<br>Acc | | Comm. | Event | Avg. |
+| Human | 92.0<br>96.0<br>98.0 | 100.0 | 64.0 | 80.8 | 87.1<br>75.8 | 97.8 | 100.0<br>97.8 | 93.3<br>89.0 | 87.0 | 91.1 | 82.0 | 85.6 | 84.0 | 87.3 | 76.0 | 79.9 | 96.0 | 97.1 | 94.0 | 95.3 | 82.5 | 96.5 | 91.4 | 89.0 | 91.5 |
+| + FS CoT<br>+ CoT<br>GPT-4<br>+ FS | 50.7<br>60.0<br>64.0<br>53.3<br>76.0<br>76.0<br>73.3<br>84.0<br>78.6<br>80.0<br>92.0<br>85.3 | 100.0<br>100.0<br>98.0<br>92.0 | 35.0<br>35.0<br>51.0<br>42.0 | 59.2<br>64.8<br>58.1<br>55.1 | 80.0<br>82.6<br>88.3<br>72.3<br>61.2<br>67.0<br>77.6<br>68.0 | 72.0<br>65.0<br>85.0<br>79.0 | 88.6<br>59.3<br>-<br>-<br>94.6<br>93.4<br>89.3<br>91.1 | 60.6<br>73.7<br>66.9<br>61.3<br>48.9<br>50.0<br>59.2<br>48.0 | 40.4<br>33.0<br>40.0<br>44.4 | 41.2<br>51.0<br>52.8<br>46.5 | 44.4<br>43.4<br>59.6<br>48.5 | 57.0<br>54.6<br>72.4<br>65.3 | 49.0<br>53.0<br>48.0<br>44.0 | 57.0<br>59.6<br>54.8<br>52.6 | 22.0<br>20.0<br>22.0<br>25.3 | 22.6<br>28.7<br>25.9<br>23.1 | 91.0<br>93.0<br>86.0<br>91.0 | 95.3<br>97.0<br>92.4<br>96.9 | 94.0<br>93.0<br>94.8<br>93.0 | 95.0<br>94.5<br>95.9<br>94.6 | 58.0<br>66.4<br>64.8<br>62.8 | 75.8<br>77.0<br>78.0<br>85.0 | 72.4<br>76.7<br>84.1<br>73.6 | 62.4<br>66.5<br>65.2<br>61.1 | 68.3<br>68.5<br>73.7<br>72.1 |
+| + FS CoT<br>GPT-3.5<br>+ CoT<br>+ FS | 31.2<br>33.6<br>31.6<br>36.6<br>67.6<br>64.8<br>68.4<br>71.8<br>45.4<br>33.6<br>52.0<br>51.6 | 97.0<br>71.0<br>63.6<br>84.4 | 19.2<br>12.4<br>42.8<br>20.8 | 23.2<br>67.7<br>41.2<br>50.5 | 68.6<br>45.1<br>43.5<br>21.4<br>34.1<br>28.1 | 71.2 47.8 76.4<br>38.1 48.3 71.1<br>39.2<br>34.6 | 62.3<br>79.1<br>-<br>-<br>67.0<br>69.1 | 70.8<br>64.4<br>68.0<br>66.1<br>60.5<br>52.5<br>53.8<br>56.5 | 29.5<br>29.0<br>37.9<br>37.5 | 35.4<br>48.4<br>47.0<br>35.1 | 36.5<br>35.8<br>37.8<br>38.1 | 40.9<br>39.7<br>43.2<br>42.5 | 43.5<br>37.5<br>38.5<br>37.5 | 43.9<br>42.9<br>51.6<br>41.7 | 21.0<br>24.0<br>16.0<br>33.0 | 22.9<br>26.3<br>17.9<br>37.8 | 73.6<br>32.0<br>86.2<br>77.7 | 81.2<br>57.6<br>84.7<br>89.9 | 54.2<br>70.0<br>68.0<br>61.8 | 73.8<br>78.0<br>76.6<br>68.1 | 57.4<br>52.0<br>55.0<br>50.2 | 60.3<br>50.8<br>53.9<br>61.1 | 62.6<br>73.6<br>45.1<br>50.1 | 53.3<br>48.3<br>55.6<br>56.7 | 57.4<br>48.3<br>59.7<br>56.6 |
+| LLaMA270b<br>+ FS CoT<br>+ CoT<br>+ FS | 32.0<br>30.0 66.0 28.0<br>38.0<br>63.0 40.0<br>47.0<br>42.0<br>44.0<br>49.0<br>54.0 | 78.5<br>53.5<br>62.0<br>69.5 | 12.7<br>8.0<br>1.3<br>8.0 | 59.2<br>61.2<br>55.2<br>57.3 | 68.9<br>66.5<br>67.1<br>62.1<br>23.0<br>21.0<br>13.0<br>21.5 | 10.0 57.0<br>9.0<br>6.0<br>6.0 | 25.0<br>62.8<br>58.6<br>56.4<br>56.6 | 31.4<br>50.9<br>40.8<br>51.1<br>28.0<br>17.0<br>41.0<br>36.6 | 31.0<br>13.0<br>16.0<br>34.0 | 40.6<br>20.0<br>42.4<br>19.5 | 28.0<br>8.0<br>5.0<br>8.0 | 18.9<br>12.2<br>16.4<br>38.6 | 11.0<br>17.0<br>19.0<br>8.0 | 16.6<br>12.7<br>19.9<br>29.3 | 18.0<br>18.0<br>18.0<br>9.0 | 12.0<br>20.8<br>18.7<br>21.9 | 50.0<br>12.0<br>34.0<br>77.0 | 63.5<br>37.5<br>52.2<br>83.1 | 39.0<br>20.0<br>31.0<br>65.0 | 54.5<br>40.5<br>74.7<br>41.1 | 48.0<br>51.0<br>51.0<br>57.0 | 50.4<br>44.4<br>47.8<br>56.6 | 52.5<br>61.0<br>61.8<br>57.9 | 36.8<br>28.2<br>33.8<br>49.7 | 44.3<br>53.2<br>44.1<br>39.1 |
+| LLaMA213b<br>+ FS CoT<br>+ CoT<br>+ FS | 34.0<br>38.0<br>60.0<br>50.0<br>49.0<br>50.0<br>57.0<br>55.0<br>30.0<br>36.0<br>43.0<br>37.0 | 22.5<br>20.5<br>33.0<br>6.0 | 12.0<br>4.0<br>7.3<br>9.0 | 39.2<br>38.5<br>46.8<br>49.5 | 40.6<br>14.0 51.7<br>45.6<br>11.0<br>8.5<br>8.0 | 10.0<br>10.0<br>15.0<br>8.0<br>66.6 | 57.9<br>40.2<br>-<br>-<br>35.4<br>36.9<br>62.3<br>44.5 | 61.9<br>34.2<br>46.0<br>58.7<br>46.0<br>45.0<br>24.0<br>35.0 | 21.0<br>30.0<br>17.0<br>21.0 | 38.9<br>18.4<br>25.4<br>30.5 | 28.0<br>20.0<br>11.0<br>34.0 | 40.9<br>25.9<br>46.7<br>46.1 | 23.0<br>18.0<br>23.0<br>5.0 | 32.5<br>14.6<br>36.5<br>36.1 | 18.0<br>21.0<br>22.0<br>7.0 | 26.9<br>33.6<br>33.3<br>16.5 | 43.0<br>43.0<br>54.0<br>72.0 | 58.0<br>80.8<br>53.1<br>68.1 | 55.0<br>56.0<br>50.0<br>54.0 | 69.4<br>68.4<br>64.8<br>66.2 | 49.0<br>47.0<br>47.0<br>50.0 | 33.9<br>32.5<br>45.1<br>43.8 | 42.6<br>54.0<br>46.5<br>43.1 | 46.6<br>47.3<br>38.3<br>46.0 | 42.6<br>42.4<br>43.9<br>45.5 |
+| LLaMA27b<br>+ FS CoT<br>+ CoT<br>+ FS | 30.0<br>33.0<br>60.0 34.0<br>51.0 36.0<br>53.0<br>44.0 50.0<br>39.0<br>44.0<br>38.0 | 13.0<br>11.0<br>14.5<br>5.0 | 11.0<br>2.7<br>2.7<br>4.0 | 35.0<br>39.3<br>62.8<br>42.8 | 41.0<br>40.0<br>65.6<br>64.7<br>25.0<br>4.0<br>4.5<br>8.0 | 13.0<br>1.0<br>1.0<br>8.0 | 30.5<br>24.5<br>-<br>-<br>40.0<br>53.4<br>6.3<br>1.7 | 49.0<br>49.9<br>53.5<br>50.8<br>37.0<br>27.0<br>36.0<br>36.0 | 14.0<br>17.0<br>20.0<br>21.0 | 29.0<br>31.6<br>29.4<br>34.1 | 11.0<br>7.0<br>5.0<br>1.0 | 26.8<br>31.4<br>13.6<br>22.3 | 10.0<br>8.0<br>6.0<br>3.0 | 24.5<br>18.0<br>11.2<br>21.1 | 9.0<br>7.0<br>6.0<br>5.0 | 16.0<br>17.8<br>17.9<br>14.0 | 48.0<br>44.0<br>12.0<br>22.0 | 63.9<br>56.9<br>36.3<br>46.7 | 32.0<br>32.0<br>23.0<br>21.0 | 47.9<br>48.1<br>44.3<br>42.3 | 49.0<br>46.0<br>53.0<br>51.0 | 33.8<br>33.0<br>37.3<br>34.9 | 27.8<br>25.6<br>49.5<br>53.9 | 37.8<br>38.3<br>34.0<br>33.3 | 34.3<br>34.3<br>38.7<br>37.8 |
+| Baichuan213b<br>+ FS CoT<br>+ CoT<br>+ FS | 41.0 61.0 37.0<br>31.0<br>40.0<br>45.0 54.0 48.0<br>57.0<br>59.0<br>40.0<br>43.0 | 12.5<br>10.0<br>42.5<br>47.0 | 24.7<br>10.7<br>4.0<br>3.3 | 52.0<br>44.6<br>62.1<br>44.4 | 70.2<br>63.4<br>61.9<br>68.8<br>20.0<br>27.5<br>27.0<br>18.5 | 15.0<br>13.0<br>18.0<br>15.0 | 52.2<br>63.7<br>-<br>-<br>58.9<br>55.0<br>57.7<br>58.1 | 55.4<br>60.7<br>41.5<br>57.8<br>45.0<br>36.0<br>47.0<br>43.0 | 29.0<br>36.0<br>35.0<br>27.0 | 34.6<br>40.9<br>45.7<br>36.7 | 31.0<br>39.0<br>37.0<br>38.0 | 48.8<br>52.0<br>51.9<br>49.8 | 34.0<br>27.0<br>31.0<br>34.0 | 44.3<br>38.5<br>41.5<br>40.7 | 30.0<br>29.0<br>19.0<br>33.0 | 39.5<br>43.2<br>31.8<br>43.0 | 40.0<br>46.0<br>73.0<br>72.8 | 57.4<br>62.8<br>81.1<br>80.4 | 45.0<br>46.0<br>48.0<br>43.0 | 61.4<br>64.3<br>59.4<br>60.2 | 49.0<br>55.0<br>48.0<br>44.0 | 37.9<br>34.5<br>48.5<br>46.1 | 63.7<br>56.3<br>54.9<br>56.1 | 48.8<br>49.8<br>52.5<br>51.6 | 48.0<br>46.7<br>53.7<br>51.7 |
+| Baichuan27b<br>+ FS CoT<br>+ CoT<br>+ FS | 35.0 50.0 37.0<br>32.0<br>40.0 50.0 36.0<br>50.0 36.0<br>43.0<br>38.0<br>41.0 | 20.0<br>23.5<br>4.5<br>1.0 | 28.7<br>13.0<br>4.0<br>5.3 | 59.4<br>47.9<br>37.9<br>45.7 | 58.0<br>55.3<br>66.9<br>58.1<br>13.0<br>26.5<br>10.5<br>17.5 | 15.0<br>15.0<br>17.0<br>7.0 | 42.0<br>49.8<br>-<br>-<br>44.2<br>53.0<br>39.2<br>54.3 | 60.7<br>51.2<br>41.5<br>53.5<br>26.0<br>41.0<br>45.0<br>36.0 | 20.0<br>28.0<br>30.0<br>29.0 | 34.7<br>38.8<br>43.0<br>42.1 | 20.0<br>29.0<br>27.0<br>42.0 | 35.2<br>39.9<br>37.8<br>52.5 | 19.0<br>23.0<br>23.0<br>25.0 | 31.2<br>33.2<br>35.7<br>39.3 | 18.0<br>10.0<br>20.0<br>6.0 | 20.4<br>29.3<br>20.4<br>31.0 | 22.0<br>21.0<br>40.0<br>57.0 | 43.4<br>41.2<br>57.4<br>70.1 | 29.0<br>29.0<br>37.0<br>39.0 | 47.7<br>47.2<br>53.0<br>60.2 | 55.0<br>54.0<br>51.0<br>49.0 | 31.6<br>28.5<br>36.5<br>37.6 | 49.9<br>46.7<br>57.3<br>47.7 | 38.6<br>44.8<br>49.5<br>42.1 | 39.7<br>39.4<br>45.8<br>46.0 |
+| Vicuna1.513b<br>+ FS CoT<br>+ CoT<br>+ FS | 36.0<br>37.0<br>38.0<br>39.0<br>50.0<br>51.0<br>48.0 57.0<br>38.0 59.0<br>35.0<br>42.0 | 15.0<br>30.5<br>39.5<br>3.0 | 10.7<br>8.0<br>1.3<br>7.3 | 39.2<br>37.4<br>29.8<br>33.6 | 50.0<br>57.0<br>45.8<br>59.1<br>27.5<br>14.0<br>21.5<br>11.5 | 12.0 41.6<br>13.0 40.3<br>7.0<br>7.0 | 51.8<br>39.0<br>-<br>-<br>34.2<br>33.7 | 60.4<br>56.9<br>59.5<br>58.3<br>43.0<br>44.0<br>45.0<br>47.0 | 29.0<br>31.0<br>23.0<br>27.0 | 37.0<br>36.4<br>25.9<br>30.7 | 38.0<br>16.0<br>38.0<br>39.0 | 46.8<br>38.2<br>42.6<br>48.1 | 22.0<br>25.0<br>26.0<br>31.0 | 37.4<br>37.7<br>41.4<br>35.9 | 17.0<br>13.0<br>18.0<br>26.0 | 23.2<br>20.4<br>31.2<br>20.1 | 14.0<br>31.0<br>51.0<br>71.0 | 49.0<br>61.8<br>77.5<br>42.1 | 13.0<br>29.0<br>28.0<br>53.0 | 43.6<br>42.6<br>65.5<br>49.1 | 46.0<br>51.0<br>56.0<br>52.0 | 34.0<br>33.3<br>43.4<br>43.9 | 46.1<br>37.8<br>42.5<br>41.6 | 42.3<br>43.6<br>50.1<br>42.1 | 39.0<br>43.3<br>46.7<br>41.1 |
+| Vicuna1.57b<br>+ FS CoT<br>+ CoT<br>+ FS | 43.0<br>36.0<br>37.0<br>35.0<br>37.0 58.0<br>50.0<br>43.0 57.0<br>54.0<br>36.0<br>35.0 | 5.0<br>1.5<br>8.5<br>8.0 | 1.3<br>1.3<br>3.3<br>2.7 | 44.6<br>37.2<br>40.4<br>39.4 | 49.2<br>52.5<br>42.1<br>10.0<br>9.5<br>8.5<br>5.5 | 47.5 10.0<br>6.0<br>9.0<br>7.0 | 47.8<br>67.1<br>-<br>-<br>32.0<br>36.2<br>36.8<br>41.3 | 40.9<br>31.9<br>39.9<br>47.1<br>35.0<br>30.0<br>24.0<br>31.0 | 11.0<br>14.0<br>12.0<br>13.0 | 24.6<br>14.9<br>16.6<br>18.5 | 20.0<br>16.0<br>16.0<br>15.0 | 35.7<br>26.2<br>21.8<br>26.7 | 15.0<br>14.0<br>20.0<br>15.0 | 25.7<br>28.5<br>27.5<br>23.8 | 12.0<br>12.0<br>17.0<br>16.0 | 17.3<br>25.0<br>22.2<br>23.1 | 14.0<br>13.0<br>55.0<br>9.0 | 33.0<br>27.7<br>34.3<br>66.3 | 14.0<br>32.0<br>7.0<br>6.0 | 46.8<br>40.3<br>32.2<br>48.1 | 54.0<br>54.0<br>54.0<br>43.0 | 35.8<br>30.9<br>36.4<br>33.0 | 47.7<br>43.2<br>41.6<br>42.0 | 34.8<br>33.4<br>29.9<br>35.9 | 37.1<br>34.4<br>35.9<br>36.4 |
+| FLANT511b<br>+ FS CoT<br>+ CoT<br>+ FS | 43.0<br>45.0<br>43.0<br>46.0<br>63.0<br>56.0 66.0<br>65.0<br>54.0 68.0<br>53.0<br>53.0 | 0.0<br>0.0<br>3.5<br>3.5 | 4.0<br>4.7<br>4.0<br>4.0 | 52.0<br>50.2<br>49.7<br>50.7 | 65.0<br>64.0<br>65.8<br>14.0<br>15.5<br>13.0<br>14.5 | 11.0 43.7<br>63.4 13.0 42.7<br>13.0<br>9.0 | 60.2<br>49.5<br>-<br>-<br>35.0<br>47.7 | 64.4<br>59.4<br>61.7<br>64.3<br>56.0<br>57.6<br>55.0<br>54.0 | 24.0<br>23.9<br>23.0<br>19.0 | 26.8<br>28.2<br>25.0<br>21.2 | 31.0<br>39.0<br>31.0<br>34.0 | 33.6<br>41.6<br>33.6<br>36.6 | 48.0<br>46.0<br>47.0<br>45.0 | 52.2<br>50.2<br>50.6<br>49.2 | 20.0<br>28.0<br>21.0<br>20.0 | 21.8<br>30.6<br>22.5<br>21.7 | 84.0<br>73.0<br>82.0<br>89.0 | 87.9<br>79.5<br>87.0<br>93.8 | 78.0<br>57.0<br>78.0<br>72.0 | 83.9<br>68.9<br>84.5<br>79.7 | 64.0<br>55.0<br>65.0<br>66.0 | 39.8<br>41.8<br>42.9<br>41.1 | 53.6<br>51.9<br>52.8<br>52.8 | 54.0<br>52.3<br>54.1<br>53.5 | 50.3<br>49.4<br>50.5<br>50.5 |
+| Mistral7b<br>+ CoT<br>+ FS | 50.0 43.0<br>35.0<br>35.0<br>56.0<br>51.0 57.0<br>47.0<br>38.0 | 26.5<br>16.5<br>18.0 | 13.3<br>12.0<br>11.3 | 49.8<br>36.6<br>55.8 | 71.0<br>58.8<br>49.3<br>15.0<br>25.5<br>14.5 | 13.0<br>6.0<br>8.0 | 63.0<br>58.3<br>-<br>23.2<br>52.9<br>19.3 | 28.2<br>43.5<br>31.3<br>13.0<br>24.0<br>7.0 | 11.0<br>12.0<br>5.0 | 21.4<br>22.4<br>23.9 | 4.0<br>8.0<br>4.0 | 24.3<br>21.1<br>21.3 | 14.0<br>7.0<br>7.0 | 22.3<br>24.9<br>21.2 | 12.0<br>4.0<br>7.0 | 21.7<br>25.6<br>23.0 | 23.0<br>2.0<br>5.0 | 39.6<br>34.0<br>48.9 | 23.0<br>1.0<br>4.0 | 31.6<br>31.2<br>44.9 | 51.0<br>61.0<br>57.0 | 41.6<br>36.4<br>40.3 | 60.7<br>47.5<br>35.1 | 30.0<br>31.4<br>35.5 | 37.3<br>33.5<br>43.0 |
 
-|                                           | Symbolic                                                                         |                           |                           |                              | Commonsense                                              |                                                              |                        |                              |                              |                              |                              |                              |                              |                              | Event                        |                              |                                                              |              |                              |                                                              |              |                              |                              | Overall                      |                              |                              |
+| | Symbolic | | | | Commonsense | | | | | | | | | | Event | | | | | | | | | Overall | | |
 |-------------------------------------------|----------------------------------------------------------------------------------|---------------------------|---------------------------|------------------------------|----------------------------------------------------------|--------------------------------------------------------------|------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|--------------------------------------------------------------|--------------|------------------------------|--------------------------------------------------------------|--------------|------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
-| + FS CoT<br>Method                        | 29.0 62.0 32.0<br>s3<br>TimeXNLI<br>s2<br>s1                                     | Date Arith<br>28.5<br>Acc | EM<br>9.3                 | DurationQA<br>46.6<br>F1     | 49.2<br>McTACO<br>F1<br>14.5<br>EM                       | 34.4<br>TimeDial<br>F1<br>EM<br>8.0                          | SitGen<br>Norm<br>-    | E-EM<br>13.0                 | TimeQA<br>E-F1<br>33.7       | H-EM<br>11.0                 | H-F1<br>25.3                 | S-EM<br>9.0                  | S-F1<br>26.4                 | MenatQA<br>O-EM<br>9.0       | O-F1<br>24.3                 | C-EM<br>9.0                  | L2-EM<br>C-F1<br>20.3                                        | 68.0         | TempReason<br>L2-F1<br>78.6  | L3-F1<br>57.4<br>L3-EM<br>42.0                               |              | TRACIE Sym.<br>50.0<br>Acc   | 37.9                         | Comm.<br>43.4                | Event<br>39.5                | Avg.<br>39.8                 |
-| ChatGLM36b<br>+ FS CoT<br>+ CoT<br>+ FS   | 34.0<br>49.0 37.0<br>30.0<br>32.0 66.0 31.0<br>38.0 50.0<br>52.0<br>27.0<br>37.0 | 2.0<br>0.0<br>0.0<br>0.0  | 10.0<br>3.0<br>1.0<br>4.0 | 53.0<br>34.1<br>24.8<br>34.8 | 43.6<br>52.9<br>43.6<br>37.1<br>7.0<br>3.0<br>9.0<br>8.0 | 54.7<br>44.0<br>56.7<br>44.8<br>14.0<br>10.0<br>19.0<br>11.0 | 38.9<br>50.1<br>-<br>- | 20.0<br>24.0<br>11.0<br>25.0 | 41.2<br>41.7<br>19.6<br>43.3 | 14.0<br>10.0<br>13.0<br>19.0 | 31.7<br>25.4<br>17.0<br>27.5 | 25.0<br>27.0<br>25.0<br>23.0 | 33.8<br>34.6<br>35.0<br>30.2 | 17.0<br>22.0<br>24.0<br>19.0 | 26.0<br>30.4<br>25.7<br>28.1 | 24.0<br>35.0<br>20.0<br>36.0 | 42.0<br>28.0<br>27.0<br>50.0<br>32.2<br>41.2<br>25.6<br>43.0 |              | 57.0<br>62.8<br>44.5<br>46.5 | 54.0<br>52.0<br>56.0<br>53.3<br>30.0<br>27.0<br>33.0<br>34.0 |              | 50.0<br>48.0<br>54.0<br>48.0 | 31.0<br>28.3<br>29.8<br>32.3 | 35.6<br>52.7<br>43.3<br>40.8 | 39.4<br>35.2<br>40.7<br>42.1 | 39.0<br>38.2<br>39.2<br>35.7 |
-| LLaMA2-Base70b<br>+ CoT                   | 55.0 61.0 37.0<br>52.0 73.0 39.0                                                 | 82.0<br>79.5              | 40.0<br>32.6              | 67.4<br>62.3                 | 59.0 85.3 63.0 82.7<br>47.0 79.1 25.0 61.1               |                                                              | 74.9                   | 57.0<br>55.0                 | 66.7<br>64.3                 | 36.0<br>34.0                 | 48.3<br>43.0                 | 52.0<br>50.0                 | 61.4<br>57.7                 | 35.0<br>37.0                 | 45.2<br>42.5                 | 25.0<br>44.0                 | 33.8<br>53.1                                                 | 78.0<br>82.0 | 85.2<br>87.5                 | 80.0<br>76.0                                                 | 85.4<br>81.6 | 61.0<br>67.0                 | 60.9<br>58.8                 | 77.6<br>67.5                 | 62.4<br>60.5                 | 64.4<br>63.0                 |
-| LLaMA2-Base13b<br>+ CoT                   | 50.0 54.0 30.0<br>40.0 61.0 37.0                                                 | 29.5<br>52.0              | 19.3<br>25.3              | 59.3<br>53.3                 | 26.5 66.0 20.0 55.6<br>26.0 68.8 11.0 40.8               |                                                              | 64.8<br>-              | 48.0<br>46.0                 | 59.4<br>59.3                 | 34.0<br>37.0                 | 48.6<br>49.1                 | 41.0<br>49.0                 | 49.6<br>58.4                 | 38.0<br>34.0                 | 43.4<br>43.8                 | 34.0<br>38.0                 | 37.5<br>44.1                                                 | 68.0<br>70.0 | 78.7<br>78.0                 | 49.0<br>55.0                                                 | 68.2<br>62.7 | 58.0<br>58.0                 | 47.5<br>40.9                 | 59.9<br>56.3                 | 57.4<br>54.7                 | 52.6<br>54.5                 |
-| LLaMA2-Base7b<br>+ CoT                    | 26.0 50.0 30.0<br>37.0 52.0 36.0                                                 | 20.0<br>25.5              | 19.3<br>21.3              | 56.9<br>54.5                 | 20.0 59.6 15.0 45.2<br>26.5 67.0 16.0 41.9               |                                                              | 62.4<br>-              | 44.0<br>32.0                 | 54.4<br>45.6                 | 30.0<br>27.0                 | 45.3<br>36.1                 | 42.0<br>41.0                 | 49.8<br>50.9                 | 34.0<br>30.0                 | 41.9<br>38.0                 | 30.0<br>51.0                 | 35.8<br>57.3                                                 | 50.0<br>45.0 | 64.0<br>59.7                 | 36.0<br>37.0                                                 | 57.7<br>53.3 | 49.0<br>50.0                 | 37.6<br>31.5                 | 55.4<br>55.3                 | 49.2<br>49.4                 | 47.4<br>46.3                 |
-| Baichuan2-Base13b 38.0 48.0 33.0<br>+ CoT | 50.0 56.0 34.0                                                                   | 42.5<br>47.0              | 20.7<br>29.3              | 62.0<br>54.8                 | 42.5 73.0 11.0 45.7<br>22.5 69.3 12.0 43.8               |                                                              | 64.9<br>-              | 50.0<br>46.0                 | 59.4<br>58.2                 | 40.0<br>39.0                 | 54.2<br>49.6                 | 42.0<br>39.0                 | 52.7<br>49.8                 | 31.0<br>34.0                 | 38.0<br>40.1                 | 13.0<br>37.0                 | 21.4<br>45.6                                                 | 68.0<br>73.0 | 77.3<br>81.3                 | 50.0<br>46.0                                                 | 65.6<br>63.5 | 54.0<br>60.0                 | 40.4<br>46.8                 | 59.6<br>58.4                 | 52.6<br>56.3                 | 54.2<br>51.3                 |
-| Baichuan2-Base7b<br>+ CoT                 | 27.0 66.0 41.0<br>30.0 56.0 34.0                                                 | 32.5<br>34.0              | 28.0<br>23.3              | 59.8<br>57.0                 | 33.0 69.5 12.0 44.5<br>34.5 69.4                         | 34.3<br>5.0                                                  | 59.8<br>-              | 40.0<br>41.0                 | 53.8<br>51.2                 | 35.0<br>31.0                 | 50.2<br>40.7                 | 41.0<br>38.0                 | 49.6<br>46.4                 | 33.0<br>26.0                 | 38.5<br>32.6                 | 18.0<br>41.7                 | 22.9<br>46.3                                                 | 49.0<br>46.0 | 65.9<br>61.5                 | 34.0<br>43.8                                                 | 51.0<br>64.1 | 55.0<br>53.0                 | 41.6<br>38.5                 | 57.0<br>55.8                 | 48.4<br>49.5                 | 48.5<br>48.1                 |
-| Mistral-Base7b<br>+ CoT                   | 48.0 53.0 38.0<br>57.0 63.0 35.0                                                 | 41.0<br>54.0              | 34.0<br>30.0              | 61.8<br>61.8                 | 42.5 76.2 35.0 61.8<br>42.0 45.7 29.0 57.3               |                                                              | 58.3<br>-              | 43.0<br>51.0                 | 55.9<br>60.4                 | 30.0<br>30.0                 | 45.3<br>46.2                 | 37.0<br>48.0                 | 49.4<br>57.2                 | 38.0<br>37.0                 | 47.9<br>47.8                 | 37.0<br>24.0                 | 45.5<br>33.2                                                 | 68.0<br>60.0 | 76.7<br>65.9                 | 64.0<br>58.0                                                 | 74.8<br>67.9 | 53.0<br>57.0                 | 45.0<br>52.3                 | 64.5<br>54.9                 | 56.1<br>54.5                 | 55.4<br>54.0                 |
-| ChatGLM3-Base6b<br>+ CoT                  | 48.0 70.0 32.0<br>47.0 68.0 32.0                                                 | 35.0<br>46.0              | 3.3<br>8.7                | 51.8<br>53.9                 | 13.5 62.6 11.0 55.0<br>15.5 64.3 13.0 56.5               |                                                              | 61.6                   | 50.0<br>45.0                 | 57.2<br>52.5                 | 24.0<br>23.0                 | 26.3<br>24.5                 | 30.0<br>30.0                 | 35.4<br>35.0                 | 38.0<br>37.0                 | 41.5<br>40.2                 | 22.0<br>22.0                 | 22.5<br>22.5                                                 | 67.0<br>72.0 | 76.4<br>79.4                 | 35.0<br>42.0                                                 | 55.9<br>60.3 | 58.0<br>54.0                 | 48.3<br>46.3                 | 58.2<br>57.8                 | 46.7<br>46.1                 | 49.3<br>49.1                 |
-|                                           |                                                                                  |                           |                           |                              |                                                          |                                                              |                        |                              |                              |                              |                              |                              |                              |                              |                              |                              |                                                              |              |                              |                                                              |              |                              |                              |                              |                              |                              |
+| + FS CoT<br>Method | 29.0 62.0 32.0<br>s3<br>TimeXNLI<br>s2<br>s1 | Date Arith<br>28.5<br>Acc | EM<br>9.3 | DurationQA<br>46.6<br>F1 | 49.2<br>McTACO<br>F1<br>14.5<br>EM | 34.4<br>TimeDial<br>F1<br>EM<br>8.0 | SitGen<br>Norm<br>- | E-EM<br>13.0 | TimeQA<br>E-F1<br>33.7 | H-EM<br>11.0 | H-F1<br>25.3 | S-EM<br>9.0 | S-F1<br>26.4 | MenatQA<br>O-EM<br>9.0 | O-F1<br>24.3 | C-EM<br>9.0 | L2-EM<br>C-F1<br>20.3 | 68.0 | TempReason<br>L2-F1<br>78.6 | L3-F1<br>57.4<br>L3-EM<br>42.0 | | TRACIE Sym.<br>50.0<br>Acc | 37.9 | Comm.<br>43.4 | Event<br>39.5 | Avg.<br>39.8 |
+| ChatGLM36b<br>+ FS CoT<br>+ CoT<br>+ FS | 34.0<br>49.0 37.0<br>30.0<br>32.0 66.0 31.0<br>38.0 50.0<br>52.0<br>27.0<br>37.0 | 2.0<br>0.0<br>0.0<br>0.0 | 10.0<br>3.0<br>1.0<br>4.0 | 53.0<br>34.1<br>24.8<br>34.8 | 43.6<br>52.9<br>43.6<br>37.1<br>7.0<br>3.0<br>9.0<br>8.0 | 54.7<br>44.0<br>56.7<br>44.8<br>14.0<br>10.0<br>19.0<br>11.0 | 38.9<br>50.1<br>-<br>- | 20.0<br>24.0<br>11.0<br>25.0 | 41.2<br>41.7<br>19.6<br>43.3 | 14.0<br>10.0<br>13.0<br>19.0 | 31.7<br>25.4<br>17.0<br>27.5 | 25.0<br>27.0<br>25.0<br>23.0 | 33.8<br>34.6<br>35.0<br>30.2 | 17.0<br>22.0<br>24.0<br>19.0 | 26.0<br>30.4<br>25.7<br>28.1 | 24.0<br>35.0<br>20.0<br>36.0 | 42.0<br>28.0<br>27.0<br>50.0<br>32.2<br>41.2<br>25.6<br>43.0 | | 57.0<br>62.8<br>44.5<br>46.5 | 54.0<br>52.0<br>56.0<br>53.3<br>30.0<br>27.0<br>33.0<br>34.0 | | 50.0<br>48.0<br>54.0<br>48.0 | 31.0<br>28.3<br>29.8<br>32.3 | 35.6<br>52.7<br>43.3<br>40.8 | 39.4<br>35.2<br>40.7<br>42.1 | 39.0<br>38.2<br>39.2<br>35.7 |
+| LLaMA2-Base70b<br>+ CoT | 55.0 61.0 37.0<br>52.0 73.0 39.0 | 82.0<br>79.5 | 40.0<br>32.6 | 67.4<br>62.3 | 59.0 85.3 63.0 82.7<br>47.0 79.1 25.0 61.1 | | 74.9 | 57.0<br>55.0 | 66.7<br>64.3 | 36.0<br>34.0 | 48.3<br>43.0 | 52.0<br>50.0 | 61.4<br>57.7 | 35.0<br>37.0 | 45.2<br>42.5 | 25.0<br>44.0 | 33.8<br>53.1 | 78.0<br>82.0 | 85.2<br>87.5 | 80.0<br>76.0 | 85.4<br>81.6 | 61.0<br>67.0 | 60.9<br>58.8 | 77.6<br>67.5 | 62.4<br>60.5 | 64.4<br>63.0 |
+| LLaMA2-Base13b<br>+ CoT | 50.0 54.0 30.0<br>40.0 61.0 37.0 | 29.5<br>52.0 | 19.3<br>25.3 | 59.3<br>53.3 | 26.5 66.0 20.0 55.6<br>26.0 68.8 11.0 40.8 | | 64.8<br>- | 48.0<br>46.0 | 59.4<br>59.3 | 34.0<br>37.0 | 48.6<br>49.1 | 41.0<br>49.0 | 49.6<br>58.4 | 38.0<br>34.0 | 43.4<br>43.8 | 34.0<br>38.0 | 37.5<br>44.1 | 68.0<br>70.0 | 78.7<br>78.0 | 49.0<br>55.0 | 68.2<br>62.7 | 58.0<br>58.0 | 47.5<br>40.9 | 59.9<br>56.3 | 57.4<br>54.7 | 52.6<br>54.5 |
+| LLaMA2-Base7b<br>+ CoT | 26.0 50.0 30.0<br>37.0 52.0 36.0 | 20.0<br>25.5 | 19.3<br>21.3 | 56.9<br>54.5 | 20.0 59.6 15.0 45.2<br>26.5 67.0 16.0 41.9 | | 62.4<br>- | 44.0<br>32.0 | 54.4<br>45.6 | 30.0<br>27.0 | 45.3<br>36.1 | 42.0<br>41.0 | 49.8<br>50.9 | 34.0<br>30.0 | 41.9<br>38.0 | 30.0<br>51.0 | 35.8<br>57.3 | 50.0<br>45.0 | 64.0<br>59.7 | 36.0<br>37.0 | 57.7<br>53.3 | 49.0<br>50.0 | 37.6<br>31.5 | 55.4<br>55.3 | 49.2<br>49.4 | 47.4<br>46.3 |
+| Baichuan2-Base13b 38.0 48.0 33.0<br>+ CoT | 50.0 56.0 34.0 | 42.5<br>47.0 | 20.7<br>29.3 | 62.0<br>54.8 | 42.5 73.0 11.0 45.7<br>22.5 69.3 12.0 43.8 | | 64.9<br>- | 50.0<br>46.0 | 59.4<br>58.2 | 40.0<br>39.0 | 54.2<br>49.6 | 42.0<br>39.0 | 52.7<br>49.8 | 31.0<br>34.0 | 38.0<br>40.1 | 13.0<br>37.0 | 21.4<br>45.6 | 68.0<br>73.0 | 77.3<br>81.3 | 50.0<br>46.0 | 65.6<br>63.5 | 54.0<br>60.0 | 40.4<br>46.8 | 59.6<br>58.4 | 52.6<br>56.3 | 54.2<br>51.3 |
+| Baichuan2-Base7b<br>+ CoT | 27.0 66.0 41.0<br>30.0 56.0 34.0 | 32.5<br>34.0 | 28.0<br>23.3 | 59.8<br>57.0 | 33.0 69.5 12.0 44.5<br>34.5 69.4 | 34.3<br>5.0 | 59.8<br>- | 40.0<br>41.0 | 53.8<br>51.2 | 35.0<br>31.0 | 50.2<br>40.7 | 41.0<br>38.0 | 49.6<br>46.4 | 33.0<br>26.0 | 38.5<br>32.6 | 18.0<br>41.7 | 22.9<br>46.3 | 49.0<br>46.0 | 65.9<br>61.5 | 34.0<br>43.8 | 51.0<br>64.1 | 55.0<br>53.0 | 41.6<br>38.5 | 57.0<br>55.8 | 48.4<br>49.5 | 48.5<br>48.1 |
+| Mistral-Base7b<br>+ CoT | 48.0 53.0 38.0<br>57.0 63.0 35.0 | 41.0<br>54.0 | 34.0<br>30.0 | 61.8<br>61.8 | 42.5 76.2 35.0 61.8<br>42.0 45.7 29.0 57.3 | | 58.3<br>- | 43.0<br>51.0 | 55.9<br>60.4 | 30.0<br>30.0 | 45.3<br>46.2 | 37.0<br>48.0 | 49.4<br>57.2 | 38.0<br>37.0 | 47.9<br>47.8 | 37.0<br>24.0 | 45.5<br>33.2 | 68.0<br>60.0 | 76.7<br>65.9 | 64.0<br>58.0 | 74.8<br>67.9 | 53.0<br>57.0 | 45.0<br>52.3 | 64.5<br>54.9 | 56.1<br>54.5 | 55.4<br>54.0 |
+| ChatGLM3-Base6b<br>+ CoT | 48.0 70.0 32.0<br>47.0 68.0 32.0 | 35.0<br>46.0 | 3.3<br>8.7 | 51.8<br>53.9 | 13.5 62.6 11.0 55.0<br>15.5 64.3 13.0 56.5 | | 61.6 | 50.0<br>45.0 | 57.2<br>52.5 | 24.0<br>23.0 | 26.3<br>24.5 | 30.0<br>30.0 | 35.4<br>35.0 | 38.0<br>37.0 | 41.5<br>40.2 | 22.0<br>22.0 | 22.5<br>22.5 | 67.0<br>72.0 | 76.4<br>79.4 | 35.0<br>42.0 | 55.9<br>60.3 | 58.0<br>54.0 | 48.3<br>46.3 | 58.2<br>57.8 | 46.7<br>46.1 | 49.3<br>49.1 |
+| | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
-Table 9: Full results of TimeBench. Aligned models are under zero-shot setting by default. Methods with † are base models without alignment, under few-shot setting, thus incomparable with other methods. We consider human performance as 100 points and normalize models' results accordingly.
+**Table 9:** Full results of TimeBench. Aligned models are under zero-shot setting by default. Methods with † are base models without alignment, under few-shot setting, thus incomparable with other methods. We consider human performance as 100 points and normalize models' results accordingly.
 
-<span id="page-20-0"></span>
 
-| DURATIONQA, MCTACO                                                                                                                                                                                                                                                                             |
+| DURATIONQA, MCTACO |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Answer the following question, select all the possible correct options, and each question has at least one correct option.<br>Context: {}<br>Question: {}<br>Options: {}<br>Answer:                                                                                                            |
-| TIMEDIAL                                                                                                                                                                                                                                                                                       |
-| There is a two-person dialogue with several options.<br>Choose all appropriate options to substitute the <mask> in the dialogue, and each question has at least one correct<br/>option.<br/>Dialogue: {}<br/>Options: {}<br/>Answer:</mask>                                                    |
-| TRACIE                                                                                                                                                                                                                                                                                         |
+| Answer the following question, select all the possible correct options, and each question has at least one correct option.<br>Context: {}<br>Question: {}<br>Options: {}<br>Answer: |
+| TIMEDIAL |
+| There is a two-person dialogue with several options.<br>Choose all appropriate options to substitute the <mask> in the dialogue, and each question has at least one correct<br/>option.<br/>Dialogue: {}<br/>Options: {}<br/>Answer:</mask> |
+| TRACIE |
 | Read the following story and hypothesis, determine whether the hypothesis can be inferred from the story.<br>You need to understand the implicit temporal relationships between events to make judgments.<br>Story: {}<br>Hypothesis: {}<br>Options: A. Entailment B. Contradiction<br>Answer: |
-| SITUATEDGEN                                                                                                                                                                                                                                                                                    |
-| Generate a pair of contrastive sentences with the given set of keywords.<br>Keywords: {}                                                                                                                                                                                                       |
-| DATE ARITHMETIC                                                                                                                                                                                                                                                                                |
-| Question: {}? Answer:                                                                                                                                                                                                                                                                          |
-| TIMEQA                                                                                                                                                                                                                                                                                         |
-| I will give you a question with context.<br>You need to answer my question based on the context.<br>If you can infer the answer from the context, then output your answer. Otherwise, if there is no answer, output [unan<br>swerable].<br>Context: {}<br>Question: {}<br>Answer:              |
-| TEMPREASON                                                                                                                                                                                                                                                                                     |
-| I will give you a question with context.<br>You need to answer my question based on the context.<br>Context: {}<br>Question: {}<br>Answer:                                                                                                                                                     |
-| MENATQA                                                                                                                                                                                                                                                                                        |
-| Get answers for the question based on the contxt, where answers derived from substrings in the context or categorized<br>as [unanswerable].<br>Context: {}<br>Question: {}<br>Answer:                                                                                                          |
-| TIMEX-NLI                                                                                                                                                                                                                                                                                      |
-| Read the following statements about time and determine if the hypothesis can be inferred from the premise.<br>Premise: {}<br>Hypothesis: {}<br>Options: A. Entailment B. Contradiction C. Neutral<br>Answer:                                                                                   |
+| SITUATEDGEN |
+| Generate a pair of contrastive sentences with the given set of keywords.<br>Keywords: {} |
+| DATE ARITHMETIC |
+| Question: {}? Answer: |
+| TIMEQA |
+| I will give you a question with context.<br>You need to answer my question based on the context.<br>If you can infer the answer from the context, then output your answer. Otherwise, if there is no answer, output [unan<br>swerable].<br>Context: {}<br>Question: {}<br>Answer: |
+| TEMPREASON |
+| I will give you a question with context.<br>You need to answer my question based on the context.<br>Context: {}<br>Question: {}<br>Answer: |
+| MENATQA |
+| Get answers for the question based on the contxt, where answers derived from substrings in the context or categorized<br>as [unanswerable].<br>Context: {}<br>Question: {}<br>Answer: |
+| TIMEX-NLI |
+| Read the following statements about time and determine if the hypothesis can be inferred from the premise.<br>Premise: {}<br>Hypothesis: {}<br>Options: A. Entailment B. Contradiction C. Neutral<br>Answer: |
 
-Figure 9: Zeroshot instructions and input formats.
+**Figure 9:** Zeroshot instructions and input formats.
 
 <span id="page-21-0"></span>Answer the following question, select all the possible correct options, and each question has at least one correct option. Premise: On Wednesday, they got married. Hypothesis: Before Friday, they got married. Options: A. Entailment B. Contradiction C. Neutral Answer: Wednesday is before Friday. As a result, we can infer that if something happens on Wednesday, it definitely happens before Friday. Therefore, the answer is A. Entailment. Premise: We went to Disneyland on Monday. Hypothesis: We went to Disneyland after Wednesday. Options: A. Entailment B. Contradiction C. Neutral Answer: Monday is before Wednesday. As a result, We can infer that if something happens on Monday, it definitely can not happen after Wednesday. Therefore, the answer is B. Contradiction. Premise: The failing company issued major layoffs after Tuesday. Hypothesis: The failing company issued major layoffs after Thursday. CoT Demonstration of TIMEX-NLI (3-shot, order)
 
 Options: A. Entailment B. Contradiction C. Neutral Answer: Tuesday is before Thursday. If something happened after Tuesday, we cannot be certain whether it occurred after Thursday. Therefore, the answer is C. Neutral.
 
-Figure 10: Chain-of-Thought demonstrations of TimeX-NLI (s1-order).
+**Figure 10:** Chain-of-Thought demonstrations of TimeX-NLI (s1-order).
 
 ## CoT Demonstration of DATE ARITHMETIC (4-shot)
 
@@ -677,7 +668,7 @@ Question: What is the time 7 year and 11 month after Feb, 1819? Answer: First, 7
 
 Question: What is the time 6 year and 9 month before Jan, 1234? Answer: First, subtracting 6 years from 1234 gives 1228. Next, subtracting 9 months from January gives April of the previous year. Therefore, 6 year and 9 month before Jan, 1234 is Apr, 1227.
 
-Figure 11: Chain-of-Thought demonstrations of Date Arithmetic.
+**Figure 11:** Chain-of-Thought demonstrations of Date Arithmetic.
 
 ### CoT Demonstration of TRACIE (4-shot)
 
@@ -693,9 +684,9 @@ Options: A. Entailment B. Contradiction
 
 Answer: From the story we know Joe was patrolling. In the work state, Joe has already put on the police uniform. So we can infer that Joe put on his police uniform before arresting the criminal. This conflicts with hypothesis. Therefore, the answer is B. Contradiction.
 
-Figure 12: Chain-of-Thought demonstrations of TRACIE.
+**Figure 12:** Chain-of-Thought demonstrations of TRACIE.
 
-#### CoT Demonstration of DURATIONQA (4-shot)
+### CoT Demonstration of DURATIONQA (4-shot)
 
 Answer the following question, select all the possible correct options, and each question has at least one correct option.
 
@@ -717,9 +708,9 @@ Options: A. 1 week B. 22 hours C. 2 years D. 4 years
 
 Answer: According to commonsense knowledge, the time it takes for birds to lay eggs typically varies from one day to several days. Therefore, the answer is A. 1 week, B. 22 hours.
 
-Figure 13: Chain-of-Thought demonstrations of DurationQA.
+**Figure 13:** Chain-of-Thought demonstrations of DurationQA.
 
-# CoT Demonstration of MCTACO (4-shot)
+## CoT Demonstration of MCTACO (4-shot)
 
 Answer the following question, select all the possible correct options, and each question has at least one correct option.
 
@@ -741,7 +732,7 @@ Options: A. at 6 am B. at 1 am C. 7:00 AM D. at 6 pm
 
 Answer: According to commonsense knowledge, waking up for high school typically happens in the morning, usually between 6 AM and 8 AM. Therefore, the answer is A. at 6 am, C. 7:00 AM.
 
-Figure 14: Chain-of-Thought demonstrations of MCTACO.
+**Figure 14:** Chain-of-Thought demonstrations of MCTACO.
 
 ## CoT Demonstration of TIMEDIAL (4-shot)
 
@@ -769,9 +760,9 @@ Answer: Based on the dialogue, B entered middle school in Sep 1998. According to
 
 usually takes around 6 years from entering middle school to graduating from high school (and entering university). Adding 6 years to 1998 would be 2004, so the answer should be around the year 2004. Therefore, the answer is B. July of 2004, C. March of 2003.
 
-Figure 15: Chain-of-Thought demonstrations of TimeDial.
+**Figure 15:** Chain-of-Thought demonstrations of TimeDial.
 
-#### CoT Demonstration of TIMEQA, MENATQA (2-shot, implicit)
+### CoT Demonstration of TIMEQA, MENATQA (2-shot, implicit)
 
 I will give you a question with context.
 
@@ -787,9 +778,9 @@ Question: Theo-Ben Gurirab took which position after Jan 2007?
 
 Answer: Based on the context, we can summarize the following facts: Theo-Ben Gurirab served as second Prime Minister of Namibia from August 2002 to March 2005. Prior to that, he was the countrys first Minister of Foreign Affairs from 1990 to 2002 and and was President of the United Nations General Assembly from 1999 to 2000. From 2005 to 2015, he held the position of Speaker of the National Assembly of Namibia. He resigned from politics in 2015 and passed away in July 2018. According to the aforementioned facts, he took the position of Speaker of the National Assembly of Namibia in January 2007. Therefore, the answer is Speaker of the National Assembly of Namibia.
 
-Figure 16: Chain-of-Thought demonstrations of TimeQA, MenatQA, implicit reasoning.
+**Figure 16:** Chain-of-Thought demonstrations of TimeQA, MenatQA, implicit reasoning.
 
-#### CoT Demonstration of TEMPREASON (4-shot, event-time)
+### CoT Demonstration of TEMPREASON (4-shot, event-time)
 
 I will give you a question with context. You need to answer my question based on the context.
 
@@ -797,9 +788,9 @@ I will give you a question with context. You need to answer my question based on
 
 Context (facts): Gian Piero Gasperini is the head coach of Atalanta B.C. from Jun, 2016 to Dec, 2022. Edoardo Reja is the head coach of Atalanta B.C. from Mar, 2015 to Jun, 2016. Stefano Colantuono is the head coach of Atalanta B.C. from Jun, 2010 to Mar, 2015. Bortolo Mutti is the head coach of Atalanta B.C. from Jan, 2010 to Jun, 2010. Emiliano Mondonico is the head coach of Atalanta B.C. from Jul, 1987 to Jun, 1990. Marcello Lippi is the head coach of Atalanta B.C. from Jul, 1992 to Jun, 1993. Angelo Gregucci is the head coach of Atalanta B.C. from Jul, 2009 to Sep, 2009. Luigi Delneri is the head coach of Atalanta B.C. from Jul, 2007 to Jun, 2009. Ottavio Bianchi is the head coach of Atalanta B.C. from Jul, 1981 to Jun, 1983. Antonio Conte is the head coach of Atalanta B.C. from Sep, 2009 to Jan, 2010. Nedo Sonetti is the head coach of Atalanta B.C. from Jul, 1983 to Jun, 1987. Valter Bonacina is the head coach of Atalanta B.C. from Jan, 2010 to Jan, 2010. Question: Who was the head coach of the team Atalanta B.C. in Feb, 2016? Answer: According to the context, Edoardo Reja was the head coach of Atalanta B.C. from Mar, 2015 to Jun, 2016. In Feb 2016, the head coach of the team Atalanta B.C. is Edoardo Reja. Therefore, the answer is Edoardo Reja.
 
-Figure 17: Chain-of-Thought demonstrations of TempReason, event-time reasoning.
+**Figure 17:** Chain-of-Thought demonstrations of TempReason, event-time reasoning.
 
-#### CoT Demonstration of TEMPREASON (4-shot, event-event)
+### CoT Demonstration of TEMPREASON (4-shot, event-event)
 
 <span id="page-24-0"></span>I will give you a question with context.
 
@@ -817,4 +808,4 @@ Question: Which position did Nicholas Macpherson hold before Member of the House
 
 Answer: According to the context, Nicholas Macpherson holds the position of Permanent Secretary to the Treasury from Aug, 2005 to Jan, 2016. Afterthat, Nicholas Macpherson holds the position of Member of the House of Lords from Oct, 2016 to Dec, 2022. Nicholas Macpherson hold the position of Permanent Secretary to the Treasury before Member of the House of Lords. Therefore, the answer is Permanent Secretary to the Treasury."
 
-Figure 18: Chain-of-Thought demonstrations of TempReason, event-event reasoning.
+**Figure 18:** Chain-of-Thought demonstrations of TempReason, event-event reasoning.

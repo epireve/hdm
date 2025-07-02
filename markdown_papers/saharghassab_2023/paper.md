@@ -34,11 +34,11 @@ behkamal@um.ac.ir
 
 Mostafa Milani *Department of Computer Science Western University* Ontario, Canada mostafa.milani@uwo.ca
 
-*Abstract*—Entity matching (EM), also known as record linkage, is crucial in data integration, cleaning, and knowledge base construction. Modern matching techniques leverage deep learning and pre-trained language models (PLMs) to effectively identify matching records, showcasing significant advancements over traditional methods. However, certain critical matching aspects have received limited attention in these techniques. They heavily rely on PLMs' encodings and face challenges in integrating external sources of knowledge to enhance matching accuracy. Additionally, these techniques often lack transparency, impeding users' understanding of the underlying rationale for matching decisions. Furthermore, they exhibit limitations and decreased performance in handling heterogeneous records from datasets with diverse schemas. This paper presents EXKG, a novel technique that addresses these challenges and effectively matches heterogeneous records with varying attributes. EXKG combines the power of knowledge graphs (KGs) and PLMs to perform record linkage while offering explanatory insights into the matching results. We demonstrate that EXKG achieves competitive performance through experimental studies compared to state-of-the-art matching techniques. As a by-product, our solution generates explanations that give end users a comprehensive understanding of the matching process. We evaluate the quality of these explanations by using a user study and show they empower end users to make informed decisions
+**Abstract:** Entity matching (EM), also known as record linkage, is crucial in data integration, cleaning, and knowledge base construction. Modern matching techniques leverage deep learning and pre-trained language models (PLMs) to effectively identify matching records, showcasing significant advancements over traditional methods. However, certain critical matching aspects have received limited attention in these techniques. They heavily rely on PLMs' encodings and face challenges in integrating external sources of knowledge to enhance matching accuracy. Additionally, these techniques often lack transparency, impeding users' understanding of the underlying rationale for matching decisions. Furthermore, they exhibit limitations and decreased performance in handling heterogeneous records from datasets with diverse schemas. This paper presents EXKG, a novel technique that addresses these challenges and effectively matches heterogeneous records with varying attributes. EXKG combines the power of knowledge graphs (KGs) and PLMs to perform record linkage while offering explanatory insights into the matching results. We demonstrate that EXKG achieves competitive performance through experimental studies compared to state-of-the-art matching techniques. As a by-product, our solution generates explanations that give end users a comprehensive understanding of the matching process. We evaluate the quality of these explanations by using a user study and show they empower end users to make informed decisions
 
-*Index Terms*—Entity matching, Explainable AI, Knowledge Graph
+**Index Terms:** Entity matching, Explainable AI, Knowledge Graph
 
-#### I. INTRODUCTION
+### I. INTRODUCTION
 
 Entity Matching (EM) is vital in numerous practical applications, aiming to recognize linked entities across different datasets. The success of EM techniques has been significantly bolstered by the advancements in deep learning and natural language processing (NLP), with PLMs like Bidirectional Encoder Representations from Transformers (BERT) [1]–[5] taking the spotlight. These PLMs have showcased remarkable performance by generating highly contextualized embeddings of terms, allowing for accurate matching of entity descriptions. However, when it comes to handling heterogeneous data, providing transparent explanations for decision-making, and incorporating external sources of knowledge, existing EM approaches heavily reliant on PLMs face limitations.
 
@@ -50,34 +50,34 @@ To overcome these challenges, this paper proposes the incorporation of knowledge
 
 <sup>\*</sup> The author was a visitor at the University of Western Ontario University, Department of Computer Science, while working on this research.
 
-| TABLE I: Records from an academic database |  |
+| TABLE I: Records from an academic database | |
 |--------------------------------------------|--|
 |--------------------------------------------|--|
 
-| ID | Name         | Faculty     | Department | Field        |
+| ID | Name | Faculty | Department | Field |
 |----|--------------|-------------|------------|--------------|
 | r1 | Javad Safaie | Engineering | Department | Material Sci |
-|    |              |             | of Eng     | ence         |
-| r2 | Ali Moghimi  | Science     | Department | Psychology   |
-|    |              |             | of Biology |              |
+| | | | of Eng | ence |
+| r2 | Ali Moghimi | Science | Department | Psychology |
+| | | | of Biology | |
 
 TABLE II: Records from Google Scholar
 
-| ID | Name         | Title           | Research     | Email          |
+| ID | Name | Title | Research | Email |
 |----|--------------|-----------------|--------------|----------------|
-|    |              |                 | Area         |                |
-| t1 | Javad Safaie | PhD<br>in       | IBM, Bioero  | verified email |
-|    |              | Neuroscience    | sion         | at ut          |
-|    |              | and<br>Bio      |              |                |
-|    |              | instrumentation |              |                |
-| t2 | Ali Moghimi  | University of   | Digital      | verified       |
-|    |              | California,     | Agriculture, | email<br>at    |
-|    |              | Davis           | Remote       | ucdavis.edu    |
-|    |              |                 | Sensing, Hy  |                |
-|    |              |                 | perspectral  |                |
-|    |              |                 | Imaging, and |                |
-|    |              |                 | Artificial   |                |
-|    |              |                 | Intelligence |                |
+| | | | Area | |
+| t1 | Javad Safaie | PhD<br>in | IBM, Bioero | verified email |
+| | | Neuroscience | sion | at ut |
+| | | and<br>Bio | | |
+| | | instrumentation | | |
+| t2 | Ali Moghimi | University of | Digital | verified |
+| | | California, | Agriculture, | email<br>at |
+| | | Davis | Remote | ucdavis.edu |
+| | | | Sensing, Hy | |
+| | | | perspectral | |
+| | | | Imaging, and | |
+| | | | Artificial | |
+| | | | Intelligence | |
 
 Here, we demonstrate two cases where the knowledge from the Microsoft Academic Knowledge Graph (MAKG) [7] helped EXKG-D outperform DITTO by correctly labeling record pairs mislabeled by DITTO. Table I and II show the records from two tables with the heterogeneous format. In this example, (r1, t1) are equivalent and refer to the same person, while (r2, t2) refer to different persons. DITTO incorrectly labels (r1, t1) as non-match due to a lack of similarity in attributes other than the name. Due to the name coincidence, it incorrectly labels (r2, t2) as a match. Upon examination, it is evident that there is no direct relationship between the attributes of these two records except Name. However, despite the lack of a direct relationship, our solution, EXKG-D, correctly labeled both pairs. This is achieved using paths between "Field" and "Research Areas" extracted from MAKG. Specifically, a path is identified that connects the attribute "IBM" from the research area in t<sup>1</sup> to "Material Science" from the field of study in r<sup>1</sup> using an intermediate node with a value of "Nanotechnology." The existence of this path signifies a connection between the two records and assists in the matching process. EXKG-D also correctly labels r<sup>2</sup> and t<sup>2</sup> as non-match. It successfully recognizes the lack of any path between the attributes of these two profiles in MAKG. In this particular case, the input path can be described as "empty" since no meaningful connection exists between the attributes. This absence of a path plays a crucial role in enabling our model to classify these profiles as non-match accurately. □
 
@@ -85,17 +85,17 @@ Our approach focuses on identifying the paths that establish semantic relationsh
 
 The paper is structured as follows. We review the related work in Section II, formalize the problem of heterogeneous EM and generate explanations using KGs in Section III, explain our solution, EXKG, in Section IV, present our experimental results in Section V, and conclude in Section VI.
 
-#### II. RELATED WORK
+### II. RELATED WORK
 
 This section first reviews previous research in the domain of heterogeneous EM and then proceeds to investigate studies focusing on generating explanations for EM.
 
-#### *A. Heterogeneous Entity Matching*
+### *A. Heterogeneous Entity Matching*
 
 Heterogeneous EM has received widespread attention in the past few years. Seq2SeqMatcher [8] is a method designed for this type of matching but only models structural information at the token level. HierMatcher [9], another recent solution, is a hierarchical matching network that addresses this limitation by modeling EM at multiple levels (token, attribute, and entity) within a unified neural framework.
 
 With the expansion of Transformer architectures, like BERT, and their good results in the fields of NLP, they were also used in the EM task. DITTO [1] is an EM method based on BERT, demonstrating superior performance in both homogeneous and heterogeneous datasets. In another work, HIERGAT [2] introduces a new framework that combines graph-attention capability with DITTO to identify discriminative words and attributes. Both DITTO and HIERGAT evaluate their solutions using "dirty datasets" to test their effectiveness in handling the challenge of matching heterogeneous entities. These dirty datasets contain corrupted entity structures with randomly injected attribute values. However, when the heterogeneity becomes more complex, such as having only semantic similarities between attributes, these frameworks cannot perform optimally. In this study, we introduce EXKG-D and EXKG-H that leverage the power of external KGs to address this issue.
 
-#### *B. Explainablity in Entity Matching*
+### *B. Explainablity in Entity Matching*
 
 Explaining the output generated by an EM method has encountered specific challenges. The study in [10] categorized these challenges into three main groups:
 
@@ -118,7 +118,7 @@ In [16], authors introduced SystemER, which employs active learning to minimize 
 
 While KGs have been widely used for generating explanations, for example, in the medical and commercial recommender systems [17]–[20], their usage in EM is limited. In this work, we utilize paths from a KG used for EM to generate explanations, and we can address the mentioned challenges. In terms of cross-record interaction effects, KG paths could capture interactions and relationships between records in a more structured and interpretable way compared to complex model interactions. This could reduce issues with linear model assumptions. Also in terms of the second challenge, the absence of such paths can indicate the absence of a relation between input entity pairs which are non-match. Regarding the last challenge, since we do not use attribute contribution as our explanatory method, there is no need to evaluate different sensitivity levels in various input record pairs.
 
-#### III. PROBLEM DEFINITION
+### III. PROBLEM DEFINITION
 
 We start from two databases D<sup>1</sup> and D<sup>2</sup> that include relations R<sup>1</sup> and R<sup>2</sup> with relation schemas S<sup>1</sup> = {A1, ..., An} and S<sup>2</sup> = {B1, ..., Bm}. The problem of *heterogeneous EM* is to find a function f : dom(S1) × dom(S2) 7→ {0, 1}, called a *matcher*, that returns f(t, r) = 1 if t and r match, and returns f(t, r) = 0 otherwise. A matcher is accurate if it matches two records if and only if they are equivalent, i.e., they refer to the same real-world entity.
 
@@ -126,18 +126,18 @@ Our EM method, EXKG, use KGs. A *knowledge graph (KG)* K = (E, P, T) consists of
 
 We propose EXKG, a matcher that uses a set of KGs K. Each KG K ∈ K overlaps with the domains of some pairs of attributes A<sup>i</sup> ∈ S<sup>1</sup> and B<sup>j</sup> ∈ S<sup>2</sup> in relations R<sup>1</sup> and R<sup>2</sup> and will be used to improve matching through the comparison of the values of those attributes. Here, we assume the value of attributes A<sup>i</sup> and B<sup>j</sup> can be found in the KG K using entity alignment and matching methods for KGs [21], [22]. Using these KGs, we also explain our matcher's results. An explanation for a matching record pair (r, t) is a set of k shortest paths in the KGs in K where each path π<sup>i</sup> is from an attribute value in t to an attribute value in r or vice versa.
 
-#### IV. PROPOSED APPROACH
+### IV. PROPOSED APPROACH
 
 Similar to other EM models, EXKG comprises two main phases: blocking and matching. However, EXKG introduces an additional phase of generating explanations. In the subsequent section, we will provide a concise overview of each of these phases.
 
-#### *A. Pre-processing and Blocking*
+### *A. Pre-processing and Blocking*
 
 To initiate the matching process, EXKG takes two heterogeneous relations, denoted as R<sup>1</sup> ∈ D<sup>1</sup> and R<sup>2</sup> ∈ D2. The first step in EXKG is to compare the active domains of attribute pairs in these relations, aiming to identify suitable attribute pairs for matching. Utilizing fast string similarity checking techniques, EXKG identifies sets of attribute pairs with similar values (e.g., Name attribute in the given example). These identified attribute pairs are then utilized in the blocking phase, where they are used to create blocks of records for further
 
 ![](_page_3_Figure_0.jpeg)
-<!-- Image Description: This flowchart depicts a record linkage system.  Two datasets ($D_1$, $D_2$) undergo blocking, generating candidate pairs.  These pairs, represented as a matrix, are processed using knowledge graphs and their paths.  A tokenizer and encoder prepare data for a classification layer, which outputs a matching result (a matrix indicating matches/non-matches).  Explanations are provided via a graph visualization.  The diagram details the system's architecture and data flow. -->
+<!-- Image Description: This flowchart depicts a record linkage system. Two datasets ($D_1$, $D_2$) undergo blocking, generating candidate pairs. These pairs, represented as a matrix, are processed using knowledge graphs and their paths. A tokenizer and encoder prepare data for a classification layer, which outputs a matching result (a matrix indicating matches/non-matches). Explanations are provided via a graph visualization. The diagram details the system's architecture and data flow. -->
 
-Fig. 1: Architecture of EXKG
+**Figure 1:** Architecture of EXKG
 
 comparison. During the blocking phase, EXKG leverages KGs by searching for values from the active domains of attributes in the KGs. When attributes from both relations appear in the same KGs, they are paired and used in the subsequent matching phase, enabling the discovery of paths in the KGs for enhanced matching capabilities.
 
@@ -145,19 +145,19 @@ comparison. During the blocking phase, EXKG leverages KGs by searching for value
 
 Figure 1 provides an overview of our solution. To leverage KGs in our study, we utilize the attributes that are paired during the preprocessing phase, as their corresponding values appear in the same KG. Subsequently, we extract all paths connecting these two attributes within the KG and introduce these paths as an additional input to models, along with the record pairs. As mentioned before, for the matching model we utilize two state-of-the-art models, DITTO and HIERGAT. DITTO uses BERT for embeddings of input data and HIER-GAT uses a combination of BERT and graph attention network for generating such embeddings. We refer to these proposed variations as variations EXKG-D and EXKG-H, respectively.
 
-#### *C. Explanation Generation*
+### *C. Explanation Generation*
 
 After classifying two input records, EXKG uses the paths connecting their attributes to generate explanations for the output. In cases where the two records are predicted as a match, EXKG presents the paths in the KGs that establish the connection between them. These paths serve as evidence supporting the match prediction. EXKG orders these paths based on their size to provide a more informative explanation. This ordering highlights the most relevant paths. If the two records are classified as non-match, and there are no existing paths between them in the KG, the absence of such paths can serve as an explanation for their non-matching explanation.
 
-#### V. EXPERIMENTS
+### V. EXPERIMENTS
 
 We conducted experiments to assess the effectiveness of EXKG in two distinct tasks: matching and explanation generation.
 
-#### *A. Dataset Details*
+### *A. Dataset Details*
 
 As mentioned, our research uses two datasets: an academic dataset and Google Scholar profiles.<sup>1</sup> The academic dataset comprises attributes such as Name, Faculty, Field of Study, and Department, while the Google Scholar dataset includes attributes such as Name, Title, Research Areas, and Email. Additionally, we utilize MAKG as our KG. The academic dataset initially consisted of 933 records, and the Google Scholar dataset contained 3,136 records. However, we encountered null values for "Research Areas" in certain profiles within the Google Scholar dataset.Since this attribute is crucial for mapping to the KG, we removed records with null values. Consequently, our final dataset was reduced to 1035 records after the blocking step. To ensure comprehensive evaluation, we divided the dataset into three subsets: training, validation, and testing. Specifically, 837 data items were for training, 94 for validating, and 104 for testing.
 
-#### *B. Comparative Evaluation of Matching Method*
+### *B. Comparative Evaluation of Matching Method*
 
 To evaluate the effectiveness of our approach, we compare our approach, EXKG, with DITTO [1] and HIERGAT [2], two state-of-the-art matching methods. Our method can be used to extend these methods by providing paths in KGs as input in the matching processes and also for explanation generation, as we explained before. We use EXKG-D and EXKG-H respectively to refer to the extensions of HIERGAT and DITTO using EXKG. We assess the performance of EXKG-D and EXKG-H using various metrics, including F1 score, precision, recall, and AUC. The results are presented in Table III and Figures 2, 3, and 4. Experimental results show EXKG-D and EXKG-H achieve notable performance advantages and outperform both DITTO and HIERGAT in terms of F1 score and precision.
 
@@ -166,32 +166,32 @@ Comparing the confusion matrices for EXKG-D with DITTO and EXKG-H with HIERGAT i
 <sup>1</sup>The datasets and our code are available in the reference [6].
 
 ![](_page_4_Figure_0.jpeg)
-<!-- Image Description: The image presents two ROC curves (Figures 2) comparing ExKG-D/Ditto and ExKG-H/HierGAT models.  Each ROC curve plots true positive rate against false positive rate, indicating model performance.  Area under the curve (AUC) values are provided for each model.  A supplementary table (Table III) numerically compares precision, recall, and AUC for the models. The figure demonstrates the superior performance of ExKG models concerning precision and recall across different recall ranges. -->
+<!-- Image Description: The image presents two ROC curves (Figures 2) comparing ExKG-D/Ditto and ExKG-H/HierGAT models. Each ROC curve plots true positive rate against false positive rate, indicating model performance. Area under the curve (AUC) values are provided for each model. A supplementary table (Table III) numerically compares precision, recall, and AUC for the models. The figure demonstrates the superior performance of ExKG models concerning precision and recall across different recall ranges. -->
 
 The receiver operating characteristic curve (ROC) and the precision-recall (PR) curves in Figures 2 and 3 highlight that within reasonable values of recall, particularly in the midrange where there is a balance between precision and recall, EXKG-D and EXKG-H exhibit higher precision compared to DITTO and HIERGAT. Examining the PR curve of EXKG-D and DITTO reveals that within the recall range of 0.4 to almost 0.9, the precision values fall between 0.9 and 0.7, indicating a satisfactory balance between precision and recall in this segment of the curve. Similarly, such a balance for EXKG-H and HIERGAT is observed between recall values of 0.2 and 0.6, with corresponding precision values ranging from 0.4 to 0.8. Evidently, the curves convey analogous information to the confusion matrices, demonstrating that the addition of paths can enhance precision within a reasonable range of recall.
 
 TABLE III: Performance Comparison
 
-| EXKG-D                                                                                       | DITTO                            | EXKG-H                                                    | HIERGAT                          |
+| EXKG-D | DITTO | EXKG-H | HIERGAT |
 |----------------------------------------------------------------------------------------------|----------------------------------|-----------------------------------------------------------|----------------------------------|
 | Precision<br>81.66 +7.04<br>Recall<br>92.45 -1.88<br>F1<br>86.72 +3.39<br>AUC<br>92.58 -0.05 | 74.62<br>94.33<br>83.33<br>92.53 | 68.52 +10.83<br>69.81 -15.1<br>69.16 +0.46<br>72.92 +6.36 | 57.69<br>84.91<br>68.70<br>66.56 |
 
 ![](_page_4_Figure_4.jpeg)
-<!-- Image Description: The image contains two precision-recall curves.  The top plot compares ExKG-D and Ditto models against a baseline. The bottom plot shows a similar comparison between ExKG-H and HierGAT models, also against a baseline.  The curves illustrate the performance of different knowledge graph embedding methods, showing the trade-off between precision and recall at various thresholds.  Higher curves generally indicate better performance. -->
+<!-- Image Description: The image contains two precision-recall curves. The top plot compares ExKG-D and Ditto models against a baseline. The bottom plot shows a similar comparison between ExKG-H and HierGAT models, also against a baseline. The curves illustrate the performance of different knowledge graph embedding methods, showing the trade-off between precision and recall at various thresholds. Higher curves generally indicate better performance. -->
 
-Fig. 3: Precision-Recall Curve
+**Figure 3:** Precision-Recall Curve
 
 ![](_page_4_Figure_6.jpeg)
-<!-- Image Description: This image presents four 2x2 confusion matrices, visually comparing the performance of four different classification methods: Ditto, ExKG-D, HierGAT, and ExKG-H.  Each matrix displays true positive, true negative, false positive, and false negative counts, enabling a comparison of their predictive accuracy and error types in a binary classification task.  The color intensity of each cell likely represents the magnitude of the value. -->
+<!-- Image Description: This image presents four 2x2 confusion matrices, visually comparing the performance of four different classification methods: Ditto, ExKG-D, HierGAT, and ExKG-H. Each matrix displays true positive, true negative, false positive, and false negative counts, enabling a comparison of their predictive accuracy and error types in a binary classification task. The color intensity of each cell likely represents the magnitude of the value. -->
 
-Fig. 4: Confusion matrices
+**Figure 4:** Confusion matrices
 
 ![](_page_5_Figure_0.jpeg)
-<!-- Image Description: Figure 5 presents four stacked bar charts illustrating the impact of path size on matching performance.  Each chart displays counts of true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN) for two different methods (ExKG-D and ExKG-H) categorized by path size.  The charts aim to compare the performance of these methods across varying path lengths. -->
+<!-- Image Description: Figure 5 presents four stacked bar charts illustrating the impact of path size on matching performance. Each chart displays counts of true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN) for two different methods (ExKG-D and ExKG-H) categorized by path size. The charts aim to compare the performance of these methods across varying path lengths. -->
 
-Fig. 6: The impact of the number of the paths on matching performance
+**Figure 6:** The impact of the number of the paths on matching performance
 
-#### *C. The Effect of Path Length on Performance*
+### *C. The Effect of Path Length on Performance*
 
 a path length of 0 proves effective for non-match cases.
 
@@ -244,12 +244,12 @@ Our method of explanation generation is equally significant due to its extensive
 In summary, these results collectively suggest that integrating KGs into the process of explanation generation holds promise for providing effective and well-received explanations in EM. The positive responses from participants position our approach as a valuable contribution to end-users seeking comprehensibility in the EM domain.
 
 ![](_page_7_Figure_4.jpeg)
-<!-- Image Description: This bar chart displays the percentage of positive responses to six user experience factors: Trust, Usefulness, Satisfaction, Understanding, Completeness, and Soundness.  Each bar represents a factor, with percentages ranging from 56.6% to 91.4%, indicating the level of user agreement with each aspect.  The chart likely assesses the overall user experience of a system or application described in the paper. -->
+<!-- Image Description: This bar chart displays the percentage of positive responses to six user experience factors: Trust, Usefulness, Satisfaction, Understanding, Completeness, and Soundness. Each bar represents a factor, with percentages ranging from 56.6% to 91.4%, indicating the level of user agreement with each aspect. The chart likely assesses the overall user experience of a system or application described in the paper. -->
 
 ![](_page_7_Figure_5.jpeg)
-<!-- Image Description: Figure 7 is a textual caption, not a diagram, chart, graph, equation, or technical illustration.  It simply labels a section of the paper as "Explanation evaluation," indicating that the following content will detail the methods and results of evaluating explanations within the context of the study. -->
+<!-- Image Description: Figure 7 is a textual caption, not a diagram, chart, graph, equation, or technical illustration. It simply labels a section of the paper as "Explanation evaluation," indicating that the following content will detail the methods and results of evaluating explanations within the context of the study. -->
 
-#### *F. Case Study*
+### *F. Case Study*
 
 In this section, we carefully look at a few examples of matching results in EXKG. The input of our model comprises the serialization of two input entities. The features of each entity are provided to the model as follows:
 
@@ -308,15 +308,15 @@ EXKG's output for this sample data is as follows:
 
 It is evident that, even when the person's name is the same in two entities, the similarity of the two entities alone is not enough for HIERGAT to recognize a match between them without considering these paths. The added paths show the relationship between the field of study in the first entity and the person's research areas in the second entity.
 
-| t1: [COL] Uni name [VAL] Ali Shiri [COL] Uni faculty<br>[VAL] Science [COL] Uni department [VAL] Department<br>of Chemistry, Sciences [COL] Uni field of study<br>[VAL] Chemistry                                                                                                                                                                                                                  | t1: [COL] Uni name [VAL] Majid Azizi [COL] Uni<br>faculty [VAL] Agriculture [COL] Uni department [VAL]<br>Department of Gardening, Agriculture [COL] Uni field<br>of study [VAL] Biology                                                                                                                                                                                                 |
+| t1: [COL] Uni name [VAL] Ali Shiri [COL] Uni faculty<br>[VAL] Science [COL] Uni department [VAL] Department<br>of Chemistry, Sciences [COL] Uni field of study<br>[VAL] Chemistry | t1: [COL] Uni name [VAL] Majid Azizi [COL] Uni<br>faculty [VAL] Agriculture [COL] Uni department [VAL]<br>Department of Gardening, Agriculture [COL] Uni field<br>of study [VAL] Biology |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                                                                                                                                                                                                                                                                                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                          |
+| | |
 | r1: [COL] Scholar name [VAL] Ali Shiri<br>[COL]Scholar Title [VAL] Professor, School of<br>Library and Information Studies, University of<br>Alberta [COL] Research Areas [VAL] Organic synthesis,<br>Heterocyclic compound, Medicinal chemistry<br>[COL] Scholar Email [VAL] Verified email at<br>ualberta.ca [COL] Paths [VAL] Organic synthesis,<br>Catalysis, Organic chemistry, Chemistry AND | r1: [COL] Scholar name [VAL] Majid Azizi [COL]<br>Scholar Title [VAL] Academy of Science [COL]<br>researchAreas [VAL] Medicinal plants, Bioactive<br>molecules [COL] Scholar_Email [VAL] Verified email<br>at um.ac.ir [COL] paths [VAL] Medicinal plants,<br>Biochemistry, Biology AND Medicinal plants, Botany,<br>Biology AND Bioactive molecules, Molecule,<br>Biochemistry, Biology |
-| Organic synthesis, Catalysis, Inorganic chemistry,<br>Chemistry AND Heterocyclic compound, Stereochemistry,<br>Chemistry AND Heterocyclic compound, Organic<br>chemistry, Chemistry AND Heterocyclic compounds,<br>Polymer Chemistry, Chemistry                                                                                                                                                    | t2: [COL] Uni name [VAL] Hossein Askari [COL] Uni<br>faculty [VAL] Science [COL] Uni department [VAL]<br>Department of Biology, Sciences [COL] Uni field of<br>study [VAL] Biology                                                                                                                                                                                                       |
-|                                                                                                                                                                                                                                                                                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                          |
-| t2: [COL] Uni name [VAL] Mohammad Amini<br>[COL] Uni faculty [VAL] Mathematical Sciences<br>[COL] Uni department [VAL] Department of Statistics,<br>Mathematics [COL] Uni field of study<br>[VAL] Mathematics                                                                                                                                                                                      | r2: [COL] Scholar name [VAL] Hossein Askari<br>Lyarjdameh [COL] Scholar Title [VAL] The University<br>of Adelaide [COL] researchAreas [VAL] Machine<br>learning, Computer vision, Medical imaging [COL]<br>Scholar Email [VAL] Verified email at Adelaide.<br>edu.au [COL] paths [VAL] Medical imaging, Diabetes                                                                         |
-|                                                                                                                                                                                                                                                                                                                                                                                                    | mellitus, Endocrinology, Biology                                                                                                                                                                                                                                                                                                                                                         |
-| r2:[COL] Scholar name [VAL] Mohamadamin Amini<br>[COL] Scholar Title [VAL] PhD student, Amirkabir<br>University of Technology [COL] research Areas<br>[VAL] CTD, Multiphase flow, Diffusion dynamics<br>[COL] Scholar Email [VAL] Verified email<br>at aut.ac.ir [COL] paths [VAL] empty                                                                                                           | The shortcomings observed in our model stem from the<br>number of paths, as elucidated in Section V-D. This specific<br>case is an example of the output of EXKG-D and as previously                                                                                                                                                                                                     |
+| Organic synthesis, Catalysis, Inorganic chemistry,<br>Chemistry AND Heterocyclic compound, Stereochemistry,<br>Chemistry AND Heterocyclic compound, Organic<br>chemistry, Chemistry AND Heterocyclic compounds,<br>Polymer Chemistry, Chemistry | t2: [COL] Uni name [VAL] Hossein Askari [COL] Uni<br>faculty [VAL] Science [COL] Uni department [VAL]<br>Department of Biology, Sciences [COL] Uni field of<br>study [VAL] Biology |
+| | |
+| t2: [COL] Uni name [VAL] Mohammad Amini<br>[COL] Uni faculty [VAL] Mathematical Sciences<br>[COL] Uni department [VAL] Department of Statistics,<br>Mathematics [COL] Uni field of study<br>[VAL] Mathematics | r2: [COL] Scholar name [VAL] Hossein Askari<br>Lyarjdameh [COL] Scholar Title [VAL] The University<br>of Adelaide [COL] researchAreas [VAL] Machine<br>learning, Computer vision, Medical imaging [COL]<br>Scholar Email [VAL] Verified email at Adelaide.<br>edu.au [COL] paths [VAL] Medical imaging, Diabetes |
+| | mellitus, Endocrinology, Biology |
+| r2:[COL] Scholar name [VAL] Mohamadamin Amini<br>[COL] Scholar Title [VAL] PhD student, Amirkabir<br>University of Technology [COL] research Areas<br>[VAL] CTD, Multiphase flow, Diffusion dynamics<br>[COL] Scholar Email [VAL] Verified email<br>at aut.ac.ir [COL] paths [VAL] empty | The shortcomings observed in our model stem from the<br>number of paths, as elucidated in Section V-D. This specific<br>case is an example of the output of EXKG-D and as previously |
 
 For a non-expert user in the field of "Chemistry", it will be difficult to understand the connection between research areas like "Heterocyclic compounds" or "Organic synthesis" and the field of "Chemistry" without explanation, but the presentation of the mentioned paths offers that there is a relationship between them.
 
@@ -324,9 +324,9 @@ The second example, (t2, r2), is a case where there are no paths in KG between t
 
 The ground truth label indicates a non-match, and our proposed model correctly identifies it as a non-match. However, without this signal of empty value for path, DITTO misidentifies it as a match. Our model's output for this sample data is as follows:
 
-#### Prediction: Non-matched
+### Prediction: Non-matched
 
-#### Explanation: Empty
+### Explanation: Empty
 
 This example shows that adding a column of the path to data also helps predict non-match cases. In this example, an empty path signals to the model that there is no relation between these two entities.
 
@@ -340,13 +340,13 @@ The second example which means (t2, r2) is a case where the ground truth label i
 
 This type of incorrect prediction occurs when there is an overlap between keywords associated with the different academic fields of study. In this specific case, The existence of a path such as Medical Imaging ⇝ Diabetes Mellitus ⇝ Endocrinology ⇝ Biology sends a signal of the relation between two entities to the model, leading to the inaccurate prediction. The occurrence of such cases is typically limited across all domains; nevertheless, it is essential to adopt a suitable approach to effectively address this issue.
 
-#### VI. CONCLUSION
+### VI. CONCLUSION
 
 EM is a pivotal component in data management, drawing significant attention to developing various effective matching techniques. This area of research has evolved considerably, with recent studies increasingly focusing on key dimensions such as explainability [10]–[13], robustness [24], [25], and fairness [26]–[28]. These aspects represent crucial challenges and opportunities for advancing the field. Our current work contributes to this ongoing discourse by specifically exploring the intricacies of heterogeneity and explainability in EM, aiming to enhance both the effectiveness and interpretability of EM processes.
 
 In this study, we aim to leverage the paths extracted from a KG to enhance the performance of two state-of-the-art models: DITTO and HIERGAT. We also employ these paths to provide insights into the results of matching in a heterogeneous setting. The results demonstrate superior performance compared to these two models. However, it's worth noting that different settings are required when adding paths to the inputs of DITTO and HIERGAT. This is because of their difference in the matching model. When integrating paths from external knowledge graphs into matching models, it is essential to take into account the model's architecture and incorporate an appropriate model configuration based on the number and length of paths. In addition, the utilization of these paths allows us to explain the outcomes of matching tasks in a heterogeneous environment where the rationale behind a match or non-match is ambiguous. Our experimental findings on generated explanations demonstrate that this type of explanation can yield high scores across various dimensions.
 
-#### REFERENCES
+### REFERENCES
 
 - [1] Y. Li, J. Li, Y. Suhara, A. Doan, and W. C. Tan, "Deep entity matching with pre-trained language models," *Proceedings of the VLDB Endowment*, vol. 14, pp. 50–60, 9 2020. [Online]. Available: https://dl.acm.org/doi/10.14778/3421424.3421431
 - [2] D. Yao, Y. Gu, G. Cong, H. Jin, and X. Lv, "Entity resolution with hierarchical graph attention networks," *Proceedings of the ACM SIGMOD International Conference on Management of Data*, vol. 14, pp. 429–442, 6 2022. [Online]. Available: https://dl.acm.org/doi/10. 1145/3514221.3517872

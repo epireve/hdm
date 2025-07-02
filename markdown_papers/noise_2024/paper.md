@@ -36,7 +36,7 @@ Machine learning models are known to memorize private data to reduce their train
 
 Our key idea to address these issues is to apply selective updates to the model training, while discarding those useless or even harmful updates. Motivated by this, this paper proposes DPSUR, a Differentially Private training framework based on Selective Updates and Release, where the gradient from each iteration is evaluated based on a validation test, and only those updates leading to convergence are applied to the model. As such, DPSUR ensures the training in the right direction and thus can achieve faster convergence than DPSGD. The main challenges lie in two aspects privacy concerns arising from gradient evaluation, and gradient selection strategy for model update. To address the challenges, DP-SUR introduces a clipping strategy for update randomization and a threshold mechanism for gradient selection. Experiments conducted on MNIST, FMNIST, CIFAR-10, and IMDB datasets show that DPSUR significantly outperforms previous works in terms of convergence speed and model utility.
 
-#### 1 INTRODUCTION
+### 1 INTRODUCTION
 
 In the past decade, deep learning techniques have achieved remarkable success in many AI tasks, such as image recognition [\[32,](#page-12-0) [52,](#page-13-0) [70\]](#page-13-1), text analysis [\[10\]](#page-12-1), and recommendation systems [\[58\]](#page-13-2). However, even though the training data are not published, adversaries may still learn them by analyzing the model parameters. For example, the contents of training data can be inverted from the models [\[21,](#page-12-2) [38,](#page-12-3) [43,](#page-12-4) [56,](#page-13-3) [72\]](#page-13-4), or the membership information of the training set can be inferred [\[34,](#page-12-5) [49\]](#page-13-5). This is of particular concern in those applications which involve sensitive and personal data, such as medical imaging and finance. Recent legislations such as EU's General Data Privacy Regulation (GDPR) and California Consumer Privacy
 
@@ -56,9 +56,9 @@ In this paper, we propose DPSUR, a Differentially Private Stochastic Gradient De
 <sup>\*</sup> Corresponding author
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
-<!-- Image Description: This contour plot displays the optimization trajectories of two algorithms, DPSUR (red) and DPSGD (blue), on a loss function surface.  The concentric contours represent levels of the loss function, with the black star marking the minimum.  The plot's purpose is to visually compare the convergence speed and path of the two algorithms towards the optimal solution.  The x and y axes represent parameters θ₀ and θ₁ respectively. -->
+<!-- Image Description: This contour plot displays the optimization trajectories of two algorithms, DPSUR (red) and DPSGD (blue), on a loss function surface. The concentric contours represent levels of the loss function, with the black star marking the minimum. The plot's purpose is to visually compare the convergence speed and path of the two algorithms towards the optimal solution. The x and y axes represent parameters θ₀ and θ₁ respectively. -->
 
-Figure 1: Trajectory visualization of DPSGD and DPSUR schemes on a linear regression model.
+**Figure 1:** Trajectory visualization of DPSGD and DPSUR schemes on a linear regression model.
 
 in each iteration is a random "solution". As such, we use the difference between the current and previous iteration's loss Δ as a criterion for accepting or rejecting model parameters.
 
@@ -73,9 +73,9 @@ In addition, we also propose an optimization that selectively releases gradients
 
 The rest of the paper is organized as follows. Section [2](#page-1-1) introduces the preliminary knowledge. In Section [3,](#page-2-0) we present our method of selective update. Section [4](#page-4-0) shows the selective release mechanism and the complete algorithm DPSUR. Privacy analysis is conducted in Section [5](#page-6-0) and the experimental results are presented in Section [6.](#page-8-0) Section [7](#page-11-0) introduces related work, followed the conclusion in Section [8.](#page-11-1)
 
-#### <span id="page-1-1"></span>2 PRELIMINARY KNOWLEDGE
+### <span id="page-1-1"></span>2 PRELIMINARY KNOWLEDGE
 
-#### 2.1 Differential Privacy
+### 2.1 Differential Privacy
 
 Differential privacy is a rigorous mathematical framework that formally defines data privacy. It requires that a single entry in the input dataset must not lead to statistically significant changes in the output [\[16,](#page-12-20) [17,](#page-12-21) [19\]](#page-12-7) if differential privacy holds.
 
@@ -99,7 +99,7 @@ In this paper, we focus on <sup>2</sup> sensitivity, i.e., || · ||2. Additional
 
 <span id="page-1-2"></span>Lemma 2.3 (Post-processing [\[19\]](#page-12-7)). Let M be a mechanism satisfying (, )-DP. Let be a function whose input is the output of M. Then (M) also satisfies (, )-DP.
 
-#### 2.2 Rényi Differential Privacy
+### 2.2 Rényi Differential Privacy
 
 Rényi differential privacy (RDP) is a relaxation of -differential privacy, which is defined on Rényi divergence as follows.
 
@@ -108,7 +108,7 @@ Definition 2.4. (Rényi Divergence [\[54\]](#page-13-15)) Given two probability 
 $$
 D_{\alpha}(P||Q) = \frac{1}{\alpha - 1} \ln \mathbf{E}_{x \sim Q} \left[ \left( \frac{P(x)}{Q(x)} \right)^{\alpha} \right],
 $$
- (3)
+(3)
 
 where E∼ denotes the excepted value of for the distribution , (), and () denotes the density of or at respectively.
 
@@ -132,7 +132,7 @@ The following Lemma [2.7](#page-2-2) defines the standard form for converting (,
 
 <span id="page-2-2"></span>Lemma 2.7. (Conversion from RDP to DP [\[3\]](#page-12-24)). if a randomized mechanism : → R satisfies (, )-RDP ,then it satisfies( + ln( ( − 1)/) − (ln + ln )/( − 1), )-DP for any 0 < < 1.
 
-#### 2.3 Deep Learning with Differential Privacy
+### 2.3 Deep Learning with Differential Privacy
 
 Differentially Private Stochastic Gradient Descent (DPSGD) is a widely-adopted training algorithm for deep neural networks with differential privacy guarantees. Specifically, in each iteration , a batch of tuples B is sampled from with a fixed probability | | , where is the batch size. After computing the gradient of each tuple ∈ B as () = ∇ ( , ), where is model parameter for the i-th sample, DPSGD clips each per-sample gradient according to a fixed ℓ2 norm (Equation [\(6\)](#page-2-3)).
 
@@ -154,18 +154,18 @@ where is the noise multiplier depending on the privacy budget. Last, the gradien
 
 Privacy accounting. Three factors determine DPSGD's privacy guarantee — the noise multiplier , the sampling ratio | | , and the number of training iterations . In reality, given the privacy parameters (, ), we can set appropriate values for these three hyperparameters to optimize the performance. The privacy calibration process is performed using a privacy accountant: a numerical algorithm providing tight upper bounds for the given (, ) as a function of the hyper-parameters [\[1\]](#page-12-8), which in turn can be combined with numerical optimization routines to optimize one hyper-parameter given the other two. In this work we use the RDP [\[36\]](#page-12-23) for privacy accounting. In practice, given , and at each iteration, we select from {2, 3, ..., 64} to determine the smallest .
 
-# <span id="page-2-0"></span>3 DPSUR: DP TRAINING FRAMEWORK WITH SELECTIVE UPDATES AND RELEASE
+## <span id="page-2-0"></span>3 DPSUR: DP TRAINING FRAMEWORK WITH SELECTIVE UPDATES AND RELEASE
 
 In this section, we present our proposed framework DPSUR, with an overview in Section [3.1.](#page-2-4) Then two key components of DPSUR, namely, minimal clipping strategy and threshold mechanism,are introduced in Sections [3.2](#page-3-0) and [3.3,](#page-4-1) respectively.
 
-#### <span id="page-2-4"></span>3.1 Overview
+### <span id="page-2-4"></span>3.1 Overview
 
 As aforementioned, DPSUR does not directly accept the model updates from each iteration due to the influence of random sampling and Gaussian noise. Therefore, we first calculate the loss of the generated model in each iteration, and then compare it with that from the last iteration to determine whether or not to accept the model update.
 
 <span id="page-2-5"></span>![](_page_2_Figure_16.jpeg)
-<!-- Image Description: The flowchart depicts an iterative model training algorithm.  It details steps involving obtaining a new model using DPSGD, calculating loss differences (ΔE), applying a DP processing step, and checking a convergence condition (ΔE < Z).  The algorithm iterates until a termination condition (t < T) is met, outputting the final model *w<sub>t</sub>*.  The flowchart visually presents the algorithm's sequential steps and decision points. -->
+<!-- Image Description: The flowchart depicts an iterative model training algorithm. It details steps involving obtaining a new model using DPSGD, calculating loss differences (ΔE), applying a DP processing step, and checking a convergence condition (ΔE < Z). The algorithm iterates until a termination condition (t < T) is met, outputting the final model *w<sub>t</sub>*. The flowchart visually presents the algorithm's sequential steps and decision points. -->
 
-Figure 2: Workflow of DPSUR.
+**Figure 2:** Workflow of DPSUR.
 
 <span id="page-2-3"></span>Figure [2](#page-2-5) shows the workflow of DPSUR, which takes as inputs the total number of updates , number of updates accepted , acceptance threshold , and initialization model 0, executes the following steps, and outputs a final model.
 
@@ -180,39 +180,37 @@ Note that when reaches the total number of updates , we output the trained model
 Figure [3](#page-3-1) further shows how we evaluate the model, i.e. obtaining () (step 2 in Figure [2\)](#page-2-5). During each iteration, we first randomly sample a portion of the tuples B from the training set and perform DPSGD training to obtain a model. Then we randomly re-sample a portion of tuples from the training set as validation batch B . Finally, the cross-entropy loss function is applied to the B to compute the loss of the current model. It is important to note that sampling from the training set for training and validation serves the purpose of privacy amplification. Specifically, re-sampling from the training set for model validation helps prevent overfitting. The complete DPSUR algorithm will be described in Section [4.2.](#page-6-1)
 
 <span id="page-3-1"></span>![](_page_3_Figure_2.jpeg)
-<!-- Image Description: Figure 4 illustrates "minimal clipping" in a machine learning model.  It uses a flowchart showing a training dataset processed in mini-batches through a model ('dpsgd'), calculating a cross-entropy loss.  A parallel validation process is also depicted. The text explains how clipping constrains  changes in model parameters (ΔE), minimizing computational cost without significant impact on accuracy. -->
+<!-- Image Description: Figure 4 illustrates "minimal clipping" in a machine learning model. It uses a flowchart showing a training dataset processed in mini-batches through a model ('dpsgd'), calculating a cross-entropy loss. A parallel validation process is also depicted. The text explains how clipping constrains changes in model parameters (ΔE), minimizing computational cost without significant impact on accuracy. -->
 
-Figure 3: Model evaluation framework in DPSUR.
+**Figure 3:** Model evaluation framework in DPSUR.
 
-#### <span id="page-3-0"></span>3.2 Minimal Clipping
+### <span id="page-3-0"></span>3.2 Minimal Clipping
 
 As the computation of Δ accesses the training set (i.e., a portion of private tuples), it is necessary to perform a differential privacy operation on it. Intuitively, we can clip Δ to a certain range [−, ], and then add Gaussian noise with mean 0 and standard deviation 2 · to ensure differential privacy, as shown in Equation [\(8\)](#page-3-2). Here, denotes the noise multiplier, and 2 is the sensitivity of the clipping operation.
 
 $$
 \widetilde{\Delta E} = \mathbf{Clip}(\Delta E; C_v) + \sigma_v \cdot 2C_v \cdot \mathcal{N}(0, 1),
 $$
-  
-= min(max( $\Delta E, -C_v$ ),  $C_v$ ) +  $\sigma_v \cdot 2C_v \cdot \mathcal{N}(0, 1)$  (8)
+
+= min(max( $\Delta E, -C_v$ ), $C_v$ ) + $\sigma_v \cdot 2C_v \cdot \mathcal{N}(0, 1)$ (8)
 
 However, setting an appropriate clipping bound for Δ is challenging. A large helps avoid loss of fidelity to the original values, but it also leads to large injected noise. A key observation here is that, to assess the quality of the current model, we can simply compare the loss of the model trained in this iteration with that of the previous iteration, i.e., Δ = () − (−1). If the loss is lower than the previous iteration, i.e., Δ < 0, the current model is better and we accept it, otherwise we reject it. Therefore, we only need to determine whether Δ is positive or negative, instead of its absolute value. With that said, we can use a small clipping bound for uniform clipping such that almost all Δ are outside the interval [−, ], which is illustrated by the red line in Figure [4.](#page-3-3)
 
-<span id="page-3-4"></span>
 $$
 \overline{\Delta E} = \begin{cases}\n-C_v, & \Delta E \leq -C_v \\
 \Delta E, & -C_v < \Delta E < C_v \\
 C_v, & \Delta E \geq C_v\n\end{cases} \tag{9}
 $$
 
- We clip Δ to a certain range [−, ] as shown in Equation [9.](#page-3-4) If we choose to be extremely small (e.g., = 1 − 10), we can
+We clip Δ to a certain range [−, ] as shown in Equation [9.](#page-3-4) If we choose to be extremely small (e.g., = 1 − 10), we can
 
 <span id="page-3-3"></span>![](_page_3_Figure_10.jpeg)
-<!-- Image Description: The image displays a scatter plot illustrating the distribution of instances of ΔE against the value of ΔE.  A vertical red line at ΔE=0 acts as a visual threshold, separating instances with positive and negative ΔE values. The plot likely demonstrates the distribution of a certain metric (ΔE) across multiple instances, showing the frequency of different ΔE values above and below zero.  Its purpose is to visually represent the data distribution and highlight the significance of the zero value. -->
+<!-- Image Description: The image displays a scatter plot illustrating the distribution of instances of ΔE against the value of ΔE. A vertical red line at ΔE=0 acts as a visual threshold, separating instances with positive and negative ΔE values. The plot likely demonstrates the distribution of a certain metric (ΔE) across multiple instances, showing the frequency of different ΔE values above and below zero. Its purpose is to visually represent the data distribution and highlight the significance of the zero value. -->
 
-Figure 4: The idea of minimal cilpping.
+**Figure 4:** The idea of minimal cilpping.
 
 **loss** forward propagation cross-entropy () make almost all Δ stay outside [−, ], and the clipping process is simplified to Equation [10.](#page-3-5) Although in the worst case, there could be some value of Δ in the interval of [−, ], the probability is so small that we can ignore it without affecting our technical analysis. In practice, we can select the clipping bound to be small enough for loss value in gradient descent, e.g., = 0.001.
 
-<span id="page-3-5"></span>
 $$
 \overline{\Delta E} = \begin{cases}\n-C_v, & \Delta E < 0 \\
 C_v, & \Delta E > 0\n\end{cases}.
@@ -224,11 +222,11 @@ So each possible value of Δ is discretized as − or after our minimal clipping
 <span id="page-3-2"></span>For a real example, let clipping bound = 0.1 and noise level = 1. The results by the clipping strategy after adding noise are plotted in Figure [5a,](#page-4-2) where threshold = 0 is used to accept those updates whose Δ < . We observe that the probability of accepting a high-quality model (Δ < 0) is 69.1%, while the probability of accepting a low-quality model (Δ > 0) is 30.8%. Next, we slightly move the acceptance threshold from 0 to −0.2 to investigate its impact on the acceptance probabilities. Figures [5b](#page-4-2) and [5c](#page-4-2) show the results of = −0.1 and = −0.2, respectively. We observe that, from = 0 to = −0.1, the probability of accepting a high-quality model drops much more slowly (from 69.1% to 50%) than that of accepting a low-quality model (from 30.8% to 15.9%). However, as further decreases, the situation is reversed, i.e., the probability of accepting a high-quality model drops quickly, which goes against the model convergence. This observation motivates us to explore an optimal threshold to maximize the utility gain from model updates.
 
 <span id="page-4-2"></span>![](_page_4_Figure_0.jpeg)
-<!-- Image Description: The figure displays three probability density plots, each showing two overlapping normal distributions (μ =  -C<sub>v</sub> in orange, μ = C<sub>v</sub> in blue),  with shaded areas representing probability.  The plots illustrate the effect of varying Z (a parameter, taking values 0, -0.1, and -0.2) on the overlap between the distributions.  The purpose is to visualize the impact of Z on a specific probability calculation within the paper's context. -->
+<!-- Image Description: The figure displays three probability density plots, each showing two overlapping normal distributions (μ = -C<sub>v</sub> in orange, μ = C<sub>v</sub> in blue), with shaded areas representing probability. The plots illustrate the effect of varying Z (a parameter, taking values 0, -0.1, and -0.2) on the overlap between the distributions. The purpose is to visualize the impact of Z on a specific probability calculation within the paper's context. -->
 
-Figure 5: The Gaussian probability distributions under different thresholds Z, where the Gaussian distribution N (, (2 · ) 2 ) and the = 1, = 0.1
+**Figure 5:** The Gaussian probability distributions under different thresholds Z, where the Gaussian distribution N (, (2 · ) 2 ) and the = 1, = 0.1
 
-#### <span id="page-4-1"></span>3.3 Threshold Mechanism
+### <span id="page-4-1"></span>3.3 Threshold Mechanism
 
 In this subsection, we derive an optimal threshold . Formally, let = · . Then for the case of Δ < 0, the CDF of the Gaussian distribution N (−, (2 · ) 2 ) less than is
 
@@ -247,17 +245,17 @@ where = N (, (2 · ) 2 ). According to Equations [\(11\)](#page-4-3) and [\(12\)
 In Figure [6,](#page-4-5) we plot the probabilities of accepting high-quality (Δ < 0) and low-quality (Δ > 0) models for popular : 0.8, 1.0, and 1.3, with respect to ranging from −3.5 to 0.5. Obviously, smaller value results in decreasing probabilities of accepting both high-quality (Δ < 0) and low-quality (Δ > 0) models. To find a that maximizes the difference between the two probabilities (i.e., the red dashed vertical line), we find that such seems to be around −1.0 for all three . As will be shown in Figure [9c](#page-10-0) of the experimental results, setting = −1.0 does achieve excellent results in all datasets.
 
 <span id="page-4-5"></span>![](_page_4_Figure_9.jpeg)
-<!-- Image Description: The image displays a graph plotting probability against β, showing curves for different values of ΔE and σ<sub>ν</sub>.  Solid lines represent ΔE > 0, while dashed lines represent ΔE < 0.  Different colors represent varying σ<sub>ν</sub> values (0.8, 1, and 1.3).  The graph likely illustrates the probability of an event based on these parameters, with a vertical dashed line indicating a point of interest where curves intersect.  The purpose is to visually represent the impact of ΔE and σ<sub>ν</sub> on probability within the context of the paper's model. -->
+<!-- Image Description: The image displays a graph plotting probability against β, showing curves for different values of ΔE and σ<sub>ν</sub>. Solid lines represent ΔE > 0, while dashed lines represent ΔE < 0. Different colors represent varying σ<sub>ν</sub> values (0.8, 1, and 1.3). The graph likely illustrates the probability of an event based on these parameters, with a vertical dashed line indicating a point of interest where curves intersect. The purpose is to visually represent the impact of ΔE and σ<sub>ν</sub> on probability within the context of the paper's model. -->
 
-Figure 6: Acceptance probability vs. .
+**Figure 6:** Acceptance probability vs. .
 
 <span id="page-4-3"></span>Summary. To address the privacy concerns arising from the evaluation on selective update, we propose a randomized algorithm coupled with a minimal clipping strategy and a threshold mechanism. In particular, by setting a sufficiently small clipping bound (e.g., 0.001) and the acceptance threshold = · , the impact of on the selection update is eliminated according to Equations [\(11\)](#page-4-3) and [\(12\)](#page-4-4). Further, a suitable is selected based on probability distributions to achieve maximum utility for selective updates.
 
-# <span id="page-4-4"></span><span id="page-4-0"></span>4 SELECTIVE RELEASE IN DPSUR: AN OPTIMIZATION
+## <span id="page-4-4"></span><span id="page-4-0"></span>4 SELECTIVE RELEASE IN DPSUR: AN OPTIMIZATION
 
 As of now, iteratively calculating the <sup>Δ</sup>f in each iteration requires continual privacy budget consumption. In Section [4.1,](#page-4-6) we prove that by only releasing the model when a selective update occurs, DPSUR can preserve the privacy budget. Finally, we summarize the overall algorithm of DPSUR in Section [4.2.](#page-6-1)
 
-#### <span id="page-4-6"></span>4.1 Gaussian Mechanism with Selective Release
+### <span id="page-4-6"></span>4.1 Gaussian Mechanism with Selective Release
 
 Recall that when we obtain <sup>Δ</sup>f, to protect privacy, we clip <sup>Δ</sup> in [−, ] and add Gaussian noise according to Equation [8](#page-3-2) in each iteration. According to step 5 of Figure [2,](#page-2-5) we do not update the model until <sup>Δ</sup>f exceeds the threshold . If we take one step further and do not release <sup>Δ</sup>f in such cases, as described in Algorithm [1,](#page-5-0) DPSUR only consumes privacy budget when a selective update occurs, i.e., <sup>Δ</sup>f <sup>&</sup>lt; · . In this subsection, we conduct privacy analysis to ensure Algorithm [1](#page-5-0) can satisfy the same RDP guarantee as that of the underlying Gaussian mechanism in Definition [2.6.](#page-2-1)
 
@@ -267,23 +265,22 @@ In general, for the query result () on dataset , Algorithm [1](#page-5-0) clip t
 
 Proof. Figure [7a](#page-5-1) plots two normal distributions, namely (0, 2 2 ) and (, 2 2 ), as the output probability distributions of function on two neighboring datasets whose sensitivity is . By selective update and selective release in the threshold range [, ], the probability distribution outside of this interval will accumulate within
 
-| Algorithm 1: Gaussian mechanism with selective release |  |  |  |  |
+| Algorithm 1: Gaussian mechanism with selective release | | | | |
 |--------------------------------------------------------|--|--|--|--|
 |--------------------------------------------------------|--|--|--|--|
 
-<span id="page-5-0"></span>
 
-|   | Input: function<br>𝑓<br>(·), dataset<br>𝐷, Gaussian distribution<br>𝑁, a       |
+| | Input: function<br>𝑓<br>(·), dataset<br>𝐷, Gaussian distribution<br>𝑁, a |
 |---|--------------------------------------------------------------------------------|
-|   | given interval<br>[𝑎, 𝑏]                                                       |
-|   | Output: 𝐴(𝐷)<br>that falls in the interval<br>[𝑎, 𝑏]<br>after adding           |
-|   | Gaussian noise                                                                 |
-|   | 1 Clipping<br>𝑓<br>(𝐷)<br>to interval<br>[0, 𝜇]<br>to obtain sensitivity<br>𝜇; |
-|   | (0, 𝜇2𝜎<br>2<br>);<br>2 𝐴(𝐷)<br>= 𝑓<br>(𝐷) +<br>𝑁                              |
-|   | 3 while 𝐴(𝐷)<br><<br>𝑎<br>or 𝐴(𝐷)<br>><br>𝑏<br>do                              |
-| 4 | (0, 𝜇2𝜎<br>2<br>);<br>𝐴(𝐷)<br>= 𝑓<br>(𝐷) +<br>𝑁                                |
-|   | 5 return 𝐴(𝐷)                                                                  |
-|   |                                                                                |
+| | given interval<br>[𝑎, 𝑏] |
+| | Output: 𝐴(𝐷)<br>that falls in the interval<br>[𝑎, 𝑏]<br>after adding |
+| | Gaussian noise |
+| | 1 Clipping<br>𝑓<br>(𝐷)<br>to interval<br>[0, 𝜇]<br>to obtain sensitivity<br>𝜇; |
+| | (0, 𝜇2𝜎<br>2<br>);<br>2 𝐴(𝐷)<br>= 𝑓<br>(𝐷) +<br>𝑁 |
+| | 3 while 𝐴(𝐷)<br><<br>𝑎<br>or 𝐴(𝐷)<br>><br>𝑏<br>do |
+| 4 | (0, 𝜇2𝜎<br>2<br>);<br>𝐴(𝐷)<br>= 𝑓<br>(𝐷) +<br>𝑁 |
+| | 5 return 𝐴(𝐷) |
+| | |
 
 the interval. As such, the final output distribution is truncated and transformed into a truncated normal distribution, as shown in Figure [7b.](#page-5-1) As is assumed to follow a normal distribution, the truncated normal distribution with mean 0 and mean can be represented as follows:
 
@@ -326,15 +323,15 @@ $$
 where Φ() = 1 √ 2 ∫ −∞ − 2 <sup>2</sup> .
 
 <span id="page-5-1"></span>![](_page_5_Figure_9.jpeg)
-<!-- Image Description: The image displays two pairs of probability density functions (PDFs).  Panel (a) shows untruncated normal distributions N(0, μσ²) (gold) and N(μ, μσ²) (blue), illustrating a shift in mean. Panel (b) shows the same distributions after truncation to the interval [a, b], demonstrating the effect of truncation on the shape and scale of the PDFs. The purpose is to visually represent the impact of truncation on normal distributions within the context of a statistical analysis. -->
+<!-- Image Description: The image displays two pairs of probability density functions (PDFs). Panel (a) shows untruncated normal distributions N(0, μσ²) (gold) and N(μ, μσ²) (blue), illustrating a shift in mean. Panel (b) shows the same distributions after truncation to the interval [a, b], demonstrating the effect of truncation on the shape and scale of the PDFs. The purpose is to visually represent the impact of truncation on normal distributions within the context of a statistical analysis. -->
 
-Figure 7: Before and after truncating the normal distribution.
+**Figure 7:** Before and after truncating the normal distribution.
 
-As 
+As
 $$
 a \to -\infty
 $$
-, we can get:  
+, we can get:
 \n
 $$
 D_{\alpha}(f(x; 0, \mu\sigma, a, b) || f(x; \mu, \mu\sigma, a, b))
@@ -350,22 +347,22 @@ Similarly, we can get :
 $$
 D_{\alpha}(f(x; \mu, \mu\sigma, a, b))|f(x; 0, \mu\sigma, a, b))
 $$
-  
+
 \n
 $$
 = \frac{1}{\alpha - 1} \cdot \ln \int_{a}^{b} \frac{[f(x; \mu, \mu\sigma, a, b)]^{\alpha}}{[f(x; 0, \mu\sigma, a, b)]^{\alpha - 1}} dx
 $$
-  
+
 \n
 $$
 = \frac{1}{\alpha - 1} \cdot \left\{ \frac{\alpha(\alpha - 1)}{2\sigma^{2}} + \ln \left[ \frac{(\Phi(\frac{b}{\mu\sigma}) - \Phi(\frac{a}{\mu\sigma}))^{\alpha - 1}}{(\Phi(\frac{b - \mu}{\mu\sigma}) - \Phi(\frac{a - \mu}{\mu\sigma}))^{\alpha}} \right] \right\}
 $$
-  
+
 \n
 $$
 \cdot (\Phi(\frac{b - \alpha\mu}{\mu\sigma}) - \Phi(\frac{a - \alpha\mu}{\mu\sigma}))]
 $$
-  
+
 \n
 $$
 = \frac{\alpha}{2\sigma^{2}} + \frac{1}{\alpha - 1} \cdot \ln \left[ \frac{(\Phi(\frac{b}{\mu\sigma}))^{\alpha - 1}}{(\Phi(\frac{b - \mu}{\mu\sigma}))^{\alpha}} \cdot \Phi(\frac{b - \alpha\mu}{\mu\sigma}) \right]
@@ -376,7 +373,7 @@ According Theorem [4.2,](#page-5-2) we have:
 $$
 D_{\alpha}(f(x; 0, \mu\sigma, a, b)||f(x; \mu, \mu\sigma, a, b)) \leq \alpha/2\sigma^{2}, and
 $$
-  
+
 $$
 D_{\alpha}(f(x; \mu, \mu\sigma, a, b)||f(x; 0, \mu\sigma, a, b)) \leq \alpha/2\sigma^{2}.
 $$
@@ -385,12 +382,12 @@ Therefore, Theorem [4.1](#page-4-7) is proved. The details of RDP of two truncat
 
 Next, we will prove Theorem [4.2.](#page-5-2) This theorem is an inequality proof of the cumulative distribution function (CDF) of the normal distribution, and it provides the foundation for the proof of Theorem [4.1.](#page-4-7)
 
-<span id="page-5-2"></span>THEOREM 4.2. If 
+<span id="page-5-2"></span>THEOREM 4.2. If
 $$
 A = (\Phi(\frac{b-\mu}{\mu\sigma}))^{\alpha-1} \cdot \Phi(\frac{b+(\alpha-1)\mu}{\mu\sigma})/(\Phi(\frac{b}{\mu\sigma}))^{\alpha}, B = (\Phi(\frac{b}{\mu\sigma}))^{\alpha-1} \cdot \Phi(\frac{b-\alpha\mu}{\mu\sigma})/(\Phi(\frac{b-\mu}{\mu\sigma}))^{\alpha}
 $$
-, where  $\Phi(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{x} e^{-\frac{t^2}{2}} dt$ .  
-\nA,  $B \le 1$ , when  $\mu > 0$ ,  $\sigma > 0$  and  $\alpha > 1$ .
+, where $\Phi(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{x} e^{-\frac{t^2}{2}} dt$ .
+\nA, $B \le 1$ , when $\mu > 0$ , $\sigma > 0$ and $\alpha > 1$ .
 
 Proof. The second derivative of ln [Φ()] is:
 
@@ -409,9 +406,9 @@ When < 0, Φ ′ () > 0. As such, proving − · Φ ′ () · Φ() − Φ ′ ()
 $$
 K'(x) = -\Phi(x) + (-x) \cdot \Phi'(x) - \Phi''(x)
 $$
-  
-=  $-\Phi(x) + (-x) \cdot \Phi'(x) - (-x) \cdot \Phi'(x)$  (17)  
-=  $-\Phi(x) < 0$ 
+
+= $-\Phi(x) + (-x) \cdot \Phi'(x) - (-x) \cdot \Phi'(x)$ (17)
+= $-\Phi(x) < 0$
 
 Since lim→−∞ () = 0, () < 0 when < 0. In summary, ln′′ [Φ()] < 0 always holds. In other words, ln′′ [Φ()] is the concave function when ∈ (−∞, ∞). According to the properties of the concave function, we can obtain:
 
@@ -436,18 +433,18 @@ In the end, we can obtain the following:
 $$
 (\Phi(\frac{b-\mu}{\mu\sigma}))^{\alpha-1} \cdot \Phi(\frac{b+(\alpha-1)\mu}{\mu\sigma}) \le (\Phi(\frac{b}{\mu\sigma}))^{\alpha}
 $$
-  
+
 $$
 (\Phi(\frac{b}{\mu\sigma}))^{\alpha-1} \cdot \Phi(\frac{b-\alpha\mu}{\mu\sigma}) \le (\Phi(\frac{b-\mu}{\mu\sigma}))^{\alpha},
 $$
-  
-where  $\mu, \sigma > 0$  and  $\alpha > 1$ . (19)
+
+where $\mu, \sigma > 0$ and $\alpha > 1$ . (19)
 
 Theorem [4.2](#page-5-2) is proved. □
 
 This proves Algorithm [1](#page-5-0) satisfies the same (, /2 2 )-RDP as Gaussian mechanism of RDP [\[36\]](#page-12-23). In other words, DPSUR only consumes privacy budget when the update is selected and released based on the interval. As such, in Figure [2,](#page-2-5) the privacy budget of computing <sup>Δ</sup>f is consumed only if <sup>Δ</sup>f <sup>&</sup>lt; .
 
-#### <span id="page-6-1"></span>4.2 DPSUR: Putting Things Together
+### <span id="page-6-1"></span>4.2 DPSUR: Putting Things Together
 
 Now we describe the overall algorithm of DPSUR in Algorithm [2,](#page-6-2) which consists of the following two steps.
 
@@ -463,35 +460,35 @@ The above two steps are repeated until the entire privacy budget is consumed. We
 
 <span id="page-6-7"></span><span id="page-6-6"></span><span id="page-6-5"></span><span id="page-6-4"></span><span id="page-6-3"></span><span id="page-6-2"></span>
 
-| Input: training datasets<br>{𝑥1, 𝑥2, , 𝑥𝑁<br>}, loss function                         |
+| Input: training datasets<br>{𝑥1, 𝑥2, , 𝑥𝑁<br>}, loss function |
 |---------------------------------------------------------------------------------------|
-| L (𝜃, 𝑥). Parameters: learning rate<br>𝜂, batch size for                              |
-| training<br>𝐵𝑡<br>, noise multiplier for training<br>𝜎𝑡<br>, clipping                 |
-| bound for training<br>, batch size for validation<br>,<br>𝐶𝑡<br>𝐵𝑣                    |
-| noise multiplier for validation<br>𝜎𝑣<br>, clipping bound for                         |
-| validation<br>𝐶𝑣<br>, threshold parameter<br>𝛽                                        |
-| Output: the final trained model<br>𝑤𝑡                                                 |
-| 1 Initialize<br>𝑡<br>= 1,<br>𝑤0<br>= Initial();                                       |
-| <<br>2 while 𝑡<br>𝑇<br>do                                                             |
-| 𝐵𝑡<br>Randomly sample a batch<br>with probability<br>;<br>B𝑡<br>3<br>𝑁                |
-| for 𝑥𝑖<br>∈ B𝑡<br>do<br>4                                                             |
-| Compute<br>;<br>𝑔𝑡<br>(𝑥𝑖) ← ∇L(𝑤𝑡<br>,𝑥𝑖<br>5<br>)                                   |
-| 𝑔𝑡<br>(𝑥𝑖<br>)    2<br>𝑔𝑡<br>(𝑥𝑖) ←<br>𝑔𝑡<br>(𝑥𝑖)/max(1,<br>);<br>6<br>𝐶𝑡             |
-| 1<br>(𝑥𝑖) + N (0, 𝜎2𝐶𝑡<br>2<br>));<br>𝑔<br>𝑔𝑡<br>e𝑡 ←<br>(<br>Í<br>𝑖∈ B𝑡<br>7<br>  B𝑡 |
-| ;<br>𝑤𝑛𝑒𝑤<br>= 𝑤𝑡−1<br>− 𝜂𝑡𝑔<br>e𝑡<br>8                                               |
-| 𝐵𝑣<br>Poisson sampling a batch<br>with probability<br>;<br>B𝑣<br>9<br>𝑁               |
-| Compute loss<br>𝐽<br>(𝑤𝑛𝑒𝑤)<br>and<br>𝐽<br>(𝑤𝑡−1)<br>by batch<br>;<br>B𝑣<br>10        |
-| △𝐸<br>= 𝐽<br>(𝑤𝑛𝑒𝑤) −<br>𝐽<br>(𝑤𝑡−1);<br>11                                           |
-| △𝐸<br>= min(max(△𝐸,<br>−𝐶𝑣<br>),𝐶𝑣<br>);<br>12                                        |
-| 2<br>2<br>△f𝐸<br>= △𝐸<br>+ N (0, 𝜎𝑣<br>· (2𝐶𝑣<br>);<br>)<br>13                        |
-| if △f𝐸<br><<br>𝛽<br>· 𝐶𝑣<br>then<br>14                                                |
-| = 𝑤𝑛𝑒𝑤;<br>𝑤𝑡<br>15                                                                   |
-| 𝑡<br>= 𝑡<br>+ 1;<br>16                                                                |
-| else<br>17                                                                            |
-| 𝑤𝑡<br>= 𝑤𝑡−1;<br>18                                                                   |
-| ;<br>19 return 𝑤𝑡                                                                     |
+| L (𝜃, 𝑥). Parameters: learning rate<br>𝜂, batch size for |
+| training<br>𝐵𝑡<br>, noise multiplier for training<br>𝜎𝑡<br>, clipping |
+| bound for training<br>, batch size for validation<br>,<br>𝐶𝑡<br>𝐵𝑣 |
+| noise multiplier for validation<br>𝜎𝑣<br>, clipping bound for |
+| validation<br>𝐶𝑣<br>, threshold parameter<br>𝛽 |
+| Output: the final trained model<br>𝑤𝑡 |
+| 1 Initialize<br>𝑡<br>= 1,<br>𝑤0<br>= Initial(); |
+| <<br>2 while 𝑡<br>𝑇<br>do |
+| 𝐵𝑡<br>Randomly sample a batch<br>with probability<br>;<br>B𝑡<br>3<br>𝑁 |
+| for 𝑥𝑖<br>∈ B𝑡<br>do<br>4 |
+| Compute<br>;<br>𝑔𝑡<br>(𝑥𝑖) ← ∇L(𝑤𝑡<br>,𝑥𝑖<br>5<br>) |
+| 𝑔𝑡<br>(𝑥𝑖<br>) 2<br>𝑔𝑡<br>(𝑥𝑖) ←<br>𝑔𝑡<br>(𝑥𝑖)/max(1,<br>);<br>6<br>𝐶𝑡 |
+| 1<br>(𝑥𝑖) + N (0, 𝜎2𝐶𝑡<br>2<br>));<br>𝑔<br>𝑔𝑡<br>e𝑡 ←<br>(<br>Í<br>𝑖∈ B𝑡<br>7<br> B𝑡 |
+| ;<br>𝑤𝑛𝑒𝑤<br>= 𝑤𝑡−1<br>− 𝜂𝑡𝑔<br>e𝑡<br>8 |
+| 𝐵𝑣<br>Poisson sampling a batch<br>with probability<br>;<br>B𝑣<br>9<br>𝑁 |
+| Compute loss<br>𝐽<br>(𝑤𝑛𝑒𝑤)<br>and<br>𝐽<br>(𝑤𝑡−1)<br>by batch<br>;<br>B𝑣<br>10 |
+| △𝐸<br>= 𝐽<br>(𝑤𝑛𝑒𝑤) −<br>𝐽<br>(𝑤𝑡−1);<br>11 |
+| △𝐸<br>= min(max(△𝐸,<br>−𝐶𝑣<br>),𝐶𝑣<br>);<br>12 |
+| 2<br>2<br>△f𝐸<br>= △𝐸<br>+ N (0, 𝜎𝑣<br>· (2𝐶𝑣<br>);<br>)<br>13 |
+| if △f𝐸<br><<br>𝛽<br>· 𝐶𝑣<br>then<br>14 |
+| = 𝑤𝑛𝑒𝑤;<br>𝑤𝑡<br>15 |
+| 𝑡<br>= 𝑡<br>+ 1;<br>16 |
+| else<br>17 |
+| 𝑤𝑡<br>= 𝑤𝑡−1;<br>18 |
+| ;<br>19 return 𝑤𝑡 |
 
-#### <span id="page-6-15"></span><span id="page-6-14"></span><span id="page-6-13"></span><span id="page-6-12"></span><span id="page-6-11"></span><span id="page-6-10"></span><span id="page-6-9"></span><span id="page-6-8"></span><span id="page-6-0"></span>5 PRIVACY ANALYSIS
+### <span id="page-6-15"></span><span id="page-6-14"></span><span id="page-6-13"></span><span id="page-6-12"></span><span id="page-6-11"></span><span id="page-6-10"></span><span id="page-6-9"></span><span id="page-6-8"></span><span id="page-6-0"></span>5 PRIVACY ANALYSIS
 
 This section establishes the privacy guarantee of DPSUR. Since DP-SUR is non-interactive, it only releases the final model accumulated from all accepted model updates. In the following, we first analyze the privacy loss of each accepted model update, and then derive the total privacy loss based on sequential composition.
 
@@ -504,11 +501,11 @@ In the training phase, since the accepted model update is selected solely based 
 Based on the above analysis, we will use the Rényi Differential Privacy (RDP) approach to calculate the privacy loss in the training and validation phases in Sections [5.1](#page-7-1) and [5.2](#page-7-2) respectively, compose them sequentially, and finally convert the RDP into (, )-DP in Section [5.3.](#page-7-3)
 
 <span id="page-7-0"></span>![](_page_7_Figure_3.jpeg)
-<!-- Image Description: The image displays a diagram illustrating a process divided into training, validation, and release phases.  Two sequences (1 and *t*) are shown, each involving multiple weight vectors (*w<sub>i</sub>*) and their associated error terms (ΔE<sub>i</sub>).  The diagram depicts a sequential computation, where intermediate results undergo operations labeled 'RU' and 'AU' before final release.  A separate equation defines *A<sub>α</sub>*, likely a key parameter within the described process. -->
+<!-- Image Description: The image displays a diagram illustrating a process divided into training, validation, and release phases. Two sequences (1 and *t*) are shown, each involving multiple weight vectors (*w<sub>i</sub>*) and their associated error terms (ΔE<sub>i</sub>). The diagram depicts a sequential computation, where intermediate results undergo operations labeled 'RU' and 'AU' before final release. A separate equation defines *A<sub>α</sub>*, likely a key parameter within the described process. -->
 
-Figure 8: The privacy analysis of DPSUR. (RU: Rejected Update, AU: Accepted Update)
+**Figure 8:** The privacy analysis of DPSUR. (RU: Rejected Update, AU: Accepted Update)
 
-#### <span id="page-7-1"></span>5.1 Privacy Analysis of Training
+### <span id="page-7-1"></span>5.1 Privacy Analysis of Training
 
 As mentioned above, the RDP of the training phase is only resulted from the accepted model updates. Theorem [5.1](#page-7-4) gives the proof of RDP in the training phase.
 
@@ -575,7 +572,7 @@ $$
 \Box
 $$
 
-#### <span id="page-7-2"></span>5.2 Privacy Analysis of Validation
+### <span id="page-7-2"></span>5.2 Privacy Analysis of Validation
 
 As Section [4.1](#page-4-6) mentioned above, the RDP of validation will be accumulated only when <sup>Δ</sup>f <sup>&</sup>lt; · .
 
@@ -589,7 +586,7 @@ where = , is noise multiplier of the validation phase, and > 1 is the order.
 
 The proof is similar to that of the training phase, so we omit it.
 
-#### <span id="page-7-3"></span>5.3 Overall Privacy Analysis of DPSUR
+### <span id="page-7-3"></span>5.3 Overall Privacy Analysis of DPSUR
 
 Since both training and validation phases access the same training set, we need to combine their RDPs sequentially using Lemma [5.4,](#page-7-7) and then use Lemma [2.7](#page-2-2) to convert it to (, )-DP. Therefore, the final privacy loss of DPSUR is as follows:
 
@@ -602,17 +599,17 @@ $$
 
 where 0 < < 1, () is the RDP of training which is computed by Theorem [5.1,](#page-7-4) and () is the RDP of validation which is computed by Theorem [5.5.](#page-7-9)
 
-#### 5.4 Discussion of Privacy
+### 5.4 Discussion of Privacy
 
 Our privacy analysis shows that DPSUR strictly adheres to the principles of differential privacy, limiting adversaries to conduct differential attacks solely based on the algorithm's output. However, it is worth noting that DPSUR may be susceptible to interactive side-channel attacks. For instance, a strong adversary (e.g., the hypervisor of a guest OS in the cloud) who has access to DPSUR's internal update/release status could measure the time interval of two adjacent model updates to infer the number of rejections in between and thus cause privacy breaches. To mitigate such threats, we suggest introducing random waiting time for update acceptance cases. Nonetheless, we emphasize that DPSGD is supposed to work in a non-interactive training scenario where the attacker can only access the final output model. Since most real-world machine learning systems are non-interactive during training, the privacy guarantee provided by DPSUR remains sufficient and consistent with other DPSGD variants.
 
 To further validate such privacy guarantee in real-world scenarios, in Section [6.4](#page-9-0) we conduct membership inference attacks on the trained models. The experimental results indicate that DPSUR exhibits strong defense against membership inference attacks, thus safeguarding the privacy of training data.
 
-#### <span id="page-8-0"></span>6 EXPERIMENTAL EVALUATION
+### <span id="page-8-0"></span>6 EXPERIMENTAL EVALUATION
 
 In this section, we conduct experiments to demonstrate the performance of DPSUR over four real datasets and popular machine learning models. And we perform experiments involving two member inference attacks to show the privacy-preserving effect of DPSUR. All experiments are implemented in Python using Py-Torch [\[45\]](#page-12-25). Codes to reproduce our experiments are available at [https://github.com/JeffffffFu/DPSUR.](https://github.com/JeffffffFu/DPSUR)
 
-#### 6.1 Experimental Setting
+### 6.1 Experimental Setting
 
 6.1.1 Baseline. We compare DPSUR with DPSGD [\[1\]](#page-12-8) and four state-of-the-art variants, namely DPSGD with important sampling [\[57\]](#page-13-9), handcrafted features [\[53\]](#page-13-17), tempered sigmoid activation [\[41\]](#page-12-26), and adaptive learning rate [\[31\]](#page-12-17), which we refer to as DPSGD-IS, DPSGD-HF, DPSGD-TS, and DPAGD respectively. Note that we do not compare DPSUR with those approaches that modify the structures of over-parameterized models [\[13\]](#page-12-27) or the semi-supervised model PATE [\[39,](#page-12-28) [40\]](#page-12-22), as they differ significantly from the scope of this work.
 
@@ -628,14 +625,14 @@ IMDb consists of 50,000 reviews of movies, each review encoded as a list of word
 
 We apply the same convolutional neural network architecture as [\[41,](#page-12-26) [53,](#page-13-17) [57\]](#page-13-9) to three image datasets, i.e., MNIST, FMNIST, and CIFAR-10. Additionally, we used a same five-layer recurrent neural network as in [\[57\]](#page-13-9) for the IMDB dataset. We use the categorical cross-entropy loss function for all datasets. The details of model architectures are presented in Appendix [B.](#page-14-0)
 
-<span id="page-8-1"></span>Table 1: Noise multiplier for validation
+<span id="page-8-1"></span>**Table 1:** Noise multiplier for validation
 
-| Dataset  | = 1<br>𝜖 | = 2<br>𝜖 | = 3<br>𝜖 | = 4<br>𝜖 |
+| Dataset | = 1<br>𝜖 | = 2<br>𝜖 | = 3<br>𝜖 | = 4<br>𝜖 |
 |----------|----------|----------|----------|----------|
-| MNIST    | 1.3      | 1.0      | 0.9      | 0.8      |
-| FMNIST   | 1.3      | 1.3      | 0.8      | 0.8      |
-| CIFAR-10 | 1.3      | 1.3      | 1.1      | 1.1      |
-| IMDB     | 1.3      | 1.2      | 1.0      | 0.9      |
+| MNIST | 1.3 | 1.0 | 0.9 | 0.8 |
+| FMNIST | 1.3 | 1.3 | 0.8 | 0.8 |
+| CIFAR-10 | 1.3 | 1.3 | 1.1 | 1.1 |
+| IMDB | 1.3 | 1.2 | 1.0 | 0.9 |
 
 6.1.3 Parameter Settings. In our experiments, we set the privacy budget from 1 to 4 for each dataset while fixing = 10−<sup>5</sup> . For image datasets, we user the SGD optimizer with a momentum parameter set to 0.9; for the IMDB dataset, we employ the Adam optimizer whose parameters are the same as [\[11\]](#page-12-32).
 
@@ -643,13 +640,13 @@ During the DPSGD phase, for the three image datasets, we adopt the best paramete
 
 Based on our analysis in Section [3.2](#page-3-0) and [3.3,](#page-4-1) we set the clipping bound = 0.001 for Δ and acceptance parameter = −1 to all privacy budgets and datasets. In addition, for MNIST, FMNIST and CIFAR-10, we set the batch size of validation set = 256. While IMDB, which have fewer training samples, we set the batch size of validation set = 128. The noise multiplier for validation ranges from 0.8 to 1.3 for all datasets and privacy budgets, as shown in Table [1.](#page-8-1) Intuitively, when the privacy budget is small, we increase to add more iteration rounds.
 
-#### 6.2 Overall Performance
+### 6.2 Overall Performance
 
 Table [2](#page-10-1) shows the classification accuracies of DPSUR and five competitive methods[.](#page-0-0) It is noteworthy that DPSUR consistently outperforms all competitors across all datasets and privacy budgets, except for a less eminent advantage on the MNIST dataset where the accuracy of [\[57\]](#page-13-9) already approaches that of the non-private setting, leaving little room for further improvement. For the other three datasets, the classification accuracy of DPSUR is at least 1% higher than the second best, which shows a huge improvement over DPSGD.
 
 Notably, DPSUR performs almost as well as in the non-private setting at = 4 in three image datasets. The superior performance of the DPSUR is attributed to our objective of selecting model updates to minimize the loss function. Moreover, We derive the RDP for the selective Gaussian mechanism, which allows us to reduce the consumption of privacy loss. In particular, on the CIFAR-10 dataset, we observe that DPSUR even outperforms non-private results when = 4. This is because moderate noise in SGD sometimes helps the neural network escape from local minima [\[22\]](#page-12-33).
 
-#### 6.3 Impact of Various Parameters
+### 6.3 Impact of Various Parameters
 
 In this subsection, we study the impact of various parameters of DPSUR, including the learning rate, the noise multiplier of validation, the cilpping bound of loss, and the threshold parameter. Due to space limitation, we only show the results of CIFAR-10 dataset. In all experiments, if not specified, we use the SGD optimizer with the momentum 0.9, and set the learning rate = 4.0, batch size for training = 8192, noise multiplier for training = 5.67, batch size for validation = 128, noise multiplier for validation = 1.1, clipping bound for validation = 0.001, the threshold parameter = −1, and privacy budget (3, 10−<sup>5</sup> ).
 
@@ -665,7 +662,7 @@ Threshold parameter . The acceptance probability is influenced by the parameter 
 
 Batch size of validation set . A small can help conserve the privacy budget, enabling more rounds of computation. However, this can result in a decrease in the quality of the accepted model. Conversely, a larger value of can ensure better model quality but consumes a greater portion of the privacy budget. As shown in Figure [9e,](#page-10-0) we observe that as increases from 32 to 256, the test accuracy of DPSUR improves from 69.10% to 70.83%, but it declines to 68.36% when = 1024.
 
-# <span id="page-9-0"></span>6.4 Resilience Against Member Inference Attacks
+## <span id="page-9-0"></span>6.4 Resilience Against Member Inference Attacks
 
 Differential privacy protection is naturally resistant to membership inference attacks. To empirically verify if DPSUR achieves the same privacy guarantee as DPSGD, we conduct membership inference attacks on models trained on FMNIST and CIFAR-10, where their models are trained from DPSUR and DPSGD algorithms, respectively.
 
@@ -675,40 +672,39 @@ Black-Box/Shadow. In the Black-Box/Shadow attack scenario, the adversary has a s
 
 Since the scattering network used in DPSGD-HF [\[53\]](#page-13-17) is not applicable to natural language processing, we omit the results of this method on the IMDb dataset.
 
-<span id="page-10-1"></span>
 
-| Dataset         | Method        | = 1<br>𝜖 | = 2<br>𝜖 | = 3<br>𝜖 | = 4<br>𝜖 | non-private |
+| Dataset | Method | = 1<br>𝜖 | = 2<br>𝜖 | = 3<br>𝜖 | = 4<br>𝜖 | non-private |
 |-----------------|---------------|----------|----------|----------|----------|-------------|
-| MNIST           | DPSUR         | 97.93%   | 98.70%   | 98.88%   | 98.95%   |             |
-| (Image Dataset) | DPIS [57]     | 97.79%   | 98.51%   | 98.62%   | 98.78%   |             |
-|                 | DPSGD-HF [53] | 97.78%   | 98.39%   | 98.32%   | 98.56%   | 99.11%      |
-|                 | DPSGD-TS [41] | 97.06%   | 97.87%   | 98.22%   | 98.51%   |             |
-|                 | DPAGD [31]    | 95.91%   | 97.30%   | 97.52%   | 97.83%   |             |
-|                 | DPSGD [1]     | 95.11%   | 96.10%   | 96.82%   | 97.25%   |             |
-| FMNIST          | DPSUR         | 88.38%   | 89.34%   | 89.71%   | 90.18%   |             |
-| (Image Dataset) | DPIS [57]     | 86.25%   | 88.24%   | 88.82%   | 89.21%   |             |
-|                 | DPSGD-HF [53] | 85.54%   | 87.96%   | 89.01%   | 89.06%   | 90.98%      |
-|                 | DPSGD-TS [41] | 83.63%   | 85.33%   | 86.29%   | 86.86%   |             |
-|                 | DPAGD [31]    | 81.26%   | 84.50%   | 86.04%   | 86.78%   |             |
-|                 | DPSGD [1]     | 80.25%   | 82.63%   | 84.72%   | 85.40%   |             |
-| CIFAR-10        | DPSUR         | 64.41%   | 69.40%   | 70.83%   | 71.45%   |             |
-| (Image Dataset) | DPIS [57]     | 63.23%   | 67.94%   | 69.63%   | 70.55%   |             |
-|                 | DPSGD-HF [53] | 63.15%   | 66.55%   | 69.35%   | 70.28%   | 71.12%      |
-|                 | DPSGD-TS [41] | 51.52%   | 56.78%   | 60.42%   | 61.75%   |             |
-|                 | DPAGD [31]    | 45.78%   | 53.30%   | 56.21%   | 60.31%   |             |
-|                 | DPSGD [1]     | 46.03%   | 51.33%   | 54.67%   | 58.89%   |             |
-| IMDb            | DPSUR         | 66.50%   | 71.02%   | 72.16%   | 74.14%   |             |
-| (Text Dataset)  | DPIS [57]     | 63.56%   | 66.11%   | 68.49%   | 70.12%   |             |
-|                 | DPSGD-TS [41] | 65.08%   | 68.34%   | 70.10%   | 70.85%   | 79.97%      |
-|                 | DPAGD [31]    | 58.72%   | 63.48%   | 64.59%   | 66.01%   |             |
-|                 | DPSGD [1]     | 64.13%   | 68.55%   | 70.41%   | 71.57%   |             |
+| MNIST | DPSUR | 97.93% | 98.70% | 98.88% | 98.95% | |
+| (Image Dataset) | DPIS [57] | 97.79% | 98.51% | 98.62% | 98.78% | |
+| | DPSGD-HF [53] | 97.78% | 98.39% | 98.32% | 98.56% | 99.11% |
+| | DPSGD-TS [41] | 97.06% | 97.87% | 98.22% | 98.51% | |
+| | DPAGD [31] | 95.91% | 97.30% | 97.52% | 97.83% | |
+| | DPSGD [1] | 95.11% | 96.10% | 96.82% | 97.25% | |
+| FMNIST | DPSUR | 88.38% | 89.34% | 89.71% | 90.18% | |
+| (Image Dataset) | DPIS [57] | 86.25% | 88.24% | 88.82% | 89.21% | |
+| | DPSGD-HF [53] | 85.54% | 87.96% | 89.01% | 89.06% | 90.98% |
+| | DPSGD-TS [41] | 83.63% | 85.33% | 86.29% | 86.86% | |
+| | DPAGD [31] | 81.26% | 84.50% | 86.04% | 86.78% | |
+| | DPSGD [1] | 80.25% | 82.63% | 84.72% | 85.40% | |
+| CIFAR-10 | DPSUR | 64.41% | 69.40% | 70.83% | 71.45% | |
+| (Image Dataset) | DPIS [57] | 63.23% | 67.94% | 69.63% | 70.55% | |
+| | DPSGD-HF [53] | 63.15% | 66.55% | 69.35% | 70.28% | 71.12% |
+| | DPSGD-TS [41] | 51.52% | 56.78% | 60.42% | 61.75% | |
+| | DPAGD [31] | 45.78% | 53.30% | 56.21% | 60.31% | |
+| | DPSGD [1] | 46.03% | 51.33% | 54.67% | 58.89% | |
+| IMDb | DPSUR | 66.50% | 71.02% | 72.16% | 74.14% | |
+| (Text Dataset) | DPIS [57] | 63.56% | 66.11% | 68.49% | 70.12% | |
+| | DPSGD-TS [41] | 65.08% | 68.34% | 70.10% | 70.85% | 79.97% |
+| | DPAGD [31] | 58.72% | 63.48% | 64.59% | 66.01% | |
+| | DPSGD [1] | 64.13% | 68.55% | 70.41% | 71.57% | |
 
-#### Table 2: Results of classification accuracy
+### Table 2: Results of classification accuracy
 
 <span id="page-10-0"></span>![](_page_10_Figure_2.jpeg)
-<!-- Image Description: The image presents five line graphs (a-e) illustrating the impact of hyperparameter tuning on a DPSUR model's test accuracy.  Each graph plots test accuracy (%) against a different hyperparameter: learning rate (η), noise multiplier (σ<sub>v</sub>), clipping bound (C<sub>v</sub>), threshold parameter (β), and validation set batch size (B<sub>v</sub>). The purpose is to show the model's sensitivity to these parameters and to guide optimal hyperparameter selection for improved performance. -->
+<!-- Image Description: The image presents five line graphs (a-e) illustrating the impact of hyperparameter tuning on a DPSUR model's test accuracy. Each graph plots test accuracy (%) against a different hyperparameter: learning rate (η), noise multiplier (σ<sub>v</sub>), clipping bound (C<sub>v</sub>), threshold parameter (β), and validation set batch size (B<sub>v</sub>). The purpose is to show the model's sensitivity to these parameters and to guide optimal hyperparameter selection for improved performance. -->
 
-Figure 9: The impact of different parameters on the test accuracy in CIFAR-10.
+**Figure 9:** The impact of different parameters on the test accuracy in CIFAR-10.
 
 The resulting posterior probability and predicted label (converted into a binary indicator of prediction correctness) are then fed into the attack model.
 
@@ -718,25 +714,25 @@ White-Box/Partial. In the White-Box/Partial attack scenario, the adversary has p
 
 6.4.3 Results. Table [3](#page-11-2) and Table [4](#page-11-3) report the accuracy of two inference attacks against target models protected by DPSUR and DPSGD on FMNIST and CIFAR-10, respectively. We observe that member inference attacks are quite effective against the non-private methods (non-dp), especially on CIFRA-10. As for the two DP algorithms, the attack accuracy drops from 0.58 to around 0.50 on the FMNIST, and drops from 0.73 to around 0.50 on the CIFAR-10, which almost equals to random guess. It's noteworthy that the attack performance on FMNIST is consistently poor, as models trained on FMNIST generalize well on non-member data samples [\[48\]](#page-13-19). These results show that the model under DP protection can defend very well against membership inference attacks, and our DPSUR algorithm can provide the same level of privacy protection as DPSGD.
 
-<span id="page-11-2"></span>Table 3: Accuracy of Member Inference Attack on FMNIST
+<span id="page-11-2"></span>**Table 3:** Accuracy of Member Inference Attack on FMNIST
 
-| Attack      | Algorithm | 𝜖 = 1 | 𝜖 = 2 | 𝜖 = 3 | 𝜖 = 4 | non-private |
+| Attack | Algorithm | 𝜖 = 1 | 𝜖 = 2 | 𝜖 = 3 | 𝜖 = 4 | non-private |
 |-------------|-----------|-------|-------|-------|-------|-------------|
-| Black       | DPSUR     | 0.498 | 0.500 | 0.503 | 0.506 | 0.582       |
-| Box/Shadow  | DPSGD     | 0.498 | 0.503 | 0.493 | 0.494 |             |
-| White       | DPSUR     | 0.499 | 0.504 | 0.501 | 0.502 | 0.584       |
-| Box/Partial | DPSGD     | 0.501 | 0.502 | 0.502 | 0.505 |             |
+| Black | DPSUR | 0.498 | 0.500 | 0.503 | 0.506 | 0.582 |
+| Box/Shadow | DPSGD | 0.498 | 0.503 | 0.493 | 0.494 | |
+| White | DPSUR | 0.499 | 0.504 | 0.501 | 0.502 | 0.584 |
+| Box/Partial | DPSGD | 0.501 | 0.502 | 0.502 | 0.505 | |
 
-<span id="page-11-3"></span>Table 4: Accuracy of Member Inference Attack on CIFAR-10
+<span id="page-11-3"></span>**Table 4:** Accuracy of Member Inference Attack on CIFAR-10
 
-| Attack      | Algorithm | 𝜖 = 1 | 𝜖 = 2 | 𝜖 = 3 | 𝜖 = 4 | non-private |
+| Attack | Algorithm | 𝜖 = 1 | 𝜖 = 2 | 𝜖 = 3 | 𝜖 = 4 | non-private |
 |-------------|-----------|-------|-------|-------|-------|-------------|
-| Black       | DPSUR     | 0.495 | 0.498 | 0.503 | 0.504 | 0.732       |
-| Box/Shadow  | DPSGD     | 0.504 | 0.505 | 0.504 | 0.505 |             |
-| White       | DPSUR     | 0.499 | 0.501 | 0.502 | 0.503 | 0.743       |
-| Box/Partial | DPSGD     | 0.500 | 0.501 | 0.501 | 0.503 |             |
+| Black | DPSUR | 0.495 | 0.498 | 0.503 | 0.504 | 0.732 |
+| Box/Shadow | DPSGD | 0.504 | 0.505 | 0.504 | 0.505 | |
+| White | DPSUR | 0.499 | 0.501 | 0.502 | 0.503 | 0.743 |
+| Box/Partial | DPSGD | 0.500 | 0.501 | 0.501 | 0.503 | |
 
-#### <span id="page-11-0"></span>7 RELATED WORK
+### <span id="page-11-0"></span>7 RELATED WORK
 
 Privacy-preserving model training was first proposed in [\[5,](#page-12-35) [50\]](#page-13-20). Subsequently, Abadi et al. [\[1\]](#page-12-8) proposed a generalized algorithm, DPSGD, for deep learning with differential privacy, and since then many works aimed at improving DPSGD from different aspects.
 
@@ -752,11 +748,11 @@ Models, pre-processing and parameter tuning. Papernot et al. [\[41\]](#page-12-2
 
 Privacy accounting. Abadi et al. [\[1\]](#page-12-8) proposed a method called the Moments Accountant (MA) for giving an upper bound the privacy curve of a composition of DPSGD. The Moments Accountant was subsumed into the framework of Renyi Differential Privacy (RDP) introduced by [\[36\]](#page-12-23). Bu et al. [\[7\]](#page-12-42) introduced the notion of Gaussian Differential Privacy (GDP) base hypothesis test. There also exits other variants of DP, for example Concentrated DP (CDP) [\[8\]](#page-12-43) and zero Concentrated-DP [\[8\]](#page-12-43). These variants are tailored for specific scenarios and can be converted into one another under certain conditions. Our primary focus is on (, )-differential privacy, as it is the most prevalent and widely adopted in both academic literature and practical applications. Besides, many works [\[14,](#page-12-44) [15,](#page-12-45) [63,](#page-13-25) [64,](#page-13-26) [69\]](#page-13-27) based on local differential privacy focus on - differential privacy.
 
-#### <span id="page-11-1"></span>8 CONCLUSION
+### <span id="page-11-1"></span>8 CONCLUSION
 
 We propose DPSUR, a differentially private scheme for deep learning based on selective update and release. Our scheme utilizes the validation test to select appropriate model updates in each iteration, thereby speeding up model convergence and enhancing utility. To reduce the injected Gaussian noise, we incorporate a clipping strategy and a threshold mechanism for gradient selection in each iteration. Furthermore, we apply the Gaussian mechanism with selective release to reduce privacy budget consumption across iterations. We conduct a comprehensive privacy analysis of our approach using RDP and validate our scheme through extensive experiments. The results indicate that DPSUR significantly outperforms state-of-theart solutions in terms of model utility and downstream tasks. Our scheme is widely applicable to various neural networks, and can serve as a flexible optimizer for new DPSGD variants. For future work, we plan to extend DPSUR to larger models and datasets and theoretically analyze its convergence speed.
 
-#### ACKNOWLEDGMENTS
+### ACKNOWLEDGMENTS
 
 This work was support by the Natural Science Foundation of Shanghai (Grant No. 22ZR1419100), CAAI-Huawei MindSpore Open Fund (Grant No. CAAIXSJLJJ-2022-005A), National Natural Science Foundation of China Key Program (Grant No. 62132005), National Natural Science Foundation of China (Grant No: 92270123 and 62372122), and the Research Grants Council, Hong Kong SAR, China (Grant No: 15209922, 15208923 and 15210023).
 
@@ -839,7 +835,7 @@ This work was support by the Natural Science Foundation of Shanghai (Grant No. 2
 
 <span id="page-13-14"></span>[73] Tianqing Zhu, Gang Li, Wanlei Zhou, and S Yu Philip. 2017. Differential Privacy and Applications. Vol. 69. Springer.
 
-# <span id="page-13-16"></span>A RDP OF TWO TRUNCATED NORMAL DISTRIBUTIONS
+## <span id="page-13-16"></span>A RDP OF TWO TRUNCATED NORMAL DISTRIBUTIONS
 
 $$
 D_{\alpha}(f(x; \mu, \mu\sigma, a, b)||f(x; 0, \mu\sigma, a, b))
@@ -874,39 +870,39 @@ $$
 $$
 \
 
-Table 5: MNIST and FMNIST model architecture
+**Table 5:** MNIST and FMNIST model architecture
 
-| Layer           | Parameters                             |
+| Layer | Parameters |
 |-----------------|----------------------------------------|
-| Convolution     | 16 filters of 8×8, stride 2,padding 2  |
-| Max-Pooling     | 2×2, stride 1                          |
-| Convolution     | 32 filters of 4×4, stride 2, padding 0 |
-| Max-Pooling     | 2×2, stride 1                          |
-| Fully connected | 32 units                               |
-| Fully connected | 10 units                               |
+| Convolution | 16 filters of 8×8, stride 2,padding 2 |
+| Max-Pooling | 2×2, stride 1 |
+| Convolution | 32 filters of 4×4, stride 2, padding 0 |
+| Max-Pooling | 2×2, stride 1 |
+| Fully connected | 32 units |
+| Fully connected | 10 units |
 
-#### Table 6: CIFAR-10 model architecture
+### Table 6: CIFAR-10 model architecture
 
-| Layer           | Parameters                              |
+| Layer | Parameters |
 |-----------------|-----------------------------------------|
-| Convolution×2   | 32 filters of 3×3, stride 1, padding 1  |
-| Max-Pooling     | 2×2, stride 2                           |
-| Convolution×2   | 64 filters of 3×3, stride 1, padding 1  |
-| Max-Pooling     | 2×2, stride 2                           |
-| Convolution×2   | 128 filters of 3×3, stride 1, padding 1 |
-| Max-Pooling     | 2×2, stride 2                           |
-| Fully connected | 128 units                               |
-| Fully connected | 10 units                                |
+| Convolution×2 | 32 filters of 3×3, stride 1, padding 1 |
+| Max-Pooling | 2×2, stride 2 |
+| Convolution×2 | 64 filters of 3×3, stride 1, padding 1 |
+| Max-Pooling | 2×2, stride 2 |
+| Convolution×2 | 128 filters of 3×3, stride 1, padding 1 |
+| Max-Pooling | 2×2, stride 2 |
+| Fully connected | 128 units |
+| Fully connected | 10 units |
 
-#### Table 7: IMDb model architecture.
+### Table 7: IMDb model architecture.
 
-| Layer              | Parameters |  |  |
+| Layer | Parameters | | |
 |--------------------|------------|--|--|
-| Embedding          | 100 units  |  |  |
-| Fully connected    | 32 units   |  |  |
-| Bidirectional LSTM | 32 units   |  |  |
-| Fully connected    | 16 units   |  |  |
-| Fully connected    | 2 units    |  |  |
+| Embedding | 100 units | | |
+| Fully connected | 32 units | | |
+| Bidirectional LSTM | 32 units | | |
+| Fully connected | 16 units | | |
+| Fully connected | 2 units | | |
 
 $$
 D_{\alpha}(f(x; \mu, \mu\sigma, a, b)) |f(x; 0, \mu\sigma, a, b))
@@ -940,4 +936,4 @@ $$
 \int_{a}^{b} exp(-\frac{x -
 $$
 
-#### <span id="page-14-0"></span>B MODEL ARCHITECTURES
+### <span id="page-14-0"></span>B MODEL ARCHITECTURES

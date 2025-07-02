@@ -55,7 +55,7 @@ keywords:
 
 Ubiquitous Knowledge empowers the Smart Factory: the impacts of a Service-oriented Digital Twin on enterprises' performance
 
-## Abstract
+# Abstract
 
 While the Industry 4.0 is idolizing the potential of an artificial intelligence embedded into "things", it is neglecting the role of the human component, which is still indispensable in different manufacturing activities, such as a machine setup or maintenance operations. The present research study first proposes an Industrial Internet pyramid as emergent human-centric manufacturing paradigm within Industry 4.0 in which central is the role of a Ubiquitous Knowledge about the manufacturing system intuitively accessed and used by the manufacturing employees. Second, the prototype of a Service-oriented Digital Twin, which leverage on a flexible ontology-oriented knowledge structure and on augmented reality combined to a vocal interaction system for an intuitive knowledge retrieval and fruition, has been designed and developed to deliver this manufacturing knowledge. Two test-beds, complimentary for the problems in practice (the former on the maintenance-production interface in a large enterprise, the latter majorly focused in production and setups in a small and medium enterprise), show the significant benefits in terms of time, costs and process quality, thus validating the approach proposed. This research shows that a human-centric and knowledge-driven approach can drive the performance of Industry 4.0 initiatives and lead a Smart Factory towards its full potential.
 
@@ -63,7 +63,7 @@ While the Industry 4.0 is idolizing the potential of an artificial intelligence 
 
 Industry 4.0; Human-centric Industrial Internet; Smart Factory; Ubiquitous Knowledge; Serviceoriented Digital Twin
 
-#### 1. Introduction
+### 1. Introduction
 
 The current excitement for the 4th Industrial Revolution can be deemed to be the idolization of an intelligence embedded into physical manufacturing systems. The concept of a ubiquitous factory (Yoon et al., 2012) characterized by a computing technology that "recedes into the background of our lives" (Weiser, 1991) is unquestionably on the forefront of technological developments and advancements in the Industry 4.0 era. Information on the manufacturing system's state has no more a single central data source. Sensors, machines, equipment, products, etc., are equipped with embedded local intelligence – which makes them smart objects – and are invisibly (over the cloud) interwoven in order to cooperate and negotiate with each other, thus becoming capable to reconfigure automatically themselves (through actuators) for flexible production of multiple types of products (Wang et al., 2016). Thanks to their increasing autonomy, the vision of the Digital Twin (or cyber twin) of a manufacturing system has become real. Firstly introduced by Grieves in 2003, the concept of Digital Twin has been adopted in the aeronautic field as a system that "mirrors the life of its flying twin" (Shafto et al., 2010). Considered as the "next wave in modelling, simulation and optimization technology" (Rosen et al., 2015), the "twinning" process – i.e. the development of a digital copy of a real system – is being recently proposed at different stages of a product life cycle (Schleich et al., 2017; Tao et al., 2018) as a linked collection of relevant digital artefacts via several simulation models (Boschert & Rosen, 2016). In this sense, the Digital Twin refers to a comprehensive physical and functional description of a component, product or system (Tuegel et al., 2011), which includes a wealth of information that could be useful in the current and subsequent life cycle phases (Cerrone et al., 2014; Söderberg et al., 2017). While, on one hand, the smart objects open opportunities for the manufacturing systems' self-regulation and real-time simulation-based optimization of products and production processes (Stark et al., 2017), Digital Twins are also emerging as the key enablers of prognostics and health management (Lee et al., 2015) and of smart maintenance, repair and overhaul activities (Qi & Tao, 2018). Scientific literature and industrial applications show how Digital Twins integrate, reuse, create and manage knowledge derived from sensed data processed via intelligent algorithms. However, streamlined knowledge access and fruition is an aspect generally overlooked in the design phase of a Digital Twin as human operators are not integral part of the 4.0 revolution. Despite automation and self-regulation by self-conscious systems seem to take over flesh-and-blood human workers are still needed, especially in operating and maintaining the industrial equipment. Also, the human workers are still more flexible than robots and they can adapt to the workflow changes much quicker, especially in mass production assembly lines. As stated in April 2018 by Elon Musk, founder & CEO of Tesla, on his Twitter: "humans are underrated - excessive automation at Tesla was a mistake" (elonmusk, 2018), commenting the delay in production of company's next car Model 3. The role of the Industrial Internet of Things should not be fostering a pure machine-to-machine manufacturing environment, but rather to enhance and optimize human work by creating new valuable data and information streams. The Industrial Internet Consortium (2016) defined the Industrial Internet (one of the different terms used interchangeably to Industry 4.0) as "an internet of things, machines, computers and people enabling intelligent industrial operations using advanced data analytics for transformational business outcomes". However, most companies often limit their efforts to the adoption of Cloud Computing and the Internet of Things (Moeuf et al., 2018) and disregard the human component and the impacts of this negligence on the production and business performance. The Industrial Internet of Things is driving the upgrade of the business models of manufacturing companies within several industries (Arnold et al., 2016). Industrial heavyweights and large enterprises, such as General Electric, have embarked on new "Industrial Internet" initiatives to realign and embed their information technology capabilities into physical equipment to offer value added services and obtain economic benefits (Agarwal & Brem, 2015). As part of their research and development initiatives, large enterprises can afford to promote and implement to a certain extent Industry 4.0 driven initiatives in different areas of their organization. Small and medium enterprises are instead hesitant in fostering and implementing such initiatives mainly because of their limited budget and their need to have a quick return on investment. A literature analysis by Moeuf et al. (2018) showed how reported Industry 4.0 projects in small and medium enterprises remain costdriven initiatives and there is still no evidence of real business model transformation at this time. Indeed, technological-based change cannot yield long-lasting competitive advantage and sustained benefits because it can be easily imitated by other enterprises, thus feeding an "enthusiastic skepticism" on the practical benefits of Industry 4.0. The lack of a fully coupled human-machine interaction and of a cyber-human convergence generates an inadequate utilization of available information, which erodes the enterprises' production and business performance in a time when:
 
@@ -72,7 +72,7 @@ The current excitement for the 4th Industrial Revolution can be deemed to be the
 
 Hence, the technocratic view of the Smart Factory as a "factory-of-things" (Zuehlke, 2010) needs to advance to the next step where a human-centric manufacturing paradigm emerges within the Industry 4.0.
 
-#### Research question and study aims
+### Research question and study aims
 
 The literature review and current industrial arena has spawned then the following question: if the human operators are a non-negligible component in a manufacturing environment, how can they complement (and be integrated with) the Cyber-Physical Production System (CPPS), in a human-inthe-loop perspective, to achieve a better production and business performance? The Digital Twin appears to be the most suitable source of knowledge within the Smart Factory but the way this ubiquitous knowledge can be accessed and harnessed has not been properly investigated in the literature. Given the research question above, the study aim is to extend the current interpretation of a technology-driven Industry 4.0 towards a more human-centric paradigm where manufacturing employees (both enterprise managers and shop-floor operators) empowered with a ubiquitous knowledge about the manufacturing system are integral part of the Smart Factory and pave the way for production and business performance improvement opportunities.
 
@@ -98,7 +98,7 @@ Since several high-level service frameworks have been recently proposed (Li et a
 - a service-oriented model for the Industrial Internet as a methodological framework for a ubiquitous knowledge about the manufacturing system;
 - a technological architecture of the Service-oriented Digital Twin and all its components, with a specific focus on a flexible ontology-oriented knowledge structure used for the knowledge representation and on augmented reality technologies combined to a vocal interaction system for an intuitive knowledge retrieval and fruition.
 
-# 3.1. A service-oriented model for the Industrial Internet
+## 3.1. A service-oriented model for the Industrial Internet
 
 Through data acquisition and analysis, physical manufacturing resources can be virtualized (i.e. in their Digital Twin) and their status and behavior can be dynamically tracked, monitored and adjusted by the manufacturing employees (both enterprise managers and shop-floor operators) thanks to a set of apps and services that can be accessed at any place and any time via cloud. A service-oriented model to implement the Industrial Internet pyramid is proposed in Figure 2.
 
@@ -177,7 +177,7 @@ An application prototype has been developed and deployed in two industrial manuf
 
 The implementation of the present solution is not instantaneous but required a strong collaborative effort between the research group and the companies involved. After strong efforts in structuring the available knowledge (further details are provided in the next paragraphs), the proper hardware has been installed on site. A central server has been used, where Apache HTTP Server and Apache SOLR have been installed together with a MySQL database. The workstation for the enterprise manager and the Android-based smartphone for the operator on site have been also provided to the companies and connected to the enterprise's intranet.
 
-# 4.1. The case of a large enterprise: Baker Hughes General Electric
+## 4.1. The case of a large enterprise: Baker Hughes General Electric
 
 The application study for a large enterprise has been conducted in the Baker Hughes (a General Electric company) plant (BHGE) located in Vibo Valentia (Italy), global excellence center in the production of equipment and products for the Oil & Gas industry. GE is world-wide considered a pioneer in the implementation of Industry 4.0 practices and technologies, therefore it can be considered in toto an Industry 4.0-ready company and a perfect test-bed for our hypothesis. In the perspective of a continuous improvement, the driving force for BHGE to be a test-bed in this study was the willingness to exploit the concept of a Ubiquitous Knowledge to enhance the preventive and corrective maintenance activities related to two machines, a fin tube machine (see Figure 8.a) and a milling machine (see Figure 8.b), which are part of the production line of finned tubes (depicted in Figure 8.c).
 **Figure 8. The fine tube machine (a), the milling machine (b) and the final finned tubes (c)**
@@ -202,33 +202,33 @@ $$
 
 For non-normal distributed data, the Bonett's method or Levene's method with a significance level 0 = 0.05 have proved that the two groups for the two machines have different variances (2 − 45678 ≅ 0). A One-Way Analysis of Variance and a Games-Howell non-parametric post-hoc test has been eventually performed to check whether the means of the two groups are different (the null hypothesis is :) = :\*). Even if the samples are not both from a normal distribution, the sample size meet the requirements for a reliable use of the one-way ANOVA. The p-value resulted to be almost null in both cases, thus strengthening the fact that the null hypothesis should be rejected and that the two means are significantly different (and therefore the mean in Group 2 is significantly lower than the mean in Group 1) for both machines.
 
-|                                                    | Fin Tube Machine<br>Milling Machine |                    |                  |              |  |  |  |  |  |  |
+| | Fin Tube Machine<br>Milling Machine | | | | | | | | | |
 |----------------------------------------------------|-------------------------------------|--------------------|------------------|--------------|--|--|--|--|--|--|
-|                                                    | Group 1                             | Group 2            | Group 1          | Group 2      |  |  |  |  |  |  |
-|                                                    |                                     | Summary Statistics |                  |              |  |  |  |  |  |  |
-| N                                                  | 50                                  | 50                 | 50               | 50           |  |  |  |  |  |  |
-| Mean                                               | 83.34                               | 6.25               | 49.36            | 4.49         |  |  |  |  |  |  |
-| Standard Deviation                                 | 36.25                               | 4.02               | 14.01            | 2.59         |  |  |  |  |  |  |
-| 95% CI                                             | (73.04; 93.64)                      | (5.11; 7.39)       | (45.38; 53.34)   | (3.75; 5.25) |  |  |  |  |  |  |
-| Minimum                                            | 21.12                               | 0.42               | 21.04            | 0.25         |  |  |  |  |  |  |
-| Q1                                                 | 56.81                               | 2.46               | 39.54            | 2.62         |  |  |  |  |  |  |
-| Median                                             | 81.58                               | 6.46               | 47.97            | 3.97         |  |  |  |  |  |  |
-| Q3                                                 | 107.83                              | 9.25               | 57.31            | 6.40         |  |  |  |  |  |  |
-| Maximum                                            | 154.53                              | 15.17              | 94.24            | 11.21        |  |  |  |  |  |  |
-| Skewness                                           | 0.23                                | 0.39               | 0.67             | 0.39         |  |  |  |  |  |  |
-|                                                    | Anderson-Darling Normality Test     |                    |                  |              |  |  |  |  |  |  |
-| A-Squared                                          | 0.51                                | 0.83               | 0.35             | 0.42         |  |  |  |  |  |  |
-| p-value                                            | 0.193                               | 0.031              | 0.463            | 0.310        |  |  |  |  |  |  |
-| 2 Variances One-sided Test                         |                                     |                    |                  |              |  |  |  |  |  |  |
-| Test statistics (Bonett)<br>149.84<br>43.12        |                                     |                    |                  |              |  |  |  |  |  |  |
-| p-value<br>(Bonett)                                | 0.000                               |                    | 0.000            |              |  |  |  |  |  |  |
-| Test statistics (Levene)                           | 87.02                               |                    | 48.51            |              |  |  |  |  |  |  |
-| p-value (Levene)                                   | 0.000<br>0.000                      |                    |                  |              |  |  |  |  |  |  |
-| One-Way ANOVA and Games-Howell Pairwise Comparison |                                     |                    |                  |              |  |  |  |  |  |  |
-| Difference of Means                                | -77.09                              |                    | -44.87           |              |  |  |  |  |  |  |
-| 95% CI                                             | (-87.45; -66.74)                    |                    | (-48.91; -40.83) |              |  |  |  |  |  |  |
-| T-value                                            | -14.95                              |                    | -22.27           |              |  |  |  |  |  |  |
-| Adjusted p-value                                   | 0.000<br>0.000                      |                    |                  |              |  |  |  |  |  |  |
+| | Group 1 | Group 2 | Group 1 | Group 2 | | | | | | |
+| | | Summary Statistics | | | | | | | | |
+| N | 50 | 50 | 50 | 50 | | | | | | |
+| Mean | 83.34 | 6.25 | 49.36 | 4.49 | | | | | | |
+| Standard Deviation | 36.25 | 4.02 | 14.01 | 2.59 | | | | | | |
+| 95% CI | (73.04; 93.64) | (5.11; 7.39) | (45.38; 53.34) | (3.75; 5.25) | | | | | | |
+| Minimum | 21.12 | 0.42 | 21.04 | 0.25 | | | | | | |
+| Q1 | 56.81 | 2.46 | 39.54 | 2.62 | | | | | | |
+| Median | 81.58 | 6.46 | 47.97 | 3.97 | | | | | | |
+| Q3 | 107.83 | 9.25 | 57.31 | 6.40 | | | | | | |
+| Maximum | 154.53 | 15.17 | 94.24 | 11.21 | | | | | | |
+| Skewness | 0.23 | 0.39 | 0.67 | 0.39 | | | | | | |
+| | Anderson-Darling Normality Test | | | | | | | | | |
+| A-Squared | 0.51 | 0.83 | 0.35 | 0.42 | | | | | | |
+| p-value | 0.193 | 0.031 | 0.463 | 0.310 | | | | | | |
+| 2 Variances One-sided Test | | | | | | | | | | |
+| Test statistics (Bonett)<br>149.84<br>43.12 | | | | | | | | | | |
+| p-value<br>(Bonett) | 0.000 | | 0.000 | | | | | | | |
+| Test statistics (Levene) | 87.02 | | 48.51 | | | | | | | |
+| p-value (Levene) | 0.000<br>0.000 | | | | | | | | | |
+| One-Way ANOVA and Games-Howell Pairwise Comparison | | | | | | | | | | |
+| Difference of Means | -77.09 | | -44.87 | | | | | | | |
+| 95% CI | (-87.45; -66.74) | | (-48.91; -40.83) | | | | | | | |
+| T-value | -14.95 | | -22.27 | | | | | | | |
+| Adjusted p-value | 0.000<br>0.000 | | | | | | | | | |
 
 ## Table 1. Statistical analysis on the Maintenance Work Plan generation time
 
@@ -247,39 +247,39 @@ The cost here considered only takes into consideration the cost of the personnel
 
 ## Table 2. Preventive and corrective maintenance on the fin tube machine
 
-|        |                           | Corrective Maintenance |            |         | Total   |          |          |              |         |          |
+| | | Corrective Maintenance | | | Total | | | | | |
 |--------|---------------------------|------------------------|------------|---------|---------|----------|----------|--------------|---------|----------|
-|        | MWP                       | Annual                 | Trimestral | Monthly | Weekly  | Total    | # Alarms | Average Time | Total   |          |
-| Before | Mechanical [min]          | 221                    | 1047       | 1076    | 73      | 21117    | 60       | 95           | 5700    |          |
-|        | Electrical [min]          |                        | 473        |         |         | 1892     | 26       | 57           | 1482    |          |
-|        | Pneumatic/Hydraulic [min] |                        | 185        |         | 190     | 10620    | 40       | 132          | 5280    |          |
-|        | Total [min/year]          | 221                    | 6820       | 12912   | 13676   | 33629    |          |              | 12462   | 46091    |
-|        | Cost [€/year]             | 92,08                  | 2841,67    | 5380,00 | 5698,33 | 14012,08 |          |              | 5192,50 | 19204,58 |
-| After  | MWP                       | Annual                 | Trimestral | Monthly | Weekly  | Total    | # Alarms | Average Time | Total   |          |
-|        | Mechanical [min]          | 184                    | 897        | 916     | 59      | 17832    | 60       | 71           | 4260    |          |
-|        | Electrical [min]          |                        | 368        |         |         | 1472     | 26       | 42           | 1092    |          |
-|        | Pneumatic/Hydraulic [min] |                        | 163        |         | 167     | 9336     | 40       | 107          | 4280    |          |
-|        | Total [min/year]          | 184                    | 5712       | 10992   | 11752   | 28640    |          |              | 9632    | 38272    |
-|        | Cost [€/year]             | 76,67                  | 2380,00    | 4580,00 | 4896,67 | 11933,33 |          |              | 4013,33 | 15946,67 |
+| | MWP | Annual | Trimestral | Monthly | Weekly | Total | # Alarms | Average Time | Total | |
+| Before | Mechanical [min] | 221 | 1047 | 1076 | 73 | 21117 | 60 | 95 | 5700 | |
+| | Electrical [min] | | 473 | | | 1892 | 26 | 57 | 1482 | |
+| | Pneumatic/Hydraulic [min] | | 185 | | 190 | 10620 | 40 | 132 | 5280 | |
+| | Total [min/year] | 221 | 6820 | 12912 | 13676 | 33629 | | | 12462 | 46091 |
+| | Cost [€/year] | 92,08 | 2841,67 | 5380,00 | 5698,33 | 14012,08 | | | 5192,50 | 19204,58 |
+| After | MWP | Annual | Trimestral | Monthly | Weekly | Total | # Alarms | Average Time | Total | |
+| | Mechanical [min] | 184 | 897 | 916 | 59 | 17832 | 60 | 71 | 4260 | |
+| | Electrical [min] | | 368 | | | 1472 | 26 | 42 | 1092 | |
+| | Pneumatic/Hydraulic [min] | | 163 | | 167 | 9336 | 40 | 107 | 4280 | |
+| | Total [min/year] | 184 | 5712 | 10992 | 11752 | 28640 | | | 9632 | 38272 |
+| | Cost [€/year] | 76,67 | 2380,00 | 4580,00 | 4896,67 | 11933,33 | | | 4013,33 | 15946,67 |
 
 ### Table 3. Preventive and corrective maintenance on the milling machine
 
-|        |                           |        | Preventive Maintenance |         |         |         |          | Corrective Maintenance |         |          |
+| | | | Preventive Maintenance | | | | | Corrective Maintenance | | |
 |--------|---------------------------|--------|------------------------|---------|---------|---------|----------|------------------------|---------|----------|
-|        | MWP                       | Annual | Trimestral             | Monthly | Weekly  | Total   | # Alarms | Average Time           | Total   |          |
-| Before | Mechanical [min]          | 240    | 1003                   | 689     | 100     | 17720   | 90       | 45                     | 4050    |          |
-|        | Electrical [min]          | 913    |                        | 105     |         | 2173    | 35       | 36                     | 1260    |          |
-|        | Pneumatic/Hydraulic [min] | 30     |                        | 90      |         | 1110    | 5        | 115                    | 575     |          |
-|        | Total [min/year]          | 1183   | 4012                   | 10608   | 5200    | 21003   |          |                        | 5885    | 26888    |
-|        | Cost [€/year]             | 492,92 | 1671,67                | 4420,00 | 2166,67 | 8751,25 |          |                        | 2452,08 | 11203,33 |
-| After  | MWP                       | Annual | Trimestral             | Monthly | Weekly  | Total   | # Alarms | Average Time           | Total   |          |
-|        | Mechanical [min]          | 200    | 823                    | 580     | 74      | 14300   | 90       | 35                     | 3150    |          |
-|        | Electrical [min]          | 770    |                        | 85      |         | 1790    | 35       | 30                     | 1050    |          |
-|        | Pneumatic/Hydraulic [min] | 24     |                        | 72      |         | 888     | 5        | 87                     | 435     |          |
-|        | Total [min/year]          | 994    | 3292                   | 8844    | 3848    | 16978   |          |                        | 4635    | 21613    |
-|        | Cost [€/year]             | 414,17 | 1371,67                | 3685,00 | 1603,33 | 7074,17 |          |                        | 1931,25 | 9005,42  |
+| | MWP | Annual | Trimestral | Monthly | Weekly | Total | # Alarms | Average Time | Total | |
+| Before | Mechanical [min] | 240 | 1003 | 689 | 100 | 17720 | 90 | 45 | 4050 | |
+| | Electrical [min] | 913 | | 105 | | 2173 | 35 | 36 | 1260 | |
+| | Pneumatic/Hydraulic [min] | 30 | | 90 | | 1110 | 5 | 115 | 575 | |
+| | Total [min/year] | 1183 | 4012 | 10608 | 5200 | 21003 | | | 5885 | 26888 |
+| | Cost [€/year] | 492,92 | 1671,67 | 4420,00 | 2166,67 | 8751,25 | | | 2452,08 | 11203,33 |
+| After | MWP | Annual | Trimestral | Monthly | Weekly | Total | # Alarms | Average Time | Total | |
+| | Mechanical [min] | 200 | 823 | 580 | 74 | 14300 | 90 | 35 | 3150 | |
+| | Electrical [min] | 770 | | 85 | | 1790 | 35 | 30 | 1050 | |
+| | Pneumatic/Hydraulic [min] | 24 | | 72 | | 888 | 5 | 87 | 435 | |
+| | Total [min/year] | 994 | 3292 | 8844 | 3848 | 16978 | | | 4635 | 21613 |
+| | Cost [€/year] | 414,17 | 1371,67 | 3685,00 | 1603,33 | 7074,17 | | | 1931,25 | 9005,42 |
 
-#### 4.2. The case of a small and local enterprise producing carton packaging boxes
+### 4.2. The case of a small and local enterprise producing carton packaging boxes
 
 Alongside the application in BHGE, another application study has been conducted in a small enterprise producing carton packaging boxes with different dimensions and shapes. The company is considering the possibility to expand horizontally in the packaging for agri-food and cosmetic products and they feel that the new Industry 4.0 technologies and the concept of Smart Factory may help them to produce custom output at a low unit costs and with great production flexibility but they doubt the convenience of the investment. In their production process, the only raw materials are carton sheets, hailing from paper mills ready for a 4-step production process. The carton sheets are first printed (S1) and then cut in the desired shape and dimension (S2). Next, two lateral grips are obtained on a punch cutting machine (S3) and, ultimately, the sheets folded up and glued to form a box (S4). The production of every batch is automated and anticipated by machine set-up operations that introduce delays and frequent errors (reflected in the medium-high production waste rate): activities include, among others, machine setup, quality control checks, tools cleaning, replacing, and material positioning. The objective is to reduce significantly the setup times and the cycle times of each production step, while reducing simultaneously the production waste rate.
 
@@ -313,50 +313,50 @@ A necessary consideration is required for taking into consideration the fact tha
 <!-- Image Description: The image displays a line graph comparing production waste rates (in percentage) across ten operators for two cases (Case 1 and Case 2). Case 1 shows fluctuating waste rates, peaking at 12%, while Case 2 exhibits lower and less volatile rates, reaching a maximum of 3%. The x-axis represents the operators, and the y-axis represents the waste rate. The graph likely illustrates the effectiveness of different production methods or operator training. -->
 **Figure 12. Batch production waste rate before and after the use of the application prototype for the 10 operators**| Table 4. Fisher's LSD analysis on cycle times and setup times before and after the use of the |
 |-----------------------------------------------------------------------------------------------|
-| application prototype                                                                         |
+| application prototype |
 
-|      |            | S1   |      | S2   |      |      | S3   |      | S4   |      | T    |
+| | | S1 | | S2 | | | S3 | | S4 | | T |
 |------|------------|------|------|------|------|------|------|------|------|------|------|
-|      |            | LSD  | >    | LSD  | >    | LSD  | >    | LSD  | >    | LSD  | >    |
-| Op1  | cycle time | 0,08 | 0,09 | 0,02 | 0,02 | 0,03 | 0,03 | 0,01 | 0,05 | 0,09 | 0,18 |
-|      | setup time | 0,01 | 0,09 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,05 | 0,01 | 0,18 |
-|      | cycle time | 0,06 | 0,09 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,05 | 0,06 | 0,18 |
-| Op2  | setup time | 0,01 | 0,09 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,05 | 0,02 | 0,18 |
-|      | cycle time | 0,05 | 0,09 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,04 | 0,05 | 0,17 |
-| Op3  | setup time | 0,01 | 0,09 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,04 | 0,01 | 0,17 |
-| Op4  | cycle time | 0,05 | 0,08 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,04 | 0,06 | 0,17 |
-|      | setup time | 0,01 | 0,08 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,04 | 0,01 | 0,17 |
-| Op5  | cycle time | 0,06 | 0,08 | 0,02 | 0,02 | 0,02 | 0,02 | 0,01 | 0,05 | 0,07 | 0,17 |
-|      | setup time | 0,01 | 0,08 | 0,00 | 0,02 | 0,00 | 0,02 | 0,01 | 0,05 | 0,01 | 0,17 |
-| Op6  | cycle time | 0,06 | 0,08 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,04 | 0,06 | 0,17 |
-|      | setup time | 0,01 | 0,08 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,04 | 0,02 | 0,17 |
-| Op7  | cycle time | 0,06 | 0,08 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,05 | 0,07 | 0,17 |
-|      | setup time | 0,01 | 0,08 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,05 | 0,01 | 0,17 |
-|      | cycle time | 0,05 | 0,08 | 0,02 | 0,01 | 0,02 | 0,03 | 0,01 | 0,05 | 0,06 | 0,17 |
-| Op8  | setup time | 0,01 | 0,08 | 0,00 | 0,01 | 0,00 | 0,03 | 0,00 | 0,05 | 0,01 | 0,17 |
-|      | cycle time | 0,05 | 0,08 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,04 | 0,06 | 0,17 |
-| Op9  | setup time | 0,01 | 0,08 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,04 | 0,01 | 0,17 |
-|      | cycle time | 0,05 | 0,08 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,05 | 0,06 | 0,17 |
+| | | LSD | > | LSD | > | LSD | > | LSD | > | LSD | > |
+| Op1 | cycle time | 0,08 | 0,09 | 0,02 | 0,02 | 0,03 | 0,03 | 0,01 | 0,05 | 0,09 | 0,18 |
+| | setup time | 0,01 | 0,09 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,05 | 0,01 | 0,18 |
+| | cycle time | 0,06 | 0,09 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,05 | 0,06 | 0,18 |
+| Op2 | setup time | 0,01 | 0,09 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,05 | 0,02 | 0,18 |
+| | cycle time | 0,05 | 0,09 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,04 | 0,05 | 0,17 |
+| Op3 | setup time | 0,01 | 0,09 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,04 | 0,01 | 0,17 |
+| Op4 | cycle time | 0,05 | 0,08 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,04 | 0,06 | 0,17 |
+| | setup time | 0,01 | 0,08 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,04 | 0,01 | 0,17 |
+| Op5 | cycle time | 0,06 | 0,08 | 0,02 | 0,02 | 0,02 | 0,02 | 0,01 | 0,05 | 0,07 | 0,17 |
+| | setup time | 0,01 | 0,08 | 0,00 | 0,02 | 0,00 | 0,02 | 0,01 | 0,05 | 0,01 | 0,17 |
+| Op6 | cycle time | 0,06 | 0,08 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,04 | 0,06 | 0,17 |
+| | setup time | 0,01 | 0,08 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,04 | 0,02 | 0,17 |
+| Op7 | cycle time | 0,06 | 0,08 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,05 | 0,07 | 0,17 |
+| | setup time | 0,01 | 0,08 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,05 | 0,01 | 0,17 |
+| | cycle time | 0,05 | 0,08 | 0,02 | 0,01 | 0,02 | 0,03 | 0,01 | 0,05 | 0,06 | 0,17 |
+| Op8 | setup time | 0,01 | 0,08 | 0,00 | 0,01 | 0,00 | 0,03 | 0,00 | 0,05 | 0,01 | 0,17 |
+| | cycle time | 0,05 | 0,08 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,04 | 0,06 | 0,17 |
+| Op9 | setup time | 0,01 | 0,08 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,04 | 0,01 | 0,17 |
+| | cycle time | 0,05 | 0,08 | 0,02 | 0,02 | 0,02 | 0,03 | 0,01 | 0,05 | 0,06 | 0,17 |
 | Op10 | setup time | 0,01 | 0,08 | 0,00 | 0,02 | 0,00 | 0,03 | 0,01 | 0,05 | 0,02 | 0,17 |
 
-|       | S1    |        |       | S2     |       | S3     |       | S4     |        | T     |
+| | S1 | | | S2 | | S3 | | S4 | | T |
 |-------|-------|--------|-------|--------|-------|--------|-------|--------|--------|-------|
-|       | ?#    | ?@     | ?#    | ?@     | ?#    | ?@     | ?#    | ?@     | ?#     | ?@    |
-| Op1   | 0,05  | 0,02   | 0,09  | 0      | 0     | 0,01   | 0,09  | 0,02   | 0,07   | 0     |
-| Op2   | 0,06  | 0      | 0,04  | 0,03   | 0,02  | 0,03   | 0,06  | 0,01   | 0,03   | 0,02  |
-| Op3   | 0,04  | 0      | 0,06  | 0,07   | 0,06  | 0,02   | 0,07  | 0      | 0,06   | 0     |
-| Op4   | 0,04  | 0      | 0,06  | 0,03   | 0,1   | 0,01   | 0,11  | 0      | 0      | 0     |
-| Op5   | 0,05  | 0,04   | 0,1   | 0,02   | 0,08  | 0,02   | 0,04  | 0,02   | 0,03   | 0,01  |
-| Op6   | 0,06  | 0,01   | 0,06  | 0,02   | 0,07  | 0,02   | 0,04  | 0,02   | 0,08   | 0,01  |
-| Op7   | 0,08  | 0      | 0,09  | 0,05   | 0,07  | 0,02   | 0,05  | 0,03   | 0,07   | 0,02  |
-| Op8   | 0,04  | 0      | 0,09  | 0      | 0,05  | 0      | 0,09  | 0,01   | 0,05   | 0,01  |
-| Op9   | 0,05  | 0,01   | 0,06  | 0,06   | 0,08  | 0,04   | 0,07  | 0,02   | 0,12   | 0,03  |
-| Op10  | 0,04  | 0,01   | 0,06  | 0,04   | 0,04  | 0,01   | 0,06  | 0,04   | 0,07   | 0,01  |
-| Media | 0,051 | 0,009  | 0,071 | 0,032  | 0,057 | 0,018  | 0,068 | 0,017  | 0,058  | 0,011 |
-| LSD   |       | 0,0199 |       | 0,0335 |       | 0,0353 |       | 0,0286 | 0,0376 |       |
-| >     |       | 0,042  |       | 0,039  |       | 0,039  | 0,051 |        | 0,047  |       |
+| | ?# | ?@ | ?# | ?@ | ?# | ?@ | ?# | ?@ | ?# | ?@ |
+| Op1 | 0,05 | 0,02 | 0,09 | 0 | 0 | 0,01 | 0,09 | 0,02 | 0,07 | 0 |
+| Op2 | 0,06 | 0 | 0,04 | 0,03 | 0,02 | 0,03 | 0,06 | 0,01 | 0,03 | 0,02 |
+| Op3 | 0,04 | 0 | 0,06 | 0,07 | 0,06 | 0,02 | 0,07 | 0 | 0,06 | 0 |
+| Op4 | 0,04 | 0 | 0,06 | 0,03 | 0,1 | 0,01 | 0,11 | 0 | 0 | 0 |
+| Op5 | 0,05 | 0,04 | 0,1 | 0,02 | 0,08 | 0,02 | 0,04 | 0,02 | 0,03 | 0,01 |
+| Op6 | 0,06 | 0,01 | 0,06 | 0,02 | 0,07 | 0,02 | 0,04 | 0,02 | 0,08 | 0,01 |
+| Op7 | 0,08 | 0 | 0,09 | 0,05 | 0,07 | 0,02 | 0,05 | 0,03 | 0,07 | 0,02 |
+| Op8 | 0,04 | 0 | 0,09 | 0 | 0,05 | 0 | 0,09 | 0,01 | 0,05 | 0,01 |
+| Op9 | 0,05 | 0,01 | 0,06 | 0,06 | 0,08 | 0,04 | 0,07 | 0,02 | 0,12 | 0,03 |
+| Op10 | 0,04 | 0,01 | 0,06 | 0,04 | 0,04 | 0,01 | 0,06 | 0,04 | 0,07 | 0,01 |
+| Media | 0,051 | 0,009 | 0,071 | 0,032 | 0,057 | 0,018 | 0,068 | 0,017 | 0,058 | 0,011 |
+| LSD | | 0,0199 | | 0,0335 | | 0,0353 | | 0,0286 | 0,0376 | |
+| > | | 0,042 | | 0,039 | | 0,039 | 0,051 | | 0,047 | |
 
-# Table 5. Fisher's LSD analysis on production waste rate before and after the use of the application prototype
+## Table 5. Fisher's LSD analysis on production waste rate before and after the use of the application prototype
 
 ## 5. Conclusions & further research
 

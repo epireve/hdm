@@ -66,11 +66,11 @@ of Micro and Nano Photonic Structures (Ministry of Education), Fudan University,
 
 (Dated: May 21, 2024)
 
-# Abstract
+## Abstract
 
 The combination of deep learning algorithm and materials science has made significant progress in predicting novel materials and understanding various behaviours of materials. Here, we introduced a new model called as the Crystal Transformer Graph Neural Network (CTGNN), which combines the advantages of Transformer model and graph neural networks to address the complexity of structure-properties relation of material data. Compared to the state-of-the-art models, CTGNN incorporates the graph network structure for capturing local atomic interactions and the dual-Transformer structures to model intra-crystal and inter-atomic relationships comprehensively. The benchmark carried on by the proposed CTGNN indicates that CTGNN significantly outperforms existing models like CGCNN and MEGNET in the prediction of formation energy and bandgap properties. Our work highlights the potential of CTGNN to enhance the performance of properties prediction and accelerates the discovery of new materials, particularly for perovskite materials.
 
-# I. INTRODUCTION
+## I. INTRODUCTION
 
 Deep learning (DL) and machine learning (ML) has brought significant impacts to a variety of scientific fields such as biology[1](#page-9-3) , chemistry[2](#page-9-4) ,physics[3](#page-9-5) and mathematics[4](#page-9-6) . While in materials science, the use of deep learning has led to important progress in material properties prediction[5](#page-9-7) , materials generation[6](#page-9-8) , etc[7](#page-9-9)[–10](#page-10-0). Several DL models have been developed to capture material modality and predict their properties, such as Crystal Graph Convolutional Neural Network (CGCNN)[5](#page-9-7) , MatErials Graph Network (MEGNET)[11](#page-10-1), Atomistic Line Graph Neural Network (ALIGNN)[12](#page-10-2), improved Crystal Graph Convolutional Neural Networks (iCGCNN)[13](#page-10-3), OrbNet[14](#page-10-4), and similar variants[15–](#page-10-5)[20,](#page-11-0)[22](#page-11-1)? [–25](#page-11-2). They have achieved great success in applications, such as learning properties from multi-fidelity data[26](#page-11-3), discovering stable lead-free hybrid organic–inorganic perovskites[27](#page-11-4), mapping the crystal-structure phase[28](#page-11-5) , and designing material microstructures[29](#page-11-6) .
 
@@ -78,9 +78,9 @@ Despite the graph-based DL model, the Transformer[30](#page-12-0) model provides
 
 Generally, the GNN-based models extract structural data such as bond length, angles, and neighbour atoms, which are important information to predict the materials properties. In contrast to traditional GNNs which only capture bond length, our proposed CT-GNN employs an angular encoder kernel to encode angle features, and the dual-Transformer structures are built, which include one Transformer architecture focusing on intra-crystal interactions to model the immediate chemical environment of atoms, and another to analyze inter-atomic relationships within an atom's neighborhood facilitates a thorough understanding of material behaviors on both local and broader scales. In this work, we conducted a series of ablation experiments to verify the importance of our angular encoding and Transformer architecture in improving model accuracy. We also tested the performance of CTGNN on some widely-used materials database, achieving better results than other models we used for comparison.
 
-# II. MODEL
+## II. MODEL
 
-# A. Transformer Model
+## A. Transformer Model
 
 The Transformer model[30](#page-12-0), a key component in the CTGNN architecture, is based on the multihead-self-attention mechanisms. The multi-head design allows the model to efficiently process sequential data in parallel, enhancing its abilities, while the self-attention method allows it to learn relationships between sequences, which is the core of the algorithm.
 
@@ -107,7 +107,7 @@ $$
 
 where W<sup>1</sup> and W<sup>2</sup> are weight matrices, and b<sup>1</sup> and b<sup>2</sup> are bias vectors. These networks are applied independently to each position in the sequence.
 
-# B. CTGNN Model
+## B. CTGNN Model
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This flowchart illustrates a crystal graph neural network. Input CIF files are processed, generating atom and neighbor features, and topological features (distances and angles). These are concatenated and fed into atom and neighbor transformers within a graph convolutional layer. A pooling layer summarizes the information, leading to predicted crystal properties. RBF and angular kernels are used in feature extraction. The diagram shows the data flow and processing steps of the model. -->
@@ -204,7 +204,7 @@ $$
 
 The pooled vector v<sup>c</sup> is a vector containing all the information of the subgraphs of the crystal. It is permutation invariant, so it can capture the information ignoring the noise and rotate translation. It is then passed through fully-connected layers to predict the target property ˆy, with the training process minimizing the cost function J(y, yˆ), representing the difference between the predicted property ˆy and the DFT-calculated property y.
 
-# C. Crystal Angular Encoder
+## C. Crystal Angular Encoder
 
 To enrich the information of edges, we go beyond merely distance information by adding angular information into the edges, which allows for a more detailed depiction of the spatial relationships between atoms. For a given atom i and its neighbor j, we calculated the related angles θx, θy, and θ<sup>z</sup> between the edge vector rij and the axes vectors x, y, and z by,
 
@@ -228,21 +228,21 @@ $$
 
 where ∆θ = 2π bins and <sup>k</sup> ranges from 0 to bins <sup>−</sup> 1. Analogous encoding processes apply to θ<sup>y</sup> and θz. The edge feature vector which combining RBF (Radial Basis Function) and angular features, is used as the edge feature which is further processed in the model.
 
-# III. BENCHMARK
+## III. BENCHMARK
 
 In order to evaluate the performance, we used JARVIS-DFT[36](#page-12-6), dated 2021.8.18 as the training database. The dataset comprises 25,922 materials with bandgap, formation energy, and etc. For training, validation and testing splits, JARVIS-DFT[36](#page-12-6) database and its properties are split into 60% training, 20% validation, and 20% testing sets. To further evaluate the performance, we merge two distinct datasets of perovskite materials[37,](#page-12-7)[38](#page-12-8) to create a more diverse and representative dataset which contains 3489 perovskite structures with formation energy and bandgap, key properties for perovskites. For comparison, the state-of-the-art GNN models of CGCNN and MEGNET are also used to model the formation energies and bandgaps of the materials involved in the teo materials database, and the resuts are listed in Tabl[eI](#page-6-0)
 
-| target                 | model  | MAE   | R2    |
+| target | model | MAE | R2 |
 |------------------------|--------|-------|-------|
-| Pero(Ef<br>) (eV/atom) | CGCNN  | 0.027 | 0.988 |
-|                        | MEGNet | 0.032 | 0.982 |
-|                        | CTGNN  | 0.013 | 0.996 |
-| Pero(Eg) (eV)          | CGCNN  | 0.285 | 0.855 |
-|                        | MEGNet | 0.296 | 0.845 |
-|                        | CTGNN  | 0.156 | 0.960 |
-| Jarvist(Eg) (eV)       | CGCNN  | 0.531 | 0.914 |
-|                        | MEGNet | 0.493 | 0.908 |
-|                        | CTGNN  | 0.469 | 0.910 |
+| Pero(Ef<br>) (eV/atom) | CGCNN | 0.027 | 0.988 |
+| | MEGNet | 0.032 | 0.982 |
+| | CTGNN | 0.013 | 0.996 |
+| Pero(Eg) (eV) | CGCNN | 0.285 | 0.855 |
+| | MEGNet | 0.296 | 0.845 |
+| | CTGNN | 0.156 | 0.960 |
+| Jarvist(Eg) (eV) | CGCNN | 0.531 | 0.914 |
+| | MEGNet | 0.493 | 0.908 |
+| | CTGNN | 0.469 | 0.910 |
 
 <span id="page-6-0"></span>TABLE I: benchmark on jarvist dataset and perovskite dataset. E<sup>f</sup> and E<sup>g</sup> denotes formation energy and bandgap respectively.
 
@@ -253,36 +253,35 @@ As listed in Table [I,](#page-6-0) our proposed CTGNN model demonstrates superio
 
 FIG. 2: Plots of predicted formation energy and bandgap versus target for CGCNN, MEG-Net, and CTGNN models, respectively. the upper and right part are the target and prediction data distribution.
 
-# IV. ABLATION STUDY
+## IV. ABLATION STUDY
 
 To understand the contribution of different components in the CTGNN model, we conducted an ablation study on the Pero dataset for bandgap prediction. The study involved removing key components from the model and evaluating the resulting performance. The results are summarized in Table [II.](#page-7-1)
 
 TABLE II: Ablation study on Pero dataset for bandgap prediction.
 
-<span id="page-7-1"></span>
 
-| Model                            | MAE<br>(eV) | R2    |
+| Model | MAE<br>(eV) | R2 |
 |----------------------------------|-------------|-------|
-| CTGNN (full model)               | 0.156       | 0.960 |
-| Without Angular Encoding         | 0.188       | 0.946 |
-| Without inter-atomic Transformer | 0.190       | 0.945 |
-| Without Transformer              | 0.285       | 0.855 |
+| CTGNN (full model) | 0.156 | 0.960 |
+| Without Angular Encoding | 0.188 | 0.946 |
+| Without inter-atomic Transformer | 0.190 | 0.945 |
+| Without Transformer | 0.285 | 0.855 |
 
 As shown in Table [II,](#page-7-1) removing the angular encoding and the neighbor Transformer from the CTGNN model leads to a decrease in performance. Specifically, without the angular encoding, the MAE increases to 0.188 eV and the R<sup>2</sup> decreases to 0.946. Similarly, without the inter-atomic Transformer, the MAE increases to 0.190 eV and the R<sup>2</sup> decreases to 0.945. When the dual-Transformer is totally removed The performance drop to 0.285 from 0.190.
 
-# V. CONCLUSION
+## V. CONCLUSION
 
 CTGNN model represents a significant progress in the field of material computing, particularly in perovskite materials. By innovatively combining the advantages of Transformer model and graph neural networks, CTGNN can capture both the local and global interactions in materials efficiently. The addition of angular kernels allows for a more comprehensive representation of atomic structures, surpassing the traditional models which only focus on distances. Our results demonstrate that CTGNN outperforms existing models in predicting key material properties such as formation energy and bandgap, which is confirmed by the benchmark tests on multiple datasets. CTGNN not only enhance the ability to predict material properties with greater accuracy, but also provide a solid foundation for discovering new materials.
 
-# ACKNOWLEDGEMENTS
+## ACKNOWLEDGEMENTS
 
 This work is supported by the National Key R&D Program of China (2023YFA1608501), and Natural Science Foundation of Shandong Province under grants no. ZR2021MA041. Mr. L. Jin and Z. Du also want to acknowledge the support of FDUROP (Fudan's Undergraduate Research Opportunities Program) (24052, 23908).
 
-# Competing Interests statement
+## Competing Interests statement
 
 The authors declare no competing interests.
 
-# Author Contributions
+## Author Contributions
 
 - <span id="page-9-0"></span><sup>∗</sup> These two authors contributed equally to this work.
 - <span id="page-9-1"></span>† [cenyan@fudan.edu.cn](mailto:cenyan@fudan.edu.cn)

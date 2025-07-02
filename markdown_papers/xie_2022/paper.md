@@ -8,17 +8,17 @@ url: https://doi.org/10.1088/1755-1315/1101/9/092010
 ---
 
 ![](_page_0_Picture_1.jpeg)
-<!-- Image Description: The image is a logo for "Purpose-Led Publishing."  It consists of text stating the company name in a sans-serif font and a graphic element to the left. The graphic is an abstract design of interconnected nodes or dots, possibly representing network connections or collaboration, rendered in shades of pink and red.  The logo likely serves as an identifier for the publisher within the paper. -->
+<!-- Image Description: The image is a logo for "Purpose-Led Publishing." It consists of text stating the company name in a sans-serif font and a graphic element to the left. The graphic is an abstract design of interconnected nodes or dots, possibly representing network connections or collaboration, rendered in shades of pink and red. The logo likely serves as an identifier for the publisher within the paper. -->
 
 # **PAPER • OPEN ACCESS**
 
-# Enabling building digital twin: Ontology-based information management framework for multisource data integration
+## Enabling building digital twin: Ontology-based information management framework for multisource data integration
 
 To cite this article: X Xie et al 2022 IOP Conf. Ser.: Earth Environ. Sci. 1101 092010
 
 View the [article online](https://doi.org/10.1088/1755-1315/1101/9/092010) for updates and enhancements.
 
-# You may also like
+## You may also like
 
 -
 
@@ -27,11 +27,11 @@ View the [article online](https://doi.org/10.1088/1755-1315/1101/9/092010) for u
 - [Ontology to relational database](https://iopscience.iop.org/article/10.1088/1742-6596/971/1/012031) [transformation for web application](https://iopscience.iop.org/article/10.1088/1742-6596/971/1/012031) [development and maintenance](https://iopscience.iop.org/article/10.1088/1742-6596/971/1/012031) Kamal Mahmudi, M M Inggriani Liem and Saiful Akbar -
 
 ![](_page_0_Picture_11.jpeg)
-<!-- Image Description: This image is an advertisement for the 248th Electrochemical Society (ECS) Meeting in Chicago, IL, from October 12-16, 2025.  It features text announcing the event's location, dates, and venue (Hilton Chicago),  a call to register by September 22nd for a discount, and the slogan "Science + Technology + YOU!". The image includes a photo of a woman, likely to represent attendees. There are no charts, graphs, diagrams, or equations. -->
+<!-- Image Description: This image is an advertisement for the 248th Electrochemical Society (ECS) Meeting in Chicago, IL, from October 12-16, 2025. It features text announcing the event's location, dates, and venue (Hilton Chicago), a call to register by September 22nd for a discount, and the slogan "Science + Technology + YOU!". The image includes a photo of a woman, likely to represent attendees. There are no charts, graphs, diagrams, or equations. -->
 
 This content was downloaded from IP address 202.184.51.195 on 02/07/2025 at 15:08
 
-# **Enabling building digital twin: Ontology-based information management framework for multi-source data integration**
+## **Enabling building digital twin: Ontology-based information management framework for multi-source data integration**
 
 **X Xie**1,2**, N Moretti**1,2**, J Merino**1,2**, J Y Chang**<sup>1</sup> **, P Pauwels**<sup>3</sup> **, A K Parlikad**1,2
 
@@ -43,7 +43,7 @@ xx809@cam.ac.uk
 
 **Abstract**. The emergence of the digital twin concept can potentially change the way people manage built assets thoroughly. This is because the semantics-based model and linked data approach behind the digital twin, as the successor of classical BIM, provide strong capability in integrating data from fragmented and heterogeneous sources and thus enable better-informed decision-making. Taking buildings as the case, this paper demonstrates the ontology-based Information Management Framework and elaborates on the process to integrate data through a common data model. Specifically, the Foundation Data Model (FDM) representing the operation of buildings and embedded systems is developed and two patterns of integration architecture are compared. To conceptualise all the essential entities and relationships, the building topology ontology and BRICK ontology are reused and merged to serve as a feasible FDM. According to the characteristic of asset management services that digital twins support, two integration architectures are compared, including the data warehouse approach and the mediator approach. A case study is presented to elaborate on the implementation of these two approaches and their applicability. This work sets out the standardised and modularised paradigms for discovering, fetching, and integrating data from disparate sources with different data curation manners.
 
-# **1. Introduction**
+## **1. Introduction**
 
 As an emerging concept, digital twins have been adopted to save costs and improve reliabilities in many different industries, such as manufacturing, transportation, as well as Architecture, Engineering and Construction (AEC) industry. Although there is no consensus about the definition of a digital twin yet, the digital twin functionally acts as a set of virtual information constructs that fully describes the potential or actual physical product from micro atomic level to macro geometrical level [1]. Leveraging machine learning and artificial intelligence, the digital twin can deliver real-time monitoring, prediction, optimisation and better-informed decision-making based on the ubiquitous data and information from disparate sources. As the foundation of the digital twin, the information management process is discussed in this paper. In the AEC sector, digital twins should integrate all useful information of built assets (e.g., infrastructure, buildings, embedded systems, and components) throughout their entire lifecycle, from design, construction, operation, maintenance ultimately to decommissioning [2]. Particularly, the operation phase represents the most prolonged and costly phase of an asset's lifecycle. Therefore, growing attention has been allocated to implementing digital twins dynamically to digest the
 
@@ -57,16 +57,16 @@ The AEC and Facility Management (FM) industry is a highly fragmented data-intens
 
 The report outlines the pathway towards an integrated and web-like environment encapsulating data across complex heterogeneous systems, but does not specify the implementation approach. Taking buildings as the target, this paper aims to review potential practical implementations of IMF for establishing building digital twins, and elaborate on the ontology-based processes to extract, transform and integrate various data through a common data model and reference data libraries.
 
-# **2. Literature review**
+## **2. Literature review**
 
-# *2.1. Ontologies for buildings and embedded systems*
+## *2.1. Ontologies for buildings and embedded systems*
 
 A stable semantic basis serves as the backbone of building digital twins. In this regard, an array of ontologies has been developed to standardise the representations of general and domain concepts and definitions of buildings. According to the "level of generality", these ontologies can be roughly categorised into: 1) core ontologies, also known as upper or foundational ontologies, which define the complete structure of concepts (e.g., stories, zones, etc.), relationships and properties, independent of related to a generic domain or use case; 2) domain ontologies that further describe the entities, classes
 
 doi:10.1088/1755-1315/1101/9/092010
 
 ![](_page_3_Figure_5.jpeg)
-<!-- Image Description: This image is a flowchart categorizing industry data models and reference data libraries/dictionaries.  Three main categories are shown: manufactured things (e.g., using ISO 10303-STEP), process plants, and things in the landscape. Each category lists relevant standards, ontologies, and data models (e.g., ISO 15926, Building Smart, INSPIRE). The chart's purpose is to illustrate the diverse data standards used across different industry sectors and provide an overview of available resources. -->
+<!-- Image Description: This image is a flowchart categorizing industry data models and reference data libraries/dictionaries. Three main categories are shown: manufactured things (e.g., using ISO 10303-STEP), process plants, and things in the landscape. Each category lists relevant standards, ontologies, and data models (e.g., ISO 15926, Building Smart, INSPIRE). The chart's purpose is to illustrate the diverse data standards used across different industry sectors and provide an overview of available resources. -->
 
 **Figure 1.** Industry data models and reference data libraries by application area [9].
 
@@ -76,7 +76,7 @@ A building is a typical complex system, composed of not only structural componen
 
 First, regarding building topology modelling, Building Topology Ontology (BOT) is developed to represent the core topology of the building, including not only the zones, elements, and their interfaces, but also how they are related to each other (intersection, adjacency, containment) [10]. Designed to be lightweight, the BOT gets rid of the complex hierarchies when compared with its competitors like ifcOWL. Based on the BOT, several extended domain ontologies are proposed. These ontologies enrich the vocabularies related to the products and elements, sometimes including their properties. For example, there are Building Product Ontology (BPO), the smaller Building Element Ontology (BEO) and MEP ontology simplified from IFC, and SAREF4BLDG ontology extended from the Smart Appliances REFerence Ontology (SAREF) ontology. Geometric representations, seen as reference data, can be linked to the central ontology [11]. To an extent, these ontologies can be combined with Semantic Sensor Network (SSN) ontology or similar ones to incorporate observations and actuations of facilities (e.g., sensors, thermostats). Second, for the building MEP systems, instead of focusing on the actual building topology, or on the specific building products, the representation of the building systems and sensing points is highlighted. Despite that IFC is theoretically capable of representing these systems, it is often found to be insufficiently detailed by the engineers. The BRICK ontology and Haystack tagging ontology have been proposed to model specific object types and properties for building MEP facilities
 
-| World Building Congress 2022                      |                    | IOP Publishing                      |
+| World Building Congress 2022 | | IOP Publishing |
 |---------------------------------------------------|--------------------|-------------------------------------|
 | IOP Conf. Series: Earth and Environmental Science | 1101 (2022) 092010 | doi:10.1088/1755-1315/1101/9/092010 |
 
@@ -84,12 +84,12 @@ First, regarding building topology modelling, Building Topology Ontology (BOT) i
 
 To guarantee the completeness of the building FDM, it is necessary to merge several complementary ontologies for well-expressing buildings and systems, provided that no strong semantic conflicts are included, and the appropriate information management strategy is followed to avoid redundancy amongst certain ontologies. Reusing the existing ontologies is key in efficiently developing high-quality ontologies, because it reduces the time and effort for the conceptualisation from scratch and increases the quality of the merged ontologies by reusing knowledge that has already been validated.
 
-# *2.2. Integration of multi-source data*
+## *2.2. Integration of multi-source data*
 
 Ample benefits are contained in integrating operational data streams residing in disparate sources [e.g., Building Management/Automation Systems (BMS/BAS), IoT sensors, wearables] and heterogeneous formats for the building performance analysis. Each data source can have its own governing body, probably appearing in different data formats, data schemas, semantics, and with different access authorisation mechanisms. To turn heterogeneous data into organised information and ultimately into systematised knowledge, it is necessary to build semantic correspondences between data streams and static building contextual data in FDM [5]. Furthermore, fetching data freely and readily from fragmented and heterogeneous sources is desired, not sacrificing the autonomy of individual data sources. This paper argues that two main integration architectures can be distinguished, namely the data warehouse approach and the mediator approach (see Figure 2).
 
 ![](_page_4_Figure_5.jpeg)
-<!-- Image Description: The image is a system architecture diagram showing data flow.  A data warehouse feeds data via ETL (Extract, Transform, Load) processes to "Data Sources" (BMS, IoT).  "Pseudo-static" (BIM) and "Dynamic" data sources are processed by "Wrappers," feeding a "Mediator" for on-demand user access.  The diagram illustrates the architecture's components and their interactions for data management and user interface. -->
+<!-- Image Description: The image is a system architecture diagram showing data flow. A data warehouse feeds data via ETL (Extract, Transform, Load) processes to "Data Sources" (BMS, IoT). "Pseudo-static" (BIM) and "Dynamic" data sources are processed by "Wrappers," feeding a "Mediator" for on-demand user access. The diagram illustrates the architecture's components and their interactions for data management and user interface. -->
 
 **Figure 2.** Architectures for integrating multi-source data streams.
 
@@ -97,7 +97,7 @@ Ample benefits are contained in integrating operational data streams residing in
 
 *2.2.2. Mediator approach.* Instead of ingesting all data into a persistent location, the mediator approach directly fetches data remaining in their original data sources through the Mediator-Wrapper architecture. To deal with the prevalent heterogeneity and dynamic nature of the data sources, the wrappers access each data source, retrieving and exporting data along with the source data schema, while the mediator transforms the retrieved data into a unified and global data schema that is sufficiently rich to accommodate heterogeneous data. For instance, Shahinmoghadam and Motamedi [14] proposed an ontology-based mediation mechanism to realise the integration of BIM and IoT data, by rewriting queries with reference to the ontology mapping between the entities of the BIM or IoT ontology-based schemas and the global ontology-based schema. Essentially, it is close to the system integration approach, in which individual systems are combined through APIs. While keeping the anatomy of each system, a layer of content negotiation is enabled to map multi-source data. The advantage of the mediator approach is that the underlying data sources are decoupled, and the autonomy of individual data sources is maintained to the maximum. New data sources can be easily plugged into the ecosystem. However, the lack of reconciliation means that there could be inconsistency and redundancy issues for data stored in separate sources.
 
-# **3. Research method**
+## **3. Research method**
 
 Effective information management for built assets needs to deal with several challenges, among which data integration of heterogeneous data from autonomous sources is an important premise for follow-up data analysis and decision-making. In accordance with the IMF defined by Hetherington and West [7], this paper proposes a candidate Foundation Data Model (FDM) by merging the BOT and BRICK ontologies in OWL, which can complementarily represent building topologies and MEP facilities [15]. Of course, this is not the only choice. The appropriate FDM can be established if the set of ontologies (two or more) can and only represent all the most basic entities and relationships that exist in buildings and systems. Note that no building product ontologies or sensor observation ontologies are included in the FDM. This is because the domain-specific knowledge (e.g., the attributes of the product) can be expressed in Reference Data Libraries (RDL) to avoid schema overhead as long as they can be easily linked to the core data structure of FDM. Based on the proposed small and generic FDM, the hybrid use of data integration architectures is recommended, weighing the pros and cons of the data warehouse approach and the mediator approach and picking up the right one according to the specific asset management service it supports.
 
@@ -105,18 +105,18 @@ To get an expressive ontology from BOT and BRICK, the inconsistencies and redund
 
 With a unified core ontology, the integration of data from disparate sources is enabled through a hybrid integration architecture. As the aim of data integration is to support corresponding building asset management services, the selection of integration architecture should take the characteristic of service into consideration.
 
- For services that run in real-time, such as monitoring the indoor thermal comfort, the ETL process needs to be implemented to continuously clean and restructure data from heterogeneous sources (e.g., operative temperature, relative humidity) and finally load into
+For services that run in real-time, such as monitoring the indoor thermal comfort, the ETL process needs to be implemented to continuously clean and restructure data from heterogeneous sources (e.g., operative temperature, relative humidity) and finally load into
 
 ![](_page_6_Figure_5.jpeg)
-<!-- Image Description: This image is a directed graph illustrating a data model.  Nodes represent concepts (e.g., "brick:Point," "bot:Zone"), and edges represent relationships between them (e.g., "brick:hasPoint"). The graph depicts relationships among points, zones, equipment, elements, and 3D models within a system, likely for representing building information or similar spatial data.  The labels on the edges describe the nature of these relationships. -->
+<!-- Image Description: This image is a directed graph illustrating a data model. Nodes represent concepts (e.g., "brick:Point," "bot:Zone"), and edges represent relationships between them (e.g., "brick:hasPoint"). The graph depicts relationships among points, zones, equipment, elements, and 3D models within a system, likely for representing building information or similar spatial data. The labels on the edges describe the nature of these relationships. -->
 
 **Figure 3.** Illustration of the main classes in the merged ontology for FDM.
 
 the data warehouse for analysis. Typically, the manipulation of data streams during ETL integrates the auxiliary metadata from FDM augmented into the original datarow, so that the data become self-contained and can be analysed without referring to external descriptions.
 
- For services that are delivered periodically (e.g., monthly, quarterly, or yearly), like the evaluation of the building Energy Use Intensity (EUI), the mediator-wrapper approach is more appropriate considering that the calculation of system-level energy performance indicators requires aggregated data across multiple time scales. The mediator is responsible for providing the ontology mapping and semantic correspondences between the entities in the FDM (e.g., sensor) and the equivalent entities in the local database for data streams (e.g., time series from the specific sensor).
+For services that are delivered periodically (e.g., monthly, quarterly, or yearly), like the evaluation of the building Energy Use Intensity (EUI), the mediator-wrapper approach is more appropriate considering that the calculation of system-level energy performance indicators requires aggregated data across multiple time scales. The mediator is responsible for providing the ontology mapping and semantic correspondences between the entities in the FDM (e.g., sensor) and the equivalent entities in the local database for data streams (e.g., time series from the specific sensor).
 
-# **4. Case study**
+## **4. Case study**
 
 The Alan Reece building at the West Cambridge site of the University of Cambridge is used as the digital twin pilot. The Alan Reece building is a 3-storey building and stands over a 40,000-square-foot comprehensive area, including spaces for teaching, office, research, laboratory, canteen etc. Figure 4 (a) shows the 3D view of the Alan Reece building. To compare the integration architectures, two space management services are highlighted, including indoor thermal comfort monitoring and Lighting Power Density (LPD) evaluation.
 
@@ -126,7 +126,7 @@ The Alan Reece building at the West Cambridge site of the University of Cambridg
 Using a seminar room (i.e., Seminar Room 3) in the pilot building, this section demonstrates the implementation of services for this space with the help of digital twin technologies, from the perspective of data integration. The sliced FDM associated with the Seminar Room 3 (SR3) is shown in Figure 4 (b). In term of the dynamic data sources, the BMS, controlling the MEP systems, is installed in the building and archive its data into a MySQL database. Furthermore, the Monnit wireless sensors that
 
 ![](_page_7_Figure_3.jpeg)
-<!-- Image Description: The image shows a 3D model of the Alan Reece building (a), depicting its layout and sensor placement.  (b) presents a graph representing the building's ontology, using RDF triples to link building elements (rooms, corridors, sensors) and their properties (e.g., `bot:hasSpace`, `brick:hasPoint`). This demonstrates a semantic model for representing building information and sensor data. -->
+<!-- Image Description: The image shows a 3D model of the Alan Reece building (a), depicting its layout and sensor placement. (b) presents a graph representing the building's ontology, using RDF triples to link building elements (rooms, corridors, sensors) and their properties (e.g., `bot:hasSpace`, `brick:hasPoint`). This demonstrates a semantic model for representing building information and sensor data. -->
 
 **Figure 4.** BIM model of the Alan Reece building and the sliced FDM associated with SR3.
 
@@ -138,19 +138,19 @@ In the second case, the mediator approach is used to integrate data needed for e
 
 Current Table: 01/10/2022 (Today)
 
-|             | Primary Key  |              | Attribute |        |  |
+| | Primary Key | | Attribute | | |
 |-------------|--------------|--------------|-----------|--------|--|
-| SensorID    | Time         | Object       | Value     | Unit   |  |
-| Temp_384023 | 09:12:22.058 | SeminarRoom2 | 19.65     | o<br>C |  |
-| Temp_384025 | 09:12:37.002 | SeminarRoom3 | 20.03     | o<br>C |  |
-| Temp_384025 | 09:12:36.590 | SeminarRoom3 | 20.02     | o<br>C |  |
-|             |              |              |           |        |  |
+| SensorID | Time | Object | Value | Unit | |
+| Temp_384023 | 09:12:22.058 | SeminarRoom2 | 19.65 | o<br>C | |
+| Temp_384025 | 09:12:37.002 | SeminarRoom3 | 20.03 | o<br>C | |
+| Temp_384025 | 09:12:36.590 | SeminarRoom3 | 20.02 | o<br>C | |
+| | | | | | |
 
 Older Tables: 01/09/2022, …
 
 | SensorID | Time | Object | Value | Unit |
 |----------|------|--------|-------|------|
-| …        | …    | …      | …     | …    |
+| … | … | … | … | … |
 
 **Listing 1** Query the Current table in DynomoDB using AWS SDK for .NET
 
@@ -174,15 +174,15 @@ to realise the LPD evaluation can be translated as "Return submetering readings 
 
 11 }
 
-# **5. Conclusion**
+## **5. Conclusion**
 
 Being highly fragmented, data-intensive and project-based, the AEC/FM sector lacks collaborations between parties due to the challenges in data sharing and integration. Recent efforts in building digital twin aim to establish a dynamic and web-like data environment using linked data approaches, where building data from disparate sources, static and dynamic, become interoperable. Knowledge reuse is the cornerstone for ontology modelling. In accordance with the ontology-based Information Management Framework, the BOT and BRICK ontologies are reused and merged to serve as a feasible Foundation Data Model, making the ontological commitments explicit for buildings and their systems. Two different integration architectures are compared, which fetch data through the FDM from disparate sources and Reference Data Libraries. The data warehouse approach and the mediator approach are found to be preferable in different cases according to the specific characteristic of the asset management service provided. Faced with the "data marketplace" of built assets with decentralised data curation, this work informs the most feasible ways to discover, fetch, integrate and utilise data from disparate sources under an ontology-based Information Management Framework. In terms of future work, considering that voluminous data does not always produce high-quality analytical results, studies on evaluating the quality of integrated data will be conducted to gain the full potential of data integration.
 
-# **Acknowledgments**
+## **Acknowledgments**
 
 This research forms part of the Centre for Digital Built Britain's (CDBB) work at the University of Cambridge within the Construction Innovation Hub (CIH). The Construction Innovation Hub is funded by UK Research and Innovation, UK through the Industrial Strategy Fund. Furthermore, the funding support by the Dutch Netherlands Enterprise Agency for the Brains4Buildings project is acknowledged as well to make part of this work possible.
 
-# **References**
+## **References**
 
 - [1] Grieves M and Vickers J 2017 Digital twin: Mitigating unpredictable, undesirable emergent behavior in complex systems *Transdisciplinary perspectives on complex systems* ed F J Kahlen, S Flumerfelt *et al* (Cham: Springer) pp 85-113
 - [2] Boje C, Guerriero A, Kubicki S and Rezgui Y 2020 Towards a semantic Construction Digital Twin: Directions for future research *Automat. Constr.* **114** 103179

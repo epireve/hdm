@@ -78,9 +78,9 @@ In this study, our objective is to provide a comprehensive survey of ATS techniq
 
 The remainder of this paper is organized as follows: Section [2](#page-1-1) provides an overview of the background of Automatic Text Summarization (ATS), including its categorization and prior surveys. Section [3](#page-3-0) defines key concepts in ATS and outlines the paper collection methodology. Section [4](#page-5-0) details the data acquisition methods used in the ATS pipeline. Summarization modeling approaches are discussed in Section [6.](#page-10-0) Section [7](#page-16-0) describes evaluation metrics for summarization, and Section [8](#page-18-0) highlights ATS-based applications. Finally, Section [9](#page-18-1) explores future directions in ATS.
 
-#### Background of Automatic Text Summarization
+### Background of Automatic Text Summarization
 
-####*2.1. History of Automatic Text Summarization*
+### *2.1. History of Automatic Text Summarization*
 
 The field of Automatic Text Summarization (ATS) has evolved significantly over the past several decades. We can structure its development into distinct eras, each marked by advancements in technology and methods.
 
@@ -112,21 +112,21 @@ LLM-based summarization methods can be broadly categorized into three key approa
 
 The field of Automatic Text Summarization (ATS) has undergone a development path across several distinct eras, from early statistical approaches to the advent of Large Language Models (LLMs). Conventional ATS approaches are constrained by a fixed summarization paradigm, either extractive or abstractive. The emergence of LLMs represents a significant breakthrough, offering a flexible, paradigm-agnostic approach that surpasses previous limitations in both extractive and abstractive summarization. As the field continues to evolve, we anticipate that LLM-based methods will not only refine and enhance summarization capabilities but will also pave the way for more adaptive, scalable, and efficient solutions. Future research will likely focus on further improving the interpretability, scalability, and domain adaptability of these models, cementing their role as the foundation for next-generation ATS systems.
 
-#### <span id="page-2-0"></span>*2.2. Categorization of Automatic Text Summarization*Automatic Text Summarization (ATS) systems are conventionally classified as "Extractive", "Abstractive", and "Hybrid" based on their generation paradigms. Extractive methods focus on selecting original sentences or phrases from the input text to create summaries, while abstractive approaches generate new sentences that convey the same meaning but differ from the original text. Hybrid methods combine both techniques. Conventional methods are inflexible, as they are specifically designed and trained to perform either extraction or abstractive tasks. In contrast, approaches based on Large Language Models (LLMs) unify summarization tasks within a generative framework, where both extractive and abstractive summarization can be achieved by prompting the LLM to directly generate the summarized text. Examples include having LLMs extract key information from the original text[\[67,](#page-21-17) [68\]](#page-21-18), reading the original text and generating a summary[\[69,](#page-21-19) [70\]](#page-21-20), and using hybrid methods[\[71,](#page-21-21) [72\]](#page-21-22).
+### <span id="page-2-0"></span>*2.2. Categorization of Automatic Text Summarization*Automatic Text Summarization (ATS) systems are conventionally classified as "Extractive", "Abstractive", and "Hybrid" based on their generation paradigms. Extractive methods focus on selecting original sentences or phrases from the input text to create summaries, while abstractive approaches generate new sentences that convey the same meaning but differ from the original text. Hybrid methods combine both techniques. Conventional methods are inflexible, as they are specifically designed and trained to perform either extraction or abstractive tasks. In contrast, approaches based on Large Language Models (LLMs) unify summarization tasks within a generative framework, where both extractive and abstractive summarization can be achieved by prompting the LLM to directly generate the summarized text. Examples include having LLMs extract key information from the original text[\[67,](#page-21-17) [68\]](#page-21-18), reading the original text and generating a summary[\[69,](#page-21-19) [70\]](#page-21-20), and using hybrid methods[\[71,](#page-21-21) [72\]](#page-21-22).
 
 In this survey, we classify Automatic Text Summarization (ATS) systems into two major categories: Conventional ATS Methods and LLM-based ATS Methods. The first category encompasses conventional summarization approaches, including extractive, abstractive, and hybrid methods, which adhere strictly to their designated paradigms. In contrast, the second category includes the latest summarization techniques based on Large Language Models (LLMs), which demonstrate adaptability across various generation paradigms, enabling them to flexibly produce coherent summaries regardless of traditional constraints.
 
-##*2.2.1. Conventional ATS Methods*ATS methods are conventionally categorized as extractive, abstractive, or hybrid. Extractive methods extract key phrases from the text, while abstractive methods rephrase or synthesize content based on semantic understanding. Hybrid methods combine these approaches. These methods are often inflexible, constrained by their paradigms, and require manual feature engineering and task-specific training.
+## *2.2.1. Conventional ATS Methods*ATS methods are conventionally categorized as extractive, abstractive, or hybrid. Extractive methods extract key phrases from the text, while abstractive methods rephrase or synthesize content based on semantic understanding. Hybrid methods combine these approaches. These methods are often inflexible, constrained by their paradigms, and require manual feature engineering and task-specific training.
 
 - Extractive Methodsselects important sentences or phrases directly from the original document to form a summary. It identifies key components in the text and uses them to create a coherent output [\[73\]](#page-21-23). Techniques include unsupervised methods, such as calculating and ranking the statistical importance of words and sentences, and supervised methods, which train machine learning or deep learning models to classify text as "summary" or "nonsummary."
 - Abstractive Methods generates summaries by producing new sentences that may not appear in the original text. This can be achieved through structured methods, like tree or graph-based models, or generative approaches, such as sequence-to-sequence (seq2seq) architectures using RNNs [\[74\]](#page-21-24) or Transformers [\[75\]](#page-21-25). Pre-trained models often enhance these methods, enabling more flexible and human-like summary generation.
 - Hybrid Methods combines extractive and abstractive approaches. Typically, a hybrid ATS system uses an extractive model to identify key sentences, followed by an abstractive model to refine or rewrite the extracted content. This process can take two forms: a simpler "Extractive to Shallow Abstractive" approach or a more sophisticated "Extractive to Abstractive" approach with a specifically trained abstractive model [\[76\]](#page-21-26).
 
-###*2.2.2. LLM-based Methods*Large Language Models (LLMs) differ from conventional ATS methods, which are constrained by pre-designed generation paradigms and limited training data. LLMs are pre-trained on vast datasets using extensive neural architectures, granting them superior generative capabilities. They can produce highly coherent and fluent text and, through in-context and few-shot learning, adaptively generate summaries in both extractive and abstractive styles based on task requirements [\[70,](#page-21-20) [77\]](#page-21-27).
+### *2.2.2. LLM-based Methods*Large Language Models (LLMs) differ from conventional ATS methods, which are constrained by pre-designed generation paradigms and limited training data. LLMs are pre-trained on vast datasets using extensive neural architectures, granting them superior generative capabilities. They can produce highly coherent and fluent text and, through in-context and few-shot learning, adaptively generate summaries in both extractive and abstractive styles based on task requirements [\[70,](#page-21-20) [77\]](#page-21-27).
 
 LLM-based ATS methods face challenges such as accurately following summarization instructions, incorporating task-specific knowledge, and addressing issues like "hallucinations." To improve their performance, three key research directions have emerged: (1) Prompt Engineering, which focuses on designing effective prompts, templates, and examples to guide LLMs in generating accurate and task-specific summaries; (2) Fine-tuning, which adapts LLMs with domain-specific data to enhance their understanding and the relevance of generated summaries; and (3) Knowledge Distillation, which extracts knowledge from LLMs to train smaller, specialized models for specific summarization tasks.
 
-##*2.3. Related Surveys on ATS*Several ATS surveys have been published over the years, generally adopting a technical categorization approach by classifying ATS methods as either "extractive" or "abstractive", which are summarizaed in Table [1.](#page-4-0) For instance, studies like [\[79,](#page-21-28) [80\]](#page-21-29) focus on "extractive" methods, which select key sentences or paragraphs from the original documents to form concise summaries. These surveys cover techniques such as term frequency, statistical models, and supervised learning approaches. Similarly, [\[12\]](#page-20-1) highlights extractive methods that rely on neural models. In contrast, research like [\[13,](#page-20-2) [14\]](#page-20-3) explores abstractive summarization methods, documenting the transition from early statistical and rule-based techniques to the latest advancements in neural language models. Additionally, [\[76\]](#page-21-26) provides a comprehensive review of both extractive and abstractive approaches.
+## *2.3. Related Surveys on ATS*Several ATS surveys have been published over the years, generally adopting a technical categorization approach by classifying ATS methods as either "extractive" or "abstractive", which are summarizaed in Table [1.](#page-4-0) For instance, studies like [\[79,](#page-21-28) [80\]](#page-21-29) focus on "extractive" methods, which select key sentences or paragraphs from the original documents to form concise summaries. These surveys cover techniques such as term frequency, statistical models, and supervised learning approaches. Similarly, [\[12\]](#page-20-1) highlights extractive methods that rely on neural models. In contrast, research like [\[13,](#page-20-2) [14\]](#page-20-3) explores abstractive summarization methods, documenting the transition from early statistical and rule-based techniques to the latest advancements in neural language models. Additionally, [\[76\]](#page-21-26) provides a comprehensive review of both extractive and abstractive approaches.
 
 Another line of surveys focuses on domain-specific ATS techniques, addressing summarization tasks for different content fields. For instance, survey works such as [\[93,](#page-22-0) [87,](#page-22-1) [94\]](#page-22-2) review specialized methodologies designed for legal document summarization, while [\[91\]](#page-22-3) offers a comprehensive review of methods for summarizing multiple documents. [\[90\]](#page-22-4) focuses on summarizing dialogue and conversational texts, and [\[95\]](#page-22-5) provides an overview of methods for summarizing micro-blog content. Collectively, these surveys contribute to a nuanced understanding of ATS by illustrating how summarization techniques adapt to different content domains.
 
@@ -134,44 +134,45 @@ In addition to summarizing conventional extractive and abstractive methods, this
 
 ## <span id="page-3-0"></span>3. Definition and Literature Collection Methodology for Automatic Text Summarization
 
-###*3.1. Definitions for Automatic Text Summarization*Definition 1 (Text Summarization).*Text summarization can be defined as a mapping function*$$
+### *3.1. Definitions for Automatic Text Summarization*Definition 1 (Text Summarization).*Text summarization can be defined as a mapping function*$$
+
 f_{\theta}: T \to S,\tag{1}
 $$
 
-<span id="page-4-0"></span>
 
-|  |  | Table 1: Overview of past ATS surveys on their summarization domain, type and methods coverage |
+| | | **Table 1:** Overview of past ATS surveys on their summarization domain, type and methods coverage |
 |--|--|------------------------------------------------------------------------------------------------|
-|  |  |                                                                                                |
+| | | |
 
-| Survey Ref.     | Domain          | Type                | Methods Coverage                                                         | Citation | Year |
+| Survey Ref. | Domain | Type | Methods Coverage | Citation | Year |
 |-----------------|-----------------|---------------------|--------------------------------------------------------------------------|----------|------|
-| [78]            | General         | Comprehensive       | Graph;Machine Learning;Rule-based;Statistical                            | 130      | 2009 |
-| [79]            | General         | Extractive          | Concept-based;Fuzzy Logic;Graph;Neural Network                           | 889      | 2017 |
-| [80]            | General         | Extractive          | Graph;Machine Learning;Neural Network;Rule-based;Statistical             | 243      | 2017 |
-| [11]            | General         | Comprehensive       | Machine Learning;Neural Network;Rule-based;Statistical;Term Frequency    | 124      | 2018 |
-| [14]            | General         | Abstractive         | Deep Language Model;Graph;Reinforcement Learning;Rule-based              | 120      | 2019 |
-| [81]            | General         | Hybrid              | Neural Network;Term Frenquency                                           | 21       | 2019 |
-| [82]            | General         | Abstractive         | Deep Language Model;Neural Network;Word Embedding                        | 51       | 2021 |
-|                 |                 |                     | Concept-based;Deep Language Model;Graph;Machine Learning;Neural Network; |          |      |
-| General<br>[76] |                 | Comprehensive       | Fuzzy Logic;Rule-based;Statistical;Term Frequency;Word Embedding         | 545      | 2021 |
-|                 |                 |                     | Concept-based;Deep Language Model;Graph;Machine Learning;Neural Network; |          | 2021 |
-| [83]            | General         | Comprehensive       | Fuzzy Logic;Rule-based;Statistical;Term Frequency;Word Embedding         | 53       |      |
-| [84]            | General         | Comprehensive       | Deep Language Model;Graph;Neural Network                                 | 44       | 2023 |
-| [85]            | Domain-Specific | Dialogue            | Deep Learning;Knowledge Base;Machine Learning;Retrieval;Term Frequency   | 774      | 2017 |
-| [86]            | Domain-Specific | Dialogue            | Machine Learning;Statistical                                             | 98       | 2018 |
-| [87]            | Domain-Specific | Legal               | Graph;Term Frequency;Statistical                                         | 166      | 2019 |
-| [88]            | Domain-Specific | Graph-based Methods | Graph                                                                    | 348      | 2019 |
-| [89]            | Domain-Specific | Scientific Article  | Do Not Apply                                                             | 73       | 2022 |
-| [90]            | Domain-Specific | Dialogue            | Do Not Apply                                                             | 69       | 2022 |
-| [91]            | Domain-Specific | Multi-Document      | Deep Language Model;Graph;Machine Learning;Neural Network                | 93       | 2022 |
-| [92]            | Domain-Specific | Medical             | Do Not Apply                                                             | 284      | 2022 |
+| [78] | General | Comprehensive | Graph;Machine Learning;Rule-based;Statistical | 130 | 2009 |
+| [79] | General | Extractive | Concept-based;Fuzzy Logic;Graph;Neural Network | 889 | 2017 |
+| [80] | General | Extractive | Graph;Machine Learning;Neural Network;Rule-based;Statistical | 243 | 2017 |
+| [11] | General | Comprehensive | Machine Learning;Neural Network;Rule-based;Statistical;Term Frequency | 124 | 2018 |
+| [14] | General | Abstractive | Deep Language Model;Graph;Reinforcement Learning;Rule-based | 120 | 2019 |
+| [81] | General | Hybrid | Neural Network;Term Frenquency | 21 | 2019 |
+| [82] | General | Abstractive | Deep Language Model;Neural Network;Word Embedding | 51 | 2021 |
+| | | | Concept-based;Deep Language Model;Graph;Machine Learning;Neural Network; | | |
+| General<br>[76] | | Comprehensive | Fuzzy Logic;Rule-based;Statistical;Term Frequency;Word Embedding | 545 | 2021 |
+| | | | Concept-based;Deep Language Model;Graph;Machine Learning;Neural Network; | | 2021 |
+| [83] | General | Comprehensive | Fuzzy Logic;Rule-based;Statistical;Term Frequency;Word Embedding | 53 | |
+| [84] | General | Comprehensive | Deep Language Model;Graph;Neural Network | 44 | 2023 |
+| [85] | Domain-Specific | Dialogue | Deep Learning;Knowledge Base;Machine Learning;Retrieval;Term Frequency | 774 | 2017 |
+| [86] | Domain-Specific | Dialogue | Machine Learning;Statistical | 98 | 2018 |
+| [87] | Domain-Specific | Legal | Graph;Term Frequency;Statistical | 166 | 2019 |
+| [88] | Domain-Specific | Graph-based Methods | Graph | 348 | 2019 |
+| [89] | Domain-Specific | Scientific Article | Do Not Apply | 73 | 2022 |
+| [90] | Domain-Specific | Dialogue | Do Not Apply | 69 | 2022 |
+| [91] | Domain-Specific | Multi-Document | Deep Language Model;Graph;Machine Learning;Neural Network | 93 | 2022 |
+| [92] | Domain-Specific | Medical | Do Not Apply | 284 | 2022 |
 *where f*θ *is the summarization method with trainable parameter* θ*, T is the set of tokens in the input text and S*<sup>⊆</sup>*T (for extractive summarization) or S is a newly generated sequence (for abstractive summarization). The objective is to minimize the information loss*$$
 \mathcal{L}(\theta) = dist(T, f_{\theta}(T)), \tag{2}
 $$
 *subject to the constraint that S is significantly smaller in length than T, while preserving the semantic and syntactic integrity of the original text.*Considering that Automatic Text Summarization (ATS) techniques involve a series of intermediate steps to achieve the final objective, i.e., generating a concise and informative summary. We define the "ATS Process" as follows:
 
 ## Definition 2 (Automatic Text Summarization (ATS) Process).
+
 *The process of automatic text summarization can be formalized as a sequence of operations on the input text, denoted by a tuple*$$
 P=(D,M,G,E),
 $$
@@ -186,7 +187,7 @@ Building upon the definition of ATS, we delineate the intermediate steps necessa
 ![](_page_5_Figure_0.jpeg)
 <!-- Image Description: This flowchart details a text summarization system's architecture. It outlines four stages: data acquisition (using open-source or customized datasets), text pre-processing (methods include noise removal, stemming, and tokenization), summarization modeling (employing conventional and LLM-based approaches, including extractive, abstractive, and generative methods), and evaluation (using overlap, similarity, and LLM-based metrics). The diagram visually organizes various techniques within each stage. -->
 
-<span id="page-5-1"></span>Figure 1: ATS Framework: Detailed Process from Data Acquisition through Text Pre-processing, Summarization Modeling to Evaluation Metrics.
+<span id="page-5-1"></span>**Figure 1:** ATS Framework: Detailed Process from Data Acquisition through Text Pre-processing, Summarization Modeling to Evaluation Metrics.
 
 modeling in ATS is inherently an NLP task, typically commencing with language modeling and subsequently progressing to summarization modeling. The conventional ATS methods are bifurcated into language modeling and summarization modeling. For an in-depth discussion and categorization of the various ATS models, refer to Section [6.](#page-10-0) This section also provides a detailed exploration of methods based on Large Language Models (LLMs).
 
@@ -205,50 +206,49 @@ To this end, we designed a three-stage algorithm that automates the collection, 
 
 This pipeline ensures scalable and precise retrieval of ATSrelated papers, addressing the limitations of keyword-based searches. The algorithm is outlined in Algorithm [1.](#page-6-0)
 
-#### <span id="page-5-0"></span>4. ATS Datasets
+### <span id="page-5-0"></span>4. ATS Datasets
 
 This section introduces two types of datasets for ATS: (1) open-source datasets commonly used in existing research and (2) techniques to build new ATS datasets.
 
 Open-source datasets are mostly adopted for general ATS tasks but often lack suitability for domain-specific applications, as noted in studies [\[99,](#page-22-16) [100,](#page-22-17) [101\]](#page-22-18). To address these gaps, we outline methodologies for creating newly custom datasets, focusing on leveraging Large Language Models (LLMs). LLMs enable scalable and efficient generation of domain-specific data, reducing manual effort and enhancing dataset diversity.
 
-#### *4.1. Open-source Datasets*We collected datasets in the ATS domain that are publicly accessible online or via email, referred to as*Open-Source Datasets*. We adopted the automated retrieval algorithm proposed in Sec. [3.3](#page-5-2) to retrieve the ATS datasets, by using ATS dataset related queries. This process also consists of three main steps:
+### *4.1. Open-source Datasets*We collected datasets in the ATS domain that are publicly accessible online or via email, referred to as*Open-Source Datasets*. We adopted the automated retrieval algorithm proposed in Sec. [3.3](#page-5-2) to retrieve the ATS datasets, by using ATS dataset related queries. This process also consists of three main steps:
 
 1. Dataset Searching: Using the keyword "summarization dataset," we searched Google Scholar for papers and associated metadata, sorted by relevance.
 
-<span id="page-6-0"></span>
 
 | Initialize an empty database D<br>Initialize web crawler C<br>Initialize the LLM for classification LLM<br>K<br>Define<br>search<br>keywords<br>=<br>{summarization, text condensation, }<br>for all k ∈ K do<br>results ← C.search(k)<br>▷ Perform search using keyword<br>k<br>for all r ∈ results do<br>Extract paper = {title, pub url} from r<br>if paper <<br>D then<br>Add paper to D<br>end if<br>end for<br>end for<br>for all paper ∈ D do<br>page ← C.crawl(paper.pub url)<br>if paper.pub url ends with .pdf then<br>Extract abstract from page.FILE<br>else<br>Extract abstract from page.HT ML<br>end if<br>Clean and store abstract in D<br>end for<br>Define few-shot examples S HOT s = {{title, abstract, label}}<br>for all paper ∈ D do<br>result ← LLM(S HOT s, paper.title, paper.abstract)<br>Add result to categorized dataset R<br>end for<br>return R | Algorithm 1 Algorithm for Crawling ATS Relevant Papers |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                        |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
 
 - 2. Relevance Filtering: To exclude irrelevant articles, we employed the LLaMa3 LLM for few-shot learning classification. Titles and abstracts were analyzed and categorized into two groups: articles introducing new datasets, labeled as "dataset," and those unrelated, labeled as "nondataset." Manual screening was then conducted to ensure the accuracy of the classification, resulting in a definitive list of relevant datasets.
 - 3. Categorization: Since articles on datasets tend to be structured and straightforward, we manually categorized the collected datasets based on their citation impact and relevance to ATS research.
@@ -276,31 +276,31 @@ XSum[\[107\]](#page-22-24) is a dataset of 226,711 *BBC*news articles (2010–20
 
 NEWSROOM[\[108\]](#page-22-25) contains 1.3 million articles and humanwritten summaries from 38 major news outlets (1998–2017). It features diverse summarization styles, combining abstractive
 
-<span id="page-7-0"></span>Table 2: Core datasets with more than 100 citations in the ATS. The table is arranged in ascending order by publication year and provides details on the publish year, size (number of total pairs including train, validation, and test), domain, language, along with their publicly available URLs for download.
+<span id="page-7-0"></span>**Table 2:** Core datasets with more than 100 citations in the ATS. The table is arranged in ascending order by publication year and provides details on the publish year, size (number of total pairs including train, validation, and test), domain, language, along with their publicly available URLs for download.
 
-| Name             | Year | Size      | Domain         | Language     | URL                                                  |
+| Name | Year | Size | Domain | Language | URL |
 |------------------|------|-----------|----------------|--------------|------------------------------------------------------|
-| Gigaword         | 2003 | 9,876,086 | News           | English      | https://github.com/harvardnlp/sent-summary           |
-| DUC 2001-2007    | 2004 | 250-1600  | News           | English      | https://duc.nist.gov/data.html                       |
-| CNN & Daily Mail | 2016 | 312,084   | News           | English      | https://github.com/abisee/cnn-dailymail              |
-| LCSTS            | 2016 | 2,400,591 | Blogs          | Chinese      | http://icrc.hitsz.edu.cn/Article/show/139.html       |
-| ArXiv            | 2018 | 215,000   | Academic paper | English      | https://github.com/armancohan/long-summarization     |
-| PubMed           | 2018 | 133,000   | Academic paper | English      | https://github.com/armancohan/long-summarization     |
-| XSum             | 2018 | 226,711   | News           | English      | https://github.com/EdinburghNLP/XSum                 |
-| NEWSROOM         | 2018 | 1.3M      | News           | English      | https://lil.nlp.cornell.edu/newsroom/                |
-| WikiHow          | 2018 | 230,843   | Knowledge Base | English      | https://github.com/mahnazkoupaee/WikiHow-Dataset     |
-| Multi-News       | 2019 | 56,216    | News           | English      | https://github.com/Alex-Fabbri/Multi-News            |
-| SAMSum           | 2019 | 16,369    | Dialogue       | English      | https://arxiv.org/src/1911.12237v2/anc/corpus.7z     |
-| BIGPATENT        | 2019 | 1.3M      | Patent         | English      | https://evasharma.github.io/bigpatent/               |
-| Scisumm          | 2019 | 1,000     | Academic paper | English      | https://cs.stanford.edu/∼myasu/projects/scisumm net/ |
-| BillSum          | 2019 | 22,218    | Bill           | English      | https://github.com/FiscalNote/BillSum                |
-| WikiLingua       | 2020 | 141,457   | Knowledge Base | Multilingual | https://github.com/esdurmus/Wikilingua               |
-| MLSUM            | 2020 | 1.5M      | News           | Multilingual | https://github.com/ThomasScialom/MLSUM               |
-| XL-sum           | 2021 | 1.35M     | News           | Multilingual | https://github.com/csebuetnlp/xl-sum                 |
-| DialogSum        | 2021 | 13,460    | Dialogue       | English      | https://github.com/cylnlp/DialogSum                  |
-| MediaSum         | 2021 | 463,600   | Interview      | English      | https://github.com/zcgzcgzcg1/MediaSum/              |
-| Booksum          | 2021 | 146,532   | Literature     | English      | https://github.com/salesforce/booksum                |
-| Summscreen       | 2021 | 26,900    | TV series      | English      | https://github.com/mingdachen/SummScreen             |
+| Gigaword | 2003 | 9,876,086 | News | English | https://github.com/harvardnlp/sent-summary |
+| DUC 2001-2007 | 2004 | 250-1600 | News | English | https://duc.nist.gov/data.html |
+| CNN & Daily Mail | 2016 | 312,084 | News | English | https://github.com/abisee/cnn-dailymail |
+| LCSTS | 2016 | 2,400,591 | Blogs | Chinese | http://icrc.hitsz.edu.cn/Article/show/139.html |
+| ArXiv | 2018 | 215,000 | Academic paper | English | https://github.com/armancohan/long-summarization |
+| PubMed | 2018 | 133,000 | Academic paper | English | https://github.com/armancohan/long-summarization |
+| XSum | 2018 | 226,711 | News | English | https://github.com/EdinburghNLP/XSum |
+| NEWSROOM | 2018 | 1.3M | News | English | https://lil.nlp.cornell.edu/newsroom/ |
+| WikiHow | 2018 | 230,843 | Knowledge Base | English | https://github.com/mahnazkoupaee/WikiHow-Dataset |
+| Multi-News | 2019 | 56,216 | News | English | https://github.com/Alex-Fabbri/Multi-News |
+| SAMSum | 2019 | 16,369 | Dialogue | English | https://arxiv.org/src/1911.12237v2/anc/corpus.7z |
+| BIGPATENT | 2019 | 1.3M | Patent | English | https://evasharma.github.io/bigpatent/ |
+| Scisumm | 2019 | 1,000 | Academic paper | English | https://cs.stanford.edu/∼myasu/projects/scisumm net/ |
+| BillSum | 2019 | 22,218 | Bill | English | https://github.com/FiscalNote/BillSum |
+| WikiLingua | 2020 | 141,457 | Knowledge Base | Multilingual | https://github.com/esdurmus/Wikilingua |
+| MLSUM | 2020 | 1.5M | News | Multilingual | https://github.com/ThomasScialom/MLSUM |
+| XL-sum | 2021 | 1.35M | News | Multilingual | https://github.com/csebuetnlp/xl-sum |
+| DialogSum | 2021 | 13,460 | Dialogue | English | https://github.com/cylnlp/DialogSum |
+| MediaSum | 2021 | 463,600 | Interview | English | https://github.com/zcgzcgzcg1/MediaSum/ |
+| Booksum | 2021 | 146,532 | Literature | English | https://github.com/salesforce/booksum |
+| Summscreen | 2021 | 26,900 | TV series | English | https://github.com/mingdachen/SummScreen |
 
 and extractive approaches, crafted by newsroom authors and editors across various domains like news, sports, and finance.
 
@@ -336,7 +336,7 @@ Summscreen[\[121\]](#page-23-3) is a screenplay summarization dataset with 29,18
 
 As summarized in Tables [2](#page-7-0) and [3,](#page-9-0) current summarization datasets offer several strengths: they include large-scale datasets for training deep neural networks and smaller, refined datasets for evaluation, are predominantly open source and easily accessible, and primarily focus on the news domain. However, there is a gap in high-quality datasets for other domains, limiting research and practical applications in specialized areas such as financial earnings releases [\[76\]](#page-21-26). To address this need, we propose methodologies for constructing customized datasets, which are detailed in the following section.
 
-####*4.2. Techniques to Build New Datasets*Building new summarization datasets involves two main steps: 1) crawling or fetching texts, and 2) obtaining summaries. While manual annotation is reliable, it is time-consuming and laborintensive[\[103,](#page-22-20) [110,](#page-22-27) [113\]](#page-22-30). Recently, automatic annotation techniques, including rule-based and LLM-based methods, have gained popularity for balancing accuracy and efficiency.
+### *4.2. Techniques to Build New Datasets*Building new summarization datasets involves two main steps: 1) crawling or fetching texts, and 2) obtaining summaries. While manual annotation is reliable, it is time-consuming and laborintensive[\[103,](#page-22-20) [110,](#page-22-27) [113\]](#page-22-30). Recently, automatic annotation techniques, including rule-based and LLM-based methods, have gained popularity for balancing accuracy and efficiency.
 
 Rule-based annotation: Rule-based annotation uses specific portions of the text, such as titles, headlines[\[104\]](#page-22-21), or the first few sentences (e.g., LEAD-3[\[164\]](#page-24-0)), as summaries. News articles, structured in the journalistic style, often start with key information, making their opening sentences suitable for summaries[\[107\]](#page-22-24). Similarly, academic papers have abstract sections that naturally serve as summaries[\[106,](#page-22-23) [132\]](#page-23-4). However, rule-based summaries can be imprecise and overly condensed, and texts in other domains often lack a structured format, making rule-based annotation challenging. In such cases, leveraging LLMs alongside manual efforts offers greater efficiency.
 
@@ -344,62 +344,62 @@ LLM-based Data Generation: LLMs are effective for generating summaries. A straig
 
 Generating summaries directly via LLMs can encounter hallucination issues, resulting in factually incorrect information[\[169\]](#page-24-5). Several studies have aimed to measure and mitigate such hallucinations. [\[170\]](#page-25-0) utilized synthetic and human-labeled data to train models for detecting word-, dependency-, and sentencelevel factual errors in summarization. Their work showed that the best factuality detection models, including the sentencefactuality model[\[171\]](#page-25-1) and the arc-factuality model[\[172\]](#page-25-2), effectively identify non-factual tokens. Additionally, [\[173\]](#page-25-3) proposed improving factual consistency by generating challenging synthetic examples of non-factual summaries using infilling language models.
 
-#### <span id="page-8-0"></span>5. Text Pre-processing
+### <span id="page-8-0"></span>5. Text Pre-processing
 
 After collecting the data, the next step in the process is preprocessing. Pre-processing is the process of transforming raw text into structured format data. This section describes common methods and powerful tools.
 
-####*5.1. Pre-processing methods*Noise Removal: eliminates unnecessary parts of the input text, such as HTML tags in crawled text, extra spaces, blank <span id="page-9-0"></span>Table 3: Supplementary datasets with fewer than 100 citations in ATS. The table is formatted in the same manner as the core dataset table, exhibiting diversity and serving as a valuable complement to ATS datasets.
+### *5.1. Pre-processing methods*Noise Removal: eliminates unnecessary parts of the input text, such as HTML tags in crawled text, extra spaces, blank <span id="page-9-0"></span>Table 3: Supplementary datasets with fewer than 100 citations in ATS. The table is formatted in the same manner as the core dataset table, exhibiting diversity and serving as a valuable complement to ATS datasets.
 
-| Ref.  | Name           | Year | Size         | Domain            | Language             | URL                                                             |
+| Ref. | Name | Year | Size | Domain | Language | URL |
 |-------|----------------|------|--------------|-------------------|----------------------|-----------------------------------------------------------------|
-| [122] | TGSum          | 2016 | 1,114        | News & Relation   | English              | http://www4.comp.polyu.edu.hk/                                  |
-| [123] | VSoLSCSum      | 2016 | 2,448        | News              | Vietnamese           | https://github.com/nguyenlab/VSoLSCSum-Dataset                  |
-| [124] | Solscsum       | 2016 | 5,858        | News & Comment    | English              | http://150.65.242.101:9292/yahoo-news.zip                       |
-| [125] | RA-MDS         | 2017 | 19,000       | News & Comment    | English              | http://www.se.cuhk.edu.hk/∼textmine/dataset/ra-mds/             |
-| [126] | Indosum        | 2018 | 19,000       | News              | Indonesian           | https://github.com/kata-ai/indosum                              |
-| [127] | Rulingbr       | 2018 | 10,000       | Ruling            | Portuguese           | https://github.com/diego-feijo/rulingbr                         |
-| [128] | SumeCzech      | 2018 | 1,001,593    | News              | Czech                | https://lindat.mff.cuni.cz/repository/xmlui/handle/11234/1-2615 |
-| [129] | Talksumm       | 2019 | 1,716        | Scientific papers | English              | https://github.com/levguy/talksumm                              |
-| [130] | Vnds           | 2019 | 150,704      | News              | Vietnamese           | https://github.com/ThanhChinhBK/vietnews                        |
-| [131] | WCEP           | 2020 | 2,390,000    | News              | English              | https://github.com/complementizer/wcep-mds-dataset              |
-| [132] | Multi-XScience | 2020 | 40,528       | Scientific papers | English              | https://github.com/yaolu/Multi-XScience                         |
-| [133] | Aquamuse       | 2020 | 5,519        | Query             | English              | https://github.com/google-research-datasets/aquamuse            |
-| [134] | Gazeta         | 2020 | 63,435       | News              | Russian              | https://github.com/IlyaGusev/gazeta                             |
-| [135] | Liputan6       | 2020 | 215,827      | News              | Indonesian           | https://github.com/fajri91/sum liputan6                         |
-| [136] | DebateSum      | 2020 | 187,386      | Debate            | English              | https://github.com/Hellisotherpeople/DebateSum                  |
-| [137] | SPORTSSUM      | 2020 | 5,428        | Sports            | Chinese              | https://github.com/ej0cl6/SportsSum                             |
-| [138] | CLTS           | 2020 | 180,000      | Long articles     | Chinese              | https://github.com/lxj5957/CLTS-Dataset                         |
-| [139] | GameWikiSum    | 2020 | 14,652       | Video game        | English              | https://github.com/Diego999/GameWikiSum                         |
-| [140] | WikiAsp        | 2021 | 320,272      | Multi-domain      | English              | http://github.com/neulab/wikiasp                                |
-| [141] | FacetSum       | 2021 | 60,532       | Scientific papers | English              | https://github.com/hfthair/emerald crawler                      |
-| [142] | SumPubMed      | 2021 | 33,772       | Scientific papers | English              | https://github.com/vgupta123/sumpubmed                          |
-| [143] | TWEETSUMM      | 2021 | 6,500        | Dialogue          | English              | https://github.com/guyfe/Tweetsumm                              |
-| [144] | CSDS           | 2021 | 10,701       | Dialogue          | Chinese              | https://github.com/xiaolinAndy/CSDS                             |
-| [145] | CrossSum       | 2021 | 1,680,000    | News              | Multilingual         | https://github.com/csebuetnlp/CrossSum                          |
-| [146] | MM-AVS         | 2021 | 2,260        | Multimodal        | English              | https://github.com/xiyan524/MM-AVS                              |
-| [147] | Lawsum         | 2021 | 10,000       | Legal             | Indonesian           | https://github.com/mtkh0602/LegalSummarization                  |
-| [148] | ForumSum       | 2021 | 4,058        | Dialogue          | English              | https://www.tensorflow.org/datasets/catalog/forumsum            |
-| [149] | Tls-covid19    | 2021 | 100,399      | Timeline          | Portuguese & English | https://github.com/LIAAD/tls-covid19                            |
-| [150] | ISSumSet       | 2021 | 136,263      | Tweet             | English              | https://github.com/AlexisDusart/ISSumSet                        |
-| [151] | QBSUM          | 2021 | 49,000       | Query             | Chinese              | https://github.com/yanshengli/QBSUM                             |
-| [152] | Clidsum        | 2022 | 112,000      | Dialogue          | Multilingual         | https://github.com/krystalan/ClidSum                            |
-| [153] | Squality       | 2022 | 625          | Story             | English              | https://github.com/nyu-mll/SQuALITY                             |
-| [154] | EUR-lex-sum    | 2022 | 24 languages | Legal             | Multilingual         | https://github.com/achouhan93/eur-lex-sum                       |
-| [155] | EntSUM         | 2022 | 2788         | Entity            | English              | https://zenodo.org/record/6359875                               |
-| [156] | Klexikon       | 2022 | 2,898        | Knowledge Base    | German               | https://github.com/dennlinger/klexikon                          |
-| [157] | Caves          | 2022 | 10,000       | Tweet             | English              | https://github.com/sohampoddar26/caves-data                     |
-| [158] | Ectsum         | 2022 | 2,425        | ECTs              | English              | https://github.com/rajdeep345/ECTSum                            |
-| [159] | NEWTS          | 2022 | 312,084      | News              | English              | https://github.com/OpenNMS/newts                                |
-| [160] | MIMIC-RRS      | 2022 | 207,782      | Radiology report  | English              | https://github.com/jbdel/vilmedic                               |
-| [161] | SEAHORSE       | 2023 | 96,000       | Multifaceted      | Multilingual         | https://goo.gle/seahorse                                        |
-| [162] | MeetingBank    | 2023 | 6,892        | Meeting           | English              | https://meetingbank.github.io/                                  |
-| [163] | Videoxum       | 2023 | 140,000      | Multimodal        | English              | https://github.com/jylins/videoxum                              |
+| [122] | TGSum | 2016 | 1,114 | News & Relation | English | http://www4.comp.polyu.edu.hk/ |
+| [123] | VSoLSCSum | 2016 | 2,448 | News | Vietnamese | https://github.com/nguyenlab/VSoLSCSum-Dataset |
+| [124] | Solscsum | 2016 | 5,858 | News & Comment | English | http://150.65.242.101:9292/yahoo-news.zip |
+| [125] | RA-MDS | 2017 | 19,000 | News & Comment | English | http://www.se.cuhk.edu.hk/∼textmine/dataset/ra-mds/ |
+| [126] | Indosum | 2018 | 19,000 | News | Indonesian | https://github.com/kata-ai/indosum |
+| [127] | Rulingbr | 2018 | 10,000 | Ruling | Portuguese | https://github.com/diego-feijo/rulingbr |
+| [128] | SumeCzech | 2018 | 1,001,593 | News | Czech | https://lindat.mff.cuni.cz/repository/xmlui/handle/11234/1-2615 |
+| [129] | Talksumm | 2019 | 1,716 | Scientific papers | English | https://github.com/levguy/talksumm |
+| [130] | Vnds | 2019 | 150,704 | News | Vietnamese | https://github.com/ThanhChinhBK/vietnews |
+| [131] | WCEP | 2020 | 2,390,000 | News | English | https://github.com/complementizer/wcep-mds-dataset |
+| [132] | Multi-XScience | 2020 | 40,528 | Scientific papers | English | https://github.com/yaolu/Multi-XScience |
+| [133] | Aquamuse | 2020 | 5,519 | Query | English | https://github.com/google-research-datasets/aquamuse |
+| [134] | Gazeta | 2020 | 63,435 | News | Russian | https://github.com/IlyaGusev/gazeta |
+| [135] | Liputan6 | 2020 | 215,827 | News | Indonesian | https://github.com/fajri91/sum liputan6 |
+| [136] | DebateSum | 2020 | 187,386 | Debate | English | https://github.com/Hellisotherpeople/DebateSum |
+| [137] | SPORTSSUM | 2020 | 5,428 | Sports | Chinese | https://github.com/ej0cl6/SportsSum |
+| [138] | CLTS | 2020 | 180,000 | Long articles | Chinese | https://github.com/lxj5957/CLTS-Dataset |
+| [139] | GameWikiSum | 2020 | 14,652 | Video game | English | https://github.com/Diego999/GameWikiSum |
+| [140] | WikiAsp | 2021 | 320,272 | Multi-domain | English | http://github.com/neulab/wikiasp |
+| [141] | FacetSum | 2021 | 60,532 | Scientific papers | English | https://github.com/hfthair/emerald crawler |
+| [142] | SumPubMed | 2021 | 33,772 | Scientific papers | English | https://github.com/vgupta123/sumpubmed |
+| [143] | TWEETSUMM | 2021 | 6,500 | Dialogue | English | https://github.com/guyfe/Tweetsumm |
+| [144] | CSDS | 2021 | 10,701 | Dialogue | Chinese | https://github.com/xiaolinAndy/CSDS |
+| [145] | CrossSum | 2021 | 1,680,000 | News | Multilingual | https://github.com/csebuetnlp/CrossSum |
+| [146] | MM-AVS | 2021 | 2,260 | Multimodal | English | https://github.com/xiyan524/MM-AVS |
+| [147] | Lawsum | 2021 | 10,000 | Legal | Indonesian | https://github.com/mtkh0602/LegalSummarization |
+| [148] | ForumSum | 2021 | 4,058 | Dialogue | English | https://www.tensorflow.org/datasets/catalog/forumsum |
+| [149] | Tls-covid19 | 2021 | 100,399 | Timeline | Portuguese & English | https://github.com/LIAAD/tls-covid19 |
+| [150] | ISSumSet | 2021 | 136,263 | Tweet | English | https://github.com/AlexisDusart/ISSumSet |
+| [151] | QBSUM | 2021 | 49,000 | Query | Chinese | https://github.com/yanshengli/QBSUM |
+| [152] | Clidsum | 2022 | 112,000 | Dialogue | Multilingual | https://github.com/krystalan/ClidSum |
+| [153] | Squality | 2022 | 625 | Story | English | https://github.com/nyu-mll/SQuALITY |
+| [154] | EUR-lex-sum | 2022 | 24 languages | Legal | Multilingual | https://github.com/achouhan93/eur-lex-sum |
+| [155] | EntSUM | 2022 | 2788 | Entity | English | https://zenodo.org/record/6359875 |
+| [156] | Klexikon | 2022 | 2,898 | Knowledge Base | German | https://github.com/dennlinger/klexikon |
+| [157] | Caves | 2022 | 10,000 | Tweet | English | https://github.com/sohampoddar26/caves-data |
+| [158] | Ectsum | 2022 | 2,425 | ECTs | English | https://github.com/rajdeep345/ECTSum |
+| [159] | NEWTS | 2022 | 312,084 | News | English | https://github.com/OpenNMS/newts |
+| [160] | MIMIC-RRS | 2022 | 207,782 | Radiology report | English | https://github.com/jbdel/vilmedic |
+| [161] | SEAHORSE | 2023 | 96,000 | Multifaceted | Multilingual | https://goo.gle/seahorse |
+| [162] | MeetingBank | 2023 | 6,892 | Meeting | English | https://meetingbank.github.io/ |
+| [163] | Videoxum | 2023 | 140,000 | Multimodal | English | https://github.com/jylins/videoxum |
 
 lines, unknown symbols, and gibberish, etc. In earlier methods, it was necessary to remove stop words from the text [\[174\]](#page-25-4). Stop words, commonly occurring words in the text such as articles, pronouns, prepositions, auxiliary verbs, and determiners, were deleted using an artificially designed stop-words file because they were not useful for the analyses [\[175\]](#page-25-5) and had no significant impact on the selection of summary results.
 
 Part-Of-Speech (POS): involves the assignment of POS tags, such as verbs, nouns, adjectives, etc., to each word in a sentence. This categorization helps in identifying words based on their syntactic roles and context within the sentence structure
 
-#### [\[176\]](#page-25-6).
+### [\[176\]](#page-25-6).
 
 Stemming: is the process of converting words with the same root or stem to a basic form by eliminating variable endings like "es" and "ed" [\[177,](#page-25-7) [178\]](#page-25-8). This process was initially employed in open vocabulary text mining, for similar reasons as removing stop words: to reduce computation time and enhance recall in information retrieval [\[179\]](#page-25-9). [\[180\]](#page-25-10) proposed reducing each word to its initial letters, a method referred to as Ultrastemming, which demonstrated significant improvements.
 
@@ -407,17 +407,17 @@ Sentence Segmentation: splits texts into sentences. The simplest method involves
 
 Word Tokenization: divides words into subwords. Byte Pair Encoding (BPE) [\[184\]](#page-25-14) stands out as a simple and highly effective method for subword segmentation. It recursively maps common byte pairs to new ones and subsequently reconstructs the original text using the mapping table. Wordpiece [\[185\]](#page-25-15) selects the new word unit from all possible options, choosing the one that maximally enhances the likelihood on the training data when incorporated into the model.
 
-####*5.2. Pre-process Toolkits*The primary tools for English pre-processing with Python are NLTK[1](#page-10-1) and TextBlob[2](#page-10-2) . NLTK (Natural Language Toolkit) stands out as a leading platform for developing Python programs that handle human language data. It offers a suite of text processing libraries covering classification, tokenization, stemming, tagging, parsing, and semantic reasoning. NLTK also provides wrappers for industrial-strength NLP libraries and maintains an active discussion forum. TextBlob, built on NLTK, offers a simplified API for various NLP tasks, including partof-speech tagging, noun phrase extraction, sentiment analysis, classification, translation, and more. While TextBlob is applicationoriented and user-friendly, it sacrifices some flexibility compared to NLTK. For other languages, Jieba[3](#page-10-3) and HanLP[4](#page-10-4) provide effective solutions for Chinese language. Jieba is a relatively lightweight tool with its primary function being word segmentation, capable of fulfilling most Chinese word splitting needs. On the other hand, HanLP[\[186\]](#page-25-16) serves as an NLP toolkit built on PyTorch and TensorFlow, contributing to advancing state-of-the-art deep learning techniques in both academia and industry. It has demonstrated notable results in entity segmentation.
+### *5.2. Pre-process Toolkits*The primary tools for English pre-processing with Python are NLTK[1](#page-10-1) and TextBlob[2](#page-10-2) . NLTK (Natural Language Toolkit) stands out as a leading platform for developing Python programs that handle human language data. It offers a suite of text processing libraries covering classification, tokenization, stemming, tagging, parsing, and semantic reasoning. NLTK also provides wrappers for industrial-strength NLP libraries and maintains an active discussion forum. TextBlob, built on NLTK, offers a simplified API for various NLP tasks, including partof-speech tagging, noun phrase extraction, sentiment analysis, classification, translation, and more. While TextBlob is applicationoriented and user-friendly, it sacrifices some flexibility compared to NLTK. For other languages, Jieba[3](#page-10-3) and HanLP[4](#page-10-4) provide effective solutions for Chinese language. Jieba is a relatively lightweight tool with its primary function being word segmentation, capable of fulfilling most Chinese word splitting needs. On the other hand, HanLP[\[186\]](#page-25-16) serves as an NLP toolkit built on PyTorch and TensorFlow, contributing to advancing state-of-the-art deep learning techniques in both academia and industry. It has demonstrated notable results in entity segmentation.
 
 Furthermore, diverse models require distinct pre-processing methods as a prerequisite. In earlier models, it was imperative to design and implement an extensive set of rules to eliminate text that posed processing challenges for the model. Technological advancements have led to a noticeable reduction in the labor intensity associated with pre-processing. However, the need for pre-processing remains an indispensable component of the process, albeit with diminished intensity.
 
-#### <span id="page-10-0"></span>6. Overview of Summarization Models
+### <span id="page-10-0"></span>6. Overview of Summarization Models
 
 We classify summarization methods into two categories: Conventional ATS Methods, which encompass traditional approaches like extractive and abstractive models. These methods are typically limited to a specific generation paradigm, i.e., either extractive or abstractive. In contrast, with the advancement of large language models (LLMs), we collect the ATS paper based LLM, as the category of LLM-based Methods, which are more flexible and not confined to a pre-designed generative paradigm.
 
-####*6.1. Conventional ATS Methods*As shown in section [2.2,](#page-2-0) conventional ATS methods are typically classified into extractive, abstractive, and hybrid approaches. Figure ?? provides a detailed categorization of these methods.
+### *6.1. Conventional ATS Methods*As shown in section [2.2,](#page-2-0) conventional ATS methods are typically classified into extractive, abstractive, and hybrid approaches. Figure ?? provides a detailed categorization of these methods.
 
-####*6.1.1. Extractive Summarization*Extractive summarization selects sentences from the original text through three main steps: calculating sentence importance, sorting sentences based on their importance, and selecting the top-k sentences to form the summary. Sentence importance can be calculated using unsupervised or supervised methods. Extractive ATS based on unsupervised approaches rely on algorithms such as statistical, clustering, and topic-based techniques, offering high performance with low resource requirements, which will be introduced in detail below:
+### *6.1.1. Extractive Summarization*Extractive summarization selects sentences from the original text through three main steps: calculating sentence importance, sorting sentences based on their importance, and selecting the top-k sentences to form the summary. Sentence importance can be calculated using unsupervised or supervised methods. Extractive ATS based on unsupervised approaches rely on algorithms such as statistical, clustering, and topic-based techniques, offering high performance with low resource requirements, which will be introduced in detail below:
 
 Statistical-based Models: Statistical-based models define importance as "most frequent" or "most likely to occur" [\[79\]](#page-21-28), such as selecting sentences with the highest word frequency. Methods like TextRank [\[187\]](#page-25-17) extract keywords and sentences by estimating similarity between phrases based on shared lexical tokens, while LexRank [\[188\]](#page-25-18) uses a graph-based approach with intra-sentence cosine similarity to determine sentence importance. Another method [\[189\]](#page-25-19) scores sentences based on the number of concepts they contain. These models are computationally efficient and require no extra linguistic knowledge, making them widely used. However, they are prone to interference from irrelevant words, leading to high-scoring but unimportant sentences.
 
@@ -433,38 +433,38 @@ Topic-based Models: Topic-based models assume that each document consists of a m
 
 <span id="page-10-4"></span><sup>4</sup>https://github.com/hankcs/HanLP
 
-|               | Method            | Pros                                  | Cons                                          | Notable Works       |
+| | Method | Pros | Cons | Notable Works |
 |---------------|-------------------|---------------------------------------|-----------------------------------------------|---------------------|
-| Extractive    | Statistical-based | Low resource usage, simple im         | Prone to irrelevant text and high             | [187, 188, 189]     |
-| summarization |                   | plementation.                         | scoring unimportant sentences.                |                     |
-|               | Cluster-based     | Improves<br>coherence,<br>reduces     | May fail to identify semantically             | [190, 191, 192]     |
-|               |                   | unrelated text interference.          | equivalent sentences.                         |                     |
-|               | Topic-based       | Captures semantic relationships,      | Sensitive to parameters and re                | [193, 194, 37, 194] |
-|               |                   | reduces dimensionality.               | quires preprocessing.                         |                     |
-|               | ML-based          | Optimizes<br>selection<br>using<br>la | Dependent on high-quality data,               | [195, 196]          |
-|               |                   | beled data.                           | costly to obtain.                             |                     |
-|               | DL-based          | Provides accurate sentence con        | Computationally expensive and                 | [197, 198]          |
-|               |                   | struction and improved classifi       | resource-intensive.                           |                     |
-|               |                   | cation.                               |                                               |                     |
-| Abstractive   | Tree-based        | Creates organized, concise sum        | May<br>miss<br>contextual<br>relation         | [199, 200]          |
-| summarization |                   | maries.                               | ships in long contexts.                       |                     |
-|               | Graph-based       | Handles<br>complex<br>relationships   | High complexity relationship are              | [201, 202, 203]     |
-|               |                   | effectively.                          | brings high complexity in imple<br>mentation. |                     |
-|               | Rule-based        | Precise control over information      | Labor-intensive<br>and<br>inflexible          | [13, 204]           |
-|               |                   | extraction.                           | for new content.                              |                     |
-|               | DL-based          | Generates<br>coherent,<br>advanced    | Face<br>challenges<br>with<br>long            | [205, 10, 206, 207] |
-|               |                   | summaries.                            | sequences,<br>computational<br>ef             |                     |
-|               |                   |                                       | ficiency,<br>and<br>consistency<br>of         |                     |
-|               |                   |                                       | output quality.                               |                     |
-|               | Pre-trained       | Efficient fine-tuning, strong gen     | Dependency on data, computa                   | [208, 209, 210]     |
-|               |                   | eralization.                          | tion cost, domain specific limi               |                     |
-|               |                   |                                       | tation                                        |                     |
-| Hybrid        | E2SA              | Enhances readability, preserves       | High<br>complexity,<br>computation            | [211, 212, 213]     |
-| summarization |                   | key information                       | cost.                                         |                     |
-|               | E2A               | Factual accuracy, domain adapt        | Training complexity, limited ab               | [214]               |
-|               |                   | ability.                              | stractive capability                          |                     |
+| Extractive | Statistical-based | Low resource usage, simple im | Prone to irrelevant text and high | [187, 188, 189] |
+| summarization | | plementation. | scoring unimportant sentences. | |
+| | Cluster-based | Improves<br>coherence,<br>reduces | May fail to identify semantically | [190, 191, 192] |
+| | | unrelated text interference. | equivalent sentences. | |
+| | Topic-based | Captures semantic relationships, | Sensitive to parameters and re | [193, 194, 37, 194] |
+| | | reduces dimensionality. | quires preprocessing. | |
+| | ML-based | Optimizes<br>selection<br>using<br>la | Dependent on high-quality data, | [195, 196] |
+| | | beled data. | costly to obtain. | |
+| | DL-based | Provides accurate sentence con | Computationally expensive and | [197, 198] |
+| | | struction and improved classifi | resource-intensive. | |
+| | | cation. | | |
+| Abstractive | Tree-based | Creates organized, concise sum | May<br>miss<br>contextual<br>relation | [199, 200] |
+| summarization | | maries. | ships in long contexts. | |
+| | Graph-based | Handles<br>complex<br>relationships | High complexity relationship are | [201, 202, 203] |
+| | | effectively. | brings high complexity in imple<br>mentation. | |
+| | Rule-based | Precise control over information | Labor-intensive<br>and<br>inflexible | [13, 204] |
+| | | extraction. | for new content. | |
+| | DL-based | Generates<br>coherent,<br>advanced | Face<br>challenges<br>with<br>long | [205, 10, 206, 207] |
+| | | summaries. | sequences,<br>computational<br>ef | |
+| | | | ficiency,<br>and<br>consistency<br>of | |
+| | | | output quality. | |
+| | Pre-trained | Efficient fine-tuning, strong gen | Dependency on data, computa | [208, 209, 210] |
+| | | eralization. | tion cost, domain specific limi | |
+| | | | tation | |
+| Hybrid | E2SA | Enhances readability, preserves | High<br>complexity,<br>computation | [211, 212, 213] |
+| summarization | | key information | cost. | |
+| | E2A | Factual accuracy, domain adapt | Training complexity, limited ab | [214] |
+| | | ability. | stractive capability | |
 
-Table 4: Pros and cons of the conventional methods.
+**Table 4:** Pros and cons of the conventional methods.
 
 semantic relationships, reducing data dimensionality for efficient processing. However, their performance depends heavily on parameters like the number of topics, requiring careful tuning and limiting generalizability across datasets.
 
@@ -478,7 +478,7 @@ DL-based Models: Deep learning models, particularly pretrained ones, offer rich 
 
 Pros and Cons: Extractive summarization models excel at capturing precise terminologies and require less training data, making them accurate, cost-effective, and efficient. However, they differ from human-generated summaries in expressive quality, often producing outputs with redundancy, excessive length, or contextual inconsistencies, lacking the nuance of humancrafted summaries.
 
-####*6.1.2. Abstractive Summarization*Abstractive summarization models generate summaries by producing sentences distinct from the original text. This can be achieved through text structuring and combining or via a generative models that being trained on predicting the next token. Abstractive summarization can be classified as either "rule-based" or "generative" methods. The The Rule-based Summarization methods will be introduced as the following:
+### *6.1.2. Abstractive Summarization*Abstractive summarization models generate summaries by producing sentences distinct from the original text. This can be achieved through text structuring and combining or via a generative models that being trained on predicting the next token. Abstractive summarization can be classified as either "rule-based" or "generative" methods. The The Rule-based Summarization methods will be introduced as the following:
 
 Tree-based Models: Tree-based models use syntactic trees to structure input text, identify key sentences, and integrate them into coherent summaries. [\[199\]](#page-25-29) proposed BASTS, which uses a dominator tree to split ASTs into blocks, modeled with Tree-LSTMs for improved code summarization. [\[200\]](#page-25-30) introduced AST-Trans, leveraging ancestor-descendant and sibling relationships to apply tree-structured attention for efficient encoding. These methods reduce redundancy but may miss important semantic connections by not fully considering broader context.
 
@@ -496,7 +496,7 @@ and Pegasus, are designed for rapid deployment in tasks like text summarization 
 
 Pros and Cons: Abstractive summarization models generate summaries resembling human-written text, offering greater flexibility and compression compared to extractive methods. However, they are more complex to develop, requiring highquality datasets, significant computational resources, and extended training time, demanding a balance between cost and efficiency.
 
-##*6.1.3. Hybrid Summarization*
+## *6.1.3. Hybrid Summarization*
 
 Hybrid summarization combines extractive and abstractive methods, typically by integrating an extractive model with either a shallow abstractive model (Extractive to Shallow Abstractive) or a fully designed abstractive model (Extractive to Abstractive).
 
@@ -508,44 +508,42 @@ Pros and Cons: The hybrid ATS model aims to combine the strengths of extractive 
 
 ### <span id="page-12-0"></span>*6.2. LLM-based Methods*Large Language Models (LLMs), with billions of parameters, are central to natural language processing due to their ex-
 
-<span id="page-13-0"></span>
 
-| [24<br>6]                   | [24<br>5]              | [24<br>4]             | [24<br>3] | [98<br>] | [24<br>2]     | [68<br>] | [77<br>]             | [67<br>] | [24<br>1]                    | [24<br>0] | [23<br>9] | [23<br>8]            | [23<br>7]      | [96<br>]              | [23<br>6]                                    | [23<br>5]           | [23<br>4]                   | [23<br>3]                         | [23<br>2]      | [23<br>1] | [23<br>0] | [22<br>9]                  | [22<br>8]             | [22<br>7]                    | [22<br>6]     | [70<br>] | [22<br>5] | [22<br>4] | [22<br>3]                        | [22<br>2] | Ref.             |
+| [24<br>6] | [24<br>5] | [24<br>4] | [24<br>3] | [98<br>] | [24<br>2] | [68<br>] | [77<br>] | [67<br>] | [24<br>1] | [24<br>0] | [23<br>9] | [23<br>8] | [23<br>7] | [96<br>] | [23<br>6] | [23<br>5] | [23<br>4] | [23<br>3] | [23<br>2] | [23<br>1] | [23<br>0] | [22<br>9] | [22<br>8] | [22<br>7] | [22<br>6] | [70<br>] | [22<br>5] | [22<br>4] | [22<br>3] | [22<br>2] | Ref. |
 |-----------------------------|------------------------|-----------------------|-----------|----------|---------------|----------|----------------------|----------|------------------------------|-----------|-----------|----------------------|----------------|-----------------------|----------------------------------------------|---------------------|-----------------------------|-----------------------------------|----------------|-----------|-----------|----------------------------|-----------------------|------------------------------|---------------|----------|-----------|-----------|----------------------------------|-----------|------------------|
-| 20<br>22                    | 20<br>22               | 20<br>22              | 20<br>23  | 20<br>23 | 20<br>23      | 20<br>23 | 20<br>23             | 20<br>23 | 20<br>23                     | 20<br>23  | 20<br>23  | 20<br>23             | 20<br>23       | 20<br>23              | 20<br>24                                     | 20<br>24            | 20<br>24                    | 20<br>24                          | 20<br>24       | 20<br>24  | 20<br>24  | 20<br>24                   | 20<br>24              | 20<br>24                     | 20<br>24      | 20<br>24 | 20<br>24  | 20<br>24  | 20<br>24                         | 20<br>24  | Year             |
-|                             | ✓                      | ✓                     |           |          |               |          | ✓                    |          |                              | ✓         |           |                      |                |                       |                                              |                     |                             |                                   |                |           |           |                            |                       |                              |               |          |           |           |                                  |           | GPT-3            |
-|                             |                        |                       | ✓         | ✓        | ✓             | ✓        |                      |          |                              |           | ✓         | ✓                    |                | ✓                     | ✓                                            | ✓                   | ✓                           | ✓                                 |                |           | ✓         | ✓                          | ✓                     |                              | ✓             | ✓        | ✓         | ✓         |                                  | ✓         | GPT-3.5          |
-|                             |                        |                       |           |          | ✓             |          |                      |          |                              |           |           |                      |                |                       |                                              |                     | ✓                           |                                   | ✓              |           | ✓         |                            |                       |                              |               |          |           |           |                                  |           | GPT-4(v)         |
-|                             |                        |                       |           |          |               |          |                      | ✓        |                              |           |           |                      |                |                       |                                              |                     |                             | ✓                                 |                | ✓         |           |                            |                       |                              |               |          |           |           |                                  |           | LLaMA            |
-| In<br>str<br>uc<br>tG<br>PT |                        |                       |           |          |               |          |                      |          | Vi<br>cu<br>na<br>, O<br>rea |           |           |                      | Vi<br>cu<br>na |                       |                                              |                     |                             | Cl<br>au<br>de<br>-2              |                |           |           |                            |                       | Ba<br>ich<br>ua<br>n2<br>-7B | CL<br>IP      |          |           |           | LL<br>M                          |           | Others           |
-| ✓                           |                        |                       |           |          | ✓             |          | ✓                    | ✓        |                              | ✓         | ✓         |                      | ✓              | ✓                     |                                              | ✓                   | ✓                           | ✓                                 | ✓              |           | ✓         |                            |                       |                              | ✓             | ✓        |           | ✓         | ✓                                | ✓         | Prompt           |
-|                             |                        |                       |           |          |               |          |                      |          | ✓                            | ✓         |           | ✓                    | ✓              |                       |                                              |                     |                             |                                   |                | ✓         |           |                            |                       | ✓                            |               |          |           |           | ✓                                |           | Fine-tune        |
-|                             | ✓                      | ✓                     | ✓         | ✓        |               | ✓        |                      |          | ✓                            |           | ✓         |                      |                |                       | ✓                                            |                     |                             |                                   |                |           |           | ✓                          | ✓                     |                              |               |          | ✓         |           |                                  |           | n<br>Distillatio |
-|                             |                        |                       |           | ✓        |               |          | ✓                    | ✓        | ✓                            |           | ✓         | ✓                    |                |                       | ✓                                            |                     |                             | ✓                                 |                |           | ✓         |                            | ✓                     |                              |               |          |           |           | ✓                                |           | General          |
-|                             |                        |                       |           |          |               |          |                      |          |                              |           |           |                      | ✓              |                       |                                              |                     |                             |                                   |                |           |           |                            |                       |                              | ✓             | ✓        |           |           |                                  | ✓         | Medical          |
-|                             |                        |                       |           |          |               |          |                      |          |                              |           |           |                      |                |                       |                                              |                     |                             |                                   |                | ✓         |           |                            |                       |                              |               |          | ✓         | ✓         |                                  |           | Code             |
-| ✓                           |                        |                       | ✓         |          |               | ✓        |                      |          |                              |           |           |                      |                |                       |                                              |                     |                             |                                   |                |           |           |                            |                       | ✓                            |               |          |           |           |                                  |           | Dialogue         |
-|                             | Sa<br>les<br>ca<br>lls | Re<br>fer<br>en<br>ce |           |          | Le<br>ga<br>l |          |                      |          |                              | Ne<br>ws  |           |                      |                | Ch<br>em<br>ist<br>ry |                                              | Co<br>mm<br>en<br>t | Di<br>ag<br>ram             |                                   | So<br>cc<br>er |           |           | E-<br>co<br>mm<br>erc<br>e |                       |                              |               |          |           |           |                                  |           | Others           |
-| ✓                           | ✓                      | ✓                     | ✓         | ✓        | ✓             | ✓        |                      |          | ✓                            | ✓         |           |                      | ✓              |                       | ✓                                            | ✓                   | ✓                           | ✓                                 |                | ✓         | ✓         | ✓                          | ✓                     | ✓                            | ✓             | ✓        |           |           |                                  | ✓         | ROUGE            |
-|                             |                        |                       |           |          | ✓             |          |                      |          | ✓                            |           |           |                      |                |                       | ✓                                            |                     | ✓                           |                                   |                | ✓         |           |                            |                       | ✓                            | ✓             |          |           | ✓         |                                  |           | BLEU             |
-|                             | ✓                      |                       |           |          | ✓             |          |                      |          |                              |           |           |                      |                |                       |                                              |                     |                             |                                   |                | ✓         |           |                            |                       |                              |               |          | ✓         |           |                                  |           | METEOR           |
-|                             |                        | ✓                     |           |          | ✓             |          |                      |          |                              | ✓         |           |                      |                |                       |                                              |                     |                             | ✓                                 |                |           | ✓         |                            | ✓                     | ✓                            | ✓             |          |           |           |                                  | ✓         | re<br>BERTSco    |
-| Fa<br>ctC<br>C              |                        |                       |           |          |               |          | Ac<br>cu<br>rac<br>y | -        |                              |           | PP<br>L   | Ac<br>cu<br>rac<br>y |                | P,<br>R,<br>F1        | BE<br>RT<br>-iB<br>LE<br>U,<br>Hu<br>ma<br>n |                     | BL<br>EU<br>RT<br>, P<br>PL | Fa<br>ctC<br>C,<br>Su<br>mm<br>aC |                |           |           |                            | BA<br>RT<br>Sc<br>ore |                              | Hu<br>ma<br>n |          |           |           | LL<br>M<br>ev<br>alu<br>ato<br>r |           | Others           |
+| 20<br>22 | 20<br>22 | 20<br>22 | 20<br>23 | 20<br>23 | 20<br>23 | 20<br>23 | 20<br>23 | 20<br>23 | 20<br>23 | 20<br>23 | 20<br>23 | 20<br>23 | 20<br>23 | 20<br>23 | 20<br>24 | 20<br>24 | 20<br>24 | 20<br>24 | 20<br>24 | 20<br>24 | 20<br>24 | 20<br>24 | 20<br>24 | 20<br>24 | 20<br>24 | 20<br>24 | 20<br>24 | 20<br>24 | 20<br>24 | 20<br>24 | Year |
+| | ✓ | ✓ | | | | | ✓ | | | ✓ | | | | | | | | | | | | | | | | | | | | | GPT-3 |
+| | | | ✓ | ✓ | ✓ | ✓ | | | | | ✓ | ✓ | | ✓ | ✓ | ✓ | ✓ | ✓ | | | ✓ | ✓ | ✓ | | ✓ | ✓ | ✓ | ✓ | | ✓ | GPT-3.5 |
+| | | | | | ✓ | | | | | | | | | | | | ✓ | | ✓ | | ✓ | | | | | | | | | | GPT-4(v) |
+| | | | | | | | | ✓ | | | | | | | | | | ✓ | | ✓ | | | | | | | | | | | LLaMA |
+| In<br>str<br>uc<br>tG<br>PT | | | | | | | | | Vi<br>cu<br>na<br>, O<br>rea | | | | Vi<br>cu<br>na | | | | | Cl<br>au<br>de<br>-2 | | | | | | Ba<br>ich<br>ua<br>n2<br>-7B | CL<br>IP | | | | LL<br>M | | Others |
+| ✓ | | | | | ✓ | | ✓ | ✓ | | ✓ | ✓ | | ✓ | ✓ | | ✓ | ✓ | ✓ | ✓ | | ✓ | | | | ✓ | ✓ | | ✓ | ✓ | ✓ | Prompt |
+| | | | | | | | | | ✓ | ✓ | | ✓ | ✓ | | | | | | | ✓ | | | | ✓ | | | | | ✓ | | Fine-tune |
+| | ✓ | ✓ | ✓ | ✓ | | ✓ | | | ✓ | | ✓ | | | | ✓ | | | | | | | ✓ | ✓ | | | | ✓ | | | | n<br>Distillatio |
+| | | | | ✓ | | | ✓ | ✓ | ✓ | | ✓ | ✓ | | | ✓ | | | ✓ | | | ✓ | | ✓ | | | | | | ✓ | | General |
+| | | | | | | | | | | | | | ✓ | | | | | | | | | | | | ✓ | ✓ | | | | ✓ | Medical |
+| | | | | | | | | | | | | | | | | | | | | ✓ | | | | | | | ✓ | ✓ | | | Code |
+| ✓ | | | ✓ | | | ✓ | | | | | | | | | | | | | | | | | | ✓ | | | | | | | Dialogue |
+| | Sa<br>les<br>ca<br>lls | Re<br>fer<br>en<br>ce | | | Le<br>ga<br>l | | | | | Ne<br>ws | | | | Ch<br>em<br>ist<br>ry | | Co<br>mm<br>en<br>t | Di<br>ag<br>ram | | So<br>cc<br>er | | | E-<br>co<br>mm<br>erc<br>e | | | | | | | | | Others |
+| ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | | ✓ | ✓ | | | ✓ | | ✓ | ✓ | ✓ | ✓ | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | | | ✓ | ROUGE |
+| | | | | | ✓ | | | | ✓ | | | | | | ✓ | | ✓ | | | ✓ | | | | ✓ | ✓ | | | ✓ | | | BLEU |
+| | ✓ | | | | ✓ | | | | | | | | | | | | | | | ✓ | | | | | | | ✓ | | | | METEOR |
+| | | ✓ | | | ✓ | | | | | ✓ | | | | | | | | ✓ | | | ✓ | | ✓ | ✓ | ✓ | | | | | ✓ | re<br>BERTSco |
+| Fa<br>ctC<br>C | | | | | | | Ac<br>cu<br>rac<br>y | - | | | PP<br>L | Ac<br>cu<br>rac<br>y | | P,<br>R,<br>F1 | BE<br>RT<br>-iB<br>LE<br>U,<br>Hu<br>ma<br>n | | BL<br>EU<br>RT<br>, P<br>PL | Fa<br>ctC<br>C,<br>Su<br>mm<br>aC | | | | | BA<br>RT<br>Sc<br>ore | | Hu<br>ma<br>n | | | | LL<br>M<br>ev<br>alu<br>ato<br>r | | Others |
 
-employed (Methodology), the domain of the study (Domain), and the metrics used to evaluate the ATS system (Metric). Table 5: Table of LLM-based ATS literature, distinguishing between works with over 15 citations and those with fewer citations but published. Categories include the base model used (BaseModel), the methodology
+employed (Methodology), the domain of the study (Domain), and the metrics used to evaluate the ATS system (Metric). **Table 5:** Table of LLM-based ATS literature, distinguishing between works with over 15 citations and those with fewer citations but published. Categories include the base model used (BaseModel), the methodology
 
-<span id="page-14-0"></span>
 
-| Table 6: Pros and cons of the LLM-based methods. |                                   |                                                        |                                                                    |                                                                                                   |  |  |  |  |  |
+| **Table 6:** Pros and cons of the LLM-based methods. | | | | | | | | | |
 |--------------------------------------------------|-----------------------------------|--------------------------------------------------------|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|--|--|--|--|--|
-|                                                  | Method                            | Ref.                                                   | Pros                                                               | Cons                                                                                              |  |  |  |  |  |
-| Prompt Engineering                               | Template Engineering              | [15?<br>, 247,<br>248, 16, 249]                        | Predictable output, easy to<br>control structure.                  | Limited flexibility, may not<br>capture<br>complex<br>relation<br>ships.                          |  |  |  |  |  |
-|                                                  | Chain of Thought                  | [240,<br>250,<br>235]                                  | Can improve reasoning ca<br>pabilities by breaking down<br>tasks.  | Increases<br>complexity<br>and<br>computational cost.                                             |  |  |  |  |  |
-|                                                  | Agent Interactions                | [251,<br>101,<br>252, 253]                             | Enables dynamic and adap<br>tive behavior through inter<br>action. | Requires<br>sophisticated<br>coordination<br>mechanisms;<br>harder to scale.                      |  |  |  |  |  |
-|                                                  | Retrieval-Augmented<br>Generation | [223,<br>254,<br>249,<br>255,<br>256]                  | Can use existing knowledge<br>bases effectively.                   | Reliability depends on re<br>trieval accuracy; may intro<br>duce bias.                            |  |  |  |  |  |
-| Fine-tuning                                      | Internal parameters               | [69, 257]                                              | Tailors<br>model<br>to<br>specific<br>tasks or domains.            | Destroying<br>the<br>original<br>structure and capabilities of<br>LLM.                            |  |  |  |  |  |
-|                                                  | External adapters                 | [258,<br>259,<br>260]                                  | Less risk of overfitting; can<br>adapt quickly to new tasks.       | May not transfer improve<br>ments as effectively as full<br>fine-tuning.                          |  |  |  |  |  |
-| Knowledge distillation                           | Offline Distillation              | [225,<br>228,<br>261,<br>262,<br>98, 243, 244,<br>101] | Reduces model size while<br>maintaining performance.               | Requires<br>a<br>well-trained<br>teacher<br>model;<br>can<br>lose<br>nuances during distillation. |  |  |  |  |  |
+| | Method | Ref. | Pros | Cons | | | | | |
+| Prompt Engineering | Template Engineering | [15?<br>, 247,<br>248, 16, 249] | Predictable output, easy to<br>control structure. | Limited flexibility, may not<br>capture<br>complex<br>relation<br>ships. | | | | | |
+| | Chain of Thought | [240,<br>250,<br>235] | Can improve reasoning ca<br>pabilities by breaking down<br>tasks. | Increases<br>complexity<br>and<br>computational cost. | | | | | |
+| | Agent Interactions | [251,<br>101,<br>252, 253] | Enables dynamic and adap<br>tive behavior through inter<br>action. | Requires<br>sophisticated<br>coordination<br>mechanisms;<br>harder to scale. | | | | | |
+| | Retrieval-Augmented<br>Generation | [223,<br>254,<br>249,<br>255,<br>256] | Can use existing knowledge<br>bases effectively. | Reliability depends on re<br>trieval accuracy; may intro<br>duce bias. | | | | | |
+| Fine-tuning | Internal parameters | [69, 257] | Tailors<br>model<br>to<br>specific<br>tasks or domains. | Destroying<br>the<br>original<br>structure and capabilities of<br>LLM. | | | | | |
+| | External adapters | [258,<br>259,<br>260] | Less risk of overfitting; can<br>adapt quickly to new tasks. | May not transfer improve<br>ments as effectively as full<br>fine-tuning. | | | | | |
+| Knowledge distillation | Offline Distillation | [225,<br>228,<br>261,<br>262,<br>98, 243, 244,<br>101] | Reduces model size while<br>maintaining performance. | Requires<br>a<br>well-trained<br>teacher<br>model;<br>can<br>lose<br>nuances during distillation. | | | | | |
 
 tensive training on diverse tasks and large text corpora [\[247\]](#page-27-12). Typically structured as auto-regressive models like GPT, LLMs excel in applications such as summarization, question answering, and logical reasoning [\[263\]](#page-28-2).
 
@@ -553,12 +551,12 @@ In ATS, LLMs have achieved results comparable to or exceeding human performance.
 
 OpenAI's adaptation of GPT-3 using reinforcement learning marked a breakthrough in LLM-based summarization [\[269\]](#page-28-8). Subsequent research has further advanced the field [\[270\]](#page-28-9). LLMbased methods can be generally categorized as: 1) prompt engineering, 2) fine-tuning, and 3) knowledge distillation. The advantages and limitations of these methods are summarized in Table [6.](#page-14-0)
 
-####*6.2.1. Prompt Engineering for LLM-based ATS*Prompt engineering involves strategically designing prompts to maximize the capabilities of Large Language Models (LLMs) to implement specific tasks. The process can be formalized as:
+### *6.2.1. Prompt Engineering for LLM-based ATS*Prompt engineering involves strategically designing prompts to maximize the capabilities of Large Language Models (LLMs) to implement specific tasks. The process can be formalized as:
 
 $$
 S = LLM_{\theta}(G(p) + x)
 $$
- (3)
+(3)
 
 where,*G*refines the initial prompt*p*into an optimized form through methods such as human design, supplementary retrieval, or generation by LLMs. The refined prompt is then combined with raw input text*x*to leverage the knowledge encoded in the
 
@@ -580,19 +578,19 @@ Agent Interactions: Agents are artificial entities that sense their environment,
 
 Retrieval-Augmented Generation for ATS: Retrieval-Augmented Generation (RAG) combines information retrieval with neural text generation, enabling models to generate text using both trained parameters and retrieved passages [\[274\]](#page-28-13). In ATS, RAG enhances summarization by supplementing external knowledge. [\[223\]](#page-26-18) introduced Graph RAG, which uses a graph-based index to generate community summaries for comprehensive answers, improving performance on large datasets. Similarly, [\[254\]](#page-27-19) proposed REDCODER to retrieve relevant code or summaries for code generation, and [\[249\]](#page-27-14) developed a *retrieve-then-summarize*method using templates to summarize retrieved information. In the medical domain, [\[255\]](#page-27-20) proposed a hybrid extractive-abstractive summarization method for processing large unstructured text, while [\[256\]](#page-27-21) introduced LogicSumm and SummRAG to enhance LLM robustness in RAG-based scenarios. To reduce token consumption, [\[238\]](#page-27-3) fine-tuned a T5 model to summarize and compress texts, and [\[239\]](#page-27-4) designed extractive and abstractive compressors to improve task performance and selectively omit irrelevant content.
 
-####*6.2.2. Fine-tuning LLMs for ATS*Given the massive number of parameters in LLMs, training the entire model requires substantial computational resources. To address this, parameter-efficient tuning techniques are often employed for fine-tuning on ATS datasets. These techniques involve either selectively training a subset of the LLM's internal
+### *6.2.2. Fine-tuning LLMs for ATS*Given the massive number of parameters in LLMs, training the entire model requires substantial computational resources. To address this, parameter-efficient tuning techniques are often employed for fine-tuning on ATS datasets. These techniques involve either selectively training a subset of the LLM's internal
 
-Table 7: Knowledge distillation ATS methods and their teacher/student models.
+**Table 7:** Knowledge distillation ATS methods and their teacher/student models.
 
-| Ref.  | Year | Domain   | T-model | S-model        | Parameters |
+| Ref. | Year | Domain | T-model | S-model | Parameters |
 |-------|------|----------|---------|----------------|------------|
-| [225] | 2024 | Code     | GPT-3.5 | jam            | 350M       |
-| [228] | 2024 | General  | GPT-3.5 | BART-Large     | 509M       |
-| [262] | 2023 | General  | GPT-3.5 | T5-large       | 770M       |
-| [277] | 2023 | General  | GPT-3.5 | ZCode++        | 800M       |
-| [243] | 2023 | General  | GPT-3.5 | Finetuned BART | 406.3M     |
-| [278] | 2022 | General  | GPT-3   | GPT2-Large     | 774M       |
-| [101] | 2022 | Dialogue | GPT-3   | BART-Large     | 509M+      |
+| [225] | 2024 | Code | GPT-3.5 | jam | 350M |
+| [228] | 2024 | General | GPT-3.5 | BART-Large | 509M |
+| [262] | 2023 | General | GPT-3.5 | T5-large | 770M |
+| [277] | 2023 | General | GPT-3.5 | ZCode++ | 800M |
+| [243] | 2023 | General | GPT-3.5 | Finetuned BART | 406.3M |
+| [278] | 2022 | General | GPT-3 | GPT2-Large | 774M |
+| [101] | 2022 | Dialogue | GPT-3 | BART-Large | 509M+ |
 
 parameters or constructing and then fine-tuning external neural adapters to adapt the LLM to the ATS task.
 
@@ -600,30 +598,30 @@ Internal efficient-parameters fine-tuning: This approach involves freezing most 
 
 External adapters fine-tuning: Training external adapters allows models to learn the distribution of target data without modifying the original parameters of the LLM. [\[258\]](#page-27-23) proposed an efficient few-shot method using adapters, where the adapters were pre-trained on a large corpus and fine-tuned on a smaller human-annotated dataset. Similarly, [\[259\]](#page-27-24) introduced a contrastive learning approach for supervised ATS, aiming to maximize the similarity between a document, its gold-standard summary, and model-generated summaries. Additionally, [\[260\]](#page-27-25) combined encoder and decoder foundation models into a single model, AdaMo, and implemented adaptive knowledge transfer techniques such as continuous pretraining and intermediate finetuning, along with task-specific designs for sequence-to-sequence learning.
 
-####*6.2.3. Knowledge Distillation from LLMs for ATS*A knowledge distillation system consists of three key components: knowledge, a distillation algorithm, and a teacherstudent architecture [\[275\]](#page-28-16). In this process, a smaller student model is supervised by a larger teacher model [\[276\]](#page-28-17). For ATS, this typically involves an offline distillation process where an LLM serves as a fixed teacher model, with its outputs providing additional supervision to train a smaller student model. This approach enables the student model to inherit the LLM's robust summarization capabilities, making it particularly useful in scenarios with limited computational resources or strict data privacy requirements. For example, [\[228\]](#page-26-23) improved the quality of aspect-triple rationales and summaries through a dual scoring system, followed by a curriculum-learning strategy to train a smaller local model on ATS tasks. Similarly, [\[261\]](#page-28-0) addressed low-resource cross-lingual summarization using mBART for incremental training and reinforcement learning to optimize discrete cues, while [\[243\]](#page-27-8) proposed a three-step method for adapting smaller models to summarize forum discussions by sampling from a large corpus, retrieving annotated prompts, and filtering low-quality data.
+### *6.2.3. Knowledge Distillation from LLMs for ATS*A knowledge distillation system consists of three key components: knowledge, a distillation algorithm, and a teacherstudent architecture [\[275\]](#page-28-16). In this process, a smaller student model is supervised by a larger teacher model [\[276\]](#page-28-17). For ATS, this typically involves an offline distillation process where an LLM serves as a fixed teacher model, with its outputs providing additional supervision to train a smaller student model. This approach enables the student model to inherit the LLM's robust summarization capabilities, making it particularly useful in scenarios with limited computational resources or strict data privacy requirements. For example, [\[228\]](#page-26-23) improved the quality of aspect-triple rationales and summaries through a dual scoring system, followed by a curriculum-learning strategy to train a smaller local model on ATS tasks. Similarly, [\[261\]](#page-28-0) addressed low-resource cross-lingual summarization using mBART for incremental training and reinforcement learning to optimize discrete cues, while [\[243\]](#page-27-8) proposed a three-step method for adapting smaller models to summarize forum discussions by sampling from a large corpus, retrieving annotated prompts, and filtering low-quality data.
 
-<span id="page-16-1"></span>Table 8: Description and pros/cons of overlap-based and similarity-based evaluation metircs.
+<span id="page-16-1"></span>**Table 8:** Description and pros/cons of overlap-based and similarity-based evaluation metircs.
 
-| Ref.  | Name       | Description                                                                         | Pros                                               | Cons                                                                   |
+| Ref. | Name | Description | Pros | Cons |
 |-------|------------|-------------------------------------------------------------------------------------|----------------------------------------------------|------------------------------------------------------------------------|
-| [279] | ROUGE      | Measures n-gram overlap and longest<br>common subsequences; prioritizes re<br>call. | Simple, widely used.                               | Ignores fluency,<br>may miss<br>paraphrases.                           |
-| [280] | BLEU       | Evaluates translation quality using pre<br>cision and brevity penalty.              | Considers n-gram precision.                        | Penalizes<br>brevity<br>harshly,<br>may miss semantic equiva<br>lence. |
-| [281] | METEOR     | Uses WordNet to handle synonyms and<br>paraphrases; distinguishes word types.       | Captures<br>semantic<br>equiva<br>lence.           | Complex setup, potentially<br>slower.                                  |
-| [282] | PPL        | Estimates sentence probability normal<br>ized by length.                            | Simple computation.                                | Doesn't consider context be<br>yond word sequence.                     |
-| [283] | BERTScore  | Computes token similarity; correlates<br>with human judgments.                      | High<br>correlation<br>with<br>hu<br>man judgment. | Requires pre-trained model.                                            |
-| [284] | BARTScore  | Uses pre-trained seq2seq models for<br>evaluation.                                  | Comprehensive evaluation.                          | Requires<br>large<br>pre-trained<br>models.                            |
-| [285] | BLEURT     | Models human judgment with strong<br>performance on limited data.                   | Strong performance on lim<br>ited data.            | Requires training on human<br>ratings.                                 |
-| [286] | BERT-iBLEU | Evaluates paraphrasing with semantic<br>closeness and IDF weighting.                | Encourages semantic close<br>ness.                 | May reduce novel phrasing.                                             |
-| [171] | FactCC     | Verifies factual consistency via span<br>prediction.                                | Verifies facts.                                    | Supervision<br>required<br>for<br>training.                            |
-| [287] | SummaC     | Enhances inconsistency detection via<br>sentence.                                   | Detects inconsistencies.                           | Complexity in setup.                                                   |
+| [279] | ROUGE | Measures n-gram overlap and longest<br>common subsequences; prioritizes re<br>call. | Simple, widely used. | Ignores fluency,<br>may miss<br>paraphrases. |
+| [280] | BLEU | Evaluates translation quality using pre<br>cision and brevity penalty. | Considers n-gram precision. | Penalizes<br>brevity<br>harshly,<br>may miss semantic equiva<br>lence. |
+| [281] | METEOR | Uses WordNet to handle synonyms and<br>paraphrases; distinguishes word types. | Captures<br>semantic<br>equiva<br>lence. | Complex setup, potentially<br>slower. |
+| [282] | PPL | Estimates sentence probability normal<br>ized by length. | Simple computation. | Doesn't consider context be<br>yond word sequence. |
+| [283] | BERTScore | Computes token similarity; correlates<br>with human judgments. | High<br>correlation<br>with<br>hu<br>man judgment. | Requires pre-trained model. |
+| [284] | BARTScore | Uses pre-trained seq2seq models for<br>evaluation. | Comprehensive evaluation. | Requires<br>large<br>pre-trained<br>models. |
+| [285] | BLEURT | Models human judgment with strong<br>performance on limited data. | Strong performance on lim<br>ited data. | Requires training on human<br>ratings. |
+| [286] | BERT-iBLEU | Evaluates paraphrasing with semantic<br>closeness and IDF weighting. | Encourages semantic close<br>ness. | May reduce novel phrasing. |
+| [171] | FactCC | Verifies factual consistency via span<br>prediction. | Verifies facts. | Supervision<br>required<br>for<br>training. |
+| [287] | SummaC | Enhances inconsistency detection via<br>sentence. | Detects inconsistencies. | Complexity in setup. |
 
 Pros and Cons: Large Language Models (LLMs) have transformed NLP tasks by simplifying training processes and enabling efficient summarization through prompt-based methods. However, they come with challenges. Their outputs can sometimes be inconsistent, leading to variability in performance. Additionally, even minor adjustments to prompt wording can greatly influence the quality of summaries, emphasizing the importance of refining prompting techniques. In domain-specific scenarios requiring extra training, the associated costs can become considerably higher than traditional approaches.
 
-#### <span id="page-16-0"></span>7. Evaluation Metrics
+### <span id="page-16-0"></span>7. Evaluation Metrics
 
 Evaluating the quality of summaries is essential in summarization research [\[288\]](#page-28-27). Stable and consistent assessment methods are crucial for advancing the field, and this section introduces the evaluation metrics detailed in Table [5.](#page-13-0) Previous studies emphasize multi-dimensional evaluation, with [\[289\]](#page-28-28) identifying relevance, factual consistency, conciseness, and semantic coherence as key metrics, where relevance assesses how well the summary captures the main ideas. Similarly, [\[290\]](#page-28-29) proposed redundancy, relevance, and informativeness as core measures. Based on these insights, this paper categorizes evaluation methods into three groups: overlap-based, similarity-based, and LLM-based metrics, with non-LLM metrics summarized in Table [8.](#page-16-1)
 
-####*7.1. Metrics based on Term Overlap*
+### *7.1. Metrics based on Term Overlap*
 
 Overlap-based evaluation is one of the most widely used methods for assessing summarization quality. It measures the matching of words between candidate summaries (*C*) and reference summaries (*S* ) and uses metrics such as precision (*P*), recall (*R*), and F-score (*F*) to quantify overlap [\[78\]](#page-21-30):
 
@@ -634,7 +632,7 @@ $$
 $$
 s.t. \beta^2 = \frac{1 - \alpha}{\alpha}, \alpha \in [0, 1]
 $$
- (4)
+(4)
 
 However, individual word-overlap methods are limited because they do not account for the order or context of words in the candidate summaries. To address these shortcomings, several improvements to these metrics have been proposed.
 
@@ -672,7 +670,7 @@ where *N*is the maximum n-gram order, and*w<sup>n</sup>* is typically set to 1/*
 
 METEOR (Metric for Evaluation of Translation with Explicit ORdering) [\[281\]](#page-28-20) was developed to overcome the rigidity of BLEU, which relies on exact n-gram matches. METEOR evaluates summaries by aligning words between a candidate and reference summary using flexible matching techniques, including synonyms, stemming, and paraphrases, facilitated by resources like WordNet. This allows METEOR to account for linguistic variations and semantic similarities that BLEU cannot capture. Additionally, METEOR differentiates between function words (e.g., "the," "and") and content words (e.g., "run," "house"), giving more weight to content words to better reflect meaning. By incorporating these features, METEOR provides a more nuanced and flexible evaluation metric for summarization tasks.
 
-#### *7.2. Similarity-based ATS Metrics*
+### *7.2. Similarity-based ATS Metrics*
 
 Similarity-based metrics assess summary quality by measuring the semantic similarity between the candidate summaries with the reference summaries.
 
@@ -686,7 +684,7 @@ BERT-*i*BLEU =
 $$
 \left(\frac{\beta *BERT-score^{-1} + 1.0* (1 - self-BLEU)^{-1}}{\beta + 1.0}\right)^{-1}
 $$
- (9)
+(9)
 *self-BLEU* = BLEU(*source*, *candidate*)
 
 where β controls the trade-off between semantic similarity and surface-form dissimilarity, and self-BLEU measures similarity between the source and candidate texts. As BERT-iBLEU is reference-free, it can be used both as an evaluation metric for paraphrase quality and as a criterion for re-ranking candidates during task adaptation and self-supervision.
@@ -695,7 +693,7 @@ FactCC [\[171\]](#page-25-1) takes a source document and a summary statement as 
 
 SummaC [\[287\]](#page-28-26) evaluates the factual consistency of summaries by leveraging Natural Language Inference (NLI) models. It compares summary sentences with segments of the source document to determine entailment, contradiction, or neutrality. Sentence-level NLI scores are aggregated to produce a document-level consistency score, as the overall score for the generated summaries. SummaC effectively bridges the gap between traditional overlap-based metrics and semantic understanding in summarization evaluation.
 
-#### *7.3. LLM-based ATS Metrics*
+### *7.3. LLM-based ATS Metrics*
 
 Traditional metrics for evaluating summary quality often focus on specific dimensions, such as lexical overlap or semantic similarity, but they fail to capture the full complexity of summarization tasks. Large Language Models (LLMs) have introduced a paradigm shift in evaluation by leveraging their deep contextual understanding and semantic reasoning capabilities, enabling more comprehensive assessments.
 
@@ -703,7 +701,7 @@ Writing Quality Metrics: Prompt-based LLM metrics are increasingly used to asses
 
 Faithfulness and Factuality Metrics: Faithfulness and factuality metrics evaluate whether summaries accurately represent the source text. [\[296\]](#page-28-35) examined ChatGPT's ability to detect factual inconsistencies in zero-shot settings across tasks like binary entailment inference, summary ranking, and consistency rating, demonstrating strong performance compared to prior metrics. [\[297\]](#page-28-36) introduced FIB (Factual Inconsistency Benchmark), showing that LLMs typically assign higher scores to factually consistent summaries. [\[298\]](#page-28-37) proposed TrueTeacher, which uses LLMs to annotate model-generated summaries for factual consistency and generate synthetic data. [\[299\]](#page-29-0) developed FFLM, a zero-shot faithfulness evaluation method leveraging probability changes, outperforming or matching Chat-GPT in detecting inconsistencies and assessing faithfulness.
 
-#### <span id="page-18-0"></span>8. Applications based on ATS
+### <span id="page-18-0"></span>8. Applications based on ATS
 
 The ultimate objective of Automated Text Summarization (ATS) is to enhance the efficiency of information retrieval and analysis in real-world scenarios. ATS has applications in various domains, including the summarization of news articles, scientific papers and other areas that involve substantial reading efforts.
 
@@ -745,7 +743,7 @@ In this survey, we present a comprehensive review of Automatic Text Summarizatio
 
 For future directions, LLMs present significant advantages in terms of flexibility, generative quality, and reduced dependence on large labeled datasets. However, they also pose challenges such as "hallucination" in generated content, limitations in domain-specific summarization, efficiency concerns, and a lack of explainability. Accordingly, future research may focus on (1) optimizing prompt design to enhance LLM performance across a variety of ATS tasks; (2) developing more robust finetuning techniques to improve LLMs' ability to handle specialized domains, such as medical or legal texts; and (3) addressing issues related to consistency, factual accuracy, and interpretability in LLM-generated summaries through improved evaluation methods. Tackling these challenges will help solidify LLMs' pivotal role in advancing ATS.
 
-#### References
+### References
 
 - <span id="page-19-0"></span>[1] K. SPARCK JONES, A statistical interpretation of term specificity and its application in retrieval, Journal of Documentation 28 (1972) 11–21. doi:[10.1108/eb026526](http://dx.doi.org/10.1108/eb026526).
 - <span id="page-19-1"></span>[2] S. Deerwester, S. T. Dumais, G. W. Furnas, T. K. Landauer, R. Harshman, Indexing by latent semantic analysis, Journal of the American Society for Information Science 41 (1990) 391– 407. doi:[https://doi.org/10.1002/\(SICI\)1097-4571\(199009\)](http://dx.doi.org/https://doi.org/10.1002/(SICI)1097-4571(199009)41:6<391::AID-ASI1>3.0.CO;2-9) [41:6<391::AID-ASI1>3.0.CO;2-9](http://dx.doi.org/https://doi.org/10.1002/(SICI)1097-4571(199009)41:6<391::AID-ASI1>3.0.CO;2-9).
@@ -1108,37 +1106,37 @@ on Intrinsic and Extrinsic Evaluation Measures for Machine Translation and/or Su
 - <span id="page-29-15"></span>[314] M. Adler, J. Berant, I. Dagan, Entailment-based text exploration with application to the health-care domain, in: M. Zhang (Ed.), Proc. ACL 2012 System Demonstrations, Assoc. Comput. Linguistics, Jeju Island, Korea, 2012, pp. 79–84.
 - <span id="page-29-16"></span>[315] Y. Zhang, D. Merck, E. Tsai, C. D. Manning, C. Langlotz, Optimizing the factual correctness of a summary: A study of summarizing radiology reports, in: D. Jurafsky, J. Chai, N. Schluter, J. Tetreault (Eds.), Proc. 58th Annu. Meeting Assoc. Comput. Linguistics, Assoc. Comput. Linguistics, Online, 2020, pp. 5108–5120. doi:[10.18653/v1/2020.](http://dx.doi.org/10.18653/v1/2020.acl-main.458) [acl-main.458](http://dx.doi.org/10.18653/v1/2020.acl-main.458).
 
-#### Author Biographies
+### Author Biographies
 
-#### Yang Zhang
+### Yang Zhang
 
 ![](_page_29_Picture_19.jpeg)
 <!-- Image Description: That's not a technical image; it's a headshot photograph of a person, likely the author or a contributor to the academic paper. It contains no diagrams, charts, graphs, equations, or technical illustrations. Its purpose is purely to provide a visual representation of the individual, likely for an author identification or biographical section. -->
 
 Yang Zhang is an assistant professor with the Southwestern University of Finance and Economics, China. He received his Ph.D. from the Graduate School of Informatics, Kyoto University in 2022. Before that, he received his Bachelor of Engineering from the University of New South Wales and his Master of Economics and Finance from Sydney University. He joined Southwestern University of Finance and Economics, China in 2023 as a lecturer. His research interests include text mining, text recommendation, and NLP for financial technology.
 
-#### Hanlei Jin
+### Hanlei Jin
 
 ![](_page_29_Picture_22.jpeg)
 <!-- Image Description: That's not a technical image from an academic paper; it's a headshot photograph of a person. There are no diagrams, charts, graphs, equations, or technical illustrations present. The image is likely an author photograph included for identification purposes within the paper, rather than conveying any technical information. -->
 
 Hanlei Jin is currently working toward the Ph.D. in Management Science and Engineering at Southwestern University of Finance and Economics, Chengdu, China. He holds a B.S. degree in Management from the same institution. His research interests include text mining, text generation, and financial intelligence.
 
-#### Dan Meng
+### Dan Meng
 
 ![](_page_29_Picture_25.jpeg)
 <!-- Image Description: That's not a technical image; it's a headshot photograph of a person, likely an author or contributor to the academic paper. It contains no diagrams, charts, graphs, equations, or technical illustrations. Its purpose is solely to provide a visual representation of the individual, for identification purposes within the paper's author information. -->
 
 Dan Meng is a professor with the Southwestern University of Finance and Economics, Chengdu, China. Previously, she received her Ph.D. from Southwest Jiaotong University, Chengdu, China. Her research interests include intelligent finance, intelligent decision making, and uncertainty information processing.
 
-#### Jun Wang
+### Jun Wang
 
 ![](_page_29_Picture_28.jpeg)
 <!-- Image Description: That's not a technical image; it's a photograph of a person, likely an author or contributor to the academic paper. It contains no diagrams, charts, graphs, equations, or technical illustrations. Its purpose is purely to provide a visual representation of the individual, most likely for author identification. -->
 
 Jun Wang is a professor with the Southwestern University of Finance and Economics, China. Prior to his current appointment, he was a researcher at the Memorial University of Newfoundland in St. John's, Canada, and he was awarded the National Scholarship in 2017. His research interests include NLP, social media, social network analysis, financial analysis, and business intelligence.
 
-#### Jinghua Tan
+### Jinghua Tan
 
 ![](_page_30_Picture_2.jpeg)
 <!-- Image Description: That's a photograph of a person, not a technical image containing diagrams, charts, graphs, or equations. It appears to be an author portrait, included in the academic paper for identification purposes. There is no technical content in the image itself. -->

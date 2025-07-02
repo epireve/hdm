@@ -43,7 +43,7 @@ Perth, WA, Australia [Wei Liu](https://orcid.org/0000-0002-7409-0948) wei.liu@uw
 
 The University of Western Australia Perth, WA, Australia
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 The most valuable enterprise knowledge reside in unstructured documents of heterogeneous formats, taking up at least 80% of the corporate data lakes. It is crucial to extract meaningful information [\[7\]](#page-4-0) by integrating these data, while maintaining references to the origin for Retrieval Augmented Generation (RAG) [\[5\]](#page-4-1) to reduce hallucination. Taking the healthcare industry as an example, patient records often exist in various formats such as handwritten clinical notes, discharge letters, email communication between clinicians, and medical images. Without data integration, it is impossible to provide a consolidated assessment. Many existing works [\[6,](#page-4-2) [7\]](#page-4-0) are designed to target a single data source, such as scanned documents or PDF files. However, in real-world applications, particularly within domain-specific knowledge areas, data are heterogeneous, unstructured, and diverse [\[8\]](#page-4-3). To perform document-wide semantic parsing and layout analysis from heterogeneous unstructured documents, we face three key challenges:
 
@@ -57,11 +57,11 @@ The most valuable enterprise knowledge reside in unstructured documents of heter
 
 In this research, we propose using Knowledge Graphs as a unified representation to allow dynamic integration of entities extracted from each modality, including layout entities to maintain references to the source. The end goal of knowledge graph construction is faciliated through our proposed Docs2KG system to address the above challenges.The data formats that Docs2KG can handle include emails, web pages, PDF files, and Excel files. The extracted multimodal information, merged as a unified KG, allows for dynamic and automatic update based on document structure and content, which can be modified and extended to allow human-in-the-loop. It enables researchers and domain experts to pose structural and semantic queries such as "Show me all documents and their components related to events that occurred in the years 2011 and 2021.". This
 
-# ABSTRACT
+## ABSTRACT
 
 Even for a conservative estimate, 80% of enterprise data reside in unstructured files, stored in data lakes that accommodate heterogeneous formats. Classical search engines can no longer meet information seeking needs, especially when the task is to browse and explore for insight formulation. In other words, there are no obvious search keywords to use. Knowledge graphs, due to their natural visual appeals that reduce the human cognitive load, become the winning candidate for heterogeneous data integration and knowledge representation. In this paper, we introduce Docs2KG, a novel framework designed to extract multimodal information from diverse and heterogeneous unstructured documents, including emails, web pages, PDF files, and Excel files. Dynamically generates a unified knowledge graph that represents the extracted key information, Docs2KG enables efficient querying and exploration of document data lakes. Unlike existing approaches that focus on domain-specific data sources or pre-designed schemas, Docs2KG offers a flexible and extensible solution that can adapt to various document structures and content types. The proposed framework unifies data processing supporting a multitude of downstream tasks with improved domain interpretability. Docs2KG is publicly accessible at [https://docs2kg.ai4wa.com,](https://docs2kg.ai4wa.com) and a demonstration video is available at [https://docs2kg.ai4wa.com/Video.](https://docs2kg.ai4wa.com/Video)
 
-# KEYWORDS
+## KEYWORDS
 
 Unstructured Data, Heterogeneous Data, Knowledge Graph
 
@@ -74,28 +74,28 @@ Permission to make digital or hard copies of all or part of this work for person
 <sup>©</sup> 2018 Copyright held by the owner/author(s). Publication rights licensed to ACM. ACM ISBN xxx-xxx-xxx
 
 ![](_page_1_Figure_1.jpeg)
-<!-- Image Description: The image presents a flowchart illustrating a knowledge graph construction process.  Input text, represented by "M↓", is processed through "Text Layout" and "Text2KG Linkage" modules.  The upper section depicts high-level concepts ("Report," "Profit Year 1," "Analysis") forming a knowledge graph, while the lower section shows a detailed representation of the extracted entities and relations ("H1," "H2," "H3," "P," "S"), likely representing different types of nodes and edges in the graph.  The diagram visually explains the system's architecture and data flow. -->
+<!-- Image Description: The image presents a flowchart illustrating a knowledge graph construction process. Input text, represented by "M↓", is processed through "Text Layout" and "Text2KG Linkage" modules. The upper section depicts high-level concepts ("Report," "Profit Year 1," "Analysis") forming a knowledge graph, while the lower section shows a detailed representation of the extracted entities and relations ("H1," "H2," "H3," "P," "S"), likely representing different types of nodes and edges in the graph. The diagram visually explains the system's architecture and data flow. -->
 
 <span id="page-1-0"></span>![](_page_1_Figure_2.jpeg)
-<!-- Image Description: This diagram depicts a dual-path data processing system for knowledge graph construction.  It shows how various data sources (email, web pages, PDFs, spreadsheets) are converted and processed through image and text pipelines.  The pipelines involve multiple steps (e.g., conversion, layout analysis, parsing).  The outputs are JSON representations which, via intra- and inter-KG links, are integrated into knowledge graphs.  Three example knowledge graph representations are shown, each illustrating different levels of semantic detail (text layout, semantic, table layout). -->
+<!-- Image Description: This diagram depicts a dual-path data processing system for knowledge graph construction. It shows how various data sources (email, web pages, PDFs, spreadsheets) are converted and processed through image and text pipelines. The pipelines involve multiple steps (e.g., conversion, layout analysis, parsing). The outputs are JSON representations which, via intra- and inter-KG links, are integrated into knowledge graphs. Three example knowledge graph representations are shown, each illustrating different levels of semantic detail (text layout, semantic, table layout). -->
 
-Figure 1: Architecture Design for Docs2KG
+**Figure 1:** Architecture Design for Docs2KG
 
 capability can dramatically reduce the time, effort, and resources required navigating through large collections of unstructured documents. Moreover, Docs2KG unified document processing through a dual path strategy which effectively combined deep learning computer vision based document layout analysis with mark-down structured document parsing to maximise its document type coverage. The KG generated by Docs2KG can be used to facilitate many real-world applications, such as reducing the risk of outdated knowledge and hallucination of language language models to achieve knowledge-grounded retrieval augmented generation.
 
-# 2 RELATED WORK
+## 2 RELATED WORK
 
 There have been several efforts to construct KGs to facilitate the discovery of relevant information within specific fields. Most of these efforts [\[1,](#page-4-4) [4,](#page-4-5) [9\]](#page-4-6) have focused on extracting information from text. For example, Connected Papers [\[1\]](#page-4-4) is a tool designed to help researchers and academics to find and explore relevant academic papers. It creates a citation network of papers for a given search paper, allowing users to see connections and discover influential works in their field. This visualisation aids in the literature search in a broader context assisting in finding seminal works and new directions worth investigation. Another example is the work by Kannan et al. [\[3\]](#page-4-7), who built a multimodal KG that extracts text, diagrams, and source code from scientific literature in the field of Deep Learning.
 
 Our framework, Docs2KG, differs from these approaches by specifically targeting at heterogeneous unstructured documents rather than just scientific publications. While their schema is predesigned for specific domains, such as deep learning architectures, ours is dynamic and automatically generated based on the document structure. Additionally, Docs2KG can be modified and extended as needed, making it more adaptable to various types of unstructured data.
 
-# 3 DOCS2KG FRAMEWORK
+## 3 DOCS2KG FRAMEWORK
 
-**Report Profit**  The architecture of Docs2KG is shown in Figure 1, which is designed to take asinput a set of heterogeneous and unstructured documents, including emails, web pages, PDF files and Excel files. Docs2KG involves two main stages: dual-path data processing and multimodal unified KG construction. The dual-path data processing stage segments the input documents into textual content, images, and tables. The multimodal unified KG construction stage integrates the processed information with structural and semantic relationships.
+**Report Profit** The architecture of Docs2KG is shown in Figure 1, which is designed to take asinput a set of heterogeneous and unstructured documents, including emails, web pages, PDF files and Excel files. Docs2KG involves two main stages: dual-path data processing and multimodal unified KG construction. The dual-path data processing stage segments the input documents into textual content, images, and tables. The multimodal unified KG construction stage integrates the processed information with structural and semantic relationships.
 
 After alignment, the resulting multimodal KG is stored in a Neo4j[1](#page-1-1) graph database, allowing storage of the extracted information a triple store for efficient querying and intuitive visualisation. All code and documentation are available online[2](#page-1-2) . The code is designed to be modualised, other graph databases can be used to replace Neo4j for graph data storage and retrieval. The following sections detail the two key stages of Docs2KG.
 
-# 3.1 Dual-Path Data Processing
+## 3.1 Dual-Path Data Processing
 
 In Figure [1,](#page-1-0) we categorise the input documents into two types based on the easy of extracting their layout information. For example, web pages (HTML) are organised using a tree structure, enabling straightforward conversion to Markdown or JSON. In contrast,
 
@@ -106,9 +106,9 @@ In Figure [1,](#page-1-0) we categorise the input documents into two types based
 <span id="page-2-0"></span>Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models Under Review, , Perth, WA
 
 ![](_page_2_Figure_2.jpeg)
-<!-- Image Description: This image is a directed graph visualizing the relationships between different sections of a document, likely an academic paper on population census data.  Nodes represent document sections (e.g., "The page provides a table showing the population's...").  Edges represent relationships between sections, labeled with temporal ("BEFORE", "SAME_TIME") and hierarchical ("HAS_CHILD") indicators. The graph shows the structure and flow of information within the paper, highlighting the connections between sections discussing the 2011 and 2021 census results.  The central node focuses on the complex system of the census. -->
+<!-- Image Description: This image is a directed graph visualizing the relationships between different sections of a document, likely an academic paper on population census data. Nodes represent document sections (e.g., "The page provides a table showing the population's..."). Edges represent relationships between sections, labeled with temporal ("BEFORE", "SAME_TIME") and hierarchical ("HAS_CHILD") indicators. The graph shows the structure and flow of information within the paper, highlighting the connections between sections discussing the 2011 and 2021 census results. The central node focuses on the complex system of the census. -->
 
-Figure 2: A demo graph of query "Show me all documents and their components related to events that occurred in the years 2011 and 2021." by combining a PDF file and an Excel file. The PDF file contains information about the population size and structure of Hong Kong from 2011 to 2021. The Excel file contain records of the population census from 2021 to 2023. (Cyan indicates the PDF document; Green is for Excel file; Red for PDF page; Khaki for header; ocean blue for paragraph)
+**Figure 2:** A demo graph of query "Show me all documents and their components related to events that occurred in the years 2011 and 2021." by combining a PDF file and an Excel file. The PDF file contains information about the population size and structure of Hong Kong from 2011 to 2021. The Excel file contain records of the population census from 2021 to 2023. (Cyan indicates the PDF document; Green is for Excel file; Red for PDF page; Khaki for header; ocean blue for paragraph)
 
 PDF files and Excel files with extensive descriptive information pose significant challenges for layout detection and transformation into semi-structured format. To address the above challenges, we propose a dual path document processing strategy. The Image Converter path is a generic approach that uses deep learning models trained for document layout analysis; the Markdown Converter path is to convert documents to markdown format and use an XML/HTML query language such as XPath. All four types of documents can be converted into images and take advantage of the document layout analysis to segment into texts, images, and tables with bounding boxes. We will not provide details on how these are achieved; please refer to our publications on PDF form data analysis [\[11\]](#page-4-8). For markdown document parsing, we have developed four independent parsers to process different document types:
 
@@ -120,7 +120,7 @@ PDF files and Excel files with extensive descriptive information pose significan
 
 By combining parsers and document segmentation models, Doc2KG can parse different heterogeneous and unstructured documents for subsequent integration into a unified KG. The modualised approach we are taking allow for flexible configuration and combination of the processing modules to optimise computation resource usage.
 
-# 3.2 Multimodal Unified Knowledge Graph Construction
+## 3.2 Multimodal Unified Knowledge Graph Construction
 
 After the first stage, our proposed Docs2KG unifies the parsed information into a multimodal KG containing structural (hierarchical and spatial) and semantic information.
 
@@ -131,7 +131,7 @@ Intra-modal relationships construction: Intra-modal relationships include struct
 $$
 G^{(\alpha,\beta)} = (h_{\alpha}, r, t_{\beta}), \alpha \neq \beta \in \{T, P, S\}
 $$
- (1)
+(1)
 
 where the represents a smallest unit sub-graph in our multimodal KG. and represent different modalities from text source, containing text ( ), paragraph (), and sentence (). The notation (ℎ, , ) denotes the construction method between two nodes, where ℎ (the head entity) points towards (the tail entity). denotes the relationship, expressed with structural or semantic information:
 
@@ -144,40 +144,40 @@ Inter-modal relationships construction: We use semantic relationships to express
 $$
 G^{(S,M)} = (h_S, r, t_M), M \in \{Table, Figure\}
 $$
- (2)
+(2)
 
 where represents a smallest unit sub-graph. denotes sentences, such as table captions. denotes tables and figures. is the semantic relationship between them: 'explain' and 'same-time'.
 
-# 4 DEMONSTRATION
+## 4 DEMONSTRATION
 
 In our demonstration, we first focus on how our multimodal KG can be utilised to perform data-driven analysis through a graph querying demo. Subsequently, we demonstrate how the KG can support one of the most important applications of large language models, RAG. In our RAG demo, nodes and relationships are embedded and subjected to a similarity search to identify anchor nodes. These nodes are then expanded via multi-hop queries to retrieve relevant information, thereby augmenting the prompt to respond to the query.
 
-# 4.1 Knowledge Graph Query
+## 4.1 Knowledge Graph Query
 
 We selected one PDF file and one Excel file for the demo. The PDF file contains information about the population size and structure of Hong Kong from 2011 to 2021. The Excel file contain records of the population census from 2021 to 2023, including mid-year population data categorised by age group and sex.
 
 Meaningful insights cannot be derived from either the Excel file or the PDF file alone. We parsed and integrated the PDF file and the Excel file through Docs2KG. The data were extracted into figures, tables, and text, and merged into a single KG. To extract relevant information, we used the query shown in Figure [3.](#page-3-0) The returned graph is in Figure [2](#page-2-0) where green bubbles and red bubbles represent the information extracted from Excel and PDF files, respectively. Based on the visualisation, we can observe that the introduction section (the Khaki coloured node) of the PDF document references several events occurring in both 2011 and 2021. For more information about this demo, please refer to our demo video [https://docs2kg.ai4wa.com/Video/.](https://docs2kg.ai4wa.com/Video/)
 
-Figure 3: The Cypher Query to answer "Show me all documents and their components related to events that occurred in the years 2011 and 2021."
+**Figure 3:** The Cypher Query to answer "Show me all documents and their components related to events that occurred in the years 2011 and 2021."
 
-# 4.2 Semantic and Structural Proximity-Based Information Retrieval
+## 4.2 Semantic and Structural Proximity-Based Information Retrieval
 
 To enhance the performance of large language models, the RAG approach suggests integrating more relevant information directly into the prompt. In the context of our multimodal knowledge graph, 'relevance' refers to the proximity of nodes, which can be either semantic or structural. Specifically, relevant nodes are those that can be reached within a limited number of hops in the knowledge graph.
 
 ![](_page_3_Picture_14.jpeg)
-<!-- Image Description: The image displays a knowledge graph visualization.  Nodes, represented by circles, contain textual information and are connected by edges indicating relationships.  A sidebar shows detailed node properties including numerical embeddings ("bedding," "meta_emb"), text content, and unique identifiers (UUID).  The graph's purpose is likely to illustrate the relationships between data points within a dataset, as part of a larger analysis presented in the paper.  Three smaller, light blue nodes stand out. -->
+<!-- Image Description: The image displays a knowledge graph visualization. Nodes, represented by circles, contain textual information and are connected by edges indicating relationships. A sidebar shows detailed node properties including numerical embeddings ("bedding," "meta_emb"), text content, and unique identifiers (UUID). The graph's purpose is likely to illustrate the relationships between data points within a dataset, as part of a larger analysis presented in the paper. Three smaller, light blue nodes stand out. -->
 
-Figure 4: Retrieved relevant semantic and structural nodes for query "I want to know all the population information from 2011 to 2021" by combining the same files referenced in Section 4.1. (Green indicates **<p>** tag; Blue for **<tr>** tag.)
+**Figure 4:** Retrieved relevant semantic and structural nodes for query "I want to know all the population information from 2011 to 2021" by combining the same files referenced in Section 4.1. (Green indicates **<p>** tag; Blue for **<tr>** tag.)
 
 Based on this, consider the same query in above demonstration: "I want to know all the population information from 2011 to 2021". Initially, all nodes within the knowledge graph are embedded using an embedding model. The same model is used to embed the query. The query embedding is then utilized to retrieve relevant text chunks, figures, and tables through semantic similarity search. The top-k semantically relevant nodes will be selected as anchor nodes to retrieve the n-hop semantic and structural relevant nodes, there by augmenting the prompts as shown in Figure [3.](#page-3-0) We can see the tables regarding the population information from 2011 to 2021 are retrieved. For additional details regarding this demonstration, please refer to our demo video at<https://docs2kg.ai4wa.com/Video/> or our codes.
 
-# 5 CONCLUSION
+## 5 CONCLUSION
 
 In this paper, we have addressed the limitations of existing multimodal KG construction methods by proposing an open-source framework, Docs2KG. Unlike previous approaches that either focus solely on images or rely on an existing KG to link images, our framework considers more realistic scenarios across all domains. Docs2KG effectively handles the diversity and heterogeneity of raw data in various unstructured formats, such as web pages, emails, PDF files, and Excel files. By integrating these diverse data sources into a unified KG and incorporating both semantic and structural information, Docs2KG enables a more comprehensive and accurate representation of knowledge. This facilitates a wide range of realworld applications, improving the utility and robustness of KGs in diverse domains.
 
 Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models Under Review, , Perth, WA
 
-# REFERENCES
+## REFERENCES
 
 - <span id="page-4-4"></span>[1] Alex Tarnavsky Eitan, Eddie Smolyansky, Itay Knaan Harpaz, and S Perets. 2021. Connected papers. S. l (2021).
 - <span id="page-4-9"></span>[2] Gábor László Hajba. 2018. Using Beautiful Soup. Apress, Berkeley, CA, 41–96. [https://doi.org/10.1007/978-1-4842-3925-4\\_3](https://doi.org/10.1007/978-1-4842-3925-4_3)

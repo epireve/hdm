@@ -25,8 +25,6 @@ keywords:
 - session-based
 ---
 
-
-
 HUI FANG, RIIS & SIME, Shanghai University of Finance and Economics, China DANNING ZHANG<sup>∗</sup> , SIME, Shanghai University of Finance and Economics, China YIHENG SHU, Software College, Northeastern University, China GUIBING GUO, Software College, Northeastern University, China
 
 In the field of sequential recommendation, deep learning (DL)-based methods have received a lot of attention in the past few years and surpassed traditional models such as Markov chain-based and factorization-based ones. However, there is little systematic study on DL-based methods, especially regarding how to design an effective DL model for sequential recommendation. In this view, this survey focuses on DL-based sequential recommender systems by taking the aforementioned issues into consideration. Specifically, we illustrate the concept of sequential recommendation, propose a categorization of existing algorithms in terms of three types of behavioral sequences, summarize the key factors affecting the performance of DL-based models, and conduct corresponding evaluations to showcase and demonstrate the effects of these factors. We conclude this survey by systematically outlining future directions and challenges in this field.
@@ -39,7 +37,7 @@ Additional Key Words and Phrases: sequential recommendation, session-based recom
 
 Hui Fang, Danning Zhang, Yiheng Shu, and Guibing Guo. 2020. Deep Learning for Sequential Recommendation: Algorithms, Influential Factors, and Evaluations. ACM Transactions on Information Systems 1, 1, Article 1 (January 2020), [41](#page-40-0) pages.<https://doi.org/10.1145/3426723>
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 With the prevalence of information technology (IT), recommender system has long been acknowledged as an effective and powerful tool for addressing information overload problem. It makes users easily filter and locate information in terms of their preferences, and allows online platforms to widely publicize the information they produce. Most traditional recommender systems are content-based and collaborative filtering based ones. They strive to model users' preferences towards items on the basis of either explicit or implicit interactions between users and items. Specifically, they incline to utilize a user's historical interactions to learn his/her static preference with the assumption that all user-item interactions in the historical sequences are equally important.
 
@@ -64,7 +62,7 @@ For sequential recommendation, besides capturing users' long-term preferences ac
 <span id="page-1-0"></span>![](_page_1_Figure_4.jpeg)
 <!-- Image Description: The image is a horizontal bar chart showing the yearly distribution of a data set from 2015 to 2019. The chart's purpose is to visually represent the trend in the data's quantity over the years. The length of each bar corresponds to the value of the dataset for that year, with 2019 showing the highest value and 2015 the lowest. No specific units are indicated on the y-axis. -->
 
-Fig. 1. The number of arXiv articles on DL-based sequential recommendation in 2015-2019.
+Figure 1. The number of arXiv articles on DL-based sequential recommendation in 2015-2019.
 
 In recent years, deep learning (DL) techniques, such as recurrent neural network (RNN), obtain tremendous achievements in natural language processing (NLP), demonstrating their effectiveness in processing sequential data. Thus, they have attracted increasing interest in the sequential recommendation, and many DL-based models have achieved state-of-the-art performance [\[147\]](#page-40-1). The number of relevant arXiv articles posted in 2015-2019 is shown in Figure [1](#page-1-0)[1](#page-1-1) , where we can see that the interest in DL-based sequential recommendation has increased phenomenally. Besides, common application domains of sequential recommendation include e-commerce (e.g., RecSys
 
@@ -73,7 +71,7 @@ In recent years, deep learning (DL) techniques, such as recurrent neural network
 <span id="page-2-0"></span>![](_page_2_Figure_1.jpeg)
 <!-- Image Description: This word cloud visualizes keywords from a paper on session-based recommendation systems. Larger words like "RNN," "session-based," "sequential," and "embedding" highlight the paper's focus on recurrent neural networks and session-aware methods for recommendation. Other keywords such as "attention," "deep learning," and "collaborative filtering" indicate the techniques employed. The cloud's purpose is to provide a quick overview of the paper's technical content and key concepts. -->
 
-Fig. 2. Word cloud of the keywords for sequential recommendation related articles.
+Figure 2. Word cloud of the keywords for sequential recommendation related articles.
 
 Challenge 2015[2](#page-2-1) ), POI (Point-of-Interest), music (e.g., Last.fm[3](#page-2-2) ), and movie/video (e.g., MovieLens[4](#page-2-3) ). Figure [2](#page-2-0) depicts the word cloud of keywords in the sequential recommendation related articles, which to some extent reflects the hot topics in the field of sequential recommendation.
 
@@ -91,21 +89,21 @@ More and more new techniques and improved structures have been applied to facili
 
 • We summarize quite a few open issues in existing DL-based sequential recommendation and outline future directions.
 
-# 1 Related Survey
+## 1 Related Survey
 
 There have been some surveys on either DL-based recommendation or sequential recommendation. For DL-based recommendation, Singhal et al. [\[92\]](#page-38-0) summarized DL-based recommender systems and categorized them into three types: collaborative filtering, content-based, and hybrid ones. Batmaz et al. [\[8\]](#page-35-2) classified and summarized the DL-based recommendation from the perspectives of DL techniques and recommendation issues, and also gave a brief introduction of the session-based recommendations. Zhang et al. [\[147\]](#page-40-1) further discussed the state-of-the-art DL-based recommender systems, including several RNN-based sequential recommendation algorithms. For sequential recommendation, Quadrana et al. [\[77\]](#page-37-0) proposed a categorization of the recommendation tasks and goals, and summarized existing solutions. Wang et al. [\[121\]](#page-39-0) summarized the key challenges, progress and future directions for sequential recommender systems. In a more comprehensive manner [\[119\]](#page-39-1), they further illustrated the value and significance of the session-based recommender systems (SBRS), and proposed a hierarchical framework to categorize issues and methods, including some DL-based ones.
 
 However, to the best of our knowledge, our survey is the first to specifically and systematically summarize and explore DL-based sequential recommendation, and discuss the common influential factors using a thorough demonstration of experimental evaluations on several real datasets. The experiment results and conclusions can further guide the future research on how to design an effective DL model for the sequential recommendation.
 
-# 2 Structure of This Survey
+## 2 Structure of This Survey
 
 The rest of the survey is organized as follows. In Section [2,](#page-3-0) we provide a comprehensive overview of DL-based sequential recommender systems, including a careful refinement of sequential recommendation tasks. In Section [3,](#page-9-0) we present the details of the representative algorithms for each recommendation task. In Section [4,](#page-16-0) we summarize the influential factors for existing DL-based sequential recommendation followed by a thorough evaluation on real datasets in Section [5.](#page-22-0) Finally, we conclude this survey by presenting open issues and future research directions of DL-based sequential recommendation in Section [6.](#page-31-0)
 
-# <span id="page-3-0"></span>2 OVERVIEW OF SEQUENTIAL RECOMMENDATION
+## <span id="page-3-0"></span>2 OVERVIEW OF SEQUENTIAL RECOMMENDATION
 
 In this section, we provide a comprehensive overview of the sequential recommendation. First, we clarify the related concepts, and then formally describe the sequential recommendation tasks. Finally, we elaborate and compare the traditional ML and DL techniques for the sequential recommendation.
 
-# 1 Concept Definitions
+## 1 Concept Definitions
 
 To facilitate the understanding, we first formally define behavior object and behavior type to distinguish different user behaviors in sequential data.
 
@@ -116,7 +114,7 @@ Definition 2.2. behavior type refers to the way that a user interacts with items
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
 <!-- Image Description: The image displays a graph illustrating a path from a user ($U_u$) to an item ($V_j$). The path consists of *n* intermediate nodes ($a_1$ to $a_n$), each associated with a pair of parameters ($c_i$, $o_i$). The graph visually represents a sequential process or interaction, potentially modeling user behavior or a recommendation system. Each node likely represents a step in the process, and the parameters could represent contextual information or attributes. -->
 
-Fig. 3. A schematic diagram of the sequential recommendation. : behavior type, : behavior object. A behavior is represented by a 2-tuple, i.e., = ( , ). A behavior sequence (i.e., behavior trajectory) is a list of 2-tuples in the order of time.
+Figure 3. A schematic diagram of the sequential recommendation. : behavior type, : behavior object. A behavior is represented by a 2-tuple, i.e., = ( , ). A behavior sequence (i.e., behavior trajectory) is a list of 2-tuples in the order of time.
 
 Given these concepts, a behavior can be considered as a combination of a behavior type and a behavior object, i.e., a user interacting with a behavior object by a behavior type. A behavior trajectory can be thus defined as a behavior sequence (or behavior session) consisting of multiple user behaviors. A typical behavior sequence is shown in Figure [3.](#page-4-0) Specifically, a behavior ( ) is represented by a 2-tuple ( , ), i.e., a behavior type and behavior object . A user who generates the sequence can either be anonymous or identified by his/her ID. The behaviors in the sequence are sorted in time order. When a single behavior involves with multiple objects (e.g., items recorded in a shopping basket), objects within the basket may not be ordered by time, and then multiple baskets together form a behavior sequence. It should be noted that sequence and session are interchangeably used in this paper.
 
@@ -125,7 +123,7 @@ Thus, a sequential recommender system is referred to a system which takes a user
 <span id="page-4-2"></span>![](_page_4_Figure_5.jpeg)
 <!-- Image Description: The image is a directed graph illustrating a user's interaction with an item. A user (U<sub>u</sub>) node is connected to an item (V<sub>i</sub>) node through a sequence of actions (a<sub>1</sub> to a<sub>n</sub>), represented by intermediate nodes. Each action is linked to a specific user behavior (e.g., click, view, share, buy), shown below the action nodes. The graph likely models a user journey or purchase funnel, showing the progression of actions leading to a purchase. -->
 
-Fig. 4. Experience-based behavior sequence.
+Figure 4. Experience-based behavior sequence.
 
 Experience-based behavior sequence. In an experience-based behavior sequence (see Figure [4\)](#page-4-2), a user may interact with a same object (e.g., item ) multiple times by different behavior types. For example, a user's interaction history with an item might be as follows: first searches related keywords, then clicks the item of interest on the result pages followed by viewing the details of the item. Finally, the user may share the item with his/her friends and add it to cart if he/she likes it. Different behavior types as well as their orders might indicate users' different intentions. For instance, click and view can only show a user's interest of a low degree, while share behavior appears before (or after) purchase might imply a user's strong desire (or satisfaction) to obtain (or have) the item. For this type of behavior sequence, a model is expected to capture a user's underlying
 
@@ -136,14 +134,14 @@ Experience-based behavior sequence. In an experience-based behavior sequence (se
 ![](_page_5_Figure_2.jpeg)
 <!-- Image Description: This diagram illustrates a user's sequential interaction with items. A user node (U<sub>u</sub>) connects to an item node (V<sub>j</sub>) via a path representing actions (a<sub>1</sub> to a<sub>n</sub>). Each action node is linked to a "(buy, V<sub>i</sub>)" node indicating a purchase event, where V<sub>i</sub> represents a specific item involved in the action. The diagram visually represents a user's purchase sequence in a recommendation system or similar context. -->
 
-Fig. 5. Transaction-based behavior sequence.
+Figure 5. Transaction-based behavior sequence.
 
 Transaction-based behavior sequence. A transaction-based behavior sequence (see Figure [5\)](#page-5-0) records a series of different behavior objects that a user interacts with, but with a same behavior type (i.e., buy). In practice, buy is the most concerned one for online sellers. Therefore, with the transaction-based behavior sequence as input, the goal of a sequential recommender system is to recommend the next object (item) that a user will buy in view of the historical transactions of the user.
 
 <span id="page-5-1"></span>![](_page_5_Figure_5.jpeg)
 <!-- Image Description: The image depicts a user-item interaction model. A directed graph shows a user ($U_u$) connected to an item ($V_j$) through a sequence of actions ($a_1$ to $a_n$). Each action, represented by a node, is linked to a specific user behavior (e.g., click, buy, share). The dashed lines signify intermediate steps. The diagram illustrates a path of user actions leading to the final purchase of an item, likely used to model user behavior or predict purchase likelihood within the paper. -->
 
-Fig. 6. Interaction-based behavior sequence.
+Figure 6. Interaction-based behavior sequence.
 
 Interaction-based behavior sequence. An interaction-based behavior sequence could be viewed as a mixture of experience-based and transaction-based behavior sequences (see Figure [6\)](#page-5-1), i.e., a generalization of previous two types and much closer to the real scenarios. That is to say, it consists of different behavior objects and different behavior types simultaneously. In interaction-based behavioral sequence modeling, a recommender system is expected to understand user preferences more realistically, including different user intents expressed by different behavior types and preferences implied by different behavior objects. Its major goal is to predict the next behavior object that a user will interact with.
 
@@ -156,7 +154,7 @@ However, although the input of the aforementioned recommendation tasks is varied
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
 <!-- Image Description: The image depicts a recommender system. "Next-Item" and "Next-Basket" sequences (user's click and buy history) are input to a recommender (represented as a gear). The recommender generates a "Recommendation List" (a vertical array of items Vᵢ). Dashed lines show the user's input influencing the recommendation. The diagram illustrates the system's workflow and data flow. -->
 
-Fig. 7. Next-item and next-basket recommendation.
+Figure 7. Next-item and next-basket recommendation.
 
 In this paper, we consider the task of sequential recommendation as to generate a personalized ranked item list on the basis of the three types of user behavior sequences (input), which can be formally defined as:
 
@@ -206,13 +204,13 @@ Graph neural networks (GNNs). GNN [\[154\]](#page-40-4) can collectively aggrega
 <span id="page-8-0"></span>![](_page_8_Figure_6.jpeg)
 <!-- Image Description: This timeline chart displays the evolution of recommendation systems from 2015 to 2020. Each speech bubble represents a different model, categorized as either "Next Item(s) Recommendation" or "Next Basket Recommendation". The models are arranged chronologically, with the year of publication indicated. Numbers in brackets likely refer to citations within the paper. The chart illustrates the trends and advancements in the field over time. -->
 
-Fig. 8. Some recent and representative DL-based sequential recommendation models. Different colors indicate different DL techniques (grey: MLP; orange: RNN; yellow: CNN; blue: attention mechanism; green: GNN).
+Figure 8. Some recent and representative DL-based sequential recommendation models. Different colors indicate different DL techniques (grey: MLP; orange: RNN; yellow: CNN; blue: attention mechanism; green: GNN).
 
 2.3.3 Concluding Remarks. Compared with conventional methods, DL-based methods are a much more active research area in the recent years. The MC- and MF-based models assume that a user's next behavior is related to only a few recent behavior(s), while DL methods utilize a much longer sequence for prediction [\[119\]](#page-39-1), as they are able to effectively learn the theme of the whole sequence. Thus, they generally obtain better performance (in terms of accuracy measurement) than traditional models. Meanwhile, DL methods are more robust to sparse data and can adapt to varied length of the input sequence. The representative DL-based sequential recommendation algorithms are presented in Figure [8,](#page-8-0) which will be introduced in details in next sections.
 
 The major problems of DL-based sequential recommendation methods include: 1) they are lack of explanability for the generated recommendation results. Besides, it is also difficult to calibrate why the recommendation models are effective, and thus to yield a robust DL-based model for varied scenarios; 2) the optimization is generally extremely challenging and more training data is required for complex networks.
 
-# <span id="page-9-0"></span>3 SEQUENTIAL RECOMMENDATION ALGORITHMS
+## <span id="page-9-0"></span>3 SEQUENTIAL RECOMMENDATION ALGORITHMS
 
 In this section, in order to figure out whether sequential recommendation tasks have been sufficiently explored, we classify sequential recommendation algorithms in terms of the three tasks (Section [2.2\)](#page-5-2): experience-based sequential recommendation, transaction-based sequential recommendation, and interaction-based sequential recommendation.
 
@@ -230,7 +228,7 @@ ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication d
 
 that this cascaded prediction, which could be regarded as pre-training embedding layers of other behavior types before learning a recommendation model for the target behavior, only considers the connections between target behavior and previous behaviors but ignores the ones between target behavior and subsequent behaviors. Thus, it does not fully explore the relationship on various behavior types. In this view, multi-task learning (MTL) can address this problem by providing a paradigm to predict multiple tasks simultaneously which also exploits similarities and differences across tasks. The performance of the MTL model proposed in [\[26\]](#page-35-6) is generally better than those using the sequential training. Besides, Xia et al. [\[133\]](#page-39-4) proposed a multi-task model with LSTM to explicitly model users' purchase decision process by predicting the stage and decision of a user at a specific time with the assistance of a pre-defined set of heuristic rules, and thus obtaining more accurate recommendation results.
 
-# 2 Transaction-based Sequential Recommendation
+## 2 Transaction-based Sequential Recommendation
 
 In transaction-based sequential recommendation, there is only a single behavior type (transactionrelated, e.g., purchase), and recommendation models generally consider the sequential dependency relationships between different objects (items) as well as user preferences. As there are a substantial amount of DL-based models for this task, we further summarize the existing models in terms of the employed specific DL techniques.
 
@@ -241,7 +239,7 @@ In transaction-based sequential recommendation, there is only a single behavior 
 <span id="page-10-0"></span>![](_page_10_Figure_6.jpeg)
 <!-- Image Description: The image is a flowchart illustrating a neural network architecture. It shows a sequential model processing an input (1-of-N item encoding). The input passes through an embedding layer, multiple GRU (Gated Recurrent Unit) layers, and finally, a feedforward layer. The output represents scores assigned to items. The dashed lines indicate connections likely used for recurrent feedback within the GRU layers. The diagram depicts the data flow and processing steps within the model. -->
 
-Fig. 9. Architecture of GRU4Rec.
+Figure 9. Architecture of GRU4Rec.
 
 GRU4Rec employs session-parallel mini-batches and popularity-based negative sampling for training. The reason for using session-parallel mini-batches is to form sessions with equal length while
 
@@ -285,7 +283,7 @@ proposed an intent-aware sequential recommendation algorithm, which uses the sel
 
 Sachdeva et al. [\[87\]](#page-38-16) explored the variational autoencoder for modeling a user's preference through his/her historical sequence, which combines latent variables with temporal dependencies for preference modeling. Ma at al. [\[66\]](#page-37-14) specifically designed a hierarchical gating network (HGN) with BPR to capture both the long-term and short-term user preferences.
 
-# 3 Interaction-based Sequential Recommendation
+## 3 Interaction-based Sequential Recommendation
 
 Compared to the aforementioned two tasks, the interaction-based one is much more complicated as each behavior sequence consists of both different behavior types and different behavior objects. Thus, the recommendation models are expected to capture both the sequential dependencies among different behaviors, different items as well as behaviors and items, respectively. Next, we summarize the related models according to the deployed DL techniques.
 
@@ -295,27 +293,27 @@ thus further improve the performance of RLBL. [\[93\]](#page-38-17) took context
 
 3.3.2 Other Models. There are also some other DL techniques applied in the interaction-based sequential recommendation, including attention mechanisms, MLPs and Graph-based models. For example, [\[153\]](#page-40-11) proposed ATRank[9](#page-15-0) which adopts both self-attention and vanilla attention mechanisms. Considering the heterogeneity of behaviors, ATRank models the influence among behaviors via self-attention, while it uses vanilla attention to model the impact of different behaviors on the recommendation task. CSAN [\[41\]](#page-36-20) is the improved version of ATRank by also considering side information and polysemy of behavior types. Wu et al. [\[128\]](#page-39-2) proposed a deep listNet ranking framework (MLP-based) to jointly consider user's clicks and views. Ma et al. [\[67\]](#page-37-17) proposed a graph-based broad-aware network (G-BBAN) for news recommendation, which considers multiple user behaviors, behavioral sequence representations, and user representation.
 
-| Task              | DL Model            | Papers                                 |  |  |
+| Task | DL Model | Papers | | |
 |-------------------|---------------------|----------------------------------------|--|--|
-| Experienced-based | MLP                 | [26]                                   |  |  |
-|                   | RNN                 | [133]                                  |  |  |
-|                   |                     | [12, 15, 24, 34, 59, 78, 96, 103, 139] |  |  |
-|                   | RNN                 | [14, 22, 33, 35, 40, 42, 85, 100, 149] |  |  |
-|                   |                     | [11, 65, 80, 94, 129, 130, 138]        |  |  |
-| Transaction-based | CNN                 | [38, 105, 107, 138, 141, 142]          |  |  |
-|                   | MLP                 | [112, 118]                             |  |  |
-|                   |                     | [5, 45, 53, 61, 81, 86, 120, 137]      |  |  |
-|                   | Attention mechanism | [14, 54, 65, 99, 130, 140, 146]        |  |  |
-|                   | GNN                 | [117, 126, 131, 144]                   |  |  |
-|                   | Other networks      | [66, 87]                               |  |  |
-|                   | RNN                 | [49, 56, 60, 63, 93, 108]              |  |  |
-|                   | MLP                 | [128]                                  |  |  |
-| Interaction-based | Attention mechanism | [41, 63, 153]                          |  |  |
-|                   | GNN                 | [67]                                   |  |  |
+| Experienced-based | MLP | [26] | | |
+| | RNN | [133] | | |
+| | | [12, 15, 24, 34, 59, 78, 96, 103, 139] | | |
+| | RNN | [14, 22, 33, 35, 40, 42, 85, 100, 149] | | |
+| | | [11, 65, 80, 94, 129, 130, 138] | | |
+| Transaction-based | CNN | [38, 105, 107, 138, 141, 142] | | |
+| | MLP | [112, 118] | | |
+| | | [5, 45, 53, 61, 81, 86, 120, 137] | | |
+| | Attention mechanism | [14, 54, 65, 99, 130, 140, 146] | | |
+| | GNN | [117, 126, 131, 144] | | |
+| | Other networks | [66, 87] | | |
+| | RNN | [49, 56, 60, 63, 93, 108] | | |
+| | MLP | [128] | | |
+| Interaction-based | Attention mechanism | [41, 63, 153] | | |
+| | GNN | [67] | | |
 
 <span id="page-15-1"></span>Table 1. Categories of representative algorithms regarding sequential recommendation tasks and DL models.
 
-# 4 Concluding Remarks
+## 4 Concluding Remarks
 
 In this section, we have introduced representative algorithms for the three sequential recommendation tasks. We list the representative algorithms in terms of tasks and DL techniques in Table [1.](#page-15-1) In summary, RNNs and attention mechanisms have been greatly explored in both transaction and interaction-based sequential recommendation tasks, where the effectiveness of other DL models (e.g., GNN and generative models) needs much further investigation. Besides, there are also some issues for the existing models especially for the complicated interaction-based sequential recommendation: (1) the behavior type and the item in a behavior 2-tuple ( , ) are mostly equally treated. For example, ATRank [\[153\]](#page-40-11) and CSAN [\[41\]](#page-36-20) adopt the same attention score for the item and the corresponding behavior type; (2) different behavior types are not distinguished successfully. For example, [\[108\]](#page-38-3) used the same network to model different types of behaviors, assuming that different behavior types have similar patterns; (3) the correlation between behaviors in a sequence
 
@@ -328,7 +326,7 @@ is easily ignored. For example, [\[128\]](#page-39-2) used pooling operation to 
 <span id="page-16-1"></span>![](_page_16_Figure_3.jpeg)
 <!-- Image Description: The figure illustrates a machine learning model workflow. Raw data and labels are processed, incorporating embedding design and data augmentation. The model undergoes structural modification (attention mechanism, traditional methods, user representation), training (using specified loss function, mini-batch, and sampling strategy), and evaluation. A separate testing phase uses the refined model on new data to generate predicted labels. The diagram visually depicts the training and testing phases, highlighting data preprocessing and model refinement steps. -->
 
-Fig. 10. Influential factors of DL-based models.
+Figure 10. Influential factors of DL-based models.
 
 Figure [10](#page-16-1) shows the training and testing process of a sequential recommender system. In the training, the input includes raw data and label information, which are then fed into the data processing module, mainly including feature extraction and data augmentation. Feature extraction refers to converting raw data into structured data, while data augmentation is normally used to deal with data sparsity and cold-start problems, especially in DL-based models. Third, a model is trained and evaluated based on the processed data, and the model structure or training method (e.g., learning rate, loss function) can be updated in an iterated way based on the evaluation results till satisfactory performance is reached. In the testing, the data processing module only includes feature extraction, and then the obtained trained model is used to make recommendations.
 
@@ -340,35 +338,34 @@ Side information and behavior types are critical factors to DL-based models in t
 
 4.1.1 Side Information. Side information has been well recognized to be effective in facilitating recommendation performance [\[101\]](#page-38-18). It refers to information about items (other than IDs), e.g., category, images, text descriptions, and reviews, or information related to transactions (behaviors) like dwell time. Text and image information about items have been widely explored in DL-based collaborative filtering systems [\[6,](#page-35-16) [18,](#page-35-17) [73,](#page-37-18) [79,](#page-37-19) [145\]](#page-40-12), as well as in some DL-based sequential recommender systems [\[35,](#page-36-13) [41\]](#page-36-20). For example, p-RNN [\[35\]](#page-36-13) uses a parallel RNNs framework to process the item IDs, images and texts. Specifically, the first parallel architecture trains a GRU network (i.e., subnet) for item representation on the basis of each kind of information, respectively. The model concatenates the hidden layers of the subnets and generates the output. The second architecture has a shared hidden state to output weight matrix. The weighted sum of the hidden states is used to produce the output instead of being computed by separate subnets. In the third structure called parallel interaction, the hidden state of the item feature subnet is multiplied by the hidden state of the ID subnet in an element-wise manner before generating the final outcome. CSAN [\[41\]](#page-36-20) utilizes
 
-<span id="page-17-0"></span>
 
-| Module          | Factor                               | Method                                                                | Papers                        |
+| Module | Factor | Method | Papers |
 |-----------------|--------------------------------------|-----------------------------------------------------------------------|-------------------------------|
-|                 | side information                     | utilize image/text                                                    | [35, 41]                      |
-|                 |                                      | utilize dwell time                                                    | [12, 20, 149]                 |
-| Input           |                                      | simple behavior embedding                                             | [153]                         |
-|                 | behavior type                        | divide session into groups<br>for different purposes                  | [49, 56]                      |
-|                 | repeat consumption                   | consider repeat behavior                                              | [39, 81, 111]                 |
-|                 |                                      | item embedding                                                        | [27]                          |
-| Data processing | embedding design                     | w-item2vec                                                            | [56]                          |
-|                 |                                      | session embedding                                                     | [128]                         |
-|                 | data augmentation                    |                                                                       | [103, 107]                    |
-|                 |                                      | only attention mechanism                                              | [5, 41, 146, 153]             |
-| Model structure | incorporating<br>attention mechanism | incorporating vanilla<br>attention mechanism<br>with other DL methods | [45, 53, 61, 120]             |
-|                 | combining with                       | KNN                                                                   | [42]                          |
-|                 | conventional methods                 | metric learning                                                       | [146]                         |
-|                 | adding explicit                      | user embedded models                                                  | [105, 118]                    |
-|                 | user representation                  | user recurrent models                                                 | [11, 15, 24, 56, 78, 80, 129] |
-|                 |                                      | uniform                                                               | [33, 34]                      |
-|                 | negative sampling                    | popularity-based                                                      | [33, 34]                      |
-|                 |                                      | additional                                                            | [33]                          |
-| Model training  |                                      | sample size                                                           | [33]                          |
-|                 |                                      | session parallel                                                      | [34]                          |
-|                 | mini-batch creation                  | item boosting                                                         | [12]                          |
-|                 |                                      | user parallel                                                         | [78]                          |
-|                 |                                      | TOP1                                                                  | [34]                          |
-|                 | loss function                        | TOP1-max & BPR-max<br>[33]                                            |                               |
-|                 |                                      | CCE & Hinge                                                           | [22]                          |
+| | side information | utilize image/text | [35, 41] |
+| | | utilize dwell time | [12, 20, 149] |
+| Input | | simple behavior embedding | [153] |
+| | behavior type | divide session into groups<br>for different purposes | [49, 56] |
+| | repeat consumption | consider repeat behavior | [39, 81, 111] |
+| | | item embedding | [27] |
+| Data processing | embedding design | w-item2vec | [56] |
+| | | session embedding | [128] |
+| | data augmentation | | [103, 107] |
+| | | only attention mechanism | [5, 41, 146, 153] |
+| Model structure | incorporating<br>attention mechanism | incorporating vanilla<br>attention mechanism<br>with other DL methods | [45, 53, 61, 120] |
+| | combining with | KNN | [42] |
+| | conventional methods | metric learning | [146] |
+| | adding explicit | user embedded models | [105, 118] |
+| | user representation | user recurrent models | [11, 15, 24, 56, 78, 80, 129] |
+| | | uniform | [33, 34] |
+| | negative sampling | popularity-based | [33, 34] |
+| | | additional | [33] |
+| Model training | | sample size | [33] |
+| | | session parallel | [34] |
+| | mini-batch creation | item boosting | [12] |
+| | | user parallel | [78] |
+| | | TOP1 | [34] |
+| | loss function | TOP1-max & BPR-max<br>[33] | |
+| | | CCE & Hinge | [22] |
 
 Table 2. The influential factors on DL-based sequential recommender systems.
 
@@ -384,7 +381,7 @@ of [2, 3 ), then the parallel mini-batch of this session will contain 2 repeated
 
 It should be noted that, although side information and behavior types could greatly improve model performance, their collections might be either infeasible or cost-consuming.
 
-# 2 Data Processing
+## 2 Data Processing
 
 An appropriate design of feature extraction methods (i.e., embedding design) and data augmentation for generating more training data have been validated to be effective in existing DL-based models.
 
@@ -401,7 +398,7 @@ on the basis of the Skip-gram model and thus formed unified representations of i
 ![](_page_19_Figure_4.jpeg)
 <!-- Image Description: The image displays a flowchart illustrating different training and dropout sequences. An original sequence (11, 12, 13, 14) is shown, followed by three training sequences, each omitting one element (represented by "?") in a different position. Three subsequent dropout sequences further illustrate the model's performance when elements are missing, also with "?" indicating the missing element in different positions. The dashed circles highlight the missing elements in the dropout sequences. The figure likely demonstrates a model's robustness to missing data. -->
 
-Fig. 11. Data augmentation. The orange circles represent the predicted items; the dotted circles represent the item that is deleted in the dropout method, and light orange circles make up privileged information.
+Figure 11. Data augmentation. The orange circles represent the predicted items; the dotted circles represent the item that is deleted in the dropout method, and light orange circles make up privileged information.
 
 ## 3 Model Structure
 
@@ -437,18 +434,17 @@ Well-designed training strategies can also facilitate the learning of DL-based s
 
 TOP1 is a regularized approximation of relative rankings of positive and negative samples. As shown in Equation [2,](#page-21-0) it consists of two parts: the first part inclines to penalize the incorrect ranking between positive sample and any negative sample ( is the size of negative samples), and the second part is used as the regularization.
 
-<span id="page-21-0"></span>
 $$
 L_{\text{TOP1}} = \frac{1}{N_S} \sum_{j=1}^{N_S} \sigma(r_j - r_i) + \sigma(r_j^2)
 $$
- (2)
+(2)
 
 where (.) is a sigmoid function, and are the ranking scores for sample and respectively. Following the same notations, BPR (Bayesian Personalized Ranking) [\[82\]](#page-37-3) is defined as:
 
 $$
 L_{\rm BPR} = -\frac{1}{N_S} \sum_{j=1}^{N_S} \log \sigma(r_i - r_j)
 $$
- (3)
+(3)
 
 TOP1 and BPR loss functions might suffer from the gradients vanishing problems for DL-based models (e.g., in GRU4Rec [\[33\]](#page-36-12)). In this view, ranking-max loss function family is proposed [\[33\]](#page-36-12) to address this issue, where the ranking score is only compared to the negative sample which is most relevant to the target sample, i.e., the one has the highest ranking score. Accordingly, we have TOP1-max and BPR-max, which are formulated as Equations [4](#page-22-1) and [5](#page-22-2) respectively. They can be considered as the weighted version of TOP1 and BPR, respectively. Previous research validates that
 
@@ -456,15 +452,13 @@ ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication d
 
 the two loss functions largely improve the performance of RNN-based sequential recommendation models [\[33\]](#page-36-12).
 
-<span id="page-22-1"></span>
 $$
 L_{\text{TOP1-max}} = \sum_{j=1}^{N_S} s_j \left( \sigma(r_j - r_i) + \sigma(r_j^2) \right)
 $$
- (4)
+(4)
 
 where is the normalized score of using softmax function.
 
-<span id="page-22-2"></span>
 $$
 L_{\rm BPR\text{-}max} = -\log \sum_{j=1}^{N_S} s_j \sigma(r_i - r_j) \tag{5}
 $$
@@ -474,7 +468,7 @@ In addition to the ranking-based loss functions, CCE (categorial cross-entropy) 
 $$
 CCE(\mathbf{o}, i) = -\log(\text{softmax}(\mathbf{o})_i)
 $$
- (6)
+(6)
 
 where o is a model output and i is a target item. CCE suffers from the computation complexity issue due to the softmax function. On the contrary, Hinge compares the predicted results with a pre-defined threshold (e.g., 0):
 
@@ -484,11 +478,11 @@ $$
 
 where is the set of recommendations containing item , while is the set of recommendations not containing (i.e., bad recommendations). is a parameter to balance the impacts of the two parts of errors (correctly recommended vs. incorrectly recommended). With Hinge loss, the recommendation task is transformed to a binary classification problem where a recommender system determines whether an item should be recommended or not.
 
-#### <span id="page-22-0"></span>5 EMPIRICAL STUDIES ON INFLUENTIAL FACTORS
+### <span id="page-22-0"></span>5 EMPIRICAL STUDIES ON INFLUENTIAL FACTORS
 
 Here, we conduct experiments[11](#page-22-3) on real datasets to showcase the impact of influential factors on DL-based models in terms of recommendation accuracy, where mostly the ways of incorporating influential factors are widely adopted by representative sequential recommender systems.
 
-#### 1 Experimental Settings
+### 1 Experimental Settings
 
 5.1.1 Datasets. We use three real-world datasets: RSC15, RSC19 and LastFM. RSC15 is published by RecSys Challenge 2015[12](#page-22-4), which contains click and buy behaviors from an online shop. Only the click data is used in our evaluations. RSC19 is published by RecSys Challenge 2019[13](#page-22-5), which contains hotel search sessions from a global hotel platform. RSC19 (user) is a subset of RSC19. LastFM is collected via the LastFM API, and each sample is a 4-tuple (user, artist, song, timestamp).
 
@@ -505,51 +499,50 @@ will result in varied performance. For example, we check the performance of GRU4
 <span id="page-23-0"></span>![](_page_23_Figure_2.jpeg)
 <!-- Image Description: The image contains three line graphs (a, b, c) showing the performance of a system at different parameter settings (@5, @10, @20). Graph (a) displays Recall, (b) Mean Reciprocal Rank (MRR), and (c) Normalized Discounted Cumulative Gain (NDCG). Each graph plots these metrics against a varying parameter (likely the number of retrieved items) and shows how performance changes with the parameter. The purpose is to illustrate the impact of the parameter on different ranking evaluation metrics. -->
 
-Fig. 12. The effect of the length of session on RSC15.
+Figure 12. The effect of the length of session on RSC15.
 
 Besides, it should be noted that few studies have explicitly discussed their data splitting methods for model training/validation/testing. By reading the source codes publicized by the corresponding authors, we summarize the following two major forms (which are differed mainly owing to that whether user information is considered or not in model design): (1) to divide the sessions that have occurred in the latest days as the test set; (2) to treat each user's latest session as the test set. The former one is much more commonly adopted in the sequential recommendation.
 
 <span id="page-23-1"></span>The statistic information of these datasets are summarized in Table [3.](#page-23-1)
 
-| Feature                            | RSC15      | RSC19     | RSC19 (user) | LastFM  |  |  |  |
+| Feature | RSC15 | RSC19 | RSC19 (user) | LastFM | | | |
 |------------------------------------|------------|-----------|--------------|---------|--|--|--|
-| Sessions                           | 7,981,581  | 356,318   | 1,885        | 23,230  |  |  |  |
-| Items                              | 37,483     | 151,039   | 3,992        | 122,816 |  |  |  |
-| Behaviors                          | 31,708,461 | 3,452,695 | 49,747       | 683,907 |  |  |  |
-| Users                              | –          | 279,915   | 144          | 277     |  |  |  |
-| ABS                                | 3.97       | 9.69      | 26.39        | 29.44   |  |  |  |
-| ASU                                | –          | 1.27      | 13.09        | 83.86   |  |  |  |
-| ABS: Average Behaviors per Session |            |           |              |         |  |  |  |
-| ASU: Average Sessions per User     |            |           |              |         |  |  |  |
+| Sessions | 7,981,581 | 356,318 | 1,885 | 23,230 | | | |
+| Items | 37,483 | 151,039 | 3,992 | 122,816 | | | |
+| Behaviors | 31,708,461 | 3,452,695 | 49,747 | 683,907 | | | |
+| Users | – | 279,915 | 144 | 277 | | | |
+| ABS | 3.97 | 9.69 | 26.39 | 29.44 | | | |
+| ASU | – | 1.27 | 13.09 | 83.86 | | | |
+| ABS: Average Behaviors per Session | | | | | | | |
+| ASU: Average Sessions per User | | | | | | | |
 
 Table 3. The statistic information of the four datasets.
 
 <span id="page-23-2"></span>5.1.2 Model Settings. We choose GRU4Rec [\[34\]](#page-36-11) (Figure [9\)](#page-10-0) as our basic model, and then consider the influential factors in Figure [10](#page-16-1) to check their effects on the basic model. The main reason of using GRU4Rec is that lots of algorithms in the literature make improvement on it, or recognize it as a representative and competitive baseline for the sequential recommendation tasks. This makes GRU4Rec as a perfect fit to showcase the effects of influential factors on DL-based model. Specifically,
 
-<span id="page-24-0"></span>
 
-| Model              | RSC15      |       |                           |              |  |  |
+| Model | RSC15 | | | | | |
 |--------------------|------------|-------|---------------------------|--------------|--|--|
-|                    | Batch Size | Lr    | RNN Size                  | dropout rate |  |  |
-| Default            | 32         | 0.2   | 100                       | 0            |  |  |
-| GRU4Rec (Category) | 50         | 0.001 | 100                       | 0.5          |  |  |
-| C-GRU              | 50         | 0.001 | 120                       | 0.5          |  |  |
-| P-GRU              | 50         | 0.001 | 100 (item), 20 (category) | 0.5          |  |  |
-| NARM               | 512        | 0.001 | 100                       | 0.25         |  |  |
-| Model              |            |       | RSC19                     |              |  |  |
-|                    | Batch Size | Lr    | RNN Size                  | dropout rate |  |  |
-| Default            | 32         | 0.2   | 100                       | 0            |  |  |
-| GRU4Rec (Behavior) | 50         | 0.001 | 100                       | 0.5          |  |  |
-| B-GRU              | 50         | 0.001 | 100                       | 0.5          |  |  |
-| NARM               | 512        | 0.001 | 100                       | 0.25         |  |  |
-| User Implicit      | 50         | 0.001 | 50                        | 0.5          |  |  |
-| User Embedded      | 50         | 0.001 | 50                        | 0.5          |  |  |
-| User Recurrent     | 50         | 0.01  | 100 (item), 100 (user)    | 0            |  |  |
-| Model              |            |       | LastFM                    |              |  |  |
-|                    | Batch Size | Lr    | RNN Size                  | dropout rate |  |  |
-| User Implicit      | 50         | 0.001 | 50                        | 0.5          |  |  |
-| User Embedded      | 50         | 0.001 | 50                        | 0.5          |  |  |
-| User Recurrent     | 200        | 0.02  | 50 (item), 50 (user)      | 0            |  |  |
+| | Batch Size | Lr | RNN Size | dropout rate | | |
+| Default | 32 | 0.2 | 100 | 0 | | |
+| GRU4Rec (Category) | 50 | 0.001 | 100 | 0.5 | | |
+| C-GRU | 50 | 0.001 | 120 | 0.5 | | |
+| P-GRU | 50 | 0.001 | 100 (item), 20 (category) | 0.5 | | |
+| NARM | 512 | 0.001 | 100 | 0.25 | | |
+| Model | | | RSC19 | | | |
+| | Batch Size | Lr | RNN Size | dropout rate | | |
+| Default | 32 | 0.2 | 100 | 0 | | |
+| GRU4Rec (Behavior) | 50 | 0.001 | 100 | 0.5 | | |
+| B-GRU | 50 | 0.001 | 100 | 0.5 | | |
+| NARM | 512 | 0.001 | 100 | 0.25 | | |
+| User Implicit | 50 | 0.001 | 50 | 0.5 | | |
+| User Embedded | 50 | 0.001 | 50 | 0.5 | | |
+| User Recurrent | 50 | 0.01 | 100 (item), 100 (user) | 0 | | |
+| Model | | | LastFM | | | |
+| | Batch Size | Lr | RNN Size | dropout rate | | |
+| User Implicit | 50 | 0.001 | 50 | 0.5 | | |
+| User Embedded | 50 | 0.001 | 50 | 0.5 | | |
+| User Recurrent | 200 | 0.02 | 50 (item), 50 (user) | 0 | | |
 
 Table 4. Other parameters settings for different scenarios.
 
@@ -564,7 +557,7 @@ To verify the impact of behavior types, we design a new network (B-GRU) by addin
 <span id="page-25-0"></span>![](_page_25_Figure_2.jpeg)
 <!-- Image Description: This image presents three neural network architectures (C-GRU, P-GRU, B-GRU) for sequential data processing. Each architecture diagram shows layers including embedding layers (processing one-hot encodings of item categories and items), GRU (Gated Recurrent Unit) layers, a feedforward layer, and a softmax output layer. The diagrams illustrate differences in how item and category information is integrated before the GRU layers, impacting the model's handling of sequential data. -->
 
-Fig. 13. The network structures of C-GRU, P-GRU and B-GRU.
+Figure 13. The network structures of C-GRU, P-GRU and B-GRU.
 
 For the data processing module, we implement the data augmentation method in [\[103\]](#page-38-1) (see Figure [11\)](#page-19-0) on the basic model. Specifically, we randomly select 50% sessions in the training set to conduct data augmentation, and randomly treat a part of each session as new sessions.
 
@@ -590,13 +583,13 @@ It should be noted that for each method, we run each experiment 5 times and repo
 
 <span id="page-26-0"></span>Table 5. Results of incorporating item category or behavior type. Statistical significance of pairwise differences of each improved model vs. basic model (GRU4Rec) is determined by a paired -test (\* for p-value ≤ 0.1, ^ for p-value ≤ 0.05, Δ for p-value ≤ 0.01 ).
 
-| Model                     | RSC15                                              |                                                        |                                                    |                                                    |                                                        |                                                    |  |
+| Model | RSC15 | | | | | | |
 |---------------------------|----------------------------------------------------|--------------------------------------------------------|----------------------------------------------------|----------------------------------------------------|--------------------------------------------------------|----------------------------------------------------|--|
-|                           | Recall@5                                           | MRR@5                                                  | NDCG@5                                             | Recall@20                                          | MRR@20                                                 | NDCG@20                                            |  |
-| GRU4Rec<br>C-GRU<br>P-GRU | 0.313±0.0047<br>0.328Δ±<br>0.0023<br>0.335Δ±0.0014 | 0.168±0.0036<br>0.178Δ±<br>0.0016<br>0.180Δ±<br>0.0017 | 0.203±0.0039<br>0.215Δ±<br>0.0015<br>0.218Δ±0.0014 | 0.554±0.0043<br>0.564Δ±<br>0.0032<br>0.570Δ±0.0018 | 0.192±0.0034<br>0.202Δ±<br>0.0015<br>0.204Δ±<br>0.0017 | 0.273±0.0035<br>0.283Δ±<br>0.0012<br>0.286Δ±0.0015 |  |
-| Model                     | RSC19                                              |                                                        |                                                    |                                                    |                                                        |                                                    |  |
-|                           | Recall@5                                           | MRR@5                                                  | NDCG@5                                             | Recall@20                                          | MRR@20                                                 | NDCG@20                                            |  |
-| GRU4Rec<br>B-GRU          | 0.568± 0.0065<br>0.586Δ±<br>0.0025                 | 0.489±0.001<br>0.494Δ±<br>0.0032                       | 0.509± 0.0017<br>0.517Δ±0.0030                     | 0.696± 0.0023<br>0.708Δ±<br>0.0008                 | 0.502±0.0019<br>0.507Δ±<br>0.0029                      | 0.546± 0.0015<br>0.552Δ±0.0023                     |  |
+| | Recall@5 | MRR@5 | NDCG@5 | Recall@20 | MRR@20 | NDCG@20 | |
+| GRU4Rec<br>C-GRU<br>P-GRU | 0.313±0.0047<br>0.328Δ±<br>0.0023<br>0.335Δ±0.0014 | 0.168±0.0036<br>0.178Δ±<br>0.0016<br>0.180Δ±<br>0.0017 | 0.203±0.0039<br>0.215Δ±<br>0.0015<br>0.218Δ±0.0014 | 0.554±0.0043<br>0.564Δ±<br>0.0032<br>0.570Δ±0.0018 | 0.192±0.0034<br>0.202Δ±<br>0.0015<br>0.204Δ±<br>0.0017 | 0.273±0.0035<br>0.283Δ±<br>0.0012<br>0.286Δ±0.0015 | |
+| Model | RSC19 | | | | | | |
+| | Recall@5 | MRR@5 | NDCG@5 | Recall@20 | MRR@20 | NDCG@20 | |
+| GRU4Rec<br>B-GRU | 0.568± 0.0065<br>0.586Δ±<br>0.0025 | 0.489±0.001<br>0.494Δ±<br>0.0032 | 0.509± 0.0017<br>0.517Δ±0.0030 | 0.696± 0.0023<br>0.708Δ±<br>0.0008 | 0.502±0.0019<br>0.507Δ±<br>0.0029 | 0.546± 0.0015<br>0.552Δ±0.0023 | |
 
 Here, we systematically present the experimental results of different influential factors in terms of the four modules.
 
@@ -610,25 +603,25 @@ Behavior type effects. The results regarding impact of behavior types (B-GRU) ar
 
 <span id="page-27-0"></span>Table 6. Results on considering different factors. Statistical significance of pairwise differences of each improved model vs. the basic GRU4Rec is determined by a paired -test (\* for p-value ≤ 0.1, ^ for p-value ≤ 0.05, and Δ for p-value ≤ 0.01 ).
 
-| Factor        | Variable                           | RSC15                                          |                                                 |                                                 |                                                |                                                 |                                                |  |
+| Factor | Variable | RSC15 | | | | | | |
 |---------------|------------------------------------|------------------------------------------------|-------------------------------------------------|-------------------------------------------------|------------------------------------------------|-------------------------------------------------|------------------------------------------------|--|
-|               |                                    | Recall@5                                       | MRR@5                                           | NDCG@5                                          | Recall@20                                      | MRR@20                                          | NDCG@20                                        |  |
-| Dwell<br>time | 4<br>0<br>75<br>100                | 0.446±0.0011<br>0.772Δ±0.0004<br>0.730Δ±0.0010 | 0.268±0.0007<br>0.692Δ± 0.0005<br>0.635Δ±0.0007 | 0.312±0.0008<br>0.712Δ±0.0005<br>0.659Δ±00.0007 | 0.676±0.0009<br>0.865Δ±0.0005<br>0.841Δ±0.0004 | 0.293±0.0006<br>0.702Δ± 0.0005<br>0.647Δ±0.0006 | 0.380±0.0006<br>0.739Δ±0.0004<br>0.691Δ±0.0005 |  |
-| Data<br>Aug1  | Off4<br>On                         | 0.446±0.0011<br>0.446±0.0018                   | 0.268±0.0007<br>0.267±0.0005                    | 0.312±0.0008<br>0.312±0.0007                    | 0.676±0.0009<br>0.678^±0.0011                  | 0.293±0.0006<br>0.292±0.0005                    | 0.380±0.0006<br>0.379±0.0005                   |  |
-| Att2          | Off5<br>On                         | 0.480±0.0005<br>0.486Δ±0.0003                  | 0.285±0.0005<br>0.290Δ±0.0002                   | 0.334± 0.0005<br>0.339Δ± 0.0002                 | 0.703±0.0001<br>0.708Δ±0.0002                  | 0.309±0.0005<br>0.314Δ±0.0003                   | 0.400± 0.0004<br>0.404Δ± 0.0002                |  |
-| KNN<br>weight | 4<br>0<br>0.1<br>0.3               | 0.446±0.0011<br>0.452Δ±0.0008<br>0.460Δ±0.0007 | 0.268±0.0007<br>0.270Δ±0.0003<br>0.278Δ±0.0004  | 0.312±0.0008<br>0.315Δ±0.0002<br>0.323Δ±0.0004  | 0.676±0.0009<br>0.693Δ±0.0006<br>0.698Δ±0.0009 | 0.293±0.0006<br>0.296Δ±0.0005<br>0.303Δ±0.0005  | 0.380±0.0006<br>0.386Δ±0.0004<br>0.393Δ±0.0003 |  |
-| Factor        | Variable                           | RSC19                                          |                                                 |                                                 |                                                |                                                 |                                                |  |
-|               |                                    | Recall@5                                       | MRR@5                                           | NDCG@5                                          | Recall@20                                      | MRR@20                                          | NDCG@20                                        |  |
-| Dwell<br>time | 4<br>0<br>45<br>60                 | 0.640±0.0018<br>0.845Δ±0.0074<br>0.830±0.0007  | 0.547±0.0028<br>0.783Δ±0.0063<br>0.763Δ±0.0013  | 0.571±0.0025<br>0.799Δ±0.0065<br>0.780Δ±0.0011  | 0.751±0.0017<br>0.893Δ±0.0071<br>0.885±0.0010  | 0.559±0.0028<br>0.788Δ±0.0062<br>0.768Δ±0.0015  | 0.602±0.0025<br>0.813Δ±0.0063<br>0.795Δ±0.0013 |  |
-| Data<br>Aug1  | Off4<br>On                         | 0.640±0.0018<br>0.641 ±0.0015                  | 0.547±0.0028<br>0.551^±0.0019                   | 0.571±0.0025<br>0.574^±0.0013                   | 0.751±0.0017<br>0.754^±0.0004                  | 0.559±0.0028<br>0.562^±0.0020                   | 0.602±0.0025<br>0.606^±0.0014                  |  |
-| Att2          | Off5<br>On                         | 0.736±0.0015<br>0.742Δ±0.0023                  | 0.569±0.0010<br>0.572Δ± 0.0024                  | 0.611±0.0011<br>0.615Δ±0.0023                   | 0.905±0.0009<br>0.912Δ±0.0012                  | 0.587±0.0001<br>0.591Δ± 0.0022                  | 0.661±0.0001<br>0.665Δ±0.0020                  |  |
-| KNN<br>weight | 4<br>0<br>0.1<br>0.3               | 0.640±0.0018<br>0.643±0.0039<br>0.657Δ±0.0023  | 0.547±0.0028<br>0.549±0.0064<br>0.562Δ±0.0067   | 0.571±0.0025<br>0.572±0.0057<br>0.586Δ±0.0057   | 0.751±0.0017<br>0.753±0.0034<br>0.765Δ±0.0033  | 0.559±0.0028<br>0.560±0.0063<br>0.573±0.0067    | 0.602±0.0025<br>0.604±0.0055<br>0.617±0.0057   |  |
-| Factor        | Variable                           | LastFM                                         |                                                 |                                                 |                                                |                                                 |                                                |  |
-|               |                                    | Recall@5                                       | MRR@5                                           | NDCG@5                                          | Recall@20                                      | MRR@20                                          | NDCG@20                                        |  |
-| User<br>Rep3  | Implicit6<br>Embedded<br>Recurrent | 0.173Δ±0.0021<br>0.006±0.0011<br>0.002±0.0002  | 0.147Δ±0.0018<br>0.004±0.0016<br>0.001±0.0002   | 0.154Δ±0.0018<br>0.004±0.0014<br>0.002±0.0007   | 0.193Δ±0.0024<br>0.016±0.0026<br>0.003±0.0009  | 0.149Δ±0.0018<br>0.005±0.0015<br>0.002±0.0005   | 0.160Δ±0.0018<br>0.007±0.0012<br>0.002±0.0002  |  |
-| Factor        | Variable                           | RSC19 (user)                                   |                                                 |                                                 |                                                |                                                 |                                                |  |
-|               |                                    | Recall@5                                       | MRR@5                                           | NDCG@5                                          | Recall@20                                      | MRR@20                                          | NDCG@20                                        |  |
-| User<br>Rep3  | Implicit6<br>Embedded<br>Recurrent | 0.713Δ±0.0165<br>0.032±0.0098<br>0.030±0.0199  | 0.654Δ±0.0128<br>0.023±0.0092<br>0.016±0.0113   | 0.668Δ±0.0130<br>0.025±0.0093<br>0.019±0.0131   | 0.781Δ±0.0134<br>0.060±0.0113<br>0.079±0.0198  | 0.661Δ±0.0128<br>0.025±0.0090<br>0.020±0.0111   | 0.689Δ±0.0125<br>0.032±0.0094<br>0.033±0.0126  |  |
+| | | Recall@5 | MRR@5 | NDCG@5 | Recall@20 | MRR@20 | NDCG@20 | |
+| Dwell<br>time | 4<br>0<br>75<br>100 | 0.446±0.0011<br>0.772Δ±0.0004<br>0.730Δ±0.0010 | 0.268±0.0007<br>0.692Δ± 0.0005<br>0.635Δ±0.0007 | 0.312±0.0008<br>0.712Δ±0.0005<br>0.659Δ±00.0007 | 0.676±0.0009<br>0.865Δ±0.0005<br>0.841Δ±0.0004 | 0.293±0.0006<br>0.702Δ± 0.0005<br>0.647Δ±0.0006 | 0.380±0.0006<br>0.739Δ±0.0004<br>0.691Δ±0.0005 | |
+| Data<br>Aug1 | Off4<br>On | 0.446±0.0011<br>0.446±0.0018 | 0.268±0.0007<br>0.267±0.0005 | 0.312±0.0008<br>0.312±0.0007 | 0.676±0.0009<br>0.678^±0.0011 | 0.293±0.0006<br>0.292±0.0005 | 0.380±0.0006<br>0.379±0.0005 | |
+| Att2 | Off5<br>On | 0.480±0.0005<br>0.486Δ±0.0003 | 0.285±0.0005<br>0.290Δ±0.0002 | 0.334± 0.0005<br>0.339Δ± 0.0002 | 0.703±0.0001<br>0.708Δ±0.0002 | 0.309±0.0005<br>0.314Δ±0.0003 | 0.400± 0.0004<br>0.404Δ± 0.0002 | |
+| KNN<br>weight | 4<br>0<br>0.1<br>0.3 | 0.446±0.0011<br>0.452Δ±0.0008<br>0.460Δ±0.0007 | 0.268±0.0007<br>0.270Δ±0.0003<br>0.278Δ±0.0004 | 0.312±0.0008<br>0.315Δ±0.0002<br>0.323Δ±0.0004 | 0.676±0.0009<br>0.693Δ±0.0006<br>0.698Δ±0.0009 | 0.293±0.0006<br>0.296Δ±0.0005<br>0.303Δ±0.0005 | 0.380±0.0006<br>0.386Δ±0.0004<br>0.393Δ±0.0003 | |
+| Factor | Variable | RSC19 | | | | | | |
+| | | Recall@5 | MRR@5 | NDCG@5 | Recall@20 | MRR@20 | NDCG@20 | |
+| Dwell<br>time | 4<br>0<br>45<br>60 | 0.640±0.0018<br>0.845Δ±0.0074<br>0.830±0.0007 | 0.547±0.0028<br>0.783Δ±0.0063<br>0.763Δ±0.0013 | 0.571±0.0025<br>0.799Δ±0.0065<br>0.780Δ±0.0011 | 0.751±0.0017<br>0.893Δ±0.0071<br>0.885±0.0010 | 0.559±0.0028<br>0.788Δ±0.0062<br>0.768Δ±0.0015 | 0.602±0.0025<br>0.813Δ±0.0063<br>0.795Δ±0.0013 | |
+| Data<br>Aug1 | Off4<br>On | 0.640±0.0018<br>0.641 ±0.0015 | 0.547±0.0028<br>0.551^±0.0019 | 0.571±0.0025<br>0.574^±0.0013 | 0.751±0.0017<br>0.754^±0.0004 | 0.559±0.0028<br>0.562^±0.0020 | 0.602±0.0025<br>0.606^±0.0014 | |
+| Att2 | Off5<br>On | 0.736±0.0015<br>0.742Δ±0.0023 | 0.569±0.0010<br>0.572Δ± 0.0024 | 0.611±0.0011<br>0.615Δ±0.0023 | 0.905±0.0009<br>0.912Δ±0.0012 | 0.587±0.0001<br>0.591Δ± 0.0022 | 0.661±0.0001<br>0.665Δ±0.0020 | |
+| KNN<br>weight | 4<br>0<br>0.1<br>0.3 | 0.640±0.0018<br>0.643±0.0039<br>0.657Δ±0.0023 | 0.547±0.0028<br>0.549±0.0064<br>0.562Δ±0.0067 | 0.571±0.0025<br>0.572±0.0057<br>0.586Δ±0.0057 | 0.751±0.0017<br>0.753±0.0034<br>0.765Δ±0.0033 | 0.559±0.0028<br>0.560±0.0063<br>0.573±0.0067 | 0.602±0.0025<br>0.604±0.0055<br>0.617±0.0057 | |
+| Factor | Variable | LastFM | | | | | | |
+| | | Recall@5 | MRR@5 | NDCG@5 | Recall@20 | MRR@20 | NDCG@20 | |
+| User<br>Rep3 | Implicit6<br>Embedded<br>Recurrent | 0.173Δ±0.0021<br>0.006±0.0011<br>0.002±0.0002 | 0.147Δ±0.0018<br>0.004±0.0016<br>0.001±0.0002 | 0.154Δ±0.0018<br>0.004±0.0014<br>0.002±0.0007 | 0.193Δ±0.0024<br>0.016±0.0026<br>0.003±0.0009 | 0.149Δ±0.0018<br>0.005±0.0015<br>0.002±0.0005 | 0.160Δ±0.0018<br>0.007±0.0012<br>0.002±0.0002 | |
+| Factor | Variable | RSC19 (user) | | | | | | |
+| | | Recall@5 | MRR@5 | NDCG@5 | Recall@20 | MRR@20 | NDCG@20 | |
+| User<br>Rep3 | Implicit6<br>Embedded<br>Recurrent | 0.713Δ±0.0165<br>0.032±0.0098<br>0.030±0.0199 | 0.654Δ±0.0128<br>0.023±0.0092<br>0.016±0.0113 | 0.668Δ±0.0130<br>0.025±0.0093<br>0.019±0.0131 | 0.781Δ±0.0134<br>0.060±0.0113<br>0.079±0.0198 | 0.661Δ±0.0128<br>0.025±0.0090<br>0.020±0.0111 | 0.689Δ±0.0125<br>0.032±0.0094<br>0.033±0.0126 | |
 
 1 "Data Aug" refers to Data Augmentation.
 
@@ -663,17 +656,17 @@ Sampling method effects. Figures [14](#page-29-0) and [15](#page-29-1) depict th
 <span id="page-29-0"></span>![](_page_29_Figure_1.jpeg)
 <!-- Image Description: The image contains three line graphs comparing the performance of three methods (XE, B-m, T-m) on three metrics: Recall@20, MRR@20, and NDCG@20. Each graph shows the metric's value plotted against a variable (likely a parameter) ranging from 0 to 1. The purpose is to illustrate the effect of this parameter on the performance of each method across different information retrieval metrics. The graphs allow for a comparison of the methods' performance relative to one another and the impact of the varying parameter. -->
 
-Fig. 14. The impact of on additional sampling strategy on RSC15 (XE: cross-entropy; B-m: BPR-max; T-m: TOP1-max).
+Figure 14. The impact of on additional sampling strategy on RSC15 (XE: cross-entropy; B-m: BPR-max; T-m: TOP1-max).
 
 <span id="page-29-1"></span>![](_page_29_Figure_3.jpeg)
 <!-- Image Description: The image presents three line graphs (a, b, c) comparing the performance of three methods (XE, B-m, T-m) on a retrieval task. Each graph shows how Recall@20 (a), MRR@20 (b), and NDCG@20 (c) vary with a parameter (x-axis, unspecified). The graphs visually compare the effectiveness of the three methods across different parameter settings, illustrating their relative strengths and weaknesses in terms of ranking performance. -->
 
-Fig. 15. The impact of on additional sampling strategy on RSC19 (XE: cross-entropy; B-m: BPR-max; T-m: TOP1-max).
+Figure 15. The impact of on additional sampling strategy on RSC19 (XE: cross-entropy; B-m: BPR-max; T-m: TOP1-max).
 
 <span id="page-29-2"></span>![](_page_29_Figure_5.jpeg)
 <!-- Image Description: The image contains three line graphs (a, b, c) showing the performance of a model across different embedding dimensions (0, 1, 32, 128, 512, 2048). Each graph displays Recall, MRR, and NDCG, respectively, using three lines representing different cut-off values (@5, @10, @20). The graphs illustrate how these metrics improve with increasing embedding dimension. -->
 
-Fig. 16. The effect of sample size on RSC15.
+Figure 16. The effect of sample size on RSC15.
 
 sufficient search in validation set to figure out the optimal combination of sampling strategy and loss function with regard to the most valuable evaluation measurements in real world applications.
 
@@ -684,17 +677,17 @@ ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication d
 <span id="page-30-0"></span>![](_page_30_Figure_1.jpeg)
 <!-- Image Description: This figure displays three line graphs (a, b, c) comparing Recall, Mean Reciprocal Rank (MRR), and Normalized Discounted Cumulative Gain (NDCG) at 5, 10, and 20 respectively. Each graph plots performance against an increasing embedding size (0, 1, 32, 128, 512, 2048). The purpose is to demonstrate the impact of embedding size on these three information retrieval metrics. -->
 
-Fig. 17. The effect of sample size on RSC19.
+Figure 17. The effect of sample size on RSC19.
 
 <span id="page-30-1"></span>![](_page_30_Figure_3.jpeg)
 <!-- Image Description: The image displays three line graphs (a, b, c) comparing the performance of four different recommendation algorithms (B-m, T-m, XE, BPRTOP1) across three metrics: Recall, MRR, and NDCG. Each graph shows three lines representing different cutoff points (@5, @10, @20) for top-N recommendations. The purpose is to visually compare the algorithms' performance at various cutoffs using standard information retrieval metrics. -->
 
-Fig. 18. Model performance for different loss functions on RSC15 (B-m: BPR-max; T-m: Top1-max; XE: cross-entropy).
+Figure 18. Model performance for different loss functions on RSC15 (B-m: BPR-max; T-m: Top1-max; XE: cross-entropy).
 
 <span id="page-30-2"></span>![](_page_30_Figure_5.jpeg)
 <!-- Image Description: The image contains three line graphs (a, b, c) comparing the performance of four different recommendation algorithms (B-m, T-m, XE, BPRTOP1) across three metrics: Recall, Mean Reciprocal Rank (MRR), and Normalized Discounted Cumulative Gain (NDCG). Each line represents a different cut-off point (@5, @10, @20) indicating the top-N recommendations considered. The graphs illustrate how these metrics vary depending on the algorithm and the cut-off point used for evaluation. -->
 
-Fig. 19. Model performance for different loss functions on RSC19 (B-m: BPR-max; T-m: Top1-max; XE: cross-entropy).
+Figure 19. Model performance for different loss functions on RSC19 (B-m: BPR-max; T-m: Top1-max; XE: cross-entropy).
 
 (Figure [17\)](#page-30-0) is almost similar, but there is a slight decrease when sample size varies from 32 to 128 in terms of MRR and NDCG. It should be noted that additional negative sampling leads to higher computational costs. Therefore, in real world applications, we need to keep a balance between model performance and training time considering the size of negative samples.
 
@@ -702,9 +695,9 @@ Loss function effects. As depicted in Figures [18](#page-30-1) and [19,](#page-3
 
 5.2.5 Concluding Remarks. The experimental results verify that the summarized influential factors in Section [4](#page-16-0) all play an important role in DL-based sequential recommendation. Our suggestions for best in practice are summarized as follows: 1) try all possible side information (such as texts and images) when allowed, and carefully design the corresponding modules; 2) well consider the connections between other behavior types with the target behavior, and be careful about the possible noisy information involved in final recommendation when model these connections; 3) always incorporate TOP1-max, BPR-max and cross-entropy loss functions for training, keep a balance between model performance and computational cost with regard to the size of negative samples, and carefully choose/design data augmentation strategies to further boost the corresponding recommendation performance, especially when the available training set is relatively small; and 4) for any DL-based models, consider to further improve their performance with attention mechanism, by possibly combing with the traditional sequential learning models, and a well-designed explicit user representation module accommodating to the corresponding data scenarios.
 
-# <span id="page-31-0"></span>6 FUTURE DIRECTIONS AND CONCLUSIONS
+## <span id="page-31-0"></span>6 FUTURE DIRECTIONS AND CONCLUSIONS
 
-# 1 Future Directions
+## 1 Future Directions
 
 As we have discussed, DL techniques have greatly promoted the sequential recommendation studies, but also are accompanied by some challenging issues. Thus, we summarize the following open issues which can be considered as future directions for DL-based sequential recommender systems.
 

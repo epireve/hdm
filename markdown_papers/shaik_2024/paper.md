@@ -16,7 +16,6 @@ keywords:
 - large-scale
 ---
 
-
 # S3LLM: Large-Scale Scientific Software Understanding with LLMs using Source, Metadata, and Document
 
 Kareem Shaik<sup>1</sup> , Dali Wang<sup>2</sup> , Weijian Zheng<sup>3</sup> , Qinglei Cao<sup>4</sup> , Heng Fan<sup>1</sup> , Peter Schwartz<sup>2</sup> , and Yunhe Feng<sup>1</sup>
@@ -35,7 +34,7 @@ Abstract. The understanding of large-scale scientific software poses significant
 
 Keywords: Large-Scale Scientific Software, Large Language Models, Research Software Analysis, E3SM Land Model, Retrieval Augmented Generation (RAG), LLM, LLaMA, ChatGPT
 
-# 1 Introduction
+## 1 Introduction
 
 Large-scale scientific computing software is crucial in various scientific fields, undergoing extensive development cycles that lead to the formation of intricate software libraries and ecosystems. This complexity stems from the lengthy development periods, ongoing extensions, and evolving development paradigms, making it imperative to provide users with insights into these computing tools. However, understanding such software is a challenging task due to several factors. First, large-scale scientific software often incorporates multiple programming languages, including older languages such as Fortran and Pascal, which poses a significant challenge for contemporary programmers trying to understand the code. Second, the large volume of scientific software, which may encompass millions of lines of code, presents the obstacle to comprehensively understanding each segment of the
 
@@ -60,20 +59,20 @@ The contributions of this paper are summarized as follows:
 - Experiments conducted with the large-scale Energy Exascale Earth System Model (E3SM) [\[16\]](#page-12-8) demonstrate the effectiveness of our model in analyzing source code, metadata, and textual documents.
 - We contribute to the scientific computing community by releasing S3LLM as an open-source tool, ensuring broad accessibility and usefulness across a broad spectrum of scientific computing applications and research pursuits.
 
-# 2 Related Work
+## 2 Related Work
 
 Code information collection: A variety of tools have been developed to gather diverse forms of code information. Tools such as cloc [\[1\]](#page-12-9), sloc [\[6\]](#page-12-10), and sonar [\[7\]](#page-12-11) are designed to assess a project's source code to determine its size and the programming languages employed. Meanwhile, the ScanCode [\[5\]](#page-12-12) toolkit and fossology [\[3\]](#page-12-13) are specialized tools that provide insights on software licenses, copyrights, dependencies, and additional relevant information. The OSS Review Toolkit [\[4\]](#page-12-14) further enhances these capabilities by integrating third-party package managers (e.g., MAVEN, PIP, NPM) and code scanners (e.g., Licensee, ScanCode), facilitating the identification of dependencies across different open-source libraries within a project. Nonetheless, these tools do not leverage Artificial Intelligence (AI) or LLMs to simplify the process of collecting code information, which requires users to input their requirements in a format that these tools can interpret. In contrast, our framework S3LLM distinguishes itself by allowing users to express their requirements in natural language, subsequently providing precise and accurate code information. This approach significantly improves the efficiency and accuracy of code analysis.
 
 LLM-based Software Engineering: The integration of AI and LLMs has significantly transformed code analysis and software development methodologies. This evolution is evident in the widespread application of LLMs for code generation, underscoring their utility in enhancing programming efficiency and accuracy [\[14,](#page-12-15)[13\]](#page-12-16). Furthermore, research in this domain has validated the effectiveness of LLMs in critical tasks such as unit test generation [\[28,](#page-13-6)[26\]](#page-13-7), bug analysis [\[23,](#page-13-8)[30\]](#page-13-9), and debugging [\[11,](#page-12-17)[19\]](#page-13-10), showcasing their potential to refine testing processes, improve bug detection, and streamline debugging. Recently, researchers have also applied LLM to large-scale scientific software [\[24\]](#page-13-3). However, instead of employing LLM to understand the scientific code, researchers typically focus on specific tasks such as extracting variables of interest by reading the code documentation [\[24\]](#page-13-3). Despite the prevalent focus on code generation, testing, and repair, S3LLM diverges by leveraging both LLM and traditional techniques to deepen the understanding of large-scale scientific codes.
 
-# 3 Method
+## 3 Method
 
 We first introduce an overview of the S3LLM framework, subsequently delving into the detailed design of its components. S3LLM examines large-scale scientific software from multifaceted perspectives, utilizing diverse data types such as source code, code metadata, and textual reports. Each
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This flowchart illustrates a system for large-scale scientific software understanding using large language models (LLMs). Three main processing paths are shown: one for source code (using FQL queries and RAG), one for metadata (using LLaMA and GPT-4), and one for documents (using RAG and LLaMA). Each path involves prompting LLMs (primarily LLaMA and GPT-4) with data and receiving results. The diagram details the data flow and the specific LLM used in each step, showcasing a multi-faceted approach to software comprehension. -->
 
-Fig. 1: Framework overview of S3LLM
+**Figure 1:** Framework overview of S3LLM
 
 component's design is meticulously outlined to elucidate how S3LLM facilitates a comprehensive investigation of scientific software, ensuring a thorough understanding of its complex ecosystem.
 
@@ -85,20 +84,19 @@ At the heart of S3LLM lies open-source LLaMA-2 models engineered for conversatio
 
 Large-scale scientific software, such as E3SM, often contains vast quantities of source code, exceeding a million lines in some cases. This presents a significant challenge for open-source LLMs in directly managing such a huge number of tokens by loading all of the tokens into their context windows. Furthermore, many sophisticated source code analysis tools today require users to possess in-depth
 
-<span id="page-4-0"></span>
 
-| Question                    | FQL Query                                                     |  |  |  |  |  |  |  |  |  |  |
+| Question | FQL Query | | | | | | | | | | |
 |-----------------------------|---------------------------------------------------------------|--|--|--|--|--|--|--|--|--|--|
-| Is OpenMP used?             |                                                               |  |  |  |  |  |  |  |  |  |  |
-| Library Utilization Query   | FQL: CHECK (!\$OMP ∥ pragma omp) WHERE (*) AS (OpenMP)        |  |  |  |  |  |  |  |  |  |  |
-| What is the minimum         | MAX (CHECK (MPI AINT ADD ∥ MPI AINT DIFF) WHERE (*) AS (3.1), |  |  |  |  |  |  |  |  |  |  |
-| version requirement of MPI? | ,                                                             |  |  |  |  |  |  |  |  |  |  |
-| Version Assessment Query    | CHECK (mpi.h ∥ use mpi ∥ mpif.h) WHERE (*) AS (2.0))          |  |  |  |  |  |  |  |  |  |  |
-| What OpenMP scheduling      | LIST (CHECK (schedule(static) WHERE(*) AS (Static),           |  |  |  |  |  |  |  |  |  |  |
-| method is used?             | CHECK (schedule(dynamic) WHERE(*) AS (Dynamic), ,             |  |  |  |  |  |  |  |  |  |  |
-| Feature Enumeration Query   | CHECK (schedule(runtime) WHERE(*) AS (Runtime))               |  |  |  |  |  |  |  |  |  |  |
+| Is OpenMP used? | | | | | | | | | | | |
+| Library Utilization Query | FQL: CHECK (!\$OMP ∥ pragma omp) WHERE (*) AS (OpenMP) | | | | | | | | | | |
+| What is the minimum | MAX (CHECK (MPI AINT ADD ∥ MPI AINT DIFF) WHERE (*) AS (3.1), | | | | | | | | | | |
+| version requirement of MPI? | , | | | | | | | | | | |
+| Version Assessment Query | CHECK (mpi.h ∥ use mpi ∥ mpif.h) WHERE (*) AS (2.0)) | | | | | | | | | | |
+| What OpenMP scheduling | LIST (CHECK (schedule(static) WHERE(*) AS (Static), | | | | | | | | | | |
+| method is used? | CHECK (schedule(dynamic) WHERE(*) AS (Dynamic), , | | | | | | | | | | |
+| Feature Enumeration Query | CHECK (schedule(runtime) WHERE(*) AS (Runtime)) | | | | | | | | | | |
 
-Table 1: Examples of HPC feature questions and associated FQL queries
+**Table 1:** Examples of HPC feature questions and associated FQL queries
 
 programming expertise or specialized domain knowledge for effective source code interrogation. To address these issues, S3LLM combines the code analysis capability of existing tools and the natural language understanding capability of LLMs together, not only avoiding loading the entire codebase into LLMs but also allowing users to query source code using natural language.
 
@@ -120,7 +118,7 @@ Large-scale scientific software often comes with a comprehensive set of suppleme
 
 S3LLM adopts LangChain, an advanced open-source framework specifically designed for creating applications with LLMs, to implement RAG. LangChain's DocumentLoaders and Text Splitters are utilized to effectively organize and segment documents for query processing. Subsequently, VectorStore and Embeddings models are employed to generate and maintain document embeddings. For this task, we use all-MiniLM-L6-v2 document embeddings to create the embeddings and a FAISS-based similarity index vector storage for efficient retrieval. The Retriever component is crucial in obtaining the relevant segments to be included in the user-defined prompt. Lastly, the refined query, augmented with the retrieved data, is fed into LLaMA-2, which generates customized responses. This demonstrates the smooth integration of RAG within S3LLM , enhancing document comprehension in the field of scientific software.
 
-# 4 Case Study
+## 4 Case Study
 
 We deploy S3LLM on the Energy Exascale Earth System Model (E3SM) as a case study to demonstrate its effectiveness in analyzing source code, code metadata, and text-based technical reports.
 
@@ -148,29 +146,29 @@ Structured query language (SQL) is widely used for processing information in rel
 
 <span id="page-7-0"></span><sup>6</sup> A software toolkit designed for porting E3SM land model onto GPUs using OpenACC.
 
-Table 2: Two CSV files produced by SPEL [\[22\]](#page-13-12) to be processed as SQL tables
+**Table 2:** Two CSV files produced by SPEL [\[22\]](#page-13-12) to be processed as SQL tables
 
 <span id="page-8-0"></span>(a) Detailed information about Component
 
-| Variable              | Type       | Dimension |
+| Variable | Type | Dimension |
 |-----------------------|------------|-----------|
-| snl                   | integer 1D |           |
-| dz                    | real       | 2D        |
-| sabg patch            | real       | 1D        |
-| sabg lyr patch real   |            | 2D        |
-| ws col                | real       | 1D        |
-| lake icefrac col real |            | 2D        |
+| snl | integer 1D | |
+| dz | real | 2D |
+| sabg patch | real | 1D |
+| sabg lyr patch real | | 2D |
+| ws col | real | 1D |
+| lake icefrac col real | | 2D |
 
 (b) Derived Types of each Component
 
-| Derived Type Component |                  |
+| Derived Type Component | |
 |------------------------|------------------|
-| col pp                 | snl              |
-| col pp                 | dz               |
-| solarabs vars          | sabg patch       |
-| solarabs vars          | sabg lyr patch   |
-| lakestate vars         | ws col           |
-| lakestate vars         | lake icefrac col |
+| col pp | snl |
+| col pp | dz |
+| solarabs vars | sabg patch |
+| solarabs vars | sabg lyr patch |
+| lakestate vars | ws col |
+| lakestate vars | lake icefrac col |
 
 ### Prompt for Summarizing DOT File:
 
@@ -200,7 +198,7 @@ firemod::firefluxes -> ndepstreammod::elm_domain_mct
 firemod::firefluxes -> histfilemod::hist_addfld1d
 ```text
 
-# }
+## }
 
 Response:
 
@@ -267,23 +265,23 @@ Here is the data format information for the LakeTemperatureAllLoopVariables.txt 
 
 The content of LakeTemperatureAllLoopVariables.txt file:
 
-|                                                                                                           | LakeTemperature |  |      |   |   |            |   |           |  |  |   |                | soilthermprop_ LakeTemperature |   |      |   |   |   |   |   |                  |
+| | LakeTemperature | | | | | | | | | | | | soilthermprop_ LakeTemperature | | | | | | | | |
 |-----------------------------------------------------------------------------------------------------------|-----------------|--|------|---|---|------------|---|-----------|--|--|---|----------------|--------------------------------|---|------|---|---|---|---|---|------------------|
-| filter_lakec                                                                                              | ro ro -         |  |      |   |   | ro ro ro - |   |           |  |  |   | ro ro ro ro ro | ro ro -                        |   |      |   |   |   |   |   | ro ro - ro ro ro |
-| lake_col_to_filter  wo -                                                                                  |                 |  | ro - |   | - | -          |   | ro -  - - |  |  | - | -              | -                              | - | ro - |   | - | - | - | - | -                |
-| ocvts                                                                                                     | wo -            |  | -    | - | - | -          | - | -  - -    |  |  | - | -              | rw rw -                        |   |      | - | - | - | - | - | -                |
-| puddle                                                                                                    | wo -            |  | -    | - | - | -          | - | -  - -    |  |  | - | -              | -                              | - | -    | - | - | - | - | - | -                |
-| frzn                                                                                                      | wo -            |  | -    | - | - | -          | - | -  - -    |  |  | - | -              | -                              | - | -    | - | - | - | - | - | -                |
-| bottomconvect                                                                                             | wo -            |  | -    | - | - | -          | - | -  - -    |  |  | - | -              | -                              | - | -    | - | - | - | - | - | -                |
-| hc_soisno                                                                                                 | wo -            |  | -    | - | - | -          | - | -  - -    |  |  | - | -              | -                              | - | -    | - | - | - | - | - | -                |
-| hc_soi                                                                                                    | wo -            |  | -    | - | - | -          | - | -  - -    |  |  | - | -              | -                              | - | -    | - | - | - | - | - | -                |
-| How many variables are used by the first do loop in lakeTemparature. And what is the                      |                 |  |      |   |   |            |   |           |  |  |   |                |                                |   |      |   |   |   |   |   |                  |
-| role of these variables (ro, wo, or rw)?                                                                  |                 |  |      |   |   |            |   |           |  |  |   |                |                                |   |      |   |   |   |   |   |                  |
-| Response:                                                                                                 |                 |  |      |   |   |            |   |           |  |  |   |                |                                |   |      |   |   |   |   |   |                  |
-| This indicates that there are 8 variables used in the first "do loop" of the LakeTemperature section.     |                 |  |      |   |   |            |   |           |  |  |   |                |                                |   |      |   |   |   |   |   |                  |
-| Their roles are as follows:                                                                               |                 |  |      |   |   |            |   |           |  |  |   |                |                                |   |      |   |   |   |   |   |                  |
-| - 1 variable is read-only (filter lakec).                                                                 |                 |  |      |   |   |            |   |           |  |  |   |                |                                |   |      |   |   |   |   |   |                  |
-| - 7 variables are write-only (lake col to filter, ocvts, puddle, frzn, bottomconvect, hc soisno, hc soi). |                 |  |      |   |   |            |   |           |  |  |   |                |                                |   |      |   |   |   |   |   |                  |
+| filter_lakec | ro ro - | | | | | ro ro ro - | | | | | | ro ro ro ro ro | ro ro - | | | | | | | | ro ro - ro ro ro |
+| lake_col_to_filter wo - | | | ro - | | - | - | | ro - - - | | | - | - | - | - | ro - | | - | - | - | - | - |
+| ocvts | wo - | | - | - | - | - | - | - - - | | | - | - | rw rw - | | | - | - | - | - | - | - |
+| puddle | wo - | | - | - | - | - | - | - - - | | | - | - | - | - | - | - | - | - | - | - | - |
+| frzn | wo - | | - | - | - | - | - | - - - | | | - | - | - | - | - | - | - | - | - | - | - |
+| bottomconvect | wo - | | - | - | - | - | - | - - - | | | - | - | - | - | - | - | - | - | - | - | - |
+| hc_soisno | wo - | | - | - | - | - | - | - - - | | | - | - | - | - | - | - | - | - | - | - | - |
+| hc_soi | wo - | | - | - | - | - | - | - - - | | | - | - | - | - | - | - | - | - | - | - | - |
+| How many variables are used by the first do loop in lakeTemparature. And what is the | | | | | | | | | | | | | | | | | | | | | |
+| role of these variables (ro, wo, or rw)? | | | | | | | | | | | | | | | | | | | | | |
+| Response: | | | | | | | | | | | | | | | | | | | | | |
+| This indicates that there are 8 variables used in the first "do loop" of the LakeTemperature section. | | | | | | | | | | | | | | | | | | | | | |
+| Their roles are as follows: | | | | | | | | | | | | | | | | | | | | | |
+| - 1 variable is read-only (filter lakec). | | | | | | | | | | | | | | | | | | | | | |
+| - 7 variables are write-only (lake col to filter, ocvts, puddle, frzn, bottomconvect, hc soisno, hc soi). | | | | | | | | | | | | | | | | | | | | | |
 
 ## 4 Document Parsing
 
@@ -311,15 +309,15 @@ What is the significance of phase changes in the model, and how are they account
 
 Response: Phase changes, such as freezing and melting, play a significant role in the atmosphere model, as they affect the energy balance at the land surface. The model accounts for phase changes by calculating heat diffusion and phase change in given layers based on temperature and moisture conditions. The available energy for melting is computed as function of temperature and moisture content.
 
-# 5 Discussion and Future Work
+## 5 Discussion and Future Work
 
 The foundational components of S3LLM, LLMs, have demonstrated remarkable proficiency in interpreting various data sources, including source code, metadata, and documents, offering insights from multiple angles. Despite these achievements, there are inherent limitations within LLMs that warrant further investigation in our future work. First, the constraint related to the maximum token count supported by open-source LLMs necessitates expansion to accommodate extensive queries, aiming to enhance in-context learning capabilities. Moreover, the treatment of specialized terminologies within domain-specific sciences requires refinement to ensure more accurate and dependable processing. Currently, commercial versions like GPT-4 are employed in S3LLM to derive coding keywords from terminologies; however, we posit that leveraging a more transparent, reproducible model, amenable to fine-tuning for domain-specific sciences, could optimize this process. Furthermore, S3LLM could be enriched with additional functionalities, such as identifying and addressing computational bottlenecks within large-scale codes and providing direct source code optimization recommendations. These areas of potential enhancement motivate us for the continued development and improvement of S3LLM in future iterations.
 
-# 6 Conclusion
+## 6 Conclusion
 
 This paper presents S3LLM , a framework developed on the foundation of LLMs, aimed at unraveling the complexities inherent in large-scale scientific software. By enhancing the capabilities of LLaMA-2 models within S3LLM through innovative approaches such as instruction-based prompting, integration of external GPT-4 queries, and the adoption of Retrieval-Augmented Generation (RAG) and LangChain techniques, we have significantly expanded the operational capacity of pre-trained LLMs. Our comprehensive evaluation across a variety of data types, including source code, diverse metadata formats (DOT, SQL, and specialized schemas), and textual documents, has validated the efficacy of S3LLM . It is our aspiration that S3LLM will illuminate pathways for forthcoming inquiries in the fields of generative AI and software engineering, particularly within the domain of scientific computing.
 
-# References
+## References
 
 - <span id="page-12-9"></span>1. CLOC. <https://github.com/AlDanial/cloc>. Accessed: 2024-02-27.
 - <span id="page-12-0"></span>2. Doxygen. <https://www.doxygen.nl/>. Accessed: 2024-03-01.

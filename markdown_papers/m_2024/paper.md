@@ -29,7 +29,6 @@ keywords:
 - under-explored
 ---
 
-
 # PRIVACY-PRESERVING IN BLOCKCHAIN-BASED FEDERATED LEARNING SYSTEMS
 
 Sameera K. M. Department of Computer Applications, Cochin University of Science and Technology, India sameerakm@cusat.ac.in
@@ -48,7 +47,7 @@ Vinod P. Department of Mathematics, University of Padua, Italy vinod.p@cusat.ac.
 
 Mauro Conti Department of Mathematics, University of Padua, Italy mauro.conti@unipd.it
 
-# ABSTRACT
+## ABSTRACT
 
 Federated Learning (FL) has recently arisen as a revolutionary approach to collaborative training Machine Learning models. According to this novel framework, multiple participants train a global model collaboratively, coordinating with a central aggregator without sharing their local data. As FL gains popularity in diverse domains, security, and privacy concerns arise due to the distributed nature of this solution. Therefore, integrating this strategy with Blockchain technology has been consolidated as a preferred choice to ensure the privacy and security of participants.
 
@@ -56,7 +55,7 @@ This paper explores the research efforts carried out by the scientific community
 
 *K*eywords Federated Learning · Blockchain · Privacy · Blockchain-enabled FL · Internet of Things · Industry 5.0.
 
-# 1 Introduction
+## 1 Introduction
 
 Federated Learning (FL, hereafter) has undergone a significant surge in popularity in recent years. This novel strategy enables training Machine Learning models directly on user devices or at the edge without centralizing raw data. Because sensitive data stays on the user's device, the risk of exposing information to possible data breaches is lowered, and user privacy is preserved. Moreover, collaboration among workers provides access to a large amount of data, which enhances performance, making models more efficient and scalable. While FL offers several advantages, it also has limitations and challenges. The main FL characteristics that expose it to new threats are *(i)*system heterogeneity,*(ii)*the need for a trustworthy central authority for the coordination of the processing of locally trained models,*(iii)*vulnerability to data falsification and inference attack,*(iv)*the lack of incentive mechanism for the participating nodes,*(v)*communication security, and*(vi)*regulatory complaints[\[1,](#page-34-0) [2\]](#page-34-1).
 
@@ -73,27 +72,27 @@ This survey offers fresh perspectives on the new paradigm of Blockchain-enabled 
 
 The structure of this paper is outlined as follows. Section [2](#page-1-0) introduces related survey studies, while Section [3](#page-3-0) delves into the methodology employed for conducting this survey. In section [4,](#page-4-0) we overview both FL and Blockchain main concepts. In Section [5,](#page-12-0) we analyze the state-of-the-art regarding the integration of FL and Blockchain technology, describing the main architectures. Section [6](#page-15-0) addresses the primary privacy threats within Blockchain-enabled FL. Sections [7](#page-16-0) and [8](#page-27-0) focus on the possible solutions to preserve privacy in such a domain. Section [9](#page-28-0) is devoted to the analysis of several application scenarios that benefit from Blockchain-enabled FL (such as Healthcare, Industrial IoT (IIoT), and the Internet of Vehicles). In Section [10,](#page-32-0) we explore various unresolved challenges and provide insights for potential areas of future research. Ultimately, Section [11](#page-33-0) encapsulates our concluding remarks on the survey.
 
-# <span id="page-1-0"></span>2 Comparison with other survey articles
+## <span id="page-1-0"></span>2 Comparison with other survey articles
 
 Although several related surveys have been conducted to explore the integration of Blockchain and FL from different perspectives, most of them focus on different aspects, issues, or application domains related to this combination [\[1,](#page-34-0) [4,](#page-34-3) [5,](#page-35-0) [6,](#page-35-1) [7\]](#page-35-2).
 
 For instance, Qu et al. [\[1\]](#page-34-0) consider three problems of Blockchain-enabled FL, namely decentralization, incentive mechanism, and membership selection. They focus on attack categorization and evaluate the performance of existing countermeasures. The paper presented in [\[4\]](#page-34-3) describes the structural designs of Blockchain-enabled FL, the deployed platforms, and possible industrial applications. Moreover, it analyses the aspects of Blockchain that allow an improvement of the FL system, such as the node incentive mechanisms.
 
-| Survey paper        | Literature<br>Timeline | Blockchain<br>FL<br>and<br>Background | Proposed<br>General<br>Architecture | Privacy<br>Attack in<br>BCFL |    | Privacy Preserving Approaches in BCFL |    |    |    |    | Applications |  |
+| Survey paper | Literature<br>Timeline | Blockchain<br>FL<br>and<br>Background | Proposed<br>General<br>Architecture | Privacy<br>Attack in<br>BCFL | | Privacy Preserving Approaches in BCFL | | | | | Applications | |
 |---------------------|------------------------|---------------------------------------|-------------------------------------|------------------------------|----|---------------------------------------|----|----|----|----|--------------|--|
-|                     |                        |                                       |                                     |                              | C1 | C2                                    | C3 | C4 | C5 | C6 | C7           |  |
-| Ali et al.[5]       | 2019-2020              |                                       |                                     |                              |    |                                       |    |    |    |    |              |  |
-| Nguyen et al.[6]    | 2019-2020              |                                       |                                     |                              |    |                                       |    |    |    |    |              |  |
-| Huang et al.[9]     | 2019-2020              |                                       |                                     |                              |    |                                       |    |    |    |    |              |  |
-| Li et al.[4]        | 2020-2021              |                                       |                                     |                              |    |                                       |    |    |    |    |              |  |
-| Qu et al.[1]        | 2019-2021              |                                       |                                     |                              |    |                                       |    |    |    |    |              |  |
-| Issa et al.[7]      | 2019-2021              |                                       |                                     |                              |    |                                       |    |    |    |    |              |  |
-| Zhu et al.[2]       | 2019-2021              |                                       |                                     |                              |    |                                       |    |    |    |    |              |  |
-| Chhetri et al. [11] | 2019-2022              |                                       |                                     |                              |    |                                       |    |    |    |    |              |  |
-| Qammar et al. [8]   | 2019-2022              |                                       |                                     |                              |    |                                       |    |    |    |    |              |  |
-| Our Work            | 2018-2023              |                                       |                                     |                              |    |                                       |    |    |    |    |              |  |
+| | | | | | C1 | C2 | C3 | C4 | C5 | C6 | C7 | |
+| Ali et al.[5] | 2019-2020 | | | | | | | | | | | |
+| Nguyen et al.[6] | 2019-2020 | | | | | | | | | | | |
+| Huang et al.[9] | 2019-2020 | | | | | | | | | | | |
+| Li et al.[4] | 2020-2021 | | | | | | | | | | | |
+| Qu et al.[1] | 2019-2021 | | | | | | | | | | | |
+| Issa et al.[7] | 2019-2021 | | | | | | | | | | | |
+| Zhu et al.[2] | 2019-2021 | | | | | | | | | | | |
+| Chhetri et al. [11] | 2019-2022 | | | | | | | | | | | |
+| Qammar et al. [8] | 2019-2022 | | | | | | | | | | | |
+| Our Work | 2018-2023 | | | | | | | | | | | |
 
-<span id="page-2-0"></span>Table 1: Summary of related surveys and their significant contributions to Our Work, specifically focused on Privacy attacks and privacy preservation approaches in BCFL.
+<span id="page-2-0"></span>**Table 1:** Summary of related surveys and their significant contributions to Our Work, specifically focused on Privacy attacks and privacy preservation approaches in BCFL.
 
 C<sup>1</sup> : BCFL architectures for security and privacy protection, C<sup>2</sup> :BCFL with differential privacy based approach, C<sup>3</sup> :BCFL with homomorphic encryption based approach, C<sup>4</sup> :BCFL with secure multiparty computation based approach, C<sup>5</sup> :BCFL with reward-driven based approach, C<sup>6</sup> :BCFL with hybrid privacy approach, C<sup>7</sup> :Using cross-chain based approach.
 
@@ -116,11 +115,11 @@ Table [1](#page-2-0) summarizes the main topics addressed by related surveys and
 ![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This flowchart details a systematic review's literature selection process. Starting with 471 records identified from four databases (IEEE Xplore, ACM Library, Springer Link, Science Direct), it shows the reduction in number of studies through duplicate removal, title/abstract/full-text screening, and application of inclusion/exclusion criteria, ultimately yielding 102 final papers. Each stage displays the number of studies remaining. -->
 
-<span id="page-3-1"></span>Figure 1: The PRISMA flow diagram visually outlines the various phases of the systematic review process.
+<span id="page-3-1"></span>**Figure 1:** The PRISMA flow diagram visually outlines the various phases of the systematic review process.
 
-# <span id="page-3-0"></span>3 Methodology
+## <span id="page-3-0"></span>3 Methodology
 
-# 1 Research Approach
+## 1 Research Approach
 
 Blockchain-enabled Federated Learning has surfaced as a groundbreaking paradigm in the rapidly evolving technology landscape, presenting the prospect of decentralized and collaborative machine Learning while safeguarding data privacy. This study intricately explores the critical aspect of privacy within this innovative framework, meticulously examining potential threats and presenting effective mitigating strategies. It systematically explores Blockchain fundamentals and Federated Learning along with its categorization. It delves into relevant literature on privacy attacks and protection methods in BCFL. Moreover, it highlights the essential need for privacy preservation in BCFL-focused applications across domains. The study aims to identify areas of concern, and the paper thoroughly examines the open issues and limitations faced by Blockchain-enabled Federated Learning. Finally, it discusses the future direction in these areas, primarily focusing on enhancing BCFL's privacy.
 
@@ -157,7 +156,7 @@ Following the inclusion process, we apply the exclusion process, excluding a pap
 - the paper is not focused on solutions for Federated Learning-based Blockchain technology nor dealing with privacy;
 - the paper lacks significance, as it represents an incremental improvement on a previously proposed approach, a duplicate publication, or an extended version of an already published key contribution.
 
-# <span id="page-4-0"></span>4 Background Knowledge
+## <span id="page-4-0"></span>4 Background Knowledge
 
 This section provides the essential background information to contextualize our survey. In particular, we describe the main concepts related to FL, its workflow, and the principal categorizations and challenges of such an approach. Moreover, we illustrate the fundamental notions about Blockchain. Table [3](#page-5-1) summarizes the acronyms used in the paper.
 
@@ -175,47 +174,47 @@ In Centralized Learning, data is sent to the Cloud, where the ML model is built.
 
 <span id="page-4-3"></span><sup>3</sup> https://azure.microsoft.com/
 
-| Survey paper        | Privacy Attack in BCFL | Privacy Preserving Approaches in BCFL |             |             |             |             |             |             |              |
+| Survey paper | Privacy Attack in BCFL | Privacy Preserving Approaches in BCFL | | | | | | | |
 |---------------------|------------------------|---------------------------------------|-------------|-------------|-------------|-------------|-------------|-------------|--------------|
-|                     |                        | C1                                    | C2          | C3          | C4          | C5          | C6          | C7          | Applications |
-| Ali et al.[5]       |                        |                                       |             |             |             |             |             |             | 3            |
-|                     |                        |                                       |             |             |             |             |             |             | (2018-2020)  |
-| Nguyen et al.[6]    |                        | 6                                     |             |             |             | 4           |             |             | 5            |
-|                     |                        | (2020-2021)                           |             |             |             | (2019-2020) |             |             | (2018-2021)  |
-| Huang et al.[9]     |                        | 4                                     |             |             |             | 4           |             |             |              |
-|                     |                        | (2021)                                |             |             |             | (2020-2021) |             |             |              |
-| Li et al.[4]        |                        |                                       |             |             |             | 1           |             |             | 8            |
-|                     |                        |                                       |             |             |             | (2019-2021) |             |             | (2018-2021)  |
-| Qu et al.[1]        |                        | 16                                    |             |             |             | 7           |             |             |              |
-|                     |                        | (2019-2021)                           |             |             |             | (2019-2021) |             |             |              |
-| Issa et al.[7]      |                        | 8                                     |             |             |             |             |             |             |              |
-|                     |                        | (2019-2021)                           |             |             |             |             |             |             |              |
-| Zhu et al.[2]       |                        | 5                                     |             |             |             |             |             |             | 2            |
-|                     |                        | (2019-2020)                           |             |             |             |             |             |             | (2019-2021)  |
-| Chhetri et al. [11] |                        |                                       | 5           | 5           | 7           |             |             |             |              |
-|                     |                        |                                       | (2020-2022) | (2019-2021) | (2019-2021) |             |             |             |              |
-| Qammar et al. [8]   |                        | 4                                     |             |             |             | 1           |             |             | 2            |
-|                     |                        | (2020-2022)                           |             |             |             | (2022)      |             |             | (2019-2022)  |
-| Our Work            | 2                      | 14                                    | 19          | 14          | 5           | 17          | 9           | 4           | 31           |
-|                     | (2020-2023)            | (2018-2023)                           | (2019-2023) | (2021-2023) | (2019-2023) | (2018-2023) | (2020-2022) | (2021-2023) | (2018-2023)  |
+| | | C1 | C2 | C3 | C4 | C5 | C6 | C7 | Applications |
+| Ali et al.[5] | | | | | | | | | 3 |
+| | | | | | | | | | (2018-2020) |
+| Nguyen et al.[6] | | 6 | | | | 4 | | | 5 |
+| | | (2020-2021) | | | | (2019-2020) | | | (2018-2021) |
+| Huang et al.[9] | | 4 | | | | 4 | | | |
+| | | (2021) | | | | (2020-2021) | | | |
+| Li et al.[4] | | | | | | 1 | | | 8 |
+| | | | | | | (2019-2021) | | | (2018-2021) |
+| Qu et al.[1] | | 16 | | | | 7 | | | |
+| | | (2019-2021) | | | | (2019-2021) | | | |
+| Issa et al.[7] | | 8 | | | | | | | |
+| | | (2019-2021) | | | | | | | |
+| Zhu et al.[2] | | 5 | | | | | | | 2 |
+| | | (2019-2020) | | | | | | | (2019-2021) |
+| Chhetri et al. [11] | | | 5 | 5 | 7 | | | | |
+| | | | (2020-2022) | (2019-2021) | (2019-2021) | | | | |
+| Qammar et al. [8] | | 4 | | | | 1 | | | 2 |
+| | | (2020-2022) | | | | (2022) | | | (2019-2022) |
+| Our Work | 2 | 14 | 19 | 14 | 5 | 17 | 9 | 4 | 31 |
+| | (2020-2023) | (2018-2023) | (2019-2023) | (2021-2023) | (2019-2023) | (2018-2023) | (2020-2022) | (2021-2023) | (2018-2023) |
 
-<span id="page-5-0"></span>Table 2: Number of articles compared with existing surveys and Our Work, specifically focused on privacy attacks and privacy preservation in BCFL.
+<span id="page-5-0"></span>**Table 2:** Number of articles compared with existing surveys and Our Work, specifically focused on privacy attacks and privacy preservation in BCFL.
 
 C<sup>1</sup> : BCFL architectures for security and privacy protection, C<sup>2</sup> :BCFL with differential privacy based approach, C<sup>3</sup> :BCFL with homomorphic encryption based approach, C<sup>4</sup> :BCFL with secure multiparty computation based approach, C<sup>5</sup> :BCFL with reward-driven based approach, C<sup>6</sup> :BCFL with hybrid privacy approach, C<sup>7</sup> :Using cross-chain based approach.
 
-| Acronyms | Description                             |
+| Acronyms | Description |
 |----------|-----------------------------------------|
-| BCFL     | Blockchain-enabled FL                   |
-| DP       | Differential Privacy                    |
-| FL       | Federated Learning                      |
-| HE       | Homomorphic Encryption                  |
-| IID      | Independent and Identically Distributed |
-| IPFS     | Interplanetary File System              |
-| ML       | Machine Learning                        |
-| SMPC     | Secure Multiparty Computation           |
-| IoT      | Internet of Things                      |
+| BCFL | Blockchain-enabled FL |
+| DP | Differential Privacy |
+| FL | Federated Learning |
+| HE | Homomorphic Encryption |
+| IID | Independent and Identically Distributed |
+| IPFS | Interplanetary File System |
+| ML | Machine Learning |
+| SMPC | Secure Multiparty Computation |
+| IoT | Internet of Things |
 
-<span id="page-5-1"></span>Table 3: List of the acronyms used in the paper.
+<span id="page-5-1"></span>**Table 3:** List of the acronyms used in the paper.
 
 substantial volume of data. This can lead to privacy issues, latency, as data could be transmitted far away from the central server, and, consequently, high transfer costs.
 
@@ -226,18 +225,18 @@ In Federated Learning, shown in Figure [4,](#page-7-0) each device trains a loca
 ![](_page_6_Figure_1.jpeg)
 <!-- Image Description: The image is a diagram illustrating a cloud-based machine learning system. A smartphone, smartwatch, and webcam send data to a cloud server. The cloud stores machine learning training data and machine learning models. A desktop computer requests ("get_service") and receives models from the cloud. The diagram showcases the data flow and interaction between IoT devices, cloud infrastructure, and a machine learning application. -->
 
-<span id="page-6-0"></span>Figure 2: Centralized ML Architecture
+<span id="page-6-0"></span>**Figure 2:** Centralized ML Architecture
 
 ![](_page_6_Figure_3.jpeg)
 <!-- Image Description: The image is a diagram illustrating a federated learning architecture. Multiple devices (smartphone, smartwatch, webcam, computer) each possess local data and a local machine learning (ML) model. These models send updates to a cloud-based central machine learning model, which aggregates the updates to improve the overall model without sharing raw data. The diagram visually represents the distributed nature of the learning process and the data privacy advantages of federated learning. -->
 
-<span id="page-6-1"></span>Figure 3: Distributed On-Site ML Architecture
+<span id="page-6-1"></span>**Figure 3:** Distributed On-Site ML Architecture
 
 ### 2 Overview of Federated Learning
 
 In the next sections, we deal with the key notions related to FL and its workflow. Finally, we discuss the primary categorizations and the main challenges inherent to such an approach.
 
-#### 2.1 Main Concepts and Workflow
+### 2.1 Main Concepts and Workflow
 
 As stated, FL is a Machine Learning strategy that allows a model to be trained across decentralized devices or servers holding local data samples while maintaining the localized data. This technique is beneficial if data cannot be efficiently centralized due to privacy regulations, network constraints, or large data volumes.
 
@@ -249,7 +248,7 @@ The participants in the protocol are mainly divided into two types: devices know
 ![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The diagram illustrates a federated learning system. Multiple edge devices (smartphone, smartwatch, computer) process local data and send trained machine learning models to a central cloud server. The server aggregates these models, creating an improved global model. Arrows depict model transmission; text labels clarify data flow. The image visually explains the core process of federated learning—distributed model training and aggregation. -->
 
-<span id="page-7-0"></span>Figure 4: Federated Learning Architecture
+<span id="page-7-0"></span>**Figure 4:** Federated Learning Architecture
 
 computes the model parameter updates and transmits them to the central server either in an aggregated form or encrypted.
 
@@ -260,9 +259,9 @@ Figure [5](#page-7-1) illustrates a schematic diagram of FL workflow with the th
 ![](_page_7_Figure_6.jpeg)
 <!-- Image Description: This flowchart illustrates a federated learning system. Multiple workers (phone, watch, webcam, computer) train local models on their respective data. These models are then uploaded to a central server, which aggregates them into a global model. The updated global model is then distributed back to the workers, iterating the process. The initial step depicts model initialization. The diagram visually represents the distributed training process and model updates. -->
 
-<span id="page-7-1"></span>Figure 5: A schematic diagram of the Federated Learning workflow
+<span id="page-7-1"></span>**Figure 5:** A schematic diagram of the Federated Learning workflow
 
-#### 2.2 Categorization of FL
+### 2.2 Categorization of FL
 
 This section deals with the different architectures for Federated Learning based on the feature and sample spaces shared by the workers and the aggregating server.
 
@@ -271,7 +270,7 @@ Vertical FL, Horizontal FL, and Federated Transfer Learning. A different perspec
 ![](_page_8_Figure_1.jpeg)
 <!-- Image Description: The image displays three diagrams illustrating different federated learning approaches. (a) shows horizontal federated learning, with datasets A and B sharing the same feature space but different sample spaces. (b) depicts vertical federated learning where datasets A and B have different feature spaces but a shared sample space. (c) presents federated transfer learning where datasets A and B have overlapping feature and sample spaces. The diagrams use rectangular regions to represent data from sources A and B, axes labeled "sample space" and "feature space," and shaded regions to highlight the overlap in the federated transfer learning approach. -->
 
-<span id="page-8-0"></span>Figure 6: The three categories of FL divided for feature and sample spaces
+<span id="page-8-0"></span>**Figure 6:** The three categories of FL divided for feature and sample spaces
 
 FL can be divided into Horizontal FL (HFL), Vertical FL (VFL), and Federated Transfer Learning (FTL). Figure [6](#page-8-0) shows a graphic representation of the three FL categories.
 
@@ -289,7 +288,7 @@ Cross-device and cross-silo FL. A further strategy to classify FL approaches is 
 
 The first group consists of clients that are small distributed entities (e.g., smartphones, wearables, and IoT devices) holding few local data. Hence, to obtain good performance, many clients usually need to participate in the training process. Unlike the previous group, cross-silo FL clients are typically big companies or organizations (e.g., hospitals, transportation companies, and banks). In these environments, the number of participants is small (typically 2 to 100 clients), but each client usually participates in the entire training process.
 
-# 2.3 Primary Challenges to FL
+## 2.3 Primary Challenges to FL
 
 Most of the scientific papers focusing on FL [\[24,](#page-35-19) [25,](#page-35-20) [26\]](#page-35-21) investigate several core open challenges that still need to be addressed, such as:
 
@@ -307,7 +306,7 @@ Most of the scientific papers focusing on FL [\[24,](#page-35-19) [25,](#page-35
 ![](_page_9_Figure_12.jpeg)
 <!-- Image Description: The image illustrates a blockchain's structure. Three blocks are depicted: a genesis block, block *i*, and block *i+1*. Each block contains a hash of the previous block, a timestamp, a nonce, and a set of transactions (TX1...TXn). Arrows show the chain's sequential linking, where each block's hash becomes the previous block's reference in the next block. This diagram visually explains the chained structure fundamental to blockchain technology. -->
 
-<span id="page-9-0"></span>Figure 7: Example of a Blockchain
+<span id="page-9-0"></span>**Figure 7:** Example of a Blockchain
 
 This section is devoted to providing a background description of the Blockchain technology. In the next subsections, we will describe the main concept and workflow, the strategies to build the consensus mechanism, the smart contract technology, and the main Blockchain categories.
 
@@ -325,7 +324,7 @@ In addition to the transactions and the hash value of the previous block, each b
 ![](_page_10_Figure_7.jpeg)
 <!-- Image Description: The image illustrates a blockchain transaction process. Two rows depict the stages: transaction creation, propagation, validation (top), and confirmation, update propagation, and addition to the blockchain (bottom). Simple diagrams show a transaction originating on a computer, propagating to multiple nodes for validation, and finally being added as a block to the blockchain, represented by a cube. The gray and black cubes illustrate the process of block creation and addition. -->
 
-<span id="page-10-0"></span>Figure 8: Transactions workflow in Blockchain
+<span id="page-10-0"></span>**Figure 8:** Transactions workflow in Blockchain
 
 The key features of this strategy can be summarized as follows:
 
@@ -334,7 +333,7 @@ The key features of this strategy can be summarized as follows:
 - *Transparency*. All transactions on a Blockchain are publicly available to all the participants in the network. This transparency can help build trust among users.
 - *Immutability*. Due to cryptographic hashing and chaining of blocks, once a block is added to the Blockchain, it cannot be changed, and the user cannot revoke it.
 
-# 3.2 Consensus mechanism
+## 3.2 Consensus mechanism
 
 As already stated in the previous section, Blockchain uses consensus mechanisms, such as Proof of Work (PoW) or Proof of Stake (PoS), to agree on the validity of transactions and ensure that all nodes in the network have a consistent view of the shared ledger [\[32\]](#page-36-4).
 
@@ -342,7 +341,7 @@ PoW is the older and more widely adopted consensus mechanism, it has been adopte
 
 On the contrary, PoS has recently gained popularity because it is a less energy-consuming alternative to PoW, and it is used in cryptocurrencies like Ethereum 2.0[4](#page-11-0) [\[34\]](#page-36-6). PoS is adopted by a category of Blockchain algorithm where the consensus is achieved by stakes (e.g. digital assets) in the network. Validator nodes, which are participants who hold and "stake" a certain amount of cryptocurrency, are chosen in a deterministic and pseudo-random manner to create new blocks and validate transactions based on the amount of cryptocurrency they hold and are willing to "stake" as collateral. Validators are incentivized by earning transaction fees.
 
-# 3.3 Smart Contract
+## 3.3 Smart Contract
 
 Smart contracts, serving as executable codes, embody a mutual agreement between two or more parties. They operate atop Blockchain to enforce and execute agreements among parties that might lack trustworthiness. These contracts define the rules, conditions, and actions to be taken when certain conditions are satisfied [\[35\]](#page-36-7). Moreover, it stores information, processes inputs, and writes outputs thanks to its pre-defined functions. Smart contracts are replicated on each node of the Blockchain network to prevent contract tampering. Platforms like NXT[5](#page-11-1) , Ethereum, and Hyperledger Fabric [\[36\]](#page-36-8) are Blockchain-based development frameworks able to provide smart contracts to execute automatically events and actions.
 
@@ -364,7 +363,7 @@ Permissioned and Permissionless Blockchain. Permissioned Blockchains usually inv
 
 Their implementation is arising within the finance sector [\[39\]](#page-36-11). On the contrary, permissionless Blockchains, typically associated with public Blockchains, are open for anyone to join and participate without demanding prior authorization. They represent the first and oldest Blockchain development, in which the hashing of blocks of transactions relies on the work of many anonymous miners competing to solve a complex mathematical algorithm for that block of transactions via trial and error [\[40\]](#page-36-12).
 
-# <span id="page-12-0"></span>5 State-of-the-art: Integration of FL and Blockchain
+## <span id="page-12-0"></span>5 State-of-the-art: Integration of FL and Blockchain
 
 Blockchain is a promising technology, providing robust and secure solutions for various applications, even when dealing with untrusted entities. In FL, it primarily safeguards user privacy. Consequently, the amalgamation of FL and Blockchain, known as Blockchain-enabled Federated Learning (BCFL), enhances privacy and security in various distributed applications. These applications span sectors such as healthcare, cyber-physical systems, secure vehicular networks, pharmaceuticals, Industrial Internet of Things, and telemedicine[\[41,](#page-36-13) [42,](#page-36-14) [43\]](#page-36-15). BCFL effectively tackles the challenges associated with the FL paradigm by providing a range of valuable features. These include robust authentication and traceability, enhanced privacy, reliable availability, scalability, resilience against byzantine faults, resilience against inference attacks, long-term persistence, and anonymity[\[1\]](#page-34-0).
 
@@ -376,27 +375,27 @@ Furthermore, smart contracts automate and enforce governance rules in FL, ensuri
 
 Transactions in BCFL enable participants to trace and verify the complete history of model updates, fostering a culture of accountability within the system [\[52\]](#page-37-4). Also, Blockchain's standardized protocols enhance interoperability in BCFL, allowing for seamless integration across various platforms and devices.
 
-# 2 The general architecture of Blockchain-enabled FL
+## 2 The general architecture of Blockchain-enabled FL
 
 The general abstracted architecture for Blockchain-enabled Federated Learning (BCFL) is illustrated in Figure [9.](#page-13-0) This architectural framework comprises three distinct layers: the Federated node layer, integration middleware, and the Blockchain layer. In decentralized applications on a blockchain, the task publisher, as an entity or user, initiates and creates tasks, actively defining and structuring them within the blockchain. This role is pivotal in task creation and execution, starting by formally requesting a specific Federated Learning task and publishing the details into the blockchain. Subsequently, participants expressing interest in the FL tasks retrieve the models from the Blockchain and contribute their trained models back to the Blockchain. The Blockchain then operates as a central server, employing smart contracts that aggregate the models from participants. A designated miner executes this operation and creates the new global FL model to fulfill the specific FL task. In the subsequent sections, we will briefly introduce each component in detail.
-*Task Publisher*: The task publisher initiates the process by formally submitting a request for a specific Federated Learning task, meticulously outlining the parameters, requirements, and objectives. This encompasses the task publisher's identity, initialization details (such as the Machine Learning model type), targeted performance metrics for optimization, expected processing time, and other relevant information. Furthermore, it encompasses additional crucial parameters, such as the task's initiation time, the number of federation rounds, the total reward amount, and other relevant details. The task publisher submits details of the Federated Learning task into the Blockchain for securely
+**Task Publisher:**  The task publisher initiates the process by formally submitting a request for a specific Federated Learning task, meticulously outlining the parameters, requirements, and objectives. This encompasses the task publisher's identity, initialization details (such as the Machine Learning model type), targeted performance metrics for optimization, expected processing time, and other relevant information. Furthermore, it encompasses additional crucial parameters, such as the task's initiation time, the number of federation rounds, the total reward amount, and other relevant details. The task publisher submits details of the Federated Learning task into the Blockchain for securely
 
 ![](_page_13_Figure_1.jpeg)
 <!-- Image Description: This figure depicts a system architecture for federated learning on a blockchain. The top layer shows a blockchain with miners and a task publisher interacting via consensus algorithms and a smart contract. The middle layer is an integration middleware. The bottom layer illustrates the federated learning process, where multiple participants (Participant 1, 2, ..., N) locally preprocess data, train models, and upload model parameters to a global model, which is then downloaded for further training iterations. The diagram uses boxes, arrows, and database icons to represent the various components and data flows. -->
 
-<span id="page-13-0"></span>Figure 9: General architecture for the Blockchain-enabled Federated Learning.
+<span id="page-13-0"></span>**Figure 9:** General architecture for the Blockchain-enabled Federated Learning.
 
 and transparently storing information for participants interested in contributing to or downloading models related to the specified task. In [\[24\]](#page-35-19), the manufacturer is a task publisher to develop a smart home system. In [\[53\]](#page-37-5), the task publisher refers to enterprises, research institutes, or healthcare research units aiming to acquire a medical disease detection model.
 
-*Federated Node Layer*: For the collaborative training of an ML model, the Federated node layer encompasses a varied group of participants, including diverse devices such as smartphones, wearables, servers, and other computing entities. Participants in the FL task download the model from the Blockchain. Each participant has their private local dataset and performs data preprocessing and feature extraction on its local dataset. Preprocessing may involve cleaning the data, normalizing, handling missing values, and extracting relevant features contributing to the model's learning process. Following this, participants individually train their models using their local datasets. After the training process, participants in FL produce personalized model updates specific to their datasets. Subsequently, participants submit these local model updates for verification and aggregation in the subsequent phase into the Blockchain.
+**Federated Node Layer:**  For the collaborative training of an ML model, the Federated node layer encompasses a varied group of participants, including diverse devices such as smartphones, wearables, servers, and other computing entities. Participants in the FL task download the model from the Blockchain. Each participant has their private local dataset and performs data preprocessing and feature extraction on its local dataset. Preprocessing may involve cleaning the data, normalizing, handling missing values, and extracting relevant features contributing to the model's learning process. Following this, participants individually train their models using their local datasets. After the training process, participants in FL produce personalized model updates specific to their datasets. Subsequently, participants submit these local model updates for verification and aggregation in the subsequent phase into the Blockchain.
 
-*Integration Middleware*: The integration middleware bridges FL participants and the Blockchain. Lamken *et al.*[\[54\]](#page-37-6) employed the Representational state transfer application Programming Interface (REST-API) to engage with Blockchain (Hyperledger Fabric) to enable a systematic allocation of network resources for recording and incentivizing gradient uploads. Additionally, the gRPC API, a remote procedure call (RPC) protocol developed by Google, facilitates model transfer between FL participants and the Blockchain network (Ethereum) [\[8\]](#page-35-5).
+**Integration Middleware:**  The integration middleware bridges FL participants and the Blockchain. Lamken *et al.*[\[54\]](#page-37-6) employed the Representational state transfer application Programming Interface (REST-API) to engage with Blockchain (Hyperledger Fabric) to enable a systematic allocation of network resources for recording and incentivizing gradient uploads. Additionally, the gRPC API, a remote procedure call (RPC) protocol developed by Google, facilitates model transfer between FL participants and the Blockchain network (Ethereum) [\[8\]](#page-35-5).
 *Blockchain Layer:*In the Blockchain layer, pivotal elements encompass smart contracts, miners, consensus protocols, and the underlying Blockchain networks. The smart contract, another key component in Blockchain networks, operates between parties to facilitate interactions within the decentralized system. The participants utilize smart contracts (Registration Contract) to register for FL model training, ensuring transparency and immutability of conditions. After a successful registration, the revised local model is transmitted to the miners. The miners, encompassing personal computers, cloud-based nodes, or standby servers, willingly adopt the mining software. Their primary responsibilities involve receiving local model updates (local weights or local gradients) transmitted by FL participants. Furthermore, miners verify and authenticate the trained local model using the consensus algorithm, which may involve Proof of
 
 ![](_page_14_Figure_1.jpeg)
 <!-- Image Description: The image is a flowchart depicting the process of federated learning on a blockchain. It shows a task publisher initiating a training task, participants registering and responding, local model training, smart contract execution for model aggregation, miners downloading and updating global models, and consensus algorithm execution to add a new global model to the blockchain. The flow is represented by numbered steps and colored arrows illustrating data flow between the task publisher, participants, miners, and the blockchain. -->
 
-<span id="page-14-0"></span>Figure 10: The high-level workflow for a single epoch Blockchain-enabled Federated Learning
+<span id="page-14-0"></span>**Figure 10:** The high-level workflow for a single epoch Blockchain-enabled Federated Learning
 
 Work (PoW), Practical Byzantine Fault Tolerance (PBFT), Proof of Stake (PoS), and more. Once verified, the connected miners receive updated local models from FL participants, aggregate these models, add the new updated model into the block, and subsequently upload the block onto the Blockchain network.
 
@@ -420,7 +419,7 @@ The high-level workflow for a single epoch in Blockchain-enabled Federated Learn
 
 The Blockchain functions as a secure and decentralized ledger, originating from the Bitcoin network, that permanently records transactions through a chain of blocks containing relevant information. There are two primary classifications for Blockchain storage: on-chain storage, which consolidates all records within a single ledger, and off-chain storage, where the trusted third party stores the data externally, notably through the InterPlanetary File System (IPFS), employs a decentralized and private storage system. IPFS, a peer-to-peer distributed file system, prioritizes content-based addresses, storing hashes on the Blockchain for efficient retrieval. It offers permanent data storage, version traceability, speed enhancements, reduced bandwidth waste, and serves as a decentralized cloud storage solution, mitigating the risks associated with centralized servers. Several researchers have successfully incorporated IPFS to store actual models (Local and Global models), ensuring immutability by sending the corresponding hash values to the Blockchain [\[24,](#page-35-19) [55,](#page-37-7) [56\]](#page-37-8).
 
-# <span id="page-15-0"></span>6 Attacks to privacy in Blockchain-enabled FL
+## <span id="page-15-0"></span>6 Attacks to privacy in Blockchain-enabled FL
 
 Existing works have shown that approaches based on FL are vulnerable to attacks against data privacy. In particular, malicious actors can be identified both in:
 
@@ -439,7 +438,7 @@ Inference attack aims at extracting sensitive information about the data used in
 
 In the following sections, we describe recent works providing effective defenses to these attacks in scenarios involving Blockchain technology and adopting several privacy-preserving techniques while maintaining the collaborative nature of the FL paradigm.
 
-# <span id="page-16-0"></span>7 Solutions for privacy preservation in Blockchain-enabled FL
+## <span id="page-16-0"></span>7 Solutions for privacy preservation in Blockchain-enabled FL
 
 Ensuring the security and privacy of user data within the framework of Blockchain-enabled Federated Learning is a vital objective, as it necessitates a delicate equilibrium between collaborative machine learning and data protection. This section delves into various strategies and techniques to tackle the issues of safeguarding privacy in the FL empowered by Blockchain. However, these studies have collectively addressed the imperative challenge of safeguarding privacy through diverse means. Some suggested solutions involve employing homomorphic encryption, differential privacy, secure multiparty computations, incorporating reputation-aware BCFL, and, in some instances, combining these methods to fortify privacy measures. These approaches are designed to uphold the global model's accuracy, safeguard participants' privacy, and minimize the influence of malicious local updates.
 
@@ -481,11 +480,10 @@ Numerous researchers are developing custom Blockchains for various applications,
 
 In [\[45\]](#page-36-17) explores a permissioned Blockchain system with the Proof of Training Quality (PoQ) consensus process, optimizing node computing resources during data model training. The Laplace mechanism enhances local data model privacy and improves computing resource utilization and efficiency of the data-sharing scheme. Chen*et al.*[\[92\]](#page-39-5) introduced an efficient Privacy-Preserving and Traceable FL framework with minimal overhead and high performance. Their innovative approach incorporates hierarchical aggregate Federated Learning, involving sub-aggregators and aggregators and adding noise to local model parameters using random seeds. The sub-aggregator can reconstruct pseudorandom weights with user IDs or decrypt subtracted parameters. After aggregating and encrypting the parameters, the sub-aggregator forwards them to the aggregator, which decrypts and combines parameters, subtracts user-added noise, and obtains global parameters sent to the server. In [\[93\]](#page-39-6), PriModChain, a specialized FL architecture for Industrial Internet of Things networks, incorporates a differential privacy approach to add artificial noise to locally generated models, which reduces the risk of the identification of individual records. The secure transfer of the global ML model is facilitated through smart contracts, ensuring consensus on update verification and transparency in FL updates. Simulations in Python evaluate PriModChain's feasibility in terms of security, privacy, safety, reliability, and resilience, highlighting its innovative features in promoting unbiased and error-free data manipulations for enhanced FL safety and reliability against external data threats. The frameworks [\[92,](#page-39-5) [93\]](#page-39-6) integrate FL with Blockchain and IPFS, guaranteeing the traceability and immutability of model parameters, particularly suitable for Industrial Internet of Things scenarios. Table [4](#page-20-0) comprehensively outlines the strategies employed for privacy preservation in BCFL by applying the differential privacy approach. The table details the diverse methods and techniques this privacy framework utilizes to ensure robust privacy measures in FL on the Blockchain.
 
-#### 3 Privacy Preservation in BCFL using Homomorphic Encryption-based Approaches
+### 3 Privacy Preservation in BCFL using Homomorphic Encryption-based Approaches
 
 Homomorphic Encryption (HE) is a technique that enables computations on encrypted data, yielding encrypted results without requiring data decryption [\[94\]](#page-39-7). In FL, users can employ HE to secure their parameters while sharing them with the server, which protects data privacy and facilitates accurate model aggregation [\[95,](#page-39-8) [96\]](#page-39-9). Typically, in FL, the server involves the processing function f, which aggregates parameters from local models across all participating nodes. The encryption computation utilizing HE is detailed in equation [2](#page-19-0) as follows:
 
-<span id="page-19-0"></span>
 $$
 E(m_1)* E(m_2) *\cdots* E(m_n) = E(m_1 *m_2* \cdots *m_n)
 $$
@@ -495,20 +493,20 @@ Where, (m1, m2, m3, . . . , mn) denotes the parameters and E represents the encr
 
 Privacy-preserving in Blockchain-based Federated Learning Systems
 
-| Reference paper | CDP/ | Exponential  | Gaussian     | Laplace Dis | Random Dis | Parameter       |
+| Reference paper | CDP/ | Exponential | Gaussian | Laplace Dis | Random Dis | Parameter |
 |-----------------|------|--------------|--------------|-------------|------------|-----------------|
-|                 | LDP  | Distribution | Distribution | tribution   | tribution  |                 |
-| [41]            | LDP  | ✓            |              |             |            | Local Gradient  |
-| [79, 82, 87]    | LDP  |              | ✓            |             |            | Local Weight    |
-| [80, 85, 86]    | LDP  |              |              | ✓           |            | Local model     |
-| [24, 42, 91]    | LDP  |              |              | ✓           |            | Local Gradient  |
-| [81]            | LDP  |              |              | ✓           |            | Local Weight    |
-| [45, 83, 88]    | LDP  |              |              | ✓           |            | Local Weight    |
-| [89, 93]        | LDP  |              | ✓            |             |            | Local Gradient  |
-| [90]            | CDP  |              |              | ✓           |            | Global Gradient |
-| [92]            | LDP  |              |              |             | ✓          | Global Gradient |
+| | LDP | Distribution | Distribution | tribution | tribution | |
+| [41] | LDP | ✓ | | | | Local Gradient |
+| [79, 82, 87] | LDP | | ✓ | | | Local Weight |
+| [80, 85, 86] | LDP | | | ✓ | | Local model |
+| [24, 42, 91] | LDP | | | ✓ | | Local Gradient |
+| [81] | LDP | | | ✓ | | Local Weight |
+| [45, 83, 88] | LDP | | | ✓ | | Local Weight |
+| [89, 93] | LDP | | ✓ | | | Local Gradient |
+| [90] | CDP | | | ✓ | | Global Gradient |
+| [92] | LDP | | | | ✓ | Global Gradient |
 
-<span id="page-20-0"></span>Table 4: Privacy Preservation in BCFL using using differential privacy approaches
+<span id="page-20-0"></span>**Table 4:** Privacy Preservation in BCFL using using differential privacy approaches
 
 CDP: Central Differential Privacy, LDP: Local Differential Privacy,
 
@@ -524,7 +522,7 @@ Li*et al.*enforced privacy safeguards in [\[107\]](#page-40-1) by combining BCFL
 
 Table [5](#page-22-0) offers a comprehensive summary of privacy preservation within BCFL, utilizing homomorphic encryption with diverse approaches. Awan et al. [\[46\]](#page-36-18) enhanced the Paillier cryptosystem, incorporating features like additive Homomorphic Encryption and proxy re-encryption to safeguard individual local model updates in FL. Their approach addresses issues such as random client dropouts through asynchronous recording on the Blockchain. Integrating BCFL mitigates multiparty dropout and enhances transparency, verifiability, and data privacy protection.
 
-# 4 Privacy preservation using BCFL with Secure Multiparty Computation approach
+## 4 Privacy preservation using BCFL with Secure Multiparty Computation approach
 
 Secure Multiparty Computation (SMPC), introduced by Andrew Yao in 1982, forms the foundational protocol for secure computations [\[109\]](#page-40-2). It facilitates different parties (P1, P<sup>2</sup> . . . Pn), with private data (d1, d<sup>2</sup> . . . dn), in jointly computing an objective function (f) on their private data f(P1, P<sup>2</sup> . . . Pn), thus preserving the confidentiality of the input data [\[94\]](#page-39-7). The authors in [\[48\]](#page-37-0) present BCFL with novel committee consensus, utilizing Blockchain for global model storage and local updates. The innovative committee consensus minimizes computation and enhances security. A committee validates updates in each round, reinforcing the global model while rejecting incorrect ones. It allows flexible participation, enabling nodes to join or leave without disruption, and uses Smart Contracts driven by Blockchain transactions to execute the central server functions.
 
@@ -538,26 +536,25 @@ In a Blockchain-based decentralized, secure multiparty Learning system outlined 
 
 Integrating BCFL with incentive mechanisms not only addresses the challenge of preserving user privacy and encouraging active participation but also ensures the confidentiality and security of the BCFL system. By leveraging smart contracts, BCFL establishes a transparent and tamper-proof framework for fair and verifiable incentives, mitigating concerns about opaque reward structures in traditional BCFL platforms. This innovative integration promotes collaboration and significantly enhances the effectiveness and trustworthiness of the BCFL system [\[115,](#page-40-8) [107\]](#page-40-1). BCFL's selection
 
-| Reference<br>paper | Encryption<br>Type | Privacy scheme                           | Parameter                                    | Attack against                                                      | Adversary           |
+| Reference<br>paper | Encryption<br>Type | Privacy scheme | Parameter | Attack against | Adversary |
 |--------------------|--------------------|------------------------------------------|----------------------------------------------|---------------------------------------------------------------------|---------------------|
-| [97]               | PHE                | Additive                                 | Local<br>Gradi<br>ent                        | I                                                                   | Server              |
-| [98]               | PHE                | Paillier additive                        | Local Weights                                | I&P                                                                 | HbCS & MalC         |
-| [100]              | FHE                | BCP                                      | Local<br>Gradi<br>ent                        | I&P                                                                 | HbCS                |
-| [51, 101]          | FHE                | CKKS                                     | Local<br>Gradi<br>ent                        | I                                                                   | Server & MalC       |
-| [53]               | FE                 | NDD-FE                                   | Local Weights                                | I                                                                   | -                   |
-| [104]              | PFE                | Paillier additive                        | Local<br>Gradi<br>ent,<br>Global<br>Gradient | Transaction Hack<br>ing, I, Imperson<br>ation&<br>51%<br>at<br>tack | Insider or Outsider |
-| [61]               | PHE                | Distributed ElGamal                      | Local<br>Gradi<br>ent                        | Gradient<br>Inver<br>sion                                           | HbC clients         |
-| [108]              | Encryption         | Proxy<br>re-encryption,<br>ECC, SS,CH    | Local Weights                                | I                                                                   | HbC clients         |
-| [105]              | Encryption         | Proxy re-encryption                      | Global<br>Weights                            | I                                                                   | -                   |
-| [46]               | PFE                | Paillier additive&Proxy<br>re-encryption | Local<br>Gradi<br>ent                        | I                                                                   | SHbCS               |
-| [50, 99]           | PHE                | Paillier additive                        | Local<br>Gradi<br>ent                        | I&P                                                                 | Insider/Outsider    |
-| [107]              | FHE                | Dijk-Gentry-Halevi<br>Vaikutanathan      | Local Model&<br>Global Model                 | I&P                                                                 | MalC,HbCS & SHbCS   |
+| [97] | PHE | Additive | Local<br>Gradi<br>ent | I | Server |
+| [98] | PHE | Paillier additive | Local Weights | I&P | HbCS & MalC |
+| [100] | FHE | BCP | Local<br>Gradi<br>ent | I&P | HbCS |
+| [51, 101] | FHE | CKKS | Local<br>Gradi<br>ent | I | Server & MalC |
+| [53] | FE | NDD-FE | Local Weights | I | - |
+| [104] | PFE | Paillier additive | Local<br>Gradi<br>ent,<br>Global<br>Gradient | Transaction Hack<br>ing, I, Imperson<br>ation&<br>51%<br>at<br>tack | Insider or Outsider |
+| [61] | PHE | Distributed ElGamal | Local<br>Gradi<br>ent | Gradient<br>Inver<br>sion | HbC clients |
+| [108] | Encryption | Proxy<br>re-encryption,<br>ECC, SS,CH | Local Weights | I | HbC clients |
+| [105] | Encryption | Proxy re-encryption | Global<br>Weights | I | - |
+| [46] | PFE | Paillier additive&Proxy<br>re-encryption | Local<br>Gradi<br>ent | I | SHbCS |
+| [50, 99] | PHE | Paillier additive | Local<br>Gradi<br>ent | I&P | Insider/Outsider |
+| [107] | FHE | Dijk-Gentry-Halevi<br>Vaikutanathan | Local Model&<br>Global Model | I&P | MalC,HbCS & SHbCS |
 
-<span id="page-22-0"></span>
 
-|  | Table 5: Privacy Preservation in BCFL using HE |  |  |
+| | **Table 5:** Privacy Preservation in BCFL using HE | | |
 |--|------------------------------------------------|--|--|
-|  |                                                |  |  |
+| | | | |
 
 FHE: Fully Homomorphic Encryption, PHE: Partially Homormophic Encryption, HbCS: Honest-but-Curious Server,MalC:
 
@@ -571,19 +568,18 @@ Assessing the contributions of diverse data providers is fundamental for fair pr
 
 Furthermore, Qi*et al.*[\[116\]](#page-40-10) proposed a mechanism to motivate data owners to provide high-quality data by establishing a distinct equilibrium by analyzing noncooperative games. A reputation layer utilizing Blockchain for collaborative assessment strengthens the equilibrium, which signifies that contributing the highest quality data leads to the highest reward. In the reward layer, incentives, determined by both the quantity and quality of contributions, are granted using a reputation-weighted algorithm to ensure fair distribution. The unique Nash equilibrium in the non-cooperative data-sharing game shows that data owners act selfishly to maximize their profits.
 
-<span id="page-23-0"></span>
 
-| Approach                       | Reference Paper       |
+| Approach | Reference Paper |
 |--------------------------------|-----------------------|
-| Client Data Contribution       | [24, 89, 98, 99, 119, |
-|                                | 120, 116, 117]        |
-| Auction theory-based schemes   | [121, 122, 123]       |
-| Mechanism design-based schemes | [118]                 |
-| Contract-theoretic approach    | [29]                  |
-| Game theory-based schemes      | [86]                  |
-| Smart contract-based schemes   | [50, 51, 124]         |
+| Client Data Contribution | [24, 89, 98, 99, 119, |
+| | 120, 116, 117] |
+| Auction theory-based schemes | [121, 122, 123] |
+| Mechanism design-based schemes | [118] |
+| Contract-theoretic approach | [29] |
+| Game theory-based schemes | [86] |
+| Smart contract-based schemes | [50, 51, 124] |
 
-Table 6: Privacy Preservation in BCFL using Reward Driven approaches
+**Table 6:** Privacy Preservation in BCFL using Reward Driven approaches
 
 Additionally, in [\[99\]](#page-39-12) proposed Deepchain, which also provides reward based on the data quantity. The system involves data owners collaborating to train a model and miners processing transactions for model updates on DeepChain. Data owners pay transaction fees based on their data quantity, with miners competing to process transactions and receive rewards. Value-based incentives promote correct participant behavior. Smart contracts regulate behavior and track attackers. The system assesses global model accuracy using local updates, penalizing invalid transactions and considering updates with decreased accuracy as potentially malicious. In [\[24,](#page-35-19) [98\]](#page-39-11), a customer-centric incentive system assesses contributions and calculates reputations using Multi-KRUM to eliminate unsatisfactory and malicious updates. In conjunction with this study, Abdel*et al.*[\[117\]](#page-40-13) enforced a hybrid incentive strategy, incorporating Multi-KRUM for providing incentives. The authors in [\[118\]](#page-40-17) introduce a fair and incentive-aware mechanism. Workers actively choose their top k previous models during each round, assigning precisely one vote to each model. The smart contract then calculates aggregated votes, determines worker counts from the preceding round, and allocates rewards in descending order based on these counts.
 
@@ -595,19 +591,19 @@ The authors in [\[124\]](#page-40-18) proposed the "Balanced Sign SGD ", a 1-bit
 
 Some studies incorporate an auction-based mechanism to reward participants efficiently, ensuring a fair and transparent compensation system for their contributions. For example, Batool*et al.*[\[121\]](#page-40-14) proposed a multidimensional auctionbased reward mechanism that utilizes a smart contract to compensate participating clients with cryptocurrencies. This auction considers factors like computational and network resources and local data quality. The reward distribution is based on the Shapley value, ensuring fairness by measuring the relative contribution of each client. Kang*et al.*introduced a Subjective Logic approach, as outlined in [\[122\]](#page-40-15), to assess individual reputations in the context of
 
-| Reference<br>paper | Privacy Scheme Used                              | Parameter      | Attack against                                                                      | Adversary                          |
+| Reference<br>paper | Privacy Scheme Used | Parameter | Attack against | Adversary |
 |--------------------|--------------------------------------------------|----------------|-------------------------------------------------------------------------------------|------------------------------------|
-| [127]              | HE & SMPC                                        | Local Gradient | I                                                                                   | MalC, Malicious<br>Miners          |
-| [108]              | HE & SMPC                                        | Local models   | I                                                                                   | HbC, Clients                       |
-| [125]              | HE & SMPC                                        | Local Models   | I&P                                                                                 | HbCS                               |
-| [126]              | HE & SMPC                                        | Local Model    | I                                                                                   | MalC                               |
-| [119]              | DP & SMPC                                        | Local Gradient | Byzantine<br>and<br>Sybil<br>attacks,<br>Model inversion, I, Model theft<br>attacks | HbCS,<br>HbCC,<br>MalC             |
-| [128]              | DP & SMPC                                        | Local Gradient | I                                                                                   | HbC, MalC                          |
-| [129]              | DP & HE                                          | Local weights  | Model extraction attack, Model<br>reverse attack                                    |                                    |
-| [130]              | DP& HE & SMPC                                    | Local Gradient | Collusion attack, Sybil attack, I,<br>& P                                           | HbCC, MalC                         |
-| [131]              | SS, Combine Paillier and<br>ElGamal based scheme | Local Gradient | I                                                                                   | Internal or Exter<br>nal Adversary |
+| [127] | HE & SMPC | Local Gradient | I | MalC, Malicious<br>Miners |
+| [108] | HE & SMPC | Local models | I | HbC, Clients |
+| [125] | HE & SMPC | Local Models | I&P | HbCS |
+| [126] | HE & SMPC | Local Model | I | MalC |
+| [119] | DP & SMPC | Local Gradient | Byzantine<br>and<br>Sybil<br>attacks,<br>Model inversion, I, Model theft<br>attacks | HbCS,<br>HbCC,<br>MalC |
+| [128] | DP & SMPC | Local Gradient | I | HbC, MalC |
+| [129] | DP & HE | Local weights | Model extraction attack, Model<br>reverse attack | |
+| [130] | DP& HE & SMPC | Local Gradient | Collusion attack, Sybil attack, I,<br>& P | HbCC, MalC |
+| [131] | SS, Combine Paillier and<br>ElGamal based scheme | Local Gradient | I | Internal or Exter<br>nal Adversary |
 
-<span id="page-24-0"></span>Table 7: Privacy Preservation in BCFL using hybrid privacy approaches
+<span id="page-24-0"></span>**Table 7:** Privacy Preservation in BCFL using hybrid privacy approaches
 
 HbCS: Honest-but-Curious Server, MalC: Malicious Client, I: Inference attack, P: Poisoning attack, HbCC: Honest-but-Curious Client, SS: Secret Sharing
 
@@ -615,7 +611,7 @@ vehicular networks. This framework for probabilistic information fusion relies o
 
 In [\[86\]](#page-38-19), the study proposes an incentive mechanism for a privacy-preserved data-sharing system, formulating it as a two-stage Stackelberg game. The mechanism is designed to maximize the utility of data requesters and two types of data providers, considering their distinct roles and contributions. The non-cooperative nature of the interactions justifies the choice of a Stackelberg game model, the hierarchical relationship between requesters and providers, and the one-to-many data-sharing structure. Table [6](#page-23-0) presents an overview of privacy preservation in BCFL by enforcing a reward-driven approach using various methodologies.
 
-# 6 Privacy protection using BCFL with Hybrid Privacy Approaches
+## 6 Privacy protection using BCFL with Hybrid Privacy Approaches
 
 Several studies indicate that integrating diverse privacy approaches helps mitigate security and privacy attacks in BCFL. This section explores hybrid approaches that provide privacy by combining various privacy-preserving techniques. For instance, integrating differential privacy for initial data aggregation and applying homomorphic encryption could yield a more resilient solution. The amalgamation of HE and SMPC in BCFL markedly enhances the confidentiality and privacy of the FL process within a transparent and decentralized Blockchain framework. This integration fosters trust and security in data sharing and model training, as exemplified by [\[125\]](#page-40-19) and [\[126\]](#page-40-20). HE enables computations on encrypted data, preserving the privacy of individual contributions, while SMPC ensures secure collaboration among participants without exposing their raw data. Table [7](#page-24-0) summarizes privacy preservation in BCFL by employing various privacy approaches. In the privacy-focused collaborative training proposed by Zhu*et al.*[\[127\]](#page-41-0), participants protect their local gradients using the Paillier cryptosystem with threshold decryption and a secure multi-party aggregation algorithm. This method ensures data privacy during collaborative training by transforming gradients into a secure form.
 
@@ -633,63 +629,62 @@ The studies outlined in [\[129\]](#page-41-2) focus on establishing a secure dat
 
 Table [8](#page-26-0) elucidates the overview of studies specifically in BCFL, highlighting their privacy approach, Blockchain types, the Blockchain frameworks utilized within Federated Learning systems, consensus algorithms, and block storage techniques.
 
-Table 8: Summary of studies on integration of Blockchain enabled Federated Learning, elucidating their privacy preservation methods, types of Blockchain used, the Blockchain frameworks integrated within Federated Learning systems, consensus algorithms employed, block storage, and data distribution used.
+**Table 8:** Summary of studies on integration of Blockchain enabled Federated Learning, elucidating their privacy preservation methods, types of Blockchain used, the Blockchain frameworks integrated within Federated Learning systems, consensus algorithms employed, block storage, and data distribution used.
 
-<span id="page-26-0"></span>
 
-|                     | Techniques                 | Reference Paper                                                                        |
+| | Techniques | Reference Paper |
 |---------------------|----------------------------|----------------------------------------------------------------------------------------|
-|                     | Differential privacy       | [24, 41, 42, 45, 63, 69, 79, 80, 81, 82,                                               |
-|                     |                            | 83, 84, 85, 86, 87, 88, 89, 91, 92, 93]                                                |
-|                     | Homomorphic encryption     | [50, 61, 68, 97, 98, 99, 100, 102, 104,                                                |
-|                     |                            | 107, 126, 53]                                                                          |
-|                     | Secure multi-party computa | [46, 48, 110, 111, 114]                                                                |
-| Privacy Approach    | tion                       |                                                                                        |
-|                     | Reward driven approaches   | [29, 42, 64, 66, 73, 75, 80, 86, 87, 89,                                               |
-|                     |                            | 90, 98, 99, 116, 117, 121, 122, 119,                                                   |
-|                     |                            | 123]                                                                                   |
-|                     | Hybrid privacy approaches  | [125, 126, 119, 127, 129, 108, 131, 128,                                               |
-|                     |                            | 130]                                                                                   |
-|                     | PoW                        | [63, 64, 67, 73, 80, 81, 83, 87, 89, 104,                                              |
-|                     |                            | 107, 114]                                                                              |
-|                     | PoS                        | [53]                                                                                   |
-|                     | DPoS                       | [41, 66]                                                                               |
-|                     | pBFT                       | [29, 43, 50, 75, 76, 79, 86, 98, 125, 130,                                             |
-|                     |                            | 123]                                                                                   |
-| Consensus Protocol  | PoA                        | [69, 85]                                                                               |
-|                     | PoQ                        | [45]                                                                                   |
-|                     | PoF                        | [69, 82, 126, 128]                                                                     |
-|                     | PoC                        | [102]                                                                                  |
-|                     | PoFL                       | [126]                                                                                  |
-|                     | RAFT                       | [125, 129]                                                                             |
-|                     | Con-dBFT                   | [97]                                                                                   |
-|                     | Algorand                   | [24, 99, 117]                                                                          |
-|                     | Public                     | [41, 43, 67, 68, 69, 81, 82, 83, 85, 93,                                               |
-|                     |                            | 117, 121, 129]                                                                         |
-|                     | Private                    | [101, 113]                                                                             |
-| Blockchain Type     | Permissioned               | [61, 66, 70, 74, 108, 119]                                                             |
-|                     | Consortium                 | [24, 29, 50, 63, 72, 75, 79, 80, 82, 86,                                               |
-|                     |                            | 97, 98, 100, 104, 116, 122, 123, 125,                                                  |
-|                     |                            | 131]                                                                                   |
-|                     | Ethereum                   | [46, 51, 61, 68, 85, 90, 93, 101, 104,                                                 |
-|                     |                            | 108, 110, 117, 121, 127]                                                               |
-| Blockchain Platform | Hyperledger Fabric         | [63, 70, 72, 75, 98, 100, 116, 125, 130]                                               |
-|                     | Custom Blockchain          | [89]                                                                                   |
-|                     | off-chain                  | [24, 43, 46, 50, 51, 63, 68, 69, 84, 85,                                               |
-|                     |                            | 86, 88, 92, 93, 97, 102, 121, 125, 128]                                                |
-| Blockchain Storage  | on-chain                   | [61, 72, 73, 75, 81, 83, 86, 91, 100, 102,                                             |
-|                     |                            | 104]                                                                                   |
-|                     | IID                        | [24, 41, 42, 43, 53, 63, 66, 68, 69, 72,                                               |
-|                     |                            | 73, 76, 81, 83, 86, 88, 89, 92, 93, 99, 97,<br>100, 101, 113, 116, 117, 119, 126, 128] |
-| Data Distribution   | Non-IID                    | [70, 75, 76, 82, 87, 90, 98, 116, 117,                                                 |
-|                     |                            | 119, 120, 127]                                                                         |
-|                     |                            |                                                                                        |
+| | Differential privacy | [24, 41, 42, 45, 63, 69, 79, 80, 81, 82, |
+| | | 83, 84, 85, 86, 87, 88, 89, 91, 92, 93] |
+| | Homomorphic encryption | [50, 61, 68, 97, 98, 99, 100, 102, 104, |
+| | | 107, 126, 53] |
+| | Secure multi-party computa | [46, 48, 110, 111, 114] |
+| Privacy Approach | tion | |
+| | Reward driven approaches | [29, 42, 64, 66, 73, 75, 80, 86, 87, 89, |
+| | | 90, 98, 99, 116, 117, 121, 122, 119, |
+| | | 123] |
+| | Hybrid privacy approaches | [125, 126, 119, 127, 129, 108, 131, 128, |
+| | | 130] |
+| | PoW | [63, 64, 67, 73, 80, 81, 83, 87, 89, 104, |
+| | | 107, 114] |
+| | PoS | [53] |
+| | DPoS | [41, 66] |
+| | pBFT | [29, 43, 50, 75, 76, 79, 86, 98, 125, 130, |
+| | | 123] |
+| Consensus Protocol | PoA | [69, 85] |
+| | PoQ | [45] |
+| | PoF | [69, 82, 126, 128] |
+| | PoC | [102] |
+| | PoFL | [126] |
+| | RAFT | [125, 129] |
+| | Con-dBFT | [97] |
+| | Algorand | [24, 99, 117] |
+| | Public | [41, 43, 67, 68, 69, 81, 82, 83, 85, 93, |
+| | | 117, 121, 129] |
+| | Private | [101, 113] |
+| Blockchain Type | Permissioned | [61, 66, 70, 74, 108, 119] |
+| | Consortium | [24, 29, 50, 63, 72, 75, 79, 80, 82, 86, |
+| | | 97, 98, 100, 104, 116, 122, 123, 125, |
+| | | 131] |
+| | Ethereum | [46, 51, 61, 68, 85, 90, 93, 101, 104, |
+| | | 108, 110, 117, 121, 127] |
+| Blockchain Platform | Hyperledger Fabric | [63, 70, 72, 75, 98, 100, 116, 125, 130] |
+| | Custom Blockchain | [89] |
+| | off-chain | [24, 43, 46, 50, 51, 63, 68, 69, 84, 85, |
+| | | 86, 88, 92, 93, 97, 102, 121, 125, 128] |
+| Blockchain Storage | on-chain | [61, 72, 73, 75, 81, 83, 86, 91, 100, 102, |
+| | | 104] |
+| | IID | [24, 41, 42, 43, 53, 63, 66, 68, 69, 72, |
+| | | 73, 76, 81, 83, 86, 88, 89, 92, 93, 99, 97,<br>100, 101, 113, 116, 117, 119, 126, 128] |
+| Data Distribution | Non-IID | [70, 75, 76, 82, 87, 90, 98, 116, 117, |
+| | | 119, 120, 127] |
+| | | |
 
-# <span id="page-27-0"></span>8 Privacy Preservation using Cross-chained FL Approaches
+## <span id="page-27-0"></span>8 Privacy Preservation using Cross-chained FL Approaches
 
 In this section, we have delved into the intricacies of cross-chain-enabled Federated Learning as a mechanism for preserving privacy. The discussion thoroughly explores how leveraging cross-chain capabilities enhances Federated Learning methodologies to uphold and safeguard privacy.
 
-# 1 Overview of Cross-chained FL
+## 1 Overview of Cross-chained FL
 
 Recent studies indicate that BCFL systems preserve the system's privacy. Still, the limited scalability of a single Blockchain becomes evident as the number of FL training tasks increases, resulting in the simultaneous generation of numerous blocks and subsequent queuing for block verification. This scalability challenge emerges due to the difficulty of managing massive block data with a limited number of miners, leading to constrained throughput, reduced efficiency, and slower FL training processes [\[132\]](#page-41-5). Additionally, BCFL incurs a substantial communication cost for model update transmission, requiring multiple rounds of communication to achieve the desired accuracy level. This arises from frequent gradient exchanges among peers over limited bandwidth channels, and as the block data size increases, so does the flow of model updates across the Blockchain network, posing significant communication challenges. Moreover, Blockchain-enabled Federated Learning encounters numerous challenges, including selecting efficient miners, consensus algorithm implementation, and chain validation [\[133,](#page-41-6) [134,](#page-41-7) [48\]](#page-37-0). Cross-chain technology enables data exchange among multiple Blockchains. Which also facilitates secure data transfers while maintaining the same machine-learning models throughout various Blockchain networks [\[135,](#page-41-8) [1\]](#page-34-0). The following highlights the major benefits and key advantages of cross-chained enabled FL [\[136\]](#page-41-9).
 
@@ -705,7 +700,7 @@ The prevailing BCFL system encounters data sparsity issues despite its commendab
 
 Xu*et al.*[\[140\]](#page-41-13) present a hierarchical micro chained fabric, denoted as µDFL, designed for decentralized, Federated Learning across devices in edge networks. The microchain consensus protocol, built upon a partially decentralized Blockchain utilizing Proof-of-Credit (PoC), ensures the transparency and privacy of data sharing during local model training. The proposed µDFL introduces a hierarchical Internet of Things network fabric, incorporating lightweight microchains. Each microchain adopts a hybrid approach involving PoC block generation and a Voting-based Chain Finality consensus to enhance efficiency and privacy. The Federated structure of µDFL is achieved through an inter-chain network employing Byzantine Fault Tolerance. Validation through a proof-of-concept prototype demonstrates the effectiveness of µDFL in cross-device Federated Learning environments, emphasizing efficiency, security, and privacy.
 
-# <span id="page-28-0"></span>9 Application of Blockchain-enabled FL for Privacy Preservation
+## <span id="page-28-0"></span>9 Application of Blockchain-enabled FL for Privacy Preservation
 
 In the following sections, we describe how several approaches leveraging FL and Blockchain for privacy preservation are used in different application scenarios, such as Healthcare, Industrial IoT (IIoT), and the Internet of Vehicles.
 
@@ -749,20 +744,20 @@ Similarly, [\[149\]](#page-42-3) proposes a Federated threat-hunting model in II
 
 The goal of the works proposed in [\[45,](#page-36-17) [92,](#page-39-5) [129\]](#page-41-2) is to design a secure data-sharing mechanism, that can share data among multiple distributed users while maintaining data privacy. In particular, the paper presented in [\[45\]](#page-36-17) integrates FL in the consensus process of a permissioned Blockchain, so that the computing work for consensus can also be used for Federated training tasks. Whereas, [\[92\]](#page-39-5) uses FL to obtain privacy-preserving model training, the InterPlanetary File
 
-| Reference paper                                      | Aim                                                            | Type of devices generat<br>ing data                                              | Type of Data                                                         |  |
+| Reference paper | Aim | Type of devices generat<br>ing data | Type of Data | |
 |------------------------------------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------------------------------------------------------|--|
-| Singh et al.[64]                                     | Private storage, Health alert                                  | IoT sensors (weight me<br>ters, blood pressure, glu<br>cose meter, insulin pump) | Temperature,<br>heart<br>beat, blood pressure,<br>electrocardiograph |  |
-| Kalapaaking<br>et<br>al.[113], Polap et<br>al. [144] | Privacy-preserving<br>analysis<br>from<br>multiple hospitals   | Internet<br>of<br>Medical<br>Things devices                                      | Medical datasets                                                     |  |
-| Lakhan<br>et<br>al.[143]                             | Fraud analysis, and Data validation                            | Internet<br>of<br>Medical<br>Things (IoMT) devices                               | Medical datasets                                                     |  |
-| Kumar et al.[67]                                     | Diagnosis of COVID-19                                          | CT device                                                                        | Lung Computed To<br>mography scans                                   |  |
-| Samuel<br>et<br>al.[145]                             | Privacy-preserving Diagnosis and<br>Dissemination of COVID-19  | Internet<br>of<br>Medical<br>Things (IoMT) devices                               | Medical datasets                                                     |  |
-| Hai et al.[146]                                      | EHR Private storage, Recommenda<br>tion for tailored treatment | Manual data insertion                                                            | Electronic<br>Health<br>Records (EHR)                                |  |
-| Alzubi<br>er<br>al.<br>[105]                         | Abnormal users identification and<br>Database access           | Manual data insertion                                                            | Electronic<br>Health<br>Records (EHR)                                |  |
-| Chen et al. [53]                                     | Privacy-preserving image detection,<br>and incentive mechanism | Manual data insertion                                                            | Chest X-ray images                                                   |  |
-| Liu et al. [147]                                     | Privacy-preserving image detection,<br>and incentive mechanism | Manual data insertion                                                            | Skin Cancer images                                                   |  |
-| Lo et al. [52]                                       | Diagnosis of COVID-19, and incen<br>tive mechanism             | Manual data insertion<br>X-rays images                                           |                                                                      |  |
+| Singh et al.[64] | Private storage, Health alert | IoT sensors (weight me<br>ters, blood pressure, glu<br>cose meter, insulin pump) | Temperature,<br>heart<br>beat, blood pressure,<br>electrocardiograph | |
+| Kalapaaking<br>et<br>al.[113], Polap et<br>al. [144] | Privacy-preserving<br>analysis<br>from<br>multiple hospitals | Internet<br>of<br>Medical<br>Things devices | Medical datasets | |
+| Lakhan<br>et<br>al.[143] | Fraud analysis, and Data validation | Internet<br>of<br>Medical<br>Things (IoMT) devices | Medical datasets | |
+| Kumar et al.[67] | Diagnosis of COVID-19 | CT device | Lung Computed To<br>mography scans | |
+| Samuel<br>et<br>al.[145] | Privacy-preserving Diagnosis and<br>Dissemination of COVID-19 | Internet<br>of<br>Medical<br>Things (IoMT) devices | Medical datasets | |
+| Hai et al.[146] | EHR Private storage, Recommenda<br>tion for tailored treatment | Manual data insertion | Electronic<br>Health<br>Records (EHR) | |
+| Alzubi<br>er<br>al.<br>[105] | Abnormal users identification and<br>Database access | Manual data insertion | Electronic<br>Health<br>Records (EHR) | |
+| Chen et al. [53] | Privacy-preserving image detection,<br>and incentive mechanism | Manual data insertion | Chest X-ray images | |
+| Liu et al. [147] | Privacy-preserving image detection,<br>and incentive mechanism | Manual data insertion | Skin Cancer images | |
+| Lo et al. [52] | Diagnosis of COVID-19, and incen<br>tive mechanism | Manual data insertion<br>X-rays images | | |
 
-<span id="page-30-0"></span>Table 9: Healthcare Applications
+<span id="page-30-0"></span>**Table 9:** Healthcare Applications
 
 System (IPFS) distributed storage system for storing model parameters and generating corresponding addresses based on the content, and Blockchain to provide the provenance and immutability of the parameters. Instead, the work of [\[129\]](#page-41-2) proposes a data protection aggregation scheme based on three ML methods (i.e., distributed K-means clustering based on differential privacy and homomorphic encryption, distributed random forest with differential privacy, and distributed AdaBoost with homomorphic encryption) to enable multiple data protection in IIoT scenarios.
 
@@ -774,22 +769,21 @@ Industry 5.0 is also expected to reshape the agriculture industry, as already do
 
 Table [10](#page-31-0) summarizes the main aim of the papers analyzed in this section.
 
-| Reference paper                                                | Main Aim                                       |
+| Reference paper | Main Aim |
 |----------------------------------------------------------------|------------------------------------------------|
-| Hamouda et al.[119]                                            | Privacy-preserving FL, and Intrusion Detection |
-| Yazdinejad et al.[149], Friha<br>et al. [154]                  | Privacy-preserving Anomalies Detection         |
-| Lu<br>et<br>al.[45],<br>Chen<br>et<br>al.[92], Jia et al.[129] | Privacy-preserving Data Sharing                |
-| Yang et al. [150]                                              | Privacy-preserving Credit Data Sharing         |
-| Zang et al.[151]                                               | Privacy-preserving Device Failure Detection    |
-| Singh et al.[152]                                              | Privacy-preserving FL                          |
+| Hamouda et al.[119] | Privacy-preserving FL, and Intrusion Detection |
+| Yazdinejad et al.[149], Friha<br>et al. [154] | Privacy-preserving Anomalies Detection |
+| Lu<br>et<br>al.[45],<br>Chen<br>et<br>al.[92], Jia et al.[129] | Privacy-preserving Data Sharing |
+| Yang et al. [150] | Privacy-preserving Credit Data Sharing |
+| Zang et al.[151] | Privacy-preserving Device Failure Detection |
+| Singh et al.[152] | Privacy-preserving FL |
 
-<span id="page-31-0"></span>
 
-| Table 10: Industry 5.0 applications |  |  |  |  |
+| **Table 10:** Industry 5.0 applications | | | | |
 |-------------------------------------|--|--|--|--|
 |-------------------------------------|--|--|--|--|
 
-# 3 Internet of Vehicles
+## 3 Internet of Vehicles
 
 Internet of Vehicles (IoV, hereafter) defines the evolution of the conventional Vehicle Ad-hoc Networks and enables real-time information exchange among all the actors traveling through streets (e.g., vehicles, drivers, pedestrians) and road infrastructure through vehicle-to-everything (V2X) communication. The objective of IoV is to realize the convergence of mobile communication technology, intelligent transportation, and information systems [\[155,](#page-42-9) [156\]](#page-42-10). Because this scenario allows for quick and efficient exchange of large amounts of data containing private information (i.e. location and user preferences), approaches that rely on the combination of FL and Blockchain have been investigated. The arisen challenges are the following:
 
@@ -805,22 +799,22 @@ The authors of [\[159\]](#page-42-13) focus on an approach to provide a hierarch
 
 An IoV-related application scenario is that of Drone Edge Intelligence, which refers to the ability of unmanned aerial vehicles (UAVs), or drones, to process and analyze data directly at the source or edge rather than relying on a centralized computing system. Drones' characteristics, such as line of sight, ease of deployment, and capture of high-resolution images, make them the efficient solution for disaster mitigation, security surveillance, environmental monitoring, and recovery [\[162\]](#page-42-16). FL allows drones to execute decentralized collaborative learning by computing local models. Only
 
-| Reference paper                                           | Main Aim                                               |
+| Reference paper | Main Aim |
 |-----------------------------------------------------------|--------------------------------------------------------|
-| Smahi et al.[157],<br>Lu et<br>al. [41], Wang et al. [98] | Privacy-preserving and verifiable FL                   |
-| Qi et al.[79]                                             | Privacy-preserving traffic flow prediction             |
-| Pokhrel et al.[158]                                       | Privacy-preserving distributed FL                      |
-| Chai et al.[159]                                          | Privacy-preserving knowledge sharing                   |
-| Liu et al.[160], Moulahi et<br>al.[161]                   | Privacy-preserving and cooperative intrusion detection |
-| Akram et al.[164]                                         | Privacy-preserving malicious drone detection           |
+| Smahi et al.[157],<br>Lu et<br>al. [41], Wang et al. [98] | Privacy-preserving and verifiable FL |
+| Qi et al.[79] | Privacy-preserving traffic flow prediction |
+| Pokhrel et al.[158] | Privacy-preserving distributed FL |
+| Chai et al.[159] | Privacy-preserving knowledge sharing |
+| Liu et al.[160], Moulahi et<br>al.[161] | Privacy-preserving and cooperative intrusion detection |
+| Akram et al.[164] | Privacy-preserving malicious drone detection |
 
-# <span id="page-32-1"></span>Table 11: Internet of Vehicles applications
+## <span id="page-32-1"></span>Table 11: Internet of Vehicles applications
 
 model parameters are shared with neighbors and the centralized unit to improve global model accuracy, while still keeping local data private. On the other hand, Blockchain can enable privacy-preserving data sharing in a distributed manner. However, combining the two solutions raises several challenges, such as scalability, energy efficiency, and transaction capacity [\[163\]](#page-42-18). The paper presented in [\[164\]](#page-42-17) relies on Blockchain technology and FL for privacy-preserving malicious node detection in the Internet of Drone Things (IoDTs).
 
 Table [11](#page-32-1) summarizes the main aim of the paper analyzed in this section.
 
-# <span id="page-32-0"></span>10 Open Issues and Future Directions
+## <span id="page-32-0"></span>10 Open Issues and Future Directions
 
 Integrating Blockchain technology into Federated Learning is a noteworthy research area, offering substantial improvements in protecting privacy models. As highlighted earlier, BCFL is crucial in supporting various domain applications. In this section, we address issues in BCFL and propose potential solutions to shed light on future research directions for readers and researchers in this evolving domain.
 
@@ -845,7 +839,7 @@ The Federated Learning utilizing Blockchain technology offers numerous promising
 - Gas Consumption Optimization: In the pursuit of advancing the BCFL system, a crucial area for exploration involves optimizing gas consumption for encryption-related smart contract functions. Currently, there is a notable absence of research addressing the reduction of gas consumption in the BCFL system, emphasizing privacy provision at a low cost. Investigating and implementing strategies to achieve low-cost and low gas consumption in the context of privacy-preserving BCFL operations represents a valuable and unexplored avenue for future research and system improvement.
 - Addressing Vulnerabilities in Smart Contracts: For future directions in this area, it is crucial to prioritize research that delves explicitly into the vulnerabilities of smart contracts within BCFL. Given the inherent risks posed by faulty implementations, leading to persistent vulnerabilities and potential compromise of security and privacy in the model, a focused investigation is needed. Future efforts should aim to comprehensively identify and address these vulnerabilities, offering solutions to enhance the robustness of smart contracts in BCFL. This research would contribute to establishing a more secure foundation for the execution of logic and storage of final states in smart contracts, thereby mitigating risks associated with false data and bolstering overall security in BCFL models. Also, conduct a comprehensive security audit of the smart contract to identify and rectify system performance vulnerabilities.
 
-# <span id="page-33-0"></span>11 Summary and Conclusions
+## <span id="page-33-0"></span>11 Summary and Conclusions
 
 Blockchain-enabled FL (BCFL) systems are emerging approaches that combine the principles of FL with Blockchain technology to address various challenges. The main objective of these solutions is to guarantee privacy, security, and trust in decentralized collaborative Learning environments while providing a trustworthy and transparent framework for participants. By adopting a privacy perspective, this survey paper presents a systematic overview of the fundamental concepts of BCFL architectures and explores the opportunities and challenges that arise from their development. This survey gives a novel contribution to the present literature because it analyzes in detail the existing attacks on privacy in BCFL, along with state-of-the-art solutions relying on differential privacy, homomorphic encryption, secure multiparty computation, reward-driven approaches, multiple methods, and cross-chained FL. Finally, we investigate the BCFL application in real-case scenarios, such as healthcare, Industry 5.0, and the Internet of Vehicles.
 
@@ -853,35 +847,35 @@ In summary, we analyzed 102 articles published in renowned international confere
 
 The research direction explored in this paper can be regarded as a foundation, as we plan to continue our investigation by deep-diving into certain aspects only mentioned in the present work. For instance, a fascinating path can be the review of the paper exploiting existing security threats and countermeasures for BCFL systems to give the reader a
 
-| Topic                                                  | Amount of papers |
+| Topic | Amount of papers |
 |--------------------------------------------------------|------------------|
-| BCFL Architecture                                      | 16               |
-| Attacks to privacy in BCFL                             | 2                |
-| BCFL Architectures for Security and Privacy Protection | 14               |
-| BCFL with Differential Privacy Approaches              | 19               |
-| BCFL with HE Approaches                                | 14               |
-| BCFL with SMPC Approaches                              | 5                |
-| BCFL with Reward-driven Approaches                     | 17               |
-| BCFL with Hybrid Privacy Approaches                    | 9                |
-| Cross-chained FL Approaches for privacy                | 4                |
-| Application of BCFL for privacy                        | 31               |
+| BCFL Architecture | 16 |
+| Attacks to privacy in BCFL | 2 |
+| BCFL Architectures for Security and Privacy Protection | 14 |
+| BCFL with Differential Privacy Approaches | 19 |
+| BCFL with HE Approaches | 14 |
+| BCFL with SMPC Approaches | 5 |
+| BCFL with Reward-driven Approaches | 17 |
+| BCFL with Hybrid Privacy Approaches | 9 |
+| Cross-chained FL Approaches for privacy | 4 |
+| Application of BCFL for privacy | 31 |
 
-<span id="page-34-4"></span>Table 12: Amount of papers analyzed per topic
+<span id="page-34-4"></span>**Table 12:** Amount of papers analyzed per topic
 
 ![](_page_34_Figure_3.jpeg)
 <!-- Image Description: The image is a line graph showing the number of articles published each year from 2018 to 2023. The x-axis represents the year, and the y-axis represents the number of articles. The graph illustrates a growth in publications, peaking in 2022 (28 articles) before declining slightly in 2023 (20 articles). The purpose is to visually represent the publication trend over time within the paper's subject area. -->
 
-<span id="page-34-5"></span>Figure 11: Literature timeline
+<span id="page-34-5"></span>**Figure 11:** Literature timeline
 
 larger spectrum of diverse problems in this domain. Moreover, an extensive and exhaustive technical description of all the implemented BCFL systems currently available is also a demanding task.
 
 We sincerely aspire for this work to assist researchers and practitioners in comprehending the essential aspects of this field, capturing notable advancements, and highlighting future research progress.
 
-# Acknowledgments
+## Acknowledgments
 
 This work was supported in part by the project SERICS (PE00000014) under the NRRP MUR program funded by the EU-NGEU, and by the Italian Ministry of University and Research through the PRIN Project "HOMEY: a Humancentric IoE-based Framework for Supporting the Transition Towards Industry 5.0" (code 2022NX7WKE), and by the HORIZON Europe Framework Programme through the project "OPTIMA - Organization sPecific Threat Intelligence Mining and sharing" (101063107).
 
-# References
+## References
 
 - <span id="page-34-0"></span>[1] Youyang Qu, Md Palash Uddin, Chenquan Gan, Yong Xiang, Longxiang Gao, and John Yearwood. Blockchainenabled federated learning: A survey.*ACM Computing Surveys*, 55(4):1–35, 2022.
 - <span id="page-34-1"></span>[2] Juncen Zhu, Jiannong Cao, Divya Saxena, Shan Jiang, and Houda Ferradi. Blockchain-empowered federated learning: Challenges, solutions, and future directions. *ACM Computing Surveys*, 55(11):1–31, 2023.

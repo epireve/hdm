@@ -22,14 +22,13 @@ keywords:
 - llm-based
 ---
 
-
 # Morescient GAI for Software Engineering (Extended Version)
 
 MARCUS KESSEL and COLIN ATKINSON, University of Mannheim, Germany
 
 The ability of Generative AI (GAI) technology to automatically check, synthesize and modify software engineering artifacts promises to revolutionize all aspects of software engineering. Using GAI for software engineering tasks is consequently one of the most rapidly expanding fields of software engineering research, with over a hundred LLM-based code models having been published since 2021. However, the overwhelming majority of existing code models share a major weakness – they are exclusively trained on the syntactic facet of software, significantly lowering their trustworthiness in tasks dependent on software semantics. To address this problem, a new class of "Morescient" GAI is needed that is "aware" of (i.e., trained on) both the semantic and static facets of software. This, in turn, will require a new generation of software observation platforms capable of generating large quantities of execution observations in a structured and readily analyzable way. In this paper, we present a vision and roadmap for how such "Morescient" GAI models can be engineered, evolved and disseminated according to the principles of open science.
 
-# CCS Concepts: • Software and its engineering → Software notations and tools; • Computing methodologies → Artificial intelligence; Natural language processing.
+## CCS Concepts: • Software and its engineering → Software notations and tools; • Computing methodologies → Artificial intelligence; Natural language processing.
 
 Additional Key Words and Phrases: generative AI, morescience, semantics, dynamic, analysis, behavior-aware, observation, dataset, vision, roadmap
 
@@ -148,17 +147,17 @@ To achieve full morescience, GAI code models will ultimately need to be trained 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image depicts a software reliability model (SRM) represented as a matrix. Rows represent tests (Tᵢ), columns represent implementations (Sᵢ). A shaded cell indicates a specific test-implementation execution. Dashed lines connect this cell to resulting functional (output values, function calls) and non-functional (time, memory, branch coverage) observation tables. The diagram illustrates how an SRM tracks and records the results of executing various tests on different software versions. -->
 
-|   | Output | Operation | Inputs |   |
+| | Output | Operation | Inputs | |
 |---|--------|-----------|--------|---|
-|   |        |           |        |   |
-|   | A      | B         | C      | D |
-| 1 |        | create    | 𝑄𝑖     |   |
-| 2 | TRUE   | enqueue   | A1     | 1 |
-| 3 | TRUE   | enqueue   | A1     | 2 |
-| 4 | 1      | peek      | A1     |   |
-| 5 | 2      | size      | A1     |   |
-| 6 | 1      | dequeue   | A1     |   |
-| 7 | 1      | size      | A1     |   |
+| | | | | |
+| | A | B | C | D |
+| 1 | | create | 𝑄𝑖 | |
+| 2 | TRUE | enqueue | A1 | 1 |
+| 3 | TRUE | enqueue | A1 | 2 |
+| 4 | 1 | peek | A1 | |
+| 5 | 2 | size | A1 | |
+| 6 | 1 | dequeue | A1 | |
+| 7 | 1 | size | A1 | |
 
 (a) Sequence Sheets and Stimulus-Response Matrix (SRM)
 
@@ -169,7 +168,7 @@ To achieve full morescience, GAI code models will ultimately need to be trained 
 
 (b) Stimulus-Response Hypercube (SRH)
 
-Fig. 1. Proposed Data Structures for Behavior Representation
+Figure 1. Proposed Data Structures for Behavior Representation
 
 ## 1 Data Structures
 
@@ -202,7 +201,7 @@ There are many potential approaches to developing a continually evolving SRH. Ho
 <span id="page-9-0"></span>![](_page_9_Figure_1.jpeg)
 <!-- Image Description: The image diagrams a "Continually Evolving SRH" system using a series of tables representing models (Morescient LLMs). Each table shows multiple implementations ($S_1$ to $S_n$) evolving across three axes: repetitions, functional abstractions, and tests. The tables are linked to executable code, illustrating a model's iterative development and refinement through repeated testing and implementation changes. The curved lines represent the continuous evolution of the system over time. -->
 
-Fig. 2. An Open, Continually Evolving SRH of de facto Behavior Data
+Figure 2. An Open, Continually Evolving SRH of de facto Behavior Data
 
 to current open-scientific collaborations such as the Big Project and its open code dataset, The Stack [\[44\]](#page-15-11). Such an open, community-driven SRH of the kind visualized in Figure [2](#page-9-0) would be continuously expanded and enriched by many contributors over time, including researchers and industry practitioners alike.
 

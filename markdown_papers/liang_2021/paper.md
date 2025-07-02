@@ -51,7 +51,7 @@ Our perception of the natural world surrounding us involves multiple sensory mod
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
 <!-- Image Description: This image from an academic paper presents a taxonomy of multimodal learning. It displays examples of data across various domains (affective computing, healthcare, finance, etc.) and modalities (language, image, video, audio, etc.). A table shows performance metrics (test and validation accuracy) for two methods. Finally, icons represent complexity and a diagram illustrates robustness, depicting the model's input from multiple modalities and potential failure points. -->
 
-Figure 1: MULTIBENCH contains a diverse set of 15 datasets spanning 10 modalities and testing for more than 20 prediction tasks across 6 distinct research areas, thereby enabling standardized, reliable, and reproducible large-scale benchmarking of multimodal models. To reflect real-world requirements, MULTIBENCH is designed to holistically evaluate (1) performance across domains and modalities, (2) complexity during training and inference, and (3) robustness to noisy and missing modalities.
+**Figure 1:** MULTIBENCH contains a diverse set of 15 datasets spanning 10 modalities and testing for more than 20 prediction tasks across 6 distinct research areas, thereby enabling standardized, reliable, and reproducible large-scale benchmarking of multimodal models. To reflect real-world requirements, MULTIBENCH is designed to holistically evaluate (1) performance across domains and modalities, (2) complexity during training and inference, and (3) robustness to noisy and missing modalities.
 
 Limitations of current multimodal datasets: Current multimodal research has led to impressive advances in benchmarking and modeling for specific domains such as language and vision [\[4,](#page-10-1) [103,](#page-15-4) [105,](#page-15-5) [132\]](#page-16-2). However, other domains, modalities, and tasks are relatively understudied. Many of these tasks are crucial for real-world intelligence such as improving accessibility to technology for diverse populations [\[62\]](#page-13-1), accelerating healthcare diagnosis to aid doctors [\[78\]](#page-13-2), and building reliable robots that can engage in human-AI interactions [\[16,](#page-10-2) [83,](#page-14-2) [137\]](#page-16-3). Furthermore, current benchmarks typically focus on performance without quantifying the potential drawbacks involved with increased time and space complexity [\[148\]](#page-17-0), and the risk of decreased robustness from imperfect modalities [\[101,](#page-15-2) [123\]](#page-16-4). In real-world deployment, a balance between performance, robustness, and complexity is often required.
 
@@ -67,30 +67,30 @@ Together, MULTIBENCH unifies efforts across separate research areas in multimoda
 
 To help the community accurately compare performance and ensure reproducibility, MULTIBENCH includes an end-to-end pipeline including data preprocessing, dataset splits, multimodal algorithms, evaluation metrics, and cross-validation protocols. This includes an implementation of 20 core multimodal approaches spanning innovations in fusion paradigms, optimization objectives, and training approaches in a standard public toolkit called MULTIZOO. We perform a systematic evaluation and show that directly applying these methods can improve the state-of-the-art performance on 9 out of the 15 datasets. Therefore, MULTIBENCH presents a step towards unifying disjoint efforts in multimodal research and paves a way towards a deeper understanding of multimodal models. Most importantly, our public zoo of multimodal benchmarks and models will ensure ease of use, accessibility, and reproducibility. Finally, we outline our plans to ensure the continual availability, maintenance, and expansion of MULTIBENCH, including using it as a theme for future workshops and competitions and to support the multimodal learning courses taught around the world.
 
-<span id="page-2-0"></span>Table 1: MULTIBENCH provides a comprehensive suite of 15 multimodal datasets to benchmark current and proposed approaches in multimodal representation learning. It covers a diverse range of research areas, dataset sizes, input modalities (in the form of `: language, i: image, v: video, a: audio, t: time-series, ta: tabular, f: force sensor, p: proprioception sensor, s: set, o: optical flow), and prediction tasks. We provide a standardized data loader for datasets in MULTIBENCH, along with a set of state-of-the-art multimodal models.
+<span id="page-2-0"></span>**Table 1:** MULTIBENCH provides a comprehensive suite of 15 multimodal datasets to benchmark current and proposed approaches in multimodal representation learning. It covers a diverse range of research areas, dataset sizes, input modalities (in the form of `: language, i: image, v: video, a: audio, t: time-series, ta: tabular, f: force sensor, p: proprioception sensor, s: set, o: optical flow), and prediction tasks. We provide a standardized data loader for datasets in MULTIBENCH, along with a set of state-of-the-art multimodal models.
 
-| Research Area       | Size | Dataset            |           | Modalities # Samples | Prediction task         |
+| Research Area | Size | Dataset | | Modalities # Samples | Prediction task |
 |---------------------|------|--------------------|-----------|----------------------|-------------------------|
-| Affective Computing | S    | MUSTARD [24]       | {`, v, a} | 690                  | sarcasm                 |
-|                     | M    | CMU-MOSI [181]     | {`, v, a} | 2, 199               | sentiment               |
-|                     | L    | UR-FUNNY [64]      | {`, v, a} | 16, 514              | humor                   |
-|                     | L    | CMU-MOSEI [183]    | {`, v, a} | 22, 777              | sentiment, emotions     |
-|                     |      |                    |           |                      |                         |
-| Healthcare          | L    | MIMIC [78]         | {t, ta}   | 36, 212              | mortality, ICD-9 codes  |
-|                     |      |                    |           |                      |                         |
-| Robotics            | M    | MUJOCO PUSH [90]   | {i, f, p} | 37, 990              | object pose             |
-|                     | L    | VISION&TOUCH [92]  | {i, f, p} | 147, 000             | contact, robot pose     |
-|                     |      |                    |           |                      |                         |
-| Finance             | M    | STOCKS-F&B         | {t × 18}  | 5, 218               | stock price, volatility |
-|                     | M    | STOCKS-HEALTH      | {t × 63}  | 5, 218               | stock price, volatility |
-|                     | M    | STOCKS-TECH        | {t × 100} | 5, 218               | stock price, volatility |
-|                     |      |                    |           |                      |                         |
-| HCI                 | S    | ENRICO [93]        | {i, s}    | 1, 460               | design interface        |
-|                     |      |                    |           |                      |                         |
-| Multimedia          | S    | KINETICS400-S [80] | {v, a, o} | 2, 624               | human action            |
-|                     | M    | MM-IMDB [8]        | {`, i}    | 25, 959              | movie genre             |
-|                     | M    | AV-MNIST [161]     | {i, a}    | 70, 000              | digit                   |
-|                     | L    | KINETICS400-L [80] | {v, a, o} | 306, 245             | human action            |
+| Affective Computing | S | MUSTARD [24] | {`, v, a} | 690 | sarcasm |
+| | M | CMU-MOSI [181] | {`, v, a} | 2, 199 | sentiment |
+| | L | UR-FUNNY [64] | {`, v, a} | 16, 514 | humor |
+| | L | CMU-MOSEI [183] | {`, v, a} | 22, 777 | sentiment, emotions |
+| | | | | | |
+| Healthcare | L | MIMIC [78] | {t, ta} | 36, 212 | mortality, ICD-9 codes |
+| | | | | | |
+| Robotics | M | MUJOCO PUSH [90] | {i, f, p} | 37, 990 | object pose |
+| | L | VISION&TOUCH [92] | {i, f, p} | 147, 000 | contact, robot pose |
+| | | | | | |
+| Finance | M | STOCKS-F&B | {t × 18} | 5, 218 | stock price, volatility |
+| | M | STOCKS-HEALTH | {t × 63} | 5, 218 | stock price, volatility |
+| | M | STOCKS-TECH | {t × 100} | 5, 218 | stock price, volatility |
+| | | | | | |
+| HCI | S | ENRICO [93] | {i, s} | 1, 460 | design interface |
+| | | | | | |
+| Multimedia | S | KINETICS400-S [80] | {v, a, o} | 2, 624 | human action |
+| | M | MM-IMDB [8] | {`, i} | 25, 959 | movie genre |
+| | M | AV-MNIST [161] | {i, a} | 70, 000 | digit |
+| | L | KINETICS400-L [80] | {v, a, o} | 306, 245 | human action |
 
 ## 2 MULTIBENCH: The MULTISCALE MULTIMODAL BENCHMARK
 
@@ -116,7 +116,7 @@ Human Computer Interaction (HCI) studies the design of computer technology and i
 
 Multimedia: A significant body of research in multimodal learning has been fueled by the large availability of multimedia data (language, image, video, and audio) on the internet. MULTIBENCH includes 3 popular large-scale multimedia datasets with varying sizes and levels of difficulty: (1) AV-MNIST [\[161\]](#page-18-1) is assembled from*images*of handwritten digits [\[88\]](#page-14-8) and*audio*samples of spoken digits [\[94\]](#page-14-9), (2) MM-IMDB [\[8\]](#page-10-3) uses movie*titles*, *metadata*, and movie *posters*to perform multi-label classification of movie genres, and (3) KINETICS [\[80\]](#page-14-6) contains*video*, *audio*, and *optical flow*of 306, 245 video clips annotated for 400 human actions. To ease experimentation, we split KINETICS into small and large partitions (see Appendix [C\)](#page--1-1).
 
-#### <span id="page-3-1"></span>2.2 Evaluation Protocol
+### <span id="page-3-1"></span>2.2 Evaluation Protocol
 
 MULTIBENCH contains evaluation scripts for the following holistic desiderata in multimodal learning: Performance: We standardize evaluation using metrics designed for each dataset, including MSE and MAE for regression to accuracy, micro & macro F1-score, and AUPRC for classification.
 
@@ -131,7 +131,7 @@ To complement MULTIBENCH, we release a comprehensive toolkit, MULTIZOO, as start
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
 <!-- Image Description: This image from an academic paper illustrates a multimodal learning system. It shows: 1) data preprocessing (example image sequences); 2) a unimodal model architecture (diagram of a neural network); 3) a fusion paradigm (diagram of a multi-modal fusion model with 3 input modalities); 4) optimization objectives (equations for supervised, CCA, and reconstruction loss); and 5) a training procedure (graph showing training and validation loss curves over epochs with early stopping criteria). The image visually summarizes the entire system's pipeline. -->
 
-Figure 2: MULTIZOO provides a standardized implementation of a suite of multimodal methods in a modular fashion to enable accessibility for new researchers, compositionality of approaches, and reproducibility of results.
+**Figure 2:** MULTIZOO provides a standardized implementation of a suite of multimodal methods in a modular fashion to enable accessibility for new researchers, compositionality of approaches, and reproducibility of results.
 
 tions in (1) data preprocessing, (2) fusion paradigms, (3) optimization objectives, and (4) training procedures (see Figure [2\)](#page-4-0). To introduce these algorithms, we use the simple setting with 2 modalities for notational convenience but refer the reader to Appendix [E](#page--1-4) for detailed descriptions and implementations. We use x1,x<sup>2</sup> for input modalities, z1, z<sup>2</sup> for unimodal representations, zmm for the multimodal representation, and yˆ for the predicted label.
 
@@ -139,7 +139,7 @@ tions in (1) data preprocessing, (2) fusion paradigms, (3) optimization objectiv
 
 Temporal alignment [\[26\]](#page-11-2) has been shown to help tackle the multimodal alignment problem for time-series data. This approach assumes a temporal granularity of the modalities (e.g., at the level of words for text) and aligns information from the remaining modalities to the same granularity. We call this approach WORDALIGN [\[26\]](#page-11-2) for temporal data where text is one of the modalities.
 
-#### <span id="page-4-1"></span>3.2 Fusion Paradigms
+### <span id="page-4-1"></span>3.2 Fusion Paradigms
 
 Early and late fusion: Early fusion performs concatenation of input data before using a model (i.e., zmm = [x1,x2]) while late fusion applies suitable unimodal models to each modality to obtain their feature representations, concatenates these features, and defines a classifier to the label (i.e., zmm = [z1, z2]) [\[10\]](#page-10-0). MULTIZOO includes their implementations denoted as EF and LF respectively. Tensors are specifically designed to tackle the multimodal complementarity challenge by explicitly capturing higher-order interactions across modalities [\[179\]](#page-19-2). Given unimodal representations z1, z2, tensors are defined as zmm = [ z1 1 ] ⊗ [ z2 1 ] where ⊗ denotes an outer product. However, computing tensor products is expensive since their dimension scales exponentially with the number of modalities so several efficient approximations have been proposed [\[71,](#page-13-4) [101,](#page-15-2) [106\]](#page-15-7). MULTIZOO includes Tensor Fusion (TF) [\[179\]](#page-19-2) as well as the approximate Low-rank Tensor Fusion (LRTF) [\[106\]](#page-15-7).
 
@@ -158,19 +158,29 @@ from datasets.get_data import get_dataloader
 from unimodals.common_models import ResNet, Transformer
 from fusions.common_fusions import MultInteractions
 from training_structures.gradient_blend import train, test
-# loading Multimodal IMDB dataset
+
+## loading Multimodal IMDB dataset
+
 traindata, validdata, testdata = get_dataloader('multimodal_imdb')
 out_channels = 3
-# defining ResNet and Transformer unimodal encoders
+
+## defining ResNet and Transformer unimodal encoders
+
 encoders = [ResNet(in_channels=1, out_channels, layers=5),
-            Transformer(in_channels=1, out_channels, layers=3)]
-# defining a Multiplicative Interactions fusion layer
+Transformer(in_channels=1, out_channels, layers=3)]
+
+## defining a Multiplicative Interactions fusion layer
+
 fusion = MultInteractions([out_channels*8, out_channels*32], out_channels*32, 'matrix')
 classifier = MLP(out_channels*32, 100, labels=23)
-# training using Gradient Blend algorithm
+
+## training using Gradient Blend algorithm
+
 model = train(encoders, fusion, classifier, traindata, validdata,
-        epochs=100, optimtype=torch.optim.SGD, lr=0.01, weight_decay=0.0001)
-# testing
+epochs=100, optimtype=torch.optim.SGD, lr=0.01, weight_decay=0.0001)
+
+## testing
+
 performance, complexity, robustness = test(model, testdata)
 ```text
 
@@ -190,32 +200,32 @@ Improving robustness: These approaches modify the objective function to account 
 
 Improving generalization: Recent work has found that directly training a multimodal model is sub-optimal since different modalities overfit and generalize at different rates. MULTIZOO includes Gradient Blending (GRADBLEND), that computes generalization statistics for each modality to determine their weights during fusion [\[167\]](#page-18-3), and Regularization by Maximizing Functional Entropies (RMFE), which uses functional entropy to balance the contribution of each modality to the result [\[53\]](#page-12-4).
 
-#### 5 Putting Everything Together
+### 5 Putting Everything Together
 
 In Algorithm [1,](#page-5-0) we show a sample code snippet in Python that loads a dataset from MULTIBENCH (section [C.2\)](#page--1-5), defines the unimodal and multimodal architectures, optimization objective, and training procedures (section [3\)](#page-3-0), before running the evaluation protocol (section [2.2\)](#page-3-1). Our MULTIZOO toolkit is easy to use and trains entire multimodal models in less than 10 lines of code. By standardizing the implementation of each module and disentangling the individual effects of models, optimizations, and training, MULTIZOO ensures both accessibility and reproducibility of its algorithms.
 
-<span id="page-6-0"></span>Table 2: Standardizing methods and datasets enables quick application of methods from different research areas which achieves stronger performance on 9/15 datasets in MULTIBENCH, especially in healthcare, HCI, robotics, and finance. *In-domain*refers to the best performance across methods previously proposed on that dataset and*out-domain*shows best performance across remaining methods. ↑ indicates metrics where higher is better (Acc, AUPRC), ↓ indicates lower is better (MSE).
+<span id="page-6-0"></span>**Table 2:** Standardizing methods and datasets enables quick application of methods from different research areas which achieves stronger performance on 9/15 datasets in MULTIBENCH, especially in healthcare, HCI, robotics, and finance. *In-domain*refers to the best performance across methods previously proposed on that dataset and*out-domain*shows best performance across remaining methods. ↑ indicates metrics where higher is better (Acc, AUPRC), ↓ indicates lower is better (MSE).
 
-| Dataset     |            |            |            | MUSTARD ↑ CMU-MOSI ↑ UR-FUNNY ↑ CMU-MOSEI ↑ | MIMIC ↑    |
+| Dataset | | | | MUSTARD ↑ CMU-MOSI ↑ UR-FUNNY ↑ CMU-MOSEI ↑ | MIMIC ↑ |
 |-------------|------------|------------|------------|---------------------------------------------|------------|
-| Unimodal    | 68.6 ± 0.4 | 74.2 ± 0.5 | 58.3 ± 0.2 | 78.8 ± 1.5                                  | 76.7 ± 0.3 |
-| In-domain   | 66.3 ± 0.3 | 83.0 ± 0.1 | 62.9 ± 0.2 | 82.1 ± 0.5                                  | 77.9 ± 0.3 |
-| Out-domain  | 71.8 ± 0.3 | 75.5 ± 0.5 | 66.7 ± 0.3 | 78.1 ± 0.3                                  | 78.2 ± 0.2 |
-| Improvement | 4.7%       | -          | 6.0%       | -                                           | 0.4%       |
+| Unimodal | 68.6 ± 0.4 | 74.2 ± 0.5 | 58.3 ± 0.2 | 78.8 ± 1.5 | 76.7 ± 0.3 |
+| In-domain | 66.3 ± 0.3 | 83.0 ± 0.1 | 62.9 ± 0.2 | 82.1 ± 0.5 | 77.9 ± 0.3 |
+| Out-domain | 71.8 ± 0.3 | 75.5 ± 0.5 | 66.7 ± 0.3 | 78.1 ± 0.3 | 78.2 ± 0.2 |
+| Improvement | 4.7% | - | 6.0% | - | 0.4% |
 
-| Dataset     | MUJOCO PUSH ↓ | V&T EE ↓      |                             | STOCKS-F&B ↓ STOCKS-HEALTH ↓ STOCKS-TECH ↓ |               |
+| Dataset | MUJOCO PUSH ↓ | V&T EE ↓ | | STOCKS-F&B ↓ STOCKS-HEALTH ↓ STOCKS-TECH ↓ | |
 |-------------|---------------|---------------|-----------------------------|--------------------------------------------|---------------|
-| Unimodal    | 0.334 ± 0.034 | 0.202 ± 0.022 | 1.856 ± 0.093               | 0.541 ± 0.010                              | 0.125 ± 0.004 |
-| In-domain   | 0.290 ± 0.018 | 0.258 ± 0.011 | 1.856 ± 0.093               | 0.541 ± 0.010                              | 0.125 ± 0.004 |
-| Out-domain  | 0.402 ± 0.026 |               | 0.185 ± 0.011 1.820 ± 0.138 | 0.526 ± 0.017                              | 0.120 ± 0.008 |
-| Improvement | -             | 8.4%          | 1.9%                        | 2.8%                                       | 4.0%          |
+| Unimodal | 0.334 ± 0.034 | 0.202 ± 0.022 | 1.856 ± 0.093 | 0.541 ± 0.010 | 0.125 ± 0.004 |
+| In-domain | 0.290 ± 0.018 | 0.258 ± 0.011 | 1.856 ± 0.093 | 0.541 ± 0.010 | 0.125 ± 0.004 |
+| Out-domain | 0.402 ± 0.026 | | 0.185 ± 0.011 1.820 ± 0.138 | 0.526 ± 0.017 | 0.120 ± 0.008 |
+| Improvement | - | 8.4% | 1.9% | 2.8% | 4.0% |
 
-| Dataset     |            |            |            | ENRICO ↑ MM-IMDB ↑ AV-MNIST ↑ KINETICS-S ↑ KINETICS-L ↑ |      |
+| Dataset | | | | ENRICO ↑ MM-IMDB ↑ AV-MNIST ↑ KINETICS-S ↑ KINETICS-L ↑ | |
 |-------------|------------|------------|------------|---------------------------------------------------------|------|
-| Unimodal    | 47.0 ± 1.6 | 45.6 ± 4.5 | 65.1 ± 0.2 | 56.5                                                    | 72.6 |
-| In-domain   | 47.0 ± 1.6 | 49.8 ± 1.7 | 72.8 ± 0.2 | 56.1                                                    | 74.7 |
-| Out-domain  | 51.0 ± 1.4 | 50.2 ± 0.9 | 72.3 ± 0.2 | 23.7                                                    | 71.7 |
-| Improvement | 8.5%       | 0.8%       | -          | -                                                       | -    |
+| Unimodal | 47.0 ± 1.6 | 45.6 ± 4.5 | 65.1 ± 0.2 | 56.5 | 72.6 |
+| In-domain | 47.0 ± 1.6 | 49.8 ± 1.7 | 72.8 ± 0.2 | 56.1 | 74.7 |
+| Out-domain | 51.0 ± 1.4 | 50.2 ± 0.9 | 72.3 ± 0.2 | 23.7 | 71.7 |
+| Improvement | 8.5% | 0.8% | - | - | - |
 
 ## 4 Experiments and Discussion
 
@@ -236,7 +246,7 @@ Tradeoffs between modalities: How far can we go with unimodal methods? Surprisin
 <span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
 <!-- Image Description: The image presents two scatter plots comparing the performance and training speed of different machine learning approaches (MFAS, MulT, LF, etc.). Each point represents an approach, with size possibly indicating dataset size or another metric. (a) shows all datasets, while (b) focuses on datasets with more than six approaches. A dashed curve suggests a trade-off: faster training generally correlates with slightly lower performance. The plots help analyze the efficiency and effectiveness of different methods. -->
 
-Figure 3: Tradeoff between performance and complexity. Size of circles shows variance in performance across (a) all datasets and (b) datasets on which we tested > 6 approaches. We plot a dotted blue line of best quadratic fit to show the Pareto frontier. These strong tradeoffs should encourage future work in lightweight multimodal models that generalize across datasets, as well as in adapting several possibly well-performing methods (such as MFAS or MULT) to new datasets and domains.
+**Figure 3:** Tradeoff between performance and complexity. Size of circles shows variance in performance across (a) all datasets and (b) datasets on which we tested > 6 approaches. We plot a dotted blue line of best quadratic fit to show the Pareto frontier. These strong tradeoffs should encourage future work in lightweight multimodal models that generalize across datasets, as well as in adapting several possibly well-performing methods (such as MFAS or MULT) to new datasets and domains.
 
 Tradeoffs between performance and complexity: In Figure [3\(](#page-7-0)a), we summarize the performance of all methods in terms of performance and complexity. We find a strong tradeoff between these two desiderata: simple fusion techniques (e.g., LF) are actually appealing choices which score high on both metrics, especially when compared to complex (but slightly better performing) methods such as architecture search (MFAS) or Multimodal Transformers (MULT). While LF is the easiest to adapt to new datasets and domains, we encountered difficulties in adapting several possibly well-performing methods (such as MFAS or MULT) to new datasets and domains. Therefore, while their average performance is only slightly better than LF on all datasets (see Figure [3\(](#page-7-0)a)), they perform much better on well-studied datasets (see Figure [3\(](#page-7-0)b)). We hope that the release of MULTIBENCH will greatly accelerate research in adapting complex methods on new datasets (see full results in Appendix [H.8\)](#page--1-9).
 
@@ -253,13 +263,13 @@ Our work is also inspired by recent progress in better evaluation benchmarks for
 <span id="page-8-0"></span>![](_page_8_Figure_0.jpeg)
 <!-- Image Description: The image displays two scatter plots comparing the performance and robustness of different multimodal fusion methods (e.g., CCA, MVAE, MulT). Plot (a) shows "relative robustness," while plot (b) shows "effective robustness." Each colored circle represents a method, its size correlating with performance, and its position reflecting its robustness. A dashed line indicates a trade-off between performance and robustness. The plots visually compare the methods' performance and robustness characteristics. -->
 
-Figure 4: Tradeoff between performance and robustness. Size of circles shows variance in robustness across datasets. We show the line of best linear fit in dotted blue. While better performing methods show better*relative*robustness (a), some suffer in*effective*robustness since performance*drops off faster*(b). Few models currently achieve both relative and effective robustness, which suggests directions for future research.
+**Figure 4:** Tradeoff between performance and robustness. Size of circles shows variance in robustness across datasets. We show the line of best linear fit in dotted blue. While better performing methods show better*relative*robustness (a), some suffer in*effective*robustness since performance*drops off faster*(b). Few models currently achieve both relative and effective robustness, which suggests directions for future research.
 
 Standardizing multimodal learning: There have also been several attempts to build a single model that works well on a suite of multimodal tasks [\[95,](#page-14-11) [109,](#page-15-6) [143\]](#page-17-2). However, these are limited to the language and vision space, and multimodal training is highly tailored for text and images. Transformer architectures have emerged as a popular choice due to their suitability for both language and image data [\[27,](#page-11-6) [73\]](#page-13-11) and a recent public toolkit was released for incorporating multimodal data on top of text-based Transformers for prediction tasks [\[60\]](#page-13-7). By going beyond Transformers and text data, MULTIBENCH opens the door to important research questions involving a much more diverse set of modalities and tasks while holistically evaluating performance, complexity, and robustness.
 
 Analysis of multimodal representations: Recent work has begun to carefully analyze and challenge long-standing assumptions in multimodal learning. They have shown that certain models do not actually learn cross-modal interactions but rather rely on ensembles of unimodal statistics [\[68\]](#page-13-12) and that certain datasets and models are biased to the most dominant modality [\[22,](#page-11-7) [59\]](#page-12-7), sometimes ignoring others completely [\[3\]](#page-10-7). These observations are currently only conducted on specific datasets and models without testing their generalization to others, a shortcoming we hope to solve using MULTIBENCH which enables scalable analysis over modalities, tasks, and models.
 
-# 6 Conclusion
+## 6 Conclusion
 
 Limitations: While MULTIBENCH can help to accelerate research in multimodal ML, we are aware of the following possible limitations (see detailed future directions in Appendix [I\)](#page--1-0):
 
@@ -281,7 +291,7 @@ To help in scalable expansion, we plan for an open call to the community for sug
 
 In conclusion, we present MULTIBENCH, a large-scale benchmark unifying previously disjoint efforts in multimodal research with a focus on ease of use, accessibility, and reproducibility, thereby paving the way towards a deeper understanding of multimodal models. Through its unprecedented range of research areas, datasets, modalities, tasks, and evaluation metrics, MULTIBENCH highlights several future directions in building more generalizable, lightweight, and robust multimodal models.
 
-# Acknowledgements
+## Acknowledgements
 
 This material is based upon work partially supported by the National Science Foundation (Awards #1722822 and #1750439), National Institutes of Health (Awards #R01MH125740, #R01MH096951, #U01MH116925, and #U01MH116923), BMW of North America, and SquirrelAI. PPL is supported by a Facebook PhD Fellowship and a Center for Machine Learning and Health Fellowship. RS is supported in part by NSF IIS1763562 and ONR Grant N000141812861. Any opinions, findings, conclusions, or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation, National Institutes of Health, Facebook, CMLH, Office of Naval Research, BMW of North America, and SquirrelAI, and no official endorsement should be inferred. We are extremely grateful to Amir Zadeh, Chaitanya Ahuja, Volkan Cirik, Murtaza Dalal, Benjamin Eysenbach, Tiffany Min, and Devendra Chaplot for helpful discussions and feedback, as well as Ziyin Liu and Chengfeng Mao for providing tips on working with financial time-series data. Finally, we would also like to acknowledge NVIDIA's GPU support.
 

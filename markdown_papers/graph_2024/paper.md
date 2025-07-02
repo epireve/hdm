@@ -31,11 +31,11 @@ Amazon Alexa AI
 
 {linzying,wnghn,cjiangni,tonwng,jihj,yangliud,premknat}@amazon.com
 
-# Abstract
+## Abstract
 
 The growing popularity of Virtual Assistants poses new challenges for Entity Resolution, the task of linking mentions in text to their referent entities in a knowledge base. Specifically, in the *shopping* domain, customers tend to use implicit utterances (e.g., "organic milk") rather than explicit names, leading to a large number of candidate products. Meanwhile, for the same query, different customers may expect different results. For example, with "add *milk* to my cart", a customer may refer to a certain organic product, while some customers may want to re-order products they regularly purchase. To address these issues, we propose a new framework that leverages personalized features to improve the accuracy of product ranking. We first build a cross-source heterogeneous knowledge graph from customer purchase history and product knowledge graph to jointly learn customer and product embeddings. After that, we incorporate product, customer, and history representations into a neural reranking model to predict which candidate is most likely to be purchased for a specific customer. Experiments show that our model substantially improves the accuracy of the top ranked candidates by 24.6% compared to the state-of-the-art product search model.
 
-# 1 Introduction
+## 1 Introduction
 
 Given an entity mention as a query, the goal of entity resolution (or entity linking) [\(Ji and Grishman,](#page-7-0) [2011\)](#page-7-0) is to link the mention to its corresponding entry in a target knowledge base (KB). In an academic shared task setting, an entity mention is usually a name string, which can be a person, organization or geo-political entity in a news context, and the KB is usually a Wikipedia dump with rich structured properties and unstructured text descriptions. Stateof-the-art entity resolution methods can achieve higher than 90% accuracy in such settings [\(Ji and](#page-7-0)
 
@@ -48,9 +48,9 @@ Large number of ambiguous variants. When interacting with VAs, users tend to use
 In the *shopping* domain, this problem is even more challenging as customers typically use implicit entity reference utterances (e.g., "organic milk") instead of explicit names (e.g., "Horizon Organic Shelf-Stable 1% Lowfat Milk") which usually lead to a large number of candidates due to the ambiguity. However, with VAs' voice user interface (VUI), the number of products that can be shown to the customers is very limited. In this work, we focus on the problem of *personalized entity resolution* in the shopping domain. Given a query and a list of retrieved candidates, we aim to return the product that is most likely to be pur-
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
-<!-- Image Description: The image displays three graphs illustrating different data models. (a) shows a simple customer-product graph representing purchase relationships. (b) is a product knowledge graph detailing product attributes like brand, scent, flavor, and ingredients. (c) integrates (a) and (b) into a heterogeneous graph, combining customer purchase data with product knowledge, enriching the relationships with additional information.  Nodes represent entities (customers, products, attributes), and edges show relationships (purchase, has_brand, etc.). The graphs visually represent data structures used in the paper. -->
+<!-- Image Description: The image displays three graphs illustrating different data models. (a) shows a simple customer-product graph representing purchase relationships. (b) is a product knowledge graph detailing product attributes like brand, scent, flavor, and ingredients. (c) integrates (a) and (b) into a heterogeneous graph, combining customer purchase data with product knowledge, enriching the relationships with additional information. Nodes represent entities (customers, products, attributes), and edges show relationships (purchase, has_brand, etc.). The graphs visually represent data structures used in the paper. -->
 
-Figure 1: An illustration of the cross-source heterogeneous customer-product graph.
+**Figure 1:** An illustration of the cross-source heterogeneous customer-product graph.
 
 chased by a customer.
 
@@ -58,22 +58,22 @@ We make three assumptions: (H1) customers tend to purchase products they have pu
 
 Experiments on real data collected from an online shopping service show that our method substantially improves the purchase rate and revenue of the top ranked products.
 
-# 2 Methodology
+## 2 Methodology
 
 Given a query q from a customer c, and a list of candidate products P = {p1, ..., pL}, where L is the number of candidates, our goal is to predict the product that the customer will shop for based on the customer's purchase history and the product
 
 knowledge graph. Specifically, we use purchase records {r1, ..., rH} where H is the number of historical records. As Figure [2](#page-1-1) illustrates, we jointly learn customer and product embeddings from a cross-source customer-product graph using GNN. To perform personalized ranking, we incorporate the learned customer embedding and the queryaware history representation as additional features when calculating the score of each candidate. We then rank all candidates by score and return the top one.
 
 <span id="page-1-1"></span>![](_page_1_Figure_8.jpeg)
-<!-- Image Description: This flowchart illustrates a recommendation system architecture.  It shows how customer and query information are encoded (Query Encoder, Customer Embedding) and combined with candidate item information (Candidate Encoder).  A history encoder processes customer purchase history, generating a history representation, which, along with encoded customer and candidate information, is used by a scorer to produce a candidate score.  The diagram details the data flow and processing steps of the system. -->
+<!-- Image Description: This flowchart illustrates a recommendation system architecture. It shows how customer and query information are encoded (Query Encoder, Customer Embedding) and combined with candidate item information (Candidate Encoder). A history encoder processes customer purchase history, generating a history representation, which, along with encoded customer and candidate information, is used by a scorer to produce a candidate score. The diagram details the data flow and processing steps of the system. -->
 
-Figure 2: An illustration of our framework.
+**Figure 2:** An illustration of our framework.
 
 ### 2.1 Candidate Retrieval
 
 We first retrieve candidate products for each query using QUARTS [\(Nigam et al.,](#page-7-4) [2019;](#page-7-4) [Nguyen et al.,](#page-7-5) [2020\)](#page-7-5), which is an end-to-end neural model for product search. QUARTS has three major components: (1) an LSTM-based (long short-term memory) classifier that predicts whether a query-product pair is matched; (2) a variational query generator that generates difficult negative examples, and (3) a state combiner that switches between query representations computed by the classifier and generator.
 
-#### 2.2 Joint Customer and Product Embedding
+### 2.2 Joint Customer and Product Embedding
 
 The next step is to obtain the representations of customers and products. Customer embeddings are usually learned from user-generated texts [\(Preo¸tiuc-](#page-8-2)[Pietro et al.,](#page-8-2) [2015;](#page-8-2) [Yu et al.,](#page-8-3) [2016;](#page-8-3) [Ribeiro et al.,](#page-8-4) [2018\)](#page-8-4) or social relations [\(Perozzi et al.,](#page-7-6) [2014a;](#page-7-6) [Grover and Leskovec,](#page-7-7) [2016;](#page-7-7) [Zhang et al.,](#page-8-5) [2018b\)](#page-8-5), neither of which are available in the shopping dataset we use. Alternatively, we establish *indirect* connections among customers through their purchased products under hypothesis H3, and form a customer-product graph as shown in Figure [1\(](#page-1-0)a). This graph only contains a single type of relation (i.e., purchase) and ignores product attributes. As a result, it tends to be sparse and less effective for customer representation learning.
 
@@ -93,7 +93,7 @@ In order to capture textual features such as product titles and descriptions, we
 
 fix-sized representation for each product. Specifically, we concatenate textual features using a special separator token [SEP], obtain the RoBERTa representation for each token, and then use the averaged embedding to represent the whole sequence. To reduce the runtime, we calculate customer and product embeddings offline and cache the results.
 
-#### 2.3 Candidate Representation
+### 2.3 Candidate Representation
 
 In addition to the product embedding, we further incorporate the following features to enrich the representation of each candidate.
 
@@ -105,7 +105,7 @@ Previously Purchased: a binary flag indicating whether a candidate has been purc
 
 We concatenate these features with the product embedding and project the vector into a lower dimensional space using a feed forward network.
 
-#### 2.4 History Representation
+### 2.4 History Representation
 
 Although customer embeddings can encode purchase history information, they are static and may not effectively provide the most relevant information for each specific query. For example, if the query is "bookshelf", furniture-related purchase records are more likely to help the model predict the product that the customer will purchase, while if the query is "sulfate-free shampoo", purchase records of beauty products are more relevant. To tackle this issue, we propose to generate a dynamic history representation v based on the current query q from all purchase record representations {v1, ..., vH} of the customer.
 
@@ -122,7 +122,7 @@ $$
 \boldsymbol{v} = \sum_i^H a_i \boldsymbol{v}_i.
 $$
 
-#### 2.5 Candidate Ranking
+### 2.5 Candidate Ranking
 
 We adopt a feed forward neural network that takes in the candidate, customer, and history representations, and returns a confidence score yˆ<sup>i</sup> . The confidence score is scaled to (0, 1) using a Sigmoid function. During training, we optimize the model by minimizing the following binary cross entropy loss function.
 
@@ -132,9 +132,9 @@ $$
 
 where N denotes the total number of candidates, and y<sup>i</sup> ∈ {0, 1} is the true label. In the inference phase, we calculate confidence scores for all candidates for each session and return the one with the highest score.
 
-# 3 Experiment
+## 3 Experiment
 
-#### 3.1 Data
+### 3.1 Data
 
 Product Knowledge Graph. In our experiment, we use a knowledge graph of products in five categories (i.e., grocery, beauty, luxury beauty, baby, and health care), which contains 24,287,337 unique product entities. As Figure [1](#page-1-0) depicts, products in this knowledge graph are connected through attribute nodes, including brands, scents, flavors, and ingredients. This knowledge graph also provides rich attributes for each product node. We use two types of attributes in this work, textual features (i.e., title, description, and bullet) and binary features (e.g., isOrganic, isNatural).
 
@@ -144,7 +144,7 @@ We split sessions before and after September 1, 2019 into two subsets. The first
 
 second subset, other sessions before the last one are also considered as purchase history when we generate history representations, while they are excluded from the customer-product graph, which is constructed from the first subset.
 
-#### 3.2 Experimental Setup
+### 3.2 Experimental Setup
 
 We optimize our model with AdamW for 10 epochs with a learning rate of 1e-5 for the RoBERTa encoder, a learning rate of 1e-4 for other parameters, weight decay of 1e-3, a warmup rate of 10%, and a batch size of 100.
 
@@ -152,7 +152,7 @@ To encode textual features, we use the RoBERTa base model[1](#page-3-0) with an 
 
 We use separate fully connected layers to project candidate and history representations into 100 dimensional feature vectors before concatenating them for ranking. We use a two-layer feed forward neural network with a hidden layer size of 50 as the ranker and apply a dropout layer with a dropout rate of 0.5 to its input.
 
-#### 3.3 Quantitative Analysis
+### 3.3 Quantitative Analysis
 
 We compare our model to the state-of-the-art product search model QUARTS as the baseline. Because our target usage scenarios are VAs where only one result will be returned to the user, we use Accuracy@1 as our evaluation metric. We implement the following baseline ranking methods.
 
@@ -176,28 +176,26 @@ Joint Embedding: Customer and product embeddings are not jointly learned from th
 
 In Table [2,](#page-4-1) from the results of Methods 6 and 7, we can see that removing either product or customer embedding degrades the performance of the model. The result of Method 8 shows that embeddings jointly learned from the merged crosssource graph achieve better performance on our downstream task. We also observe that the ranking returned by the product search system is still an important feature as Method 6 shows.
 
-<span id="page-4-0"></span>
 
-|   | Method    | Dev Acc@1 | Test Acc@1 |
+| | Method | Dev Acc@1 | Test Acc@1 |
 |---|-----------|-----------|------------|
-| 1 | QUARTS    | 0.0       | 0.0        |
-| 2 | Purchased | +10.5     | +8.5       |
-| 3 | ComplEx   | +25.7     | +16.1      |
-| 4 | Our Model | +32.9     | +24.6      |
+| 1 | QUARTS | 0.0 | 0.0 |
+| 2 | Purchased | +10.5 | +8.5 |
+| 3 | ComplEx | +25.7 | +16.1 |
+| 4 | Our Model | +32.9 | +24.6 |
 
-Table 1: Relative gains compared to QUARTS. (%)
+**Table 1:** Relative gains compared to QUARTS. (%)
 
-<span id="page-4-1"></span>
 
-|   | Method                    | Dev Acc@1 | Test Acc@1 |
+| | Method | Dev Acc@1 | Test Acc@1 |
 |---|---------------------------|-----------|------------|
-| 4 | Our Model                 | +32.9     | +24.6      |
-| 5 | w/o Ranking               | -17.1     | -20.4      |
-| 6 | w/o Personalized Features | -10.5     | -18.0      |
-| 7 | w/o Product Embedding     | +25.2     | +19.0      |
-| 8 | w/o Joint Embedding       | +28.1     | +20.4      |
+| 4 | Our Model | +32.9 | +24.6 |
+| 5 | w/o Ranking | -17.1 | -20.4 |
+| 6 | w/o Personalized Features | -10.5 | -18.0 |
+| 7 | w/o Product Embedding | +25.2 | +19.0 |
+| 8 | w/o Joint Embedding | +28.1 | +20.4 |
 
-Table 2: Ablation study. (%, relative gains compared to QUARTS.)
+**Table 2:** Ablation study. (%, relative gains compared to QUARTS.)
 
 ### 3.4 Qualitative Analysis
 
@@ -208,9 +206,9 @@ Table [4](#page-5-1) shows examples where our model fails to return the correct 
 To better understand the remaining errors, we randomly sample 100 examples where our model fails to predict the purchased items. As Figure [3](#page-4-2)
 
 <span id="page-4-2"></span>![](_page_4_Figure_12.jpeg)
-<!-- Image Description: This donut chart displays the distribution of reasons for product returns.  The largest portion (48%) is attributed to "Different Size," followed by "Other" (27%).  Smaller percentages represent "Similar Description," "Incomplete Description," "Attribute," "Brand," and "Purchased." The chart likely illustrates a key finding regarding return reasons within the paper's context. -->
+<!-- Image Description: This donut chart displays the distribution of reasons for product returns. The largest portion (48%) is attributed to "Different Size," followed by "Other" (27%). Smaller percentages represent "Similar Description," "Incomplete Description," "Attribute," "Brand," and "Purchased." The chart likely illustrates a key finding regarding return reasons within the paper's context. -->
 
-Figure 3: Distribution of remaining Errors.
+**Figure 3:** Distribution of remaining Errors.
 
 illustrates, we analyze these examples and classify the possible reasons into the following categories. Different size. The predicted product and ground truth are the same product but differ in size. For example, while our model predicts "Lipton Herbal Tea Bags, Peach Mango, 20 ct", the customer purchases another item "Lipton Tea Herbal Peach Mango (pack of 2)", which is actually the same product in 2 pack.
 
@@ -224,45 +222,43 @@ Attribute. The customer has purchased one or more products with the same attribu
 
 Other. The model may fail to predict the purchased item in other uncategorized cases. For example, when a customer searches for "nail clippers" but has purchased only food in the past, the model
 
-<span id="page-5-0"></span>
 
-| Query                                                                                                                                                                                  | Candidates                                                                                                                | History                                                                                                       |  |
+| Query | Candidates | History | |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|--|
-| #1 vitamin c<br>serum                                                                                                                                                                  | * [3] instanatural vitamin c serum with hyaluronic acid<br>& vit e - natural & organic anti wrinkle                       | * foundation makeup brush flat top kabuki for face -<br>perfect for blending liquid, cream or flawless powder |  |
-|                                                                                                                                                                                        | * [1] truskin vitamin c serum for face, topical facial<br>serum with hyaluronic acid, vitamin e, 1 fl oz                  | * women's rogaine 5% minoxidil foam for hair thin<br>ning and loss, topical treatment for women's hair        |  |
-|                                                                                                                                                                                        | * [2] vitamin c serum for face - anti aging facial serum                                                                  | * vita liberata advanced organics fabulous self-tanning<br>gradual lotion with marula oil, 6.76 fl oz         |  |
-|                                                                                                                                                                                        | * [4] vitamin c serum plus 2% retinol, 3.5% niaci<br>namide, 5% hyaluronic acid, 2% salicylic acid                        | * instanatural vitamin c serum with hyaluronic acid &<br>vit e - natural & organic anti wrinkle reducer       |  |
-|                                                                                                                                                                                        | Our model promotes candidate 3 as this product was purchased by the customer.                                             |                                                                                                               |  |
-| #2 toothpaste                                                                                                                                                                          | * [2] crest 3d white whitening toothpaste, radiant mint,<br>3.5oz, twin pack                                              | * crest 3d white toothpaste radiant mint (3 count of 4.1<br>oz tubes), 12.3 oz packaging may vary             |  |
-|                                                                                                                                                                                        | * [1] crest + scope complete whitening toothpaste,<br>minty fresh, 5.4 oz, pack of 3                                      | * skindinavia the makeup of countrol finishing spray,<br>8 fluid ounce                                        |  |
-|                                                                                                                                                                                        | * [3] pronamel gentle whitening enamel toothpaste for<br>sensitive teeth, alpine breeze-4 ounces (pack of 3)              | * crest 3d white toothpaste radiant mint (3 count of 4.1<br>oz tubes), 12.3 oz packaging may vary             |  |
-|                                                                                                                                                                                        | * [4] colgate cavity protection toothpaste with fluoride<br>- 6 ounce (pack of 6)                                         | * nivea shea daily mointure body lotion - 48 hour<br>moisture for dry skin - 16.9 fl. oz. pump bottle,        |  |
-| Although the previously purchased item is no longer available, with entity embedding learned from the<br>cross-source graph, our model successfully promotes the most similar product. |                                                                                                                           |                                                                                                               |  |
-| #3 sun dried<br>tomatoes                                                                                                                                                               | * [3] 365 everyday value, organic sundried tomatoes<br>in extra virgin olive oil, 8.5 oz                                  | * #1 usda organic aloe vera gel - no preservatives, no<br>alcohol - from freshly cut usa grown 100% pure      |  |
-|                                                                                                                                                                                        | * [1] 35 oz bella sun luci sun dried tomatoes julienne<br>cut in olive oil (original version)                             | * organic aloe vera gel with 100% pure aloe from<br>freshly cut aloe plant, not powder - no xanthan           |  |
-|                                                                                                                                                                                        | * [2] julienne sun-dried tomatoes - 16oz bag (kosher)                                                                     | * wicked joe organic coffee wicked italian ground                                                             |  |
-|                                                                                                                                                                                        | * [4] organic sun-dried tomatoes with sea salt, 8<br>ounces - salted, non-gmo, kosher, raw, vegan,                        | *thayers alcohol-free original witch hazel facial toner<br>with aloe vera formula, clear, 12oz                |  |
-|                                                                                                                                                                                        | Our model promotes an organic product as the customer probably prefers organic products based on the<br>shopping records. |                                                                                                               |  |
+| #1 vitamin c<br>serum | * [3] instanatural vitamin c serum with hyaluronic acid<br>& vit e - natural & organic anti wrinkle | * foundation makeup brush flat top kabuki for face -<br>perfect for blending liquid, cream or flawless powder | |
+| | * [1] truskin vitamin c serum for face, topical facial<br>serum with hyaluronic acid, vitamin e, 1 fl oz | * women's rogaine 5% minoxidil foam for hair thin<br>ning and loss, topical treatment for women's hair | |
+| | * [2] vitamin c serum for face - anti aging facial serum | * vita liberata advanced organics fabulous self-tanning<br>gradual lotion with marula oil, 6.76 fl oz | |
+| | * [4] vitamin c serum plus 2% retinol, 3.5% niaci<br>namide, 5% hyaluronic acid, 2% salicylic acid | * instanatural vitamin c serum with hyaluronic acid &<br>vit e - natural & organic anti wrinkle reducer | |
+| | Our model promotes candidate 3 as this product was purchased by the customer. | | |
+| #2 toothpaste | * [2] crest 3d white whitening toothpaste, radiant mint,<br>3.5oz, twin pack | * crest 3d white toothpaste radiant mint (3 count of 4.1<br>oz tubes), 12.3 oz packaging may vary | |
+| | * [1] crest + scope complete whitening toothpaste,<br>minty fresh, 5.4 oz, pack of 3 | * skindinavia the makeup of countrol finishing spray,<br>8 fluid ounce | |
+| | * [3] pronamel gentle whitening enamel toothpaste for<br>sensitive teeth, alpine breeze-4 ounces (pack of 3) | * crest 3d white toothpaste radiant mint (3 count of 4.1<br>oz tubes), 12.3 oz packaging may vary | |
+| | * [4] colgate cavity protection toothpaste with fluoride<br>- 6 ounce (pack of 6) | * nivea shea daily mointure body lotion - 48 hour<br>moisture for dry skin - 16.9 fl. oz. pump bottle, | |
+| Although the previously purchased item is no longer available, with entity embedding learned from the<br>cross-source graph, our model successfully promotes the most similar product. | | | |
+| #3 sun dried<br>tomatoes | * [3] 365 everyday value, organic sundried tomatoes<br>in extra virgin olive oil, 8.5 oz | * #1 usda organic aloe vera gel - no preservatives, no<br>alcohol - from freshly cut usa grown 100% pure | |
+| | * [1] 35 oz bella sun luci sun dried tomatoes julienne<br>cut in olive oil (original version) | * organic aloe vera gel with 100% pure aloe from<br>freshly cut aloe plant, not powder - no xanthan | |
+| | * [2] julienne sun-dried tomatoes - 16oz bag (kosher) | * wicked joe organic coffee wicked italian ground | |
+| | * [4] organic sun-dried tomatoes with sea salt, 8<br>ounces - salted, non-gmo, kosher, raw, vegan, | *thayers alcohol-free original witch hazel facial toner<br>with aloe vera formula, clear, 12oz | |
+| | Our model promotes an organic product as the customer probably prefers organic products based on the<br>shopping records. | | |
 
-Table 3: Positive examples in the test set. Candidates are listed in the order returned by our method. The number before each candidate is the original ranking returned by QUARTS. In the candidate column, we highlight the purchased products . In the history column, we highlight related records .
+**Table 3:** Positive examples in the test set. Candidates are listed in the order returned by our method. The number before each candidate is the original ranking returned by QUARTS. In the candidate column, we highlight the purchased products . In the history column, we highlight related records .
 
-<span id="page-5-1"></span>
 
-| Query                                                                                                    | Candidates                                                                                                  | History                                                                                                   |
+| Query | Candidates | History |
 |----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| #4 wasabi<br>almonds                                                                                     | * [8] blue diamond almonds, bold wasabi & soy sauce,<br>16 ounce (pack of 1)                                | * epsoak epsom salt 19 lb. bulk bag magnesium sulfate<br>usp                                              |
-|                                                                                                          | * [2] blue diamond almonds variety pack (1.5 ounce<br>bags) (20 pack)                                       | * blue diamond almonds, bold wasabi & soy sauce, 16<br>ounce (pack of 1)                                  |
-|                                                                                                          | * [1] blue diamond almonds bold wasabi & soy sauce<br>almonds, 25 ounce (pack of 1)                         | * signature trail mix, peanuts, m & m candies, raisins,<br>almonds & cashews, 4 lb                        |
-|                                                                                                          | * [6] blue diamond almonds, bold wasabi & soy, 1.5<br>ounce (pack of 12)                                    | * amazon brand - happy belly nuts, chocolate & dried<br>fruit trail mix, 48 ounce                         |
-| Our model promotes candidate 8 which is previously purchased, whereas the customer selects another size. |                                                                                                             |                                                                                                           |
-| #5 cacao<br>powder                                                                                       | * [5] anthony's organic cocoa powder, 2 lb, batch<br>tested and verified gluten free & non gmo              | * anthony's organic cocoa powder, 2 lb, batch tested<br>and verified gluten free & non gmo                |
-|                                                                                                          | * [1] viva naturals #1 best selling certified organic<br>cacao powder from superior criollo beans, 1 lb bag | * vör all natural keto nut butter spread (10oz)   only<br>two ingredients   no sugar, no salt   vegan     |
-|                                                                                                          | * [2] navitas organics cacao powder, 16oz. bag - or<br>ganic, non-gmo, fair trade, gluten-free              | * anthony's organic cocoa powder, 2 lb, batch tested<br>and verified gluten free & non gmo                |
-|                                                                                                          | * [3] terrasoul superfoods raw organic cacao powder,<br>1 lb - raw   keto   vegan                           | * nutiva organic, neutral tasting, steam refined coconut<br>oil from non-gmo, sustainably farmed coconuts |
-|                                                                                                          | * [4] viva naturals certified organic cacao powder (2lb)<br>for smoothie, coffee and drink mixes            |                                                                                                           |
-| Our model promote "Anthony's Organic Cocoa Powder" as it has been purchased twice by the customer.       |                                                                                                             |                                                                                                           |
+| #4 wasabi<br>almonds | * [8] blue diamond almonds, bold wasabi & soy sauce,<br>16 ounce (pack of 1) | * epsoak epsom salt 19 lb. bulk bag magnesium sulfate<br>usp |
+| | * [2] blue diamond almonds variety pack (1.5 ounce<br>bags) (20 pack) | * blue diamond almonds, bold wasabi & soy sauce, 16<br>ounce (pack of 1) |
+| | * [1] blue diamond almonds bold wasabi & soy sauce<br>almonds, 25 ounce (pack of 1) | * signature trail mix, peanuts, m & m candies, raisins,<br>almonds & cashews, 4 lb |
+| | * [6] blue diamond almonds, bold wasabi & soy, 1.5<br>ounce (pack of 12) | * amazon brand - happy belly nuts, chocolate & dried<br>fruit trail mix, 48 ounce |
+| Our model promotes candidate 8 which is previously purchased, whereas the customer selects another size. | | |
+| #5 cacao<br>powder | * [5] anthony's organic cocoa powder, 2 lb, batch<br>tested and verified gluten free & non gmo | * anthony's organic cocoa powder, 2 lb, batch tested<br>and verified gluten free & non gmo |
+| | * [1] viva naturals #1 best selling certified organic<br>cacao powder from superior criollo beans, 1 lb bag | * vör all natural keto nut butter spread (10oz) only<br>two ingredients no sugar, no salt vegan |
+| | * [2] navitas organics cacao powder, 16oz. bag - or<br>ganic, non-gmo, fair trade, gluten-free | * anthony's organic cocoa powder, 2 lb, batch tested<br>and verified gluten free & non gmo |
+| | * [3] terrasoul superfoods raw organic cacao powder,<br>1 lb - raw keto vegan | * nutiva organic, neutral tasting, steam refined coconut<br>oil from non-gmo, sustainably farmed coconuts |
+| | * [4] viva naturals certified organic cacao powder (2lb)<br>for smoothie, coffee and drink mixes | |
+| Our model promote "Anthony's Organic Cocoa Powder" as it has been purchased twice by the customer. | | |
 
-Table 4: Negative examples in the test set.
+**Table 4:** Negative examples in the test set.
 
 is unlikely to utilize the history records to improve the ranking.
 
@@ -274,27 +270,27 @@ Building a more comprehensive cross-source customer-product graph. In this work,
 
 Modeling the interactions among purchase behaviors. Our current attention-based method that generates history representations is "flat" and ignores the relationship among purchase behaviors. For example, for a customer who previously purchases a pod coffee maker, we should promote coffee capsules in the candidates over coffee beans or grounds.
 
-# 4 Related Work
+## 4 Related Work
 
-# 4.1 Neural Entity Linking
+## 4.1 Neural Entity Linking
 
 A variety of neural models [\(Gupta et al.,](#page-7-9) [2017;](#page-7-9) [Kolitsas et al.,](#page-7-10) [2018;](#page-7-10) [Cao et al.,](#page-7-11) [2018;](#page-7-11) [Sil et al.,](#page-8-8) [2018;](#page-8-8) [Gillick et al.,](#page-7-12) [2019;](#page-7-12) [Logeswaran et al.,](#page-7-13) [2019;](#page-7-13) [Wu et al.,](#page-8-9) [2019;](#page-8-9) [Agarwal and Bikel,](#page-7-2) [2020\)](#page-7-2) have been applied to Entity Linking in recent years. Compared to traditional entity linking, our task is different in three aspects: (1) Our mentions are typically vague and occur in uninformative contexts, such as "add *toothpaste* to my cart" ; (2) A mention may be reasonably linked to multiple entities, while only one of them is considered "correct" (purchased by the customer); (3) The ground truth for the same mention can be different for different customers.
 
-# 4.2 Personalized Recommendation
+## 4.2 Personalized Recommendation
 
 A recommender system is an information filtering system that aims to suggest a list of items in which a user may be interested. Content-based filtering [\(Billsus and Pazzani,](#page-7-14) [2000;](#page-7-14) [Aciar et al.,](#page-7-15)
 
 [2007;](#page-7-15) [Wang et al.,](#page-8-10) [2018\)](#page-8-10) and collaborative filtering [\(Shardanand and Maes,](#page-8-11) [1995;](#page-8-11) [Konstan et al.,](#page-7-16) [1997;](#page-7-16) [Linden et al.,](#page-7-17) [2003;](#page-7-17) [Zhao and Shang,](#page-8-12) [2010\)](#page-8-12) are two common approaches used in recommender systems. In recent years, researchers have also applied neural methods to improve the quality of recommendations [\(Xue et al.,](#page-8-13) [2017;](#page-8-13) [He et al.,](#page-7-18) [2017;](#page-7-18) [Wang et al.,](#page-8-14) [2019a,](#page-8-14)[b\)](#page-8-15). Recommender systems usually rank items based on the user's past behaviors (e.g., purchasing, browsing, rating) and current context [\(Linden et al.,](#page-7-17) [2003;](#page-7-17) [Smith and Linden,](#page-8-16) [2017\)](#page-8-16), whereas the results are not constrained by queries. Instead, our task requires a specific query and only returns the product that is most likely to be purchased from a list of relevant candidates.
 
-# 4.3 Graph Embedding
+## 4.3 Graph Embedding
 
 Various methods have been proposed to learn lowdimensional vectors for nodes in knowledge graphs. Knowledge graph embedding methods, such as TransE [\(Bordes et al.,](#page-7-19) [2013\)](#page-7-19), DistMult [\(Yang et al.,](#page-8-17) [2014\)](#page-8-17), ComplEx [\(Trouillon et al.,](#page-8-7) [2016\)](#page-8-7), and RotatE [\(Sun et al.,](#page-8-18) [2018\)](#page-8-18), typically represent the head entity, relation, and tail entity in each triplet in the knowledge graph as vectors and aim to rank true triplets higher than corresponding corrupted triplets. Matrix Factorization-based methods [\(He](#page-7-20) [and Niyogi,](#page-7-20) [2004;](#page-7-20) [Nickel et al.,](#page-7-21) [2011;](#page-7-21) [Qiu et al.,](#page-8-19) [2018\)](#page-8-19) represent the graph as a matrix and obtain node vectors by factorizing this matrix. Another category of frameworks [\(Perozzi et al.,](#page-7-22) [2014b;](#page-7-22) [Yang et al.,](#page-8-20) [2015;](#page-8-20) [Grover and Leskovec,](#page-7-7) [2016\)](#page-7-7) use random walk to sample paths from the input graph and learn node embeddings from the sampled paths using neural models such as SkipGram and LSTM.
 
-# 5 Conclusion and Future Work
+## 5 Conclusion and Future Work
 
 We propose a novel framework to jointly learn customer and product representations based on a crosssource heterogeneous graph constructed from customers' purchase history and the product knowledge graph to improve personalized entity resolution. Experiments show that our framework can effectively increase the purchase rate of top ranked products. In the future, we plan to investigate better approaches to integrating personalized features and extend the framework to cross-lingual cross-media settings and generate conversations for more proactive and explainable entity recommendation and summarization.
 
-# References
+## References
 
 - <span id="page-7-15"></span>Silvana Aciar, Debbie Zhang, Simeon Simoff, and John Debenham. 2007. Informed recommender: Basing recommendations on consumer product reviews. *IEEE Intelligent systems*, 22(3):39–47.
 - <span id="page-7-2"></span>Oshin Agarwal and Daniel M Bikel. 2020. Entity linking via dual and cross-attention encoders. *arXiv preprint arXiv:2004.03555*.

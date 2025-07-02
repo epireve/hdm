@@ -39,7 +39,6 @@ keywords:
 - user-item
 ---
 
-
 # Federated Heterogeneous Graph Neural Network for Privacy-preserving Recommendation
 
 [Bo Yan](https://orcid.org/0000-0003-1750-3803) Beijing University of Posts and Telecommunications Beijing, China boyan@bupt.edu.cn
@@ -50,7 +49,7 @@ keywords:
 
 [Junping Du](https://orcid.org/0000-0002-9402-3806) Beijing University of Posts and Telecommunications Beijing, China junpingdu@126.com
 
-# ABSTRACT
+## ABSTRACT
 
 The heterogeneous information network (HIN), which contains rich semantics depicted by meta-paths, has emerged as a potent tool for mitigating data sparsity in recommender systems. Existing HIN-based recommender systems operate under the assumption of centralized storage and model training. However, real-world data is often distributed due to privacy concerns, leading to the semantic broken issue within HINs and consequent failures in centralized HIN-based recommendations. In this paper, we suggest the HIN is partitioned into private HINs stored on the client side and shared HINs on the server. Following this setting, we propose a federated heterogeneous graph neural network (FedHGNN) based framework, which facilitates collaborative training of a recommendation model using distributed HINs while protecting user privacy. Specifically, we first formalize the privacy definition for HIN-based federated recommendation (FedRec) in the light of differential privacy, with the goal of protecting user-item interactions within private HIN as well as users' high-order patterns from shared HINs. To recover the broken meta-path based semantics and ensure proposed privacy measures, we elaborately design a semantic-preserving user interactions publishing method, which locally perturbs user's high-order patterns and related user-item interactions for publishing. Subsequently, we introduce an HGNN model for recommendation, which conducts node- and semantic-level aggregations to capture recovered semantics. Extensive experiments on four datasets demonstrate that our model outperforms existing methods by a substantial margin (up to 34% in HR@10 and 42% in NDCG@10) under a reasonable privacy budget (e.g., = 1).
 
@@ -58,7 +57,7 @@ WWW '24, May 13–17, 2024, Singapore, Singapore
 
 <https://doi.org/10.1145/3589334.3645693>
 
-# [Haoyu Wang](https://orcid.org/0009-0004-1010-0723) Beijing University of Posts and Telecommunications Beijing, China wanghaoyu666@bupt.edu.cn
+## [Haoyu Wang](https://orcid.org/0009-0004-1010-0723) Beijing University of Posts and Telecommunications Beijing, China wanghaoyu666@bupt.edu.cn
 
 [Chuan Shi](https://orcid.org/0000-0002-3734-0266)<sup>∗</sup> Beijing University of Posts and Telecommunications Beijing, China shichuan@bupt.edu.cn
 
@@ -70,11 +69,11 @@ WWW '24, May 13–17, 2024, Singapore, Singapore
 
 federated recommendation, heterogeneous information network, privacy-preserving, differential privacy
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Bo Yan, Yang Cao, Haoyu Wang, Wenchuan Yang, Junping Du, and Chuan Shi. 2024. Federated Heterogeneous Graph Neural Network for Privacypreserving Recommendation. In Proceedings of the ACM Web Conference 2024 (WWW '24), May 13–17, 2024, Singapore, Singapore. ACM, New York, NY, USA, [11](#page-10-0) pages.<https://doi.org/10.1145/3589334.3645693>
 
-#### 1 INTRODUCTION
+### 1 INTRODUCTION
 
 Recommender systems play a crucial role in mitigating the challenges posed by information overload in various online applications [\[5,](#page-8-0) [16,](#page-8-1) [53\]](#page-8-2). However, their effectiveness is limited by the sparsity of user interactions [\[20,](#page-8-3) [23,](#page-8-4) [51\]](#page-8-5). To tackle this issue, heterogeneous information networks (HIN), containing multi-typed entities and relations, have been extensively utilized to enhance the connections of users and items [\[14,](#page-8-6) [30,](#page-8-7) [31,](#page-8-8) [50\]](#page-8-9). As a fundamental analysis tool in HIN, meta-path [\[32\]](#page-8-10), a relation sequence connecting node pairs, is widely used to capture rich semantics of HINs. Different meta-path can depict distinct semantics, as illustrated in Figure [1,](#page-1-0) the metapath UMU in the HIN for movie recommendation signifies that two users have watched the same movie, and the UMDMU depicts that two users have watched movies directed by the same director. Most HIN-based recommender methods leverage meta-path based semantics to learn effective user and item embeddings [\[13,](#page-8-11) [31\]](#page-8-8). Among them, early works integrate meta-path based semantics into useritem interaction modeling to enhance their representations [\[31,](#page-8-8) [50\]](#page-8-9). In recent years, the advent of graph neural networks (GNNs) have introduced a powerful approach to automatically capture meta-path based semantics, achieving remarkable results [\[8,](#page-8-12) [38,](#page-8-13) [52\]](#page-8-14). These GNN-based methods aggregate node embeddings along meta-paths to fuse different semantics, known as meth-path based neighbor aggregation [\[7,](#page-8-15) [15,](#page-8-16) [37,](#page-8-17) [51\]](#page-8-5), providing a more flexible framework for HIN-based recommendations.
 
@@ -89,7 +88,7 @@ WWW '24, May 13–17, 2024, Singapore, Singapore Bo Yan et al.
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
 <!-- Image Description: This image illustrates different heterogeneous information network (HIN) architectures. (a) shows a centralized HIN, (b) a federated HIN, and (c) exemplifies meta-paths within the HIN. (d) depicts semantic inconsistencies in data aggregation across a HIN, highlighted by red crosses. Nodes represent users, movies, and directors, while edges represent relationships. The image serves to compare the architectures and illustrate potential challenges in HIN data integration. -->
 
-Figure 1: Comparison of a HIN in the centralized setting and federated setting
+**Figure 1:** Comparison of a HIN in the centralized setting and federated setting
 
 Existing HIN-based recommendations hold a basic assumption that the data is centrally stored. As shown in Figure [1\(](#page-1-0)a) and (c), under this assumption, the entire HIN is visible and can be directly utilized to capture meta-path based semantics for recommendation. However, this assumption may not hold in reality since the user-item interaction data is highly privacy-sensitive, and the centralized storage can leak user privacy. Additionally, strict privacy protection regulations, such as the General Data Protection Regulation (GDPR)[1](#page-1-1) , prohibit commercial companies from collecting and exchanging user data without the user's permission. Therefore, centralized data storage may not be feasible in the future. As a more realistic learning paradigm, federated learning (FL) [\[25,](#page-8-18) [42\]](#page-8-19) has emerged to enable users to keep their personal data locally and jointly train a global model by transmitting only intermediate parameters. Federated recommendation (FedRec) is a crucial application of FL in the recommender scenario and many works have been dedicated to FedRec in recent years[\[1,](#page-8-20) [3,](#page-8-21) [18,](#page-8-22) [44\]](#page-8-23). Most of them focus on traditional matrix factorization (MF) based FedRec [\[3,](#page-8-21) [18\]](#page-8-22), where user embeddings are kept locally updated, and gradients of item embeddings are uploaded to the server for aggregation. Recently, a few studies have explored GNN-based FedRec [\[22,](#page-8-24) [24,](#page-8-25) [39\]](#page-8-26). They train local GNN models on the user-item bipartite graph and transmit gradients of embeddings and model parameters. Despite their success, they still suffer from data sparsity issues, which are further compounded by the distributed data storage.
 
@@ -109,17 +108,17 @@ The major contributions of this paper are summarized as follows:
 
 Federated Heterogeneous Graph Neural Network for Privacy-preserving Recommendation WWW '24, May 13–17, 2024, Singapore, Singapore
 
-#### 2 PRELIMINARY
+### 2 PRELIMINARY
 
 In this paper, we conduct HIN-based FedRec for implicit feedback. Let and denote the user set and item set. We give the related concepts as follows.
 
-#### 1 Heterogeneous Information Network
+### 1 Heterogeneous Information Network
 
 Definition 2.1. Heterogeneous Information Network (HIN) [\[34\]](#page-8-28). A HIN = ( , ) consists of an object set and a link set . It is also associated with an object type mapping function : → A and a link type mapping function : → R. A and R are the predefined sets of object and link types, where |A| + |R| > 2.
 
 Definition 2.2. Meta-path. Given a HIN with object types A and link types R, a meta-path can be denoted as a path in the form of <sup>1</sup> 1 −−→ 2 2 −−→ · · · −−→ +<sup>1</sup> , where ∈ A and ∈ R. Meta-path describes a composite relation = <sup>1</sup> ◦<sup>2</sup> ◦ ... ◦ between object <sup>1</sup> and +<sup>1</sup> , where ◦ denotes the composition operator on relations. Then given a node and a meta-path , the meta-path based neighbors N of are the nodes connecting with via the meta-path . In a HIN, the rich semantics between two objects can be captured by multiple meta-paths.
 
-#### 2 Privacy Definition
+### 2 Privacy Definition
 
 Definition 2.3. Private HIN. A private HIN = (, ) is defined as a subgraph of . It is associated with an object type mapping function : → A and a link type mapping function : → R , where R ⊂ R is the set of private link types. A user-level private HIN contains a user ∈ and its interacted item set ⊂ . The link set exists between and denoting personally private interactions.
 
@@ -135,43 +134,42 @@ Besides, each user also owns a adjacency list = (1, · · · , | <sup>|</sup> ) 
 
 Definition 2.6. -Semantic Guided Interaction Privacy. Given a semantic guided adjacency list , a perturbation mechanism M satisfies -semantic guided interaction privacy if and only if for any ˆ , such that and ˆ only differ in one bit, and any ˜ ∈ (M), we have [M ( )=˜ ] [M (ˆ )=˜ ] ≤ .
 
- is called the privacy budget that controls the strength of privacy protection. It is obvious that if a perturbation algorithm satisfies these definitions, the attacker is hard to distinguish the user's highorder pattern as well as the true interacted items.
+is called the privacy budget that controls the strength of privacy protection. It is obvious that if a perturbation algorithm satisfies these definitions, the attacker is hard to distinguish the user's highorder pattern as well as the true interacted items.
 
-#### 3 Task Formulation
+### 3 Task Formulation
 
 Based on the above preliminaries, we define our task as follows:
 
 Definition 2.7. HIN-based FedRec. Given user-level private HINs G = { 1 ,<sup>2</sup> , ...,| <sup>|</sup> } and shared HINs G = { 1 ,<sup>2</sup> , ..., }. The corresponding to the user ∈ is stored in the -th client, while G is stored in the server. We aim to collaboratively train a global model based on these distributed HINs with satisfying -semantic privacy and -semantic guided interaction privacy, which can recommend a ranked list of interested items for each user ∈ .
 
-#### 3 METHODOLOGY
+### 3 METHODOLOGY
 
 In this section, we give a detailed introduction to the proposed model FedHGNN. We first give an overview of FedHGNN. Then we present two main modules of FedHGNN, the semantic-preserving user-item interaction publishing and heterogeneous graph neural networks (HGNN) for recommendation. Finally, we give a privacy analysis of the proposed publishing process.
 
-#### 1 Overview of FedHGNN
+### 1 Overview of FedHGNN
 
 Different from existing FedRec systems that only utilize user-item interactions, FedHGNN also incorporates HINs into user and item modeling, which can largely alleviate the cold-start issue caused by data sparsity. Besides, as a core component of FedHGNN, the semantic-preserving user-item publishing mechanism recovers semantics with rigorous privacy guarantees, which can be applied to all meta-path based FedRec systems technically. We present the overall framework of FedHGNN in Figure [2.](#page-3-0) As can be seen, it mainly includes two steps, i.e., user-item interaction publishing and HGNN-based federated training. At the user-item interaction publishing step, each client perturbs local interactions using our two-stage perturbation mechanism and then uploads the perturbed results to the server. After the server receives local interactions from all clients, it can form an integral perturbed HIN, which is then distributed to each client to recover the meta-path based semantics. Note that the publishing step is only conducted once in the whole federated training process. At the federated training step, clients collaboratively train a global recommendation model based on recovered neighbors, which performs node-level neighbor aggregations followed by semantic-level aggregations. Then a ranking loss is adapted to optimize embedding and model parameters. At
 
 <span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
 <!-- Image Description: This figure illustrates a distributed learning framework for recommendation systems. It depicts two client nodes (Client 1 and Client N) independently processing user-item interaction data, incorporating metapath-based neighbors and an embedding layer. Each client then uploads embedding gradients and model parameters to a central server via Local Differential Privacy (LDP). The server aggregates these, updates the embedding, and redistributes it. The diagram shows data flow and processing steps within a federated learning architecture. -->
 
-Figure 2: The overall framework of FedHGNN
+**Figure 2:** The overall framework of FedHGNN
 
 each communication round, each participating client locally trains the model and uploads the embedding and model gradients to the server for aggregations. To further protect privacy when uploading gradients, we apply local differential privacy (LDP) to the uploaded gradients. Besides, following previous work [\[22,](#page-8-24) [39\]](#page-8-26), we also utilize pseudo interacted items during local training.
 
-# 2 Semantic-preserving User-item Interactions Publishing
+## 2 Semantic-preserving User-item Interactions Publishing
 
 To recover the semantics of the centralized HIN (obtaining the meta-path based neighbors), directly uploading the adjacency list to the server can not satisfy the privacy definition because the user-item interactions are exposed. To address this, we first present a naive solution based on random response (RR) [\[6\]](#page-8-27) and illustrate its defects of direct applications to our task. Then we give detailed introductions of our proposed two-stage perturbation mechanism for user-item interaction publishing. As depicted in Figure [3,](#page-3-1) it first perturbs the user-related shared HINs and then perturbs the user-item interactions within selected shared HINs, which not only achieves semantic-preserving but also satisfies the defined privacy. Random response (RR). As many homogeneous graph metrics publishing [\[11,](#page-8-29) [27,](#page-8-30) [35,](#page-8-31) [43\]](#page-8-32), a straw-man approach is directly utilizing RR [\[6\]](#page-8-27) to perturb each user's adjacency list , i.e., the user flips each bit of with probability = 1 1+ . However, this naive strategy faces both privacy and utility limitations. For privacy, although it satisfies the -semantic guided interaction privacy, it can not achieve our -semantic privacy goal. As for utility, it has been theoretically proved that RR would make a graph denser [\[27\]](#page-8-30). Unfortunately, there exists perturbation enlargement phenomenon [\[48\]](#page-8-33) in the HGNNs, i.e., introducing more edges may harm the HGNN's performance, which is also confirmed in our latter experiments. Besides, RR fails to accommodate the semantic-preserving since it perturbs all bits of . We can only perturb the semantic guided item set to preserve semantics but this will expose the user's
 
 <span id="page-3-1"></span>![](_page_3_Figure_7.jpeg)
 <!-- Image Description: The diagram illustrates a two-stage perturbation of a user's (Tom) heterogeneous information network (HIN). The left side shows the original HIN, with movie genre nodes (Fiction, Cartoon, Action) connected to movie nodes (Avatar, Star Wars, Peppa, First Blood, Rocky). The right depicts the perturbed HIN after two perturbation stages, showing altered connections between genres and movies. The purpose is to visually represent the data perturbation process within the HIN for robustness analysis, likely in the context of recommendation systems or similar applications. -->
 
-Figure 3: The two-stage perturbation mechanism for useritem interaction publishing
+**Figure 3:** The two-stage perturbation mechanism for useritem interaction publishing
 
 high-order patterns. Furthermore, the denser graph largely hinders the training speed and compounds the communication overhead in the federated setting.
 
 User-related shared HIN perturbation. Based on the above analysis, we propose a two-stage perturbation mechanism. The first stage performs user-related shared HIN perturbation, which utilizes EM to select shared HINs for publishing. Intuitively, the true user-related shared HIN should be selected with a high probability. Therefore, according to the theory of EM, for a user with related shared HIN set , we design the utility of selecting a shared HIN as follows:
 
-<span id="page-3-2"></span>
 $$
 q(g, u, G_s) = sim(G_s, G_s^u)
 $$
@@ -180,21 +178,21 @@ $$
 $$
 \max_{G'_s \in G_s^u} \left\{ \frac{1}{2} (cos(e_{G_s}, e_{G'_s}) + 1) \right\},
 $$
- (1)
+(1)
 
 where G is the shared HIN set of and ∈ G is the selected shared HIN. is the representation of which is the average of related items' embeddings. Eq. [\(1\)](#page-3-2) indicates that if a shared HIN is more similar to user-related shared HIN set G , it should be selected with a high probability. In this regard, the similarity function has multiple choices. We choose the highest cosine similarity score among G as the similarity function mainly in consideration of achieving a smaller sensitivity to obtain higher utility. In this way, the sensitivity Δ is:
 
 $$
 \Delta q = \max_{G_s} \max_{g \sim \hat{g}} |q(g, u, G_s) - q(\hat{g}, u, G_s)| = 1,
 $$
- (2)
+(2)
 
 where ∼ ˆ denotes that and ˆ only differ in one bit. Then according to the EM, a shared HIN is selected with probability:
 
 $$
 Pr(G_s) = \frac{\exp(\epsilon q(g, u, G_s)/(2\Delta q))}{\sum_{G'_s \subset G_s} \exp(\epsilon q(g, u, G'_s)/(2\Delta q))}.
 $$
- (3)
+(3)
 
 The above selection process is repeated |G | times without replacement to ensure diversity. Then we can obtain the perturbed user's shared HIN list ˜. By this mechanism, the user's high-order patterns are maximum preserved since we select similar shared knowledge with high probability.
 
@@ -211,7 +209,6 @@ $$
 
 Assuming the true degree of user within the subset is (i.e., the number of 1 in ), according to the degree preservation property [\[11\]](#page-8-29), the should be set as follows:
 
-<span id="page-4-0"></span>
 $$
 q_{s_i}^u = \frac{d_{s_i}^u}{d_{s_i}^u (1 - 2p) + |I_{s_i}^u| p}.
 $$
@@ -219,7 +216,7 @@ $$
 
 In practice, the will be further clipped to [0, 1] to form probability. Note that the subset may not contain user-item interactions due to the perturbation on the shared HINs, in which case =0. That is, we abandon a part of the interacted items, leading to semantic losses. Instead of that, we randomly select some items within so that the total degree is equal to the true degree . We argue that in this way the semantics of user-item interactions are preserved in light of our shared HIN selection mechanism.
 
-# 3 Heterogeneous Graph Neural Networks for Recommendation
+## 3 Heterogeneous Graph Neural Networks for Recommendation
 
 Given a recovered meta-path, our HGNN first utilizes node-level attention to learn the weights of different neighbors under the meta-path. Then the weighted aggregated embeddings are fed into a semantic-level attention to aggregate embeddings under different meta-paths. Following this process, we give an illustration of obtaining user embeddings, and item embeddings are the same.
 
@@ -248,7 +245,7 @@ where Wand q are the semantic-level parameters that are shared for all meta-path
 $$
 z_{u_i} = \sum_{\rho_k \in \mathcal{P}} \beta^{\rho_k} \cdot z_{u_i}^{\rho_k}.
 $$
- (9)
+(9)
 
 Ranking loss. Through the above process, we can obtain the final individual user embedding and item embedding respectively. The ranking score is defined as the inner product of them: ˆ = T . Then, a typical Bayesian Personalized Ranking (BPR) loss function [\[29\]](#page-8-35) is applied to optimize the parameters:
 
@@ -303,94 +300,93 @@ The subsequent flipping operation can be viewed as post-processing on the ˜ , t
 
 ### 4 EXPERIMENTS
 
-#### 1 Experimental Setup
+### 1 Experimental Setup
 
 Datasets. We employ four real HIN datasets, including two academic datasets (ACM and DBLP) and two E-commerce datasets (Yelp and Douban Book), where the basic information is summarized in
 
 <span id="page-5-0"></span>Table [1.](#page-5-0) The user nodes and the private link types are marked in bold. For ACM and DBLP, the item nodes means authors.
 
-Table 1: Dataset statistics.
+**Table 1:** Dataset statistics.
 
-| Dataset        | # Nodes                                                                  | # Private/Shared<br>Links              | Meta-paths                       |  |
+| Dataset | # Nodes | # Private/Shared<br>Links | Meta-paths | |
 |----------------|--------------------------------------------------------------------------|----------------------------------------|----------------------------------|--|
-| ACM            | Paper (P): 4025<br>Author (A): 17431<br>Conference (C): 14               | P-A: 13407<br>P-C: 4025                | P-A-P<br>P-C-P<br>A-P-A          |  |
-| DBLP           | Paper (P): 14328<br>Author (A): 4057<br>Conference (C): 20               | P-A: 19645<br>P-C: 14328               | P-A-P<br>P-C-P<br>A-P-A          |  |
-| Yelp           | User (U): 8743<br>Business (B): 3985<br>Category (C): 511                | U-B: 14896<br>B-C: 11853               | U-B-U<br>U-B-C-B-U<br>B-U-B      |  |
-| Douban<br>Book | User (U): 6793<br>Book (B): 8322<br>Group (G): 2936<br>Author (A): 10801 | U-B: 21179<br>U-G: 664847<br>B-A: 8171 | U-B-U<br>U-G-U<br>B-U-B<br>B-A-B |  |
+| ACM | Paper (P): 4025<br>Author (A): 17431<br>Conference (C): 14 | P-A: 13407<br>P-C: 4025 | P-A-P<br>P-C-P<br>A-P-A | |
+| DBLP | Paper (P): 14328<br>Author (A): 4057<br>Conference (C): 20 | P-A: 19645<br>P-C: 14328 | P-A-P<br>P-C-P<br>A-P-A | |
+| Yelp | User (U): 8743<br>Business (B): 3985<br>Category (C): 511 | U-B: 14896<br>B-C: 11853 | U-B-U<br>U-B-C-B-U<br>B-U-B | |
+| Douban<br>Book | User (U): 6793<br>Book (B): 8322<br>Group (G): 2936<br>Author (A): 10801 | U-B: 21179<br>U-G: 664847<br>B-A: 8171 | U-B-U<br>U-G-U<br>B-U-B<br>B-A-B | |
 
 Baselines. Following [\[39\]](#page-8-26), we compare FedHGNN with two kinds of baselines: recommendation model based on centralized data-storage (including HERec [\[31\]](#page-8-8), HAN [\[37\]](#page-8-17), NGCF [\[36\]](#page-8-36), light-GCN [\[10\]](#page-8-37), RGCN [\[30\]](#page-8-7), HGT [\[14\]](#page-8-6)) and federated setting for privacypreserving (including FedMF [\[3\]](#page-8-21), FedGNN [\[39\]](#page-8-26), FedSog [\[22\]](#page-8-24), PerFedRec [\[24\]](#page-8-25), PFedRec[\[46\]](#page-8-38), SemiDFEGL[\[28\]](#page-8-39)). The details of them are shown in Appendix [B.](#page-9-0)
 
 Implementation Details. For all the baselines, the node features are randomly initialized and the hidden dimension is set to 64. We tune other hyper-parameters to report the best performance. We keep the available heterogeneous information (e.g., meta-paths) the same for all HIN-based methods. We modify the loss function to be the BPR loss as the same with ours. In FedHGNN, the learning rate is set as 0.01, <sup>1</sup> and <sup>2</sup> are all set as 1. For each dataset, we first perform item clustering based on shared knowledge so that each item only belongs to one shared HIN. The number of shared HIN (number of clustering) is set as 20 for all datasets. The batch size (the number of participated clients in each round) is set as 32. For LDP and pseudo-interacted items, we set the hyper-parameters as the same with [\[22\]](#page-8-24). Following [\[24\]](#page-8-25), we apply the leave-one-out strategy for evaluation and use HR@K and NDCG@K as metrics. We will also provide an implementation based on GammaGL [\[21\]](#page-8-40).
 
-#### 2 Overall Performance
+### 2 Overall Performance
 
 Table [2](#page-6-0) shows the overall results of all baselines on four datasets. The following findings entail from Table [2:](#page-6-0) (1) FedHGNN outperforms all the FedRec models by a big margin (up to 34% in HR@10 and 42% in NDCG@10), which demonstrates the effectiveness of our model. Surprisingly, FedHGNN also outperforms several centralized models (notably non-HIN based methods, e.g., NGCF), indicating the significance of utilizing rich semantics of HIN in FedRec. We also assume the perturbation can be seen as an effective data augmentation to alleviate cold-start issues. Since we find the interactions of some inactive users slightly increase after perturbation. (2) Among centralized baselines, HIN-based methods perform better, especially on sparse datasets (e.g., DBLP), owing to introducing
 
 <span id="page-6-0"></span>Federated Heterogeneous Graph Neural Network for Privacy-preserving Recommendation WWW '24, May 13–17, 2024, Singapore, Singapore
 
-|            | Model | HERec  | HAN    | NGCF   | lightGCN | RGCN   | HGT    | FedMF  |         |        | FedGNN FedSog PerFedRec PFedRec |        | SemiDFEGL | FedHGNN |
+| | Model | HERec | HAN | NGCF | lightGCN | RGCN | HGT | FedMF | | | FedGNN FedSog PerFedRec PFedRec | | SemiDFEGL | FedHGNN |
 |------------|-------|--------|--------|--------|----------|--------|--------|--------|---------|--------|---------------------------------|--------|-----------|---------|
-| ACM        | H@5   | 0.3874 | 0.4152 | 0.3845 | 0.3684   | 0.2929 | 0.3834 | 0.0834 | 0.2608  | 0.2905 | 0.2516                          | 0.2733 | 0.2065    | 0.3593  |
-|            | H@10  | 0.4525 | 0.4727 | 0.4379 | 0.4737   | 0.4619 | 0.5035 | 0.1331 | 0.345   | 0.3642 | 0.3229                          | 0.3533 | 0.3083    | 0.4185  |
-|            | N@5   | 0.3222 | 0.335  | 0.322  | 0.2624   | 0.1752 | 0.2612 | 0.056  | 0.193   | 0.2201 | 0.1824                          | 0.1982 | 0.1384    | 0.2787  |
-|            | N@10  | 0.3333 | 0.3537 | 0.3393 | 0.2968   | 0.2302 | 0.3001 | 0.072  | 0.2202  | 0.2438 | 0.2055                          | 0.224  | 0.171     | 0.298   |
-|            | H@5   | 0.3265 | 0.3877 | 0.3161 | 0.3256   | 0.387  | 0.3252 | 0.0998 | 0.2301  | 0.1978 | 0.1676                          | 0.2843 | 0.1442    | 0.3376  |
-| DBLP       | H@10  | 0.3882 | 0.4498 | 0.3895 | 0.4419   | 0.5074 | 0.4763 | 0.1606 | 0.3252  | 0.2691 | 0.2619                          | 0.3863 | 0.2518    | 0.4373  |
-|            | N@5   | 0.2586 | 0.33   | 0.246  | 0.2281   | 0.2763 | 0.2264 | 0.0603 | 0.167   | 0.14   | 0.105                           | 0.2005 | 0.091     | 0.2481  |
-|            | N@10  | 0.2717 | 0.3503 | 0.27   | 0.2646   | 0.3151 | 0.2748 | 0.0732 | 0.1963  | 0.163  | 0.1352                          | 0.2332 | 0.1253    | 0.2778  |
-| Yelp       | H@5   | 0.2322 | 0.2877 | 0.1831 | 0.2368   | 0.2844 | 0.3322 | 0.0712 | 0.1801  | 0.1839 | 0.1513                          | 0.1572 | 0.1903    | 0.2178  |
-|            | H@10  | 0.3322 | 0.4077 | 0.2958 | 0.3684   | 0.3907 | 0.4635 | 0.1259 | 0.2596  | 0.2715 | 0.237                           | 0.2249 | 0.28      | 0.2977  |
-|            | N@5   | 0.1637 | 0.1929 | 0.1127 | 0.1881   | 0.2003 | 0.2311 | 0.0444 | 0.1221  | 0.1227 | 0.1002                          | 0.1077 | 0.121     | 0.1578  |
-|            | N@10  | 0.1961 | 0.2316 | 0.1493 | 0.2307   | 0.2346 | 0.2733 | 0.0619 | 0.1477  | 0.1508 | 0.1277                          | 0.1294 | 0.1497    | 0.1834  |
-| Book<br>Db | H@5   | 0.248  | 0.2488 | 0.1572 | 0.2927   | 0.3321 | 0.3431 | 0.0859 | 0.1528  | 0.2505 | 0.2039                          | 0.2842 | 0.0911    | 0.3213  |
-|            | H@10  | 0.323  | 0.3602 | 0.2331 | 0.3902   | 0.4819 | 0.4973 | 0.1411 | 0.22273 | 0.3464 | 0.2727                          | 0.3638 | 0.1367    | 0.438   |
-|            | N@5   | 0.1767 | 0.1704 | 0.1067 | 0.2198   | 0.2239 | 0.2307 | 0.0529 | 0.1017  | 0.1743 | 0.1435                          | 0.2037 | 0.0636    | 0.2135  |
-|            | N@10  | 0.2011 | 0.2084 | 0.1289 | 0.2518   | 0.2671 | 0.2802 | 0.066  | 0.1257  | 0.2053 | 0.1658                          | 0.2295 | 0.0804    | 0.2511  |
+| ACM | H@5 | 0.3874 | 0.4152 | 0.3845 | 0.3684 | 0.2929 | 0.3834 | 0.0834 | 0.2608 | 0.2905 | 0.2516 | 0.2733 | 0.2065 | 0.3593 |
+| | H@10 | 0.4525 | 0.4727 | 0.4379 | 0.4737 | 0.4619 | 0.5035 | 0.1331 | 0.345 | 0.3642 | 0.3229 | 0.3533 | 0.3083 | 0.4185 |
+| | N@5 | 0.3222 | 0.335 | 0.322 | 0.2624 | 0.1752 | 0.2612 | 0.056 | 0.193 | 0.2201 | 0.1824 | 0.1982 | 0.1384 | 0.2787 |
+| | N@10 | 0.3333 | 0.3537 | 0.3393 | 0.2968 | 0.2302 | 0.3001 | 0.072 | 0.2202 | 0.2438 | 0.2055 | 0.224 | 0.171 | 0.298 |
+| | H@5 | 0.3265 | 0.3877 | 0.3161 | 0.3256 | 0.387 | 0.3252 | 0.0998 | 0.2301 | 0.1978 | 0.1676 | 0.2843 | 0.1442 | 0.3376 |
+| DBLP | H@10 | 0.3882 | 0.4498 | 0.3895 | 0.4419 | 0.5074 | 0.4763 | 0.1606 | 0.3252 | 0.2691 | 0.2619 | 0.3863 | 0.2518 | 0.4373 |
+| | N@5 | 0.2586 | 0.33 | 0.246 | 0.2281 | 0.2763 | 0.2264 | 0.0603 | 0.167 | 0.14 | 0.105 | 0.2005 | 0.091 | 0.2481 |
+| | N@10 | 0.2717 | 0.3503 | 0.27 | 0.2646 | 0.3151 | 0.2748 | 0.0732 | 0.1963 | 0.163 | 0.1352 | 0.2332 | 0.1253 | 0.2778 |
+| Yelp | H@5 | 0.2322 | 0.2877 | 0.1831 | 0.2368 | 0.2844 | 0.3322 | 0.0712 | 0.1801 | 0.1839 | 0.1513 | 0.1572 | 0.1903 | 0.2178 |
+| | H@10 | 0.3322 | 0.4077 | 0.2958 | 0.3684 | 0.3907 | 0.4635 | 0.1259 | 0.2596 | 0.2715 | 0.237 | 0.2249 | 0.28 | 0.2977 |
+| | N@5 | 0.1637 | 0.1929 | 0.1127 | 0.1881 | 0.2003 | 0.2311 | 0.0444 | 0.1221 | 0.1227 | 0.1002 | 0.1077 | 0.121 | 0.1578 |
+| | N@10 | 0.1961 | 0.2316 | 0.1493 | 0.2307 | 0.2346 | 0.2733 | 0.0619 | 0.1477 | 0.1508 | 0.1277 | 0.1294 | 0.1497 | 0.1834 |
+| Book<br>Db | H@5 | 0.248 | 0.2488 | 0.1572 | 0.2927 | 0.3321 | 0.3431 | 0.0859 | 0.1528 | 0.2505 | 0.2039 | 0.2842 | 0.0911 | 0.3213 |
+| | H@10 | 0.323 | 0.3602 | 0.2331 | 0.3902 | 0.4819 | 0.4973 | 0.1411 | 0.22273 | 0.3464 | 0.2727 | 0.3638 | 0.1367 | 0.438 |
+| | N@5 | 0.1767 | 0.1704 | 0.1067 | 0.2198 | 0.2239 | 0.2307 | 0.0529 | 0.1017 | 0.1743 | 0.1435 | 0.2037 | 0.0636 | 0.2135 |
+| | N@10 | 0.2011 | 0.2084 | 0.1289 | 0.2518 | 0.2671 | 0.2802 | 0.066 | 0.1257 | 0.2053 | 0.1658 | 0.2295 | 0.0804 | 0.2511 |
 
-Table 2: Overall performance of different methods on Four datasets. The best result is in bold.
+**Table 2:** Overall performance of different methods on Four datasets. The best result is in bold.
 
 additional semantic information to alleviate cold-start issues. It has also been observed that GNN-based methods (HAN, RGCN, and HGT) achieve better results than non-GNN based methods (HERec), indicating that GNNs are more potent in capturing semantic information. (3) Among federated baselines, FedMF performs poorly because it ignores the high-order interactions which are significant for cold-start recommendation. Other federated models (FedGNN, FedSog, PerFedRec, and SemiDFEGL) improve this by privacy-preserving graph expansion (FedSog assumes social relation is public). SemiDFEGL performs relatively poorly since it focuses more on parameter efficiency and reducing communication costs rather than utility. It's surprising to find that PFedRec outperforms FedMF by a large margin and even outperforms some GNN-based FedRec baselines. We discover that it's attributed to the personal item embeddings and the same parameter initialization of score functions, which is an interesting finding and worth studying in future works. Compared to these methods, our FedHGNN further considers semantic information with theoretically guaranteed privacy protection.
 
-#### <span id="page-6-1"></span>4.3 Ablation Study
+### <span id="page-6-1"></span>4.3 Ablation Study
 
 To have an in-depth analysis of our two-stage perturbation mechanism, we conduct ablation studies to dissect the effectiveness of different modules. We design 7 variants based on FedHGNN and the performance of these variants is outlined in Table [3.](#page-7-0) FedHGNN<sup>∗</sup> is the FedHGNN model without two-stage perturbation. RR means random response and DPRR is the degree-preserving RR. +S indicates adding corresponding perturbation to each semantic guided adjacency list , otherwise to each user's adjacency list . Note that SDPRR<sup>∗</sup> indicates performing DPRR to the whole semantic guided adjacency list , which is the only difference with our Fed-HGNN. +E indicates adding EM perturbation. We set <sup>2</sup> = <sup>2</sup> = 1 for all variants except that <sup>2</sup> = 6 for RR-related variants, due to a smaller 2 makes the graph denser, which sharply increases training time and consumed memory.
 
 From the table, we have several findings: (1) The performance of FedHGNN is even superior to the model without perturbation in ACM and DBLP, and removing the first-stage perturbation (+SDPRR) can achieve better results. In contrast, +DPRR obtains worse results, indicating that the main factor for improving the FedHGNN is the DPRR on each semantic guided adjacency list. Considering the relatively sparse datasets and a slight increment of some inactive user's interactions after the SDPRR, we conclude that SDPRR has the ability to tackle data sparsity in recommendations since it augments data in a semantic-preserving manner meanwhile keeping data diversity. (2) Pure RR and DPRR perform poorly since they perturb user-item interactions randomly without considering semantic preserving. Pure RR performs even worse due to it making a graph denser and causing perturbation enlargements [\[48\]](#page-8-33). DPRR preserves degrees but fails to preserve user-item interaction patterns. Thus we can draw a conclusion that semantic-preserving requires both degree-preserving and feature-preserving. Perturbation within the semantic guided item set (+SRR and +SDPRR) performs much better, which further verifies our conclusion. (3) Adding first-stage perturbation will harm the performance but is necessary, otherwise we can't protect the user's high-order patterns. Thanks to our designed similarity-based EM, the user's high-order patterns are maximum preserved and the performance has not decreased dramatically. Note that FedHGNN also outperforms +ESDPRR<sup>∗</sup> , indicating we should keep the diversity of user-item interactions after EM, i.e., the interacted items should exist in each selected shared HIN.
 
-#### 4 Parameter Analysis
+### 4 Parameter Analysis
 
 In this section, we investigate the impacts of some significant parameters in FedHGNN, including the number of shared HINs, as well as the privacy budgets 1 and 2.
 
 Analysis of different numbers of shared HINs. To demonstrate the effects of different numbers of shared HINs, we fix other hyper-parameters unchanged and vary to compare the performance. The results are depicted in Figure [4.](#page-7-1) Considering two
 
-<span id="page-7-0"></span>
 
-|      | Model   | FedHGNN∗<br>+RR<br>+DPRR<br>+SRR<br>+SDPRR<br>+E<br>+ESRR |        | +ESDPRR∗ | FedHGNN |        |        |        |        |        |
+| | Model | FedHGNN∗<br>+RR<br>+DPRR<br>+SRR<br>+SDPRR<br>+E<br>+ESRR | | +ESDPRR∗ | FedHGNN | | | | | |
 |------|---------|-----------------------------------------------------------|--------|----------|---------|--------|--------|--------|--------|--------|
-| ACM  | HR@5    | 0.3118                                                    | 0.0495 | 0.1749   | 0.3437  | 0.389  | 0.3461 | 0.2959 | 0.3475 | 0.3593 |
-|      | HR@10   | 0.3961                                                    | 0.1118 | 0.2268   | 0.4998  | 0.5027 | 0.4004 | 0.3861 | 0.4069 | 0.4185 |
-|      | NDCG@5  | 0.2293                                                    | 0.0345 | 0.1326   | 0.2312  | 0.2865 | 0.266  | 0.215  | 0.266  | 0.2787 |
-|      | NDCG@10 | 0.2567                                                    | 0.0491 | 0.1492   | 0.2845  | 0.323  | 0.2835 | 0.2438 | 0.2852 | 0.298  |
-| DBLP | HR@5    | 0.2824                                                    | 0.0694 | 0.1678   | 0.2224  | 0.3346 | 0.2616 | 0.2729 | 0.3156 | 0.3376 |
-|      | HR@10   | 0.3934                                                    | 0.1237 | 0.2394   | 0.3154  | 0.4557 | 0.3701 | 0.3718 | 0.4227 | 0.4373 |
-|      | NDCG@5  | 0.2176                                                    | 0.0429 | 0.1115   | 0.1458  | 0.2484 | 0.1835 | 0.1929 | 0.2273 | 0.2481 |
-|      | NDCG@10 | 0.241                                                     | 0.0602 | 0.1413   | 0.1757  | 0.2801 | 0.2176 | 0.2249 | 0.2619 | 0.2778 |
-| Yelp | HR@5    | 0.2583                                                    | 0.0663 | 0.1383   | 0.1172  | 0.2364 | 0.2244 | 0.223  | 0.1871 | 0.2178 |
-|      | HR@10   | 0.3482                                                    | 0.1232 | 0.2079   | 0.1803  | 0.3245 | 0.3242 | 0.3257 | 0.2624 | 0.2977 |
-|      | NDCG@5  | 0.1859                                                    | 0.0392 | 0.0963   | 0.0672  | 0.171  | 0.152  | 0.1538 | 0.1321 | 0.1578 |
-|      | NDCG@10 | 0.2201                                                    | 0.0575 | 0.1185   | 0.0789  | 0.1976 | 0.1875 | 0.1804 | 0.1563 | 0.1834 |
+| ACM | HR@5 | 0.3118 | 0.0495 | 0.1749 | 0.3437 | 0.389 | 0.3461 | 0.2959 | 0.3475 | 0.3593 |
+| | HR@10 | 0.3961 | 0.1118 | 0.2268 | 0.4998 | 0.5027 | 0.4004 | 0.3861 | 0.4069 | 0.4185 |
+| | NDCG@5 | 0.2293 | 0.0345 | 0.1326 | 0.2312 | 0.2865 | 0.266 | 0.215 | 0.266 | 0.2787 |
+| | NDCG@10 | 0.2567 | 0.0491 | 0.1492 | 0.2845 | 0.323 | 0.2835 | 0.2438 | 0.2852 | 0.298 |
+| DBLP | HR@5 | 0.2824 | 0.0694 | 0.1678 | 0.2224 | 0.3346 | 0.2616 | 0.2729 | 0.3156 | 0.3376 |
+| | HR@10 | 0.3934 | 0.1237 | 0.2394 | 0.3154 | 0.4557 | 0.3701 | 0.3718 | 0.4227 | 0.4373 |
+| | NDCG@5 | 0.2176 | 0.0429 | 0.1115 | 0.1458 | 0.2484 | 0.1835 | 0.1929 | 0.2273 | 0.2481 |
+| | NDCG@10 | 0.241 | 0.0602 | 0.1413 | 0.1757 | 0.2801 | 0.2176 | 0.2249 | 0.2619 | 0.2778 |
+| Yelp | HR@5 | 0.2583 | 0.0663 | 0.1383 | 0.1172 | 0.2364 | 0.2244 | 0.223 | 0.1871 | 0.2178 |
+| | HR@10 | 0.3482 | 0.1232 | 0.2079 | 0.1803 | 0.3245 | 0.3242 | 0.3257 | 0.2624 | 0.2977 |
+| | NDCG@5 | 0.1859 | 0.0392 | 0.0963 | 0.0672 | 0.171 | 0.152 | 0.1538 | 0.1321 | 0.1578 |
+| | NDCG@10 | 0.2201 | 0.0575 | 0.1185 | 0.0789 | 0.1976 | 0.1875 | 0.1804 | 0.1563 | 0.1834 |
 
-Table 3: Performance of different variants of FedHGNN on three datasets.
+**Table 3:** Performance of different variants of FedHGNN on three datasets.
 
 <span id="page-7-1"></span>![](_page_7_Figure_3.jpeg)
 <!-- Image Description: This image displays three line graphs comparing HR@5, HR@10, NDCG@5, and NDCG@10 metrics across datasets (ACM, DBLP, Yelp). The x-axis represents a parameter 'n', and the y-axis shows the percentage. Each graph illustrates the performance of these metrics as 'n' increases, allowing the comparison of algorithm performance across different datasets. The purpose is to demonstrate the impact of 'n' on the evaluation metrics in the context of the research. -->
 
-Figure 4: Effects of different number of shared HINs
+**Figure 4:** Effects of different number of shared HINs
 
 <span id="page-7-2"></span>![](_page_7_Figure_5.jpeg)
 <!-- Image Description: The image presents nine line graphs, three sets of three, illustrating the performance of a ranking model across three datasets (ACM, DBLP, Yelp). Each graph shows HR@5, HR@10, NDCG@5, and NDCG@10 metrics as functions of parameters ε₁ and ε₂. The graphs visually compare the impact of these parameters on the ranking model's performance across different datasets, allowing for an assessment of the model's effectiveness under varying conditions. -->
 
-Figure 5: Effects of different privacy budget <sup>1</sup> and <sup>2</sup>
+**Figure 5:** Effects of different privacy budget <sup>1</sup> and <sup>2</sup>
 
 extreme conditions: when = 1, the two-stage perturbation degenerates to solely second-stage perturbation, i.e., perturbation by DPRR on the whole item set, which fails to preserve user-item interaction patterns as discussed in Section [4.3;](#page-6-1) When = | |, according to Eq. [\(5\)](#page-4-0), it is equivalent to performing RR in each 1's bit after the first-stage perturbation, which intuitively perform better than ≤ | |. According to this theory, the performance will increase when is larger. However, as can be seen, the performance of all datasets has a dramatic incremental trend at the initial stage of increasing ( ≤ 20), then the curve becomes smooth and even has
 
@@ -398,17 +394,17 @@ a decrement trend ( ≥ 20). We attribute this phenomenon to that the model with
 
 Analysis of different privacy budgets. To analyze the effects of different <sup>1</sup> and 2, we fix one parameter as 1 and change another one from 0.5 to 16 to depict the model performance in Figure. [5.](#page-7-2) <sup>1</sup> controls the protection strength of user's high-order patterns (related-shared HINs). We can see that the metrics gradually increase with 1, indicating the user's high-order patterns are significant for recommendation and these patterns are undermined when <sup>1</sup> is too small (e.g., 0.5). When fixing <sup>1</sup> = 1, the performance curve of <sup>2</sup> will first increase and then slightly decrease. We suppose that due to the perturbation of user's high-order patterns in the first stage, the second stage perturbation is conducted on contaminated interaction patterns. As a result, the performance may still drop when 2 is large. It also shows that conducting moderate perturbation will promote the performance (e.g., <sup>2</sup> = 1).
 
-#### 5 CONCLUSION
+### 5 CONCLUSION
 
 In this paper, we first explore the challenge problem of HIN-based FedRec. We formulate the privacy in federated HIN and propose a semantic-preserving user-item publishing method with rigorous privacy guarantees. Incorporating this publishing method into advanced heterogeneous graph neural networks, we propose a Fed-HGNN framework for recommendation. Experiments show that the model achieves satisfied utility under an accepted privacy budget.
 
-#### ACKNOWLEDGMENTS
+### ACKNOWLEDGMENTS
 
 This work is supported in part by the National Natural Science Foundation of China (No. U20B2045, 62192784, U22B2038, 62002029, 62172052), the JSPS KAKENHI (No. JP22H00521, JP22H03595), and the BUPT Excellent Ph.D. Students Foundation (No. CX2021118).
 
 Federated Heterogeneous Graph Neural Network for Privacy-preserving Recommendation WWW '24, May 13–17, 2024, Singapore, Singapore
 
-#### REFERENCES
+### REFERENCES
 
 - <span id="page-8-20"></span>[1] Muhammad Ammad-ud-din, Elena Ivannikova, Suleiman A. Khan, Were Oyomno, Qiang Fu, Kuan Eeik Tan, and Adrian Flanagan. 2019. Federated Collaborative Filtering for Privacy-Preserving Personalized Recommendation System. CoRR abs/1901.09888 (2019).
 - <span id="page-8-52"></span>[2] Jinheon Baek, Wonyong Jeong, Jiongdao Jin, Jaehong Yoon, and Sung Ju Hwang. 2023. Personalized Subgraph Federated Learning. In ICML (Proceedings of Machine Learning Research, Vol. 202). PMLR, 1396–1415.
@@ -469,7 +465,7 @@ In KDD. ACM, 1234–1242.
 
 WWW '24, May 13–17, 2024, Singapore, Singapore Bo Yan et al.
 
-#### A RELATED WORK
+### A RELATED WORK
 
 HIN-based recommendation. HIN contains rich semantics for recommendation, which has been extensively studied in recent years [\[12,](#page-8-41) [40,](#page-8-42) [51\]](#page-8-5). Specifically, HERec [\[31\]](#page-8-8) utilizes a meta-path based random walk to generate node sequences and designs multiple fusion functions to enhance the recommendation performance. MCRec [\[13\]](#page-8-11) designs a co-attention mechanism to explicitly learn the interactions between users, items, and meta-path based context. In recent years, HGNNs have been introduced for HIN modeling. To tackle the heterogeneous information, one line aggregates neighbors after transforming heterogeneous attributes into the same embedding space [\[14,](#page-8-6) [30\]](#page-8-7). Typically, RGCN [\[30\]](#page-8-7) aggregates neighbors for each relation type individually. HetGNN [\[47\]](#page-8-43) adopts different RNNs to aggregate nodes with different types. HGT [\[14\]](#page-8-6) introduces transformer architecture [\[33\]](#page-8-34) for modeling heterogeneous node and edge types. Another line is performing meta-path based neighbor aggregation [\[7,](#page-8-15) [15,](#page-8-16) [37\]](#page-8-17). HAN [\[37\]](#page-8-17) proposes a dual attention mechanism to learn the importance of different meta-paths. HGSRec [\[15\]](#page-8-16) further designs tripartite heterogeneous GNNs to perform shared recommendations. Unlike HAN performing homogeneous neighbor aggregation, Meirec [\[7\]](#page-8-15) proposes a meta-path guided heterogeneous neighbor aggregation method for intent recommendation. Despite the great effectiveness of these HIN-based recommendations, they are all designed under centralized data storage and not geared for the federated setting with privacy-preserving requirements.
 
@@ -494,7 +490,7 @@ The detailed descriptions of baselines are presented as follows:
 - PFedRec [\[46\]](#page-8-38) is another personalized FedRec method. Compared to FedMF, it removes user embeddings and adds a parameterized score function. It achieves personalization by locally updating score function and finetuning item embeddings.
 - SemiDFEGL [\[28\]](#page-8-39) is a semi-decentralized GNN-based FedRec framework. It introduces device-to-device collaborative learning to reduce communication costs and utilizes fake common items to exploit high-order graph structures.
 
-#### C ALGORITHM
+### C ALGORITHM
 
 The whole process of FedHGNN is presented in Algorithm [1.](#page-10-1) Each client executes the function Semantic\_preserving\_perturb before federated training to obtain the perturbed local user-item interaction data ˜ and upload it to the server. Server obtains the required meta-path based neighbors {N } ∈ P,∈ for each client based on { ˜ }∈ and then distributes {N } ∈ P,∈ to each client. After this one-step distribution, clients begin to collaboratively train a global recommendation model based on recovered neighbors. In each communication round, the sampled clients locally execute the function HGNN\_for\_rec to train the recommendation model and upload the gradients to the server for aggregation. Note that for better privacy protection, we also sample pseudo
 
@@ -504,26 +500,26 @@ The whole process of FedHGNN is presented in Algorithm [1.](#page-10-1) Each cli
 
 | Input: Meta-paths:P; Learning rate:𝜂; Shared HIN set:<br>; The<br>G𝑠<br>number of pseudo items:𝑝 |
 |--------------------------------------------------------------------------------------------------|
-| Output: Model parameters and embeddings:<br>Θ                                                    |
-| 1: Server initializes<br>Θ and distributes<br>to each client<br>𝑢<br>∈ 𝑈<br>G𝑠                   |
-| 2: for each client<br>𝑢<br>∈ 𝑈<br>do                                                             |
-| ˜𝑎<br>𝑢<br>𝑠 =<br>Semantic_preserving_perturb(𝑢,<br>)<br>G𝑠<br>3:                                |
-| ˜𝑎<br>𝑢<br>Upload<br>to server<br>4:<br>𝑠                                                        |
-| 5: end for                                                                                       |
-| {N𝜌<br>6: Server obtains meta-path based neighbors<br>∈ P,𝑢∈𝑈 based<br>𝑢 }𝜌                      |
-| ˜𝑎<br>𝑢<br>on<br>{<br>}𝑢∈𝑈<br>𝑠                                                                  |
-| {N𝜌<br>7: Distributes<br>∈ P,𝑢∈𝑈 to corresponding client<br>𝑢<br>𝑢 }𝜌                            |
-| 8: while not converge do                                                                         |
-| Server samples a client set<br>𝑈𝑐<br>⊂ 𝑈<br>9:                                                   |
-| Distributes<br>Θ to each client<br>𝑢<br>∈ 𝑈𝑐<br>10:                                              |
-| for each client<br>𝑢<br>∈ 𝑈𝑐<br>11:<br>do<br>𝜌                                                   |
-| ˜g<br>𝑢<br>= HGNN_for_rec({𝑁<br>∈ P,<br>P,<br>Θ)<br>𝑢 }𝜌<br>12:<br>Θ                             |
-| ˜g<br>𝑢<br>Upload<br>to server<br>13:<br>Θ                                                       |
-| 14:<br>end for                                                                                   |
-| ˜g<br>𝑢<br>Server aggregates<br>into<br>g¯Θ<br>{<br>}𝑢∈𝑈𝑐<br>15:<br>Θ                            |
-| Update<br>· g¯Θ<br>Θ = Θ − 𝜂<br>16:                                                              |
-| 17: end while                                                                                    |
-|                                                                                                  |
+| Output: Model parameters and embeddings:<br>Θ |
+| 1: Server initializes<br>Θ and distributes<br>to each client<br>𝑢<br>∈ 𝑈<br>G𝑠 |
+| 2: for each client<br>𝑢<br>∈ 𝑈<br>do |
+| ˜𝑎<br>𝑢<br>𝑠 =<br>Semantic_preserving_perturb(𝑢,<br>)<br>G𝑠<br>3: |
+| ˜𝑎<br>𝑢<br>Upload<br>to server<br>4:<br>𝑠 |
+| 5: end for |
+| {N𝜌<br>6: Server obtains meta-path based neighbors<br>∈ P,𝑢∈𝑈 based<br>𝑢 }𝜌 |
+| ˜𝑎<br>𝑢<br>on<br>{<br>}𝑢∈𝑈<br>𝑠 |
+| {N𝜌<br>7: Distributes<br>∈ P,𝑢∈𝑈 to corresponding client<br>𝑢<br>𝑢 }𝜌 |
+| 8: while not converge do |
+| Server samples a client set<br>𝑈𝑐<br>⊂ 𝑈<br>9: |
+| Distributes<br>Θ to each client<br>𝑢<br>∈ 𝑈𝑐<br>10: |
+| for each client<br>𝑢<br>∈ 𝑈𝑐<br>11:<br>do<br>𝜌 |
+| ˜g<br>𝑢<br>= HGNN_for_rec({𝑁<br>∈ P,<br>P,<br>Θ)<br>𝑢 }𝜌<br>12:<br>Θ |
+| ˜g<br>𝑢<br>Upload<br>to server<br>13:<br>Θ |
+| 14:<br>end for |
+| ˜g<br>𝑢<br>Server aggregates<br>into<br>g¯Θ<br>{<br>}𝑢∈𝑈𝑐<br>15:<br>Θ |
+| Update<br>· g¯Θ<br>Θ = Θ − 𝜂<br>16: |
+| 17: end while |
+| |
 
 18: Function Semantic\_preserving\_perturb (, G ): // User-related shared HIN perturbation
 
@@ -550,20 +546,20 @@ The whole process of FedHGNN is presented in Algorithm [1.](#page-10-1) Each cli
 <span id="page-10-3"></span>![](_page_10_Figure_24.jpeg)
 <!-- Image Description: The image contains two line graphs comparing the performance of several federated recommendation algorithms (FeSoG, PerFedRec, FedGNN, PFedRec, FedHGNN, FedMF, SemiDFEGL) across different communication rounds. Graph (a) shows results on the ACM dataset, while (b) shows results on the DoubanBook dataset. The y-axis represents HR@10 (Hit Rate at 10), a metric for recommendation accuracy. The x-axis represents the number of communication rounds in the federated learning process. The graphs illustrate how the algorithms' performance changes with increasing communication. -->
 
-Figure 6: Coonvergence plots of different FedRecs in ACM and Douban Book datasets
+**Figure 6:** Coonvergence plots of different FedRecs in ACM and Douban Book datasets
 
-# D ADDITIONAL RESULTS OF THE PERTURBATION
+## D ADDITIONAL RESULTS OF THE PERTURBATION
 
 Since we only perturb edges (user-item interactions), the number of nodes is unchanged. We calculate the number and proportion of edges that are unchanged after perturbation, which are presented in Table [4.](#page-10-2) We can see that the proportion of edges unchanged after perturbation is extremely small (less than 1%) in all datasets, indicating that the privacy is maximum protected. In fact, the perturbation algorithm is based on differential privacy (DP) as discussed before, thus the adversary is hard to distinguish whether the unchanged edges really exist in the original graph, which already provides rigorous privacy guarantees. As for the utility, we conduct perturbation in a semantic-preserving manner, thus the semantics are maximum preserved and the number of unchanged edges can't reflect whether the semantics are lost. Besides, experiments also verify the effectiveness of our perturbation algorithm.
 
-<span id="page-10-2"></span>Table 4: The number and proportion of edges that are unchanged after perturbation on four datasets.
+<span id="page-10-2"></span>**Table 4:** The number and proportion of edges that are unchanged after perturbation on four datasets.
 
-| Dataset     | # Edges | # Edges unchanged | Proportion |
+| Dataset | # Edges | # Edges unchanged | Proportion |
 |-------------|---------|-------------------|------------|
-| ACM         | 9703    | 19                | 0.002      |
-| DBLP        | 15368   | 79                | 0.005      |
-| Yelp        | 11187   | 11                | 0.001      |
-| Douban Book | 17083   | 150               | 0.009      |
+| ACM | 9703 | 19 | 0.002 |
+| DBLP | 15368 | 79 | 0.005 |
+| Yelp | 11187 | 11 | 0.001 |
+| Douban Book | 17083 | 150 | 0.009 |
 
 ## E CONVERGENCE ANALYSIS
 

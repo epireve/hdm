@@ -78,7 +78,7 @@ treatment in oncology, paving the way for individualized patientcentered care.
 
 ## Results
 
-Data collection and infrastructure are illustrated in Fig. 1, with detailed procedures described in the Methods section. Through this process, at the time of analysis, the DB contained records of the feature sets of 171,128 individuals diagnosed with 11 different cancers at a single academic cancer center between January 2006 andMarch 2022 (Table [1\)](#page-2-0). For each individual, 817 essential features in the common columns and a median of 61 features (range: 38–109) in the cancer-type-specific columns were updated daily and continuously. To facilitate the extraction of structured information from unstructured medical text documents, Natural Language Processing (NLP) techniques were applied during data processing.
+Data collection and infrastructure are illustrated in Figure 1, with detailed procedures described in the Methods section. Through this process, at the time of analysis, the DB contained records of the feature sets of 171,128 individuals diagnosed with 11 different cancers at a single academic cancer center between January 2006 andMarch 2022 (Table [1\)](#page-2-0). For each individual, 817 essential features in the common columns and a median of 61 features (range: 38–109) in the cancer-type-specific columns were updated daily and continuously. To facilitate the extraction of structured information from unstructured medical text documents, Natural Language Processing (NLP) techniques were applied during data processing.
 
 During the quality control (QC) process, we established a comprehensive set of 143 human-driven logical comparisons, including 70 focused on identifying missing data, 41 ensuring temporal validity (e.g., the completion date of radiotherapy should coincide with or follow its initiation date), 15 pinpointing outlier data (such as age at menarche between 8 and 20 years), 13 selecting the relevant values among multiple time points, and 4 dedicated to spotting duplicated or inconsistent data. The QC logic outcomes showed consistent results across 11 different cancer types, comprising a total of 1,523 datasets. We initially set the estimated daily QC case count to 10%, which translated to approximately 81 cases per day.
 
@@ -95,30 +95,29 @@ The results of evaluating the accuracy of the NLP models used in our ETL process
 
 \*OLAP: Online Analytical Processing
 
-Fig. 1 | Overview of the YCDL framework. The original data from the EMR/OCS, which contains clinical data for all patients visiting the hospital, serves as the source data for the cancer-specific YCDL database. After the original data is transferred to the DW server, data marts are created from the DW tables in the DSC database, grouped by related topics. Separate databases are established for each cancer type, named "DSC\_cancertype," to prevent excessive time spent on complex SQL query execution. The DSC database condenses data from 18 tables and 433 columns by integrating relevant tables from the DW database and joining with code master or terminology tables to include code-code name columns for immediate
+Figure 1 | Overview of the YCDL framework. The original data from the EMR/OCS, which contains clinical data for all patients visiting the hospital, serves as the source data for the cancer-specific YCDL database. After the original data is transferred to the DW server, data marts are created from the DW tables in the DSC database, grouped by related topics. Separate databases are established for each cancer type, named "DSC\_cancertype," to prevent excessive time spent on complex SQL query execution. The DSC database condenses data from 18 tables and 433 columns by integrating relevant tables from the DW database and joining with code master or terminology tables to include code-code name columns for immediate
 
 comprehension of codes. Similarly, the YCDL\_DB maintains separate physical databases for each cancer type, where data is loaded. A patient-centric data model was developed, underpinned by patient identification numbers dispensed by the hospital information system, serving as a linchpin for linking anonymized datasets. All data processing, transfer, and storage were performed within the network infrastructure of the hospital. The YCDL site allows the execution of individual Data Manipulation Language (DML) to load YCDL data. The transfer of data from the original source to the DW/DSC DB is automated, with ETL processes running daily at 10 AM, transferring cancer-specific target data.
 
 <sup>\*</sup>CDW : Clinical Data Warehouse
 
-<span id="page-2-0"></span>
 
-| Table 1   Nu |      |      |      |      |      | mber of patients added each year and, in every cohort |        |      |      |      |        |        |        |        |        |        |        |         |
+| Table 1 Nu | | | | | | mber of patients added each year and, in every cohort | | | | | | | | | | | | |
 |--------------|------|------|------|------|------|-------------------------------------------------------|--------|------|------|------|--------|--------|--------|--------|--------|--------|--------|---------|
-|              | 2006 | 2007 | 2008 | 2009 | 2010 | 2011                                                  | 2012   | 2013 | 2014 | 2015 | 2016   | 2017   | 2018   | 2019   | 2020   | 2021   | 2022.3 | Total   |
-| Breast       | 764  | 811  | 737  | 837  | 959  | 880                                                   | 891    | 740  | 938  | 1078 | 1358   | 1409   | 1811   | 1754   | 1526   | 1671   | 253    | 18,417  |
-| Colorectal   | 882  | 942  | 1006 | 1158 | 1090 | 1207                                                  | 1143   | 979  | 1154 | 1254 | 1438   | 1413   | 1433   | 1387   | 1149   | 1046   | 222    | 18,903  |
-| Lung         | 712  | 740  | 756  | 768  | 817  | 840                                                   | 884    | 902  | 943  | 1143 | 1257   | 1409   | 1653   | 1922   | 1737   | 1909   | 334    | 18,726  |
-| Gastric      | 1829 | 1815 | 1944 | 1865 | 1914 | 1964                                                  | 1836   | 1696 | 1899 | 1915 | 1949   | 1918   | 1862   | 1522   | 1267   | 1433   | 254    | 28,882  |
-| Liver        | 657  | 589  | 656  | 737  | 679  | 655                                                   | 621    | 569  | 589  | 609  | 657    | 610    | 616    | 646    | 565    | 489    | 112    | 10,056  |
-| Melanoma     | 49   | 43   | 73   | 74   | 87   | 67                                                    | 58     | 75   | 86   | 99   | 113    | 91     | 108    | 107    | 123    | 105    | 24     | 1382    |
-| Kidney       | 207  | 245  | 265  | 311  | 305  | 300                                                   | 317    | 301  | 358  | 358  | 440    | 439    | 466    | 588    | 430    | 436    | 41     | 5807    |
-| Prostate     | 378  | 529  | 621  | 755  | 697  | 760                                                   | 774    | 713  | 711  | 779  | 1007   | 1105   | 1195   | 1432   | 1289   | 1,152  | 206    | 14,103  |
-| Thyroid      | 1535 | 2372 | 2841 | 2748 | 2783 | 2619                                                  | 2909   | 2615 | 2037 | 1792 | 1975   | 2206   | 3,058  | 3201   | 2805   | 3575   | 695    | 41,766  |
-| Pancreas     | 246  | 254  | 274  | 298  | 290  | 313                                                   | 362    | 324  | 326  | 442  | 546    | 455    | 526    | 605    | 545    | 631    | 174    | 6611    |
-| Bile duct    | 324  | 330  | 316  | 340  | 338  | 418                                                   | 397    | 331  | 360  | 409  | 463    | 472    | 519    | 453    | 470    | 423    | 112    | 6475    |
-| Total        | 7583 | 8670 | 9489 | 9891 | 9959 | 10,023                                                | 10,192 | 9245 | 9401 | 9878 | 11,203 | 11,527 | 13,247 | 13,617 | 11,906 | 12,870 | 2427   | 171,128 |
-|              |      |      |      |      |      |                                                       |        |      |      |      |        |        |        |        |        |        |        |         |
+| | 2006 | 2007 | 2008 | 2009 | 2010 | 2011 | 2012 | 2013 | 2014 | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022.3 | Total |
+| Breast | 764 | 811 | 737 | 837 | 959 | 880 | 891 | 740 | 938 | 1078 | 1358 | 1409 | 1811 | 1754 | 1526 | 1671 | 253 | 18,417 |
+| Colorectal | 882 | 942 | 1006 | 1158 | 1090 | 1207 | 1143 | 979 | 1154 | 1254 | 1438 | 1413 | 1433 | 1387 | 1149 | 1046 | 222 | 18,903 |
+| Lung | 712 | 740 | 756 | 768 | 817 | 840 | 884 | 902 | 943 | 1143 | 1257 | 1409 | 1653 | 1922 | 1737 | 1909 | 334 | 18,726 |
+| Gastric | 1829 | 1815 | 1944 | 1865 | 1914 | 1964 | 1836 | 1696 | 1899 | 1915 | 1949 | 1918 | 1862 | 1522 | 1267 | 1433 | 254 | 28,882 |
+| Liver | 657 | 589 | 656 | 737 | 679 | 655 | 621 | 569 | 589 | 609 | 657 | 610 | 616 | 646 | 565 | 489 | 112 | 10,056 |
+| Melanoma | 49 | 43 | 73 | 74 | 87 | 67 | 58 | 75 | 86 | 99 | 113 | 91 | 108 | 107 | 123 | 105 | 24 | 1382 |
+| Kidney | 207 | 245 | 265 | 311 | 305 | 300 | 317 | 301 | 358 | 358 | 440 | 439 | 466 | 588 | 430 | 436 | 41 | 5807 |
+| Prostate | 378 | 529 | 621 | 755 | 697 | 760 | 774 | 713 | 711 | 779 | 1007 | 1105 | 1195 | 1432 | 1289 | 1,152 | 206 | 14,103 |
+| Thyroid | 1535 | 2372 | 2841 | 2748 | 2783 | 2619 | 2909 | 2615 | 2037 | 1792 | 1975 | 2206 | 3,058 | 3201 | 2805 | 3575 | 695 | 41,766 |
+| Pancreas | 246 | 254 | 274 | 298 | 290 | 313 | 362 | 324 | 326 | 442 | 546 | 455 | 526 | 605 | 545 | 631 | 174 | 6611 |
+| Bile duct | 324 | 330 | 316 | 340 | 338 | 418 | 397 | 331 | 360 | 409 | 463 | 472 | 519 | 453 | 470 | 423 | 112 | 6475 |
+| Total | 7583 | 8670 | 9489 | 9891 | 9959 | 10,023 | 10,192 | 9245 | 9401 | 9878 | 11,203 | 11,527 | 13,247 | 13,617 | 11,906 | 12,870 | 2427 | 171,128 |
+| | | | | | | | | | | | | | | | | | | |
 
 classification model demonstrated accuracy across 1000 individual CT reports, with multilabel selection applied as follows: Complete Response/No Evidence of Disease (CR/NED), Partial Response (PR), Stable Disease (SD), Progressive Disease (PD), and Indeterminate (232) achieving an AUROC of 0.956 and an F1 score of 0.823. The model showed 72.3% (95% CI, 59.5–85.1) accuracy in predicting the day of disease progression within a ± 30-day window and 55.3% (95% CI, 41.1–69.5) accuracy in predicting the best response category and its timing within ±45 days. Notably, the model was more accurate in predicting CR/NED at 72% compared to SD and PR, which had accuracies of 27.3% and 15.4%, respectively.
 
@@ -133,7 +132,7 @@ We successfully developed a cancer-specific information technology (IT) infrastr
 <span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
 <!-- Image Description: The image displays eleven Kaplan-Meier curves, one for each of ten cancer types (breast, colorectal, lung, gastric, liver, melanoma, kidney, prostate, pancreatic, biliary tract) plus one for thyroid cancer. Each curve shows the probability of survival over time (in months), stratified by cancer stage (I-IV). The purpose is to visually compare survival probabilities across different cancer stages for various cancer types. -->
 
-Fig. 2 | Kaplan–Meier survival curves by tumor stage for 11 cancer types. Kaplan–Meier survival curves for patients with cancer in YCDL target data, stratified by tumor stage. Survival rates were compared across 11 distinct cancer types: A breast cancer, B colorectal cancer, C lung cancer, D gastric cancer, E liver cancer,
+Figure 2 | Kaplan–Meier survival curves by tumor stage for 11 cancer types. Kaplan–Meier survival curves for patients with cancer in YCDL target data, stratified by tumor stage. Survival rates were compared across 11 distinct cancer types: A breast cancer, B colorectal cancer, C lung cancer, D gastric cancer, E liver cancer,
 
 F melanoma, G kidney cancer, H prostate cancer, I thyroid cancer, J pancreatic cancer, and K biliary tract cancer. The curves illustrate stage-dependent survival variations, with generally lower survival rates at higher stages, except for prostate cancer where no significant variation was observed.
 
@@ -146,27 +145,27 @@ Building an automated data warehouse using oncology EMR data poses inherent chal
 <span id="page-4-0"></span>![](_page_4_Figure_2.jpeg)
 <!-- Image Description: This image displays a medical dashboard visualizing a breast cancer patient's data. (a) shows longitudinal tumor tracking via three sequential CT scans. (b) presents a bar chart illustrating tumor size and count over time. (c) includes Kaplan-Meier survival curves for breast cancer, comparing the patient's prognosis to broader datasets. (d) is a timeline summarizing treatment (surgery, chemotherapy, radiotherapy), imaging, and lab results over several years. The dashboard integrates diverse data types for comprehensive patient monitoring and analysis. -->
 
-Fig. 3 | Proposed clinical decision support system with four layouts. a Threedimensional display of overall disease burden, with individual lesions contoured manually or automatically in advance. b Longitudinal tumor tracking output in the form of a graph. c Section displaying survival curves for assessing and predicting
+Figure 3 | Proposed clinical decision support system with four layouts. a Threedimensional display of overall disease burden, with individual lesions contoured manually or automatically in advance. b Longitudinal tumor tracking output in the form of a graph. c Section displaying survival curves for assessing and predicting
 
 individual patient outcomes by integrating any potential model. d Comprehensive overview of a patient's cancer journey including treatment history, follow-up, and disease status.
 
 ### Table 2 | Satisfaction scores from 33 healthcare providers for comprehensive patient assessment using CDSS with EMR in 5 random cases
 
-|                              | Total (165<br>responses) |      | EMR usage<br>< 10 years |      | EMR usage<br>≥ 10 years |      |       |
+| | Total (165<br>responses) | | EMR usage<br>< 10 years | | EMR usage<br>≥ 10 years | | |
 |------------------------------|--------------------------|------|-------------------------|------|-------------------------|------|-------|
-| Satisfaction<br>measures     | Mean                     | SD   | Mean                    | SD   | Mean                    | SD   | p     |
-| Ease of system use           | 4.14                     | 0.83 | 4.20                    | 0.86 | 4.05                    | 0.78 | NS    |
-| Results understanding        | 4.26                     | 0.75 | 4.29                    | 0.83 | 4.22                    | 0.60 | NS    |
-| Terminology<br>understanding | 4.02                     | 0.89 | 4.02                    | 0.99 | 4.02                    | 0.70 | NS    |
-| Usefulness of the<br>system  | 4.28                     | 0.78 | 4.32                    | 0.86 | 4.20                    | 0.64 | NS    |
-| User interface               | 3.97                     | 0.93 | 4.09                    | 1.00 | 3.78                    | 0.76 | <.001 |
-| Information accuracy         | 4.05                     | 0.89 | 3.99                    | 1.00 | 4.15                    | 0.67 | NS    |
-| Information timeliness       | 4.25                     | 0.74 | 4.24                    | 0.81 | 4.26                    | 0.62 | NS    |
-| Information reliability      | 4.01                     | 0.87 | 3.98                    | 1.01 | 4.06                    | 0.58 | NS    |
-| Up-to-datedness              | 4.35                     | 0.81 | 4.38                    | 0.90 | 4.31                    | 0.64 | NS    |
-| Decision support             | 4.21                     | 0.79 | 4.22                    | 0.84 | 4.20                    | 0.71 | NS    |
-| Processing time              | 4.09                     | 0.93 | 4.17                    | 0.99 | 3.97                    | 0.81 | NS    |
-| Task satisfaction            | 4.18                     | 0.77 | 4.23                    | 0.84 | 4.11                    | 0.66 | NS    |
+| Satisfaction<br>measures | Mean | SD | Mean | SD | Mean | SD | p |
+| Ease of system use | 4.14 | 0.83 | 4.20 | 0.86 | 4.05 | 0.78 | NS |
+| Results understanding | 4.26 | 0.75 | 4.29 | 0.83 | 4.22 | 0.60 | NS |
+| Terminology<br>understanding | 4.02 | 0.89 | 4.02 | 0.99 | 4.02 | 0.70 | NS |
+| Usefulness of the<br>system | 4.28 | 0.78 | 4.32 | 0.86 | 4.20 | 0.64 | NS |
+| User interface | 3.97 | 0.93 | 4.09 | 1.00 | 3.78 | 0.76 | <.001 |
+| Information accuracy | 4.05 | 0.89 | 3.99 | 1.00 | 4.15 | 0.67 | NS |
+| Information timeliness | 4.25 | 0.74 | 4.24 | 0.81 | 4.26 | 0.62 | NS |
+| Information reliability | 4.01 | 0.87 | 3.98 | 1.01 | 4.06 | 0.58 | NS |
+| Up-to-datedness | 4.35 | 0.81 | 4.38 | 0.90 | 4.31 | 0.64 | NS |
+| Decision support | 4.21 | 0.79 | 4.22 | 0.84 | 4.20 | 0.71 | NS |
+| Processing time | 4.09 | 0.93 | 4.17 | 0.99 | 3.97 | 0.81 | NS |
+| Task satisfaction | 4.18 | 0.77 | 4.23 | 0.84 | 4.11 | 0.66 | NS |
 
 SD standard deviation, NS not significant.
 
@@ -194,19 +193,19 @@ After the original data is transferred to the DW server, data marts are created 
 
 ## <span id="page-6-0"></span>Table 3 | Selection methods for each cancer type
 
-| Cancer Id | Cancer Type       | DBName    | Criteria                                                                                                                                                                                                                                                                                                                                                                |
+| Cancer Id | Cancer Type | DBName | Criteria |
 |-----------|-------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 01        | Breast cancer     | YCDL_BRST | (1) Cancer Registry : ICDOCda<br>=C50% AND available=Y AND ICDOCdMb <m9590< td=""></m9590<>                                                                                                                                                                                                                                                                             |
-| 02        | Colorectal cancer | YCDL_CLRC | (1) Cancer Registry: ICDOCd = (C18%, C19%, C20%) AND ICDOCdM=M81403(Adenocarcinoma) AND available=Y                                                                                                                                                                                                                                                                     |
-| 03        | Lung cancer       | YCDL_LUNG | (1) Cancer Registry : ICDOCd=C34% AND available=Y AND ICDOCdM < M9590 AND ICDOCdM NOT LIKE '%/2'                                                                                                                                                                                                                                                                        |
-| 04        | Gastric cancer    | YCDL_GSTR | (1) Cancer Registry : ICDOCd=C16% AND available=Y AND available=Y AND ICDOCdM <m9590 and="" icdocdm="" not<br="">LIKE '%/2'</m9590>                                                                                                                                                                                                                                     |
-| 05        | Liver cancer      | YCDL_LVER | (1) Cancer Registry : ICDOCd=C22.0 AND available=Y AND ICDOCdM < M9590 AND ICDOCdM NOT LIKE '%/2'                                                                                                                                                                                                                                                                       |
-| 06        | Melanoma          | YCDL_MLNM | (1) Cancer Registry: ICDOCdM_EngNm (pathology) LIKE '%Melanoma%' AND available=Y(2) The cancer diagnosis<br>group = D0023(Malignant melanoma) in CAP systemc<br>.(3) There are records of '%Melanoma%', '%Malignant Spitz%'<br>in the pathology diagnosis results.(4) There are records of '%Melanoma%', '%Malignant Spitz%' in the imaging test.<br>(excluded '%r/o%') |
-| 07        | Kidney cancer     | YCDL_KDNY | (1) Cancer Registry : ICDOCd=C64% AND available=Y AND ICDOCdM < M9590 AND ICDOCdM NOT LIKE '%/2'                                                                                                                                                                                                                                                                        |
-| 08        | Prostate cancer   | YCDL_PRST | (1) Cancer Registry : ICDOCd=C61% AND available=Y AND available=Y AND ICDOCdM <m9590 and="" icdocdm="" not<br="">LIKE '%/2'</m9590>                                                                                                                                                                                                                                     |
-| 09        | Thyroid cancer    | YCDL_THRD | (1) Cancer Registry : ICDOCd=C73% AND available=Y AND ICDOCdM <m9590 '%="" 2'<="" and="" icdocdm="" like="" not="" td=""></m9590>                                                                                                                                                                                                                                       |
-| 10        | Pancreatic cancer | YCDL_PNCT | (1) Cancer Registry : ICDOCd=C25% AND available=Y AND ICDOCdM < M9590 AND ICDOCdM NOT LIKE '%/2'                                                                                                                                                                                                                                                                        |
-| 11        | Bile duct cancer  | YCDL_BLDT | (1) Cancer Registry : ICDOCd = (C22.1, C23.9, C24.0, C24.1, C24.8, C24.9) AND available=Y AND ICDOCdM < M9590<br>AND ICDOCdM NOT LIKE '%/2'                                                                                                                                                                                                                             |
+| 01 | Breast cancer | YCDL_BRST | (1) Cancer Registry : ICDOCda<br>=C50% AND available=Y AND ICDOCdMb <m9590< td=""></m9590<> |
+| 02 | Colorectal cancer | YCDL_CLRC | (1) Cancer Registry: ICDOCd = (C18%, C19%, C20%) AND ICDOCdM=M81403(Adenocarcinoma) AND available=Y |
+| 03 | Lung cancer | YCDL_LUNG | (1) Cancer Registry : ICDOCd=C34% AND available=Y AND ICDOCdM < M9590 AND ICDOCdM NOT LIKE '%/2' |
+| 04 | Gastric cancer | YCDL_GSTR | (1) Cancer Registry : ICDOCd=C16% AND available=Y AND available=Y AND ICDOCdM <m9590 and="" icdocdm="" not<br="">LIKE '%/2'</m9590> |
+| 05 | Liver cancer | YCDL_LVER | (1) Cancer Registry : ICDOCd=C22.0 AND available=Y AND ICDOCdM < M9590 AND ICDOCdM NOT LIKE '%/2' |
+| 06 | Melanoma | YCDL_MLNM | (1) Cancer Registry: ICDOCdM_EngNm (pathology) LIKE '%Melanoma%' AND available=Y(2) The cancer diagnosis<br>group = D0023(Malignant melanoma) in CAP systemc<br>.(3) There are records of '%Melanoma%', '%Malignant Spitz%'<br>in the pathology diagnosis results.(4) There are records of '%Melanoma%', '%Malignant Spitz%' in the imaging test.<br>(excluded '%r/o%') |
+| 07 | Kidney cancer | YCDL_KDNY | (1) Cancer Registry : ICDOCd=C64% AND available=Y AND ICDOCdM < M9590 AND ICDOCdM NOT LIKE '%/2' |
+| 08 | Prostate cancer | YCDL_PRST | (1) Cancer Registry : ICDOCd=C61% AND available=Y AND available=Y AND ICDOCdM <m9590 and="" icdocdm="" not<br="">LIKE '%/2'</m9590> |
+| 09 | Thyroid cancer | YCDL_THRD | (1) Cancer Registry : ICDOCd=C73% AND available=Y AND ICDOCdM <m9590 '%="" 2'<="" and="" icdocdm="" like="" not="" td=""></m9590> |
+| 10 | Pancreatic cancer | YCDL_PNCT | (1) Cancer Registry : ICDOCd=C25% AND available=Y AND ICDOCdM < M9590 AND ICDOCdM NOT LIKE '%/2' |
+| 11 | Bile duct cancer | YCDL_BLDT | (1) Cancer Registry : ICDOCd = (C22.1, C23.9, C24.0, C24.1, C24.8, C24.9) AND available=Y AND ICDOCdM < M9590<br>AND ICDOCdM NOT LIKE '%/2' |
 
 a ICDOCd = ICD-O (International Classification of Diseases for Oncology) Codes.
 
@@ -217,7 +216,7 @@ c CAP system = Chemotherapy Assistance Program for ordering oncology medications
 ![](_page_6_Figure_7.jpeg)
 <!-- Image Description: This figure illustrates an ETL (Extract, Transform, Load) process for creating a customized database corpus from various sources like EMR text, images, and external data. It details the data mapping logic, showcasing the transformation of raw data into structured data using a tokenizer. A key component is AI-based classification, achieving 0.802 accuracy in colorectal cancer recurrence prediction from CT reports. The process culminates in a YCDL_Cancer database. The diagram uses flowcharts and screenshots of code and data visualizations to depict the stages and functionalities. -->
 
-Fig. 4 | The Extract-Transform-Load (ETL) process within the YCDL framework. In the clinical data extraction stage, we developed an ETL process, which includes Natural Language Processing (NLP), for each feature. The DSC DB serves as a reservoir containing raw medical text, (semi-) unstructured data, imaging files, nextgeneration sequencing (NGS) results, and Extensible Markup Language (XML) formats. In the initial phase of data processing, we tailored the database corpus from
+Figure 4 | The Extract-Transform-Load (ETL) process within the YCDL framework. In the clinical data extraction stage, we developed an ETL process, which includes Natural Language Processing (NLP), for each feature. The DSC DB serves as a reservoir containing raw medical text, (semi-) unstructured data, imaging files, nextgeneration sequencing (NGS) results, and Extensible Markup Language (XML) formats. In the initial phase of data processing, we tailored the database corpus from
 
 the DSC DB, optimizing the extraction and management of medical terminology, abbreviations, and recurrent misspellings (e.g., within pathology reports). Subsequently, the procured data underwent transformation through a specialized ETL algorithm designed to harmonize terminology based on assertions and the interrelationships of medical concepts. NLP was instrumental in utilizing CT and MRI interpretation counts from follow-up visits as criteria for individual selection.
 
@@ -229,64 +228,63 @@ In the initial phase of data processing, we tailored the database corpus from th
 
 | <b>Table Description</b> |
 |--------------------------|
-| _  _<br>$\sim$ $\sim$    |
+| _ _<br>$\sim$ $\sim$ |
 
-| DB No. | DB Name              | DB code | Table No. | Table Name       | Table Description                                      |
+| DB No. | DB Name | DB code | Table No. | Table Name | Table Description |
 |--------|----------------------|---------|-----------|------------------|--------------------------------------------------------|
-| 1      | Patients             | PT      | 1         | CNCR_PATINFO     | Patient basic information                              |
-| 1      | Patients             | PT      | 2         | CNCR_BODYINFO    | Body measurement information                           |
-| 2      | Diagnosis            | DG      | 3         | CNCR_DX          | Diagnoses relating to a hospital visits                |
-| 2      | Diagnosis            | DG      | 4         | CNCR_CRDINFO     | Copayment Decreasing Policy                            |
-| 2      | Diagnosis            | DG      | 5         | CNCR_CSLT        | Consultant Information                                 |
-| 3      | Examination          | EM      | 6         | CNCR_LAB         | Events relating to laboratory tests                    |
-| 3      | Examination          | EM      | 7         | CNCR_IMAGE       | Events relating to Imaging test                        |
-| 4      | Pathology            | PH      | 8         | CNCR_PATHOLOGY   | Events relating to Pathology                           |
-| 5      | Operation            | OP      | 9         | CNCR_OP          | Surgery                                                |
-| 6      | Treatment            | TX      | 10        | CNCR_REGIMEN     | Chemo-therapy                                          |
-| 6      | Treatment            | TX      | 11        | CNCR_RT          | Radiation-therapy                                      |
-| 6      | Treatment            | TX      | 12        | CNCR_DRUG        | Medicines prescribed                                   |
-| 6      | Treatment            | TX      | 13        | CNCR_PROC        | Procedure (included medical operation)                 |
-| 7      | Progress             | TE      | 14        | CNCR_FRM         | Clinical Forms                                         |
-| 8      | a<br>Cancer registry | TM      | 15        | CNCR_TUMOR_RGT   | Tumor Registry (personal details and cancer diagnosis) |
-| 8      | Cancer registry      | TM      | 16        | CNCR_TUMOR_TRANS | Tumor Registry (included cancer recurrence/metastasis) |
-| 8      | Cancer registry      | TM      | 17        | CNCR_TUMOR_TRC   | Tumor Registry (included cancer patient follow-up)     |
-| 8      | Cancer registry      | TM      | 18        | CNCR_TUMOR_TRET  | Tumor Registry (included cancer treatment)             |
-|        |                      |         |           |                  |                                                        |
+| 1 | Patients | PT | 1 | CNCR_PATINFO | Patient basic information |
+| 1 | Patients | PT | 2 | CNCR_BODYINFO | Body measurement information |
+| 2 | Diagnosis | DG | 3 | CNCR_DX | Diagnoses relating to a hospital visits |
+| 2 | Diagnosis | DG | 4 | CNCR_CRDINFO | Copayment Decreasing Policy |
+| 2 | Diagnosis | DG | 5 | CNCR_CSLT | Consultant Information |
+| 3 | Examination | EM | 6 | CNCR_LAB | Events relating to laboratory tests |
+| 3 | Examination | EM | 7 | CNCR_IMAGE | Events relating to Imaging test |
+| 4 | Pathology | PH | 8 | CNCR_PATHOLOGY | Events relating to Pathology |
+| 5 | Operation | OP | 9 | CNCR_OP | Surgery |
+| 6 | Treatment | TX | 10 | CNCR_REGIMEN | Chemo-therapy |
+| 6 | Treatment | TX | 11 | CNCR_RT | Radiation-therapy |
+| 6 | Treatment | TX | 12 | CNCR_DRUG | Medicines prescribed |
+| 6 | Treatment | TX | 13 | CNCR_PROC | Procedure (included medical operation) |
+| 7 | Progress | TE | 14 | CNCR_FRM | Clinical Forms |
+| 8 | a<br>Cancer registry | TM | 15 | CNCR_TUMOR_RGT | Tumor Registry (personal details and cancer diagnosis) |
+| 8 | Cancer registry | TM | 16 | CNCR_TUMOR_TRANS | Tumor Registry (included cancer recurrence/metastasis) |
+| 8 | Cancer registry | TM | 17 | CNCR_TUMOR_TRC | Tumor Registry (included cancer patient follow-up) |
+| 8 | Cancer registry | TM | 18 | CNCR_TUMOR_TRET | Tumor Registry (included cancer treatment) |
+| | | | | | |
 
 a Cancer registry = database of information on cancer patients.
 
-concepts. To enhance user convenience in handling extensive cancer patient data, we developed a model based on imaging reports to determine the best responses and the timing of disease progression[36.](#page-11-0) Imaging reports from 6574 patients were gathered, amounting to 97,119 CT readings. Among these, 9000 CT reports corresponding to 2859 patients were randomly subjected to multilabel manual labeling by four radiology experts, based on the RECIST version 1.1 classification (CR/NED, PR, SD, PD). The pretrained BERT-base-uncased model was employed and fine-tuned for the downstream tasks of multilabel classification. 6765 reports were used for training, while the remaining 1000 reports were divided equally between the validation and test sets. The subsequent preprocessing phase employed tokenization techniques to structure the extracted data. SQL queries were harnessed to mine data from the primary DSC DB, facilitated by a DML management interface. For certain datasets requiring intricate extraction protocols, bespoke ETL strategies were devised using Python scripts crafted for each specific operation (Supplementary Fig. 10).
+concepts. To enhance user convenience in handling extensive cancer patient data, we developed a model based on imaging reports to determine the best responses and the timing of disease progression[36.](#page-11-0) Imaging reports from 6574 patients were gathered, amounting to 97,119 CT readings. Among these, 9000 CT reports corresponding to 2859 patients were randomly subjected to multilabel manual labeling by four radiology experts, based on the RECIST version 1.1 classification (CR/NED, PR, SD, PD). The pretrained BERT-base-uncased model was employed and fine-tuned for the downstream tasks of multilabel classification. 6765 reports were used for training, while the remaining 1000 reports were divided equally between the validation and test sets. The subsequent preprocessing phase employed tokenization techniques to structure the extracted data. SQL queries were harnessed to mine data from the primary DSC DB, facilitated by a DML management interface. For certain datasets requiring intricate extraction protocols, bespoke ETL strategies were devised using Python scripts crafted for each specific operation (Supplementary Figure 10).
 
-The overall process of NGS analysis has been detailed in our previous publicatio[n37](#page-11-0). Targeted DNA and RNA sequencing was performed using the TruSight Tumor 170 (TST170, Illumina, San Diego, CA) and TruSight Oncology 500 (TSO500, Illumina) panels. Secondary analysis, including read alignment, variant calling, and variant annotation, utilized the TST170 Local App and the TSO500 Local App, respectively. For tertiary analysis, which involves additional annotation, variant filtering, prioritization, and producing interpretable output, we utilized an in-house pipeline designed to discard false positive variants, germline variants, and SNPs, ensuring the accuracy and reliability of the results. Variant interpretations were manually reviewed by institutional pathologists in accordance with guidelines from the Association for Molecular Pathology, the American Society of Clinical Oncology, and the College of American Pathologist[s38](#page-11-0). Pathogenic variants categorized as Tier 1 were automatically and systematically collected and transferred to YCDL. A substantial proportion of the procedural steps were automated using OncoSTATION (Geninus, Seoul, Korea), as shown in Supplementary Fig. 11.
+The overall process of NGS analysis has been detailed in our previous publicatio[n37](#page-11-0). Targeted DNA and RNA sequencing was performed using the TruSight Tumor 170 (TST170, Illumina, San Diego, CA) and TruSight Oncology 500 (TSO500, Illumina) panels. Secondary analysis, including read alignment, variant calling, and variant annotation, utilized the TST170 Local App and the TSO500 Local App, respectively. For tertiary analysis, which involves additional annotation, variant filtering, prioritization, and producing interpretable output, we utilized an in-house pipeline designed to discard false positive variants, germline variants, and SNPs, ensuring the accuracy and reliability of the results. Variant interpretations were manually reviewed by institutional pathologists in accordance with guidelines from the Association for Molecular Pathology, the American Society of Clinical Oncology, and the College of American Pathologist[s38](#page-11-0). Pathogenic variants categorized as Tier 1 were automatically and systematically collected and transferred to YCDL. A substantial proportion of the procedural steps were automated using OncoSTATION (Geninus, Seoul, Korea), as shown in Supplementary Figure 11.
 
-#### Data quality control and accuracy assessment
+### Data quality control and accuracy assessment
 
 After development, we implemented this system with our electronic health data, beginning with records from 2006. The profiles were updated using electronic health records, ensuring a comprehensive view of relevant oncological components over time. The present analysis is based on data collected up to March 2022. Key constituents of these profiles included demographics, diagnoses, clinical examination reports, pathology reports, treatment histories, and encounter specifics (Tables 4 and [5\)](#page-8-0). The structures of these individual profiles were categorized into common, cancer-specific, and index columns. The common features held universal information across multiple cancer types (e.g., age, sex, and cancer diagnosis date) and accounted for 817 features, which was nearly 80% of the total. The cancerspecific features contained data relevant only to specific cancer types (for instance, pulmonary function test in lung cancer) and comprised approximately 20% of the tables (Table [6\)](#page-9-0). Data feature definitions and formats for all features across all cancer types have been included in the Supplementary data 1, with necessary translations from Korean to English.
 
-We developed a web-based computational platformfor QC of data that scrutinizes potential data defects both automatically and manually on a daily basis, focusing on minimizing the role of the human component (Fig. [5\)](#page-9-0). All data extracted and stored in the YCDL\_cancer data repository were continuously evaluated and optimized to establish high-quality data outputs, adhering to standardized data and terminology. Programs for logical checks were configured to evaluate the distribution and continuity of data extracted by the SCL. Based on the QC results, the ETL code was continuously modified, thereby refining the QC logic to enhance the quality and accuracy of the automation. We examined four data quality measures (completeness, timeliness and usefulness, consistency, and accuracy) for all variables, in accordance with established data standards and pertinent aspects of data quality (Table [7](#page-10-0)). For instance, the logic was set such that the birth date of individuals would precede the date of the initial diagnosis. The analyses revealed that the batch processing method accurately identified erroneous data points, aligned with the established logic. Each piece of data was meticulously reviewed and optimized by a Quality Control Manager. Significant discrepancies or inaccuracies prompted an in-depth examination of the source data and respective ETL processes. Moreover, a hierarchy of data sources was established to resolve conflicts. The QC steps were continuously iterated within distinct closed-loop systems, adhered to operational ontology, and executed by independent QC personnel. This methodology gradually enhanced the accuracy of the cleansed target data with minimal intervention (Supplementary Fig. 12).We assessed the completeness of each individual's accumulated features, including fundamental characteristics
+We developed a web-based computational platformfor QC of data that scrutinizes potential data defects both automatically and manually on a daily basis, focusing on minimizing the role of the human component (Fig. [5\)](#page-9-0). All data extracted and stored in the YCDL\_cancer data repository were continuously evaluated and optimized to establish high-quality data outputs, adhering to standardized data and terminology. Programs for logical checks were configured to evaluate the distribution and continuity of data extracted by the SCL. Based on the QC results, the ETL code was continuously modified, thereby refining the QC logic to enhance the quality and accuracy of the automation. We examined four data quality measures (completeness, timeliness and usefulness, consistency, and accuracy) for all variables, in accordance with established data standards and pertinent aspects of data quality (Table [7](#page-10-0)). For instance, the logic was set such that the birth date of individuals would precede the date of the initial diagnosis. The analyses revealed that the batch processing method accurately identified erroneous data points, aligned with the established logic. Each piece of data was meticulously reviewed and optimized by a Quality Control Manager. Significant discrepancies or inaccuracies prompted an in-depth examination of the source data and respective ETL processes. Moreover, a hierarchy of data sources was established to resolve conflicts. The QC steps were continuously iterated within distinct closed-loop systems, adhered to operational ontology, and executed by independent QC personnel. This methodology gradually enhanced the accuracy of the cleansed target data with minimal intervention (Supplementary Figure 12).We assessed the completeness of each individual's accumulated features, including fundamental characteristics
 
-<span id="page-8-0"></span>
 
-|                                              | Total             | 20                        | 63           | 29              | 33               | 41             | 27               | 27                | 27               | 37               | 28         | 30              | 36           | 28           | 51            | 97        | 311            | 167              | 28                    | 221               | 25                     | 36           | 41           | 29        | 33        | 27                   | 23                | 25        |
+| | Total | 20 | 63 | 29 | 33 | 41 | 27 | 27 | 27 | 37 | 28 | 30 | 36 | 28 | 51 | 97 | 311 | 167 | 28 | 221 | 25 | 36 | 41 | 29 | 33 | 27 | 23 | 25 |
 |----------------------------------------------|-------------------|---------------------------|--------------|-----------------|------------------|----------------|------------------|-------------------|------------------|------------------|------------|-----------------|--------------|--------------|---------------|-----------|----------------|------------------|-----------------------|-------------------|------------------------|--------------|--------------|-----------|-----------|----------------------|-------------------|-----------|
-|                                              | Bile duct         |                           |              |                 |                  |                |                  |                   |                  |                  |            |                 | 2            |              | 2             | 4         | 33             | 12               |                       | 14                |                        |              |              |           |           |                      |                   |           |
-|                                              | Prostate          |                           |              |                 |                  |                |                  |                   |                  |                  |            |                 | 2            |              | 2             | 4         | 20             | 12               |                       | 4                 |                        |              |              |           |           |                      |                   |           |
-|                                              | Thyroid           |                           |              |                 |                  |                |                  |                   |                  |                  |            |                 |              |              |               |           | 25             | 15               |                       | 12                |                        |              |              |           |           |                      |                   |           |
-|                                              | Prostate          |                           | 2            |                 |                  |                |                  |                   |                  |                  |            |                 |              |              | 6             | 3         |                |                  |                       |                   |                        |              |              |           |           |                      |                   |           |
-|                                              | Kidney            |                           | 1            |                 |                  |                |                  |                   |                  |                  |            |                 |              |              |               | 7         | 16             | 8                |                       | 6                 |                        |              |              |           |           |                      |                   |           |
-|                                              |                   |                           |              |                 |                  |                |                  |                   |                  |                  |            |                 |              |              |               | 3         | 24             | 15               |                       | 5                 |                        |              |              |           |           |                      |                   |           |
-|                                              | Melanoma          |                           |              |                 |                  |                |                  |                   |                  |                  |            |                 |              |              |               | 5         | 23             | 17               |                       | 6                 |                        |              |              |           |           |                      |                   |           |
-|                                              | Liver             |                           |              |                 |                  |                |                  |                   |                  |                  |            |                 | 2            |              | 2             | 5         | 34             | 10               |                       | 46                |                        |              |              |           |           |                      |                   |           |
-|                                              | Gastric           |                           |              |                 |                  |                |                  |                   |                  |                  |            |                 |              |              |               | 13        | 19             | 10               |                       | 19                |                        |              |              |           |           |                      |                   |           |
-|                                              | Lung              |                           |              |                 |                  |                |                  |                   |                  |                  |            |                 | 2            |              | 5             | 4         | 20             | 9                |                       | 13                |                        |              |              |           |           |                      |                   |           |
-|                                              | Colorectal        |                           | 12           |                 |                  |                |                  |                   |                  |                  |            |                 |              |              |               | 13        | 36             | 17               |                       | 31                |                        |              |              |           |           |                      |                   |           |
-|                                              | Breast            |                           | 9            |                 |                  |                |                  |                   |                  |                  |            |                 |              |              | 6             | 7         | 29             | 13               |                       | 27                |                        |              |              |           |           |                      |                   |           |
-|                                              | Common            | 20                        | 39           | 29              | 33               | 41             | 27               | 27                | 27               | 37               | 28         | 30              | 28           | 28           | 28            | 29        | 32             | 29               | 28                    | 38                | 25                     | 36           | 41           | 29        | 33        | 27                   | 23                | 25        |
-| mber of variables                            | Table Description | Patient Basic Information | Past History | Smoking History | Drinking History | Family History | Body Measurement | Visit Information | Copayment Policy | Cancer Diagnosis | Consultant | Laboratory Test | Imaging Test | Genetic Test | Function Test | Biopsy    | Histopathology | Immuno-histology | Operation Information | Operation opinion | Operation Complication | Chemotherapy | Radiotherapy | Drug      | Procedure | Follow-Up Metastasis | Follow-Up Relapse | Dead      |
-| Table 5   Tables in the YCDL database and nu | Table Name        | PT_BASIC                  | PT_PHIS      | PT_SHIS         | PT_DRNK          | PT_FMHS        | PT_BDMS          | DG_INFO           | DG_ECHI          | DG_CNCR          | DG_CONS    | EM_LAB          | EM_IMEX      | EM_GENE      | EM_FCLT       | PH_BPSY   | PH_SRGC        | PH_IMML          | OP_INFO               | OP_OPNN           | OP_COMP                | TX_CHTH      | TX_RTH       | TX_PRSC   | TX_MOPR   | TE_MTST              | TE_RCRN           | TE_DEAD   |
-|                                              | Table Category    | Patient                   | Patient      | Patient         | Patient          | Patient        | Patient          | Diagnosis         | Diagnosis        | Diagnosis        | Diagnosis  | Examination     | Examination  | Examination  | Examination   | Pathology | Pathology      | Pathology        | Operation             | Operation         | Operation              | Treatment    | Treatment    | Treatment | Treatment | Follow-Up            | Follow-Up         | Follow-Up |
-|                                              |                   | PT                        | PT           | PT              | PT               | PT             | PT               | DG                | DG               | DG               | DG         | EM              | EM           | EM           | EM            | PH        | PH             | PH               | OP                    | OP                | OP                     | TX           | TX           | TX        | TX        | TE                   | TE                | TE        |
-|                                              |                   | 1                         | 2            | 3               | 4                | 5              | 6                | 7                 | 8                | 9                | 10         | 11              | 12           | 13           | 14            | 15        | 16             | 17               | 18                    | 19                | 20                     | 21           | 22           | 23        | 24        | 25                   | 26                | 27        |
+| | Bile duct | | | | | | | | | | | | 2 | | 2 | 4 | 33 | 12 | | 14 | | | | | | | | |
+| | Prostate | | | | | | | | | | | | 2 | | 2 | 4 | 20 | 12 | | 4 | | | | | | | | |
+| | Thyroid | | | | | | | | | | | | | | | | 25 | 15 | | 12 | | | | | | | | |
+| | Prostate | | 2 | | | | | | | | | | | | 6 | 3 | | | | | | | | | | | | |
+| | Kidney | | 1 | | | | | | | | | | | | | 7 | 16 | 8 | | 6 | | | | | | | | |
+| | | | | | | | | | | | | | | | | 3 | 24 | 15 | | 5 | | | | | | | | |
+| | Melanoma | | | | | | | | | | | | | | | 5 | 23 | 17 | | 6 | | | | | | | | |
+| | Liver | | | | | | | | | | | | 2 | | 2 | 5 | 34 | 10 | | 46 | | | | | | | | |
+| | Gastric | | | | | | | | | | | | | | | 13 | 19 | 10 | | 19 | | | | | | | | |
+| | Lung | | | | | | | | | | | | 2 | | 5 | 4 | 20 | 9 | | 13 | | | | | | | | |
+| | Colorectal | | 12 | | | | | | | | | | | | | 13 | 36 | 17 | | 31 | | | | | | | | |
+| | Breast | | 9 | | | | | | | | | | | | 6 | 7 | 29 | 13 | | 27 | | | | | | | | |
+| | Common | 20 | 39 | 29 | 33 | 41 | 27 | 27 | 27 | 37 | 28 | 30 | 28 | 28 | 28 | 29 | 32 | 29 | 28 | 38 | 25 | 36 | 41 | 29 | 33 | 27 | 23 | 25 |
+| mber of variables | Table Description | Patient Basic Information | Past History | Smoking History | Drinking History | Family History | Body Measurement | Visit Information | Copayment Policy | Cancer Diagnosis | Consultant | Laboratory Test | Imaging Test | Genetic Test | Function Test | Biopsy | Histopathology | Immuno-histology | Operation Information | Operation opinion | Operation Complication | Chemotherapy | Radiotherapy | Drug | Procedure | Follow-Up Metastasis | Follow-Up Relapse | Dead |
+| Table 5 Tables in the YCDL database and nu | Table Name | PT_BASIC | PT_PHIS | PT_SHIS | PT_DRNK | PT_FMHS | PT_BDMS | DG_INFO | DG_ECHI | DG_CNCR | DG_CONS | EM_LAB | EM_IMEX | EM_GENE | EM_FCLT | PH_BPSY | PH_SRGC | PH_IMML | OP_INFO | OP_OPNN | OP_COMP | TX_CHTH | TX_RTH | TX_PRSC | TX_MOPR | TE_MTST | TE_RCRN | TE_DEAD |
+| | Table Category | Patient | Patient | Patient | Patient | Patient | Patient | Diagnosis | Diagnosis | Diagnosis | Diagnosis | Examination | Examination | Examination | Examination | Pathology | Pathology | Pathology | Operation | Operation | Operation | Treatment | Treatment | Treatment | Treatment | Follow-Up | Follow-Up | Follow-Up |
+| | | PT | PT | PT | PT | PT | PT | DG | DG | DG | DG | EM | EM | EM | EM | PH | PH | PH | OP | OP | OP | TX | TX | TX | TX | TE | TE | TE |
+| | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 |
 
 <span id="page-9-0"></span>such as date of birth, initial diagnosis date, age, diagnosis code (ICD), TNM and overall stages, and ICDO morphology code.
 
@@ -294,51 +292,51 @@ To verify the accuracy of the NLP models used in our ETL process, we first evalu
 
 Table 6 | Column characteristics by cancer type
 
-|            | Number<br>of<br>Common<br>Columns<br>(A) | Number<br>of<br>Cancer<br>specific<br>Columns<br>(B) | Number<br>of Index<br>Columns<br>(C) | Number<br>of Total<br>Columns<br>(D) | Percentage<br>of Cancer<br>specific<br>Columns<br>(B/D) |
+| | Number<br>of<br>Common<br>Columns<br>(A) | Number<br>of<br>Cancer<br>specific<br>Columns<br>(B) | Number<br>of Index<br>Columns<br>(C) | Number<br>of Total<br>Columns<br>(D) | Percentage<br>of Cancer<br>specific<br>Columns<br>(B/D) |
 |------------|------------------------------------------|------------------------------------------------------|--------------------------------------|--------------------------------------|---------------------------------------------------------|
-| Breast     | 817                                      | 91                                                   | 459                                  | 908                                  | 10%                                                     |
-| Colorectal | 817                                      | 109                                                  | 459                                  | 926                                  | 12%                                                     |
-| Lung       | 817                                      | 53                                                   | 459                                  | 870                                  | 6%                                                      |
-| Gastric    | 817                                      | 61                                                   | 459                                  | 878                                  | 7%                                                      |
-| Liver      | 817                                      | 99                                                   | 459                                  | 916                                  | 11%                                                     |
-| Melanoma   | 817                                      | 51                                                   | 459                                  | 868                                  | 6%                                                      |
-| Kidney     | 817                                      | 47                                                   | 459                                  | 864                                  | 5%                                                      |
-| Prostate   | 817                                      | 38                                                   | 459                                  | 855                                  | 4%                                                      |
-| Thyroid    | 817                                      | 63                                                   | 459                                  | 880                                  | 7%                                                      |
-| Pancreatic | 817                                      | 44                                                   | 459                                  | 861                                  | 5%                                                      |
-| Bile duct  | 817                                      | 67                                                   | 459                                  | 884                                  | 8%                                                      |
+| Breast | 817 | 91 | 459 | 908 | 10% |
+| Colorectal | 817 | 109 | 459 | 926 | 12% |
+| Lung | 817 | 53 | 459 | 870 | 6% |
+| Gastric | 817 | 61 | 459 | 878 | 7% |
+| Liver | 817 | 99 | 459 | 916 | 11% |
+| Melanoma | 817 | 51 | 459 | 868 | 6% |
+| Kidney | 817 | 47 | 459 | 864 | 5% |
+| Prostate | 817 | 38 | 459 | 855 | 4% |
+| Thyroid | 817 | 63 | 459 | 880 | 7% |
+| Pancreatic | 817 | 44 | 459 | 861 | 5% |
+| Bile duct | 817 | 67 | 459 | 884 | 8% |
 
 The developed data warehouse showcased survival graphs by tumor stages and demonstrated the framework's ability to expedite data collection for quick clinical hypothesis testing. Kaplan–Meier survival graphs were generated in all cancer types according to tumor stage with 95% confidence intervals. Survival time was defined as the time interval between initial diagnosis and death or the last follow-up. To demonstrate the efficiency of our data framework as a proof-of-concept for swiftly generating and evaluating clinical hypotheses, we present a detailed chronological progression of a previously published retrospective study. The clinical question chosen by one of the authors was whether the peripheral blood neutrophil-tolymphocyte ratio before, during, or after neoadjuvant chemoradiotherapy for locally advanced rectal cancer is associated with an increased risk of distant metastases after primary rectal cancer surgery.
 
-#### CDSS development and evaluation
+### CDSS development and evaluation
 
 To underscore the capabilities of our data framework for clinical applications, we developed a CDSS with a comprehensive and modular architecture to support efficient digital content creation and management, utilizing data from the YCDL server. The current User Interface (UI) front-end components are as follows: (1) patient information, (2) DICOM image visualization for PACS-integrated three-dimensional tumor display (viewing and interactive visualization of medical images and segmentation information in DICOM format), and (3) a longitudinal view of the complete patient journey (timeline visualization of patient data over time, highlighting key events and data points). Additionally, components for survival prediction based on data from previously treated patients, personalized news/journals, and clinical trial information are being developed for integration. The CDSS front end was built using JavaScript frameworks such as Svelte or React. It provides an interactive UI for users and handles the visualization of data received from the CDSS backend. Key functionalities include user interaction management and data visualization module processing. The CDSS backend is implemented using FastAPI, a high-performance web framework for building APIs with Python. It processes data requests from the front end and performs computations for various modules. Key functionalities include handling RESTful API requests, DICOM data processing, web scraping services, and visualization of DICOM data using the VTK library. The Front-EndModules include a 2D/3D VisualizationModule and a Timeline Module. The 2D/3D Visualization Module visualizes DICOM
 
 ![](_page_9_Figure_9.jpeg)
 <!-- Image Description: This flowchart illustrates a data quality control (QC) system. Source data (DSC_Cancer) undergoes ETL (Extract, Transform, Load) processing via a query builder, resulting in target data (YCDL_Cancer). A rule-based check logic, shown on a computer screen with example code, compares the data. Results are categorized (Pass, Logic, Miss) and displayed in a QC data matrix. Manual and web-based QC systems are also integrated, suggesting a hybrid approach to data validation. -->
 
-Fig. 5 | Quality management of data in the YCDL framework. We developed a web-based computational platform for data quality control (QC) that scrutinizes potential data defects both automatically and manually on a daily basis, focusing on minimizing the role of the human component. All data extracted and stored in the YCDL\_cancer data repository were continuously evaluated and optimized to establish high-quality data outputs, adhering to standardized data and terminology. Programs for logical checks were configured to evaluate the distribution and
+Figure 5 | Quality management of data in the YCDL framework. We developed a web-based computational platform for data quality control (QC) that scrutinizes potential data defects both automatically and manually on a daily basis, focusing on minimizing the role of the human component. All data extracted and stored in the YCDL\_cancer data repository were continuously evaluated and optimized to establish high-quality data outputs, adhering to standardized data and terminology. Programs for logical checks were configured to evaluate the distribution and
 
 continuity of data extracted by the SCL. Based on the QC results, the ETL code was continuously modified, thereby refining the QC logic to enhance the quality and accuracy of the automation. The analyses revealed that the batch processing method accurately identified erroneous data points, aligned with the established logic. Each piece of data was meticulously reviewed and optimized by a Quality Control Manager.
 
-#### <span id="page-10-0"></span>Table 7 | Data quality check criteria
+### <span id="page-10-0"></span>Table 7 | Data quality check criteria
 
-| Quality Indicators | Detailed Quality Indicators    | Diagnostic Targets                                                                                        | Remarks                         |
+| Quality Indicators | Detailed Quality Indicators | Diagnostic Targets | Remarks |
 |--------------------|--------------------------------|-----------------------------------------------------------------------------------------------------------|---------------------------------|
-| Completeness       | Individual Completeness        | Columns or input values defined to exist but are Null                                                     |                                 |
-|                    | Conditional Completeness       | Checking for NOT NULL constraints                                                                         |                                 |
-|                    | Structural Completeness        | Implementation based on the physical model designed from the schema,<br>including data types              | Verified at the DB design stage |
-| Validity           | Code Validity                  | Whether codes defined in the common code are used                                                         |                                 |
-|                    | Format Validity                | Errors in data format                                                                                     | Verified at the DB design stage |
-|                    | Boolean Validity               | Diagnosis based on columns with Y/N, 0/1 criteria                                                         |                                 |
-|                    | Date Validity                  | Errors based on date formats                                                                              |                                 |
-|                    | Range Validity                 | Diagnosis based on Min, Max, and Normal range of the column                                               |                                 |
-|                    | Temporal Relationship Validity | Diagnosis of data that deviates from predetermined sequential relationships                               |                                 |
-| Consistency        | Referential Integrity          | Diagnosis of operation rules for PK (Primary Key) items                                                   | Verified at the DB design stage |
-| Accuracy           | Logical Relationship Accuracy  | Data diagnosis according to logical relationships,<br>e.g., when item A is n, item B should be at least m |                                 |
-|                    | Derived Item Accuracy          | Diagnosis of derived data, e.g., whether the sum of item A and item B is equal                            |                                 |
+| Completeness | Individual Completeness | Columns or input values defined to exist but are Null | |
+| | Conditional Completeness | Checking for NOT NULL constraints | |
+| | Structural Completeness | Implementation based on the physical model designed from the schema,<br>including data types | Verified at the DB design stage |
+| Validity | Code Validity | Whether codes defined in the common code are used | |
+| | Format Validity | Errors in data format | Verified at the DB design stage |
+| | Boolean Validity | Diagnosis based on columns with Y/N, 0/1 criteria | |
+| | Date Validity | Errors based on date formats | |
+| | Range Validity | Diagnosis based on Min, Max, and Normal range of the column | |
+| | Temporal Relationship Validity | Diagnosis of data that deviates from predetermined sequential relationships | |
+| Consistency | Referential Integrity | Diagnosis of operation rules for PK (Primary Key) items | Verified at the DB design stage |
+| Accuracy | Logical Relationship Accuracy | Data diagnosis according to logical relationships,<br>e.g., when item A is n, item B should be at least m | |
+| | Derived Item Accuracy | Diagnosis of derived data, e.g., whether the sum of item A and item B is equal | |
 
-images receivedfrom the Back-End asVTK images, supporting both 2D and 3D visualization of medical imaging data. The Timeline Module, based on EMR data, visualizes patient data as a timeline, arranging data chronologically to show key events and data points, and supporting interactions like zooming and dragging. The backend modules include an AAA Module and a DICOM Image Transformation Module. The AAA Module handles authentication, authorization, and accounting using JWT (JSON Web Token) for secure processing. The DICOM Image Transformation Module converts and processes DICOM images into VTK images using the VTK library. The overview of the described architecture is depicted in Supplementary Fig. 13.
+images receivedfrom the Back-End asVTK images, supporting both 2D and 3D visualization of medical imaging data. The Timeline Module, based on EMR data, visualizes patient data as a timeline, arranging data chronologically to show key events and data points, and supporting interactions like zooming and dragging. The backend modules include an AAA Module and a DICOM Image Transformation Module. The AAA Module handles authentication, authorization, and accounting using JWT (JSON Web Token) for secure processing. The DICOM Image Transformation Module converts and processes DICOM images into VTK images using the VTK library. The overview of the described architecture is depicted in Supplementary Figure 13.
 
 The data flow is as follows: Users initiate requests through the web UI. The front end processes the user's request and routes it to the appropriate frontend module. The backend processes data requests and interacts with the required backend modules. The latter processes EMR and DICOM data to generate or retrieve necessary information. The processed data is returned through each layer, ultimately displaying results in the User Interface. This design bolsters the accessibility of the system, guarantees platform independence, and ensures that users can access services across various device types.
 
@@ -354,7 +352,6 @@ The Yonsei University Health System (YUHS) inaugurated the Severance Data Portal
 
 The custom code and scripts used in the generation and analysis of datasets for this study are not publicly available due to institutional restrictions. However, researchers interested in accessing the code can do so by contacting the corresponding author directly. Access to the code will be granted on a case-by-case basis, contingent upon appropriate IRB approval and institutional permissions. The specific versions of software used in this study include TensorFlow 2.10, NumPy 1.23.5, and pandas 2.0.0, Microsoft SQL Server 2019, JavaScript (ES11, ES2020), and Python version 3.10.8. The version of YCDL used in this study was v1.4. The key variables and parameters used in the data analysis are uploaded in the supplementary data (Excel file format).
 
-Received: 14 January 2024; Accepted: 9 February 2025;
 
 ## References
 
@@ -402,19 +399,19 @@ Received: 14 January 2024; Accepted: 9 February 2025;
 - 40. Cassinelli Petersen, G. et al. Real-time PACS-integrated longitudinal brain metastasis tracking tool provides comprehensive assessment of treatment response to radiosurgery. Neuro-Oncol. Adv. 4, vdac116 (2022).
 - 41. Kim, J. et al. A study on user satisfaction regarding the Clinical Decision Support System (CDSS) for medication. Health. Inf. Res 18, 35–43 (2012).
 
-# Acknowledgements
+## Acknowledgements
 
 This study was funded by the Big Data Center at the National Cancer Center of Korea (grant number: 2020-data-we08). This research was supported by a grant of the Korea Health Technology R&D Project through the Korea Health Industry Development Institute (KHIDI), funded by the Ministry of Health & Welfare, Republic of Korea (grant number: RS-2023-KH136094).The funder played no role in study design, data collection, data analysis, data interpretation, or writing of this manuscript. Portions of the content of this paper were presented at the 2023 CARO-COMP Joint Scientific Meeting (September 22, 2023, Montreal, Canada) and the Practical Big Data Workshop 2023 (May 19, 2023, Ann Arbor, MI).
 
-# Author contributions
+## Author contributions
 
 J.S.C., J.S.K., and S.J.S. designed the research. E.S.B., H.K. and J.E.C. collected the data. S.J.S. verified the raw data. E.S.B., J.S.K., and S.J.S. developed E.T.L. and C.D.S.S. J.S.C., H.K., E.S.B,. J.E.C., J.S.L., J.S.K., and S.J.S. analyzed the results. J.S.C. wrote the manuscript, H.K., E.S.B., and S.J.S. critically revised the manuscript, and all authors provided feedback. All authors had full access to all the data in the study and read and approved the final manuscript.
 
-# Competing interests
+## Competing interests
 
 The following pending patent applications are related to this manuscript: (1) Yonsei University has filed a domestic (Korea) patent application with the application number 10-2021-0003683, covering aspects of the extracttransform-loading (ETL) system discussed in this research. The inventors are S.J.S., E.S.B., and J.E.C. (2) Yonsei University has also filed an international patent application under the Patent Cooperation Treaty (PCT) with the application number PCT/KR2021/007295, covering aspects of the longitudinal tumor tracking using CT imaging system discussed in this research. The inventors are S.J.S., J.S.K., J.S.L., J.S.C., and others. Both patent applications are currently in the filed status as of July 30, 2024. The remaining authors declare no competing interests.
 
-# Additional information
+## Additional information
 
 Supplementary information The online version contains supplementary material available at <https://doi.org/10.1038/s41746-025-01508-2>.
 

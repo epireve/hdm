@@ -87,7 +87,7 @@ To better understand the long-term effects of COVID-19, we employed LDA topic mo
 
 ### Methods
 
-#### Study design
+### Study design
 
 The LDA implementation we use aims to represent a document corpus as a set of *topics*, where each topic is characterized by a multinomial distribution over possible words or terms, and each document is characterized by a multinomial distribution over topics. It assumes a hierarchical generative model, where for any given term in a given document, a topic is first selected according to the document's topic distribution, and then a term is selected according to that topic's term distribution.[24](https://paperpile.com/c/jF492u/G31e) In our application patient medical histories represent documents and conditions recorded for those patients represent terms, a common approach in topic modeling for EHR data.[19,20](https://paperpile.com/c/jF492u/SVWV+Hkq8)
 
@@ -95,14 +95,14 @@ Figure 1 illustrates our approach. Initially, we trained a model on a diverse se
 
 ![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This image depicts a machine learning workflow for analyzing health data. Panel 1 shows a Linear Discriminant Analysis (LDA) model trained and validated on separate datasets. Panel 2 displays a timeline showing pre- and post-infection phases for PASC, COVID, and control groups. Panel 3 lists top conditions identified, while Panel 4 illustrates the application of two LDA models (T-1 and T-2) to predict conditions based on patient data, including BMI and cohort, showing probabilities of condition onset in the post-infection phase. The figure's purpose is to visually represent the methodology and results of a study. -->
-**Figure 1: Experimental design summary.**(1) We trained an LDA topic model on a broad set of N3C patient data, tuning and evaluating the model with a held-out validation set using the UCI coherence metric. (2) Within a separate held-out assessment patient set, we defined three cohorts: PASC (patients with Long COVID), COVID (COVID-19 only), and Control (neither). For these patients we defined a 1-year pre-infection phase 6-month post-infection phase, utilizing a mock infection date for Control patients. (3) For the top 20 conditions per topic, we assessed new onset rates for COVID and PASC patients compared to Controls in the post-infection phase. (4) Finally, we defined per-topic logistic models, with outcome variables as the topic model's assigned probabilities to individual patient phase data. Model coefficients then relate patient demographics, cohort, infection phase, and combinations of these factors to topic assignment for further study.
+****Figure 1:** Experimental design summary.**(1) We trained an LDA topic model on a broad set of N3C patient data, tuning and evaluating the model with a held-out validation set using the UCI coherence metric. (2) Within a separate held-out assessment patient set, we defined three cohorts: PASC (patients with Long COVID), COVID (COVID-19 only), and Control (neither). For these patients we defined a 1-year pre-infection phase 6-month post-infection phase, utilizing a mock infection date for Control patients. (3) For the top 20 conditions per topic, we assessed new onset rates for COVID and PASC patients compared to Controls in the post-infection phase. (4) Finally, we defined per-topic logistic models, with outcome variables as the topic model's assigned probabilities to individual patient phase data. Model coefficients then relate patient demographics, cohort, infection phase, and combinations of these factors to topic assignment for further study.
 
-#### Data pre-processing
+### Data pre-processing
 
 N3C multi-site EHR data are harmonized to the OMOP common data model. We analyzed condition records from OMOP's condition\_era table, which merges repeated, identical condition records into single condition timeframes via a 30-day sliding window.[25](https://paperpile.com/c/jF492u/sTFr) We used N3C release v87, representing data as of Aug. 2, 2022, using only records from a subset of sites passing minimal quality filters (see Suppl. Methods). The COVID-19 diagnostic code (U07.1), being a major criterion for N3C data selection and present in 22% of patients, was excluded, along with early pandemic alternatives such as*unspecified viral disease*(10%) and*disease due to coronaviridae*(0.5%). Additional clinically-uninformative terms such as*Clinical finding*and
-*Findings of sexual activity*were removed, as were all entries not expected in the OMOP condition domain (Suppl. Methods, Suppl. Table 1). Records with implausible dates, either starting before January 1, 2018 (N3C's earliest inclusion date) or extending beyond a site's data contribution date, were also excluded. Patients were randomly assigned to sets, with 20% allocated to the assessment set and the remaining patients split 80% for training and 20% for validation (Suppl. Figure 1).
+**Findings of sexual activity:** were removed, as were all entries not expected in the OMOP condition domain (Suppl. Methods, Suppl. Table 1). Records with implausible dates, either starting before January 1, 2018 (N3C's earliest inclusion date) or extending beyond a site's data contribution date, were also excluded. Patients were randomly assigned to sets, with 20% allocated to the assessment set and the remaining patients split 80% for training and 20% for validation (Suppl. Figure 1).
 
-#### Cohort selection and clinical phases
+### Cohort selection and clinical phases
 
 Before conducting statistical analyses, we filtered patients in the assessment set to ensure data quality and consistency. Some N3C-contributing sites reported no U09.9 PASC diagnosis codes, possibly due to lack of implementation in their EHR software,[26](https://paperpile.com/c/jF492u/8ZqR) leading us to exclude all patients from these sites to prevent misclassification of PASC patients. For individual-condition tests, we required patients to have at least two weeks of active condition history in both pre- and post-infection phases. For per-topic tests, we assessed patient features requiring complete data across all covariates and excluded Omicron patients due to incomplete data (see Statistical analyses below).
 
@@ -113,7 +113,7 @@ Each patient in the assessment cohorts was assigned an index date, representing 
 
 Patients diagnosed with*Multisystem inflammatory syndrome*(M35.81) were excluded as potential confounders. Control patients were assigned a mock infection date, chosen uniformly at random to simulate pre-infection, acute, and post-infection phases of the correct lengths contained entirely within their longest continuous observation period. Mock infection dates were constrained to be after March 1, 2020 to align temporally with pandemic trends.
 
-#### Machine learning methods
+### Machine learning methods
 
 To train our topic model, we used full pre-processed N3C patient histories from the training set as documents, employing per-patient counts of OMOP condition\_concept\_id entries from the condition\_era table. While many LDA variations exist, most are computationally prohibitive for the scale of data considered. We therefore adopted the online LDA method described by Hoffman et al.,[24](https://paperpile.com/c/jF492u/G31e) implemented in Apache Spark version 3.2.1,[29](https://paperpile.com/c/jF492u/KKIh) with a 5% batch size and 10 iterations over the data (maxIter = 200, subsamplingRate = 0.05).
 
@@ -137,7 +137,7 @@ In addition to phase (pre- or post-infection) and cohort (PASC, COVID, Control),
 
 After fitting these models, we applied a difference-in-differences approach using estimated marginal means contrasts to look for changes in topic rates pre-to-post infection, for PASC patients versus Controls, within specific groups defined by sex, life stage, and wave of infection. The same tests were run for COVID versus Control patients. To validate this approach, we conducted additional 'baseline' contrasts for expected differences in females versus males, and pediatric, adolescent, and senior patients versus adults. In total we conducted 22 contrasts for each topic, multiply-correcting the complete set across all topics (Holm). Estimated marginal means contrasts were provided by emmeans (v1.8.9) in R (v3.5.1).
 
-# Results
+## Results
 
 ## Topic usage and coherence across sites
 
@@ -147,7 +147,7 @@ Figure 2 illustrates selected topics as word clouds, displaying the top conditio
 
 ![](_page_7_Figure_5.jpeg)
 <!-- Image Description: The image displays eight word clouds, each representing a topic (T-1, T-2, etc.) derived from a text corpus. Word size corresponds to term frequency within the topic. Each word cloud is accompanied by three metrics: topic usage (U), site usage uniformity (H), and topic coherence (C). A final bar chart visually represents the term relevance in each topic. The figure likely illustrates a topic modeling technique applied to the text data, visualizing the key themes and their associated terms. -->
-*Figure 2: Word clouds illustrating top-weighted conditions for selected topics. Conditions are sized according to probability within each topic and colored according to relevance, with positive relevance indicating conditions more probable in the topic than overall. Each condition displays the numeric OMOP concept ID encoding the relevant medical code used for clustering, as well as the first few words of the condition name. Per-topic statistics in panel headers show usage of each of each topic across sites (U, rounded to nearest 0.1%), topic uniformity across sites (H, 0–1, higher values being more uniform), and relative topic quality as a normalized coherence score (C, z-score, higher values being more coherent).*Coherence scores follow a roughly normal distribution across topics (Suppl. Figure 5), and overall coherence tends to increase with rarer, more specific topics except for the last 10. Topic coherence varies by site, moreso for rarer topics (Suppl. Figure 6). All sites exhibit low coherence for the final 10 topics, and most of the final ~35 are low coherence for most sites except for one. Two sites report low coherence for most topics. Topic usage also varies by site, though most sites and topics follow similar patterns of usage (Suppl. Figure 7). T-4 was used almost exclusively by a single site and has very low coherence with only a few high-relevance terms, although this site uses other topics similarly to other sites.
+***Figure 2:** Word clouds illustrating top-weighted conditions for selected topics. Conditions are sized according to probability within each topic and colored according to relevance, with positive relevance indicating conditions more probable in the topic than overall. Each condition displays the numeric OMOP concept ID encoding the relevant medical code used for clustering, as well as the first few words of the condition name. Per-topic statistics in panel headers show usage of each of each topic across sites (U, rounded to nearest 0.1%), topic uniformity across sites (H, 0–1, higher values being more uniform), and relative topic quality as a normalized coherence score (C, z-score, higher values being more coherent).*Coherence scores follow a roughly normal distribution across topics (Suppl. Figure 5), and overall coherence tends to increase with rarer, more specific topics except for the last 10. Topic coherence varies by site, moreso for rarer topics (Suppl. Figure 6). All sites exhibit low coherence for the final 10 topics, and most of the final ~35 are low coherence for most sites except for one. Two sites report low coherence for most topics. Topic usage also varies by site, though most sites and topics follow similar patterns of usage (Suppl. Figure 7). T-4 was used almost exclusively by a single site and has very low coherence with only a few high-relevance terms, although this site uses other topics similarly to other sites.
 
 N3C sites contribute data from one of several source common data models (CDMs). The source CDM used by sites is not strongly correlated with coherence or usage (Suppl. Figures 6 and 7), except for two sites in the PEDSnet network specializing in pediatric care and another using TriNetX. These three sites exhibit distinctive patterns, including lower coherence and usage for T-153 pertaining to*Gout*(not typically associated with pediatric patients) and higher usage for T-127 pertaining to male pediatric conditions such as*Phimosis*and*Undescended testicle*.
 
@@ -158,15 +158,15 @@ From the 2,495,414-patient assessment set, 4,386 PASC, 105,967 COVID, and 335,84
 ![](_page_9_Figure_1.jpeg)
 <!-- Image Description: The image presents two volcano plots visualizing associations between conditions and either COVID-19 (COVID+) or post-acute sequelae of SARS-CoV-2 infection (PASC+). Each plot displays points representing conditions, with x-axis showing odds ratio estimates and y-axis showing Bonferroni-adjusted p-values. Points further right indicate stronger associations, and points lower indicate greater statistical significance. Red points are associated with COVID+, teal with PASC+. The plots help identify conditions significantly associated with each condition. -->
 
-*Figure 3: Increased and decreased new-onset conditions in PASC and COVID patients compared to Controls post-infection. The x-axis shows estimated odds ratios and the y-axis shows the adjusted p-values for new incidence of top-weighted, positive-relevance terms from all topics amongst COVID (left) and PASC (right) cohorts compared to Controls, in the sixmonth post-acute period compared to the previous year. Many known PASC-associated conditions increased in both cohorts, while some conditions are cohort-specific. Additionally, in the COVID cohort, incidence of many conditions associated with regular care or screening is reduced compared to controls.*Several conditions are strongly increased in the PASC cohort, including*Chronic fatigue syndrome*, *Malaise*, *Finding related to attentiveness*, *Headache*, *Migraine* (*with*and*without aura*), and *Anxiety disorder*. *Neurosis*is also present, but it should be noted that site-labeled source codes for this are almost entirely ICD-10-CM F48.9,*Non-psychotic mental disorder, unspecified*or similar (F48.8 and ICD-9 300.9). Notably,*Impaired cognition*is more common in PASC patients (OR 4.26) but less common in COVID patients (OR 0.53) compared to Controls. Other neurological conditions increased in PASC include*Inflammatory disease of the central nervous system*, *Disorder of autonomic nervous system*, *Polyneuropathy*, *Orthostatic hypotension*, and *Familial dysautonomia*(a genetic condition–see Discussion).
+***Figure 3:** Increased and decreased new-onset conditions in PASC and COVID patients compared to Controls post-infection. The x-axis shows estimated odds ratios and the y-axis shows the adjusted p-values for new incidence of top-weighted, positive-relevance terms from all topics amongst COVID (left) and PASC (right) cohorts compared to Controls, in the sixmonth post-acute period compared to the previous year. Many known PASC-associated conditions increased in both cohorts, while some conditions are cohort-specific. Additionally, in the COVID cohort, incidence of many conditions associated with regular care or screening is reduced compared to controls.*Several conditions are strongly increased in the PASC cohort, including*Chronic fatigue syndrome*, *Malaise*, *Finding related to attentiveness*, *Headache*, *Migraine* (*with*and*without aura*), and *Anxiety disorder*. *Neurosis*is also present, but it should be noted that site-labeled source codes for this are almost entirely ICD-10-CM F48.9,*Non-psychotic mental disorder, unspecified*or similar (F48.8 and ICD-9 300.9). Notably,*Impaired cognition*is more common in PASC patients (OR 4.26) but less common in COVID patients (OR 0.53) compared to Controls. Other neurological conditions increased in PASC include*Inflammatory disease of the central nervous system*, *Disorder of autonomic nervous system*, *Polyneuropathy*, *Orthostatic hypotension*, and *Familial dysautonomia*(a genetic condition–see Discussion).
 
 The significant results for PASC also highlight a variety of symptoms related to the cardiovascular, pulmonary, and immune systems. Cardiac conditions such as*Tachycardia*, *Palpitations*, *Congestive heart failure*, *Myocarditis*, *Cardiomyopathy*, and *Cardiomegaly*are observed. Pulmonary issues are well represented with*Pulmonary embolism*, *Bronchiectasis*,
 
-*Fibrosis of lung*, and various generic labels for respiratory failure or disorder. Amongst immunological conditions are *Reactive arthritis triad*, *Elevated C-reactive protein*, *Lymphocytopenia*, *Hypogammaglobulinemia*, *Systemic mast cell disease*, and generic *Immunodeficiency disorder*. In addition, bacterial, viral, and fungal infections are increased, including *Bacterial infection due to Pseudomonas*, *Aspergillosis*, and *Pneumocystosis*. Other common themes include musculoskeletal issues (*Fibromyalgia*, *Muscle weakness*, various types of pain) and hematological issues (*Blood coagulation disorder*, *Anemia*, *Hypocalcemia*, *Hypokalemia*).
+**Fibrosis of lung:** , and various generic labels for respiratory failure or disorder. Amongst immunological conditions are *Reactive arthritis triad*, *Elevated C-reactive protein*, *Lymphocytopenia*, *Hypogammaglobulinemia*, *Systemic mast cell disease*, and generic *Immunodeficiency disorder*. In addition, bacterial, viral, and fungal infections are increased, including *Bacterial infection due to Pseudomonas*, *Aspergillosis*, and *Pneumocystosis*. Other common themes include musculoskeletal issues (*Fibromyalgia*, *Muscle weakness*, various types of pain) and hematological issues (*Blood coagulation disorder*, *Anemia*, *Hypocalcemia*, *Hypokalemia*).
 
 The analysis also reveals estimated odds ratios less than 1, indicating decreased incidence post-infection compared to Controls, for 219 conditions in one or both cohorts. Most of these (174) were significant only for the larger COVID cohort, and several are related to routine screening or elective procedures potentially disrupted by a COVID-19 infection or lack of care access during the pandemic, such as *Pre-operative state*, *Nicotine dependence*, *Radiological finding*, *Gonarthrosis*, and *Hypertensive disorder*. [43](https://paperpile.com/c/jF492u/yUrD) *Preoperative state*was largely coded as SNOMED CT 72077002 or ICD-10-CM Z01.818, both widely used across sites and indicative of pre-surgical examination.*Unable to Assess Risk*appears to be a custom code used by a single site, mapped to OMOP concept ID 42690761 by N3C. Other conditions may be more difficult to identify in the six months after a COVID-19 infection due to symptom masking or altered careseeking behavior. Examples include*Diverticulosis of large intestine*and*Esophageal dysphagia*. [44,45](https://paperpile.com/c/jF492u/wLkZ+gk6i) In addition to *Pre-operative state*, five conditions are significantly decreased for PASC patients, all related to late-term pregnancy, while *Third trimester pregnancy*is increased in COVID patients (see Discussion).
 
-#### Topics significant for PASC and COVID by demographic
+### Topics significant for PASC and COVID by demographic
 
 From the assessment set, 2,859 PASC patients, 89,374 COVID patients, and 303,017 Control patients met cohort eligibility criteria for per-topic logistic models; Suppl. Table 5 provides pergroup patient counts. Baseline contrasts broadly reflected expected trends by life stage and sex (Suppl. Figure 3). T-2 for example pertains to pregnancy, with an estimated female/male OR of 45, pediatric/adult OR 0.06, adolescent/adult 0.2, and senior/adult 0.03. Similarly, T-3 highly weights neonatal conditions and generates a pediatric/adult OR of 43, but no significant female/male trend.
 
@@ -176,7 +176,7 @@ Amongst the 5,400 sex, life-stage, and wave-specific contrasts, 314 are signific
 
 ![](_page_11_Figure_2.jpeg)
 <!-- Image Description: The image displays four sets of word clouds and forest plots. Each word cloud represents keywords associated with four distinct COVID-19 patient groups (T-19, T-23, T-86, T-137), showing the prevalence of specific symptoms and diagnoses. The forest plots below visualize odds ratios comparing these groups across different demographic (sex, age) and variant (Alpha, Delta) categories for both PASC+ and COVID+ groups, indicating the relative risk of specific conditions. The purpose is to compare symptom profiles and risk factors across different COVID-19 patient subgroups. -->
-*Figure 4: Topics with significant OR estimates >2 for at least two demographic groups. The top row illustrates topics using the same color and size scales as Figure 2; OR estimates are shown for demographic-specific contrasts of PASC or COVID pre-vs-post odds ratios compared to similar Control odds ratios. For example, adult PASC patients increase odds of generating conditions from T-23 post-infection nearly 10 times more than Controls do over a similar timeframe (see Results). Lines show 95% confidence intervals for estimates; semitransparent estimates are shown for context but were not significant after multiple-test correction.*T-23 stands out as a topic with strong migration among PASC patients, with all subgroups having significant estimated ORs of 5-10. High-weight, high-relevance conditions in T-23 include*Fatigue*, *Malaise*, *Loss of sense of smell*, and other well-known PASC symptoms, as well as the diagnosis code for PASC itself (Post-acute COVID-19). By contrast, COVID patients do not
+***Figure 4:** Topics with significant OR estimates >2 for at least two demographic groups. The top row illustrates topics using the same color and size scales as Figure 2; OR estimates are shown for demographic-specific contrasts of PASC or COVID pre-vs-post odds ratios compared to similar Control odds ratios. For example, adult PASC patients increase odds of generating conditions from T-23 post-infection nearly 10 times more than Controls do over a similar timeframe (see Results). Lines show 95% confidence intervals for estimates; semitransparent estimates are shown for context but were not significant after multiple-test correction.*T-23 stands out as a topic with strong migration among PASC patients, with all subgroups having significant estimated ORs of 5-10. High-weight, high-relevance conditions in T-23 include*Fatigue*, *Malaise*, *Loss of sense of smell*, and other well-known PASC symptoms, as well as the diagnosis code for PASC itself (Post-acute COVID-19). By contrast, COVID patients do not
 
 show statistically significant migration to this topic, with the exception of Adults with a small OR of 1.2.
 
@@ -188,7 +188,7 @@ Figure 5 displays additional results for selected topics with cohort or demograp
 
 ![](_page_13_Figure_1.jpeg)
 <!-- Image Description: The image displays eight forest plots, four each for post-acute sequelae of COVID-19 (PASC+) and COVID-19+, representing odds ratios for various patient characteristics (sex, age group) across four time points (T-8, T-36, T-72, T-77). Each plot shows the odds ratio estimate with 95% confidence intervals, visually comparing the likelihood of specific characteristics in each group. Accompanying word clouds depict frequently reported symptoms for each time point. The purpose is to present and compare the association between demographic factors and COVID-19 outcomes at different times post-infection. -->
-*Figure 5: Other select topics with demographic or cohort-specific trends. T-8 is statistically significant only for COVID adults compared to controls. Topics 72 and 77 include diffuse sets of conditions, while T-36 is reduced for PASC pediatric and senior patients, despite representing known PASC outcomes (see Discussion).*T-72 is increased for both COVID and PASC pediatric patients compared to Controls, though this is only statistically significant for the larger COVID cohort. It covers a range of non-specific PASC-like conditions, including*Illness*, *Neurosis*(also discussed above),*Ill-defined disease*, *Mental health problem*, and *Disease type and/or category unknown*. *Brain fog*and*Neurocirculatory asthenia*are additionally found in this topic.
+***Figure 5:** Other select topics with demographic or cohort-specific trends. T-8 is statistically significant only for COVID adults compared to controls. Topics 72 and 77 include diffuse sets of conditions, while T-36 is reduced for PASC pediatric and senior patients, despite representing known PASC outcomes (see Discussion).*T-72 is increased for both COVID and PASC pediatric patients compared to Controls, though this is only statistically significant for the larger COVID cohort. It covers a range of non-specific PASC-like conditions, including*Illness*, *Neurosis*(also discussed above),*Ill-defined disease*, *Mental health problem*, and *Disease type and/or category unknown*. *Brain fog*and*Neurocirculatory asthenia*are additionally found in this topic.
 
 T-77 is increased in female PASC patients compared to controls. This topic is diffuse and has no particularly highly weighted conditions, although many had high relevance scores to the topic. Several of these are laboratory-based, such as*Hypokalemia*, *Anemia*, and *Hyponatremia*. *Tachycardia*, *Pleural effusion*, *Deficiency of macronutrients*, and *Adult failure to thrive syndrome*are also present. The low specificity and coherence of T-77 make it difficult to interpret, although many of these conditions were individually significant above. T-20 (not shown) was increased for COVID adults and COVID delta-wave patients, and also has few high-weight terms, but relevant conditions include*Acute renal failure syndrome*, *Sepsis*, and *Acidosis*.
 
@@ -200,7 +200,7 @@ Adolescent PASC patients are increased in four topics: T-23, T-86, and T-137 alr
 
 These models included covariates to account for site-level differences in topic usage, percentage of PASC patients, and source common data model. To assess the importance of these, we also ran models without them for the subset of topics shown in Figures 4 and 5. Results are highly similar (Suppl. Figure 9), with models without site-level covariates showing slightly higher (< 6%) odds ratios for topics 23, 36, and 72.
 
-# Discussion
+## Discussion
 
 While an ICD-10-CM diagnosis code (U09.9) and specialty clinics exist to treat Long COVID, there is still work to be done identifying PASC conditions and how these new diagnoses and referrals are used in practice.[28,49](https://paperpile.com/c/jF492u/vFxD+r4Xo) Our model, trained on 387 million condition records from 8.9 million patients in the N3C, is one of the most extensive applications of topic modeling to EHR data to date, generating hundreds of diverse and clinically-relevant topics. Only a handful of topics were of low quality, and those in the middle by usage tended to have the highest coherence scores. We hypothesize that common topics are encumbered by a variety of coding options and practices, while rare topics support only a few relevant conditions on top of more common and unrelated background conditions. We found these trends across models with different topic counts, potentially driven by the use of Dirichlet distributions initialized with sparse uniform priors. Topic usage and coherence varied across contributing sites, with notable patterns of usage at PEDsnet sites in particular. Topic modeling may provide insights into site differences in coding practices or data quality, which are concerns in federated and centralized data repositories.[42](https://paperpile.com/c/jF492u/2lrL)
 
@@ -230,23 +230,23 @@ With this context in mind, topic modeling applied to a large EHR dataset has pro
 
 Ultimately, a finer understanding of presentations across populations can inform research, diagnostics, treatment, and health equity for multi-faceted diseases such as PASC. Tracking patient clinical trajectories over time in light of model-derived sub-phenotypes revealed postacute sequelae of SARS-CoV-2 infection, several of which were associated with patient sex, age, wave of infection, or presence of a PASC diagnosis. Some results, such as those highlighting immune dysfunction, thyroid involvement, and secondary infections improve our understanding of potential mechanisms for PASC. Others, such as those highlighting nonspecific phenotypes in the COVID cohort, may lead to improved diagnostics and support for patients suffering from Long-COVID but yet to receive a PASC diagnosis.
 
-# Author Contributions
+## Author Contributions
 
 Concept and modeling: S.O., C.M. Statistical design: S.O., K.W., B.M., J.L. Results interpretation: S.O., H.D., G.A., H.W., M.L., M.H. Data curation: S.O., P.Z., E.F., J.L., A.Z., R.M., E.P., Y.Y., P.L., R.C. Manuscript drafting: S.O., C.M., B.M., J.M., M.H. Material and administrative support: J.M., M.H.
 
-# Competing Interests
+## Competing Interests
 
 The authors declare no competing interests.
 
-# Data Availability
+## Data Availability
 
 The N3C Data Enclave is managed under the authority of the NIH; information can be found at [https://ncats.nih.gov/n3c/resources.](https://ncats.nih.gov/n3c/resources) The N3C data transfer to NCATS is performed under a Johns Hopkins University Reliance Protocol # IRB00249128 or individual site agreements with NIH. Enclave data is protected, and can be accessed for COVID-related research with an approved (1) IRB protocol and (2) Data Use Request (DUR). Enclave and data access instructions can be found at [https://covid.cd2h.org/for-researchers.](https://covid.cd2h.org/for-researchers)
 
-# Code Availability
+## Code Availability
 
 Analysis code is available at [https://github.com/oneilsh/lda\\_pasc.](https://github.com/oneilsh/lda_pasc)
 
-# Acknowledgements
+## Acknowledgements
 
 We sincerely thank the reviewers for their insightful comments, which significantly enhanced the generalizability and readability of this manuscript.
 
@@ -256,14 +256,14 @@ was conducted under the N3C DUR RP-5677B5. We would like to thank the National C
 
 The N3C Publication committee confirmed that this manuscript is in accordance with N3C data use and attribution policies; however, this content is solely the responsibility of the authors and does not necessarily represent the official views of the RECOVER or N3C programs or the National Institutes of Health.
 
-| Site                            | IRB Name                                                                                           | Exempted vs<br>Approved | Protocol<br>Number |
+| Site | IRB Name | Exempted vs<br>Approved | Protocol<br>Number |
 |---------------------------------|----------------------------------------------------------------------------------------------------|-------------------------|--------------------|
-| University of<br>Colorado       | Colorado Multiple Institutional Review<br>Board                                                    | approved                | 21-2759            |
-| Johns Hopkins<br>University     | Johns Hopkins Office of Human<br>Subjects Research -<br>Institutional Review<br>Board              | approved                | IRB00249128        |
-| University of<br>North Carolina | University of North Carolina Chapel Hill<br>Institutional Review Board                             | exempt                  | 21-0309            |
-| Stony Brook<br>University       | Office of Research Compliance, Division<br>of Human Subject Protections, Stony<br>Brook University | exempt                  | IRB2021-00098      |
-| OCHIN                           | Advarra IRB                                                                                        | approved                | Pro00060719        |
-| RTI<br>International            | RTI Office of Research Protection                                                                  | exempt                  | MOD10001700        |
+| University of<br>Colorado | Colorado Multiple Institutional Review<br>Board | approved | 21-2759 |
+| Johns Hopkins<br>University | Johns Hopkins Office of Human<br>Subjects Research -<br>Institutional Review<br>Board | approved | IRB00249128 |
+| University of<br>North Carolina | University of North Carolina Chapel Hill<br>Institutional Review Board | exempt | 21-0309 |
+| Stony Brook<br>University | Office of Research Compliance, Division<br>of Human Subject Protections, Stony<br>Brook University | exempt | IRB2021-00098 |
+| OCHIN | Advarra IRB | approved | Pro00060719 |
+| RTI<br>International | RTI Office of Research Protection | exempt | MOD10001700 |
 
 Use of the N3C data for this study is authorized under the following IRB Protocols:
 
@@ -285,81 +285,81 @@ Translational Institute • University of Florida — UL1TR001427: UF Clinical a
 
 ### References
 
-- 1. [Brüssow, H. & Timmis, K. COVID-19: long covid and its societal consequences.](http://paperpile.com/b/jF492u/tolG)*[Environ.](http://paperpile.com/b/jF492u/tolG)  [Microbiol.](http://paperpile.com/b/jF492u/tolG)* **[23](http://paperpile.com/b/jF492u/tolG)**[, 4077–4091 \(2021\).](http://paperpile.com/b/jF492u/tolG)
-- 2. [Reardon, S. Long COVID risk falls only slightly after vaccination, huge study shows.](http://paperpile.com/b/jF492u/HUmF) *[Nature](http://paperpile.com/b/jF492u/HUmF)  [Publishing Group UK](http://paperpile.com/b/jF492u/HUmF)*<http://dx.doi.org/10.1038/d41586-022-01453-0> [\(2022\)](http://paperpile.com/b/jF492u/HUmF)  [doi:](http://paperpile.com/b/jF492u/HUmF)[10.1038/d41586-022-01453-0](http://dx.doi.org/10.1038/d41586-022-01453-0)[.](http://paperpile.com/b/jF492u/HUmF)
-- 3. [Fernández-de-Las-Peñas, C.](http://paperpile.com/b/jF492u/I6v8)*[et al.](http://paperpile.com/b/jF492u/I6v8)*[Prevalence of post-COVID-19 symptoms in hospitalized](http://paperpile.com/b/jF492u/I6v8)  [and non-hospitalized COVID-19 survivors: A systematic review and meta-analysis.](http://paperpile.com/b/jF492u/I6v8)*[Eur. J.](http://paperpile.com/b/jF492u/I6v8)  [Intern. Med.](http://paperpile.com/b/jF492u/I6v8)* **[92](http://paperpile.com/b/jF492u/I6v8)**[, 55–70 \(2021\).](http://paperpile.com/b/jF492u/I6v8)
-- 4. [Han, Q., Zheng, B., Daines, L. & Sheikh, A. Long-Term Sequelae of COVID-19: A](http://paperpile.com/b/jF492u/xOVE)  [Systematic Review and Meta-Analysis of One-Year Follow-Up Studies on Post-COVID](http://paperpile.com/b/jF492u/xOVE)  [Symptoms.](http://paperpile.com/b/jF492u/xOVE) *[Pathogens](http://paperpile.com/b/jF492u/xOVE)* **[11](http://paperpile.com/b/jF492u/xOVE)**[, \(2022\).](http://paperpile.com/b/jF492u/xOVE)
+- 1. [Brüssow, H. & Timmis, K. COVID-19: long covid and its societal consequences.](http://paperpile.com/b/jF492u/tolG)*[Environ.](http://paperpile.com/b/jF492u/tolG) [Microbiol.](http://paperpile.com/b/jF492u/tolG)* **[23](http://paperpile.com/b/jF492u/tolG)**[, 4077–4091 \(2021\).](http://paperpile.com/b/jF492u/tolG)
+- 2. [Reardon, S. Long COVID risk falls only slightly after vaccination, huge study shows.](http://paperpile.com/b/jF492u/HUmF) *[Nature](http://paperpile.com/b/jF492u/HUmF) [Publishing Group UK](http://paperpile.com/b/jF492u/HUmF)*<http://dx.doi.org/10.1038/d41586-022-01453-0> [\(2022\)](http://paperpile.com/b/jF492u/HUmF) [doi:](http://paperpile.com/b/jF492u/HUmF)[10.1038/d41586-022-01453-0](http://dx.doi.org/10.1038/d41586-022-01453-0)[.](http://paperpile.com/b/jF492u/HUmF)
+- 3. [Fernández-de-Las-Peñas, C.](http://paperpile.com/b/jF492u/I6v8)*[et al.](http://paperpile.com/b/jF492u/I6v8)*[Prevalence of post-COVID-19 symptoms in hospitalized](http://paperpile.com/b/jF492u/I6v8) [and non-hospitalized COVID-19 survivors: A systematic review and meta-analysis.](http://paperpile.com/b/jF492u/I6v8)*[Eur. J.](http://paperpile.com/b/jF492u/I6v8) [Intern. Med.](http://paperpile.com/b/jF492u/I6v8)* **[92](http://paperpile.com/b/jF492u/I6v8)**[, 55–70 \(2021\).](http://paperpile.com/b/jF492u/I6v8)
+- 4. [Han, Q., Zheng, B., Daines, L. & Sheikh, A. Long-Term Sequelae of COVID-19: A](http://paperpile.com/b/jF492u/xOVE) [Systematic Review and Meta-Analysis of One-Year Follow-Up Studies on Post-COVID](http://paperpile.com/b/jF492u/xOVE) [Symptoms.](http://paperpile.com/b/jF492u/xOVE) *[Pathogens](http://paperpile.com/b/jF492u/xOVE)* **[11](http://paperpile.com/b/jF492u/xOVE)**[, \(2022\).](http://paperpile.com/b/jF492u/xOVE)
 - 5. [Nalbandian, A.](http://paperpile.com/b/jF492u/zRoD) *[et al.](http://paperpile.com/b/jF492u/zRoD)*[Post-acute COVID-19 syndrome.](http://paperpile.com/b/jF492u/zRoD)*[Nat. Med.](http://paperpile.com/b/jF492u/zRoD)* **[27](http://paperpile.com/b/jF492u/zRoD)**[, 601–615 \(2021\).](http://paperpile.com/b/jF492u/zRoD)
-- 6. [Proal, A. D. & VanElzakker, M. B. Long COVID or Post-acute Sequelae of COVID-19](http://paperpile.com/b/jF492u/qsiP)  [\(PASC\): An Overview of Biological Factors That May Contribute to Persistent Symptoms.](http://paperpile.com/b/jF492u/qsiP)  *[Frontiers in Microbiology](http://paperpile.com/b/jF492u/qsiP)*[vol. 12 Preprint at https://doi.org/](http://paperpile.com/b/jF492u/qsiP)[10.3389/fmicb.2021.698169](http://dx.doi.org/10.3389/fmicb.2021.698169) [\(2021\).](http://paperpile.com/b/jF492u/qsiP)
-- 7. [Knight, J. S.](http://paperpile.com/b/jF492u/bpza)*[et al.](http://paperpile.com/b/jF492u/bpza)*[The intersection of COVID-19 and autoimmunity.](http://paperpile.com/b/jF492u/bpza)*[J. Clin. Invest.](http://paperpile.com/b/jF492u/bpza)* **[131](http://paperpile.com/b/jF492u/bpza)**[, \(12](http://paperpile.com/b/jF492u/bpza)  [2021\).](http://paperpile.com/b/jF492u/bpza)
-- 8. [Hageman, J. R. Long COVID-19 or post-acute sequelae of SARS-CoV-2 infection in](http://paperpile.com/b/jF492u/WD5f)  [children, adolescents, and young adults.](http://paperpile.com/b/jF492u/WD5f) *[Pediatr. Ann.](http://paperpile.com/b/jF492u/WD5f)*[\(2021\).](http://paperpile.com/b/jF492u/WD5f)
-- 9. [Kenny, G.](http://paperpile.com/b/jF492u/snIf)*[et al.](http://paperpile.com/b/jF492u/snIf)*[Identification of Distinct Long COVID Clinical Phenotypes Through Cluster](http://paperpile.com/b/jF492u/snIf)  [Analysis of Self-Reported Symptoms.](http://paperpile.com/b/jF492u/snIf)*[Open Forum Infect Dis](http://paperpile.com/b/jF492u/snIf)* **[9](http://paperpile.com/b/jF492u/snIf)**[, ofac060 \(2022\).](http://paperpile.com/b/jF492u/snIf)
-- 10. [Reese, J. T.](http://paperpile.com/b/jF492u/IhqP) *[et al.](http://paperpile.com/b/jF492u/IhqP)*[Generalizable Long COVID Subtypes: Findings from the NIH N3C and](http://paperpile.com/b/jF492u/IhqP)  [RECOVER Programs.](http://paperpile.com/b/jF492u/IhqP)*[medRxiv](http://paperpile.com/b/jF492u/IhqP)*[\(2022\) doi:](http://paperpile.com/b/jF492u/IhqP)[10.1101/2022.05.24.22275398](http://dx.doi.org/10.1101/2022.05.24.22275398)[.](http://paperpile.com/b/jF492u/IhqP)
+- 6. [Proal, A. D. & VanElzakker, M. B. Long COVID or Post-acute Sequelae of COVID-19](http://paperpile.com/b/jF492u/qsiP) [\(PASC\): An Overview of Biological Factors That May Contribute to Persistent Symptoms.](http://paperpile.com/b/jF492u/qsiP) *[Frontiers in Microbiology](http://paperpile.com/b/jF492u/qsiP)*[vol. 12 Preprint at https://doi.org/](http://paperpile.com/b/jF492u/qsiP)[10.3389/fmicb.2021.698169](http://dx.doi.org/10.3389/fmicb.2021.698169) [\(2021\).](http://paperpile.com/b/jF492u/qsiP)
+- 7. [Knight, J. S.](http://paperpile.com/b/jF492u/bpza)*[et al.](http://paperpile.com/b/jF492u/bpza)*[The intersection of COVID-19 and autoimmunity.](http://paperpile.com/b/jF492u/bpza)*[J. Clin. Invest.](http://paperpile.com/b/jF492u/bpza)* **[131](http://paperpile.com/b/jF492u/bpza)**[, \(12](http://paperpile.com/b/jF492u/bpza) [2021\).](http://paperpile.com/b/jF492u/bpza)
+- 8. [Hageman, J. R. Long COVID-19 or post-acute sequelae of SARS-CoV-2 infection in](http://paperpile.com/b/jF492u/WD5f) [children, adolescents, and young adults.](http://paperpile.com/b/jF492u/WD5f) *[Pediatr. Ann.](http://paperpile.com/b/jF492u/WD5f)*[\(2021\).](http://paperpile.com/b/jF492u/WD5f)
+- 9. [Kenny, G.](http://paperpile.com/b/jF492u/snIf)*[et al.](http://paperpile.com/b/jF492u/snIf)*[Identification of Distinct Long COVID Clinical Phenotypes Through Cluster](http://paperpile.com/b/jF492u/snIf) [Analysis of Self-Reported Symptoms.](http://paperpile.com/b/jF492u/snIf)*[Open Forum Infect Dis](http://paperpile.com/b/jF492u/snIf)* **[9](http://paperpile.com/b/jF492u/snIf)**[, ofac060 \(2022\).](http://paperpile.com/b/jF492u/snIf)
+- 10. [Reese, J. T.](http://paperpile.com/b/jF492u/IhqP) *[et al.](http://paperpile.com/b/jF492u/IhqP)*[Generalizable Long COVID Subtypes: Findings from the NIH N3C and](http://paperpile.com/b/jF492u/IhqP) [RECOVER Programs.](http://paperpile.com/b/jF492u/IhqP)*[medRxiv](http://paperpile.com/b/jF492u/IhqP)*[\(2022\) doi:](http://paperpile.com/b/jF492u/IhqP)[10.1101/2022.05.24.22275398](http://dx.doi.org/10.1101/2022.05.24.22275398)[.](http://paperpile.com/b/jF492u/IhqP)
 
 - 11. [Ståhlberg, M.](http://paperpile.com/b/jF492u/Cwp9)*[et al.](http://paperpile.com/b/jF492u/Cwp9)*[Post-COVID-19 Tachycardia Syndrome: A Distinct Phenotype of Post-](http://paperpile.com/b/jF492u/Cwp9)[Acute COVID-19 Syndrome.](http://paperpile.com/b/jF492u/Cwp9)*[Am. J. Med.](http://paperpile.com/b/jF492u/Cwp9)* **[134](http://paperpile.com/b/jF492u/Cwp9)**[, 1451–1456 \(2021\).](http://paperpile.com/b/jF492u/Cwp9)
-- 12. [Durstenfeld, M. S., Hsue, P. Y., Peluso, M. J. & Deeks, S. G. Findings from mayo clinic's](http://paperpile.com/b/jF492u/uEmg)  [post-COVID clinic: PASC phenotypes vary by sex and degree of IL-6 elevation.](http://paperpile.com/b/jF492u/uEmg) *[Mayo Clin.](http://paperpile.com/b/jF492u/uEmg)  [Proc.](http://paperpile.com/b/jF492u/uEmg)* **[97](http://paperpile.com/b/jF492u/uEmg)**[, 430–432 \(2022\).](http://paperpile.com/b/jF492u/uEmg)
-- 13. [Fischer, A.](http://paperpile.com/b/jF492u/Wtft) *[et al.](http://paperpile.com/b/jF492u/Wtft)*[Long COVID Classification: Findings from a Clustering Analysis in the](http://paperpile.com/b/jF492u/Wtft)  [Predi-COVID Cohort Study.](http://paperpile.com/b/jF492u/Wtft)*[Int. J. Environ. Res. Public Health](http://paperpile.com/b/jF492u/Wtft)* **[19](http://paperpile.com/b/jF492u/Wtft)**[, \(2022\).](http://paperpile.com/b/jF492u/Wtft)
-- 14. [Dagliati, A.](http://paperpile.com/b/jF492u/xySg) *[et al.](http://paperpile.com/b/jF492u/xySg)*[Characterization of long COVID temporal sub-phenotypes by distributed](http://paperpile.com/b/jF492u/xySg)  [representation learning from electronic health record data: a cohort study.](http://paperpile.com/b/jF492u/xySg) *[EClinicalMedicine](http://paperpile.com/b/jF492u/xySg)* **[64](http://paperpile.com/b/jF492u/xySg)**[, 102210 \(2023\).](http://paperpile.com/b/jF492u/xySg)
-- 15. [Bowyer, R. C. E.](http://paperpile.com/b/jF492u/nSjJ) *[et al.](http://paperpile.com/b/jF492u/nSjJ)*[Characterising patterns of COVID-19 and long COVID symptoms:](http://paperpile.com/b/jF492u/nSjJ)  [evidence from nine UK longitudinal studies.](http://paperpile.com/b/jF492u/nSjJ)*[Eur. J. Epidemiol.](http://paperpile.com/b/jF492u/nSjJ)* **[38](http://paperpile.com/b/jF492u/nSjJ)**[, 199–210 \(2023\).](http://paperpile.com/b/jF492u/nSjJ)
-- 16. [Zhang, H.](http://paperpile.com/b/jF492u/tfOH) *[et al.](http://paperpile.com/b/jF492u/tfOH)*[Data-driven identification of post-acute SARS-CoV-2 infection](http://paperpile.com/b/jF492u/tfOH)  [subphenotypes.](http://paperpile.com/b/jF492u/tfOH)*[Nat. Med.](http://paperpile.com/b/jF492u/tfOH)*[\(2022\) doi:](http://paperpile.com/b/jF492u/tfOH)[10.1038/s41591-022-02116-3](http://dx.doi.org/10.1038/s41591-022-02116-3)[.](http://paperpile.com/b/jF492u/tfOH)
-- 17. [Huang, Y.](http://paperpile.com/b/jF492u/obZq)*[et al.](http://paperpile.com/b/jF492u/obZq)*[COVID Symptoms, Symptom Clusters, and Predictors for Becoming a](http://paperpile.com/b/jF492u/obZq)  [Long-Hauler Looking for Clarity in the Haze of the Pandemic.](http://paperpile.com/b/jF492u/obZq)*[Clin. Nurs. Res.](http://paperpile.com/b/jF492u/obZq)* **[31](http://paperpile.com/b/jF492u/obZq)**[, 1390–](http://paperpile.com/b/jF492u/obZq) [1398 \(2022\).](http://paperpile.com/b/jF492u/obZq)
-- 18. [Humpherys, J.](http://paperpile.com/b/jF492u/69tp) *[et al.](http://paperpile.com/b/jF492u/69tp)*[Topic-to-Topic Modeling for COVID-19 Mortality. in](http://paperpile.com/b/jF492u/69tp)*[2021 IEEE 9th](http://paperpile.com/b/jF492u/69tp)  [International Conference on Healthcare Informatics \(ICHI\)](http://paperpile.com/b/jF492u/69tp)*[258–264 \(2021\).](http://paperpile.com/b/jF492u/69tp)
-- 19. [Pivovarov, R.](http://paperpile.com/b/jF492u/Hkq8)*[et al.](http://paperpile.com/b/jF492u/Hkq8)*[Learning probabilistic phenotypes from heterogeneous EHR data.](http://paperpile.com/b/jF492u/Hkq8)*[J.](http://paperpile.com/b/jF492u/Hkq8)  [Biomed. Inform.](http://paperpile.com/b/jF492u/Hkq8)* **[58](http://paperpile.com/b/jF492u/Hkq8)**[, 156–165 \(2015\).](http://paperpile.com/b/jF492u/Hkq8)
-- 20. [Mustakim, M., Wardoyo, R., Mustofa, K., Rahayu, G. R. & Rosyidah, I. Latent Dirichlet](http://paperpile.com/b/jF492u/SVWV)  [Allocation for Medical Records Topic Modeling: Systematic Literature Review. in](http://paperpile.com/b/jF492u/SVWV) *[2021 Sixth](http://paperpile.com/b/jF492u/SVWV)  [International Conference on Informatics and Computing \(ICIC\)](http://paperpile.com/b/jF492u/SVWV)*[1–7 \(2021\).](http://paperpile.com/b/jF492u/SVWV)
-- 21. [Huang, C.](http://paperpile.com/b/jF492u/DFey)*[et al.](http://paperpile.com/b/jF492u/DFey)*[6-month consequences of COVID-19 in patients discharged from hospital:](http://paperpile.com/b/jF492u/DFey)  [a cohort study.](http://paperpile.com/b/jF492u/DFey)*[Lancet](http://paperpile.com/b/jF492u/DFey)* **[397](http://paperpile.com/b/jF492u/DFey)**[, 220–232 \(2021\).](http://paperpile.com/b/jF492u/DFey)
+- 12. [Durstenfeld, M. S., Hsue, P. Y., Peluso, M. J. & Deeks, S. G. Findings from mayo clinic's](http://paperpile.com/b/jF492u/uEmg) [post-COVID clinic: PASC phenotypes vary by sex and degree of IL-6 elevation.](http://paperpile.com/b/jF492u/uEmg) *[Mayo Clin.](http://paperpile.com/b/jF492u/uEmg) [Proc.](http://paperpile.com/b/jF492u/uEmg)* **[97](http://paperpile.com/b/jF492u/uEmg)**[, 430–432 \(2022\).](http://paperpile.com/b/jF492u/uEmg)
+- 13. [Fischer, A.](http://paperpile.com/b/jF492u/Wtft) *[et al.](http://paperpile.com/b/jF492u/Wtft)*[Long COVID Classification: Findings from a Clustering Analysis in the](http://paperpile.com/b/jF492u/Wtft) [Predi-COVID Cohort Study.](http://paperpile.com/b/jF492u/Wtft)*[Int. J. Environ. Res. Public Health](http://paperpile.com/b/jF492u/Wtft)* **[19](http://paperpile.com/b/jF492u/Wtft)**[, \(2022\).](http://paperpile.com/b/jF492u/Wtft)
+- 14. [Dagliati, A.](http://paperpile.com/b/jF492u/xySg) *[et al.](http://paperpile.com/b/jF492u/xySg)*[Characterization of long COVID temporal sub-phenotypes by distributed](http://paperpile.com/b/jF492u/xySg) [representation learning from electronic health record data: a cohort study.](http://paperpile.com/b/jF492u/xySg) *[EClinicalMedicine](http://paperpile.com/b/jF492u/xySg)* **[64](http://paperpile.com/b/jF492u/xySg)**[, 102210 \(2023\).](http://paperpile.com/b/jF492u/xySg)
+- 15. [Bowyer, R. C. E.](http://paperpile.com/b/jF492u/nSjJ) *[et al.](http://paperpile.com/b/jF492u/nSjJ)*[Characterising patterns of COVID-19 and long COVID symptoms:](http://paperpile.com/b/jF492u/nSjJ) [evidence from nine UK longitudinal studies.](http://paperpile.com/b/jF492u/nSjJ)*[Eur. J. Epidemiol.](http://paperpile.com/b/jF492u/nSjJ)* **[38](http://paperpile.com/b/jF492u/nSjJ)**[, 199–210 \(2023\).](http://paperpile.com/b/jF492u/nSjJ)
+- 16. [Zhang, H.](http://paperpile.com/b/jF492u/tfOH) *[et al.](http://paperpile.com/b/jF492u/tfOH)*[Data-driven identification of post-acute SARS-CoV-2 infection](http://paperpile.com/b/jF492u/tfOH) [subphenotypes.](http://paperpile.com/b/jF492u/tfOH)*[Nat. Med.](http://paperpile.com/b/jF492u/tfOH)*[\(2022\) doi:](http://paperpile.com/b/jF492u/tfOH)[10.1038/s41591-022-02116-3](http://dx.doi.org/10.1038/s41591-022-02116-3)[.](http://paperpile.com/b/jF492u/tfOH)
+- 17. [Huang, Y.](http://paperpile.com/b/jF492u/obZq)*[et al.](http://paperpile.com/b/jF492u/obZq)*[COVID Symptoms, Symptom Clusters, and Predictors for Becoming a](http://paperpile.com/b/jF492u/obZq) [Long-Hauler Looking for Clarity in the Haze of the Pandemic.](http://paperpile.com/b/jF492u/obZq)*[Clin. Nurs. Res.](http://paperpile.com/b/jF492u/obZq)* **[31](http://paperpile.com/b/jF492u/obZq)**[, 1390–](http://paperpile.com/b/jF492u/obZq) [1398 \(2022\).](http://paperpile.com/b/jF492u/obZq)
+- 18. [Humpherys, J.](http://paperpile.com/b/jF492u/69tp) *[et al.](http://paperpile.com/b/jF492u/69tp)*[Topic-to-Topic Modeling for COVID-19 Mortality. in](http://paperpile.com/b/jF492u/69tp)*[2021 IEEE 9th](http://paperpile.com/b/jF492u/69tp) [International Conference on Healthcare Informatics \(ICHI\)](http://paperpile.com/b/jF492u/69tp)*[258–264 \(2021\).](http://paperpile.com/b/jF492u/69tp)
+- 19. [Pivovarov, R.](http://paperpile.com/b/jF492u/Hkq8)*[et al.](http://paperpile.com/b/jF492u/Hkq8)*[Learning probabilistic phenotypes from heterogeneous EHR data.](http://paperpile.com/b/jF492u/Hkq8)*[J.](http://paperpile.com/b/jF492u/Hkq8) [Biomed. Inform.](http://paperpile.com/b/jF492u/Hkq8)* **[58](http://paperpile.com/b/jF492u/Hkq8)**[, 156–165 \(2015\).](http://paperpile.com/b/jF492u/Hkq8)
+- 20. [Mustakim, M., Wardoyo, R., Mustofa, K., Rahayu, G. R. & Rosyidah, I. Latent Dirichlet](http://paperpile.com/b/jF492u/SVWV) [Allocation for Medical Records Topic Modeling: Systematic Literature Review. in](http://paperpile.com/b/jF492u/SVWV) *[2021 Sixth](http://paperpile.com/b/jF492u/SVWV) [International Conference on Informatics and Computing \(ICIC\)](http://paperpile.com/b/jF492u/SVWV)*[1–7 \(2021\).](http://paperpile.com/b/jF492u/SVWV)
+- 21. [Huang, C.](http://paperpile.com/b/jF492u/DFey)*[et al.](http://paperpile.com/b/jF492u/DFey)*[6-month consequences of COVID-19 in patients discharged from hospital:](http://paperpile.com/b/jF492u/DFey) [a cohort study.](http://paperpile.com/b/jF492u/DFey)*[Lancet](http://paperpile.com/b/jF492u/DFey)* **[397](http://paperpile.com/b/jF492u/DFey)**[, 220–232 \(2021\).](http://paperpile.com/b/jF492u/DFey)
 
-- 22. [Scarpino, I., Zucco, C., Vallelunga, R., Luzza, F. & Cannataro, M. Investigating Topic](http://paperpile.com/b/jF492u/cZeC)  [Modeling Techniques to Extract Meaningful Insights in Italian Long COVID Narration.](http://paperpile.com/b/jF492u/cZeC)  *[BioTech \(Basel\)](http://paperpile.com/b/jF492u/cZeC)* **[11](http://paperpile.com/b/jF492u/cZeC)**[, \(2022\).](http://paperpile.com/b/jF492u/cZeC)
-- 23. [Haendel, M. A.](http://paperpile.com/b/jF492u/55H9) *[et al.](http://paperpile.com/b/jF492u/55H9)*[The National COVID Cohort Collaborative \(N3C\): Rationale, design,](http://paperpile.com/b/jF492u/55H9)  [infrastructure, and deployment.](http://paperpile.com/b/jF492u/55H9)*[J. Am. Med. Inform. Assoc.](http://paperpile.com/b/jF492u/55H9)* **[28](http://paperpile.com/b/jF492u/55H9)**[, 427–443 \(2021\).](http://paperpile.com/b/jF492u/55H9)
-- 24. [Hoffman, M. D. & Blei, D. M. Online learning for latent Dirichlet allocation.](http://paperpile.com/b/jF492u/G31e)  <https://papers.nips.cc/paper/2010/file/71f6278d140af599e06ad9bf1ba03cb0-Paper.pdf> [\(2010\).](http://paperpile.com/b/jF492u/G31e)
+- 22. [Scarpino, I., Zucco, C., Vallelunga, R., Luzza, F. & Cannataro, M. Investigating Topic](http://paperpile.com/b/jF492u/cZeC) [Modeling Techniques to Extract Meaningful Insights in Italian Long COVID Narration.](http://paperpile.com/b/jF492u/cZeC) *[BioTech \(Basel\)](http://paperpile.com/b/jF492u/cZeC)* **[11](http://paperpile.com/b/jF492u/cZeC)**[, \(2022\).](http://paperpile.com/b/jF492u/cZeC)
+- 23. [Haendel, M. A.](http://paperpile.com/b/jF492u/55H9) *[et al.](http://paperpile.com/b/jF492u/55H9)*[The National COVID Cohort Collaborative \(N3C\): Rationale, design,](http://paperpile.com/b/jF492u/55H9) [infrastructure, and deployment.](http://paperpile.com/b/jF492u/55H9)*[J. Am. Med. Inform. Assoc.](http://paperpile.com/b/jF492u/55H9)* **[28](http://paperpile.com/b/jF492u/55H9)**[, 427–443 \(2021\).](http://paperpile.com/b/jF492u/55H9)
+- 24. [Hoffman, M. D. & Blei, D. M. Online learning for latent Dirichlet allocation.](http://paperpile.com/b/jF492u/G31e) <https://papers.nips.cc/paper/2010/file/71f6278d140af599e06ad9bf1ba03cb0-Paper.pdf> [\(2010\).](http://paperpile.com/b/jF492u/G31e)
 - 25. [OMOP CDM v5.3.](http://paperpile.com/b/jF492u/sTFr) <https://ohdsi.github.io/CommonDataModel/cdm53.html>[.](http://paperpile.com/b/jF492u/sTFr)
-- 26. [Pfaff, E. R.](http://paperpile.com/b/jF492u/8ZqR) *[et al.](http://paperpile.com/b/jF492u/8ZqR)*[Coding Long COVID: Characterizing a new disease through an ICD-10](http://paperpile.com/b/jF492u/8ZqR)  [lens.](http://paperpile.com/b/jF492u/8ZqR)*[medRxiv](http://paperpile.com/b/jF492u/8ZqR)*[\(2022\) doi:](http://paperpile.com/b/jF492u/8ZqR)[10.1101/2022.04.18.22273968](http://dx.doi.org/10.1101/2022.04.18.22273968)[.](http://paperpile.com/b/jF492u/8ZqR)
-- 27. [Fernández-de-Las-Peñas, C., Palacios-Ceña, D., Gómez-Mayordomo, V., Cuadrado, M. L.](http://paperpile.com/b/jF492u/k2IE)  [& Florencio, L. L. Defining Post-COVID Symptoms \(Post-Acute COVID, Long COVID,](http://paperpile.com/b/jF492u/k2IE)  [Persistent Post-COVID\): An Integrative Classification.](http://paperpile.com/b/jF492u/k2IE)*[Int. J. Environ. Res. Public Health](http://paperpile.com/b/jF492u/k2IE)* **[18](http://paperpile.com/b/jF492u/k2IE)**[, \(2021\).](http://paperpile.com/b/jF492u/k2IE)
-- 28. [Pfaff, E. R.](http://paperpile.com/b/jF492u/r4Xo) *[et al.](http://paperpile.com/b/jF492u/r4Xo)*[Coding long COVID: characterizing a new disease through an ICD-10](http://paperpile.com/b/jF492u/r4Xo)  [lens.](http://paperpile.com/b/jF492u/r4Xo)*[BMC Med.](http://paperpile.com/b/jF492u/r4Xo)* **[21](http://paperpile.com/b/jF492u/r4Xo)**[, 58 \(2023\).](http://paperpile.com/b/jF492u/r4Xo)
+- 26. [Pfaff, E. R.](http://paperpile.com/b/jF492u/8ZqR) *[et al.](http://paperpile.com/b/jF492u/8ZqR)*[Coding Long COVID: Characterizing a new disease through an ICD-10](http://paperpile.com/b/jF492u/8ZqR) [lens.](http://paperpile.com/b/jF492u/8ZqR)*[medRxiv](http://paperpile.com/b/jF492u/8ZqR)*[\(2022\) doi:](http://paperpile.com/b/jF492u/8ZqR)[10.1101/2022.04.18.22273968](http://dx.doi.org/10.1101/2022.04.18.22273968)[.](http://paperpile.com/b/jF492u/8ZqR)
+- 27. [Fernández-de-Las-Peñas, C., Palacios-Ceña, D., Gómez-Mayordomo, V., Cuadrado, M. L.](http://paperpile.com/b/jF492u/k2IE) [& Florencio, L. L. Defining Post-COVID Symptoms \(Post-Acute COVID, Long COVID,](http://paperpile.com/b/jF492u/k2IE) [Persistent Post-COVID\): An Integrative Classification.](http://paperpile.com/b/jF492u/k2IE)*[Int. J. Environ. Res. Public Health](http://paperpile.com/b/jF492u/k2IE)* **[18](http://paperpile.com/b/jF492u/k2IE)**[, \(2021\).](http://paperpile.com/b/jF492u/k2IE)
+- 28. [Pfaff, E. R.](http://paperpile.com/b/jF492u/r4Xo) *[et al.](http://paperpile.com/b/jF492u/r4Xo)*[Coding long COVID: characterizing a new disease through an ICD-10](http://paperpile.com/b/jF492u/r4Xo) [lens.](http://paperpile.com/b/jF492u/r4Xo)*[BMC Med.](http://paperpile.com/b/jF492u/r4Xo)* **[21](http://paperpile.com/b/jF492u/r4Xo)**[, 58 \(2023\).](http://paperpile.com/b/jF492u/r4Xo)
 - 29. [Meng, X.](http://paperpile.com/b/jF492u/KKIh) *[et al.](http://paperpile.com/b/jF492u/KKIh)*[MLlib: Machine Learning in Apache Spark.](http://paperpile.com/b/jF492u/KKIh)*[arXiv \[cs.LG\]](http://paperpile.com/b/jF492u/KKIh)*[\(2015\).](http://paperpile.com/b/jF492u/KKIh)
-- 30. [Newman, D., Lau, J. H., Grieser, K. & Baldwin, T. Automatic Evaluation of Topic](http://paperpile.com/b/jF492u/mKQR)  [Coherence. in](http://paperpile.com/b/jF492u/mKQR)*[Human Language Technologies: The 2010 Annual Conference of the North](http://paperpile.com/b/jF492u/mKQR)  [American Chapter of the Association for Computational Linguistics](http://paperpile.com/b/jF492u/mKQR)*[100–108 \(Association](http://paperpile.com/b/jF492u/mKQR)  [for Computational Linguistics, Los Angeles, California, 2010\).](http://paperpile.com/b/jF492u/mKQR)
-- 31. [Bhattacharya, M., Jurkovitz, C. & Shatkay, H. Co-occurrence of medical conditions:](http://paperpile.com/b/jF492u/hIlD)  [Exposing patterns through probabilistic topic modeling of snomed codes.](http://paperpile.com/b/jF492u/hIlD)*[J. Biomed. Inform.](http://paperpile.com/b/jF492u/hIlD)*[\(2018\).](http://paperpile.com/b/jF492u/hIlD)
+- 30. [Newman, D., Lau, J. H., Grieser, K. & Baldwin, T. Automatic Evaluation of Topic](http://paperpile.com/b/jF492u/mKQR) [Coherence. in](http://paperpile.com/b/jF492u/mKQR)*[Human Language Technologies: The 2010 Annual Conference of the North](http://paperpile.com/b/jF492u/mKQR) [American Chapter of the Association for Computational Linguistics](http://paperpile.com/b/jF492u/mKQR)*[100–108 \(Association](http://paperpile.com/b/jF492u/mKQR) [for Computational Linguistics, Los Angeles, California, 2010\).](http://paperpile.com/b/jF492u/mKQR)
+- 31. [Bhattacharya, M., Jurkovitz, C. & Shatkay, H. Co-occurrence of medical conditions:](http://paperpile.com/b/jF492u/hIlD) [Exposing patterns through probabilistic topic modeling of snomed codes.](http://paperpile.com/b/jF492u/hIlD)*[J. Biomed. Inform.](http://paperpile.com/b/jF492u/hIlD)*[\(2018\).](http://paperpile.com/b/jF492u/hIlD)
 - 32. [Cohen, R., Aviram, I., Elhadad, M. & Elhadad, N. Redundancy-aware topic modeling for](http://paperpile.com/b/jF492u/22Al)
 
 [patient record notes.](http://paperpile.com/b/jF492u/22Al)*[PLoS One](http://paperpile.com/b/jF492u/22Al)* **[9](http://paperpile.com/b/jF492u/22Al)**[, e87555 \(2014\).](http://paperpile.com/b/jF492u/22Al)
 
-- 33. [Mei, Q., Shen, X. & Zhai, C. Automatic labeling of multinomial topic models. in](http://paperpile.com/b/jF492u/J3Uc) *[Proceedings](http://paperpile.com/b/jF492u/J3Uc)  [of the 13th ACM SIGKDD international conference on Knowledge discovery and data](http://paperpile.com/b/jF492u/J3Uc)  [mining](http://paperpile.com/b/jF492u/J3Uc)*[490–499 \(Association for Computing Machinery, New York, NY, USA, 2007\).](http://paperpile.com/b/jF492u/J3Uc)
-- 34. [Patefield, W. M. Algorithm AS 159: An Efficient Method of Generating Random R × C](http://paperpile.com/b/jF492u/qY8e)  [Tables with Given Row and Column Totals.](http://paperpile.com/b/jF492u/qY8e)*[J. R. Stat. Soc. Ser. C Appl. Stat.](http://paperpile.com/b/jF492u/qY8e)* **[30](http://paperpile.com/b/jF492u/qY8e)**[, 91–97](http://paperpile.com/b/jF492u/qY8e)  [\(1981\).](http://paperpile.com/b/jF492u/qY8e)
-- 35. [Ng, K. W., Tian, G.-L. & Tang, M.-L.](http://paperpile.com/b/jF492u/DWzh) *[Dirichlet and Related Distributions: Theory, Methods](http://paperpile.com/b/jF492u/DWzh)  [and Applications](http://paperpile.com/b/jF492u/DWzh)*[. \(John Wiley & Sons, 2011\).](http://paperpile.com/b/jF492u/DWzh)
-- 36. [Wilcox, R. R. A Review of the Beta-Binomial Model and its Extensions.](http://paperpile.com/b/jF492u/21AI) *[J. Educ. Behav.](http://paperpile.com/b/jF492u/21AI)  [Stat.](http://paperpile.com/b/jF492u/21AI)* **[6](http://paperpile.com/b/jF492u/21AI)**[, 3–32 \(1981\).](http://paperpile.com/b/jF492u/21AI)
-- 37. [Hanley, J. A., Negassa, A., Edwardes, M. D. D. & Forrester, J. E. Statistical analysis of](http://paperpile.com/b/jF492u/YayO)  [correlated data using generalized estimating equations: an orientation.](http://paperpile.com/b/jF492u/YayO) *[Am. J. Epidemiol.](http://paperpile.com/b/jF492u/YayO)* **[157](http://paperpile.com/b/jF492u/YayO)**[, 364–375 \(2003\).](http://paperpile.com/b/jF492u/YayO)
-- 38. [Højsgaard, S., Halekoh, U. & Yan, J. The R Package geepack for Generalized Estimating](http://paperpile.com/b/jF492u/ycux)  [Equations.](http://paperpile.com/b/jF492u/ycux) *[J. Stat. Softw.](http://paperpile.com/b/jF492u/ycux)* **[15](http://paperpile.com/b/jF492u/ycux)**[, 1–11 \(2006\).](http://paperpile.com/b/jF492u/ycux)
-- 39. [Yan, J. & Fine, J. Estimating equations for association structures.](http://paperpile.com/b/jF492u/6Lup) *[Stat. Med.](http://paperpile.com/b/jF492u/6Lup)* **[23](http://paperpile.com/b/jF492u/6Lup)**[, 859–74;](http://paperpile.com/b/jF492u/6Lup)  [discussion 875–7,879–80 \(2004\).](http://paperpile.com/b/jF492u/6Lup)
-- 40. [Quan, H.](http://paperpile.com/b/jF492u/tN0w) *[et al.](http://paperpile.com/b/jF492u/tN0w)*[Updating and validating the Charlson comorbidity index and score for risk](http://paperpile.com/b/jF492u/tN0w)  [adjustment in hospital discharge abstracts using data from 6 countries.](http://paperpile.com/b/jF492u/tN0w)*[Am. J. Epidemiol.](http://paperpile.com/b/jF492u/tN0w)* **[173](http://paperpile.com/b/jF492u/tN0w)**[, 676–682 \(2011\).](http://paperpile.com/b/jF492u/tN0w)
-- 41. [Lambrou, A. S.](http://paperpile.com/b/jF492u/ag6h) *[et al.](http://paperpile.com/b/jF492u/ag6h)*[Genomic Surveillance for SARS-CoV-2 Variants: Predominance of the](http://paperpile.com/b/jF492u/ag6h)  [Delta \(B.1.617.2\) and Omicron \(B.1.1.529\) Variants -](http://paperpile.com/b/jF492u/ag6h) United States, June 2021-January [2022.](http://paperpile.com/b/jF492u/ag6h)*[MMWR Morb. Mortal. Wkly. Rep.](http://paperpile.com/b/jF492u/ag6h)* **[71](http://paperpile.com/b/jF492u/ag6h)**[, 206–211 \(2022\).](http://paperpile.com/b/jF492u/ag6h)
-- 42. [Pfaff, E. R.](http://paperpile.com/b/jF492u/2lrL) *[et al.](http://paperpile.com/b/jF492u/2lrL)*[Synergies between centralized and federated approaches to data quality:](http://paperpile.com/b/jF492u/2lrL)  [a report from the national COVID cohort collaborative.](http://paperpile.com/b/jF492u/2lrL)*[J. Am. Med. Inform. Assoc.](http://paperpile.com/b/jF492u/2lrL)* **[29](http://paperpile.com/b/jF492u/2lrL)**[, 609–](http://paperpile.com/b/jF492u/2lrL)
+- 33. [Mei, Q., Shen, X. & Zhai, C. Automatic labeling of multinomial topic models. in](http://paperpile.com/b/jF492u/J3Uc) *[Proceedings](http://paperpile.com/b/jF492u/J3Uc) [of the 13th ACM SIGKDD international conference on Knowledge discovery and data](http://paperpile.com/b/jF492u/J3Uc) [mining](http://paperpile.com/b/jF492u/J3Uc)*[490–499 \(Association for Computing Machinery, New York, NY, USA, 2007\).](http://paperpile.com/b/jF492u/J3Uc)
+- 34. [Patefield, W. M. Algorithm AS 159: An Efficient Method of Generating Random R × C](http://paperpile.com/b/jF492u/qY8e) [Tables with Given Row and Column Totals.](http://paperpile.com/b/jF492u/qY8e)*[J. R. Stat. Soc. Ser. C Appl. Stat.](http://paperpile.com/b/jF492u/qY8e)* **[30](http://paperpile.com/b/jF492u/qY8e)**[, 91–97](http://paperpile.com/b/jF492u/qY8e) [\(1981\).](http://paperpile.com/b/jF492u/qY8e)
+- 35. [Ng, K. W., Tian, G.-L. & Tang, M.-L.](http://paperpile.com/b/jF492u/DWzh) *[Dirichlet and Related Distributions: Theory, Methods](http://paperpile.com/b/jF492u/DWzh) [and Applications](http://paperpile.com/b/jF492u/DWzh)*[. \(John Wiley & Sons, 2011\).](http://paperpile.com/b/jF492u/DWzh)
+- 36. [Wilcox, R. R. A Review of the Beta-Binomial Model and its Extensions.](http://paperpile.com/b/jF492u/21AI) *[J. Educ. Behav.](http://paperpile.com/b/jF492u/21AI) [Stat.](http://paperpile.com/b/jF492u/21AI)* **[6](http://paperpile.com/b/jF492u/21AI)**[, 3–32 \(1981\).](http://paperpile.com/b/jF492u/21AI)
+- 37. [Hanley, J. A., Negassa, A., Edwardes, M. D. D. & Forrester, J. E. Statistical analysis of](http://paperpile.com/b/jF492u/YayO) [correlated data using generalized estimating equations: an orientation.](http://paperpile.com/b/jF492u/YayO) *[Am. J. Epidemiol.](http://paperpile.com/b/jF492u/YayO)* **[157](http://paperpile.com/b/jF492u/YayO)**[, 364–375 \(2003\).](http://paperpile.com/b/jF492u/YayO)
+- 38. [Højsgaard, S., Halekoh, U. & Yan, J. The R Package geepack for Generalized Estimating](http://paperpile.com/b/jF492u/ycux) [Equations.](http://paperpile.com/b/jF492u/ycux) *[J. Stat. Softw.](http://paperpile.com/b/jF492u/ycux)* **[15](http://paperpile.com/b/jF492u/ycux)**[, 1–11 \(2006\).](http://paperpile.com/b/jF492u/ycux)
+- 39. [Yan, J. & Fine, J. Estimating equations for association structures.](http://paperpile.com/b/jF492u/6Lup) *[Stat. Med.](http://paperpile.com/b/jF492u/6Lup)* **[23](http://paperpile.com/b/jF492u/6Lup)**[, 859–74;](http://paperpile.com/b/jF492u/6Lup) [discussion 875–7,879–80 \(2004\).](http://paperpile.com/b/jF492u/6Lup)
+- 40. [Quan, H.](http://paperpile.com/b/jF492u/tN0w) *[et al.](http://paperpile.com/b/jF492u/tN0w)*[Updating and validating the Charlson comorbidity index and score for risk](http://paperpile.com/b/jF492u/tN0w) [adjustment in hospital discharge abstracts using data from 6 countries.](http://paperpile.com/b/jF492u/tN0w)*[Am. J. Epidemiol.](http://paperpile.com/b/jF492u/tN0w)* **[173](http://paperpile.com/b/jF492u/tN0w)**[, 676–682 \(2011\).](http://paperpile.com/b/jF492u/tN0w)
+- 41. [Lambrou, A. S.](http://paperpile.com/b/jF492u/ag6h) *[et al.](http://paperpile.com/b/jF492u/ag6h)*[Genomic Surveillance for SARS-CoV-2 Variants: Predominance of the](http://paperpile.com/b/jF492u/ag6h) [Delta \(B.1.617.2\) and Omicron \(B.1.1.529\) Variants -](http://paperpile.com/b/jF492u/ag6h) United States, June 2021-January [2022.](http://paperpile.com/b/jF492u/ag6h)*[MMWR Morb. Mortal. Wkly. Rep.](http://paperpile.com/b/jF492u/ag6h)* **[71](http://paperpile.com/b/jF492u/ag6h)**[, 206–211 \(2022\).](http://paperpile.com/b/jF492u/ag6h)
+- 42. [Pfaff, E. R.](http://paperpile.com/b/jF492u/2lrL) *[et al.](http://paperpile.com/b/jF492u/2lrL)*[Synergies between centralized and federated approaches to data quality:](http://paperpile.com/b/jF492u/2lrL) [a report from the national COVID cohort collaborative.](http://paperpile.com/b/jF492u/2lrL)*[J. Am. Med. Inform. Assoc.](http://paperpile.com/b/jF492u/2lrL)* **[29](http://paperpile.com/b/jF492u/2lrL)**[, 609–](http://paperpile.com/b/jF492u/2lrL)
 
 [618 \(2022\).](http://paperpile.com/b/jF492u/2lrL)
 
-- 43. [Sisó-Almirall, A., Kostov, B., Sánchez, E., Benavent-Àreu, J. & González de Paz, L. Impact](http://paperpile.com/b/jF492u/yUrD)  [of the COVID-19 Pandemic on Primary Health Care Disease Incidence Rates: 2017 to](http://paperpile.com/b/jF492u/yUrD)  [2020.](http://paperpile.com/b/jF492u/yUrD) *[Ann. Fam. Med.](http://paperpile.com/b/jF492u/yUrD)* **[20](http://paperpile.com/b/jF492u/yUrD)**[, 63–68 \(2022\).](http://paperpile.com/b/jF492u/yUrD)
-- 44. [Pj, W., Tv, V. & Whiley, P. J. The impact of delayed acute diverticulitis presentations during](http://paperpile.com/b/jF492u/wLkZ)  [the COVID-19 pandemic on acuity and surgical complexity in the long-term.](http://paperpile.com/b/jF492u/wLkZ) *[Glob. Surg.](http://paperpile.com/b/jF492u/wLkZ)*[\(2022\) doi:](http://paperpile.com/b/jF492u/wLkZ)[10.15761/GOS.1000239](http://dx.doi.org/10.15761/GOS.1000239)[.](http://paperpile.com/b/jF492u/wLkZ)
-- 45. [Miles, A.](http://paperpile.com/b/jF492u/gk6i)*[et al.](http://paperpile.com/b/jF492u/gk6i)*[An International Commentary on Dysphagia and Dysphonia During the](http://paperpile.com/b/jF492u/gk6i)  [COVID-19 Pandemic.](http://paperpile.com/b/jF492u/gk6i)*[Dysphagia](http://paperpile.com/b/jF492u/gk6i)* **[37](http://paperpile.com/b/jF492u/gk6i)**[, 1349–1374 \(2022\).](http://paperpile.com/b/jF492u/gk6i)
-- 46. [Li, K.](http://paperpile.com/b/jF492u/39DV) *[et al.](http://paperpile.com/b/jF492u/39DV)*[The Clinical and Chest CT Features Associated With Severe and Critical](http://paperpile.com/b/jF492u/39DV)  [COVID-19 Pneumonia.](http://paperpile.com/b/jF492u/39DV)*[Invest. Radiol.](http://paperpile.com/b/jF492u/39DV)* **[55](http://paperpile.com/b/jF492u/39DV)**[, 327–331 \(2020\).](http://paperpile.com/b/jF492u/39DV)
+- 43. [Sisó-Almirall, A., Kostov, B., Sánchez, E., Benavent-Àreu, J. & González de Paz, L. Impact](http://paperpile.com/b/jF492u/yUrD) [of the COVID-19 Pandemic on Primary Health Care Disease Incidence Rates: 2017 to](http://paperpile.com/b/jF492u/yUrD) [2020.](http://paperpile.com/b/jF492u/yUrD) *[Ann. Fam. Med.](http://paperpile.com/b/jF492u/yUrD)* **[20](http://paperpile.com/b/jF492u/yUrD)**[, 63–68 \(2022\).](http://paperpile.com/b/jF492u/yUrD)
+- 44. [Pj, W., Tv, V. & Whiley, P. J. The impact of delayed acute diverticulitis presentations during](http://paperpile.com/b/jF492u/wLkZ) [the COVID-19 pandemic on acuity and surgical complexity in the long-term.](http://paperpile.com/b/jF492u/wLkZ) *[Glob. Surg.](http://paperpile.com/b/jF492u/wLkZ)*[\(2022\) doi:](http://paperpile.com/b/jF492u/wLkZ)[10.15761/GOS.1000239](http://dx.doi.org/10.15761/GOS.1000239)[.](http://paperpile.com/b/jF492u/wLkZ)
+- 45. [Miles, A.](http://paperpile.com/b/jF492u/gk6i)*[et al.](http://paperpile.com/b/jF492u/gk6i)*[An International Commentary on Dysphagia and Dysphonia During the](http://paperpile.com/b/jF492u/gk6i) [COVID-19 Pandemic.](http://paperpile.com/b/jF492u/gk6i)*[Dysphagia](http://paperpile.com/b/jF492u/gk6i)* **[37](http://paperpile.com/b/jF492u/gk6i)**[, 1349–1374 \(2022\).](http://paperpile.com/b/jF492u/gk6i)
+- 46. [Li, K.](http://paperpile.com/b/jF492u/39DV) *[et al.](http://paperpile.com/b/jF492u/39DV)*[The Clinical and Chest CT Features Associated With Severe and Critical](http://paperpile.com/b/jF492u/39DV) [COVID-19 Pneumonia.](http://paperpile.com/b/jF492u/39DV)*[Invest. Radiol.](http://paperpile.com/b/jF492u/39DV)* **[55](http://paperpile.com/b/jF492u/39DV)**[, 327–331 \(2020\).](http://paperpile.com/b/jF492u/39DV)
 - 47. [Nguyen, B. & Tosti, A. Alopecia in patients with COVID-19: A systematic review and meta](http://paperpile.com/b/jF492u/2eMf)[analysis.](http://paperpile.com/b/jF492u/2eMf) *[JAAD Int](http://paperpile.com/b/jF492u/2eMf)* **[7](http://paperpile.com/b/jF492u/2eMf)**[, 67–77 \(2022\).](http://paperpile.com/b/jF492u/2eMf)
-- 48. [Naguib, R. Potential relationships between COVID-19 and the thyroid gland: an update.](http://paperpile.com/b/jF492u/d4sG) *[J.](http://paperpile.com/b/jF492u/d4sG)  [Int. Med. Res.](http://paperpile.com/b/jF492u/d4sG)* **[50](http://paperpile.com/b/jF492u/d4sG)**[, 3000605221082898 \(2022\).](http://paperpile.com/b/jF492u/d4sG)
-- 49. [Pfaff, E. R.](http://paperpile.com/b/jF492u/vFxD) *[et al.](http://paperpile.com/b/jF492u/vFxD)*[Identifying who has long COVID in the USA: a machine learning approach](http://paperpile.com/b/jF492u/vFxD)  [using N3C data.](http://paperpile.com/b/jF492u/vFxD)*[Lancet Digit Health](http://paperpile.com/b/jF492u/vFxD)* **[4](http://paperpile.com/b/jF492u/vFxD)**[, e532–e541 \(2022\).](http://paperpile.com/b/jF492u/vFxD)
-- 50. [Lowry, K. P.](http://paperpile.com/b/jF492u/3j7L) *[et al.](http://paperpile.com/b/jF492u/3j7L)*[Breast Biopsy Recommendations and Breast Cancers Diagnosed during](http://paperpile.com/b/jF492u/3j7L)  [the COVID-19 Pandemic.](http://paperpile.com/b/jF492u/3j7L)*[Radiology](http://paperpile.com/b/jF492u/3j7L)* **[303](http://paperpile.com/b/jF492u/3j7L)**[, 287–294 \(2022\).](http://paperpile.com/b/jF492u/3j7L)
-- 51. [Kuriakose, S.](http://paperpile.com/b/jF492u/wzVY) *[et al.](http://paperpile.com/b/jF492u/wzVY)*[Developing Treatment Guidelines During a Pandemic Health Crisis:](http://paperpile.com/b/jF492u/wzVY)  [Lessons Learned From COVID-19.](http://paperpile.com/b/jF492u/wzVY)*[Ann. Intern. Med.](http://paperpile.com/b/jF492u/wzVY)* **[174](http://paperpile.com/b/jF492u/wzVY)**[, 1151–1158 \(2021\).](http://paperpile.com/b/jF492u/wzVY)
-- 52. [Ali Awan, H.](http://paperpile.com/b/jF492u/diTw) *[et al.](http://paperpile.com/b/jF492u/diTw)*[SARS-CoV-2 and the Brain: What Do We Know about the Causality of](http://paperpile.com/b/jF492u/diTw)  ['Cognitive COVID?](http://paperpile.com/b/jF492u/diTw)*[J. Clin. Med. Res.](http://paperpile.com/b/jF492u/diTw)* **[10](http://paperpile.com/b/jF492u/diTw)**[, \(2021\).](http://paperpile.com/b/jF492u/diTw)
-- 53. [Norouzi Masir, M. & Shirvaliloo, M. Symptomatology and microbiology of the](http://paperpile.com/b/jF492u/iZDq)  [gastrointestinal tract in post-COVID conditions.](http://paperpile.com/b/jF492u/iZDq) *[JGH Open](http://paperpile.com/b/jF492u/iZDq)* **[6](http://paperpile.com/b/jF492u/iZDq)**[, 667–676 \(2022\).](http://paperpile.com/b/jF492u/iZDq)
+- 48. [Naguib, R. Potential relationships between COVID-19 and the thyroid gland: an update.](http://paperpile.com/b/jF492u/d4sG) *[J.](http://paperpile.com/b/jF492u/d4sG) [Int. Med. Res.](http://paperpile.com/b/jF492u/d4sG)* **[50](http://paperpile.com/b/jF492u/d4sG)**[, 3000605221082898 \(2022\).](http://paperpile.com/b/jF492u/d4sG)
+- 49. [Pfaff, E. R.](http://paperpile.com/b/jF492u/vFxD) *[et al.](http://paperpile.com/b/jF492u/vFxD)*[Identifying who has long COVID in the USA: a machine learning approach](http://paperpile.com/b/jF492u/vFxD) [using N3C data.](http://paperpile.com/b/jF492u/vFxD)*[Lancet Digit Health](http://paperpile.com/b/jF492u/vFxD)* **[4](http://paperpile.com/b/jF492u/vFxD)**[, e532–e541 \(2022\).](http://paperpile.com/b/jF492u/vFxD)
+- 50. [Lowry, K. P.](http://paperpile.com/b/jF492u/3j7L) *[et al.](http://paperpile.com/b/jF492u/3j7L)*[Breast Biopsy Recommendations and Breast Cancers Diagnosed during](http://paperpile.com/b/jF492u/3j7L) [the COVID-19 Pandemic.](http://paperpile.com/b/jF492u/3j7L)*[Radiology](http://paperpile.com/b/jF492u/3j7L)* **[303](http://paperpile.com/b/jF492u/3j7L)**[, 287–294 \(2022\).](http://paperpile.com/b/jF492u/3j7L)
+- 51. [Kuriakose, S.](http://paperpile.com/b/jF492u/wzVY) *[et al.](http://paperpile.com/b/jF492u/wzVY)*[Developing Treatment Guidelines During a Pandemic Health Crisis:](http://paperpile.com/b/jF492u/wzVY) [Lessons Learned From COVID-19.](http://paperpile.com/b/jF492u/wzVY)*[Ann. Intern. Med.](http://paperpile.com/b/jF492u/wzVY)* **[174](http://paperpile.com/b/jF492u/wzVY)**[, 1151–1158 \(2021\).](http://paperpile.com/b/jF492u/wzVY)
+- 52. [Ali Awan, H.](http://paperpile.com/b/jF492u/diTw) *[et al.](http://paperpile.com/b/jF492u/diTw)*[SARS-CoV-2 and the Brain: What Do We Know about the Causality of](http://paperpile.com/b/jF492u/diTw) ['Cognitive COVID?](http://paperpile.com/b/jF492u/diTw)*[J. Clin. Med. Res.](http://paperpile.com/b/jF492u/diTw)* **[10](http://paperpile.com/b/jF492u/diTw)**[, \(2021\).](http://paperpile.com/b/jF492u/diTw)
+- 53. [Norouzi Masir, M. & Shirvaliloo, M. Symptomatology and microbiology of the](http://paperpile.com/b/jF492u/iZDq) [gastrointestinal tract in post-COVID conditions.](http://paperpile.com/b/jF492u/iZDq) *[JGH Open](http://paperpile.com/b/jF492u/iZDq)* **[6](http://paperpile.com/b/jF492u/iZDq)**[, 667–676 \(2022\).](http://paperpile.com/b/jF492u/iZDq)
 - 54. [Gupta, A.](http://paperpile.com/b/jF492u/keBd) *[et al.](http://paperpile.com/b/jF492u/keBd)*[Extrapulmonary manifestations of COVID-19.](http://paperpile.com/b/jF492u/keBd)*[Nat. Med.](http://paperpile.com/b/jF492u/keBd)* **[26](http://paperpile.com/b/jF492u/keBd)**[, 1017–1032](http://paperpile.com/b/jF492u/keBd)
 
 [\(2020\).](http://paperpile.com/b/jF492u/keBd)
 
-- 55. [Sylvester, S. V.](http://paperpile.com/b/jF492u/XvYs) *[et al.](http://paperpile.com/b/jF492u/XvYs)*[Sex differences in sequelae from COVID-19 infection and in long](http://paperpile.com/b/jF492u/XvYs)  [COVID syndrome: a review.](http://paperpile.com/b/jF492u/XvYs)*[Curr. Med. Res. Opin.](http://paperpile.com/b/jF492u/XvYs)* **[38](http://paperpile.com/b/jF492u/XvYs)**[, 1391–1399 \(2022\).](http://paperpile.com/b/jF492u/XvYs)
-- 56. [Seeley, M.-C.](http://paperpile.com/b/jF492u/kMnp) *[et al.](http://paperpile.com/b/jF492u/kMnp)*[High Incidence of Autonomic Dysfunction and Postural Orthostatic](http://paperpile.com/b/jF492u/kMnp)  [Tachycardia Syndrome in Patients with Long COVID: Implications for Management and](http://paperpile.com/b/jF492u/kMnp)  [Health Care Planning.](http://paperpile.com/b/jF492u/kMnp)*[Am. J. Med.](http://paperpile.com/b/jF492u/kMnp)*[\(2023\) doi:](http://paperpile.com/b/jF492u/kMnp)[10.1016/j.amjmed.2023.06.010](http://dx.doi.org/10.1016/j.amjmed.2023.06.010)[.](http://paperpile.com/b/jF492u/kMnp)
-- 57. [Fedorowski, A. & Sutton, R. Autonomic dysfunction and postural orthostatic tachycardia](http://paperpile.com/b/jF492u/0tba)  [syndrome in post-acute COVID-19 syndrome.](http://paperpile.com/b/jF492u/0tba)*[Nat. Rev. Cardiol.](http://paperpile.com/b/jF492u/0tba)* **[20](http://paperpile.com/b/jF492u/0tba)**[, 281–282 \(2023\).](http://paperpile.com/b/jF492u/0tba)
-- 58. [Bologva, E. V., Prokusheva, D. I., Krikunov, A. V., Zvartau, N. E. & Kovalchuk, S. V.](http://paperpile.com/b/jF492u/IYz9)  [Human-Computer Interaction in Electronic Medical Records: From the Perspectives of](http://paperpile.com/b/jF492u/IYz9)  [Physicians and Data Scientists.](http://paperpile.com/b/jF492u/IYz9) *[Procedia Comput. Sci.](http://paperpile.com/b/jF492u/IYz9)* **[100](http://paperpile.com/b/jF492u/IYz9)**[, 915–920 \(2016\).](http://paperpile.com/b/jF492u/IYz9)
-- 59. [Roberts, M. E., Stewart, B. M. & Tingley, D. Navigating the local modes of big data: The](http://paperpile.com/b/jF492u/gCM3)  [case of topic models. in](http://paperpile.com/b/jF492u/gCM3) *[Computational Social Science: Discovery and Prediction](http://paperpile.com/b/jF492u/gCM3)*[51–97](http://paperpile.com/b/jF492u/gCM3)  [\(Cambridge University Press, 2016\).](http://paperpile.com/b/jF492u/gCM3)
-- 60. [Syed, S. & Spruit, M. Selecting Priors for Latent Dirichlet Allocation. in](http://paperpile.com/b/jF492u/au2c)*[2018 IEEE 12th](http://paperpile.com/b/jF492u/au2c)  [International Conference on Semantic Computing \(ICSC\)](http://paperpile.com/b/jF492u/au2c)*[194–202 \(IEEE, 2018\).](http://paperpile.com/b/jF492u/au2c)
+- 55. [Sylvester, S. V.](http://paperpile.com/b/jF492u/XvYs) *[et al.](http://paperpile.com/b/jF492u/XvYs)*[Sex differences in sequelae from COVID-19 infection and in long](http://paperpile.com/b/jF492u/XvYs) [COVID syndrome: a review.](http://paperpile.com/b/jF492u/XvYs)*[Curr. Med. Res. Opin.](http://paperpile.com/b/jF492u/XvYs)* **[38](http://paperpile.com/b/jF492u/XvYs)**[, 1391–1399 \(2022\).](http://paperpile.com/b/jF492u/XvYs)
+- 56. [Seeley, M.-C.](http://paperpile.com/b/jF492u/kMnp) *[et al.](http://paperpile.com/b/jF492u/kMnp)*[High Incidence of Autonomic Dysfunction and Postural Orthostatic](http://paperpile.com/b/jF492u/kMnp) [Tachycardia Syndrome in Patients with Long COVID: Implications for Management and](http://paperpile.com/b/jF492u/kMnp) [Health Care Planning.](http://paperpile.com/b/jF492u/kMnp)*[Am. J. Med.](http://paperpile.com/b/jF492u/kMnp)*[\(2023\) doi:](http://paperpile.com/b/jF492u/kMnp)[10.1016/j.amjmed.2023.06.010](http://dx.doi.org/10.1016/j.amjmed.2023.06.010)[.](http://paperpile.com/b/jF492u/kMnp)
+- 57. [Fedorowski, A. & Sutton, R. Autonomic dysfunction and postural orthostatic tachycardia](http://paperpile.com/b/jF492u/0tba) [syndrome in post-acute COVID-19 syndrome.](http://paperpile.com/b/jF492u/0tba)*[Nat. Rev. Cardiol.](http://paperpile.com/b/jF492u/0tba)* **[20](http://paperpile.com/b/jF492u/0tba)**[, 281–282 \(2023\).](http://paperpile.com/b/jF492u/0tba)
+- 58. [Bologva, E. V., Prokusheva, D. I., Krikunov, A. V., Zvartau, N. E. & Kovalchuk, S. V.](http://paperpile.com/b/jF492u/IYz9) [Human-Computer Interaction in Electronic Medical Records: From the Perspectives of](http://paperpile.com/b/jF492u/IYz9) [Physicians and Data Scientists.](http://paperpile.com/b/jF492u/IYz9) *[Procedia Comput. Sci.](http://paperpile.com/b/jF492u/IYz9)* **[100](http://paperpile.com/b/jF492u/IYz9)**[, 915–920 \(2016\).](http://paperpile.com/b/jF492u/IYz9)
+- 59. [Roberts, M. E., Stewart, B. M. & Tingley, D. Navigating the local modes of big data: The](http://paperpile.com/b/jF492u/gCM3) [case of topic models. in](http://paperpile.com/b/jF492u/gCM3) *[Computational Social Science: Discovery and Prediction](http://paperpile.com/b/jF492u/gCM3)*[51–97](http://paperpile.com/b/jF492u/gCM3) [\(Cambridge University Press, 2016\).](http://paperpile.com/b/jF492u/gCM3)
+- 60. [Syed, S. & Spruit, M. Selecting Priors for Latent Dirichlet Allocation. in](http://paperpile.com/b/jF492u/au2c)*[2018 IEEE 12th](http://paperpile.com/b/jF492u/au2c) [International Conference on Semantic Computing \(ICSC\)](http://paperpile.com/b/jF492u/au2c)*[194–202 \(IEEE, 2018\).](http://paperpile.com/b/jF492u/au2c)
 - 61. [R Core Team. R: A Language and Environment for Statistical Computing.](http://paperpile.com/b/jF492u/vyX5) [https://www.R](https://www.r-project.org/)[project.org/](https://www.r-project.org/) [\(2020\).](http://paperpile.com/b/jF492u/vyX5)
-- 62. [Lenth, R., Singmann, H., Love, J., Buerkner, P. & Herve, M. Emmeans: Estimated marginal](http://paperpile.com/b/jF492u/m5yQ)  [means, aka least-squares means.](http://paperpile.com/b/jF492u/m5yQ)*[R package version](http://paperpile.com/b/jF492u/m5yQ)* [\(2018\).](http://paperpile.com/b/jF492u/m5yQ)
+- 62. [Lenth, R., Singmann, H., Love, J., Buerkner, P. & Herve, M. Emmeans: Estimated marginal](http://paperpile.com/b/jF492u/m5yQ) [means, aka least-squares means.](http://paperpile.com/b/jF492u/m5yQ)*[R package version](http://paperpile.com/b/jF492u/m5yQ)* [\(2018\).](http://paperpile.com/b/jF492u/m5yQ)
 
-# Supplemental Figures
+## Supplemental Figures
 
 ## Suppl. Figure 1
 
@@ -381,7 +381,7 @@ Full topic clouds for all 300 topics generated and visualizations of correspondi
 
 Available at https://doi.org/10.5281/zenodo.11188766.
 
-#### Suppl. Figure 4
+### Suppl. Figure 4
 
 Topic/topic dissimilarity as Jensen-Shannon Distance. Topic self-distances of 0 are not shown.
 
@@ -395,21 +395,21 @@ Histogram of topic coherence values.
 ![](_page_34_Figure_3.jpeg)
 <!-- Image Description: The image displays a histogram showing the distribution of topic coherence scores. The x-axis represents topic coherence, and the y-axis shows the number of topics. The histogram illustrates the frequency of topics falling within specific coherence ranges, indicating a unimodal distribution with a peak around 3500. This figure likely serves to demonstrate the overall coherence of the topics identified in the paper's topic modeling process. -->
 
-#### Suppl. Figure 6
+### Suppl. Figure 6
 
 Mean UCI coherence scores per topic and contributing data site (ID anonymized). Site identifiers are masked, but labeled with the source common data model in use at the site.
 
 ![](_page_35_Figure_3.jpeg)
 <!-- Image Description: The image displays a heatmap visualizing the overall mean coherence of topics across five different datasets (CDM, OMOP, ACT, PCORNET, OMOP (PEDSNET), TRINETX). The y-axis represents topic numbers (T-1 to T-300), with coherence values (0-6000) shown on a color scale. Each column represents a topic, and the color intensity indicates the coherence score within each dataset for that topic. The purpose is to compare the coherence of topics generated across different datasets. The overall mean coherence is stated as 3320.128. -->
 
-#### Suppl. Figure 7
+### Suppl. Figure 7
 
 Relative usage of topics per contributing site (ID anonymized). For a given site and topic, relative usage is computed as the sum of assigned weights to that topic for patients from that site divided by the number of patients, representing a distribution over topics per site.
 
 ![](_page_36_Figure_3.jpeg)
 <!-- Image Description: This heatmap visualizes the relative usage of different data partners (OMOP, ACT, PCORNET, OMOP (PEDSNET), TRINETX) across various time points (T-300 to T-1). The color intensity represents the relative usage proportion, ranging from 0 to 0.4. The y-axis shows the time points, with corresponding percentages indicating the relative contribution of each time point to the total data. The purpose is to show the data partner usage trends over time. -->
 
-#### Suppl. Figure 8
+### Suppl. Figure 8
 
 Per-topic coherence (horizontal axis) vs. contrast effect sizes (log-odds scale, vertical axis) for tested groups (panels) in PASC vs. Control (top) and COVID vs. Control (bottom) contrasts. Labeled topics are those with statistically significant log-odds differences of >1 or <-1 (OR >2 or <0.5). Points are sized and colored according to mean topic usage for the group and cohort in the post-infection phase, with blue points representing Control patients and red points representing PASC (top) or COVID (bottom) patients.
 
@@ -419,14 +419,14 @@ Per-topic coherence (horizontal axis) vs. contrast effect sizes (log-odds scale,
 ![](_page_38_Figure_1.jpeg)
 <!-- Image Description: This figure displays nine scatter plots visualizing group contrasts in topic usage between COVID and control groups across different age and gender categories (adolescent, adult, alpha, delta, early, female, male, pediatric, senior). Each plot shows topic coherence on the x-axis and group contrast effect size (log-odds) on the y-axis. Point size represents group topic usage, with larger points indicating higher usage. Arrows indicate significant differences (p<0.05), showing the magnitude and direction of the effect. The figure's purpose is to illustrate the differential effects of COVID on topic usage across various demographic subgroups. -->
 
-#### Suppl. Figure 9
+### Suppl. Figure 9
 
 Results for Figures 4 (top) and 5 (bottom) for models with and without site-level covariates of topic usage, percentage of PASC patients, and source common data model.
 
 ![](_page_39_Figure_3.jpeg)
 <!-- Image Description: This figure presents forest plots comparing odds ratios for various demographic and variant groups across two cohorts (PASC and COVID). Each panel shows odds ratio estimates (with 95% confidence intervals) for specific time points (T-numbers), differentiating between a "full model" and a model "without site features." The x-axis represents the odds ratio estimate, while the y-axis categorizes groups (e.g., Female, Male, Pediatric). The figure aims to illustrate the relative risks of these factors within each cohort and model. -->
 
-# Supplemental Methods
+## Supplemental Methods
 
 ## Minimal Site Quality Filters
 
@@ -446,7 +446,7 @@ H is computed as the information entropy of the relative usage of the topic acro
 
 Per-topic coherence C is calculated for each topic using the UCI Coherence metric (see Model Validation below). These values are not meant to be interpreted on an absolute scale, but since they are normally distributed amongst topics (Suppl. Figure 4) we adjust them to z-scores for comparative use.
 
-#### Jensen-Shannon Distance
+### Jensen-Shannon Distance
 
 Jensen-Shannon Distance between topics and is a true metric and is defined as the square root of the Jensen-Shannon divergence:
 
@@ -456,7 +456,7 @@ $$
 
 where = (|) (the probability assigned to term in topic ) and is ( + )/2.
 
-#### Topic Term Relevance
+### Topic Term Relevance
 
 Term relevance provides a measure of term-topic-specificity, with values greater than zero indicating terms more likely for the topic than overall.[33](https://paperpile.com/c/jF492u/J3Uc) For term and topic , we define relevance as
 
@@ -464,7 +464,7 @@ $$
 \text{relevance}(c_i) = \ln \frac{p(c_i|t_j)}{p(c_i)}
 $$
 
-#### Model Validation
+### Model Validation
 
 UCI coherence for a given topic is computed over the top N terms by probability for the topic, where we used N = 20. Letting be the set of top 20 terms for , a sum score is computed for each distinct pair of terms a and b, where the score for a given pair is the log of the measured probability of their occurring together in a patient compared to the joint probability assuming independence. To avoid undefined scores, 0 is used for pairs where the denominator is 0, and 1 is added to the joint probability.[30](https://paperpile.com/c/jF492u/mKQR)
 
@@ -474,252 +474,252 @@ $$
 
 Overall model quality was evaluated as the mean of coherence scores across topics, computed over the validation dataset only.
 
-#### Per-Condition Tests
+### Per-Condition Tests
 
 All tests were performed in R v3.5.1.[61](https://paperpile.com/c/jF492u/vyX5) As described in the main text, patients in the test data set were included for evaluation of new-onset conditions if they satisfied requirements for being in
 
 the PASC, COVID, or Control cohorts. The top 20 conditions from each topic with relevance score > 0 were evaluated by considering only patients without the condition in the pre phase, comparing counts of PASC (and COVID) patients later indicated and not indicated for the post phase, to those same counts in the Control cohort. R's fisher.test() was used with simulate.p.value = TRUE to support tests where counts are large.[34](https://paperpile.com/c/jF492u/qY8e) Reported p values were multiple-test corrected using Bonferroni's method.
 
-#### BMI and Quan Comorbidity Scores
+### BMI and Quan Comorbidity Scores
 
 Patient BMI values used in modeling were the maximum over those reported after Jan. 1 2018, or the maximum of those computed as weight/(height^2) if no BMI measurement was directly available. Weight values outside 5kg–300kg and height values outside 0.6m–2.43m were excluded from BMI calculations. Quan comorbidity scores[40](https://paperpile.com/c/jF492u/tN0w) were computed from available source ICD code prefixes as shown in Suppl. Table 7.
 
-#### Topic Regression Tests
+### Topic Regression Tests
 
 Regression models were fitted using geepack v1.3.9,[38](https://paperpile.com/c/jF492u/ycux) with contrasts computed using emmeans v1.8.9.[62](https://paperpile.com/c/jF492u/m5yQ) Individual patient histories defined by their pre- and post- phase data were assigned topic probability distributions by the fitted LDA model. For each topic, we fitted a logistic regression model with outcome variable being the model-assigned topic probability as the trial success rate with equal weight, from covariates phase (pre or post), cohort (PASC, COVID, or Control), patient life stage and wave of the index date (see main Methods), sex, race, Quan comorbidity score, BMI, source CDM (PCORnet, ACT, OMOP, TrinetX, and OMOP (PedsNet)). To account for potential differential usage of PASC labels or topics, we also included percentage of patients at the given patients' site in the PASC cohort, and usage of the topic by the patients' site relative to all sites (summing to 1.0 across sites). Interactions were included for terms of interest for contrasts using the R/geepack formula topic\_probability ~ phase \* cohort \* (index\_wave + sex + life\_stage) + site\_percent\_pasc \* phase \* cohort + site\_relative\_topic\_usage + race + quan\_score + bmi + cdm. Only patients from the assessment set with complete information for all variables were included.
 
 ### Supplemental Tables
 
-#### Suppl. Table 1
+### Suppl. Table 1
 
 OMOP Concepts excluded from model training, evaluation, and testing.
 
-| Concept Name                                    | OMOP Concept Id |
+| Concept Name | OMOP Concept Id |
 |-------------------------------------------------|-----------------|
-| No matching concept                             | 0               |
-| Clinical finding                                | 441840          |
-| COVID-19                                        | 37311061        |
-| Viral disease                                   | 440029          |
-| Disease due to coronaviridae                    | 4100065         |
-| Sexually abstinent                              | 764423          |
-| Single current sexual partner                   | 4043045         |
-| New sexual partner                              | 44813701        |
-| Sexually active with men                        | 43021202        |
-| Single historical sexual partner                | 43021216        |
-| Number of current sexual partners - finding     | 4276728         |
-| Bigamy                                          | 4336540         |
-| Sexual activity - two to three times per month  | 4012347         |
-| Sexual activity - two to three times per week   | 4012202         |
-| Finding of number of historical sexual partners | 43021214        |
-| No longer sexually active                       | 4043041         |
-| Multiple current sexual partners                | 4038723         |
-| Sexually active with transgender person         | 43021204        |
-| Number of sexual partners - finding             | 4269990         |
-| Satisfactory sexual experience                  | 44811373        |
-| Sexual activity - daily                         | 4012377         |
-| Currently not sexually active                   | 4012376         |
-| Never been sexually active                      | 4145811         |
-| Fornication                                     | 4031991         |
-| Sexual activity - monthly                       | 4012348         |
-| Sexual activity - weekly                        | 4012203         |
-| Sexual contact with high risk partner           | 44789379        |
-| Finding of frequency of sexual activity         | 4188013         |
-| Engages in sexual activity outside marriage     | 43021163        |
-| Sexually active with women                      | 43021203        |
-| Purposely unmarried and sexually abstinent      | 43021238        |
-| Sex within a relationship only                  | 4021660         |
-| Sexually active in last month                   | 37017764        |
-| Sexually active                                 | 4043042         |
-| Finding relating to sexual activity             | 4114865         |
-| Sexually active in last year                    | 37017763        |
-| Engages in sexual activity before marriage      | 43021162        |
-| Sexually active in last six months              | 37017762        |
-| Multiple historical sexual partners             | 43021215        |
+| No matching concept | 0 |
+| Clinical finding | 441840 |
+| COVID-19 | 37311061 |
+| Viral disease | 440029 |
+| Disease due to coronaviridae | 4100065 |
+| Sexually abstinent | 764423 |
+| Single current sexual partner | 4043045 |
+| New sexual partner | 44813701 |
+| Sexually active with men | 43021202 |
+| Single historical sexual partner | 43021216 |
+| Number of current sexual partners - finding | 4276728 |
+| Bigamy | 4336540 |
+| Sexual activity - two to three times per month | 4012347 |
+| Sexual activity - two to three times per week | 4012202 |
+| Finding of number of historical sexual partners | 43021214 |
+| No longer sexually active | 4043041 |
+| Multiple current sexual partners | 4038723 |
+| Sexually active with transgender person | 43021204 |
+| Number of sexual partners - finding | 4269990 |
+| Satisfactory sexual experience | 44811373 |
+| Sexual activity - daily | 4012377 |
+| Currently not sexually active | 4012376 |
+| Never been sexually active | 4145811 |
+| Fornication | 4031991 |
+| Sexual activity - monthly | 4012348 |
+| Sexual activity - weekly | 4012203 |
+| Sexual contact with high risk partner | 44789379 |
+| Finding of frequency of sexual activity | 4188013 |
+| Engages in sexual activity outside marriage | 43021163 |
+| Sexually active with women | 43021203 |
+| Purposely unmarried and sexually abstinent | 43021238 |
+| Sex within a relationship only | 4021660 |
+| Sexually active in last month | 37017764 |
+| Sexually active | 4043042 |
+| Finding relating to sexual activity | 4114865 |
+| Sexually active in last year | 37017763 |
+| Engages in sexual activity before marriage | 43021162 |
+| Sexually active in last six months | 37017762 |
+| Multiple historical sexual partners | 43021215 |
 
-#### Suppl. Table 2
+### Suppl. Table 2
 
 OMOP Concepts describing COVID-19 PCR or Antigen tests.
 
-| Concept Name                                                                                                                   | OMOP<br>Concept Id |
+| Concept Name | OMOP<br>Concept Id |
 |--------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| SARS-CoV-2 (COVID-19) N gene [Presence] in Respiratory specimen by Nucleic acid amplification<br>using CDC primer-probe set N2 | 586525             |
-| SARS-CoV-2 (COVID-19) RdRp gene [Presence] in Saliva (oral fluid) by NAA with probe detection                                  | 36032174           |
-| SARS-related coronavirus RNA [Presence] in Specimen by NAA with probe detection                                                | 723472             |
-| SARS-CoV-2 (COVID-19) N gene [Cycle Threshold #] in Specimen by Nucleic acid amplification<br>using CDC primer-probe set N2    | 706155             |
-| SARS-CoV-2 (COVID-19) S gene [Cycle Threshold #] in Specimen by NAA with probe detection                                       | 723468             |
-| SARS-CoV-2 (COVID-19) N gene [#/volume] (viral load) in Respiratory specimen by NAA with probe<br>detection                    | 36661370           |
-| SARS-CoV-2 (COVID-19) S gene [Cycle Threshold #] in Respiratory specimen by NAA with probe<br>detection                        | 723467             |
-| SARS-CoV-2 (COVID-19) N gene [Presence] in Serum or Plasma by NAA with probe detection                                         | 586520             |
-| SARS-CoV-2 (COVID-19) S gene [Presence] in Respiratory specimen by NAA with probe detection                                    | 723465             |
-| SARS-CoV-2 (COVID-19) [Presence] in Specimen by Organism specific culture                                                      | 586516             |
-| SARS-CoV-2 (COVID-19) N gene [Cycle Threshold #] in Specimen by NAA with probe detection                                       | 706167             |
-| SARS-CoV-2 (COVID-19) Ag [Presence] in Respiratory specimen by Rapid immunoassay                                               | 723477             |
-| SARS-CoV-2 (COVID-19) RNA [Log #/volume] (viral load) in Specimen by NAA with probe detection                                  | 715262             |
-| SARS-related coronavirus N gene [Cycle Threshold #] in Specimen by Nucleic acid amplification<br>using CDC primer-probe set N3 | 706172             |
-| SARS-CoV-2 (COVID-19) RNA [Presence] in Saliva (oral fluid) by NAA with probe detection                                        | 715260             |
-| SARS-CoV-2 (COVID-19) S gene [Presence] in Serum or Plasma by NAA with probe detection                                         | 586519             |
-| SARS-CoV-2 (COVID-19) ORF1ab region [Cycle Threshold #] in Respiratory specimen by NAA with<br>probe detection                 | 723469             |
-| SARS-CoV-2 (COVID-19) RNA [Cycle Threshold #] in Specimen by NAA with probe detection                                          | 586529             |
-| SARS-related coronavirus E gene [Presence] in Respiratory specimen by NAA with probe detection                                 | 586523             |
-| SARS-CoV-2 (COVID-19) ORF1ab region [Presence] in Saliva (oral fluid) by NAA with probe<br>detection                           | 36031506           |
+| SARS-CoV-2 (COVID-19) N gene [Presence] in Respiratory specimen by Nucleic acid amplification<br>using CDC primer-probe set N2 | 586525 |
+| SARS-CoV-2 (COVID-19) RdRp gene [Presence] in Saliva (oral fluid) by NAA with probe detection | 36032174 |
+| SARS-related coronavirus RNA [Presence] in Specimen by NAA with probe detection | 723472 |
+| SARS-CoV-2 (COVID-19) N gene [Cycle Threshold #] in Specimen by Nucleic acid amplification<br>using CDC primer-probe set N2 | 706155 |
+| SARS-CoV-2 (COVID-19) S gene [Cycle Threshold #] in Specimen by NAA with probe detection | 723468 |
+| SARS-CoV-2 (COVID-19) N gene [#/volume] (viral load) in Respiratory specimen by NAA with probe<br>detection | 36661370 |
+| SARS-CoV-2 (COVID-19) S gene [Cycle Threshold #] in Respiratory specimen by NAA with probe<br>detection | 723467 |
+| SARS-CoV-2 (COVID-19) N gene [Presence] in Serum or Plasma by NAA with probe detection | 586520 |
+| SARS-CoV-2 (COVID-19) S gene [Presence] in Respiratory specimen by NAA with probe detection | 723465 |
+| SARS-CoV-2 (COVID-19) [Presence] in Specimen by Organism specific culture | 586516 |
+| SARS-CoV-2 (COVID-19) N gene [Cycle Threshold #] in Specimen by NAA with probe detection | 706167 |
+| SARS-CoV-2 (COVID-19) Ag [Presence] in Respiratory specimen by Rapid immunoassay | 723477 |
+| SARS-CoV-2 (COVID-19) RNA [Log #/volume] (viral load) in Specimen by NAA with probe detection | 715262 |
+| SARS-related coronavirus N gene [Cycle Threshold #] in Specimen by Nucleic acid amplification<br>using CDC primer-probe set N3 | 706172 |
+| SARS-CoV-2 (COVID-19) RNA [Presence] in Saliva (oral fluid) by NAA with probe detection | 715260 |
+| SARS-CoV-2 (COVID-19) S gene [Presence] in Serum or Plasma by NAA with probe detection | 586519 |
+| SARS-CoV-2 (COVID-19) ORF1ab region [Cycle Threshold #] in Respiratory specimen by NAA with<br>probe detection | 723469 |
+| SARS-CoV-2 (COVID-19) RNA [Cycle Threshold #] in Specimen by NAA with probe detection | 586529 |
+| SARS-related coronavirus E gene [Presence] in Respiratory specimen by NAA with probe detection | 586523 |
+| SARS-CoV-2 (COVID-19) ORF1ab region [Presence] in Saliva (oral fluid) by NAA with probe<br>detection | 36031506 |
 
-| Concept Name                                                                                                                  | OMOP<br>Concept Id |
+| Concept Name | OMOP<br>Concept Id |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| SARS-CoV-2 (COVID-19) S gene [Presence] in Specimen by NAA with probe detection                                               | 723466             |
-| SARS-CoV-2 (COVID-19) RNA [Presence] in Nasopharynx by NAA with non-probe detection                                           | 723476             |
-| SARS-CoV-2 (COVID-19) N gene [Presence] in Saliva (oral fluid) by Nucleic acid amplification using<br>CDC primer-probe set N1 | 36032258           |
-| SARS-CoV-2 (COVID-19) RNA [Presence] in Nasopharynx by NAA with probe detection                                               | 586526             |
-| SARS-related coronavirus E gene [Presence] in Serum or Plasma by NAA with probe detection                                     | 586518             |
-| SARS-CoV-2 (COVID-19) S gene [Presence] in Respiratory specimen by Sequencing                                                 | 36031213           |
-| SARS-CoV-2 (COVID-19) RNA [Presence] in Nose by NAA with probe detection                                                      | 757677             |
-| SARS-CoV-2 (COVID-19) N gene [Presence] in Specimen by Nucleic acid amplification using CDC<br>primer-probe set N2            | 706154             |
-| SARS-CoV-2 (COVID-19) RNA panel - Respiratory specimen by NAA with probe detection                                            | 706158             |
-| SARS-CoV-2 (COVID-19) N gene [Presence] in Respiratory specimen by NAA with probe detection                                   | 706161             |
-| SARS-CoV-2 (COVID-19) RdRp gene [Cycle Threshold #] in Specimen by NAA with probe detection                                   | 723470             |
-| SARS-CoV-2 (COVID-19) RdRp gene [Presence] in Lower respiratory specimen by NAA with probe<br>detection                       | 36031652           |
-| SARS-CoV-2 (COVID-19) N gene [Presence] in Saliva (oral fluid) by NAA with probe detection                                    | 36661378           |
-| SARS-related coronavirus+MERS coronavirus RNA [Presence] in Respiratory specimen by NAA<br>with probe detection               | 706159             |
-| SARS-related coronavirus E gene [Presence] in Specimen by NAA with probe detection                                            | 706174             |
-| SARS-CoV-2 (COVID-19) N gene [Presence] in Specimen by Nucleic acid amplification using CDC<br>primer-probe set N1            | 706156             |
-| SARS-CoV-2 (COVID-19) RNA [Cycle Threshold #] in Respiratory specimen by NAA with probe<br>detection                          | 586528             |
-| Measurement of Severe acute respiratory syndrome coronavirus 2 antigen                                                        | 37310257           |
-| SARS-related coronavirus E gene [Cycle Threshold #] in Specimen by NAA with probe detection                                   | 706166             |
-| SARS-CoV-2 (COVID-19) Ag [Presence] in Upper respiratory specimen by Immunoassay                                              | 36032419           |
-| SARS-CoV-2 (COVID-19) RNA panel - Specimen by NAA with probe detection                                                        | 706169             |
-| SARS-CoV-2 (COVID-19) RNA [Presence] in Respiratory specimen by NAA with non-probe<br>detection                               | 36031238           |
+| SARS-CoV-2 (COVID-19) S gene [Presence] in Specimen by NAA with probe detection | 723466 |
+| SARS-CoV-2 (COVID-19) RNA [Presence] in Nasopharynx by NAA with non-probe detection | 723476 |
+| SARS-CoV-2 (COVID-19) N gene [Presence] in Saliva (oral fluid) by Nucleic acid amplification using<br>CDC primer-probe set N1 | 36032258 |
+| SARS-CoV-2 (COVID-19) RNA [Presence] in Nasopharynx by NAA with probe detection | 586526 |
+| SARS-related coronavirus E gene [Presence] in Serum or Plasma by NAA with probe detection | 586518 |
+| SARS-CoV-2 (COVID-19) S gene [Presence] in Respiratory specimen by Sequencing | 36031213 |
+| SARS-CoV-2 (COVID-19) RNA [Presence] in Nose by NAA with probe detection | 757677 |
+| SARS-CoV-2 (COVID-19) N gene [Presence] in Specimen by Nucleic acid amplification using CDC<br>primer-probe set N2 | 706154 |
+| SARS-CoV-2 (COVID-19) RNA panel - Respiratory specimen by NAA with probe detection | 706158 |
+| SARS-CoV-2 (COVID-19) N gene [Presence] in Respiratory specimen by NAA with probe detection | 706161 |
+| SARS-CoV-2 (COVID-19) RdRp gene [Cycle Threshold #] in Specimen by NAA with probe detection | 723470 |
+| SARS-CoV-2 (COVID-19) RdRp gene [Presence] in Lower respiratory specimen by NAA with probe<br>detection | 36031652 |
+| SARS-CoV-2 (COVID-19) N gene [Presence] in Saliva (oral fluid) by NAA with probe detection | 36661378 |
+| SARS-related coronavirus+MERS coronavirus RNA [Presence] in Respiratory specimen by NAA<br>with probe detection | 706159 |
+| SARS-related coronavirus E gene [Presence] in Specimen by NAA with probe detection | 706174 |
+| SARS-CoV-2 (COVID-19) N gene [Presence] in Specimen by Nucleic acid amplification using CDC<br>primer-probe set N1 | 706156 |
+| SARS-CoV-2 (COVID-19) RNA [Cycle Threshold #] in Respiratory specimen by NAA with probe<br>detection | 586528 |
+| Measurement of Severe acute respiratory syndrome coronavirus 2 antigen | 37310257 |
+| SARS-related coronavirus E gene [Cycle Threshold #] in Specimen by NAA with probe detection | 706166 |
+| SARS-CoV-2 (COVID-19) Ag [Presence] in Upper respiratory specimen by Immunoassay | 36032419 |
+| SARS-CoV-2 (COVID-19) RNA panel - Specimen by NAA with probe detection | 706169 |
+| SARS-CoV-2 (COVID-19) RNA [Presence] in Respiratory specimen by NAA with non-probe<br>detection | 36031238 |
 
-| Concept Name                                                                                                                   | OMOP<br>Concept Id |
+| Concept Name | OMOP<br>Concept Id |
 |--------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| SARS-CoV-2 (COVID-19) RdRp gene [Presence] in Respiratory specimen by NAA with probe<br>detection                              | 706160             |
-| SARS-CoV-2 (COVID-19) N gene [Presence] in Nasopharynx by NAA with probe detection                                             | 715272             |
-| SARS-CoV-2 (COVID-19) N gene [Presence] in Nose by NAA with probe detection                                                    | 757678             |
-| SARS-CoV-2 (COVID-19) RNA [Presence] in Saliva (oral fluid) by Sequencing                                                      | 715261             |
-| SARS-CoV-2 (COVID-19) RNA [Presence] in Specimen by NAA with probe detection                                                   | 706170             |
-| SARS-CoV-2 (COVID-19) N gene [Cycle Threshold #] in Specimen by Nucleic acid amplification<br>using CDC primer-probe set N1    | 706157             |
-| SARS-CoV-2 (COVID-19) ORF1ab region [Presence] in Respiratory specimen by NAA with probe<br>detection                          | 723478             |
-| SARS-related coronavirus N gene [Presence] in Specimen by Nucleic acid amplification using CDC<br>primer-probe set N3          | 706171             |
-| SARS-CoV+SARS-CoV-2 (COVID-19) Ag [Presence] in Respiratory specimen by Rapid<br>immunoassay                                   | 757685             |
-| SARS-CoV-2 (COVID-19) RNA [Presence] in Respiratory specimen by Sequencing                                                     | 36661377           |
-| SARS-CoV-2 (COVID-19) N gene [Log #/volume] (viral load) in Respiratory specimen by NAA with<br>probe detection                | 36661371           |
-| SARS-CoV-2 (COVID-19) RdRp gene [Cycle Threshold #] in Respiratory specimen by NAA with<br>probe detection                     | 723471             |
-| SARS-CoV-2 (COVID-19) RdRp gene [Presence] in Upper respiratory specimen by NAA with probe<br>detection                        | 36031453           |
-| SARS-CoV-2 (COVID-19) RdRp gene [Presence] in Specimen by NAA with probe detection                                             | 706173             |
-| SARS-CoV-2 (COVID-19) N gene [Presence] in Specimen by NAA with probe detection                                                | 706175             |
-| SARS-CoV-2 (COVID-19) ORF1ab region [Cycle Threshold #] in Specimen by NAA with probe<br>detection                             | 706168             |
-| SARS-CoV-2 (COVID-19) N gene [Presence] in Respiratory specimen by Nucleic acid amplification<br>using CDC primer-probe set N1 | 586524             |
-| SARS-CoV-2 (COVID-19) ORF1ab region [Presence] in Specimen by NAA with probe detection                                         | 723464             |
-| SARS-related coronavirus RNA [Presence] in Respiratory specimen by NAA with probe detection                                    | 706165             |
-| SARS-CoV-2 (COVID-19) RNA panel - Saliva (oral fluid) by NAA with probe detection                                              | 36032061           |
-| SARS-CoV-2 (COVID-19) RNA [Presence] in Respiratory specimen by NAA with probe detection                                       | 706163             |
-| SARS-CoV-2 (COVID-19) specific TCRB gene rearrangements [Presence] in Blood by Sequencing                                      | 36031944           |
+| SARS-CoV-2 (COVID-19) RdRp gene [Presence] in Respiratory specimen by NAA with probe<br>detection | 706160 |
+| SARS-CoV-2 (COVID-19) N gene [Presence] in Nasopharynx by NAA with probe detection | 715272 |
+| SARS-CoV-2 (COVID-19) N gene [Presence] in Nose by NAA with probe detection | 757678 |
+| SARS-CoV-2 (COVID-19) RNA [Presence] in Saliva (oral fluid) by Sequencing | 715261 |
+| SARS-CoV-2 (COVID-19) RNA [Presence] in Specimen by NAA with probe detection | 706170 |
+| SARS-CoV-2 (COVID-19) N gene [Cycle Threshold #] in Specimen by Nucleic acid amplification<br>using CDC primer-probe set N1 | 706157 |
+| SARS-CoV-2 (COVID-19) ORF1ab region [Presence] in Respiratory specimen by NAA with probe<br>detection | 723478 |
+| SARS-related coronavirus N gene [Presence] in Specimen by Nucleic acid amplification using CDC<br>primer-probe set N3 | 706171 |
+| SARS-CoV+SARS-CoV-2 (COVID-19) Ag [Presence] in Respiratory specimen by Rapid<br>immunoassay | 757685 |
+| SARS-CoV-2 (COVID-19) RNA [Presence] in Respiratory specimen by Sequencing | 36661377 |
+| SARS-CoV-2 (COVID-19) N gene [Log #/volume] (viral load) in Respiratory specimen by NAA with<br>probe detection | 36661371 |
+| SARS-CoV-2 (COVID-19) RdRp gene [Cycle Threshold #] in Respiratory specimen by NAA with<br>probe detection | 723471 |
+| SARS-CoV-2 (COVID-19) RdRp gene [Presence] in Upper respiratory specimen by NAA with probe<br>detection | 36031453 |
+| SARS-CoV-2 (COVID-19) RdRp gene [Presence] in Specimen by NAA with probe detection | 706173 |
+| SARS-CoV-2 (COVID-19) N gene [Presence] in Specimen by NAA with probe detection | 706175 |
+| SARS-CoV-2 (COVID-19) ORF1ab region [Cycle Threshold #] in Specimen by NAA with probe<br>detection | 706168 |
+| SARS-CoV-2 (COVID-19) N gene [Presence] in Respiratory specimen by Nucleic acid amplification<br>using CDC primer-probe set N1 | 586524 |
+| SARS-CoV-2 (COVID-19) ORF1ab region [Presence] in Specimen by NAA with probe detection | 723464 |
+| SARS-related coronavirus RNA [Presence] in Respiratory specimen by NAA with probe detection | 706165 |
+| SARS-CoV-2 (COVID-19) RNA panel - Saliva (oral fluid) by NAA with probe detection | 36032061 |
+| SARS-CoV-2 (COVID-19) RNA [Presence] in Respiratory specimen by NAA with probe detection | 706163 |
+| SARS-CoV-2 (COVID-19) specific TCRB gene rearrangements [Presence] in Blood by Sequencing | 36031944 |
 
-| Concept Name                                                                        | OMOP<br>Concept Id |
+| Concept Name | OMOP<br>Concept Id |
 |-------------------------------------------------------------------------------------|--------------------|
-| SARS-CoV-2 (COVID-19) RNA [Presence] in Serum or Plasma by NAA with probe detection | 723463             |
+| SARS-CoV-2 (COVID-19) RNA [Presence] in Serum or Plasma by NAA with probe detection | 723463 |
 
-#### Suppl. Table 3
+### Suppl. Table 3
 
 All indicators of COVID-19 infection (except for PCR and Antigen tests, Suppl. Table 3).
 
-| Concept Name                                                                                       | Concept Id |
+| Concept Name | Concept Id |
 |----------------------------------------------------------------------------------------------------|------------|
-| SARS-CoV-2 (COVID-19) IgG Ab [Presence] in Serum, Plasma or Blood by Rapid immunoassay             | 706181     |
-| SARS-CoV-2 (COVID-19) IgA Ab [Units/volume] in Serum or Plasma by Immunoassay                      | 723459     |
-| SARS-CoV-2 (COVID-19) IgM Ab [Presence] in Serum, Plasma or Blood by Rapid immunoassay             | 706180     |
-| SARS-CoV-2 (COVID-19) IgM Ab [Presence] in DBS by Immunoassay                                      | 36659631   |
-| SARS-CoV-2 (COVID-19) IgM Ab [Titer] in Serum or Plasma by Immunofluorescence                      | 36661373   |
-| SARS-CoV-2 (COVID-19) neutralizing antibody [Presence] in Serum by pVNT                            | 757680     |
-| SARS-CoV-2 (COVID-19) IgG+IgM Ab [Presence] in Serum or Plasma by Immunoassay                      | 723479     |
-| SARS-CoV-2 (COVID-19) Ab panel - Serum, Plasma or Blood by Rapid immunoassay                       | 706176     |
-| SARS-CoV-2 (COVID-19) IgG Ab [Titer] in Serum or Plasma by Immunofluorescence                      | 36661374   |
-| SARS-CoV-2 (COVID-19) IgM Ab [Units/volume] in Serum or Plasma by Immunoassay                      | 706178     |
-| SARS-CoV-2 (COVID-19) IgA Ab [Presence] in Serum or Plasma by Immunoassay                          | 723473     |
-| SARS-CoV-2 (COVID-19) neutralizing antibody [Titer] in Serum by pVNT                               | 757679     |
-| SARS-CoV-2 (COVID-19) Ab [Presence] in Serum or Plasma by Immunoassay                              | 586515     |
-| SARS-CoV-2 (COVID-19) IgG Ab [Units/volume] in Serum or Plasma by Immunoassay                      | 706177     |
-| SARS-CoV-2 (COVID-19) S protein RBD neutralizing antibody [Presence] in Serum or Plasma by<br>sVNT | 36031734   |
-| SARS-CoV-2 (COVID-19) IgA Ab [Titer] in Serum or Plasma by Immunofluorescence                      | 36661372   |
-| SARS-CoV-2 (COVID-19) Ab [Units/volume] in Serum or Plasma by Immunoassay                          | 586522     |
-| SARS-CoV-2 (COVID-19) IgA+IgM [Presence] in Serum or Plasma by Immunoassay                         | 757686     |
-| Measurement of Severe acute respiratory syndrome coronavirus 2 antibody                            | 37310258   |
-| SARS-CoV-2 (COVID-19) IgG Ab [Presence] in Serum or Plasma by Immunoassay                          | 723474     |
-| SARS-CoV-2 (COVID-19) Ab panel - Serum or Plasma by Immunoassay                                    | 706179     |
-| SARS-CoV-2 stimulated gamma interferon [Presence] in Blood                                         | 36031969   |
-| SARS-CoV-2 stimulated gamma interferon release by T-cells [Units/volume] in Blood                  | 36032309   |
-| SARS-CoV-2 (COVID-19) IgA Ab [Presence] in Serum, Plasma or Blood by Rapid immunoassay             | 586521     |
+| SARS-CoV-2 (COVID-19) IgG Ab [Presence] in Serum, Plasma or Blood by Rapid immunoassay | 706181 |
+| SARS-CoV-2 (COVID-19) IgA Ab [Units/volume] in Serum or Plasma by Immunoassay | 723459 |
+| SARS-CoV-2 (COVID-19) IgM Ab [Presence] in Serum, Plasma or Blood by Rapid immunoassay | 706180 |
+| SARS-CoV-2 (COVID-19) IgM Ab [Presence] in DBS by Immunoassay | 36659631 |
+| SARS-CoV-2 (COVID-19) IgM Ab [Titer] in Serum or Plasma by Immunofluorescence | 36661373 |
+| SARS-CoV-2 (COVID-19) neutralizing antibody [Presence] in Serum by pVNT | 757680 |
+| SARS-CoV-2 (COVID-19) IgG+IgM Ab [Presence] in Serum or Plasma by Immunoassay | 723479 |
+| SARS-CoV-2 (COVID-19) Ab panel - Serum, Plasma or Blood by Rapid immunoassay | 706176 |
+| SARS-CoV-2 (COVID-19) IgG Ab [Titer] in Serum or Plasma by Immunofluorescence | 36661374 |
+| SARS-CoV-2 (COVID-19) IgM Ab [Units/volume] in Serum or Plasma by Immunoassay | 706178 |
+| SARS-CoV-2 (COVID-19) IgA Ab [Presence] in Serum or Plasma by Immunoassay | 723473 |
+| SARS-CoV-2 (COVID-19) neutralizing antibody [Titer] in Serum by pVNT | 757679 |
+| SARS-CoV-2 (COVID-19) Ab [Presence] in Serum or Plasma by Immunoassay | 586515 |
+| SARS-CoV-2 (COVID-19) IgG Ab [Units/volume] in Serum or Plasma by Immunoassay | 706177 |
+| SARS-CoV-2 (COVID-19) S protein RBD neutralizing antibody [Presence] in Serum or Plasma by<br>sVNT | 36031734 |
+| SARS-CoV-2 (COVID-19) IgA Ab [Titer] in Serum or Plasma by Immunofluorescence | 36661372 |
+| SARS-CoV-2 (COVID-19) Ab [Units/volume] in Serum or Plasma by Immunoassay | 586522 |
+| SARS-CoV-2 (COVID-19) IgA+IgM [Presence] in Serum or Plasma by Immunoassay | 757686 |
+| Measurement of Severe acute respiratory syndrome coronavirus 2 antibody | 37310258 |
+| SARS-CoV-2 (COVID-19) IgG Ab [Presence] in Serum or Plasma by Immunoassay | 723474 |
+| SARS-CoV-2 (COVID-19) Ab panel - Serum or Plasma by Immunoassay | 706179 |
+| SARS-CoV-2 stimulated gamma interferon [Presence] in Blood | 36031969 |
+| SARS-CoV-2 stimulated gamma interferon release by T-cells [Units/volume] in Blood | 36032309 |
+| SARS-CoV-2 (COVID-19) IgA Ab [Presence] in Serum, Plasma or Blood by Rapid immunoassay | 586521 |
 
-| Concept Name                                                                                                  | Concept Id |
+| Concept Name | Concept Id |
 |---------------------------------------------------------------------------------------------------------------|------------|
-| SARS-CoV-2 (COVID-19) Ab [Presence] in DBS by Immunoassay                                                     | 36031197   |
-| SARS-CoV-2 (COVID-19) Ab [Presence] in Serum, Plasma or Blood by Rapid immunoassay                            | 36661369   |
-| SARS-CoV-2 (COVID-19) IgM Ab [Presence] in Serum or Plasma by Immunoassay                                     | 723475     |
-| SARS-CoV-2 (COVID-19) Ab [Interpretation] in Serum or Plasma                                                  | 723480     |
-| SARS-CoV-2 (COVID-19) IgG Ab [Presence] in DBS by Immunoassay                                                 | 586527     |
-| SARS-CoV-2 stimulated gamma interferon release by T-cells [Units/volume] corrected for background<br>in Blood | 36031956   |
+| SARS-CoV-2 (COVID-19) Ab [Presence] in DBS by Immunoassay | 36031197 |
+| SARS-CoV-2 (COVID-19) Ab [Presence] in Serum, Plasma or Blood by Rapid immunoassay | 36661369 |
+| SARS-CoV-2 (COVID-19) IgM Ab [Presence] in Serum or Plasma by Immunoassay | 723475 |
+| SARS-CoV-2 (COVID-19) Ab [Interpretation] in Serum or Plasma | 723480 |
+| SARS-CoV-2 (COVID-19) IgG Ab [Presence] in DBS by Immunoassay | 586527 |
+| SARS-CoV-2 stimulated gamma interferon release by T-cells [Units/volume] corrected for background<br>in Blood | 36031956 |
 
-#### Suppl. Table 4
+### Suppl. Table 4
 
 All significant single-condition tests. Listed estimates are odds ratios for the given cohort pre-topost compared to Controls, and p-values are adjusted across all condition tests for both cohorts (Bonferroni, prior to filtering to significance). Available at https://doi.org/10.5281/zenodo.11188766.
 
-#### Suppl. Table 5
+### Suppl. Table 5
 
 Summary statistics for patients in the assessment set, with mean and standard deviation of condition era counts in pre- and post-infection phases. Note that the pre-infection phase covers 1 year of patient history, while the post-infection phase covers 6 months post-acute.
 
-| Cohort  | Life Stage | Phase | Mean #<br>Conditions | SD #<br>Conditions | # Patients | # Sites |
+| Cohort | Life Stage | Phase | Mean #<br>Conditions | SD #<br>Conditions | # Patients | # Sites |
 |---------|------------|-------|----------------------|--------------------|------------|---------|
-| Control | adolescent | post  | 10.296               | 10.373             | 10789      | 32      |
-| Control | adolescent | pre   | 15.76                | 16.994             | 10789      | 32      |
-| Control | adult      | post  | 17.518               | 18.525             | 180338     | 34      |
-| Control | adult      | pre   | 27.794               | 29.446             | 180338     | 34      |
-| Control | pediatric  | post  | 8.894                | 9.611              | 16029      | 32      |
-| Control | pediatric  | pre   | 15.815               | 19.157             | 16029      | 32      |
-| Control | senior     | post  | 25.357               | 24.142             | 95861      | 33      |
-| Control | senior     | pre   | 40.438               | 36.562             | 95861      | 33      |
-| COVID   | adolescent | post  | 10.311               | 12.376             | 3703       | 31      |
-| COVID   | adolescent | pre   | 15.979               | 19.2               | 3703       | 31      |
-| COVID   | adult      | post  | 17.177               | 18.777             | 60279      | 34      |
-| COVID   | adult      | pre   | 28.432               | 31.169             | 60279      | 34      |
+| Control | adolescent | post | 10.296 | 10.373 | 10789 | 32 |
+| Control | adolescent | pre | 15.76 | 16.994 | 10789 | 32 |
+| Control | adult | post | 17.518 | 18.525 | 180338 | 34 |
+| Control | adult | pre | 27.794 | 29.446 | 180338 | 34 |
+| Control | pediatric | post | 8.894 | 9.611 | 16029 | 32 |
+| Control | pediatric | pre | 15.815 | 19.157 | 16029 | 32 |
+| Control | senior | post | 25.357 | 24.142 | 95861 | 33 |
+| Control | senior | pre | 40.438 | 36.562 | 95861 | 33 |
+| COVID | adolescent | post | 10.311 | 12.376 | 3703 | 31 |
+| COVID | adolescent | pre | 15.979 | 19.2 | 3703 | 31 |
+| COVID | adult | post | 17.177 | 18.777 | 60279 | 34 |
+| COVID | adult | pre | 28.432 | 31.169 | 60279 | 34 |
 
-| COVID | pediatric  | post | 10.074 | 12.872 | 3724  | 29 |
+| COVID | pediatric | post | 10.074 | 12.872 | 3724 | 29 |
 |-------|------------|------|--------|--------|-------|----|
-| COVID | pediatric  | pre  | 17.001 | 21.634 | 3724  | 29 |
-| COVID | senior     | post | 24.847 | 24.162 | 21668 | 34 |
-| COVID | senior     | pre  | 41.522 | 38.15  | 21668 | 34 |
-| PASC  | adolescent | post | 23.287 | 22.347 | 66    | 20 |
-| PASC  | adolescent | pre  | 18.893 | 21.219 | 66    | 20 |
-| PASC  | adult      | post | 30.281 | 30.778 | 2047  | 32 |
-| PASC  | adult      | pre  | 34.566 | 42.242 | 2047  | 32 |
-| PASC  | pediatric  | post | 21.061 | 15.282 | 49    | 18 |
-| PASC  | pediatric  | pre  | 19.755 | 15.492 | 49    | 18 |
-| PASC  | senior     | post | 42.374 | 36.527 | 697   | 32 |
-| PASC  | senior     | pre  | 50.292 | 51.6   | 697   | 32 |
+| COVID | pediatric | pre | 17.001 | 21.634 | 3724 | 29 |
+| COVID | senior | post | 24.847 | 24.162 | 21668 | 34 |
+| COVID | senior | pre | 41.522 | 38.15 | 21668 | 34 |
+| PASC | adolescent | post | 23.287 | 22.347 | 66 | 20 |
+| PASC | adolescent | pre | 18.893 | 21.219 | 66 | 20 |
+| PASC | adult | post | 30.281 | 30.778 | 2047 | 32 |
+| PASC | adult | pre | 34.566 | 42.242 | 2047 | 32 |
+| PASC | pediatric | post | 21.061 | 15.282 | 49 | 18 |
+| PASC | pediatric | pre | 19.755 | 15.492 | 49 | 18 |
+| PASC | senior | post | 42.374 | 36.527 | 697 | 32 |
+| PASC | senior | pre | 50.292 | 51.6 | 697 | 32 |
 
-#### Suppl. Table 6
+### Suppl. Table 6
 
 All topic-level logistic model tests. Estimates are odds ratios for the given cohort and demographic compared to Controls for the same demographic. Ratios where the demographic is listed as NA are for demographic contrasts independent of phase or cohort (model effectiveness checks, see main Methods). P-values are adjusted across all contrast tests (Holm). Available at [https://doi.org/10.5281/zenodo.11188766.](https://doi.org/10.5281/zenodo.11188766)
 
-#### Suppl. Table 7
+### Suppl. Table 7
 
 Source ICD code prefixes used to generate Quan-based comorbidity scores.
 
-| ICD Prefixes                                                                                                                                                                           | Charleson Group                | Quan<br>Score |
+| ICD Prefixes | Charleson Group | Quan<br>Score |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|---------------|
-| 'I21','I22','I252'                                                                                                                                                                     | 1: Acute or historical MI      | 0             |
-| 'I43','I50','I099','I110','I130','I132','I255','I420','I425','I426','I427','I428','I429','P290'                                                                                        | 2: CHF                         | 2             |
-| 'I70','I71','I731','I738','I739','I771','I790','I792','K551','K558','K559','Z958','Z959'                                                                                               | 3: Peripheral vascular disease | 0             |
-| 'G45','G46','I60','I61','I62','I63','I64','I65','I66','I67','I68','I69','H340'                                                                                                         | 4: Cerebrovascular disease     | 0             |
-| 'F00','F01','F02','F03','G30','F051','G311'                                                                                                                                            | 5: Dementia                    | 2             |
-| 'J40','J41','J42','J43','J44','J45','J46','J47','J60','J61','J62','J63','J64','J65','J66','J6<br>7','I278','I279','J684','J701','J703'                                                 | 6: COPD                        | 1             |
-| 'M32','M33','M34','M06','M05','M315','M351','M353','M360'                                                                                                                              | 7: Rheumatic disease           | 1             |
-| 'K25','K26','K27','K28'                                                                                                                                                                | 8: Peptic ulcer                | 0             |
-| 'B18','K73','K74','K700','K701','K702','K703','K709','K717','K713','K714','K715','K<br>760','K762','K763','K764','K768','K769','Z944'                                                  | 9: Mild liver disease          | 2             |
-| 'E100','E101','E106','E108','E109','E110','E111','E116','E118','E119','E120','E121<br>','E126','E128','E129','E130','E131','E136','E138','E139','E140','E141','E146','E14<br>8','E149' | 10: Diabetes                   | 0             |
+| 'I21','I22','I252' | 1: Acute or historical MI | 0 |
+| 'I43','I50','I099','I110','I130','I132','I255','I420','I425','I426','I427','I428','I429','P290' | 2: CHF | 2 |
+| 'I70','I71','I731','I738','I739','I771','I790','I792','K551','K558','K559','Z958','Z959' | 3: Peripheral vascular disease | 0 |
+| 'G45','G46','I60','I61','I62','I63','I64','I65','I66','I67','I68','I69','H340' | 4: Cerebrovascular disease | 0 |
+| 'F00','F01','F02','F03','G30','F051','G311' | 5: Dementia | 2 |
+| 'J40','J41','J42','J43','J44','J45','J46','J47','J60','J61','J62','J63','J64','J65','J66','J6<br>7','I278','I279','J684','J701','J703' | 6: COPD | 1 |
+| 'M32','M33','M34','M06','M05','M315','M351','M353','M360' | 7: Rheumatic disease | 1 |
+| 'K25','K26','K27','K28' | 8: Peptic ulcer | 0 |
+| 'B18','K73','K74','K700','K701','K702','K703','K709','K717','K713','K714','K715','K<br>760','K762','K763','K764','K768','K769','Z944' | 9: Mild liver disease | 2 |
+| 'E100','E101','E106','E108','E109','E110','E111','E116','E118','E119','E120','E121<br>','E126','E128','E129','E130','E131','E136','E138','E139','E140','E141','E146','E14<br>8','E149' | 10: Diabetes | 0 |
 
-| 'E102','E103','E104','E105','E107','E112','E113','E114','E115','E117','E122','E123<br>','E124','E125','E127','E132','E133','E134','E135','E137','E142','E143','E144','E14<br>5','E147'                                                                                                                                                                                                                                                                                                                                                 | 11: Diabetes with chronic<br>complications | 1 |
+| 'E102','E103','E104','E105','E107','E112','E113','E114','E115','E117','E122','E123<br>','E124','E125','E127','E132','E133','E134','E135','E137','E142','E143','E144','E14<br>5','E147' | 11: Diabetes with chronic<br>complications | 1 |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|---|
-| 'G81','G82','G041','G114','G801','G802','G830','G831','G832','G833','G834','G83<br>9'                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 12: Paralysis                              | 2 |
-| 'N18','N19','N052','N053','N054','N055','N056','N057','N250','I120','I131','N032','N<br>033','N034','N035','N036','N037','Z490','Z491','Z492','Z940','Z992'                                                                                                                                                                                                                                                                                                                                                                            | 13: Renal disease                          | 1 |
-| 'C00','C01','C02','C03','C04','C05','C06','C07','C08','C09','C10','C11','C12','C13','<br>C14','C15','C16','C17','C18','C19','C20','C21','C22','C23','C24','C25','C26','C30',<br>'C31','C32','C33','C34','C37','C38','C39','C40','C41','C43','C45','C46','C47','C48',<br>'C49','C50','C51','C52','C53','C54','C55','C56','C57','C58','C60','C61','C62','C63',<br>'C64','C65','C66','C67','C68','C69','C70','C71','C72','C73','C74','C75','C76','C81',<br>'C82','C83', 'C84','C85','C88','C90','C91','C92','C93','C94','C95','C96','C97' | 14: Localized<br>cancer/leukemia/lymphoma  | 2 |
-| 'K704','K711','K721','K729','K765','K766','K767','I850','I859','I864','I982'                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 15: Moderate/severe liver<br>disease       | 4 |
-| 'C77','C78','C79','C80'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 16: Metastatic cancer                      | 6 |
-| 'B20','B21','B22','B24'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 17: HIV/AIDS                               | 4 |
+| 'G81','G82','G041','G114','G801','G802','G830','G831','G832','G833','G834','G83<br>9' | 12: Paralysis | 2 |
+| 'N18','N19','N052','N053','N054','N055','N056','N057','N250','I120','I131','N032','N<br>033','N034','N035','N036','N037','Z490','Z491','Z492','Z940','Z992' | 13: Renal disease | 1 |
+| 'C00','C01','C02','C03','C04','C05','C06','C07','C08','C09','C10','C11','C12','C13','<br>C14','C15','C16','C17','C18','C19','C20','C21','C22','C23','C24','C25','C26','C30',<br>'C31','C32','C33','C34','C37','C38','C39','C40','C41','C43','C45','C46','C47','C48',<br>'C49','C50','C51','C52','C53','C54','C55','C56','C57','C58','C60','C61','C62','C63',<br>'C64','C65','C66','C67','C68','C69','C70','C71','C72','C73','C74','C75','C76','C81',<br>'C82','C83', 'C84','C85','C88','C90','C91','C92','C93','C94','C95','C96','C97' | 14: Localized<br>cancer/leukemia/lymphoma | 2 |
+| 'K704','K711','K721','K729','K765','K766','K767','I850','I859','I864','I982' | 15: Moderate/severe liver<br>disease | 4 |
+| 'C77','C78','C79','C80' | 16: Metastatic cancer | 6 |
+| 'B20','B21','B22','B24' | 17: HIV/AIDS | 4 |

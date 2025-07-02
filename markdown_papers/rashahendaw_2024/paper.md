@@ -25,11 +25,11 @@ tags:
 
 # Comprehensive Personal Health Knowledge Graph for Effective Management and Utilization of Personal Health Data
 
-Rasha Hendawi *Department of Computer Science North Dakota State University*  Fargo, USA rasha.hendawi@ndsu.edu
+Rasha Hendawi *Department of Computer Science North Dakota State University* Fargo, USA rasha.hendawi@ndsu.edu
 
-*Abstract***— The widespread use of electronic health records (EHRs) and wearable devices has generated a massive amount of personal health data (PHD) that can be utilized for research and patient care. However, integrating and managing various types of PHD from different sources presents significant challenges, including data interoperability, privacy, and security concerns. In response, this paper proposes a Personal Health Knowledge Graph for integrated health data management and utilization. This approach utilizes knowledge graphs to structure and integrate different types of PHD from various sources, including EHR data, wearable device sensing data, insurance data, and social determinants of health. The proposed approach offers a comprehensive view of an individual's health, allowing for the integration and analysis of different types of PHD. Additionally, this paper proposes three use cases that illustrate the practical applications and advantages of the Personal Health Knowledge Graph (PHKG) in healthcare data management and utilization. Overall, the Personal Health Knowledge Graph (PHKG) provides a promising solution for managing and analyzing PHD, which can be used to improve healthcare outcomes and research.**
+**Abstract:** **— The widespread use of electronic health records (EHRs) and wearable devices has generated a massive amount of personal health data (PHD) that can be utilized for research and patient care. However, integrating and managing various types of PHD from different sources presents significant challenges, including data interoperability, privacy, and security concerns. In response, this paper proposes a Personal Health Knowledge Graph for integrated health data management and utilization. This approach utilizes knowledge graphs to structure and integrate different types of PHD from various sources, including EHR data, wearable device sensing data, insurance data, and social determinants of health. The proposed approach offers a comprehensive view of an individual's health, allowing for the integration and analysis of different types of PHD. Additionally, this paper proposes three use cases that illustrate the practical applications and advantages of the Personal Health Knowledge Graph (PHKG) in healthcare data management and utilization. Overall, the Personal Health Knowledge Graph (PHKG) provides a promising solution for managing and analyzing PHD, which can be used to improve healthcare outcomes and research.**
 
-#### *Keywords—Personal Health Data, Knowledge Graphs, Ontology, Electronic Health Records, Semantic Query*
+### *Keywords—Personal Health Data, Knowledge Graphs, Ontology, Electronic Health Records, Semantic Query*
 
 ## I. INTRODUCTION
 
@@ -43,7 +43,7 @@ To address the challenges associated with the increasing volume of health-relate
 
 979-8-3503-7198-7/24/\$31.00 ©2024 IEEE
 
-Juan Li *Department of Computer Science North Dakota State University*  Fargo, USA j.li@ndsu.edu
+Juan Li *Department of Computer Science North Dakota State University* Fargo, USA j.li@ndsu.edu
 
 This work was supported by the National Science Foundation (NSF) with award numbers: 1722913 and 2218046.
 
@@ -51,11 +51,11 @@ in addressing critical healthcare challenges. First, the Healthcare Data Graph E
 
 The rest of the paper is organized as follows: Section II surveys the related work. Section III explains the details of the proposed methodology. Section IV explains the use cases. Section V discusses the findings and insights of this research. Section VI concludes the paper.
 
-#### II. RELATED WORK
+### II. RELATED WORK
 
- A secure and effective health data management system is necessary for better health care outcomes. EHRs are a fundamental support needed for documenting patients' health data. However, EHRs are based entirely on data reported and accessed by health care providers. Therefore, Personal Health Records (PHR) were proposed to integrate data from many sources, ranging from devices connected to the patient to health data from EHRs stored in health care provider systems. PHRs are defined by the Markle Foundation as "an electronic application through which individuals can access, manage, and share their health information and that of others for whom they are authorized, in a private, secure, and confidential environment'' [7].
+A secure and effective health data management system is necessary for better health care outcomes. EHRs are a fundamental support needed for documenting patients' health data. However, EHRs are based entirely on data reported and accessed by health care providers. Therefore, Personal Health Records (PHR) were proposed to integrate data from many sources, ranging from devices connected to the patient to health data from EHRs stored in health care provider systems. PHRs are defined by the Markle Foundation as "an electronic application through which individuals can access, manage, and share their health information and that of others for whom they are authorized, in a private, secure, and confidential environment'' [7].
 
- The PHR types are categorized into three categories: first, standalone applications [8], this type of PHRs does not directly connect with any other health-related systems and the users manually input medical records and related data. This type suffers from low reliability and compatibility due to its exclusive focus on personal use. The second type are tethered PHRs [9], which are connected to a single EHR. Due to the lack of interoperability between other EHR systems, it can be difficult to get a complete picture of a patient's medical history from different hospitals, healthcare providers, or healthcare systems [10]. This can necessitate repeating tests, which are timeconsuming, expensive, and bad for the patient's general health. This presses on the need for a third type, which is integrated PHR systems that collect and consolidate all personal health data from different resources into a unified framework.
+The PHR types are categorized into three categories: first, standalone applications [8], this type of PHRs does not directly connect with any other health-related systems and the users manually input medical records and related data. This type suffers from low reliability and compatibility due to its exclusive focus on personal use. The second type are tethered PHRs [9], which are connected to a single EHR. Due to the lack of interoperability between other EHR systems, it can be difficult to get a complete picture of a patient's medical history from different hospitals, healthcare providers, or healthcare systems [10]. This can necessitate repeating tests, which are timeconsuming, expensive, and bad for the patient's general health. This presses on the need for a third type, which is integrated PHR systems that collect and consolidate all personal health data from different resources into a unified framework.
 
 To achieve interoperability, the HL7 FHIR standard [11] was adopted to build integrated PHR. In their research, Marcos C. et al. [12], discuss the design of a data integrator (HL7 Virtual Medical Record — vMR) that collects and transforms patient information from various EHRs and stores it into a personal health record. To enable smooth interaction between the personal health records and heterogeneous data resources, HL7 vMR is used as a message model for all components. The work by Hong J. et al. [13] also adopted the HL7 FHIR standard [11] to propose a system that stores EHRs data and transfers it to a PHR system via email. The authors also proposed the development of a mobile application to allow users to view and manage their data on the PHR system. Although these systems solve the problem of interoperability, they only focus on gathering relational healthcare data from EHRs neglecting other
 
@@ -67,35 +67,35 @@ Several studies have explored the use of knowledge graphs in the healthcare doma
 
 These studies have shown that knowledge graphs can be effective in managing and integrating health data. However, there is still a need for additional research to investigate the ability to utilize personal knowledge graphs and provide users with easy and transparent access to their own health data, which will empower them to take a more active role in managing their health, gain a better understanding of their medical history and treatment options, and securely exploit their PHD data.
 
-#### III. DESIGN OF THE FRAMEWORK
+### III. DESIGN OF THE FRAMEWORK
 
- We propose a Personal Health Knowledge Graph (PHKG) to integrate and structure various types of PHD within a graphbased framework. Fig. 1 shows the architecture of the proposed system. We present the details of framework design in the rest of this section.
+We propose a Personal Health Knowledge Graph (PHKG) to integrate and structure various types of PHD within a graphbased framework. Figure 1 shows the architecture of the proposed system. We present the details of framework design in the rest of this section.
 
 ![](_page_2_Figure_0.jpeg)
-<!-- Image Description: This flowchart illustrates a system for building a health knowledge graph.  Data is collected from Electronic Health Records (EHRs), sensors, and health apps, then integrated through standardization, transformation, and validation. This integrated data is used to construct a knowledge graph with schema and entity layers,  represented as linked nodes. Finally, this graph powers a health application providing search, visualization, chatbot, and recommendation functionalities. -->
+<!-- Image Description: This flowchart illustrates a system for building a health knowledge graph. Data is collected from Electronic Health Records (EHRs), sensors, and health apps, then integrated through standardization, transformation, and validation. This integrated data is used to construct a knowledge graph with schema and entity layers, represented as linked nodes. Finally, this graph powers a health application providing search, visualization, chatbot, and recommendation functionalities. -->
 
-#### Fig 1: System Architecture
+### Fig 1: System Architecture
 
-#### *A. Knowledge Graph Creation*
+### *A. Knowledge Graph Creation*
 
 Our process commences by gathering real-time relevant medical knowledge and personal health data from a wide array of sources, including IoT health data provided by wearable sensors, data residing in EHRs adopted by healthcare providers, personal health apps, laboratory data, and insurance records. These diverse sources furnish invaluable insights into the patient's health status and context, facilitating a comprehensive understanding of their overall well-being.
 
 To guarantee consistency and interoperability, we transform the raw data from these disparate sources, harmonizing it into a standardized format presented by a common ontology. This ontology offers formal and standard representations of concepts relevant to personal health and the relationships between them. It acts as an inventory of all available medical data elements from various source systems and serves as the schema of the knowledge graph.
 
-As illustrated in Fig. 2, this ontology defines pertinent health-related concepts such as symptoms, diseases, treatments, medications, and their associated relationships. For example, the ontology might include the concept of "heart disease," which would have relationships to other concepts such as "blood pressure," "cholesterol levels," "cardiac procedures," and "risk factors." Each of these concepts would be represented as nodes in the personal health knowledge graph, and edges would connect them to other related concepts. For instance, "cardiac procedures" could be linked to "risk factors," while "cholesterol levels" could be connected to "blood pressure" and "cardiac procedures". We reused HealthOnto, which was designed in our previous research [21]
+As illustrated in Figure 2, this ontology defines pertinent health-related concepts such as symptoms, diseases, treatments, medications, and their associated relationships. For example, the ontology might include the concept of "heart disease," which would have relationships to other concepts such as "blood pressure," "cholesterol levels," "cardiac procedures," and "risk factors." Each of these concepts would be represented as nodes in the personal health knowledge graph, and edges would connect them to other related concepts. For instance, "cardiac procedures" could be linked to "risk factors," while "cholesterol levels" could be connected to "blood pressure" and "cardiac procedures". We reused HealthOnto, which was designed in our previous research [21]
 
- In designing the personal health ontology, we followed and adopted HL7 FHIR standards [11]. Defining a FHIR-based ontology allows standardizing the knowledge, which helps ensure consistency and interoperability across different sources of personal health data. It can also provide a framework for developing intelligent applications that can reason over personal health data and provide personalized insights and recommendations. We extended the HL7 FHIR-based ontology proposed in [22], which defines the domain entities of a personal health record. To enhance semantic interoperability and knowledge sharing, concepts in the ontology were linked with classes in BioPortal ontologies. The connection was based on BioPortal's PURL identifiers to establish a semantic link to existing medical vocabularies, such as SNOMED CT or LOINC. We extended the ontology to include other aspects of a user, including profiles, lifestyle interventions, healthcare providers, and data generated by health-related wearable devices. For example, additional classes LifeStyle, Diet, SmokingStatus, and Nutrition, as well as their sub-classes and properties, were added to reflect the user's lifestyle. These classes and properties can provide additional information about an individual's lifestyle.
+In designing the personal health ontology, we followed and adopted HL7 FHIR standards [11]. Defining a FHIR-based ontology allows standardizing the knowledge, which helps ensure consistency and interoperability across different sources of personal health data. It can also provide a framework for developing intelligent applications that can reason over personal health data and provide personalized insights and recommendations. We extended the HL7 FHIR-based ontology proposed in [22], which defines the domain entities of a personal health record. To enhance semantic interoperability and knowledge sharing, concepts in the ontology were linked with classes in BioPortal ontologies. The connection was based on BioPortal's PURL identifiers to establish a semantic link to existing medical vocabularies, such as SNOMED CT or LOINC. We extended the ontology to include other aspects of a user, including profiles, lifestyle interventions, healthcare providers, and data generated by health-related wearable devices. For example, additional classes LifeStyle, Diet, SmokingStatus, and Nutrition, as well as their sub-classes and properties, were added to reflect the user's lifestyle. These classes and properties can provide additional information about an individual's lifestyle.
 
 ![](_page_2_Figure_8.jpeg)
-<!-- Image Description: The image displays three hierarchical ontologies representing a data model.  The left shows a class hierarchy, the middle an object property hierarchy, and the right a data property matrix.  Each lists various elements relevant to healthcare data, such as clinical records, medications, and sensor data. The purpose is to illustrate the structured organization of healthcare information for knowledge representation and data integration. -->
+<!-- Image Description: The image displays three hierarchical ontologies representing a data model. The left shows a class hierarchy, the middle an object property hierarchy, and the right a data property matrix. Each lists various elements relevant to healthcare data, such as clinical records, medications, and sensor data. The purpose is to illustrate the structured organization of healthcare information for knowledge representation and data integration. -->
 
 Fig 2: Part of the HealthOnto ontology.
 
- The collected data will be mapped to the ontology. To transform the EHRs' relational data into semantic data represented by the RDF, we applied W3C's RDB2RDF [23] direct mapping method. It specifies the way to generate RDF triples from one or more relational tables without loss of information. It uses relational database instances and schemas as inputs and automatically generates RDF semantic data.
+The collected data will be mapped to the ontology. To transform the EHRs' relational data into semantic data represented by the RDF, we applied W3C's RDB2RDF [23] direct mapping method. It specifies the way to generate RDF triples from one or more relational tables without loss of information. It uses relational database instances and schemas as inputs and automatically generates RDF semantic data.
 
 When dealing with semi-structured data such as the data generated from wearable sensors, which is mostly lightweight and easy to process data formats such as JSON, XML, and CSV, we utilized RML [24] which is a language and framework for mapping data from various heterogeneous sources to RDF format.
 
- The next step is representing the collected data as a directed graph. The graph's nodes represent entities, while the edges describe relationships between them. Two nodes that are connected via an edge are called triples. We use the semantic web standard, Resource Description Framework (RDF), where nodes are the concepts and edges are the properties. We also use some constructs from the RDF schema and the Web Ontology Language (OWL) [25]. For example, a person's medical conditions would be represented as nodes, with edges connecting them to related nodes such as medications, test results, and symptoms. Here is an example of data in a personal knowledge graph presented in triple format using RDF syntax:
+The next step is representing the collected data as a directed graph. The graph's nodes represent entities, while the edges describe relationships between them. Two nodes that are connected via an edge are called triples. We use the semantic web standard, Resource Description Framework (RDF), where nodes are the concepts and edges are the properties. We also use some constructs from the RDF schema and the Web Ontology Language (OWL) [25]. For example, a person's medical conditions would be represented as nodes, with edges connecting them to related nodes such as medications, test results, and symptoms. Here is an example of data in a personal knowledge graph presented in triple format using RDF syntax:
 
 - 01"^^<http://www.w3.org/2001/XMLSchema#date> .
 - <https://cs.ndsu.edu/PHKG/user1> <http://schema.org/gender> "male" . <https://cs.ndsu.edu/PHKG/user1> <http://schema.org/maritalStatus> "married"
@@ -124,9 +124,9 @@ In this example, we have a user identified by the URI "*https:// cs.ndsu.edu/PHK
 
 To ensure the quality of our knowledge graph and to identify conflicting information, we verified that the data has been accurately integrated into the knowledge graph and that the triples of KGs are semantically correct. This was achieved by running validation checks. Our study employed a technique known as Corroborative Fact Validation (COPAAL) [26], which relies on statements existing within a knowledge graph (KG) to validate facts. This is done in three stages: the initialization stage, where COPAAL receives a triple, and the path discovery stage, where a set of alternate paths between the subject and object of the triple are identified. And finally, the path scoring stage evaluates each alternate path using a counting approach to determine the number of paths connecting the subject and object of the triple. Based on these scores, COPAAL generates a final score that expresses the veracity of the given triple. We continuously update the knowledge graph to maintain the latest personal health data.
 
-#### *B. Query and Navigation of the Knowledge Graph*
+### *B. Query and Navigation of the Knowledge Graph*
 
- The query and navigation of a knowledge graph constitute the fundamental processes through which users and applications interact with and derive insights from these rich, interconnected data structures.
+The query and navigation of a knowledge graph constitute the fundamental processes through which users and applications interact with and derive insights from these rich, interconnected data structures.
 
 Querying knowledge graphs involves formulating organized queries using a specific query language to retrieve specific information or patterns from the graph. The queries are then executed against the knowledge graph using a query engine. The engine traverses the graph, looking for matches to the specified patterns. Once the query execution is complete, the results are returned in a structured format. This process enables users to uncover meaningful insights, discover relationships, and extract data that aligns with their research objectives.
 
@@ -154,45 +154,45 @@ WHERE {
 
 ?indicatedDisease :hasName "Diabetes";
 
- FILTER(?prescriptionDate>=( NOW() -""P1Y^^xsd:duraion)) }
+FILTER(?prescriptionDate>=( NOW() -""P1Y^^xsd:duraion)) }
 
 <sup>&</sup>lt;https://cs.ndsu.edu/PHKG/user1> <http://schema.org/name> "Sara Johnson". <https://cs.ndsu.edu/PHKG/user1> <http://schema.org/birthDate> "1980-01-
 
 SPARQL isn't limited to structured queries alone; it also enables the formulation of advanced navigational queries, leveraging property path expressions to traverse knowledge graphs efficiently. Starting from a specific node of interest, SPARQL queries can be constructed to navigate through the graph, uncovering contextual information and hidden relationships along the way. Two primary approaches can be employed for this purpose: graph traversal-based and recursive queries. Graph traversal-based methods employ algorithms like depth-first or breadth-first search to traverse the RDF graph, identifying all paths matching the property path expression. In contrast, recursive queries break down the property path expression into sub-expressions, employing recursive SPARQL queries to discover all paths corresponding to each subexpression.
 
-#### *C. Generating Embeddings of the Knowledge Graph*
+### *C. Generating Embeddings of the Knowledge Graph*
 
 Generating embeddings from the PHKG involves transforming the graph's entities and relationships into vector representations that capture semantic information. These embeddings can be used for various applications, such as semantic similarity measurement, personalized recommendations, and disease prediction. We can create graphbased embeddings. Methods like TransE [29], TransH [30], or GraphSAGE [31] are suitable for knowledge graphs. These methods consider the graph structure and semantic relationships between entities.
 
 Entity embedding involves representing entities (nodes) in the knowledge graph as vectors in a continuous vector space. Each entity is assigned a unique vector representation, and these representations capture the semantic meaning of the entities. Entity embeddings are useful for various tasks such as semantic similarity measurement, recommendation systems, and graphbased machine learning. Relation embedding focuses on representing relationships (edges) between entities as vectors. These vectors capture the semantic information about the relationships and how they connect different entities in the knowledge graph. Relation embeddings are crucial for tasks that involve reasoning about relationships between entities, such as link prediction and knowledge graph completion. Together, entity embeddings and relation embeddings provide a comprehensive way to encode the semantic knowledge contained within a knowledge graph, making it possible to perform various tasks that require understanding the structure and semantics of the graph. These embeddings allow for efficient mathematical operations and reasoning on the graph, enabling applications like query answering, recommendation, and inference.
 
-#### IV. USE CASE STUDY
+### IV. USE CASE STUDY
 
 In this section, we delve into three compelling use cases that demonstrate the practical applications and benefits of the Personal Health Knowledge Graph (PHKG) in the realm of healthcare data management and utilization. These use cases showcase the versatility and value of the PHKG in addressing critical challenges and enhancing healthcare-related processes.
 
-#### *A. Healthcare Data Graph Explorer (HDGE)*
+### *A. Healthcare Data Graph Explorer (HDGE)*
 
 The first use case introduces the Healthcare Data Graph Explorer (HDGE), a web-based tool designed to empower users with intuitive ways to interact with their personal health knowledge graph. HDGE leverages the capabilities of the PHKG, enabling users to query and explore their health-related data using navigation tools and keyword-based searches. This user-friendly interface facilitates seamless navigation of the knowledge graph, making it accessible and comprehensible to individuals seeking insights into their health and medical history.
 
 Users of HDEG, regardless of their technical background, can effortlessly search their health data. This eliminates the need for users to have prior knowledge of the knowledge graph structure or specific query languages. When users input keywords, HDGE interprets and reformulates them into SPARQL query language syntax. Subsequently, it retrieves related entities and displays them as hyperlinks. Moreover, users have access to additional links under each search result, enabling them to explore semantically similar entities and further refine their queries.
 
-Consider the scenario where a user seeks information about their current medication. By simply entering the keyword "medication" into the search bar (as shown in Fig. 3), the system performs a query against the personal health knowledge graph. The results include matches to the query, such as past medication, current medication, and requested medication. Users can then click on the relevant link or use the results to deepen their query, with the displayed graph providing a visual representation of immediate entities and relationships linked to the selected entity.
+Consider the scenario where a user seeks information about their current medication. By simply entering the keyword "medication" into the search bar (as shown in Figure 3), the system performs a query against the personal health knowledge graph. The results include matches to the query, such as past medication, current medication, and requested medication. Users can then click on the relevant link or use the results to deepen their query, with the displayed graph providing a visual representation of immediate entities and relationships linked to the selected entity.
 
 ![](_page_4_Picture_11.jpeg)
-<!-- Image Description: The image displays a screenshot of a medical record hub interface.  It shows a search result for "Medication," listing current and past medications including Ramipril.  A flowchart details Ramipril's side effects, adverse events, prescribed uses (hypertension, heart failure, etc.), and safety recommendations.  Dosage information for Ramipril is also provided. The image illustrates the system's functionality in presenting patient medication information and related details. -->
+<!-- Image Description: The image displays a screenshot of a medical record hub interface. It shows a search result for "Medication," listing current and past medications including Ramipril. A flowchart details Ramipril's side effects, adverse events, prescribed uses (hypertension, heart failure, etc.), and safety recommendations. Dosage information for Ramipril is also provided. The image illustrates the system's functionality in presenting patient medication information and related details. -->
 
 Fig 3: Screenshot shows the navigation interface of the system.
 
-To facilitate intuitive navigation, HDGE employs dropdown trees and graph links. Users can explore the knowledge graph hierarchy in a user-friendly manner. For example, in Fig. 4, when a user selects the concept "Immunization," a list of their immunization records is displayed on the right side of the screen. Additionally, HDGE provides detailed information related to a selected concept, as shown in the lower part of Fig. 4. For instance, when exploring the "Covid-19 Vaccine" concept, users can access information about its side effects, potential adverse events, safety recommendations, and the diseases it protects against.
+To facilitate intuitive navigation, HDGE employs dropdown trees and graph links. Users can explore the knowledge graph hierarchy in a user-friendly manner. For example, in Figure 4, when a user selects the concept "Immunization," a list of their immunization records is displayed on the right side of the screen. Additionally, HDGE provides detailed information related to a selected concept, as shown in the lower part of Figure 4. For instance, when exploring the "Covid-19 Vaccine" concept, users can access information about its side effects, potential adverse events, safety recommendations, and the diseases it protects against.
 
- HDGE offers an all-encompassing tool for users to not only retrieve their health data but also to intuitively navigate and understand the complex structure of their personal health knowledge graph. By providing semantic search capabilities, easy-to-use navigation tools, and detailed information displays, HDGE enhances the accessibility and comprehension of personal health data for both patients and healthcare providers.
+HDGE offers an all-encompassing tool for users to not only retrieve their health data but also to intuitively navigate and understand the complex structure of their personal health knowledge graph. By providing semantic search capabilities, easy-to-use navigation tools, and detailed information displays, HDGE enhances the accessibility and comprehension of personal health data for both patients and healthcare providers.
 
 ### *B. Blockchain-based Decentralized Personal Health Data Sharing Platform*
 
 The second use case introduces an innovative solution known as the Blockchain-based Decentralized Personal Health Data Sharing Platform [21]. This system is designed to decentralize personal health data, providing individuals with unparalleled control over their information. It is built upon the foundation of the PHKG and leverages blockchain technology to enhance data privacy and security.
 
 ![](_page_5_Figure_4.jpeg)
-<!-- Image Description: The image displays a mock-up of a patient's digital medical record.  It shows a comprehensive record interface including immunization history, medications, procedures, and a flowchart illustrating a COVID-19 vaccine's side effects (fatigue, headache, muscle pain, fever, swelling), potential adverse events, and its prescribed use for disease prevention.  The flowchart also shows safety recommendations.  A detailed immunization record section lists various vaccines administered, including dates and dosages. -->
+<!-- Image Description: The image displays a mock-up of a patient's digital medical record. It shows a comprehensive record interface including immunization history, medications, procedures, and a flowchart illustrating a COVID-19 vaccine's side effects (fatigue, headache, muscle pain, fever, swelling), potential adverse events, and its prescribed use for disease prevention. The flowchart also shows safety recommendations. A detailed immunization record section lists various vaccines administered, including dates and dosages. -->
 
 The system utilizes a decentralized peer-to-peer (P2P) network with a dual purpose: ensuring a secure blockchain for system security, including authentication, authorization, and access control, and implementing P2P-based distributed storage for users' personal health knowledge graphs. Smart contracts play a pivotal role in automating access control and data sharing policies. This empowers individuals to selectively share their data with trusted entities, bolstering data privacy and security.
 
@@ -202,7 +202,7 @@ The Ethereum blockchain platform is employed for secure user authentication thro
 
 The blockchain-based decentralized platform not only decentralizes health data but also establishes a new benchmark in data security and privacy. It provides individuals with control over their data, assures access to authorized entities, and utilizes blockchain technology to safeguard personal health information.
 
-#### *C. Chatbot for Personal Health Data Querying*
+### *C. Chatbot for Personal Health Data Querying*
 
 The third use case introduces a cutting-edge solution - a Chatbot for Personal Health Data Querying, a conversational interface that seamlessly integrates the capabilities of the PHKG [32]. In today's era of abundant personal health data generated by various sources, this chatbot empowers users to effortlessly retrieve personalized health information, overcoming the challenges of data fragmentation and user proficiency.
 
@@ -210,7 +210,7 @@ The solution bridges the gap between users and their health data, regardless of 
 
 These use cases collectively underscore the transformative potential of the Personal Health Knowledge Graph. By addressing challenges related to data integration, interoperability, privacy, and accessibility, the PHKG emerges as a promising solution for unlocking the value of personal health data in healthcare research and patient care.
 
-#### V. DISCUSSIONS
+### V. DISCUSSIONS
 
 The proposed PHKG represents a significant advancement in the management and utilization of personal health data (PHD). This discussion section aims to provide a comprehensive overview of the key contributions, implications, and potential impact of this innovative solution on healthcare and research.
 
@@ -225,7 +225,7 @@ The proposed PHKG represents a significant advancement in the management and uti
 
 In conclusion, the PHKG represents a pioneering solution for the effective management and utilization of personal health data. Its potential to revolutionize healthcare, enhance patient care, and drive research makes it a significant contribution to the field of healthcare informatics. As technology and healthcare data continue to evolve, the PHKG provides a valuable framework for realizing the full potential of healthrelated data for improved healthcare outcomes and research.
 
-#### VI. CONCLUSIONS
+### VI. CONCLUSIONS
 
 In the face of the growing volume of personal health data generated by diverse sources, the development of the PHKG represents a significant milestone in healthcare informatics. The proliferation of data has posed substantial challenges, including data interoperability, privacy concerns, and data security. The proposed PHKG provides a comprehensive and interconnected solution, offering a unified perspective on individual health by integrating and analyzing diverse types of personal health data. This has the potential to revolutionize personalized health profiling, enabling healthcare providers and researchers to gain profound insights into patient behavior and health trends.
 
@@ -236,15 +236,15 @@ While the PHKG holds great promise, challenges persist in ensuring data integrat
 VII. REFRENCES
 
 - [1] "Earwear and Wristbands Drive First Quarter Growth in the Worldwide Wearables Market, Says IDC | Business Wire." Accessed: Mar. 22, 2023. [Online]. Available:
-  - https://www.businesswire.com/news/home/202005280 05801/en/Earwear-and-Wristbands-Drive-First-Quarter-Growth-in-the-Worldwide-Wearables-Market-Says-IDC
+- https://www.businesswire.com/news/home/202005280 05801/en/Earwear-and-Wristbands-Drive-First-Quarter-Growth-in-the-Worldwide-Wearables-Market-Says-IDC
 - [2] V. L. Anthony Berauk, M. K. Murugiah, Y. C. Soh, Y. Chuan Sheng, T. W. Wong, and L. C. Ming, "Mobile Health Applications for Caring of Older People: Review and Comparison," *Ther Innov Regul Sci*, vol. 52, no. 3, pp. 374–382, May 2018, doi:
-  - 10.1177/2168479017725556/METRICS.
+- 10.1177/2168479017725556/METRICS.
 - [3] J. P. Higgins, "Smartphone Applications for Patients' Health and Fitness," *American Journal of Medicine*, vol. 129, no. 1, pp. 11–19, Jan. 2016, doi: 10.1016/j.amjmed.2015.05.038.
-  - [4] A. N. A. Yusuf, F. Y. Zulkifli, and I. W. Mustika, "Development of Monitoring and Health Service Information System to Support Smart Health on Android Platform," *4th International Conference on Nano Electronics Research and Education: Toward Advanced Imaging Science Creation, ICNERE 2018*, Jul. 2019, doi: 10.1109/ICNERE.2018.8642592.
-    - [5] G. K. Garge, C. Balakrishna, and S. K. Datta, "Consumer Health Care: Current Trends in Consumer Health Monitoring," *IEEE Consumer Electronics Magazine*, vol. 7, no. 1, pp. 38–46, Jan. 2018, doi: 10.1109/MCE.2017.2743238.
+- [4] A. N. A. Yusuf, F. Y. Zulkifli, and I. W. Mustika, "Development of Monitoring and Health Service Information System to Support Smart Health on Android Platform," *4th International Conference on Nano Electronics Research and Education: Toward Advanced Imaging Science Creation, ICNERE 2018*, Jul. 2019, doi: 10.1109/ICNERE.2018.8642592.
+- [5] G. K. Garge, C. Balakrishna, and S. K. Datta, "Consumer Health Care: Current Trends in Consumer Health Monitoring," *IEEE Consumer Electronics Magazine*, vol. 7, no. 1, pp. 38–46, Jan. 2018, doi: 10.1109/MCE.2017.2743238.
 - [6] "Social determinants of health." Accessed: Oct. 13, 2023. [Online]. Available: https://www.who.int/health-topics/socialdeterminants-of-health#tab=tab\_1
 - [7] P. C. Tang, J. S. Ash, D. W. Bates, J. M. Overhage, and D. Z. Sands, "Personal health records: Definitions, benefits, and strategies for overcoming barriers to adoption," *Journal of the American Medical Informatics Association*, vol. 13, no. 2, pp. 121–126, Mar. 2006, doi:
-  - 10.1197/JAMIA.M2025/2/JAMIAM2025.F01.JPEG.
+- 10.1197/JAMIA.M2025/2/JAMIAM2025.F01.JPEG.
 - [8] A. Sunyaev, "Evaluation of Microsoft Healthvault and Google Health Personal Health Records." 2013. Accessed: Oct. 19, 2023. [Online]. Available: https://papers.ssrn.com/abstract=2304597
 - [9] T. P. Vydra, E. Cuaresma, M. Kretovics, and S. Bose-Brill, "Diffusion and Use of Tethered Personal Health Records in Primary Care," *Perspect Health Inf Manag*, vol. 12, no. Spring, 2015, Accessed: Oct. 19, 2023. [Online]. Available: /pmc/articles/PMC4696089/
 - [10] L. Ismail, H. Materwala, A. P. Karduck, and A. Adem, "Requirements of Health Data Management Systems for Biomedical Care and Research: Scoping Review," *J Med Internet Res*, vol. 22, no. 7, Jul. 2020, doi: 10.2196/17508.
@@ -265,7 +265,7 @@ VII. REFRENCES
 *the Annual International Conference of the IEEE Engineering in Medicine and Biology Society, EMBS*, pp. 5700–5703, Jul. 2019, doi: 10.1109/EMBC.2019.8856415.
 
 - [23] H. G. Jun and D. H. Im, "Semantics-Preserving RDB2RDF Data Transformation Using Hierarchical Direct Mapping," *Applied Sciences 2020, Vol. 10, Page 7070*, vol. 10, no. 20, p. 7070, Oct. 2020, doi: 10.3390/APP10207070.
-  - [24] A. Dimou, M. Vander Sande, P. Colpaert, R. Verborgh, E. Mannens, and R. Van De Walle, "RML: A Generic Language for Integrated RDF Mappings of Heterogeneous Data", Accessed: Oct. 13, 2023. [Online]. Available: http://www.gac-grid.de/projectproducts/Software/XML2RDF.html
+- [24] A. Dimou, M. Vander Sande, P. Colpaert, R. Verborgh, E. Mannens, and R. Van De Walle, "RML: A Generic Language for Integrated RDF Mappings of Heterogeneous Data", Accessed: Oct. 13, 2023. [Online]. Available: http://www.gac-grid.de/projectproducts/Software/XML2RDF.html
 - [25] "OWL API by owlcs." Accessed: Sep. 16, 2020. [Online]. Available: http://owlcs.github.io/owlapi/
 - [26] "COPAAL | DICE Research Group." Accessed: Oct. 13, 2023. [Online]. Available: https://diceresearch.org/COPAAL
 - [27] "SPARQL Query Language for RDF." Accessed: Sep. 16, 2020. [Online]. Available: https://www.w3.org/TR/rdf-sparql-query/

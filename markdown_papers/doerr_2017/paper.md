@@ -83,7 +83,7 @@ We showcase an implementation of the workflow model in a real use case in the fi
 
 The rest of this paper is organised as follows: Section [2](#page-2-0) provides the required background and describes related work. Section [3](#page-7-1) provides an overview and the main characteristics of the proposed workflow model. Section [4](#page-11-0) details how each step of the workflow model can be realised. Section [5](#page-15-0) provides information about the automation of the workflow. Section [6](#page-16-0) describes a real use case. Section [7](#page-22-0) discusses quality aspects and relevant lessons learned. Finally, Section [8](#page-24-0) concludes the paper and outlines future work.
 
-# <span id="page-2-0"></span>2 Background and Related Work
+## <span id="page-2-0"></span>2 Background and Related Work
 
 We first explain the basic notions about semantic technologies (Section [2.1\)](#page-2-1) and review how such technologies are used in humanities research, a large part of which concerns archival research (Section [2.2\)](#page-3-0). We then focus on the different data management activities towards semantic interoperability in archival research and present relevant works (Section [2.3\)](#page-4-0). Finally, we position our work (Section [2.4\)](#page-6-0).
 
@@ -169,7 +169,7 @@ Fig. [1](#page-7-0) depicts the proposed workflow model for supporting holistic 
 ![](_page_7_Figure_4.jpeg)
 <!-- Image Description: This flowchart depicts an ontology-based data integration process for archival documents. It shows a workflow starting from archives, progressing through schema creation, transcription, curation, and ontology-based modeling and transformation. The process culminates in a database of integrated data represented as a semantic network, enabling research and analysis. Key stages include defining domain ontologies and schema mappings to facilitate data integration. The diagram illustrates the roles of researchers, data engineers, and automated processes in each step. -->
 
-<span id="page-7-0"></span>Fig. 1. Workflow model for holistic data management and semantic interoperability in archival research.
+<span id="page-7-0"></span>Figure 1. Workflow model for holistic data management and semantic interoperability in archival research.
 
 Roles. There are two main roles engaged in the workflow: a) the researcher (domain expert / end user), who collects and studies the archival material, provides domain knowledge, and defines requirements, and b) the data engineer (modeling expert), who designs and implements the different workflow processes.
 
@@ -197,7 +197,7 @@ The transformation process takes as input i) the databases (outputs of transcrip
 
 Process 5: Research, analysis, exploration. The resulting semantic network of integrated data is exploited by the researchers through one or more services that operate over the semantic network and which offer user-friendly interfaces for data browsing, analysis, and exploration. Here it is important for the end users to be able to go back to the transcripts, or even the scans of the original sources, for inspecting the initial form of a piece of information (before its curation and transformation), or for gathering further contextual information. In addition, in the course of research, a user may identify that corrections are needed in the transcribed or curated data, thus researchers need to be able to revisit the transcription and curation steps, make corrections, and then retransform (automatically) the data for updating the semantic network. Likewise, new archival documents might be collected at any time, which means that one or more new source schemas and corresponding mappings might need to be created for enabling their transcription, curation and transformation.
 
-#### <span id="page-10-0"></span>3.2 Workflow Distinctive Characteristics
+### <span id="page-10-0"></span>3.2 Workflow Distinctive Characteristics
 
 Below we highlight and motivate the distinctive design and methodological characteristics of the proposed workflow model:
 
@@ -222,7 +222,7 @@ These characteristics can highly affect the usability of the data entry system a
 
 For enabling the next data curation process, we first need to identify what are the main entity categories (like persons, locations, objects, etc.) and the main vocabularies or hierarchies of terms that appear in the transcribed data and need curation. To this end, we need to define the fields in the data entry forms that provide entity or term related information. For example, the data entry fields first name and last name provide information for a person instance, while the field profession provides a vocabulary term. The values of these fields must be copied (ideally, automatically) to a new environment that allows for their curation without altering the original data as it appears in the transcripts. We then only need to provide a link from the curated to the original data and/or position information (e.g. record name, table name, row number), in order to retain the provenance information.
 
-#### 2 Provenance-aware Data Curation
+### 2 Provenance-aware Data Curation
 
 Data curation activities that need to be supported by a dedicated software system include:
 
@@ -238,7 +238,7 @@ Instance matching in this context can be multi-stage. A first automated step can
 
 The instance matching/unmatching activities and the provision of preferred terms for vocabulary terms are of key importance for valid quantitative (statistical) analysis over the integrated data. Consider, for example, that a researcher who studies archival documents related to maritime history (like crew lists) wants to find the birth place of sailors that arrived at a specific port, or group them by their profession. Providing the same identity to all sailor instances that represent the same real-world person, as well as providing the same 'preferred' term for all different professions that correspond to the same profession, ensures that the generated aggregated information is correct.
 
-#### 3 Ontology-based Integration
+### 3 Ontology-based Integration
 
 The ontology-based integration of the transcribed and curated data consists of the below tasks:
 
@@ -261,7 +261,7 @@ Fig. [2](#page-13-0) shows an indicative example on how URIs are used for establ
 ![](_page_13_Figure_3.jpeg)
 <!-- Image Description: The image depicts a data curation workflow. It shows the transformation of original historical documents ("Original Sources") into transcripts. These are then linked, via a "Semantic Network," to curated data in a structured table format ("Curated Data"). The network uses URIs to represent relationships between the original sources, transcripts, and the final structured data. The diagram illustrates how disparate information sources are integrated and standardized. -->
 
-<span id="page-13-0"></span>Fig. 2. Identity (URI) management and provenance chain.
+<span id="page-13-0"></span>Figure 2. Identity (URI) management and provenance chain.
 
 Each URI consists of three parts: (a) the URI prefix which is common for all the resources, (b) the type or hierarchy of the resource, (c) the actual or hashed content of the resource. An indicative URI is: https://rs.sealitproject.eu/kb/location/ sardinia. We should also mention, that there are cases where the aforementioned strategy is not applied. An indicative case is the construction of intermediate nodes in the semantic network, for which a URI is not required (e.g. the 'E67 Birth' event). In such cases a random UUID is assigned for them.
 
@@ -269,7 +269,7 @@ Transformation. This step takes as input (a) the transcribed and curated dataset
 
 A good practice for managing the semantic data in terms of updating and versioning flexibility is the use of named graphs [\(Carroll](#page-25-12) et al., [2005\)](#page-25-12), one for each source record. When there is a new version of a record, or of its mapping definition file, the record output produced with a new workflow cycle can be easily integrated in the semantic repository by replacing the RDF data in the corresponding named graph. Also, the hierarchies of terms and locations can be effectively managed and updated in distinct named graphs, as well as the result of the materialisation process for semantically inferred statements (the production of new RDF triples as shortcuts that represent long paths, for improving query performance).
 
-#### 4 Semantic Network Exploitation
+### 4 Semantic Network Exploitation
 
 The integrated data of the semantic network can be now exploited as a primary source for archival research. This includes finding answers to complex information needs and analytical queries that require combining information from different sources, as well as visualising the results in different forms, such as tables, charts, timelines, or maps, for direct use in research.
 
@@ -279,7 +279,7 @@ Some general categories of information needs include: (i) finding information ab
 
 Finally, a strategy on how to handle missing values in the data, which is very common for certain types of archival documents, is very important in order to get valid aggregated information and make safe conclusions. For example, the residence location for some persons might be empty in the original document. When grouping a set of persons by their residence location, there must be an 'unknown' value for this missing information.
 
-# <span id="page-15-0"></span>5 Workflow Automation
+## <span id="page-15-0"></span>5 Workflow Automation
 
 The systems used in the transcription and curation processes need to intercommunicate for automating the copy of the data elements (entities, terms) that need curation from the transcription system to the curation system. Then, an important part of the workflow can be fully automated as long as the modeling process has been completed and the mappings for all different source schemas have been created (tasks that need to be done once for each different type of archival documents). In this case, new transcribed and curated data can be automatically transformed and imported in the semantic repository of integrated data, and thus directly be explored by the end users through the data exploration application.
 
@@ -293,7 +293,7 @@ Note here that, even if there are changes in the transcription schemas and the i
 
 The two steps of the workflow that are the most time consuming are the transcription and curation processes. As already stated, several sub-tasks in these two processes can be automated or semi-automated, e.g. using state-of-theart text recognition software [\(Kahle](#page-26-3) et al., [2017\)](#page-26-3), or applying automated instance matching / entity resolution [\(Christophides](#page-25-7) et al., [2020\)](#page-25-7). Here the challenge is to find the best trade-off between fully automating the tasks and having results of high accuracy for enabling valid data analysis. We suggest semi-automated solutions that consider human-in-the-loop for ensuring high quality (Wu [et al.](#page-27-10), [2022;](#page-27-10) [Gurajada](#page-25-13) et al., [2019\)](#page-25-13).
 
-# <span id="page-16-0"></span>6 Use Case in Maritime History Research
+## <span id="page-16-0"></span>6 Use Case in Maritime History Research
 
 The workflow has been fully implemented in a real use case for supporting a large number of historians in managing a diverse set of archival sources related to maritime history. The context is the project SeaLiT[13](#page-16-1), in which maritime historians study the transition from sail to steam navigation and its effects on seafaring populations in the Mediterranean and the Black Sea (1850s-1920s).
 
@@ -324,28 +324,28 @@ The total number of records transcribed by the historians of SeaLiT is currently
 
 <span id="page-17-3"></span><sup>17</sup> The full record is accessible at: <https://tinyurl.com/2u35frya>
 
-| Archival source                                                       | Overview of recorded information                                                                                                                         |
+| Archival source | Overview of recorded information |
 |-----------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                                                                       | Crew and displacement list (Roll) Information about ships, crew members, ports.                                                                          |
-| Crew List (Ruoli di Equipaggio)                                       | Information about ships, voyages, crew members, ports.                                                                                                   |
-| General Spanish Crew List                                             | Information about ships, ship owners, crew members, voyages,<br>ports.                                                                                   |
-| Sailors Register (Libro de registro<br>de marineros)                  | Information about sailors (including profession and military ser<br>vice organisation locations)                                                         |
-| Register of Maritime Personnel                                        | Information about persons (including residence location, mari<br>tal status, previous profession, military service organisation lo<br>cations).          |
-| Register of Maritime Workers                                          | Information about maritime workers, ships, captains, ports.                                                                                              |
-| Seagoing Personnel                                                    | Information about persons (including marital status, profession,<br>end of service reasons), ships, destinations.                                        |
-| Naval Ship Register List                                              | Information about ships (including tonnage, length, construction<br>location, registration location) and ship owners.                                    |
-| List of Ships                                                         | Information about ships (including previous names, registry port<br>and year, construction place and year, tonnage, engine charac<br>teristics, owners). |
-| Civil Register                                                        | Information about persons (including profession, origin location,<br>marital status, death location and reason).                                         |
-| Maritime Register, La Ciotat                                          | Information about persons, embarkation and disembarkation lo<br>cations, ships, captains, patrons.                                                       |
-| Students Register                                                     | Information about students and courses.                                                                                                                  |
-| Census La Ciotat                                                      | Information about occupants (including nationality, marital sta<br>tus, religion, profession, working organisation, household role).                     |
-| Census of the Russian Empire                                          | Information about occupants (including marital status, estate,<br>religion, native language, household role, occupation).                                |
-| Payroll (of Greek Ships)                                              | Information about ships, captains, voyages, persons, employ<br>ments (including wages).                                                                  |
-| Payroll (of Russian Steam Naviga<br>tion and Trading Company)         | Information about ships, persons, recruitments (including salary<br>per month).                                                                          |
-| Employment records (Shipyards of<br>Messageries Maritimes, La Ciotat) | Information about workers (including marital status, profession,<br>status of service in company).                                                       |
-| Logbook                                                               | Information about ships, captains, ports, route movements, voy<br>age events.                                                                            |
-| Accounts Book                                                         | Information about ships, voyages, captains, ports, transactions.                                                                                         |
-| Notarial deeds                                                        | Information about deeds, notaries, witnesses, contracting par<br>ties, ships.                                                                            |
+| | Crew and displacement list (Roll) Information about ships, crew members, ports. |
+| Crew List (Ruoli di Equipaggio) | Information about ships, voyages, crew members, ports. |
+| General Spanish Crew List | Information about ships, ship owners, crew members, voyages,<br>ports. |
+| Sailors Register (Libro de registro<br>de marineros) | Information about sailors (including profession and military ser<br>vice organisation locations) |
+| Register of Maritime Personnel | Information about persons (including residence location, mari<br>tal status, previous profession, military service organisation lo<br>cations). |
+| Register of Maritime Workers | Information about maritime workers, ships, captains, ports. |
+| Seagoing Personnel | Information about persons (including marital status, profession,<br>end of service reasons), ships, destinations. |
+| Naval Ship Register List | Information about ships (including tonnage, length, construction<br>location, registration location) and ship owners. |
+| List of Ships | Information about ships (including previous names, registry port<br>and year, construction place and year, tonnage, engine charac<br>teristics, owners). |
+| Civil Register | Information about persons (including profession, origin location,<br>marital status, death location and reason). |
+| Maritime Register, La Ciotat | Information about persons, embarkation and disembarkation lo<br>cations, ships, captains, patrons. |
+| Students Register | Information about students and courses. |
+| Census La Ciotat | Information about occupants (including nationality, marital sta<br>tus, religion, profession, working organisation, household role). |
+| Census of the Russian Empire | Information about occupants (including marital status, estate,<br>religion, native language, household role, occupation). |
+| Payroll (of Greek Ships) | Information about ships, captains, voyages, persons, employ<br>ments (including wages). |
+| Payroll (of Russian Steam Naviga<br>tion and Trading Company) | Information about ships, persons, recruitments (including salary<br>per month). |
+| Employment records (Shipyards of<br>Messageries Maritimes, La Ciotat) | Information about workers (including marital status, profession,<br>status of service in company). |
+| Logbook | Information about ships, captains, ports, route movements, voy<br>age events. |
+| Accounts Book | Information about ships, voyages, captains, ports, transactions. |
+| Notarial deeds | Information about deeds, notaries, witnesses, contracting par<br>ties, ships. |
 
 <span id="page-18-0"></span>Table 1. Considered archival sources and overview of recorded information.
 
@@ -353,36 +353,36 @@ six sailors and thirteen route ports that concern the navigation of the the ship
 
 The creation and configuration of the templates in FastCat was not an 'one shot' process. New templates were created periodically based on new archival material gathered from the historians, or existing templates were changed several times even after the creation of records (e.g. by including additional columns in a table), for incorporating new (and important) type of information provided by particular archival documents.
 
-|                             | <b>FastCat Record Information</b>                           |                          |          |                                          |                          |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
+| | <b>FastCat Record Information</b> | | | | | | | | | | | | | | |
 |-----------------------------|-------------------------------------------------------------|--------------------------|----------|------------------------------------------|--------------------------|------------|---------------------|------------------|-------------------------------|--------------------------|--------------|-------------------------|---------------------------------------------------------------|-------|-------------------------------------------------------------------------------------------------------------------|
-|                             | Use english to fill in the fields of this table             |                          |          |                                          |                          |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
-|                             |                                                             | Date                     |          |                                          | Authors                  |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
-| Id                          | <b>Creation</b> date                                        | <b>Last Modified</b>     |          | Name*                                    | Surname*| Role       |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
-| 13                          | 2020-09-22T16:16:02<br>2018-03-20<br>Carolina               |                          |          |                                          | Gaggero                  |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
-|                             |                                                             |                          |          |                                          |                          |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
-| <b>Source Identity</b>      |                                                             |                          |          |                                          |                          |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
-|                             | Use the source language to fill in the fields of this table |                          |          |                                          |                          |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
-|                             |                                                             |                          |          |                                          |                          | Document   |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
-|                             | Archive / Library                                           |                          |          |                                          |                          |            | Date of Release     |                  | <b>Issuing Authority</b>      |                          |              |                         | Fond                                                          |       |                                                                                                                   |
-|                             | Name                                                        | Location                 |          | Register Number Number                   |                          | From*     | To                  |                  | Name                          |                          | Location     | Source Type Name Number |                                                               | Title | Series Number                                                                                                     |
-|                             | Archivio di Stato di Genova                                 | Genova                   |          | 14                                       | 6740                     | 1861-01-11 |                     |                  | Direzione marittima di Genova |                          | Genova       |                         |                                                               |       |                                                                                                                   |
-|                             |                                                             |                          |          |                                          |                          |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
-|                             |                                                             |                          |          | Construction                             |                          |            | Quantity            | Registry         |                               |                          |              | Person                  |                                                               |       |                                                                                                                   |
-| Ship name*                  | Ship type                                                   | Tonnage                  | Location | Date (year)                              | Type                     | Value      | Unit                | Port             | Number                        | <b>Organization Name</b> | Name         | Surname                 | <b>Father's Name</b>                                          | Note  |                                                                                                                   |
-|                             | Brigantino                                                  | 160,51                   | Varazze  | 1852                                     |                          |            |                     | Genova           | 1439                          |                          | Nicolò       | Schiaffino              | Giobatta                                                      | B     |                                                                                                                   |
-| Pallade<br><b>Crew List</b> | Use the source language to fill in the fields of this table |                          |          |                                          |                          |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
-|                             |                                                             | Embarkation              |          |                                          | Discharge                |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
-|                             | Port                                                        | Date                     |          | Port                                     |                          | Date       | Surname             | Name             |                               |                          |              |                         | Citizenship Location of Residence Date of Birth Serial Number |       |                                                                                                                   |
-| $\mathbf{1}$                | Genova                                                      | 1861-01-11               |          | Castellammare                            | 1861-05-04               |            | Mortola             | Giuseppe         | ×                             | Camogli                  |              | 1826                    | 5054                                                          |       |                                                                                                                   |
-| $\overline{2}$              | Genova                                                      | 1861-01-11               |          | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | 1862-02-26               |            | Dellacasa           | Emanuele         | ×                             | Camogli                  | v            | 1830                    | 5779                                                          |       |                                                                                                                   |
-| $\sqrt{3}$                  | Genova                                                      | 1861-01-11               |          | Castellammare                            | 1861-04-29               |            | Lardone             | Biaggio          | $\mathbf{v}$                  | Camoqli                  | $\mathbf{v}$ | 1827                    | 1694                                                          |       |                                                                                                                   |
-| $\overline{4}$              | Genova                                                      | 1861-01-11               |          | Castellammare                            | 1861-04-29               |            | Agnese              | Franco           | $\sim$                        | Camogli                  | ×            | 1834                    | 14272                                                         |       | ProffesionIRank<br>Capitano di seconda cla<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>Dispensiere<br>Marinaio |
-| 5                           | Genova<br>٠                                                 | 1861-01-11               |          | Castellammare                            | 1861-04-29               |            | Olivari             | Pasquale         | ×                             | Camogli                  | ×            | 1828                    | 17624                                                         |       |                                                                                                                   |
-| $6\phantom{.}$              | Genova                                                      | 1861-01-11               |          | Castellammare                            | 1861-04-29               |            | Ansaldo             | Giuseppe         | ÷                             | Camogli                  | ٠            | 1835                    | 8499                                                          |       | Marinaio<br>Marinaio                                                                                              |
-| $\overline{7}$              | Genova                                                      | 1861-01-11               |          |                                          |                          |            | Massa               | Filippo          | ×                             | Camogli                  | ×            | 1841                    | 10980                                                         |       |                                                                                                                   |
-| 8<br>9                      | Genova<br>Genova                                            | 1861-01-11<br>1861-01-11 |          | Castellammare<br>Genova                  | 1861-04-29<br>1862-02-26 |            | Bertelli<br>Mortola | Franco<br>Franco | ×<br>$\mathcal{L}$            | Camogli<br>Camogli       | ×<br>×       | 1843<br>1848            | 12666<br>15489                                                |       | Marinaio<br>Mozzo<br>Mozzo                                                                                        |
+| | Use english to fill in the fields of this table | | | | | | | | | | | | | | |
+| | | Date | | | Authors | | | | | | | | | | |
+| Id | <b>Creation</b> date | <b>Last Modified</b> | | Name* | Surname*| Role | | | | | | | | | |
+| 13 | 2020-09-22T16:16:02<br>2018-03-20<br>Carolina | | | | Gaggero | | | | | | | | | | |
+| | | | | | | | | | | | | | | | |
+| <b>Source Identity</b> | | | | | | | | | | | | | | | |
+| | Use the source language to fill in the fields of this table | | | | | | | | | | | | | | |
+| | | | | | | Document | | | | | | | | | |
+| | Archive / Library | | | | | | Date of Release | | <b>Issuing Authority</b> | | | | Fond | | |
+| | Name | Location | | Register Number Number | | From* | To | | Name | | Location | Source Type Name Number | | Title | Series Number |
+| | Archivio di Stato di Genova | Genova | | 14 | 6740 | 1861-01-11 | | | Direzione marittima di Genova | | Genova | | | | |
+| | | | | | | | | | | | | | | | |
+| | | | | Construction | | | Quantity | Registry | | | | Person | | | |
+| Ship name* | Ship type | Tonnage | Location | Date (year) | Type | Value | Unit | Port | Number | <b>Organization Name</b> | Name | Surname | <b>Father's Name</b> | Note | |
+| | Brigantino | 160,51 | Varazze | 1852 | | | | Genova | 1439 | | Nicolò | Schiaffino | Giobatta | B | |
+| Pallade<br><b>Crew List</b> | Use the source language to fill in the fields of this table | | | | | | | | | | | | | | |
+| | | Embarkation | | | Discharge | | | | | | | | | | |
+| | Port | Date | | Port | | Date | Surname | Name | | | | | Citizenship Location of Residence Date of Birth Serial Number | | |
+| $\mathbf{1}$ | Genova | 1861-01-11 | | Castellammare | 1861-05-04 | | Mortola | Giuseppe | × | Camogli | | 1826 | 5054 | | |
+| $\overline{2}$ | Genova | 1861-01-11 | | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | 1862-02-26 | | Dellacasa | Emanuele | × | Camogli | v | 1830 | 5779 | | |
+| $\sqrt{3}$ | Genova | 1861-01-11 | | Castellammare | 1861-04-29 | | Lardone | Biaggio | $\mathbf{v}$ | Camoqli | $\mathbf{v}$ | 1827 | 1694 | | |
+| $\overline{4}$ | Genova | 1861-01-11 | | Castellammare | 1861-04-29 | | Agnese | Franco | $\sim$ | Camogli | × | 1834 | 14272 | | ProffesionIRank<br>Capitano di seconda cla<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>Dispensiere<br>Marinaio |
+| 5 | Genova<br>٠ | 1861-01-11 | | Castellammare | 1861-04-29 | | Olivari | Pasquale | × | Camogli | × | 1828 | 17624 | | |
+| $6\phantom{.}$ | Genova | 1861-01-11 | | Castellammare | 1861-04-29 | | Ansaldo | Giuseppe | ÷ | Camogli | ٠ | 1835 | 8499 | | Marinaio<br>Marinaio |
+| $\overline{7}$ | Genova | 1861-01-11 | | | | | Massa | Filippo | × | Camogli | × | 1841 | 10980 | | |
+| 8<br>9 | Genova<br>Genova | 1861-01-11<br>1861-01-11 | | Castellammare<br>Genova | 1861-04-29<br>1862-02-26 | | Bertelli<br>Mortola | Franco<br>Franco | ×<br>$\mathcal{L}$ | Camogli<br>Camogli | ×<br>× | 1843<br>1848 | 12666<br>15489 | | Marinaio<br>Mozzo<br>Mozzo |
 
-<span id="page-19-0"></span>Fig. 3. An example of a real FastCat record belonging to the template 'Crew List (Ruoli di Equipaggio)'.
+<span id="page-19-0"></span>Figure 3. An example of a real FastCat record belonging to the template 'Crew List (Ruoli di Equipaggio)'.
 
 Curation. The curation of the transcribed data (vocabulary terms and entity instances) is performed through a dedicated environment within FastCat, called FastCat Team. Specifically, when a historian has completed the transcription of one or more documents (records), the record(s) can be 'published', which means that all data concerning vocabulary terms and entity instances are copied to FastCat Team for enabling their curation.
 
@@ -390,21 +390,21 @@ In the case of SeaLiT, the current number of vocabularies is fifty two (examples
 
 Fig. [4](#page-20-0) shows the user interface of FastCat Team, in particular the page that allows the curation of ship instances. For more information about FastCat (and FastCat Team), the reader can refer to [Fafalios](#page-25-6) et al. [\(2021b\)](#page-25-6).
 
-| <b>EE All Records</b>                         | SHIPS <sub>O</sub>                           |                             |                         |    |             |  |                |                    |                          |    |                      |
+| <b>EE All Records</b> | SHIPS <sub>O</sub> | | | | | | | | | | |
 |-----------------------------------------------|----------------------------------------------|-----------------------------|-------------------------|----|-------------|--|----------------|--------------------|--------------------------|----|----------------------|
-| <b>ED</b> My Records                          |                                              |                             |                         |    |             |  |                |                    |                          |    |                      |
-| <b>ED</b> Vocabularies                        | Show instances used in template type:<br>All |                             |                         |    |             |  |                | $\vee$ and record: | All                      |    |                      |
-| Instances                                     | Mark as same                                 | ResetTable                  | <b>Export to Excel</b>  |    |             |  |                |                    |                          |    |                      |
-| <b>EE</b> Legal Entities                      | $\bullet$<br>11                              | Name<br>Ħ                   | <b>Previous</b><br>name | lî | <b>Type</b> |  | Call<br>signal |                    | Construction<br>location | IF | Construction<br>date |
-| <b>EE</b> Locations                           | $\bullet$                                    | Ulisse                      |                         |    | brigantino  |  |                |                    | Varazze                  |    | 1855                 |
-| <b>ED</b> Persons                             | $\Box$ e                                     | Ugo Bassi                   |                         |    | Brigantino  |  |                |                    | Varazze                  |    | 1853                 |
-| <b>田 Ships</b>                                | $\Box$ e                                     | Telemaco                    |                         |    | Brigantino  |  |                |                    | Varazze                  |    | 1841                 |
-| <b>L</b> Download Fast Cat                    | $\Box$ e                                     | Santa Caterina<br>di Genova |                         |    | Brigantino  |  |                |                    | Varazze                  |    | 1837                 |
-| ۰<br>Settings                                 | $\Box$                                       | San Rocco                   |                         |    | Brigantino  |  |                |                    | Varazze                  |    | 1850                 |
-| <b>O</b> Help<br>$\left\langle \right\rangle$ | $\Box$                                       | S.Prospero                  |                         |    | Brigantino  |  |                |                    | Varazze                  |    | 1856                 |
-|                                               | $\neg$                                       | S. GioBattista              |                         |    | Brigantino  |  |                |                    | Varazze                  |    | 1843                 |
+| <b>ED</b> My Records | | | | | | | | | | | |
+| <b>ED</b> Vocabularies | Show instances used in template type:<br>All | | | | | | | $\vee$ and record: | All | | |
+| Instances | Mark as same | ResetTable | <b>Export to Excel</b> | | | | | | | | |
+| <b>EE</b> Legal Entities | $\bullet$<br>11 | Name<br>Ħ | <b>Previous</b><br>name | lî | <b>Type</b> | | Call<br>signal | | Construction<br>location | IF | Construction<br>date |
+| <b>EE</b> Locations | $\bullet$ | Ulisse | | | brigantino | | | | Varazze | | 1855 |
+| <b>ED</b> Persons | $\Box$ e | Ugo Bassi | | | Brigantino | | | | Varazze | | 1853 |
+| <b>田 Ships</b> | $\Box$ e | Telemaco | | | Brigantino | | | | Varazze | | 1841 |
+| <b>L</b> Download Fast Cat | $\Box$ e | Santa Caterina<br>di Genova | | | Brigantino | | | | Varazze | | 1837 |
+| ۰<br>Settings | $\Box$ | San Rocco | | | Brigantino | | | | Varazze | | 1850 |
+| <b>O</b> Help<br>$\left\langle \right\rangle$ | $\Box$ | S.Prospero | | | Brigantino | | | | Varazze | | 1856 |
+| | $\neg$ | S. GioBattista | | | Brigantino | | | | Varazze | | 1843 |
 
-<span id="page-20-0"></span>Fig. 4. Curation of ship instances in FastCat Team.
+<span id="page-20-0"></span>Figure 4. Curation of ship instances in FastCat Team.
 
 Ontology-based integration and transformation. For data integration we created a data model compatible with CIDOC-CRM, called 'SeaLiT Ontology'[18](#page-20-1) . The current version of the ontology (v1.1) contains forty six classes and seventy nine properties, allowing the description of information about ships, voyages,
 
@@ -427,9 +427,9 @@ A deployment of the application is publicly accessible.[20](#page-21-1)
 ![](_page_22_Figure_0.jpeg)
 <!-- Image Description: The image displays a bar chart visualizing the number of ships constructed in different locations between 1830 and 1840 AD. The chart's x-axis represents locations (Blanes, Pra, Sestri Ponente, Varazze, Voltri, Unknown), and the y-axis shows the count of ships. Varazze shows the highest number of ships constructed. The image is part of an interactive data visualization tool, allowing users to filter data by time period and location (A,B). The chart is one of several visualization options (C) available. -->
 
-<span id="page-22-1"></span>Fig. 5. Semantic search and results visualisation in ResearchSpace.
+<span id="page-22-1"></span>Figure 5. Semantic search and results visualisation in ResearchSpace.
 
-# <span id="page-22-0"></span>7 Quality Aspects and Lessons Learned
+## <span id="page-22-0"></span>7 Quality Aspects and Lessons Learned
 
 We discuss data quality aspects as well as relevant lessons learned from the application of the proposed workflow model in maritime history research.
 

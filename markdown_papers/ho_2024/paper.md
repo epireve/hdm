@@ -37,7 +37,6 @@ keywords:
 - x-xxxx-xxxx-x
 ---
 
-
 # Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUT
 
 [Tuan Bui](https://orcid.org/0000-0002-8587-182X)<sup>∗</sup> tuanbc88@hcmut.edu.vn Ho Chi Minh City University of Technology (HCMUT) HoChiMinhCity, VietNam
@@ -54,7 +53,7 @@ Phuong Nguyen phuong.nguyenvoid@hcmut.edu.vn Ho Chi Minh City University of Tech
 
 Thang Bui† bhthang@hcmut.edu.vn Ho Chi Minh City University of Technology (HCMUT) HoChiMinhCity, VietNam
 
-# ABSTRACT
+## ABSTRACT
 
 In today's rapidly evolving landscape of Artificial Intelligence, large language models (LLMs) have emerged as a vibrant research topic. LLMs find applications in various fields and contribute significantly. Despite their powerful language capabilities, similar to pre-trained language models (PLMs), LLMs still face challenges in remembering events, incorporating new information, and addressing domainspecific issues or hallucinations. To overcome these limitations, researchers have proposed Retrieval-Augmented Generation (RAG) techniques, some others have proposed the integration of LLMs with Knowledge Graphs (KGs) to provide factual context, thereby improving performance and delivering more accurate feedback to user queries.
 
@@ -118,7 +117,7 @@ One major hurdle for LLMs is their occasional struggle with factual accuracy and
 
 Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUTConference'17, July 2017, Washington, DC, USA
 
-# 3 TOWARDS CROSS-DATA KNOWLEDGE GRAPH CONSTRUCTION FOR LLM-ENABLED EDUCATIONAL QUESTION-ANSWERING SYSTEM
+## 3 TOWARDS CROSS-DATA KNOWLEDGE GRAPH CONSTRUCTION FOR LLM-ENABLED EDUCATIONAL QUESTION-ANSWERING SYSTEM
 
 In this section, we delve into the methodological approach employed in our research to extract valuable insights from a multisource educational data environment for KG construction, served as the foundation of an LLM-enabled educational QA system. We begin by discussing the nature of the data sources in the university environment of HCMUT and how they contribute to a comprehensive understanding of the educational ecosystem. We then introduce the E-OED Framework (Educational Open Entity Discovery) , a robust methodology designed to explore intents using unsupervised learning methods. This framework is particularly adept at handling challenges such as overlapping entities, open intents, and data fusion from multiple sources. Lastly, we present our method for Relation Discovery, allowing us to explore relationships among different types of entities and construct a KG representing the education domain.
 
@@ -131,7 +130,7 @@ Figure [1](#page-2-0) presents a cross-data environment at HCMUT, which includes
 <span id="page-2-0"></span>![](_page_2_Figure_6.jpeg)
 <!-- Image Description: The image is a system diagram illustrating the architecture of an HCMUT LLM-based virtual assistant. It shows how the virtual assistant integrates with various university resources (FAQ, HelpDesk, portals, LMS, other systems, and policies/documents). These resources are connected to an "Academic entity" and an "Intention entity" which feeds information into the virtual assistant via "Educational Open Entity Discovery". The diagram clarifies the data flow and integration points for the virtual assistant. -->
 
-Fig. 1: Multi-source educational data at HCMUT
+**Figure 1:** Multi-source educational data at HCMUT
 
 - FAQ and Help Desk System: In HCMUT, there is an online interactive system allowing students to raise their concerns arising during their study and feedback received from academic staff. Knowledge extractable from this source includes open intents, events, student issues, university services, the software system of the university.
 - Academic Portals/Websites: These are all the websites that HCMUT updates frequently for academic news, university
@@ -145,7 +144,7 @@ policies/regulations, and course information. Knowledge extractable from this so
 <span id="page-2-1"></span>![](_page_2_Figure_13.jpeg)
 <!-- Image Description: The image is a conceptual data model represented as a network graph. Nodes, representing entities like "Student," "Course," and "Department," are connected by edges showing relationships. Rectangular nodes represent policies or information, while ovals represent entities. The diagram illustrates the interconnectedness of various aspects within a university's academic system, likely to aid in understanding data relationships for a database or information system design. -->
 
-Fig. 2: Entity type in education domain
+**Figure 2:** Entity type in education domain
 
 Figure [2](#page-2-1) depicts the intricate task of extracting relationships within the educational domain and exploring intents. For instance, a certain Student may have his Student status, which is managed by Academic affairs office. This student also belongs to a certain Faculty and is enrolling in various instances of Class. The student can also leverage some academic service when necessary such as Course drop or Transcript inquiry. The graph showcases the complexity of mapping intents to academic entities, illustrating the nuanced connections that exist within this domain. This complexity underscores the necessity for robust methodologies to accurately decipher and analyze such relationships. The most challenging task towards such a KG construction is perhaps educational open entity discovery. These challenges include handling overlapping entities, exploring open intents (which lack extensive research compared to classified intents), and fusing data from multiple sources. Moreover, the Vietnamese language presents additional hurdles due to its status as a low-resource language. Furthermore, within educational environments, the intent of conversations are dynamic rather than fixed, and opened rather than limited. Consequently, the identification of open entities is crucial in the educational sphere. The E-OED Framework (Educational Open Entity Discovery), represented by Figure [3,](#page-3-0) aims to discover intents from FAQ data. This framework includes three processing modules known as Data Preprocessing, Semantic Clustering, and Automatic Cluster Labeling, each of which plays a crucial role in the intent discovery process.
 
@@ -154,7 +153,7 @@ Conference'17, July 2017, Washington, DC, USA Tuan Bui, et al.
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This flowchart depicts an open entity discovery framework. FAQ data is input, undergoing data preprocessing (tokenization, unique sentence acquisition, short sentence removal). Semantic clustering follows, using SimCSE for embedding, UMAP for dimension reduction, and HDBSCAN for clustering. Finally, automatic cluster labeling uses word segmentation, POS/dependency tagging, and rule-based tag extraction to produce extracted intentions as output. -->
 
-Fig. 3: Educational Open Entity Discovery Framework
+**Figure 3:** Educational Open Entity Discovery Framework
 
 Data Preprocessing In this step, we split paragraphs to a list of single sentences, filtering out the noise, etc. This initial filtering helps us focus on the meat of the text.
 
@@ -162,14 +161,14 @@ Semantic Clustering To obtain sentence embedding, we employ SimCSE [\[6\]](#page
 
 Automatic Cluster Labeling The final step in this process involves the automatic labeling of the clusters. To accomplish this task, our initial approach entails employing the word-segmentation tool for sentence segmentation within each cluster. Subsequently, the segmented sentences undergo analysis using the PhoNLP [\[21\]](#page-5-25) to execute both POS tagging and dependency tagging. Following the extraction of tags by the PhoNLP, a rule-based approach is implemented. Further refinement is achieved by identifying the most frequently occurring tokens within each subset, which are then designated as our cluster labels. Figure [4](#page-3-1) presents a compilation of some of the discovered intents from the FAQ dataset as the results of Semantic Clustering and Cluster Labelling processes. Involving courses and class groups, there exists a multitude of inquiries ranging from course enrollment, class transfers, and capacity expansions, to timetable matters. Investigating the intents and associated entities can aid in providing good responses or initiating subsequent actions.
 
-# 3 Embedding-based method for Relation Discovery
+## 3 Embedding-based method for Relation Discovery
 
 In the context of Relation Discovery between Intents and other entities, we adopt an Embedding-based approach. Due to resource and time constraints, we initially experimented with two major types of entities: intent and policy. To accommodate a large amount of diverse data with varying lengths, we employ two-stage retriever.
 
 <span id="page-3-1"></span>![](_page_3_Figure_8.jpeg)
 <!-- Image Description: The image displays a series of simple node-link diagrams, each illustrating a cluster of related student support services. Nodes represent service categories (e.g., "grade adjustment," "course registration") and links connect related services. The diagrams visually organize different support service areas, likely to clarify the scope and relationships between services offered within a university or educational setting. The purpose is to present a clear and concise overview of the support system for students. -->
 
-Fig. 4: List of some discovered intents
+**Figure 4:** List of some discovered intents
 
 We use Sentence-BERT to embed intent entities and policy entities. Once the embeddings are generated, we map different types of entities by measuring similarity or proximity between entity embeddings in multidimensional space.
 
@@ -178,7 +177,7 @@ After getting mapping between entities using embedding, we use tf\_idf to rerank
 <span id="page-3-2"></span>![](_page_3_Figure_12.jpeg)
 <!-- Image Description: This flowchart depicts a relation discovery module. Input, comprised of entity, intent, and policy, is processed through three stages: entity enrichment, entity embedding, and similarity measuring. The output is entity relationships. The diagram illustrates a data processing pipeline for identifying relationships between entities, using embedding and similarity measurement techniques. -->
 
-Fig. 5: Relation Discovery Module using Embedding-based method
+**Figure 5:** Relation Discovery Module using Embedding-based method
 
 ## 4 EXPERIMENTS
 
@@ -194,29 +193,27 @@ Table [1](#page-4-0) illustrates the outcomes of our experimentation in discover
 
 ### Table 1: Open intent discovery result
 
-<span id="page-4-0"></span>
 
-| Case | Framework     | Dataset       | Cluster's No | Extracted intent |
+| Case | Framework | Dataset | Cluster's No | Extracted intent |
 |------|---------------|---------------|--------------|------------------|
-| 1    | BERTopic      | Banking77_eng | 157          | 73               |
-| 2    | BERTopic      | Banking77_vni | 147          | 65               |
-| 3    | OED Framework | Banking77_vni | 257          | 76               |
-| 4    | OED Framework | HCMUT_FAQ_vni | 284          | 372              |
+| 1 | BERTopic | Banking77_eng | 157 | 73 |
+| 2 | BERTopic | Banking77_vni | 147 | 65 |
+| 3 | OED Framework | Banking77_vni | 257 | 76 |
+| 4 | OED Framework | HCMUT_FAQ_vni | 284 | 372 |
 
-# 3 Embedding-based method for Relation Discovery Result
+## 3 Embedding-based method for Relation Discovery Result
 
 The embedding-based approach for relation discovery has yielded promising results in exploring relationships between entities, particularly in the education domain. Table [2](#page-4-1) show the result of Embeddingbased approach, in this experiment, there are 243 intent entities and 237 policy entities. Following our approach, and after several trials, we've settled on a threshold of 0.32. A total of 613 relationships between entity pairs (intent and policy) have been identified. Out of these, 53 intent entities do not have any associations with policy entities. For instance, the intent "download form" is broad and lacks specific entity references. Additionally, among these 53 intent entities without relationships, 22 intents are overlooked, indicating they indeed have connections with policies but were not detected. For example, "Cancel course" and "Withdraw course" are linked to the Withdrawal Policy.
 
-<span id="page-4-1"></span>
 
-| Entity pair              | [Intent, Policy] |  |
+| Entity pair | [Intent, Policy] | |
 |--------------------------|------------------|--|
-| No of entities           | [243 , 237]      |  |
-| Discovered relationships | 613              |  |
-| Non-associative intents  | 53               |  |
-| Overlooked intents       | 22               |  |
+| No of entities | [243 , 237] | |
+| Discovered relationships | 613 | |
+| Non-associative intents | 53 | |
+| Overlooked intents | 22 | |
 
-# 4 KG-augmented LLMs Approach in Educational Context
+## 4 KG-augmented LLMs Approach in Educational Context
 
 To address the "KG-augmented LLMs" aspect of the research and its application in the education domain at HCMUT, we conduct a general pipeline of the question-answering system following the Figure [6](#page-4-2) (a). The process of answering user questions involves feeding the question into our institution's LLM, URA, which generates a structured query in the form of Neo4j's Cypher language, as our knowledge graph database is built on Neo4j. This query searches a knowledge graph database handcrafted using intent discovery's result to retrieve matching sub-graphs and relevant triples. Next, the triples are converted into a natural language format and combined with the original user question to create a final prompt for the LLM. The prompt guides the LLM in generating a coherent and accurate answer as demonstrated in Figure [6](#page-4-2) (b).
 
@@ -225,7 +222,7 @@ To address the "KG-augmented LLMs" aspect of the research and its application in
 
 (b) Demonstration of course withdrawal case
 
-Fig. 6: KG-augmented LLMs Approach and Demonstration of course withdrawal case
+**Figure 6:** KG-augmented LLMs Approach and Demonstration of course withdrawal case
 
 ## 5 Discussion
 
@@ -295,14 +292,13 @@ Furthermore, to comply with dataset privacy policies, we implemented a text anon
 
 ### Table 3: Data censored tool
 
-<span id="page-6-0"></span>
 
-| Objects      | Method                        | Term Replace   |
+| Objects | Method | Term Replace |
 |--------------|-------------------------------|----------------|
-| Person Name  | NER (BERT)                    | [full_name]    |
-| Student ID   | Regex (7 number format)       | [student_id]   |
-| Phone number | Regex (10 number format)      | [phone_number] |
-| Email        | Regex (ordinary email with @) | [email]        |
+| Person Name | NER (BERT) | [full_name] |
+| Student ID | Regex (7 number format) | [student_id] |
+| Phone number | Regex (10 number format) | [phone_number] |
+| Email | Regex (ordinary email with @) | [email] |
 
 A.1.2 Semantic Clustering. Our model consists of three primary components:
 
@@ -333,97 +329,96 @@ Within this approach, a key hyperparameter is the range of word lengths consider
 
 Following keyword extraction, the chosen sentences are processed using the PhoNLP model to obtain Part-of-Speech (PoS) and dependency tags. We then leverage these tags in conjunction with pre-defined rules (detailed in the Algorithm [1\)](#page-6-1) to generate descriptive labels for each cluster.
 
-<span id="page-6-1"></span>
 
-| Algorithm 1 Tag extraction algorithms                                                              |  |  |  |
+| Algorithm 1 Tag extraction algorithms | | | |
 |----------------------------------------------------------------------------------------------------|--|--|--|
-| 1: function ExtractSentenceElements(𝑐𝑎𝑡𝑒𝑔𝑜𝑟 𝑦_𝑑𝑜𝑐𝑠)                                                |  |  |  |
-| 2:<br>Initialize list of labels                                                                    |  |  |  |
-| 3:<br>for each sentence in 𝑐𝑎𝑡𝑒𝑔𝑜𝑟 𝑦_𝑑𝑜𝑐𝑠 do                                                       |  |  |  |
-| 4:<br>Clean the sentence by stripping whitespace                                                   |  |  |  |
-| 5:<br>Get the annotation result from 𝑃ℎ𝑜𝑁 𝐿𝑃                                                       |  |  |  |
-| 6:<br>Extract the part-of-speech (POS) and dependency (DEP) information                            |  |  |  |
-| 7:<br>Initialize lists for verbs, direct objects, verb modifiers, and other list                   |  |  |  |
-| 8:<br>Initialize variables for root position, direct object positions, verb modifier position, and |  |  |  |
-| preposition position                                                                               |  |  |  |
-| #Extract all related positions                                                                     |  |  |  |
-| 9:<br>Create a set to store the relevant positions                                                 |  |  |  |
-| 10:<br>for each token in the sentence do                                                           |  |  |  |
-| 11:<br>if the token is the root of the sentence then                                               |  |  |  |
-| 12:<br>Add its position to the set                                                                 |  |  |  |
-| 13:<br>while the length of the position set is changing do                                         |  |  |  |
-| 14:<br>for each token in the document do                                                           |  |  |  |
-| 15:<br>if the token's dependency is related to the root or other relevant positions                |  |  |  |
-| then                                                                                               |  |  |  |
-| 16:<br>Add its position to the set                                                                 |  |  |  |
-| 17:<br>if the length of the set doesn't change then                                                |  |  |  |
-| 18:<br>Break the loop                                                                              |  |  |  |
-| #Extract the sentence elements                                                                     |  |  |  |
-| 19:<br>for each token in the document do                                                           |  |  |  |
-| 20:<br>if the token's dependency is 'root' then                                                    |  |  |  |
-| 21:<br>Add it to the verbs and consecutive lists                                                   |  |  |  |
-| 22:<br>if the token's dependency is 'prp' and its position is in the set then                      |  |  |  |
-| 23:<br>Add it to the direct objects lists                                                          |  |  |  |
-| 24:<br>if the token's dependency is 'dob' then                                                     |  |  |  |
-| 25:<br>Add it to the direct objects list                                                           |  |  |  |
-| 26:<br>if the token's dependency is 'vmod' and its position is related to the root, preposition,   |  |  |  |
-| or verb modifier positions then                                                                    |  |  |  |
-| 27:<br>Add it to the verb modifiers list                                                           |  |  |  |
-| 28:<br>if the token's dependency is 'nmod' and its position is related to a direct object          |  |  |  |
-| position then                                                                                      |  |  |  |
-| 29:<br>Add it to the other list                                                                    |  |  |  |
-| 30:<br>if the token's position or its dependency's position is in the set and the dependency       |  |  |  |
-| is in a predefined list then                                                                       |  |  |  |
-| 31:<br>Add the token to the other list                                                             |  |  |  |
-| 32:<br>Extract the most frequent tokens in each list.                                              |  |  |  |
-| 33:<br>Add the tokens into list of labels                                                          |  |  |  |
-| 34:<br>return list of labels                                                                       |  |  |  |
+| 1: function ExtractSentenceElements(𝑐𝑎𝑡𝑒𝑔𝑜𝑟 𝑦_𝑑𝑜𝑐𝑠) | | | |
+| 2:<br>Initialize list of labels | | | |
+| 3:<br>for each sentence in 𝑐𝑎𝑡𝑒𝑔𝑜𝑟 𝑦_𝑑𝑜𝑐𝑠 do | | | |
+| 4:<br>Clean the sentence by stripping whitespace | | | |
+| 5:<br>Get the annotation result from 𝑃ℎ𝑜𝑁 𝐿𝑃 | | | |
+| 6:<br>Extract the part-of-speech (POS) and dependency (DEP) information | | | |
+| 7:<br>Initialize lists for verbs, direct objects, verb modifiers, and other list | | | |
+| 8:<br>Initialize variables for root position, direct object positions, verb modifier position, and | | | |
+| preposition position | | | |
+| #Extract all related positions | | | |
+| 9:<br>Create a set to store the relevant positions | | | |
+| 10:<br>for each token in the sentence do | | | |
+| 11:<br>if the token is the root of the sentence then | | | |
+| 12:<br>Add its position to the set | | | |
+| 13:<br>while the length of the position set is changing do | | | |
+| 14:<br>for each token in the document do | | | |
+| 15:<br>if the token's dependency is related to the root or other relevant positions | | | |
+| then | | | |
+| 16:<br>Add its position to the set | | | |
+| 17:<br>if the length of the set doesn't change then | | | |
+| 18:<br>Break the loop | | | |
+| #Extract the sentence elements | | | |
+| 19:<br>for each token in the document do | | | |
+| 20:<br>if the token's dependency is 'root' then | | | |
+| 21:<br>Add it to the verbs and consecutive lists | | | |
+| 22:<br>if the token's dependency is 'prp' and its position is in the set then | | | |
+| 23:<br>Add it to the direct objects lists | | | |
+| 24:<br>if the token's dependency is 'dob' then | | | |
+| 25:<br>Add it to the direct objects list | | | |
+| 26:<br>if the token's dependency is 'vmod' and its position is related to the root, preposition, | | | |
+| or verb modifier positions then | | | |
+| 27:<br>Add it to the verb modifiers list | | | |
+| 28:<br>if the token's dependency is 'nmod' and its position is related to a direct object | | | |
+| position then | | | |
+| 29:<br>Add it to the other list | | | |
+| 30:<br>if the token's position or its dependency's position is in the set and the dependency | | | |
+| is in a predefined list then | | | |
+| 31:<br>Add the token to the other list | | | |
+| 32:<br>Extract the most frequent tokens in each list. | | | |
+| 33:<br>Add the tokens into list of labels | | | |
+| 34:<br>return list of labels | | | |
 
 In order to reduce noises on newly extracted tags, we then take the most frequently occurring tokens within each subset, which are then designated as our cluster labels. For better cluster labels, LLMs can be used.
 
 <span id="page-7-0"></span>A.1.4 Result and Insights. There are 5 experiments with different design selection in total:
 
 - (1) Experiment 1:
-  - Dataset: Banking77\_eng
-  - Number of Neighbors: 20
-  - Number of Components: 4
-  - Minimum Cluster Size: 20
-  - cTF-IDF Range: [5-7]
+- Dataset: Banking77\_eng
+- Number of Neighbors: 20
+- Number of Components: 4
+- Minimum Cluster Size: 20
+- cTF-IDF Range: [5-7]
 - (2) Experiment 2:
-  - Dataset: Banking77\_vni
-  - (a) Experiment 2.1:
-    - Number of Neighbors: 20
-    - Number of Components: 4
-    - Minimum Cluster Size: 20
-    - cTF-IDF Range: [5-7]
-  - (b) Experiment 2.2:
-    - Number of Neighbors: 15
-    - Number of Components: 9
-    - Minimum Cluster Size: 15
-    - cTF-IDF Range: [4-11]
+- Dataset: Banking77\_vni
+- (a) Experiment 2.1:
+- Number of Neighbors: 20
+- Number of Components: 4
+- Minimum Cluster Size: 20
+- cTF-IDF Range: [5-7]
+- (b) Experiment 2.2:
+- Number of Neighbors: 15
+- Number of Components: 9
+- Minimum Cluster Size: 15
+- cTF-IDF Range: [4-11]
 - (3) Experiment 3:
-  - Dataset: Banking77\_vni
-  - Language Model: SimCSE (instead of MiniLM)
-  - (a) Experiment 3.1
-    - Number of Neighbors: 20
-    - Number of Topics: 4
-    - Minimum Cluster Size: 20
-    - cTF-IDF Range: [5-7]
-  - (b) Experiment 3.2
-    - Number of Neighbors: 15
-    - Number of Components: 9
-    - Minimum Cluster Size: 15
-    - cTF-IDF Range: [4-11]
+- Dataset: Banking77\_vni
+- Language Model: SimCSE (instead of MiniLM)
+- (a) Experiment 3.1
+- Number of Neighbors: 20
+- Number of Topics: 4
+- Minimum Cluster Size: 20
+- cTF-IDF Range: [5-7]
+- (b) Experiment 3.2
+- Number of Neighbors: 15
+- Number of Components: 9
+- Minimum Cluster Size: 15
+- cTF-IDF Range: [4-11]
 
-#### <span id="page-7-1"></span>Table 4: Design selection result
+### <span id="page-7-1"></span>Table 4: Design selection result
 
-| Experiment     | Intentions Discovered |
+| Experiment | Intentions Discovered |
 |----------------|-----------------------|
-| Experiment 1   | 73                    |
-| Experiment 2.1 | 65                    |
-| Experiment 2.2 | 74                    |
-| Experiment 3.1 | 71                    |
-| Experiment 3.2 | 76                    |
+| Experiment 1 | 73 |
+| Experiment 2.1 | 65 |
+| Experiment 2.2 | 74 |
+| Experiment 3.1 | 71 |
+| Experiment 3.2 | 76 |
 
 Our experiments revealed several key insights. Firstly, the original embedding model, despite not being trained on Vietnamese data, achieved reasonable performance on our banking77\_vni dataset. This suggests potential transferability due to structural similarities across languages. However, fine-tuning a dedicated embedding model specifically for Vietnamese could likely yield further improvements. Evaluating the quality of the embedding model can be achieved by analyzing the representative sentences within each cluster. Greater semantic similarity within clusters signifies a more effective model.
 

@@ -23,9 +23,6 @@ keywords:
 - leibniz-zentrum
 ---
 
-
-
-
 # City Research Online
 
 ## City, University of London Institutional Repository
@@ -45,6 +42,7 @@ This version of the publication may differ from the final published version.
 City Research Online: <http://openaccess.city.ac.uk/>[publications@city.ac.uk](mailto:publications@city.ac.uk)
 
 ## Knowledge Graphs for the Life Sciences: Recent Developments, Challenges and Opportunities<sup>∗</sup>
+
 **Jiaoyan Chen**[#](mailto:jiaoyan.chen@manchester.ac.uk)
 
 Department of Computer Science, University of Manchester, UK Department of Computer Science, University of Oxford, UK
@@ -88,20 +86,20 @@ recent developments and advances in the use of graph-based technologies in life 
 
 [Transactions on Graph Data and Knowledge](https://www.dagstuhl.de/tgdk) [Schloss Dagstuhl – Leibniz-Zentrum für Informatik, Dagstuhl Publishing, Germany](https://www.dagstuhl.de)
 
-#### 5:2 Knowledge Graphs for Life Sciences
+### 5:2 Knowledge Graphs for Life Sciences
 
 **2012 ACM Subject Classification**Information systems → Graph-based database models; Computing methodologies → Knowledge representation and reasoning; Applied computing → Life and medical sciences
 **Keywords and phrases**Knowledge graphs, Life science, Knowledge discovery, Explainable AI**Digital Object Identifier**[10.4230/TGDK.1.1.5](https://doi.org/10.4230/TGDK.1.1.5)
 **Category**Position
 **Funding** *Jiaoyan Chen*: supported by the EPSRC project ConCur (EP/V050869/1).
 
-*Hang Dong*: supported by the EPSRC project ConCur (EP/V050869/1).
+**Hang Dong:**  supported by the EPSRC project ConCur (EP/V050869/1).
 
-*Janna Hastings*: supported by the School of Medicine of the University of St. Gallen.
+**Janna Hastings:**  supported by the School of Medicine of the University of St. Gallen.
 
 *Ernesto Jiménez-Ruiz*: supported by the SIRIUS Centre for Scalable Data Access (Research Council of Norway, project 237889).
 
-*Catia Pesquita*: funded by the FCT through LASIGE Research Unit (ref. UIDB/00408/2020 and ref. UIDP/00408/2020), and also partially supported project 41, HfPT: Health from Portugal, funded by the Portuguese Plano de Recuperação e Resiliência.
+**Catia Pesquita:**  funded by the FCT through LASIGE Research Unit (ref. UIDB/00408/2020 and ref. UIDP/00408/2020), and also partially supported project 41, HfPT: Health from Portugal, funded by the Portuguese Plano de Recuperação e Resiliência.
 
 **Acknowledgements**We would like to thank Uli Sattler (University of Manchester) for proposing the topic of this paper and Terry Payne (University of Liverpool) for the useful comments on a previous draft. We would also like to thank the TGDK editors in chief for organizing this inaugural issue.
 **Received**2023-06-30**Accepted**2023-08-31**Published**2023-12-19
@@ -330,6 +328,7 @@ It is worth mentioning that among the existing works for life science knowledge 
 In the following, we present some typical use cases, where machine learning techniques (including graph representation learning and language models) are applied over KGs built from diverse sources and domain ontologies, to facilitate life science discovery.
 
 ## <span id="page-15-1"></span>4.1 What has been done: use cases and their recent developments
+
 **Therapeutics and Drug Discovery: Learning a representation using multi-modal and heterogeneous knowledge.**Drug discovery entails exploring an extremely large space of potential drug candidates. AI can help to accelerate this process by narrowing down the most promising candidates before expensive experimentation. The key to leveraging predictive and generative models for candidate solution generation lies in learning an effective multi-modal representation of protein targets, molecules and diseases among others. Recent research has focused on applying language models over large databases of proteins or molecules for self-supervised representation learning, such as ESM [\[148\]](#page-31-11) and ProteinBERT [\[10\]](#page-23-7) for protein sequences, or Molformer for the molecule simplified molecular-input line-entry system (SMILES) [\[151\]](#page-31-12). These models have exhibited remarkable success in tasks such as predicting protein interactions, binding affinity between drugs and targets, and protein functions and structures. However, these existing pre-trained sequence-based models often neglect to incorporate background knowledge from diverse sources, for example, biological structural knowledge.
 
 Nonetheless, recent research indicates that incorporating existing expressive factual knowledge can improve results in downstream machine learning tasks. To enhance Protein Language Models (PLM), approaches such as OntoProtein [\[192\]](#page-33-6) and KeAP [\[194\]](#page-33-7) use a KG of protein sequences augmented with textual annotations from the Gene Ontology (GO). OntoProtein was the first to inject gene ontology descriptions into a PLM for sequences to predict protein interactions, function and contact prediction. OntoProtein proposes to reconstruct masked amino acids while minimizing the embedding distance between the contextual representation of proteins and associated knowledge terms. Similarly, ProtST [\[186\]](#page-33-8) uses a dataset of protein sequences augmented with textual property descriptions from biomedical texts and jointly trains a PLM with a biomedical language model.
@@ -370,6 +369,7 @@ A number of approaches for XAI emerge from the literature and broadly contain tw
 Utilization of KGs can greatly enhance XAI qualities as KGs are ideal for improving the model's interpretability, explainability, and understandability. Some methods are directly built around KGs and thus take full advantage of them. Examples of those methods may include methods that are using paths [\[161\]](#page-31-14), predicting links, or performing reasoning [\[33\]](#page-25-15). Other methods can be enhanced using the KG (e.g., [\[126\]](#page-30-17)). Yet the enhancement effect greatly depends on the place where KGs are employed and iteratively applied:*pre-model*(e.g., KG construction, potentially multi-modal),*in-model*(e.g., integrating KG with machine learning models), and*post-model*(e.g., reviewing and updating KG by domain experts to be applied in the next iteration to enhance machine learning models and their explanability) [\[143\]](#page-30-16). For example in in-model use, a model can be pre-trained using a KG, and an example of a pre-trained language model is SapBERT [\[108\]](#page-29-8), which utilizes synonyms in the UMLS Metathesaurus to further pre-train a BERT language model. This can not only be beneficial for performance [\[192\]](#page-33-6), but can also potentially enhance post-model explanation since the trained features are aligned with the KG [\[143\]](#page-30-16).
 
 ## 5.1 What has been done: use cases and recent developments
+
 **Explainable AI for Healthcare Practice.**The utilization of AI in healthcare practice raises the concern of leaving life-critical decisions to black-box models [\[143,](#page-30-16) [167\]](#page-32-18). For example, in the field of precision medicine which aims at tailoring drug treatments and dosages to each patient, clinicians require more information from a model than a simple binary decision [\[7\]](#page-23-9). The interpretability and explainability of AI models is thus an essential characteristic to make outputs understandable and transparent. This would enforce both clinicians' and patients' trust in models by complementing (and not substituting) clinicians' explanations [\[20,](#page-24-7) [143,](#page-30-16) [167\]](#page-32-18).
 
 To illustrate, this direction has been envisioned for several healthcare scenarios. Explainable AI models could support the experts in finding clinical trials that are appropriate based on patient history [\[167\]](#page-32-18). Counterintuitive or unreliable predictions that could have serious consequences could be explained, and thus prevented [\[167,](#page-32-18) [14,](#page-23-10) [90\]](#page-28-17). Some also envision such models to be used to explain and debunk healthcare-related misinformation [\[143\]](#page-30-16). As aforementioned, it is noteworthy that different kinds of explanations should be employed depending on the target audience, e.g., scientific explanations for evidence or trace-based explanations for treatment [\[20\]](#page-24-7).
@@ -593,7 +593,7 @@ A literature study.*Journal of Biomedical Informatics*, 143:104403, 2023. [doi:1
 - <span id="page-30-8"></span>**142**Zhixin Qi, Hongzhi Wang, Ziming Shen, and Donghua Yang. PreKar: A learned performance predictor for knowledge graph stores.*World Wide Web*, 26(1):321–341, 2023. [doi:10.1007/](https://doi.org/10.1007/S11280-022-01033-2) [S11280-022-01033-2](https://doi.org/10.1007/S11280-022-01033-2).
 - <span id="page-30-16"></span>**143**Enayat Rajabi and Somayeh Kafaie. Knowledge graphs and explainable AI in healthcare.*Inf.*, 13(10):459, 2022. [doi:10.3390/INFO13100459](https://doi.org/10.3390/INFO13100459).
 
-#### 5:30 Knowledge Graphs for Life Sciences
+### 5:30 Knowledge Graphs for Life Sciences
 
 - <span id="page-31-5"></span>**144**K. E. Ravikumar, Majid Rastegar-Mojarad, Majid Rastegar-Mojarad, and Hongfang Liu. Belminer: adapting a rule-based relation extraction system to extract biological expression language statements from bio-medical literature evidence sentences.*Database: The Journal of Biological Databases and Curation*, 2017, 2017. [doi:10.1093/DATABASE/](https://doi.org/10.1093/DATABASE/BAW156) [BAW156](https://doi.org/10.1093/DATABASE/BAW156).
 - <span id="page-31-4"></span>**145**KE Ravikumar, Kavishwar B Wagholikar, and Hongfang Liu. Towards pathway curation through literature mining–a case study using pharmgkb. In*Biocomputing 2014*, pages 352–363. World Scientific, 2014. URL: [http://psb.stanford.edu/psb-online/](http://psb.stanford.edu/psb-online/proceedings/psb14/ravikumarke.pdf) [proceedings/psb14/ravikumarke.pdf](http://psb.stanford.edu/psb-online/proceedings/psb14/ravikumarke.pdf), [doi:10.1142/9789814583220\\_0034](https://doi.org/10.1142/9789814583220_0034).
@@ -645,7 +645,7 @@ Deac, et al. Scientific discovery in the age of artificial intelligence.*Nature*
 - <span id="page-32-16"></span>**184**Eryu Xia, Wen Sun, Jing Mei, Enliang Xu, Ke Wang, and Yong Qin. Mining diseasesymptom relation from massive biomedical literature and its application in severe disease diagnosis.*AMIA Annual Symposium Proceedings*, 2018:1118–1126, 2018. URL: [https://knowledge.amia.org/67852-amia-1.](https://knowledge.amia.org/67852-amia-1.4259402/t004-1.4263758/t004-1.4263759/2976467-1.4263778/2976026-1.4263775) [4259402/t004-1.4263758/t004-1.4263759/](https://knowledge.amia.org/67852-amia-1.4259402/t004-1.4263758/t004-1.4263759/2976467-1.4263778/2976026-1.4263775) [2976467-1.4263778/2976026-1.4263775](https://knowledge.amia.org/67852-amia-1.4259402/t004-1.4263758/t004-1.4263759/2976467-1.4263778/2976026-1.4263775).
 - <span id="page-32-15"></span>**185**Bo Xiong, Michael Cochez, Mojtaba Nayyeri, and Steffen Staab. Hyperbolic embedding inference for structured multi-label prediction.*Advances in Neural Information Processing Systems*, 35:33016–33028, 2022. URL: [http://](http://papers.nips.cc/paper_files/paper/2022/hash/d51ab0fc62fe2d777c7569952f518f56-Abstract-Conference.html) [papers.nips.cc/paper\\_files/paper/2022/hash/](http://papers.nips.cc/paper_files/paper/2022/hash/d51ab0fc62fe2d777c7569952f518f56-Abstract-Conference.html) [d51ab0fc62fe2d777c7569952f518f56-Abstract-](http://papers.nips.cc/paper_files/paper/2022/hash/d51ab0fc62fe2d777c7569952f518f56-Abstract-Conference.html)[Conference.html](http://papers.nips.cc/paper_files/paper/2022/hash/d51ab0fc62fe2d777c7569952f518f56-Abstract-Conference.html).
 
-#### 5:32 Knowledge Graphs for Life Sciences
+### 5:32 Knowledge Graphs for Life Sciences
 
 - <span id="page-33-8"></span>**186**Minghao Xu, Xinyu Yuan, Santiago Miret, and Jian Tang. Protst: Multi-modality learning of protein sequences and biomedical texts. In*Proceedings of the 40th International Conference on Machine Learning*, ICML'23. JMLR.org, 2023. URL: [https:](https://proceedings.mlr.press/v202/xu23t.html) [//proceedings.mlr.press/v202/xu23t.html](https://proceedings.mlr.press/v202/xu23t.html).
 - <span id="page-33-3"></span>**187**Zonghai Yao, Yi Cao, Zhichao Yang, Vijeta Deshpande, and Hong Yu. Extracting biomedical factual knowledge using pretrained language model and electronic health record context. In*AMIA Annual Symposium Proceedings*, volume 2022, page 1188, 2022. URL: [https://knowledge.amia.](https://knowledge.amia.org/76677-amia-1.4637602/f006-1.4642154/f006-1.4642155/82-1.4642180/1077-1.4642177) [org/76677-amia-1.4637602/f006-1.4642154/](https://knowledge.amia.org/76677-amia-1.4637602/f006-1.4642154/f006-1.4642155/82-1.4642180/1077-1.4642177) [f006-1.4642155/82-1.4642180/1077-1.4642177](https://knowledge.amia.org/76677-amia-1.4637602/f006-1.4642154/f006-1.4642155/82-1.4642180/1077-1.4642177).

@@ -70,21 +70,21 @@ Linköping University Linköping, Sweden daniel.varro@liu.se
 
 McGill University Montréal, Canada boqi.chen@mail.mcgill.ca
 
-#### [Tushar Sharma](https://orcid.org/0000-0002-0538-052X)
+### [Tushar Sharma](https://orcid.org/0000-0002-0538-052X)
 
 Dalhouise University Halifax, Canada tushar@dal.ca
 
-# Abstract
+## Abstract
 
 Large Language Models have significantly advanced the field of code generation, demonstrating the ability to produce functionally correct code snippets. However, advancements in generative ai for code overlook foundational Software Engineering (se) principles such as modularity, and single responsibility, and concepts such as cohesion and coupling which are critical for creating maintainable, scalable, and robust software systems. These concepts are missing in pipelines that start with pre-training and end with the evaluation using benchmarks.
 
 This vision paper argues for the integration of se knowledge into llms to enhance their capability to understand, analyze, and generate code and other se artifacts following established se knowledge. The aim is to propose a new direction where llms can move beyond mere functional accuracy to perform generative tasks that require adherence to se principles and best practices. In addition, given the interactive nature of these conversational models, we propose using Bloom's Taxonomy as a framework to assess the extent to which they internalize se knowledge. The proposed evaluation framework offers a sound and more comprehensive evaluation technique compared to existing approaches such as linear probing. Software engineering native generative models will not only overcome the shortcomings present in current models but also pave the way for the next generation of generative models capable of handling real-world software engineering.
 
-# CCS Concepts
+## CCS Concepts
 
 • Software and its engineering → Software notations and tools; • Computing methodologies → Machine learning algorithms;
 
-# Keywords
+## Keywords
 
 Generative Artificial Intelligence for se, Code Intelligence
 
@@ -96,7 +96,7 @@ ACM Reference Format:
 
 Mootez Saad, José Antonio Hernández López, Boqi Chen, Neil Ernst, Dániel Varró, and Tushar Sharma. 2025. SENAI: Towards Software Engineering Native Generative Artificial Intelligence. In . ACM, New York, NY, USA, [5](#page-4-0) pages. <https://doi.org/10.1145/nnnnnnn.nnnnnnn>
 
-# <span id="page-0-0"></span>1 Introduction
+## <span id="page-0-0"></span>1 Introduction
 
 Large language models (llms) have significantly transformed software development by enabling on-demand code generation and assistance capabilities. These models have demonstrated remarkable capabilities in automating programming tasks, providing code completions, and generating functions or classes based on textual prompts [\[9,](#page-4-1) [15\]](#page-4-2). By learning from vast code repositories, llms have become valuable tools for developers, enhancing productivity and reducing the time required to write boilerplate or routine code.
 
@@ -134,7 +134,7 @@ However, treating code as a stream of tokens ignores its inherent syntactic and 
 
 While the aforementioned models show good results in various code intelligence tasks, they still operate primarily at the function or file level. However, real-world scenarios involve complex dependencies with interactions between different parts of the codebase. By confining the pre-training phase to isolated code snippets, models may perform suboptimally when code generation necessitates repository-level knowledge. Recognizing this limitation, recent approaches, such as StarCoder 2 [\[20\]](#page-4-3) and DeepSeek-Coder [\[13\]](#page-4-20), have begun to include repository-level contextual information during the pre-training stage.
 
-# 2 Benchmarks and Evaluation
+## 2 Benchmarks and Evaluation
 
 In this section, we cover some of the metrics used to quantify performance of llms of code. Second, we list a non-comprehensive list of benchmarks used to evaluate these models systematically.
 
@@ -150,7 +150,7 @@ So far, llms are conceived as "(natural) language" models, and hence natural lan
 
 Native software models are grounded in se and can adhere to se principles and software systems. We need se native large language models because the existing AI models overlook the essential se knowledge encapsulated in the form of principles and best practices to make software maintainable, scalable, robust, and reliable.
 
-# 1 Evaluation Strategy
+## 1 Evaluation Strategy
 
 The evaluation process needs to be adapted to gauge the extent to which the models, old and new, grasp se knowledge.
 
@@ -162,14 +162,14 @@ These new benchmarks would present tasks that require the model to demonstrate g
 
 ## <span id="page-2-0"></span>Table 1: Bloom's Taxonomy Levels and Corresponding Potential Assessment Questions
 
-| Level      | Assessment strategy                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Level | Assessment strategy |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Recall     | This level relates to recall from learned material. We have<br>decided to ignore this level as it would not gauge useful<br>information. Prompting the model on whether it recollects<br>cohesion or coupling has limited practical implications.                                                                                                                                                                                              |
-| Understand | To assess LLMs' capabilities concerning this level, the model<br>can be prompted with code snippets, or pairs of code snippets,<br>that exhibit different degrees (low and high) of cohesion.                                                                                                                                                                                                                                                  |
-| Apply      | In this stage, Code snippets with low cohesion and high<br>coupling can be provided to the models for refactoring to<br>improve these attributes. The software's behavior should<br>remain the same. The evaluation will be based on test suite<br>execution and relevant software metrics (e.g., lcom, cbo).                                                                                                                                  |
-| Analyze    | At the analysis level, the model is given a tuple of code frag<br>ments with varying degrees (low to high) of cohesion (or<br>coupling) in random order. The model then ranks the snip<br>pets from lowest to highest cohesion (or coupling). Also, this<br>level can investigate the model's understanding concerning<br>different types of cohesion (e.g., functional, sequential, com<br>municational) and coupling (e.g., temporal, data). |
-| Evaluate   | At this taxonomy level, the model will be given a set or pairs<br>of classes, ranked by cohesion or a coupling measure, and<br>asked to evaluate whether such ranking is valid.                                                                                                                                                                                                                                                                |
-| Synthesis  | In this stage, the model will be presented with requirements<br>of a feature that must be implemented as a part of a software<br>system. Then, the generated implementation will be evalu<br>ated based on correctness and its ability to produce loosely<br>coupled and highly cohesive code.                                                                                                                                                 |
+| Recall | This level relates to recall from learned material. We have<br>decided to ignore this level as it would not gauge useful<br>information. Prompting the model on whether it recollects<br>cohesion or coupling has limited practical implications. |
+| Understand | To assess LLMs' capabilities concerning this level, the model<br>can be prompted with code snippets, or pairs of code snippets,<br>that exhibit different degrees (low and high) of cohesion. |
+| Apply | In this stage, Code snippets with low cohesion and high<br>coupling can be provided to the models for refactoring to<br>improve these attributes. The software's behavior should<br>remain the same. The evaluation will be based on test suite<br>execution and relevant software metrics (e.g., lcom, cbo). |
+| Analyze | At the analysis level, the model is given a tuple of code frag<br>ments with varying degrees (low to high) of cohesion (or<br>coupling) in random order. The model then ranks the snip<br>pets from lowest to highest cohesion (or coupling). Also, this<br>level can investigate the model's understanding concerning<br>different types of cohesion (e.g., functional, sequential, com<br>municational) and coupling (e.g., temporal, data). |
+| Evaluate | At this taxonomy level, the model will be given a set or pairs<br>of classes, ranked by cohesion or a coupling measure, and<br>asked to evaluate whether such ranking is valid. |
+| Synthesis | In this stage, the model will be presented with requirements<br>of a feature that must be implemented as a part of a software<br>system. Then, the generated implementation will be evalu<br>ated based on correctness and its ability to produce loosely<br>coupled and highly cohesive code. |
 
 The emergence of instruction-based language models, which allow for more flexible and interactive engagement, presents an opportunity to complement existing probing techniques with mature frameworks from psychology. A possible framework would be Bloom's Taxonomy [\[4\]](#page-4-29) which categorizes cognitive skills into hierarchical levels. This framework has been previously used by Buckley and Exton [\[5\]](#page-4-30) to assess developers' comprehension of a software system. A comprehensive assessment strategy can be designed to probe the model's knowledge across various cognitive dimensions. This framework would allow us to move beyond the surface-level analysis provided by linear probes. This includes assessing higher-order cognitive skills such as applying principles in new situations, analyzing code for adherence to best practices, evaluating design decisions, and even creating original code that embodies se principles. In addition, a taxonomy-based assessment
 
@@ -180,7 +180,7 @@ The emergence of instruction-based language models, which allow for more flexibl
 
 can highlight specific areas where the model excels or underperforms. For instance, a model might effectively recall definitions but struggle with applying principles in code refactoring tasks. Identifying such gaps is crucial for guiding further pre-training and improvement. In Table [1,](#page-2-0) we present an example of a survey that can be used to examine to what extent a model internalizes foundational concepts, notably, cohesion and coupling.
 
-#### 2 Enriching LLMs with se knowledge
+### 2 Enriching LLMs with se knowledge
 
 To transform language models into truly se-grounded tools, it is important to extend their training beyond the generation of syntactically correct and functionally accurate code. While these attributes are foundational, they do not encompass the full spectrum of se practices that ensure code is maintainable, scalable, and aligned with sound design principles. To achieve this deeper integration, we propose several strategies on which we elaborate on blow.
 
@@ -198,11 +198,11 @@ It is important to emphasize that we are not advocating for the abandonment of c
 
 <span id="page-4-0"></span>SENAI: Towards Software Engineering Native Generative Artificial Intelligence Conference'17, July 2017, Washington, DC, USA
 
-# 4 Conclusions
+## 4 Conclusions
 
 Grounding llms in SE principles is essential for advancing code generation beyond mere functional correctness. In this work, we called for integrating high-level design insights into language models which would steer towards the generation of code that is maintainable, scalable, and aligned with best practices. This proposal bridges the gap between code autocompletion and the demands of SE, leading to AI systems that can more effectively assist developers. Ultimately, this integration holds the promise of enhancing software quality and reducing potential technical debt in real-world applications. In parallel, we have also illustrated potential improvements to the current benchmarks and evaluation practices of language models of code.
 
-# References
+## References
 
 - <span id="page-4-10"></span>[1] DeepSeek AI. 2023. DeepSeek Coder 33B Instruct. [https://huggingface.co/](https://huggingface.co/deepseek-ai/deepseek-coder-33b-instruct) [deepseek-ai/deepseek-coder-33b-instruct.](https://huggingface.co/deepseek-ai/deepseek-coder-33b-instruct) Accessed: 2025-Jan-16.
 - <span id="page-4-24"></span>[2] Jacob Austin, Augustus Odena, Maxwell Nye, Maarten Bosma, Henryk Michalewski, David Dohan, Ellen Jiang, Carrie Cai, Michael Terry, Quoc Le, et al. 2021. Program synthesis with large language models. arXiv preprint arXiv:2108.07732 (2021).

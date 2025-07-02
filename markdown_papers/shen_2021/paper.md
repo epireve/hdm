@@ -52,8 +52,6 @@ keywords:
 - computational visual media
 ---
 
-
-
 # Deriving Design Knowledge Graph for Complex Sociotechnical Systems Using the AIA Design Thinking
 
 **Tao Shen , <sup>1</sup> Chan Gao,2,3 Yukari Nagai,3 and Wei Ou <sup>4</sup>**
@@ -74,7 +72,7 @@ Copyright © 2021 Tao Shen et al. \*is is an open access article distributed und
 
 \*e AIA design thinking has been validated in complex design tasks, which includes three overlapping design thinking fields and uses the knowledge field theory as a theoretical mechanism of knowledge flow among design thinking fields. Meanwhile, the design of complex sociotechnical systems highly relies on multidisciplinary knowledge and design methods. Despite the emergence of knowledge management techniques (ontology, expert system, text mining, etc.), designers continue to store knowledge in unstructured ways. To facilitate the integration of knowledge graph and design thinking, we introduce an integrated approach to structure design knowledge graph with the AIA design thinking, which organizes existing design knowledge through Agent (concept)-Interaction (relation)-Adaptation (concept) framework. \*e approach uses an optimized convolutional neural network to accomplish two tasks: building concept graph from text and stimulating design thinking information processing for complex sociotechnical system tasks. Based on our knowledge graph, the validation experiment demonstrates the advantages of promoting the designer's extension of idea space and idea quality.
 
-# 1. Introduction
+## 1. Introduction
 
 With the development of communication technology and computer technology, human society has entered the information age. Since then, information data has exploded [\[1, 2](#page-8-0)]. \*e explosive growth of information has brought about a wealth of information experience to designers and caused designers to get lost in the massive amount of information related or unrelated to their needs [[3–5\]](#page-8-0). A semantic network [\[6](#page-8-0)] was proposed as a brand-new way of expressing knowledge and gradually developed into a knowledge graph [\[7–9](#page-8-0)] to solve information overload problems.
 
@@ -114,7 +112,7 @@ Name entity recognition (NER) has long been treated as a sequence classification
 ![](_page_2_Figure_7.jpeg)
 <!-- Image Description: The image displays a triangular model depicting a design process. Three core components — Agent, Interaction, and Adaptation — are interconnected by numerous bidirectional arrows, symbolizing iterative feedback and influence. Surrounding the triangle, rectangular boxes label various design methods (e.g., mind mapping, brainstorming, rapid prototyping) contributing to the central components. The model likely illustrates the iterative nature of design, emphasizing the interplay between different methods and the continuous adaptation phase. -->
 
-Figure 1: Model of the AIA design thinking.
+**Figure 1:** Model of the AIA design thinking.
 
 classification models, such as conditional random field (CRF) [[46–48\]](#page-9-0) and recurrent neural networks, have been widely applied to the task [\[49–52](#page-9-0)]. Recently, researchers have used the BERT model, which has shown very effective performance in various NLP tasks, to build NER models [\[53\]](#page-9-0). In this research, we also use BERT to identify name entities related to architecture design concepts.
 
@@ -122,7 +120,7 @@ Relation extraction is even more challenging than NER. In the early days, resear
 
 Taken together, prior research on knowledge graph construction technology and its demonstrated advantages have made it possible to develop a new approach to design knowledge graphs based on the AIA design thinking <span id="page-3-0"></span>framework to support the design process for complex sociotechnical systems. In the following section, we will present the approach in detail.
 
-# 3. Integrated Approach to Design Knowledge Graph Using AIA Design Thinking Framework
+## 3. Integrated Approach to Design Knowledge Graph Using AIA Design Thinking Framework
 
 Our approach builds a loop optimization iterative mechanism shown in Figure [2](#page-4-0) to support the design process for complex sociotechnical systems. Specifically, we first collect data to the data processing layer, where we use the optimized convolutional neural network to detect the relation between concept entities. \*en, we construct the design knowledge graph through Agent (concept)-Interaction (relation)-Adaptation (concept) framework based on AIA design thinking and generate new design knowledge through the designer's cognitive system. Finally, we collect new valuable design knowledge to achieve the purpose of loop iteration optimization.
 
@@ -141,14 +139,14 @@ where *W*is a pertained word embedding model and*t*is the one-hot encoding vecto
 $$
 \overline{v} = \frac{1}{N} \sum_{n=1}^{N} v_n.
 $$
- (2)
+(2)
 
 In the meantime, we compute the contextual feature for each word in a sentence. We set the context window to 3 and therefore the contextual features associated with a sentence are represented as follows:
 
 $$
 c = \{ [v_1, v_2, v_3], [v_2, v_3, v_4], \dots, [v_{N-2}, v_{N-1}, v_N] \}.
 $$
- (3)
+(3)
 
 We then feed the contextual features into a convolutional layer to extract local classification signal.
 
@@ -174,7 +172,7 @@ We use the cross entropy as the loss to learn the parameters of the neural netwo
 $$
 J(\theta) = \sum_{m}^{M} \log p(r_k^m | t^m; \theta).
 $$
- (7)
+(7)
 
 We use gradient decent to update the parameters of the neural networks.
 
@@ -188,7 +186,7 @@ where*λ*is the learning rate which is tuned using grid search in the training p
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
 <!-- Image Description: This figure illustrates a four-layer architecture for a design knowledge system. The first layer collects structured, semi-structured, and unstructured data. This data is processed in the second layer through concept and relation extraction. The third layer integrates this knowledge using the AIA Design Thinking framework. Finally, the fourth layer applies the integrated knowledge, producing a design knowledge graph and design stimuli information. Arrows indicate the data flow between layers. -->
 
-Figure 2: \*e overall research framework of the proposed integrated approach.
+**Figure 2:** \*e overall research framework of the proposed integrated approach.
 
 such as bionic design. \*e knowledge and experience possessed by the designer occupy a vital position in the design practice process. People with the same background will have similar inspirational responses when facing the same stimulating situation. \*e main reason is that the knowledge and experience in mind have been coded into corresponding knowledge nodes and connected according to specific association rules to form an association network. \*e more the background is the same, the more similar the association pattern is [[62](#page-10-0)]. \*e process of thinking about design tasks is the process of continuously searching for concepts (knowledge nodes) related to the design problem (such as similar, relative, dependent, close, and causal) in the association network until the connection between a particular concept and the design problem can successfully prompt the designer to produce a solution [\[63\]](#page-10-0).
 
@@ -196,14 +194,14 @@ According to the information processing viewpoint of cognitive science, design t
 
 According to its understanding, the human brain converts knowledge or experience into a particular representation form and stores it in memory. When environmental stimuli attract attention, this awakens the knowledge representation form the corresponding to the current stimulation in the brain. \*erefore, in the design task of providing stimuli information such as knowledge graph, after screening by the perceptual system, part of the stimuli information that enters the working memory is recognized, and the visual representation of the knowledge corresponding to the stimuli information in the long-term memory is awakened. When the current design problem needs to be solved, the knowledge represented by the representation form is further invoked to establish the connection among some of the knowledge nodes and the design problem and form the explicit output of the idea. \*erefore, design problems and stimuli information act synergistically on the memory system and under certain circumstances will accelerate the process of establishing connections. To a certain extent, stimuli information represents the knowledge nodes that are connected with the design problems, that is, knowledge connection.
 
-# 4. Experiment and Results
+## 4. Experiment and Results
 
 *4.1. Participants.* In this experiment, twenty-eight students with an innovation design background were invited (14 males and 14 females aged between 25 and 28 years). \*e selection of participants is based on the assumption that they already have fundamental knowledge of the design process but are not practicing professionals. \*is follows our opinion that results will be better applicable in design support. Moreover, this selection is relevant to the general goal of developing a new support method for design through this analysis. All the participants are volunteers who received no additional course credits for their participation.
 
 <span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
 <!-- Image Description: The figure presents a model of the design process. It depicts information flow from external and internal environments through a cognitive system, processing "Question" and "Inspiration" in working memory. These activate nodes in a long-term memory's knowledge association network, resulting in "Idea" generation and design output. Boxes represent information sources, ovals represent processes, and the network illustrates knowledge retrieval and idea formation. -->
 
-Figure 3: Design thinking information processing mechanism.
+**Figure 3:** Design thinking information processing mechanism.
 
 *4.2. Outline of the Experiment.* In this experiment, the 30 participants were divided into Group A and Group B; each group had 7 males and 7 females; they were all required to independently design new ideas giving the typical design task for complex sociotechnical systems: a design for a community with more sustainability within half an hour. \*e difference was that Group A used the knowledge graph with the AIA design thinking framework in the design process. In contrast, Group B completed the design task using a traditional knowledge graph. \*e two knowledge graphs both come from the article titled "Introduction to sNice :\*eory and Practice of Sustainable Living." Figure [4](#page-6-0) shows the knowledge graph using the AIA design thinking framework of this article.
 
@@ -218,7 +216,7 @@ In phase 2, we measured each participant's idea quality and quantity using the m
 $$
 M = \sum_{j=1}^{m} f_j \sum_{k=1}^{2} \frac{S_{jk} P_k}{n} *\sum_{j=1}^{m} f_j.
 $$
- (9)
+(9)
 
 In this equation,*Sjk*is the score for function*j*at stage*k*; *m*is the total number of functions;*fj*is the weight of function*j*; *pk*is the weight for stage*k*. \*e denominator is for normalizing to a scale of 10. \*e design ideas were collected from the 20 participants. Table [3](#page-7-0) shows an evaluation of the quality and quantity of the 28 participants' ideas.
 
@@ -227,71 +225,70 @@ In this equation,*Sjk*is the score for function*j*at stage*k*; *m*is the total n
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
 <!-- Image Description: This image is a conceptual model depicting the relationships between various factors contributing to the creation of a sustainable community. It uses a node-and-link diagram, with "sNice" as the central node connected to nodes representing human factors (e.g., families, designers), spatial elements (e.g., space, transportation), services (e.g., healthcare, education), and the resulting sustainable community. The links illustrate interactions and influences between these elements, showing how they synergistically contribute to improved quality of urban life. -->
 
-Figure 4: Knowledge graph using the AIA design thinking framework.
+**Figure 4:** Knowledge graph using the AIA design thinking framework.
 
 | Group A | Extension of idea space | Group B | Extension of idea space |
 |---------|-------------------------|---------|-------------------------|
-| A1      | 0.64                    | B1      | 0.61                    |
-| A2      | 0.75                    | B2      | 0.62                    |
-| A3      | 0.86                    | B3      | 0.71                    |
-| A4      | 0.65                    | B4      | 0.69                    |
-| A5      | 0.77                    | B5      | 0.68                    |
-| A6      | 0.89                    | B6      | 0.72                    |
-| A7      | 0.57                    | B7      | 0.65                    |
-| A8      | 0.71                    | B8      | 0.51                    |
-| A9      | 0.75                    | B9      | 0.59                    |
-| A10     | 0.82                    | B10     | 0.67                    |
-| A11     | 0.58                    | B11     | 0.54                    |
-| A12     | 0.69                    | B12     | 0.66                    |
-| A13     | 0.74                    | B13     | 0.61                    |
-| A14     | 0.83                    | B14     | 0.65                    |
+| A1 | 0.64 | B1 | 0.61 |
+| A2 | 0.75 | B2 | 0.62 |
+| A3 | 0.86 | B3 | 0.71 |
+| A4 | 0.65 | B4 | 0.69 |
+| A5 | 0.77 | B5 | 0.68 |
+| A6 | 0.89 | B6 | 0.72 |
+| A7 | 0.57 | B7 | 0.65 |
+| A8 | 0.71 | B8 | 0.51 |
+| A9 | 0.75 | B9 | 0.59 |
+| A10 | 0.82 | B10 | 0.67 |
+| A11 | 0.58 | B11 | 0.54 |
+| A12 | 0.69 | B12 | 0.66 |
+| A13 | 0.74 | B13 | 0.61 |
+| A14 | 0.83 | B14 | 0.65 |
 
-| Table | 1: Each participant's extension of idea space. |  |  |  |
+| Table | 1: Each participant's extension of idea space. | | | |
 |-------|------------------------------------------------|--|--|--|
 |-------|------------------------------------------------|--|--|--|
 
-Table 2: Results of paired *t-*test analysis.
+**Table 2:** Results of paired *t-*test analysis.
 
-|                         | Paired (M ± SD) |             |                 |       |         |
+| | Paired (M ± SD) | | | | |
 |-------------------------|-----------------|-------------|-----------------|-------|---------|
-| Item                    | Paired 1        | Paired 2    | Mean difference | t     | p       |
-| Extension of idea space | 0.73 ± 0.10     | 0.64 ± 0.06 | 0.10            | 4.147 | 0.001∗∗ |
-|                         |                 |             |                 |       |         |
+| Item | Paired 1 | Paired 2 | Mean difference | t | p |
+| Extension of idea space | 0.73 ± 0.10 | 0.64 ± 0.06 | 0.10 | 4.147 | 0.001∗∗ |
+| | | | | | |
 
 <sup>∗</sup>*p* < 0*.*05 and ∗∗*p* < 0*.*01.
 
-<span id="page-7-0"></span>
 
 | Group A | Idea quality | Idea quantity | Group B | Idea quality | Idea quantity |
 |---------|--------------|---------------|---------|--------------|---------------|
-| A1      | 5.56         | 2             | B1      | 5.38         | 1             |
-| A2      | 6.19         | 1             | B2      | 3.14         | 1             |
-| A3      | 6.06         | 2             | B3      | 5.05         | 2             |
-| A4      | 7.3          | 1             | B4      | 4.37         | 1             |
-| A5      | 5.63         | 2             | B5      | 5.16         | 2             |
-| A6      | 7.28         | 1             | B6      | 5.98         | 1             |
-| A7      | 4.61         | 1             | B7      | 5.29         | 1             |
-| A8      | 5.91         | 1             | B8      | 4.2          | 1             |
-| A9      | 6.43         | 2             | B9      | 3.75         | 1             |
-| A10     | 6.68         | 1             | B10     | 6.53         | 1             |
-| A11     | 6.73         | 1             | B11     | 5.21         | 2             |
-| A12     | 5.07         | 1             | B12     | 5.35         | 1             |
-| A13     | 5.29         | 2             | B13     | 4.49         | 1             |
-| A14     | 6.67         | 1             | B14     | 4.63         | 1             |
+| A1 | 5.56 | 2 | B1 | 5.38 | 1 |
+| A2 | 6.19 | 1 | B2 | 3.14 | 1 |
+| A3 | 6.06 | 2 | B3 | 5.05 | 2 |
+| A4 | 7.3 | 1 | B4 | 4.37 | 1 |
+| A5 | 5.63 | 2 | B5 | 5.16 | 2 |
+| A6 | 7.28 | 1 | B6 | 5.98 | 1 |
+| A7 | 4.61 | 1 | B7 | 5.29 | 1 |
+| A8 | 5.91 | 1 | B8 | 4.2 | 1 |
+| A9 | 6.43 | 2 | B9 | 3.75 | 1 |
+| A10 | 6.68 | 1 | B10 | 6.53 | 1 |
+| A11 | 6.73 | 1 | B11 | 5.21 | 2 |
+| A12 | 5.07 | 1 | B12 | 5.35 | 1 |
+| A13 | 5.29 | 2 | B13 | 4.49 | 1 |
+| A14 | 6.67 | 1 | B14 | 4.63 | 1 |
 
-Table 4: Results of paired *t*-test analysis.
+**Table 4:** Results of paired *t*-test analysis.
 
-| Items         |             | Paired (M ± SD) |                 |       |         |
+| Items | | Paired (M ± SD) | | | |
 |---------------|-------------|-----------------|-----------------|-------|---------|
-|               | Paired 1    | Paired 2        | Mean difference | t     | p       |
-| Idea quality  | 6.10 ± 0.81 | 4.90 ± 0.88     | 1.21            | 3.804 | 0.002∗∗ |
-| Idea quantity | 1.36 ± 0.50 | 1.21 ± 0.43     | 0.14            | 1.000 | 0.336   |
+| | Paired 1 | Paired 2 | Mean difference | t | p |
+| Idea quality | 6.10 ± 0.81 | 4.90 ± 0.88 | 1.21 | 3.804 | 0.002∗∗ |
+| Idea quantity | 1.36 ± 0.50 | 1.21 ± 0.43 | 0.14 | 1.000 | 0.336 |
 
 <sup>∗</sup>*p* < 0*.*05 and ∗∗*p* < 0*.*01.
 
 quality between Group A and Group B is significant (*p* � 0*.*002), and the average value of Group A (6.10) is significantly higher than the average value of Group B (4.90). \*erefore, it can be inferred that the knowledge graph using the AIA design thinking framework can promote participant's idea quality. However, the difference in idea quantity between Group A and Group B is insignificant (*p* � 0*.*336). \*us it cannot be inferred that the knowledge graph using the AIA design thinking framework can promote participant's idea quantity. \*ese analysis results also support our preliminary research [[19\]](#page-8-0).
 
-# 5. Discussion
+## 5. Discussion
 
 Design is a series of behaviors that guide the existing situation in a better direction [\[65\]](#page-10-0); the main problems faced by designers today are not problems of a single discipline but problems involving complex sociotechnical systems and many stakeholders. If the design needs to shift from focusing on "creation" to facing these "big problems and "big systems," it must go beyond the design tradition characterized by intuition and perception and instead explore a new design culture [[66](#page-10-0)]. We propose the integrated approach to respond and assume the following implications:
 
@@ -303,21 +300,21 @@ subject increasingly diversified. In this mechanism, designers have become an es
 - (3) \*e actual design thinking process is not a simple linear process, and the problems raised by designers do not apply to any linear analysis and integration model in practice. \*erefore, this approach uses AIA design thinking as a logical framework. At the same time, we demonstrate its effectiveness in promoting designers' deep thinking, shown as the extension of idea space and idea quality.
 - (4) \*is approach contributes to establishing a design support system for complex sociotechnical systems such as sustainable community building, which is conducive to the development of intelligent design and design education, and makes certain contributions to the development of knowledge engineering.
 
-# 6. Conclusion and Future Work
+## 6. Conclusion and Future Work
 
 \*is paper develops an integrated approach to structure a design knowledge graph with the AIA design thinking framework. \*e core of this approach is to organize existing design knowledge through Agent (concept)-Interaction (relation)-Adaptation (concept) framework. \*en a controlled experiment was conducted to examine the validities of the proposed design knowledge graph; it shows that the proposed design knowledge graph can promote a designer's extension of idea space and idea quality for complex sociotechnical system tasks in contrast to the traditional design knowledge graph. \*is research contributes to the growing studies about data-driven design, analogy-based design, and machine-learning-based design analytics.
 
 <span id="page-8-0"></span>In future work, we will build a more complete design knowledge database related to complex sociotechnical systems and use the proposed approach to derive more effective design knowledge graphs for the broader uses of other interested designers. In addition, we will continue to improve the neural network model and try to develop a more robust architecture to learn better design features from the database.
 
-# Data Availability
+## Data Availability
 
 \*e data used to support the findings of this study are included within the article.
 
-# Conflicts of Interest
+## Conflicts of Interest
 
 \*e authors declare that they have no conflicts of interest.
 
-# Acknowledgments
+## Acknowledgments
 
 \*e authors acknowledge the funding support for this work received from China Postdoctoral Science Foundation (2020M681405).
 

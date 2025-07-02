@@ -113,7 +113,7 @@ The participation of both students in the current project was voluntary and inde
 
 For the sake of brevity, throughout the subsequent sections of this article, the term "previous experience" will refer to the learning experience gained by both students during the above-mentioned PBL-oriented course. Conversely, the term "current experience" will denote the learning experience acquired during the ongoing project, the methodology of which is summarized in the following section.
 
-# The current experience: Developing a wearable IMU prototype
+## The current experience: Developing a wearable IMU prototype
 
 The scheme presented in Figure 1 provides an overview of the methodology followed for the design, fabrication, and validation stages of the prototype. It includes an approximate timeline of the project and incorporates a "heat line visualization" to indicate the extent of face-to-face interaction involved in team collaboration. In this context, the term "face-to-face interactions" refers exclusively to in-person interactions. As such, it does not include the virtual meetings that are described later.
 
@@ -142,23 +142,23 @@ Figure 2. IMU prototype development. IMU: inertial measurement unit.
 
 demonstrated. The subsequent section will discuss how the students perceived this experience in relation to the teamwork involved, focusing on a set of team attributes that assess the effectiveness of their collaborative efforts.
 
-# Assessing student's perceptions of teamwork performance
+## Assessing student's perceptions of teamwork performance
 
 In this qualitative investigation, the two team members were requested to evaluate and assess their teamwork experience. A questionnaire was developed as an instrument to collect their perceptions. The design of this instrument was based on eleven attributes, reported by the literature, and identified in effective teamwork in engineering education. Table 1 gathered those attributes, with a concise definition for each one. The attributes
 
-| Team attributes in an engineering education context |                                                                                                                                                                                         |
+| Team attributes in an engineering education context | |
 |-----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Shared goal and values                              | Establishing shared team goals and values to promote unity,<br>flexibility<br>consistency and<br>within the group.                                                                      |
-| Commitment to team success                          | Commitment to team success and recognition as a result of<br>achievement.                                                                                                               |
-| Motivation                                          | Motivated and satisfied<br>with team tasks, driven to succeed<br>through positive perception.                                                                                           |
-| Interpersonal skills                                | Respect, care, and a high level of mutual trust among team<br>members lead to productive interactions and enhanced task<br>performance.                                                 |
-| Open/effective communication                        | Open dialog, timely communication and active listening skills to<br>facilitate effective presentation of work among team members.                                                       |
-| Constructive feedback                               | Foster a team spirit of constructive criticism where team<br>members provide and accept positive feedback from each<br>other in a nonprotective manner.                                 |
-| Ideal team composition                              | Team function involves diversity, member roles, ideas, subject<br>knowledge, etc.                                                                                                       |
-| Leadership                                          | Leadership skills within the group include taking a leadership role<br>through consensus, acting as a facilitator, monitoring tasks,<br>managing conflicts<br>and achieving objectives. |
-| Accountability                                      | Individuals are accountable for their own work and take personal<br>responsibility for team tasks and assigned actions.                                                                 |
-| Interdependence                                     | Helping and promoting individual contribution within the group,<br>learning together and providing social support to each other.                                                        |
-| Adherence to team process<br>performance            | Developing creative and feasible strategies, decisions, and<br>solutions to effectively solve problems and enhance the work<br>process.                                                 |
+| Shared goal and values | Establishing shared team goals and values to promote unity,<br>flexibility<br>consistency and<br>within the group. |
+| Commitment to team success | Commitment to team success and recognition as a result of<br>achievement. |
+| Motivation | Motivated and satisfied<br>with team tasks, driven to succeed<br>through positive perception. |
+| Interpersonal skills | Respect, care, and a high level of mutual trust among team<br>members lead to productive interactions and enhanced task<br>performance. |
+| Open/effective communication | Open dialog, timely communication and active listening skills to<br>facilitate effective presentation of work among team members. |
+| Constructive feedback | Foster a team spirit of constructive criticism where team<br>members provide and accept positive feedback from each<br>other in a nonprotective manner. |
+| Ideal team composition | Team function involves diversity, member roles, ideas, subject<br>knowledge, etc. |
+| Leadership | Leadership skills within the group include taking a leadership role<br>through consensus, acting as a facilitator, monitoring tasks,<br>managing conflicts<br>and achieving objectives. |
+| Accountability | Individuals are accountable for their own work and take personal<br>responsibility for team tasks and assigned actions. |
+| Interdependence | Helping and promoting individual contribution within the group,<br>learning together and providing social support to each other. |
+| Adherence to team process<br>performance | Developing creative and feasible strategies, decisions, and<br>solutions to effectively solve problems and enhance the work<br>process. |
 
 Table 1. Expected attributes in an effective teamwork in engineering education<sup>5</sup>
 

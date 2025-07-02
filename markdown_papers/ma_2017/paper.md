@@ -81,7 +81,7 @@ Omics), an unsupervised framework for integrating incomplete multiomics data and
 
 Keywords: Multi-omics integration, Incomplete modality, Patient stratification, Subtype prediction
 
-# 1 Introduction
+## 1 Introduction
 
 Precision medicine, which tailors personalized treatment based on the unique genetic profiles of individual cancer patients, has been recognized as the foundation of future cancer therapeutics [\[1\]](#page-23-0). The field is moving towards gathering multimodal data to address cancer's inherent heterogeneity [\[2\]](#page-23-1), characterized by diverse genetic, transcriptomic, and phenotypic variations [\[3,](#page-23-2) [4\]](#page-23-3). Recent advancements in high-throughput technologies have enabled multi-dimensional profiling through diverse omics modalities. Projects like The Cancer Genome Atlas (TCGA) [\[5\]](#page-23-4) and the International Cancer Genome Consortium (ICGC)[\[6\]](#page-23-5) have produced and collected thousands of tumor samples at different molecular levels. Moreover, the rise of single-cell profiling, particularly single-cell transcriptomics, has deepened insights into tumor microenvironments by highlighting the distinct expression profiles of various cell types. Consequently, patient stratification, which involves categorizing patients based on distinct genetic, transcriptomic, and phenotypic profiles, has become a critical process in precision medicine for aiding in the development of tailored treatment approaches.
 
@@ -93,7 +93,7 @@ Molecular subtypes identified through multi-omics integration offer essential di
 
 To overcome these limitations, we present IntegrAO (Integrate Any Omics), an unsupervised framework for integrating incomplete multi-omics profiles and classifying new samples with incomplete data. IntegrAO starts by integrating partially overlapped patient graphs derived from diverse omics data. Its unique partial graph fusion mechanism effectively enhances information integration with a high number of shared patients across modalities and adeptly adapts to situations with fewer overlapping samples. This capability allows IntegrAO to effectively combine diverse incomplete omics data, ensuring high fidelity and noise resistance. The framework then employs graph neural networks (GNNs) to extract and align patient embeddings from diverse raw omics features into a unified space. This unified embedding space is crucial for accurately classifying new patients into predefined subtypes using any available data, facilitating the transition to clinical practice. To demonstrate the use of IntegrAO, we first show IntegrAO exhibits robust integration of partially overlapping data across diverse missing data scenarios through simulation of omics dataset. A case study in acute myeloid leukemia then illustrates IntegrAO's capacity to build a comprehensive view of heterogeneity from incomplete multi-omics. Systematic evaluations conducted on five cancer cohorts, covering six omics modalities, underscore IntegrAO's resilience to missing data and its effectiveness in integrating partial data and classifying new samples. Through its proficient handling of heterogeneous and incomplete datasets, IntegrAO emerges as a significant tool in precision oncology, facilitating an all-encompassing approach to patient characterization.
 
-# 2 Results
+## 2 Results
 
 ## 1 IntegrAO Overview
 
@@ -106,7 +106,7 @@ A key capability of IntegrAO is flexible transformation from unsupervised integr
 ![](_page_4_Figure_1.jpeg)
 <!-- Image Description: This figure depicts a two-stage machine learning method for integrating multi-omics data. (a) Transductive integration fuses four omics datasets (mRNA, microRNA, copy number variation, DNA methylation) via graph fusion, then uses graph neural networks (GNNs) for embedding extraction and alignment, finally averaging embeddings to create an integrated representation. (b) Inductive prediction fine-tunes a model on the integrated network for subtype prediction and then predicts subtypes for new patients using their omics data and the trained model. The diagrams illustrate the data processing and model training steps. -->
 
-<span id="page-4-0"></span>Fig. 1 Overview of the IntegrAO framework. (a) Step 1: Example representation of cell composition, mRNA expression, microRNA expression, DNA methylation and copy number variation datasets are used to construct per-omics patient graphs. Patient data need not encompass all omics types. Subsequently, a fusion phase iteratively refines each graph with information gathered from other graphs, culminating in a unified graph for each type of omics. Step 2: Both these unified graphs and their corresponding omics features are input into omics-specific Graph Neural Networks (GNNs) to learn patient embeddings. These lowdimensional patient embeddings are optimized to retain similarity information from the individual unified graphs while minimizing differences in embeddings for the same patients across different omics. Step 3: The conclusive embeddings are procured by averaging omicsspecific embeddings and applied in the construction of the final integrated patient graph. (b) Conversion of IntegrAO into a predictive framework. Utilizing the integrated graph, patient subtypes can be identified and leveraged to fine-tune the trained IntegrAO model. The finetuned IntegrAO model enables the classification of new patients with any accessible omics data. During the inference process, graph fusion is first conducted on new patients along with existing patients. The consequent fused graph and associated omics features are then input into the fine-tuned IntegrAO model, allowing for the prediction of patient subtypes.
+<span id="page-4-0"></span>Figure 1 Overview of the IntegrAO framework. (a) Step 1: Example representation of cell composition, mRNA expression, microRNA expression, DNA methylation and copy number variation datasets are used to construct per-omics patient graphs. Patient data need not encompass all omics types. Subsequently, a fusion phase iteratively refines each graph with information gathered from other graphs, culminating in a unified graph for each type of omics. Step 2: Both these unified graphs and their corresponding omics features are input into omics-specific Graph Neural Networks (GNNs) to learn patient embeddings. These lowdimensional patient embeddings are optimized to retain similarity information from the individual unified graphs while minimizing differences in embeddings for the same patients across different omics. Step 3: The conclusive embeddings are procured by averaging omicsspecific embeddings and applied in the construction of the final integrated patient graph. (b) Conversion of IntegrAO into a predictive framework. Utilizing the integrated graph, patient subtypes can be identified and leveraged to fine-tune the trained IntegrAO model. The finetuned IntegrAO model enables the classification of new patients with any accessible omics data. During the inference process, graph fusion is first conducted on new patients along with existing patients. The consequent fused graph and associated omics features are then input into the fine-tuned IntegrAO model, allowing for the prediction of patient subtypes.
 
 new patients using any available omics data (Online Methods [4.4\)](#page-20-0). The distinction between the prediction model and the unsupervised-training model lies in the added Multi-layer Perceptron(MLP) prediction head, which enables the processing of the averaged patient embeddings across omics for subtype prediction. While the prediction model inherits its initial weights from the unsupervised-training model, the MLP prediction head starts with a random weight initialization. Fine-tuning balances two key objectives: preserving the unsupervised objectives of patient embedding generation, and minimizing subtype classification loss. This dual optimization enables the model to support subtype prediction in a modality-agnostic manner. During the inference process, given any combination of multi-omic data for new patients, the first step involves fusing these new patients into existing graphs. Following this fusion, the fine-tuned model accepts the fused graphs along with the corresponding omics features, allowing IntegrAO to predict specific cancer subtypes (Online Methods [4.4\)](#page-21-0).
 
@@ -119,7 +119,7 @@ In integration scenarios with partial overlap, two regimes emerge: low overlap, 
 ![](_page_6_Figure_1.jpeg)
 <!-- Image Description: This figure displays the performance of four multi-omics integration methods (IntegrAO, NEMO, MSNE, and k-means) across various data scenarios. Panels (a) show NMI scores for different overlapping ratios of intact and missing omics data. Panel (b) shows NMI scores when all omics data is missing. Panel (c) is a Venn diagram illustrating the overlap of samples across mRNA, protein, and methylation data. Finally, panel (e) shows UMAP visualizations of integrated and individual omics data embeddings, representing sample relationships. The figure demonstrates the effectiveness of each integration method and the impact of data completeness on performance. -->
 
-<span id="page-6-0"></span>Fig. 2 Benchmarking partial multi-omics integration between IntegrAO, NEMO, and MSNE on simulated multi-omics cancer dataset using Normalized Mutual Information (NMI). (a) NMI versus overlapping data ratio across three missing scenarios (n=10 experiments for each ratio). Means of evaluation metrics with standard deviations from different experiments are shown in the figure, where the error bar represents plus/minus one standard deviation. From left to right: Uniform random subsampling of DNA methylation and protein expression with intact mRNA expression; Uniform random subsampling of mRNA expression and DNA methylation with intact protein expression; Uniform random subsampling of mRNA expression and protein expression with intact DNA methylation. IntegrAO demonstrates superior performance in all scenarios. (b) IntegrAO outperforms other methods in a more challenging scenario where all omic data are partially missing. (c) An illustrative example with a 70% data overlap ratio, showing 350 common and 50 unique samples per modality. (d) Pre-integration UMAP visualizations for each modality for the 70% all-missing data scenario, highlighting both common and unique samples. (e) Post-integration UMAP visualization of patient embeddings via IntegrAO. Upon integration, clustering resolution was enhanced with unique samples from each network showing improved alignment.
+<span id="page-6-0"></span>Figure 2 Benchmarking partial multi-omics integration between IntegrAO, NEMO, and MSNE on simulated multi-omics cancer dataset using Normalized Mutual Information (NMI). (a) NMI versus overlapping data ratio across three missing scenarios (n=10 experiments for each ratio). Means of evaluation metrics with standard deviations from different experiments are shown in the figure, where the error bar represents plus/minus one standard deviation. From left to right: Uniform random subsampling of DNA methylation and protein expression with intact mRNA expression; Uniform random subsampling of mRNA expression and DNA methylation with intact protein expression; Uniform random subsampling of mRNA expression and protein expression with intact DNA methylation. IntegrAO demonstrates superior performance in all scenarios. (b) IntegrAO outperforms other methods in a more challenging scenario where all omic data are partially missing. (c) An illustrative example with a 70% data overlap ratio, showing 350 common and 50 unique samples per modality. (d) Pre-integration UMAP visualizations for each modality for the 70% all-missing data scenario, highlighting both common and unique samples. (e) Post-integration UMAP visualization of patient embeddings via IntegrAO. Upon integration, clustering resolution was enhanced with unique samples from each network showing improved alignment.
 
 IntegrAO's proficiency in utilizing unique and incomplete datasets, effectively extracting valuable information where other methods may fall short.
 
@@ -134,7 +134,7 @@ IntegrAO integration of mRNA, DNA methylation, and cell hierarchy data revealed 
 ![](_page_8_Figure_1.jpeg)
 <!-- Image Description: This image displays multi-omics analysis of acute myeloid leukemia (AML). Panel (a) shows hierarchical clustering of AML samples based on transcriptomic and genomic data, revealing distinct subtypes. Panel (b) presents heatmaps illustrating the biological and metabolic pathway enrichment in these subtypes. Panel (c) shows Kaplan-Meier survival curves and box plots demonstrating the clinical relevance of these subtypes in terms of survival outcomes and drug sensitivity. Panel (d) uses UMAP plots to visualize the distribution of AML samples within each subtype, providing a spatial representation of the data. The overall purpose is to demonstrate a novel classification of AML subtypes based on integrated genomic and transcriptomic profiling, showing their biological and clinical implications. -->
 
-<span id="page-8-0"></span>Fig. 3 Multi-omics integrative analysis of acute myeloid leukemia (AML) elucidating intertumor heterogeneity. (a) IntegrAO discerns 12 subtypes with distinct hierarchical composition, transcriptomic profiles, and mutational patterns, preserving granular differentiations. (b) IntegrAO subtypes demonstrate greater differential survival versus individual datasets. (c) More significantly sensitive drugs are revealed by IntegrAO versus single data types. (d) Hematopoietic lineage enrichment analysis validates subtype differentiation, underscoring captured heterogeneity.
+<span id="page-8-0"></span>Figure 3 Multi-omics integrative analysis of acute myeloid leukemia (AML) elucidating intertumor heterogeneity. (a) IntegrAO discerns 12 subtypes with distinct hierarchical composition, transcriptomic profiles, and mutational patterns, preserving granular differentiations. (b) IntegrAO subtypes demonstrate greater differential survival versus individual datasets. (c) More significantly sensitive drugs are revealed by IntegrAO versus single data types. (d) Hematopoietic lineage enrichment analysis validates subtype differentiation, underscoring captured heterogeneity.
 
 AML research directions. These granular insights highlight IntegrAO's effectiveness in eliciting nuanced biology underlying AML diversity, potentially informing tailored therapeutic strategies. Furthermore, the heatmaps derived from Gene Ontology (GO) analysis of biological and metabolic pathways closely mirror the subtypes identified by IntegrAO, highlighting their biological significance and uniqueness (Fig. [3b](#page-8-0)). In the GO biological pathways heatmap, distinct segments correspond to specific subtypes, reflecting dominant biological processes such as cellular functions, regulatory mechanisms, and interaction pathways. Likewise, the GO metabolic pathways heatmap clearly segments into areas representing key metabolic activities, including glycolysis, lipid metabolism, and energy production, characteristic of these clusters. Additionally, we conducted VIPER analyses on both all regulons and transcription factor-specific regulons, with the resulting heatmaps demonstrating distinct block structures that align well with the clusters defined by IntegrAO (Supplementary Figs. S2-3). Collectively, these results further emphasize the biological distinctness of the subtypes identified by IntegrAO.
 
@@ -157,7 +157,7 @@ Overall, IntegrAO reliably identified subtypes with both superior survival diffe
 ![](_page_11_Figure_1.jpeg)
 <!-- Image Description: The image displays six scatter plots, each representing a different cancer type (BRCA, KIRC, LUAD, SKCM, COAD). Each point represents a cluster of samples, categorized by three methods (IntegraAO, NEMO, MSNE), and colored accordingly. The x-axis in the bottom plots shows the negative log10 of survival p-values, while the y-axis shows the number of enriched clinical parameters. The plots illustrate the relationship between survival p-values, number of enriched clinical parameters, clustering method, and cancer type. -->
 
-<span id="page-11-0"></span>Fig. 4 Comparative analysis of IntegrAO, NEMO, and MSNE across 5 cancer types with partial multi-omics data. The x-axis depicts differential survival between clusters, quantified by -log10 of the P-value from age-adjusted nested log-rank testing (higher indicates greater survival differentiation). The y-axis shows the number of enriched clinical parameters within clusters (higher denotes more parameters enriched). Each plot compares methods for a cancer dataset for different cluster numbers. Overall, IntegrAO more reliably identifies clusters with both better survival differentiation and higher clinical enrichment than other methods.
+<span id="page-11-0"></span>Figure 4 Comparative analysis of IntegrAO, NEMO, and MSNE across 5 cancer types with partial multi-omics data. The x-axis depicts differential survival between clusters, quantified by -log10 of the P-value from age-adjusted nested log-rank testing (higher indicates greater survival differentiation). The y-axis shows the number of enriched clinical parameters within clusters (higher denotes more parameters enriched). Each plot compares methods for a cancer dataset for different cluster numbers. Overall, IntegrAO more reliably identifies clusters with both better survival differentiation and higher clinical enrichment than other methods.
 
 MSNE demonstrated inconsistent performance across cancer types. MSNE delivered satisfactory results in COAD, yet its performance was less convincing in KIRC and SKCM. Meanwhile, NEMO showcased a strong performance in BRCA, but this did not extend to COAD or LUAD. Furthermore, the uneven ability of MSNE in discerning survival differences—evident in BRCA but absent in KIRC and SKCM—alongside NEMO's variable success in pinpointing clinically enriched variables, with success in BRCA but not in COAD or LUAD, highlights a significant shortfall. IntegrAO proficiently discerned both criteria, reflecting robust integration and patient stratification. This inconsistency among the other methods underscores the intricate challenge of integrating diverse partial multi-omics data, which also underscores IntegrAO's importance for translational applications requiring holistic patient characterization.
 
@@ -168,7 +168,7 @@ In clinical applications, after discerning patient subtypes, categorizing new pa
 ![](_page_12_Figure_1.jpeg)
 <!-- Image Description: The image displays 15 line plots arranged in a 5x3 grid. Each row represents a different cancer type (BRCA, KIRC, LUAD, SKCM, COAD). Each plot shows the accuracy, F1-macro, and F1-weighted scores for six machine learning models (IntegrAO, MLP, SVM, XGBoost, Random Forest, KNN) trained on different combinations of genomic data (all, miRNA, methylation, miRNA+methylation, miRNA+mRNA, mRNA). The plots compare model performance across data types, revealing the impact of data integration on cancer classification accuracy. Error bars represent variability. -->
 
-<span id="page-12-0"></span>Fig. 5 Performance comparison of new patient classification using IntegrAO versus MLP, SVM, XGBoost, Random Forest, and KNN under different omic combinations. Accuracy, F1-macro, and F1-weighted were evaluated, with means and standard deviations from multiple experiments displayed (error bars denote ±1 standard deviation). mRNA, meth, and miRNA refer to single-omic classification using mRNA expression, DNA methylation, and miRNA expression data respectively. miRNA+meth, miRNA+mRNA, and meth+mRNA indicate classification with two omics, while "all" used all three data types. Across all metrics and inputs, IntegrAO substantially outperforms other methods, highlighting its ability to effectively leverage diverse omics for integrative patient classification.
+<span id="page-12-0"></span>Figure 5 Performance comparison of new patient classification using IntegrAO versus MLP, SVM, XGBoost, Random Forest, and KNN under different omic combinations. Accuracy, F1-macro, and F1-weighted were evaluated, with means and standard deviations from multiple experiments displayed (error bars denote ±1 standard deviation). mRNA, meth, and miRNA refer to single-omic classification using mRNA expression, DNA methylation, and miRNA expression data respectively. miRNA+meth, miRNA+mRNA, and meth+mRNA indicate classification with two omics, while "all" used all three data types. Across all metrics and inputs, IntegrAO substantially outperforms other methods, highlighting its ability to effectively leverage diverse omics for integrative patient classification.
 
 data. Thus, methodologies that can classify new samples lacking comprehensive features are critical. IntegrAO enables new patient classification into established subtypes using any available omics data. This key functionality addresses an important unmet need for translating integrative methods into precision medicine applications.
 
@@ -178,7 +178,7 @@ Vector Machine (SVM), Random Forest, XGBoost, and K-Nearest Neighbors (KNN). Our
 
 IntegrAO consistently and substantially outperformed all comparative classification methods across every new patient projection task, as quantified by accuracy, F1-macro, and F1-weighted metrics (Fig. [5](#page-12-0)). In particular, IntegrAO demonstrated clearly superior performance, while KNN was notably the least effective, and the remaining algorithms exhibited intermediate but significantly inferior accuracy compared to IntegrAO. Further analysis revealed that IntegrAO's classification performance was highly robust across diverse omic combinations, whereas other methods displayed pronounced fluctuation and instability when missing certain data modalities. This instability arises because specific integrated omics can be highly noisy or misleading for overall subtyping. Classifying new patients with only that noisy modality is then extremely challenging to accurately map into the defined subtypes. IntegrAO overcomes this by embedding different omic features into a unified space, enabling it to approximate the classification accuracy of full multi-omics datasets even with incomplete data. This feature holds significant clinical importance, as physicians frequently face the challenge of making diagnostic or treatment decisions with only partial omic information available. By effectively bridging this gap, IntegrAO emerges as a pivotal tool that enhances the application of multiomics approaches in the practical landscape of precision medicine, facilitating better-informed clinical decisions.
 
-# 3 Discussion
+## 3 Discussion
 
 This study presents IntegrAO, an integrative framework designed to tackle key challenges in multi-omics analysis - handling incomplete heterogeneous data and projecting new samples using partial profiles. The results validate IntegrAO's ability to integrate diverse cancer datasets with missing modalities and to classify new patients reliably. Tests with simulated cancer omics data reveal IntegrAO's capability to integrate missing data in various scenarios, showing resilience to noise at low data overlaps and effective integration at higher overlaps. In the case study on acute myeloid leukemia, IntegrAO successfully combined cell hierarchy composition, transcriptomics, and DNA methylation, identifying 12 clinically and biologically distinct subtypes and illustrating AML's heterogeneity. Systematic evaluations across five cancer cohorts, encompassing six omics modalities, show IntegrAO's superiority in identifying significant subtypes compared to other methods. Its consistent performance in projecting new samples, regardless of the number of available omics, highlights its potential in modality-agnostic inference and unified patient representation.
 
@@ -186,7 +186,7 @@ IntegrAO stands out in its ability to handle varied and incomplete data sets, es
 
 This research lays the foundation for several crucial future developments to enhance IntegrAO into a robust, scalable, and broadly applicable integrative framework. A key step is transforming the graph fusion process into an end-to-end deep neural network, critical for enhancing scalability and flexibility when analyzing massive biomedical datasets. Additionally, incorporating diverse data types, such as histopathology images, clinical notes, and sensor data, will allow for more detailed profiling and subtyping. Moreover, potential areas of application extend beyond cancer patient stratification to cell subtyping, drug discovery, biomarker identification, and precision nutrition. Conducting thorough evaluations across various applications, alongside efforts to enhance model interpretability, is crucial for showcasing IntegrAO's utility and reliability in various biomedical domains. By pushing boundaries on multiple fronts, this work paves the way for positioning IntegrAO as a crucial model for the future of precision medicine.
 
-# 4 Methods
+## 4 Methods
 
 ## <span id="page-15-0"></span>4.1 Data Preprocessing
 
@@ -198,7 +198,7 @@ We utilized the InterSim CRAN package[\[29\]](#page-25-7) to simulate cancer omi
 
 For the cancer datasets, we leveraged multi-omic data across five tumor types from The Cancer Genome Atlas (TCGA) - breast invasive carcinoma (BRCA), colon adenocarcinoma (COAD), skin cutaneous melanoma (SKCM), kidney renal clear cell carcinoma (KIRC), and lung adenocarcinoma (LUAD). Specifically, we obtained mRNA expression, DNA methylation, copy number variation, and protein expression data directly from cBioportal. MicroRNA expression data was retrieved separately from the Broad Institute's Firehose source data. Relevant clinical information was also acquired for each patient. Before analysis, rigorous preprocessing was performed, including outlier removal, imputation of missing values via k-nearest neighbors (kNN), and normalization by standard scaling to mean 0 and standard deviation 1. Patients with over 20% missing data for any data type and features with over 20% missing values across patients were excluded. We additionally selected the top 2,000 features exhibiting the greatest standard deviation from each data modality. For modalities with fewer than 2,000 total features, no feature filtering was performed.
 
-#### AML cancer dataset
+### AML cancer dataset
 
 To construct an integrated AML dataset for heterogeneous analysis, we merged raw data from the TCGA, BEAT-AML, and Leucegene cohorts. Gene expression data normalization was performed using a variance-stabilizing transformation for each each dataset. Batch effects were then corrected with the One Cell at A Time (OCAT)[\[34\]](#page-26-2) algorithm, which also reduced the features to a 30-dimensional space. For cell composition, we employed bulk gene expression deconvolution following Zeng et al.[\[30\]](#page-25-8), applying OCAT for subsequent feature reduction. DNA methylation data, exclusive to the TCGA cohort, required no batch correction, and we selected 2,000 highly variable features based on dispersion. The final dataset included 812 AML patients with cell hierarchy composition and mRNA expression data, and a subset of 308 patients with additional DNA methylation data.
 
@@ -206,11 +206,10 @@ To construct an integrated AML dataset for heterogeneous analysis, we merged raw
 
 The first step of IntegrAO's transductive integration is the fusion of partially overlapping patient graphs. The subsequent section details the construction of these patient graphs and their partial overlap fusion. This graph fusion approach builds upon our prior work, Similarity Network Fusion (SNF)[\[7\]](#page-23-6).
 
-#### Patient graph construction
+### Patient graph construction
 
 We first construct a patient graph for each omic. Each graph can be represented as G = (V, E), with vertices V correspond to the patients {x1, x2, ..., xn} and undirected weighted edges E denote the affinity between patients. The weight of the edge is computed with:
 
-<span id="page-16-2"></span>
 $$
 W(i,j) = \exp\left(\frac{\rho^2(x_i, x_j)}{\mu \varepsilon_{i,j}}\right),\tag{1}
 $$
@@ -223,32 +222,28 @@ $$
 
 where N<sup>i</sup> is the set of x<sup>i</sup> 's neighbor including x<sup>i</sup> in G. We then performed two operations on each graph to derive the transition probability matrix for the graph fusion stage: the first is normalizing the affinity matrix for numerical stability:
 
-<span id="page-16-3"></span>
 $$
 P(i,j) = \begin{cases} \frac{W(i,j)}{2\sum_{k \neq i} W(i,k)}, & i \neq j \\ 1/2, & i = j \end{cases}
 $$
- (3)
+(3)
 
 And the second is obtaining the local affinity matrix by considering only the K most similar patients per patient:
 
-<span id="page-16-4"></span>
 $$
 S(i,j) = \begin{cases} \frac{W(i,j)}{\sum_{k \in N_i} W(i,k)}, & j \in N_i \\ 0, & \text{otherwise} \end{cases}
 $$
- (4)
+(4)
 
 Given v different data modalities, we can construct affinity matrices W(m) using Eq. [1](#page-16-2) for the mth view, m = 1,2,..., v. P (m) and S (m) are obtained from Eq. [3](#page-16-3) and [4](#page-16-4) respectively.
 
-#### <span id="page-16-1"></span>Partial overlap graph fusion
+### <span id="page-16-1"></span>Partial overlap graph fusion
 
 In the case of two modalities with partially overlapping patient sets, i.e., v = 2, let a, b denote the total number of patients for each modality, respectively, and c the number of common patients. Let C denote the set of common patients. The transition probability matrices P (1) ∈ R <sup>a</sup>×<sup>a</sup> and P (2) ∈ R b×b , and local affinity matrices S (1) ∈ R <sup>a</sup>×<sup>a</sup> and S (2) ∈ R <sup>b</sup>×<sup>b</sup> are constructed as described previously. During fusion, each modality patient graph is initialized to its P matrix (P (1) <sup>t</sup>=0 = P (1); P (2) <sup>t</sup>=0 = P (2)). The key concept for fusing such partially overlapped data is to leverage the common samples to propagate information across the graphs via graph fusion. IntegrAO iteratively updates the patient graph for each data modality as follows:
 
-<span id="page-17-0"></span>
 $$
 P_{t+1}^{(1)} = S^{(1)} \times P_t^{'(2 \to 1)} \times (S^{(1)})^T, \tag{5}
 $$
 
-<span id="page-17-1"></span>
 $$
 P_{t+1}^{(2)} = S^{(2)} \times P_t^{'(1 \to 2)} \times (S^{(2)})^T, \tag{6}
 $$
@@ -258,19 +253,19 @@ where the intermediate transition matrices P ′ (2−→1) <sup>t</sup> and P �
 $$
 W_t^{'(2 \to 1)}(i,j) = \begin{cases} P_t^{(2)}(i,j), & i,j \in C \\ 0, & \text{otherwise} \end{cases}
 $$
- (7)
+(7)
 
 $$
 W_t^{'(1\rightarrow 2)}(i,j) = \begin{cases} P_t^{(1)}(i,j), & i,j \in C \\ 0, & \text{otherwise} \end{cases}
 $$
- (8)
+(8)
 
 Then we apply a novel scaling normalization:
 
 $$
 P'_{t}(i,j) = \begin{cases} \frac{W'_{t}(i,j)}{2\sum_{k\neq i} W'_{t}(i,k)} \cdot \tau, & i \neq j \\ 1 - 1/2 \cdot \tau, & i = j \\ c \end{cases}
 $$
- (9)
+(9)
 
 τ = number of sample in the current network .
 
@@ -281,7 +276,7 @@ As our fusion approach leverages shared patients between modalities, the number 
 $$
 P^{(m)} = \frac{\sum_{k \neq m} (S^{(m)} \times P^{'(k)} \times (S^{(m)})^T)}{v - 1}, m = 1, 2, ..., v.
 $$
- (10)
+(10)
 
 Since the sample size differs across modalities, the fused affinity matrices for each data type retain the original dimensionality. The subsequent step involves integrating these modal-specific graphs into a unified representation, which will be detailed in the following section.
 
@@ -305,7 +300,7 @@ $$
 e_v = \text{MLP}(h_v^{(N)}). \tag{12}
 $$
 
-#### Learning objective
+### Learning objective
 
 For better illustration, again consider the integration of two distinct data modalities: X(1) ∈ R <sup>n</sup>x1×dx<sup>1</sup> and X(2) ∈ R nx2×dx<sup>2</sup> . In the IntegrAO embedding phase, our objective is to map these datasets into a unified embedding space of dimensionality q. The resultant lower-dimensional datasets are represented as X(1) ′ ∈ R <sup>n</sup>x1×<sup>q</sup> and X(2) ′ ∈ R nx2×q . This embedding is achieved by optimizing two distinct loss functions: the reconstruction loss Lreconc and the alignment loss Lalign. The reconstruction loss Lreconc is conceptualized on the principles of t-distribution stochastic neighbor embedding (t-SNE)[\[36\]](#page-26-4) and can be formally defined as:
 
@@ -335,7 +330,7 @@ $$
 
 where β is a tradeoff parameter to balance the KL terms and the embedding alignment term. We set β=1 in all our experiments. The model can be readily extended to multi-view data by adding additional KL divergence terms to the reconstruction loss for each added view, and summing all pairwise alignment losses between modalities for the matching loss. We solve the optimization problem using gradient descent with a fixed number of epochs. We set epoch=1000 in all our experiments.
 
-#### Model output
+### Model output
 
 After training, the final output is derived by averaging patient embeddings across modalities. Let M(i) denote the omic types available for patient i, then the final patient embeddings E(i) for patient i are obtained by:
 
@@ -348,7 +343,7 @@ where e (m) i is the embedding for patient i from modality m. The final integrat
 
 ### <span id="page-20-0"></span>4.4 Inductive Prediction
 
-#### Model fine-tuning for subtype prediction
+### Model fine-tuning for subtype prediction
 
 After unsupervised integration of multi-omics data, patient subtypes can be determined by clustering the final integrated network. Given defined subtype labels, IntegrAO can be further fine-tuned to predict subtypes for new patients based on any combination of omics data. To enable this, we initialized with the unsupervised IntegrAO model parameters and appended a prediction head that ingests the final patient embeddings to output a subtype prediction. We calculate the classification loss Lclf as:
 
@@ -364,14 +359,14 @@ $$
 
 The hyperparameter β and γ control the tradeoff between the reconstruction loss, alignment loss, and classification loss during optimization.
 
-#### <span id="page-21-0"></span>Subtype prediction for new patient
+### <span id="page-21-0"></span>Subtype prediction for new patient
 
 During supervised fine-tuning, for the omics data used in training, let {Xtr (m) | m = 1, 2, ..., v} denote the input omic features for different modalities, and {Ptr (m) | m = 1, 2, ..., v} the corresponding fused similarity matrix. The finetuned IntegrAO model can then be trained on {Xtr (m) } and {Ptr (m) }, with training predictions represented as:
 
 $$
 \mathbf{Y}_{\mathbf{tr}} = \text{IntegrA}\text{O}(\{\mathbf{X}_{\mathbf{tr}}^{(m)}\}, \{\mathbf{P}_{\mathbf{tr}}^{(m)}\}), m = 1, 2, ..., v,
 $$
- (20)
+(20)
 
 where Ytr ∈ R ntr×c contains the predicted subtype probabilities for each of the ntr training samples, with c denoting the number of subtypes. For a new test sample {Xte (m) | m = 1, 2, ..., v}, to perform model inference, we extend the data matrix of the corresponding omics to {Xtrte = " Xtr Xte# | m = 1, 2, ..., v}, and generate the extended fusion matrix by performing the fusion step with the testing samples {Ptrte (m) | m = 1, 2, ..., v}. Therefore, given {Xtrte} , {Ptrte} and fine-tuned IntegrAO model, we have:
 
@@ -392,11 +387,11 @@ In the new patient classification experiments, spectral clustering with this opt
 
 To generate the cell composition data for our cancer benchmarking experiments, we utilized BayesPrism[\[37\]](#page-26-5) to deconvolute raw gene expression counts from TCGA cancer cohorts. Our analyses were conducted exclusively through the BayesPrism web portal, adhering to its default preprocessing steps. These steps included filtering outlier genes, selecting protein-coding genes, and isolating signature genes for each cell type. For deconvolution job submissions, we employed the portal's default settings. The resulting matrices, detailing fractions of patient-specific cell types, served as the cell composition modality for our integration benchmarking. The single-cell reference datasets utilized in the deconvolution process are detailed in Supplementary Table S4.
 
-# Declarations
+## Declarations
 
 Code Availability. The code to utilize IntegrAO is available on Github: [https://github.com/bowang-lab/IntegrAO.](https://github.com/bowang-lab/IntegrAO)
 
-# References
+## References
 
 - <span id="page-23-0"></span>[1] Shin, S.H., Bode, A.M., Dong, Z.: Precision medicine: the foundation of future cancer therapeutics. Npj precision oncology 1(1), 12 (2017)
 - <span id="page-23-1"></span>[2] Steyaert, S., Pizurica, M., Nagaraj, D., Khandelwal, P., Hernandez-Boussard, T., Gentles, A.J., Gevaert, O.: Multimodal data fusion for cancer biomarker discovery with deep learning. Nature Machine Intelligence 5(4), 351–362 (2023)
@@ -449,35 +444,35 @@ single-cell transcriptomes in the intra-tumoral and associated territories of ki
 
 <span id="page-27-0"></span>[42] Lambrechts, D., Wauters, E., Boeckx, B., Aibar, S., Nittner, D., Burton, O., Bassez, A., Decaluw´e, H., Pircher, A., Van den Eynde, K., et al.: Phenotype molding of stromal cells in the lung tumor microenvironment. Nature medicine 24(8), 1277–1289 (2018)
 
-# 5 Supplementary Tables
+## 5 Supplementary Tables
 
 Table S1 The number of patients used in the benchmarking analysis per cancer type. It specifies the patient counts across six diagnostic modalities: mRNA expression, cellular composition, DNA methylation, miRNA expression, reverse-phase protein array, and copy-number variation. The table further details the intersection and comprehensive aggregates of patients within each cancer category.
 
-| Dataset | mRNA | Cell Com | Meth | miRNA | RPPA | CNV | Common   | Union    |
+| Dataset | mRNA | Cell Com | Meth | miRNA | RPPA | CNV | Common | Union |
 |---------|------|----------|------|-------|------|-----|----------|----------|
-|         |      | position |      |       |      |     | patients | patients |
-| BRCA    | 1093 | 1093     | 1080 | 756   | 784  | 887 | 511      | 1096     |
-| COAD    | 379  | 379      | 616  | 295   | 393  | 494 | 251      | 621      |
-| SKCM    | 469  | 469      | 367  | 448   | 470  | 353 | 247      | 461      |
-| KIRC    | 533  | 533      | 528  | 257   | 319  | 478 | 306      | 537      |
-| LUAD    | 515  | 515      | 516  | 457   | 458  | 365 | 166      | 511      |
+| | | position | | | | | patients | patients |
+| BRCA | 1093 | 1093 | 1080 | 756 | 784 | 887 | 511 | 1096 |
+| COAD | 379 | 379 | 616 | 295 | 393 | 494 | 251 | 621 |
+| SKCM | 469 | 469 | 367 | 448 | 470 | 353 | 247 | 461 |
+| KIRC | 533 | 533 | 528 | 257 | 319 | 478 | 306 | 537 |
+| LUAD | 515 | 515 | 516 | 457 | 458 | 365 | 166 | 511 |
 
 Table S2 The number of features used for each omic in the benchmarking analysis per cancer type. The six modalities including: mRNA expression, cellular composition, DNA methylation, miRNA expression, reverse-phase protein array, and copy-number variation.
 
-| Dataset | mRNA | Cell Com | Meth | miRNA | RPPA | CNV  |
+| Dataset | mRNA | Cell Com | Meth | miRNA | RPPA | CNV |
 |---------|------|----------|------|-------|------|------|
-|         |      | position |      |       |      |      |
-| BRCA    | 2000 | 25       | 2000 | 897   | 222  | 2000 |
-| COAD    | 2000 | 8        | 2000 | 623   | 222  | 2000 |
-| SKCM    | 2000 | 9        | 2000 | 901   | 195  | 2000 |
-| KIRC    | 2000 | 13       | 2000 | 825   | 212  | 2000 |
-| LUAD    | 2000 | 8        | 2000 | 894   | 195  | 2000 |
+| | | position | | | | |
+| BRCA | 2000 | 25 | 2000 | 897 | 222 | 2000 |
+| COAD | 2000 | 8 | 2000 | 623 | 222 | 2000 |
+| SKCM | 2000 | 9 | 2000 | 901 | 195 | 2000 |
+| KIRC | 2000 | 13 | 2000 | 825 | 212 | 2000 |
+| LUAD | 2000 | 8 | 2000 | 894 | 195 | 2000 |
 
 Table S3 Number of clusters chosen for the new patient classification experiment. Spectral clustering with this chosen cluster count was performed on the IntegrAO-integrated network to determine the "ground truth" labels for each cancer type.
 
-|                   | BRCA | COAD | SKCM | KIRC | LUAD |
+| | BRCA | COAD | SKCM | KIRC | LUAD |
 |-------------------|------|------|------|------|------|
-| Number of cluster | 5    | 7    | 5    | 5    | 3    |
+| Number of cluster | 5 | 7 | 5 | 5 | 3 |
 
 ## 32 IntegrAO
 
@@ -485,14 +480,14 @@ Table S4 Number of cells and cell types in the single-cell reference data used f
 
 | Cancer type | Cell num | Cell<br>type | Reference |
 |-------------|----------|--------------|-----------|
-|             | ber      | number       |           |
-| BRCA        | 45561    | 70           | [38]      |
-| COAD        | 18409    | 14           | [39]      |
-| SKCM        | 6879     | 19           | [40]      |
-| KIRC        | 20476    | 24           | [41]      |
-| LUAD        | 52698    | 8            | [42]      |
+| | ber | number | |
+| BRCA | 45561 | 70 | [38] |
+| COAD | 18409 | 14 | [39] |
+| SKCM | 6879 | 19 | [40] |
+| KIRC | 20476 | 24 | [41] |
+| LUAD | 52698 | 8 | [42] |
 
-# 6 Supplementary Figures
+## 6 Supplementary Figures
 
 ![](_page_32_Figure_2.jpeg)
 <!-- Image Description: This image displays a heatmap visualizing gene expression profiles across different AML (acute myeloid leukemia) subtypes. Each column represents a subtype (e.g., Primitive, Intermediate, Mature), categorized by genetic markers (NPM1, MLLr, etc.). Rows correspond to individual genes, with color intensity representing expression levels (yellow: high, purple: low). The heatmap illustrates the distinct gene expression patterns characteristic of various AML subtypes, aiding in classification and potentially informing targeted therapies. -->

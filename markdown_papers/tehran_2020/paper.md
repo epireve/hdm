@@ -55,7 +55,7 @@ keywords:
 
 Amir Reza Asadi Humind Labs Tehran,Iran a.asadi@humind.xyz ORCID: 0000-0001-5440-8456
 
-*Abstract***—The Cognitive Ledger Project is an effort to develop a modular system for turning users' personal data into structured information and machine learning models based on a blockchain-based infrastructure. In this work-in-progress paper, we propose a cognitive architecture for cognitive digital twins. The suggested design embraces a cognitive blockchain (Cognitive ledger) at its core. The architecture includes several modules that turn users' activities in the digital environment into reusable knowledge objects and artificial intelligence that one day can work together to form the cognitive digital twin of users.**#*Keywords— Cognitive Computing, Knowledge Management, Artificial Intelligence, Blockchain, Tokenomics*# I. INTRODUCTION
+**Abstract:** **—The Cognitive Ledger Project is an effort to develop a modular system for turning users' personal data into structured information and machine learning models based on a blockchain-based infrastructure. In this work-in-progress paper, we propose a cognitive architecture for cognitive digital twins. The suggested design embraces a cognitive blockchain (Cognitive ledger) at its core. The architecture includes several modules that turn users' activities in the digital environment into reusable knowledge objects and artificial intelligence that one day can work together to form the cognitive digital twin of users.**#*Keywords— Cognitive Computing, Knowledge Management, Artificial Intelligence, Blockchain, Tokenomics*# I. INTRODUCTION
 
 Digital Twin is a trending topic in manufacturing technology studies. It refers to the virtual representation of a physical object or system that simulates the behavior of the physical thing [1]. However, this paper does not deal with the manufacturing industry. In this project, we develop a cognitive ledger for use by personal cognitive digital twins of individuals.
 
@@ -71,9 +71,9 @@ Furthermore, blockchain technology has driven the paradigm of tokenization of as
 
 In the following sections, we introduce a cognitive architecture for representing individual intelligence. Then, we describe a blockchain ledger system that supports secure storage and representation of users' knowledge. After that, we discuss steps toward the implementation of the proposed system.
 
-# II. PCDT 1.0 COGNITIVE ARCHITECTURE
+## II. PCDT 1.0 COGNITIVE ARCHITECTURE
 
-Before developing a cognitive blockchain ledger, we need to choose a cognitive architecture for the personal digital twin. During the last few decades, many researchers worldwide have worked hard to design architectures to represent humanlike cognitive abilities in digital environments. Adams et al. [8] presented important competency areas associated with human-like general intelligence (See Fig. 1)
+Before developing a cognitive blockchain ledger, we need to choose a cognitive architecture for the personal digital twin. During the last few decades, many researchers worldwide have worked hard to design architectures to represent humanlike cognitive abilities in digital environments. Adams et al. [8] presented important competency areas associated with human-like general intelligence (See Figure 1)
 
 We needed to design a modular architecture that can be used for the creation of cognitive digital twins by third parties.
 
@@ -88,7 +88,7 @@ The participatory design methodology was used for defining the design requiremen
 
 Fig 1. Artificial general intelligence competencies [8]
 
-By considering Fig.1, design requirements, and altering CIT architecture, the PCDT 1.0 architecture (Personal Cognitive Digital Twin) was designed.
+By considering Figure 1, design requirements, and altering CIT architecture, the PCDT 1.0 architecture (Personal Cognitive Digital Twin) was designed.
 
 CIT architecture is developed by Chandiok and Chaturvedi [9]. They considered state of the art in cognitive architectures and created a wholly general-purpose and adaptable architecture. The other reason for using CIT architecture elements is that this architecture is developed and implemented based on the latest practical artificial intelligence technologies.
 
@@ -114,17 +114,17 @@ Cognitive Ledger is a crucial foundation for the development of cognitive digita
 
 We propose that a system lifelogs and tracks the user. Then it turns the collected information into a queryable format for applications. Also, the cognitive ledger should show the knowledge assets to its owner in the same way that a cryptocurrency wallet displays assets. In addition, it should facilitate the management of the assets.
 
-#*A. Memory Pool*The cornerstone of the cognitive ledger is the memory pool. Several efforts have been conducted for secure and tamperproof log storage through private and public blockchains [13], [14], [15], [16]. The idea of immutable log storage as a service [15] seems promising for the memory pool module. But there are concerns over the size of the blockchain ledger because the blockchain data structure of blockchain requires that all nodes have a copy of the ledger. It means that each node needs to store terabytes of data after few years. However, we think we can address this issue through virtualization, so the on-chain storage approach is selected to store user activities.
+## *A. Memory Pool*The cornerstone of the cognitive ledger is the memory pool. Several efforts have been conducted for secure and tamperproof log storage through private and public blockchains [13], [14], [15], [16]. The idea of immutable log storage as a service [15] seems promising for the memory pool module. But there are concerns over the size of the blockchain ledger because the blockchain data structure of blockchain requires that all nodes have a copy of the ledger. It means that each node needs to store terabytes of data after few years. However, we think we can address this issue through virtualization, so the on-chain storage approach is selected to store user activities.
 
-#*B. Personality Trait Badges*The learning agents recognize the personality traits of users from the memory pool. The personality traits are stored in the form of non-fungible tokens (NFTs). Furthermore, third party shell applications can issue personality trait badges. These tokens display the personality attributes of users, such as their personality type according to the Myers-Briggs Type Indicator [17].
+## *B. Personality Trait Badges*The learning agents recognize the personality traits of users from the memory pool. The personality traits are stored in the form of non-fungible tokens (NFTs). Furthermore, third party shell applications can issue personality trait badges. These tokens display the personality attributes of users, such as their personality type according to the Myers-Briggs Type Indicator [17].
 
-#*C. Knowledge Objects*In this model, knowledge objects are content resources about the user and include vocabularies and knowledge bases based on what the user knows. And they are represented as NFT Tokens. It is apparent that these files are larger than the limitation of the metadata field of blockchain records. Furthermore, some knowledge bases need to be queryable. So, storing knowledge objects requires a decentralized filesystem and a blockchain-based database system. Only the hash of the file can be saved as the metadata field of NFT tokens.
+## *C. Knowledge Objects*In this model, knowledge objects are content resources about the user and include vocabularies and knowledge bases based on what the user knows. And they are represented as NFT Tokens. It is apparent that these files are larger than the limitation of the metadata field of blockchain records. Furthermore, some knowledge bases need to be queryable. So, storing knowledge objects requires a decentralized filesystem and a blockchain-based database system. Only the hash of the file can be saved as the metadata field of NFT tokens.
 
-##*D. Personal ML Models*Similar to knowledge objects, personal ML models are represented as NFT, too. The NFT holds the hash of the model on off-chain storage services.
+## *D. Personal ML Models*Similar to knowledge objects, personal ML models are represented as NFT, too. The NFT holds the hash of the model on off-chain storage services.
 
 Personal Models can promote the commercial aspect of the cognitive ledger. For example, the aesthetic taste of an artist can be simulated into an ML Model. This would be only one of the possible applications of mind and knowledge tokenization.
 
-# IV. LEARNING LAYERS & SHELLS
+## IV. LEARNING LAYERS & SHELLS
 
 The idealistic approach for implementing the learning layer would be integrating the knowledge mining programs and agents on blockchain nodes. It means miners would earn tokens based on the knowledge they mine for the users. The other blockchain-friendly approach would be the development of a blockchain-based decentralized marketplace of knowledge miners. It allows users to subscribe to knowledge mining services via smart contracts. Nardini et al. [18] proposed a framework for building a decentralized electronic marketplace for computing resources in 2020, so it is possible to implement this approach, but it requires in-depth evaluation and experiments.
 
@@ -150,7 +150,7 @@ Cognitive Ledger Project will work with individuals and organizations worldwide 
 - Personal information management: This shell allows users to search and explore their minds. Furthermore, It can collect information based on the user's personality traits.
 - Web browsing: A browser extension queries the ML Model to add a preferred information saliency layer on websites to highlight the more significant information to the user.
 
-# V. ON-GOING WORK AND NEXT STEPS
+## V. ON-GOING WORK AND NEXT STEPS
 
 At this stage, we are evaluating different blockchain technologies to address the hurdles mentioned in previous sections. The blockchain network should be capable of storing memory pool records and NFTs.
 
@@ -162,7 +162,7 @@ Meanwhile, we gather information about the performance of blockchain networks an
 
 In addition, we are constantly examining the automated machine learning (AutoML) methods for use on the learning layer. The AutoML is an inevitable piece of creating the digital cognitive twin puzzle. There are several open-source and commercial AutoML systems at this moment. Still, they provide varying levels of automation, and there is no fully autonomous AutoML system at this moment [25], and some level of user collaboration is still required.
 
-# VI. PRIVACY CONCERNS AND RELATED WORKS
+## VI. PRIVACY CONCERNS AND RELATED WORKS
 
 Although there is no company that actually implemented the personal digital twins, it grasps the attention of marketers for using cognitive digital twins in marketing analytics[26]. It is important to emphasize that unlike projects like Datacoup [27], we do not aim to turn the project into a personal data brokerage system. Although we allow users to fully own and manage their valuable memory and knowledge, we aimed to design an architecture that prevents unauthorized access to the cognitive ledger. Furthermore, the users' data is not connected to their contact info, and the knowledge mining process will be executed on their devices.
 

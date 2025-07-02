@@ -47,7 +47,6 @@ keywords:
 - co-located
 ---
 
-<span id="page-0-0"></span>
 
 # Knowledge Graphs Evolution and Preservation
 
@@ -57,7 +56,7 @@ December 23, 2020
 
 Bertinoro, Italy
 
-# Authors
+## Authors
 
 ## Main Editors
 
@@ -67,13 +66,13 @@ Valentina Anita Carriero, Semantic Technology Lab, ISTC-CNR, IT Luigi Asprino, S
 
 Claudia d'Amato, University of Bari, IT Irene Celino, Cefriel, Milan, IT John Domingue, KMi, Open University and President of STI International, UK Michel Dumontier, Maastricht University, NL Marieke van Erp, DHLab, KNAW Humanities Cluster, NL Heiko Paulheim, University of Mannheim, DE Axel Polleres, Vienna University of Economics and Business, AT Valentina Presutti, Semantic Technology Lab, ISTC-CNR, Rome, IT Sebastian Rudolph, TU Dresden, DE Harald Sack, FIZ - Karlsruhe, Karlsruhe Insitute of Technology, AIFB, DE
 
-#### Students
+### Students
 
 Nacira Abbas, INRIA Kholoud Alghamdi, The University of Southampton Mortaza Alinam, University of Genoa Francesca Alloatti, University of Torino, CELI - Language Technology Glenda Amaral, Free University of Bozen-Bolzano Martin Beno, Vienna University of Economics and Business Felix Bensmann, GESIS - Leibniz Institute for the Social Sciences Ling Cai, University of California, Santa Barbara Riley Capshaw, Linkoping University ¨ Amine Dadoun, Eurecom Stefano De Giorgis, University of Bologna Harm Delva, Ghent University, IDLab, imec Vincent Emonet, Institute of Data Science, Maastricht University Paola Espinoza Arias, Universidad Politecnica de Madrid ´ Omaima Fallatah, University of Sheffield Sebastian Ferrada, Institute for Foundational Research on Data, University of Chile ´ Marc Gallofre Oca ´ na, University of Bergen ˜
 
 Michalis Georgiou, University of Huddersfield Genet Asefa Gesese, FIZ Karlsruhe Frances Gillis-Webber, University of Cape Town Francesca Giovannetti, University of Bologna Mar´ıa Granados Buey, everis/NTT Data Ismail Harrando, Eurecom - Sorbonne University Ivan Heibi, Digital Humanities Advanced Research Centre, University of Bologna Vitor Horta, Dublin City University, Insight Centre Laurine Huber, LORIA Federico Igne, University of Oxford Mohamad Yaser Jaradeh, L3S Research Center, Leibniz University Hannover Neha Keshan, Rensselaer Polytechnic Institute Aneta Koleva, TU Dresden, Siemens Munich Bilal Koteich, French naval academy research institute Kabul Kurniawan, TU - Wien Mengya Liu, University of Southampton Chuangtao Ma, Eotv ¨ os Lor ¨ and University ´ Lientje Maas, Utrecht University Martin Mansfield, The University of Liverpool, CSols Ltd. Fabio Mariani, University of Bologna Eleonora Marzi, University of Bologna Sepideh Mesbah, Delft University of Technology Maheshkumar Mistry, University of Koblenz (Institute of Web Science) Alba Catalina Morales Tirado, The Open University Anna Nguyen, Karlsruhe Institute of Technology Viet Bach Nguyen, University of Economics, Prague Allard Oelen, L3S Research Center, TIB Hannover, Leibniz University Hannover Valentina Pasqual, University of Bologna Margherita Porena, ICCD - Istituto centrale per il catalogo e la documentazione Jan Portisch, SAP SE, University of Mannheim Kader Pustu-Iren, L3S Research Center, TIB Hannover, Leibniz University Hannover Ariam Rivas Mendez, L3S Research Center, Leibniz University Hannover Soheil Roshankish, Universita della Svizzera Italiana, Institute of Digital Technologies ` for Communication Ahmad Sakor, L3S Research Center Jaime Salas, University of Chile Thomas Schleider, Eurecom Meilin Shi, University of California, Santa Barbara Gianmarco Spinaci, University of Bologna Chang Sun, Institute of Data Science - Maastricht University Tabea Tietz, FIZ Karlsruhe Molka Tounsi Dhouib, University Cote d'Azur, INRIA, CNRS, I3S, Silex Alessandro Umbrico, Institute of Cognitive Sciences and Technologies (ISTC-CNR) Wouter van den Berg, TNO Weiqin Xu, Universite Paris Est Marne la Vall ´ ee´
 
-# Abstract
+## Abstract
 
 One of the grand challenges discussed during the Dagstuhl Seminar "Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web" [\[24\]](#page-112-0) and described in its report is that of a:
 
@@ -85,221 +84,221 @@ One of the most neglected FAIR issues about KGs is their ongoing evolution and l
 
 This document reports a collaborative effort performed by nine teams of students, each guided by a senior researcher as their mentor, attending the International Semantic Web Research School (ISWS 2019). Each team provides a different perspective to the problem of knowledge graph evolution substantiated by a set of research questions as the main subject of their investigation. In addition, they provide their working definition for KG preservation and evolution.
 
-# Contents
+## Contents
 
-|   | I<br>Machine learning techniques for detecting Knowledge Graphs<br>evolution<br>11 |                                                                    |    |
+| | I<br>Machine learning techniques for detecting Knowledge Graphs<br>evolution<br>11 | | |
 |---|------------------------------------------------------------------------------------|--------------------------------------------------------------------|----|
-| 1 |                                                                                    | Towards an Automatic Detection of Evolution in Knowledge Graphs    | 12 |
-|   | 1.1                                                                                | Introduction                                                       | 12 |
-|   | 1.2                                                                                | Proposed approach<br>.                                             | 13 |
-|   |                                                                                    | 1.2.1<br>Hypotheses                                                | 14 |
-|   |                                                                                    | 1.2.2<br>Overview                                                  | 14 |
-|   |                                                                                    | 1.2.3<br>Atomic Evolution                                          | 15 |
-|   |                                                                                    | 1.2.4<br>Local Evolution                                           | 15 |
-|   |                                                                                    | 1.2.5<br>Global Evolution                                          | 16 |
-|   | 1.3                                                                                | Evaluation Protocol                                                | 17 |
-|   | 1.4                                                                                | Related Work<br>.                                                  | 19 |
-|   | 1.5                                                                                | Conclusions and Future works<br>.                                  | 20 |
-| 2 |                                                                                    | The Evolution of Knowledge Graphs: An Analysis using DBpedia       | 21 |
-|   | 2.1                                                                                | Knowledge Graphs Evolution and Preservation<br>.                   | 21 |
-|   | 2.2                                                                                | Introduction                                                       | 22 |
-|   | 2.3                                                                                | Related Work<br>.                                                  | 22 |
-|   | 2.4                                                                                | Resources                                                          | 23 |
-|   | 2.5                                                                                | Proposed approach<br>.                                             | 24 |
-|   |                                                                                    | 2.5.1<br>Basic Analysis<br>.                                       | 24 |
-|   |                                                                                    | 2.5.2<br>Property Expansion Prediction                             | 24 |
-|   | 2.6                                                                                | Evaluation and Results: Proof of concept - Experiments             | 25 |
-|   |                                                                                    | 2.6.1<br>Ranking Properties Based on Change Frequencies<br>.       | 25 |
-|   |                                                                                    | 2.6.2<br>Relative Frequency Analysis                               | 26 |
-|   |                                                                                    | 2.6.3<br>Instance Type Dynamics<br>.                               | 27 |
-|   | 2.7                                                                                | Discussion and Conclusions<br>.                                    | 29 |
-| 3 |                                                                                    | Knowledge Graph vs Reality - How to Evaluate Knowledge Graph Evolu |    |
-|   | tion                                                                               |                                                                    | 31 |
-|   | 3.1                                                                                | Research Questions                                                 | 31 |
-|   | 3.2                                                                                | Knowledge Graphs Evolution and Preservation<br>.                   | 31 |
-|   | 3.3                                                                                | Introduction                                                       | 32 |
-|   | 3.4                                                                                | Related Work<br>.                                                  | 33 |
-|   |                                                                                    |                                                                    |    |
+| 1 | | Towards an Automatic Detection of Evolution in Knowledge Graphs | 12 |
+| | 1.1 | Introduction | 12 |
+| | 1.2 | Proposed approach<br>. | 13 |
+| | | 1.2.1<br>Hypotheses | 14 |
+| | | 1.2.2<br>Overview | 14 |
+| | | 1.2.3<br>Atomic Evolution | 15 |
+| | | 1.2.4<br>Local Evolution | 15 |
+| | | 1.2.5<br>Global Evolution | 16 |
+| | 1.3 | Evaluation Protocol | 17 |
+| | 1.4 | Related Work<br>. | 19 |
+| | 1.5 | Conclusions and Future works<br>. | 20 |
+| 2 | | The Evolution of Knowledge Graphs: An Analysis using DBpedia | 21 |
+| | 2.1 | Knowledge Graphs Evolution and Preservation<br>. | 21 |
+| | 2.2 | Introduction | 22 |
+| | 2.3 | Related Work<br>. | 22 |
+| | 2.4 | Resources | 23 |
+| | 2.5 | Proposed approach<br>. | 24 |
+| | | 2.5.1<br>Basic Analysis<br>. | 24 |
+| | | 2.5.2<br>Property Expansion Prediction | 24 |
+| | 2.6 | Evaluation and Results: Proof of concept - Experiments | 25 |
+| | | 2.6.1<br>Ranking Properties Based on Change Frequencies<br>. | 25 |
+| | | 2.6.2<br>Relative Frequency Analysis | 26 |
+| | | 2.6.3<br>Instance Type Dynamics<br>. | 27 |
+| | 2.7 | Discussion and Conclusions<br>. | 29 |
+| 3 | | Knowledge Graph vs Reality - How to Evaluate Knowledge Graph Evolu | |
+| | tion | | 31 |
+| | 3.1 | Research Questions | 31 |
+| | 3.2 | Knowledge Graphs Evolution and Preservation<br>. | 31 |
+| | 3.3 | Introduction | 32 |
+| | 3.4 | Related Work<br>. | 33 |
+| | | | |
 
-|     | 3.4.1    | Changes in KGs<br>.                                             | 33 |
+| | 3.4.1 | Changes in KGs<br>. | 33 |
 |-----|----------|-----------------------------------------------------------------|----|
-|     | 3.4.2    | Fact-Checking<br>.                                              | 33 |
-|     | 3.4.3    | Knowledge Graph Embeddings<br>.                                 | 34 |
-| 3.5 |          | Resources                                                       | 35 |
-| 3.6 | Approach | .                                                               | 35 |
-|     | 3.6.1    | Preliminaries and Problem Definition<br>.                       | 35 |
-|     | 3.6.2    | Measuring the Syntactic change<br>.                             | 36 |
-|     | 3.6.3    | Measuring the Structural Change of a KG                         | 36 |
-|     | 3.6.4    | Measuring the Semantic Change in a KG<br>.                      | 38 |
-|     | 3.6.5    | Measuring the Semantic Change in a KG based on First Order      |    |
-|     |          | Logic<br>.                                                      | 40 |
-|     | 3.6.6    | Knowledge Graphs and the Reality<br>.                           | 40 |
-| 3.7 |          | Evaluation and Results: Use case Proof of concept - Experiments | 42 |
-|     | 3.7.1    | Results<br>.                                                    | 42 |
-| 3.8 |          | Discussion and Conclusions<br>.                                 | 43 |
+| | 3.4.2 | Fact-Checking<br>. | 33 |
+| | 3.4.3 | Knowledge Graph Embeddings<br>. | 34 |
+| 3.5 | | Resources | 35 |
+| 3.6 | Approach | . | 35 |
+| | 3.6.1 | Preliminaries and Problem Definition<br>. | 35 |
+| | 3.6.2 | Measuring the Syntactic change<br>. | 36 |
+| | 3.6.3 | Measuring the Structural Change of a KG | 36 |
+| | 3.6.4 | Measuring the Semantic Change in a KG<br>. | 38 |
+| | 3.6.5 | Measuring the Semantic Change in a KG based on First Order | |
+| | | Logic<br>. | 40 |
+| | 3.6.6 | Knowledge Graphs and the Reality<br>. | 40 |
+| 3.7 | | Evaluation and Results: Use case Proof of concept - Experiments | 42 |
+| | 3.7.1 | Results<br>. | 42 |
+| 3.8 | | Discussion and Conclusions<br>. | 43 |
 
 ## II Empirical approaches for observing Knowledge Graphs evolution [44](#page-44-0)
 
-| 4 |       | Measuring ontology evolution for supporting reuse                    | 45 |
+| 4 | | Measuring ontology evolution for supporting reuse | 45 |
 |---|-------|----------------------------------------------------------------------|----|
-|   | 4.1   | Introduction                                                         | 45 |
-|   | 4.2   | Research Questions                                                   | 46 |
-|   | 4.3   | Knowledge Graphs Evolution and Preservation<br>.                     | 46 |
-|   | 4.4   | Related Work<br>.                                                    | 46 |
-|   | 4.5   | Resources                                                            | 47 |
-|   | 4.6   | Proposed approach<br>.                                               | 48 |
-|   | 4.7   | Evaluation and Results: Use case/Proof of concept - Experiments      | 49 |
-|   | 4.8   | Discussion and Conclusions<br>.                                      | 51 |
+| | 4.1 | Introduction | 45 |
+| | 4.2 | Research Questions | 46 |
+| | 4.3 | Knowledge Graphs Evolution and Preservation<br>. | 46 |
+| | 4.4 | Related Work<br>. | 46 |
+| | 4.5 | Resources | 47 |
+| | 4.6 | Proposed approach<br>. | 48 |
+| | 4.7 | Evaluation and Results: Use case/Proof of concept - Experiments | 49 |
+| | 4.8 | Discussion and Conclusions<br>. | 51 |
 | 5 | food) | Pimp my Pie - Knowledge Graph Evolution from an NLP Perspective (and | 52 |
-|   |       |                                                                      |    |
-|   | 5.1   | Research Question<br>.                                               | 52 |
-|   | 5.2   | Knowledge Graphs Evolution and Preservation<br>.                     | 52 |
-|   | 5.3   | Introduction                                                         | 53 |
-|   |       | 5.3.1<br>Impact and Contributions                                    | 54 |
-|   | 5.4   | Related Work<br>.                                                    | 55 |
-|   | 5.5   | Resources                                                            | 56 |
-|   |       | 5.5.1<br>Apple pie recipes                                           | 56 |
-|   |       | 5.5.2<br>Ontologies<br>.                                             | 56 |
-|   | 5.6   | Proposed approach<br>.                                               | 57 |
-|   | 5.7   | Evaluation and Results: Use case/Proof of concept - Experiments      | 57 |
-|   |       |                                                                      |    |
+| | | | |
+| | 5.1 | Research Question<br>. | 52 |
+| | 5.2 | Knowledge Graphs Evolution and Preservation<br>. | 52 |
+| | 5.3 | Introduction | 53 |
+| | | 5.3.1<br>Impact and Contributions | 54 |
+| | 5.4 | Related Work<br>. | 55 |
+| | 5.5 | Resources | 56 |
+| | | 5.5.1<br>Apple pie recipes | 56 |
+| | | 5.5.2<br>Ontologies<br>. | 56 |
+| | 5.6 | Proposed approach<br>. | 57 |
+| | 5.7 | Evaluation and Results: Use case/Proof of concept - Experiments | 57 |
+| | | | |
 
-| III     |                          | Decentralized technologies for Knowledge Graphs preser<br>vation and evolution                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 60                                                       |
+| III | | Decentralized technologies for Knowledge Graphs preser<br>vation and evolution | 60 |
 |---------|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
 | 6<br>IV | 6.1<br>6.2<br>6.3<br>6.4 | Privacy-Protection within the Evolution and Preservation of Knowledge<br>Graphs: The VAD2ER approach towards Medical Citizen Science<br>Introduction<br>Background and Related Work<br>.<br>Conceptual Architecture<br>.<br>6.3.1<br>The Actors<br>.<br>6.3.2<br>Joining the System as a Volunteer<br>.<br>6.3.3<br>Joining the System as a Researcher<br>.<br>6.3.4<br>Research Execution and the Temporary Knowledge Graph<br>. .<br>Conclusions and Future Work<br>Methods and tools for supporting Knowledge Graphs evolu<br>tion and sharing | 61<br>61<br>62<br>64<br>64<br>66<br>66<br>66<br>67<br>69 |
-| 7       |                          | Tracking the Evolution of Public Datasets and Their Governance Bodies                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                          |
-|         |                          | by Linking Open Data                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | 70                                                       |
-|         | 7.1                      | Introduction                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 70                                                       |
-|         | 7.2                      | Knowledge Graphs Evolution and Preservation<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 72                                                       |
-|         | 7.3                      | Related Work<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 72                                                       |
-|         | 7.4                      | Resources                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 73                                                       |
-|         | 7.5                      | Proposed Approach                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 74                                                       |
-|         |                          | 7.5.1<br>Linking                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 74                                                       |
-|         |                          | 7.5.2<br>Linking Formats<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 75                                                       |
-|         |                          | 7.5.3<br>Do Current Open Knowledge Graphs Cover Organisational Evo<br>lution?<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 76                                                       |
-|         | 7.6                      | Evaluation and Results: Use case/Proof of concept - Experiments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 76                                                       |
-|         |                          | 7.6.1<br>Interlinking evaluation<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 77                                                       |
-|         |                          | 7.6.2<br>Wikidata and DBpedia Ontologies and Coverage Assessment .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 77                                                       |
-|         | 7.7                      | Discussion and Conclusions<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 79                                                       |
-| 8       |                          | Designing a Platform for Versioned Knowledge Graph Data Access and                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 81                                                       |
-|         |                          | Provision on the Web                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |                                                          |
-|         | 8.1                      | Research Questions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 81                                                       |
-|         | 8.2                      | Introduction                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 81                                                       |
-|         | 8.3                      | Use cases<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 82                                                       |
-|         | 8.4                      | Related Work<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 82                                                       |
-|         |                          | 8.4.1<br>FAIR Principles                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 83                                                       |
-|         |                          | 8.4.2<br>Trusty URI Specification                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 83                                                       |
-|         |                          | 8.4.3<br>Nanopublication<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 83                                                       |
-|         |                          | 8.4.4<br>Bio2vec                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 84                                                       |
-|         |                          | 8.4.5<br>Ostrich<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 84                                                       |
-|         | 8.5                      | Proposed approach<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 85                                                       |
+| 7 | | Tracking the Evolution of Public Datasets and Their Governance Bodies | |
+| | | by Linking Open Data | 70 |
+| | 7.1 | Introduction | 70 |
+| | 7.2 | Knowledge Graphs Evolution and Preservation<br>. | 72 |
+| | 7.3 | Related Work<br>. | 72 |
+| | 7.4 | Resources | 73 |
+| | 7.5 | Proposed Approach | 74 |
+| | | 7.5.1<br>Linking | 74 |
+| | | 7.5.2<br>Linking Formats<br>. | 75 |
+| | | 7.5.3<br>Do Current Open Knowledge Graphs Cover Organisational Evo<br>lution?<br>. | 76 |
+| | 7.6 | Evaluation and Results: Use case/Proof of concept - Experiments | 76 |
+| | | 7.6.1<br>Interlinking evaluation<br>. | 77 |
+| | | 7.6.2<br>Wikidata and DBpedia Ontologies and Coverage Assessment . | 77 |
+| | 7.7 | Discussion and Conclusions<br>. | 79 |
+| 8 | | Designing a Platform for Versioned Knowledge Graph Data Access and | 81 |
+| | | Provision on the Web | |
+| | 8.1 | Research Questions | 81 |
+| | 8.2 | Introduction | 81 |
+| | 8.3 | Use cases<br>. | 82 |
+| | 8.4 | Related Work<br>. | 82 |
+| | | 8.4.1<br>FAIR Principles | 83 |
+| | | 8.4.2<br>Trusty URI Specification | 83 |
+| | | 8.4.3<br>Nanopublication<br>. | 83 |
+| | | 8.4.4<br>Bio2vec | 84 |
+| | | 8.4.5<br>Ostrich<br>. | 84 |
+| | 8.5 | Proposed approach<br>. | 85 |
 
-|   | 8.6 | Preliminary Results                                                      | 86  |
+| | 8.6 | Preliminary Results | 86 |
 |---|-----|--------------------------------------------------------------------------|-----|
-|   | 8.7 | Discussion                                                               | 88  |
-|   | 8.8 | Conclusions                                                              | 88  |
-| 9 |     | Supporting Interactive Updates of Knowledge Graphs                       | 93  |
-|   | 9.1 | Research Questions                                                       | 93  |
-|   | 9.2 | Evolution and Preservation of Knowledge Graphs                           | 93  |
-|   | 9.3 | Introduction                                                             | 94  |
-|   | 9.4 | Related Work<br>.                                                        | 94  |
-|   | 9.5 | Proposed approach<br>.                                                   | 96  |
-|   |     | 9.5.1<br>Algorithm                                                       | 97  |
-|   | 9.6 | Evaluation and Results: Use case/Proof of concept - Experiments          | 97  |
-|   | 9.7 | Conclusions and Future Work                                              | 99  |
-|   |     | 10 A human-in-the-loop framework to handle implicit bias in crowdsourced |     |
-|   | KGs |                                                                          | 101 |
-|   |     | 10.1 Research Questions                                                  | 101 |
-|   |     | 10.2 Knowledge Graphs Evolution and Preservation<br>.                    | 101 |
-|   |     | 10.3 Introduction and Problem Statement<br>.                             | 102 |
-|   |     | 10.4 Related Work<br>.                                                   | 103 |
-|   |     | 10.5 Methodology<br>.                                                    | 104 |
-|   |     | 10.5.1<br>Collecting biases<br>.                                         | 104 |
-|   |     | 10.5.2<br>Analysis<br>.                                                  | 105 |
-|   |     | 10.5.3<br>Review<br>.                                                    | 106 |
-|   |     | 10.5.4<br>Refinement<br>.                                                | 106 |
-|   |     | 10.6 Experimental Protocol Evaluation<br>.                               | 106 |
-|   |     | 10.6.1<br>Collection                                                     | 106 |
-|   |     | 10.6.2<br>Analysis<br>.                                                  | 107 |
-|   |     | 10.6.3<br>Review<br>.                                                    | 107 |
-|   |     | 10.6.4<br>Refinement<br>.                                                | 108 |
-|   |     | 10.7 Discussion and Conclusions<br>.                                     | 108 |
-|   |     |                                                                          |     |
+| | 8.7 | Discussion | 88 |
+| | 8.8 | Conclusions | 88 |
+| 9 | | Supporting Interactive Updates of Knowledge Graphs | 93 |
+| | 9.1 | Research Questions | 93 |
+| | 9.2 | Evolution and Preservation of Knowledge Graphs | 93 |
+| | 9.3 | Introduction | 94 |
+| | 9.4 | Related Work<br>. | 94 |
+| | 9.5 | Proposed approach<br>. | 96 |
+| | | 9.5.1<br>Algorithm | 97 |
+| | 9.6 | Evaluation and Results: Use case/Proof of concept - Experiments | 97 |
+| | 9.7 | Conclusions and Future Work | 99 |
+| | | 10 A human-in-the-loop framework to handle implicit bias in crowdsourced | |
+| | KGs | | 101 |
+| | | 10.1 Research Questions | 101 |
+| | | 10.2 Knowledge Graphs Evolution and Preservation<br>. | 101 |
+| | | 10.3 Introduction and Problem Statement<br>. | 102 |
+| | | 10.4 Related Work<br>. | 103 |
+| | | 10.5 Methodology<br>. | 104 |
+| | | 10.5.1<br>Collecting biases<br>. | 104 |
+| | | 10.5.2<br>Analysis<br>. | 105 |
+| | | 10.5.3<br>Review<br>. | 106 |
+| | | 10.5.4<br>Refinement<br>. | 106 |
+| | | 10.6 Experimental Protocol Evaluation<br>. | 106 |
+| | | 10.6.1<br>Collection | 106 |
+| | | 10.6.2<br>Analysis<br>. | 107 |
+| | | 10.6.3<br>Review<br>. | 107 |
+| | | 10.6.4<br>Refinement<br>. | 108 |
+| | | 10.7 Discussion and Conclusions<br>. | 108 |
+| | | | |
 
-# List of Figures
+## List of Figures
 
-| 2.1 | The twenty most frequently changed properties which were removed          |    |
+| 2.1 | The twenty most frequently changed properties which were removed | |
 |-----|---------------------------------------------------------------------------|----|
-|     | from the 2014 release                                                     | 26 |
-| 2.2 | The twenty most frequently changed properties which were added in         |    |
-|     | the 2015-04 release<br>.                                                  | 26 |
-| 2.3 | The properties which were added in the 2015-04 release based on their     |    |
-|     | frequencies<br>.                                                          | 26 |
-| 2.4 | The properties which were removed from the 2014 release based on          |    |
-|     | their frequencies                                                         | 27 |
-| 2.5 | Frequently changed properties common to both the Added and the re         |    |
-|     | moved files<br>.                                                          | 28 |
-| 2.6 | Infrequently changed properties from the added file                       | 28 |
-| 2.7 | Infrequently changed properties from the removed file                     | 28 |
-| 2.8 | Properties that are relatively changed the most frequently.               | 29 |
-| 2.9 | Relation between the number of properties (Log) and the number of         |    |
-|     | changes (Log) per property.                                               | 29 |
-|     | 2.10 Type Evolution Graph. Nodes represent the classes involved and edges |    |
-|     | the properties whose objects changed from one class to another. Only      |    |
-|     | the properties with a high number of changes are depicted.<br>.           | 29 |
-|     | 2.11 Type Evolution Graph. Nodes represent the classes involved and edges |    |
-|     | the properties whose objects changed from one class to another. Only      |    |
-|     | the properties with lower number of changes are depicted.<br>.            | 30 |
-| 3.1 | Workflow<br>.                                                             | 36 |
-|     |                                                                           |    |
-| 4.1 | Evolution of the amount classes over time<br>.                            | 50 |
-| 4.2 | Evolution of the amount subclass axioms over time<br>.                    | 50 |
-|     |                                                                           |    |
-| 5.1 | Data model<br>.                                                           | 58 |
-| 5.2 | Timeline visualization                                                    | 58 |
-|     |                                                                           |    |
-| 6.1 | A model example on data donation in citizen science [18]                  | 63 |
+| | from the 2014 release | 26 |
+| 2.2 | The twenty most frequently changed properties which were added in | |
+| | the 2015-04 release<br>. | 26 |
+| 2.3 | The properties which were added in the 2015-04 release based on their | |
+| | frequencies<br>. | 26 |
+| 2.4 | The properties which were removed from the 2014 release based on | |
+| | their frequencies | 27 |
+| 2.5 | Frequently changed properties common to both the Added and the re | |
+| | moved files<br>. | 28 |
+| 2.6 | Infrequently changed properties from the added file | 28 |
+| 2.7 | Infrequently changed properties from the removed file | 28 |
+| 2.8 | Properties that are relatively changed the most frequently. | 29 |
+| 2.9 | Relation between the number of properties (Log) and the number of | |
+| | changes (Log) per property. | 29 |
+| | 2.10 Type Evolution Graph. Nodes represent the classes involved and edges | |
+| | the properties whose objects changed from one class to another. Only | |
+| | the properties with a high number of changes are depicted.<br>. | 29 |
+| | 2.11 Type Evolution Graph. Nodes represent the classes involved and edges | |
+| | the properties whose objects changed from one class to another. Only | |
+| | the properties with lower number of changes are depicted.<br>. | 30 |
+| 3.1 | Workflow<br>. | 36 |
+| | | |
+| 4.1 | Evolution of the amount classes over time<br>. | 50 |
+| 4.2 | Evolution of the amount subclass axioms over time<br>. | 50 |
+| | | |
+| 5.1 | Data model<br>. | 58 |
+| 5.2 | Timeline visualization | 58 |
+| | | |
+| 6.1 | A model example on data donation in citizen science [18] | 63 |
 
-| 6.2 | Overview of the VAD2ER conceptual architecture, showing a full in<br>teraction cycle between a researcher Rachel and a volunteer Victor. (1)<br>Victor applies to be a volunteer.<br>(2) Sometime in the future Rachel<br>registers a research project. (3) Research and volunteers' data access<br>constraints are checked. (4) An access point and a token identifier are<br>generated and returned to Rachel. (5) Rachel accesses the RDF store.<br>(6) The RDF store collects the necessary data and executes the relevant<br>SPARQL queries. (7) The results are checked against the volunteers'<br>data access constraints. (8) The research results are returned to Rachel. | 65  |
+| 6.2 | Overview of the VAD2ER conceptual architecture, showing a full in<br>teraction cycle between a researcher Rachel and a volunteer Victor. (1)<br>Victor applies to be a volunteer.<br>(2) Sometime in the future Rachel<br>registers a research project. (3) Research and volunteers' data access<br>constraints are checked. (4) An access point and a token identifier are<br>generated and returned to Rachel. (5) Rachel accesses the RDF store.<br>(6) The RDF store collects the necessary data and executes the relevant<br>SPARQL queries. (7) The results are checked against the volunteers'<br>data access constraints. (8) The research results are returned to Rachel. | 65 |
 |-----|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|
-| 8.1 | The general architecture of our proposed approach.<br>Each different<br>client on the right side of the diagram represents a different use case,<br>which will send/call the API so it will handle its request. The API is a                                                                                                                                                                                                                                                                                                                                                                                                                                                       |     |
-|     | connection point between the different technologies used<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 85  |
-| 8.2 | A sequence diagram to describe the workflow of the proposed design                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |     |
-|     | through the three main components: web app, API, and the triple store                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | 87  |
-| 8.3 | System flowchart<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | 89  |
-| 8.4 | KG Finder Screen                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 90  |
-| 8.5 | KG Filters and Query Screen                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 90  |
-| 8.6 | Results Screen                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 91  |
-| 9.1 | Ontology Update Architecture (Losch et al. 2009).<br>¨<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 95  |
-| 9.2 | Ontology Update Language syntax specification.<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 96  |
-| 9.3 | Example knowledge base in Turtle.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 98  |
-| 9.4 | Hogwarts Library's knowledge graph                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 99  |
-| 9.5 | Example ontology update specification                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | 100 |
-|     | 10.1 Process overview. Orange side of the process concerns with the preser<br>vation of KGs while the green side with the evolution. Both processes<br>could involve either not-automated or automated steps that do or do not                                                                                                                                                                                                                                                                                                                                                                                                                                                     |     |
-|     | require human intervention.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 104 |
-|     | 10.2 Data structure for storing user provenance data on statement level<br>. .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 105 |
-|     | 10.3 Profiling end-users through provenance metadata and collecting opinions107                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |     |
-|     | 10.4 Example of Palestine statement provenance visualization<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 107 |
+| 8.1 | The general architecture of our proposed approach.<br>Each different<br>client on the right side of the diagram represents a different use case,<br>which will send/call the API so it will handle its request. The API is a | |
+| | connection point between the different technologies used<br>. | 85 |
+| 8.2 | A sequence diagram to describe the workflow of the proposed design | |
+| | through the three main components: web app, API, and the triple store | 87 |
+| 8.3 | System flowchart<br>. | 89 |
+| 8.4 | KG Finder Screen | 90 |
+| 8.5 | KG Filters and Query Screen | 90 |
+| 8.6 | Results Screen | 91 |
+| 9.1 | Ontology Update Architecture (Losch et al. 2009).<br>¨<br>. | 95 |
+| 9.2 | Ontology Update Language syntax specification.<br>. | 96 |
+| 9.3 | Example knowledge base in Turtle. | 98 |
+| 9.4 | Hogwarts Library's knowledge graph | 99 |
+| 9.5 | Example ontology update specification | 100 |
+| | 10.1 Process overview. Orange side of the process concerns with the preser<br>vation of KGs while the green side with the evolution. Both processes<br>could involve either not-automated or automated steps that do or do not | |
+| | require human intervention. | 104 |
+| | 10.2 Data structure for storing user provenance data on statement level<br>. . | 105 |
+| | 10.3 Profiling end-users through provenance metadata and collecting opinions107 | |
+| | 10.4 Example of Palestine statement provenance visualization<br>. | 107 |
 
 
 
-# List of Tables
+## List of Tables
 
 | 7.1 | Coverage percentage of VulcanLinker system on two different data por<br>tals, two Knowledge Graphs, matching the "organisation" property of<br>the datasets<br>. | 77 |
 |-----|------------------------------------------------------------------------------------------------------------------------------------------------------------------|----|
-| 8.1 | Whether our proposed platform design handles each of the FAIR prin<br>ciples, and how it does that                                                               | 92 |
+| 8.1 | Whether our proposed platform design handles each of the FAIR prin<br>ciples, and how it does that | 92 |
 
-# Part I
+## Part I
 
-# <span id="page-11-0"></span>Machine learning techniques for detecting Knowledge Graphs evolution
+## <span id="page-11-0"></span>Machine learning techniques for detecting Knowledge Graphs evolution
 
-# <span id="page-12-0"></span>Chapter 1
+## <span id="page-12-0"></span>Chapter 1
 
-# Towards an Automatic Detection of Evolution in Knowledge Graphs
+## Towards an Automatic Detection of Evolution in Knowledge Graphs
 
 FRANCESCA ALLOATTI, RILEY CAPSHAW, MOLKA DHOUIB, MAR´IA G. BUEY, ISMAIL HARRANDO, JAIME SALAS, CLAUDIA D'AMATO
 
-# <span id="page-12-1"></span>1.1 Introduction
+## <span id="page-12-1"></span>1.1 Introduction
 
 A Knowledge Graph (KG) could be considered as a collection of interlinked descriptions of entities (e.g. objects, people, events, situations, or concepts) possibly enriched information acquired and integrated within ontologies [\[64\]](#page-116-0) thus making possible to apply a reasoner and derive new knowledge [\[50\]](#page-114-0). Several KGs are available, including DBpedia[1](#page-12-2) , Wikidata[2](#page-12-3) , YAGO[3](#page-12-4) , or DBLP[4](#page-12-5) . These KGs may be continuously maintained by an open community, by adding new entities and relationships, or modifying the existing ones, in order to represent a constantly changing reality and a permanent flow of new knowledge. As a consequence, the conclusions that can be inferred may also change over time. An example is provided by DBpedia, releasing a new version each year as well as a snapshot each month.
 
@@ -324,7 +323,7 @@ As a use case, we focused on exploring scholarly data but we also show how the e
 
 The rest of the paper is organized as follows. Section [1.2](#page-13-0) presents our proposed approach to detect the three types of evolution on a KG that we have defined. Section [1.3](#page-17-0) describes the evaluation protocol. Section [1.4](#page-19-0) overviews related approaches. Section [1.5](#page-20-0) draws conclusions and discuss our perspectives for these challenges.
 
-# <span id="page-13-0"></span>1.2 Proposed approach
+## <span id="page-13-0"></span>1.2 Proposed approach
 
 Evolution in KGs is an open research direction that can be approached from different perspectives. We focus on capturing evolution at three different levels:*atomic*, *local*, and *global*by tracking these changes in different snapshots of a KG.
 
@@ -439,11 +438,11 @@ $$
 $$
 \exists c_l, \dots, c_n \in C_i : persisting(\cup_{i \in l, \dots, n} c_i, c_{merged})
 $$
- (1.4)
+(1.4)
 
 The splitting of two communities is defined as the inverse phenomenon of merging, i.e. by inverting the snapshot indices.
 
-# <span id="page-17-0"></span>1.3 Evaluation Protocol
+## <span id="page-17-0"></span>1.3 Evaluation Protocol
 
 In this section we describe our protocol to evaluate the proposed solution. As a first step, a series of snapshots from a KG needs to be considered, e.g. DBLP [7](#page-17-1) over 4 years. DBLP collects scholalry data specialized on computer science bibliography. DBLP listed more than 3.66 million journal articles, conference papers, and other publications on computer science in July 2016, up from about 14,000 in 1995. Our choice to use this dataset is motivated by two main reasons: 1) The regular snapshots (monthly since 2015) that will allow us to better analyze the evolution of data, and 2) The nature of the data exposed by DBLP which we are more familiar with.
 
@@ -477,7 +476,7 @@ At this point, we need to find out the communities in each of the snapshots we h
 
 Following this, we may proceed in a similar fashion as in the previous section, only instead of calculating the number of changes and the noteworthy changes between snapshots, we will be computing the same values, but for communities.
 
-#### Global Evolution
+### Global Evolution
 
 In this section, we describe how to evaluate the performance of our method for detecting changes at a global level, focusing on communities.
 
@@ -485,7 +484,7 @@ By analyzing the communities of each of the intermediary snapshots, we will be a
 
 In addition, if we have identified communities that persist among the intermediary snapshots, we may study their local evolution as specified in Section [1.2.4.](#page-15-1) This will allow us to examine the evolution in individual communities.
 
-# <span id="page-19-0"></span>1.4 Related Work
+## <span id="page-19-0"></span>1.4 Related Work
 
 Evolution within KGs has not been studied as thoroughly as many other topics regarding KGs and structured data in general. Bonatti et al. [\[23\]](#page-112-1) present in their report an overview of the major current topics in research related to KGs, with a strong focus on capturing various aspects of evolution and understanding it. One recent effort to study this phenomenon includes Esteban et al. [\[54\]](#page-115-1), who also explored the evolution of clusters within the DBLP dataset. They focus specifically on predicting the evolution of KGs based on latent representations of the model, and the event model as inputs. However, their use cases cover specific domains unrelated to DBLP we focused on.
 
@@ -495,7 +494,7 @@ Finally, we wish to also look ahead and see for what purposes this sort of analy
 
 Finally, as future work we explored the possibility to give*intentions*or*explanations*to sets of changes which bring about detected evolution. One such approach is to summarize the changes that are seen such that a human might be able to deduce the intentions behind those changes. For example, the work by Tasnim et al. [\[130\]](#page-122-0) adds descriptions to entities which have changed over time. However, in our case we would hope to provide a description for changes that occur within a KG, rather than the entities themselves.
 
-# <span id="page-20-0"></span>1.5 Conclusions and Future works
+## <span id="page-20-0"></span>1.5 Conclusions and Future works
 
 In this work we proposed a methodology to capture significant evolution in Knowledge Graphs taken into consideration three types of evolution: (i) atomic level, (ii) local level and (ii) global level. We focused on the scholarly data domain even if the actual approach can be generalized to other domains.
 
@@ -503,13 +502,13 @@ Evolution in Knowledge Graphs has yet to be widely explored by the academic comm
 
 Many trajectories for future work can be identified, as well as variables in the data processing that could improve our study: (i) the first prosecution would be to provide an understandable summarizing for the changes that have been captured. This part would probably benefit by human intervention. A classification of the highlighted variations could also need a human contribution, to perform annotation. To identify patterns of changes (change of affiliation, evolution of h-index,etc.) in a proficient way it is better to have many snapshots, taken with short time range between one and the following other. This may depend on the pre-conditions of the data-set. In the case where the KG is a proprietary one, experiments can be conducted managing the snapshots more freely. Then, it would be also possible to establish characteristics for relations by frequency of change: static, periodic, or frequent ones. (ii) The second prospective that we can take into consideration is the distinction between the valid evolution from the noisy one. We can resolve this by developing a classifiers. Furthermore, the elimination of noise may allow us to better understand the causes of evolution. (iii) An other prosecution of this work is to provide an explanation for a capture evolution phenomenon. It would be interesting to know why this evolution and what are the main causes of it, so that we can perhaps predict these changes for the future. (iv)Finally, we also consider important to address a possible meta evolution: it will mean comparing the changes across already defined inter-snapshot evolution. In addition, a different approach would need to be outlined in the case where two graph are to be linked.
 
-# <span id="page-21-0"></span>Chapter 2
+## <span id="page-21-0"></span>Chapter 2
 
-# The Evolution of Knowledge Graphs: An Analysis using DBpedia
+## The Evolution of Knowledge Graphs: An Analysis using DBpedia
 
 LING CAI, STEFANO DE GIORGIS, SEBASTIAN´ FERRADA, GENET ASEFA GESESE, FRANCES GILLIS-WEBBER, NEHA KESHAN, HEIKO PAULHEIM
 
-# <span id="page-21-1"></span>2.1 Knowledge Graphs Evolution and Preservation
+## <span id="page-21-1"></span>2.1 Knowledge Graphs Evolution and Preservation
 
 Knowledge graph (KG) evolution can be defined as the periodic or continuous updates to a KG, which involves deleting, adding, and updating data and/or the schema. Every change to the KG is typically in response to the state of the world changing for the domain which the knowledge graph represents. However, a KG may not necessarily be an accurate representation of said domain. This can be due in part to:
 
@@ -519,7 +518,7 @@ Knowledge graph (KG) evolution can be defined as the periodic or continuous upda
 
 The preservation of a knowledge graph pertains to its provenance – that is, providing traceability for each change, be it an addition, update or deletion.
 
-# <span id="page-22-0"></span>2.2 Introduction
+## <span id="page-22-0"></span>2.2 Introduction
 
 Knowledge Graph (KGs) consist of a set of triples where a triple contains a subject s, a property p, and an object o in the form of < s, p, o >. KGs have been used for the purpose of sharing linked data. For example, the typical KGs are DBpedia [\[82\]](#page-117-0), Freebase [\[21\]](#page-111-1), the Wikidata [\[140\]](#page-123-0), etcetera. As the state of the world is constantly undergoing change, KGs can evolve in response to new information that is generated. KGs are thus intended to be dynamic structures: there are periodic or continuous updates that include new, refined, and redefined data and/or schema. We refer to these changes over time as the evolution of KGs. Studying the evolution of KGs is of significance for data-driven applications, such as event prediction [\[55\]](#page-115-2), change verification [\[104\]](#page-119-0), entity summarisation [\[131\]](#page-122-1) and so on.
 
@@ -536,7 +535,7 @@ Potential use cases for evolution awareness have been identified, namely:
 - Aprosio et al.: their work tries to automatically compile Wikipedia infoboxes, using Relation Extraction trained on DBpedia properties, with the Distant Reading method applied to triples of subject-attribute-value [\[14\]](#page-111-2). [\[14\]](#page-111-2) could benefit from our work by having more awareness about volatility of properties.
 - Bryl and Bizer: their work develops fusion policies for data from different KGs [\[29\]](#page-112-3). As the fusion policies are likely to be different depending on the volatility of a property (i.e. volatile and non-volatile), such approaches could also benefit from our work.
 
-# <span id="page-22-1"></span>2.3 Related Work
+## <span id="page-22-1"></span>2.3 Related Work
 
 Schema.org provides a vocabulary for marking up structured data in HTML pages [\[91\]](#page-118-0). Meusel et al. conducted an analysis of the usage of Schema.org over time using a series of large-scale web crawls [\[91\]](#page-118-0). Although as a KG, the purpose of schema.org is very different to DBpedia, there were interesting phenomena found, such as schema abuse, fast and slow adoption of new schema elements in the data, semantic drift, that could be applicable to DBpedia.
 
@@ -550,7 +549,7 @@ Noy et al. present an ontology-versioning environment which allows for the struc
 
 Taking a cue from [\[129\]](#page-122-2) and [\[106\]](#page-120-1), we focus on the diffs, but our approach diverges in that the focus is primarily on analysis to derive insights, unlike that of [\[129\]](#page-122-2) and [\[106\]](#page-120-1), who both provide a system in which the user is expected to derive their own insights.
 
-# <span id="page-23-0"></span>2.4 Resources
+## <span id="page-23-0"></span>2.4 Resources
 
 We make use of sub-datasets from two datasets available for download from DBpedia for the periods 2014 and 2015-04, referred hereon as*DS1*and*DS2*respectively [\[1\]](#page-110-0); [\[2\]](#page-110-1). Although neither are recently published datasets, they were considered suitable for analysis of the research questions due to the fact that from version 2015-10 onward there have been many changes in the way the data was provided. This makes it difficult to compare and track changes across versions because it is no longer possible to distinguish organic updates from updates forced by the changes of the schema.
 *DS1*is comprised of three files from the 2014 dataset:
@@ -570,7 +569,7 @@ For*DS1*, the English version of the dataset contains 583 million triples which 
 
 DBpedia also provides live updates, available for download on an hour-by-hour basis, for example [\[11\]](#page-110-10). Although it would be preferable to consider more recent data in our analysis, due to external constraints, this was not possible. As it was concluded that *DS1*and*DS2*served sufficiently for analysis, DBpedia's live updates could be considered for future work.
 
-# <span id="page-24-0"></span>2.5 Proposed approach
+## <span id="page-24-0"></span>2.5 Proposed approach
 
 In this part, the methods proposed to solve the research questions defined in Section [2.2](#page-22-0) are presented. In subsection [2.5.2,](#page-24-2) the patterns of changes in properties are explored by using basic statistical analysis as a solution for RQ1. Then, Section [2.5.1](#page-24-1) discusses the attempt that has been made to use the identified patterns to help predict the growth of properties in order to address RQ2.
 
@@ -585,7 +584,7 @@ Once the characteristics of the evolution of a KG has been analyzed, it is possi
 As a first step, a series of snapshots of DBpedia over a period of time are generated for each property. Instead of treating entities as nodes as most KGs do, in our case, dual graphs for each property are constructed, in each of which properties/relations are represented as nodes and entities are treated as edges. In this way, the task is designed as a time-series prediction task on a graph data structure. Formally, the problem can be defined as follows:
 *Given a time-series graphs of properties, with a specified time scale, predict the graph structure of properties at the next time step.*Proposed Solution: Enlightened by the success of graph representation in the past few years, in this research, a Temporal Capsule Neural Network-based model, which extends the Capsule Neural Network [\[121\]](#page-121-1) to the temporal domain is proposed to solve the problem defined above.
 
-# <span id="page-25-0"></span>2.6 Evaluation and Results: Proof of concept - Experiments
+## <span id="page-25-0"></span>2.6 Evaluation and Results: Proof of concept - Experiments
 
 ## <span id="page-25-1"></span>2.6.1 Ranking Properties Based on Change Frequencies
 
@@ -675,7 +674,7 @@ from subclass to superclass when the change is lower. We propose this analysis a
 
 Figure 2.10: Type Evolution Graph. Nodes represent the classes involved and edges the properties whose objects changed from one class to another. Only the properties with a high number of changes are depicted.
 
-# <span id="page-29-0"></span>2.7 Discussion and Conclusions
+## <span id="page-29-0"></span>2.7 Discussion and Conclusions
 
 Although the focus of this paper has been on DBpedia, it would be of interest to determine if the identified characteristics could be abstracted to other KGs. An item for future work could thus be to evaluate the characteristics through the lens of the phenomena identified by [\[91\]](#page-118-0), to determine if said phenomena extend to DBpedia.
 
@@ -686,24 +685,24 @@ Figure 2.11: Type Evolution Graph. Nodes represent the classes involved and edge
 
 Metrics to understand the volatility of properties and for the prediction of subproperties and subclasses are yet to be formalized and generalized using the initial measurements presented in this paper.
 
-# <span id="page-31-0"></span>Chapter 3
+## <span id="page-31-0"></span>Chapter 3
 
-# Knowledge Graph vs Reality - How to Evaluate Knowledge Graph Evolution
+## Knowledge Graph vs Reality - How to Evaluate Knowledge Graph Evolution
 
 AHMAD SAKOR, AMINE DADOUN, KHOLOUD ALGHAMDI, LAU-RINE HUBER, SEPIDEH MESBAH, THOMAS SCHLEIDER, VITOR A. C. HORTA, HARALD SACK
 
-# <span id="page-31-1"></span>3.1 Research Questions
+## <span id="page-31-1"></span>3.1 Research Questions
 
 - 1. Given two versions of a knowledge graph, how to measure the syntactic, structural, and semantic differences between them?
 - 2. How to automatically detect and adapt KGs to changes in the "real world"?
 
-# <span id="page-31-2"></span>3.2 Knowledge Graphs Evolution and Preservation
+## <span id="page-31-2"></span>3.2 Knowledge Graphs Evolution and Preservation
 
 According to Ehrlinger and Wob a knowledge graph acquires and integrates information into an ontology and applies a reasoner to derive new knowledge. Its main goal is to describe real world entities and their interrelations [\[112\]](#page-120-2). Many companies such as Google, Facebook, and Siemens are using knowledge graphs for different applications like risk management and process monitoring.
 
 Since the relation between real world entities are constantly changing, a known challenge is to keep the knowledge graph up-to-date with its respective domain [\[100\]](#page-119-1). In this sense, the evolution of a knowledge graph is represented by the multiple versions it acquires during this constant process of update. While this process occurs it is important to guarantee the preservation of the knowledge graph, which means that incoming changes should not harm its accessibility, consistency or real world representation.
 
-# <span id="page-32-0"></span>3.3 Introduction
+## <span id="page-32-0"></span>3.3 Introduction
 
 Knowledge Graphs (KGs) offer us a way to model reality. However keeping KGs up to date while the entities in the real world continuously change is a challenging task. As the validity of most facts is time-constrained the implicit and explicit knowledge in KGs relies on them being up to date [\[100\]](#page-119-1). When changes are proposed to a KG and a new version is available, the applications that consumes the KG must decide whether or not to use the most recent version.
 
@@ -725,7 +724,7 @@ Therefore the main contributions of this work are: (i) an ensemble method to mea
 
 The rest of the paper is structured as follows: Section 4 summarizes related work, while in Section 5 resource data for subsequent experiments are described. Section 6 outlines the workflow of the proposed approach and Section 7 summarizes achieved evaluation results. Section 8 concludes the paper with a short discussion and an outlook on future work.
 
-# <span id="page-33-0"></span>3.4 Related Work
+## <span id="page-33-0"></span>3.4 Related Work
 
 In this section, we first look into techniques used for measuring changes in KGs. Next, we look into methods used for fact-checking in knowledge bases.
 
@@ -754,13 +753,13 @@ different representations when they have different relations by projecting entit
 
 • TransR [\[83\]](#page-117-2) which enables entities and relations to be embedded in a vector space in different dimensions through a projection matrix associated to a given relation.
 
-# <span id="page-35-0"></span>3.5 Resources
+## <span id="page-35-0"></span>3.5 Resources
 
 DBpedia describes itself as a a crowd-sourced community effort to extract structured content from the information created in various Wikimedia projects [3](#page-35-3) . A lot of of research has been publish with or based on DBpedia throughout the years [\[17\]](#page-111-3)[\[20\]](#page-111-4).
 
 For our evaluation we considered the last two versions of DBpedia knowledge graph; 2016-4[\[40\]](#page-113-3) and 2016.10[\[41\]](#page-113-4). The data is provided as RDF-Triples. For our experiment, we focus on one entity ([http://dbpedia.org/resource/Cristian](http://dbpedia.org/resource/Cristiano_Ronaldo)o\_ [Ronaldo](http://dbpedia.org/resource/Cristiano_Ronaldo)) in order to explore and detect the changes between the two versions of DBpedia knowledge graph.
 
-# <span id="page-35-1"></span>3.6 Approach
+## <span id="page-35-1"></span>3.6 Approach
 
 This section describes an approach on how to evaluate the evolution of a Knowledge Graph by building a work-flow based on three distinct characteristics of a KG: its syntax, its structure, and its semantics.
 
@@ -782,7 +781,7 @@ In this section, we first provide definitions of some useful concepts. Then, we 
 
 - Knowledge Graph: A knowledge graph is defined as a set K = (E, R, O) where E is the set of entities, R ⊂ E × Γ × E is a set of typed relations among entities, and O is an ontology, which defines the set of relation types ('properties') Γ.
 - Problem Formulation: We define a Knowledge graph Change as follows:
-  - A change is represented by the tuple (e1, r, e2, e, s, t) where (e1, r, e2) is a triple added or removed, e is an integer ∈ 1, 2 which represents (addition or deletion), t represents the time where the change occurred, and s is a similarity score between the two versions.
+- A change is represented by the tuple (e1, r, e2, e, s, t) where (e1, r, e2) is a triple added or removed, e is an integer ∈ 1, 2 which represents (addition or deletion), t represents the time where the change occurred, and s is a similarity score between the two versions.
 
 ### <span id="page-36-0"></span>3.6.2 Measuring the Syntactic change
 
@@ -892,7 +891,7 @@ Given a RDF triple we follow the steps below:
 
 <span id="page-41-0"></span><sup>5</sup>[https://github.com/facebookresearch/fastText/blob/master/docs/](https://github.com/facebookresearch/fastText/blob/master/docs/pretrained-vectors.md) [pretrained-vectors.md](https://github.com/facebookresearch/fastText/blob/master/docs/pretrained-vectors.md)
 
-# <span id="page-42-0"></span>3.7 Evaluation and Results: Use case Proof of concept - Experiments
+## <span id="page-42-0"></span>3.7 Evaluation and Results: Use case Proof of concept - Experiments
 
 Due to time constraints we could not fully implement and execute the test setup. The following list is therefore only a plan and future work is needed to fully evaluate our approach. The first step could however be applied and we will therefore include these partial results.
 
@@ -913,29 +912,29 @@ We used the GNU command grep and the string "Christiano Ronaldo" to make a pre-s
 
 ```text
 <http://dbpedia.org/resource/Cristiano_Ronaldo>
-  <http://dbpedia.org/property/birthDate>
-    ''1985-02-05''ˆˆ<http://www.w3.org/2001/XMLSchema#date>
+<http://dbpedia.org/property/birthDate>
+''1985-02-05''ˆˆ<http://www.w3.org/2001/XMLSchema#date>
 ```text
 
 whereas this was not included in DBpedia 2016.04. All in all we could observe 161 triples that were different in total. As we only looked at the mapped infobox properties it could of course be that some of the data has been represented in different ways and at different nodes.
 
-# <span id="page-43-0"></span>3.8 Discussion and Conclusions
+## <span id="page-43-0"></span>3.8 Discussion and Conclusions
 
 In this article, we explain an eventual solution of existing problems concerning KG evolution and their validity in terms of modeling reality. Our approach shows that there are existing and maintained methods that have not been combined in this way before and we are convinced there is even more potential once a better alignment is reached between the different steps, which would require own software implementations based on the theory we have about KG evolution and changes. We were not able to implement our approach because of workspace and time limitations.
 
 For future work, we strongly recommend adding a level which verifies how different versions or different KG are in accordance with the FAIR principle [\[147\]](#page-123-4). This has been omitted in this project only due to the scope. We think it is a crucial point to include a quantification in this regard in order to keep the data in KGs reusable for the scientific community.
 
-# Part II
+## Part II
 
-# <span id="page-44-0"></span>Empirical approaches for observing Knowledge Graphs evolution
+## <span id="page-44-0"></span>Empirical approaches for observing Knowledge Graphs evolution
 
-# <span id="page-45-0"></span>Chapter 4
+## <span id="page-45-0"></span>Chapter 4
 
-# Measuring ontology evolution for supporting reuse
+## Measuring ontology evolution for supporting reuse
 
 MARTIN BENO, FELIX BENSMANN, HARM DELVA, ANETA KOLEVA, MARTIN MANSFIELD, KADER PUSTU-IREN, VALENTINA PRESUTTI
 
-# <span id="page-45-1"></span>4.1 Introduction
+## <span id="page-45-1"></span>4.1 Introduction
 
 Ontologies support knowledge sharing and reuse. They are widely used in both academia and industries. Because of the explicit semantic conceptualizations and reasoning capabilities that ontologies offer, they constitute the backbone of the Semantic Web. Consequently, with the constant evolution and enrichment of the Semantic Web, the evolution of ontologies is inevitable. Since ontologies can be used independently as well as interdependent, observing the changes and identifying their cause can be of crucial importance for the design and integrity of the Semantic Web. Noy and Klay [\[107\]](#page-120-6) discuss that the following three types of changes can occur in an ontology: (i) changes in the domain; (ii) changes in the conceptualization; and (iii) changes in the explicit specification. The impact of these changes have severe consequences not only on tooling but foremost on datasets. It is important that versioning and updates of ontologies are executed in a controlled way such that they do not break datasets. Therefore, it is crucial to understand triggers and consequences of changes. Thus, we recognize the need of well defined metrics which would capture these changes. To analyze ontology changes, we identify patterns of changes in the number of sunglasses, concepts etc. and measure their impact over time.
 
@@ -943,7 +942,7 @@ In this report, we present our contributions: (i) we provide an analysis of the 
 
 The rest of this paper is structured as follows: First we present the research questions which we try to address. Second, we describe the problem of knowledge graph evolution and ontology evolution. We then discuss several approaches as related work. In Section 5 we explain the used resources. In Section 6 we elaborate on our proposed approach and in Section 7 we discuss the evaluation of this approach. We conclude this report with Section 8 in which we provide discussion about the main findings of this work and some final conclusions.
 
-# <span id="page-46-0"></span>4.2 Research Questions
+## <span id="page-46-0"></span>4.2 Research Questions
 
 The focus of this report are the following research questions:
 
@@ -951,13 +950,13 @@ The focus of this report are the following research questions:
 - Q2 How can they be characterized?
 - Q3 Is there correlation between the changes that occur in two different ontologies that have a dependency?
 
-# <span id="page-46-1"></span>4.3 Knowledge Graphs Evolution and Preservation
+## <span id="page-46-1"></span>4.3 Knowledge Graphs Evolution and Preservation
 
 In the field of knowledge graph evolution this report focuses specifically on the evolution of ontologies. We define Knowledge Graph Evolution as the process of KGs changing over time. Considered changes include nodes and edges being added or removed. Ontology evolution is defined by Maedche et al. [\[88\]](#page-118-4) with the following definition :
 
 *"The timely adaptation of an ontology and consistent propagation of changes to dependent artifacts."*However, in this report we only regard ontology evolution as a process we aim to observe and understand. In particular we focus on the effect certain ontology changes have on interdependent ontologies.
 
-# <span id="page-46-2"></span>4.4 Related Work
+## <span id="page-46-2"></span>4.4 Related Work
 
 Ontologies are essential for the design and the integrity of linked datasets. Starting from the design phase of the ontology, multiple factors affect their value of use. In [\[42\]](#page-113-6) the authors describe the conditions of the creation and the development of ontologies as a concept in the semantic web.
 
@@ -969,7 +968,7 @@ Apart from the ontology evolution itself, relevant work is discussed by Klein et
 
 We also examined the evolution of knowledge graphs, as opposed to ontologies, in order to determine if it is possible to reuse some approaches. A relevant work is the Dynamic Linked Data Observatory which carries out and examines snapshots of (Linked Open Data) LOD cloud. Kafer et al. [\[75\]](#page-117-6) conduct similar studies on instance ¨ level whose metrics were partly adapted by us for reuse. [\[101\]](#page-119-2) also focuses on evolution of KGs over time. The analysis is carried out with the intention to use it for predicting changes. Using 25 snapshots of Wikidata the authors observe change over time between two successive snapshots. The focus is on the topological features, in particular the number of nodes and edges. [\[102\]](#page-119-3) on the other hand focuses on structural changes. Further work is concentrated on the detection and assessment of changes. [\[135\]](#page-122-4) describes work on learning and predicting changes in frequently changing graphs by creating an evolutionary knowledge network that learns non-linearly evolving entity representations over time using embeddings.
 
-# <span id="page-47-0"></span>4.5 Resources
+## <span id="page-47-0"></span>4.5 Resources
 
 In order to analyze the effects of evolution on interdependency we focus on two families of ontologies in specific. The first one is the Data and Analytics Framework (DAF)[1](#page-47-1) which was created to support the management of public administration data. It was developed for the Italian government to serve as a base for domain-specific ontologies. The second family of ontologies we use was created for the ArCo (Architecture of Knowledge)[2](#page-47-2) project. This project's goal is to create a knowledge graph of Italian cultural data from the general catalogue of the Italian Ministry of Cultural Heritage and Activities (MiBAC). The ArCo project has lead to the creation of several ontologies that refer to concepts defined in the DAF ontologies, and it is this dependency that makes these ontologies particularly interesting for our use case.
 
@@ -985,7 +984,7 @@ Apart from the ontologies that are part of these two projects, we also used onto
 
 Because of time constraints we were not able to fully develop our own ontology analysis tools. Instead, we rely on Bubastis[5](#page-48-3) to find logical differences between versions of the same ontology. Other similar tools such as Ecco[6](#page-48-4) exist, and have been tested, but Bubastis was by far the easiest to set up.
 
-# <span id="page-48-0"></span>4.6 Proposed approach
+## <span id="page-48-0"></span>4.6 Proposed approach
 
 By consideration of possible use cases for a framework to monitor changes in linked data over time, Kafer et al. [\[76\]](#page-117-7) identify a set of empirical questions that such a frame- ¨ work should help to answer. We propose that an approach to monitoring evolutionary change of an ontology should address similar concerns, tailored to the requirements specific to ontological changes. We propose that a framework for monitoring evolutionary change in ontologies should include metrics to describe the observation of:
 
@@ -1011,7 +1010,7 @@ of related ontologies is not independent, but aspects of evolution might be indu
 - Change Alignment. Where evolutionary synchronisation of related ontologies suggests that change is induced by a dependency, further confidence that change is externally induced can be based on evaluation of the alignment of changed elements. Alignment of elements might be explicitly modelled, or might be inferred by analysis.
 - Evolutionary Dependency. A measure of how reliant the evolution of an ontology is on related resources. This might be expressed as a ratio of changes considered induced by an external change to changes determined to be independent to the needs of the ontology, i.e the Evolutionary Dependency (ED) of a given ontology is defined ED = EC SC for externally induced changes (EC) and ontology-specific changes (SC).
 
-# <span id="page-49-0"></span>4.7 Evaluation and Results: Use case/Proof of concept - Experiments
+## <span id="page-49-0"></span>4.7 Evaluation and Results: Use case/Proof of concept - Experiments
 
 We are interested in the evolution of the ontologies over time, so we compare every historical version of the ontologies to their first version and see how they have evolved over time. We have selected a few ontologies from the DAF and ArCo projects, limiting ourselves to the ontologies that have several versions and that contain modification timestamps. Figure [4.1](#page-50-0) shows the evolution of the amount of classes over time. The x-axis shows the amount of days since the initial version of each ontology, while the y-axis shows the difference in amount of classes since the first version. We can see that it is not uncommon that class definitions are removed from an ontology, but the amount of classes does seem to increase over time. Figure [4.2](#page-50-1) is similar, but the y-axis now shows the difference in the amount of subclass axioms over time. We notice that the amount of subclasses does not decrease nearly as drastically as the number of classes.
 
@@ -1025,7 +1024,7 @@ Figure 4.1: Evolution of the amount classes over time
 
 Figure 4.2: Evolution of the amount subclass axioms over time
 
-# <span id="page-51-0"></span>4.8 Discussion and Conclusions
+## <span id="page-51-0"></span>4.8 Discussion and Conclusions
 
 The present paper set out to investigate the evolution in ontologies using a set of predefined metrics. We intended to analyze a large set of ontologies, however it was surprisingly difficult to find historical versions. Furthermore, older versions rarely have a persistent URI. Nevertheless, we were able to analyze changes in patterns in the DAF ontologies, one of the very few ontologies with multiple older versions published in a public repository.
 
@@ -1034,17 +1033,17 @@ One of the main weaknesses of the present study is therefore the small sample si
 - We need to take dct:modified seriously, and I know we are all guilty of often neglecting it.
 - We found no evidence that updating an ontology causes updates in its dependencies – although more data points are needed.
 
-# <span id="page-52-0"></span>Chapter 5
+## <span id="page-52-0"></span>Chapter 5
 
-# Pimp my Pie - Knowledge Graph Evolution from an NLP Perspective (and food)
+## Pimp my Pie - Knowledge Graph Evolution from an NLP Perspective (and food)
 
 MORTAZA ALINAM, WOUTER VAN DEN BERG, LIENTJE MAAS, FABIO MARIANI, ELEONORA MARZI, TABEA TIETZ, MARIEKE VAN ERP
 
-# <span id="page-52-1"></span>5.1 Research Question
+## <span id="page-52-1"></span>5.1 Research Question
 
 How can the evolution of a concept from the real world as it is described in unstructured natural language text be represented in knowledge graphs? In this work, the evolution of the concept*apple pie*is discussed as a use case.
 
-# <span id="page-52-2"></span>5.2 Knowledge Graphs Evolution and Preservation
+## <span id="page-52-2"></span>5.2 Knowledge Graphs Evolution and Preservation
 
 When defining the evolution of knowledge graphs (KGs) in the context of natural language processing (NLP), two perspectives are essential:
 
@@ -1055,7 +1054,7 @@ authored or analyzed in. In this case, NLP is not part of the initial process, b
 
 Knowledge graph preservation in the context of NLP means that data about natural language text resources is preserved using knowledge graphs even if the original source ceases to exist. This refers especially to text resources that do not originate in digital form. In this work, we are focusing on knowledge graph evolution rather than preservation, even though it is acknowledged that in the relationship between KGs and NLP problems of preservation are presented.
 
-# <span id="page-53-0"></span>5.3 Introduction
+## <span id="page-53-0"></span>5.3 Introduction
 
 Knowledge graphs are graphs of data with the intent to compose knowledge. Thereby,*composing*refers to a continual process of extracting and representing knowledge that enhances the interpretability of the resulting knowledge graph [\[27\]](#page-112-5). KGs represent what we consider true about (part of) the world. KGs are created at a certain point in time and can often be considered snapshots of the real world, i.e., they are essentially static [\[132\]](#page-122-5). However,*"Knowledge lives. It is not static, nor does it stand alone"*[\[27\]](#page-112-5). We live in a world with infinite variation and variability. In other words, concepts continuously change over time and can vary between social contexts and locations.
 
@@ -1097,7 +1096,7 @@ Apart from the hereby described broader fields in science this work may contribu
 
 The remainder of the paper is structured as follows. Section [5.4](#page-55-0) presents related work which involved knowledge graph evolution and natural language processing. Section [5.5](#page-56-0) presents the main resources used in this work, followed by a detailed approach description in Section [5.6.](#page-57-0) In Section [5.7](#page-57-1) the presented approach is discussed and Section [5.8](#page-59-0) concludes the paper.
 
-# <span id="page-55-0"></span>5.4 Related Work
+## <span id="page-55-0"></span>5.4 Related Work
 
 [\[31\]](#page-113-7) provide an analytical tool to visually compare, combine and investigate chocolate chip cookie recipes collected from the Web for culture analytics. While it is possible to compare recipes, the authors do not focus on the change of food concepts in time sufficiently and the data is not modeled in a Linked (Open) Data KG.
 
@@ -1109,7 +1108,7 @@ The remainder of the paper is structured as follows. Section [5.4](#page-55-0) p
 
 [\[131\]](#page-122-1) Knowledge graphs are dynamic and the facts related to an entity are added or removed over time. Therefore, the multiple versions of the knowledge graph represent a snapshot of the graph at some point in time. Entities undergo evolution when new facts are added or removed. The approaches to solve the problem of automatically generating a summary out of different versions of a knowledge graph are limited. The authors propose an approach to create a summary graph capturing temporal evolution of entities across different versions of a knowledge graph in order to use the entity summary graphs for documentation generation, profiling or visualization purposes.
 
-# <span id="page-56-0"></span>5.5 Resources
+## <span id="page-56-0"></span>5.5 Resources
 
 ## <span id="page-56-1"></span>5.5.1 Apple pie recipes
 
@@ -1125,13 +1124,13 @@ To model the evolution of the concept *apple pie* we built an ontology that allo
 
 (CiTO).[3](#page-57-2) In addition, we aimed to use Food Ontology[4](#page-57-3) that provides a vocabulary for recipes and ingredients. Although we were initially able to access this ontology, it was offline later. More details about building the ontology are provided in Section [5.6.](#page-57-0)
 
-# <span id="page-57-0"></span>5.6 Proposed approach
+## <span id="page-57-0"></span>5.6 Proposed approach
 
 The historical newspapers described in Section [5.5](#page-56-0) are digitally available both as image and as text obtained through optical character recognition [\[94\]](#page-118-5). From these resources, we manually extracted the ingredients and corresponding quantities for each of the selected recipes. The ingredients were categorized according to the General Standards for Food Additives from the FAO (Food and Agriculture Organization of the United Nations).[5](#page-57-4) In addition, if the free-text recipe explicitly stated the recipe originated from a different country, this information was extracted (coded following the ISO 3166 standard). For the current study, all information extraction was done manually. However, future large-scale analyses should consider an automated approach based on NLP techniques such as POS-tagging, named entity recognition, and regular expressions (see for example [\[53\]](#page-115-9)).
 
 To model the ontology, we started with an existing ontology about food, which unfortunately went offline during our study. Existing patterns did not yield positive results, therefore we chose pre-existing general vocabularies for our model. To trace the evolution of the apple pie concept in time and space, it is essential to distinguish the spatio-temporal metadata of the recipe from the space-time metadata of its source. If the spatial-temporal metadata of the recipe are not present we can assume that they are the same as the source. Each recipe also has a superclass ingredient which contains all the classes about nutritional categories(i.e. fresh fruit or Herbs and Spices) deduced from the General Standards for Food Additives from the FAO and crossed with the Wikidata categories. In this way we can observe the variations of ingredients in space and time. Finally, each ingredient has a quantity class: considering the dataset we can detect the presence of different units of measurement that we will distinguish between imperial and decimal. This last data is implicitly linked to the language and/or reference country of the recipe. The final model is represented in Figure [5.1.](#page-58-0)
 
-# <span id="page-57-1"></span>5.7 Evaluation and Results: Use case/Proof of concept - Experiments
+## <span id="page-57-1"></span>5.7 Evaluation and Results: Use case/Proof of concept - Experiments
 
 Apple pie as a use case for knowledge graph evolution is practical, because this small and contained concept already provides a number of challenges for ongoing research in the Semantic Web community. However, the example concept also provides a few limitations. For instance, the data revealed that instances (specific ingredients) and values (ingredient quantities) change, but on class-level (fat, sweetener, fruit), not many changes could be detected which limits the possibilities to evaluate knowledge graph
 
@@ -1164,7 +1163,7 @@ A further evaluation approach may involve crowdsourcing. For instance, users may
 
 However, an essential takeaway message here is that evaluating whether or not something is to be regarded as an apple pie and should be represented in a knowledge graph depends for instance on cultural background as well as the spatio-temporal setting. Therefore, we believe that no concise "ground truth" can be created to determine what is an apple pie and what is not, only tendencies can be given.
 
-# <span id="page-59-0"></span>5.8 Discussion and Conclusions
+## <span id="page-59-0"></span>5.8 Discussion and Conclusions
 
 The real world is constantly changing and knowledge that was considered true at one point in time in a specific cultural and spatial setting may not be true in another context. That means contexts evolve. On the other hand, there are knowledge graphs, which are created and maintained to continuously compose knowledge. However, often KGs are static and only reflect one snippet of reality. This static representation of the real world is a problem when attempting to understand historical descriptions of concepts (e.g., in newspapers), because linking historical concepts to today's understanding of the same concept may distort its meaning.
 
@@ -1174,17 +1173,17 @@ Our take home message is that apple pie, as simple as the concept seems, can nev
 
 <span id="page-59-1"></span><sup>7</sup>[http://anno.onb.ac.at/cgi-content/anno?aid=kik&datum=19190907&query=](http://anno.onb.ac.at/cgi-content/anno?aid=kik&datum=19190907&query=%22Apfelstrudel+Rezept%22~10&ref=anno-search&seite=7) [%22Apfelstrudel+Rezept%22˜10&ref=anno-search&seite=7](http://anno.onb.ac.at/cgi-content/anno?aid=kik&datum=19190907&query=%22Apfelstrudel+Rezept%22~10&ref=anno-search&seite=7)
 
-# Part III
+## Part III
 
-# <span id="page-60-0"></span>Decentralized technologies for Knowledge Graphs preservation and evolution
+## <span id="page-60-0"></span>Decentralized technologies for Knowledge Graphs preservation and evolution
 
-# <span id="page-61-0"></span>Chapter 6
+## <span id="page-61-0"></span>Chapter 6
 
-# Privacy-Protection within the Evolution and Preservation of Knowledge Graphs: The VAD2ER approach towards Medical Citizen Science
+## Privacy-Protection within the Evolution and Preservation of Knowledge Graphs: The VAD2ER approach towards Medical Citizen Science
 
 CHANG SUN, FEDERICO IGNE, GIANMARCO SPINACI, GLENDA AMA-RAL, KABUL KURNIAWAN, MARC GALLOFRE´ OCANA˜ , JOHN DOMINGUE
 
-# <span id="page-61-1"></span>6.1 Introduction
+## <span id="page-61-1"></span>6.1 Introduction
 
 Knowledge graphs are dynamic in nature, new facts about an entity are added or removed over time [\[131\]](#page-122-1). Certain uses of knowledge graphs require strong guarantees of data integrity, such as medical and financial data, which need to be verified by the end user automatically and reliably [\[134\]](#page-122-6). For some types of information, it is also important to ensure the privacy of users' data, which is related to the right of individuals to control how information about them is used by others. For example, the General Data Protection Regulation (GDPR) is an European legal framework that requires businesses to protect the personal data and privacy of European citizens. In citizen science - the practice of public participation and collaboration in scientific research to increase scientific knowledge - people share and contribute to data monitoring and collection programs. In health citizen science, new computational and sensing innovations, coupled with increasingly affordable access to consumer health technologies have encouraged individuals to generate personal health information to submit to a shared archive or repository, in order to allow the investigation of their own bodies, behaviors, and conditions [\[18\]](#page-111-0). This movement, also known as data donation, is another example of sharing sensitive and personal data.
 
@@ -1194,7 +1193,7 @@ Decentralised technologies based on blockchains are able to both address data pr
 
 The remainder of this paper is organized as follows. First, in Section [6.2,](#page-62-0) we introduce the reader to the main notions on the context in which this work has been developed and to some related work. Then, in Section [6.3](#page-64-0) we present our approach for privacy-preserving evolution and preservation of knowledge graphs using decentralized technologies. We then finalize with some conclusions and a discussion on future work in Section [6.4.](#page-67-0)
 
-# <span id="page-62-0"></span>6.2 Background and Related Work
+## <span id="page-62-0"></span>6.2 Background and Related Work
 
 This section presents some background information and related work, thus giving the context in which this work has been developed.
 
@@ -1202,7 +1201,6 @@ Data Privacy. Privacy has become one of the most important human rights issues o
 
 Data Donation in Citizen Science. Bietz et al. [\[18\]](#page-111-0) define data donation research as "research in which people voluntarily contribute their own personal data that was generated for a different purpose to a collective dataset". In the context of citizen science and health research, these data may directly or indirectly contribute to an understanding of humans, and they are contributed by the individuals to whom the data refer [\[18\]](#page-111-0). By "voluntarily contribute" we mean those cases in which individuals make a clear choice to allow data about themselves to be used in a research study. In other words, participants "opt in" to the research. Another important aspect is that the data that get
 
-<span id="page-63-0"></span>
 
 Figure 6.1: A model example on data donation in citizen science [\[18\]](#page-111-0)
 
@@ -1218,7 +1216,7 @@ Smart Contract. A smart contract is a program that runs on the blockchain and ha
 
 Solid and Solid PODs. Solid (Social Linked Data) is a decentralized platform, in which each users store their data in a Web-accessible personal on-line datastore (or POD). Applications run as client-side Web applications in a browser or as mobile applications. These applications use an authentication protocol to discover the user's identity and profile data, as well as relevant links that point to the user's POD, which contains application data. Solid supports decentralized authentication and access control, and it also supports standardized data access mechanisms [\[90\]](#page-118-6)
 
-# <span id="page-64-0"></span>6.3 Conceptual Architecture
+## <span id="page-64-0"></span>6.3 Conceptual Architecture
 
 We are now going to give a description of the VAD<sup>2</sup>ER framework. We start with an overview of the actors involved, giving, for each of them a description of their point of view.
 
@@ -1274,7 +1272,7 @@ Once the answer is produced it can be validated again against the volunteers per
 
 It is also worth noting that it is always possible to hide information stored in the blockchain via encryption, e.g., if the answer to some query is considered sensible information we can store the hash of its encryption.
 
-# <span id="page-67-0"></span>6.4 Conclusions and Future Work
+## <span id="page-67-0"></span>6.4 Conclusions and Future Work
 
 We initially designed the system with a specific user case in mind which addresses the problem of data collection and fair data use in the medical domain.
 
@@ -1293,17 +1291,17 @@ In the future we plan to create incentive mechanisms for motivating volunteers t
 
 With our approach researchers will have access to a wide variety of personal and sensitive data from volunteers whilst from a volunteer's perspective privacy is maintained. We believe that this provides a promising start for truly volunteer empowered trusted data donation.
 
-# Part IV
+## Part IV
 
-# <span id="page-69-0"></span>Methods and tools for supporting Knowledge Graphs evolution and sharing
+## <span id="page-69-0"></span>Methods and tools for supporting Knowledge Graphs evolution and sharing
 
-# <span id="page-70-0"></span>Chapter 7
+## <span id="page-70-0"></span>Chapter 7
 
-# Tracking the Evolution of Public Datasets and Their Governance Bodies by Linking Open Data
+## Tracking the Evolution of Public Datasets and Their Governance Bodies by Linking Open Data
 
 JAN PORTISCH, VINCENT EMONET, MOHAMAD YASER JARADEH, OMAIMA FALATTAH, BILAL KOTEICH, PAOLA ESPINOZA-ARIAS, AXEL POLLERES
 
-# <span id="page-70-1"></span>7.1 Introduction
+## <span id="page-70-1"></span>7.1 Introduction
 
 In recent years, Linked Open Data (LOD) has been attracting many researchers in the Semantic Web community. LOD refers to the structured data available on the web which also can be processed by machines. It correlates data published in web resources by applying the Linked Data principles [\[84\]](#page-117-8)[\[150\]](#page-124-1). Further, Linked Data is also the base technology behind publicly available Open KGs such as Wikidata [\[142\]](#page-123-7) and DBpedia [\[15\]](#page-111-5), that are available as Linked Data and through SPARQL interfaces.
 
@@ -1335,7 +1333,7 @@ Knowledge Graphs have evolved as flexible and powerful means of representing gen
 
 Knowledge Graphs (KGs) represent relevant aspects of a domain of interest or general knowledge of common interests as in the case of WikiData and DBpedia. Both Knowledge Graphs describe relevant entities and their important relationships. It is important to point that these aspects and thereby the KGs themselves and their underlying data (metadata) are evolving over time. Thus, reflecting the changes in Knowledge Graphs usually requires constant update of the graph or even replacing it entirely. In doing so, metadata describing the Knowledge Graph is changing and evolving as well. Open Governmental Data (OGD) is a domain where this issue can be touched. OGD support structured data of common interest to citizens, usually with some specific data (e.g. detailed statistical or census data), not being modelled in that degree of detail in existing Open KGs. Therefore, we propose a method that interlink OGD datasets to large KGs to observe their evolution over time. From our prospective, in order to interlink structured data from Open Data catalogs with KGs we need to keep track of three aspects of the KGs evolution: (i) the evolution of the underlying datasets we want to link, (ii) the metadata describing those datasets, and (iii) the history of this evolution.
 
-# <span id="page-72-1"></span>7.3 Related Work
+## <span id="page-72-1"></span>7.3 Related Work
 
 The*Open Data Portal Watch (ODPW)*[4](#page-72-2) [\[99\]](#page-119-6) project is an attempt to collect weekly snapshots of several monitored data portals. These snapshots are mapped and published by means of homogenized metadata from standard vocabularies such as DCAT[5](#page-72-3) and Schema.org. However, these metadata are not linked to other Knowledge Graphs in order to provide information about publisher organisations and to be able to track the
 
@@ -1345,13 +1343,13 @@ The*Open Data Portal Watch (ODPW)*[4](#page-72-2) [\[99\]](#page-119-6) project 
 
 evolution of the mentioned organisations. The *Google Dataset Search*is a dataset discovery tool that provides search capabilities over potentially all datasets published on the Web [\[108\]](#page-120-8). In order to make it possible, this tool use metadata information provided by publishers following Schema.org or DCAT vocabularies. Then, these metadata is reconciled with the items of the Google Knowledge Graph. Despite this tool hosts several datasets published on the Web, the provenance of metadata is usually missing and the publisher metadata is not linked to other public Knowledge Graphs. Recently, a new framework[6](#page-73-1) has been implemented in order to allow semantic search between Open Data portals [\[96\]](#page-119-7). It focuses on spatio-temporal as the most relevant metadata that data portals should include as pointed in [\[74\]](#page-116-4). However this framework does not address how to interlink the datasets of organisations from Open Data to public Knowledge Graphs and how to track the evolution of the involved datasets. It is worth mentioning that this work is useful in order to understand the entity linking techniques applied in this approach. The*ADEQUATE*[\[98\]](#page-119-8)[\[97\]](#page-119-9) is a data-and community-driven quality improvements project aimed to improve the quality of metadata in Open Data. The main features of this system include: (i) assessing the quality of datasets and its metadata with quality metrics, (ii) applying different heuristic algorithms to eliminate the quality issues, and (iii) implementing different Semantic Web Methods to Open Data to transform CSV formats into a Linked Data. This work has resulted in interlinking many of the existed Open Data publishing systems. However, this project has not included a mapping solution between the polishers metadata and other open resources. In relation to the Knowledge Graph evolution, there are some techniques that have been proposed earlier [\[136\]](#page-122-8) e.g. to detect changes during their evolution, to use vocabularies in order to represent the change information, or to propagate changes to replicas. Recently, a framework for detecting and analysing changes and the evolution history of LOD datasets has been proposed [\[131\]](#page-122-1). This framework consist of generating a summary of the evolution of entities as molecules containing a compact representation of the objects and properties including its temporal validity. Our work rather aims at exploiting the metadata used to annotate the datasets as a way to handle the representation of the organisational evolution.
 
-# <span id="page-73-0"></span>7.4 Resources
+## <span id="page-73-0"></span>7.4 Resources
 
 For our experiments, we used the metadata provided by the*Open Data Portal Watch*(ODPW) project. In particular, for a preliminary analysis, we focused on two portals listed on ODPW, namely: (i) The*European Data Portal*due to the good quality of the metadata available there, and, as a counter-example, (ii) the*Hawaiian Data Portal*as the provenance metadata is of less sufficient quality there. This decision was taken in order to judge the quality of the linker in different realistic situations. The VulcanLinker itself uses pre-crawled label data from DBpedia and Wikidata in order to maximize performance.
 
 <span id="page-73-1"></span><sup>6</sup><https://data.wu.ac.at/odgraphsearch>
 
-# <span id="page-74-0"></span>7.5 Proposed Approach
+## <span id="page-74-0"></span>7.5 Proposed Approach
 
 The approach that we are considering addresses linking certain properties of the metadata describing a dataset.
 
@@ -1374,10 +1372,10 @@ Listing 7.1: Skeleton SPARQL query to fetch data for matching
 ```text
 SELECT ?entity
 WHERE {
-  ?entity <isA>/<subClassOf>*<entityType>;
-        <att1> ?att1;
-        ...
-        <attN> ?attN ; .
+?entity <isA>/<subClassOf>*<entityType>;
+<att1> ?att1;
+...
+<attN> ?attN ; .
 }
 ```text
 
@@ -1427,16 +1425,16 @@ This section addresses*research question 3*. We assess whether *models*used by c
 
 Such assessment can be performed using SPARQL queries on the KG directly counting the usage of respective properties, combined with a qualitative assessment by manual inspection of sample relevant organisations. For a prototypical evaluation along these lines on Wikidata, we refer to Section [7.6.2](#page-77-1) below.
 
-# <span id="page-76-1"></span>7.6 Evaluation and Results: Use case/Proof of concept - Experiments
+## <span id="page-76-1"></span>7.6 Evaluation and Results: Use case/Proof of concept - Experiments
 
 We open the horizon of evaluating the system, in term of what has been implemented and discuss possibilities and approaches for subsequent work.
 
 <span id="page-77-2"></span>Table 7.1: Coverage percentage of VulcanLinker system on two different data portals, two Knowledge Graphs, matching the "organisation" property of the datasets
 
-|                    | DBpedia | Wikidata |
+| | DBpedia | Wikidata |
 |--------------------|---------|----------|
-| Open Europa portal | 64.1%   | 88.3%    |
-| Hawaii data portal | 6.32%   | 55%      |
+| Open Europa portal | 64.1% | 88.3% |
+| Hawaii data portal | 6.32% | 55% |
 
 ## <span id="page-77-0"></span>7.6.1 Interlinking evaluation
 
@@ -1456,7 +1454,7 @@ In order to evaluate RQ3, we evaluated and discussed the dimensions presented in
 
 <span id="page-77-3"></span><sup>7</sup><https://github.com/isws-2019-vulcanian/Prototype>
 
-#### Wikidata assessment
+### Wikidata assessment
 
 On Wikidata, various properties and classes are available to define the evolution of an organisation:
 
@@ -1477,8 +1475,8 @@ In order to give an indication of the usage, the replaced property has been clos
 ```text
 SELECT (COUNT(*) AS ?C)
 WHERE {
-   ?item wdt:P1365 ?formerItem .
-   ?item wdt:P31/wdt:P279* wd:Q43229.
+?item wdt:P1365 ?formerItem .
+?item wdt:P31/wdt:P279* wd:Q43229.
 }
 ```text
 
@@ -1502,7 +1500,7 @@ WHERE {
 
 The result is 1,786,652 organisations. It seems then that information about evolution concern no more than around 1.93% (1,786,652/(19,102+15,225)) of organisations.
 
-#### DBpedia assessment
+### DBpedia assessment
 
 DBpedia proposes a class to describe organisations: dbo:Organisation[10](#page-79-1), which defines such properties relevant to describe the organisation evolution (i.e. dbo:p arentOrganisation, dbo:formationDate, dbo:extinctionDate)
 
@@ -1510,7 +1508,7 @@ As for the usage, no properties have been found to define the evolution of an or
 
 As for quantifying the usage of the said properties, we could deploy similar count queries as for Wikidata, but expect similarly low coverage.
 
-# <span id="page-79-0"></span>7.7 Discussion and Conclusions
+## <span id="page-79-0"></span>7.7 Discussion and Conclusions
 
 In this chapter, we suggested to link structured, open datasets from Open Government Data Portals to knowledge graphs (KGs). A particularly interesting linking dimension we focused on was the publishing organisations, under the assumption that public institutions are well covered and represented in open KGs. A good starting point is to link the metadata of a dataset - in particular publishing organisation data. We argue that a holistic approach to address this problem should address both organisation linking and analysing organisational change. In this preliminary work we prototypically address a baseline linking approach which can be extended to cover different aspects of evolution.
 
@@ -1530,21 +1528,21 @@ Future work should focus on versioning approaches of metadata - in particular co
 
 Another research direction would be to calculate the coverage over different knowledge graph versions to show how the knowledge graphs evolved and changed over time.
 
-# <span id="page-81-0"></span>Chapter 8
+## <span id="page-81-0"></span>Chapter 8
 
-# Designing a Platform for Versioned Knowledge Graph Data Access and Provision on the Web
+## Designing a Platform for Versioned Knowledge Graph Data Access and Provision on the Web
 
 VIET BACH NGUYEN, MICHALIS GEORGIOU, IVAN HEIBI, MENGYA LIU, MAHESHKUMAR MISTRY, ANNA NGUYEN, MICHEL DUMON-TIER
 
-# <span id="page-81-1"></span>8.1 Research Questions
+## <span id="page-81-1"></span>8.1 Research Questions
 
 The FAIR Principles ask that unique and persistent identifiers are specified for all digital resources. What we want to achieve is to answer the question: How to identify and retrieve resources from knowledge graphs that are continuously changing? For example: How can we provide users with persistent identifiers to exactly identify and retrieve the same data they used when they made the query on a knowledge graph? The evolving graphs can offer a great opportunity to build and validate the accuracy of predictive algorithms using temporal subsets of data. For example, a predictive data model can be generated from known drug indications between 2000-2018 and validated with data after this period.
 
-# <span id="page-81-2"></span>8.2 Introduction
+## <span id="page-81-2"></span>8.2 Introduction
 
 The increasing requirement of data in many fields such as data analytics, data mining and machine learning makes us question if the data we use has the Fair Principles. In 2016, Wilkinson et al., comment on the first formal publication of the FAIR Principles [\[148\]](#page-124-3). There are many reasons why we should have to use FAIR Principles. One of them is that we can make it easier for us to use our data for a new purpose, or make it easier for other people to find, use or cite our data. This can also ensure that the data are available in the future for future work on it. In addition, it can satisfy the expectation around the data management from different institutions, funding agencies or journals. To tackle these problems, we intend to build an API service which uses the Trusty URI specification[1](#page-82-2) . Giving the users the opportunity to use this service, it can ensure that the data being used meet the requirements of the FAIR Principles.
 
-# <span id="page-82-0"></span>8.3 Use cases
+## <span id="page-82-0"></span>8.3 Use cases
 
 For our use cases (UC), imagine being a researcher who wants to work on a particular knowledge graph of 2015 which follows the FAIR Principles:
 
@@ -1554,7 +1552,7 @@ For our use cases (UC), imagine being a researcher who wants to work on a partic
 
 The purpose of making a service that meets all these use case requirements is to provide a way for reproducing the same datasets in the future, therefore conserving all provenance details, and can be used for further analysis. One of the main added values is this will allow users to publish these datasets in a persistent and reliable way. For example, in data analysis, after the user has successfully retrieved his dataset by making a query to our service, then he might want to run a prediction algorithm on the data you have from 2015 to 2018 and compare it to the data of 2019. If the results are correct, then he might want to use his prediction algorithm to predict the data of 2020. In this way, he will have another opportunity to split test and training dataset to improve his algorithm.
 
-# <span id="page-82-1"></span>8.4 Related Work
+## <span id="page-82-1"></span>8.4 Related Work
 
 In this section, we focus on finding out resources and related work that can help us in the process of designing the system.
 
@@ -1613,7 +1611,7 @@ Figure 8.1: The general architecture of our proposed approach. Each different cl
 
 To sum up, Ostrich is a novel trade-off approach in terms of ingestion time, storage size and lookup times. It fulfills the requirements for a backend RDF archive storage solution for supporting versioning queries in the TPF framework.
 
-# <span id="page-85-0"></span>8.5 Proposed approach
+## <span id="page-85-0"></span>8.5 Proposed approach
 
 Storing and querying RDF datasets that evolve and change over time has been addressed in multiple ways. Our effort is devoted to proposing a system design which combines existing partial solutions to address the problem at hand. The mission is to search and analyze potential technologies, tools, and frameworks to come up with a systematic solution to directly solve the problem. The goal is to design an RDF data provision service software that supports versioned querying. We aim to offer our solution to KG providers who want to meet the mentioned requirements. In our system the query will be sent to Ostrich, which will:
 
@@ -1622,7 +1620,7 @@ Storing and querying RDF datasets that evolve and change over time has been addr
 - 3. Apply the query on the materialized KG.
 - 4. Return the results of the query.
 
-# <span id="page-86-0"></span>8.6 Preliminary Results
+## <span id="page-86-0"></span>8.6 Preliminary Results
 
 We propose a web application design that incorporates the Ostrich triple store and Trusty URI and takes care of providing a way to efficiently store, access and query different versions of RDF data and a way to persistently identify the exposed resources, respectively.
 
@@ -1647,7 +1645,7 @@ Obtaining A Persistent Identifier. The user has the option to create a unique an
 
 User Interface Figure [8.3](#page-89-0) represent the process to get a Trusty URI and Triples, starting from the desired version of the chosen KG and a specific query. The first screen in Figure [8.4](#page-90-0) provides the user an interface with multiple field options to fill such as: Title, Author, Keywords, etc. to get input from the user and give back a list of KGs to select from. After the selection of the desired Knowledge Graph, the next screen is shown in Figure [8.5,](#page-90-1) where users can submit a date range to get a list of KG versions. In the same interface, screen user can also provide a query and execute it to get results. The next screen in Figure [8.6](#page-91-0) is the Results window, where users can view the triples derived from given KG. The user has the ability to generate a Trusty URI for these results which is based on the actual results and metadata about the target KG. The user also has the option to download the triples in any of the provided formats (RDF/XML, Turtle, N-Triples, CSV). The download package contains 2 files, one with the triples of the results and another one with the metadata that identifies the original resource (KG data, version and the query used to get the result).
 
-# <span id="page-88-0"></span>8.7 Discussion
+## <span id="page-88-0"></span>8.7 Discussion
 
 For the main discussion, we want to assess our design against the use cases regarding versioned querying and persistent and unique identifiers of resources.
 
@@ -1657,7 +1655,7 @@ UC3: Queries on specific versions of KGs that evolve over time. This use case is
 
 FAIR Assessment The FAIR principle asks that data resources need to meet certain requirements. In Table [8.1,](#page-92-0) we assess our proposed service with respect to these principles and also provide the reasons for why and how does our service meets these requirements.
 
-# <span id="page-88-1"></span>8.8 Conclusions
+## <span id="page-88-1"></span>8.8 Conclusions
 
 In this paper, we have provided an answer to the research problem of identification and provision of volatile RDF resources by analyzing existing potential partial solutions and technologies and combining them to create a software architectural design that covers all use-cases that are implied from the research questions. We also provide the descriptions of these technologies and the reason why they are suitable to incorporate in our design. Then we delivered a FAIR assessment table where we include most of the FAIR principles requirements in our work. This means that our work is FAIR applicable. We are aware of several limitations of our work, including not incorporating a full SPARQL solution but only a triple pattern query, since the Ostrich does not support that feature. For future work we intend to build the system and make an evaluation of it on real data. We also expect to extend the functionalities of the system to support full SPARQL queries. In the end, we would also create an interface for the data providers for better data, knowledge graph management.
 
@@ -1666,38 +1664,36 @@ In this paper, we have provided an answer to the research problem of identificat
 
 Figure 8.3: System flowchart
 
-# Appendix
+## Appendix
 
-<span id="page-90-0"></span>
 
-| $\equiv$ FAIRway                                                         |                                                                                                                                                   |  |  |  |  |
+| $\equiv$ FAIRway | | | | | |
 |--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|--|
-|                                                                          | Home $>$ KG Finder $>$ KG Filters & Query $>$ Results                                                                                             |  |  |  |  |
-| <b>Title</b><br>Author<br>Keywords<br>Language<br><b>Vocabulary Used</b> | x.: Bio<br>Ex.: Michel Dumontier<br>x,: Doctor, Bio, Gene, MIR636<br>Ex.: English<br>Schema √ Dublin Core √ SIOC<br>Other Ex.: ABC's KG<br>Search |  |  |  |  |
-|                                                                          | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>http://bio2vec.net/ontology/gene                                                                      |  |  |  |  |
-|                                                                          | Disease Ontology<br>http://www.obofoundry.org/ontology/doid.html                                                                                  |  |  |  |  |
-|                                                                          | The Human Phenotype<br>https://hpo.jax.org/app/download/ontology                                                                                  |  |  |  |  |
-|                                                                          | Semantic Doctor Assistant<br>http://bio2vec.net/ontology/gene                                                                                     |  |  |  |  |
+| | Home $>$ KG Finder $>$ KG Filters & Query $>$ Results | | | | |
+| <b>Title</b><br>Author<br>Keywords<br>Language<br><b>Vocabulary Used</b> | x.: Bio<br>Ex.: Michel Dumontier<br>x,: Doctor, Bio, Gene, MIR636<br>Ex.: English<br>Schema √ Dublin Core √ SIOC<br>Other Ex.: ABC's KG<br>Search | | | | |
+| | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>http://bio2vec.net/ontology/gene | | | | |
+| | Disease Ontology<br>http://www.obofoundry.org/ontology/doid.html | | | | |
+| | The Human Phenotype<br>https://hpo.jax.org/app/download/ontology | | | | |
+| | Semantic Doctor Assistant<br>http://bio2vec.net/ontology/gene | | | | |
 
 Figure 8.4: KG Finder Screen
 
-<span id="page-90-1"></span>
 
-| E FAIRway                                                                                                                                                |  |  |  |  |
+| E FAIRway | | | | |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|--|
-| Home > KG Finder > KG Filters & Query > Results                                                                                                          |  |  |  |  |
-| !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>http://bio2vec.net/ontology/gene<br>Current Version: v34.2 (01/July/2019) No. of Triples: 4357 Size: 10.3 MB |  |  |  |  |
-| <b>Version Filters</b>                                                                                                                                   |  |  |  |  |
-| 1/22/2018<br><b>Starting Date</b><br>m                                                                                                                   |  |  |  |  |
-| 7/3/2019<br><b>End Date</b><br><b>HH</b>                                                                                                                 |  |  |  |  |
-| Version<br>Version 21.2 (Nov- Dec '18)                                                                                                                   |  |  |  |  |
-| Query                                                                                                                                                    |  |  |  |  |
-| Triple Patterns                                                                                                                                          |  |  |  |  |
-|                                                                                                                                                          |  |  |  |  |
-|                                                                                                                                                          |  |  |  |  |
-|                                                                                                                                                          |  |  |  |  |
-|                                                                                                                                                          |  |  |  |  |
-| Execute                                                                                                                                                  |  |  |  |  |
+| Home > KG Finder > KG Filters & Query > Results | | | | |
+| !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>http://bio2vec.net/ontology/gene<br>Current Version: v34.2 (01/July/2019) No. of Triples: 4357 Size: 10.3 MB | | | | |
+| <b>Version Filters</b> | | | | |
+| 1/22/2018<br><b>Starting Date</b><br>m | | | | |
+| 7/3/2019<br><b>End Date</b><br><b>HH</b> | | | | |
+| Version<br>Version 21.2 (Nov- Dec '18) | | | | |
+| Query | | | | |
+| Triple Patterns | | | | |
+| | | | | |
+| | | | | |
+| | | | | |
+| | | | | |
+| Execute | | | | |
 
 Figure 8.5: KG Filters and Query Screen
 
@@ -1706,85 +1702,84 @@ Figure 8.5: KG Filters and Query Screen
 
 Figure 8.6: Results Screen
 
-<span id="page-92-0"></span>
 
-| Findable                                  |     |                                                         |
+| Findable | | |
 |-------------------------------------------|-----|---------------------------------------------------------|
-| F1. (Meta)data are assigned a globally    | Yes | We use TrustyURI to do that.                            |
-| unique and persistent identifier          |     |                                                         |
-| F2. Data are described with rich meta     | Yes | We store a local database containing                    |
-| data (defined by R1 below)                |     | the metadata of the datasets                            |
-| F3. Metadata clearly and explicitly in    | Yes | TrustyURI associate a unique identifier                 |
-| clude the identifier of the data they de  |     | for each datasets                                       |
-| scribe.                                   |     |                                                         |
-| F4.<br>(Meta)data are registered or in    | Yes | We<br>store<br>them<br>into<br>a<br>searchable          |
-| dexed in a searchable resource            |     | database, which could be iterated to                    |
-|                                           |     | search in it.                                           |
-| Accessible                                |     |                                                         |
-| A1. (Meta)data are retrievable by their   | Yes | We recommend the data providers to                      |
-| identifier using a standardised commu     |     | use a REST API implementation over                      |
-| nications protocol                        |     | a HTTPS protocol                                        |
-| A1.1 The protocol is open, free, and      | Yes | It's in the REST API protocol specifi                   |
-| universally implementable                 |     | cations                                                 |
-| A1.2 The protocol allows for an au        | Yes | It's in the REST API protocol specifi                   |
-| thentication and authorisation proce      |     | cations                                                 |
-| dure, where necessary                     |     |                                                         |
-| A2.<br>Metadata are accessible,<br>even   | Yes | Metadata<br>for<br>each<br>queries<br>and<br>tar        |
-| when the data are no longer available     |     | geted KG including its version are per                  |
-|                                           |     | manently stored in the database with                    |
-|                                           |     | Trusted URIs.                                           |
-| Interoperable                             |     |                                                         |
-| I1.<br>(Meta)data use a formal, accessi   | Yes | We provide multiple formats for down                    |
-| ble, shared, and broadly applicable lan   |     | load, e.g. RDF/XML, Turtle, N-triples                   |
-| guage for knowledge representation.       |     |                                                         |
-| I2.<br>(Meta)data use vocabularies that   | -   | We recommend data providers to reuse                    |
-| follow FAIR principles                    |     | these vocabularies, e.g.<br>schema.org,                 |
-| I3. (Meta)data include qualified refer    | Yes | dublin core.<br>We will use common code lists, e.g. for |
-| ences to other (meta)data                 |     | countries, currencies.                                  |
-| Reusable                                  |     |                                                         |
-| R1.<br>Meta(data) are richly described    | Yes | We recommend our data providers to                      |
-| with a plurality of accurate and relevant |     | include as much description as possible                 |
-| attributes                                |     |                                                         |
-| R1.1.<br>(Meta)data are released with a   | Yes | For our metadata about KGs, it will be                  |
-| clear and accessible data usage license   |     | a free license like CC04<br>. For the actual            |
-|                                           |     | data, we will use the same licenses of                  |
-|                                           |     | each dataset that were provided.                        |
-| R1.2.<br>(Meta)data are associated with   | Yes | We recommend our data providers to                      |
-| detailed provenance                       |     | include as much as possible provenance                  |
-|                                           |     | data for their datasets.<br>Also all ori                |
-|                                           |     | gins of versions of each KG will be pre                 |
-|                                           |     | served.                                                 |
-| R1.3.<br>(Meta)data<br>meet<br>domain     | Yes | We recommend our data providers to                      |
-| relevant community standards              | 92  | use<br>the<br>domain-relevant<br>community              |
-|                                           |     | standards.                                              |
+| F1. (Meta)data are assigned a globally | Yes | We use TrustyURI to do that. |
+| unique and persistent identifier | | |
+| F2. Data are described with rich meta | Yes | We store a local database containing |
+| data (defined by R1 below) | | the metadata of the datasets |
+| F3. Metadata clearly and explicitly in | Yes | TrustyURI associate a unique identifier |
+| clude the identifier of the data they de | | for each datasets |
+| scribe. | | |
+| F4.<br>(Meta)data are registered or in | Yes | We<br>store<br>them<br>into<br>a<br>searchable |
+| dexed in a searchable resource | | database, which could be iterated to |
+| | | search in it. |
+| Accessible | | |
+| A1. (Meta)data are retrievable by their | Yes | We recommend the data providers to |
+| identifier using a standardised commu | | use a REST API implementation over |
+| nications protocol | | a HTTPS protocol |
+| A1.1 The protocol is open, free, and | Yes | It's in the REST API protocol specifi |
+| universally implementable | | cations |
+| A1.2 The protocol allows for an au | Yes | It's in the REST API protocol specifi |
+| thentication and authorisation proce | | cations |
+| dure, where necessary | | |
+| A2.<br>Metadata are accessible,<br>even | Yes | Metadata<br>for<br>each<br>queries<br>and<br>tar |
+| when the data are no longer available | | geted KG including its version are per |
+| | | manently stored in the database with |
+| | | Trusted URIs. |
+| Interoperable | | |
+| I1.<br>(Meta)data use a formal, accessi | Yes | We provide multiple formats for down |
+| ble, shared, and broadly applicable lan | | load, e.g. RDF/XML, Turtle, N-triples |
+| guage for knowledge representation. | | |
+| I2.<br>(Meta)data use vocabularies that | - | We recommend data providers to reuse |
+| follow FAIR principles | | these vocabularies, e.g.<br>schema.org, |
+| I3. (Meta)data include qualified refer | Yes | dublin core.<br>We will use common code lists, e.g. for |
+| ences to other (meta)data | | countries, currencies. |
+| Reusable | | |
+| R1.<br>Meta(data) are richly described | Yes | We recommend our data providers to |
+| with a plurality of accurate and relevant | | include as much description as possible |
+| attributes | | |
+| R1.1.<br>(Meta)data are released with a | Yes | For our metadata about KGs, it will be |
+| clear and accessible data usage license | | a free license like CC04<br>. For the actual |
+| | | data, we will use the same licenses of |
+| | | each dataset that were provided. |
+| R1.2.<br>(Meta)data are associated with | Yes | We recommend our data providers to |
+| detailed provenance | | include as much as possible provenance |
+| | | data for their datasets.<br>Also all ori |
+| | | gins of versions of each KG will be pre |
+| | | served. |
+| R1.3.<br>(Meta)data<br>meet<br>domain | Yes | We recommend our data providers to |
+| relevant community standards | 92 | use<br>the<br>domain-relevant<br>community |
+| | | standards. |
 
 Table 8.1: Whether our proposed platform design handles each of the FAIR principles, and how it does that
 
-# <span id="page-93-0"></span>Chapter 9
+## <span id="page-93-0"></span>Chapter 9
 
-# Supporting Interactive Updates of Knowledge Graphs
+## Supporting Interactive Updates of Knowledge Graphs
 
 NACIRA ABBAS, FRANCESCA GIOVANNETTI, CHUANGTAO MA, MARGHERITA PORENA, ARIAM RIVAS, SOHEIL ROSHANKISH, SEBASTIAN RUDOLPH
 
-# <span id="page-93-1"></span>9.1 Research Questions
+## <span id="page-93-1"></span>9.1 Research Questions
 
 - How to support the evolution and preservation of knowledge graphs in terms of consistency and integrity?
 - How to make the updating of knowledge graphs a supervised and easier operation, so to facilitate knowledge workers to modify data?
 - How to prevent incomplete change requests?
 
-# <span id="page-93-2"></span>9.2 Evolution and Preservation of Knowledge Graphs
+## <span id="page-93-2"></span>9.2 Evolution and Preservation of Knowledge Graphs
 
 The ongoing evolution and preservation of knowledge graphs (KGs) has become one of the most challenging tasks, thanks to the rapid and constant change of beliefs and knowledge linked to all kinds of domains. Our perspective on this problem is to grant the preservation of the "well-formedness" of KGs, by making sure that their consistency and integrity is not compromised when changes are applied. An ontology is commonly called consistent if it is free of logical contradictions and called inconsistent if it violates the syntactic constraints of the language or knowledge modelling guidelines [\[71\]](#page-116-5). More generally, the integrity of an ontology (or knowledge graph) refers to the fact that the information recorded at any given point in time reflects a meaningful state of the described domain.
 
 Our main purpose is to assist "knowledge workers" – who are not experts in logical modelling – in the KG updating process, in an interactive way, while ensuring the consistency and the integrity of the knowledge graph in the course of its evolution.
 
-# <span id="page-94-0"></span>9.3 Introduction
+## <span id="page-94-0"></span>9.3 Introduction
 
 Regular updates to knowledge graphs should be encouraged, in order to reflect the evolution of a domain, which is certainly desirable. Nevertheless, adding new statements or modifying existing ones is an error-prone operation which can lead to data inconsistency or violation of the integrity of the data, also because the change request could imply or require other changes that a non-expert may not conceive. The availability of user-friendly tools capable of supporting humans in the process of updating large knowledge graphs is important, especially when updates are performed by a knowledge worker (usually not specialized in ontology design) other than the knowledge engineer who originally developed the conceptual model informing the knowledge base. The Ontology Update Language (OUL) [\[87\]](#page-118-7) addresses this specific task, focusing on denying or allowing modifications (with respect of the ontology model and of its update specifications) and making clear to the knowledge worker every consequences of the change request he made. What this language does not take into account is the possibility that – depending on the cause or context of the update – some change requests may require different change patterns,, between which the knowledge worker should be able to choose. Our proposal is to implement a language extension to make possible a different kind of interaction between the system and the knowledge worker updating the graph, when different change patterns are to be selected from in the modification.
 
 A possible scenario where this approach could be applied is the following: a library decides to dispose of a collection that is considered not important for the institution, and donates books to other libraries. This action may have several consequences on books inside the collection: the library could decide to dispose of all the books contained, but it also could decide to keep some books with particular topics that may be interesting for library users. The choice of the change pattern can't be decided *a priori*, but is something that must be considered in every concrete case, at the time the actual change request is issued.
 
-# <span id="page-94-1"></span>9.4 Related Work
+## <span id="page-94-1"></span>9.4 Related Work
 
 There is a common scenario of requesting change and updating ontology due to continuous change in dynamic environments. Especially in a dynamic knowledge graph, the corresponding semantics also need to be changed when ontology need to be updated. The semantic change relates to the ontology evolution, change, management, and so forth. Ontology evolution is the process of an ontology changing in terms of size, content and management [\[124\]](#page-121-7). In addition, there are some available tools and systems have been developed for supporting ontology evolution in the KAON ontology engineering framework [\[126\]](#page-121-8).
 
@@ -1805,29 +1800,29 @@ However, the problems of how to preserve the semantic consistency when it relate
 CREATE CHANGEHANDLER <name>
 FOR <changerequest>
 AS
-   [ IF <precondition>
-   THEN ] <actions>
+[ IF <precondition>
+THEN ] <actions>
 <changerequest> ::== add [unique] (<SPARQL>)
-     | delete [unique] (<SPARQL>)
+| delete [unique] (<SPARQL>)
 <precondition> ::== contains(<SPARQL>)
-     | entails(<SPARQL>)
-     | entailsChanged(<SPARQL>)
-     | (<precondition>)
-     | <precondition> and <precondition>
-     | <precondition> or <precondition>
+| entails(<SPARQL>)
+| entailsChanged(<SPARQL>)
+| (<precondition>)
+| <precondition> and <precondition>
+| <precondition> or <precondition>
 <actions> ::== [<action>]|<action><actions>
 <action> ::== <SPARQL update>
-     | for( <precondition> ) <actions> end;
-     | feedback(<text>)
-     | applyRequest
-     | <interaction>
+| for( <precondition> ) <actions> end;
+| feedback(<text>)
+| applyRequest
+| <interaction>
 <interaction>::== approval (<text>) <actions> end;
-     | fixedSingleChoice (<text>) <selection> end;
-     | fixedMultipleChoice (<text>) <selection> end;
-     | unboundedSingleChoice (<text>) choose(<precondition>)
-        item(<text>) <actions> end;
-     | unboundedMultipleChoice (<text>) choose(<precondition>)
-        item(<text>) <actions> end;
+| fixedSingleChoice (<text>) <selection> end;
+| fixedMultipleChoice (<text>) <selection> end;
+| unboundedSingleChoice (<text>) choose(<precondition>)
+item(<text>) <actions> end;
+| unboundedMultipleChoice (<text>) choose(<precondition>)
+item(<text>) <actions> end;
 <selection>::== <action> or <actions>|<action> or <selection>
 <SPARQL> ::== where clause of a SPARQL query
 <SPARQL update> ::== a modify action (in SPARQL Update)
@@ -1836,7 +1831,7 @@ AS
 
 Figure 9.2: Ontology Update Language syntax specification.
 
-# <span id="page-96-0"></span>9.5 Proposed approach
+## <span id="page-96-0"></span>9.5 Proposed approach
 
 We propose an approach based on a language supporting interactive knowledge graph modification.
 
@@ -1850,69 +1845,68 @@ There are three different types of options. The first one is the *approval*inter
 
 The algorithm for Change Request (Alg. [1\)](#page-97-2) receive as input a change request specification 'US' and which operator to apply. The first step is to check the syntax and if exists in the ontology the given input. The second step is find all relations that exist for that given input. To do that, we take into account a set of constraints that should not be removed for each predicate in the ontology. It facilitates the ontology management to the knowledge worker. The method *getChoose()*is the user interaction where he has to select a list of candidates. With the list of candidates done, the action is executed and the ontology is updated.
 
-<span id="page-97-2"></span>
 
-| Algorithm 1 Processing of Change Request                                              |
+| Algorithm 1 Processing of Change Request |
 |---------------------------------------------------------------------------------------|
-| Input:<br>ontology O consisting of axioms                                             |
-| ontology update specification US treated as list of changehandlers                    |
+| Input:<br>ontology O consisting of axioms |
+| ontology update specification US treated as list of changehandlers |
 | change request op(Ax) where op ∈ {add,del} and Ax<br>is a set of axioms resp. triples |
-| Output: Updated ontology O                                                            |
-| 1: procedure UPDATE ONTOLOGY                                                          |
-| checkInputOntology(US, op)<br>2:                                                      |
-| if existsInput(US) then:<br>3:                                                        |
-| listCandidate←f indAllChange(US, op)<br>4:                                            |
-| toChange←getChoose(listCandidate)<br>5:                                               |
-| executeAction(toChange, op)<br>6:                                                     |
-| end if<br>7:                                                                          |
-| 8: end procedure                                                                      |
+| Output: Updated ontology O |
+| 1: procedure UPDATE ONTOLOGY |
+| checkInputOntology(US, op)<br>2: |
+| if existsInput(US) then:<br>3: |
+| listCandidate←f indAllChange(US, op)<br>4: |
+| toChange←getChoose(listCandidate)<br>5: |
+| executeAction(toChange, op)<br>6: |
+| end if<br>7: |
+| 8: end procedure |
 
-# <span id="page-97-1"></span>9.6 Evaluation and Results: Use case/Proof of concept - Experiments
+## <span id="page-97-1"></span>9.6 Evaluation and Results: Use case/Proof of concept - Experiments
 
 In the current section we provide an example to show the concrete work flow. We start with the knowledge base from Fig. [9.3.](#page-98-0), represented in the knowledge graph in Fig. [9.4.](#page-99-1)
 
 ```text
 @prefix ex: <http://example.org/> .
 @prefix hsww:
-    <http://hogwarts-school-of-witchcraft-and-wizardry.co.uk/> .
+<http://hogwarts-school-of-witchcraft-and-wizardry.co.uk/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 ex:exam-book-collection hsww:isCollectionOf ex:hogwarts-library .
 ex:hogwarts-library rdf:type hsww:Institution .
 ex:book-of-spells a hsww:Book ;
-   rdf:label "The Standard Book of Spells Year 1 by Miranda Goshawk" ;
-   hsww:partOf ex:exam-book-collection ;
-   hsww:relatedTo ex:book-of-spells-m ;
-   hsww:hasTopic hsww:spells .
+rdf:label "The Standard Book of Spells Year 1 by Miranda Goshawk" ;
+hsww:partOf ex:exam-book-collection ;
+hsww:relatedTo ex:book-of-spells-m ;
+hsww:hasTopic hsww:spells .
 ex:guide-of-transfiguration a hsww:Book ;
-   rdf:label "A Beginner's Guide to Transfiguration by Emeric Switch" ;
-   hsww:partOf ex:exam-book-collection ;
-   hsww:relatedTo ex:guide-of-transfiguration-m ;
-   hsww:hasTopic hsww:transfiguration .
+rdf:label "A Beginner's Guide to Transfiguration by Emeric Switch" ;
+hsww:partOf ex:exam-book-collection ;
+hsww:relatedTo ex:guide-of-transfiguration-m ;
+hsww:hasTopic hsww:transfiguration .
 ex:history-of-magic a hsww:Book ;
-   rdf:label "A History of Magic by Bathilda Bagshott" ;
-   hsww:partOf ex:exam-book-collection ;
-   hsww:relatedTo ex:history-of-magic-m ;
-   hsww:hasTopic hsww:spells .
+rdf:label "A History of Magic by Bathilda Bagshott" ;
+hsww:partOf ex:exam-book-collection ;
+hsww:relatedTo ex:history-of-magic-m ;
+hsww:hasTopic hsww:spells .
 ex:magical-theory a hsww:Book ;
-   rdf:label "Magical Theory by Adalbert Waffling" ;
-   hsww:partOf ex:exam-book-collection ;
-   hsww:relatedTo ex:magical-theory-m ;
-   hsww:hasTopic hsww:transfiguration .
+rdf:label "Magical Theory by Adalbert Waffling" ;
+hsww:partOf ex:exam-book-collection ;
+hsww:relatedTo ex:magical-theory-m ;
+hsww:hasTopic hsww:transfiguration .
 ex:thousand-magical-herbs a hsww:Book ;
-   rdf:label "One Thousand Magical Herbs and Fungi by Phyllida Spore" ;
-   hsww:partOf ex:exam-book-collection ;
-   hsww:relatedTo ex:thousand-magical-herbs-m ;
-   hsww:hasTopic hsww:potions .
+rdf:label "One Thousand Magical Herbs and Fungi by Phyllida Spore" ;
+hsww:partOf ex:exam-book-collection ;
+hsww:relatedTo ex:thousand-magical-herbs-m ;
+hsww:hasTopic hsww:potions .
 ex:magical-drafts a hsww:Book ;
-   rdf:label "Magical Drafts and Potions by Arsenius Jigger" ;
-   hsww:partOf ex:exam-book-collection ;
-   hsww:relatedTo ex:magical-drafts-m ;
-   hsww:hasTopic hsww:potions .
+rdf:label "Magical Drafts and Potions by Arsenius Jigger" ;
+hsww:partOf ex:exam-book-collection ;
+hsww:relatedTo ex:magical-drafts-m ;
+hsww:hasTopic hsww:potions .
 ex:charm-cheese a hsww:Book ;
-   rdf:label "Charm Your Own Cheese by Gerda Catchlove" ;
-   hsww:partOf ex:exam-book-collection ;
-   hsww:relatedTo ex:charm-cheese-m ;
-   hsww:hasTopic hsww:transfiguration .
+rdf:label "Charm Your Own Cheese by Gerda Catchlove" ;
+hsww:partOf ex:exam-book-collection ;
+hsww:relatedTo ex:charm-cheese-m ;
+hsww:hasTopic hsww:transfiguration .
 ```text
 
 Figure 9.3: Example knowledge base in Turtle.
@@ -1926,27 +1920,27 @@ Figure 9.4: Hogwarts Library's knowledge graph
 
 cific predicate (isACollectionIn), first look for all triples with predicate partOf and show the different Topic to the user. After that, there is an interaction with the user where he chooses the topic to remove. Based on example knowledge base, figure [9.3](#page-98-0) the knowledge worker want to remove this input:*ex:exam-book-collection isACollectionIn HogwartsLibrary*. The output is to show all topics related to *ex:exam-bookcollection* to the user, one by one, so he chooses which topic to delete. As a result of user interaction are removed all book with the topic selected by the user.
 
-# <span id="page-99-0"></span>9.7 Conclusions and Future Work
+## <span id="page-99-0"></span>9.7 Conclusions and Future Work
 
 In this work, the ontology update language was extended for describing the interactions in dynamic knowledge graph. The algorithm of proposed approach was depicted, after that, the specified example was given base in turtle. In addition, the Hogwarts Library's knowledge graph was constructed, and a use case are analysed to examine the concrete workflow. However, there are some possible research directions that could be investigated based on current work.
 
 ```text
 CREATE CHANGEHANDLER deleteCollection
 FOR del { ?x isACollectionIn ?y }
-   AS applyRequest;
-   unboundedMultipleChoice ("Choose obsolete topics in
-      collection ?x !")
-     choose({ _:1 hsww:partOf ?x .
-             _:1 hsww:hasTopic ?topic .})
-     item("?topic")
-     for(contains({ ?book ?p ?o .
-                  ?book hsww:partOf ?x .
-                  ?book hsww:hasTopic ?topic .}))
-       delete data { ?s ?p ?o . };
-       feedback("Deleted the following triple: ?s ?p ?o
-           .");
-     end;
-   end;
+AS applyRequest;
+unboundedMultipleChoice ("Choose obsolete topics in
+collection ?x !")
+choose({ _:1 hsww:partOf ?x .
+_:1 hsww:hasTopic ?topic .})
+item("?topic")
+for(contains({ ?book ?p ?o .
+?book hsww:partOf ?x .
+?book hsww:hasTopic ?topic .}))
+delete data { ?s ?p ?o . };
+feedback("Deleted the following triple: ?s ?p ?o
+.");
+end;
+end;
 ```text
 
 Figure 9.5: Example ontology update specification
@@ -1957,24 +1951,24 @@ Extend the language for responding and supporting temporal change. It's unavoida
 
 Explore the framework and approach of autonomous ontology updating framework. There is no doubt that the change of ontology will be more and more frequent, hence how to capture or predict the changes, how to autonomously update the ontology, how to identify and repair the errors and inconsistencies should be investigated.
 
-# <span id="page-101-0"></span>Chapter 10
+## <span id="page-101-0"></span>Chapter 10
 
-# A human-in-the-loop framework to handle implicit bias in crowdsourced KGs
+## A human-in-the-loop framework to handle implicit bias in crowdsourced KGs
 
 ALBA MORALES TIRADO, ALLARD OELEN, VALENTINA PASQUAL, MEILIN SHI, ALESSANDRO UMBRICO, WEIQIN XU, IRENE CELINO
 
-# <span id="page-101-1"></span>10.1 Research Questions
+## <span id="page-101-1"></span>10.1 Research Questions
 
 Crowd-sourced Knowledge Graphs (KGs) may be biased: some biases can originate from factual errors, while others reflect different points of view. How to identify and measure biases in crowd-sourced KGs? And then, how to tell apart factual errors from different point of views? And how to put together all these steps contextualized in a human-in-the-loop framework?
 
-# <span id="page-101-2"></span>10.2 Knowledge Graphs Evolution and Preservation
+## <span id="page-101-2"></span>10.2 Knowledge Graphs Evolution and Preservation
 
 Knowledge Graphs are built with the help of technological tools and the intervention of people. Few KGs are constructed without the involvement of humans. Generally speaking, the process of building a KG comprises the interaction of humans in two ways [\[26\]](#page-112-7): to acquire knowledge and verify its accuracy as the type of knowledge differs from human to human; to seek information with the help of applications built on top of KGs. As [\[45\]](#page-114-5) methodology, our focus is to investigate about how crowdsourcing can be used to understand contributor bias for controversial facts included into crowdsourced KGs. Moreover, we want to trace the provenance of crowdsourced fact checking and some additional information (preservation step) in order to update KG (evolution step). This process enables bias transparency rather than aiming at eliminating bias from KGs [\[45\]](#page-114-5).
 
-# <span id="page-102-0"></span>10.3 Introduction and Problem Statement
+## <span id="page-102-0"></span>10.3 Introduction and Problem Statement
 
 Knowledge Graphs have bias that must be properly managed to guarantee a correct evolution and preservation of the knowledge inside. KGs that pursue a collaborative approach (*crowdsourced*) to the creation of knowledge like e.g., Wikidata [\[141\]](#page-123-8) enable the creation of high quality structured information and let semantics emerge in a bottom-up fashion [\[16,](#page-111-7) [89\]](#page-118-8). However, reality is ambiguous and there can exist different opinions and perspectives due to cultural differences and heritages. This means that contributors may introduce bias into the resulting knowledge. Human contributors to crowdsourced KGs can be biased by their personal point of view and can therefore enter *implicitly*biased information to the KGs. The implicit nature of the bias means that the contributions are unconsciously and unintentionally adding a bias to the KGs. A meaningful example of such situations is Catalonia being part of Spain or being an independent country, as shown in [\[45,](#page-114-5) [22\]](#page-112-8), where contributors may easily bring their own bias answering this question.
-*Implicit bias*can affect the correctness of knowledge and they must be properly managed within the evolution of KGs [\[48,](#page-114-6) [70,](#page-116-6) [47\]](#page-114-7). In some cases however, biases reflect*knowledge diversity*that must be preserved. There is a number of issues to deal with in order to properly manage bias with respect to knowledge graph evolution and preservation.
+**Implicit bias:** can affect the correctness of knowledge and they must be properly managed within the evolution of KGs [\[48,](#page-114-6) [70,](#page-116-6) [47\]](#page-114-7). In some cases however, biases reflect*knowledge diversity*that must be preserved. There is a number of issues to deal with in order to properly manage bias with respect to knowledge graph evolution and preservation.
 
 - It is necessary to let*implicit bias*emerge and make them*recognizable*;
 - Identified bias must be evaluated so that to decide whether they represent incorrect information to *fix* (*critical bias*) or knowledge diversity to preserve;
@@ -1984,7 +1978,7 @@ Knowledge graphs are created in socio-technical systems and in most of the cases
 
 In this context, our aim is to propose an iterative framework to address the three points cited above and therefore formalize and capture bias, communicate them and act on the KG to solve inconsistencies caused by "critical bias". The envisaged approach strongly rely on the contribution of humans. Specifically, we propose to distinguish between two types of end-users: (i)*collectors*or*contributors*that like in any other crowdsourced KGs are common people taking part in knowledge acquisition; (ii)*reviewers*that are selected users that are in charge of evaluating implicit bias identified by the framework, and proposing a solution for them. So our contribution aims at pursuing a twofold human-in-the-loop iterative verification and refinement loop to deal with consistent evolution of KGs. Automated steps of the process flow support users by ranking bias to identify critical ones and then aggregate reviewers' feedback to refine the KG.
 
-# <span id="page-103-0"></span>10.4 Related Work
+## <span id="page-103-0"></span>10.4 Related Work
 
 From the state of the art we analysed literature related to approaches to human-in-theloop, KG refinement, different kinds of human bias detection, analysis and measurement in KG and other technologies, preservation of data provenance in KG.
 
@@ -1999,7 +1993,7 @@ level of shared methodology with respect to our "preservation" step. Additionall
 
 • Our attention is also pointed to user contribution profiling. As data provenance becomes a central issue on the social web, [\[69\]](#page-116-9) points up that absence of provenance may render trust ratings useless. Despite the different application scenarios (social bookmarking systems and KGs), the provenance matter is central point in both cases. Part of the knowledge graph preservation is in recording and then displaying the composition of the contributing crowd.
 
-# <span id="page-104-0"></span>10.5 Methodology
+## <span id="page-104-0"></span>10.5 Methodology
 
 The core idea is to involve humans within the evolution and preservation of KGs while managing bias that appear in cultural or geographical context. Similarly to other research fields like e.g., cognitive sciences and Theory of Mind [\[133,](#page-122-10) [137\]](#page-122-11), our aim is to lay the foundation for understanding and predicting*mental models*characterizing opinions that (classes) of people may have on different topics, and identify which opinions to preserve and which ones to correct. Our contribution is the formalisation of a general workflow for identifying, classifying and solving bias in KGs, thus iteratively refine KGs preserving and allowing knowledge to evolve correctly. Figure [10.1](#page-104-2) shows the structure of the approach we envisage. The objective is to manage bias accordingly by involving the contribution of humans within the process. Our proposed workflow consists of four steps that can be either made by humans or automated.
 
@@ -2033,7 +2027,7 @@ After capturing and processing the crowd-sourced biases, the goal of this step i
 
 The last step is the refinement of KGs. Once the results from the collection and processing show that the crowd-sourced bias is solvable, we propose to refine and update the existing KGs with provenance data. In case the bias is not solvable, we propose to store additional information in the knowledge base. Maintaining the agreement and disagreement of the controversial statements at the same time in KGs provides the end-users with the diverse information, which better suits the end-user's background.
 
-# <span id="page-106-2"></span>10.6 Experimental Protocol Evaluation
+## <span id="page-106-2"></span>10.6 Experimental Protocol Evaluation
 
 In this section we present the experimental protocol to evaluate the envisaged methodology. According to Figure [10.1,](#page-104-2) the experiment is structured into two parts that follow the steps concerning knowledge preservation and the steps concerning knowledge evolution.
 
@@ -2069,7 +2063,7 @@ Reviewers evaluate if the statement is a solvable bias by answering the question
 
 Not all biased statements can be solved. In this case, the statement "Palestine is a country" is likely not to be solvable, since some countries do consider it as a country and others not (and we expect the reviewers in the previous step to acknowledge this difference in points of view). No refinement actions are taken in this case. In the case of solvable bias, the solutions proposed by reviewers are aggregated together. Solutions can be new links to add to the KG or existing links to be removed from the KG. According to the aggregation results, the solution mostly proposed by reviewers is actually propagated into the KG for refinement.
 
-# <span id="page-108-1"></span>10.7 Discussion and Conclusions
+## <span id="page-108-1"></span>10.7 Discussion and Conclusions
 
 In this technical report, we proposed a four-step workflow to collect, analyze, review and refine the biases in crowd-sourced Knowledge Graphs. This workflow allows us, after every step, to add back the results to the KG and improve it while adding extra information to preserve the KG.
 
@@ -2077,13 +2071,13 @@ We presented an experimental protocol evaluation with the "Palestine is a countr
 
 Further directions for this work include the experimental evaluation with potential biased statements in KGs and how end-users review the statements. Metrics on how to refine and update the crowd-sourced knowledge graphs are also one of the directions of future work. Also, a method to identify which part of the KG could go through this iterative process and how many iterations could be sufficient to control bias.
 
-# Acknowledgement
+## Acknowledgement
 
 We would like to thank everyone who contributed to the organisation of ISWS, the students who are its soul and motivating engine, and the sponsors.
 
 Please visit <http://www.semanticwebschool.org>
 
-# Bibliography
+## Bibliography
 
 - <span id="page-110-0"></span>[1] URL: <http://downloads.dbpedia.org/2014/>.
 - <span id="page-110-1"></span>[2] URL: <http://downloads.dbpedia.org/2015-04/>.
@@ -2209,7 +2203,7 @@ Please visit <http://www.semanticwebschool.org>
 - <span id="page-120-2"></span>[112] Heiko Paulheim. "Knowledge graph refinement: A survey of approaches and evaluation methods". In:*Semantic Web*8.3 (2017), pages 489–508. DOI: [10.](https://doi.org/10.3233/SW-160218) [3233/SW-160218](https://doi.org/10.3233/SW-160218). URL: <https://doi.org/10.3233/SW-160218>.
 - <span id="page-120-7"></span>[113] Heiko Paulheim. "Knowledge graph refinement: A survey of approaches and evaluation methods". In:*Semantic Web*8.3 (2017), pages 489–508. DOI: [10.](https://doi.org/10.3233/SW-160218) [3233/SW-160218](https://doi.org/10.3233/SW-160218). URL: <https://doi.org/10.3233/SW-160218>.
 - <span id="page-120-0"></span>[114] Mason A Porter, Jukka-Pekka Onnela, and Peter J Mucha. "Communities in networks". In:*Notices of the AMS*56.9 (2009), pages 1082–1097.
-- <span id="page-120-9"></span>[115] Eric Prud'hommeaux and Andy Seaborne.*SPARQL Query Language for RDF*. W3C Recommendation. [http : / / www . w3 . org / TR / rdf - sparql](http://www.w3.org/TR/rdf-sparql-query/)  [query/](http://www.w3.org/TR/rdf-sparql-query/). Jan. 2008. URL: [http://www.w3.org/TR/rdf- sparql](http://www.w3.org/TR/rdf-sparql-query/)[query/](http://www.w3.org/TR/rdf-sparql-query/).
+- <span id="page-120-9"></span>[115] Eric Prud'hommeaux and Andy Seaborne.*SPARQL Query Language for RDF*. W3C Recommendation. [http : / / www . w3 . org / TR / rdf - sparql](http://www.w3.org/TR/rdf-sparql-query/) [query/](http://www.w3.org/TR/rdf-sparql-query/). Jan. 2008. URL: [http://www.w3.org/TR/rdf- sparql](http://www.w3.org/TR/rdf-sparql-query/)[query/](http://www.w3.org/TR/rdf-sparql-query/).
 
 - <span id="page-121-10"></span>[116] Jay Pujara, Hui Miao, Lise Getoor, and William Cohen. "Knowledge graph identification". In: *International Semantic Web Conference*. Springer. 2013, pages 542–557.
 - <span id="page-121-4"></span>[117] Feng Qian, ChengYue Gong, Karishma Sharma, and Yan Liu. "Neural User Response Generator: Fake News Detection with Collective User Intelligence". In: *Proceedings of the Twenty-Seventh International Joint Conference on Artificial Intelligence, IJCAI 2018, July 13-19, 2018, Stockholm, Sweden.*Edited by Jer´ ome Lang. ijcai.org, 2018, pages 3834–3840. ˆ ISBN: 978-0-9992411-2-7. DOI: [10.24963/ijcai.2018/533](https://doi.org/10.24963/ijcai.2018/533). URL: [https://doi.org/10.](https://doi.org/10.24963/ijcai.2018/533) [24963/ijcai.2018/533](https://doi.org/10.24963/ijcai.2018/533).

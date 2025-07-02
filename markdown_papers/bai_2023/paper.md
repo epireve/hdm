@@ -39,11 +39,11 @@ Federated learning is a decentralized machine learning approach where clients tr
 
 Additional Key Words and Phrases: Membership inference attacks, federated learning, deep leaning, privacy risk
 
-# ACM Reference Format:
+## ACM Reference Format:
 
 Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, and Jianliang Xu. XXXX. Membership Inference Attacks and Defenses in Federated Learning: A Survey. ACM Comput. Surv. 37, 4, Article 111 (August XXXX), [35](#page-34-0) pages.<https://doi.org/XXXXXXX.XXXXXXX>
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 With the increasing availability of extensive datasets, machine learning (ML) has emerged as a critical technology, facilitating significant advancements across various domains, including computer vision [\[1](#page-27-0)[–5\]](#page-27-1), natural language processing [\[6–](#page-27-2)[9\]](#page-27-3), and more. Notably, legal regulations such as the General Data Protection Regulation (GDPR) [\[10\]](#page-27-4) and the California Consumer Privacy Act (CCPA) [\[11\]](#page-27-5) establish key guidelines for data sharing between organizations and mandate the safeguarding of users' privacy when utilizing such data. Federated learning (FL), as proposed in [\[12\]](#page-27-6), is a distributed machine learning paradigm that enables multiple clients to collaboratively
 
@@ -72,18 +72,18 @@ the training stage. However, the key distinction is that centralized defenses al
 - 4 Active strategy: The proactive methods used by attackers to infer membership privacy differ across settings. In FL, adversaries with legitimate access to the training process can maliciously manipulate models, enabling them to conduct powerful MIAs through model poisoning [\[26,](#page-28-9) [47\]](#page-29-11). In contrast, CL attackers may poison the data to amplify membership information leakage [\[48,](#page-29-12) [49\]](#page-29-13).
 - 5 Protection core: Since the types of private information at risk of being leaked vary, the targets of defense mechanisms across settings also differ. In CL, defenses aim to make the model outputs indistinguishable between member and non-member samples. In contrast, FL countermeasures focus on protecting model updates from privacy violations by the central server or eavesdroppers, while also safeguarding the model from potential breaches by curious clients.
 
-|                                   | Aspect                      | Centralized Learning       | Federated Learning                   |  |  |
+| | Aspect | Centralized Learning | Federated Learning | | |
 |-----------------------------------|-----------------------------|----------------------------|--------------------------------------|--|--|
-|                                   | Attacker role               | Model consumer             | FL server / client / eavesdropper    |  |  |
-| Membership<br>Inference<br>Attack | Attack phase                | Inference phase            | Training phase                       |  |  |
-|                                   |                             |                            | Gradient                             |  |  |
-|                                   | Adversary knowledge (data)  | Model output               | Model output                         |  |  |
-|                                   |                             | Intermediate computation   | Intermediate computation             |  |  |
-|                                   | Adversary knowledge (model) | Target model               | Target model and historical versions |  |  |
-|                                   | Active strategy             | Data poisoning             | Model poisoning                      |  |  |
-| Membership                        | Defender role               | Data / Model owner         | FL server / client                   |  |  |
-| Inference                         | Defense phase               | Training / Inference phase | Training phase                       |  |  |
-| Defense                           | Protection core             | Model output               | Model update / Historical models     |  |  |
+| | Attacker role | Model consumer | FL server / client / eavesdropper | | |
+| Membership<br>Inference<br>Attack | Attack phase | Inference phase | Training phase | | |
+| | | | Gradient | | |
+| | Adversary knowledge (data) | Model output | Model output | | |
+| | | Intermediate computation | Intermediate computation | | |
+| | Adversary knowledge (model) | Target model | Target model and historical versions | | |
+| | Active strategy | Data poisoning | Model poisoning | | |
+| Membership | Defender role | Data / Model owner | FL server / client | | |
+| Inference | Defense phase | Training / Inference phase | Training phase | | |
+| Defense | Protection core | Model output | Model update / Historical models | | |
 
 <span id="page-2-0"></span>Table 1. A comparison of membership inference attacks and defenses in centralized and federated learning.
 
@@ -91,25 +91,24 @@ However, regarding FL-related MIAs, existing surveys provide only incomplete int
 
 In this work, we provide a comprehensive survey of MIAs together with defense strategies on the whole FL process, as shown in Fig. [1.](#page-3-1) Starting with a unique taxonomy, we extensively review existing MIAs on FL through model updates and convergence trends in the whole FL training process. As for defenses against MIAs in the context of FL, we review four mitigation strategies used to protect exchanged updates and models, including partial sharing [\[62,](#page-30-1) [63\]](#page-30-2), secure aggregation [\[64\]](#page-30-3), noise perturbation [\[65,](#page-30-4) [66\]](#page-30-5) and anomaly detection [\[67\]](#page-30-6). In the end, we also point out future research
 
-<span id="page-3-0"></span>
 
-|           |      |                                     |        | Attacks1 | Defenses2 |    |    |    |  |
+| | | | | Attacks1 | Defenses2 | | | | |
 |-----------|------|-------------------------------------|--------|----------|-----------|----|----|----|--|
-| Survey    | Year | Key Topic                           | A1     | A2       | D1        | D2 | D3 | D4 |  |
-| [54]      | 2020 | Privacy and robustness issues of FL | "      | %        | %         | %  | %  | %  |  |
-| [57]      | 2020 | Privacy and security attacks in FL  | "<br>% |          | %         | "  | "  | %  |  |
-| [56]      | 2021 | FL vulnerabilities                  | "<br>% |          | "         | "  | "  | "  |  |
-| [55]      | 2021 | Privacy and security threats in FL  | "<br>% |          | %         | "  | "  | "  |  |
-| [50]      | 2021 | FL concept and mechanism            | "<br>% |          | %         | "  | "  | %  |  |
-| [53]      | 2022 | Privacy and robustness in FL        | "<br>% |          | %         | "  | "  | %  |  |
-| [39]      | 2022 | MIAs and defenses of CL             | "<br>% |          | %         | %  | "  | %  |  |
-| [58]      | 2023 | Privacy and fairness in FL          | "<br>% |          | %         | "  | "  | %  |  |
-| [40]      | 2023 | Defenses against MIAs in CL         | "<br>% |          | %         | %  | "  | %  |  |
-| This work | -    | MIAs and defenses in FL             | "<br>" |          | "         | "  | "  | "  |  |
+| Survey | Year | Key Topic | A1 | A2 | D1 | D2 | D3 | D4 | |
+| [54] | 2020 | Privacy and robustness issues of FL | " | % | % | % | % | % | |
+| [57] | 2020 | Privacy and security attacks in FL | "<br>% | | % | " | " | % | |
+| [56] | 2021 | FL vulnerabilities | "<br>% | | " | " | " | " | |
+| [55] | 2021 | Privacy and security threats in FL | "<br>% | | % | " | " | " | |
+| [50] | 2021 | FL concept and mechanism | "<br>% | | % | " | " | % | |
+| [53] | 2022 | Privacy and robustness in FL | "<br>% | | % | " | " | % | |
+| [39] | 2022 | MIAs and defenses of CL | "<br>% | | % | % | " | % | |
+| [58] | 2023 | Privacy and fairness in FL | "<br>% | | % | " | " | % | |
+| [40] | 2023 | Defenses against MIAs in CL | "<br>% | | % | % | " | % | |
+| This work | - | MIAs and defenses in FL | "<br>" | | " | " | " | " | |
 
-| Table 2. Existing surveys about membership inference in federated learning. |  |  |  |
+| Table 2. Existing surveys about membership inference in federated learning. | | | |
 |-----------------------------------------------------------------------------|--|--|--|
-|                                                                             |  |  |  |
+| | | | |
 
 <sup>1</sup> A1: Update-based attack A2: Trend-based attack
 
@@ -118,7 +117,7 @@ In this work, we provide a comprehensive survey of MIAs together with defense st
 <span id="page-3-1"></span>![](_page_3_Figure_5.jpeg)
 <!-- Image Description: The image is a flowchart illustrating a federated learning system's phases (aggregation, communication, local training). It depicts multiple mobile devices training local models, which are then aggregated on a central server. The diagram shows potential attack vectors (trend-based and update-based) at each phase, alongside defensive mechanisms like anomaly detection, secure aggregation, noise perturbation, and partial sharing. Solid and dashed arrows illustrate data flow. Icons represent global/local models, datasets, attacks, and defenses. -->
 
-Fig. 1. Membership inference attacks and defenses in federated learning.
+Figure 1. Membership inference attacks and defenses in federated learning.
 
 directions about MIAs and defenses in FL. The contributions of this research can be summarized as follows:
 
@@ -172,7 +171,7 @@ Three phases are repeated until the loss value of the global model converges on 
 <span id="page-5-0"></span>![](_page_5_Figure_8.jpeg)
 <!-- Image Description: The figure illustrates three data partitioning methods for federated learning: HFL (Horizontal Federated Learning), VFL (Vertical Federated Learning), and FTL (Federated Transfer Learning). Each panel shows a data matrix split between "Party 1" and "Party 2," representing different data owners. HFL shows samples split horizontally (same features, different labels), VFL vertically (different features, same samples), and FTL with overlapping features and labels between parties, indicating a transfer learning approach. The purpose is to visually compare the different data partitioning strategies. -->
 
-Fig. 2. Three categories of federated learning.
+Figure 2. Three categories of federated learning.
 
 Horizontal Federated Learning (HFL) refers to scenarios where multiple parties possess data samples with the same features but unique sample IDs, as shown in Fig[.2\(](#page-5-0)a). For instance, different hospitals may possess patient records that share the same feature space but have different patient IDs. HFL is the most popular FL category in the literature [\[12,](#page-27-6) [78\]](#page-30-16), and local models commonly share the same architecture as the global model. As such, the global model can be simply aggregated from local models.
 
@@ -186,18 +185,17 @@ complementary knowledge by exploiting source domain knowledge to train an FL mod
 
 MIAs aim to infer whether an example was used to train an ML model [\[22\]](#page-28-18). Given a query example x and a target model (), an MIA algorithm A infers the membership status of x. We formulate an MIA algorithm as a binary classification task:
 
-<span id="page-6-1"></span>
 $$
 m = \mathcal{A}(\mathbf{x}, F(\theta)) = \begin{cases} 0, & \mathbf{x} \notin D_{tr} \\ 1, & \mathbf{x} \in D_{tr}, \end{cases}
 $$
- (3)
+(3)
 
 where the membership status is 1 if the adversary infers that the input x was used to train the target model and 0 otherwise. MIAs in CL occur in either white-box scenarios, where attackers access model details (e.g., architecture and parameters), or black-box scenarios, where only model outputs are observed. In white-box settings, model parameters are observable, but not in blackbox settings [\[29\]](#page-28-16). Based on the construction of the attack model, MIAs can be categorized into classifier-based attacks and metric-based attacks.
 
 <span id="page-6-0"></span>![](_page_6_Figure_6.jpeg)
 <!-- Image Description: The diagram illustrates a machine learning model attack. A target model is trained on a dataset and queried. Simultaneously, a shadow model is trained on a separate dataset (shadow training set) and tested on another (shadow test set). Predictions from the target model (member/non-member data) are used to train an attack model, which aims to infer membership in the target model’s training dataset based on its predictions. The diagram shows the data flow and model training process for this attack. -->
 
-Fig. 3. Overview of the shadow training scheme in CL.
+Figure 3. Overview of the shadow training scheme in CL.
 
 In a classifier-based MIA, a binary classifier attack model is constructed to determine membership information. Shokri et al. [\[22\]](#page-28-18) conduct the pioneering study on this approach, utilizing the shadow training technique to build an attack model that outperforms random guessing (i.e., 0.5 probability of inferring membership). Fig[.3](#page-6-0) visualizes how shadow training can be used to construct a classifierbased MIA. Assuming the attacker has auxiliary knowledge, they can collect a shadow dataset whose distribution is similar to the target dataset. Next, the attacker trains one or multiple shadow models with the same architecture as the target model and collects prediction vectors from the shadow dataset. Finally, the attacker uses these prediction data to train an attack model capable of inferring membership status based on the output of a query example. Later studies extended this technique to relaxed assumptions [\[43\]](#page-29-7) and various model architectures [\[31,](#page-28-12) [82–](#page-30-20)[84\]](#page-31-0).
 
@@ -222,7 +220,7 @@ In this subsection, we overview the threat models of MIAs in the FL setting from
 <span id="page-7-1"></span>![](_page_7_Figure_9.jpeg)
 <!-- Image Description: This flowchart depicts a threat model. It's structured around an adversary's goal, role (insider/outsider), and strategy (passive/active). The adversary's actions are categorized by target level (record-level/source-level) and actor type (client, server, eavesdropper). The diagram systematically organizes these threat model elements to provide a comprehensive view of potential security vulnerabilities. -->
 
-Fig. 4. Categorization of threat models.
+Figure 4. Categorization of threat models.
 
 ## 2 Adversary's Goal.
 
@@ -251,34 +249,33 @@ An adversary can infer the membership information in the context of FL through p
 
 Regarding a passive MIA, an adversary only observes and exploits the learning model without directly interfering, relying solely on the data collected during the normal operation of the FL system. For example, any client in an FL system can exploit the information they collect during training to deduce private data about other participants. Such an attack is challenging to detect because the adversary does not affect the target model during the training phase. In contrast, an insider attacker can launch an active attack to boost attack performance by altering the learning model or data. For instance, a malicious client can actively push a target model far away from the optimum to inspect the response of a training member [\[26\]](#page-28-9). Active inference attacks are easier to mount in FL than CL, as any participant or the server can modify the training data or manipulate the model parameters.
 
-# 5 Attack Taxonomy
+## 5 Attack Taxonomy
 
 In this survey, we classify existing research on MIAs in FL into two categories: (1) update-based attacks, which leverage one or more historical versions of the target model to infer membership information; and (2) trend-based attacks, which analyze the trajectory of specific indicators to determine membership status. Given their different threat models, Table [3](#page-9-0) provides a summary of the surveyed attacks.
 
-<span id="page-9-0"></span>
 
-| Attack<br>Approach    |                                        | Reference                                                                                                                                                                                                             | Adversary's<br>Goal                  |              | Adversary's<br>Role                       |          | Adversary's<br>Strategy              |        |
+| Attack<br>Approach | | Reference | Adversary's<br>Goal | | Adversary's<br>Role | | Adversary's<br>Strategy | |
 |-----------------------|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|--------------|-------------------------------------------|----------|--------------------------------------|--------|
-|                       |                                        |                                                                                                                                                                                                                       | Record-level                         | Source-level | Insider                                   | Outsider | Passive                              | Active |
-|                       | Update-based MIAs                      |                                                                                                                                                                                                                       |                                      |              |                                           |          |                                      |        |
-| Model gradient-based  | Original gradient                      | Nasr et al. [26]<br>Gupta et al. [31]<br>Lu et al. [94]                                                                                                                                                               | ✓<br>✓<br>✓                          |              | ✓<br>✓<br>✓                               |          | ✓<br>✓<br>✓                          | ✓      |
-|                       | Gradient difference                    | Melis et al. [17]<br>Li et al. [33]<br>Zhu et al. [59]                                                                                                                                                                | ✓<br>✓<br>✓                          |              | ✓<br>✓                                    | ✓        | ✓<br>✓<br>✓                          |        |
-| Single model-based    | Shadow training<br>Structure modifying | Liu et al. [32]<br>Pustozerova et al. [28]<br>Zhang et al. [27]<br>Chen et al. [61]<br>Zhao et al. [93]<br>Luqman et al. [95]<br>Banerjee et al. [96]<br>Truex et al. [97]<br>Yuan et al. [98]<br>Pichler et al. [34] | ✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓ | ✓<br>✓       | ✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓ | ✓<br>✓   | ✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓ | ✓<br>✓ |
-|                       |                                        | Nguyen et al. [99]                                                                                                                                                                                                    | ✓                                    |              | ✓                                         |          |                                      | ✓      |
-|                       | Trend-based MIAs                       |                                                                                                                                                                                                                       |                                      |              |                                           |          |                                      |        |
-| Model output-based    | Prediction trajectory                  | Zari et al. [35]<br>Gu et al. [30]<br>Zhang et al. [100]<br>Liu et al. [101]                                                                                                                                          | ✓<br>✓<br>✓<br>✓                     |              | ✓<br>✓<br>✓                               | ✓        | ✓<br>✓<br>✓                          | ✓<br>✓ |
-|                       | Loss trajectory                        | Hu et al. [29]<br>Suri et al. [36]<br>Zhu et al. [59]                                                                                                                                                                 | ✓<br>✓                               | ✓<br>✓       | ✓<br>✓<br>✓                               |          | ✓<br>✓<br>✓                          |        |
-| Model parameter-based | Bias trajectory                        | Zhang et al. [102]                                                                                                                                                                                                    | ✓                                    |              | ✓                                         |          | ✓                                    | ✓      |
+| | | | Record-level | Source-level | Insider | Outsider | Passive | Active |
+| | Update-based MIAs | | | | | | | |
+| Model gradient-based | Original gradient | Nasr et al. [26]<br>Gupta et al. [31]<br>Lu et al. [94] | ✓<br>✓<br>✓ | | ✓<br>✓<br>✓ | | ✓<br>✓<br>✓ | ✓ |
+| | Gradient difference | Melis et al. [17]<br>Li et al. [33]<br>Zhu et al. [59] | ✓<br>✓<br>✓ | | ✓<br>✓ | ✓ | ✓<br>✓<br>✓ | |
+| Single model-based | Shadow training<br>Structure modifying | Liu et al. [32]<br>Pustozerova et al. [28]<br>Zhang et al. [27]<br>Chen et al. [61]<br>Zhao et al. [93]<br>Luqman et al. [95]<br>Banerjee et al. [96]<br>Truex et al. [97]<br>Yuan et al. [98]<br>Pichler et al. [34] | ✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓ | ✓<br>✓ | ✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓ | ✓<br>✓ | ✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓<br>✓ | ✓<br>✓ |
+| | | Nguyen et al. [99] | ✓ | | ✓ | | | ✓ |
+| | Trend-based MIAs | | | | | | | |
+| Model output-based | Prediction trajectory | Zari et al. [35]<br>Gu et al. [30]<br>Zhang et al. [100]<br>Liu et al. [101] | ✓<br>✓<br>✓<br>✓ | | ✓<br>✓<br>✓ | ✓ | ✓<br>✓<br>✓ | ✓<br>✓ |
+| | Loss trajectory | Hu et al. [29]<br>Suri et al. [36]<br>Zhu et al. [59] | ✓<br>✓ | ✓<br>✓ | ✓<br>✓<br>✓ | | ✓<br>✓<br>✓ | |
+| Model parameter-based | Bias trajectory | Zhang et al. [102] | ✓ | | ✓ | | ✓ | ✓ |
 
-|  | Table 3. Taxonomy of membership inference attacks on federated learning. |  |  |
+| | Table 3. Taxonomy of membership inference attacks on federated learning. | | |
 |--|--------------------------------------------------------------------------|--|--|
-|  |                                                                          |  |  |
+| | | | |
 
-# <span id="page-10-0"></span>4 MEMBERSHIP INFERENCE ATTACKS IN FEDERATED LEARNING
+## <span id="page-10-0"></span>4 MEMBERSHIP INFERENCE ATTACKS IN FEDERATED LEARNING
 
 In this section, we provide a detailed examination of specific attacks within the FL context from both update-based and trend-based perspectives.
 
-# 1 Update-based Membership Inference Attacks
+## 1 Update-based Membership Inference Attacks
 
 Although FL prevents access to the raw training data, it is still vulnerable to MIAs owning to the gradient/weight exchanged. An update-based MIA directly leverages exchanged information to develop an attack model that distinguishes between members and non-members. According to the exchanged information, these attacks can be further divided into those based on model gradient and model parameter. The former directly exploits original gradients or gradient differences as the input of attack models, whereas the latter extends the shadow training method to FL scenarios or uses a specialized structure of the target model to infer membership information.
 
@@ -287,11 +284,10 @@ Although FL prevents access to the raw training data, it is still vulnerable to 
 ![](_page_10_Figure_6.jpeg)
 <!-- Image Description: This flowchart illustrates a federated learning attack. An adversary downloads model parameters (θ<sup>s</sup>) from a global model. These parameters are then processed to extract gradients (g), hidden layer outputs (h), loss (ℓ), and labels (y) for multiple training rounds. This extracted data is used to train a separate "attack model," which leverages the information extracted from the global model parameters. The boxes represent the extracted data components; the brain icons represent the global and attack models. -->
 
-Fig. 5. Overview of update-based MIAs by using original gradients and other intermediate features.
+Figure 5. Overview of update-based MIAs by using original gradients and other intermediate features.
 
 Infer Membership via Original Gradient. This approach commonly regards the original gradients exchanged as one of the attack features and trains an attack model to discern the membership status. Nasr et al. [\[26\]](#page-28-9) develop a pioneering inference attack against the FedAvg algorithm [\[12\]](#page-27-6), which can infer leaked private information in the ML model by exploiting gradients and intermediate outputs in either an active or a passive manner. A participant or server can gather original gradients, hidden layer outputs, loss values, and ground truth labels over multiple iterations and exploit them to construct an attack model in a passive strategy, as depicted in Fig[.5.](#page-10-1) Moreover, this work also develops an active attack strategy that causes victim participants to divulge more information through the gradient ascent algorithm. Specifically, for a query example x, an active attack performs gradient ascent as shown in Eq.[\(5\)](#page-10-2), where represents the local learning rate, and (x, ) denotes the loss on x.
 
-<span id="page-10-2"></span>
 $$
 \theta \leftarrow \theta + \eta \frac{\partial L\left(\mathbf{x}, \theta\right)}{\partial \theta}.\tag{5}
 $$
@@ -308,7 +304,6 @@ Infer Membership via Gradient Difference. To address the limitations of using or
 
 Li et al. [\[33\]](#page-28-14) propose two passive MIAs called the gradient-diff attack and cosine attack. In these approaches, the adversary computes the gradient difference in consecutive rounds to deduce the membership status. The gradient-diff attack is based on gradient orthogonality, through Eq.[\(6\)](#page-11-0) to indicate the membership status of x, where Δ +1 denotes the local model update of client in the ( + 1)-th iteration. If Eq.[\(6\)](#page-11-0) holds, x is a training record in the private set .
 
-<span id="page-11-0"></span>
 $$
 \left\| \Delta \theta_c^{t+1} \right\|_2^2 - \left\| \Delta \theta_c^{t+1} - \sum_{y \in Y} \nabla_\theta \ell \left( F \left( \mathbf{x}; \theta_s^t \right), y \right)_2^2 \right\| > 0. \tag{6}
 $$
@@ -328,7 +323,7 @@ Infer Membership via Shadow Training. Inspired by the shadow training technique 
 <span id="page-12-0"></span>![](_page_12_Figure_4.jpeg)
 <!-- Image Description: This flowchart illustrates a federated learning system under attack. An adversary updates a GAN discriminator, influencing a global model hosted on a central server. Participants download the global model, train local models, and upload updates. The adversary attacks both the global and local models, indicated by dashed red arrows showing the attack model's influence on the update process. The diagram's purpose is to visually represent the attack's workflow within the federated learning framework. -->
 
-Fig. 6. Overview of updated-based MIAs enhanced by data augmentation.
+Figure 6. Overview of updated-based MIAs enhanced by data augmentation.
 
 Shadow training approaches can be enhanced by focusing on the construction of both shadow datasets and attack datasets [\[27,](#page-28-10) [32,](#page-28-13) [61,](#page-30-0) [93,](#page-31-9) [96\]](#page-31-12). Data augmentation is implemented to boost the shadow dataset in the FL setting. As illustrated in Fig[.6,](#page-12-0) an attacker uses a shared global model as the discriminator of a GAN to generate diverse data and update it during the learning process. After generating sufficient attack data, the attacker trains a binary attack model by shadow training approach. Zhang et al. [\[27\]](#page-28-10) first employ GANs to enhance the MIAs launched by insiders. Subsequently, Liu et al. [\[32\]](#page-28-13) develop an MIA in which an eavesdropper behaves as a regular participant but has no knowledge of the private training dataset and attempts to attack the global model in FL. Assuming that clients' labels are non-overlapping among different participants, source-level MIAs can be launched by comparing the query example's prediction result and label distribution among participants [\[61,](#page-30-0) [93\]](#page-31-9). In terms of attack data construction, MIA-BAD [\[96\]](#page-31-12) improves shadow training methods by introducing a batch-wise attack dataset, inspired by the ensembling phenomenon [\[107\]](#page-32-2).
 
@@ -336,30 +331,29 @@ As for attacks beyond classification tasks, Yuan et al. [\[98\]](#page-31-14) in
 
 Infer Membership via Structure Modifying. In such attacks, a malicious server may actively manipulate model structures to infer membership information. Pichler et al. [\[34\]](#page-28-15) study an active attack by modifying the network of the client model. This approach uses the rectified linear unit (ReLU) property that the derivative of an output with respect to the parameters is zero when the output is negative. Specifically, a malicious server embeds a network module equipped with ReLU activations into the target model, followed by configuring its parameters to enable activation by training members. When encountering an unseen query example, the parameters within the architecture remain unaltered. Consequently, the attacker determines the membership status by comparing the parameter changes with a predetermined threshold. A similar idea is also explored in [\[99\]](#page-31-15), where a malicious server carefully crafts and embeds malicious parameters into a specific neuron, which a member sample can only activate. The dishonest server can infer membership details by examining the neuron's gradient during the learning process. These attacks are simple yet effective, with the malicious strategy applicable to networks utilizing ReLU activations.
 
-<span id="page-13-0"></span>
 
-| Year Reference                              | Task           | Technique                          | Comparison      | Summary                         |
+| Year Reference | Task | Technique | Comparison | Summary |
 |---------------------------------------------|----------------|------------------------------------|-----------------|---------------------------------|
-| 2019 Nasr et al. [26]                       | Classification | Intermediate output                | [22]            | Use original gradients          |
-| 2021 Gupta et al. [31]                      | Regression     | Intermediate output                | -               | ⊖ Require large feature vectors |
-| 2020 Lu et al. [94]                         | Classification | Intermediate output                | -               | ⊖ Require auxiliary member data |
-| 2019 Melis et al. [17]                      | Embedding      | Non-zero gradient                  | -               | Use gradient differences        |
-| 2023 Li et al. [33]                         | Classification | Gradient orthogonality [110]       |                 | ⊕ Require fewer feature vectors |
-| 2024 Zhu et al. [59]                        | Classification | Gradient similarity                | [26, 33, 85]    | ⊕ Low computation               |
-| 2022 Liu et al. [32]                        | Classification | Data reconstruction                | -               |                                 |
-| 2022 Pustozerova et al. [28] Classification |                | Sequential update                  | Random guessing |                                 |
-| 2020 Zhang et al. [27]                      | Classification | Data augmentation                  | Random guessing |                                 |
-| 2020 Chen et al. [61]                       | Classification | Non-overlapping label [26]         |                 | Extend shadow training to FL    |
-| 2021 Zhao et al. [93]                       | Classification | Non-overlapping label -            |                 | ⊕ Launched by any role          |
-| 2023 Luqman et al. [95]                     | Classification | Peer-to-peer update                | -               | ⊕ Enhanced by data augmentation |
-| 2024 Banerjee et al. [96]                   | Classification | Batch-wise feature                 | [22]            | ⊖ Underexplored information     |
-| 2018 Truex et al. [97]                      | Classification | Decision boundary                  | Random guessing |                                 |
-|                                             |                |                                    | K-means         |                                 |
-| 2023 Yuan et al. [98]                       |                | Recommendation Embedding relevance | Randow guessing |                                 |
-| 2022 Pichler et al. [34]                    | Classification | ReLU activation                    | -               | Modify the target model         |
-| 2022 Nguyen et al. [99]                     | Classification | Poisoned neuron                    | -               | ⊕ Low computation               |
-|                                             |                |                                    |                 | ⊖ Require specialized networks  |
-|                                             |                |                                    |                 |                                 |
+| 2019 Nasr et al. [26] | Classification | Intermediate output | [22] | Use original gradients |
+| 2021 Gupta et al. [31] | Regression | Intermediate output | - | ⊖ Require large feature vectors |
+| 2020 Lu et al. [94] | Classification | Intermediate output | - | ⊖ Require auxiliary member data |
+| 2019 Melis et al. [17] | Embedding | Non-zero gradient | - | Use gradient differences |
+| 2023 Li et al. [33] | Classification | Gradient orthogonality [110] | | ⊕ Require fewer feature vectors |
+| 2024 Zhu et al. [59] | Classification | Gradient similarity | [26, 33, 85] | ⊕ Low computation |
+| 2022 Liu et al. [32] | Classification | Data reconstruction | - | |
+| 2022 Pustozerova et al. [28] Classification | | Sequential update | Random guessing | |
+| 2020 Zhang et al. [27] | Classification | Data augmentation | Random guessing | |
+| 2020 Chen et al. [61] | Classification | Non-overlapping label [26] | | Extend shadow training to FL |
+| 2021 Zhao et al. [93] | Classification | Non-overlapping label - | | ⊕ Launched by any role |
+| 2023 Luqman et al. [95] | Classification | Peer-to-peer update | - | ⊕ Enhanced by data augmentation |
+| 2024 Banerjee et al. [96] | Classification | Batch-wise feature | [22] | ⊖ Underexplored information |
+| 2018 Truex et al. [97] | Classification | Decision boundary | Random guessing | |
+| | | | K-means | |
+| 2023 Yuan et al. [98] | | Recommendation Embedding relevance | Randow guessing | |
+| 2022 Pichler et al. [34] | Classification | ReLU activation | - | Modify the target model |
+| 2022 Nguyen et al. [99] | Classification | Poisoned neuron | - | ⊕ Low computation |
+| | | | | ⊖ Require specialized networks |
+| | | | | |
 
 Table 4. Summary of update-based membership inference attacks on federated learning.
 
@@ -374,7 +368,7 @@ Trend-based MIAs examine the evolution of an indicator associated with membershi
 <span id="page-14-0"></span>![](_page_14_Figure_4.jpeg)
 <!-- Image Description: The image illustrates an adversary's attack on a federated learning system. An adversary downloads global/local model parameters (θ¹...θᵀ) represented as brains. These parameters are processed to extract indicators (I¹...Iᵀ), shown as light blue boxes. A scatter plot then shows the indicator trend over training rounds, suggesting a method for detecting adversarial behavior by analyzing the trend of extracted indicators. -->
 
-Fig. 7. Overview of trend-based MIAs.
+Figure 7. Overview of trend-based MIAs.
 
 4.2.1 Model Output-based MIAs. For an ML model, the prediction score (a.k.a, confidence) and predication loss in the private data of participants often increases faster than that observed from testing data as the model converges, partially due to overfitting and memorization. Inspired by this phenomenon, the difference in model output changes between training and test data across iterations is used when inferring membership information [\[30,](#page-28-11) [35,](#page-28-17) [100\]](#page-31-16).
 
@@ -392,7 +386,6 @@ Infer Membership via Loss Trajectory. This approach typically examines the chang
 
 non-target clients, particularly in scenarios with homogeneous data distributions.
 
-<span id="page-16-0"></span>
 $$
 \mathcal{L}_{t} = \sum_{(\mathbf{x}, y) \in D_{s}} \ell_{t} (\mathbf{x}, y)
 $$
@@ -413,43 +406,42 @@ To conclude, trend-based attacks exploit the trajectory of model output or param
 
 In this section, we examine the existing update-based and trend-based MIAs in the context of FL. Update-based approaches focus on extracting membership information from model updates exchanged between clients and the server, including model gradients and historical models throughout the federated learning process. In contrast, trend-based approaches analyze the evolving patterns of the training data to conduct MIAs, capitalizing on the observation that member samples exhibit distinct behaviors compared to non-member samples from an indicator perspective as the learning process progresses.
 
-<span id="page-17-0"></span>
 
-| Year Reference                                                                                                                     | Task | Technique                                                                                                                         | Comparison                   | Summary                                                                                       |
+| Year Reference | Task | Technique | Comparison | Summary |
 |------------------------------------------------------------------------------------------------------------------------------------|------|-----------------------------------------------------------------------------------------------------------------------------------|------------------------------|-----------------------------------------------------------------------------------------------|
-| 2021 Zari et al. [35]<br>2022 Gu et al. [30]<br>2023 Zhang et al. [100] Classification Poisoning gradient<br>2023 Liu et al. [101] |      | Classification Predication sequence<br>Classification Modified predication sequence [26]<br>Classification Adversarial robustness | [26]<br>[17, 26]<br>[26, 46] | Use prediction trajectory<br>⊕ Require fewer feature vectors<br>⊖ Require ground truth labels |
-| 2021 Hu et al. [29]                                                                                                                |      | Classification Loss comparison                                                                                                    |                              | Random guessing Use loss trajectory                                                           |
-| 2022 Suri et al. [36]                                                                                                              |      | Classification Multi-round loss                                                                                                   | Random guessing              | ⊕ Require fewer feature vectors                                                               |
-| 2024 Zhu et al. [59]                                                                                                               |      | Classification Multi-round-client loss                                                                                            | [26, 33, 85]                 | ⊖ Require ground truth labels                                                                 |
-| 2023 Zhang et al. [102] Classification Multi-round bias                                                                            |      |                                                                                                                                   | [26, 112, 113]               | Use parameter changes<br>⊕ Require fewer feature vectors<br>⊕ Without label requirement       |
+| 2021 Zari et al. [35]<br>2022 Gu et al. [30]<br>2023 Zhang et al. [100] Classification Poisoning gradient<br>2023 Liu et al. [101] | | Classification Predication sequence<br>Classification Modified predication sequence [26]<br>Classification Adversarial robustness | [26]<br>[17, 26]<br>[26, 46] | Use prediction trajectory<br>⊕ Require fewer feature vectors<br>⊖ Require ground truth labels |
+| 2021 Hu et al. [29] | | Classification Loss comparison | | Random guessing Use loss trajectory |
+| 2022 Suri et al. [36] | | Classification Multi-round loss | Random guessing | ⊕ Require fewer feature vectors |
+| 2024 Zhu et al. [59] | | Classification Multi-round-client loss | [26, 33, 85] | ⊖ Require ground truth labels |
+| 2023 Zhang et al. [102] Classification Multi-round bias | | | [26, 112, 113] | Use parameter changes<br>⊕ Require fewer feature vectors<br>⊕ Without label requirement |
 
 ## Table 5. Summary of trend-based membership inference attacks on federated learning.
 
 <span id="page-17-1"></span>⊕: Advantages; ⊖: Disadvantages
 
-|  |  |  | Table 6. A comparison of attack approaches in centralized and federated learning. |  |  |
+| | | | Table 6. A comparison of attack approaches in centralized and federated learning. | | |
 |--|--|--|-----------------------------------------------------------------------------------|--|--|
-|  |  |  |                                                                                   |  |  |
+| | | | | | |
 
-| Setting | Type             | Approach               | Phase          | Attack Feature             | Unique1 |
+| Setting | Type | Approach | Phase | Attack Feature | Unique1 |
 |---------|------------------|------------------------|----------------|----------------------------|---------|
-|         |                  |                        |                | Model output               |         |
-|         | Classified-based | Shadow training        |                | Intermediate output        | #       |
-|         |                  | Prediction correctness |                | Model output               |         |
-| CL      |                  | Prediction loss        | Inference      | Loss of model output<br>G# |         |
-|         | Metric-based     | Prediction confidence  |                | Model output<br>G#         |         |
-|         |                  | Prediction entropy     |                | Model output               |         |
-|         |                  |                        |                | Model output               |         |
-|         | Update-based     | Original gradient      | Aggregation    | Gradient                   |         |
-|         |                  |                        |                | Intermediate output        |         |
-|         |                  |                        | Aggregation    | Gradients within           |         |
-| FL      |                  | Gradient difference    | Communication  | consecutive iterations     |         |
-|         |                  | Shadow training        | Local training | Global model               | #       |
-|         |                  | Structure modifying    | Local training | Global model               |         |
-|         |                  | Prediction trajectory  |                | Model output               |         |
-|         |                  | Loss trajectory        | Local training | within several iterations  | G#      |
-|         | Trend-based      |                        |                | Model bias                 |         |
-|         |                  | Bias trajectory        | Local training | within several iterations  |         |
+| | | | | Model output | |
+| | Classified-based | Shadow training | | Intermediate output | # |
+| | | Prediction correctness | | Model output | |
+| CL | | Prediction loss | Inference | Loss of model output<br>G# | |
+| | Metric-based | Prediction confidence | | Model output<br>G# | |
+| | | Prediction entropy | | Model output | |
+| | | | | Model output | |
+| | Update-based | Original gradient | Aggregation | Gradient | |
+| | | | | Intermediate output | |
+| | | | Aggregation | Gradients within | |
+| FL | | Gradient difference | Communication | consecutive iterations | |
+| | | Shadow training | Local training | Global model | # |
+| | | Structure modifying | Local training | Global model | |
+| | | Prediction trajectory | | Model output | |
+| | | Loss trajectory | Local training | within several iterations | G# |
+| | Trend-based | | | Model bias | |
+| | | Bias trajectory | Local training | within several iterations | |
 
 <sup>1</sup> : unique attack G#: partially unique attack #: common attack
 
@@ -457,28 +449,27 @@ For a comprehensive understanding of MIAs in the FL context, we compare them wit
 
 Additionally, source-level MIAs are distinct in the FL setting because of its collaborative training strategy. From the perspective of the central server, this is intuitively equivalent to using recordlevel MIAs to sequentially infer the membership status of each local model [\[27,](#page-28-10) [61\]](#page-30-0). However, for a more effective and efficient attack, it is essential to consider the local models from all clients simultaneously. Hu et al. [\[29\]](#page-28-16) compare the loss values across clients and identify the client with the lowest loss as having the source dataset. Zhang et al. [\[102\]](#page-31-18) leverage the bias differences in the final layer and analyze multiple model epochs to identify the member source. They assign the data to the participant exhibiting the smallest change in bias. Current MIA research primarily emphasizes record-level privacy risks, as the membership leakage of an individual sample is central to private information exposure. Additionally, most record-level attacks can be extended to source-level attacks [\[102\]](#page-31-18).
 
-# <span id="page-18-0"></span>5 MEMBERSHIP INFERENCE DEFENSES IN FEDERATED LEARNING
+## <span id="page-18-0"></span>5 MEMBERSHIP INFERENCE DEFENSES IN FEDERATED LEARNING
 
 Various defenses have been proposed to alleviate the growing concerns regarding private information leaked through MIAs in the FL setting. In this section, we review existing defense strategies and divide them into four categories, namely, partial sharing, secure aggregation, noise perturbation and anomaly detection. Each category is classified further based on specific approaches, as illustrated in Table [7.](#page-18-1)
 
-<span id="page-18-1"></span>
 
-| Type               | Approach                                              | Advantages                                                   | Disadvantages                   |  |
+| Type | Approach | Advantages | Disadvantages | |
 |--------------------|-------------------------------------------------------|--------------------------------------------------------------|---------------------------------|--|
-|                    | Gradient compression                                  | Slight utility loss                                          | Limited mitigation effect       |  |
-| Partial sharing    | Weight pruning                                        | Low computation cost                                         |                                 |  |
-|                    | Secure multi-party computation Lossless model utility |                                                              | High computation cost           |  |
-| Secure aggregation | Homomorphic encryption                                | Without a trusted server                                     | Vulnerable to malicious clients |  |
-|                    |                                                       | Protection from the central server                           |                                 |  |
-| Noise perturbation | Differential privacy                                  | Strong privacy guarantee                                     |                                 |  |
-|                    | Random perturbation                                   | Protection from a server and clients High model utility loss |                                 |  |
-| Anomaly detection  | Misbehaving identification                            | Defend against poisoning MIAs                                | Fail for passive attacks        |  |
+| | Gradient compression | Slight utility loss | Limited mitigation effect | |
+| Partial sharing | Weight pruning | Low computation cost | | |
+| | Secure multi-party computation Lossless model utility | | High computation cost | |
+| Secure aggregation | Homomorphic encryption | Without a trusted server | Vulnerable to malicious clients | |
+| | | Protection from the central server | | |
+| Noise perturbation | Differential privacy | Strong privacy guarantee | | |
+| | Random perturbation | Protection from a server and clients High model utility loss | | |
+| Anomaly detection | Misbehaving identification | Defend against poisoning MIAs | Fail for passive attacks | |
 
-|  | Table 7. Taxonomy of membership inference defenses in federated learning. |  |  |  |
+| | Table 7. Taxonomy of membership inference defenses in federated learning. | | | |
 |--|---------------------------------------------------------------------------|--|--|--|
-|  |                                                                           |  |  |  |
+| | | | | |
 
-# 1 Partial Sharing
+## 1 Partial Sharing
 
 Partial sharing aims to reduce the effectiveness of inference attacks by suppressing certain updates exchanged during the FL process. Since the internal state of FL models is susceptible to MIA attacks through sharing parameters or gradients, one straightforward approach is to limit the information available to adversaries by reducing the amount of data shared [\[66\]](#page-30-5). Defenses based on this category can be further divided into gradient compression and weight pruning.
 
@@ -566,54 +557,52 @@ Anomaly detection is crucial in safeguarding FL processes by identifying irregul
 
 Ma et al. [\[67\]](#page-30-6) introduce an innovative client-side countermeasure called LoDEN to defend against active attacks in [\[26\]](#page-28-9) by identifying and removing suspicious training samples. The active attack, executed through the gradient ascent algorithm, deliberately alters the model update of specific training examples, allowing the attacker to infer the membership status by observing gradient changes. LoDEN employs a localized approach to counteract its impact on the FL model. It identifies malicious updates by monitoring abrupt changes in the model outputs of training samples. Specifically, if the predicted label for a training sample shifts from correct to incorrect over several iterations, LoDEN identifies it as a malicious example. This example and its neighbors are removed from subsequent training, thus safeguarding the membership privacy of target models.
 
-<span id="page-24-0"></span>
 
-| Type                    | Year | Reference              | Defender Corres. | attack | Defense<br>approach                | Comparison                                 |
+| Type | Year | Reference | Defender Corres. | attack | Defense<br>approach | Comparison |
 |-------------------------|------|------------------------|------------------|--------|------------------------------------|--------------------------------------------|
-|                         | 2019 | Melis et al. [17]      | Server           | [17]   | Selective gradient                 | -                                          |
-|                         | 2018 | Bernstein et al. [105] | Client<br>Server | [33]   | Gradient sign                      | Differential privacy<br>Mix-up+MMD [155]   |
-| Partial sharing         | 2019 | Chang et al. [120]     | Server           | [26]   | Prediction aggregation -           |                                            |
-|                         | 2022 | Stripelis et al. [121] | Server           | [31]   | Weight pruning                     | FedAvg                                     |
-| Secure aggregation 2017 |      | Bonawitz et al.[127]   | Client           | [30]   | Secret sharing &<br>Double-masking | -                                          |
-|                         | 2017 | Bai et al.[134]        | Client           | [26]   | HE                                 | -                                          |
-|                         | 2018 | Rahman et al. [147]    | Client<br>Server | [22]   | LDP                                | Random guessing                            |
-|                         | 2021 | Hu et al. [29]         | Client           | [29]   | LDP                                | -                                          |
-|                         | 2022 | Suri et al. [36]       | Client           | [36]   | LDP<br>Subject DP                  | Random guessing                            |
-| Noise perturbation      | 2022 | Liu et al. [32]        | Server           | [22]   | LDP &<br>Trust domain              | -                                          |
-|                         | 2022 | Naseri et al. [66]     | Client<br>Server | [26]   | LDP<br>CDP                         | Norm bounding                              |
-|                         | 2022 | Yang et al. [65]       | Server           | [26]   | Random perturbation                | FedAvg, PPDL [62]<br>DBCL [156], SPN [149] |
-|                         | 2021 | Xie et al. [150]       | Server           | [26]   | Adversarial example                | Random guessing                            |
-|                         | 2021 | Lee et al. [60]        | Client           | [26]   | Digestive network                  | DP                                         |
-| Anomaly detection 2023  |      | Ma et al. [67]         | Client           | [26]   | Sample selection                   | Robust aggregation                         |
+| | 2019 | Melis et al. [17] | Server | [17] | Selective gradient | - |
+| | 2018 | Bernstein et al. [105] | Client<br>Server | [33] | Gradient sign | Differential privacy<br>Mix-up+MMD [155] |
+| Partial sharing | 2019 | Chang et al. [120] | Server | [26] | Prediction aggregation - | |
+| | 2022 | Stripelis et al. [121] | Server | [31] | Weight pruning | FedAvg |
+| Secure aggregation 2017 | | Bonawitz et al.[127] | Client | [30] | Secret sharing &<br>Double-masking | - |
+| | 2017 | Bai et al.[134] | Client | [26] | HE | - |
+| | 2018 | Rahman et al. [147] | Client<br>Server | [22] | LDP | Random guessing |
+| | 2021 | Hu et al. [29] | Client | [29] | LDP | - |
+| | 2022 | Suri et al. [36] | Client | [36] | LDP<br>Subject DP | Random guessing |
+| Noise perturbation | 2022 | Liu et al. [32] | Server | [22] | LDP &<br>Trust domain | - |
+| | 2022 | Naseri et al. [66] | Client<br>Server | [26] | LDP<br>CDP | Norm bounding |
+| | 2022 | Yang et al. [65] | Server | [26] | Random perturbation | FedAvg, PPDL [62]<br>DBCL [156], SPN [149] |
+| | 2021 | Xie et al. [150] | Server | [26] | Adversarial example | Random guessing |
+| | 2021 | Lee et al. [60] | Client | [26] | Digestive network | DP |
+| Anomaly detection 2023 | | Ma et al. [67] | Client | [26] | Sample selection | Robust aggregation |
 
-|  | Table 8. Summary of studies on membership inference defenses in federated learning. |  |  |  |
+| | Table 8. Summary of studies on membership inference defenses in federated learning. | | | |
 |--|-------------------------------------------------------------------------------------|--|--|--|
-|  |                                                                                     |  |  |  |
+| | | | | |
 
 Table 9. A comparison of defense approaches in centralized and federated learning.
 
-<span id="page-24-1"></span>
 
-| Setting | Type                   | Phase                         | Protection              | Unique1 |
+| Setting | Type | Phase | Protection | Unique1 |
 |---------|------------------------|-------------------------------|-------------------------|---------|
-| CL      | Output perturbation    | Inference                     | Model output            |         |
-|         | Regularization         | Training                      | Target model            | G#      |
-|         | Knowledge distillation | Training                      | Target model            |         |
-|         | Differential privacy   | Training                      | Target model            | #       |
-| FL      | Partial sharing        | Communication                 | Model update            |         |
-|         | Secure aggregation     | Communication and aggregation | Model update and itself |         |
-|         | Noise perturbation     | Training and aggregation      | Target model            | G#      |
-|         | Anomaly detection      | Aggregation                   | Target model            |         |
+| CL | Output perturbation | Inference | Model output | |
+| | Regularization | Training | Target model | G# |
+| | Knowledge distillation | Training | Target model | |
+| | Differential privacy | Training | Target model | # |
+| FL | Partial sharing | Communication | Model update | |
+| | Secure aggregation | Communication and aggregation | Model update and itself | |
+| | Noise perturbation | Training and aggregation | Target model | G# |
+| | Anomaly detection | Aggregation | Target model | |
 
 <sup>1</sup> : unique defense G#: partially unique defense #: common defense
 
-# 5 Comparison to Defenses in Centralized Learning
+## 5 Comparison to Defenses in Centralized Learning
 
 This section discusses four strategies to mitigate MIAs in FL, but their capabilities to protect against attacks vary. Partial sharing hides certain updates to diminish the effectiveness of attacks, which can be applied to arbitrary threat models. Regarding secure aggregation utilizing cryptographic techniques, SMC and HE generally provide defense against server-side attacks but become ineffective to the inference performed by a client with legal access to the global model. One of the noise perturbation methods, DP offers a strict theoretical guarantee in safeguarding against attacks from all sides in an arbitrary strategy but with an inevitable utility loss, which motivates researchers to address this limitation by incorporating removable or well-crafted noises. The anomaly detection method is tailored to counter active attacks but proves ineffective against passive attacks. Table [8](#page-24-0) summarizes representative defense studies that have reported empirical performance in terms of release year, defender role, defense approach, corresponding MIAs (i.e., corres.attack), and comparison methods.
 
 Moreover, our research explores a comparative analysis of mitigation strategies in CL and FL, with the goal of deepening the understanding of countermeasures specifically within the FL context. We examine defensive strategies from two angles: the phase when a defender implements countermeasure algorithms and the objects they aim to safeguard against information leaks. These comparisons are outlined in Table [9.](#page-24-1) Notably, the process of model updates, a distinctive trait within the FL framework, stands out as an additional avenue for potential breaches in membership privacy. Consequently, defense strategies employed in FL, such as partial sharing, secure aggregation, and anomaly detection, significantly differ from those related to CL contexts.
 
-# <span id="page-25-0"></span>6 FUTURE DIRECTION
+## <span id="page-25-0"></span>6 FUTURE DIRECTION
 
 The field of MIA privacy is rapidly evolving, presenting numerous challenges and opportunities. In the following, we discuss potential research directions on MIAs and defense strategies in the context of FL.
 
@@ -629,7 +618,7 @@ Attacks toward Emerging Frameworks. The membership privacy risks associated with
 
 Emsembled Attack Strategies. Considering that FL is susceptible to various security attacks, such as poisoning attacks [\[152,](#page-34-1) [163–](#page-34-12)[166\]](#page-34-13) and backdoor attacks [\[167–](#page-34-14)[170\]](#page-34-15), there is an opportunity for future work to incorporate these attacks to enhance the effectiveness of existing MIA techniques or develop potent attack approaches. In particular, data poisoning techniques have emerged as a significant concern, as they can significantly increase the privacy risks associated with benign training samples and amplify the membership exposure of the targeted class effectively [\[48,](#page-29-12) [49,](#page-29-13) [100\]](#page-31-16). Reasons for Information Leakage. The comprehensive analysis of membership information leakage in the context of FL remains inadequate. In the CL scenario, there is considerable evidence that overfitting facilitates the success of MIAs in the black setting [\[22,](#page-28-18) [85,](#page-31-1) [86,](#page-31-2) [89,](#page-31-5) [112\]](#page-32-7). In contrast, regarding white-box FL models, internal exposure, non-IID training samples, and cooperative learning offer adversaries more opportunities [\[26\]](#page-28-9). They present challenges in exploring the underlying reasons behind these factors theoretically and empirically. Such investigations can uncover vulnerabilities within the FL framework and advance the development of effective attack approaches.
 
-# 2 Research Direction about Membership Inference Defenses
+## 2 Research Direction about Membership Inference Defenses
 
 Unified Evaluation Benchmark. There is a lack of a standardized evaluation benchmark for assessing the effectiveness of defense mechanisms. Currently, countermeasures are typically evaluated based on distinct MIAs [\[29,](#page-28-16) [36,](#page-29-0) [62\]](#page-30-1) or discussed generally without experimental evidence [\[128,](#page-33-0) [129\]](#page-33-1). Although several researchers [\[65,](#page-30-4) [66,](#page-30-5) [120,](#page-32-15) [150\]](#page-33-22) have evaluated the effectiveness of defense strategies for the same MIAs [\[26\]](#page-28-9), their results cannot be compared owing to the use of different datasets and networks. Consequently, it is challenging to identify suitable mitigation mechanisms for a defender. A unified evaluation benchmark can address this problem and provide valuable guidance in making practical choices.
 
@@ -639,15 +628,15 @@ Privacy-Utility-Efficiency Defense Mechanisms. There is a scarcity of effective 
 
 Robust Defense Mechanisms. Exploration of robust protection strategies shows promise in preventing membership leakage while avoiding introducing additional risks. An instance of this is when FL protected by DP inadvertently creates an opportunity for model poisoning attacks, enabling attackers to evade anomaly detection [\[171\]](#page-34-16). Additionally, given the strong negative correlation between MIAs and model extraction attacks [\[172,](#page-34-17) [173\]](#page-34-18), the mitigation of MIAs may improve the effectiveness of model extraction attacks. Such occurrences should be avoided as the objective is to build a robust and safe FL model in most scenarios. Hence, researchers should consider the latent correlation among attacks when developing defense approaches against MIAs.
 
-# <span id="page-27-7"></span>7 CONCLUSION
+## <span id="page-27-7"></span>7 CONCLUSION
 
 MIAs represent a critical and rapidly evolving research area within FL. This survey comprehensively summarizes the landscape of MIAs and corresponding defenses within the FL framework, providing structured taxonomies to categorize existing literature. Based on the utilization of attack knowledge in these studies, we categorize MIA research into two primary approaches: update-based and trend-based. In addition to attacks in FL, we highlight prevalent defense mechanisms currently deployed to mitigate the vulnerabilities MIAs pose. These defenses encompass a range of strategies, from partial sharing techniques to noise perturbation. Furthermore, this survey identifies promising avenues for future research in MIA and defense strategies. Key opportunities include exploring novel attack vectors in diverse FL settings, refining existing defense mechanisms, and integrating robust privacy-preserving techniques into FL frameworks. These future studies can help enhance security and privacy guarantees in FL.
 
-# ACKNOWLEDGMENTS
+## ACKNOWLEDGMENTS
 
 This work was supported by the National Natural Science Foundation of China (Grant No: 62072390, 92270123, 62102334), and the Research Grants Council, Hong Kong SAR, China (Grant No: 15222118, 15218919, 15203120, 15226221, 15225921, 15209922, and C2004-21GF).
 
-# REFERENCES
+## REFERENCES
 
 - <span id="page-27-0"></span>[1] Wenyi Zhao, Rama Chellappa, P Jonathon Phillips, and Azriel Rosenfeld. 2003. Face recognition: A literature survey. ACM computing surveys (CSUR) 35, 4 (2003), 399–458.
 - [2] Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton. 2017. Imagenet classification with deep convolutional neural networks. Commun. ACM 60, 6 (2017), 84–90.

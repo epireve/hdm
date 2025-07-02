@@ -59,7 +59,8 @@ Eitan *et al. Extracell Vesicles Circ Nucleic Acids*2023;4:133-150**DOI:**10.205
 **Received:**8 Feb 2023**First Decision:**6 Mar 2023**Revised:**20 Mar 2023**Accepted:**23 Mar 2023**Published:**31 Mar 2023
 **Academic Editor:**Shilpa Buch**Copy Editor:**Ying Han**Production Editor:**Ying Han
 
-## Abstract
+# Abstract
+
 **Aims**: Blood biomarkers can improve drug development for Alzheimer's disease (AD) and its treatment. Neuronderived extracellular vesicles (NDEVs) in plasma offer a minimally invasive platform for developing novel biomarkers that may be used to monitor the diverse pathogenic processes involved in AD. However, NDEVs comprise only a minor fraction of circulating extracellular vesicles (EVs). Most published studies have leveraged the L1 cell adhesion molecule (L1CAM) for NDEV immunocapture. We aimed to develop and optimize an alternative, highly specific immunoaffinity method to enrich blood NDEVs for biomarker development.
 
 **Methods**: After screening multiple neuronal antigens, we achieved NDEV capture with high affinity and specificity using antibodies against Growth-Associated Protein (GAP) 43 and Neuroligin 3 (NLGN3). The EV identity of the captured material was confirmed by electron microscopy, western blotting, and proteomics. The specificity for
@@ -97,15 +98,14 @@ This study relied on de-identified samples from commercial or Government [Nation
 
 **NDEV isolation**: NDEV enrichment was performed using the NeuroDex ExoSORT kit (Cat. No NDX\_ESNeuro, NeuroDex, Natick, MA). Briefly, plasma samples were precipitated with 1/2 plasma volume of a NeuroDex total EV isolation reagent (Cat. No. NDX\_TPC) in 1/2 plasma volume, and pellets were resuspended in a binding buffer. Magnetic beads were conjugated with NeuroDex proprietary antibodies against GAP43 and NLGN3 and blocked with the NDX Blocking Reagent. The beads were incubated overnight with plasma samples at 4 °C with slow rotation. The following day, beads-NDEVs complexes were collected using a magnetic separator, washed three times using ExoSORT wash buffer, and transferred
 
-<span id="page-3-0"></span>
 
-| Cohort                                                | NIA         |                        | BioIVT/PMED  |                |
+| Cohort | NIA | | BioIVT/PMED | |
 |-------------------------------------------------------|-------------|------------------------|--------------|----------------|
-| Sample group                                          | Control     | Early-stage AD Control |              | Early-stage AD |
-| Age                                                   | 72.3 ± 6.97 | 73.53 ± 6.69           | 62.79 ± 6    | 66.22 ± 9.12   |
-| Gender                                                | 11F/9M      | 9F/10M                 | 7F/12M       | 21F/19M        |
-| Mini mental state examination (MMSE) score            | 28.7 ± 2.05 | 26.42 ± 3.28           | 28.88 ± 1.05 | 23.87 ± 1.93   |
-| Clinical Dementia Rating Scale sum of boxes (CDR-SOB) | 0           | 2.684 ± 1.5            | 0            | 3.98 ± 2.15    |
+| Sample group | Control | Early-stage AD Control | | Early-stage AD |
+| Age | 72.3 ± 6.97 | 73.53 ± 6.69 | 62.79 ± 6 | 66.22 ± 9.12 |
+| Gender | 11F/9M | 9F/10M | 7F/12M | 21F/19M |
+| Mini mental state examination (MMSE) score | 28.7 ± 2.05 | 26.42 ± 3.28 | 28.88 ± 1.05 | 23.87 ± 1.93 |
+| Clinical Dementia Rating Scale sum of boxes (CDR-SOB) | 0 | 2.684 ± 1.5 | 0 | 3.98 ± 2.15 |
 
 ### Table 1. Demographic information for the two study cohorts
 
@@ -118,19 +118,18 @@ into ExoSORT elution buffer. The elution of EVs was performed for 5 min at 50 °
 
 **Immunoassays**: Tau, p181-Tau, Aβ40, and Aβ42 were measured according to the manufacturer's instructions in undiluted NDEVs lysates using commercial Luminex kits (EMD Millipore, Cat. No. MXHABTM0N02010 and HNABTMAG-68K-04). Mature BDNF and proBDNF were measured in NDEVs lysates diluted 1:10 using a commercial Enzyme-Linked Immunosorbent Assay (ELISA) kit (Biosensis, Cat. No. BEK-2241). Apolipoprotein A (ApoA) (R&D system DY3664-05) and Albumin (R&D system DY1455) were also measured using commercial ELISA kits according to manufacturers' instructions. Rab3a, GLUR2, NLGN3, and L1CAM, as well as the EV markers Flotillin (FLOT)-1 and CD9, were measured by intact EV ELISA as described elsewhere[[23](#page-16-10)] . FLOT-1 and CD9 values were used to normalize ELISA results since the high content of non-EV particles in plasma challenges the accuracy of particle counts by NTA or light scatter.
 
-<span id="page-4-0"></span>
 
-| Gene ID                                        | TaqMan assay ID (Thermo Fisher Scientific) |
+| Gene ID | TaqMan assay ID (Thermo Fisher Scientific) |
 |------------------------------------------------|--------------------------------------------|
-| HCRT, hypocretin neuropeptide precursor/orexin | Hs01891339_s1                              |
-| NEFL, Neurofilament Light Chain                | Hs00196245_m1                              |
-| NRGN, Neurogranin                              | Hs00382922_m1                              |
-| ENO2, Enolase 2                                | Hs00157360_m1                              |
-| GPR26, G protein-coupled receptor 26           | Hs00538034_m1                              |
-| GPR101, G protein-coupled receptor 101         | Hs00369662_s1                              |
-| PSD95, postsynaptic density protein 95         | Hs01555373_m1                              |
+| HCRT, hypocretin neuropeptide precursor/orexin | Hs01891339_s1 |
+| NEFL, Neurofilament Light Chain | Hs00196245_m1 |
+| NRGN, Neurogranin | Hs00382922_m1 |
+| ENO2, Enolase 2 | Hs00157360_m1 |
+| GPR26, G protein-coupled receptor 26 | Hs00538034_m1 |
+| GPR101, G protein-coupled receptor 101 | Hs00369662_s1 |
+| PSD95, postsynaptic density protein 95 | Hs01555373_m1 |
 
-| Table 2. TaqMan gene expression assays were used in the study |  |  |  |  |
+| Table 2. TaqMan gene expression assays were used in the study | | | | |
 |---------------------------------------------------------------|--|--|--|--|
 |---------------------------------------------------------------|--|--|--|--|
 
@@ -148,31 +147,30 @@ An intact EV ELISA assay was performed with the NeuroDex ELISA kit (NDX\_ELISA).
 
 **Nanoparticle tracking analysis**: NDEV preparations were diluted 10 times in pre-filtered PBS (20 mm filters), and NTA analysis was performed using NanoSight 500 (Malvern Panalytical) as described
 
-<span id="page-5-0"></span>
 
-| Antigen                                    | Vendor                   | CAT. No    | Host   | Type       | Specificity |
+| Antigen | Vendor | CAT. No | Host | Type | Specificity |
 |--------------------------------------------|--------------------------|------------|--------|------------|-------------|
-| NRGN<br>Neurogranin                        | Bio Legend               | 845702     | Mouse  | Monoclonal | Hu, Mo, Rat |
-| NLGN<br>Neuroligin 3                       | NeuroDex                 | NDXNL3     | Rabbit | Monoclonal | Hu          |
-| Syntaxin-1<br>STXN1                        | BioLegend                | 827001     | Mouse  | Monoclonal | Hu, Mo, Rat |
-| CD63-biotin<br>CD63-bio                    | BioLegend                | 143918     | Mouse  | Monoclonal | Hu          |
-| CD81-biotin<br>CD81-bio                    | BioLegend                | 349502     | Mouse  | Monoclonal | Hu          |
-| Rab3A<br>Ras-like small GTPase 3A          | Abcam                    | ab234089   | Mouse  | Monoclonal | Hu          |
-| CD171<br>L1 cell adhesion molecule (L1CAM) | Thermo Fisher Scientific | 14-1719-82 | Mouse  | Monoclonal | Hu, Mo      |
-| PSD95<br>Postsynaptic density protein 95   | BioLegend                | 810301     | Mouse  | Monoclonal | Hu, Mo, Rat |
-| GluR1<br>AMPA receptor subunit 1           | Abcam                    | ab183797   | Rabbit | Monoclonal | Hu, Mo, Rat |
-| CD9                                        | Cell Signaling           | 13174S     | Rabbit | Monoclonal | Hu          |
-| FLOT-1<br>Flotillin-1                      | Novus Biologicals        | NBP1-79022 | Rabbit | Polyclonal | Human       |
-| TSG101                                     | Abcam                    | ab83       | Mouse  | Monoclonal | Human       |
-| GAP43<br>Growth-associated protein 43      | NeuroDex                 | NDXGP43    | Rabbit | Monoclonal | Hu, Mo, Rat |
-| GluR2A<br>Glutamate Receptor 2A            | Thermo Fisher Scientific | MA5-17084  | Mouse  | Monoclonal | Hu, Mo, Rat |
-| NeuN<br>Neuron-specific nuclear protein 1  | Abcam                    | ab177487   | Rabbit | Monoclonal | Hu, Mo      |
+| NRGN<br>Neurogranin | Bio Legend | 845702 | Mouse | Monoclonal | Hu, Mo, Rat |
+| NLGN<br>Neuroligin 3 | NeuroDex | NDXNL3 | Rabbit | Monoclonal | Hu |
+| Syntaxin-1<br>STXN1 | BioLegend | 827001 | Mouse | Monoclonal | Hu, Mo, Rat |
+| CD63-biotin<br>CD63-bio | BioLegend | 143918 | Mouse | Monoclonal | Hu |
+| CD81-biotin<br>CD81-bio | BioLegend | 349502 | Mouse | Monoclonal | Hu |
+| Rab3A<br>Ras-like small GTPase 3A | Abcam | ab234089 | Mouse | Monoclonal | Hu |
+| CD171<br>L1 cell adhesion molecule (L1CAM) | Thermo Fisher Scientific | 14-1719-82 | Mouse | Monoclonal | Hu, Mo |
+| PSD95<br>Postsynaptic density protein 95 | BioLegend | 810301 | Mouse | Monoclonal | Hu, Mo, Rat |
+| GluR1<br>AMPA receptor subunit 1 | Abcam | ab183797 | Rabbit | Monoclonal | Hu, Mo, Rat |
+| CD9 | Cell Signaling | 13174S | Rabbit | Monoclonal | Hu |
+| FLOT-1<br>Flotillin-1 | Novus Biologicals | NBP1-79022 | Rabbit | Polyclonal | Human |
+| TSG101 | Abcam | ab83 | Mouse | Monoclonal | Human |
+| GAP43<br>Growth-associated protein 43 | NeuroDex | NDXGP43 | Rabbit | Monoclonal | Hu, Mo, Rat |
+| GluR2A<br>Glutamate Receptor 2A | Thermo Fisher Scientific | MA5-17084 | Mouse | Monoclonal | Hu, Mo, Rat |
+| NeuN<br>Neuron-specific nuclear protein 1 | Abcam | ab177487 | Rabbit | Monoclonal | Hu, Mo |
 
-#### Table 3. Primary antibodies used in the study
+### Table 3. Primary antibodies used in the study
 
 previously[\[25\]](#page-16-12) .
 
-#### Statistical analysis
+### Statistical analysis
 
 Statistical analysis was conducted with SPSS v27.0 (IBM). To assess group differences for individual biomarkers, we used linear mixed models including each biomarker as an independent variable, sex and group (early-stage AD *vs.*control) as factors, and age as a covariate. Pairwise comparisons were assessed using least-squares means. Although this exploratory study was not powered to correct for multiple comparisons, when results met Bonferroni correction (i.e., significance level*P*< 0.003125 for 8 independently measured biomarkers in 2 independent cohorts), this is noted in Results and Figures. To assess whether results may be replicable across diverse populations, the NIA and BioIVT/PMED Cohorts were analyzed separately. We also assessed performance in diagnostic classification for AD/MCI*vs.*control status. To determine the simplest and most accurate classifier model based on multiple biomarkers, we performed discriminant classifier analysis stepwise with the Wilks' Lambda method, allowing biomarkers to "compete" against each other in each step with a minimum partial F of 3.84 to enter and 2.71 to remove. To determine the ability of individual biomarkers in group classification, receiver operator characteristic (ROC) analysis was conducted under the non-parametric distribution assumption. To assess the relationships among biomarkers and between biomarkers and clinical and cognitive scores, we computed zero-order and partial Pearson correlations (controlling for age and sex). Discriminant, ROC, and correlation analyses were conducted after combining all cohorts into one.
 **Data availability**: De-identified data are available upon request from a qualified investigator.
@@ -183,37 +181,36 @@ Statistical analysis was conducted with SPSS v27.0 (IBM). To assess group differ
 
 ExoSORT is a novel immunoaffinity-based method for EV isolation and was therefore evaluated for compliance with MISEV guidelines[[19\]](#page-16-6) [\[Figure 1\]](#page-8-0). Spherical morphology was shown by electron microscopy [\[Figure 1A](#page-8-0)], and average particle diameter in the 50-250 nm range was confirmed by nano-tracking analysis (NTA; [Figure 1B\)](#page-8-0), even though it seems that NDEVs display a non-normal size distribution. The presence of typical EV markers, CD9 and flotillin (FLOT1), as well as reduced levels of the non-EV protein albumin, were shown by Western blot/WES [[Figure 1C\]](#page-8-0). The depletion of contaminating plasma proteins was assessed using ELISAs for Apolipoprotein A1 (ApoA1) and albumin, with depletion of 95.95 ± 0.94% and 99.8 ± 0.2%, respectively (N = 6, *P*< 0.001; [Figure 1D](#page-8-0) and [E\)](#page-8-0). The relatively higher level of ApoA1 contamination compared to albumin is consistent with previous reports demonstrating EV interactions with HDL/LDL[[26](#page-16-13)] . Lipidomic analysis showed high concentrations of characteristic EV lipids, such as cholesterol, phosphatidylserine, and sphingomyelin [[Supplementary Figure 1A](https://oaepublishstorage.blob.core.windows.net/articlepdfpreview202303/5581-SupplementaryMaterials.pdf) and [Supplementary Table](https://oaepublishstorage.blob.core.windows.net/articlepdfpreview202303/5581-SupplementaryMaterials.pdf) [1A](https://oaepublishstorage.blob.core.windows.net/articlepdfpreview202303/5581-SupplementaryMaterials.pdf)], and unbiased proteomic analysis revealed multiple EV-specific proteins in the NDEV preparations [\[Supplementary Figure 1A](https://oaepublishstorage.blob.core.windows.net/articlepdfpreview202303/5581-SupplementaryMaterials.pdf) and [Supplementary Table 1B\]](https://oaepublishstorage.blob.core.windows.net/articlepdfpreview202303/5581-SupplementaryMaterials.pdf).
 
-#### NDEVs captured by ExoSORT are enriched for neuronal markers
+### NDEVs captured by ExoSORT are enriched for neuronal markers
 
 NDEVs captured by ExoSORT showed higher levels of neuron-specific proteins and 24-hydroxycholesterol, a lipid enriched in the brain[[27\]](#page-16-14) , compared to the procedural control, material immunocaptured using IgG isotype antibody [[Table 4](#page-7-0)]. The enrichment of neuronal proteins was also demonstrated by WES with antibodies against neuron-specific proteins, GluR2 and NeuN [[Figure 1F\]](#page-8-0). Unbiased proteomic analysis also revealed significant enrichment for neuronal proteins, as was shown by gene ontology analysis [\[Supplementary Table 2](https://oaepublishstorage.blob.core.windows.net/articlepdfpreview202303/5581-SupplementaryMaterials.pdf)]. Since EVs are the major carriers of circulating mRNAs[[28](#page-16-15)] and RNA measurements are less sensitive to matrix effects, neuron-specific mRNA content was compared between NDEVs and unprocessed plasma [[Table 4](#page-7-0) and [Figure 1G\]](#page-8-0). The NDEV levels of mRNA encoding for hemoglobin beta chain (HBB, erythrocyte marker), as well as platelet factor 4 (PF4, platelet marker), and albumin (ALB, liver marker), were less than 6% of those in unprocessed plasma, suggesting successful depletion of non-specific material; in contrast, the levels of mRNA encoding for the neuronal marker NRGN were similar in NDEVs and plasma, pointing to efficient recovery of neuron-specific EVs [\[Figure 1G](#page-8-0)]. The levels of neuronal markers in NDEVs were 35 times higher than in the material isolated with control IgG (procedural control,*P*< 0.0001; [Table 4\)](#page-7-0). The diminished levels of non-neuronal mRNAs and the preservation of neuronal mRNAs and proteins corroborate the specificity of the NDEV isolation.
 
-#### ExoSORT isolates endogenous and spiked NDEVs with high efficiency and precision
+### ExoSORT isolates endogenous and spiked NDEVs with high efficiency and precision
 
 To estimate the NDEV isolation efficiency, we compared NRGN mRNA levels in NDEVs isolated by ExoSORT and in unprocessed plasma and found that NRGN levels in NDEVs comprised 86 ± 7% of those in the parent plasma [\[Figure 1G](#page-8-0)]. Further estimates of NDEV isolation efficiency were based on conducting sequential rounds of ExoSORT, wherein the supernatant remaining after capture bead removal in each round was retained and subjected to a new round of ExoSORT [\[Supplementary Figure 2](https://oaepublishstorage.blob.core.windows.net/articlepdfpreview202303/5581-SupplementaryMaterials.pdf)]. With NRGN mRNA level used as a measure of NDEVs extraction, the difference between two sequential yields was 87 ± 9% providing a measure of isolation efficiency [[Figure 2A](#page-9-0) and [B](#page-9-0)]. Next, we used a classical spiking approach using EVs isolated from human iPSC-derived cortical neurons. Culture-derived EVs, which were characterized according to MISEV guidelines[\[19\]](#page-16-6) [\[Supplementary Figure 3A-C\]](https://oaepublishstorage.blob.core.windows.net/articlepdfpreview202303/5581-SupplementaryMaterials.pdf), contain exceptionally high Tau levels [\[Supplementary Figure 3D\]](https://oaepublishstorage.blob.core.windows.net/articlepdfpreview202303/5581-SupplementaryMaterials.pdf), at least ten times higher than those expressed in endogenous plasma NDEVs. This difference enabled the use of Tau measurements to estimate spiked iPSC EV recovery from plasma since their contribution far exceeds that of endogenous NDEVs. iPSC EV in amounts containing
 
-<span id="page-7-0"></span>
 
-| Analyte                                            | NDEVs            | IgG immunocapture | Fold increase |  |  |  |
+| Analyte | NDEVs | IgG immunocapture | Fold increase | | | |
 |----------------------------------------------------|------------------|-------------------|---------------|--|--|--|
-| Protein (concentration)                            |                  |                   |               |  |  |  |
-| RGMa (Repulsive guidance molecule A)               | 2.3 ± 0.22 mg/ml | Below LLQ         | N/A           |  |  |  |
-| Tau                                                | 458 ± 102 pg/ml  | 118 ± 20 pg/ml    | 4.05          |  |  |  |
-| Phospho-Tau (T181)                                 | 10 ± 1.4 pg/ml   | 3.9 ± 0.62 pg/ml  | 3.0           |  |  |  |
-| ProBDNF (Pro-Brain-Derived Neurotrophic Factor)    | 517 ± 17 pg/ml   | 150 ± 0.13 pg/ml  | 3.6           |  |  |  |
-| SYP (Synaptophysin)                                | 1.8 ± 0.18 mg/ml | 0.22 ± 0.02 mg/ml | 10            |  |  |  |
-| NFL (Neurofilament light)                          | 134 ± 17 pg/ml   | 16 ± 7 pg.ml      | 9.3           |  |  |  |
-| Lipids (Concentration)                             |                  |                   |               |  |  |  |
-| 24-hydrohycholesterol                              | 27 ± 2.7 ng/ml   | Below LLQ         | N/A           |  |  |  |
-| RNA content (Ct value)                             |                  |                   |               |  |  |  |
-| HCRT (hypothalamic neuropeptide precursor, Orexin) | 26.4             | 31.7              | 39.4          |  |  |  |
-| NFL (Neurofilament light)                          | 29.7             | Below LLQ         | N/A           |  |  |  |
-| NRGN (Neurogranin)                                 | 20.8             | 25.3              | 45.2          |  |  |  |
-| Eno2 (Enolase 2)                                   | 28               | 31.2              | 9.2           |  |  |  |
-| GPR26 (G protein-coupled receptor 26)              | 30.4             | 34.7              | 25.9          |  |  |  |
-| GPR101 (G protein-coupled receptor 101)            | 21.3             | 32.7              | 200           |  |  |  |
-| PSD95 (Presynaptic density protein)                | 35.1             | Below LLQ         | N/A           |  |  |  |
+| Protein (concentration) | | | | | | |
+| RGMa (Repulsive guidance molecule A) | 2.3 ± 0.22 mg/ml | Below LLQ | N/A | | | |
+| Tau | 458 ± 102 pg/ml | 118 ± 20 pg/ml | 4.05 | | | |
+| Phospho-Tau (T181) | 10 ± 1.4 pg/ml | 3.9 ± 0.62 pg/ml | 3.0 | | | |
+| ProBDNF (Pro-Brain-Derived Neurotrophic Factor) | 517 ± 17 pg/ml | 150 ± 0.13 pg/ml | 3.6 | | | |
+| SYP (Synaptophysin) | 1.8 ± 0.18 mg/ml | 0.22 ± 0.02 mg/ml | 10 | | | |
+| NFL (Neurofilament light) | 134 ± 17 pg/ml | 16 ± 7 pg.ml | 9.3 | | | |
+| Lipids (Concentration) | | | | | | |
+| 24-hydrohycholesterol | 27 ± 2.7 ng/ml | Below LLQ | N/A | | | |
+| RNA content (Ct value) | | | | | | |
+| HCRT (hypothalamic neuropeptide precursor, Orexin) | 26.4 | 31.7 | 39.4 | | | |
+| NFL (Neurofilament light) | 29.7 | Below LLQ | N/A | | | |
+| NRGN (Neurogranin) | 20.8 | 25.3 | 45.2 | | | |
+| Eno2 (Enolase 2) | 28 | 31.2 | 9.2 | | | |
+| GPR26 (G protein-coupled receptor 26) | 30.4 | 34.7 | 25.9 | | | |
+| GPR101 (G protein-coupled receptor 101) | 21.3 | 32.7 | 200 | | | |
+| PSD95 (Presynaptic density protein) | 35.1 | Below LLQ | N/A | | | |
 
-#### Table 4. Measurement of neuronal markers in the NDEV isolation by ExoSORT and in control IgG pulldown
+### Table 4. Measurement of neuronal markers in the NDEV isolation by ExoSORT and in control IgG pulldown
 
 250-2000 pg Tau (30-200 ul) was spiked into 300 ml plasma aliquots, and Tau recovery was measured using a Luminex-based Milliplex assay (EMD Millipore). The recovery of the spiked reference material was estimated at 51 ± 10%, and the efficiency was not dependent on the input amount (N = 4, [Figure 2C\)](#page-9-0). The same spiking approach was used to evaluate the consistency between NDEVs recovery from plasma samples of disease-free controls (N = 11) and AD patients (N = 6) [\[Figure 2D](#page-9-0)]. These results further demonstrate the compatibility of the NDEV isolation methodology with the plasma matrices of both control and AD individuals. Of note, each of the capture antigens used in ExoSORT offered an improvement in NDEV capture compared to L1CAM [[Supplementary Figure 4\]](https://oaepublishstorage.blob.core.windows.net/articlepdfpreview202303/5581-SupplementaryMaterials.pdf).
 
@@ -241,7 +238,7 @@ Tau recovery after ExoSORT remained uniform for a range of spiked-in EV-associat
 
 A comparison with CSF levels of classical AD markers revealed a significant negative correlation between NDEVs and CSF levels of Aβ [\[Supplementary Figure 6](https://oaepublishstorage.blob.core.windows.net/articlepdfpreview202303/5581-SupplementaryMaterials.pdf)], consistent with a similar finding by Jia*et al*. [[32](#page-16-19)] .
 
-#### NDEV-associated synaptic proteins present biomarker potential for AD
+### NDEV-associated synaptic proteins present biomarker potential for AD
 
 Synaptic loss is a major pathological feature of AD. Previous studies have shown high levels of synaptic proteins in NDEVs[\[33-](#page-16-20)[35](#page-16-21)] . Many of these proteins were notably decreased in NDEVs of AD patients compared to control donors, and in some cases, these changes correlated with cognitive performance[[33](#page-16-20)] . Here, we measured five NDEVs-associated synaptic proteins: Syntaxin 1 (STXN1), GAP43, GluR2, PSD95, and NRGN. In the NIA cohort, the levels of NDEVs-associated NRGN were elevated in AD samples compared to controls, whereas GAP43, PSD95, STXN1, and GluR2 were decreased ([Figure 5A-E;](#page-13-0) NRGN, *P*= 0.025; GAP43,*P*< 0.001; PSD95,*P*= 0.002; STXN1,*P*= 0.011; GluR2,*P* < 0.001). The AD-associated decreases in NDEV-associated STXN1 and GluR2 were also present in the combined BioIVT-PMED cohort (*P*= 0.031 and*P*< 0.001, respectively). However, for NRGN, PSD95, and GAP43, directionally consistent trends did not reach significance, with*P*= 0.1,*P*= 0.07, and*P*= 0.3, respectively [\[Figure 5F](#page-13-0)-[J](#page-13-0)]. Importantly, for GluR2
 
@@ -251,7 +248,7 @@ Synaptic loss is a major pathological feature of AD. Previous studies have shown
 
 and proBDNF, the differences between early AD and controls were reproducible across multiple cohorts and, moreover, survived Bonferroni correction for multiple comparisons (i.e.,*P*< 0.003125). The biomarkers examined in this study showed neither age- nor sex-associated differences.
 
-#### Performance of multiple NDEV biomarkers in AD diagnosis
+### Performance of multiple NDEV biomarkers in AD diagnosis
 
 ROC analysis for the classification of individual samples as belonging to early AD*vs.*control diagnostic categories [\[Figure 5K](#page-13-0)] showed that p181-Tau had the highest AUC (AUC = 0.832,*P*< 0.001), which was closely followed by GluR2 (AUC = 0.755,*P*< 0.001), proBDNF (AUC = 0.736,*P*< 0.001), GAP43 (AUC = 0.729,*P*< 0.001), NRGN (AUC = 0.716,*P*= 0.001), STXN1 (AUC = 0.709,*P*= 0.001), and PSD95 (AUC = 0.675,*P*= 0.005). Stepwise discriminant analysis for early AD*vs*. control classification incorporated stepwise GluR2, proBDNF, NRGN, and GAP43. The final model (cross-validated by leaving 1 out) yielded AD classification with 81.3% accuracy (*P*< 0.001), 94.7% sensitivity, and 61.5% specificity. Finally, we computed partial correlations (controlling for age and gender) in early-stage AD participants to examine the relationship between NDEV biomarkers and clinical scores. p181-Tau, proBDNF, and GluR2 were significantly associated with the MMSE and the Clinical Dementia Rating sum of boxes (CDR-SOB) [\[Table 5](#page-11-0)].
 
@@ -259,44 +256,43 @@ ROC analysis for the classification of individual samples as belonging to early 
 
 The need for non-invasive, scalable, and reliable biomarkers to inform patient selection, monitor disease
 
-|  | Table 5. Correlation analysis between NDEV biomarkers and clinical scores |
+| | Table 5. Correlation analysis between NDEV biomarkers and clinical scores |
 |--|---------------------------------------------------------------------------|
 |--|---------------------------------------------------------------------------|
 
-<span id="page-11-0"></span>
 
-|            |                         |        |              |       |        | Ptau 181 NRGN GAP43 PSD95 Syntaxin 1 SNAP25 GLUR2 proBDNF MMSE CDR.SOB |        |        |        |        |        |
+| | | | | | | Ptau 181 NRGN GAP43 PSD95 Syntaxin 1 SNAP25 GLUR2 proBDNF MMSE CDR.SOB | | | | | |
 |------------|-------------------------|--------|--------------|-------|--------|------------------------------------------------------------------------|--------|--------|--------|--------|--------|
-| Ptau 181   | Correlation             | 1      | -0.71        | -0.29 | -0.288 | -0.1                                                                   | -0.163 | -0.248 | -0.113 | -0.34  | -0.396 |
-|            | Significance (2-tailed) |        | 0.496        | 0.004 | 0.005  | 0.333                                                                  | 0.122  | 0.015  | 0.274  | 0.001  | 0.008  |
-|            | df                      | 0      | 93           | 93    | 92     | 94                                                                     | 89     | 94     | 94     | 84     | 42     |
-| NRGN       | Correlation             | -0.71  | 1            | 0.135 | 0.297  | 0.137                                                                  | 0.652  | 0.066  | -0.062 | -0.009 | 0.117  |
-|            | Significance (2-tailed) | 0.496  |              | 0.194 | 0.004  | 0.184                                                                  | 0.001  | 0.524  | 0.549  | 0.934  | 0.455  |
-|            | df                      | 93     | 0            | 92    | 91     | 93                                                                     | 88     | 93     | 93     | 83     | 41     |
-| GAP43      | Correlation             | -0.29  | 0.135        | 1     | 0.645  | 0.585                                                                  | 0.204  | 0.359  | 0.045  | 0.097  | 0.197  |
-|            | Significance (2-tailed) | 0.004  | 0.194        |       | 0.001  | 0.001                                                                  | 0.045  | 0.001  | 0.663  | 0.375  | 0.204  |
-|            | df                      | 93     | 92           | 0     | 91     | 93                                                                     | 88     | 93     | 93     | 83     | 41     |
-| PSD95      | Correlation             | -0.288 | 0.297        | 0.645 | 1      | 0.775                                                                  | 0.264  | 0.578  | 0.021  | 0.024  | 0.26   |
-|            | Significance (2-tailed) | 0.005  | 0.004        | 0.001 |        | 0.001                                                                  | 0.012  | 0.001  | 0.841  | 0.825  | 0.096  |
-|            | df                      | 92     | 91           | 91    | 0      | 92                                                                     | 87     | 92     | 92     | 82     | 40     |
-| Syntaxin 1 | Correlation             | -0.1   | 0.137        | 0.585 | 0.775  | 1                                                                      | 0.159  | 0.598  | 0.219  | 0.073  | 0.122  |
-|            | Significance (2-tailed) | 0.333  | 0.184        | 0.001 | 0.001  |                                                                        | 0.132  | 0.001  | 0.032  | 0.504  | 0.43   |
-|            | df                      | 94     | 93           | 93    | 92     | 0                                                                      | 89     | 94     | 94     | 84     | 42     |
-| SNAP25     | Correlation             | -0.163 | 0.652        | 0.204 | 0.264  | 0.159                                                                  | 1      | 0.151  | -0.025 | -0.018 | 0.086  |
-|            | Significance (2-tailed) | 0.122  | 0.001        | 0.045 | 0.012  | 0.132                                                                  |        | 0.132  | 0.811  | 0.873  | 0.588  |
-|            | df                      | 89     | 88           | 88    | 87     | 89                                                                     | 0      | 89     | 89     | 79     | 40     |
-| GLUR2      | Correlation             | -0.248 | 0.066        | 0.359 | 0.578  | 0.598                                                                  | 0.151  | 1      | 0.105  | 0.225  | 0.543  |
-|            | Significance (2-tailed) | 0.015  | 0.524        | 0.001 | 0.001  | 0.001                                                                  | 0.132  |        | 0.307  | 0.037  | 0.001  |
-|            | df                      | 94     | 93           | 93    | 92     | 94                                                                     | 89     | 0      | 94     | 84     | 42     |
-| proBDNF    | Correlation             | -0.113 | -0.062       | 0.045 | 0.021  | 0.219                                                                  | -0.025 | 0.105  | 1      | 0.496  | -0.308 |
-|            | Significance (2-tailed) | 0.274  | 0.549        | 0.663 | 0.841  | 0.032                                                                  | 0.811  | 0.307  |        | 0.001  | 0.042  |
-|            | df                      | 94     | 93           | 93    | 92     | 94                                                                     | 89     | 94     | 0      | 84     | 42     |
-| MMSE       | Correlation             | -0.34  | -0.009 0.097 |       | 0.024  | 0.073                                                                  | -0.018 | 0.225  | 0.496  | 1      | -0.552 |
-|            | Significance (2-tailed) | 0.001  | 0.934        | 0.375 | 0.825  | 0.504                                                                  | 0.873  | 0.037  | 0.001  |        | 0.001  |
-|            | df                      | 84     | 83           | 83    | 82     | 84                                                                     | 79     | 84     | 84     | 0      | 42     |
-| CDR.SOB    | Correlation             | -0.396 | 0.117        | 0.197 | 0.26   | 0.122                                                                  | 0.086  | 0.543  | -0.308 | -0.552 | 1      |
-|            | Significance (2-tailed) | 0.008  | 0.455        | 0.204 | 0.096  | 0.43                                                                   | 0.588  | 0.001  | 0.042  | 0.001  |        |
-|            | df                      | 42     | 41           | 41    | 40     | 42                                                                     | 40     | 42     | 42     | 42     | 0      |
+| Ptau 181 | Correlation | 1 | -0.71 | -0.29 | -0.288 | -0.1 | -0.163 | -0.248 | -0.113 | -0.34 | -0.396 |
+| | Significance (2-tailed) | | 0.496 | 0.004 | 0.005 | 0.333 | 0.122 | 0.015 | 0.274 | 0.001 | 0.008 |
+| | df | 0 | 93 | 93 | 92 | 94 | 89 | 94 | 94 | 84 | 42 |
+| NRGN | Correlation | -0.71 | 1 | 0.135 | 0.297 | 0.137 | 0.652 | 0.066 | -0.062 | -0.009 | 0.117 |
+| | Significance (2-tailed) | 0.496 | | 0.194 | 0.004 | 0.184 | 0.001 | 0.524 | 0.549 | 0.934 | 0.455 |
+| | df | 93 | 0 | 92 | 91 | 93 | 88 | 93 | 93 | 83 | 41 |
+| GAP43 | Correlation | -0.29 | 0.135 | 1 | 0.645 | 0.585 | 0.204 | 0.359 | 0.045 | 0.097 | 0.197 |
+| | Significance (2-tailed) | 0.004 | 0.194 | | 0.001 | 0.001 | 0.045 | 0.001 | 0.663 | 0.375 | 0.204 |
+| | df | 93 | 92 | 0 | 91 | 93 | 88 | 93 | 93 | 83 | 41 |
+| PSD95 | Correlation | -0.288 | 0.297 | 0.645 | 1 | 0.775 | 0.264 | 0.578 | 0.021 | 0.024 | 0.26 |
+| | Significance (2-tailed) | 0.005 | 0.004 | 0.001 | | 0.001 | 0.012 | 0.001 | 0.841 | 0.825 | 0.096 |
+| | df | 92 | 91 | 91 | 0 | 92 | 87 | 92 | 92 | 82 | 40 |
+| Syntaxin 1 | Correlation | -0.1 | 0.137 | 0.585 | 0.775 | 1 | 0.159 | 0.598 | 0.219 | 0.073 | 0.122 |
+| | Significance (2-tailed) | 0.333 | 0.184 | 0.001 | 0.001 | | 0.132 | 0.001 | 0.032 | 0.504 | 0.43 |
+| | df | 94 | 93 | 93 | 92 | 0 | 89 | 94 | 94 | 84 | 42 |
+| SNAP25 | Correlation | -0.163 | 0.652 | 0.204 | 0.264 | 0.159 | 1 | 0.151 | -0.025 | -0.018 | 0.086 |
+| | Significance (2-tailed) | 0.122 | 0.001 | 0.045 | 0.012 | 0.132 | | 0.132 | 0.811 | 0.873 | 0.588 |
+| | df | 89 | 88 | 88 | 87 | 89 | 0 | 89 | 89 | 79 | 40 |
+| GLUR2 | Correlation | -0.248 | 0.066 | 0.359 | 0.578 | 0.598 | 0.151 | 1 | 0.105 | 0.225 | 0.543 |
+| | Significance (2-tailed) | 0.015 | 0.524 | 0.001 | 0.001 | 0.001 | 0.132 | | 0.307 | 0.037 | 0.001 |
+| | df | 94 | 93 | 93 | 92 | 94 | 89 | 0 | 94 | 84 | 42 |
+| proBDNF | Correlation | -0.113 | -0.062 | 0.045 | 0.021 | 0.219 | -0.025 | 0.105 | 1 | 0.496 | -0.308 |
+| | Significance (2-tailed) | 0.274 | 0.549 | 0.663 | 0.841 | 0.032 | 0.811 | 0.307 | | 0.001 | 0.042 |
+| | df | 94 | 93 | 93 | 92 | 94 | 89 | 94 | 0 | 84 | 42 |
+| MMSE | Correlation | -0.34 | -0.009 0.097 | | 0.024 | 0.073 | -0.018 | 0.225 | 0.496 | 1 | -0.552 |
+| | Significance (2-tailed) | 0.001 | 0.934 | 0.375 | 0.825 | 0.504 | 0.873 | 0.037 | 0.001 | | 0.001 |
+| | df | 84 | 83 | 83 | 82 | 84 | 79 | 84 | 84 | 0 | 42 |
+| CDR.SOB | Correlation | -0.396 | 0.117 | 0.197 | 0.26 | 0.122 | 0.086 | 0.543 | -0.308 | -0.552 | 1 |
+| | Significance (2-tailed) | 0.008 | 0.455 | 0.204 | 0.096 | 0.43 | 0.588 | 0.001 | 0.042 | 0.001 | |
+| | df | 42 | 41 | 41 | 40 | 42 | 40 | 42 | 42 | 42 | 0 |
 
 progression, and demonstrate target engagement is among the greatest challenges for successful drug development for neurodegenerative brain disorders. Blood collection for biomarker assessment is inherently less invasive than CSF sampling and more scalable than brain imaging, the two most common current approaches for the diagnosis and monitoring of neurodegenerative diseases, especially AD. EVs are increasingly recognized as a promising platform for biomarker discovery in neurological and psychiatric diseases[[36](#page-16-22)]; however, technical difficulties hinder their clinical implementation[[37\]](#page-16-23) . The heterogeneity of plasma EVs due to differences in their biogenesis and cellular origins heightens the challenge but also provides opportunities for identifying multiple interesting and informative EV sub-populations using cellorigin-specific capture antigens[\[38-](#page-16-24)[41](#page-17-0)] .
 
@@ -408,7 +404,7 @@ baltimore longitudinal study of aging.*JAMA Neurol*2019;76:1340-51. [DOI](https:
 - <span id="page-16-23"></span>Ludwig N, Whiteside TL, Reichert TE. Challenges in exosome isolation and analysis in health and disease.*Int J Mol Sci*2019;20:4684. [DOI](https://dx.doi.org/10.3390/ijms20194684) [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/31546622) [PMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6801453) 37.
 - <span id="page-16-24"></span>Huang G, Lin G, Zhu Y, Duan W, Jin D. Emerging technologies for profiling extracellular vesicle heterogeneity.*Lab Chip*2020;20:2423-37. [DOI](https://dx.doi.org/10.1039/d0lc00431f) [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/32537618) 38.
 - 39. Vagner T, Chin A, Mariscal J, Bannykh S, Engman DM, Di Vizio D. Protein composition reflects extracellular vesicle heterogeneity.
-*Proteomics*2019;19:e1800167. [DOI](https://dx.doi.org/10.1002/pmic.201800167) [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/30793499) [PMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7521840)
+**Proteomics:** 2019;19:e1800167. [DOI](https://dx.doi.org/10.1002/pmic.201800167) [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/30793499) [PMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7521840)
 
 - Valencia K, Montuenga LM. Exosomes in liquid biopsy: the nanometric world in the pursuit of precision oncology.*Cancers (Basel)*2021;13:2147. [DOI](https://dx.doi.org/10.3390/cancers13092147) [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/33946893) [PMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8124368) 40.
 - <span id="page-17-0"></span>Willms E, Cabañas C, Mäger I, Wood MJA, Vader P. Extracellular vesicle heterogeneity: subpopulations, isolation techniques, and diverse functions in cancer progression.*Front Immunol*2018;9:738. [DOI](https://dx.doi.org/10.3389/fimmu.2018.00738) [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/29760691) [PMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5936763) 41.

@@ -47,16 +47,13 @@ keywords:
 - based learning
 ---
 
-
-
-
 # BEYOND INFORMATION SILOS — AN OMNIPRESENT APPROACH TO SOFTWARE EVOLUTION
 
 JUERGEN RILLING∗, RENE WITTE ´ † and PHILIPP SCHUEGERL‡
 
-*Department of Computer Science and Software Engineering Concordia University, Montreal, Quebec, Canada* ∗*rilling@cse.concordia.ca* <sup>∗</sup>*www.cse.concordia.ca/*∼*rilling*†*rwitte@cse.concordia.ca* ‡*p schueg@cse.concordia.ca*## PHILIPPE CHARLAND
+*Department of Computer Science and Software Engineering Concordia University, Montreal, Quebec, Canada* ∗* rilling@cse.concordia.ca* <sup>∗</sup>*www.cse.concordia.ca/*∼*rilling*†* rwitte@cse.concordia.ca* ‡*p schueg@cse.concordia.ca*## PHILIPPE CHARLAND
 *System of Systems Section, Defence R&D Canada – Valcartier Quebec, Quebec, Canada philippe.charland@drdc-rddc.gc.ca*Nowadays, software development and maintenance are highly distributed processes that involve a multitude of supporting tools and resources. Knowledge relevant for a particular software maintenance task is typically dispersed over a wide range of artifacts in different representational formats and at different abstraction levels, resulting in isolated 'information silos'. An increasing number of task-specific software tools aim to support developers, but this often results in additional challenges, as not every project member can be familiar with every tool and its applicability for a given problem. Furthermore, historical knowledge about successfully performed modifications is lost, since only the result is recorded in versioning systems, but not how a developer arrived at the solution. In this research, we introduce conceptual models for the software domain that go beyond existing program and tool models, by including maintenance processes and their constituents. The models are supported by a pro-active, ambient, knowledgebased environment that integrates users, tasks, tools, and resources, as well as processes and history-specific information. Given this ambient environment, we demonstrate how maintainers can be supported with contextual guidance during typical maintenance tasks through the use of ontology queries and reasoning services.
-*Keywords*: Semantic Web technologies; software evolution; ambient software development environment; knowledge modeling.
+**Keywords:**  Semantic Web technologies; software evolution; ambient software development environment; knowledge modeling.
 
 ## 1. Introduction
 
@@ -68,12 +65,12 @@ It is important to point out that the idea behind our approach has been used suc
 
 In the context of our work, we define ambient as the process of integrating numerous information resources to semi-automatically build a knowledge base (KB) surrounding a (physical or virtual) group of developers. Combining the KB with "hard" sensors (external resources) allows for feedback on the actions of a user or group of users.
 
-On the conceptual side, our approach is based on ontologies and Semantic Web [11] technologies. We developed ontological models for the software domain that go beyond the typically used program and tool models, by including maintenance processes and their constituents [3, 5, 12, 13, 14]. By automatically capturing information from various artifacts through ontology population, we can build an extensible, distributed KB. This extensible model does not only include existing tools and artifacts (e.g., source code, documents), but also their relevance within a certain program comprehension or maintenance task context, and knowledge collected through mining the behavior of developers while solving similar tasks (Fig. 1). Note
+On the conceptual side, our approach is based on ontologies and Semantic Web [11] technologies. We developed ontological models for the software domain that go beyond the typically used program and tool models, by including maintenance processes and their constituents [3, 5, 12, 13, 14]. By automatically capturing information from various artifacts through ontology population, we can build an extensible, distributed KB. This extensible model does not only include existing tools and artifacts (e.g., source code, documents), but also their relevance within a certain program comprehension or maintenance task context, and knowledge collected through mining the behavior of developers while solving similar tasks (Figure 1). Note
 
 ![](_page_2_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates a knowledge management system. Non-populated ontologies, populated using both automatic and manual methods from various knowledge artifacts and resources, form an "ambient knowledge" base (a populated/linked ontology graph). Reasoning services process this ambient knowledge, providing data to semantic web clients, ultimately maintained by a team. The diagram visually depicts the workflow and components of the system. -->
 
-Fig. 1. Overview — Ambient process environment.
+Figure 1. Overview — Ambient process environment.
 
 that in this paper, we do not propose the adaptation of a new tool or development process, but rather examine how existing resources can be integrated to implement the next generation of software maintenance environments, which is an important contribution neglected by current research [5, 15].
 
@@ -131,11 +128,11 @@ Building a formal ontology for software evolution requires the analysis of conce
 ![](_page_8_Figure_1.jpeg)
 <!-- Image Description: This image is a UML-like diagram depicting a model of software maintenance. Rectangles represent entities (e.g., Artifact, Tool, Task, User), diamonds represent relationships, and arrows show connections between entities and relationships, labeled with verbs describing the actions. The diagram illustrates the interactions between users, tools, tasks, and various artifacts during a software maintenance process, including the use of process models (like IEEE 14764-2006) and cognitive models in program comprehension. The relationships among different types of artifacts (software, documents) are also presented. -->
 
-Fig. 2. Software maintenance meta-model.
+Figure 2. Software maintenance meta-model.
 
 Person), "SE group" (an instance of concept Maintainer), and "MR reporter" (an instance of concept Role).
 
-**Artifact:**Describes artifacts associated with both the software product (e.g., source code, documentation) and the maintenance process (e.g., documents, models) (Fig. 3). It has two sub-ontologies: SoftwareArtifact and TaskArtifact. Software artifacts are described in Sec. 3.2. Task artifacts are process-related artifacts, such as guidelines and reports.
+**Artifact:**Describes artifacts associated with both the software product (e.g., source code, documentation) and the maintenance process (e.g., documents, models) (Figure 3). It has two sub-ontologies: SoftwareArtifact and TaskArtifact. Software artifacts are described in Sec. 3.2. Task artifacts are process-related artifacts, such as guidelines and reports.
 **Subject system:**Describes the software system to be maintained and includes information about the programming language(s) used, application domain, etc.
 **Process:**Describes the interactions and relationships among different sub-activities within a maintenance process model. Example instances in this sub-ontology are the IEEE Std 14764-2006 – Software Engineering – Software Life Cycle Processes – Maintenance" (an instance of concept ProcessModel), "5.3 Modification Implementation" (an instance of concept Activity), "5.3.2.1 Analysis" (an instance of concept Task), and "5.3.2.1 a" (an instance of concept TaskStep) [14].
 **Technique:**Describes the software techniques that can be used for supporting software maintenance (e.g., program comprehension technique, source code analysis technique, impact analysis technique). Based on the previous work by Dias*et al.*[18] and Pressman [41], the techniques supporting the following activities can be identified: requirements elicitation, maintenance support, programming related, testing, configuration management, documentation, and modeling.
@@ -143,7 +140,7 @@ Person), "SE group" (an instance of concept Maintainer), and "MR reporter" (an i
 ![](_page_9_Figure_1.jpeg)
 <!-- Image Description: The image is a hierarchical tree diagram illustrating a classification of software artifacts. It organizes artifacts into categories like "Document" (with subcategories such as "Requirement Specification" and "User Manual"), "Software Component," and "Task Artifact." The diagram likely serves to define and structure the types of artifacts considered within the paper's scope, aiding in analysis or modeling of a software development process. -->
 
-Fig. 3. Partial view of the Artifact sub-ontology.
+Figure 3. Partial view of the Artifact sub-ontology.
 **Tool:**Describes the software tools used to carry out a function or service with the goal to simplify maintenance tasks [19]. At the current stage, our tool sub-ontology provides general categories for commonly used maintenance tools and describes their key features for supporting software maintenance activities. Tools can be classified by their functionality, their role in supporting managers and maintainers, their particular use during the various steps of a software engineering process, their supported environment (hardware and software), or even by their origin or cost. Pressman [41] provides a comprehensive classification of tools by their functions, which includes, among others, analysis, design, programming, software configuration management, testing and documentation. In our approach, tools and techniques in the KB are automatically classified through the use of reasoning. For example, programming tools can be classified based on their support for a particular programming language, operating system, applicability for a specific task, etc.
 
 ## 4. Implementation
@@ -152,14 +149,14 @@ In this section, we provide an overview of our implementation and describe its s
 
 ## 4.1.*System architecture*While developing a context-sensitive system, two key aspects have to be taken into consideration. First, maintainers spend a significant amount of time searching and exploring source code within their IDE to comprehend the overall structure of a system [4, 5, 22]. Second, context changes caused by the need to switch between applications, views, etc. should be limited to ensure that a user's comprehension context is not lost. For example, in modern IDEs, contextually relevant information with respect to the currently edited or analyzed source code is automatically made available (e.g., available methods, auto-completion of partially typed source code). Similarly, we have integrated our ambient knowledge environment through Eclipse by taking advantage of the extensibility provided by its plug-in architecture.
 
-We selected a client-server architecture to support a centralized management facility, shown in Fig. 4. Its key components are Eclipse plug-ins and a Web server. The Eclipse plug-ins are responsible for collecting context information, forwarding requests to the server, and displaying results. The server, on the other hand, provides persistent ontology support, aligns the sub-ontologies, and provides ontology management services, including querying/reasoning and data mining services for the clients. The server side utilizes the Prot´eg´e API and the Jena Semantic Web Framework<sup>b</sup> to access ontologies. Jena provides the backend repository for both concepts (TBox) and instance data (ABox). In our implementation, we leverage Jena's persistent storage support and a MySQL database to store and query persistent Resource Description Framework (RDF) graphs. TBox management is centralized on the server to ensure consistency, quality of the ontology design, and standardization of the KB. Reasoning services are provided by Pellet, which provides optimized TBox and ABox reasoning capabilities.
+We selected a client-server architecture to support a centralized management facility, shown in Figure 4. Its key components are Eclipse plug-ins and a Web server. The Eclipse plug-ins are responsible for collecting context information, forwarding requests to the server, and displaying results. The server, on the other hand, provides persistent ontology support, aligns the sub-ontologies, and provides ontology management services, including querying/reasoning and data mining services for the clients. The server side utilizes the Prot´eg´e API and the Jena Semantic Web Framework<sup>b</sup> to access ontologies. Jena provides the backend repository for both concepts (TBox) and instance data (ABox). In our implementation, we leverage Jena's persistent storage support and a MySQL database to store and query persistent Resource Description Framework (RDF) graphs. TBox management is centralized on the server to ensure consistency, quality of the ontology design, and standardization of the KB. Reasoning services are provided by Pellet, which provides optimized TBox and ABox reasoning capabilities.
 
 A successful context-sensitive support system is based on the premise that the right information should be made available at the right time and in the right format.
 
 ![](_page_10_Figure_5.jpeg)
 <!-- Image Description: This diagram depicts the architecture of a software system for ontology management. It shows an Eclipse plugin interacting with a web server via bidirectional communication. The plugin handles process management, viewing, and ontology population. The server manages the ontology, performs querying/reasoning, and mining. The system uses Jena framework, Pellet reasoner, and Protégé API to interact with the underlying ontology database, which contains source code, bug tracking data, etc. -->
 
-Fig. 4. System architecture overview.
+Figure 4. System architecture overview.
 
 From a software maintainer's perspective, the challenge is specifically the need to adjust both information and context in real time to the current process task-step being performed. Our implementation thereby follows two strategies. Firstly, process information is made explicit and visible to the current developer. This is achieved by developing an Eclipse*Cheat Sheet*<sup>c</sup> plug-in to provide extended process information. Secondly, information from the current Eclipse workspace is maintained and process context sensitive information is provided by querying the underlying KB.
 
@@ -174,7 +171,7 @@ The number of instances and relations identified by our system depends on the co
 ![](_page_12_Figure_1.jpeg)
 <!-- Image Description: The image displays two ontologies: a documentation ontology and a source code ontology, represented as pyramids. The documentation ontology's pyramid layers represent design patterns, classes, paragraphs, sentences, and variables. The source code ontology shows classes, methods, and variables. Dashed lines indicate mappings between corresponding elements across the ontologies. The bottom of each pyramid connects to a database-like structure representing the documents and source code respectively. The diagram illustrates the relationship and mapping between documentation and source code elements. -->
 
-Fig. 5. Linking instances from source code and documents.
+Figure 5. Linking instances from source code and documents.
 
 ## 2.2.*SVN and bugzilla ontology population*SVN and Bugzilla are two typical examples of version management and bug tracking systems that are used in both open source and industrial applications, containing typically large amounts of software maintenance relevant information. We use these existing KBs to populate our SVN and Bugzilla sub-ontologies. We use Mylyn<sup>d</sup>, an Eclipse plug-in that provides connectors to Bugzilla and SVN as well as supports the data export from these repositories. Both the version management ontology (consisting of concepts*File, Revision, Release*) and the bug tracking ontology (consisting of concepts *Issue, Milestone, Person, Product, Activity, Comment, Attachment, Component, Computersystem*) have been integrated using an existing ontology model [42]. Through the use of Mylyn, we can now populate our SVN and Bugzilla sub-ontologies and make this knowledge an integral part of our ambient KB.
 
@@ -184,12 +181,12 @@ Fig. 5. Linking instances from source code and documents.
 
 After the source code and documentation ontology have been linked, users can then perform ontological queries on either documents or source code, regarding properties of*c*<sup>1</sup> or *c*2. For example, "retrieve document passages that describe both *c*<sup>1</sup> and *c*2", or "retrieve design pattern descriptions referring to the class that contains the class currently analyzed". Note that the alignment process might also identify inconsistencies — the documentation might list a method for a different class, for example — which are detected through the alignment process and registered for further review by the user.
 
-In addition, users can always manually define new concepts/instances and relationships in both ontologies to establish the links that cannot be detected by the automated alignment. For example, as Fig. 6 shows, the text mining system may
+In addition, users can always manually define new concepts/instances and relationships in both ontologies to establish the links that cannot be detected by the automated alignment. For example, as Figure 6 shows, the text mining system may
 
 ![](_page_13_Figure_6.jpeg)
 <!-- Image Description: The diagram illustrates a data model showing how documents contribute to source code. A stack of documents ("Documents") contains multiple sections (S1, S2...Sn) connected to code components (C'1, C'2, C'3). These components, in turn, contribute to elements (C1, C2, C3, C4) within a database representing the "Source Code." The diagram visually depicts the relationship and flow of information from documents to the source code database. -->
 
-Fig. 6. Retrieve implicit information from documents.
+Figure 6. Retrieve implicit information from documents.
 
 detect an instance of DesignPattern — *dp*<sup>1</sup> and users can then create the relationships between the pattern and the classes that implement the pattern (e.g., *c*1, *c*2, and *c*3) through our query interface. The newly created links then become an integrated part of the ontology, and can be used to, for example, retrieve all documents related to the pattern (i.e., *s*1, *s*2, ..., *sn*).
 
@@ -202,9 +199,9 @@ Through this approach, we can explicitly distinguish between the knowledge a par
 ![](_page_15_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates a knowledge conflict detection system. Two users, User 1 and User 2, contribute knowledge (numbered items 1-8) about design patterns within a system. Arrows depict knowledge percolation, showing how information flows. A dashed line indicates a conflict detected between User 1's and User 2's classifications of 'class1,' specifically regarding the "bridge_pattern" and "layered_architecture." The box denotes initial knowledge, its percolation, and the ascription of new knowledge leading to conflict resolution. -->
 
-Fig. 7. Knowledge merging using ascription and percolation.
+Figure 7. Knowledge merging using ascription and percolation.
 
-set of classes form the*bridge design pattern*, while the documentation states they belong to an *architectural layer*, and the design pattern analysis tool identifies them as a *factory pattern*(Fig. 8).
+set of classes form the*bridge design pattern*, while the documentation states they belong to an *architectural layer*, and the design pattern analysis tool identifies them as a *factory pattern*(Figure 8).
 
 Viewpoints can be constructed as well as destructed through the processes of*ascription*and*percolation*. Stated briefly, the process of ascription allows incorporating knowledge from other viewpoints (users, tools) unless there is already conflicting information on the same topic. The mechanism of percolation is introduced for the deconstruction of nested knowledge. Here, some (assumed) held knowledge on a topic contained in a nested viewpoint may be percolated into its outer environments, up to the top-level viewpoint of a user (or the main environment) and be thus acquired as knowledge.
 
@@ -245,19 +242,20 @@ Adopting an as-needed strategy as part of the ontology-based program comprehensi
 -*•*Programmers can identify a certain subset of the software ontology as their starting point. By exploring and querying the ontology, they can not only investigate specific properties of a concept and its instance, but also enlarge the subset by utilizing existing or newly defined concepts/relationships. The process finishes once sufficient confidence was established that their understanding is adequate to complete the particular task.
 
 ## 1.2.*Process support*What makes the query paradigm so useful in our approach is the fact that the KB integrates knowledge from different sources and at very different levels of abstraction. Thereby, even a seemingly simple query can provide insights to a software engineer that would otherwise require a significant amount of manual searching. Furthermore, through the integration of the process model, questions that relate to tasks can be asked as well. For example:
+
 *•*Which source code and documentation artifacts related to my current modification requests can support an early impact analysis, as requested in the IEEE Std 14764-2006 activity 5.3.1?
 
 ![](_page_19_Figure_1.jpeg)
 <!-- Image Description: The image is a directed graph illustrating a transitive relationship. Three nodes represent "Task Step," "Technique," and "Tool." Arrows labeled "supportedBy" show that a task step uses a technique, and a technique uses a tool. A dashed arrow demonstrates the transitive property: a task step indirectly uses a tool. The graph visually explains the relationship between task steps, techniques, and tools within a system. -->
 
-Fig. 8. Transitive design-level links.
+Figure 8. Transitive design-level links.
 
 -*•*What are the document passages (e.g., sentences, paragraphs) describing the source code entity (e.g., class, method) I am currently inspecting in my editor?
 -*•*Given a modification to a method implementation, which requirements documents would be affected by a change and who has the most expertise with making this change?
 
 Note that these queries cross conceptual boundaries between process, source code, and natural language document ontologies, which is not possible with other approaches that lack the ability to model these artifacts in a common formal representation.
 
-In terms of the design-level links, OWL-DL axioms or concepts can be used to establish the links between the process model and the modeled knowledge resources. Relationships and properties, specified as OWL axioms, can be used to establish implicit links as well. For example, in the IEEE Std 14764-2006 task-step*"5.3.2.1 a) Identify the elements to be modified in the existing system"*[14], the supportedBy property can be utilized to automatically link the task-step with supporting tool resources. The supportedBy relation in Fig. 8 is defined as a transitive property used to link*Task Step*with*Technique*(1) as well as for linking*Technique*with*Tool*(2). Then, the links between*Task Step*and*Tool*can be automatically derived through the inferred link (3). As a result, each task-step in the process ontology can automatically be linked through this transitive supportedBy property to the sub-ontologies of*Technique*and*Tool*. Through further traversing of the transitive closure across the sub-ontologies, other knowledge resources can be identified as well.
+In terms of the design-level links, OWL-DL axioms or concepts can be used to establish the links between the process model and the modeled knowledge resources. Relationships and properties, specified as OWL axioms, can be used to establish implicit links as well. For example, in the IEEE Std 14764-2006 task-step*"5.3.2.1 a) Identify the elements to be modified in the existing system"*[14], the supportedBy property can be utilized to automatically link the task-step with supporting tool resources. The supportedBy relation in Figure 8 is defined as a transitive property used to link*Task Step*with*Technique*(1) as well as for linking*Technique*with*Tool*(2). Then, the links between*Task Step*and*Tool*can be automatically derived through the inferred link (3). As a result, each task-step in the process ontology can automatically be linked through this transitive supportedBy property to the sub-ontologies of*Technique*and*Tool*. Through further traversing of the transitive closure across the sub-ontologies, other knowledge resources can be identified as well.
 
 In addition to these design-level links, logical links between the process and the knowledge resources can be established through predefined queries for each task-step.
 
@@ -268,7 +266,7 @@ These predefined queries supporting the different task-steps allow users to retr
 ![](_page_20_Figure_1.jpeg)
 <!-- Image Description: The image is a diagram illustrating a knowledge base system for modification implementation, referencing IEEE Std 1474-2006. Two supporting queries retrieve data (tool and technique information) from the knowledge base, which contains information categorized as Process, Resources, and Artifacts. The diagram shows how these queries, linked by mapping and traceability, support the identification of elements for modification within an existing system. -->
 
-Fig. 9. Task supporting queries.
+Figure 9. Task supporting queries.
 
 ## 1.3. *Eclipse integration*A successful process-centered support system has to continuously provide information to the user taking in consideration the current context. Thereby, contextual information originates from both a process and the IDE perspective. Achieving this premise depends greatly on the available knowledge resources and their accessibility. Our process environment explicitly supports such connections between the involved process steps and other supporting resources (e.g., artifacts, maintainers, techniques, and tools).
 
@@ -279,21 +277,21 @@ Tasks and task-steps can be made mandatory or optional, depending on the needs o
 ![](_page_21_Figure_1.jpeg)
 <!-- Image Description: The image displays two screenshots of a software interface, likely a tool for creating structured documentation or process models. The left panel shows a hierarchical structure for a "Software Maintenance Process," allowing users to add, remove, or reorder tasks and subtasks. The right panel shows similar functionality for a specific task, "Analyzes MRS/PRs," with options to define text descriptions, and optional executable commands for automation. Both panels show interface elements for defining task names, paths, and descriptions, illustrating the software's capabilities for creating and managing structured content. -->
 
-Fig. 10. Creating and managing processes.
+Figure 10. Creating and managing processes.
 **Eclipse commands:**By enriching the process definition with commands that directly interact with the Eclipse IDE, some activities can be further explained or even enforced. An example for such Eclipse commands could be to enforce specific refactoring methods of the source code after a modification request was encoded, e.g., "Encapsulate Field" or "Extract Method".
 **Ontology queries:** Query templates are managed centrally by the server and can be integrated into cheat sheets as Eclipse commands. Figure 11 shows the dialog to assign a query to a task or task-step. For example, given is the following query to support the initial impact analysis in the IEEE maintenance process (*Activity 5.2: Problem and Modification Analysis*):
 
-*Given a modification to a method implementation, which requirements documents would be affected by the change and who has the most expertise with making this change?*The query uses the current method name given in the editing window as an input parameter and queries across the source code (the method, its class, and parameters), documents (connections between source code elements and requirements documents) and bug tracking (e.g., users who have previously worked on the same method) ontologies. Maintainers include the existing process template in their own IDE by loading the process definition file from the server. They are provided with a simple and integrated textual description of the process (shown in Fig. 12), providing them with step by step guidance through the pre-defined process. Contextual information is gathered while they are working and is used to complete the query parameters or commands available at the current process step. Such contextual information might be extracted from the current method
+*Given a modification to a method implementation, which requirements documents would be affected by the change and who has the most expertise with making this change?*The query uses the current method name given in the editing window as an input parameter and queries across the source code (the method, its class, and parameters), documents (connections between source code elements and requirements documents) and bug tracking (e.g., users who have previously worked on the same method) ontologies. Maintainers include the existing process template in their own IDE by loading the process definition file from the server. They are provided with a simple and integrated textual description of the process (shown in Figure 12), providing them with step by step guidance through the pre-defined process. Contextual information is gathered while they are working and is used to complete the query parameters or commands available at the current process step. Such contextual information might be extracted from the current method
 
 ![](_page_22_Figure_1.jpeg)
 <!-- Image Description: The image displays a software interface for choosing and parameterizing commands. A tree view lists available commands, including "Predefined Ontology Query," which is selected. A form allows users to input a command ID and parameters for a query, shown as "Get names of classes which are used by class (Param 1)." Five parameter fields are provided, illustrating the process of executing a predefined ontology query within the software. -->
 
-Fig. 11. Query management.
+Figure 11. Query management.
 
 ![](_page_22_Picture_3.jpeg)
 <!-- Image Description: The image displays a screenshot showing three panels. The left panel shows Java code for initializing a model repository. The center panel shows an ontology query interface and results listing classes and methods influenced by a source parameter. The right panel presents a checklist for a software maintenance process, focusing on impact analysis and ripple effects. The image illustrates the integration of ontology querying with software maintenance tasks to identify affected components. -->
 
-Fig. 12. Ambient software evolution environment.
+Figure 12. Ambient software evolution environment.
 
 field being analyzed or edited by the maintainer. Ontology queries themselves are executed by the Web server and results are shown in a Web browser (integrated as part of the Eclipse IDE). Additional ontology exploration can be performed by selecting parts of the query results to return additional properties related them.
 
@@ -308,16 +306,17 @@ In what follows, we introduce a use case to describe in more detail these differ
 
 This use case corresponds directly to the IEEE maintenance standard task-step 5.3.2.1a. During the modification implementation phase, maintainers will perform impact analysis to determine the affected parts of a system. Maintainers will have to decide on resources such as analysis techniques, tools, and artifacts that are available or should be utilized to perform the analysis.
 
-| Table 1. Context levels descriptions. |                                                                                                                                                                                                                                                                    |  |  |  |  |
+| Table 1. Context levels descriptions. | | | | | |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|--|
-| Context                               | Characteristics                                                                                                                                                                                                                                                    |  |  |  |  |
-| Level<br>0                            | Main<br>focus<br>is<br>on<br>instance<br>retrieval.<br>No<br>or<br>only<br>very<br>limited<br>use<br>of<br>constraints<br>and<br>reasoning<br>services<br>is<br>made.                                                                                              |  |  |  |  |
-| Level<br>1                            | Constraints<br>are<br>added<br>by<br>considering<br>direct<br>and<br>indirect<br>dependencies<br>among<br>sub-ontologies<br>and<br>their<br>concepts.<br>Additional<br>use<br>of<br>constraints,<br>parameters,<br>and<br>reasoning<br>services.                   |  |  |  |  |
-| Level<br>2                            | Provides<br>an<br>additional<br>refinement<br>to<br>the<br>context<br>level<br>1<br>by<br>using<br>historical<br>data<br>collected<br>from<br>previous<br>tasks<br>as<br>well<br>as<br>by<br>applying<br>data<br>mining<br>and<br>other<br>analysis<br>techniques. |  |  |  |  |
+| Context | Characteristics | | | | |
+| Level<br>0 | Main<br>focus<br>is<br>on<br>instance<br>retrieval.<br>No<br>or<br>only<br>very<br>limited<br>use<br>of<br>constraints<br>and<br>reasoning<br>services<br>is<br>made. | | | | |
+| Level<br>1 | Constraints<br>are<br>added<br>by<br>considering<br>direct<br>and<br>indirect<br>dependencies<br>among<br>sub-ontologies<br>and<br>their<br>concepts.<br>Additional<br>use<br>of<br>constraints,<br>parameters,<br>and<br>reasoning<br>services. | | | | |
+| Level<br>2 | Provides<br>an<br>additional<br>refinement<br>to<br>the<br>context<br>level<br>1<br>by<br>using<br>historical<br>data<br>collected<br>from<br>previous<br>tasks<br>as<br>well<br>as<br>by<br>applying<br>data<br>mining<br>and<br>other<br>analysis<br>techniques. | | | | |
 
 Table 1. Context levels descriptions.
 
 ## 2.1.*Context level 0*At this context level, the environment would not define any specific constraints with respect to the scope of the knowledge retrieval. The information retrieved will focus mainly on instance retrieval. The following SPARQL query example provides contextual support at level 0 for the defined use case.
+
 *Query: Show all programmers and maintainers working on the current project?*```text
 PREFIX vom: <http://ontoweb.concordia.ca/son>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns>
@@ -337,16 +336,17 @@ PREFIX vom: <http://ontoweb.concordia.ca/son>
 SELECT DISTINCT ?class
 WHERE {
 {?method vom:invokes %1.
- ?method vom:isMethodOf ?class}
+?method vom:isMethodOf ?class}
 UNION
 {?method vom:isInvokedBy %1.
- ?method vom:isMethodOf ?class}
+?method vom:isMethodOf ?class}
 }
 ```text
 
 In this example, we use a parameter to restrict the query results to the specific context the user is working on. Query parameters are provided either through the user or by the system itself (e.g., current editing context in the source code). The query returns all classes that are potentially affected by a modification in the method name provided by the parameter.
 
-# 2.3.*Context level 2*Common to most process models is the need to collect and analyze previous processrelated data to improve and optimize them. Within our unified process model, we also collect such data, namely the ones related to the resources utilized to complete a modification request (MR) and the applicability of these resources in completed MRs. This historical data enriches our KB and allows for a further refinement of the context according to similarities between the current MR and previously performed MRs. At this level, simple statistical processing, data mining techniques, or other advanced analysis techniques can be applied to enrich the results provided by the queries.
+## 2.3.*Context level 2*Common to most process models is the need to collect and analyze previous processrelated data to improve and optimize them. Within our unified process model, we also collect such data, namely the ones related to the resources utilized to complete a modification request (MR) and the applicability of these resources in completed MRs. This historical data enriches our KB and allows for a further refinement of the context according to similarities between the current MR and previously performed MRs. At this level, simple statistical processing, data mining techniques, or other advanced analysis techniques can be applied to enrich the results provided by the queries.
+
 *Query: Show all classes that are directly or indirectly affected by changes in method {Parameter %1}?*```text
 PREFIX sem: <http://ontoweb.concordia.ca/son>
 SELECT DISTINCT ?class
@@ -356,12 +356,12 @@ UNION
 { ?class sem:hasSubclass %1 }
 UNION
 {?method sem:isMethodOf %1.
- ?method1 sem:invokes ?method.
- ?method1 sem:isMethodOf ?class}
+?method1 sem:invokes ?method.
+?method1 sem:isMethodOf ?class}
 UNION
 {?method sem:isMethodOf %1.
- ?method1 sem:isInvokedBy ?method.
- ?method1 sem:isMethodOf ?class}
+?method1 sem:isInvokedBy ?method.
+?method1 sem:isMethodOf ?class}
 UNION{
 ?attr sem:isAttributeOf %1.
 ?attr sem:hasDeclaredClass ?class}
@@ -402,13 +402,13 @@ The course material covered was based on the IEEE maintenance standard [14], inc
 
 <sup>g</sup>http://www.lobobrowser.org
 
-| Software<br>system | Maintenance<br>task       |                                                                                                                                   | Number<br>of<br>participants<br>in the case study |    |
+| Software<br>system | Maintenance<br>task | | Number<br>of<br>participants<br>in the case study | |
 |--------------------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|----|
-|                    |                           | Description                                                                                                                       | #1                                                | #2 |
-| Debrief            | Component<br>Substitution | Non-encrypted XML files component had to<br>be substituted with a component that<br>implements XML encryption.                    | 5                                                 | 4  |
-|                    | Bug Fixing                | A seeded error in Debrief affecting the<br>saving of plot data had to be corrected.                                               | 4                                                 | 5  |
-| Lobo               | Component<br>Substitution | The standard Java SSL libraries to<br>communicate with secure websites had to be<br>replaced with a more secure SSL<br>component. | 5                                                 | 4  |
-|                    | Bug Fixing                | A bug in one of the menu options resulting<br>in undesired system behavior had to be<br>corrected.                                | 4                                                 | 5  |
+| | | Description | #1 | #2 |
+| Debrief | Component<br>Substitution | Non-encrypted XML files component had to<br>be substituted with a component that<br>implements XML encryption. | 5 | 4 |
+| | Bug Fixing | A seeded error in Debrief affecting the<br>saving of plot data had to be corrected. | 4 | 5 |
+| Lobo | Component<br>Substitution | The standard Java SSL libraries to<br>communicate with secure websites had to be<br>replaced with a more secure SSL<br>component. | 5 | 4 |
+| | Bug Fixing | A bug in one of the menu options resulting<br>in undesired system behavior had to be<br>corrected. | 4 | 5 |
 
 Table 2. Case studies.
 
@@ -428,17 +428,18 @@ Initial tool usage was recommended to the users, but they were under no obligati
 ![](_page_28_Figure_1.jpeg)
 <!-- Image Description: The image presents two pie charts comparing results from two case studies. Each chart displays the percentage of "Yes" and "No" responses. Case Study 1 shows 71% "Yes" and 29% "No", while Case Study 2 shows a stark contrast with 94% "Yes" and only 6% "No". The charts likely illustrate the prevalence of a particular phenomenon or agreement on a specific issue in the two different case studies. -->
 
-Fig. 13. Overall user acceptance rate.
+Figure 13. Overall user acceptance rate.
 
 ![](_page_28_Figure_3.jpeg)
 <!-- Image Description: The image presents a bar chart comparing user acceptance of a "tool" and "queries." Two bars for each category show the percentage of respondents rating them as "more helpful/usable" (darker gray) versus "less helpful/usable" (lighter gray). The tool shows 82.4% positive acceptance, while queries receive 64.7%. This suggests the tool is more favorably received than the queries. -->
 
-Fig. 14. Comparison of tool and query applicability.
+Figure 14. Comparison of tool and query applicability.
 
 ## 6.2.*Results and discussion*Data collection for the evaluation was performed through a log file created automatically by our environment, capturing the process activities, task steps and queries performed, as well as through an online survey collecting more specific user feedback.
-**Tool acceptance:**As mentioned previously, students were only encouraged to use our environment throughout the case study if they felt the environment would provide them with some added benefit in completing their software evolution tasks. The acceptance rate (Fig. 13) corresponds to users who utilized our environment throughout a complete case study. A comparison of the results from the first and second case study shows that the acceptance for our environment increased from 71% to 94% in the second case study.
 
-We further analyzed the collected feedback to identify which factors in particular contributed to the improved tool acceptance. From the analysis, we identified two major factors: perceived tool usefulness and the availability of additional contextual queries. The perceived usability/helpfulness of the tool reached 82% (Fig. 14). Almost twice as many students found the tool environment useful during the second case study. With respect to the contextual queries, 65% (compared to the first case study) of students indicated that the contextual queries and the additional knowledge they provided helped them during the completion of their assigned maintenance task.
+**Tool acceptance:**As mentioned previously, students were only encouraged to use our environment throughout the case study if they felt the environment would provide them with some added benefit in completing their software evolution tasks. The acceptance rate (Figure 13) corresponds to users who utilized our environment throughout a complete case study. A comparison of the results from the first and second case study shows that the acceptance for our environment increased from 71% to 94% in the second case study.
+
+We further analyzed the collected feedback to identify which factors in particular contributed to the improved tool acceptance. From the analysis, we identified two major factors: perceived tool usefulness and the availability of additional contextual queries. The perceived usability/helpfulness of the tool reached 82% (Figure 14). Almost twice as many students found the tool environment useful during the second case study. With respect to the contextual queries, 65% (compared to the first case study) of students indicated that the contextual queries and the additional knowledge they provided helped them during the completion of their assigned maintenance task.
 
 This initial case study shows that through the use of the unified ontological representation and pre-defined queries, we were able to provide users with a contextsensitive ubiquitous knowledge environment by hiding language specific aspects of the underlying knowledge resources. We also observed that providing additional contextual queries does not only improve the acceptance of the tool, but also enhances the use and perceived benefits of knowledge provided by the environment.
 

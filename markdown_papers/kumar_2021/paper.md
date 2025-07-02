@@ -29,10 +29,6 @@ keywords:
 - state-of-the-art
 ---
 
-
-
-
-
 **Ganesh Kumar 1,[\\*](https://orcid.org/0000-0002-0098-0948) , Shuib Basri <sup>1</sup> , Abdullahi Abubakar Imam 1,2, Sunder Ali Khowaja <sup>3</sup> [,](https://orcid.org/0000-0002-4586-4131) Luiz Fernando Capretz [4](https://orcid.org/0000-0001-6966-2369) and Abdullateef Oluwagbemiga Balogun 1,[5](https://orcid.org/0000-0001-7411-3639)**- <sup>1</sup> Computer and Information Science Department, Universiti Teknologi PETRONAS, Bandar Seri Iskandar 32610, Perak, Malaysia; shuib\_basri@utp.edu.my (S.B.); abdullahi\_g03618@utp.edu.my (A.A.I.); abdullateef\_16005851@utp.edu.my (A.O.B.)
 - <sup>2</sup> Department of Computer Science, Ahmadu Bello University, Zaria 1044, Nigeria
 - <sup>3</sup> Department of Telecommunication Engineering, Faculty of Engineering and Technology, University of Sindh, Jamshoro 76090, Pakistan; sandar.ali@usindh.edu.pk
@@ -49,7 +45,6 @@ Big Data play a vital role in the assessment of massive data produced every seco
 
 Academic Editor: Manuel Armada
 
-Received: 17 August 2021 Accepted: 30 August 2021 Published: 6 September 2021
 
 **Publisher's Note:**MDPI stays neutral with regard to jurisdictional claims in published maps and institutional affiliations.
 **Copyright:**© 2021 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (https:/[/](https://creativecommons.org/licenses/by/4.0/) [creativecommons.org/licenses/by/](https://creativecommons.org/licenses/by/4.0/) 4.0/).
@@ -74,7 +69,7 @@ In this Systematic Literature Review (SLR), the guidelines were followed from Re
 <!-- Image Description: The flowchart depicts a three-phase research review process. Phase 1 ("Plan Review") involves specifying research questions, developing, and validating a review protocol. Phase 2 ("Conduct Review") focuses on identifying relevant studies, extracting data, and synthesizing information. Finally, Phase 3 ("Reporting Review") includes writing and validating the review report. The flowchart visually outlines the sequential steps of the methodology. -->
 **Figure 1.**SLR process.
 
-##*2.1. Plan Review*In this first phase of research methodology, the significant research questions and development of review protocols are specified with the proper searching strategy.
+## *2.1. Plan Review*In this first phase of research methodology, the significant research questions and development of review protocols are specified with the proper searching strategy.
 
 ## 1.1. Research Questions
 
@@ -110,31 +105,32 @@ To guarantee that the review closely covers data harmonization and relevant tech
 
 We used the main alternatives and added "OR operator" and "AND operator" to get the maximum amount of directly relevant works in the literature, as shown in Table [1.](#page-3-0)
 
-<span id="page-3-0"></span>
 
-| ID | Keywords                                                                                                                                                                              |
+| ID | Keywords |
 |----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1  | "Data Harmonization" AND ("Heterogeneous Data" OR "Heterogeneity") AND ("Textual Data" OR "Text Data") AND<br>("text Preprocessing "OR "Preprocessing")                               |
-| 2  | "Data Harmonization" AND ("Heterogeneous Data" OR "Heterogeneity") AND ("Textual Data" OR "Text Data") AND<br>("Text Preprocessing "OR "Preprocessing") AND (Techniques OR Algorithm) |
-| 3  | "Data Integration" AND ("Heterogeneous Data" OR "Heterogeneity") AND ("Textual Data" OR "Text Data") AND<br>("text Preprocessing "OR "Preprocessing")                                 |
-| 4  | "Data Integration" AND ("Heterogeneous Data" OR "Heterogeneity") AND ("Textual Data" OR "Text Data") AND<br>("text Preprocessing "OR "Preprocessing") AND (Techniques OR Algorithm)   |
-| 5  | "Data Fusion" AND ("Heterogeneous Data" OR "Heterogeneity") AND ("Textual Data" OR "Text Data") AND ("text<br>Preprocessing "OR "Preprocessing")                                      |
-| 6  | "Data Fusion" AND ("Heterogeneous Data" OR "Heterogeneity") AND ("Textual Data" OR "Text Data") AND ("text<br>Preprocessing "OR "Preprocessing") AND (Techniques OR Algorithm)        |
-|    |                                                                                                                                                                                       |
+| 1 | "Data Harmonization" AND ("Heterogeneous Data" OR "Heterogeneity") AND ("Textual Data" OR "Text Data") AND<br>("text Preprocessing "OR "Preprocessing") |
+| 2 | "Data Harmonization" AND ("Heterogeneous Data" OR "Heterogeneity") AND ("Textual Data" OR "Text Data") AND<br>("Text Preprocessing "OR "Preprocessing") AND (Techniques OR Algorithm) |
+| 3 | "Data Integration" AND ("Heterogeneous Data" OR "Heterogeneity") AND ("Textual Data" OR "Text Data") AND<br>("text Preprocessing "OR "Preprocessing") |
+| 4 | "Data Integration" AND ("Heterogeneous Data" OR "Heterogeneity") AND ("Textual Data" OR "Text Data") AND<br>("text Preprocessing "OR "Preprocessing") AND (Techniques OR Algorithm) |
+| 5 | "Data Fusion" AND ("Heterogeneous Data" OR "Heterogeneity") AND ("Textual Data" OR "Text Data") AND ("text<br>Preprocessing "OR "Preprocessing") |
+| 6 | "Data Fusion" AND ("Heterogeneous Data" OR "Heterogeneity") AND ("Textual Data" OR "Text Data") AND ("text<br>Preprocessing "OR "Preprocessing") AND (Techniques OR Algorithm) |
+| | |
 
 ### Table 1. Inclusion and exclusion criteria description.
-**Table 1.** *Cont.*| ID | Keywords                                                                                                                                                                                                                          |
-|----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 7  | ("Data Harmonization" OR "Data Integration" OR "Data Fusion") AND ("Heterogeneous Data" OR "Heterogeneity")<br>AND ("Textual Data" OR "Text Data") AND ("text Preprocessing "OR "Preprocessing")                                  |
-| 8  | ("Data Harmonization" OR "Data Integration" OR "Data Fusion") AND ("Heterogeneous Data" OR "Heterogeneity")<br>AND ("Textual Data" OR "Text Data") AND ("text Preprocessing "OR "Preprocessing") AND<br>(Techniques OR Algorithm) |
-| 9  | ("Data Harmonization" OR "Data Integration" OR "Data Fusion") AND ("Heterogeneous Data" OR "Heterogeneity")<br>AND ("Textual Data" OR "Text Data") AND (Techniques OR Algorithm)                                                  |
-| 10 | ("Data Harmonization" OR "Data Integration" OR "Data Fusion") AND ("Heterogeneous Data" OR "Heterogeneity")<br>AND ("Textual Data" OR "Text Data")                                                                                |
 
-# 1.4. Literature Resources
+**Table 1.** *Cont.*| ID | Keywords |
+|----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 7 | ("Data Harmonization" OR "Data Integration" OR "Data Fusion") AND ("Heterogeneous Data" OR "Heterogeneity")<br>AND ("Textual Data" OR "Text Data") AND ("text Preprocessing "OR "Preprocessing") |
+| 8 | ("Data Harmonization" OR "Data Integration" OR "Data Fusion") AND ("Heterogeneous Data" OR "Heterogeneity")<br>AND ("Textual Data" OR "Text Data") AND ("text Preprocessing "OR "Preprocessing") AND<br>(Techniques OR Algorithm) |
+| 9 | ("Data Harmonization" OR "Data Integration" OR "Data Fusion") AND ("Heterogeneous Data" OR "Heterogeneity")<br>AND ("Textual Data" OR "Text Data") AND (Techniques OR Algorithm) |
+| 10 | ("Data Harmonization" OR "Data Integration" OR "Data Fusion") AND ("Heterogeneous Data" OR "Heterogeneity")<br>AND ("Textual Data" OR "Text Data") |
+
+## 1.4. Literature Resources
 
 Primary review studies: Web of Science, Scopus, ACM Digital Library, Springer, Science Direct, and IEEE Explorer databases were chosen for selection of relevant articles. These databases have maximum coverage of quality articles in our domain, such as ISI and Scopus indexed articles. The search term was constructed by using the advanced search features provided by each of these databases. Our search included the period from 2015 to 2020.
 
-##*2.2. Conduct Review*In this phase, we conducted the review according to the research questions, keywords, and protocols. This phase mostly emphasizes the inclusion and exclusion of articles, according to Table [2a](#page-4-0),b.
+## *2.2. Conduct Review*In this phase, we conducted the review according to the research questions, keywords, and protocols. This phase mostly emphasizes the inclusion and exclusion of articles, according to Table [2a](#page-4-0),b.
+
 **Table 2.** (**a**) Inclusion criteria description and (**b**) exclusion criteria description.
 
 ### (a) Inclusion Criteria
@@ -151,7 +147,7 @@ The research was conducted using ML, DL and NLP techniques related to textual da
 
 For duplicate publications of the same study, the newest and most complete one was selected. This is recorded for only one study whose related work appeared two times.
 
-#### (b) Exclusion Criteria
+### (b) Exclusion Criteria
 
 Studies that were irrelevant to data harmonization and domain were skipped. They showed up in our search due to the misuse of the term "harmonization" to describe traditional chemical and music work. Table [A1](#page-20-0) shows selected studies.
 
@@ -170,34 +166,34 @@ Table [3](#page-5-1) illustrates the quality checklist questions for evaluation 
 
 <span id="page-5-1"></span>**Table 3.** Quality checklist.
 
-| No. | Questions                                                                          |
+| No. | Questions |
 |-----|------------------------------------------------------------------------------------|
-| 1   | Did the studies focus on the heterogeneous nature of data?                         |
-| 2   | Was the study explaining the harmonization of large textual data?                  |
-| 3   | Was there any model proposed for textual data harmonization?                       |
-| 4   | Is study focusing on the core techniques of ML, DL and NLP for large textual data? |
-| 5   | Is the study discussing model performance using core techniques?                   |
-|     |                                                                                    |
+| 1 | Did the studies focus on the heterogeneous nature of data? |
+| 2 | Was the study explaining the harmonization of large textual data? |
+| 3 | Was there any model proposed for textual data harmonization? |
+| 4 | Is study focusing on the core techniques of ML, DL and NLP for large textual data? |
+| 5 | Is the study discussing model performance using core techniques? |
+| | |
 
-#### 2.2. Data Extraction
+### 2.2. Data Extraction
 
 In order to obtain the data which are needed to address our research questions and contributions, we used the data-extraction methods highlighted in Table [4.](#page-5-2)
 
 <span id="page-5-2"></span>**Table 4.**Data extraction.
 
-| Study                                       |  |  |  |
+| Study | | | |
 |---------------------------------------------|--|--|--|
-| Study Research Problem Contributions        |  |  |  |
-| RQ1: Heterogeneous Data                     |  |  |  |
-| RQ2: Data Harmonization                     |  |  |  |
-| RQ3: Industrial Textual Data and Techniques |  |  |  |
-| RQ4: Sequential Data Techniques             |  |  |  |
+| Study Research Problem Contributions | | | |
+| RQ1: Heterogeneous Data | | | |
+| RQ2: Data Harmonization | | | |
+| RQ3: Industrial Textual Data and Techniques | | | |
+| RQ4: Sequential Data Techniques | | | |
 
-#### 2.3. Information Synthesis
+### 2.3. Information Synthesis
 
 At this stage, the extracted data were aggregated to answer the research questions. For our research questions, we used the narrative synthesis method. Accordingly, we used tables and charts to present our results.
 
-##*2.3. Report Review*
+## *2.3. Report Review*
 
 Data extracted from the primary studies was used to answer our four research questions. The guidelines of References [\[29,](#page-24-18)[30\]](#page-24-19) were closely followed in the reporting of results.
 
@@ -207,12 +203,12 @@ The summary of selected studies in the detailed arrangement is presented in Tabl
 
 <span id="page-6-1"></span>**Table 5.**RQ studies.
 
-| RQ                          | Studies |
+| RQ | Studies |
 |-----------------------------|---------|
-| Heterogeneity               | 14      |
-| Data Harmonization          | 25      |
-| Industrial Textual Data     | 23      |
-| Sequential Data Performance | 08      |
+| Heterogeneity | 14 |
+| Data Harmonization | 25 |
+| Industrial Textual Data | 23 |
+| Sequential Data Performance | 08 |
 
 Figure [3](#page-6-2) illustrates the number of studies per year. There were a smaller number of studies in 2015, and then the related research studies grew in 2016/2017, such as 15 and 18, respectively. In 2018 and 2019, the number of studies found was 16 and 15, and in 2020, four studies found.
 
@@ -226,7 +222,7 @@ Figure [4](#page-7-0) illustrates the worldwide map of countries who contributed
 <!-- Image Description: The image is a choropleth map displaying the worldwide distribution of publications per country. Countries are color-coded based on publication volume; darker shades of purple indicate higher numbers, while lighter shades and orange represent lower volumes. The map visually represents the geographical concentration of academic publications, allowing for quick comparison of output between nations. A color bar indicates the scale of publication frequency (low to high). -->
 **Figure 4.**Chlorophet map showing the worldwide distribution of publications by countries.
 
-###*3.1. Which of the Domains Are Mainly Focused on Researching Heterogeneity?*In this review, 14 studies discussed heterogeneity or heterogeneous datasets. Here we present a list of contributions for heterogeneous data.
+### *3.1. Which of the Domains Are Mainly Focused on Researching Heterogeneity?*In this review, 14 studies discussed heterogeneity or heterogeneous datasets. Here we present a list of contributions for heterogeneous data.
 
 Initially, the heterogeneity issues were presented by the researchers Silverio, Cavallo, De Rosa, and Galasso [\[31\]](#page-24-20), in which the centralization of cardiovascular disease (CVD) is needed because no such system has been developed for all CVDs worldwide that will help patients and staff with responsible treatment. A framework was developed of all collected CVDs and compared based on performance ratio. In addition, a survey was conducted by a research team of Verma, Agrawal, Patel, and Patel [\[32\]](#page-24-21) on the challenges faced by heterogeneous data in structured, semi-structured, and unstructured (SSU) formats. Various types of data are covered in SSU data, such as text, audio, images, video, and social media. In this, it is stated that Big Data Analytics (BDA) play an important role in Industrial Revolution 4.0, particularly for Big Data Analysts for making decisions, analysis, visualization, and prediction of challenges. The studies show the following challenges faced by industries: as predictive analysis, social media analytics, content-based analytics, text analytics, audio analytics, and video analytics. Moreover, Ali, Neagu, and Trundle [\[33\]](#page-24-22) have highlighted in their work that heterogeneity has become an issue for large textual datasets used for data mining. For this, different machine learning (ML) techniques, such as KNN, SVM, NB, and ANN, are used for the classification of data, as well as for similarity, semantic-based information retrieval uses different algorithms. The result shows the accuracy of similar pairs to be better than existing classification techniques.
 
@@ -238,27 +234,26 @@ Furthermore, data mining of heterogeneous data plays an important role in gettin
 
 Additionally, Elsharkawy, Ahmed, and Salem [\[42\]](#page-25-6) believe that the heterogeneity and complexity are two main issues highlighted for the solution and integration of clinical data. The data are generated in different formats, such as RDF, XML, and images. The issues were solved by using ontology and semantic techniques. Recently, the authors Arora and Goyal [\[3\]](#page-23-2) emphasized that the various frameworks of heterogeneity and heterogeneous datasets can be used for solving the issues of heterogeneity, and it was shown that heterogeneity is always due to the unusual format of data and lack of integration resources, expertise, and techniques. Table [6](#page-8-0) shows the advantages and disadvantages of studies selected for Research Question 1.
 
-<span id="page-8-0"></span>
 
-| Study Reference | Domain                | Advantages                                                                                   | Disadvantages                                                                      |
+| Study Reference | Domain | Advantages | Disadvantages |
 |-----------------|-----------------------|----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| [31]            | Healthcare            | Millions of E HR combined                                                                    | Limited data access to selected smallest<br>patient populations                    |
-| [32]            | General Purpose       | diverse, massive, and complex data                                                           | Requires new norm of integration                                                   |
-| [33]            | Text similarity       | Helps in classifying similar objects.<br>Increase performance of ML techniques               | It is considered inconsistent and ad-hoc.                                          |
-| [34]            | General Purpose       | The natural property of BD.<br>Combine and manage                                            | variety of inconsistent data create problems                                       |
-| [35]            | InformationRetrieval  | Utilize data from a variety of sources.<br>Single unified data source                        | Loss of information due to semantic,<br>syntactic, and schematic difference        |
-| [36]            | Healthcare            | Electronic health record became unique                                                       | Difficult to manage different form                                                 |
-| [37]            | General Purpose       | DL helps in solving the integration of<br>heterogeneous data                                 | Conflicting information shared by resources                                        |
-| [38]            | Information Retrieval | Efficient data extraction<br>Effectiveness of data                                           | Meaningful data extraction from the<br>huge database                               |
-| [39]            | Education             | Helps in distribution across clusters                                                        | Need More memory for processing                                                    |
-| [5]             | Healthcare            | Need to manage data efficiently and<br>collaborative way                                     | Need to be distributed and parallel<br>computing systems and database              |
-| [40]            | Healthcare            | Multiple different sources data with a<br>unified view                                       | Data processing Speed and quality of<br>data analytics                             |
-| [41]            | Infrastructure        | Extremely large multisource infrastructure<br>containing vehicles, residents, and smart card | Some models are only indirectly relevant to<br>a particular phenomenon of interest |
-| [42]            | Healthcare            | Semantic-based integration and<br>semantic-based medical retrieval                           | Clinical records without linguistic standard                                       |
-| [3]             | General Purpose       | Heterogeneous data can be solved by using<br>RDBMS, concept lattice, and MapReduce           | Performance of all heterogeneous data is<br>not calculated                         |
+| [31] | Healthcare | Millions of E HR combined | Limited data access to selected smallest<br>patient populations |
+| [32] | General Purpose | diverse, massive, and complex data | Requires new norm of integration |
+| [33] | Text similarity | Helps in classifying similar objects.<br>Increase performance of ML techniques | It is considered inconsistent and ad-hoc. |
+| [34] | General Purpose | The natural property of BD.<br>Combine and manage | variety of inconsistent data create problems |
+| [35] | InformationRetrieval | Utilize data from a variety of sources.<br>Single unified data source | Loss of information due to semantic,<br>syntactic, and schematic difference |
+| [36] | Healthcare | Electronic health record became unique | Difficult to manage different form |
+| [37] | General Purpose | DL helps in solving the integration of<br>heterogeneous data | Conflicting information shared by resources |
+| [38] | Information Retrieval | Efficient data extraction<br>Effectiveness of data | Meaningful data extraction from the<br>huge database |
+| [39] | Education | Helps in distribution across clusters | Need More memory for processing |
+| [5] | Healthcare | Need to manage data efficiently and<br>collaborative way | Need to be distributed and parallel<br>computing systems and database |
+| [40] | Healthcare | Multiple different sources data with a<br>unified view | Data processing Speed and quality of<br>data analytics |
+| [41] | Infrastructure | Extremely large multisource infrastructure<br>containing vehicles, residents, and smart card | Some models are only indirectly relevant to<br>a particular phenomenon of interest |
+| [42] | Healthcare | Semantic-based integration and<br>semantic-based medical retrieval | Clinical records without linguistic standard |
+| [3] | General Purpose | Heterogeneous data can be solved by using<br>RDBMS, concept lattice, and MapReduce | Performance of all heterogeneous data is<br>not calculated |
 **Table 6.**RQ1 domains' advantages and disadvantages.
 
-##*3.2. How Does the Data Harmonization Resolve the Issues of Heterogeneity?*In this section, 25 studies were selected which discuss data harmonization, data integration, and data fusion. The details of each study are discussed below.
+## *3.2. How Does the Data Harmonization Resolve the Issues of Heterogeneity?*In this section, 25 studies were selected which discuss data harmonization, data integration, and data fusion. The details of each study are discussed below.
 
 Initially, heterogeneous oil and gas data are unorganized, which is difficult to manage. For that data harmonization was proposed by Danyaro and Liew [\[43\]](#page-25-7), using semantic web and BD tools. Where performance of the precision, recall, and F-score found better than existing techniques. In addition, agriculture data are stored in clusters, and it is difficult to handle heterogeneous data. Therefore, a uniform format was reported by (Sambrekar, Rajpurohit, and Joshi [\[44\]](#page-25-8), using Couchbase and NoSQL, and it was found that the time duration for fetching records is fast. Apart from this, different frameworks have been developed by different organizations to make decisions, but no framework has been proposed for value creation. In this study, Saggi and Jain [\[45\]](#page-25-9) created a framework for value creation from SSU data also in-depth issues of heterogeneity, harmonization, and BD techniques were highlighted. It shows the importance of data integration for industrial data, decisions, product reviews, and visualization of future strategies. Artificial intelligence, ML, and cloud computing will be helpful for BD Analysts. Moreover, Li, Chai, and Chen [\[46\]](#page-25-10) summarized that the heterogeneous data in industry are produced easily but are difficult to store, manage, and audit. In this study, the issue of heterogeneity of large firms was solved using a NoSQL-based data integration model. Furthermore, health data are very important for patient treatment, monitoring, and satisfaction. Health data are generated by all institutes by using open-source web data, but no such online module has been proposed for integration of all web-based centralized. In their study, Hong, Wang, et al. [\[47\]](#page-25-11) revealed a Web-based FHIR visualization tool, using a standard structured format API. Again, Lopes, Bastião, and Oliveira [\[48\]](#page-25-12) described that the file sharing between users was difficult for heterogeneous data. Therefore, a real-time integration and interoperability model was developed by using PostgreSQL to facilitate different users.
 
@@ -273,38 +268,37 @@ Furthermore, the patient stays in hospital data with different codes were not pu
 In Saudi Arabia, patient health data generated in public and private hospitals are not shared and integrated with the health information system due to a lack of heterogeneity. Therefore, the Banu, Kuppuswamy, and Sasikala [\[63\]](#page-26-1) team proposed a NLP and BDA-based systems. Lastly, online FHIR-based web portals were developed by using NLP techniques and open-source tools on the Mayo Clinic dataset to centralize the data generated in a heterogeneous format that was revealed by the researchers Hong, Wen, Shen, et al. [\[64\]](#page-26-2). The contributions of all studies in all domains are discussed in Table [7.](#page-10-0)
 **Table 7.**RQ2 domain and contributions.
 
-<span id="page-10-0"></span>
 
-| Study Reference | Domain          | Contributions                                                                          |
+| Study Reference | Domain | Contributions |
 |-----------------|-----------------|----------------------------------------------------------------------------------------|
-| [43]            | Oil and Gas     | High performance measure                                                               |
-| [44]            | Agriculture     | High performance, high availability, and high scalability, using the latest techniques |
-| [45]            | General-Purpose | Data generation, storing, fetching, analysis, visualization, and decision-making       |
-| [46]            | Banking         | Helps in auditing the multisource data                                                 |
-| [47]            | Healthcare      | Facilitate for navigation of HL7 FHIR core resources                                   |
-| [48]            | General-Purpose | Delivering automatic services to interoperable system                                  |
-| [49]            | Healthcare      | Helps in developing an automatic system for disordered patient                         |
-| [50]            | Education       | To motivate researchers and academicians about the latest techniques                   |
-| [10]            | Healthcare      | Useful for decisions of scientific, clinical, and administrative work                  |
-| [51]            | Education       | Facilitate in online learning, storage, processing, and academic activities            |
-| [52]            | General-Purpose | Recommendation system, opinion mining, and parallelism can be targeted                 |
-| [53]            | Oil and Gas     | Helpful for decision-makers during exploration, drilling, and production               |
-| [54]            | General-Purpose | It will facilitate for fetching data and performance measure                           |
-| [65]            | Healthcare      | Helpful for disease prevention, tracking, and policy making                            |
-| [11]            | Healthcare      | Helps in boosting statistical power of sustainable and robust data                     |
-| [55]            | Infrastructure  | Geographic based smart city for aggregation, visualization, and analysis               |
-| [56]            | Healthcare      | Helps in predicting the clinical codes of patient stays                                |
+| [43] | Oil and Gas | High performance measure |
+| [44] | Agriculture | High performance, high availability, and high scalability, using the latest techniques |
+| [45] | General-Purpose | Data generation, storing, fetching, analysis, visualization, and decision-making |
+| [46] | Banking | Helps in auditing the multisource data |
+| [47] | Healthcare | Facilitate for navigation of HL7 FHIR core resources |
+| [48] | General-Purpose | Delivering automatic services to interoperable system |
+| [49] | Healthcare | Helps in developing an automatic system for disordered patient |
+| [50] | Education | To motivate researchers and academicians about the latest techniques |
+| [10] | Healthcare | Useful for decisions of scientific, clinical, and administrative work |
+| [51] | Education | Facilitate in online learning, storage, processing, and academic activities |
+| [52] | General-Purpose | Recommendation system, opinion mining, and parallelism can be targeted |
+| [53] | Oil and Gas | Helpful for decision-makers during exploration, drilling, and production |
+| [54] | General-Purpose | It will facilitate for fetching data and performance measure |
+| [65] | Healthcare | Helpful for disease prevention, tracking, and policy making |
+| [11] | Healthcare | Helps in boosting statistical power of sustainable and robust data |
+| [55] | Infrastructure | Geographic based smart city for aggregation, visualization, and analysis |
+| [56] | Healthcare | Helps in predicting the clinical codes of patient stays |
 
-| Study Reference | Domain          | Contributions                                                         |
+| Study Reference | Domain | Contributions |
 |-----------------|-----------------|-----------------------------------------------------------------------|
-| [57]            | Healthcare      | Helps in patient-lefted care decision-making among stakeholders       |
-| [58]            | Healthcare      | Helps in finding the patient having obesity and comorbidities         |
-| [59]            | Healthcare      | Helps in developing patient diagnostic criteria and representation    |
-| [61]            | General-Purpose | Support in integration, storage, computation, and visualization       |
-| [62]            | Healthcare      | Open biomedical repositories can be developed in semantic web formats |
-| [60]            | Healthcare      | Normalizing and integration of structured and unstructured EHR data   |
-| [63]            | Healthcare      | Helps health information system to keep a record of patients' data    |
-| [64]            | Healthcare      | Helps in standardizing the clinical data normalization                |
+| [57] | Healthcare | Helps in patient-lefted care decision-making among stakeholders |
+| [58] | Healthcare | Helps in finding the patient having obesity and comorbidities |
+| [59] | Healthcare | Helps in developing patient diagnostic criteria and representation |
+| [61] | General-Purpose | Support in integration, storage, computation, and visualization |
+| [62] | Healthcare | Open biomedical repositories can be developed in semantic web formats |
+| [60] | Healthcare | Normalizing and integration of structured and unstructured EHR data |
+| [63] | Healthcare | Helps health information system to keep a record of patients' data |
+| [64] | Healthcare | Helps in standardizing the clinical data normalization |
 **Table 7.** *Cont.*##*3.3. Which Techniques Are Being Used for Solving the Harmonization Issue for Large Textual Datasets?*In previous studies, SSU heterogeneous data were used in the form of text, images, audio, video, and social media formats. The BD and BDA literature reviews proposed so many models and frameworks for data harmonization or integration. Among them, textual data play an important role in semantic, syntactic, and schematic data from large datasets. In different industries, different approaches are used by BD analysts to meet the demands of users and owners.
 
 In this section, 16 studies were selected that highlight the core techniques and their contributions in terms of performance, time, and accuracy in data harmonization, data integration, and data fusion. The details of each study are discussed below.
@@ -315,169 +309,165 @@ health records can be in the digital form of clinical data and support multiple 
 
 The contributions, techniques, and domains of all studies are discussed in Table [8.](#page-12-0)
 
-<span id="page-12-0"></span>
 
-| Study Reference | Domain          | Techniques                      | Contributions                                                                                                                                                                              |
+| Study Reference | Domain | Techniques | Contributions |
 |-----------------|-----------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [66]            | Entertainment   | Sentence Similarity             | Using computational identification of the meaning of data in<br>context from XML large datasets                                                                                            |
-| [67]            | Business        | Business Intelligence           | To extract values from the organized and refined data also helps<br>stakeholders to make decisions                                                                                         |
-| [68]            | General         | Sentence Similarity             | Helps in training deep learning models for clinic paraphrase<br>generation and simplification                                                                                              |
-| [69]            | General         | Feature Extraction              | To calculate the performance of expert-driven and fully automated<br>features on free-text clinical reports                                                                                |
-| [70]            | Healthcare      | Sentence Similarity             | Support reduction in cognitive burden and improvement in the<br>clinical decision-making process                                                                                           |
-| [71]            | Healthcare      | Word Embedding                  | Analysis of illness will help early disease detection, patient care,<br>and community services                                                                                             |
-| [72]            | General         | Information Retrieval           | Document retrieval from large datasets of disparate formats                                                                                                                                |
-| [73]            | General         | Deep Learning                   | Automatic semantic analysis and data drove strategies for<br>Computer Vision, ASR, and NLP                                                                                                 |
-| [74]            | General         | Phrase Embedding                | Helps in the integrity of semantic units and vectorization of<br>similar words                                                                                                             |
-| [75]            | Healthcare      | Preprocessing                   | To precise historical analysis of clinical activities of patient                                                                                                                           |
-| [76]            | Healthcare      | Sentence Similarity             | To get clinic semantic textual similarities such as lexical patterns,<br>word semantic, and named entities                                                                                 |
-| [77]            | Email           | Preprocessing                   | Unstructured email extracted in a structured format                                                                                                                                        |
-| [78]            | Social media    | NLP                             | To find the sentiment from the message concerning content and<br>level of hurting or criticizing                                                                                           |
-| [79]            | General, Health | Knowledge discovery<br>Database | All tasks and techniques related to textual data, such as IR, NLP, IE,<br>text summarization, unsupervised and supervised ML, opinion<br>mining, and biomedical text mining, are discussed |
-| [80]            | General         | NLP, BD tools                   | Data with long instances of text processed using tools and libraries                                                                                                                       |
-| [81]            | Multilingual    | NLP, ML                         | Multilingual text preprocessing issues by using text mining and<br>processing discussed                                                                                                    |
+| [66] | Entertainment | Sentence Similarity | Using computational identification of the meaning of data in<br>context from XML large datasets |
+| [67] | Business | Business Intelligence | To extract values from the organized and refined data also helps<br>stakeholders to make decisions |
+| [68] | General | Sentence Similarity | Helps in training deep learning models for clinic paraphrase<br>generation and simplification |
+| [69] | General | Feature Extraction | To calculate the performance of expert-driven and fully automated<br>features on free-text clinical reports |
+| [70] | Healthcare | Sentence Similarity | Support reduction in cognitive burden and improvement in the<br>clinical decision-making process |
+| [71] | Healthcare | Word Embedding | Analysis of illness will help early disease detection, patient care,<br>and community services |
+| [72] | General | Information Retrieval | Document retrieval from large datasets of disparate formats |
+| [73] | General | Deep Learning | Automatic semantic analysis and data drove strategies for<br>Computer Vision, ASR, and NLP |
+| [74] | General | Phrase Embedding | Helps in the integrity of semantic units and vectorization of<br>similar words |
+| [75] | Healthcare | Preprocessing | To precise historical analysis of clinical activities of patient |
+| [76] | Healthcare | Sentence Similarity | To get clinic semantic textual similarities such as lexical patterns,<br>word semantic, and named entities |
+| [77] | Email | Preprocessing | Unstructured email extracted in a structured format |
+| [78] | Social media | NLP | To find the sentiment from the message concerning content and<br>level of hurting or criticizing |
+| [79] | General, Health | Knowledge discovery<br>Database | All tasks and techniques related to textual data, such as IR, NLP, IE,<br>text summarization, unsupervised and supervised ML, opinion<br>mining, and biomedical text mining, are discussed |
+| [80] | General | NLP, BD tools | Data with long instances of text processed using tools and libraries |
+| [81] | Multilingual | NLP, ML | Multilingual text preprocessing issues by using text mining and<br>processing discussed |
 **Table 8.**Domain, techniques, and contributions.
 
-##*3.4. How NN Algorithms Are Well-Suited with Respect to Efficiency for Large Sequential Datasets*In this section, 8 studies were selected which highlight the performance of Recurrent Neural Network (RNN) and Convolutional Neural Network (CNN) used for sequential data. The details of each study are discussed below.
+## *3.4. How NN Algorithms Are Well-Suited with Respect to Efficiency for Large Sequential Datasets*In this section, 8 studies were selected which highlight the performance of Recurrent Neural Network (RNN) and Convolutional Neural Network (CNN) used for sequential data. The details of each study are discussed below.
 
 At first, the researchers Yin et al. [\[82\]](#page-26-20) and Ouyang et al. [\[83\]](#page-26-21), in both surveys, discussed the use of NLP and DL techniques for fake-news detection and sequential data. By using techniques, it is found that the accuracy of model is up to 93%. Moreover, a comparison of CNN and RNN reveals that RNN is better than CNN. The techniques can be used for sentimental, relational, textual entitlement, answer selection, QA path query, and POS tagging was pointed by Lopez and Kalita [\[84\]](#page-26-22). Additionally, the authors Chai and Li [\[85\]](#page-26-23) selected the studies that work for the Chinese community. In that, Chinese language based Clinical NER's performance was increased by using NLP techniques with DL. Similarly, the other techniques such as RNN with DL always shows better results which was presented by authors Oshikawa, Qian, and Wang [\[86\]](#page-26-24). In addition, with the help of NLP in the different domains, the sequential data performance is optimum also highlighted by Young, Hazarika, Poria, and Cambria [\[87,](#page-26-25)[88\]](#page-27-0). lastly, a survey was conducted by the authors Jing and Xu Jing and Xu [\[89,](#page-27-1)[90\]](#page-27-2) which depicts the performance of RNN with the addition of NLP is at it shows the performance at its peak.
 
 The contributions, techniques, and domains of all studies are discussed in Table [9.](#page-13-0)
 
-<span id="page-13-0"></span>
 
-| Study Reference | Domain             | Techniques                                              | Contributions                             |
+| Study Reference | Domain | Techniques | Contributions |
 |-----------------|--------------------|---------------------------------------------------------|-------------------------------------------|
-| [82]            | General            | CNN, RNN for NLP                                        | RNN perform better                        |
-| [83]            | Healthcare         | RNN, N-Gram                                             | RNN performance better by<br>using N-gram |
-| [84]            | General            | Compared with the existing<br>Algorithm of CNN          | RNN outperformed                          |
-| [85]            | General            | Used in many NLP and<br>audio-video functionality       | Better for sequential text                |
-| [86]            | Fake News          | RNN for larger data sets of fake news                   | 93% accuracy                              |
-| [87]            | General            | CNN, RNN                                                | RNN is better as per recent studies       |
-| [88]            | Cancer, healthcare | DL classifier is better than<br>conventional classifier | Model accuracy is better by using RNN     |
-| [89]            | General            | FFNNLM, RNNLM                                           | RNN Language model is best                |
-| [90]            | Medical, General   | CNN, DBN, RNN                                           | RNN is better in terms of NLP             |
+| [82] | General | CNN, RNN for NLP | RNN perform better |
+| [83] | Healthcare | RNN, N-Gram | RNN performance better by<br>using N-gram |
+| [84] | General | Compared with the existing<br>Algorithm of CNN | RNN outperformed |
+| [85] | General | Used in many NLP and<br>audio-video functionality | Better for sequential text |
+| [86] | Fake News | RNN for larger data sets of fake news | 93% accuracy |
+| [87] | General | CNN, RNN | RNN is better as per recent studies |
+| [88] | Cancer, healthcare | DL classifier is better than<br>conventional classifier | Model accuracy is better by using RNN |
+| [89] | General | FFNNLM, RNNLM | RNN Language model is best |
+| [90] | Medical, General | CNN, DBN, RNN | RNN is better in terms of NLP |
 
-| Table 9. Model Performance Techniques. |  |
+| Table 9. Model Performance Techniques. | |
 |----------------------------------------|--|
 |----------------------------------------|--|
 
-##*3.5. Common Techniques*In this paper, different heterogeneous data and data harmonization approaches are discussed. The core techniques used in studies are presented in Table [10.](#page-14-0) The NLP technique is used all together in some studies, and also in some studies as a separate technique. For larger datasets, different techniques are highlighted that were used to help different domains. The major techniques include N-Gram, Bag of words, Bag of Phrases, TFIDF, cosine similarity, Jaccard similarity, Jaro Winkler, word2Vec, Phrase2Vec, Doc2Vec. It also helps with Name Entity Recognition (NER), text summarization, predictive analysis, word embedding, and semantic-based feature extraction from large heterogeneous datasets.
+## *3.5. Common Techniques*In this paper, different heterogeneous data and data harmonization approaches are discussed. The core techniques used in studies are presented in Table [10.](#page-14-0) The NLP technique is used all together in some studies, and also in some studies as a separate technique. For larger datasets, different techniques are highlighted that were used to help different domains. The major techniques include N-Gram, Bag of words, Bag of Phrases, TFIDF, cosine similarity, Jaccard similarity, Jaro Winkler, word2Vec, Phrase2Vec, Doc2Vec. It also helps with Name Entity Recognition (NER), text summarization, predictive analysis, word embedding, and semantic-based feature extraction from large heterogeneous datasets.
 
 Along with NLP techniques, different machine learning algorithms for classification and clustering are highlighted in Table [10.](#page-14-0) Moreover, for training and testing of sequential data, deep learning algorithms are used for better performance and efficiency. Recurrent Neural networks performed better than CNN with the help of NLP and BD techniques. Other than that, BD, database, and web-based techniques are also discussed in different studies. For making structured formats, NoSQL, RDBMS, SQL, PostgreSQL, and ETL were used, and from the studies, it was found that the performance of structured data using these techniques is better. For web-based data, XML and ontology tools are used to fetch the data and place them in a structured format. Table [10](#page-14-0) contains the core techniques of ML, DL, and NLP. Core techniques are also added that are based on studies relevant to research questions.
 
-<span id="page-14-0"></span>
 
-| Category                          | Techniques         | Studies' References          |
+| Category | Techniques | Studies' References |
 |-----------------------------------|--------------------|------------------------------|
-|                                   | NoSQL              | [3,44,46,53,67]              |
-|                                   | HDFS               | [4,5,40,51,53,67,75,80,91]   |
-|                                   | PostgreSQL         | [48]                         |
-| Storage Technology                | DWH                | [53]                         |
-|                                   | OLAP               | [53]                         |
-|                                   | ETL                | [91]                         |
-|                                   | SQL                | [91]                         |
-|                                   | RDBMS              | [39]                         |
-|                                   | Semantic web       | [43,62,66]                   |
-|                                   | Ontology           | [11,42,62,65]                |
-| Web-Based Processing Technology   | Web                | [57,64]                      |
-|                                   | Open-source        | [47]                         |
-|                                   | Couch base         | [44]                         |
-| Platform Technology               | MapReduce          | [4,51,53,61,67,80]           |
-|                                   | Spark              | [51,67,80]                   |
-|                                   | ML                 | [37,38,54,58,59,69,78,79,81] |
-|                                   | DL                 | [36,37,54,68,79,81]          |
-|                                   | Tensor             | [41,61]                      |
-|                                   | KNN                | [33,71]                      |
-|                                   | SVM                | [33,49]                      |
-|                                   | NB                 | [33,56,71]                   |
-| Processing Technology             | RF                 | [56]                         |
-|                                   | DT                 | [71]                         |
-|                                   | K-Means            | [74]                         |
-|                                   | ANN                | [33]                         |
-|                                   | CNN                | [71,92]                      |
-|                                   | RNN                | [92]                         |
-|                                   | NLP                | [5,49,58,60,63,70,74–77]     |
-|                                   | N-Gram             | [49,68]                      |
-|                                   | TFIDF              | [49,72]                      |
-|                                   | Jaccard Similarity | [68]                         |
-|                                   | Word2Vec           | [68]                         |
-|                                   | BoW                | [59]                         |
-| Information Processing Technology | Cosine Similarity  | [72]                         |
-|                                   | Text Summarization | [73]                         |
-|                                   | Word embedding     | [73]                         |
-|                                   | JaroWinkler        | [93]                         |
-|                                   | Soft TFIDF         | [93]                         |
-|                                   | Doc2Vec            | [49]                         |
-|                                   | Text preprocessing | [79–81]                      |
+| | NoSQL | [3,44,46,53,67] |
+| | HDFS | [4,5,40,51,53,67,75,80,91] |
+| | PostgreSQL | [48] |
+| Storage Technology | DWH | [53] |
+| | OLAP | [53] |
+| | ETL | [91] |
+| | SQL | [91] |
+| | RDBMS | [39] |
+| | Semantic web | [43,62,66] |
+| | Ontology | [11,42,62,65] |
+| Web-Based Processing Technology | Web | [57,64] |
+| | Open-source | [47] |
+| | Couch base | [44] |
+| Platform Technology | MapReduce | [4,51,53,61,67,80] |
+| | Spark | [51,67,80] |
+| | ML | [37,38,54,58,59,69,78,79,81] |
+| | DL | [36,37,54,68,79,81] |
+| | Tensor | [41,61] |
+| | KNN | [33,71] |
+| | SVM | [33,49] |
+| | NB | [33,56,71] |
+| Processing Technology | RF | [56] |
+| | DT | [71] |
+| | K-Means | [74] |
+| | ANN | [33] |
+| | CNN | [71,92] |
+| | RNN | [92] |
+| | NLP | [5,49,58,60,63,70,74–77] |
+| | N-Gram | [49,68] |
+| | TFIDF | [49,72] |
+| | Jaccard Similarity | [68] |
+| | Word2Vec | [68] |
+| | BoW | [59] |
+| Information Processing Technology | Cosine Similarity | [72] |
+| | Text Summarization | [73] |
+| | Word embedding | [73] |
+| | JaroWinkler | [93] |
+| | Soft TFIDF | [93] |
+| | Doc2Vec | [49] |
+| | Text preprocessing | [79–81] |
 **Table 10.**Common techniques.
 
-##*3.6. Data Formats*
+## *3.6. Data Formats*
 
 In Table [11,](#page-15-0) data formats or sources of data are presented. Large heterogeneous datasets and representations are found in different formats. Based on these formats, structured, semi-structured, and unstructured data are categorized. The structured data formats that are used in the studies are SQL, XLS, and String. On the other hand, semistructured data formats that are used are CSV, JSON, XML, URI, RDF, GIS, and GPS. Unstructured data formats are categorized as sensor data, video, audio, images, text, industrial data, and social media files.
 
-| Techniques | Studies' References                                          |
+| Techniques | Studies' References |
 |------------|--------------------------------------------------------------|
-| URI        | [43]                                                         |
-| RDF        | [43,47]                                                      |
-| Sensor     | [40,44,54]                                                   |
-| TXT        | [5,35,44,75,79,93]                                           |
-| CSV        | [35,44,48,75]                                                |
-| XML        | [44,47,62,66]                                                |
-| SSU        | [3,31,33,34,36,37,41,45,46,54,58,60,61,63,68–71,73,74,76,77] |
-| GIS        | [46]                                                         |
-| JSON       | [47,48,55]                                                   |
-| SQL        | [48]                                                         |
-| OCR        | [49]                                                         |
-| INDUSTRIAL | [2,53,67]                                                    |
-| VIDEO      | [51,92]                                                      |
-| AUDIO      | [51,92]                                                      |
-| IMAGE      | [51,92]                                                      |
-| WEB        | [11,35,37,39,52,56,59,64,72,91]                              |
-| TEXTUAL    | [52]                                                         |
-| XLS        | [5,65,75]                                                    |
-| GPS        | [35]                                                         |
-| STRING     | [55]                                                         |
+| URI | [43] |
+| RDF | [43,47] |
+| Sensor | [40,44,54] |
+| TXT | [5,35,44,75,79,93] |
+| CSV | [35,44,48,75] |
+| XML | [44,47,62,66] |
+| SSU | [3,31,33,34,36,37,41,45,46,54,58,60,61,63,68–71,73,74,76,77] |
+| GIS | [46] |
+| JSON | [47,48,55] |
+| SQL | [48] |
+| OCR | [49] |
+| INDUSTRIAL | [2,53,67] |
+| VIDEO | [51,92] |
+| AUDIO | [51,92] |
+| IMAGE | [51,92] |
+| WEB | [11,35,37,39,52,56,59,64,72,91] |
+| TEXTUAL | [52] |
+| XLS | [5,65,75] |
+| GPS | [35] |
+| STRING | [55] |
 
 <span id="page-15-0"></span>**Table 11.**Data formats.
 
-###*3.7. Performance Measure Techniques*The performance measure is important for all types of models, tools, techniques, and algorithms used in industrial projects and data-fetching mechanisms. Decision-making, visualization, and prediction are the key roles played by BD analysts and their role in making the system efficient and effective. In this paper, different types of performance are measured in different studies, which are shown in Table [12.](#page-15-1) Among all, precision, recall, and F-score are dominant in all types of BD-, ML-, DL-, and NLP-based models and frameworks. Accuracy is used by many researchers, where business intelligence tools are used only by business firms which was highlighted by [\[31\]](#page-24-20).
+### *3.7. Performance Measure Techniques*The performance measure is important for all types of models, tools, techniques, and algorithms used in industrial projects and data-fetching mechanisms. Decision-making, visualization, and prediction are the key roles played by BD analysts and their role in making the system efficient and effective. In this paper, different types of performance are measured in different studies, which are shown in Table [12.](#page-15-1) Among all, precision, recall, and F-score are dominant in all types of BD-, ML-, DL-, and NLP-based models and frameworks. Accuracy is used by many researchers, where business intelligence tools are used only by business firms which was highlighted by [\[31\]](#page-24-20).
 
-<span id="page-15-1"></span>
 
 | Study Reference | Precision | Recall | F-1 | Accuracy | BI | Score | Correlation | Time | Ratio |
 |-----------------|-----------|--------|-----|----------|----|-------|-------------|------|-------|
-| [43]            | X         | X      | X   | ✕        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [66]            | X         | X      | X   | ✕        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [49]            | X         | X      | ✕   | ✕        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [51]            | ✕         | ✕      | ✕   | ✕        | ✕  | ✕     | ✕           | ✕    | X     |
-| [67]            | ✕         | ✕      | ✕   | ✕        | X  | ✕     | ✕           | ✕    | ✕     |
-| [31]            | ✕         | ✕      | ✕   | ✕        | ✕  | X     | ✕           | ✕    | ✕     |
-| [33]            | ✕         | ✕      | ✕   | X        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [68]            | ✕         | ✕      | ✕   | X        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [70]            | ✕         | ✕      | ✕   | ✕        | ✕  | ✕     | X           | ✕    | ✕     |
-| [34]            | ✕         | ✕      | ✕   | ✕        | ✕  | ✕     | X           | ✕    | ✕     |
-| [35]            | ✕         | ✕      | ✕   | ✕        | ✕  | ✕     | X           | ✕    | ✕     |
-| [55]            | ✕         | ✕      | ✕   | ✕        | ✕  | ✕     | X           | ✕    | ✕     |
-| [56]            | ✕         | ✕      | X   | ✕        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [71]            | ✕         | X      | X   | X        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [58]            | X         | X      | X   | ✕        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [59]            | ✕         | X      | X   | X        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [5]             | ✕         | ✕      | ✕   | ✕        | ✕  | ✕     | ✕           | ✕    | X     |
-| [41]            | ✕         | ✕      | ✕   | X        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [60]            | ✕         | ✕      | X   | ✕        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [42]            | ✕         | X      | X   | X        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [72]            | ✕         | ✕      | ✕   | ✕        | ✕  | X     | ✕           | ✕    | ✕     |
-| [73]            | ✕         | ✕      | X   | X        | ✕  | ✕     | ✕           | ✕    | ✕     |
+| [43] | X | X | X | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [66] | X | X | X | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [49] | X | X | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [51] | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | X |
+| [67] | ✕ | ✕ | ✕ | ✕ | X | ✕ | ✕ | ✕ | ✕ |
+| [31] | ✕ | ✕ | ✕ | ✕ | ✕ | X | ✕ | ✕ | ✕ |
+| [33] | ✕ | ✕ | ✕ | X | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [68] | ✕ | ✕ | ✕ | X | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [70] | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | X | ✕ | ✕ |
+| [34] | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | X | ✕ | ✕ |
+| [35] | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | X | ✕ | ✕ |
+| [55] | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | X | ✕ | ✕ |
+| [56] | ✕ | ✕ | X | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [71] | ✕ | X | X | X | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [58] | X | X | X | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [59] | ✕ | X | X | X | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [5] | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | X |
+| [41] | ✕ | ✕ | ✕ | X | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [60] | ✕ | ✕ | X | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [42] | ✕ | X | X | X | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [72] | ✕ | ✕ | ✕ | ✕ | ✕ | X | ✕ | ✕ | ✕ |
+| [73] | ✕ | ✕ | X | X | ✕ | ✕ | ✕ | ✕ | ✕ |
 **Table 12.**Performance measure techniques.
 
 | Study Reference | Precision | Recall | F-1 | Accuracy | BI | Score | Correlation | Time | Ratio |
 |-----------------|-----------|--------|-----|----------|----|-------|-------------|------|-------|
-| [74]            | ✕         | ✕      | X   | ✕        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [75]            | X         | X      | X   | X        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [76]            | ✕         | ✕      | ✕   | ✕        | ✕  | ✕     | ✕           | X    | ✕     |
-| [64]            | ✕         | ✕      | X   | ✕        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [78]            | X         | X      | X   | X        | ✕  | ✕     | ✕           | ✕    | ✕     |
-| [93]            | ✕         | ✕      | ✕   | ✕        | ✕  | ✕     | X           | ✕    | ✕     |
+| [74] | ✕ | ✕ | X | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [75] | X | X | X | X | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [76] | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | X | ✕ |
+| [64] | ✕ | ✕ | X | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [78] | X | X | X | X | ✕ | ✕ | ✕ | ✕ | ✕ |
+| [93] | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ | X | ✕ | ✕ |
 **Table 12.** *Cont.*X Technique mentioned in the study. ✕ Technique is not mentioned in the study.
 
 Ratio comparison and similarity score are calculated in studies where there is a comparison of pairs or similar sentences. Correlation of terms used for linking different health records of similar codes can be found in Reference [\[76\]](#page-26-14). Time is used for conversion or fetching records from larger datasets [\[5,](#page-23-4)[51\]](#page-25-15). Based on the performance measurement techniques, it is found that it will help BD analysts to use a data harmonization model, relevant tools, effective techniques, and efficient algorithms that are used for disparate nature of data domains and real-time applications.
@@ -492,11 +482,11 @@ Later, different studies related to the proposed SLR were discussed. They are de
 
 Based on the literature review and results discussed above, many studies are presented, which focus on research related to research questions. The insight from these results will help in futuristic applications and domains such as zero-shot network, transfer learning, IIoT, Industry 4.0, and extended reality applications. These technologies produce data in bulk that are disparate, so the data need to be processed before storage and presentation. The techniques which fall under the umbrella of machine learning, deep learning, and NLP will be beneficial for the performance and extraction of information retrieval. Performance evaluation techniques such as precision, recall, F-1, accuracy, and time will help data analysts and managers in the selection of relevant tools and techniques.
 
-##*4.1. Contributions*To the best of our knowledge, this is the state-of-the-art SLR that discusses heterogeneous textual datasets. The main objective of this study was to perform an in-depth review of the heterogeneity issue; the data harmonization or integration approach for massive and scattered information; computational techniques that can process and manage textual information in an efficient manner; and performance measurement of tools, techniques, and models. Previously, various related studies, such as multimodalities [\[25–](#page-24-15)[27\]](#page-24-16), discuss the disparate nature of data, but no study explains the issues stated in the research questions.
+## *4.1. Contributions*To the best of our knowledge, this is the state-of-the-art SLR that discusses heterogeneous textual datasets. The main objective of this study was to perform an in-depth review of the heterogeneity issue; the data harmonization or integration approach for massive and scattered information; computational techniques that can process and manage textual information in an efficient manner; and performance measurement of tools, techniques, and models. Previously, various related studies, such as multimodalities [\[25–](#page-24-15)[27\]](#page-24-16), discuss the disparate nature of data, but no study explains the issues stated in the research questions.
 
 Based on the results and discussion, the knowledge delivered from this SLR will be helpful for researchers and data analysts who are dealing with the enormous types of industrial text files and datasets. As mentioned, the most recent machine learning, deep learning, and NLP techniques would be helpful in fetching, representation, and visualization of data that are in the form of multiple formats. In addition, performance measurement techniques will also assist in selecting optimal techniques, tools, models, and frameworks. Besides this, data harmonization will help with futuristic applications, such as IIoT, Industry Revolution 4.0, extended reality, and zero-shot network domain data.
 
-##*4.2. Implications for Practice*Massive data produced by domains such as healthcare, banking, insurance, law, infrastructure, education, oil and gas, telecommunication, and entertainment were managed by managers and data analysts with existing tools and techniques. Textual datasets contain raw data and information; retrieving helpful information from applications such as user feedback, semantic similarity, textual similarity, word embedding, and emotion recognition
+## *4.2. Implications for Practice*Massive data produced by domains such as healthcare, banking, insurance, law, infrastructure, education, oil and gas, telecommunication, and entertainment were managed by managers and data analysts with existing tools and techniques. Textual datasets contain raw data and information; retrieving helpful information from applications such as user feedback, semantic similarity, textual similarity, word embedding, and emotion recognition
 
 is a challenging task for decision-makers. With the advent of the latest tools and technology, it is the responsibility of managers and data analysts to process, store, fetch, and efficiently represent data so that the decision-maker can perceive all the data and make decisions appropriately. To solve heterogeneity, heterogeneous data must be harmonized and presented so that effective decisions can be made. For uniform representations, managers and data analysts need to select the appropriate SSU data formats, such as Microsoft Excel Spreadsheet file (XLS), text file (TXT), JavaScript Object Notation (JSON), etc. Moreover, efficient, and effective machine learning, deep learning, and NLP techniques for textual data will help with faster training and testing approaches. As a result, the performance measure can be obtained through precision, recall, F-1, accuracy, and time.
 
@@ -508,7 +498,7 @@ Big Data describe an occurrence in the complex and dynamic growth of data, and i
 
 The main contribution of this study relates to Big Data variety and data analytics, in that it solves the most crucial issue of data heterogeneity: managers and data analysts. Before presentation or visualization, data must be uniformly managed and stored with the DH approach and the latest analytical techniques. Compared with existing related work, the multimodalities [\[25–](#page-24-15)[27\]](#page-24-16), specifically, focus on multiple data formats, such as text, image, audio, video, and visual representations. Along with this, information retrieval and classification techniques were used, but no such point was discussed as proposed in this study's research questions.
 
-#*Limitations and Future Research Directions*The most important limitation of this SLR is data availability and context of the domain, as harmonization keyword uses in many applications. Another limitation is the biases in the selection of articles, SLRs, and surveys. Some relevant articles were not available, as the paper acceptance and publication phase was between 2015 and 2020. A minor limitation is the selection of studies in the English language.
+## *Limitations and Future Research Directions*The most important limitation of this SLR is data availability and context of the domain, as harmonization keyword uses in many applications. Another limitation is the biases in the selection of articles, SLRs, and surveys. Some relevant articles were not available, as the paper acceptance and publication phase was between 2015 and 2020. A minor limitation is the selection of studies in the English language.
 
 Big Data and data analytics play an essential role in futuristic technologies, such as IIoT, extended reality, Industrial Revolution 4.0, transfer learning, and blockchain. Data harmonization can uniformly represent massive data produced by domains and application platforms for solving heterogeneity. Based on the detailed discussion and in-depth review of all the articles, techniques, tools, and models, the following are the essential suggestions for moving forward. In medical health, update the FHIR based EHR model by using NLP and DL techniques on SSU data. Information retrieval should be from domains such as emotion, affective computing, sentiment analysis, and content similarity from SSU datasets. Measurement of the effects of emotion recognition from textual data shows that real-time fusion methods can be used to fuse information extracted from raw data. It will also help in getting optimal solutions from clustering techniques and core NLP techniques. It will play an important role in the automation of the education system based on learners' choices and semantic meaning. Moreover, with Ontology and XML, DH can be used for web-based applications, models, and frameworks in healthcare, business, finance, education, oil and gas, and other industries, which will help them to retrieve information from users' semantic meaning and predictive analysis. Moreover, automatic text summarization, phrase similarity using bag of phrases, vocabulary generation, and the semantic meaning of long sentences using the DH approach will be performed for heterogeneous textual datasets. In addition, it will help users from any context, domain, and application.
 **Author Contributions:**Conceptualization, G.K., S.B., A.A.I. and S.A.K.; methodology, G.K., S.B., A.A.I., L.F.C. and. S.A.K.; validation, G.K., S.B., A.A.I. and S.A.K.; formal analysis, G.K., S.B. and A.O.B.; investigation; resources, G.K., S.B., A.A.I., A.O.B. and S.A.K.; data curation, G.K.; writing original draft preparation, G.K. and S.B.; writing—review and editing G.K., S.B., A.A.I., A.O.B., L.F.C.; and S.A.K.; visualization G.K., S.B., A.A.I., A.O.B. and S.A.K.; supervision, S.B. and S.A.K.; project administration, S.B.; funding acquisition, S.B., L.F.C. All authors have read and agreed to the published version of the manuscript.
@@ -519,51 +509,51 @@ Big Data and data analytics play an essential role in futuristic technologies, s
 
 ## Abbreviations
 
-| Abbreviation | Full Name                                        |
+| Abbreviation | Full Name |
 |--------------|--------------------------------------------------|
-| RFID         | Radio Frequency Identification                   |
-| AI           | Artificial Intelligence                          |
-| SLR          | Systematic Literature Review                     |
-| ML           | Machine Learning                                 |
-| DL           | Deep Learning                                    |
-| NLP          | Natural Language Processing                      |
-| RQ           | Research Question                                |
-| ACM          | Association of Computing Machinery               |
-| IEEE         | Institute of Electrical, Electronics Engineering |
-| ISI          | Institute for Scientific Information             |
-| KNN          | K- Nearest Neighbors                             |
-| SVM          | Support Vector Machine                           |
-| NB           | Naïve Base                                       |
-| ANN          | Artificial Neural Network                        |
-| GPS          | Global Positioning System                        |
-| CSV          | Comma Separated Value                            |
-| MOOC         | Massive Open Online Course                       |
-| RDBMS        | Realtime Database Management System              |
-| RDF          | Resource Description Framework                   |
-| XML          | Extensible Markup language                       |
-| EHR          | Electronics Health Record                        |
-| BD           | Big Data                                         |
-| NoSQL        | Not only SQL                                     |
-| FHIR         | Fast Healthcare Interoperability Resource        |
-| OLAP         | Online Analytical Processing                     |
-| JSON         | JavaScript Object Notation                       |
-| XLS          | Microsoft Excel Spreadsheet                      |
+| RFID | Radio Frequency Identification |
+| AI | Artificial Intelligence |
+| SLR | Systematic Literature Review |
+| ML | Machine Learning |
+| DL | Deep Learning |
+| NLP | Natural Language Processing |
+| RQ | Research Question |
+| ACM | Association of Computing Machinery |
+| IEEE | Institute of Electrical, Electronics Engineering |
+| ISI | Institute for Scientific Information |
+| KNN | K- Nearest Neighbors |
+| SVM | Support Vector Machine |
+| NB | Naïve Base |
+| ANN | Artificial Neural Network |
+| GPS | Global Positioning System |
+| CSV | Comma Separated Value |
+| MOOC | Massive Open Online Course |
+| RDBMS | Realtime Database Management System |
+| RDF | Resource Description Framework |
+| XML | Extensible Markup language |
+| EHR | Electronics Health Record |
+| BD | Big Data |
+| NoSQL | Not only SQL |
+| FHIR | Fast Healthcare Interoperability Resource |
+| OLAP | Online Analytical Processing |
+| JSON | JavaScript Object Notation |
+| XLS | Microsoft Excel Spreadsheet |
 
-| TXT    | Text                                       |
+| TXT | Text |
 |--------|--------------------------------------------|
-| IR     | Information Retrieval                      |
-| IE     | Information Entity                         |
-| CNN    | Convolutional Neural Network               |
-| RNN    | Recurrent Neural Network                   |
+| IR | Information Retrieval |
+| IE | Information Entity |
+| CNN | Convolutional Neural Network |
+| RNN | Recurrent Neural Network |
 | FFNNLM | Feed Forward Neural Network Language Model |
-| RNNLM  | Recurrent Neural Network Language Model    |
-| DBN    | Deep Belief Network                        |
-| TFIDF  | Term Frequency Inverse Document Frequency  |
-| ETL    | Extract Transform Load                     |
-| URI    | Uniform Resource Identifier                |
-| GIS    | Geographic Information System              |
-| BoW    | Bag of Words                               |
-|        |                                            |
+| RNNLM | Recurrent Neural Network Language Model |
+| DBN | Deep Belief Network |
+| TFIDF | Term Frequency Inverse Document Frequency |
+| ETL | Extract Transform Load |
+| URI | Uniform Resource Identifier |
+| GIS | Geographic Information System |
+| BoW | Bag of Words |
+| | |
 
 ### <span id="page-20-1"></span>Appendix A
 
@@ -571,94 +561,95 @@ This section comprises Table [A1,](#page-20-0) which illustrates the selection o
 
 | Table A1. Selected studies. |
 |-----------------------------|
-|                             |
+| |
 
-<span id="page-20-0"></span>
 
-| Study                                                                    | Research Problem                                                       | Outcome                                                                                                                                                  |
+| Study | Research Problem | Outcome |
 |--------------------------------------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| (Y. Wang et al., 2020) [52]                                              | The semantic textual similarity of clinical text                       | Clinical similar text selected based on semantic<br>behavior by using STS and NLP                                                                        |
-| (Torfi, Shirvani, Keneshloo, Tavvaf, and Fox,<br>2020) [75]              | DL methods used for tasks and models                                   | Different NLP basic tasks, their application, and<br>using DL domains highlighted to enhance the<br>system with high performance                         |
-| (Wu, Zhao, and Li, 2020) [76]                                            | Advancement of BoW and NLP                                             | Performance of NLP and BoW enhanced by BoP<br>and P2V to solve the problem of<br>phrase embedding                                                        |
-| (Eke, Norman, Shuib, and Nweke, 2020) [82]                               | Classification of sarcasm using NLP                                    | Level of hurt or criticism in message text<br>classification and NLP techniques discussed                                                                |
-| (Harish and Rangan, 2020) [93]                                           | Processing of low resource languages using<br>language processing task | Raw text processed using text preprocessing, ML,<br>and NN                                                                                               |
-| (Hong, Wang, et al., 2019) [35]                                          | FHIR visualization design, development,<br>and evaluation              | Visualization tool developed for HL7 FHIR users<br>to add profiling                                                                                      |
-| (Daniel, 2019) [39]                                                      | Data integration and sharing educational data                          | Use of Big Data in education especially<br>ontological, technical, ethics, privacy, and lack of<br>expertise discussed                                   |
-| (Dhayne, Haque, Kilany, and Taher,<br>2019) [44]                         | Healthcare data integration techniques and<br>techniques               | Issues with healthcare data integration,<br>heterogeneity, and heterogeneous data<br>are discussed                                                       |
-| (Silverio, Cavallo, De Rosa, and Galasso,<br>2019) [45]                  | Heterogeneity of high volume, wide variety,<br>and speed               | Public health improvement, drug surveillance,<br>integrating pharmacy, data integrity, data<br>security, and legal issues were discussed for CVD         |
-| (Chondrogiannis, Andronikou, Karanastasis,<br>and Varvarigou, 2019) [49] | Clinical data uniformity                                               | Ontology-based data harmonization of clinical<br>data terms expressed in a common frame                                                                  |
-| (Mujtaba et al., 2019) [51]                                              | Key aspects of clinical text                                           | Supervised ML-based clinical text classification,<br>feature extraction, representation selection<br>technique discussed with future suggestions         |
-| (Jayaratne et al., 2019) [57]                                            | Data Integration of patient to take a decision                         | Sports injury data integration platform<br>developed for patient-lefted healthcare and<br>clinical decision support                                      |
-| (Hong, Wen, Stone, et al., 2019) [64]                                    | Phenotyping framework for FHIR                                         | ML algorithms and discharge summaries of<br>patient conversion developed using NLP on the<br>i2b2 dataset                                                |
-| (Ismail, Shehab, and El-Henawy, 2019) [69]                               | Solution for healthcare heterogeneous data                             | Healthcare system proposed for collecting and<br>managing data from different healthcare devices<br>to store and manage using BD tools<br>and techniques |
+| (Y. Wang et al., 2020) [52] | The semantic textual similarity of clinical text | Clinical similar text selected based on semantic<br>behavior by using STS and NLP |
+| (Torfi, Shirvani, Keneshloo, Tavvaf, and Fox,<br>2020) [75] | DL methods used for tasks and models | Different NLP basic tasks, their application, and<br>using DL domains highlighted to enhance the<br>system with high performance |
+| (Wu, Zhao, and Li, 2020) [76] | Advancement of BoW and NLP | Performance of NLP and BoW enhanced by BoP<br>and P2V to solve the problem of<br>phrase embedding |
+| (Eke, Norman, Shuib, and Nweke, 2020) [82] | Classification of sarcasm using NLP | Level of hurt or criticism in message text<br>classification and NLP techniques discussed |
+| (Harish and Rangan, 2020) [93] | Processing of low resource languages using<br>language processing task | Raw text processed using text preprocessing, ML,<br>and NN |
+| (Hong, Wang, et al., 2019) [35] | FHIR visualization design, development,<br>and evaluation | Visualization tool developed for HL7 FHIR users<br>to add profiling |
+| (Daniel, 2019) [39] | Data integration and sharing educational data | Use of Big Data in education especially<br>ontological, technical, ethics, privacy, and lack of<br>expertise discussed |
+| (Dhayne, Haque, Kilany, and Taher,<br>2019) [44] | Healthcare data integration techniques and<br>techniques | Issues with healthcare data integration,<br>heterogeneity, and heterogeneous data<br>are discussed |
+| (Silverio, Cavallo, De Rosa, and Galasso,<br>2019) [45] | Heterogeneity of high volume, wide variety,<br>and speed | Public health improvement, drug surveillance,<br>integrating pharmacy, data integrity, data<br>security, and legal issues were discussed for CVD |
+| (Chondrogiannis, Andronikou, Karanastasis,<br>and Varvarigou, 2019) [49] | Clinical data uniformity | Ontology-based data harmonization of clinical<br>data terms expressed in a common frame |
+| (Mujtaba et al., 2019) [51] | Key aspects of clinical text | Supervised ML-based clinical text classification,<br>feature extraction, representation selection<br>technique discussed with future suggestions |
+| (Jayaratne et al., 2019) [57] | Data Integration of patient to take a decision | Sports injury data integration platform<br>developed for patient-lefted healthcare and<br>clinical decision support |
+| (Hong, Wen, Stone, et al., 2019) [64] | Phenotyping framework for FHIR | ML algorithms and discharge summaries of<br>patient conversion developed using NLP on the<br>i2b2 dataset |
+| (Ismail, Shehab, and El-Henawy, 2019) [69] | Solution for healthcare heterogeneous data | Healthcare system proposed for collecting and<br>managing data from different healthcare devices<br>to store and manage using BD tools<br>and techniques |
 
-| Study                                                   | Research Problem                                             | Outcome                                                                                                                                                               |
+| Study | Research Problem | Outcome |
 |---------------------------------------------------------|--------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| (Maheshwari, 2019) [4]                                  | Issues associated with a variety of SSU data                 | Large heterogeneous data storing, processing,<br>and transferring discussed                                                                                           |
-| (Arora and Goyal, 2019) [3]                             | The various framework developed for<br>SSU data              | Heterogeneity and dimensionality issues<br>discussed for data visualization                                                                                           |
-| (Hong, Wen, Shen, et al., 2019) [80]                    | To develop pipeline using HL7 fast health                    | FHIR based Clinical unstructured and structured<br>data integration model developed for EHR data<br>normalization using NLP toolkits                                  |
-| (Chai and Li, 2019) [87]                                | Information processing from video recognition                | Advanced applications used for information<br>process discussed using RNN and CNN                                                                                     |
-| (Guan et al., 2019) [90]                                | Cancer patient progress from free text                       | Information extracted and classified using NLP,<br>DL, and ML techniques from cancer patient data                                                                     |
-| (Jing and Xu, 2019) [91]                                | Word sequence calculation from large data                    | Using NLP and ML the sequence of words and<br>vocab identified                                                                                                        |
-| (Sambrekar, Rajpurohit, and Joshi, 2018) [32]           | Conversion of unstructured data is not<br>properly performed | SSU data conversion in addition it will provide<br>better efficiency, scalability, and performance                                                                    |
-| (Saggi and Jain, 2018) [33]                             | Value creation from the different perspective<br>of BDA      | An integrated framework for Big Data and value<br>creation from data                                                                                                  |
-| (Kraus et al., 2018) [10]                               | Data harmonization which is not available<br>in healthcare   | Data integration framework proposed to cover<br>data harmonization, semantic enrichment, and<br>data analysis process for medical data                                |
-| (Dahdouh, Dakkak, Oughdir, and<br>Messaoudi, 2018) [40] | An integrated online learning system                         | The architecture of BD for online learning system<br>proposed with storage, processing, benefits for<br>professionals, students, and teachers discussed<br>in detail. |
-| (Ali, Neagu, and Trundle, 2018) [48]                    | Classification of heterogeneous data                         | By applying classifier and algorithm on pairwise<br>similarity to enhance quality and performance                                                                     |
-| (Adduru et al., 2018) [50]                              | Clinical text simplification using deep learning             | DL based clinical text simplification and<br>paraphrasing dataset developed                                                                                           |
-| (Kourou et al., 2018) [11]                              | Data harmonization of biomedical data<br>and cohort          | Data harmonization and integration cohorts<br>discussed with open challenges of<br>biomedical data                                                                    |
-| (Jaybal, Ramanathan, and Rajagopalan,<br>2018) [54]     | Semantic, syntactic, and schematic view<br>of data           | Bus fleet operations analysis, diagnosis, and<br>improvement of schedules discussed, and<br>operation cost reduction proposed                                         |
-| (Hong et al., 2018) [71]                                | FHIR based digital data system using NLP                     | Unstructured and structured healthcare data<br>integrated by using NLP tool to form a mapping<br>of similar codes of medication data                                  |
-| (L. Zhang, Xie, Xidao, and Zhang, 2018) [74]            | Multisource fusion using DL techniques                       | Multisource heterogeneous data-based data<br>fusion model proposed to solve the issue of<br>heterogeneity                                                             |
-| (Moscatelli et al., 2018) [77]                          | Patient data sharing is critical                             | Clinical data of the patient and their precise<br>historical analysis framework developed by<br>using ML and BD tools                                                 |
-| (Q. Chen, Du, Kim, Wilbur, and Lu,<br>2018) [79]        | To get similarity core between clinical notes                | DL models discussed for clinical semantic<br>textual data similarity.                                                                                                 |
-| (Prasetya, Wibawa, and Hirashima,<br>2018) [83]         | Measurement of text similarity algorithm                     | Lexical and semantic similarity performance<br>measured between pairs                                                                                                 |
-| (Oshikawa, Qian, and Wang, 2018) [88]                   | Problems with fake news generation                           | Performance of fake news datasets, the technique<br>of NLP for identification of fake news discussed                                                                  |
-| (Young, Hazarika, Poria, and Cambria,<br>2018) [89]     | DL models and methods for NLP                                | RNN role in NLP applications such as<br>Information retrieval, summarization, and their<br>performance highlighted                                                    |
-| (S. Patel and Patel, 2018) [4]                          | Usage of ML algorithm and performance                        | Heterogeneous data types highlighted where<br>RNN and CNN are used for<br>information retrieval                                                                       |
+| (Maheshwari, 2019) [4] | Issues associated with a variety of SSU data | Large heterogeneous data storing, processing,<br>and transferring discussed |
+| (Arora and Goyal, 2019) [3] | The various framework developed for<br>SSU data | Heterogeneity and dimensionality issues<br>discussed for data visualization |
+| (Hong, Wen, Shen, et al., 2019) [80] | To develop pipeline using HL7 fast health | FHIR based Clinical unstructured and structured<br>data integration model developed for EHR data<br>normalization using NLP toolkits |
+| (Chai and Li, 2019) [87] | Information processing from video recognition | Advanced applications used for information<br>process discussed using RNN and CNN |
+| (Guan et al., 2019) [90] | Cancer patient progress from free text | Information extracted and classified using NLP,<br>DL, and ML techniques from cancer patient data |
+| (Jing and Xu, 2019) [91] | Word sequence calculation from large data | Using NLP and ML the sequence of words and<br>vocab identified |
+| (Sambrekar, Rajpurohit, and Joshi, 2018) [32] | Conversion of unstructured data is not<br>properly performed | SSU data conversion in addition it will provide<br>better efficiency, scalability, and performance |
+| (Saggi and Jain, 2018) [33] | Value creation from the different perspective<br>of BDA | An integrated framework for Big Data and value<br>creation from data |
+| (Kraus et al., 2018) [10] | Data harmonization which is not available<br>in healthcare | Data integration framework proposed to cover<br>data harmonization, semantic enrichment, and<br>data analysis process for medical data |
+| (Dahdouh, Dakkak, Oughdir, and<br>Messaoudi, 2018) [40] | An integrated online learning system | The architecture of BD for online learning system<br>proposed with storage, processing, benefits for<br>professionals, students, and teachers discussed<br>in detail. |
+| (Ali, Neagu, and Trundle, 2018) [48] | Classification of heterogeneous data | By applying classifier and algorithm on pairwise<br>similarity to enhance quality and performance |
+| (Adduru et al., 2018) [50] | Clinical text simplification using deep learning | DL based clinical text simplification and<br>paraphrasing dataset developed |
+| (Kourou et al., 2018) [11] | Data harmonization of biomedical data<br>and cohort | Data harmonization and integration cohorts<br>discussed with open challenges of<br>biomedical data |
+| (Jaybal, Ramanathan, and Rajagopalan,<br>2018) [54] | Semantic, syntactic, and schematic view<br>of data | Bus fleet operations analysis, diagnosis, and<br>improvement of schedules discussed, and<br>operation cost reduction proposed |
+| (Hong et al., 2018) [71] | FHIR based digital data system using NLP | Unstructured and structured healthcare data<br>integrated by using NLP tool to form a mapping<br>of similar codes of medication data |
+| (L. Zhang, Xie, Xidao, and Zhang, 2018) [74] | Multisource fusion using DL techniques | Multisource heterogeneous data-based data<br>fusion model proposed to solve the issue of<br>heterogeneity |
+| (Moscatelli et al., 2018) [77] | Patient data sharing is critical | Clinical data of the patient and their precise<br>historical analysis framework developed by<br>using ML and BD tools |
+| (Q. Chen, Du, Kim, Wilbur, and Lu,<br>2018) [79] | To get similarity core between clinical notes | DL models discussed for clinical semantic<br>textual data similarity. |
+| (Prasetya, Wibawa, and Hirashima,<br>2018) [83] | Measurement of text similarity algorithm | Lexical and semantic similarity performance<br>measured between pairs |
+| (Oshikawa, Qian, and Wang, 2018) [88] | Problems with fake news generation | Performance of fake news datasets, the technique<br>of NLP for identification of fake news discussed |
+| (Young, Hazarika, Poria, and Cambria,<br>2018) [89] | DL models and methods for NLP | RNN role in NLP applications such as<br>Information retrieval, summarization, and their<br>performance highlighted |
+| (S. Patel and Patel, 2018) [4] | Usage of ML algorithm and performance | Heterogeneous data types highlighted where<br>RNN and CNN are used for<br>information retrieval |
 
-#### Table A1.*Cont.*| Study                                                       | Research Problem                                                                       | Outcome                                                                                                                                                |
+### Table A1.*Cont.*| Study                                                       | Research Problem                                                                       | Outcome                                                                                                                                                |
+
 |-------------------------------------------------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| (Danyaro and Liew, 2017) [31]                               | A large amount of data are unorganized                                                 | Semantic-based integration model for O&G                                                                                                               |
-| (J. A. Patel and Sharma) [41]                               | Data harmonization of various<br>heterogeneous data                                    | Data quality, scalability, heterogeneity, and<br>efficiency highlighted for disparate nature of<br>data generated in form of Big Data                  |
-| (L. Wang, 2017) [45]                                        | The technical and quality problem of BDA                                               | Technical challenges of data value, data mining,<br>ML, and DL methods discussed for<br>disparate data                                                 |
-| (Sivarajah, Kamal, Irani, and Weerakkody,<br>2017) [53]     | BD challenges for technology                                                           | BD characteristics issues such as heterogeneity,<br>process challenges, and different textual<br>analytics techniques discussed                        |
-| (Souza et al., 2017) [55]                                   | Urban planning issues of smart city                                                    | Heterogeneous-data-type-based integration of<br>data from multiple departments integrated to<br>make smart city                                        |
-| (Shickel, Tighe, Bihorac, and Rashidi,<br>2017) [58]        | Data heterogeneity of EHR using DL                                                     | DL Techniques discussed for EHR data for larger<br>healthcare datasets                                                                                 |
-| (Gheisari, Wang, and Bhuiyan, 2017) [59]                    | BD and DL challenges for research trends                                               | Data analytics, semantic indexing, preprocessing,<br>and data governance research problems<br>highlighted for BD                                       |
-| (M. Chen, Hao, Hwang, Wang, and Wang,<br>2017) [60]         | Effective prediction of chronic disease using<br>ML algorithms                         | Incomplete medical data in Chinese chronic<br>diseases detected using CNN from structured<br>and unstructured data                                     |
-| (Klašnja-Mili´cevi´c, Ivanovi´c, and Budimac,<br>2017) [62] | Perspective trends for education learning<br>using BD                                  | BD tools based online educational framework<br>proposed for research and professionals                                                                 |
-| (Kolhatkar, Patil, Kolhatkar, and Paranjape,<br>2017) [63]  | How to store and manage Unstructured data                                              | Student activities, sentiment analysis, and<br>predictive analysis suggested for educational<br>heterogeneous data scope                               |
-| (Sindhu and Hegde, 2017) [5]                                | Handling heterogeneity among large data                                                | Conversion of unstructured data into structured<br>data using text mining and HDFS for clinical text                                                   |
-| (Pathak and Lal, 2017) [73]                                 | Information retrieval from heterogeneous data<br>files                                 | Vector space model developed for information<br>retrieval from large documents using MIDF<br>cosine similarity                                         |
-| (Banu, Kuppuswamy, and Sasikala,<br>2017) [78]              | HIS for Saudi hospital data management                                                 | Data integration model proposed for hospitals<br>and HIS for Saudi Arabia using NLP and BD                                                             |
-| (Mahlawi and Sasi, 2017) [81]                               | Structured data extraction from email                                                  | Unstructured email conversion into a structured<br>format for knowledge extraction using NLP and<br>text mining approach.                              |
-| (Yin, Kann, Yu, and Schütze, 2017) [84]                     | Performance of CNN and RNN against NLP                                                 | For sequential and text matching RNN perform<br>better than CNN                                                                                        |
-| (Ouyang, Li, Jin, Li, and Zhang, 2017) [85]                 | To find limitations and type of medical entities<br>for CNER                           | Performance analysis of rich context information<br>with the help of medical vocab and POS using<br>DL and NLP                                         |
-| (Lopez and Kalita, 2017) [86]                               | Enhanced CNN performance                                                               | Latest trends, techniques, and application of<br>NLP and DL highlighted with performance<br>measure and type of datasets                               |
-| (Allahyari et al., 2017) [92]                               | Useful information extraction from the large<br>volume of data                         | Text mining approaches, text preprocessing,<br>clustering, classification, information extraction<br>techniques discussed in detail with justification |
-| (Tekli, 2016) [37]                                          | XML based semi-structured semantic analysis                                            | Textual data presented with a focus on<br>semi-structured XML and ongoing challenges for<br>XML disambiguation, semantic meaning, and<br>combination   |
-| (Yuan, Holtz, Smith, and Luo, 2016) [38]                    | To make a digital system by converting<br>unstructured and semi-structured data useful | By using NLP and ML information extracted<br>from medical forms of ASD patients and result<br>evaluated by experts with 91% recall                     |
-| (Bhadani and Jothimani, 2016) [2]                           | Advancement in Big Data and web.2.0                                                    | The latest tools, sources of Big Data, techniques,<br>software applications, and technical limitations<br>were discussed in detail                     |
+| (Danyaro and Liew, 2017) [31] | A large amount of data are unorganized | Semantic-based integration model for O&G |
+| (J. A. Patel and Sharma) [41] | Data harmonization of various<br>heterogeneous data | Data quality, scalability, heterogeneity, and<br>efficiency highlighted for disparate nature of<br>data generated in form of Big Data |
+| (L. Wang, 2017) [45] | The technical and quality problem of BDA | Technical challenges of data value, data mining,<br>ML, and DL methods discussed for<br>disparate data |
+| (Sivarajah, Kamal, Irani, and Weerakkody,<br>2017) [53] | BD challenges for technology | BD characteristics issues such as heterogeneity,<br>process challenges, and different textual<br>analytics techniques discussed |
+| (Souza et al., 2017) [55] | Urban planning issues of smart city | Heterogeneous-data-type-based integration of<br>data from multiple departments integrated to<br>make smart city |
+| (Shickel, Tighe, Bihorac, and Rashidi,<br>2017) [58] | Data heterogeneity of EHR using DL | DL Techniques discussed for EHR data for larger<br>healthcare datasets |
+| (Gheisari, Wang, and Bhuiyan, 2017) [59] | BD and DL challenges for research trends | Data analytics, semantic indexing, preprocessing,<br>and data governance research problems<br>highlighted for BD |
+| (M. Chen, Hao, Hwang, Wang, and Wang,<br>2017) [60] | Effective prediction of chronic disease using<br>ML algorithms | Incomplete medical data in Chinese chronic<br>diseases detected using CNN from structured<br>and unstructured data |
+| (Klašnja-Mili´cevi´c, Ivanovi´c, and Budimac,<br>2017) [62] | Perspective trends for education learning<br>using BD | BD tools based online educational framework<br>proposed for research and professionals |
+| (Kolhatkar, Patil, Kolhatkar, and Paranjape,<br>2017) [63] | How to store and manage Unstructured data | Student activities, sentiment analysis, and<br>predictive analysis suggested for educational<br>heterogeneous data scope |
+| (Sindhu and Hegde, 2017) [5] | Handling heterogeneity among large data | Conversion of unstructured data into structured<br>data using text mining and HDFS for clinical text |
+| (Pathak and Lal, 2017) [73] | Information retrieval from heterogeneous data<br>files | Vector space model developed for information<br>retrieval from large documents using MIDF<br>cosine similarity |
+| (Banu, Kuppuswamy, and Sasikala,<br>2017) [78] | HIS for Saudi hospital data management | Data integration model proposed for hospitals<br>and HIS for Saudi Arabia using NLP and BD |
+| (Mahlawi and Sasi, 2017) [81] | Structured data extraction from email | Unstructured email conversion into a structured<br>format for knowledge extraction using NLP and<br>text mining approach. |
+| (Yin, Kann, Yu, and Schütze, 2017) [84] | Performance of CNN and RNN against NLP | For sequential and text matching RNN perform<br>better than CNN |
+| (Ouyang, Li, Jin, Li, and Zhang, 2017) [85] | To find limitations and type of medical entities<br>for CNER | Performance analysis of rich context information<br>with the help of medical vocab and POS using<br>DL and NLP |
+| (Lopez and Kalita, 2017) [86] | Enhanced CNN performance | Latest trends, techniques, and application of<br>NLP and DL highlighted with performance<br>measure and type of datasets |
+| (Allahyari et al., 2017) [92] | Useful information extraction from the large<br>volume of data | Text mining approaches, text preprocessing,<br>clustering, classification, information extraction<br>techniques discussed in detail with justification |
+| (Tekli, 2016) [37] | XML based semi-structured semantic analysis | Textual data presented with a focus on<br>semi-structured XML and ongoing challenges for<br>XML disambiguation, semantic meaning, and<br>combination |
+| (Yuan, Holtz, Smith, and Luo, 2016) [38] | To make a digital system by converting<br>unstructured and semi-structured data useful | By using NLP and ML information extracted<br>from medical forms of ASD patients and result<br>evaluated by experts with 91% recall |
+| (Bhadani and Jothimani, 2016) [2] | Advancement in Big Data and web.2.0 | The latest tools, sources of Big Data, techniques,<br>software applications, and technical limitations<br>were discussed in detail |
 
-#### Table A1.*Cont.*| Study                                                                                               | Research Problem                                               | Outcome                                                                                                                                       |
+### Table A1.*Cont.*| Study                                                                                               | Research Problem                                               | Outcome                                                                                                                                       |
+
 |-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| (Sanyal, Bhadra, and Das, 2016) [42]                                                                | Data processing using BD technologies                          | A conceptual model proposed for value creation<br>and decision-making from huge Big Data                                                      |
-| (Alguliyev, Aliguliyev, and Hajirahimova,<br>2016) [43]                                             | Integration of transactional data and business<br>analytics    | Industrial data integration model proposed for<br>large transactional data and visualization                                                  |
-| (Verma, Agrawal, Patel, and Patel, 2016) [47]                                                       | SSU related issues                                             | Predictive, social, text, audio, video analytics<br>related issues were suggested for<br>different industries                                 |
-| (Scheurwegs, Luyckx, Luyten, Daelemans,<br>and Van den Bulcke, 2016) [56]                           | Structured and unstructured patient data are<br>not accessible | The patient stays clinical code in structured and<br>TXT format integrated to predict the type<br>of isolation                                |
-| (Kalra and Lal, 2016) [61]                                                                          | Research challenges of heterogeneous data                      | Data-mining techniques discussed for SSU data<br>produced in different formats to overcome the<br>issue of data heterogeneity                 |
-| (Hong et al., 2016) [65]                                                                            | To convert textual data into the<br>structured format          | With the help of NLP and ML techniques, QDM<br>developed for clinical diagnostics report will<br>help in standard criteria development        |
-| (Z. Chen, Zhong, Yuan, and Hu, 2016) [66]                                                           | To develop a universal model to represent<br>visual analysis   | IBD model proposed which facilitates<br>representation, management, and visualization.                                                        |
-| (del Carmen Legaz-García,<br>Miñarro-Giménez, Menárguez-Tortosa, and<br>Fernández-Breis, 2016) [67] | By using semantic web-based data integration                   | Semantic web-based online and open dataset for<br>biomedical data created using the integration of<br>XML data                                |
-| (Anagnostopoulos, Zeadally, and Exposito,<br>2016) [68]                                             | Classification of 4v's of BD                                   | BD integration framework discussed to highlight<br>the challenges, tools, and techniques which will<br>help stakeholders                      |
-| (D. Zhang et al., 2016) [70]                                                                        | Heterogeneity of urban cyber-physical system                   | Disparate nature of data in China integrated<br>using the cyber-physical system to facilitate the<br>urban system with 29% better performance |
-| (Elsharkawy, Ahmed, and Salem, 2016) [72]                                                           | Semantic-based integration and<br>information retrieval        | Semantic-based health data integration and to<br>enhance the performance of precision medicine                                                |
-| (García, Ramírez-Gallego, Luengo, Benítez,<br>and Herrera, 2016) [94]                               | Processing of huge data analysis                               | Preprocessing techniques and libraries<br>highlighted for huge data                                                                           |
-| (Li, Chai, and Chen, 2015) [34]                                                                     | Heterogeneous data sources integration                         | A synchronized business audit data integration<br>model developed using middleware technology                                                 |
-| (Lopes, Bastião, and Oliveira, 2015) [36]                                                           | Automate real-time data integration                            | A platform provided for data and service for<br>original data sources                                                                         |
+| (Sanyal, Bhadra, and Das, 2016) [42] | Data processing using BD technologies | A conceptual model proposed for value creation<br>and decision-making from huge Big Data |
+| (Alguliyev, Aliguliyev, and Hajirahimova,<br>2016) [43] | Integration of transactional data and business<br>analytics | Industrial data integration model proposed for<br>large transactional data and visualization |
+| (Verma, Agrawal, Patel, and Patel, 2016) [47] | SSU related issues | Predictive, social, text, audio, video analytics<br>related issues were suggested for<br>different industries |
+| (Scheurwegs, Luyckx, Luyten, Daelemans,<br>and Van den Bulcke, 2016) [56] | Structured and unstructured patient data are<br>not accessible | The patient stays clinical code in structured and<br>TXT format integrated to predict the type<br>of isolation |
+| (Kalra and Lal, 2016) [61] | Research challenges of heterogeneous data | Data-mining techniques discussed for SSU data<br>produced in different formats to overcome the<br>issue of data heterogeneity |
+| (Hong et al., 2016) [65] | To convert textual data into the<br>structured format | With the help of NLP and ML techniques, QDM<br>developed for clinical diagnostics report will<br>help in standard criteria development |
+| (Z. Chen, Zhong, Yuan, and Hu, 2016) [66] | To develop a universal model to represent<br>visual analysis | IBD model proposed which facilitates<br>representation, management, and visualization. |
+| (del Carmen Legaz-García,<br>Miñarro-Giménez, Menárguez-Tortosa, and<br>Fernández-Breis, 2016) [67] | By using semantic web-based data integration | Semantic web-based online and open dataset for<br>biomedical data created using the integration of<br>XML data |
+| (Anagnostopoulos, Zeadally, and Exposito,<br>2016) [68] | Classification of 4v's of BD | BD integration framework discussed to highlight<br>the challenges, tools, and techniques which will<br>help stakeholders |
+| (D. Zhang et al., 2016) [70] | Heterogeneity of urban cyber-physical system | Disparate nature of data in China integrated<br>using the cyber-physical system to facilitate the<br>urban system with 29% better performance |
+| (Elsharkawy, Ahmed, and Salem, 2016) [72] | Semantic-based integration and<br>information retrieval | Semantic-based health data integration and to<br>enhance the performance of precision medicine |
+| (García, Ramírez-Gallego, Luengo, Benítez,<br>and Herrera, 2016) [94] | Processing of huge data analysis | Preprocessing techniques and libraries<br>highlighted for huge data |
+| (Li, Chai, and Chen, 2015) [34] | Heterogeneous data sources integration | A synchronized business audit data integration<br>model developed using middleware technology |
+| (Lopes, Bastião, and Oliveira, 2015) [36] | Automate real-time data integration | A platform provided for data and service for<br>original data sources |
 
-#### Table A1.*Cont.*#### References
+### Table A1.*Cont.*#### References
 
 - <span id="page-23-0"></span>1. Avci, C.; Tekinerdogan, B.; Athanasiadis, I.N. Software architectures for big data: A systematic literature review.*Big Data Anal.* **2020**, *5*, 1–53. [\[CrossRef\]](http://doi.org/10.1186/s41044-020-00045-1)
 - <span id="page-23-1"></span>2. Bhadani, A.K.; Jothimani, D. Big data: Challenges, opportunities, and realities. In *Effective Big Data Management and Opportunities for Implementation*; IGI Global: Hershey, PA, USA, 2016; pp. 1–24.

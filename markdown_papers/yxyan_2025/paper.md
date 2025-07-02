@@ -38,17 +38,17 @@ Tao Wang Peking University Beijing, China wangtao@pku.edu.cn
 
 Guojie Luo Peking University Beijing, China gluo@pku.edu.cn
 
-# ABSTRACT
+## ABSTRACT
 
 The advent of Large Language Models (LLMs) has revolutionized natural language processing. However, these models face challenges in retrieving precise information from vast datasets. Retrieval-Augmented Generation (RAG) was developed to combining LLMs with external information retrieval systems to enhance the accuracy and context of responses. Despite improvements, RAG still struggles with comprehensive retrieval in high-volume, low-informationdensity databases and lacks relational awareness, leading to fragmented answers.
 
 To address this, this paper introduces the Pseudo-Knowledge Graph (PKG) framework, designed to overcome these limitations by integrating Meta-path Retrieval, In-graph Text and Vector Retrieval into LLMs. By preserving natural language text and leveraging various retrieval techniques, the PKG offers a richer knowledge representation and improves accuracy in information retrieval. Extensive evaluations using Open Compass and MultiHop-RAG benchmarks demonstrate the framework's effectiveness in managing large volumes of data and complex relationships.
 
-#### PVLDB Reference Format:
+### PVLDB Reference Format:
 
 Yuxin Yang, Haoyang Wu, Tao Wang, Jia Yang, Hao Ma, and Guojie Luo. Pseudo-Knowledge Graph: Meta-Path Guided Retrieval and In-Graph Text for RAG-Equipped LLM . PVLDB, XX(X): XXX-XXX, 2025. [doi:XX.XX/XXX.XX](https://doi.org/XX.XX/XXX.XX)
 
-#### PVLDB Artifact Availability:
+### PVLDB Artifact Availability:
 
 The source code, data, and/or other artifacts have been made available at [https://github.com/yxyang1111/Pseudo-Knowledge-Graph/.](https://github.com/yxyang1111/Pseudo-Knowledge-Graph/)
 
@@ -88,16 +88,16 @@ Before the advent of LLMs, Knowledge Graphs (KGs) [\[16\]](#page-12-14) were a p
 
 KGs have diverse applications [\[22,](#page-12-15) [85\]](#page-13-12). In search engines, they improve relevance by providing contextual information about entities. In natural language processing, they enhance question-answering systems by linking queries to relevant knowledge. KGs also aid recommendation systems by understanding user preferences. Industries like healthcare, finance, and e-commerce use KGs for data integration and decision support, driving innovation and efficiency across various domains.
 
-# 2.3 Interaction between Language Models and Knowledge Graphs
+## 2.3 Interaction between Language Models and Knowledge Graphs
 
 Integrating language models with knowledge graphs is crucial for advancing natural language processing [\[41,](#page-12-9) [42\]](#page-12-16). Language models are adept at understanding and generating human-like text, offering flexibility and contextual awareness [\[21,](#page-12-1) [29\]](#page-12-17). In contrast, knowledge graphs provide structured information, capturing relationships and facts to ensure accuracy and coherence.
 
 This synergy allows language models to help build knowledge graphs by identifying entities and relationships in unstructured text [\[34,](#page-12-8) [78\]](#page-13-13). Conversely, knowledge graphs enhance language models by incorporating structured knowledge into training and inference [\[2,](#page-12-18) [56\]](#page-13-14), improving text accuracy and reasoning capabilities.
 
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
-<!-- Image Description: This flowchart depicts a PKG (presumably Package) framework for information retrieval.  A user's query and documents are input into a builder using traditional NLP or LLM-based methods to create a PKG.  A retriever then uses regular expression, vector, and meta-path retrieval methods to access the PKG, leveraging LLMs like GPT, LLaMA, and Qwen.  The system operates on a knowledge base of various documents.  The diagram details the framework's architecture and components. -->
+<!-- Image Description: This flowchart depicts a PKG (presumably Package) framework for information retrieval. A user's query and documents are input into a builder using traditional NLP or LLM-based methods to create a PKG. A retriever then uses regular expression, vector, and meta-path retrieval methods to access the PKG, leveraging LLMs like GPT, LLaMA, and Qwen. The system operates on a knowledge base of various documents. The diagram details the framework's architecture and components. -->
 
-#### Figure 1: The overall framework of our PKG approach. We enhance LLMs by integrating diverse methods for building and retrieving PKG.
+### Figure 1: The overall framework of our PKG approach. We enhance LLMs by integrating diverse methods for building and retrieving PKG.
 
 During pre-training, knowledge graph triples can be converted into text to help language models learn structured information, improving their understanding of factual knowledge [\[80\]](#page-13-15). For example, models like ERNIE 3.0 [\[62\]](#page-13-16) use tokenized triples to mask entities and relationships, promoting effective learning. During inference, language models retrieve real-time information from knowledge graphs, enabling precise and contextually relevant responses.
 
@@ -123,9 +123,9 @@ In the following sections, we provide a detailed explanation of the methodology,
 To construct the PKG, a key challenge is accurately extracting and representing entities and relationships from unstructured text. We adopt a hybrid approach that integrates traditional NLP algorithms with advanced language model techniques, enhancing entity recognition and relation extraction. This section outlines the PKG Builder's methodology, which consists of two main steps: (1) applying NLP algorithms to identify entities and relations, converting raw data into a structured format; and (2) refining the extraction process using language models. Additionally, we optimize storage
 
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
-<!-- Image Description: This flowchart diagrams two approaches to extracting Entity-Relation-Entity triples from text.  The left side shows data cleaning leading to text processing.  Two processing paths diverge:  traditional NLP methods (trigger words, parsing, etc.) and Large Language Model (LLM)-based approaches (prompt engineering, fine-tuning, etc.). Both paths yield Entity-Relation-Entity pairs, illustrated as lists.  The diagram contrasts traditional NLP and LLM techniques for information extraction. -->
+<!-- Image Description: This flowchart diagrams two approaches to extracting Entity-Relation-Entity triples from text. The left side shows data cleaning leading to text processing. Two processing paths diverge: traditional NLP methods (trigger words, parsing, etc.) and Large Language Model (LLM)-based approaches (prompt engineering, fine-tuning, etc.). Both paths yield Entity-Relation-Entity pairs, illustrated as lists. The diagram contrasts traditional NLP and LLM techniques for information extraction. -->
 
-Figure 2: The extraction of entities and relations in PKG Builder. After transformation raw data into source text, We use two distinct approaches: traditional methods utilizing NLP approaches and modern techniques employing LLMs. Also, we employ LLMs to review and verify the information extracted using traditional NLP methods.
+**Figure 2:** The extraction of entities and relations in PKG Builder. After transformation raw data into source text, We use two distinct approaches: traditional methods utilizing NLP approaches and modern techniques employing LLMs. Also, we employ LLMs to review and verify the information extracted using traditional NLP methods.
 
 methods to improve data accessibility, scalability, and flexibility. The overall process is illustrated in Figure [2.](#page-3-0)
 
@@ -150,14 +150,14 @@ By integrating LLMs with traditional NLP techniques, the PKG Builder achieves a 
 We use graph databases like Neo4j [\[19,](#page-12-27) [35\]](#page-12-28) and OrientDB [\[50,](#page-13-29) [67\]](#page-13-30) to store the PKG, as they efficiently handle complex relationships. Entities and their attributes are stored as nodes, and relationships
 
 <span id="page-4-1"></span>![](_page_4_Figure_0.jpeg)
-<!-- Image Description: The image contains two diagrams illustrating a node-based data structure.  (a) shows a single node's properties (Type, Element ID, Node ID, Embedding, Text). (b) depicts three nodes ("Professor," "Student," "Text Chunk") linked by "Mentor" and "Text from" relationships.  The diagrams illustrate the structure of data representing relationships between individuals and text chunks. -->
+<!-- Image Description: The image contains two diagrams illustrating a node-based data structure. (a) shows a single node's properties (Type, Element ID, Node ID, Embedding, Text). (b) depicts three nodes ("Professor," "Student," "Text Chunk") linked by "Mentor" and "Text from" relationships. The diagrams illustrate the structure of data representing relationships between individuals and text chunks. -->
 
-Figure 3: Nodes and Their Properties. (a) illustrates the components of a basic node; (b) presents an example of two entity nodes extracted from a single text chunk node.
+**Figure 3:** Nodes and Their Properties. (a) illustrates the components of a basic node; (b) presents an example of two entity nodes extracted from a single text chunk node.
 
 <span id="page-4-2"></span>![](_page_4_Figure_2.jpeg)
-<!-- Image Description: The image displays a graph illustrating a knowledge graph representation.  Peach-colored nodes represent text chunks, light green nodes represent entities, and lines denote relations between them. The graph shows how text chunks are connected to entities, which are further related to each other, demonstrating a network of extracted information.  Ellipses indicate the graph extends beyond the visualized portion.  The image likely showcases the paper's methodology for knowledge graph construction or data representation. -->
+<!-- Image Description: The image displays a graph illustrating a knowledge graph representation. Peach-colored nodes represent text chunks, light green nodes represent entities, and lines denote relations between them. The graph shows how text chunks are connected to entities, which are further related to each other, demonstrating a network of extracted information. Ellipses indicate the graph extends beyond the visualized portion. The image likely showcases the paper's methodology for knowledge graph construction or data representation. -->
 
-Figure 4: The organization of text data within a PKG Storage System. Each entity node must be connected to at least one source text chunk node.
+**Figure 4:** The organization of text data within a PKG Storage System. Each entity node must be connected to at least one source text chunk node.
 
 are represented as edges. To enhance query speed and semantic analysis, we vectorize each node using techniques like Word2Vec [\[11\]](#page-12-29), GloVe [\[45\]](#page-12-30), or transformer-based models like BERT [\[13\]](#page-12-10). These vectors capture the semantic meaning of nodes in a high-dimensional space, enabling fast similarity searches (e.g., cosine similarity) for efficient retrieval of related concepts or entities, as shown in Figure [3.](#page-4-1)
 
@@ -176,9 +176,9 @@ Given a user query, we can extract a wealth of information, including the query 
 When a node is retrieved using a regular expression, it provides access to a cluster of interconnected nodes and their associated information. This capability is essential for tasks requiring contextual understanding, such as extracting event sequences from timelines or identifying relationships between entities. For instance,
 
 <span id="page-5-0"></span>![](_page_5_Figure_0.jpeg)
-<!-- Image Description: This flowchart illustrates a knowledge graph retrieval system.  A user query is processed via three methods: regular expression retrieval (using regular expressions to find nodes and relations), meta-path retrieval (finding paths between nodes), and vector retrieval (using vector representations to find related nodes).  The system architecture is shown, culminating in the retrieval of related nodes from a labeled property graph (PKG).  The flowchart details the sequential steps of each retrieval method. -->
+<!-- Image Description: This flowchart illustrates a knowledge graph retrieval system. A user query is processed via three methods: regular expression retrieval (using regular expressions to find nodes and relations), meta-path retrieval (finding paths between nodes), and vector retrieval (using vector representations to find related nodes). The system architecture is shown, culminating in the retrieval of related nodes from a labeled property graph (PKG). The flowchart details the sequential steps of each retrieval method. -->
 
-Figure 5: PKG Retriever. The retrieval process begins with a user query. Then, we get the query itself, entities inside the query, and hypothetical answers for retrieval. The retrieval methods are categorized into three types: Regular Expression Retrieval, which utilizes regular expressions to identify nodes and their relations; Vector Retrieval, which employs vector-based methods to find relevant nodes and their associated relations; and Meta-path Retrieval, which explores start nodes and their connections through specified meta-paths. The content in the light yellow boxes is what we can obtain from the PKG Retriever.
+**Figure 5:** PKG Retriever. The retrieval process begins with a user query. Then, we get the query itself, entities inside the query, and hypothetical answers for retrieval. The retrieval methods are categorized into three types: Regular Expression Retrieval, which utilizes regular expressions to identify nodes and their relations; Vector Retrieval, which employs vector-based methods to find relevant nodes and their associated relations; and Meta-path Retrieval, which explores start nodes and their connections through specified meta-paths. The content in the light yellow boxes is what we can obtain from the PKG Retriever.
 
 in a bibliographic PKG, regular expressions can retrieve nodes containing publication years within a specified range, facilitating the extraction of relevant articles or papers.
 
@@ -201,9 +201,9 @@ However, integrating meta-paths of knowledge graphs with LLMs presents challenge
 To address these challenges, we propose an innovative retrieval method that reduces the complexity and computational cost of
 
 ![](_page_6_Figure_0.jpeg)
-<!-- Image Description: The image displays three directed graphs illustrating different collaboration patterns within a project knowledge graph (PKG).  (a) shows a subgraph of the PKG, depicting relationships between professors, projects, papers, and researchers, with labels indicating actions like "participate" and "publish." (b) and (c) are subgraphs focusing on specific collaboration paths: (b) shows a "professor-project-professor" interaction, and (c) demonstrates a "project-paper-researcher" relationship.  The graphs visualize collaboration structures and flows within a research network. -->
+<!-- Image Description: The image displays three directed graphs illustrating different collaboration patterns within a project knowledge graph (PKG). (a) shows a subgraph of the PKG, depicting relationships between professors, projects, papers, and researchers, with labels indicating actions like "participate" and "publish." (b) and (c) are subgraphs focusing on specific collaboration paths: (b) shows a "professor-project-professor" interaction, and (c) demonstrates a "project-paper-researcher" relationship. The graphs visualize collaboration structures and flows within a research network. -->
 
-Figure 6: Meta-path Retriever. When using meta-paths, we only care about the node chain but not the relations between them. After we obtain the node sequences, we can analyze the connections among different entities. (b) and (c) illustrate various meta-paths highlighting different relationships and interactions within subgraph (a).
+**Figure 6:** Meta-path Retriever. When using meta-paths, we only care about the node chain but not the relations between them. After we obtain the node sequences, we can analyze the connections among different entities. (b) and (c) illustrate various meta-paths highlighting different relationships and interactions within subgraph (a).
 
 meta-path search. Our approach involves pre-constructing metapaths of lengths less than a predefined value and storing them as attributes within the nodes of the PKG. This pre-processing step allows for efficient retrieval of relevant meta-paths during query execution. To further optimize the search process, we integrate a lightweight model that dynamically identifies the most relevant meta-paths for a given query. This model, which is computationally efficient, analyzes the query context and selects the appropriate meta-paths, enabling rapid multi-hop exploration without the need for extensive on-the-fly computation.
 
@@ -259,33 +259,32 @@ We adopt the following common Open-source LLMs as base models for comparison dif
 - ChatGLM [\[66\]](#page-13-37) is a conversational AI model optimized for interactive dialogue. Its sophisticated architecture improves context understanding and provides informative responses in real-time interactions.
 - Qwen [\[4\]](#page-12-41) comprises a range of models with varying parameter sizes. In our experiments, we utilized different models from the Qwen2.5 family, including 0.5B, 1.5B, 3B, and 7B, to explore their performance across tasks.
 
-<span id="page-8-2"></span>
 
-| Model       | Setting        | Open Compass |         |      |      |                | MultiHop-RAG |      |           |          |
+| Model | Setting | Open Compass | | | | | MultiHop-RAG | | | |
 |-------------|----------------|--------------|---------|------|------|----------------|--------------|------|-----------|----------|
-|             |                | MMLU         | AGIEval | NQ   | CSQA | OpenBookQA NLI |              | COPA | Inference | Temporal |
-| GPT2        | LLM-Base       | 27.3         | 20.5    | 3.6  | 60.2 | 73.0           | 20.3         | 67.0 | 15.3      | 5.6      |
-|             | LLM-VDB        | 50.3         | 22.3    | 18.7 | 65.3 | 85.2           | 20.3         | 68.0 | 63.2      | 21.3     |
-|             | LLM-KG         | 44.6         | 19.8    | 18.3 | 66.9 | 80.3           | 20.5         | 67.0 | 59.4      | 20.1     |
-|             | LLM-PKG (Ours) | 52.7         | 20.6    | 19.5 | 70.1 | 86.6           | 20.3         | 68.0 | 70.4      | 22.5     |
-| LLaMA-2-7b  | LLM-Base       | 45.9         | 40.5    | 19.6 | 66.5 | 58.4           | 32.3         | 67.0 | 22.3      | 9.9      |
-|             | LLM-VDB        | 53.2         | 45.5    | 22.0 | 70.3 | 79.5           | 33.1         | 67.0 | 72.6      | 26.7     |
-|             | LLM-KG         | 50.4         | 42.3    | 22.2 | 69.5 | 72.3           | 32.6         | 67.0 | 75.8      | 23.2     |
-|             | LLM-PKG (Ours) | 61.4         | 48.9    | 23.1 | 75.7 | 85.3           | 33.5         | 69.0 | 82.3      | 28.9     |
-| Phi3-1b     | LLM-Base       | 44.3         | 45.1    | 1.9  | 58.3 | 68.4           | 36.5         | 70.0 | 19.3      | 7.3      |
-|             | LLM-VDB        | 56.3         | 45.3    | 11.8 | 62.4 | 84.2           | 37.6         | 68.0 | 66.3      | 20.6     |
-|             | LLM-KG         | 48.6         | 45.5    | 9.7  | 62.1 | 79.3           | 37.3         | 70.0 | 65.2      | 18.9     |
-|             | LLM-PKG (Ours) | 56.3         | 45.8    | 13.6 | 65.3 | 86.3           | 37.8         | 70.0 | 88.3      | 26.8     |
-| Qwen2.5-7b  | LLM-Base       | 57.8         | 40.5    | 14.2 | 67.5 | 84.4           | 54.9         | 88.0 | 20.5      | 11.8     |
-|             | LLM-VDB        | 58.2         | 42.6    | 17.8 | 78.3 | 90.3           | 61.3         | 90.0 | 70.1      | 32.3     |
-|             | LLM-KG         | 58.0         | 40.8    | 17.6 | 77.0 | 86.9           | 63.5         | 89.0 | 65.3      | 28.4     |
-|             | LLM-PKG (Ours) | 65.8         | 47.3    | 20.3 | 78.6 | 92.2           | 66.4         | 91.0 | 90.0      | 35.3     |
-| ChatGLM3-6B | LLM-Base       | 51.9         | 47.4    | 7.5  | 70.3 | 79.4           | 40.0         | 89.0 | 23.5      | 10.6     |
-|             | LLM-VDB        | 57.4         | 47.4    | 19.3 | 78.4 | 86.3           | 53.2         | 90.0 | 73.4      | 32.6     |
-|             | LLM-KG         | 50.8         | 47.0    | 19.8 | 76.3 | 86.0           | 55.6         | 90.0 | 75.6      | 31.1     |
-|             | LLM-PKG (Ours) | 59.7         | 47.6    | 22.7 | 79.0 | 88.7           | 63.2         | 91.0 | 89.3      | 33.4     |
+| | | MMLU | AGIEval | NQ | CSQA | OpenBookQA NLI | | COPA | Inference | Temporal |
+| GPT2 | LLM-Base | 27.3 | 20.5 | 3.6 | 60.2 | 73.0 | 20.3 | 67.0 | 15.3 | 5.6 |
+| | LLM-VDB | 50.3 | 22.3 | 18.7 | 65.3 | 85.2 | 20.3 | 68.0 | 63.2 | 21.3 |
+| | LLM-KG | 44.6 | 19.8 | 18.3 | 66.9 | 80.3 | 20.5 | 67.0 | 59.4 | 20.1 |
+| | LLM-PKG (Ours) | 52.7 | 20.6 | 19.5 | 70.1 | 86.6 | 20.3 | 68.0 | 70.4 | 22.5 |
+| LLaMA-2-7b | LLM-Base | 45.9 | 40.5 | 19.6 | 66.5 | 58.4 | 32.3 | 67.0 | 22.3 | 9.9 |
+| | LLM-VDB | 53.2 | 45.5 | 22.0 | 70.3 | 79.5 | 33.1 | 67.0 | 72.6 | 26.7 |
+| | LLM-KG | 50.4 | 42.3 | 22.2 | 69.5 | 72.3 | 32.6 | 67.0 | 75.8 | 23.2 |
+| | LLM-PKG (Ours) | 61.4 | 48.9 | 23.1 | 75.7 | 85.3 | 33.5 | 69.0 | 82.3 | 28.9 |
+| Phi3-1b | LLM-Base | 44.3 | 45.1 | 1.9 | 58.3 | 68.4 | 36.5 | 70.0 | 19.3 | 7.3 |
+| | LLM-VDB | 56.3 | 45.3 | 11.8 | 62.4 | 84.2 | 37.6 | 68.0 | 66.3 | 20.6 |
+| | LLM-KG | 48.6 | 45.5 | 9.7 | 62.1 | 79.3 | 37.3 | 70.0 | 65.2 | 18.9 |
+| | LLM-PKG (Ours) | 56.3 | 45.8 | 13.6 | 65.3 | 86.3 | 37.8 | 70.0 | 88.3 | 26.8 |
+| Qwen2.5-7b | LLM-Base | 57.8 | 40.5 | 14.2 | 67.5 | 84.4 | 54.9 | 88.0 | 20.5 | 11.8 |
+| | LLM-VDB | 58.2 | 42.6 | 17.8 | 78.3 | 90.3 | 61.3 | 90.0 | 70.1 | 32.3 |
+| | LLM-KG | 58.0 | 40.8 | 17.6 | 77.0 | 86.9 | 63.5 | 89.0 | 65.3 | 28.4 |
+| | LLM-PKG (Ours) | 65.8 | 47.3 | 20.3 | 78.6 | 92.2 | 66.4 | 91.0 | 90.0 | 35.3 |
+| ChatGLM3-6B | LLM-Base | 51.9 | 47.4 | 7.5 | 70.3 | 79.4 | 40.0 | 89.0 | 23.5 | 10.6 |
+| | LLM-VDB | 57.4 | 47.4 | 19.3 | 78.4 | 86.3 | 53.2 | 90.0 | 73.4 | 32.6 |
+| | LLM-KG | 50.8 | 47.0 | 19.8 | 76.3 | 86.0 | 55.6 | 90.0 | 75.6 | 31.1 |
+| | LLM-PKG (Ours) | 59.7 | 47.6 | 22.7 | 79.0 | 88.7 | 63.2 | 91.0 | 89.3 | 33.4 |
 
-Table 1: Performance comparison of different settings on various models across two datasets, using seven indicators for Open Compass and two for MultiHop-RAG. The best performances are indicated in bold font.
+**Table 1:** Performance comparison of different settings on various models across two datasets, using seven indicators for Open Compass and two for MultiHop-RAG. The best performances are indicated in bold font.
 
 ## <span id="page-8-0"></span>4.3 Settings
 
@@ -311,17 +310,16 @@ Our proposed PKG maintains the best performance on most dataset metrics and show
 
 ## <span id="page-9-0"></span>4.5 Ablation Study
 
-<span id="page-9-1"></span>
 
-| Model      | Setting    | Open Compass |            |  |  |
+| Model | Setting | Open Compass | | | |
 |------------|------------|--------------|------------|--|--|
-|            |            | CSQA         | OpenBookQA |  |  |
-|            | LLM        | 20.5         | 11.8       |  |  |
-|            | + NLP EX   | 75.2         | 83.4       |  |  |
-| Qwen2.5-7b | + LLM EX   | 77.5         | 86.7       |  |  |
-|            | + ING TEXT | 78.6         | 92.2       |  |  |
+| | | CSQA | OpenBookQA | | |
+| | LLM | 20.5 | 11.8 | | |
+| | + NLP EX | 75.2 | 83.4 | | |
+| Qwen2.5-7b | + LLM EX | 77.5 | 86.7 | | |
+| | + ING TEXT | 78.6 | 92.2 | | |
 
-Table 2: Ablation study of various Building and Storage methods in PKG Builder. We show the results on CSQA and OpenbookQA in Open Compass dataset.
+**Table 2:** Ablation study of various Building and Storage methods in PKG Builder. We show the results on CSQA and OpenbookQA in Open Compass dataset.
 
 4.5.1 Building and Storage. Our proposed PKG Builder consists of various components, including: i) traditional NLP-based Extraction (NLP EX): this method utilizes established natural language processing techniques such as tokenization and rule-based named entity recognition; ii) LLM-based Extraction (LLM EX): this approach leverages LLMs like GPT to interpret and extract information, allowing for more nuanced and flexible extraction of information from complex and unstructured text; and iii) In-graph text chunks (ING TEXT): by embedding text segments directly within the PKG, we preserve the complete information from the original text and this helps LLMs better understanding the knowledge. To assess the effectiveness of each component, we perform an ablation study using the CSQA and OpenBookQA datasets on Qwen2.5-7b. These datasets are chosen for its complexity and rich knowledge content, allowing us to analyze the contribution of each part thoroughly.
 
@@ -329,17 +327,16 @@ The results, as shown in Table [2,](#page-9-1) demonstrate that both traditional
 
 the original information, enabling language models to understand knowledge across various scenarios more effectively. By maintaining the integrity of the source material, these in-graph text chunks enable deeper insights and more accurate interpretations. All components of the PKG Builder contribute to constructing a robust PKG, offering significant potential for future retrieval tasks.
 
-<span id="page-9-2"></span>
 
-|            |                | MultiHop-RAG |          |  |  |
+| | | MultiHop-RAG | | | |
 |------------|----------------|--------------|----------|--|--|
-| Model      | Setting        | Inference    | Temporal |  |  |
-|            | LLM            | 20.5         | 10.6     |  |  |
-|            | + REG RE       | 60.4         | 25.3     |  |  |
-| Qwen2.5-7b | + VEC RE       | 75.1         | 31.7     |  |  |
-|            | + META-PATH RE | 90.0         | 35.3     |  |  |
+| Model | Setting | Inference | Temporal | | |
+| | LLM | 20.5 | 10.6 | | |
+| | + REG RE | 60.4 | 25.3 | | |
+| Qwen2.5-7b | + VEC RE | 75.1 | 31.7 | | |
+| | + META-PATH RE | 90.0 | 35.3 | | |
 
-Table 3: Ablation study of various Retrieval methods in PKG Retriever. We show the results on Inference and Temporal in MultiHopRAG dataset.
+**Table 3:** Ablation study of various Retrieval methods in PKG Retriever. We show the results on Inference and Temporal in MultiHopRAG dataset.
 
 <span id="page-9-3"></span>4.5.2 Retrieval Methods. In addition to the building of PKG, we also examine the proposed retrieval methods, including: i) Regular Expression Retrieval (REG RE): this method uses patterns matching to search and retrieve specific information from PKG; ii) Vector Retrieval (VEC RE): by converting text into high-dimensional vectors using techniques like embeddings, this approach allows for semantic search, enabling retrieval based on the meaning rather than exact match; iii) Meta-path Retrieval (META-PATH RE): this technique involves navigating through the meta-paths in PKG to retrieve information, leveraging the relationships between entities. To validate the effectiveness of each retrieval method, we conduct an ablation study on the MultiHop-RAG dataset with Qwen2.5- 7b to analyze the contribution of each part. The MultiHop-RAG dataset is chosen because it presents a significant challenge for retrieval technology. It requires not only finding relevant texts but also understanding and reflecting the relations between them. This complexity makes it an ideal test for advanced retrieval systems.
 
@@ -350,9 +347,9 @@ Overall, while regular matching serves as a foundational method for expanding kn
 ## <span id="page-10-0"></span>4.6 Further Analysis
 
 <span id="page-10-2"></span>![](_page_10_Figure_2.jpeg)
-<!-- Image Description: The image contains two line graphs comparing the inference and temporal performance of different retriever settings (LLM, +REG RE, +VEC RE, +META-P RE) for a multihop-RAG model.  Four variations of the Qwen2.5 model (0.5B, 1.5B, 3B, 7B parameters) are evaluated.  Each graph shows how inference time and temporal performance change with increasing retriever complexity, revealing a trade-off between model size and performance across different retriever settings. -->
+<!-- Image Description: The image contains two line graphs comparing the inference and temporal performance of different retriever settings (LLM, +REG RE, +VEC RE, +META-P RE) for a multihop-RAG model. Four variations of the Qwen2.5 model (0.5B, 1.5B, 3B, 7B parameters) are evaluated. Each graph shows how inference time and temporal performance change with increasing retriever complexity, revealing a trade-off between model size and performance across different retriever settings. -->
 
-Figure 7: Performance comparison of different retriever settings on Multihop-RAG dataset. The left panel shows inference performance, while the right panel illustrates temporal performance across various configurations (Qwen2.5-0.5B, Qwen2.5-1.5B, Qwen2.5-3B, and Qwen2.5-7B).
+**Figure 7:** Performance comparison of different retriever settings on Multihop-RAG dataset. The left panel shows inference performance, while the right panel illustrates temporal performance across various configurations (Qwen2.5-0.5B, Qwen2.5-1.5B, Qwen2.5-3B, and Qwen2.5-7B).
 
 After conducting ablation experiments, we aimed to explore the impact of PKG on models of varying sizes. Building on the ablation tests in Section [4.5.2](#page-9-3) we evaluated the PKG system on different sizes of the Qwen model, specifically 0.5B, 1.5B, 3B, and 7B parameters. We assessed these models' performance on the expanded MultiHop-RAG dataset, with the results illustrated in Figure [7.](#page-10-2)
 
@@ -376,18 +373,17 @@ In terms of coherence, LLM-PKG delivers a logically structured response with cle
 
 Finally, in terms of comprehensiveness, LLM-PKG stands out by outlining multiple emerging biotechnologies, explaining their applications in agriculture, and including details on both genetic modification and advanced imaging techniques. While LLM-VDB and LLM-KG provide more detailed information than LLM-Base, they still lack the broader context and organizational clarity of LLM-PKG.
 
-<span id="page-11-0"></span>
 
-| Question            | In the scientific journals published in 2024, what are some emerging biotechnologies that are<br>considered likely to significantly change agricultural practices?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Question | In the scientific journals published in 2024, what are some emerging biotechnologies that are<br>considered likely to significantly change agricultural practices? |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Answer 1 (LLM-Base) | It's difficult to provide information about specific journal articles or publications from 2024. However, I can<br>give you an overview of emerging biotechnologies that could potentially impact agricultural practices. Some<br>potential biotechnologies that may influence agricultural practices include: Gene editing technologies such<br>as CRISPR/Cas9[]Synthetic biology[]Microbiome engineering[]Precision agriculture technolo<br>gies[]                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Answer 2 (LLM-VDB)  | Based on the article from the scientific journals published in 2024, there are several emerging biotechnologies<br>that are likely to significantly change agricultural practices: PrimeRoot System for Precise DNA Inser<br>tion[]PASTE Technology for Genome Insertion[]dCas9-SSAP for Genomic Knock-in[] These<br>technologies have the potential to greatly impact agricultural practices by enabling precise genetic modifica<br>tions in plants, which can lead to crops with improved resistance to diseases, enhanced nutritional profiles,<br>and better adaptability to environmental conditions. The ability to insert large DNA sequences accurately and<br>efficiently is a significant advancement in the field of plant biotechnology and could lead to the development<br>of new crop varieties that are more productive and resilient.                                                                          |
-| Answer 3 (LLM-KG)   | In the scientific journals published in 2024, some emerging biotechnologies that are considered likely to<br>significantly change agricultural practices include: Large DNA Insertion Technologies[]Drag-and-Drop<br>Genome Insertion[]dCas9-based Gene Editing for Cleavage-Free Genomic Knock-In[]Cell Atlas<br>Mapping[]Super-Resolution Microscopy[]3D Printing of Nanomaterials[] These biotechnologies<br>hold the potential to revolutionize agricultural practices by enabling precise genetic modifications in crops,<br>enhancing our understanding of cellular processes, and providing new tools for materials design and imaging<br>techniques.                                                                                                                                                                                                                                                                     |
-| Answer 4 (LLM-PKG)  | In 2024, several emerging biotechnologies have been highlighted in scientific journals for their potential to<br>significantly transform agricultural practices. These technologies focus on precise genetic modifications and<br>advanced imaging techniques, which can enhance crop traits and improve our understanding of cellular pro<br>cesses. Here's an integrated overview: Large DNA Insertion Technologies[]CRISPR-Directed Integrases<br>(PASTE)[]dCas9-based Gene Editing (dCas9-SSAP)[]Cell Atlas Mapping[]Super-Resolution Mi<br>croscopy[] These biotechnologies offer groundbreaking methods for modifying plant genomes with precision<br>and efficiency. They hold the potential to develop crops with enhanced disease resistance, improved nutritional<br>content, and better environmental adaptability, ultimately leading to significant advancements in agricultural<br>productivity and food security. |
+| Answer 1 (LLM-Base) | It's difficult to provide information about specific journal articles or publications from 2024. However, I can<br>give you an overview of emerging biotechnologies that could potentially impact agricultural practices. Some<br>potential biotechnologies that may influence agricultural practices include: Gene editing technologies such<br>as CRISPR/Cas9[]Synthetic biology[]Microbiome engineering[]Precision agriculture technolo<br>gies[] |
+| Answer 2 (LLM-VDB) | Based on the article from the scientific journals published in 2024, there are several emerging biotechnologies<br>that are likely to significantly change agricultural practices: PrimeRoot System for Precise DNA Inser<br>tion[]PASTE Technology for Genome Insertion[]dCas9-SSAP for Genomic Knock-in[] These<br>technologies have the potential to greatly impact agricultural practices by enabling precise genetic modifica<br>tions in plants, which can lead to crops with improved resistance to diseases, enhanced nutritional profiles,<br>and better adaptability to environmental conditions. The ability to insert large DNA sequences accurately and<br>efficiently is a significant advancement in the field of plant biotechnology and could lead to the development<br>of new crop varieties that are more productive and resilient. |
+| Answer 3 (LLM-KG) | In the scientific journals published in 2024, some emerging biotechnologies that are considered likely to<br>significantly change agricultural practices include: Large DNA Insertion Technologies[]Drag-and-Drop<br>Genome Insertion[]dCas9-based Gene Editing for Cleavage-Free Genomic Knock-In[]Cell Atlas<br>Mapping[]Super-Resolution Microscopy[]3D Printing of Nanomaterials[] These biotechnologies<br>hold the potential to revolutionize agricultural practices by enabling precise genetic modifications in crops,<br>enhancing our understanding of cellular processes, and providing new tools for materials design and imaging<br>techniques. |
+| Answer 4 (LLM-PKG) | In 2024, several emerging biotechnologies have been highlighted in scientific journals for their potential to<br>significantly transform agricultural practices. These technologies focus on precise genetic modifications and<br>advanced imaging techniques, which can enhance crop traits and improve our understanding of cellular pro<br>cesses. Here's an integrated overview: Large DNA Insertion Technologies[]CRISPR-Directed Integrases<br>(PASTE)[]dCas9-based Gene Editing (dCas9-SSAP)[]Cell Atlas Mapping[]Super-Resolution Mi<br>croscopy[] These biotechnologies offer groundbreaking methods for modifying plant genomes with precision<br>and efficiency. They hold the potential to develop crops with enhanced disease resistance, improved nutritional<br>content, and better environmental adaptability, ultimately leading to significant advancements in agricultural<br>productivity and food security. |
 
-Table 4: Example question for the biotechnologies article dataset, with generated answers from LLM-Base, LLM-VDB, LLM-KG and LLM-KG as shown in Section [4.3.](#page-8-0)
+**Table 4:** Example question for the biotechnologies article dataset, with generated answers from LLM-Base, LLM-VDB, LLM-KG and LLM-KG as shown in Section [4.3.](#page-8-0)
 
-# 5 CONCLUSION AND FUTURE WORK
+## 5 CONCLUSION AND FUTURE WORK
 
 In this paper, we introduce the Pseudo-Knowledge Graph (PKG), a Retrieval-Augmented Generation (RAG) framework designed to address the limitations of traditional RAG systems, particularly in managing complex relationships within large-scale knowledge bases. PKG integrates both structured data (knowledge graphs) and unstructured data (in-graph text chunks) to enhance the retrieval capabilities of large language models (LLMs). By preserving natural language text within the graph structure, PKG enables LLMs to process and interpret retrieved information more effectively, overcoming their inherent limitations in handling purely structured data. To seamlessly integrate PKG with LLMs, we develop a suite of advanced retrieval methods, including regular expression retrieval, graph-based vector retrieval, and meta-path retrieval. These methods collectively improve both the semantic understanding and efficiency of information retrieval, ensuring that the retrieved results align closely with the LLM's comprehension and contextual awareness. Extensive experiments across multiple datasets and frameworks demonstrate that PKG outperforms several competitive
 

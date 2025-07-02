@@ -43,8 +43,6 @@ keywords:
 - right-hand
 ---
 
-
-
 # Aggregation and Exploration of Heterogeneous Data Collected from Diverse Information Sources
 
 **Teruhiko Teraoka**Yahoo! JAPAN Research, Yahoo Japan Corporation Tokyo, Japan
@@ -104,7 +102,7 @@ It is impossible to effectively use fused data unless various personal data can 
 
 We first focused on reusing personal data for recall and helping users find related information. We then moved on to social use with our approach.
 
-# AGGREGATION AND EXPLORATION OF DATA FOR PERSONAL USE
+## AGGREGATION AND EXPLORATION OF DATA FOR PERSONAL USE
 
 The author previously proposed an organizational structure, especially for visual exploration of data [9]. In this research, the collected data include the following.
 
@@ -167,7 +165,7 @@ For this purpose, we began to expand the exploration of heterogeneous data throu
 
 ![](_page_3_Figure_9.jpeg)
 <!-- Image Description: The image displays a tablet screen showing a photo selection interface. A red dashed box highlights a thumbnail grid of numerous landscape-oriented photos, likely user-generated content. On the right, a list of news headlines and timestamps are visible, possibly linking to relevant photos. Callouts label the grid as "Other people's photos" and a single photo as "Select this photo," illustrating a user interface for choosing images from a larger dataset, possibly for a multimedia application or research project. -->
-**Figure 7. Other people's photos**When a user selects a photograph on a view, photographs that other people took on the same day and at the same place are displayed (Fig. 7). A user seems to find new facts or reminisce about the trip from other people's shared personal data. In this example, photographs are collected by searching by date and place through photo sharing services such as Flickr and Picasa.
+**Figure 7. Other people's photos**When a user selects a photograph on a view, photographs that other people took on the same day and at the same place are displayed (Figure 7). A user seems to find new facts or reminisce about the trip from other people's shared personal data. In this example, photographs are collected by searching by date and place through photo sharing services such as Flickr and Picasa.
 
 ![](_page_3_Figure_12.jpeg)
 <!-- Image Description: The image is a graph illustrating a data model. Nodes represent data points (people, locations, dates, tags), colored differently to indicate data type. Edges connect related data, showing relationships between different data attributes within a network or system. The central node suggests a core record linked to various metadata. The graph visually depicts the structure of interconnected data elements, crucial for understanding data organization in the paper's context. -->
@@ -203,11 +201,11 @@ Several practical applications can be envisaged, such as predicting traffic jams
 
 Eagle et al. proposed 'reality mining' system that measured information access and use within different contexts, recognized social patterns in daily user activities, and inferred relationships [14]. On the other hand, we have studied relations among heterogeneous data with respect to attributes from the user's viewpoint.
 
-# CONCLUSIONS
+## CONCLUSIONS
 
 We described the current status of our research on the organization of heterogeneous data and ongoing studies of the social use of such data. Since user interactions are important for manipulating large amounts of heterogeneous data from diverse information sources, we have studied them in terms of personal and public uses from the user's point of view. Our point was that easy and safe use of data by individuals leads to their effective social use.
 
-# REFERENCES
+## REFERENCES
 
 - 1. G. Bell and J. Gemmell. Total Recall. DUTTON, 2009.
 - 2. D. A. Keim. Information visualization and visual data mining. IEEE Trans Visualization and Computer Graphics, 8(1):1–8, 2002.

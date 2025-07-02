@@ -27,7 +27,6 @@ keywords:
 - user-item
 ---
 
-
 # A Survey on Accuracy-oriented Neural Recommendation: From Collaborative Filtering to Information-rich Recommendation
 
 Le Wu *Member, IEEE*, Xiangnan He *Member, IEEE*, Xiang Wang *Member, IEEE*, Kun Zhang *Member, IEEE*, and Meng Wang, *Fellow, IEEE*
@@ -38,7 +37,7 @@ Le Wu *Member, IEEE*, Xiangnan He *Member, IEEE*, Xiang Wang *Member, IEEE*, Kun
 
 **Index Terms**—Recommendation Survey, Deep Learning, Neural Networks, Neural Recommendation Models
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 I NFORMATION overload is an increasing problem in people's every life due to the proliferation of the Internet. Recommender system serves as an effective solution to alleviate the information overload issue, to facilitate users seeking desired information, and to increase the traffic and revenue of service providers. It has been used in a wide range of applications, such as e-commerce, social media sites, news portals, app stores, digital libraries, and so on. It is one of the most ubiquitous user-centered artificial intelligence applications in modern information systems.
 
@@ -53,7 +52,7 @@ Existing surveys consist of two main parts. The first part focuses on the specif
 <sup>•</sup> *L. Wu, and M Wang are with Key Laboratory of Knowledge Engineering with Big Data, Hefei University of Technology, Hefei, Anhui 230029, China, and Institute of Artificial Intelligence, Hefei Comprehensive National Science Center, Hefei, Anhui 230088 (email: lewu.ustc, eric.mengwang@gmail.com).*<sup>•</sup>*K. Zhang is with Key Laboratory of Knowledge Engineering with Big Data, Hefei University of Technology, Hefei, Anhui 230029, China.(email:zhang1028kun@gmail.com).*<sup>•</sup>*X. He is with University of Science and Technology of China, Hefei 230026, China. (email: xiangnanhe@gmail.com).*<sup>•</sup>*X. Wang is with National University of Singapore, Singapore. (email: xiangwang@u.nus.edu).*<span id="page-1-1"></span>![](_page_1_Figure_1.jpeg)
 <!-- Image Description: The image is a 3D diagram illustrating different data types used in recommendation systems. Three data categories are shown as stacked boxes: User Data (blue), Interaction Data (grey), and Item Data (yellow). A larger, encompassing box represents Context Data. The diagram's right side lists three recommendation model types: Collaborative Filtering (using Interaction Data), Content-enriched Models (using Interaction, User, and Item Data), and Context-aware Models (using Interaction and Context Data). Dashed lines show how data is combined in the models. -->
 
-Fig. 1: An illustration of the data used for recommendation modeling and the three model types.
+**Figure 1:** An illustration of the data used for recommendation modeling and the three model types.
 
 recommendation [\[15\]](#page-14-14). The other part follows the taxonomy of Deep Learning (DL) to summarize the recommendation methods. For example, Zhang et al. [\[16\]](#page-14-15) organized the discussions on recommendation methods into MLP based, autoencoder based, RNN based, attention based, etc. Similar surveys can also be found [\[17\]](#page-14-16), [\[18\]](#page-14-17). These surveys mainly compare the technical difference of using various deep learning methods for recommendation.
 
@@ -81,7 +80,7 @@ that is, learning the prediction function f to estimate the likelihood that a us
 
 Fig. [1](#page-1-1) illustrates the typical data used for recommendation modeling and three model types. It is worth noting that different models are designed for different recommendation scenarios. Nevertheless, in many cases we can make simple adjustments on a model's component to make it suitable (at least technically viable) for another scenario. For example, many CF models are designed to first obtain user and item representations, and then the prediction function is learned given the user and item representations. To make them be content-enriched, we simply need to enhance the representation learning component with content modeling. Another example is that we can treat the contextual information as part of user data, i.e., constructing Du,c to replace Du, to tweak content-enriched models to also be contextaware. Although these adjusted models may not be officially proposed or published, they can be obtained without much effort and worth exploring in real applications. Such design flexibility can be attributed to the layer-wise architecture of neural recommendation models, where different layers are designed for different aims. For convenience, we also summarize related neural recommendation models into the taxonomy of recommendation modeling [1](#page-1-2) . We hope this survey would provide a clear road-map to facilitate practitioners understanding and better designing models for their purpose.
 
-# <span id="page-1-0"></span>2 COLLABORATIVE FILTERING MODELS
+## <span id="page-1-0"></span>2 COLLABORATIVE FILTERING MODELS
 
 The concept of CF stems from the idea that leveraging collaborative behaviors of all users for predicting the behavior of a target user. Early approaches directly calculate the behavior similarity of users (user-based CF) or items (itembased CF) with memory based models. Later on, matrix factorization based models become prevalent by collectively finding the latent spaces that encode user-item interaction
 
@@ -125,26 +124,25 @@ where α(i, j) denotes the contribution of historical item j to user representat
 
 ### *2.1.2 Autoencoder based Representation Learning*By utilizing the idea of reconstructing input for a better representation learning, autoencoder based models take the incomplete user-item matrix as input, and learn a hidden representation of each instance with an encoder, and further with a decoder part that reconstructs the input based on the hidden representation. By treating each user's historical records as input, the autoencoder based models learn each user's latent representation with a complex encoder neural network, and feed the learned user representation into a decoder network to output the predicted preference of each user. An alternative approach is to take each item's rating records from all users as input, and learn the item's latent representation to reconstruct the predicted preference of each item from all users [\[27\]](#page-14-25), [\[28\]](#page-14-26). Similar to the development of autoencoder, the extensions of autoencoder based models can also be classified into two categories. The first category leveraged autoencoder variants, and injected denoising autoencoders [\[28\]](#page-14-26), variational autoencoders [\[29\]](#page-14-27) into CF. These models can be seen as using complex deep learning techniques for learning either user or item encoders. The second category exploited the duality of users and items in autoencoders, and designed two parallel encoders to learn the user and item representations, and then also use inner product to model users' preferences to items [\[30\]](#page-14-28). It is worth pointing out the autoencoder based CF approaches can also be classified as extensions of the historical behavior attention based models, as these approaches adopt deep neural networks for aggregating historical behavior. Therefore, for the sake of simplicity, we have only briefly introduced autoencoder based models and have not repeated the specific technical details.
 
-##*2.1.3 Graph based Representation Learning*The CF effects are reflected in interaction histories of multiple users. As such, using collective interaction histories has the potential to improve the representation quality. From the perspective of user-item interaction graph, the individual interaction history is equivalent to the first-order connectivity of the user. Thus, a natural extension is to mine the
+## *2.1.3 Graph based Representation Learning*The CF effects are reflected in interaction histories of multiple users. As such, using collective interaction histories has the potential to improve the representation quality. From the perspective of user-item interaction graph, the individual interaction history is equivalent to the first-order connectivity of the user. Thus, a natural extension is to mine the
 
-| TABLE 1: Summarization of representation learning approaches for CF |                        |        |
+| TABLE 1: Summarization of representation learning approaches for CF | | |
 |---------------------------------------------------------------------|------------------------|--------|
-| Category                                                            | Modeling Summarization | Models |
-|                                                                     |                        |        |
+| Category | Modeling Summarization | Models |
+| | | |
 
-<span id="page-3-0"></span>
 
-| Category                             | Modeling Summarization                                                                   | Models                                                                               |
+| Category | Modeling Summarization | Models |
 |--------------------------------------|------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| Classical<br>Matrix<br>Factorization | User UID (Free Embed)<br>Item IID (Free Embed)                                           | BPR [19], MF [3] et al.                                                              |
-|                                      | User Interacted items (Free Embed+Heuristic Agg)<br>Item IID (Free Embed)                | FISM [20], PMLAM [21], pQCF [22], FAWMF [23]                                         |
-|                                      | User Interacted items+UID (Free Embed+Heuristic Agg)<br>Item IID (Free Embed)            | SVD++ [24]                                                                           |
-| History<br>Attention                 | User Interacted items (Free Embed+Heuristic Agg)<br>Item IID (Free Embed)                | NAIS [25]                                                                            |
-|                                      | User Interacted items+UID (Free Embed+Heuristic Agg)<br>Item IID (Free Embed)            | ACF [26]                                                                             |
-| Autoencoder                          | Item Interacted Items (Non-linear Encoder)                                               | AutoRec [27], CDAE [28], Mult-VAE [29] et al.                                        |
-| Models                               | User Interacted Items (Non-linear encoder)<br>Item Interacted users (Non-linear Encoder) | REAP [30], CE-VNCF [31], SW-DAE [32]                                                 |
-| Graph<br>Learning                    | User UID+Graph (GNN)<br>Item IID+Graph (GNN)                                             | GC-MC [33], NGCF [34], SpectralCF [35],<br>NIA-GCN [36], BGCF [37], DGCF [38] et al. |
-|                                      | User UID+Graph (Simplified GNN)<br>Item IID+Graph (Simplified GNN)                       | LR-GCCF [39], LightGCN [40], DHCF [41] et al.                                        |
+| Classical<br>Matrix<br>Factorization | User UID (Free Embed)<br>Item IID (Free Embed) | BPR [19], MF [3] et al. |
+| | User Interacted items (Free Embed+Heuristic Agg)<br>Item IID (Free Embed) | FISM [20], PMLAM [21], pQCF [22], FAWMF [23] |
+| | User Interacted items+UID (Free Embed+Heuristic Agg)<br>Item IID (Free Embed) | SVD++ [24] |
+| History<br>Attention | User Interacted items (Free Embed+Heuristic Agg)<br>Item IID (Free Embed) | NAIS [25] |
+| | User Interacted items+UID (Free Embed+Heuristic Agg)<br>Item IID (Free Embed) | ACF [26] |
+| Autoencoder | Item Interacted Items (Non-linear Encoder) | AutoRec [27], CDAE [28], Mult-VAE [29] et al. |
+| Models | User Interacted Items (Non-linear encoder)<br>Item Interacted users (Non-linear Encoder) | REAP [30], CE-VNCF [31], SW-DAE [32] |
+| Graph<br>Learning | User UID+Graph (GNN)<br>Item IID+Graph (GNN) | GC-MC [33], NGCF [34], SpectralCF [35],<br>NIA-GCN [36], BGCF [37], DGCF [38] et al. |
+| | User UID+Graph (Simplified GNN)<br>Item IID+Graph (Simplified GNN) | LR-GCCF [39], LightGCN [40], DHCF [41] et al. |
 
 higher-order connectivity from the user-item graph structure. For example, the second-order connectivity of a user consists of similar users who have co-interacted with the same items. Fortunately, with the success of Graph Neural Networks (GNNs) for modeling graph structure data in the community [\[44\]](#page-14-43), many prior studies have been proposed to model the user-item bipartite graph structure for neural graph based representation learning. Given the user-item bipartite graph, let P<sup>0</sup> and Q<sup>0</sup> denote the free user latent matrix and item latent matrix as many classical latent factor based models, i.e., the 0 th-order user and item embedding. These neural graph based models iteratively update the (l + 1)th-order user (item) embedding as an aggregation of the l th-order item (user) embedding. For instance, each user u's updated embedding p (l+1) u is calculated as:
 
@@ -162,28 +160,27 @@ The above steps can be seen as embedding propagation in the user-item bipartite 
 
 graph based models show superior performance in practice without the need of carefully chosen activation functions.
 
-# 2.2 Interaction Modeling
+## 2.2 Interaction Modeling
 
 Let p<sup>u</sup> and q<sup>i</sup> denote the learned embeddings of user u and item i from representation models, this component aims at interaction function modeling that estimates the user's preference towards the target item based on their representations. In the following, we describe how to model users' predicted preference, denoted as rˆui based on the learned embeddings. For ease of explanation, as shown in Table [2,](#page-4-1) we summarize three main categories for interaction modeling: classical inner product based approaches, distance based modeling and neural network based approaches.
 
 Most previous recommendation models relied on the inner product between user embedding and item embedding to estimate the user-item pair score as: rˆui = p > <sup>u</sup> q<sup>i</sup> = P<sup>d</sup> <sup>f</sup>=1 puf qif . Despite its great success and simplicity, prior efforts suggest that simply conducting inner product would have two major limitations. First, the triangle inequality is violated [\[45\]](#page-14-44). That is, inner product only encourages the representations of users and historical items to be similar, but lacks guarantees for the similarity propagation between user-user and item-item relationships. Second, it models the linear interaction, and may fail to capture the complex relationships between users and items [\[49\]](#page-14-45).
 
-##*2.2.1 Distance based Metrics*To solve the first issue, a line of research [\[45\]](#page-14-44), [\[46\]](#page-14-46), [\[47\]](#page-14-47) borrows ideas from translation principles and uses distance metric as the interaction function. The inherent triangle inequality assumption plays an important role in helping capture underlying relationships among users and items. For instance, if user u tends to purchase items i and j, the representations of i and j should be close in the latent space.
+## *2.2.1 Distance based Metrics*To solve the first issue, a line of research [\[45\]](#page-14-44), [\[46\]](#page-14-46), [\[47\]](#page-14-47) borrows ideas from translation principles and uses distance metric as the interaction function. The inherent triangle inequality assumption plays an important role in helping capture underlying relationships among users and items. For instance, if user u tends to purchase items i and j, the representations of i and j should be close in the latent space.
 
 Towards this end, CML [\[45\]](#page-14-44) minimizes the distance dui between each user-item interaction < u, i > in Euclidean space as: dui = kp<sup>u</sup> − qik 2 2 . Instead of minimizing the distance between each observed user-item pair, TransRec exploits the translation principle to model the sequential behaviors of users [\[46\]](#page-14-46). In particular, the representation of user u is treated as the translation vector between the
 
-<span id="page-4-1"></span>
 
-| Category             | Modeling Summarization                                         | Models                         |
+| Category | Modeling Summarization | Models |
 |----------------------|----------------------------------------------------------------|--------------------------------|
-| Inner Product        | rˆui = p><br>u qi                                              | Most models                    |
-| Distance<br>Modeling | 2<br>Euclidean distance dui = kpu − qik<br>2                   | CML [45]                       |
-|                      | Nearby translation dˆ<br>ui = βj − d(qj + pu, qi)              | TransRec [46]                  |
-|                      | Memory enhanced Translation dˆ<br>2<br>ui = kpu + E − qik<br>2 | LRML [47]                      |
-|                      | Distance in Hpyerbolic Space                                   | HyperML [48]                   |
-| Neural<br>Networks   | rˆui = MLP(pu  qi)                                             | NCF [49] et al.                |
-|                      | rˆui = CNN(pu ⊗ qi)                                            | ONCF [50] et al.               |
-|                      | 2<br>Autoencoder based reconstruction kri − dec(enc(ri))k<br>2 | AutoRec [27], CDAE [28] et al. |
+| Inner Product | rˆui = p><br>u qi | Most models |
+| Distance<br>Modeling | 2<br>Euclidean distance dui = kpu − qik<br>2 | CML [45] |
+| | Nearby translation dˆ<br>ui = βj − d(qj + pu, qi) | TransRec [46] |
+| | Memory enhanced Translation dˆ<br>2<br>ui = kpu + E − qik<br>2 | LRML [47] |
+| | Distance in Hpyerbolic Space | HyperML [48] |
+| Neural<br>Networks | rˆui = MLP(pu qi) | NCF [49] et al. |
+| | rˆui = CNN(pu ⊗ qi) | ONCF [50] et al. |
+| | 2<br>Autoencoder based reconstruction kri − dec(enc(ri))k<br>2 | AutoRec [27], CDAE [28] et al. |
 
 representations of the items i and the item j to visit next, namely, q<sup>j</sup> + p<sup>u</sup> ≈ q<sup>i</sup> .
 
@@ -195,7 +192,7 @@ $$
 
 where the relation vector e ∈ R d is constructed using a neural attention mechanism over a memory matrix M. M ∈ R m×d is the trainable memory module, hence E is the attentive sum of m memory slots. As a result, the relation vectors not only ensure the triangle inequality, but also achieve better representation ability.
 
-###*2.2.2 Neural Network based Metrics*Distinct from the foregoing that employs linear metrics, recent studies adopt a diverse array of neural architectures, spanning from MLP, Convolutional Neural Network (CNN), and AE as the main building block to mine complex and nonlinear patterns of user-item interactions.
+### *2.2.2 Neural Network based Metrics*Distinct from the foregoing that employs linear metrics, recent studies adopt a diverse array of neural architectures, spanning from MLP, Convolutional Neural Network (CNN), and AE as the main building block to mine complex and nonlinear patterns of user-item interactions.
 
 Researchers made attempts to replace similarity modeling between users and items with MLPs, as MLPs are general function approximators to model any complex continuous function. NCF is proposed to model the interaction function between each user-item pair with MLPs as: rˆui = fMLP(pu||qi). Besides, NCF also incorporates a generic MF component into the interaction modeling, thereby making use of both linearity of MF and non-linearity of MLP to enhance recommendation quality.
 
@@ -204,7 +201,7 @@ Researchers also proposed to leverage CNN based architecture for interaction mod
 Besides, a line of research exploits AEs to fulfill the blanks of user-item interaction matrix directly in the decoder part [\[27\]](#page-14-25), [\[28\]](#page-14-26), [\[29\]](#page-14-27), [\[30\]](#page-14-28), [\[52\]](#page-14-51), [\[53\]](#page-15-0), [\[54\]](#page-15-1). As the encoder and decoder can be implemented via neural networks, such stacks of nonlinear transformations give the recommenders more capacity to model the user representation from complex combinations of all historically interacted items.
 **Summary**: Many recent studies have shown the superiority of GNNs in the representation learning of users and items. We ascribe the success to (1) the essential data structure, where the user-item interactions can be naturally represented as a bipartite graph between user and item nodes; and (2) GNNs can explicitly encode the crucial collaborative filtering signal of user-item interactions through information propagation process. As for interaction modeling, compared with the complex functions and metrics, simple inner product is much more efficient especially in the online and large-scale recommendation.
 
-# <span id="page-4-0"></span>3 CONTENT-ENRICHED RECOMMENDATION
+## <span id="page-4-0"></span>3 CONTENT-ENRICHED RECOMMENDATION
 
 In collaborative filtering, item representations encode the collaborative signal — behavioral patterns of users — solely, but ignore the semantic relatedness. To enhance the representation learning, many researchers go beyond the useritem interactions and exploit auxiliary data. The auxiliary data could be classified into two categories: content based information and context-aware data. Specifically, the first category of content information is associated with users and items, including general user and item features, textual content (a.k.a, item tags, item textual descriptions and users' reviews for items), multimedia descriptions (a.k.a, images, videos, and audio information), user social networks, and knowledge graphs. In contrast, contextual information shows the environment when users make item decisions, which usually denotes descriptions that beyond users and items [\[2\]](#page-14-1). Contextual information includes time, location, and specific data that are collected from sensors (such as speed, and weather), and so on. Due to page limits, we discuss the most typical contextual data: temporal data. In the following of the two sections, we would give a detailed summary of the content-enriched recommendation and context-aware recommendation. For the contentenriched recommendation, we classify the related work into five categories based on the available content information: the general features of users and items, the textual content information, the multimedia information, social networks and knowledge graphs.
 
@@ -212,15 +209,14 @@ In collaborative filtering, item representations encode the collaborative signal
 
 Factorization Machine (FM) provides an intuitive idea of feature interaction modeling [\[55\]](#page-15-2). As features are usually sparse, FM first embeds each feature i into a latent embedding v<sup>i</sup> , and models second-order interaction of any two feature instances with x<sup>i</sup> and x<sup>j</sup> as: v T <sup>i</sup> × vjxix<sup>j</sup> . Naturally, FM models the second-order interactions, and reduces the parameter size of computing similarity of any two features with embedding based models. FM has been extended to field-aware FM by expanding each feature with several
 
-<span id="page-5-0"></span>
 
-| Category                 | Modeling Summarization                                                | Models                                                   |
+| Category | Modeling Summarization | Models |
 |--------------------------|-----------------------------------------------------------------------|----------------------------------------------------------|
-| Second order             | Model second order correlations<br>with embedding based similarity    | FM [55], FFM [56]                                        |
-| MLP based                | Design better initialization techniques<br>to facilitate MLP modeling | NFM [57], FNN [58], PNN [59],<br>DeepCrossing [60], [61] |
-| higher order             | Combine deep and shallow features                                     | Wide&Deep [62], DeepFM [63]                              |
-| Up to Kth order modeling | Deep cross network structure for defined order depth                  | DCN [64], xDeepFM [65]                                   |
-| Tree structure           | Tree enhanced embedding for attentive cross feature aggregation       | TEM [11]                                                 |
+| Second order | Model second order correlations<br>with embedding based similarity | FM [55], FFM [56] |
+| MLP based | Design better initialization techniques<br>to facilitate MLP modeling | NFM [57], FNN [58], PNN [59],<br>DeepCrossing [60], [61] |
+| higher order | Combine deep and shallow features | Wide&Deep [62], DeepFM [63] |
+| Up to Kth order modeling | Deep cross network structure for defined order depth | DCN [64], xDeepFM [65] |
+| Tree structure | Tree enhanced embedding for attentive cross feature aggregation | TEM [11] |
 
 latent embeddings based on the field aware property [\[56\]](#page-15-3), or higher-order FMs by directly expanding 2-order interactions with all feature interactions [\[66\]](#page-15-13). Despite the ability to model higher-order interactions, these models suffer from noisy feature interactions in the modeling process.
 
@@ -240,14 +236,14 @@ Neural network technique has revolutionized Natural Language Processing (NLP) [\
 $$
 \mathbf{q}_i = f_e(\mathbf{x}_i) + \theta_i, \quad \theta_i \sim \mathcal{N}(0, \sigma^2)
 $$
- (8)
+(8)
 
 where fe(x) transforms raw content input into a bottleneck hidden vector with an autoencoder. θ<sup>i</sup> is a free item latent vector that is not captured in the item content, which is similar to many classical latent factor based CF models. In the model optimization process, the objective function is to simultaneously optimize the rating based loss from users' historical behavior and the content-reconstruction loss from the autoencoder:
 
 $$
 \mathcal{L} = \mathcal{L}_R(\mathbf{R}, \hat{\mathbf{R}}) + \lambda \mathcal{L}_X(\mathbf{X}, f_d(f_e(\mathbf{X}))),
 $$
- (9)
+(9)
 
 where λ is a parameter that measures the relative weight between the two loss terms. In the above optimization
 
@@ -267,57 +263,57 @@ Reviews widely appear in recommendation applications and are natural forms for u
 $$
 \hat{r}_{ui} = FM(TextCNN(D_u), TextCNN(D_i)).
 $$
- (11)
+(11)
 
 Many studies have empirically found that the most predictive power of review text comes from the particular review of the target user to the target item. As the associated reviews of a user-item pair are not available in the test stage, TransNet is proposed to tackle the situation when the target review information is not available [\[83\]](#page-15-30). TransNet has a source network of DeppCoNN that does not include the joint review revui, and a target network that models the joint review of the current user-item pair (u, i). Therefore, the target network could approximate the predicted review revˆ ui for the test user-item pair even when users do not give reviews to items.
 **Attention Models.**Attention mechanism has also been widely used in content enriched recommender systems. Given textual descriptions of an item, attention based models have been proposed to assign attentive weights to different pieces of content, such that informative elements are automatically selected for item content representation [\[91\]](#page-15-38), [\[92\]](#page-15-39), [\[93\]](#page-15-40), [\[94\]](#page-15-41), [\[95\]](#page-15-42), [\[96\]](#page-15-43), [\[97\]](#page-15-44), [\[98\]](#page-15-45). For example, given a tweet, the attention based CNN learns the trigger words in the tweet for better hashtag recommendation [\[91\]](#page-15-38). With the historical rated items of a user, an attention model is proposed to selectively aggregate content representations of each historical item for user content preference embedding modeling [\[99\]](#page-15-46), [\[100\]](#page-15-47), [\[101\]](#page-15-48). Given user (item) collaborative embeddings, and content based embeddings, attention networks have also been designed to capture the correlation and alignment between these two kinds of data sources [\[98\]](#page-15-45), [\[102\]](#page-15-49). Researchers have also proposed a co-evolutionary topical attention regularized matrix factorization model, with the user attentive features learned from an attention network that combines the user reviews, and the item attentive features learned from an attention network that combines the item reviews [\[102\]](#page-15-49). For review based recommendation, researchers argued that most content based user and item representation models neglected the interaction behavior between user-item pairs, and a dual attention model named DAML is proposed to learn the mutual enhanced user and item representations [\[103\]](#page-15-50). As item content sometimes is presented in multi-view forms (e.g., title, body, keywords and so on), multi-view attention networks are applied to learn unified item representations by aggregating multiple representations from different views [\[104\]](#page-15-51), [\[105\]](#page-15-52), [\[106\]](#page-15-53). With both the textual descriptions and the image visual information, co-attention is utilized to learn the correlation between the two modalities for better item representation learning [\[107\]](#page-16-0), [\[108\]](#page-16-1).
 **Text Explanations for Recommendation.**Instead of improving recommendation accuracy with content input, there is a growing interest of providing text explanations for recommendation. Current solutions for explainable recommendations with text input can be classified into two categories:*extraction based models*and*generation based models*.
 
-*Extraction based models*focus on selecting important text pieces for recommendation explanation. Attention techniques are widely used for extraction based explainable recommendation, with the learned attentive weights empirically showing the importance of different elements for model output [\[104\]](#page-15-51), [\[109\]](#page-16-2). After that, the text pieces with larger attentive weights are extracted as recommendation explanations. Despite extracting text pieces from reviews, there exist other methods to extract useful text information for explanation, such as review-level explanations [\[109\]](#page-16-2), [\[110\]](#page-16-3).
+**Extraction based models:** focus on selecting important text pieces for recommendation explanation. Attention techniques are widely used for extraction based explainable recommendation, with the learned attentive weights empirically showing the importance of different elements for model output [\[104\]](#page-15-51), [\[109\]](#page-16-2). After that, the text pieces with larger attentive weights are extracted as recommendation explanations. Despite extracting text pieces from reviews, there exist other methods to extract useful text information for explanation, such as review-level explanations [\[109\]](#page-16-2), [\[110\]](#page-16-3).
 
 With the huge success of language generation tech-
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image presents three diagrams (A, B, C) illustrating the architectures of DeepCoNN, VBPR, and DiffNet, respectively. (A) shows a multi-layered neural network processing user and item review text. (B) depicts a model using a pretrained deep CNN to extract visual features from an item image, followed by factorisation. (C) illustrates DiffNet, showing user and item feature embedding and processing through multiple layers, culminating in a prediction. Each diagram visually represents a different recommendation system architecture. -->
 
-Fig. 2: The classical methods for content-enriched models
+**Figure 2:** The classical methods for content-enriched models
 
 niques [\[111\]](#page-16-4),*generation based models*draw more and more attention [\[70\]](#page-15-17), [\[112\]](#page-16-5), [\[113\]](#page-16-6), [\[114\]](#page-16-7), [\[115\]](#page-16-8), [\[115\]](#page-16-8), [\[116\]](#page-16-9). Given both users' rating records and reviews, the key idea of these models is to design an encoder-decoder structure, with the encoder part encodes related embeddings of users and items, and the decoder generates reviews that are similar to the ground truth of the corresponding user-item review text. NRT is a state-of-the-art model that simultaneously predicts ratings and generates reviews [\[112\]](#page-16-5). By taking the one-hot user representation and item representation, the encoder part outputs the user latent embedding and item latent embedding, the review is generated with an RNN based decoder structure, and the rating is predicted with an MLP structure. Since we have both the ground truth rating records and the corresponding records of users, the two tasks of rating prediction and review generation can be trained in a multi-task framework. Meanwhile, additional information and more advanced encoder-decoder structures are also applied to explanation generation. For example, user and item attributes [\[113\]](#page-16-6), [\[117\]](#page-16-10) are multimodal item data [\[118\]](#page-16-11), which are considered in the encoder. Then, an advanced attention selector [\[114\]](#page-16-7) is designed in the decoder.
 
-#### 3.3 Modeling Multimedia Content
+### 3.3 Modeling Multimedia Content
 
 With the popularity of multimedia based platforms, visual content based multimedia contents, e.g., images and videos, are the most eye-catching for users. In the following, we introduce related work on modeling multimedia content in recommender systems. For ease of explanation, we summarize the related work on multimedia based recommendation with different kinds of input data in Table [4.](#page-8-0)
 
-#*3.3.1 Modeling Image Information*The current solutions for image recommendation can be categorized into two categories: content based models and hybrid recommendation models. Content based models exploit visual signals for constructing item visual representations, and the user preference is represented in the visual space [\[108\]](#page-16-1), [\[122\]](#page-16-12), [\[123\]](#page-16-13), [\[124\]](#page-16-14), [\[131\]](#page-16-15), [\[144\]](#page-16-16), [\[145\]](#page-16-17), [\[146\]](#page-16-18), [\[147\]](#page-16-19). In contrast, the hybrid recommendation models alleviate the data sparsity issue in CF with item visual modeling [\[26\]](#page-14-22), [\[119\]](#page-16-20), [\[121\]](#page-16-21), [\[130\]](#page-16-22), [\[134\]](#page-16-23), [\[148\]](#page-16-24), [\[149\]](#page-16-25).
+## *3.3.1 Modeling Image Information*The current solutions for image recommendation can be categorized into two categories: content based models and hybrid recommendation models. Content based models exploit visual signals for constructing item visual representations, and the user preference is represented in the visual space [\[108\]](#page-16-1), [\[122\]](#page-16-12), [\[123\]](#page-16-13), [\[124\]](#page-16-14), [\[131\]](#page-16-15), [\[144\]](#page-16-16), [\[145\]](#page-16-17), [\[146\]](#page-16-18), [\[147\]](#page-16-19). In contrast, the hybrid recommendation models alleviate the data sparsity issue in CF with item visual modeling [\[26\]](#page-14-22), [\[119\]](#page-16-20), [\[121\]](#page-16-21), [\[130\]](#page-16-22), [\[134\]](#page-16-23), [\[148\]](#page-16-24), [\[149\]](#page-16-25).
+
 **Image Content based Models.**Image content based models are suitable for recommendation scenarios that rely heavily on visual influence (e.g., fashion recommendation) or new items with little user feedback. As visual images are often associated with text descriptions (e.g., tags, titles), researchers designed some unpersonalized recommender systems that suggest tags to images [\[108\]](#page-16-1), [\[145\]](#page-16-17). These models apply CNNs to extract image visual information, and content embedding models to get textual embedding. Then, in order to model the correlation between visual and textual information, these models either project text and images into a same space [\[122\]](#page-16-12), concatenate representations from different modalities [\[133\]](#page-16-26) or design co-attention mechanism to better describe items [\[107\]](#page-16-0), [\[108\]](#page-16-1).
 
 For personalized image recommendation, a typical solution is to project both users and items in the same visual space, with the item visual space derived from CNNs, and the user's visual preference either modeled by the items they like [\[144\]](#page-16-16) or a deep neural network that takes the user related profiles as input [\[131\]](#page-16-15), [\[146\]](#page-16-18). Researchers have also argued that CNNs focus on the global item visual representation without fine-grained modeling. Therefore, some sophisticated image semantic understanding models have been proposed to enhance image recommendation performance [\[122\]](#page-16-12), [\[123\]](#page-16-13), [\[124\]](#page-16-14), [\[125\]](#page-16-27). For instance, in order to suggest makeups for people, makeup related facial traits are first classified into structured coding. The facial attributes are then fed into a deep learning based recommendation system for personalized makeup synthesis [\[124\]](#page-16-14). In some visual based recommendation domains, such as the fashion domain, each product is associated with multiple semantic attributes [\[123\]](#page-16-13), [\[125\]](#page-16-27). To exploit users' semantic preferences for detailed fashion attributes, a semantic attributed explainable recommender system is proposed by projecting both users and items in a fine-grained interpretable semantic attribute space [\[123\]](#page-16-13).
 **Hybrid Recommendation Models.**Hybrid models utilize both the collaborative signals and the visual content for recommendation, which could alleviate the data sparsity issue in CF and improve recommendation performance. Some researchers proposed to first extract item visual information as features, and the item visual features are fed into factorization machines for recommendation. Instead of the inferior performance induced by the two step learning process, recent studies proposed end-to-end learning frameworks for hybrid visual recommendation [\[26\]](#page-14-22), [\[119\]](#page-16-20), [\[130\]](#page-16-22), [\[134\]](#page-16-23), [\[140\]](#page-16-28), [\[148\]](#page-16-24). Visual Bayesian Personalized Ranking (VBPR) is one of the first few attempts that leverage the visual content for unified hybrid recommendation [\[119\]](#page-16-20). In VBPR, each user (item) is projected into two latent spaces: a visual space that is projected from the CNN based visual features, and a collaborative latent space to capture users' latent preferences. Then, given a user-item pair (u, i) with
 
-<span id="page-8-0"></span>
 
-| Category             | Model Summarization                                                  | Models                                    |  |
+| Category | Model Summarization | Models | |
 |----------------------|----------------------------------------------------------------------|-------------------------------------------|--|
-|                      | CNN content based features                                           | ACF [26],VBPR [119],OutfitNet [120]       |  |
-|                      | Aesthetic based features pretrained from                             | BDN [121]                                 |  |
-| Image                | a deep aesthetic network                                             |                                           |  |
-|                      | CNN content based features and the style features                    | DMF [122]                                 |  |
-|                      | from feature maps of CNNS                                            |                                           |  |
-|                      | Fine grained image attributes                                        | SAERS [123], SNMO [124], AIC [125]        |  |
-|                      | Co-attention networks for learning enhanced                          | UVCAN [126]                               |  |
-|                      | user and image representation                                        |                                           |  |
-|                      | GNNs to model visual relationships                                   | PinSage [127], HFGN [128], TransGec [129] |  |
-| Image+ Behavior Time | CNN based temporal content evolution                                 | BDN [121], [130]                          |  |
-|                      |                                                                      | DMF [122], GraphCAR [131],                |  |
-|                      | Deep fusion networks to learn unified item representation            | CKE [132], Transnfcm [133]                |  |
-| Image+Text           | Co-attention networks for learning unified item representation       | CoA-CAMN [107], Co-Attention [108]        |  |
-|                      | Multi-task learning model with detailed image attributes             | [134]                                     |  |
-|                      | Text generation models by encoding user, item text and image content | VECF [117], KFRCI [135], MRG [118], [136] |  |
-| Audio                | Learning deep audio features                                         | HLDBN [137], [138], [139]                 |  |
-|                      | Attention networks to learn video representations from               |                                           |  |
-| Video                | multiple image representations                                       | ACF [26], JIFR [140], AGCN [141]          |  |
-|                      | GNNs to learn video representation                                   | AGCN [141]                                |  |
-| Video+Audio          | Deep fusion networks to learn unified item representation            | CDML [142], [143]                         |  |
+| | CNN content based features | ACF [26],VBPR [119],OutfitNet [120] | |
+| | Aesthetic based features pretrained from | BDN [121] | |
+| Image | a deep aesthetic network | | |
+| | CNN content based features and the style features | DMF [122] | |
+| | from feature maps of CNNS | | |
+| | Fine grained image attributes | SAERS [123], SNMO [124], AIC [125] | |
+| | Co-attention networks for learning enhanced | UVCAN [126] | |
+| | user and image representation | | |
+| | GNNs to model visual relationships | PinSage [127], HFGN [128], TransGec [129] | |
+| Image+ Behavior Time | CNN based temporal content evolution | BDN [121], [130] | |
+| | | DMF [122], GraphCAR [131], | |
+| | Deep fusion networks to learn unified item representation | CKE [132], Transnfcm [133] | |
+| Image+Text | Co-attention networks for learning unified item representation | CoA-CAMN [107], Co-Attention [108] | |
+| | Multi-task learning model with detailed image attributes | [134] | |
+| | Text generation models by encoding user, item text and image content | VECF [117], KFRCI [135], MRG [118], [136] | |
+| Audio | Learning deep audio features | HLDBN [137], [138], [139] | |
+| | Attention networks to learn video representations from | | |
+| Video | multiple image representations | ACF [26], JIFR [140], AGCN [141] | |
+| | GNNs to learn video representation | AGCN [141] | |
+| Video+Audio | Deep fusion networks to learn unified item representation | CDML [142], [143] | |
 
 the associated image x<sup>i</sup> , the predicted preference rˆui is learned by combining users' preferences from two spaces:
 
@@ -331,7 +327,7 @@ Given the basic idea of VBPR, researchers have further introduced the temporal e
 
 Recently, GNNs have shown powerful performance in modeling graph data with heuristic graph convolution [\[150\]](#page-16-43), [\[151\]](#page-16-44). PinSage is one of the first few attempts to apply GNNS for web-scale recommender systems [\[127\]](#page-16-31). Given an item-item correlation graph, PinSage takes node attributes as input, and iteratively generates node embeddings to learn the graph structure with iterative graph convolutions. Researchers also proposed to formulate a heterogeneous graph of users, outfits and items, and performed hierarchical GNNs for personalized outfit recommendation [\[128\]](#page-16-32).
 
-#*3.3.2 Video Recommendation*Researchers proposed content-based video recommender systems with rich visual and audio information [\[142\]](#page-16-41), [\[143\]](#page-16-42). Specifically, these proposed models first extracted video features and audio features, and then adopted a neural network to fuse these two kinds of features with early fusion or late fusion techniques. As these content based video recommendation models do not rely on user-video interaction behavior, they can be applied to new video recommendation without any historical behavior data [\[142\]](#page-16-41), [\[143\]](#page-16-42). In contrast to the content-based recommendation models, with user-video interaction records, researchers proposed an Attentive Collaborative Filtering (ACF) model for multimedia recommendation [\[26\]](#page-14-22). ACF leverages the attention mechanism with visual inputs to learn the attentive weights to summarize users' preferences for historical items and the components of the item.
+## *3.3.2 Video Recommendation*Researchers proposed content-based video recommender systems with rich visual and audio information [\[142\]](#page-16-41), [\[143\]](#page-16-42). Specifically, these proposed models first extracted video features and audio features, and then adopted a neural network to fuse these two kinds of features with early fusion or late fusion techniques. As these content based video recommendation models do not rely on user-video interaction behavior, they can be applied to new video recommendation without any historical behavior data [\[142\]](#page-16-41), [\[143\]](#page-16-42). In contrast to the content-based recommendation models, with user-video interaction records, researchers proposed an Attentive Collaborative Filtering (ACF) model for multimedia recommendation [\[26\]](#page-14-22). ACF leverages the attention mechanism with visual inputs to learn the attentive weights to summarize users' preferences for historical items and the components of the item.
 
 The key idea of ACF is to leverage users' multimedia behavior and explicitly project users into two spaces: a collaborative space and a visual space, such that users' key frame preference could be approximated in visual space. The authors designed a model to discern both the collaborative and visual dimensions of users, and model how users make decisive item preferences from these two aspects [\[140\]](#page-16-28).
 
@@ -370,17 +366,16 @@ $$
 $$
 \n(17)
 
-<span id="page-9-2"></span>
 $$
 \mathbf{h}_u^k = s(W^k[\mathbf{h}_{Su}^{k-1}, \mathbf{h}_u^{(k-1)}])
 $$
- (18)
+(18)
 
 where Eq.[\(16\)](#page-9-0) fuses the user feature x<sup>u</sup> and user free latent vector e<sup>u</sup> with a neural network fNN for initial influence diffusion. At each diffusion step k, Eq.[\(17\)](#page-9-1) models the influence diffusion from u's social neighbors, and Eq.[\(18\)](#page-9-2) depicts the user embedding at the recursive step k by fusing her previous embedding h k−1 u and influences from her social neighbors as h k−1 Su . As k diffuses from step 1 to depth K, the recursive social diffusion process is captured.
 
 Instead of performing GNNs on the user-user social graph, researchers have also considered jointly modeling the social diffusion process in the social network and the interest diffusion process in the user-item graph with heterogeneous GNN based models [\[158\]](#page-16-51), [\[161\]](#page-17-0), [\[162\]](#page-17-1), [\[163\]](#page-17-2), [\[164\]](#page-17-3), [\[165\]](#page-17-4), [\[166\]](#page-17-5). For instance, DiffNet++ is proposed to jointly model the interest diffusion from user-item bipartite graph and the influence diffusion from the user-user social graph for user modeling in social recommendation, and have achieved state-of-the-art performance [\[164\]](#page-17-3).
 
-# 3.5 Modeling Knowledge Graph
+## 3.5 Modeling Knowledge Graph
 
 Researchers have also considered leveraging Knowledge Graphs (KG) for recommendation, which provide rich side information for items (*i.e.,*item attributes and external knowledge). Typically, KG organizes such subject-propertyobject facts in the form of directed graph G = {(h, r, t|h, t ∈ E, r ∈ R)}, where each triplet presents that there is a relationship r from head entity h to tail entity t. Exploring such interlinks, as well as user-item interactions, being a promising solution to enrich item profile and enhance the relationships between users and items. Furthermore, such graph structure endows recommender systems the ability of reasoning and explainability [\[167\]](#page-17-6), [\[168\]](#page-17-7), [\[169\]](#page-17-8), [\[170\]](#page-17-9), [\[171\]](#page-17-10), [\[172\]](#page-17-11), [\[173\]](#page-17-12). Recent efforts for KG enhanced recommendation can be roughly categorized into three categories: pathbased models [\[168\]](#page-17-7), [\[174\]](#page-17-13), [\[175\]](#page-17-14), [\[176\]](#page-17-15), [\[177\]](#page-17-16), regularizationbased models [\[132\]](#page-16-34), [\[169\]](#page-17-8), [\[178\]](#page-17-17), [\[179\]](#page-17-18), and GNN-based approaches [\[97\]](#page-15-44), [\[128\]](#page-16-32), [\[141\]](#page-16-40), [\[170\]](#page-17-9), [\[180\]](#page-17-19), [\[181\]](#page-17-20), [\[182\]](#page-17-21), [\[183\]](#page-17-22), [\[184\]](#page-17-23), [\[185\]](#page-17-24), [\[186\]](#page-17-25), [\[187\]](#page-17-26).
 **Path Based Methods.** Many efforts introduce metapaths [\[174\]](#page-17-13), [\[176\]](#page-17-15), [\[177\]](#page-17-16), [\[188\]](#page-17-27), [\[189\]](#page-17-28), [\[190\]](#page-17-29), [\[191\]](#page-17-30), [\[192\]](#page-17-31) and paths [\[168\]](#page-17-7), [\[175\]](#page-17-14), [\[193\]](#page-17-32), [\[194\]](#page-17-33), [\[195\]](#page-17-34) that present high-order connectivity between users and items, and then feed them into predictive models to directly infer user preferences. In particular, a path from user u to item i can be defined as a sequence of entities and relations: p = [e<sup>1</sup> <sup>r</sup><sup>1</sup> −→ e<sup>2</sup> <sup>r</sup><sup>2</sup> −→ · · · <sup>r</sup>L−<sup>1</sup> −−−→ <sup>e</sup>L], where <sup>e</sup><sup>1</sup> <sup>=</sup> <sup>u</sup> and <sup>e</sup><sup>L</sup> <sup>=</sup> <sup>i</sup>, and (e<sup>l</sup> , r<sup>l</sup> , el+1) is the l-th triplet in p, and L−1 denotes the number of triplets in the path. As such, the set of paths connecting u and i can be defined as P(u, i) = {p}.
@@ -414,7 +409,7 @@ where fGNN(·) is the GNN component.
 
 representation learning and boosting the recommendation performance. The keys are the selection of auxiliary data and the integration methods. For example, text information can help models to generate corresponding recommendation explanation. Social network information is very useful to provide social influence and social correlation among users for better recommendation. Meanwhile, attention mechanism is a general method to select the most relevant information from auxiliary data to enhance the representation learning. GNN-based methods are good at obtaining structure information and high-order correlation for the utilization of auxiliary data. As a conclusion, based on the recommendation target (recommendation accuracy, explanation, cold-start problem, etc), selecting proper auxiliary data and integration method can help recommendation models to achieve a good performance.
 
-# <span id="page-10-0"></span>4 TEMPORAL/SEQUENTIAL MODELS
+## <span id="page-10-0"></span>4 TEMPORAL/SEQUENTIAL MODELS
 
 Users' preferences are not static but evolve over time. Instead of modeling users' static preferences with the aforementioned models, temporal/sequential based recommendation focuses on modeling users' dynamic preferences or sequential patterns over time. Given a userset U = [u1, u2, ..., uM] and an itemset V = [i1, i2, ..., i<sup>N</sup> ], current temporal/sequential recommendation could be generally classified into three categories:
 
@@ -428,30 +423,29 @@ We summarize the main techniques for modeling temporal and sequential effects in
 
 Temporal recommendation models focus on capturing the temporal evolution of users' preferences over time. Due to the superior of RNNs in modeling temporal patterns, many temporal based approaches take RNNs into consideration. Recurrent Recommender Networks (RRN) is one of the
 
-<span id="page-11-0"></span>
 
-| Model Type        | Model Summarization                                 | Models                                       |  |
+| Model Type | Model Summarization | Models | |
 |-------------------|-----------------------------------------------------|----------------------------------------------|--|
-|                   | Recurrent neural networks                           | ARSE [153],RRN [204]                         |  |
-| Temporal Models   | to capture temporal evolution                       | [205], [206], [207], [208], [209]            |  |
-|                   | Memory network based models                         | NMRN [210], MANN [211], STAMP [212]          |  |
-|                   | RNN based models that rely on sessions              | p-RNN [202],KERL [193],CRNNs [213],          |  |
-|                   | to construct input and output                       | NARM [214], [215], [216], [217], [201],      |  |
-|                   | Translation based models for modeling               | TransRec [46],PeterRec [218], [219]          |  |
-| Sequential Models | the correlations of consecutive items               |                                              |  |
-|                   | Convolutional sequence embedding models             | 3D CNNs [220]                                |  |
-|                   | Self attention for learning item correlations       | SASRec [221], MFGAN [222]                    |  |
-|                   | Memory network to learn the session representation  | DMN [223]                                    |  |
-|                   | GNN based models for learning                       | SR-GNN [203],GC-SAN [224],Gag [225],         |  |
-|                   | item correlations                                   | GCE-GNN [226],SGNN-HN [227], [228]           |  |
-|                   | Hierarchical attention networks with                | SHAN [229],HRM [230],HGN [231],              |  |
-|                   | long and short term interest                        | MARank [232],Fissa [233],SSE-PT [234]        |  |
-|                   | RNN based models                                    | RRN [235],BINN [204],HIERNN [236]            |  |
-| Temporal and      | Attention based models for                          | CTRec [237],M3 [238],S3-rec [239],CTA [240], |  |
-| Sequential Models | user interest modeling                              | MTAM [241],TASER [242],ReChorus [243]        |  |
-|                   | Memory Networks for long distance item correlations | KA-MemNN [244],CSRM [245],MTAM [241]         |  |
-|                   | CNN based models                                    | Caser [51],CTRec [237], [246]                |  |
-|                   | GNN based models                                    | HyperRec [247],MA-GNN [248],IMfOU [249]      |  |
+| | Recurrent neural networks | ARSE [153],RRN [204] | |
+| Temporal Models | to capture temporal evolution | [205], [206], [207], [208], [209] | |
+| | Memory network based models | NMRN [210], MANN [211], STAMP [212] | |
+| | RNN based models that rely on sessions | p-RNN [202],KERL [193],CRNNs [213], | |
+| | to construct input and output | NARM [214], [215], [216], [217], [201], | |
+| | Translation based models for modeling | TransRec [46],PeterRec [218], [219] | |
+| Sequential Models | the correlations of consecutive items | | |
+| | Convolutional sequence embedding models | 3D CNNs [220] | |
+| | Self attention for learning item correlations | SASRec [221], MFGAN [222] | |
+| | Memory network to learn the session representation | DMN [223] | |
+| | GNN based models for learning | SR-GNN [203],GC-SAN [224],Gag [225], | |
+| | item correlations | GCE-GNN [226],SGNN-HN [227], [228] | |
+| | Hierarchical attention networks with | SHAN [229],HRM [230],HGN [231], | |
+| | long and short term interest | MARank [232],Fissa [233],SSE-PT [234] | |
+| | RNN based models | RRN [235],BINN [204],HIERNN [236] | |
+| Temporal and | Attention based models for | CTRec [237],M3 [238],S3-rec [239],CTA [240], | |
+| Sequential Models | user interest modeling | MTAM [241],TASER [242],ReChorus [243] | |
+| | Memory Networks for long distance item correlations | KA-MemNN [244],CSRM [245],MTAM [241] | |
+| | CNN based models | Caser [51],CTRec [237], [246] | |
+| | GNN based models | HyperRec [247],MA-GNN [248],IMfOU [249] | |
 
 representative studies for temporal recommendation by endowing both users and items with an LSTM autoregressive architecture [\[204\]](#page-17-43). In RRN, the predicted rating rˆ t ui of user u to item i at time t is modeled as:
 
@@ -484,7 +478,7 @@ Researchers also proposed a translation based model to capture the personalized 
 <span id="page-12-1"></span>![](_page_12_Figure_1.jpeg)
 <!-- Image Description: The image displays architectural diagrams of three recommendation systems: GRU4Rec, SASRec, and SR-GNN. (A) shows GRU4Rec as a sequence of GRU layers processing embedded input items. (B) illustrates SASRec with self-attention and feed-forward networks for sequence prediction. (C) depicts SR-GNN using a graph neural network and attention mechanism to model user-item relationships, culminating in a softmax layer to predict item probabilities. Each diagram visually represents the model's components and data flow. -->
 
-Fig. 3: The classical methods for temporal/sequential Models
+**Figure 3:** The classical methods for temporal/sequential Models
 
 between a user u, the previous item j, and the current item i. Given the item embedding matrix Q, each user's embedding p<sup>u</sup> can be approximated as: q<sup>i</sup> + p<sup>u</sup> ≈ q<sup>j</sup> [\[46\]](#page-14-46). Therefore, the translation based models capture the correlation of two constructive items.
 
@@ -510,7 +504,7 @@ Besides, researchers proposed to leverage the advances of GNN based models for r
 
 **Summary:**Temporal/sequential based models focus on the dynamic preferences of users over times. Therefore, most existing work concentrates on the sequential information of users and items, and leverages sequential models (e.g., RNN, Memory Network) to capture the trends of user preference evolution. The main challenges lie in the recognition of long-term and short-term temporal interests, as well as the identification of global and local interests in the absence of user ID information. Since GNNs are skilled at processing user-item interactions at different granularities, we can observe that it receives more and more attention in temporal/sequential based models.
 
-# <span id="page-12-0"></span>5 DISCUSSION AND FUTURE DIRECTIONS
+## <span id="page-12-0"></span>5 DISCUSSION AND FUTURE DIRECTIONS
 
 The foregoing various neural network based recommendation models have demonstrated the superior recommendation quality. However, we realize that current solutions for recommendation are far from satisfactory, and there are still many opportunities in this area. Therefore, we outline some possible directions that deserve more research efforts from the basis, modeling, and evaluation perspectives. Last but not least, we present a discussion about the reproducibility of recommendation models.
 *Basis: Recommendation Benchmarking.*While the field of neural recommender systems has seen a great surge of interests in recent years, it has also been difficult for researchers to keep track of what represents the state-of-the-art models. It is urgent to identify the architectures and key mechanisms that generalize to most recommender models. However, this is a non-trivial task as recommendation scenarios are diverse, e.g., static recommendation models or dynamic recommendation models, content enriched or knowledge enhanced models. Different recommendation models rely on different data sets with varying inputs. Besides, the same model would have varying performance on different recommendation scenarios due to the assumption in the modeling process. In fact, the Netflix competition for CF based recommendation has passed more than 10 years, how to design a large benchmarking recommendation dataset that keeps track of the state-of-the-art recommendation problems and update the leading performance for comparisons is a challenging yet urgent future direction.
@@ -518,7 +512,7 @@ The foregoing various neural network based recommendation models have demonstrat
 *Evaluation: Multi-Objective Goals for Social Good Recommendation.*Recommender systems have penetrated every aspect in our daily life, and have greatly shaped the decision process of providers and users. Most previous recommender systems concentrated on the single goal of recommendation accuracy based user experience. These systems limit the ability to incorporate user satisfaction from multiple goals, e.g., recommendation diversity and explanations to persuade users [\[9\]](#page-14-8). Besides, the user-centric approach neglects system objectives from multistakeholders and the society. The data-driven approaches with accuracy as goals may lead to biases in the algorithmic process decision process [\[266\]](#page-19-4), [\[267\]](#page-19-5), [\[268\]](#page-19-6), [\[269\]](#page-19-7). For recommender systems, researchers have realized that long tailed items have fewer chances to be recommended, and benefiting users may obscure concerns that might come from other stakeholders in this system. How to provide multi-objective goals for social good recommendation, such as explainability, balance of multistakeholders, and fairness for the society is an important research topic that needs to be paid attention to.
 *Discussion: Reproducibility.*While the neural recommendation models have dominated in the recommendation field and claimed substantial improvements over previous models, recent efforts raise questions about their reproducibility and published claims [\[270\]](#page-19-8), [\[271\]](#page-19-9), [\[272\]](#page-19-10), [\[273\]](#page-19-11), [\[274\]](#page-19-12). This can be attributed to two aspects. First, neural recommendation models are based on neural networks, which are hard to tune in practice. Thus, we should carefully choose the initialization, tune hyperparameters, avoid model collapse, and so on. Besides, due to the various application scenarios of recommendation, different models vary in the selection of datasets and setting of experiments. Specifically, it is well known that recommender models are sensitive to the dataset size, the dataset sparsity, the data preprocessing and splitting techniques, the strategy of negative sampling, the choice of loss function and optimization manner, and the evaluation metrics of performance. Thus, it is very challenging to conduct a fair performance comparison. In order to advance the recommendation community, some researchers make efforts on the data level, such as industryrelevant recommendation benchmark [\[275\]](#page-19-13), MIcrosoft News Dataset (MIND) [\[276\]](#page-19-14), and Yelp dataset[2](#page-13-0) . Others concentrate on the unified evaluation framework [\[277\]](#page-19-15), [\[278\]](#page-19-16). For example, researchers argue that previously default choice of evaluating recommender models with sampled metrics (e.g., rather than using the full set, only sampling a small set of negative items during testing) would be inconsistent to the true trend [\[279\]](#page-19-17). Towards fair and reproducible comparisons, it is of crucial importance to make the experimental settings transparent (e.g., release the codes, datasets, and experimental settings, and set up a leaderboard if possible). Furthermore, beyond network architecture engineering and hunting for the "best" performance, research studies on theoretical considerations and reproducibility analysis should be encouraged.
 
-# 6 CONCLUSION
+## 6 CONCLUSION
 
 In this survey, we provide a systematic review on neural recommender models from the perspective of recommendation modeling with accuracy goal. Based on the data usage, we organize existing work into three categories:*collaborative filtering model*, *content enriched model*, and *temporal/sequential model*. In each part, we summarize a bunch of influential research work and conclude corresponding main contributions as well as our opinions. Moreover, we also elaborate possible promising directions from the basics, modeling, and evaluation perspectives, and reproducibility problem in recommender systems. Still, a large number of novel methods and techniques are proposed each year. We hope
 
@@ -526,7 +520,7 @@ In this survey, we provide a systematic review on neural recommender models from
 
 this survey is able to help reader to quickly understand the development and key aspects of recommendation modeling, and inspires some future studies.
 
-# REFERENCES
+## REFERENCES
 
 - <span id="page-14-0"></span>[1] D. Goldberg, D. Nichols, B. M. Oki, and D. Terry, "Using collaborative filtering to weave an information tapestry," *Commun. ACM*, vol. 35, no. 12, pp. 61–70, 1992.
 - <span id="page-14-1"></span>[2] G. Adomavicius and A. Tuzhilin, "Toward the next generation of recommender systems: A survey of the state-of-the-art and possible extensions," *IEEE TKDE*, vol. 17, no. 6, pp. 734–749, 2005.

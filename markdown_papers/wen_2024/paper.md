@@ -25,9 +25,6 @@ keywords:
 - built-in
 ---
 
-
-
-
 # AeonG: An Efficient Built-in Temporal Support in Graph Databases
 
 Jiamin Hou Renmin University of China jiaminhou@ruc.edu.cn
@@ -68,7 +65,7 @@ Proceedings of the VLDB Endowment, Vol. 17, No. 6 ISSN 2150-8097. [doi:10.14778/
 <span id="page-0-0"></span>![](_page_0_Figure_20.jpeg)
 <!-- Image Description: The figure illustrates a transaction scenario using a sequence diagram. Two time points, *t<sub>n</sub>* and *t<sub>n+1</sub>*, show a customer (Jack) with an account and phone. At *t<sub>n</sub>*, the phone's IP address is Singapore; at *t<sub>n+1</sub>*, it's New York. A $300 transaction occurs, reducing the account balance from $390 to $90. The diagram depicts relationships between the customer, account, phone, and transaction, highlighting location changes and account balance updates. -->
 
-Figure 1: The Evolution of a Customer Purchase Graph
+**Figure 1:** The Evolution of a Customer Purchase Graph
 
 Dgraph [\[3\]](#page-12-2), and Memgraph [\[4\]](#page-12-3), are developed to manage graph data efficiently. Despite the fact that real-world graphs are often dynamic and evolve over time, these databases are typically designed to manage up-to-date graph data: when a graph changes, the database only stores the current (latest) state of the graph, i.e., the most recent values of vertices and edges, while discarding any previous (historical) state. However, time-evolving (temporal) graph data, which contains both the latest and historical states of a graph, is important in many applications, such as financial fraud detection [\[5\]](#page-12-4), traffic prediction in road networks [\[6\]](#page-12-5), etc.
 
@@ -79,7 +76,7 @@ This work is licensed under the Creative Commons BY-NC-ND 4.0 International Lice
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
 <!-- Image Description: The image is a data flow diagram illustrating a customer's interactions. It shows a customer ("Jack") owning two phones and two accounts. One phone (Singapore) is linked to an account ($390) with a time interval [t<sub>n</sub>, t<sub>n+1</sub>]. The other (New York) is linked to a second account ($90) and a transaction ($300) with time intervals [t<sub>n+1</sub>,+∞). Relationships are labeled with the time intervals during which they hold. The diagram likely explains data modeling or temporal aspects of a system. -->
 
-Figure 2: Customer Purchase Graph with a Time Dimension
+**Figure 2:** Customer Purchase Graph with a Time Dimension
 
 traditional graph databases, which only maintain the latest state at +1, would fail to detect such fraudulent transactions. □
 
@@ -132,7 +129,7 @@ Constraints. In our temporal property graph model, we impose two constraints to 
 <span id="page-2-2"></span>![](_page_2_Figure_18.jpeg)
 <!-- Image Description: This diagram depicts a data model showing entities (Customer, Account, Phone, Transaction) and their relationships (Has, Owns, Uses, Messages). Each entity contains attributes (e.g., Name, IP, Balance) with associated timestamps (ω) indicating validity intervals. The grey boxes represent relationships, connecting entities with labeled edges specifying the relationship type. The purpose is to illustrate a temporal data model, showcasing how data evolves over time within the system. -->
 
-Figure 3: A Running Example of Temporal Property Graphs
+**Figure 3:** A Running Example of Temporal Property Graphs
 
 An edge exists only if both source and destination vertices exist at . Formally, if ∈ , (, ) = , and () = (1, 2), then (1, ) = and (2, ) = ; (2) A property can only take on a value during the time period when the corresponding vertex or edge exists. Formally, if (, , ) = , where ∈ ( ∪ ), ∈ K, ∈ V, then (, ) = .
 
@@ -154,7 +151,6 @@ AeonG incorporates a temporal-enhanced Cypher [\[25\]](#page-12-15), which exten
 
 ### Listing 1: Syntax of Temporal-enhanced Cypher
 
-<span id="page-3-0"></span>
 
 | 1<br>[ OPTIONAL ] MATCH pattern_tuple |
 |---------------------------------------|
@@ -187,7 +183,7 @@ The query engine is responsible for handling user-issued queries, retrieving rel
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
 <!-- Image Description: This image depicts the architecture of a temporal graph database system. It shows a query processing pipeline (parser, optimizer, executor), interacting with current and historical storage. Data is migrated asynchronously. Diagrams illustrate query parsing, data structures (nodes, edges) in both storages, and the workflow of query execution, including "skip scan" and "skip expand" optimizations to handle temporal data. The system supports temporal queries using a "FOR TT AS OF" clause. -->
 
-Figure 4: An Overview of AeonG - AeonG consists of a temporal query engine, a hybrid storage engine, and an MVCC-based transaction manager. We employ an "anchor+delta" strategy to reduce the historical storage overhead, while using an anchor-based version retrieval technique to ensure efficient temporal query processing.
+**Figure 4:** An Overview of AeonG - AeonG consists of a temporal query engine, a hybrid storage engine, and an MVCC-based transaction manager. We employ an "anchor+delta" strategy to reduce the historical storage overhead, while using an anchor-based version retrieval technique to ensure efficient temporal query processing.
 
 of a parser, an optimizer, and an executor. While inheriting those components from existing graph databases, AeonG further extends them to support temporal queries.
 
@@ -212,7 +208,7 @@ Inheriting existing native graph databases [\[39\]](#page-12-20), AeonG organize
 <span id="page-5-1"></span>![](_page_5_Figure_0.jpeg)
 <!-- Image Description: The image illustrates a data structure for storing graph data. It shows linked lists representing vertex and edge stores (V₀...Vₙ, e₀...eₙ). Each vertex and edge entry points to a record containing identifiers (Gid), vertex/edge properties (ω), and version information (Version*). A dashed arrow indicates a potential link between the edge and vertex structures to manage graph updates, suggesting a versioning scheme for transactional updates or incremental graph changes. -->
 
-Figure 5: Data Layout of Current Storage
+**Figure 5:** Data Layout of Current Storage
 
 the creation of a new vertex version when the vertex's relevant graph topology changes but its properties remain unchanged. To address this problem, we associate the time dimension to each independent storage component to separately record semantic changes and structural changes.
 
@@ -232,7 +228,7 @@ Modification paradigm. We now discuss how AeonG evolves the graph to handle vari
 <span id="page-5-2"></span>![](_page_5_Figure_12.jpeg)
 <!-- Image Description: This diagram illustrates a data model for versioning. Three rectangular boxes represent vertex objects (V1, V3) containing account and transaction data, and edge objects (e0, e2) representing relationships. A separate section shows historical data (T1, T2) organized as version chains, linked to vertex and edge objects via dotted lines. Each element includes a timestamp (ω) indicating its validity period. The figure's purpose is to visually represent the data structure and versioning mechanism used in the paper. -->
 
-Figure 6: An Example of Current Storage Layout
+**Figure 6:** An Example of Current Storage Layout
 
 vertex prior to the modification and set its as [ , ). This VP version is then linked to the vertex's version chain. Updating a property value of an edge follows the same logic.
 
@@ -248,7 +244,7 @@ In MVCC, historical versions are not retained in the current storage permanently
 <span id="page-6-1"></span>![](_page_6_Figure_0.jpeg)
 <!-- Image Description: The image displays a table showing a key-value store. Three key categories (EP, VP, VE) are each associated with multiple keys (e.g., E:2, V:1) and their corresponding values. Keys include time-indexed parameters ([t<sub>n+1</sub>, t<sub>n+2</sub>]). Values represent data such as location, balance, IP address, and arrays. The table likely illustrates a data structure used within the paper's proposed system or algorithm. -->
 
-Figure 7: Key-value Format in Historical Storage
+**Figure 7:** Key-value Format in Historical Storage
 
 versions and then outline the process of migrating unreclaimed versions into the historical storage.
 
@@ -258,29 +254,27 @@ Anchor+delta. We utilize deltas to reduce the storage overhead. However, retriev
 
 We propose an adaptive anchoring approach, which assigns different anchor intervals for different graph objects. A higher leads to more deltas between successive anchors, potentially increasing query latency but reducing storage overhead. Therefore, we assign a larger to frequently updated objects to strike a balance between query latency and storage efficiency. Given a graph object , we use Equation [1](#page-6-2) to determine its according to the update frequency (), the number of updates conducted on .
 
-<span id="page-6-2"></span>
 $$
 u_o = \begin{cases} \tau_1 *c & f(o) \le \tau_1 \\ \tau_2* c & \tau_1 < f(o) \le \tau_2 \\ \tau_2^2 / \tau_1 * c & \tau_2 \le f(o) \end{cases}
 $$
- medium frequency (1)
+medium frequency (1)
 
- This equation categorizes update frequencies into three levels (low, medium, and high) using two thresholds (<sup>1</sup> and 2). Each frequency
+This equation categorizes update frequencies into three levels (low, medium, and high) using two thresholds (<sup>1</sup> and 2). Each frequency
 
-#### Algorithm 1: Data migration
+### Algorithm 1: Data migration
 
-<span id="page-6-3"></span>
 
-| 1 Function Migrate(𝐶𝑇 ): |                                                     |  |  |  |  |
+| 1 Function Migrate(𝐶𝑇 ): | | | | | |
 |--------------------------|-----------------------------------------------------|--|--|--|--|
-|                          | Input: 𝐶𝑇 , committed transaction no longer active; |  |  |  |  |
-| 2                        | 𝑢𝑛𝑑𝑜 ← ∅; //unreclaimed version;                    |  |  |  |  |
-| 3                        | 𝑘𝑣 ← ∅; //reclaimed version;                        |  |  |  |  |
-| 4                        | foreach 𝑢𝑛𝑑𝑜 ∈ 𝐶𝑇 do                                |  |  |  |  |
-| 5                        | 𝑘𝑣=encode2KV(𝑢𝑛𝑑𝑜);                                 |  |  |  |  |
-| 6                        | KV_store::put(𝑘𝑣);                                  |  |  |  |  |
-| 7                        | physically delete undo;                             |  |  |  |  |
-|                          |                                                     |  |  |  |  |
-|                          | 8 End Function                                      |  |  |  |  |
+| | Input: 𝐶𝑇 , committed transaction no longer active; | | | | |
+| 2 | 𝑢𝑛𝑑𝑜 ← ∅; //unreclaimed version; | | | | |
+| 3 | 𝑘𝑣 ← ∅; //reclaimed version; | | | | |
+| 4 | foreach 𝑢𝑛𝑑𝑜 ∈ 𝐶𝑇 do | | | | |
+| 5 | 𝑘𝑣=encode2KV(𝑢𝑛𝑑𝑜); | | | | |
+| 6 | KV_store::put(𝑘𝑣); | | | | |
+| 7 | physically delete undo; | | | | |
+| | | | | | |
+| | 8 End Function | | | | |
 
 level is assigned a specific anchor interval, calculated heuristically by multiplying the respective threshold values with a predefined parameter . Currently, AeonG enables users to set parameters in Equation [1,](#page-6-2) such as 1, during database initialization and runtime.
 
@@ -302,31 +296,30 @@ Here, . and . represent the start and end time of ′ 's lifespan, respectively;
 
 When fetching data from the historical storage, there is no need to handle transaction conflicts as the historical storage serves readonly queries that users cannot change the data in the historical storage. Therefore, we directly employ the legal check mechanism to get desired versions. To further enhance digging out historical versions, we employ an anchor-based skip retrieval strategy to
 
-<span id="page-7-0"></span>
 
-| Algorithm 2: Retrieving vertices                           |                                              |  |  |  |  |  |
+| Algorithm 2: Retrieving vertices | | | | | | |
 |------------------------------------------------------------|----------------------------------------------|--|--|--|--|--|
-| 1 Function VertexRead(𝐶):<br>Input: 𝐶, temporal condition; |                                              |  |  |  |  |  |
-|                                                            | Output: Σ, the result set;                   |  |  |  |  |  |
-| 2                                                          | 𝑣 ← the vertex which we start to scan;       |  |  |  |  |  |
-| 3                                                          | while 𝑣 do                                   |  |  |  |  |  |
-| 4                                                          | // fetch from the current storage;           |  |  |  |  |  |
-| 5                                                          | foreach 𝑣<br>′ ∈ (𝑣<br>∪ 𝑣.𝑣𝑒𝑟𝑠𝑖𝑜𝑛𝑠 ) do     |  |  |  |  |  |
-| 6                                                          | if !SnapshotCheck(𝑣<br>′<br>) then continue; |  |  |  |  |  |
-| 7                                                          | ′<br>if TemporalCheck(𝑣<br>.𝜔,𝐶) then        |  |  |  |  |  |
-| 8                                                          | Σ ← Σ ∪ Reconstruct(𝑣<br>′<br>);             |  |  |  |  |  |
-| 9                                                          | // fetch from the historical storage;        |  |  |  |  |  |
-| 10                                                         | FetchFromKV(𝑣.𝑖𝑑,𝐶, Σ);                      |  |  |  |  |  |
-| 11                                                         | 𝑣 ← 𝑣.next();                                |  |  |  |  |  |
-| 12                                                         | return Σ;                                    |  |  |  |  |  |
-| 13 Function FetchFromKV(𝑖𝑑,𝐶, Σ):                          |                                              |  |  |  |  |  |
-| 14                                                         | 𝑘𝑣𝑎<br>← KV_store::seeknext(𝑖𝑑,𝐶);           |  |  |  |  |  |
-| 15                                                         | 𝑘𝑣𝑑<br>← KV_store::seeknext(𝑖𝑑, 𝑘𝑣𝑎.𝑘𝑒𝑦);    |  |  |  |  |  |
-| 16                                                         | while 𝑘𝑣𝑑<br>∧ 𝑘𝑣𝑑<br>.𝜔.𝑠𝑡 ≤ 𝐶.𝑡2<br>do     |  |  |  |  |  |
-| 17                                                         | 𝑘𝑣𝑎<br>← combine (𝑘𝑣𝑎, 𝑘𝑣𝑑<br>);             |  |  |  |  |  |
-| 18                                                         | if TemporalCheck(𝑘𝑣𝑑<br>.𝜔,𝐶) then           |  |  |  |  |  |
-| 19                                                         | Σ ← Σ ∪ 𝑘𝑣𝑎;                                 |  |  |  |  |  |
-| 20                                                         | 𝑘𝑣𝑑<br>← 𝑘𝑣𝑑<br>.next( );                    |  |  |  |  |  |
+| 1 Function VertexRead(𝐶):<br>Input: 𝐶, temporal condition; | | | | | | |
+| | Output: Σ, the result set; | | | | | |
+| 2 | 𝑣 ← the vertex which we start to scan; | | | | | |
+| 3 | while 𝑣 do | | | | | |
+| 4 | // fetch from the current storage; | | | | | |
+| 5 | foreach 𝑣<br>′ ∈ (𝑣<br>∪ 𝑣.𝑣𝑒𝑟𝑠𝑖𝑜𝑛𝑠 ) do | | | | | |
+| 6 | if !SnapshotCheck(𝑣<br>′<br>) then continue; | | | | | |
+| 7 | ′<br>if TemporalCheck(𝑣<br>.𝜔,𝐶) then | | | | | |
+| 8 | Σ ← Σ ∪ Reconstruct(𝑣<br>′<br>); | | | | | |
+| 9 | // fetch from the historical storage; | | | | | |
+| 10 | FetchFromKV(𝑣.𝑖𝑑,𝐶, Σ); | | | | | |
+| 11 | 𝑣 ← 𝑣.next(); | | | | | |
+| 12 | return Σ; | | | | | |
+| 13 Function FetchFromKV(𝑖𝑑,𝐶, Σ): | | | | | | |
+| 14 | 𝑘𝑣𝑎<br>← KV_store::seeknext(𝑖𝑑,𝐶); | | | | | |
+| 15 | 𝑘𝑣𝑑<br>← KV_store::seeknext(𝑖𝑑, 𝑘𝑣𝑎.𝑘𝑒𝑦); | | | | | |
+| 16 | while 𝑘𝑣𝑑<br>∧ 𝑘𝑣𝑑<br>.𝜔.𝑠𝑡 ≤ 𝐶.𝑡2<br>do | | | | | |
+| 17 | 𝑘𝑣𝑎<br>← combine (𝑘𝑣𝑎, 𝑘𝑣𝑑<br>); | | | | | |
+| 18 | if TemporalCheck(𝑘𝑣𝑑<br>.𝜔,𝐶) then | | | | | |
+| 19 | Σ ← Σ ∪ 𝑘𝑣𝑎; | | | | | |
+| 20 | 𝑘𝑣𝑑<br>← 𝑘𝑣𝑑<br>.next( ); | | | | | |
 
 reconstruct desired versions. To restore a specific legal version ′ , we directly seek the most recent anchor in the KV store by the probe prefix "AV::", where 'AV' represents the anchors in the VP segment, is the unique id of interest vertex and is the given query time constraint. We then assemble ′ with all previous versions from to ′ . Thanks to the special design of the key-value format in the historical storage, we can leverage the probe prefix to swiftly find the nearest anchor.
 
@@ -336,22 +329,21 @@ Complexity analysis. The scan operator queries versions of a vertex in a dataset
 
 Algorithm 3: Expanding Vertices
 
-<span id="page-7-1"></span>
 
-| Input: 𝑣, the graph vertex need to expand; 𝐶, temporal<br>condition; |                    |  |  |  |
+| Input: 𝑣, the graph vertex need to expand; 𝐶, temporal<br>condition; | | | | |
 |----------------------------------------------------------------------|--------------------|--|--|--|
-|                                                                      |                    |  |  |  |
-|                                                                      |                    |  |  |  |
-| Output: Σ, the result set;                                           |                    |  |  |  |
-| Σ𝑣𝑒 ← VERead(𝑣,𝐶) //get adjacency lists;<br>2                        |                    |  |  |  |
-| ) ∈ Σ𝑣𝑒 do<br>3                                                      | foreach (𝑒𝑖𝑑, 𝑛𝑣𝑖𝑑 |  |  |  |
-| Σ𝑒 ← EdgeRead(𝑒𝑖𝑑, 𝑓 (𝐶, 𝑣.𝜔)) ;<br>4                                |                    |  |  |  |
-| foreach 𝑒 ∈ Σ𝑒<br>do<br>5                                            |                    |  |  |  |
-| Σ𝑛𝑣 ← VertexRead(𝑛𝑣𝑖𝑑, 𝑓 (𝐶, 𝑒.𝜔));<br>6                             |                    |  |  |  |
-| foreach 𝑛𝑣 ∈ Σ𝑛𝑣<br>do<br>7                                          |                    |  |  |  |
-| Σ ← Σ ∪ (𝑒, 𝑛𝑣) ;<br>8                                               |                    |  |  |  |
-|                                                                      |                    |  |  |  |
-| return Σ;<br>9                                                       |                    |  |  |  |
+| | | | | |
+| | | | | |
+| Output: Σ, the result set; | | | | |
+| Σ𝑣𝑒 ← VERead(𝑣,𝐶) //get adjacency lists;<br>2 | | | | |
+| ) ∈ Σ𝑣𝑒 do<br>3 | foreach (𝑒𝑖𝑑, 𝑛𝑣𝑖𝑑 | | | |
+| Σ𝑒 ← EdgeRead(𝑒𝑖𝑑, 𝑓 (𝐶, 𝑣.𝜔)) ;<br>4 | | | | |
+| foreach 𝑒 ∈ Σ𝑒<br>do<br>5 | | | | |
+| Σ𝑛𝑣 ← VertexRead(𝑛𝑣𝑖𝑑, 𝑓 (𝐶, 𝑒.𝜔));<br>6 | | | | |
+| foreach 𝑛𝑣 ∈ Σ𝑛𝑣<br>do<br>7 | | | | |
+| Σ ← Σ ∪ (𝑒, 𝑛𝑣) ;<br>8 | | | | |
+| | | | | |
+| return Σ;<br>9 | | | | |
 
 store using SkipList, the complexity of this process is (( )), where is the average number of anchors for vertices. Then, we sequentially scan deltas from the anchor until satisfying the query time condition, with a time complexity of (), where represents the average length of defined in Equation [1.](#page-6-2) In conclusion, the scan operator has a complexity of (() + ( ) + ).
 
@@ -364,7 +356,7 @@ As shown in Algorithm [3,](#page-7-1) given a vertex , we first use the function
 $$
 f(C, \omega) = [max(C.t_1, \omega.st), min(C.t_2, \omega.edu)]
 $$
- (3)
+(3)
 
 By implementing this approach, we efficiently bypass more unnecessary versions, thereby enhancing the query performance. Subsequently, we retrieve the neighbor vertex versions of each holding edge version based on (lines 5-6) with a similar logical process. Finally, we obtain the final results (lines 7-8). The illustrative examples of both the scan and expand operators are detailed in our extended manuscript [\[42\]](#page-12-23).
 
@@ -378,20 +370,19 @@ Query engine. AeonG extends the parser and executor components of the query engi
 
 Storage engine. The storage engine of AeonG is hybrid, consisting of a current storage and a historical storage, as detailed in Section [4.](#page-4-2) The current storage is derived from Memgraph's storage, where the Vertex structure maps to the vertex object, the EdgeRef structure maps to the edge object, and the Delta structure represents historical unreclaimed versions. We then associate the time dimension with those structures to introduce temporal support, as discussed in Section [4.1.](#page-4-1) Timestamps are assigned by a global clock when relevant transactions are committed, with a time granularity of milliseconds. AeonG integrates RocksDB into Memgraph as the historical store by starting a RocksDB process when the Memgraph instance starts. We introduce a function, Migrate(), within Memgraph's CollectGarbage() function to transfer unreclaimed data to a key-value pair and subsequently migrate them to RocksDB (Algorithm [1\)](#page-6-3). We further implement a distributed version of AeonG, named AeonG-D, using TiKV [\[43\]](#page-12-24), an efficient distributed key-value store, for historical storage by replacing the interfaces of RocksDB with TiKV. We introduce a system parameter, retention\_period, in AeonG to set the historical data retention
 
-Table 1: Workload Characteristics
+**Table 1:** Workload Characteristics
 
-<span id="page-8-0"></span>
 
-|                       | T-mgBench | T-LDBC  | T-gMark |      |      |      |
+| | T-mgBench | T-LDBC | T-gMark | | | |
 |-----------------------|-----------|---------|---------|------|------|------|
-|                       |           |         | Bib     | WD   | LSN  | SP   |
-| # of Vertices         | 10K       | 3,181K  | 100K    | 103K | 100K | 100K |
-| # of Edges            | 122K      | 17,256K | 121K    | 93K  | 200K | 385K |
-| Density               | 12.17     | 5.42    | 1.2     | 0.90 | 2    | 3.85 |
-| # of Vertex Labels    | 1         | 8       | 5       | 24   | 15   | 7    |
-| # of Edge Labels      | 1         | 25      | 4       | 82   | 27   | 7    |
-| # of Graph Operations | 320K      | 1M      | 320K    | 320K | 320K | 320K |
-| for Data Generation   |           |         |         |      |      |      |
+| | | | Bib | WD | LSN | SP |
+| # of Vertices | 10K | 3,181K | 100K | 103K | 100K | 100K |
+| # of Edges | 122K | 17,256K | 121K | 93K | 200K | 385K |
+| Density | 12.17 | 5.42 | 1.2 | 0.90 | 2 | 3.85 |
+| # of Vertex Labels | 1 | 8 | 5 | 24 | 15 | 7 |
+| # of Edge Labels | 1 | 25 | 4 | 82 | 27 | 7 |
+| # of Graph Operations | 320K | 1M | 320K | 320K | 320K | 320K |
+| for Data Generation | | | | | | |
 
 period. For instance, setting retention\_period to one month enables the periodic removal of historical data generated one month ago from the historical storage.
 
@@ -417,16 +408,15 @@ T-LDBC derives from LDBC [\[46\]](#page-12-27), a well-known synthetic graph wor
 
 T-gMark is based on gMark[\[47\]](#page-12-28), a well-known synthetic graph workload. It consists of four datasets as shown in Tables [1.](#page-8-0) We
 
-Table 2: Temporal Queries of T-mgBench
+**Table 2:** Temporal Queries of T-mgBench
 
-<span id="page-9-0"></span>
 
-| Query | Statement                                                             |
+| Query | Statement |
 |-------|-----------------------------------------------------------------------|
-| Q1    | Match (n: User {id: \$id}) FOR TT AS OF 𝑡 RETURN n                    |
-| Q2    | Match (n: User {id: \$id}) FOR TT From 𝑡1 to 𝑡2 RETURN n              |
-| Q3    | Match (n: User {id: \$id})-[e]->(m) FOR TT AS OF 𝑡 RETURN n,e,m       |
-| Q4    | Match (n: User {id: \$id})-[e]->(m) FOR TT From 𝑡1 to 𝑡2 RETURN n,e,m |
+| Q1 | Match (n: User {id: \$id}) FOR TT AS OF 𝑡 RETURN n |
+| Q2 | Match (n: User {id: \$id}) FOR TT From 𝑡1 to 𝑡2 RETURN n |
+| Q3 | Match (n: User {id: \$id})-[e]->(m) FOR TT AS OF 𝑡 RETURN n,e,m |
+| Q4 | Match (n: User {id: \$id})-[e]->(m) FOR TT From 𝑡1 to 𝑡2 RETURN n,e,m |
 
 use gMark's query generation tool to create non-temporal queries, and then transform them into temporal queries by adding the time condition "FOR TT AS OF ". The query generation follows gMark's default configuration, which includes constraints on arity (0-4), query shape (25% chain, 25% star-chain, 25% cycle, and 25% star), selectivity (33% constant, 33% linear, and 33% quadratic), probability recursion (50%), and query size ([1,1], [3,4], [1,3], [2,4]).
 
@@ -454,7 +444,7 @@ We also run experiments using T-LDBC and T-gMrak to evaluate the storage consump
 <span id="page-10-2"></span><span id="page-10-1"></span><span id="page-10-0"></span>![](_page_10_Figure_0.jpeg)
 <!-- Image Description: This figure presents bar and line charts comparing the latency of three graph query engines (AeonG, Clock-G, T-GQL) across various benchmarks. (a) and (c) show latency for different query types in T-mgBench, with (c) focusing on accessed vertex types. (b) illustrates latency variation with the number of graph operations in T-mgBench. (d) displays latency versus time slice length in T-mgBench. (e) and (f) present results from T-LDBC and T-gMark, respectively, showing latency for different query types and datasets. The charts collectively demonstrate performance differences between the three engines under diverse conditions. -->
 
-<span id="page-10-4"></span>Figure 9: Comparisons on Temporal Query Latency
+<span id="page-10-4"></span>**Figure 9:** Comparisons on Temporal Query Latency
 
 version retrieval technique to avoid unnecessary version traversal. In contrast, to access desired historical graph elements, T-GQL necessitates traversing the entire graph , while Clock-G requires fetching the corresponding historical snapshot and appending logs on it, thereby resulting in slower performance.
 
@@ -463,7 +453,7 @@ We then study the latency of temporal query Q1 with varying the number of graph 
 <span id="page-10-6"></span>![](_page_10_Figure_4.jpeg)
 <!-- Image Description: The image presents three bar graphs comparing the performance of AenoG and Memgraph database systems under different query workloads (mgBench, LDBC, gMark). Each graph shows latency (in milliseconds) for AenoG and Memgraph, and a third bar representing the packet drop rate. The x-axis represents the number of queries, while the y-axis shows latency and drop rate. The graphs illustrate the impact of increasing query loads on latency and data loss for both systems. -->
 
-Figure 10: AeonG vs Memgraph on Non-temporal Queries
+**Figure 10:** AeonG vs Memgraph on Non-temporal Queries
 
 <span id="page-10-3"></span>in Figure [9\(d\),](#page-10-3) AeonG outperforms Clock-G and T-GQL by up to 2.27× and 33.23×, respectively, showing a consistently superior performance under different time slice lengths.
 
@@ -480,7 +470,7 @@ We now provide an in-depth analysis of AeonG's performance under diverse configu
 <span id="page-11-2"></span><span id="page-11-1"></span><span id="page-11-0"></span>![](_page_11_Figure_0.jpeg)
 <!-- Image Description: The image presents four graphs evaluating a time-series database. (a) shows latency vs. garbage collection interval for different read operations. (b) illustrates storage consumption and query latency versus anchor interval. (c) displays storage consumption and query latency against retention period. (d) depicts latency against the number of nodes and data size. All graphs assess the system's performance under varying parameters. -->
 
-Figure 11: Performance Breakdown Analysis on AeonG
+**Figure 11:** Performance Breakdown Analysis on AeonG
 
 and a 9.5% increase in the query latency. This is expected as less frequent migrations can reduce contention with graph operation, thereby enhancing graph operation performance. In contrast, less frequent migrations result in longer version-chain traversal in the current storage, negatively impacting query performance.
 
@@ -494,11 +484,11 @@ and a 9.5% increase in the query latency. This is expected as less frequent migr
 
 Temporal graph data management involves two primary approaches. One approach integrates temporal features at the application level, utilizing commercial graph databases by attaching temporal metadata [\[7](#page-12-6)[–13\]](#page-12-7). Take a state-of-the-art approach T-GQL [\[7\]](#page-12-6) in this field as an example. T-GQL adopts a specific representation of temporal graphs, where conventional vertices are decomposed into Object, Attribute, Value vertices, and conventional edges remain the same. Time dimensions are introduced as properties of designed vertices and edges. However, there may exhibit unpredictable performance due to underlying engines designed for static graphs. An alternative line of research focuses on the system level, designing storage engines to handle growing historical data while enabling efficient querying. In this regard, two storage approaches, Copy and Log, are widely used to manage temporal graph data [\[14](#page-12-8)[–23\]](#page-12-9). The Copy approach [\[14,](#page-12-8) [15\]](#page-12-31) stores an entire graph state whenever a batch of updates occurs. Although it simplifies graph querying, it results in excessive redundancy in the stored graph information. In contrast, the Log approach [\[16,](#page-12-32) [17\]](#page-12-33) records every graph update activity in a log, offering a more compact solution but requiring costly reconstruction when executing a temporal graph query. To balance query performance and space overhead, the Copy+Log approach [\[18–](#page-12-34)[23\]](#page-12-9) combines a finite set of snapshots with a list of deltas between them. However, we argue the Copy+Log approach is suboptimal since it still requires significant storage overhead to materialize the entire graph. Moreover, they lack support for a powerful temporal graph data model or a declarative temporal query language, restricting user convenience.
 
-# 9 CONCLUSION
+## 9 CONCLUSION
 
 In this paper, we propose AeonG, a new graph database that efficiently offers built-in temporal support. AeonG includes a formally defined temporal property graph model. Based on this model, we propose a hybrid storage engine to store temporal data with minimal storage consumption. Furthermore, AeonG equips a native temporal query engine to enable efficient temporal query processing. The results demonstrate that AeonG achieves up to 5.73× lower storage consumption and 2.57× lower latency for temporal queries against state-of-the-art approaches, while introducing only 9.74% performance degradation for supporting temporal features.
 
-# ACKNOWLEDGMENTS
+## ACKNOWLEDGMENTS
 
 This work was supported by the National Natural Science Foundation of China (Number 61972403, 62072458).
 

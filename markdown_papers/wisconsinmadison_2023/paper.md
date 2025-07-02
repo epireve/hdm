@@ -16,7 +16,6 @@ images_kept: "7"
 images_removed: "0"
 ---
 
-
 <!-- cite_key: wisconsin-madison2023 -->
 
 # DEPSRAG: Towards Agentic Reasoning and Planning for Software Dependency Management
@@ -25,13 +24,13 @@ Mohannad Alhanahnah University of Wisconsin-Madison, USA mohannad@cs.wisc.edu
 
 Yazan Boshmaf Qatar Computing Research Institute, Qatar yboshmaf@hbku.edu.qa
 
-# Abstract
+## Abstract
 
 In the era of Large Language Models (LLMs) with their advanced capabilities, a unique opportunity arises to develop LLM-based digital assistant tools that can support software developers by facilitating comprehensive reasoning about software dependencies and open-source libraries before importing them. This reasoning process is daunting, mandating multiple specialized tools and dedicated expertise, each focusing on distinct aspects (e.g., security analysis tools may overlook design flaws such as circular dependencies, which hinder software maintainability). Creating a significant bottleneck in the software development lifecycle.
 
 In this paper, we introduce DEPSRAG, a multi-agent framework designed to assist developers in reasoning about software dependencies. DEPSRAG first constructs a comprehensive Knowledge Graph (KG) that includes both direct and transitive dependencies. Developers can interact with DEPSRAG through a conversational interface, posing queries about the dependencies. DEPSRAG employs Retrieval-Augmented Generation (RAG) to enhance these queries by retrieving relevant information from the KG as well as external sources, such as the Web and vulnerability databases, thus demonstrating its adaptability to novel scenarios. DEPSRAG incorporates a Critic-Agent feedback loop to ensure the accuracy and clarity of LLM-generated responses. We evaluated DEPSRAG using GPT-4-Turbo and Llama-3 on three multi-step reasoning tasks, observing a threefold increase in accuracy with the integration of the Critic-Agent mechanism. DEPSRAG demo and implementation are available: <https://github.com/Mohannadcse/DepsRAG>.
 
-# 1 Introduction
+## 1 Introduction
 
 The increasing reliance on code reuse in modern software development, facilitated by third-party packages, has substantially enhanced both software quality and productivity [\[25\]](#page-9-0). As the adoption of open-source and third-party libraries becomes more widespread, securing the software supply chain has emerged as a critical concern [\[27\]](#page-9-1). In response, regulatory measures such as Executive Order 14028 [\[3\]](#page-8-0) and the 2023 EU Cyber Resilience Act (CRA) [\[2\]](#page-8-1) impose strict requirements on developers to ensure compliance of software dependencies, including open-source and third-party libraries, within their projects. A recent survey [\[29\]](#page-9-2) highlights a widespread lack of confidence among developers in the effectiveness of their current dependency management practices. This uncertainty contributes to a prolonged and cumbersome approval process for incorporating new open-source libraries for 61% organizations, thus introducing a critical bottleneck in the software development lifecycle. This challenge is further compounded by the lack of advanced tools capable of thoroughly analyzing and addressing security and maintainability concerns in open-source and third-party libraries. Existing security tools often overlook essential issues, such as detecting circular dependencies or resolving version conflicts. For example, within the Python ecosystem, developers typically rely on tools such as "pip-audit" [1](#page-1-0) to perform security checks and "piptree" [2](#page-1-1) to visualize dependencies in a hierarchical format. However, detecting circular dependencies often requires manual inspection or the use of additional tools such as "pipdeptree" [3](#page-1-2) .
 
@@ -39,9 +38,9 @@ To tackle these challenges, we introduce DEPSRAG, an LLM-powered digital assista
 
 In contrast to conventional tools that depend on predefined queries, DEPSRAG uses large language models (LLMs) to dynamically generate queries, significantly enhancing scalability and adaptability. Using the RAG, DEPSRAG integrates KG data to improve the accuracy and relevance of responses to user questions. To further ensure the precision and reliability of its results, DEPSRAG uses a Critic-Agent interaction, which iteratively refines its responses through reasoning and validation, producing consistently accurate and reliable results.
 
-# 2 Background
+## 2 Background
 
-# 1 Dependency Graphs
+## 1 Dependency Graphs
 
 Dependency graphs are essential in software engineering for representing dependencies among software entities like classes, functions, modules, packages, or larger components. Each node represents an entity and directed edges indicate dependencies, meaning changes in one entity can affect another.
 
@@ -67,7 +66,7 @@ Retrieval-Augmented Generation (RAG). Utilizing an LLM in isolation presents two
 
 Multi-Agent Orchestration An orchestration mechanism is critical for ensuring task progression, managing message flow, and handling deviations from instructions. This work uses a multi-agent programming approach where agents communicate via message exchange for both inter-agent and intra-agent interactions. Frameworks like Langroid [\[11\]](#page-8-9) and Langchain [\[12\]](#page-8-10) provide robust tools for message routing and task delegation. In this work, Langroid is employed, where orchestration is encapsulated in the Task class. This class manages user interactions, tool integration, and sub-task delegation by processing a "current pending message" (CPM) through responders, iterating through steps until task completion.
 
-# 3 Motivating Example and Challenges
+## 3 Motivating Example and Challenges
 
 In this Section, we present the following critical software dependency task to identify risky dependencies.
 
@@ -84,13 +83,13 @@ Therefore, we designed DEPSRAG to handle these complex tasks by decomposing them
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
 <!-- Image Description: This image depicts a three-subtask workflow for analyzing software security vulnerabilities. Sub-task 1 constructs a dependency graph using an LLM and a specified tool. Sub-task 2, also using an LLM and tools (GraphSchemaTool, CypherQueryTool), identifies high in-degree nodes in the graph. Finally, sub-task 3 leverages another LLM and a VulnerabilityRetrieverTool to assess the security risks associated with these high-degree nodes. The figure uses flowcharts to illustrate the process and data flow between tools and the LLM. -->
 
-Figure 1: A real-world demonstration of DEPSRAG, applied to identify critical packages and associated risks within the dependency graph of the Chainlit package version 1.1.200. This process involves a sequence of subtasks executed by two agents: DependencyGraphAgent and SearchAgent. The question in Sub-Task 3 will be repeated for each package in the LLM response in Sub-Task 2. Therefore, AssistantAgent needs to orchestrate the communication between these agents, by setting the field "target agent" in JSON message generated by QuestionTool, aggregate the responses received in Sub-Task 2 and Sub-Task 3, and subsequently forward the agents' responses to the CriticAgent for validation (omitted in this Figure for the sake of simplicity).
+**Figure 1:** A real-world demonstration of DEPSRAG, applied to identify critical packages and associated risks within the dependency graph of the Chainlit package version 1.1.200. This process involves a sequence of subtasks executed by two agents: DependencyGraphAgent and SearchAgent. The question in Sub-Task 3 will be repeated for each package in the LLM response in Sub-Task 2. Therefore, AssistantAgent needs to orchestrate the communication between these agents, by setting the field "target agent" in JSON message generated by QuestionTool, aggregate the responses received in Sub-Task 2 and Sub-Task 3, and subsequently forward the agents' responses to the CriticAgent for validation (omitted in this Figure for the sake of simplicity).
 
 SearchAgent leverages the VulnerabilityTool to query the vulnerability database, returning vulnerability results for each node to the AssistantAgent, which subsequently consolidates the findings into a structured report.
 
 Both DependencyGraphAgent and SearchAgent can be paired with a CriticAgent that evaluates and provides feedback on the outputs generated by the primary agent (i.e., AssistantAgent). Based on this feedback, the primary agent iteratively refines its response. This Agent-Critic loop continues until the Critic agent endorses the final output. This interaction paradigm substantially improves the reliability of DEPSRAG. Section [4](#page-3-1) introduces the details of DEPSRAG and discusses in detail the Agent-Critic interaction.
 
-# <span id="page-3-1"></span>4 DEPSRAG: Multi-Agent System for Dependency Management
+## <span id="page-3-1"></span>4 DEPSRAG: Multi-Agent System for Dependency Management
 
 This section presents the architecture of DEPSRAG, a chatbot designed for the automated construction of software dependencies as a KG and the subsequent answering of user queries, expressed in natural language, regarding the dependency graph.
 
@@ -103,7 +102,7 @@ In an Agent-Critic framework, the Agent serves as the principal entity responsib
 <span id="page-3-2"></span>![](_page_3_Figure_9.jpeg)
 <!-- Image Description: The image depicts a multi-agent system architecture. Three agents (Dependency Graph, Critic, Search) interact with an Assistant Agent, which receives user input. Each agent comprises several tools (e.g., ConstructKGTool, FeedbackTool), including core "RoutingTools." A legend explains inter- and intra-agent communication, facilitated by an LLM. The diagram illustrates the system's workflow and tool dependencies. -->
 
-Figure 2: DEPSRAG high-level orchestration architecture
+**Figure 2:** DEPSRAG high-level orchestration architecture
 
 sources in pursuit of its assigned goal. It is required to generate a semi-structured message that includes its proposed solution, the reasoning process leading to this solution, and a justification—citing relevant sources where applicable. This message is then submitted for evaluation and feedback from the Critic.
 
@@ -116,7 +115,7 @@ To this end, DEPSRAG comprises four agents: AssistantAgent, DependencyGraphAgent
 
 In DEPSRAG, we developed a suite of advanced routing tools, built on top of the Langroid framework, to enhance reasoning and comprehension within software dependency environments. These extensions are designed to improve the DEPSRAG 's ability to handle complex dependency structures and facilitate more accurate analysis and decision-making processes. Specifically, all agents are equipped with a suite of routing tools as outlined in Table [2.](#page-10-0)
 
-# 5 DEPSRAG Proof-of-Concept
+## 5 DEPSRAG Proof-of-Concept
 
 This section describes the implementation of DEPSRAG. It then describes the conducted experiments to evaluate DEPSRAG.
 
@@ -151,18 +150,17 @@ We observed that both LLMs are capable of generating correct Cypher queries, tho
 
 Chainlit as the starting point for each path, leading to an irrelevant answer in the context of the dependency graph.
 
-Table 1: The performance of DependencyGraphAgent to generate accurate Cypher queries based on the selected LLMs after constructing the dependency graph for Chainlit version 1.1.200. DEP-SRAG is executed without involving the CriticAgent.
+**Table 1:** The performance of DependencyGraphAgent to generate accurate Cypher queries based on the selected LLMs after constructing the dependency graph for Chainlit version 1.1.200. DEP-SRAG is executed without involving the CriticAgent.
 
-<span id="page-6-0"></span>
 
-| Question                                | # of Cypher Query Trials | Model       | Correct Response |
+| Question | # of Cypher Query Trials | Model | Correct Response |
 |-----------------------------------------|--------------------------|-------------|------------------|
-| What is the depth of the graph?         | 0                        | GPT-4-Turbo | Yes              |
-|                                         | 1                        | Llama-3     | Yes              |
-| Are there cycles in the graph?          | 0                        | GPT-4-Turbo | Yes              |
-|                                         | 0                        | Llama-3     | Yes              |
-| How many path chains are in the graph?* | 0                        | GPT-4-Turbo | Yes              |
-|                                         | 2                        | Llama-3     | No               |
+| What is the depth of the graph? | 0 | GPT-4-Turbo | Yes |
+| | 1 | Llama-3 | Yes |
+| Are there cycles in the graph? | 0 | GPT-4-Turbo | Yes |
+| | 0 | Llama-3 | Yes |
+| How many path chains are in the graph?* | 0 | GPT-4-Turbo | Yes |
+| | 2 | Llama-3 | No |
 
 \*Listing [1](#page-10-3) presents the queries generated by both Llama-3 and GPT-4-Turbo.
 
@@ -175,21 +173,21 @@ Table 1: The performance of DependencyGraphAgent to generate accurate Cypher que
 ![](_page_6_Figure_6.jpeg)
 <!-- Image Description: This bar chart displays the total counts of three events (Critic-Agent Termination, Questions Asked by AssistantAgent, Critic Correction Requests) across three trials (T1, T2, T3), each aggregated over 10 iterations. It illustrates the relative frequencies of these events during the different trials, likely to assess the performance or behavior of an agent-critic system within a machine learning context. Trial T2 shows the highest counts across all three categories. -->
 
-Figure 3: Ablation results show the correctness of the answers with and without Critic-Agent interaction.
+**Figure 3:** Ablation results show the correctness of the answers with and without Critic-Agent interaction.
 
-Figure 4: Total number of terminatiom, AssistantAgent questions, and CriticAgent responses.
+**Figure 4:** Total number of terminatiom, AssistantAgent questions, and CriticAgent responses.
 
 We performed an ablation study to assess the effectiveness of the Agent-Critic interaction in DEP-SRAG. Specifically, we compare the precision of the answers for three tasks (Listing [2\)](#page-11-0) in ten iterations with and without CriticAgent. In these experiments, we focus exclusively on GPT-4-Turbo, as our preliminary observations indicated that Llama-3 encountered difficulties following the orchestration and Critic interaction outlined in Figure [2.](#page-3-2) We restricted the Critic-Agent interaction to the final answer generated by the AssistantAgent. This decision was made to minimize the number of iterative exchanges with other agents, as increasing these iterations would negatively impact performance by increasing token costs and runtime, while also reducing reliability [\[13,](#page-8-11) [8\]](#page-8-15). The results are presented in Figure [3.](#page-6-1) We manually verified the accuracy of the answers in both experiments and observed that the Critic-Agent interaction improves the quality and correctness of the answers. Specifically, the ablation results significantly improved accuracy with the Critic-Agent mechanism. Without CriticAgent, the precision was 13.3%, rising to 40% after its integration, highlighting the impact of CriticAgent on the accuracy of the response. Subsequently, introducing the critic agent resulted in the DEPSRAG being three times more accurate.
 
 We extend our analysis of the Agent-Critic interaction by examining the frequency of CriticAgent interventions to correct errors in the responses generated by AssistantAgent. Instances where CriticAgent provides feedback, are characterized by multiple rounds of interaction between the AssistantAgent and CriticAgent. The findings of this analysis, including the total number of terminations, are illustrated in the histogram in Figure [4.](#page-6-1) In certain cases, we observe unproductive exchange cycles between CriticAgent and AssistantAgent, where no progress is achieved. To address this, we impose a limit of ten feedback iterations per interaction, after which the session is terminated, and the final response is recorded. We also tracked the total number of questions posed by the AssistantAgent, as shown in Figure [4.](#page-6-1) The data reveal that T2 involved a higher number of questions, which is attributed to the AssistantAgent querying the vulnerability of each identified package individually. This increase in question count is quantified by monitoring the use of the QuestionTool.
 
-# 6 Related Work
+## 6 Related Work
 
 Critic and Feedback in LLM Apps. Konda et al. [\[20\]](#page-8-12) presented the Actor-Critic Algorithm, which is a type of Reinforcement Learning (RL) algorithm that combines aspects of both policy-based methods (i.e., actor) and value-based methods (i.e., critic). This hybrid approach is designed to address the limitations of each method when used individually. In our approach, we adapt the CRITIC framework proposed by Gou et al. [\[17\]](#page-8-16) to reinforce LLM agents not by updating weights, which is the case in RL, but through linguistic feedback from critic agents in a reflective, feedback loop. Alhanahnah et al. [\[8\]](#page-8-15) present a multi-agent tool for repairing Alloy specifications, with feedback agents but lacking retrieval agents like DependencyGraphAgent and SearchAgent, which are used in DEPSRAG. MALADE [\[13\]](#page-8-11), a multi-agent system for answering medication side-effect queries, employs Critic-Agent interaction and retrieves data from unstructured documents. DEPSRAG, by contrast, primarily uses a knowledge graph and the Web for retrieval.
 
 Software representation as KG. Litzenberger et al. [\[22\]](#page-9-3) proposed a unified data model to implement and construct dependency graphs for arbitrary repositories, thus facilitating the comparison of dependency graphs between different repositories. In their implementation, the data model is based on Neo4j, which makes is compliant with DEPSRAG's KG schema. Maninger et al. [\[24\]](#page-9-11) proposed a visionary approach involving KGs to create a trustworthy AI software development assistant. Specifically, KGs can enable LLMs to correctly and appropriately explain the generated code. To our knowledge, we are the first to investigate the ability of LLMs to generate KGs for software dependencies, and utilize these graphs to aid in responding to queries concerning the dependency structure. Musco et al. [\[26\]](#page-9-4) constructed dependency graphs for Java programs at the class level to understand commonalities between different Java projects. In contrast, DEPSRAG supports four software ecosystems and constructs dependency graphs at the package level.
 
-# 7 Conclusion and Future Work
+## 7 Conclusion and Future Work
 
 We presented DEPSRAG, the first steps of an agent-based approach for automated planning and reasoning about software dependencies. Our evaluation showed that Critic-Agent interaction enhances the quality, correctness, and reasoning of LLM responses. However, implementing this architecture necessitates efficient orchestration and mechanisms for preventing feedback loops. Future work will explore several key directions:
 
@@ -197,11 +195,11 @@ We presented DEPSRAG, the first steps of an agent-based approach for automated p
 - Generating Software Bill of Materials (SBOM). The generated dependency graph encompasses both direct and transitive dependencies, enhancing the suitability of DEPSRAG for SBOM generation and providing metadata such as path chains (that is, dependency hierarchy [\[9\]](#page-8-17)), as opposed to presenting a flat list of dependencies. SBOM format specifications, such as CycloneDX [\[1\]](#page-8-18), are designed to accommodate this form of structured data. The hierarchical structure of the dependencies upheld by DEPSRAG is in accordance with the minimum SBOM requirements prescribed by the US National Telecommunications and Information Administration (NTIA). DEPSRAG exceeds these regulatory requirements, which require disclosure of primary dependencies (first-level) and all ensuing transitive dependencies (second-level) [\[5\]](#page-8-19), by documenting the complete chain of dependencies. The generation of SBOM will enable DEPSRAG to support vulnerability management, which requires designing a dedicated retrieval to access different sources of vulnerability databases.
 - Dependency Resolution. Updating dependencies is cumbersome and can introduce incompatibilities that break the application [\[14\]](#page-8-20). DEPSRAG maintains knowledge about all dependencies within the application, thus qualifying it to provide recommendations that suggest non-vulnerable package versions and will not lead to compatibility issues.
 
-# Acknowledgments and Disclosure of Funding
+## Acknowledgments and Disclosure of Funding
 
 We would like to thank Benoit Baudry for the helpful discussions and feedback. This material is based on work supported by the Office of Naval Research (ONR) under Contract N00014-24-1- 2049. Any opinions, findings, conclusions, or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of ONR.
 
-# References
+## References
 
 - <span id="page-8-18"></span>[1] CycloneDX/specification. <https://github.com/CycloneDX/specification>. [Accessed 10-05- 2024].
 - <span id="page-8-1"></span>[2] EU Cyber Resilience Act — digital-strategy.ec.europa.eu. [https://digital-strategy.ec.europa.](https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act) [eu/en/policies/cyber-resilience-act](https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act). [Accessed 30-05-2024].
@@ -238,36 +236,36 @@ We would like to thank Benoit Baudry for the helpful discussions and feedback. T
 - <span id="page-9-8"></span>[32] Bishan Yang and Tom Mitchell. Leveraging knowledge bases in lstms for improving machine reading. In *Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)*, pages 1436–1446, 2017.
 - <span id="page-9-6"></span>[33] Fuzheng Zhang, Nicholas Jing Yuan, Defu Lian, Xing Xie, and Wei-Ying Ma. Collaborative knowledge base embedding for recommender systems. In *Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining*, pages 353–362, 2016.
 
-# <span id="page-10-0"></span>A Appendix / supplemental material
+## <span id="page-10-0"></span>A Appendix / supplemental material
 
-| Tool Name           | Corresponding Agent            | Purpose                                                           |
+| Tool Name | Corresponding Agent | Purpose |
 |---------------------|--------------------------------|-------------------------------------------------------------------|
-| ConstructKGTool     | DependencyGraphAgent           | Construct the KG                                                  |
-| GraphSchemaTool     | DependencyGraphAgent           | Obtain the KG schema                                              |
-| CypherQueryTool     | DependencyGraphAgent           | Receive the generated query,<br>execute it, and return the result |
-| VisualizeKGTool     | DependencyGraphAgent           | Visualize the KG                                                  |
-| WebSearchTool       | SearchAgent                    | Perform Web search and return the<br>most relevant                |
-| VulnerabilityTool   | SearchAgent                    | Search for vulnerabilities on OSV<br>vulnerability database       |
-| UserInteractionTool | AssistantAgent                 | Control the user interaction with<br>the agents                   |
-| QuestionTool        | All except CriticAgent         | Inter-agent routing                                               |
-| ForwardTool         | AssistantAgent and CriticAgent | Inter-agent routing                                               |
+| ConstructKGTool | DependencyGraphAgent | Construct the KG |
+| GraphSchemaTool | DependencyGraphAgent | Obtain the KG schema |
+| CypherQueryTool | DependencyGraphAgent | Receive the generated query,<br>execute it, and return the result |
+| VisualizeKGTool | DependencyGraphAgent | Visualize the KG |
+| WebSearchTool | SearchAgent | Perform Web search and return the<br>most relevant |
+| VulnerabilityTool | SearchAgent | Search for vulnerabilities on OSV<br>vulnerability database |
+| UserInteractionTool | AssistantAgent | Control the user interaction with<br>the agents |
+| QuestionTool | All except CriticAgent | Inter-agent routing |
+| ForwardTool | AssistantAgent and CriticAgent | Inter-agent routing |
 
-Table 2: Summary of tools used by DEPSRAG Agents.
+**Table 2:** Summary of tools used by DEPSRAG Agents.
 
-| Table 3: Characteristics of the selected LLMs |                              |                      |                            |                             |                              |  |  |
+| **Table 3:** Characteristics of the selected LLMs | | | | | | | |
 |-----------------------------------------------|------------------------------|----------------------|----------------------------|-----------------------------|------------------------------|--|--|
-| Model                                         | Version                      | Cut-off              | Context Window<br>(Tokens) | Input Cost<br>per 1M tokens | Output Cost<br>per 1M tokens |  |  |
-| GPT-4 Turbo<br>Llama-3                        | 1106-preview<br>70b-instruct | Apr 2023<br>Dec 2023 | 128k<br>8k                 | \$10<br>N/A                 | \$30<br>N/A                  |  |  |
+| Model | Version | Cut-off | Context Window<br>(Tokens) | Input Cost<br>per 1M tokens | Output Cost<br>per 1M tokens | | |
+| GPT-4 Turbo<br>Llama-3 | 1106-preview<br>70b-instruct | Apr 2023<br>Dec 2023 | 128k<br>8k | \$10<br>N/A | \$30<br>N/A | | |
 
 <span id="page-10-2"></span>![](_page_10_Figure_4.jpeg)
 <!-- Image Description: The image displays three directed graphs visualizing the dependency structures of TensorFlow packages in PyPI, NPM, and Rust. Each graph represents a package ecosystem, with nodes representing individual packages and edges indicating dependencies. The size and complexity of the graphs visually demonstrate the differing dependency scopes of TensorFlow across these three package managers. The purpose is to illustrate the scale and structure of the dependency networks for TensorFlow across different programming languages. -->
 
-<span id="page-10-1"></span>Figure 5: Dependency graphs generated by DEPSRAG for TensorFlow across 3 ecosystems (PyPI, NPM, and Rust). Versions 2.16.1, 0.7.0, and 0.21.0, respectively.
+<span id="page-10-1"></span>**Figure 5:** Dependency graphs generated by DEPSRAG for TensorFlow across 3 ecosystems (PyPI, NPM, and Rust). Versions 2.16.1, 0.7.0, and 0.21.0, respectively.
 
 ![](_page_10_Figure_6.jpeg)
 <!-- Image Description: The image is a diagram illustrating a dependency relationship between software packages. A gray oval labeled "Package" with attributes "Name" and "Version" is shown. A curved arrow indicates a "depends-on" relationship from an unspecified package (represented by a blank oval) to the named package. The diagram visually represents how one software package relies on another, showcasing the concept of package dependencies. -->
 
-Figure 6: Dependency KG Schema consisting of a single entity with two attributes, "name" and "version", and one relation.
+**Figure 6:** Dependency KG Schema consisting of a single entity with two attributes, "name" and "version", and one relation.
 
 Listing 1: Cypher queries generated by both models translating question 3 in Table [1](#page-6-0)
 
@@ -278,7 +276,7 @@ Listing 1: Cypher queries generated by both models translating question 3 in Tab
 
 5 -- Query generated by GPT -4 - Turbo
 6 MATCH p =( root : Package { name : 'chainlit ', version : '1.1.200 '}) -[:
-       DEPENDS_ON *] - >( leaf : Package )
+DEPENDS_ON *] - >( leaf : Package )
 7 WHERE NOT ( leaf ) -[: DEPENDS_ON ] - >() RETURN count ( p )
 8 AS pathCount
 ```text
@@ -288,19 +286,19 @@ Listing 2: List of tasks used in RQ3
 ```text
 1 {
 2 "T1": " what 's the density of the dependency graph of
-         chainlit version 1.1.200 pypi ",
+chainlit version 1.1.200 pypi ",
 
 4 "T2": " which packages in chainlit version 1.1.200 pypi have
-          the most dependencies relying on them (i.e. , nodes
-         have the highest in - degree in the graph ), and what is
-         the risk associated with a vulnerability in those
-         packages ?",
+the most dependencies relying on them (i.e. , nodes
+have the highest in - degree in the graph ), and what is
+the risk associated with a vulnerability in those
+packages ?",
 
 6 "T3": "In the dependency graph of chainlit version 1.1.200
-         pypi , are there any multi - version conflicts where
-         different packages depend on different versions of the
-         same package ? If yes , provide examples of these
-         conflicts and all paths that lead to these packages
-         from the root node "
+pypi , are there any multi - version conflicts where
+different packages depend on different versions of the
+same package ? If yes , provide examples of these
+conflicts and all paths that lead to these packages
+from the root node "
 7 }
 ```text

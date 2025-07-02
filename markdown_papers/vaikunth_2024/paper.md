@@ -72,7 +72,7 @@ tion is achieved or a predefined limit is reached. The debugging mechanism funct
 ![](_page_1_Figure_1.jpeg)
 <!-- Image Description: This flowchart depicts a problem-solving architecture. A user query is processed by a POEA framework, interacting with a meta-agent that directs queries to various expert models (DeepSeek-Coder, DeepSeek-Math with Wolfram Alpha API, and Meta Llama versions with Stack Overflow and Graph-RAG). The system includes action generation, error handling, self-reflection, and correction mechanisms. Icons denote whether models are fine-tuned (🔥) or frozen (❄️). The flowchart illustrates the system's workflow and the roles of different components. -->
 
-Figure 1: The figure shows the architecture of the PEOA framework. It illustrates the key components and data flow of the framework, including the central meta-agent, action generator, and expert models. The framework processes user queries, selects specialized tools as expert models for subtask solving, and employs error-handling mechanisms to generate solutions for complex chemical and process engineering problems. The interconnected nature of the components highlights the framework's ability to decompose tasks, select appropriate tools, and iteratively refine solutions through a sophisticated orchestration process.
+**Figure 1:** The figure shows the architecture of the PEOA framework. It illustrates the key components and data flow of the framework, including the central meta-agent, action generator, and expert models. The framework processes user queries, selects specialized tools as expert models for subtask solving, and employs error-handling mechanisms to generate solutions for complex chemical and process engineering problems. The interconnected nature of the components highlights the framework's ability to decompose tasks, select appropriate tools, and iteratively refine solutions through a sophisticated orchestration process.
 
 A key challenge is the lack of tool-integrated solutions for the chemical and process domain. To address this, we use a teacher-student transfer-learning approach with GPT-4 (Omni) as the teacher model to create tool-integrated solution trajectories. These serve as synthetic datasets for customizing the PEOA framework, generating detailed, stepby-step solutions that facilitate the transfer of advanced problem-solving capabilities to the student model. At its core, the framework utilizes a modular architecture that combines instruction-tuned small-scale language models (expert models) with graph retrieval-augmented code generation capabilities, leveraging knowledge graph databases for multi-hop reasoning and improved factual accuracy. For graph retrieval, we use an advanced knowledge modeling technique that parses complex documents (scholarly articles), constructs semantic knowledge graphs (i.e., transforming these documents into structured, searchable graphs), and indexes them for efficient information retrieval. Instruction-tuning small-scale language models (SLMs) like expert models is crucial because they often lack extensive pre-trained knowledge and specialized problem-solving skills needed for complex domain-specific tasks in chemical and process engineering. Unlike proprietary large-scale models such as GPT-4 (Omni), which have more comprehensive pre-trained knowledge, expert models require adaptation to effectively utilize external information, such as language models with vector similarity search on knowledge graphs, resulting in more accurate and efficient solutions. By using instruction tuning with Graph Retrieval-Augmented Code Generation (GRACG), the framework can generate structured, multi-step solution trajectories that systematically solve complex tasks. To evaluate the proposed framework, we developed custom datasets focused on mathematical modeling, computational methods, and chemical and process engineering. We conducted extensive experiments comparing the framework's performance to leading proprietary LLMs on a range of complex engineering tasks. Our work is the first step in significantly enhancing the capabilities of process engineers by automating routine calculations, accelerating prototyping and optimization, and providing AI-augmented decision support for complex industrial processes. The framework can manage the lifecycle of SLMs (expert models), including fine-tuning, monitoring, and updating these models. These tools enable the maintenance of the framework's accuracy and relevance over time, ensuring optimal performance and decision support for complex industrial processes. In summary, the PEOA framework represents a significant advancement in automating complex problem-solving in chemical and process engineering and offers a powerful solution for optimizing processes, accelerating innovation, and supporting high-level decision-making in this challenging field.
 
@@ -98,9 +98,9 @@ where M<sup>t</sup><sup>i</sup> is the expert model corresponding to the tool ti
 
 Step 1: Convert pressure from ft of water to atm Tool: [code]
 
-#### Code:
+### Code:
 
-# Constants ft\_to\_atm = 0.0294 pressure\_ft = 32.2 # Convert pressure pressure\_atm = pressure\_ft \*ft\_to\_atm print(pressure\_atm)
+## Constants ft\_to\_atm = 0.0294 pressure\_ft = 32.2 # Convert pressure pressure\_atm = pressure\_ft \*ft\_to\_atm print(pressure\_atm)
 
 ## Output: 0.94668
 
@@ -111,12 +111,16 @@ Step 2: Use the Ideal Gas Law to calculate the volume Tool: [code]
 ### Code:
 
 ```text
-# Constants
+
+## Constants
+
 R = 0.0821 # L·atm/(K·mol)
 T = 288.15 # K
 n = 2 # moles
 P = 0.94668 # atm
-# Ideal Gas Law
+
+## Ideal Gas Law
+
 V = (n* R * T) / P
 print(V)
 ```text
@@ -125,7 +129,7 @@ print(V)
 
 Result: The volume occupied by 88 lb of CO<sup>2</sup> is 49.8 L. Final Answer: The volume occupied by 88 lb of CO<sup>2</sup> at 15°C and a pressure of 32.2 ft of water is 49.8 liters.
 
-Table 1: Example of a tool-integrated solution trajectory for calculating the volume of CO2.
+**Table 1:** Example of a tool-integrated solution trajectory for calculating the volume of CO2.
 
 The framework employs a sophisticated error-handling (code debugging) (Gou et al. 2023) and adaptive problemsolving mechanism, utilizing a dynamic interplay between an action generator A and specialized expert models Mt, which work in tandem to decompose, execute, and refine multi-step problem-solving trajectories. When encountering a runtime error, the action generator A employs a reflection mechanism to identify both the faulty step s f i and the associated tool t f i as follows:
 
@@ -157,204 +161,204 @@ User-Centric Evaluation: We present a comprehensive human evaluation approach fo
 
 The experimental results on the evaluation of the PEOA framework in task planning, tool selection, tool calling, and response generation are detailed in several tables. In task planning, Table 2 compares state-of-the-art proprietary LLMs using metrics such as Tool Usage Awareness (TUA), Pass Rate (PR), and Accuracy (Acc), all expressed as percentages, where TUA ranges from 0% (failure) to 100% (perfect identification), PR from 0% (none correct) to 100% (all correct), and Accuracy from 0% (none correct) to 100% (all correct). Table 3 for tool selection uses Recall, NDCG, and COMP metrics, with Recall@K measuring the proportion of relevant tools in the top-K selected (0% to 100%), NDCG@K assessing ranking quality (0 to 1), and COMP@K verifying if the selected tools form a complete set (0% to 100%). For tool calling, Table 4 employs Consistency with Stipulations (Cons), Correctness of Parameter Extraction (PE), and Error Handling (EH), with Cons ranging from 0% (none meet requirements) to 100% (all meet requirements), PE from 0% (none correct) to 100% (all correct), and EH from 0% (ineffective) to 100% (effective). The experimental results for response generation are shown in Table 5 using BLEU, ROUGE-L, and Exact Match (EM), where BLEU measures n-gram precision (0 to 1), ROUGE-L focuses on the longest common subsequence (0 to 1), and EM assesses exact matches between generated and reference responses (0% to 100%). The experimental results show that the proposed framework performs effectively across
 
-| Dataset  | Algorithm           | TUA (%) | PR (%) | Acc (%) |
+| Dataset | Algorithm | TUA (%) | PR (%) | Acc (%) |
 |----------|---------------------|---------|--------|---------|
-|          | GPT-4 Turbo-preview | 87.54   | 82.80  | 84.67   |
-|          | GPT-4-1106-preview  | 76.65   | 72.77  | 74.91   |
-| MathComp | Claude-3 Opus       | 85.83   | 80.37  | 82.31   |
-|          | Claude-3 Haiku      | 82.91   | 77.85  | 79.97   |
-|          | Claude-3 Sonnet     | 79.64   | 74.54  | 76.97   |
-|          | Google Gemini Pro   | 86.80   | 81.35  | 83.51   |
-|          | POEA                | 78.87   | 73.83  | 75.94   |
-|          | GPT-4 Turbo-preview | 88.94   | 83.84  | 85.97   |
-|          | GPT-4-1106-preview  | 75.62   | 71.98  | 73.89   |
-| ChemProc | Claude-3 Opus       | 84.88   | 79.86  | 81.42   |
-|          | Claude-3 Haiku      | 81.83   | 76.88  | 78.68   |
-|          | Claude-3 Sonnet     | 78.71   | 73.79  | 75.90   |
-|          | Google Gemini Pro   | 85.79   | 80.74  | 82.78   |
-|          | POEA                | 76.96   | 71.63  | 74.52   |
+| | GPT-4 Turbo-preview | 87.54 | 82.80 | 84.67 |
+| | GPT-4-1106-preview | 76.65 | 72.77 | 74.91 |
+| MathComp | Claude-3 Opus | 85.83 | 80.37 | 82.31 |
+| | Claude-3 Haiku | 82.91 | 77.85 | 79.97 |
+| | Claude-3 Sonnet | 79.64 | 74.54 | 76.97 |
+| | Google Gemini Pro | 86.80 | 81.35 | 83.51 |
+| | POEA | 78.87 | 73.83 | 75.94 |
+| | GPT-4 Turbo-preview | 88.94 | 83.84 | 85.97 |
+| | GPT-4-1106-preview | 75.62 | 71.98 | 73.89 |
+| ChemProc | Claude-3 Opus | 84.88 | 79.86 | 81.42 |
+| | Claude-3 Haiku | 81.83 | 76.88 | 78.68 |
+| | Claude-3 Sonnet | 78.71 | 73.79 | 75.90 |
+| | Google Gemini Pro | 85.79 | 80.74 | 82.78 |
+| | POEA | 76.96 | 71.63 | 74.52 |
 
-Table 2: Comparison of the*PEOA*framework's performance against proprietary LLMs in key evaluation metrics for task planning across*MathComp*and*ChemProc*datasets.
+**Table 2:** Comparison of the*PEOA*framework's performance against proprietary LLMs in key evaluation metrics for task planning across*MathComp*and*ChemProc*datasets.
 
-| Dataset  | Algorithm           | Recall (%) | NDCG | COMP (%) |
+| Dataset | Algorithm | Recall (%) | NDCG | COMP (%) |
 |----------|---------------------|------------|------|----------|
-|          | GPT-4 Turbo-preview | 86.98      | 0.80 | 84.54    |
-|          | GPT-4-1106-preview  | 74.98      | 0.66 | 72.88    |
-| MathComp | Claude-3 Opus       | 85.82      | 0.78 | 83.90    |
-|          | Claude-3 Haiku      | 82.44      | 0.75 | 80.69    |
-|          | Claude-3 Sonnet     | 79.45      | 0.71 | 77.71    |
-|          | Google Gemini Pro   | 87.56      | 0.82 | 85.74    |
-|          | POEA                | 78.82      | 0.69 | 76.79    |
-| ChemProc | GPT-4 Turbo-preview | 87.87      | 0.81 | 85.82    |
-|          | GPT-4-1106-preview  | 75.87      | 0.67 | 73.82    |
-|          | Claude-3 Opus       | 86.37      | 0.79 | 85.24    |
-|          | Claude-3 Haiku      | 83.86      | 0.76 | 81.34    |
-|          | Claude-3 Sonnet     | 79.92      | 0.72 | 77.35    |
-|          | Google Gemini Pro   | 88.99      | 0.83 | 86.83    |
-|          | POEA                | 77.77      | 0.68 | 75.55    |
+| | GPT-4 Turbo-preview | 86.98 | 0.80 | 84.54 |
+| | GPT-4-1106-preview | 74.98 | 0.66 | 72.88 |
+| MathComp | Claude-3 Opus | 85.82 | 0.78 | 83.90 |
+| | Claude-3 Haiku | 82.44 | 0.75 | 80.69 |
+| | Claude-3 Sonnet | 79.45 | 0.71 | 77.71 |
+| | Google Gemini Pro | 87.56 | 0.82 | 85.74 |
+| | POEA | 78.82 | 0.69 | 76.79 |
+| ChemProc | GPT-4 Turbo-preview | 87.87 | 0.81 | 85.82 |
+| | GPT-4-1106-preview | 75.87 | 0.67 | 73.82 |
+| | Claude-3 Opus | 86.37 | 0.79 | 85.24 |
+| | Claude-3 Haiku | 83.86 | 0.76 | 81.34 |
+| | Claude-3 Sonnet | 79.92 | 0.72 | 77.35 |
+| | Google Gemini Pro | 88.99 | 0.83 | 86.83 |
+| | POEA | 77.77 | 0.68 | 75.55 |
 
-Table 3: The table shows key evaluation metrics for tool selection, comparing the performance of the*PEOA*framework with proprietary LLMs across benchmark datasets.
+**Table 3:** The table shows key evaluation metrics for tool selection, comparing the performance of the*PEOA*framework with proprietary LLMs across benchmark datasets.
 
-| Dataset  | Algorithm           | Cons (%) | PE (%) | EH (%) |
+| Dataset | Algorithm | Cons (%) | PE (%) | EH (%) |
 |----------|---------------------|----------|--------|--------|
-|          | GPT-4 Turbo-preview | 87.73    | 85.25  | 84.34  |
-|          | GPT-4-1106-preview  | 71.69    | 68.74  | 67.86  |
-|          | Claude-3 Opus       | 86.56    | 83.91  | 82.81  |
-|          | Claude-3 Haiku      | 82.45    | 79.44  | 78.07  |
-| MathComp | Claude-3 Sonnet     | 78.74    | 76.18  | 74.67  |
-|          | Google Gemini Pro   | 89.98    | 88.05  | 86.99  |
-|          | POEA                | 80.41    | 78.66  | 77.05  |
-|          | GPT-4 Turbo-preview | 87.84    | 85.06  | 84.15  |
-|          | GPT-4-1106-preview  | 73.60    | 70.19  | 69.29  |
-| ChemProc | Claude-3 Opus       | 85.66    | 82.31  | 81.22  |
-|          | Claude-3 Haiku      | 81.81    | 78.38  | 77.19  |
-|          | Claude-3 Sonnet     | 76.74    | 74.35  | 72.89  |
-|          | Google Gemini Pro   | 88.98    | 87.12  | 85.86  |
-|          | POEA                | 79.64    | 77.23  | 75.70  |
+| | GPT-4 Turbo-preview | 87.73 | 85.25 | 84.34 |
+| | GPT-4-1106-preview | 71.69 | 68.74 | 67.86 |
+| | Claude-3 Opus | 86.56 | 83.91 | 82.81 |
+| | Claude-3 Haiku | 82.45 | 79.44 | 78.07 |
+| MathComp | Claude-3 Sonnet | 78.74 | 76.18 | 74.67 |
+| | Google Gemini Pro | 89.98 | 88.05 | 86.99 |
+| | POEA | 80.41 | 78.66 | 77.05 |
+| | GPT-4 Turbo-preview | 87.84 | 85.06 | 84.15 |
+| | GPT-4-1106-preview | 73.60 | 70.19 | 69.29 |
+| ChemProc | Claude-3 Opus | 85.66 | 82.31 | 81.22 |
+| | Claude-3 Haiku | 81.81 | 78.38 | 77.19 |
+| | Claude-3 Sonnet | 76.74 | 74.35 | 72.89 |
+| | Google Gemini Pro | 88.98 | 87.12 | 85.86 |
+| | POEA | 79.64 | 77.23 | 75.70 |
 
-Table 4: The table outlines the performance of the*PEOA*framework and proprietary LLMs in tool calling using key evaluation metrics across benchmark datasets.
+**Table 4:** The table outlines the performance of the*PEOA*framework and proprietary LLMs in tool calling using key evaluation metrics across benchmark datasets.
 
-| Dataset  | Algorithm           | BLEU | ROUGE-L | EM (%) |
+| Dataset | Algorithm | BLEU | ROUGE-L | EM (%) |
 |----------|---------------------|------|---------|--------|
-|          | GPT-4 Turbo-preview | 0.80 | 0.78    | 83.61  |
-|          | GPT-4-1106-preview  | 0.74 | 0.72    | 78.64  |
-|          | Claude-3 Opus       | 0.77 | 0.75    | 81.75  |
-|          | Claude-3 Haiku      | 0.75 | 0.73    | 79.00  |
-| MathComp | Claude-3 Sonnet     | 0.72 | 0.71    | 76.47  |
-|          | Google Gemini Pro   | 0.82 | 0.80    | 84.70  |
-|          | POEA                | 0.68 | 0.66    | 73.68  |
-|          | GPT-4 Turbo-preview | 0.81 | 0.79    | 84.79  |
-|          | GPT-4-1106-preview  | 0.75 | 0.73    | 78.89  |
-|          | Claude-3 Opus       | 0.78 | 0.76    | 82.36  |
-| ChemProc | Claude-3 Haiku      | 0.76 | 0.74    | 80.61  |
-|          | Claude-3 Sonnet     | 0.74 | 0.72    | 78.15  |
-|          | Google Gemini Pro   | 0.83 | 0.81    | 84.90  |
-|          | POEA                | 0.69 | 0.67    | 74.13  |
+| | GPT-4 Turbo-preview | 0.80 | 0.78 | 83.61 |
+| | GPT-4-1106-preview | 0.74 | 0.72 | 78.64 |
+| | Claude-3 Opus | 0.77 | 0.75 | 81.75 |
+| | Claude-3 Haiku | 0.75 | 0.73 | 79.00 |
+| MathComp | Claude-3 Sonnet | 0.72 | 0.71 | 76.47 |
+| | Google Gemini Pro | 0.82 | 0.80 | 84.70 |
+| | POEA | 0.68 | 0.66 | 73.68 |
+| | GPT-4 Turbo-preview | 0.81 | 0.79 | 84.79 |
+| | GPT-4-1106-preview | 0.75 | 0.73 | 78.89 |
+| | Claude-3 Opus | 0.78 | 0.76 | 82.36 |
+| ChemProc | Claude-3 Haiku | 0.76 | 0.74 | 80.61 |
+| | Claude-3 Sonnet | 0.74 | 0.72 | 78.15 |
+| | Google Gemini Pro | 0.83 | 0.81 | 84.90 |
+| | POEA | 0.69 | 0.67 | 74.13 |
 
-Table 5: The table summarizes key performance metrics for the*PEOA*framework and proprietary LLMs in response generation across*MathComp*and*ChemProc*datasets.
+**Table 5:** The table summarizes key performance metrics for the*PEOA*framework and proprietary LLMs in response generation across*MathComp*and*ChemProc*datasets.
 
-| Dataset  | Algorithm           | US   | Usability | Task Completion |
+| Dataset | Algorithm | US | Usability | Task Completion |
 |----------|---------------------|------|-----------|-----------------|
-|          | GPT-4-Turbo-preview | 4.52 | 4.43      | 90.32%          |
-|          | GPT-4-1106-preview  | 4.13 | 4.01      | 85.27%          |
-|          | Claude-3 Opus       | 4.31 | 4.22      | 88.14%          |
-|          | Claude-3 Haiku      | 4.22 | 4.11      | 87.09%          |
-| MathComp | Claude-3 Sonnet     | 4.04 | 3.92      | 82.16%          |
-|          | Google Gemini Pro   | 4.67 | 4.55      | 92.48%          |
-|          | PEOA                | 4.08 | 3.91      | 80.53%          |
-|          | GPT-4-Turbo-preview | 4.56 | 4.45      | 90.37%          |
-|          | GPT-4-1106-preview  | 4.24 | 4.12      | 86.15%          |
-|          | Claude-3 Opus       | 4.33 | 4.20      | 88.22%          |
-| ChemProc | Claude-3 Haiku      | 4.21 | 4.09      | 86.47%          |
-|          | Claude-3 Sonnet     | 4.12 | 4.01      | 83.04%          |
-|          | Google Gemini Pro   | 4.72 | 4.63      | 93.09%          |
-|          | PEOA                | 4.12 | 4.02      | 81.76%          |
+| | GPT-4-Turbo-preview | 4.52 | 4.43 | 90.32% |
+| | GPT-4-1106-preview | 4.13 | 4.01 | 85.27% |
+| | Claude-3 Opus | 4.31 | 4.22 | 88.14% |
+| | Claude-3 Haiku | 4.22 | 4.11 | 87.09% |
+| MathComp | Claude-3 Sonnet | 4.04 | 3.92 | 82.16% |
+| | Google Gemini Pro | 4.67 | 4.55 | 92.48% |
+| | PEOA | 4.08 | 3.91 | 80.53% |
+| | GPT-4-Turbo-preview | 4.56 | 4.45 | 90.37% |
+| | GPT-4-1106-preview | 4.24 | 4.12 | 86.15% |
+| | Claude-3 Opus | 4.33 | 4.20 | 88.22% |
+| ChemProc | Claude-3 Haiku | 4.21 | 4.09 | 86.47% |
+| | Claude-3 Sonnet | 4.12 | 4.01 | 83.04% |
+| | Google Gemini Pro | 4.72 | 4.63 | 93.09% |
+| | PEOA | 4.12 | 4.02 | 81.76% |
 
-Table 6: Comparison of*PEOA*and proprietary LLMs in user satisfaction, usability, and task completion across*Math-Comp*and*ChemProc*datasets.
+**Table 6:** Comparison of*PEOA*and proprietary LLMs in user satisfaction, usability, and task completion across*Math-Comp*and*ChemProc*datasets.
 
 various stages of evaluation, closely matching the performance of proprietary LLMs, though there remains a slight performance gap. The Tables 6 and 7 compare the*PEOA*framework with proprietary LLMs across five metrics: user satisfaction (US), usability, task completion, response quality, and context awareness. A 1-5 scale is used for all metrics except task completion, which is measured as a percentage. Table 8 compares the PEOA framework with proprietary LLMs on adaptability, error handling, and qualitative feedback. Our comprehensive human evaluation approach
 
 demonstrates that the proposed framework matches the performance of proprietary language models across multiple aspects of tool learning effectiveness.
 
-| Dataset  | Algorithm           | Response Quality | Context Awareness |
+| Dataset | Algorithm | Response Quality | Context Awareness |
 |----------|---------------------|------------------|-------------------|
-|          | GPT-4 Turbo-preview | 4.55             | 4.43              |
-|          | GPT-4-1106-preview  | 4.12             | 4.08              |
-|          | Claude-3 Opus       | 4.38             | 4.27              |
-|          | Claude-3 Haiku      | 4.22             | 4.16              |
-| MathComp | Claude-3 Sonnet     | 4.08             | 4.03              |
-|          | Google Gemini Pro   | 4.64             | 4.52              |
-|          | PEOA                | 4.13             | 4.02              |
-|          | GPT-4 Turbo-preview | 4.57             | 4.42              |
-|          | GPT-4-1106-preview  | 4.18             | 4.09              |
-| ChemProc | Claude-3 Opus       | 4.35             | 4.30              |
-|          | Claude-3 Haiku      | 4.20             | 4.12              |
-|          | Claude-3 Sonnet     | 4.10             | 4.05              |
-|          | Google Gemini Pro   | 4.67             | 4.51              |
-|          | PEOA                | 4.15             | 4.03              |
+| | GPT-4 Turbo-preview | 4.55 | 4.43 |
+| | GPT-4-1106-preview | 4.12 | 4.08 |
+| | Claude-3 Opus | 4.38 | 4.27 |
+| | Claude-3 Haiku | 4.22 | 4.16 |
+| MathComp | Claude-3 Sonnet | 4.08 | 4.03 |
+| | Google Gemini Pro | 4.64 | 4.52 |
+| | PEOA | 4.13 | 4.02 |
+| | GPT-4 Turbo-preview | 4.57 | 4.42 |
+| | GPT-4-1106-preview | 4.18 | 4.09 |
+| ChemProc | Claude-3 Opus | 4.35 | 4.30 |
+| | Claude-3 Haiku | 4.20 | 4.12 |
+| | Claude-3 Sonnet | 4.10 | 4.05 |
+| | Google Gemini Pro | 4.67 | 4.51 |
+| | PEOA | 4.15 | 4.03 |
 
-Table 7: Comparison of*PEOA*and proprietary LLMs in response quality and context awareness across benchmarks.
+**Table 7:** Comparison of*PEOA*and proprietary LLMs in response quality and context awareness across benchmarks.
 
-| Dataset  | Algorithm           | Adaptability | EH   | Feedback    |
+| Dataset | Algorithm | Adaptability | EH | Feedback |
 |----------|---------------------|--------------|------|-------------|
-|          | GPT-4 Turbo-preview | 4.42         | 4.53 | High        |
-|          | GPT-4-1106-preview  | 4.30         | 4.48 | High        |
-|          | Claude-3 Opus       | 4.28         | 4.39 | Medium-High |
-|          | Claude-3 Haiku      | 4.25         | 4.35 | Medium-High |
-| MathComp | Claude-3 Sonnet     | 4.32         | 4.42 | Medium-High |
-|          | Google Gemini Pro   | 4.47         | 4.50 | High        |
-|          | PEOA                | 4.05         | 4.12 | Medium      |
-| ChemProc | GPT-4 Turbo-preview | 4.45         | 4.52 | High        |
-|          | GPT-4-1106-preview  | 4.33         | 4.47 | High        |
-|          | Claude-3 Opus       | 4.31         | 4.41 | Medium-High |
-|          | Claude-3 Haiku      | 4.28         | 4.37 | Medium-High |
-|          | Claude-3 Sonnet     | 4.35         | 4.44 | Medium-High |
-|          | Google Gemini Pro   | 4.50         | 4.53 | High        |
-|          | PEOA                | 4.07         | 4.15 | Medium      |
+| | GPT-4 Turbo-preview | 4.42 | 4.53 | High |
+| | GPT-4-1106-preview | 4.30 | 4.48 | High |
+| | Claude-3 Opus | 4.28 | 4.39 | Medium-High |
+| | Claude-3 Haiku | 4.25 | 4.35 | Medium-High |
+| MathComp | Claude-3 Sonnet | 4.32 | 4.42 | Medium-High |
+| | Google Gemini Pro | 4.47 | 4.50 | High |
+| | PEOA | 4.05 | 4.12 | Medium |
+| ChemProc | GPT-4 Turbo-preview | 4.45 | 4.52 | High |
+| | GPT-4-1106-preview | 4.33 | 4.47 | High |
+| | Claude-3 Opus | 4.31 | 4.41 | Medium-High |
+| | Claude-3 Haiku | 4.28 | 4.37 | Medium-High |
+| | Claude-3 Sonnet | 4.35 | 4.44 | Medium-High |
+| | Google Gemini Pro | 4.50 | 4.53 | High |
+| | PEOA | 4.07 | 4.15 | Medium |
 
-Table 8: Comparison of*PEOA*and proprietary LLMs in adaptability, error handling, and qualitative feedback. Adaptability and error handling are rated on a Likert scale from 1 (minimum) to 5 (maximum), and qualitative feedback is categorized as High, Medium-High, or Medium, across*MathComp*and*ChemProc*datasets.
+**Table 8:** Comparison of*PEOA*and proprietary LLMs in adaptability, error handling, and qualitative feedback. Adaptability and error handling are rated on a Likert scale from 1 (minimum) to 5 (maximum), and qualitative feedback is categorized as High, Medium-High, or Medium, across*MathComp*and*ChemProc*datasets.
 
 Ablation Studies: We conducted several ablation studies to thoroughly evaluate the contributions and effectiveness of various components of the PEOA framework, particularly focusing on its instruction-tuning, graph-based retrieval methods, and iterative problem-solving mechanisms for solving complex chemical and process engineering calculations. The ablation study aims to isolate and evaluate the contributions of each major component in the framework. By systematically disabling key components, we can better understand their roles and optimize the framework for improved performance in real-world process engineering applications. The ablation study evaluates four key variants of the framework. The first variant (W/o GRACG) uses instruction-tuning of expert models (tools). 'W/o' stands for 'without', and 'W/' stands for 'with.' The second variant (W/o GRACG W/ RAG) uses instruction-tuning of expert models combined with traditional RAG (naive). The third variant (W/o Instruction-Tuning) employs GRACG for enhanced retrieval and code generation, focusing on graphbased context benefits without instruction-tuning of expert models. The fourth variant (W/o Error-Handling) tests iterative problem-solving without a dynamic error-handling mechanism, exploring the impact on accuracy and robustness. These studies help understand the contribution of each component to the overall performance.
 
-| Dataset  | Algorithm              | TUA (%) | PR (%) | Acc (%) |
+| Dataset | Algorithm | TUA (%) | PR (%) | Acc (%) |
 |----------|------------------------|---------|--------|---------|
-| MathComp | PEOA (Baseline)        | 78.87   | 73.83  | 75.94   |
-|          | W/o GRACG              | 54.42   | 49.47  | 50.88   |
-|          | W/o GRACG W/ RAG       | 66.25   | 60.54  | 61.52   |
-|          | W/o Instruction-Tuning | 51.26   | 45.77  | 48.60   |
-|          | W/o Error-Handling     | 59.94   | 56.85  | 60.75   |
-| ChemProc | PEOA (Baseline)        | 76.96   | 71.63  | 74.52   |
-|          | W/o GRACG              | 53.10   | 47.99  | 49.93   |
-|          | W/o GRACG W/ RAG       | 64.65   | 58.74  | 60.36   |
-|          | W/o Instruction-Tuning | 50.02   | 44.41  | 47.69   |
-|          | W/o Error-Handling     | 58.49   | 55.15  | 59.62   |
+| MathComp | PEOA (Baseline) | 78.87 | 73.83 | 75.94 |
+| | W/o GRACG | 54.42 | 49.47 | 50.88 |
+| | W/o GRACG W/ RAG | 66.25 | 60.54 | 61.52 |
+| | W/o Instruction-Tuning | 51.26 | 45.77 | 48.60 |
+| | W/o Error-Handling | 59.94 | 56.85 | 60.75 |
+| ChemProc | PEOA (Baseline) | 76.96 | 71.63 | 74.52 |
+| | W/o GRACG | 53.10 | 47.99 | 49.93 |
+| | W/o GRACG W/ RAG | 64.65 | 58.74 | 60.36 |
+| | W/o Instruction-Tuning | 50.02 | 44.41 | 47.69 |
+| | W/o Error-Handling | 58.49 | 55.15 | 59.62 |
 
-Table 9: The table compares the PEOA framework's performance and its ablated variants in terms of key evaluation metrics for task planning across benchmark datasets.
+**Table 9:** The table compares the PEOA framework's performance and its ablated variants in terms of key evaluation metrics for task planning across benchmark datasets.
 
-| Dataset  | Algorithm              | Recall (%) | NDCG | COMP (%) |
+| Dataset | Algorithm | Recall (%) | NDCG | COMP (%) |
 |----------|------------------------|------------|------|----------|
-| MathComp | PEOA (Baseline)        | 78.82      | 0.69 | 76.79    |
-|          | W/o GRACG              | 55.97      | 0.50 | 53.75    |
-|          | W/o GRACG W/ RAG       | 63.84      | 0.57 | 64.50    |
-|          | W/o Instruction-Tuning | 51.23      | 0.43 | 46.07    |
-|          | W/o Error-Handling     | 61.48      | 0.55 | 58.36    |
-| ChemProc | PEOA (Baseline)        | 77.77      | 0.68 | 75.55    |
-|          | W/o GRACG              | 55.22      | 0.49 | 52.89    |
-|          | W/o GRACG W/ RAG       | 62.99      | 0.56 | 63.46    |
-|          | W/o Instruction-Tuning | 50.55      | 0.43 | 45.33    |
-|          | W/o Error-Handling     | 60.66      | 0.54 | 57.42    |
+| MathComp | PEOA (Baseline) | 78.82 | 0.69 | 76.79 |
+| | W/o GRACG | 55.97 | 0.50 | 53.75 |
+| | W/o GRACG W/ RAG | 63.84 | 0.57 | 64.50 |
+| | W/o Instruction-Tuning | 51.23 | 0.43 | 46.07 |
+| | W/o Error-Handling | 61.48 | 0.55 | 58.36 |
+| ChemProc | PEOA (Baseline) | 77.77 | 0.68 | 75.55 |
+| | W/o GRACG | 55.22 | 0.49 | 52.89 |
+| | W/o GRACG W/ RAG | 62.99 | 0.56 | 63.46 |
+| | W/o Instruction-Tuning | 50.55 | 0.43 | 45.33 |
+| | W/o Error-Handling | 60.66 | 0.54 | 57.42 |
 
-Table 10: The table shows key evaluation metrics for tool selection across benchmark datasets, comparing the performance of the PEOA framework and its ablated variants.
+**Table 10:** The table shows key evaluation metrics for tool selection across benchmark datasets, comparing the performance of the PEOA framework and its ablated variants.
 
-| Dataset  | Algorithm              | Cons (%) | PE (%) | EH (%) |
+| Dataset | Algorithm | Cons (%) | PE (%) | EH (%) |
 |----------|------------------------|----------|--------|--------|
-| MathComp | PEOA (Baseline)        | 80.41    | 78.66  | 77.05  |
-|          | W/o GRACG              | 56.29    | 54.27  | 51.82  |
-|          | W/o GRACG W/ RAG       | 67.54    | 63.71  | 61.64  |
-|          | W/o Instruction-Tuning | 48.25    | 50.34  | 46.01  |
-|          | W/o Error-Handling     | 61.91    | 61.35  | 61.64  |
-| ChemProc | PEOA (Baseline)        | 79.64    | 77.23  | 75.70  |
-|          | W/o GRACG              | 55.75    | 53.29  | 50.72  |
-|          | W/o GRACG W/ RAG       | 66.90    | 62.56  | 60.56  |
-|          | W/o Instruction-Tuning | 47.78    | 49.43  | 46.18  |
-|          | W/o Error-Handling     | 61.52    | 60.24  | 60.56  |
+| MathComp | PEOA (Baseline) | 80.41 | 78.66 | 77.05 |
+| | W/o GRACG | 56.29 | 54.27 | 51.82 |
+| | W/o GRACG W/ RAG | 67.54 | 63.71 | 61.64 |
+| | W/o Instruction-Tuning | 48.25 | 50.34 | 46.01 |
+| | W/o Error-Handling | 61.91 | 61.35 | 61.64 |
+| ChemProc | PEOA (Baseline) | 79.64 | 77.23 | 75.70 |
+| | W/o GRACG | 55.75 | 53.29 | 50.72 |
+| | W/o GRACG W/ RAG | 66.90 | 62.56 | 60.56 |
+| | W/o Instruction-Tuning | 47.78 | 49.43 | 46.18 |
+| | W/o Error-Handling | 61.52 | 60.24 | 60.56 |
 
-Table 11: The table outlines the performance of the PEOA framework and its ablated variants in tool calling across benchmark datasets using key evaluation metrics.
+**Table 11:** The table outlines the performance of the PEOA framework and its ablated variants in tool calling across benchmark datasets using key evaluation metrics.
 
-| Dataset  | Algorithm              | BLEU | ROUGE-L | EM (%) |
+| Dataset | Algorithm | BLEU | ROUGE-L | EM (%) |
 |----------|------------------------|------|---------|--------|
-| MathComp | PEOA (Baseline)        | 0.68 | 0.66    | 73.68  |
-|          | W/o GRACG              | 0.49 | 0.46    | 50.10  |
-|          | W/o GRACG W/ RAG       | 0.55 | 0.56    | 61.16  |
-|          | W/o Instruction-Tuning | 0.41 | 0.42    | 47.16  |
-|          | W/o Error-Handling     | 0.52 | 0.51    | 55.59  |
-| ChemProc | PEOA (Baseline)        | 0.69 | 0.67    | 74.13  |
-|          | W/o GRACG              | 0.50 | 0.46    | 50.41  |
-|          | W/o GRACG W/ RAG       | 0.56 | 0.57    | 61.53  |
-|          | W/o Instruction-Tuning | 0.41 | 0.42    | 47.44  |
-|          | W/o Error-Handling     | 0.53 | 0.52    | 56.34  |
+| MathComp | PEOA (Baseline) | 0.68 | 0.66 | 73.68 |
+| | W/o GRACG | 0.49 | 0.46 | 50.10 |
+| | W/o GRACG W/ RAG | 0.55 | 0.56 | 61.16 |
+| | W/o Instruction-Tuning | 0.41 | 0.42 | 47.16 |
+| | W/o Error-Handling | 0.52 | 0.51 | 55.59 |
+| ChemProc | PEOA (Baseline) | 0.69 | 0.67 | 74.13 |
+| | W/o GRACG | 0.50 | 0.46 | 50.41 |
+| | W/o GRACG W/ RAG | 0.56 | 0.57 | 61.53 |
+| | W/o Instruction-Tuning | 0.41 | 0.42 | 47.44 |
+| | W/o Error-Handling | 0.53 | 0.52 | 56.34 |
 
-Table 12: The table summarizes key performance metrics for the PEOA framework and its ablated variants in response generation across MathComp and ChemProc datasets.
+**Table 12:** The table summarizes key performance metrics for the PEOA framework and its ablated variants in response generation across MathComp and ChemProc datasets.
 
 The ablation study results clearly demonstrate that the
 
@@ -362,26 +366,26 @@ complete PEOA framework (Baseline) outperforms the ablated variants across vario
 
 Additional Experiments: We performed additional experiments to verify the property graph construction of the proposed framework PEOA, which utilizes LlamaIndex integration with Neo4j(Neo4j 2024) and GPT-4 (Omni) to extract triplets. We compared this with two recent advanced approaches: Triplex(SciPhiAI 2024b,a), which offers significant cost savings and efficient knowledge graph construction, and Graph RAG(Edge et al. 2024), which provides superior summarization capabilities for complex tasks. Table 13 shows the performance comparison in terms of the Exact Match (EM) metric, which quantifies the percentage of predictions that exactly match the reference or ground truth responses.
 
-| Algorithm                   | MathComp | ChemProc |
+| Algorithm | MathComp | ChemProc |
 |-----------------------------|----------|----------|
-| Triplex(SciPhiAI 2024b,a)   | 59.50    | 63.20    |
-| Graph RAG(Edge et al. 2024) | 72.50    | 73.80    |
-| PEOA                        | 73.68    | 74.13    |
+| Triplex(SciPhiAI 2024b,a) | 59.50 | 63.20 |
+| Graph RAG(Edge et al. 2024) | 72.50 | 73.80 |
+| PEOA | 73.68 | 74.13 |
 
-Table 13: Exact Match (EM (%)) results for*PEOA*and other techniques on*MathComp*and*ChemProc*datasets.
+**Table 13:** Exact Match (EM (%)) results for*PEOA*and other techniques on*MathComp*and*ChemProc*datasets.
 
 We conducted additional experiments to evaluate only the Graph RAG techniques on property graphs constructed from custom datasets of scholarly articles related to mathematics, chemical, and process engineering. We generated a test set of 1000 Question-Context-Answer (QCA) triplets based on the text content of scholarly articles used to construct the property graphs, using GPT-4 (Omni) as a baseline to evaluate the different techniques. In a Graph RAG approach, evaluation focuses on Retrieval Evaluation (assessing the accuracy and relevance of retrieved information) and Response Evaluation (measuring the quality and appropriateness of generated responses). The evaluation metrics included answer relevance (AnwRel), context relevance (Con-Rel), faithfulness (Faith), and correctness (Correct), ensuring responses were pertinent, contextually appropriate, accurate, and truthful.
 
 | Dataset | Algorithm | AnwRel | ConRel | Faith | Correct |
 |---------|-----------|--------|--------|-------|---------|
-| Math    | Triplex   | 82.34  | 80.42  | 79.58 | 84.76   |
-|         | Graph RAG | 78.18  | 75.49  | 77.52 | 81.27   |
-|         | PEOA      | 83.47  | 82.03  | 81.79 | 85.65   |
-| Chem    | Triplex   | 81.23  | 79.86  | 78.79 | 83.12   |
-|         | Graph RAG | 78.27  | 75.89  | 76.73 | 80.19   |
-|         | PEOA      | 83.77  | 79.53  | 80.88 | 84.95   |
+| Math | Triplex | 82.34 | 80.42 | 79.58 | 84.76 |
+| | Graph RAG | 78.18 | 75.49 | 77.52 | 81.27 |
+| | PEOA | 83.47 | 82.03 | 81.79 | 85.65 |
+| Chem | Triplex | 81.23 | 79.86 | 78.79 | 83.12 |
+| | Graph RAG | 78.27 | 75.89 | 76.73 | 80.19 |
+| | PEOA | 83.77 | 79.53 | 80.88 | 84.95 |
 
-Table 14: Evaluation metrics results for Graph RAG techniques on custom datasets of scholarly articles.
+**Table 14:** Evaluation metrics results for Graph RAG techniques on custom datasets of scholarly articles.
 
 ### Conclusion
 

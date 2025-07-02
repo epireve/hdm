@@ -28,10 +28,6 @@ images_removed: 1
 keywords: 
 ---
 
-
-
-
-
 # OPEN ACCESS
 
 **Citation:**Amofa S, Xia Q, Xia H, Obiri IA, Adjei-Arthur B, Yang J, et al. (2024) Blockchain-secure patient Digital Twin in healthcare using smart contracts. PLoS ONE 19(2): e0286120. [https://doi.](https://doi.org/10.1371/journal.pone.0286120) [org/10.1371/journal.pone.0286120](https://doi.org/10.1371/journal.pone.0286120)
@@ -44,7 +40,7 @@ keywords:
 
 <span id="page-0-0"></span>RESEARCH ARTICLE
 
-# Blockchain-secure patient Digital Twin in healthcare using smart contracts
+## Blockchain-secure patient Digital Twin in healthcare using smart contracts
 
 ## Sandro Amof[aID](https://orcid.org/0000-0002-2903-8964), Qi Xia, Hu Xia, Isaac Amankona Obiri, Bonsu Adjei-Arthur, Jingcong Yang, Jianbin Gao[ID](https://orcid.org/0000-0001-7014-6417)\
 
@@ -52,7 +48,7 @@ School of Computer Science and Engineering, University of Electronic Science and
 
 \* gaojb@uestc.edu.cn
 
-# Abstract
+## Abstract
 
 Modern healthcare has a sharp focus on data aggregation and processing technologies. Consequently, from a data perspective, a patient may be regarded as a timestamped list of medical conditions and their corresponding corrective interventions. Technologies to securely aggregate and access data for individual patients in the quest for precision medicine have led to the adoption of Digital Twins in healthcare. Digital Twins are used in manufacturing and engineering to produce digital models of physical objects that capture the essence of device operation to enable and drive optimization. Thus, a patient's Digital Twin can significantly improve health data sharing. However, creating the Digital Twin from multiple data sources, such as the patient's electronic medical records (EMR) and personal health records (PHR) from wearable devices, presents some risks to the security of the model and the patient. The constituent data for the Digital Twin should be accessible only with permission from relevant entities and thus requires authentication, privacy, and provable provenance. This paper proposes a blockchain-secure patient Digital Twin that relies on smart contracts to automate the updating and communication processes that maintain the Digital Twin. The smart contracts govern the response the Digital Twin provides when queried, based on policies created for each patient. We highlight four research points: access control, interaction, privacy, and security of the Digital Twin and we evaluate the Digital Twin in terms of latency in the network, smart contract execution times, and data storage costs.
 
@@ -98,30 +94,30 @@ We considered [[16–19\]](#page-26-0) for their insights on coupling Digital Tw
 
 Fiat and Naor first introduced the concept of broadcast encryption (BE) or multi-receivers encryption in [[20](#page-26-0)]. They proposed a method for securely encrypting a message for a group of users so that only those in the group could decrypt it. On the other hand, a coalition of non-set users cannot obtain any information about the broadcast message. Many BE methods have been developed in the contexts of identity-based encryption [[21](#page-26-0)–[23](#page-26-0)] and standard public-key encryption [\[24\]](#page-26-0). Delerable´e [[21](#page-26-0)] introduced the first identity-based broadcast encryption (IBBE) system with constant-size ciphertexts and private keys in the identity-based encryption context. The approach, however, does not provide ciphertext authentication. The properties of authentication and secrecy are both necessary for sharing sensitive data, such as electronic medical data. BE with source authentication is also called authenticated BE or broadcast signcryption. Selvi et al. [\[25\]](#page-26-0) proposed an efficient identity-based signcryption scheme in this area. Similar to broadcast signcryption, there have been several multi-receiver signcryption schemes [\[26,](#page-26-0) [27\]](#page-26-0), where the ciphertexts are of a size linear in the number of the set of receivers. Broadcast authentication schemes have also been proposed without supporting the confidentiality of the broadcast message in the public key setting [[23](#page-26-0)]. Recently, Yang et al. [\[28\]](#page-26-0) proposed a multi-message and multi-receiver signcryption scheme based on blockchain. The scheme enables medical data providers to send messages to multiple data requesters by executing one signcryption operation, which satisfies the multi-message sending requirements of the data providers in the communication environment. However, the ciphertexts are linear in the number of sets of receivers. Note that our case requires that the data owner use the blockchain to track the sequence of the patient's Digital Twin data so that each care provider can ascertain the progress of the patient's health. The proposed solution requires a constant ciphertext size and an element that can be stored on the blockchain to prove the authorship of data encryption. The existing multi-receiver signcryption does not appear relevant to our scenario. Therefore, the proposed multi-receiver signcryption has a constant ciphertext size with a small size of elements that can be stored on the blockchain to determine the sequence and authorship of the ciphertext.
 
-|      | Reference Limitations                                                                      | Our work                                                                                                 |  |  |
+| | Reference Limitations | Our work | | |
 |------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|--|--|
-| [15] | Does not specify model for data sharing                                                    | Provides one-to-one/many model for data sharing                                                          |  |  |
-|      | Does not provide any experimental results                                                  | Provides experimental results on operations/costs                                                        |  |  |
-|      | Unclear explanation of blockchain implementation.                                          | Provides clear implementation of blockchain and operations                                               |  |  |
-|      | Stores raw data off-chain                                                                  | Stores only encrypted health records                                                                     |  |  |
-|      | Seeks to virtualize healthcare as a service                                                | Provides the digital twin to access services and data.                                                   |  |  |
-| [29] | Work is not applicable to healthcare                                                       | Presents a digital twin that is healthcare-inclined                                                      |  |  |
-|      | No data confidentiality, a key point of health data sharing                                | Preserves confidentiality & integrity required in health data sharing                                    |  |  |
-|      | No description of security parameters for storage of files.                                | Adequately describes the security for stored files                                                       |  |  |
-| [30] | Uses symmetric encryption with no support for one-to-many sharing                          | Uses mIBSC encryption which supports one-to-many sharing                                                 |  |  |
-|      | Does not provide integrity controls for off-chain data storage                             | Uses inherent blockchain integrity controls                                                              |  |  |
-| [31] | Focused on securing health data sharing between individual patients                        | Provides a digital twin that supports multiple user access                                               |  |  |
-|      | Uses anonymity as a key security metric.                                                   | Requires identity for digital twin creation and usage                                                    |  |  |
-| [24] | Does not protect data integrity, essential for secure data transactions                    | Guarantees data integrity, scheme thrives on signcryption & blockchain.                                  |  |  |
-|      | Not applicable to health data sharing as there is no system model                          | Provides a system model, digital twin can access data/services.                                          |  |  |
-|      | Protocol also lack verification.                                                           | Verification of protocol                                                                                 |  |  |
-| [26] | Ciphertext sizes grow linearly with increasing number of receivers                         | Maintains static ciphertext size irrespective of no. of receivers                                        |  |  |
-|      |                                                                                            | Reduces communication and computation costs.                                                             |  |  |
-|      | Not applicable to data sharing as there is no system model                                 | Provides system model, digital twin can securely access data                                             |  |  |
-| [28] | Ciphertext sizes grow linearly with increasing number of receivers                         | Maintains static ciphertext size irrespective of size of no. of receivers                                |  |  |
-|      |                                                                                            | Reduces communication and computation costs.                                                             |  |  |
-|      | Not applicable to digital twin operations such as data contracts and<br>service contracts. | Is based on digital twin operations.                                                                     |  |  |
-|      | No sequential ordering for tracking digital twin authorship                                | Provides digital twin authorship tracking to check patient progress and<br>completeness of patient data. |  |  |
+| [15] | Does not specify model for data sharing | Provides one-to-one/many model for data sharing | | |
+| | Does not provide any experimental results | Provides experimental results on operations/costs | | |
+| | Unclear explanation of blockchain implementation. | Provides clear implementation of blockchain and operations | | |
+| | Stores raw data off-chain | Stores only encrypted health records | | |
+| | Seeks to virtualize healthcare as a service | Provides the digital twin to access services and data. | | |
+| [29] | Work is not applicable to healthcare | Presents a digital twin that is healthcare-inclined | | |
+| | No data confidentiality, a key point of health data sharing | Preserves confidentiality & integrity required in health data sharing | | |
+| | No description of security parameters for storage of files. | Adequately describes the security for stored files | | |
+| [30] | Uses symmetric encryption with no support for one-to-many sharing | Uses mIBSC encryption which supports one-to-many sharing | | |
+| | Does not provide integrity controls for off-chain data storage | Uses inherent blockchain integrity controls | | |
+| [31] | Focused on securing health data sharing between individual patients | Provides a digital twin that supports multiple user access | | |
+| | Uses anonymity as a key security metric. | Requires identity for digital twin creation and usage | | |
+| [24] | Does not protect data integrity, essential for secure data transactions | Guarantees data integrity, scheme thrives on signcryption & blockchain. | | |
+| | Not applicable to health data sharing as there is no system model | Provides a system model, digital twin can access data/services. | | |
+| | Protocol also lack verification. | Verification of protocol | | |
+| [26] | Ciphertext sizes grow linearly with increasing number of receivers | Maintains static ciphertext size irrespective of no. of receivers | | |
+| | | Reduces communication and computation costs. | | |
+| | Not applicable to data sharing as there is no system model | Provides system model, digital twin can securely access data | | |
+| [28] | Ciphertext sizes grow linearly with increasing number of receivers | Maintains static ciphertext size irrespective of size of no. of receivers | | |
+| | | Reduces communication and computation costs. | | |
+| | Not applicable to digital twin operations such as data contracts and<br>service contracts. | Is based on digital twin operations. | | |
+| | No sequential ordering for tracking digital twin authorship | Provides digital twin authorship tracking to check patient progress and<br>completeness of patient data. | | |
 
 ### <span id="page-4-0"></span>Table 1. Comparison of reviewed literature with proposed solution.
 
@@ -129,15 +125,15 @@ Fiat and Naor first introduced the concept of broadcast encryption (BE) or multi
 
 ### Table 2. A comparison of some state-of-the-art Digital Twin research papers in healthcare.
 
-|                      | [11]                     | [12]<br>[13]            |                             | [14]                        | [15]             |  |
+| | [11] | [12]<br>[13] | | [14] | [15] | |
 |----------------------|--------------------------|-------------------------|-----------------------------|-----------------------------|------------------|--|
-| Focus                | Mo<br>IMP<br>Integration |                         | Public health management    | Structured data aggregation |                  |  |
-| Utility<br>SI<br>SI  |                          | Strategic care planning | Pandemic control (Covid-19) | Secure health data storage  |                  |  |
-| Paradigm<br>PM<br>PC |                          | Multi-agent systems     | Smart City health           | Multi-agent systems         |                  |  |
-| Security             | NP                       | NP                      | NP                          | NP                          | AP               |  |
-| Privacy              | NP                       | NP                      | NP                          | NP                          | AP               |  |
-| Framework            | NP                       | NP                      | Agent-based                 | Blockchain-based            | Blockchain-based |  |
-|                      |                          |                         |                             |                             |                  |  |
+| Focus | Mo<br>IMP<br>Integration | | Public health management | Structured data aggregation | | |
+| Utility<br>SI<br>SI | | Strategic care planning | Pandemic control (Covid-19) | Secure health data storage | | |
+| Paradigm<br>PM<br>PC | | Multi-agent systems | Smart City health | Multi-agent systems | | |
+| Security | NP | NP | NP | NP | AP | |
+| Privacy | NP | NP | NP | NP | AP | |
+| Framework | NP | NP | Agent-based | Blockchain-based | Blockchain-based | |
+| | | | | | | |
 
 AP = Applicable, NP = Non-applicable, Mo = Monitoring, PM = Precision medicine, Imp = Implementation, SI = Simulation, PC = Preventive care
 
@@ -246,12 +242,12 @@ $$
 
 **5.1.3 Signcryption.**Suppose a hospital with an identity*IDSender*, and a private key � �
 
-*SKsender*<sup>¼</sup>*<sup>g</sup>* <sup>1</sup> <sup>H</sup>1ð*IDSender*Þþ<sup>g</sup> wants to signcrypt a patient's health data and a Digital Twin which are denoted here as *m*such that*t*healthcare providers of the identities*ID*1, . . ., *IDt*can access the data, it performs the following:
+**SKsender:** <sup>¼</sup>*<sup>g</sup>* <sup>1</sup> <sup>H</sup>1ð*IDSender*Þþ<sup>g</sup> wants to signcrypt a patient's health data and a Digital Twin which are denoted here as *m*such that*t*healthcare providers of the identities*ID*1, . . ., *IDt*can access the data, it performs the following:
 
 • Select*k*\$ Z∗*<sup>p</sup>;* f0*;*1g*n*.
 
 - Compute the following:
-  -*C*<sup>1</sup> = *w*−*<sup>k</sup>*-*C*<sup>2</sup> ¼ *h<sup>k</sup>*� Q*<sup>S</sup> i*¼1 ðgþH1ð*IDi*ÞÞ
+-*C*<sup>1</sup> = *w*−*<sup>k</sup>*-*C*<sup>2</sup> ¼ *h<sup>k</sup>*� Q*<sup>S</sup> i*¼1 ðgþH1ð*IDi*ÞÞ
 - *C*<sup>3</sup> = *m*�*uk*.
 -*f* ¼ H2ð*m; C*1*; C*2*; C*3Þ
 - *v*¼*SK kf sender*
@@ -287,8 +283,8 @@ Result: True/False
 5 AuthorizedHospitalList[IDH] �_IDH True;
 6 AuthorizedHospitalList[IDH]�_Addr True;
 7 EmitNotification(IDH,Addr, msg.sender) /*The EmitNotification trig-
- ger event on the blockchain which hospital IDp can listen to get
- informed*/
+ger event on the blockchain which hospital IDp can listen to get
+informed*/
 ```text
 
 **5.1.4 Unsigncryption**ð*S;* s*;IDsender; SKIDi ;IDi ; params*Þ**.**To recover the message*m*from the ciphertext*<sup>σ</sup>*, <sup>a</sup> data user with the private key *SKIDi*<sup>¼</sup>*<sup>g</sup>* <sup>1</sup> H1ð*IDi*Þþg � � and identity *IDi* (*IDi*2*S*) performs the following:
@@ -354,15 +350,15 @@ After successful unsigncryption of the ciphertext which is part of the digital t
 ```text
 4 mapping(address ) T) DataTwin;
 5 AH ah = AH();
- /*Algorithm 1 is called here*/
+/*Algorithm 1 is called here*/
 6 if ah� AuthorizedHospitalList[IDH] and ah� AuthorizedAddressList[msg.
- sender] then
+sender] then
 7 DataTwin[msg.sender]�_IDH IDH;
 8 DataTwin[msg.sender]�_IDP IDP;
 9 DataTwin[msg.sender]�_v v;
 10 EmitNotification(IDH,IDs,P, msg.sender)
 11 end
- /*The EmitNotification alerts the hospitals about the new record
+/*The EmitNotification alerts the hospitals about the new record
 update*/
 ```text
 
@@ -392,7 +388,7 @@ $$
 h_0, h_0^{\gamma}, \ldots, h_0^{\gamma^{2n}}, h_0^{k, g(\gamma)},
 $$
 
-*The adversary*A*decides whether T*2*e*(*g*0, *h*0) *k*�*f*(*γ*) *or T is a random element in* G*T*. **Definition 2** *(l-SDHP Problem) The l-Strong Diffie– Hellman problem (l—SDHP) in the*1 � �
+**The adversary:** A*decides whether T*2*e*(*g*0, *h*0) *k*�*f*(*γ*) *or T is a random element in* G*T*. **Definition 2** *(l-SDHP Problem) The l-Strong Diffie– Hellman problem (l—SDHP) in the*1 � �
 *group G consists of, given g*0*; g*0g*;*. . .*; g*<sup>g</sup>*<sup>l</sup>*<sup>0</sup> ,*finding a pair c; g c*þg 0 *with c*2 Z<sup>∗</sup>*<sup>p</sup>*[[18](#page-26-0)]
 
 We denote by*Advl SDHP*<sup>A</sup> the advantage of A in solving the (l—SDHP) in G and set*Advl SDHP*<sup>A</sup> ¼*Pr* Að*g*0*; g*0g*;*. . .*; g*<sup>g</sup>*<sup>l</sup>*<sup>0</sup> Þ ¼*c; g*1*c*þg 0 h � �i , where *l;c*2 Z<sup>∗</sup>*<sup>p</sup>*. The l—SDHP assumption is that, for any probabilistic polynomial time algorithm A, the advantage *Advl SDHP*<sup>A</sup> is negligible.
@@ -438,7 +434,7 @@ $$
 Eventually, C defines the public parameters as *params* ¼ ð*w; u; h; h*<sup>g</sup> *;*. . .*; hy<sup>N</sup>*Þ. Note that the challenger C is restricted from accessing the element*g*. C runs A on the system parameters B*;* H1*;* H<sup>2</sup> and params. Here, the hash oracles H1*;*H<sup>2</sup> are controlled by C.
 
 - 3.**Query Phase 1**: At any point in time, the adversary A can query the following random oracles. To answer the queries, C maintains two lists LH<sup>1</sup> and LH<sup>2</sup> .
-  - H<sup>1</sup> queries: The list LH<sup>1</sup> contains at the beginning:
+- H<sup>1</sup> queries: The list LH<sup>1</sup> contains at the beginning:
 
 $$
 \big\{ \big(*, x_i, *\big)\big\}_{i=1}^t, \big\{ \big( ID_i, x_i, *\big)\big\}_{i=t+1}^{t+s^*}
@@ -454,9 +450,9 @@ $$
 - If the queries on (*m*, *C*1, *C*2, *C*3) is in the list (*m*, *C*1, *C*2, *C*3, *f*), then respond with *f* ¼ H2ð*m; C*1*; C*2*; C*3Þ.
 - Else, C selects a random *f*2 Z<sup>∗</sup>*<sup>p</sup>*and updates*L*<sup>H</sup><sup>2</sup> list with (*m*, *C*1, *C*2, *C*3, *f*). C outputs *f*to A.
 - 4.**Extraction queries**: The challenger C runs O*Extract*on*IDi*2*= S*\*and sends the associated private key*SKIDi*to the adversary A. To generate the keys,
-  - If A has already issued an extraction query on*IDi*, C responds with the associated *SKIDi*in the list LH<sup>1</sup> .
-  - Otherwise, if A already issued a hash query on*IDi*, then C uses the associated *xi*to generate*SKIDi*¼*g fi*ðgÞ <sup>0</sup> <sup>¼</sup> *<sup>g</sup>* <sup>1</sup> <sup>g</sup>þH1ð*IDi*<sup>Þ</sup> and then updates the list LH<sup>1</sup> with *SKIDi*for*IDi*.
-  - Otherwise, C sets H1ð*IDi*Þ ¼*xi*, generates the associated*SKIDi*exactly as stated earlier and completes the list LH<sup>1</sup> with*SKIDi*for*IDi*.
+- If A has already issued an extraction query on*IDi*, C responds with the associated *SKIDi*in the list LH<sup>1</sup> .
+- Otherwise, if A already issued a hash query on*IDi*, then C uses the associated *xi*to generate*SKIDi*¼*g fi*ðgÞ <sup>0</sup> <sup>¼</sup> *<sup>g</sup>* <sup>1</sup> <sup>g</sup>þH1ð*IDi*<sup>Þ</sup> and then updates the list LH<sup>1</sup> with *SKIDi*for*IDi*.
+- Otherwise, C sets H1ð*IDi*Þ ¼*xi*, generates the associated*SKIDi*exactly as stated earlier and completes the list LH<sup>1</sup> with*SKIDi*for*IDi*.
 - 5. **Challenge** At some point in time, C decides that phase 1 is over, challenger C computes Signcryptð*m; S*<sup>∗</sup> *;IDSender; SKIDSender ; params*Þ ! s<sup>∗</sup> , where
 
 $$
@@ -468,7 +464,7 @@ Here the challenger C randomly selects *b*0, 1 and sets*m*=*mb*. C returns !
 $$
 \sigma^* = (C_1, C_2, C_3^*, v^*).
 $$
- with  $q(\gamma) = \frac{1}{\gamma} \left( \prod_{i=t+s^*+1}^{t+n} (\gamma + x_i) - \prod_{i=t+s^*+1}^{t+n} (x_i) \right)$ . One can verify that
+with $q(\gamma) = \frac{1}{\gamma} \left( \prod_{i=t+s^*+1}^{t+n} (\gamma + x_i) - \prod_{i=t+s^*+1}^{t+n} (x_i) \right)$ . One can verify that
 \n
 $$
 C_1 = w^{-k},
@@ -492,10 +488,10 @@ Advsdthe(f, g, F, C)
 $$
 
 = Pr[ $b' = b$ |real] - Pr[ $b' = b$ |rand]
-=  $\frac{1}{2}$  × (Pr[ $b' = 1$ | $b = 1$  ∧ real] -
-Pr[ $b' = 1$ | $b = 0$  ∧ real])
-=  $\frac{1}{2}$  × (Pr[ $b' = 1$ | $b = 1$  ∧ rand] -
-Pr[ $b' = 1$ | $b = 0$  ∧ rand])
+= $\frac{1}{2}$ × (Pr[ $b' = 1$ | $b = 1$ ∧ real] -
+Pr[ $b' = 1$ | $b = 0$ ∧ real])
+= $\frac{1}{2}$ × (Pr[ $b' = 1$ | $b = 1$ ∧ rand] -
+Pr[ $b' = 1$ | $b = 0$ ∧ rand])
 
 In the random situation, the distribution of *b*is independent of the adversary's point of view.*Pr*[*b*<sup>0</sup> = 1|*b*= 1 ^*rand*] − *Pr*[*b*<sup>0</sup> = 1|*b*= 0 ^*rand*]. All simulations are perfect, the distributions of all variables defined by C absolutely conform with the semantic security game. Therefore *Adv*IND sID CPA *mIBSC* ð*t; n*AÞ ¼ *Pr*½*b*<sup>0</sup> ¼ 1j*b*¼ 1 ^*real*� *Pr*½*b*<sup>0</sup> ¼ 1j*b*¼ 0 ^*real*�. Putting it together, yield *Advgddhe*ð*f ; g; F;*CÞ ¼ <sup>1</sup> <sup>2</sup> �*Adv*IND sID CPA *mIBSC* ð*t; n*AÞ.
 
@@ -520,14 +516,14 @@ A gives C the target user identity *ID*<sup>∗</sup> *'*on which A wants to for
 - H<sup>1</sup>**queries**: On the input of the identity *IDi*by A, C returns a random*x'*\$ Z∗*<sup>p</sup>*if*IDi*¼*ID*<sup>∗</sup> *'*. Else, C responds*xi*and increases*i*. C stores (*IDi*, *xi*) in a list LH<sup>1</sup> . Note H<sup>2</sup> query is same as in the confidentiality proof, so it is omitted here.
 - **Key generation queries on** *IDi*6¼*ID*<sup>∗</sup> *'* : C retrieves the matching pair (*IDi*, *xi*) from LH<sup>1</sup> and outputs the previously computed *G* <sup>1</sup> <sup>g</sup>þ*xi*Note: No extraction query on*ID*<sup>∗</sup> *'*can be executed.
 -**Forgery**: Signcryption query on ð*m; ID*A*;ID*1*; ID*2*;*. . .*;IDn*Þ: If *ID*<sup>A</sup> 6¼ *ID*<sup>∗</sup> *'*, proceeds normally as in the Signcrypt algorithm. Otherwise, C performs the following:
-  - Select*k*\$ Z∗*p*.
-  - Compute the following:
-    - *C*<sup>∗</sup> <sup>1</sup> ¼ *w*<sup>ð</sup>gþ*x*AÞ*<sup>k</sup>*-*C*<sup>∗</sup> <sup>2</sup> ¼ *H*<sup>ð</sup>gþ*x*AÞ*k*� Q*<sup>n</sup> i*¼1 ð*xi*þgÞ
-    - *C*<sup>∗</sup> <sup>3</sup> ¼ *m*�*uk*.
-    -*f* <sup>∗</sup> ¼ H2ð*m; C*1*; C*2*; C*3Þ
-  - *<sup>v</sup>*<sup>∗</sup> <sup>¼</sup> *<sup>G</sup>* <sup>1</sup> ðgþ*x*AÞ *kf*
-  - Add the elements ð*m; C*<sup>∗</sup> <sup>1</sup>*; C*<sup>∗</sup> <sup>2</sup>*; C*<sup>∗</sup> <sup>3</sup>*; f*<sup>∗</sup> Þ to LH<sup>2</sup> list.
-  - Output signcryption of*m* as h*C*<sup>∗</sup> <sup>1</sup>*; C*<sup>∗</sup> <sup>2</sup>*; C*<sup>∗</sup> <sup>3</sup>*; v*<sup>∗</sup> *;*Li, where L is the list of recipients who are authorized to designcrypt *σ*\*.
+- Select*k*\$ Z∗*p*.
+- Compute the following:
+- *C*<sup>∗</sup> <sup>1</sup> ¼ *w*<sup>ð</sup>gþ*x*AÞ*<sup>k</sup>*-*C*<sup>∗</sup> <sup>2</sup> ¼ *H*<sup>ð</sup>gþ*x*AÞ*k*� Q*<sup>n</sup> i*¼1 ð*xi*þgÞ
+- *C*<sup>∗</sup> <sup>3</sup> ¼ *m*�*uk*.
+-*f* <sup>∗</sup> ¼ H2ð*m; C*1*; C*2*; C*3Þ
+- *<sup>v</sup>*<sup>∗</sup> <sup>¼</sup> *<sup>G</sup>* <sup>1</sup> ðgþ*x*AÞ *kf*
+- Add the elements ð*m; C*<sup>∗</sup> <sup>1</sup>*; C*<sup>∗</sup> <sup>2</sup>*; C*<sup>∗</sup> <sup>3</sup>*; f*<sup>∗</sup> Þ to LH<sup>2</sup> list.
+- Output signcryption of*m* as h*C*<sup>∗</sup> <sup>1</sup>*; C*<sup>∗</sup> <sup>2</sup>*; C*<sup>∗</sup> <sup>3</sup>*; v*<sup>∗</sup> *;*Li, where L is the list of recipients who are authorized to designcrypt *σ*\*.
 - **Unsigncryption** ð*S;*s<sup>∗</sup>*;ID*<sup>∗</sup> *' ; SKIDi ;IDi ; params*Þ: C looks up L*<sup>H</sup>*<sup>2</sup> for an entry of the form ð*m; C*<sup>∗</sup> <sup>1</sup>*; C*<sup>∗</sup> <sup>2</sup>*; C*<sup>∗</sup> <sup>3</sup>*; f* <sup>∗</sup> Þ and checks whether it satisfies the following condition:
 
 $$
@@ -580,17 +576,16 @@ This section evaluates the efficiency of our scheme as it relates to computation
 
 To demonstrate the efficiency of the proposed scheme relative to other schemes, we perform computation analysis with recent broadcast signcryption schemes: [[28](#page-26-0), [36](#page-26-0)[–39\]](#page-27-0). The experiment was conducted on a Windows desktop computer with a 2.0GHz Intel Core i7 processor and 8GB 1600 MHz DDR3 RAM. We used Multi-Precision Integer and Rational Arithmetic C Library (MIRACL), a C++ cryptographic library. The execution times are based on the average of 300 trials. The results of the execution are shown in [Table](#page-20-0) 3. In [Table](#page-20-0) 3, we define the related
 
-<span id="page-20-0"></span>
 
-| Operation                                      | Timing (ms) |  |  |
+| Operation | Timing (ms) | | |
 |------------------------------------------------|-------------|--|--|
-| Elliptic curve group exponentiation (E�)       | 1.26        |  |  |
-| Bilinear pairing( �<br>PÞ                      | 14.32       |  |  |
-| Pairing-based scalar point multiplication (M1) | 4.34        |  |  |
-| Elliptic curve point multiplication (M2)       | 0.98        |  |  |
-|                                                |             |  |  |
+| Elliptic curve group exponentiation (E�) | 1.26 | | |
+| Bilinear pairing( �<br>PÞ | 14.32 | | |
+| Pairing-based scalar point multiplication (M1) | 4.34 | | |
+| Elliptic curve point multiplication (M2) | 0.98 | | |
+| | | | |
 
-| Table 3. Running times of time-consuming operations. |  |
+| Table 3. Running times of time-consuming operations. | |
 |------------------------------------------------------|--|
 |------------------------------------------------------|--|
 
@@ -606,14 +601,14 @@ Additionally, we examine the communication overhead of the proposed scheme and o
 
 We assume the presence of a sensor that can transmit continuous physiological data from the patient to the aggregation platform represented in our research by the Data Management module. Patients' increasing use of wearable sensors validates our assumption in this respect. The Data Management module collects and processes data using the analytics component to sort through received signals to distinguish status data (such as positioning) from care data, such as
 
-| Scheme | Signcryption    | Unsigncryption           | Ciphertext size            |
+| Scheme | Signcryption | Unsigncryption | Ciphertext size |
 |--------|-----------------|--------------------------|----------------------------|
-| [36]   | ð3n þ 1ÞE�      | M1 þ 3P� þ<br>E�         | 3jG1j þ njZ∗<br>p j þ jIDj |
-| [37]   | (2n + 1)M2      | 4M2                      | 2jG1j þ ðS þ 2ÞjZ∗<br>p j  |
-| [38]   | ð4n þ 2ÞE�      | E� þ<br>4P�              | ð2n þ 3ÞjG1j               |
-| [28]   | (n + 1)M2       | 3M2                      | 2jG1j þ ðn þ 2ÞjZ∗<br>p j  |
-| [39]*| nM1 þ ðn þ 5ÞE� | nM1 þ ðn þ 2ÞE� þ<br>3P� | 3jG1j þ ðn þ 1ÞjIDj        |
-| Ours   | M1 þ ð3 þ nÞE�  | 3P� þ<br>nM1 þ nE�       | 4jG1j þ jZ∗<br>p j         |
+| [36] | ð3n þ 1ÞE� | M1 þ 3P� þ<br>E� | 3jG1j þ njZ∗<br>p j þ jIDj |
+| [37] | (2n + 1)M2 | 4M2 | 2jG1j þ ðS þ 2ÞjZ∗<br>p j |
+| [38] | ð4n þ 2ÞE� | E� þ<br>4P� | ð2n þ 3ÞjG1j |
+| [28] | (n + 1)M2 | 3M2 | 2jG1j þ ðn þ 2ÞjZ∗<br>p j |
+| [39]*| nM1 þ ðn þ 5ÞE� | nM1 þ ðn þ 2ÞE� þ<br>3P� | 3jG1j þ ðn þ 1ÞjIDj |
+| Ours | M1 þ ð3 þ nÞE� | 3P� þ<br>nM1 þ nE� | 4jG1j þ jZ∗<br>p j |
 **Table 4. Comparison of computational cost and communication cost.**
 
 ### [[39](#page-27-0)]\*= Proposal I
@@ -651,13 +646,13 @@ Researchers have conducted studies on the use of blockchain in healthcare, focus
 
 <span id="page-24-0"></span>![](_page_24_Figure_2.jpeg)
 <!-- Image Description: Figure 12 depicts a system architecture diagram. A patient icon inputs data and receives insights from a "Medical Profile" block containing Electronic Medical Records, Electronic Health Records, and Data Analytics. This profile generates a model which produces multiple "Twin Instance" outputs (data, time). The figure illustrates the system's data flow and likely aims to explain system latency in relation to the number of requests processed. -->
-**[Table](#page-23-0) 5. Comparison of our work with other frameworks for blockchain health data sharing.**| Metrics                     | [36] | [37] | [38] | [28] | [39] | Ours |
+**[Table](#page-23-0) 5. Comparison of our work with other frameworks for blockchain health data sharing.**| Metrics | [36] | [37] | [38] | [28] | [39] | Ours |
 |-----------------------------|------|------|------|------|------|------|
-| Blockchain-based            | N    | N    | N    | Y    | N    | Y    |
-| Digital Twin-based          | N    | N    | N    | N    | N    | Y    |
-| Access Control              | Y    | Y    | Y    | Y    | Y    | Y    |
-| Senders and Receivers Known | N    | N    | N    | N    | Y    | Y    |
-| Data Privacy-Preserving     | Y    | Y    | Y    | Y    | Y    | Y    |
+| Blockchain-based | N | N | N | Y | N | Y |
+| Digital Twin-based | N | N | N | N | N | Y |
+| Access Control | Y | Y | Y | Y | Y | Y |
+| Senders and Receivers Known | N | N | N | N | Y | Y |
+| Data Privacy-Preserving | Y | Y | Y | Y | Y | Y |
 
 <https://doi.org/10.1371/journal.pone.0286120.t005>
 
@@ -666,9 +661,11 @@ Researchers have conducted studies on the use of blockchain in healthcare, focus
 Modern healthcare places unprecedented focus on patient-centered care, which requires secure communication among multiple parties. The process depends on the secure sharing of patient data and can be tedious for those involved. Thus, automation of a data-sharing mechanism with agency such as the patient digital twin can promote efficient interaction between the entities required to administer patient care. This paper proposes a blockchain-secure patient digital twin as a secure construct for personal health data sharing. We use smart contracts on the Ethereum network to ensure that patients have control over their medical records with guaranteed privacy and security. We protect the data and instances of the digital twins generated using proven cryptographic techniques that are also computationally light. We evaluate our research with some experimental results and comparison with other works. Our proposed system can be integrated into existing healthcare platforms using a permissioned blockchain for maximum privacy and security. We hope to extend the research to provide the patient digital twin with greater autonomy.
 
 ## Supporting information
+
 **S1 [File.](http://www.plosone.org/article/fetchSingleRepresentation.action?uri=info:doi/10.1371/journal.pone.0286120.s001)**(ZIP)**S2 [File.](http://www.plosone.org/article/fetchSingleRepresentation.action?uri=info:doi/10.1371/journal.pone.0286120.s002)**(ZIP)
 
 ### <span id="page-25-0"></span>Author Contributions
+
 **Conceptualization:**Sandro Amofa, Isaac Amankona Obiri.
 **Data curation:**Sandro Amofa, Isaac Amankona Obiri.
 **Formal analysis:**Sandro Amofa, Isaac Amankona Obiri.

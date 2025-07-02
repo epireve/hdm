@@ -34,7 +34,6 @@ keywords:
 - subgraph-level
 ---
 
-
 # A Privacy-Preserving Subgraph-Level Federated Graph Neural Network via Differential Privacy
 
 Yeqing Qiu 1 , 2 , Chenyu Huang 1 , Jianzong Wang 1 ? , Zhangcheng Huang 1 , and Jing Xiao 1
@@ -45,7 +44,7 @@ Abstract. Currently, the federated graph neural network (GNN) has attracted a lo
 
 Keywords: Recommendation System, Federated Learning, Subgraph-Level Federated Learning, Graph Neural Network, Differential Privacy
 
-# 1 Introduction
+## 1 Introduction
 
 Graph neural network (GNN) has been applied to multiple scenarios such as molecule prediction [\[5,](#page-10-0)[19\]](#page-11-0), social network analysis [\[2,](#page-10-1)[18\]](#page-11-1), recommendation systems [\[8\]](#page-10-2) and knowledge graph [\[21\]](#page-11-2). However, GNN approaches mainly rely on the centralized data, which is different from the real-world scenario where the source data may be stored at different organizations. For example, e-commerce platforms that sell different types of items have separate purchase and rating records of their users and items. In order to explore potential new users and provide better recommendation services to existing users, E-commerce platforms would build a better model jointly learned from multiple data resources. In the
 
@@ -63,25 +62,25 @@ In this paper, we propose a novel DP-based GNN that aims at the sub-graph level 
 - We utilize K-hop extension for exchanged feature and adjacency information and preserve the privacy of both the feature and edge information via DP.
 - We evaluate our algorithms on two recommendation datasets, and demonstrate the effectiveness of our approach.
 
-# 2 Preliminaries
+## 2 Preliminaries
 
 ## 1 Problem Formulation
 
 In this work, denote U = {u1, u2, · · · , un} and P = {p1, p2, · · · , pm} as user and item respectively. The purchasing interaction of user and item relationship is represented by a bipartite graph G ∈ R <sup>n</sup>×m, in which the value of edges refers to the points the user rate the item. Since each client will only have a part of global graph, for client i, the user-item bipartite graph is denoted as G<sup>i</sup> = (V i , E<sup>i</sup> ). In detail, the set of vertexes and edges are denoted as V i , E<sup>i</sup> respectively. The task is to predict the ratings of users and items based on user-item graph. Thus, client i will train a local model in round r, the parameters of which are denoted as θ l i . The global model parameter that aggregate from each client is θ r . Additionally, define dist(x, y, G) as the shortest path of vertex x and y in graph G. Define dist(v, S, G) = minx∈S dist(v, x, G). The notation is summarized in Table [1.](#page-2-0)
 
-| l              | number of clients                               |
+| l | number of clients |
 |----------------|-------------------------------------------------|
-| n, m           | number of users and items in graph G            |
-| ui, pi         | user i, item i                                  |
-| i<br>G         | user-item graph of client i                     |
-| i<br>, Ei<br>V | i<br>vertex set and edge set in G               |
-| G¯i            | extended user-item graph of client i            |
-| V¯ i<br>, E¯i  | extended vertex set and edge set in G¯i         |
-| K              | parameter of K-hop extension                    |
-| r              | communication round                             |
-| r<br>θ         | parameters of global model in round r           |
-| r<br>θ<br>i    | parameters of client i's local model in round r |
-| ∇θi            | gradient of parameters of local model           |
+| n, m | number of users and items in graph G |
+| ui, pi | user i, item i |
+| i<br>G | user-item graph of client i |
+| i<br>, Ei<br>V | i<br>vertex set and edge set in G |
+| G¯i | extended user-item graph of client i |
+| V¯ i<br>, E¯i | extended vertex set and edge set in G¯i |
+| K | parameter of K-hop extension |
+| r | communication round |
+| r<br>θ | parameters of global model in round r |
+| r<br>θ<br>i | parameters of client i's local model in round r |
+| ∇θi | gradient of parameters of local model |
 
 <span id="page-2-0"></span>Table 1. Notations used in DP-FedRec.
 
@@ -100,17 +99,17 @@ P[M(X) = t] \le e^{\epsilon} P[M(X') = t]
 $$
 \n<sup>(1)</sup>
 
-#### 3 Federated Graph Neural Network
+### 3 Federated Graph Neural Network
 
 Graph neural network is widely used in recent recommendation systems [\[27\]](#page-11-7). In this paper, we leverage the graph convectional network (GCN) [\[9\]](#page-10-5) under the message passing neural network framework (MPNN) . MPNN is a supervised learning framework which extracts information from the user-item graph by aggregating adjacency information into the latent space, and then generates the prediction from the latent space.
 
 Furthermore, we extend GNN to the federated scenario which is the same as in [\[7\]](#page-10-3). Specifically, it is a sub-graph setting where each entity/company has a part of data/graph, such as users and rating information, and a model is jointly trained on the entire data for better prediction accuracy. Therefore, there are multiple clients and one centralized server. For communication round r in the training stage, client i will get the model parameter θ r <sup>i</sup> by training the local model for e epochs on the sub-graph G<sup>i</sup> r . The server will aggregates the parameters θ<sup>r</sup> = Pθ r i l and distribute them to all local clients, and each client updates its local model parameters as θ r i .
 
-#### 4 Private Set Intersection
+### 4 Private Set Intersection
 
 Private Set Intersection (PSI) is a cryptographic protocol in multiparty computation. It allows two clients to get the intersection set of the data without revealing any information outside the intersected data. There are many different implementations of PSI, DP-FedRec instantiates the PSI the same as [\[10\]](#page-11-8). It leverages the programmable pseudo random function (OPPRF) which is fast and efficient.
 
-# 3 Approach
+## 3 Approach
 
 ## 1 Overview
 
@@ -121,7 +120,7 @@ Specifically, DP-FedRec jointly trains a model via four steps as shown in Fig. [
 ![](_page_4_Figure_2.jpeg)
 <!-- Image Description: This diagram illustrates a federated learning framework for a recommendation system. Three clients (grocery store, e-commerce, shopping mall) process data locally using data partitioning (DP) and k-hop extension to create graphs. These graphs are fed into Graph Neural Networks (GNNs) generating model parameters (θ₁ θ₂ θ₃). A central server averages these parameters (equation shown) to create a global model. The diagram showcases the data flow and model aggregation process in a federated learning setting. -->
 
-<span id="page-4-0"></span>Fig. 1. Overall framework of DP-FedRec. Each bipartite graph refers to purchasing relationship between user and item in each platform and client. The purple ones are the users in the intersection set of clients' sub-graphs.
+<span id="page-4-0"></span>Figure 1. Overall framework of DP-FedRec. Each bipartite graph refers to purchasing relationship between user and item in each platform and client. The purple ones are the users in the intersection set of clients' sub-graphs.
 
 ### 2 User-Item Graph K-hop Expansion
 
@@ -141,7 +140,7 @@ For the topology of the graph, DP-FedRec adds noises to a weighted undirected gr
 
 For the protection of the edge weights information of the user-item graph, a Laplace noise with a mean value of 0 and an intensity of λ<sup>2</sup> is added directly to the new graph formed by the above algorithms.
 
-# 4 Analysis
+## 4 Analysis
 
 ## 1 Privacy Analysis
 
@@ -153,36 +152,36 @@ The privacy of DP-FedRec is protected by the following aspects: (i) The vertexes
 
 ```text
 Input: K, the parameter of K-hop; the graph G
-                                               i
+i
 Output: the extended graph G¯i
 1: procedure K-hop Extension(K, i)
 2: V¯ i = V
-              i
-               , E¯i = E
-                       i
+i
+, E¯i = E
+i
 3: for uj ∈ U\{ui} do
 4: V
-            i,j = PSI(V
-                       i
-                       , V j
-                           )
+i,j = PSI(V
+i
+, V j
+)
 5: V¯ i,j = V¯ i,j ∪ {v|dist(v, V i,j , Gi
-                                        ) ≤ k ∧ v ∈ V
-                                                     i
+) ≤ k ∧ v ∈ V
+i
 6: E¯i,j = E¯i,j ∪ {< x, y > |x, y ∈ V¯ (i,j)
-                                             }
+}
 7: Send (V¯ i,j
-                    , E¯i,j ) to client j
+, E¯i,j ) to client j
 8: end for
 9: for uj ∈ U\{ui} do
 10: Receive (V¯ j,i
-                       , E¯j,i) from client j
+, E¯j,i) from client j
 11: V¯ i = V¯ i ∪ V¯ j,i
 12: E¯i = E¯i ∪ E¯j,i
 13: end for
 14: return G¯i = (V¯ i
-                       , E¯i
-                           )
+, E¯i
+)
 15: end procedure
 ```text
 
@@ -190,7 +189,7 @@ Output: the extended graph G¯i
 
 First, consider the time complexity of DP-FedRec for one client. Since a certain amount of noise needs to be added to each element of the adjacency matrix, the time for single addition of noise is O(|V i | 2 ). Then analysis is performed on the communication complexity of DP-FedRec for client i. Since DP-FedRec requires interaction between two clients, communication cost of such interaction between clients is O(l 2 ). Each interaction contains PSI, K-hop extension, and adding noise towards expanded graph data. Correspondingly, the time complexity of PSI is O(|V i |), the time complexity of K-hop extension is O(|V i |). The time for single addition of noise, as analyzed above, is O(|V i 2 ). So the communication cost of DP-FedRec is O(l 2 · |V i 2 ).
 
-# 5 Evaluation
+## 5 Evaluation
 
 ## 1 Evaluation Setup
 
@@ -200,19 +199,19 @@ Dataset We conduct evaluation on two datasets: Epinions [\[20\]](#page-11-9) and
 
 large number of points in the epinions dataset and the limitation of memory, we only select 12 categories for experiments. Table [2](#page-7-0) shows the average number of users, items and edges after separation.
 
-| Dataset      | number of clients K |   | Average n       | Average n       | Average # edges |
+| Dataset | number of clients K | | Average n | Average n | Average # edges |
 |--------------|---------------------|---|-----------------|-----------------|-----------------|
-|              |                     |   | for each client | for each client | for each client |
-|              | Centralized         | / | 21296           | 163874          | 870838          |
-| Epinions     | 8                   | 2 | 21052           | 117641          | 754303          |
-|              |                     |   | 21172           | 163588          | 870266          |
-|              | 12                  | 2 | 21007           | 105897          | 720281          |
-|              |                     |   | 21165           | 163539          | 870227          |
-| MovieLens 1M | Centralized         | / | 6040            | 3706            | 1000209         |
-|              | 8                   | 1 | 5894            | 3704            | 995298          |
-|              |                     |   | 6040            | 3706            | 1000209         |
-|              | 12                  | 1 | 5409            | 3699            | 972759          |
-|              |                     |   | 6040            | 3706            | 1000209         |
+| | | | for each client | for each client | for each client |
+| | Centralized | / | 21296 | 163874 | 870838 |
+| Epinions | 8 | 2 | 21052 | 117641 | 754303 |
+| | | | 21172 | 163588 | 870266 |
+| | 12 | 2 | 21007 | 105897 | 720281 |
+| | | | 21165 | 163539 | 870227 |
+| MovieLens 1M | Centralized | / | 6040 | 3706 | 1000209 |
+| | 8 | 1 | 5894 | 3704 | 995298 |
+| | | | 6040 | 3706 | 1000209 |
+| | 12 | 1 | 5409 | 3699 | 972759 |
+| | | | 6040 | 3706 | 1000209 |
 
 <span id="page-7-0"></span>Table 2. Dataset description. The K is the parameter of K-hop, n is the number of users, the m is the number of items and # edges is the number of edges. For centralized, the number of user, items and edges is the total number.
 
@@ -224,43 +223,43 @@ Table [3](#page-8-0) and Table [4](#page-8-1) show the performance of centralize
 
 The effect of DP-FedRec is also better than FedGraphNN, which proves that the K-hop extension algorithm based on local differential privacy improves the performance of the model while protecting privacy. Meanwhile The K-Hop extension is very robust even with adding noise to the graph data.
 
-|                   | Model  |                                      | MAE |                      | MSE RMSE Noising |          |
+| | Model | | MAE | | MSE RMSE Noising | |
 |-------------------|--------|--------------------------------------|-----|----------------------|------------------|----------|
-| Dataset/8 clients | Type   | System                               |     |                      |                  | Time (s) |
-|                   |        | Centralized                          |     | 0.8377 1.2464 1.1164 |                  |          |
-|                   | W/O DP | FedGraphNN                           |     | 0.8719 1.3424 1.1559 |                  | /        |
-| Epinions          |        | FedRec                               |     | 0.8643 1.3303 1.1505 |                  |          |
-|                   | W/ DP  | DP-FedGraphNN                        |     | 0.8724 1.3484 1.1584 |                  | /        |
-|                   |        | DP-FedRec(K=2) 0.8689 1.3415 1.1560  |     |                      |                  | 328      |
-|                   |        | DP-FedRec(K=10) 0.8658 1.3278 1.1523 |     |                      |                  | 517      |
-|                   | W/O DP | Centralized                          |     | 0.8812 1.1782 1.0855 |                  |          |
-|                   |        | FedGraphNN                           |     | 0.8832 1.1850 1.0884 |                  | /        |
-|                   |        | FedRec                               |     | 0.8793 1.1786 1.0884 |                  |          |
-| MovieLens1M       | W/ DP  | DP-FedGraphNN                        |     | 0.8912 1.2057 1.0980 |                  | /        |
-|                   |        | DP-FedRec(K=1) 0.8820 1.1798 1.0862  |     |                      |                  | 4        |
-|                   |        | DP-FedRec(K=5) 0.8813 1.1783 1.0875  |     |                      |                  | 4        |
+| Dataset/8 clients | Type | System | | | | Time (s) |
+| | | Centralized | | 0.8377 1.2464 1.1164 | | |
+| | W/O DP | FedGraphNN | | 0.8719 1.3424 1.1559 | | / |
+| Epinions | | FedRec | | 0.8643 1.3303 1.1505 | | |
+| | W/ DP | DP-FedGraphNN | | 0.8724 1.3484 1.1584 | | / |
+| | | DP-FedRec(K=2) 0.8689 1.3415 1.1560 | | | | 328 |
+| | | DP-FedRec(K=10) 0.8658 1.3278 1.1523 | | | | 517 |
+| | W/O DP | Centralized | | 0.8812 1.1782 1.0855 | | |
+| | | FedGraphNN | | 0.8832 1.1850 1.0884 | | / |
+| | | FedRec | | 0.8793 1.1786 1.0884 | | |
+| MovieLens1M | W/ DP | DP-FedGraphNN | | 0.8912 1.2057 1.0980 | | / |
+| | | DP-FedRec(K=1) 0.8820 1.1798 1.0862 | | | | 4 |
+| | | DP-FedRec(K=5) 0.8813 1.1783 1.0875 | | | | 4 |
 
 <span id="page-8-0"></span>Table 3. Performance of different systems with 8 clients. Noising time refers to the time of adding noise per client.
 
-#### 3 Performance of Differential Privacy
+### 3 Performance of Differential Privacy
 
 From the results, the performance of DP-FedRec does not decrease much than FedRec. However, after adding noise to FedGraphNN, accuracy drops a lot.
 
-| Dataset/12 clients | Model  | System                                 | MAE |                      | MSE RMSE Noising |          |
+| Dataset/12 clients | Model | System | MAE | | MSE RMSE Noising | |
 |--------------------|--------|----------------------------------------|-----|----------------------|------------------|----------|
-|                    | Type   |                                        |     |                      |                  | Time (s) |
-|                    |        | Centralized                            |     | 0.8377 1.2464 1.1164 |                  |          |
-|                    | W/O DP | FedGraphNN                             |     | 0.8674 1.3279 1.1502 |                  | /        |
-| Epinions           |        | FedRec(K = 10)                         |     | 0.8635 1.3270 1.1496 |                  |          |
-|                    | W/ DP  | DP-FedGraphNN                          |     | 0.8716 1.3298 1.1513 |                  | /        |
-|                    |        | DP-FedRec(K = 2) 0.8625 1.3261 1.1493  |     |                      |                  | 314      |
-|                    |        | DP-FedRec(K = 10) 0.8585 1.3258 1.1493 |     |                      |                  | 501      |
-|                    | W/O DP | Centralized                            |     | 0.8812 1.1782 1.0855 |                  |          |
-|                    |        | FedGraphNN                             |     | 0.8931 1.2454 1.1152 |                  | /        |
-| MovieLens1M        |        | FedRec(K = 5)                          |     | 0.8874 1.1850 1.0883 |                  |          |
-|                    | W/ DP  | DP-FedGraphNN                          |     | 0.8989 1.2669 1.1247 |                  | /        |
-|                    |        | DP-FedRec(K = 1) 0.8936 1.2257 1.1063  |     |                      |                  | 3        |
-|                    |        | DP-FedRec(K = 5) 0.8907 1.1991 1.0948  |     |                      |                  | 4        |
+| | Type | | | | | Time (s) |
+| | | Centralized | | 0.8377 1.2464 1.1164 | | |
+| | W/O DP | FedGraphNN | | 0.8674 1.3279 1.1502 | | / |
+| Epinions | | FedRec(K = 10) | | 0.8635 1.3270 1.1496 | | |
+| | W/ DP | DP-FedGraphNN | | 0.8716 1.3298 1.1513 | | / |
+| | | DP-FedRec(K = 2) 0.8625 1.3261 1.1493 | | | | 314 |
+| | | DP-FedRec(K = 10) 0.8585 1.3258 1.1493 | | | | 501 |
+| | W/O DP | Centralized | | 0.8812 1.1782 1.0855 | | |
+| | | FedGraphNN | | 0.8931 1.2454 1.1152 | | / |
+| MovieLens1M | | FedRec(K = 5) | | 0.8874 1.1850 1.0883 | | |
+| | W/ DP | DP-FedGraphNN | | 0.8989 1.2669 1.1247 | | / |
+| | | DP-FedRec(K = 1) 0.8936 1.2257 1.1063 | | | | 3 |
+| | | DP-FedRec(K = 5) 0.8907 1.1991 1.0948 | | | | 4 |
 
 <span id="page-8-1"></span>Table 4. Performance of different systems with 12 clients. Noising time refers to the time of adding noise per client.
 
@@ -272,7 +271,7 @@ In the Epinions dataset and MovieLens1M dataset, the number of points of Epinion
 
 edges of MovieLens1M is significantly larger than the number of points of Epinions. Summarizing the average time to add noise per client in the experiments, we found that the time required to add noise to the Epinions dataset is much greater than that required for Movielens which is consistent with our analysis.
 
-# 6 Related Work
+## 6 Related Work
 
 ## 1 Federated Recommendation System
 
@@ -282,15 +281,15 @@ Federated Learning is being applied in lots of field [\[24](#page-11-10)[,11,](#
 
 Several literature leverage DP to preserve the privacy of GNN. Solitude [\[13\]](#page-11-16) is a privacy-preserving learning framework based on GNN, with formal privacy guarantees based on edge local differential privacy. The crux of Solitude is a set of new delicate mechanisms that calibrate the introduced noise in the decentralized graph collected from the users. LDPGen [\[16\]](#page-11-17) is a multi-phase technique that incrementally clusters users based on their connections to different partitions of the whole population. LDPGen carefully injects noise to ensure local differential privacy whenever a user reports information. There are only few works that combine the DP with the GNN federated learning. [\[25\]](#page-11-4) applies differential privacy techniques to the local gradients of GNN model to protect user privacy in federated learning setting. But it need a third-party server to store embedding of users besides training server.So FedGNN is a two-server model. In [\[29\]](#page-12-0), They propose (VFGNN), a federated GNN learning model for privacy-preserving node classification task under data vertically partitioned setting. They leave the private data related computations on data holders, and delegate the rest of computations to a semi-honest server. However, their work has an strong assumption that every data holders have the same nodes, which is far different from real scenario.
 
-# 7 Conclusion and Future Work
+## 7 Conclusion and Future Work
 
 In this paper, we proposed DP-FedRec a privacy-preserving federated GNN framework for recommendation system. To overcome the challenge of the NonIID problem under the privacy regulation, DP-FedRec integrates the PSI and the DP technique with the federated GNN. The PSI-based K-hop extension helps to extend the sub-graph of each client without leaking any non-intersection information to solve the non-IID problem. Moreover, DP preserves not only the privacy of weights but also the privacy of edges/topology in the intersection information to guarantee the privacy. We implemented the prototype of DP-FedRec and tests it on different datasets. Compared with other works, the evaluation shows DP-FedRec achieves high performance and only induces little computations overhead. In the future, we would like to investigate a universal DP for both weights and edges in graph data for better performance.
 
-# 8 Acknowledgement
+## 8 Acknowledgement
 
 This paper is supported by the Key Research and Development Program of Guangdong Province under grant No. 2021B0101400003. Corresponding author is Jianzong Wang from Ping An Technology (Shenzhen) Co., Ltd (jzwang@188.com).
 
-# References
+## References
 
 - <span id="page-10-8"></span>1. Ammad-Ud-Din, M., Ivannikova, E., Khan, S.A., Oyomno, W., Fu, Q., Tan, K.E., Flanagan, A.: Federated collaborative filtering for privacy-preserving personalized recommendation system. arXiv preprint arXiv:1901.09888 (2019)
 - <span id="page-10-1"></span>2. Chen, J., Ma, T., Xiao, C.: Fastgcn: Fast learning with graph convolutional networks via importance sampling. In: 6th International Conference on Learning Representations, ICLR'18 (2018)

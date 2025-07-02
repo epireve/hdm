@@ -21,9 +21,6 @@ keywords:
 - machine learning
 ---
 
-
-
-
 # Privacy and Fairness in Federated Learning: On the Perspective of Tradeoff
 
 [HUIQIANG CHEN,](https://orcid.org/0000-0003-4811-6742) [TIANQING ZHU,](https://orcid.org/0000-0003-3411-7947) and [TAO ZHANG,](https://orcid.org/0000-0003-4696-641X) University of Technology Sydney, Australia [WANLEI ZHOU,](https://orcid.org/0000-0002-1680-2521) City University of Macau, China [PHILIP S. YU,](https://orcid.org/0000-0002-3491-5968) University of Illinois at Chicago, US
@@ -38,7 +35,7 @@ Huiqiang Chen, Tianqing Zhu, Tao Zhang, Wanlei Zhou, and Philip S. Yu. 2023. Pri
 
 <https://doi.org/10.1145/3606017>
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 Machine learning has changed our lives and will undoubtedly bring us more excitement. However, its success is closely tied to the availability of large-scale training data, and as new learning models keep emerging, the demand for more data persists relentlessly. One worrisome issue with collecting massive amounts of data is the risk that presents to privacy. FL [\[128\]](#page-32-0) has emerged as an attractive learning paradigm to meet privacy requirements.
 
@@ -72,17 +69,16 @@ This survey provides a broad view of privacy and fairness issues in FL. We first
 
 ACM Computing Surveys, Vol. 56, No. 2, Article 39. Publication date: September 2023.
 
-<span id="page-2-0"></span>
 
-|           | Privacy-preserving |         | Fairness-aware |          | Interactions    |
+| | Privacy-preserving | | Fairness-aware | | Interactions |
 |-----------|--------------------|---------|----------------|----------|-----------------|
-| Reference | Privacy            | Defense | Algorithmic    | Client   | between privacy |
-|           | attack             |         | fairness       | fairness | and fairness    |
-| [199]     |                    |         |                |          |                 |
-| [207]     |                    |         |                |          |                 |
-| [123]     |                    |         |                |          |                 |
-| [88]      |                    |         |                |          |                 |
-| Our work  |                    |         |                |          |                 |
+| Reference | Privacy | Defense | Algorithmic | Client | between privacy |
+| | attack | | fairness | fairness | and fairness |
+| [199] | | | | | |
+| [207] | | | | | |
+| [123] | | | | | |
+| [88] | | | | | |
+| Our work | | | | | |
 
 Table 1. Comparison to Related Surveys on Privacy or Fairness in FL
 
@@ -91,7 +87,7 @@ Table 1. Comparison to Related Surveys on Privacy or Fairness in FL
 - Following a rigorous enumeration of the sources of bias in the FL pipeline, we discuss the fairness notions adopted in FL and summarize fairness-aware FL approaches.
 - We point out several future research directions toward training private and fair FL models.
 
-# 2 BACKGROUND KNOWLEDGE
+## 2 BACKGROUND KNOWLEDGE
 
 ## 2.1 Definition of FL
 
@@ -115,7 +111,7 @@ Recent research verified the privacy risk of FL. Adversaries can glean the parti
 ![](_page_3_Figure_3.jpeg)
 <!-- Image Description: The image displays a table showing the iterative reconstruction of four images from noisy initializations using an unspecified algorithm. Each row represents a different image, while columns show the image's state at iterations 0, 10, 100, and 500, and finally the ground truth image. The results demonstrate the algorithm's ability to recover images from noisy input over successive iterations, converging towards the ground truth. -->
 
-Fig. 1. Reconstruction attack in FL.
+Figure 1. Reconstruction attack in FL.
 *2.2.1 Membership Inference Attacks.* **Membership Inference Attacks (MIA)**aim to identify whether a given sample was used to train the target model. These types of attacks can pose privacy risks to individuals. For example, confirming a patient's clinical record was used to train a model associated with a particular disease would reveal that patient's health condition. MIA was initially investigated by Shokri et al. [\[165\]](#page-34-0). The attack models are essentially binary classifiers. Given an instance*X*and a target model*F<sup>t</sup>*, the goal of the MIA model is to identify whether or not*X*is contained within the training dataset*D*of the target model*F<sup>t</sup>*.
 *2.2.2 Property Inference Attacks.*Property inference attacks aim to recover some property of the training set, which may be irrelevant to the main tasks. Such as the property of "wearing glasses" against a gender classifier or the composition of the training dataset. This kind of attack also leads to privacy issues. With proper prior knowledge, the adversary can infer the presence of a specific sample in the training set.
 *2.2.3 Model Inversion Attacks.*Model inversion attacks aim to recover class-specific features or construct class representatives by accessing the target model and other possible auxiliary information. The recovered data is a representing sample (usually a synthetic sample) that only reflects some aspects of the training data and is not a member of the training set.
@@ -129,7 +125,7 @@ In the realm of FL, plenty of studies have shown how to break the basic privacy 
 ![](_page_4_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates a toxicity classifier's performance. Four example tweets, labeled as non-toxic (per Spears, 1998), are fed into a classifier. The classifier's output is compared against PerspectiveAPI's toxicity scores, showing varying levels of agreement. The diagram uses icons (leaves for non-toxic, skull for toxic) and percentages to represent the toxicity scores, visually demonstrating the classifier's accuracy in identifying toxic language. -->
 
-Fig. 2. Racial disparities in classifier predictions on tweets written in African-American English and in Standard American English (reproduced from [\[156\]](#page-33-0)).
+Figure 2. Racial disparities in classifier predictions on tweets written in African-American English and in Standard American English (reproduced from [\[156\]](#page-33-0)).
 
 Multi-party computation [\[203\]](#page-35-0) was first introduced to secure the private inputs of multiple participants while they jointly compute an agreed-upon model or function. Formally,*n*participants*<sup>p</sup>*1,*p*2,..., and *<sup>p</sup><sup>n</sup>*can collaboratively compute*<sup>y</sup>*<sup>=</sup>*<sup>f</sup>* (*x*1,..., *<sup>x</sup><sup>n</sup>*), where*<sup>x</sup><sup>i</sup>*is a secret input that belongs to participants*p<sup>i</sup>*, This form of secure computing offers both correctness and privacy. After all, no participant learns anything about the others' data other than the final result.
 
@@ -159,24 +155,23 @@ Algorithms are widely used to assist in making recommendations, assessing loan a
 
 Apart from algorithmic fairness, which is measured on sensitive attributes, fairness in FL can also be made from a client's view, since clients are naturally grouped by attributes such as geographic location, gender, and income [\[39\]](#page-29-0). At a client level, fairness can be evaluated by different metrics.
 
-<span id="page-6-0"></span>
 
-| Fairness notion         | Definition                                                                 | Explanation                |
+| Fairness notion | Definition | Explanation |
 |-------------------------|----------------------------------------------------------------------------|----------------------------|
-| Individual Fairness     |                                                                            | Similar samples receive    |
-| [42]                    | D(M(x), M(y)) ≤ d(x,y)                                                     | similar treatment          |
-| Eqal Opportunity        |                                                                            | Equal true positive rates  |
-| [72]                    | Pr[Yˆ =<br>1 A = 0,Y = 1] = Pr[Yˆ =<br>1 A = 1,Y = 1]                      | for protected/unprotected  |
-|                         |                                                                            | groups                     |
-| Equal Accuracy          |                                                                            | Equal prediction accuracy  |
-| [12]                    | Pr[Yˆ =<br>Y  A = 0] = Pr[Yˆ =<br>Y  A = 1]                                | for protected/unprotected  |
-|                         |                                                                            | groups                     |
-| Equalized Odds          |                                                                            | Equal positive rates for   |
-| [72]                    | Pr[Yˆ =<br>1 A = 1,Y = y] = Pr[Yˆ =<br>1 A = 0,Y = y], y ∈ {0, 1}          | protected/unprotected      |
-|                         |                                                                            | groups                     |
-| Treatment Equality [12] | Equal false negatives and false positives for protected/unprotected groups |                            |
-| Demographic Parity      | Pr[Yˆ A<br>= 0] = Pr[Yˆ A                                                  | Outcome is independent     |
-| [105]                   | = 1]                                                                       | of the protected attribute |
+| Individual Fairness | | Similar samples receive |
+| [42] | D(M(x), M(y)) ≤ d(x,y) | similar treatment |
+| Eqal Opportunity | | Equal true positive rates |
+| [72] | Pr[Yˆ =<br>1 A = 0,Y = 1] = Pr[Yˆ =<br>1 A = 1,Y = 1] | for protected/unprotected |
+| | | groups |
+| Equal Accuracy | | Equal prediction accuracy |
+| [12] | Pr[Yˆ =<br>Y A = 0] = Pr[Yˆ =<br>Y A = 1] | for protected/unprotected |
+| | | groups |
+| Equalized Odds | | Equal positive rates for |
+| [72] | Pr[Yˆ =<br>1 A = 1,Y = y] = Pr[Yˆ =<br>1 A = 0,Y = y], y ∈ {0, 1} | protected/unprotected |
+| | | groups |
+| Treatment Equality [12] | Equal false negatives and false positives for protected/unprotected groups | |
+| Demographic Parity | Pr[Yˆ A<br>= 0] = Pr[Yˆ A | Outcome is independent |
+| [105] | = 1] | of the protected attribute |
 
 Table 2. Definitions of Algorithmic Fairness Notions
 *Definition 1 (Good-intent Fairness [\[135\]](#page-32-0)).*The training procedure does not overfit a model to any device at the expense of other clients in FL.
@@ -240,10 +235,10 @@ Fredrikson et al. [\[54\]](#page-29-0) initiated model inversion attacks on tabu
 
 Unlike MIAs, reconstruction attacks attempt to retrieve training data and pose a much more severe threat to privacy. As demonstrated by Aono et al. [\[5\]](#page-27-0), the gradient of the weights is proportional to that of the bias in the first layer of the model, and their ratio approximates the training input.
 
-|             | Theoretical<br>guarantee | Convergence   | Running<br>time | Recovered<br>image | Applicability | Insight |
+| | Theoretical<br>guarantee | Convergence | Running<br>time | Recovered<br>image | Applicability | Insight |
 |-------------|--------------------------|---------------|-----------------|--------------------|---------------|---------|
-| Opt-based   | No                       | Local optimal | Slow            | With artifacts     | No limitation | No      |
-| Closed-form | Yes                      | /             | Fast            | Original           | Limited       | Yes     |
+| Opt-based | No | Local optimal | Slow | With artifacts | No limitation | No |
+| Closed-form | Yes | / | Fast | Original | Limited | Yes |
 
 Table 3. Comparison between Two Reconstruction Attack Categories
 
@@ -279,21 +274,21 @@ To address these difficulties with the batch size, Fowl et al. [\[52\]](#page-29
 
 *3.4.3 Discussion.*The closed-form attacks outperform optimization-based attacks in several aspects. First, the closed-form attacks provide a theoretical guarantee of convergence. In contrast, optimization-based attacks suffer from the local optimum problem, since a non-convex optimization may not always converge to a correct solution [\[58\]](#page-29-0). Further, optimization-based attacks are sensitive to initialization [\[229\]](#page-36-0), whereas closed-form attacks are not. Second, the
 
-|                             | Objective function                                            |                                  | Maximal    | Opt-based/  | Theoretical | Additional                        |
+| | Objective function | | Maximal | Opt-based/ | Theoretical | Additional |
 |-----------------------------|---------------------------------------------------------------|----------------------------------|------------|-------------|-------------|-----------------------------------|
-| Method                      | Lдrad                                                         | Raux                             | batch size | Closed-form | guarantee   | information                       |
-| iDLG [224]                  | l2<br>distance                                                | /                                | 8          | Opt-based   | No          | No                                |
-| DLG [229]                   | l2<br>distance                                                | /                                | 8          | Opt-based   | Yes         | No                                |
-| Inverting<br>gradients [58] | Cosine<br>similarity                                          | Total variance                   | 100        | Opt-based   | Yes         | Local updates;<br>BN statistics   |
-| [191]                       | l2<br>distance                                                | Label-based<br>regularizer       | 8          | Opt-based   | Yes         | No                                |
-| SAPAG [186]                 | Gaussian<br>kernel<br>based function                          | /                                | 8          | Opt-based   | No          | No                                |
-| R-GAP [228]                 | Recursive<br>gradients                                        | /                                | 5          | Closed-form | No          | No                                |
-| Theory<br>oriented [144]    | l2<br>distance                                                | l1<br>distance of<br>feature map | 32         | Closed-form | Yes         | Exclusive<br>activated<br>neurons |
-| GradInversion<br>[206]      | Group<br>l2<br>distance<br>consistency                        |                                  | 48         | Opt-based   | No          | BN statistcs                      |
-| CAFÉ [86]                   | l2<br>distance<br>Total variance                              |                                  | 100        | Opt-based   | Yes         | Batch indices                     |
-| GIAS&GIM [81]               | Negative<br>l2<br>cosine                                      |                                  | 4          | Opt-based   | No          | No                                |
-| Imprint<br>module [52]      | One-shot<br>mechanism                                         | /                                | 16384      | Closed-form | Yes         | CDF                               |
-| GradViT [73]                | Image prior;<br>l2<br>distance<br>Auxiliary<br>Regularization |                                  | 64         | Opt-based   | No          | Auxiliary<br>networks             |
+| Method | Lдrad | Raux | batch size | Closed-form | guarantee | information |
+| iDLG [224] | l2<br>distance | / | 8 | Opt-based | No | No |
+| DLG [229] | l2<br>distance | / | 8 | Opt-based | Yes | No |
+| Inverting<br>gradients [58] | Cosine<br>similarity | Total variance | 100 | Opt-based | Yes | Local updates;<br>BN statistics |
+| [191] | l2<br>distance | Label-based<br>regularizer | 8 | Opt-based | Yes | No |
+| SAPAG [186] | Gaussian<br>kernel<br>based function | / | 8 | Opt-based | No | No |
+| R-GAP [228] | Recursive<br>gradients | / | 5 | Closed-form | No | No |
+| Theory<br>oriented [144] | l2<br>distance | l1<br>distance of<br>feature map | 32 | Closed-form | Yes | Exclusive<br>activated<br>neurons |
+| GradInversion<br>[206] | Group<br>l2<br>distance<br>consistency | | 48 | Opt-based | No | BN statistcs |
+| CAFÉ [86] | l2<br>distance<br>Total variance | | 100 | Opt-based | Yes | Batch indices |
+| GIAS&GIM [81] | Negative<br>l2<br>cosine | | 4 | Opt-based | No | No |
+| Imprint<br>module [52] | One-shot<br>mechanism | / | 16384 | Closed-form | Yes | CDF |
+| GradViT [73] | Image prior;<br>l2<br>distance<br>Auxiliary<br>Regularization | | 64 | Opt-based | No | Auxiliary<br>networks |
 
 Table 4. Comparison of Reconstruction Attacks in FL
 
@@ -341,16 +336,15 @@ Yang et al. created [\[200\]](#page-35-0) NISS to avoid the tradeoff between acc
 
 *3.5.4 Discussion.*Table [5](#page-15-0) summarized and compared the existing defense techniques. Cryptographic approaches preserve privacy to a great extent while suffering from computational
 
-<span id="page-15-0"></span>
 
-| Attack                 | Defense<br>method                                                                    | Rationale                                                                             | Advantage                                        | Disadvantage                                                                                     |
+| Attack | Defense<br>method | Rationale | Advantage | Disadvantage |
 |------------------------|--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|--------------------------------------------------|--------------------------------------------------------------------------------------------------|
-|                        | HE<br>[5, 85, 162]                                                                   | Gradients are encrypted                                                               | Accurate                                         | 1. Vulnerable if there are<br>multiple colluding entities;<br>2. Ineffective at inference        |
-| RA                     | Secret sharing<br>[14, 136, 160]                                                     | Hiding information about<br>clients' individual update,<br>except for their sum       | 1. Accurate; 2. Robust to<br>users dropping out  | Ineffective at inference                                                                         |
-|                        | Variational<br>Using surrogate gradient<br>bottleneck<br>to protect privacy<br>[158] |                                                                                       | Keep training process<br>and performance intact  | Limited to optimization-based<br>attack                                                          |
-|                        | Gradient<br>compression<br>[114, 172, 229]                                           | Compressing gradients to<br>prevent reconstruct private<br>data by matching gradients | 1. Easy to implement;<br>2. Reduce communication | Requires considerable noise,<br>degrades model performance,<br>and increases convergence<br>time |
-| RA,<br>MIA,<br>and PIA | DP<br>[25, 124, 191]                                                                 | Hiding private information<br>by injecting noise to the<br>raw data, model, or output | 1. Easy to implement;<br>2. Long-term protection |                                                                                                  |
-|                        | TEEs<br>[96, 133]                                                                    | Isolating part of networks<br>from the untrusted<br>environments                      | Reduce computation                               | Limited memory space                                                                             |
+| | HE<br>[5, 85, 162] | Gradients are encrypted | Accurate | 1. Vulnerable if there are<br>multiple colluding entities;<br>2. Ineffective at inference |
+| RA | Secret sharing<br>[14, 136, 160] | Hiding information about<br>clients' individual update,<br>except for their sum | 1. Accurate; 2. Robust to<br>users dropping out | Ineffective at inference |
+| | Variational<br>Using surrogate gradient<br>bottleneck<br>to protect privacy<br>[158] | | Keep training process<br>and performance intact | Limited to optimization-based<br>attack |
+| | Gradient<br>compression<br>[114, 172, 229] | Compressing gradients to<br>prevent reconstruct private<br>data by matching gradients | 1. Easy to implement;<br>2. Reduce communication | Requires considerable noise,<br>degrades model performance,<br>and increases convergence<br>time |
+| RA,<br>MIA,<br>and PIA | DP<br>[25, 124, 191] | Hiding private information<br>by injecting noise to the<br>raw data, model, or output | 1. Easy to implement;<br>2. Long-term protection | |
+| | TEEs<br>[96, 133] | Isolating part of networks<br>from the untrusted<br>environments | Reduce computation | Limited memory space |
 
 Table 5. Privacy-preserving Methods in FL
 
@@ -364,24 +358,23 @@ This section reviews existing privacy attacks and defense approaches in FL. Tabl
 
 From the defender's perspective, protecting privacy in FL is also different from that in the centralized scenario. (1)*The malicious attacker could be the server or any client*. FL allows clients to keep private data local. A central server is designed to orchestrate the training process, which
 
-<span id="page-16-0"></span>
 
-| Attack                                                                  | Ref.  | Access | Attack<br>interface                            | Assumptions                                                                                  | Key technique                                                                                                                      |
+| Attack | Ref. | Access | Attack<br>interface | Assumptions | Key technique |
 |-------------------------------------------------------------------------|-------|--------|------------------------------------------------|----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-|                                                                         | [165] | BB     | Confidence<br>vector                           | Knowledge about population<br>data                                                           | Inferring from the discrepancies of<br>predictions on training set versus<br>unseen data                                           |
-| Inference Attack<br>Membership                                          | [139] | WB     | Model<br>parameters                            | A significant portion of the<br>training data                                                | Reversing the SGD algorithm                                                                                                        |
-|                                                                         | [108] | WB     | Model<br>parameters                            | A proxy dataset sampled from<br>the ground-truth distribution                                | Inferring from parameter differences<br>between the target and proxy model                                                         |
-| [7]<br>WB<br>Inference Attack<br>Property<br>[187]<br>WB<br>[184]<br>WB |       |        | Model<br>parameters                            | 1. Knowledge about training<br>data structure; 2. Access to the<br>ground-truth distribution | A meta-classifier to infer properties<br>from multiple shadow classifier<br>parameters                                             |
-|                                                                         |       |        | Model<br>updates                               | Adversary can manipulate<br>more than one device in FL                                       | Inferring other clients' data from the<br>periodic model updates                                                                   |
-|                                                                         |       |        | Model<br>updates                               | 1. Client's average label count;<br>2. Number of samples per label                           | Inferring from the layer neuron<br>weight changes                                                                                  |
-| Model Inversion Attack                                                  | [53]  | BB/WB  | Confidence<br>vectors /<br>Model<br>parameters | 1. Side information; 2. Simple<br>networks                                                   | Optimizing the input to maximize<br>confidence vectors subject to the<br>classification matches the target                         |
-|                                                                         | [202] | BB     | Confidence<br>vectors                          | 1. Auxiliary dataset retains<br>meaningful prior information;<br>2. Simple networks          | An inverse model approximates the<br>mapping between predictions<br>and images                                                     |
-|                                                                         | [223] | WB     | Feature<br>extractor                           | An auxiliary dataset retains<br>meaningful prior information                                 | 1. Distilling prior knowledge from<br>an auxiliary dataset via GAN;<br>2. Optimizing the generated image to<br>maximize likelihood |
-|                                                                         | [188] | WB     | Client<br>updates                              | 1. Shallow target model;<br>2. Low-resolution image                                          | A GAN with multi-task discriminator<br>to enhance fidelity and identify client                                                     |
-| Reconstruction Attack                                                   | [58]  | WB     | Client<br>updates                              | 1. Honest-but-curious server in<br>FL; 2. Small batches                                      | Optimizing the image to get a similar<br>change in model prediction as the<br>target images                                        |
-|                                                                         | [229] | WB     | Gradients                                      | 1. Small image size; 2. Single<br>batches; 3. Target model is<br>twice differentiable        | Jointly optimizing inputs and labels<br>to match gradients                                                                         |
-|                                                                         | [73]  | WB     | Gradients                                      | Auxiliary networks provide<br>image prior                                                    | Optimizing inputs to match the target<br>gradients with image prior and<br>auxiliary regularizer                                   |
-|                                                                         | [206] | WB     | BN layers                                      | 1. BN layers in target model;<br>2. No repeating labels in a<br>batch.                       | Optimizing the input to match the<br>statistics of BN layers of the target<br>model                                                |
+| | [165] | BB | Confidence<br>vector | Knowledge about population<br>data | Inferring from the discrepancies of<br>predictions on training set versus<br>unseen data |
+| Inference Attack<br>Membership | [139] | WB | Model<br>parameters | A significant portion of the<br>training data | Reversing the SGD algorithm |
+| | [108] | WB | Model<br>parameters | A proxy dataset sampled from<br>the ground-truth distribution | Inferring from parameter differences<br>between the target and proxy model |
+| [7]<br>WB<br>Inference Attack<br>Property<br>[187]<br>WB<br>[184]<br>WB | | | Model<br>parameters | 1. Knowledge about training<br>data structure; 2. Access to the<br>ground-truth distribution | A meta-classifier to infer properties<br>from multiple shadow classifier<br>parameters |
+| | | | Model<br>updates | Adversary can manipulate<br>more than one device in FL | Inferring other clients' data from the<br>periodic model updates |
+| | | | Model<br>updates | 1. Client's average label count;<br>2. Number of samples per label | Inferring from the layer neuron<br>weight changes |
+| Model Inversion Attack | [53] | BB/WB | Confidence<br>vectors /<br>Model<br>parameters | 1. Side information; 2. Simple<br>networks | Optimizing the input to maximize<br>confidence vectors subject to the<br>classification matches the target |
+| | [202] | BB | Confidence<br>vectors | 1. Auxiliary dataset retains<br>meaningful prior information;<br>2. Simple networks | An inverse model approximates the<br>mapping between predictions<br>and images |
+| | [223] | WB | Feature<br>extractor | An auxiliary dataset retains<br>meaningful prior information | 1. Distilling prior knowledge from<br>an auxiliary dataset via GAN;<br>2. Optimizing the generated image to<br>maximize likelihood |
+| | [188] | WB | Client<br>updates | 1. Shallow target model;<br>2. Low-resolution image | A GAN with multi-task discriminator<br>to enhance fidelity and identify client |
+| Reconstruction Attack | [58] | WB | Client<br>updates | 1. Honest-but-curious server in<br>FL; 2. Small batches | Optimizing the image to get a similar<br>change in model prediction as the<br>target images |
+| | [229] | WB | Gradients | 1. Small image size; 2. Single<br>batches; 3. Target model is<br>twice differentiable | Jointly optimizing inputs and labels<br>to match gradients |
+| | [73] | WB | Gradients | Auxiliary networks provide<br>image prior | Optimizing inputs to match the target<br>gradients with image prior and<br>auxiliary regularizer |
+| | [206] | WB | BN layers | 1. BN layers in target model;<br>2. No repeating labels in a<br>batch. | Optimizing the input to match the<br>statistics of BN layers of the target<br>model |
 
 Table 6. Comparison of Privacy Attacks in FL
 
@@ -415,7 +408,7 @@ Hardt et al. [\[72\]](#page-30-0) proposed a post-processing technique to constr
 
 *4.1.4 Discussion.*Three different kinds of debiasing methods are at hand in centralized machine learning. However, solutions in the centralized setting cannot be applied directly in the FL scenario due to limitations with the training data. More specifically, in federated settings, the clients usually have limited amounts of data. Hence, a single client cannot accurately represent the true distribution over all clients. Consequently, debiasing data before training is not an option. Another limitation is that direct access to local data is prohibited on the server side. Nevertheless, canny researchers have found inspiration from and workarounds to these issues. Gálvez et al. [\[55\]](#page-29-0), for example, bypassed this access restriction by using statistics to guide the model's training instead of the raw data.
 
-# 4.2 Client Fairness
+## 4.2 Client Fairness
 
 Client fairness in FL is another different fairness notion than algorithmic notions. Ideally, the models produced from FL should capture clients' data distributions and generalize well when deployed on the client side. However, data distribution usually varies among clients. As a result, the global model has inconsistent performance on different clients' dataset. At the client level, an FL protocol is considered to be fair if the performance fluctuates within a limited range, i.e., the variance in the model's performance across clients falls under a predefined threshold. To this end, two lines of research exist to mitigate fairness issues in FL. These are the*single model approach*and the*personalized models approach*.
 
@@ -439,34 +432,33 @@ Chao [\[24\]](#page-28-0) decomposed an FL model as a generic predictor, which i
 -**Meta-learning**aims to leverage prior experience with other tasks to facilitate the learning process. The resulting models are highly adaptable to new heterogeneous tasks [\[50,](#page-29-0) [140\]](#page-33-0). Fallah et al. [\[46\]](#page-29-0) studied a personalized variant of FedAvg based on model-agnostic metalearning formulation. The proposed Per-FedAvg algorithm looks for an initial model that performs well after one step of the local gradient update on each client's data. Others have interpreted FedAvg as a meta-learning algorithm, breaking it into two stages of training and fine-tuning to optimize personalized performance and model convergence [\[83,](#page-30-0) [99\]](#page-31-0).
 *4.2.3 Discussion.*In addition to algorithmic fairness, client fairness is another concern in the FL community. Table [7](#page-21-0) enumerated various works on these two topics. Regarding client fairness, the single model approach focuses on smoothing data heterogeneity, where it is easy to implement and can be added to the general FL paradigm, since it only needs modest modification. On the downside, the single model approach is less effective than personalized approaches in terms of capturing local data distribution and may be insufficient when the data distributions vary significantly between clients. Additionally, the single-model approach does not allow clients to customize their models.
 
-# 4.3 Discussion of Fairness in FL
+## 4.3 Discussion of Fairness in FL
 
 There are two definitions of fairness in FL:*client fairness*and*algorithmic fairness*. *Algorithmic fairness*has been extensively studied in centralized machine learning. These algorithms presuppose centralized access to data, however, one virtue of FL is data never leaves the device. This means neither the server nor any client gains centralized access to the training data. Therefore, generalizing
 
-<span id="page-21-0"></span>
 
-| Reference                   | Single<br>Model | Personalized<br>Model | Algorithmic<br>Fairness | Client<br>Fairness | Method               |  |
+| Reference | Single<br>Model | Personalized<br>Model | Algorithmic<br>Fairness | Client<br>Fairness | Method | |
 |-----------------------------|-----------------|-----------------------|-------------------------|--------------------|----------------------|--|
-| [70,<br>82,<br>226]         |                 |                       |                         |                    | Data Augmentation    |  |
-| [40,<br>183,<br>198]        |                 |                       |                         |                    | Client Selection     |  |
-| [145]                       |                 |                       |                         |                    | Agnostic approach    |  |
-| [39]                        |                 |                       |                         |                    | Agnostic approach    |  |
-| [75,<br>135]                |                 |                       |                         |                    | Agnostic approach    |  |
-| [45]                        |                 |                       |                         |                    | Reweight             |  |
-| [76,<br>113]                |                 |                       |                         |                    | Reweight             |  |
-| [55,<br>94,<br>209]         |                 |                       |                         |                    | Regularization       |  |
-| [17,<br>60,<br>125,<br>157] |                 |                       |                         |                    | Cluster              |  |
-| [35,<br>69,<br>125,<br>220] |                 |                       |                         |                    | Model interpolation  |  |
-| [3,<br>37,<br>115,<br>167]  |                 |                       |                         |                    | Multi-task learning  |  |
-| [24,<br>115]                |                 |                       |                         |                    | Parameter decoupling |  |
-| [109,<br>118]               |                 |                       |                         |                    | Transfer learning    |  |
-| [112,<br>163,<br>204]       |                 |                       |                         |                    | Regularization       |  |
-| [46,<br>83,<br>99,<br>166]  |                 |                       |                         |                    | Meta-learning        |  |
+| [70,<br>82,<br>226] | | | | | Data Augmentation | |
+| [40,<br>183,<br>198] | | | | | Client Selection | |
+| [145] | | | | | Agnostic approach | |
+| [39] | | | | | Agnostic approach | |
+| [75,<br>135] | | | | | Agnostic approach | |
+| [45] | | | | | Reweight | |
+| [76,<br>113] | | | | | Reweight | |
+| [55,<br>94,<br>209] | | | | | Regularization | |
+| [17,<br>60,<br>125,<br>157] | | | | | Cluster | |
+| [35,<br>69,<br>125,<br>220] | | | | | Model interpolation | |
+| [3,<br>37,<br>115,<br>167] | | | | | Multi-task learning | |
+| [24,<br>115] | | | | | Parameter decoupling | |
+| [109,<br>118] | | | | | Transfer learning | |
+| [112,<br>163,<br>204] | | | | | Regularization | |
+| [46,<br>83,<br>99,<br>166] | | | | | Meta-learning | |
 
 Table 7. Summary of Fairness-aware FL
 
 the fair learning algorithms to FL is not trivial. On the one hand, data are stored locally in FL. The server cannot directly access the local data of clients. Hence, server-side debiasing is not a viable solution. On the other hand, debiasing on the client side is ineffective due to the inadequate data, which can hardly represent the global data distribution [\[128\]](#page-32-0). There is no guarantee that model debiased with local data will generalize to the global distribution. The non-i.i.d. data distributions further complicated this problem [\[88\]](#page-31-0).
-*Client fairness*is tailored to FL and stems from the non-i.i.d. data. Each client sampled the training data from a distinct distribution. In this case, the vanilla FL protocol,*FedAvg*, fails to train a model to fit clients' data distribution. Various methods have been proposed to alleviate this. From the data aspect, References [\[70,](#page-30-0) [82,](#page-30-0) [226\]](#page-36-0) proposed to augment client data to yield an i.i.d. dataset. References [\[40,](#page-29-0) [183,](#page-34-0) [198\]](#page-35-0) proposed to select participant clients to form a more homogeneous distribution. However, their methods did not consider the possible algorithmic fairness issues and may introduce bias to the model by choosing specific clients at a higher probability than others. From the model perspective, training different models for different clients seems a natural solution to the non-i.i.d. challenge. The core idea is to train global data collaboratively and then personalize it to local data distribution.
+**Client fairness:** is tailored to FL and stems from the non-i.i.d. data. Each client sampled the training data from a distinct distribution. In this case, the vanilla FL protocol,*FedAvg*, fails to train a model to fit clients' data distribution. Various methods have been proposed to alleviate this. From the data aspect, References [\[70,](#page-30-0) [82,](#page-30-0) [226\]](#page-36-0) proposed to augment client data to yield an i.i.d. dataset. References [\[40,](#page-29-0) [183,](#page-34-0) [198\]](#page-35-0) proposed to select participant clients to form a more homogeneous distribution. However, their methods did not consider the possible algorithmic fairness issues and may introduce bias to the model by choosing specific clients at a higher probability than others. From the model perspective, training different models for different clients seems a natural solution to the non-i.i.d. challenge. The core idea is to train global data collaboratively and then personalize it to local data distribution.
 
 ## 5 INTERACTIONS BETWEEN PRIVACY AND FAIRNESS
 
@@ -475,33 +467,33 @@ As shown in Figure [3,](#page-22-0) privacy and fairness are intertwined. On the
 <span id="page-22-0"></span>![](_page_22_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates the interplay between privacy, fairness, and accuracy in deep learning models. Three circles represent Privacy, Fairness, and Accuracy, connected to a central "Deep Learning Model" circle. Solid arrows show direct positive relationships, while dashed arrows indicate that degraded privacy and fairness negatively impact accuracy. The image's purpose is to visually represent the complex trade-offs inherent in developing responsible deep learning systems. -->
 
-Fig. 3. Privacy, fairness, and accuracy tradeoffs in deep learning: (1) privacy comes at the cost of accuracy; (2) fairness comes at the cost of accuracy; and (3) privacy interacts with fairness [\[222\]](#page-36-0).
+Figure 3. Privacy, fairness, and accuracy tradeoffs in deep learning: (1) privacy comes at the cost of accuracy; (2) fairness comes at the cost of accuracy; and (3) privacy interacts with fairness [\[222\]](#page-36-0).
 
-|           | Privacy                  | Fairness             | Techniques to achieve | Tradeoff              |      |
+| | Privacy | Fairness | Techniques to achieve | Tradeoff | |
 |-----------|--------------------------|----------------------|-----------------------|-----------------------|------|
-| Reference | notion                   | notion               | Privacy               | Fairness              | Type |
-| [33]      | ϵ-DP                     |                      | Exponential           | Minimize              | I    |
-|           |                          | α-Discrimination     | mechanism             | discrimination scores |      |
-| [195]     | ϵ-DP                     | Decision boundary    | Functional            | Fairness constraints  | I    |
-|           |                          | fairness             | mechanism             |                       |      |
-| [137]     | ϵ-DP                     | α-Equal opportunity  | Local DP              | Post-processing       | I    |
-| [106]     | ϵ-DP                     | Equal odds &         | Class conditional     |                       | I    |
-|           |                          | Demographic parity   | noise                 | Fairness constraints  |      |
-| [36]      | ϵ-DP &                   | Decision boundary    | Functional            | Fairness constraints  | I    |
-|           | (ϵ, δ )-DP               | fairness             | mechanism             |                       |      |
-| [80]      | (ϵ, δ )-DP               |                      | Exponential           |                       |      |
-|           |                          | α-Equal opportunity  | mechanism             | Fairness constraints  | /    |
-|           |                          |                      | & Laplace noise       |                       |      |
-| [121]     | (ϵ, δ )-DP               | Equal odds &         | DP-SGDA               | ERMI regularizer      | II   |
-|           |                          | Demographic parity   |                       |                       |      |
-| [44]      | (ϵ, δ )-DP               | Excessive risk gap   | DPSGD-Global-Adapt    | Gradient correction   | II   |
-| [175]     | (α, ϵp<br>)-<br>Rényi DP | Equal odds,          |                       | Fairness constraints  |      |
-|           |                          | Accuracy parity      | DP-SGD                |                       | II   |
-|           |                          | & Demographic parity |                       |                       |      |
-| [100]     | /                        | Equal accuracy       | MPC                   | Fairness constraints  | II   |
-| [65]      | /                        | Equal opportunity    | Proxy attribute       | Post-processing       | II   |
-| [185]     | /                        | Demographic parity   | Noisy attribute       | Fairness constraints  | II   |
-| [8]       | /                        | Equal odds           | Noisy attribute       | Post-processing       | II   |
+| Reference | notion | notion | Privacy | Fairness | Type |
+| [33] | ϵ-DP | | Exponential | Minimize | I |
+| | | α-Discrimination | mechanism | discrimination scores | |
+| [195] | ϵ-DP | Decision boundary | Functional | Fairness constraints | I |
+| | | fairness | mechanism | | |
+| [137] | ϵ-DP | α-Equal opportunity | Local DP | Post-processing | I |
+| [106] | ϵ-DP | Equal odds & | Class conditional | | I |
+| | | Demographic parity | noise | Fairness constraints | |
+| [36] | ϵ-DP & | Decision boundary | Functional | Fairness constraints | I |
+| | (ϵ, δ )-DP | fairness | mechanism | | |
+| [80] | (ϵ, δ )-DP | | Exponential | | |
+| | | α-Equal opportunity | mechanism | Fairness constraints | / |
+| | | | & Laplace noise | | |
+| [121] | (ϵ, δ )-DP | Equal odds & | DP-SGDA | ERMI regularizer | II |
+| | | Demographic parity | | | |
+| [44] | (ϵ, δ )-DP | Excessive risk gap | DPSGD-Global-Adapt | Gradient correction | II |
+| [175] | (α, ϵp<br>)-<br>Rényi DP | Equal odds, | | Fairness constraints | |
+| | | Accuracy parity | DP-SGD | | II |
+| | | & Demographic parity | | | |
+| [100] | / | Equal accuracy | MPC | Fairness constraints | II |
+| [65] | / | Equal opportunity | Proxy attribute | Post-processing | II |
+| [185] | / | Demographic parity | Noisy attribute | Fairness constraints | II |
+| [8] | / | Equal odds | Noisy attribute | Post-processing | II |
 
 Table 8. Private and Fair Learning
 
@@ -535,7 +527,7 @@ Fairness, in turn, presents challenges for privacy mechanisms. Chang and Shokri 
 
 approach [\[2\]](#page-27-0) by incorporating privacy considerations. They formulated a two-player zero-sum game, played between a "learner" and an "auditor," to derive a fair classifier. Laplacian noise [\[43\]](#page-29-0) and the exponential mechanism [\[129\]](#page-32-0) were utilized separately for the "learner" and the "auditor." As a result, the learned model satisfies (*ϵ*, *<sup>δ</sup>*)-DP and achieves equalized odds.
 
-#### 5.3 Fair and Private FL
+### 5.3 Fair and Private FL
 
 In centralized machine learning, one entails centralized access to training data (either the true data or noisy data). However, this is invalid in FL, where neither the server nor clients have access to others' data. Therefore, one cannot simply apply centralized fair learning algorithms in FL tasks. This raises a question:*How can we promote algorithmic fairness in FL without accessing clients' data in FL*? Several studies made progress in response to this challenge.
 
@@ -549,7 +541,7 @@ Although some fair FL algorithms do not directly access the training data [\[31,
 
 clients/server in FL, some privacy-preserving techniques, such as DP, can be combined with the aforementioned fair FL approaches to prevent privacy leakage.
 
-#### 5.4 Discussion of Privacy and Fairness Interactions
+### 5.4 Discussion of Privacy and Fairness Interactions
 
 The complex interactions between privacy and fairness have been thoroughly examined and documented in various studies. These investigations highlight the intricate tradeoffs and challenges that arise when attempting to simultaneously address both privacy and fairness objectives [\[33\]](#page-28-0).
 
@@ -559,7 +551,7 @@ In another case, fairness can increase privacy risks. To achieve fairness, it ma
 
 In the context of FL, the cooperative game between clients and the server adds complexity to the privacy and fairness challenges. FL introduces new privacy attack surfaces, as discussed in Section [3,](#page-6-0) where potential malicious participants can actively or passively infer the private data of other clients. Consequently, securing private information in FL requires even stronger privacy protection measures compared to the centralized setting. Merely protecting group membership is insufficient to address the privacy risks in FL. Furthermore, the**non-i.i.d. (non-independent and identically distributed)**nature of FL poses another challenge. In a typical FL system, clients' data are sampled from different distributions, leading to data heterogeneity. A model that achieves fairness within the local distribution of each client is not guaranteed to perform unbiasedly on a global scale. The non-i.i.d. issue also introduces potential fairness concerns at the client level, as the performance of the model can vary significantly among clients. It is crucial to address this variation and ensure fairness across all participating clients in FL. The challenge lies in training a fair model in FL without violating the data access restrictions imposed by each client. Finding methods to mitigate the fairness issues arising from the non-i.i.d. nature of the data while respecting the privacy and data access constraints in FL remains a challenging task.
 
-#### 6 OPEN RESEARCH DIRECTIONS
+### 6 OPEN RESEARCH DIRECTIONS
 
 The research community has made fruitful progress in privacy and fairness in FL. However, throughout this survey, we found this field still faces several challenges that need to be solved.
 

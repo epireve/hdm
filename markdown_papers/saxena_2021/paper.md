@@ -27,8 +27,6 @@ keywords:
 - state-of-the-art
 ---
 
-
-
 # Question Answering Over Temporal Knowledge Graphs
 
 Apoorv Saxena Indian Institute of Science Bangalore apoorvsaxena@iisc.ac.in
@@ -55,19 +53,18 @@ The task of Knowledge Graph Question Answering (KGQA) is to answer natural langu
 
 KG Embeddings are low-dimensional dense vector representations of entities and relations in a KG. Several methods have been proposed in the literature to embed KGs [\(Bordes et al.](#page-8-2) [2013,](#page-8-2) [Trouillon](#page-10-5) [et al.](#page-10-5) [2016,](#page-10-5) [Vashishth et al.](#page-10-6) [2020\)](#page-10-6). These embeddings were originally proposed for the task of KG completion i.e., predicting missing edges in the KG, since most real world KGs are incomplete. Recently, however, they have also been applied to the task of KGQA where they have been shown to increase performance the settings of both of complete and incomplete KGs [\(Saxena et al.](#page-9-5) [2020;](#page-9-5) [Sun](#page-9-6) [et al.](#page-9-6) [2020\)](#page-9-6).
 
-<span id="page-1-1"></span>
 
-|                      | KG        | Temporal | Question Types | # questions    |          |       |
+| | KG | Temporal | Question Types | # questions | | |
 |----------------------|-----------|----------|----------------|----------------|----------|-------|
-| Dataset              |           | facts    | Multi-Entity   | Multi-Relation | Temporal |       |
-| SimpleQuestions      | FreeBase  | ✗        | ✗              | ✗              | 0%       | 108k  |
-| MetaQA               | MetaQA KG | ✗        | ✗              | ✓              | 0%       | 400k  |
-| WebQuestions         | FreeBase  | ✗        | ✗              | ✓              | <16%     | 5,810 |
-| ComplexWebQuestions  | FreeBase  | ✗        | ✓              | ✓              | -        | 35k   |
-| TempQuestions        | FreeBase  | ✗        | ✓              | ✓              | 100%     | 1,271 |
-| CRONQUESTIONS (ours) | WikiData  | ✓        | ✓              | ✓              | 100%     | 410k  |
+| Dataset | | facts | Multi-Entity | Multi-Relation | Temporal | |
+| SimpleQuestions | FreeBase | ✗ | ✗ | ✗ | 0% | 108k |
+| MetaQA | MetaQA KG | ✗ | ✗ | ✓ | 0% | 400k |
+| WebQuestions | FreeBase | ✗ | ✗ | ✓ | <16% | 5,810 |
+| ComplexWebQuestions | FreeBase | ✗ | ✓ | ✓ | - | 35k |
+| TempQuestions | FreeBase | ✗ | ✓ | ✓ | 100% | 1,271 |
+| CRONQUESTIONS (ours) | WikiData | ✓ | ✓ | ✓ | 100% | 410k |
 
-Table 1: KGQA dataset comparison. Statistics about percentage of temporal questions for WebQuestions are taken from [Jia et al.](#page-9-7) [\(2018a\)](#page-9-7). We do not have an explicit number of temporal questions for ComplexWebQuestions, but since it is constructed automatically using questions from WebQuestions, we expect the percentage to be similar to WebQuestions (16%). Please refer to Section [2.1](#page-1-0) for details.
+**Table 1:** KGQA dataset comparison. Statistics about percentage of temporal questions for WebQuestions are taken from [Jia et al.](#page-9-7) [\(2018a\)](#page-9-7). We do not have an explicit number of temporal questions for ComplexWebQuestions, but since it is constructed automatically using questions from WebQuestions, we expect the percentage to be similar to WebQuestions (16%). Please refer to Section [2.1](#page-1-0) for details.
 
 Temporal KG embeddings are another upcoming area where entities, relations and timestamps in a temporal KG are embedded in a low-dimensional vector space [\(Dasgupta et al.](#page-8-0) [2018,](#page-8-0) [Lacroix et al.](#page-9-2) [2020,](#page-9-2) [Jain et al.](#page-9-3) [2020,](#page-9-3) [Goel et al.](#page-9-8) [2019\)](#page-9-8). Here too, the main application so far has been temporal KG completion. In our work, we investigate whether temporal KG Embeddings can be applied to the task of Temporal KGQA, and how they fare compared to non-temporal embeddings or off-the-shelf methods without any KG Embeddings.
 
@@ -85,7 +82,7 @@ baselines across all question types. CRONKGQA achieves very high accuracy on sim
 
 ### 2 Related work
 
-#### <span id="page-1-0"></span>2.1 Temporal QA data sets
+### <span id="page-1-0"></span>2.1 Temporal QA data sets
 
 There have been several KGQA datasets proposed in the literature (Table [1\)](#page-1-1). In SimpleQuestions [\(Bor](#page-8-1)[des et al.,](#page-8-1) [2015\)](#page-8-1) one needs to extract just a single fact from the KG to answer a question. MetaQA [\(Zhang et al.,](#page-10-3) [2017\)](#page-10-3) and WebQuestionsSP [\(Yih](#page-10-2) [et al.,](#page-10-2) [2015\)](#page-10-2) require multi-hop reasoning, where one must traverse over multiple edges in the KG to reach the answer. ComplexWebQuestions [\(Tal](#page-10-4)[mor and Berant,](#page-10-4) [2018\)](#page-10-4) contains both multi-hop and conjunction/comparison type questions. However, none of these are aimed at temporal reasoning, and the KG they are based on is non-temporal.
 
@@ -93,17 +90,16 @@ Temporal QA datasets have mostly been studied in the area of reading comprehensi
 
 TempQuestions [\(Jia et al.,](#page-9-7) [2018a\)](#page-9-7) is a KGQA dataset specifically aimed at temporal QA. It consists of a subset of questions from WebQuestions, Free917 [\(Cai and Yates,](#page-8-4) [2013\)](#page-8-4) and Complex-Questions [\(Bao et al.,](#page-8-5) [2016\)](#page-8-5) that are temporal in
 
-<span id="page-2-1"></span>
 
-| Reasoning     | Example Template                               | Example Question                                      |
+| Reasoning | Example Template | Example Question |
 |---------------|------------------------------------------------|-------------------------------------------------------|
-| Simple time   | When did {head} hold the position of {tail}    | When did Obama hold the position of President of USA  |
-| Simple entity | Which award did {head} receive in {time}       | Which award did Brad Pitt receive in 2001             |
-| Before/After  | Who was the {tail} {type} {head}               | Who was the President of USA before Obama             |
-| First/Last    | When did {head} play their {adj} game          | When did Messi play their first game                  |
-| Time join     | Who held the position of {tail} during {event} | Who held the position of President of USA during WWII |
+| Simple time | When did {head} hold the position of {tail} | When did Obama hold the position of President of USA |
+| Simple entity | Which award did {head} receive in {time} | Which award did Brad Pitt receive in 2001 |
+| Before/After | Who was the {tail} {type} {head} | Who was the President of USA before Obama |
+| First/Last | When did {head} play their {adj} game | When did Messi play their first game |
+| Time join | Who held the position of {tail} during {event} | Who held the position of President of USA during WWII |
 
-Table 2: Example questions for different types of temporal reasoning. {head}, {tail} and {time} correspond to entities/timestamps in facts of the form (head, relation, tail, timestamp). {event} corresponds to entities in event facts eg. *WWII*. {type} can be one of before/after and {adj} can be one of first/last. Please refer to Section [3.2](#page-2-0) for details.
+**Table 2:** Example questions for different types of temporal reasoning. {head}, {tail} and {time} correspond to entities/timestamps in facts of the form (head, relation, tail, timestamp). {event} corresponds to entities in event facts eg. *WWII*. {type} can be one of before/after and {adj} can be one of first/last. Please refer to Section [3.2](#page-2-0) for details.
 
 nature. They gave a definition for "temporal question" and used certain trigger words (for example 'before', 'after') along with other constraints to filter out questions from these datasets that fell under this definition. However, this dataset contains only 1271 questions — useful only for evaluation — and the KG on which it is based (a subset of FreeBase [\(Bollacker et al.,](#page-8-6) [2008\)](#page-8-6)) is not a temporal KG. Another drawback is that FreeBase has not been under active development since 2015, therefore some information stored in it is outdated and this is a potential source of inaccuracy.
 
@@ -123,35 +119,34 @@ To prepare our temporal KG, we started by taking all facts with temporal annotat
 
 However, this filtering of facts misses out on important world events. For example, the KG subset created using the aforementioned technique contains the entity *World War II*but no associated fact that tells us when*World War II* started or ended. This knowledge is needed to answer questions such as "*Who was the President of the USA during World War II?*." To overcome this shortcoming, we first extracted entities from WikiData that have a "start time" and "end time" annotation. From this set, we then removed entities which were game shows, movies or television series (since these are not important world events, but do have a start and end time annotation), and then removed entities with less than 50 associated facts. This final set of entitities was then added as facts in the format (*WWII, significant event, occurred, 1939, 1945)*. The final Temporal KG consisted of 328k facts out of which 5k are event-facts.
 
-#### <span id="page-2-0"></span>3.2 Temporal Questions
+### <span id="page-2-0"></span>3.2 Temporal Questions
 
 To generate the QA dataset, we started with a set of templates for temporal reasoning. These were made using the five most frequent relations from our WikiData subset, namely
 
-- *member of sports team*-*position held*-*award received*-*spouse*| Template               | When did<br>{head} play in<br>{tail}                                                                                                                  |
+- *member of sports team*-*position held*-*award received*-*spouse*| Template | When did<br>{head} play in<br>{tail} |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Seed Qn                | When did<br>Messi play in<br>FC Barcelona                                                                                                             |
-| Human<br>Paraphrases   | When was<br>Messi playing in<br>FC Barcelona<br>Which years did<br>Messi play in<br>FC Barcelona<br>When did<br>FC Barcelona have Messi in their team |
-|                        | What time did<br>Messi play in<br>FC Barcelona                                                                                                        |
-| Machine<br>Paraphrases | When did<br>Messi play for<br>FC Barcelona<br>When did<br>Messi play at<br>FC Barcelona<br>When has<br>Messi played at<br>FC Barcelona                |
+| Seed Qn | When did<br>Messi play in<br>FC Barcelona |
+| Human<br>Paraphrases | When was<br>Messi playing in<br>FC Barcelona<br>Which years did<br>Messi play in<br>FC Barcelona<br>When did<br>FC Barcelona have Messi in their team |
+| | What time did<br>Messi play in<br>FC Barcelona |
+| Machine<br>Paraphrases | When did<br>Messi play for<br>FC Barcelona<br>When did<br>Messi play at<br>FC Barcelona<br>When has<br>Messi played at<br>FC Barcelona |
 
-Table 3: Slot-filled paraphrases generated by humans and machine. Please refer to Section [3.2](#page-2-0) for details.
+**Table 3:** Slot-filled paraphrases generated by humans and machine. Please refer to Section [3.2](#page-2-0) for details.
 
-<span id="page-3-0"></span>
 
-|               | Train   | Dev    | Test   |
+| | Train | Dev | Test |
 |---------------|---------|--------|--------|
-| Simple Entity | 90,651  | 7,745  | 7,812  |
-| Simple Time   | 61,471  | 5,197  | 5,046  |
-| Before/After  | 23,869  | 1,982  | 2,151  |
-| First/Last    | 118,556 | 11,198 | 11,159 |
-| Time Join     | 55,453  | 3,878  | 3,832  |
+| Simple Entity | 90,651 | 7,745 | 7,812 |
+| Simple Time | 61,471 | 5,197 | 5,046 |
+| Before/After | 23,869 | 1,982 | 2,151 |
+| First/Last | 118,556 | 11,198 | 11,159 |
+| Time Join | 55,453 | 3,878 | 3,832 |
 | Entity Answer | 225,672 | 19,362 | 19,524 |
-| Time Answer   | 124,328 | 10,638 | 10,476 |
-| Total         | 350,000 | 30,000 | 30,000 |
+| Time Answer | 124,328 | 10,638 | 10,476 |
+| Total | 350,000 | 30,000 | 30,000 |
 
-Table 4: Number of questions in our dataset across different types of reasoning required and different answer types. Please refer to Section [3.2.1](#page-4-0) for details.
+**Table 4:** Number of questions in our dataset across different types of reasoning required and different answer types. Please refer to Section [3.2.1](#page-4-0) for details.
 
-#### •*employer*
+### •*employer*
 
 This resulted in 30 unique seed templates over five relations and five different reasoning structures (please see Table [2](#page-2-1) for some examples). Each of these templates has a corresponding procedure that could be executed over the temporal KG to extract all possible answers for that template. However, similar to [Zhang et al.](#page-10-3) [\(2017\)](#page-10-3), we chose not to make this procedure a part of the dataset, to remove unwelcome dependence of QA systems on such formal candidate collection methods. This also allows easy augmentation of the dataset, since only question-answer pairs are needed.
 
@@ -178,7 +173,7 @@ Summarizing, each of our examples contains
 
 The entities are specified as WikiData IDs (e.g., *Q219237*), and times are years (e.g., *1991*). We include the set of entities/times in the test questions as well since similar to other KGQA datasets (MetaQA, WebQuestions, ComplexWebQuestions) and methods that use these datasets (PullNet, EmQL), entity linking is considered as a separate problem and complete entity linking is assumed. We also include the seed template and head/tail/time annotation in the train fold, but omit these from the test fold.
 
-#### <span id="page-4-0"></span>3.2.1 Question Categorization
+### <span id="page-4-0"></span>3.2.1 Question Categorization
 
 In order to aid analysis, we categorize questions into "simple reasoning" and "complex reasoning" questions (please refer to Table [4](#page-3-0) for the distribution statistics).
 
@@ -189,7 +184,7 @@ In order to aid analysis, we categorize questions into "simple reasoning" and "c
 
 We investigate how we can use KG embeddings, both temporal and non-temporal, along with pretrained language models to perform temporal KGQA. We will first briefly describe the specific KG embedding models we use, and then go on to show how we use them in our QA models. In all cases, the scores are turned into suitable losses with regard to positive and negative tuples in an incomplete KG, and these losses minimized to train the entity, time and relation representations.
 
-#### <span id="page-4-1"></span>4.1 ComplEx
+### <span id="page-4-1"></span>4.1 ComplEx
 
 ComplEx [\(Trouillon et al.,](#page-10-5) [2016\)](#page-10-5) represents each entity e as a complex vector u<sup>e</sup> ∈ C <sup>D</sup>. Each relation r is represented as a complex vector v<sup>r</sup> ∈ C D as well. The score φ of a claimed fact (s, r, o) is
 
@@ -201,25 +196,24 @@ $$
 $$
 \Re\left(\sum_{d=1}^D \mathbf{u}_s[d] \mathbf{v}_r[d] \mathbf{u}_o[d]^* \right)
 $$
- (1)
+(1)
 
 where <(·) denotes the real part and c ? is the complex conjugate. Despite further developments, ComplEx, along with refined training protocols
 
 [\(Lacroix et al.,](#page-9-18) [2018\)](#page-9-18) remains among the strongest KB embedding approaches [\(Ruffinelli et al.,](#page-9-19) [2020\)](#page-9-19).
 
-#### <span id="page-4-4"></span>4.2 TComplEx, TNTComplEx
+### <span id="page-4-4"></span>4.2 TComplEx, TNTComplEx
 
 [Lacroix et al.](#page-9-2) [\(2020\)](#page-9-2) took an early step to extend ComplEx with time. Each timestamp t is also represented as a complex vector w<sup>t</sup> ∈ C <sup>D</sup>. For a claimed fact (s, r, o, t), their TComplEx scoring function is
 
-<span id="page-4-5"></span>
 $$
 \phi(s,r,o,t) = \Re(\langle \boldsymbol{u}_s, \boldsymbol{v}_r, \boldsymbol{u}_o^{\star}, \boldsymbol{w}_t \rangle)
 $$
- (2)
+(2)
 
 Their TNTComplEx scoring function uses two representations of relations r: v T r , which is sensitive to time, and vr, which is not. The scoring function is the sum of a time-sensitive and a time-insensitive part: <(hus, v T r ,u ? o , wti + hus, vr,u ? o , 1i).
 
-#### 3 TimePlex
+### 3 TimePlex
 
 TimePlex [\(Jain et al.,](#page-9-3) [2020\)](#page-9-3) augmented ComplEx with embeddings u<sup>t</sup> ∈ C <sup>D</sup> for discretized time instants t. To incorporate time, TimePlex uses three representations for each relation r, viz., (v SO r , v ST r , v OT r ) and writes the base score of a tuple (s, r, o, t) as
 
@@ -244,7 +238,7 @@ We first apply EmbedKGQA [\(Saxena et al.,](#page-9-5) [2020\)](#page-9-5) direc
 <span id="page-5-2"></span>![](_page_5_Figure_0.jpeg)
 <!-- Image Description: This figure illustrates a temporal knowledge graph embedding model. A knowledge graph (left) representing historical facts about US presidents is processed by a temporal knowledge graph embedding (KGE) model. The model generates temporal KG embeddings (center) which, along with a BERT question embedding (bottom), are fed into a network (right). This network calculates entity and time scores (φ<sub>ent</sub>, φ<sub>time</sub>) that use a softmax function to predict the answer (Harry Truman). The diagram visualizes the model's architecture and data flow. -->
 
-Figure 1: The CRONKGQA method. (i) A temporal KG embedding model (Section [4\)](#page-4-2) is used to generate embeddings for each timestamp and entity in the temporal knowledge graph (ii) BERT is used to get two question embeddings: qeent and qetime. (iii) Embeddings of entity/time mentions in the question are combined with question embeddings using equations [4](#page-5-0) and [5](#page-5-1) to get score vectors for entity and time prediction. (iv) Score vectors are concatenated and softmax is used get answer probabilities. Please refer to Section [5](#page-4-3) for details.
+**Figure 1:** The CRONKGQA method. (i) A temporal KG embedding model (Section [4\)](#page-4-2) is used to generate embeddings for each timestamp and entity in the temporal knowledge graph (ii) BERT is used to get two question embeddings: qeent and qetime. (iii) Embeddings of entity/time mentions in the question are combined with question embeddings using equations [4](#page-5-0) and [5](#page-5-1) to get score vectors for entity and time prediction. (iv) Score vectors are concatenated and softmax is used get answer probabilities. Please refer to Section [5](#page-4-3) for details.
 
 "*head entity*" needed by EmbedKGQA. Along with this, we set the entity embedding matrix E to be the ComplEx embedding of our KG entities, and initialize T to a random learnable matrix. EmbedKGQA then performs prediction over E.T .
 
@@ -252,7 +246,6 @@ Next, we modify EmbedKGQA so that it can use temporal KG embeddings. We use TCom
 
 Entity scoring function: We extract a subject entity s and a timestamp t from the question. If either is missing, we use a dummy entity/time. Then, using the scoring function φ(s, r, o, t)from equation [2,](#page-4-5) we calculate a score for each entity e ∈ E as
 
-<span id="page-5-0"></span>
 $$
 \phi_{ent}(e) = \Re(\langle \mathbf{u}_s, \mathbf{q}e_{ent}, \mathbf{u}_e^{\star}, \mathbf{w}_t \rangle) \qquad (4)
 $$
@@ -265,7 +258,6 @@ $$
 \text{tamp } t \in \mathbf{T} \text{ as }
 $$
 
-<span id="page-5-1"></span>
 $$
 \phi_{time}(t) = \Re(\langle \boldsymbol{u}_s, \boldsymbol{q}e_{time}, \boldsymbol{u}_o^\star, \boldsymbol{w}_t \rangle) \qquad (5)
 $$
@@ -281,33 +273,32 @@ In this section, we aim to answer the following questions:
 - 3. How much does the training dataset size (number of questions) affect the performance of a model? (Section [6.4.](#page-7-0))
 - 4. Do temporal KG embeddings confer any advantage over non-temporal KG embeddings? (Section [6.5.](#page-7-2))
 
-#### 1 Other methods compared
+### 1 Other methods compared
 
 It has been shown by [Petroni et al.](#page-9-20) [\(2019\)](#page-9-20) and [Raf](#page-9-9)[fel et al.](#page-9-9) [\(2020\)](#page-9-9) that large LMs, such as BERT and its variants, capture real world knowledge (collected from their massive, encyclopedic training corpus) and can directly be applied to tasks such as QA. In these baselines, we do not specifically feed our version of the temporal KG to the model —
 
-<span id="page-6-3"></span>
 
-|               | Hits@1  |               |        |             |       | Hits@10 |               |        |             |       |
+| | Hits@1 | | | | | Hits@10 | | | | |
 |---------------|---------|---------------|--------|-------------|-------|---------|---------------|--------|-------------|-------|
-| Model         | Overall | Question Type |        | Answer Type |       |         | Question Type |        | Answer Type |       |
-|               |         | Complex       | Simple | Entity      | Time  | Overall | Complex       | Simple | Entity      | Time  |
-| BERT          | 0.071   | 0.086         | 0.052  | 0.077       | 0.06  | 0.213   | 0.205         | 0.225  | 0.192       | 0.253 |
-| RoBERTa       | 0.07    | 0.086         | 0.05   | 0.082       | 0.048 | 0.202   | 0.192         | 0.215  | 0.186       | 0.231 |
-| KnowBERT      | 0.07    | 0.083         | 0.051  | 0.081       | 0.048 | 0.201   | 0.189         | 0.217  | 0.185       | 0.23  |
-| T5-3B         | 0.081   | 0.073         | 0.091  | 0.088       | 0.067 | -       | -             | -      | -           | -     |
-| EmbedKGQA     | 0.288   | 0.286         | 0.29   | 0.411       | 0.057 | 0.672   | 0.632         | 0.725  | 0.85        | 0.341 |
-| T-EaE-add     | 0.278   | 0.257         | 0.306  | 0.313       | 0.213 | 0.663   | 0.614         | 0.729  | 0.662       | 0.665 |
-| T-EaE-replace | 0.288   | 0.257         | 0.329  | 0.318       | 0.231 | 0.678   | 0.623         | 0.753  | 0.668       | 0.698 |
-| CRONKGQA      | 0.647   | 0.392         | 0.987  | 0.699       | 0.549 | 0.884   | 0.802         | 0.992  | 0.898       | 0.857 |
+| Model | Overall | Question Type | | Answer Type | | | Question Type | | Answer Type | |
+| | | Complex | Simple | Entity | Time | Overall | Complex | Simple | Entity | Time |
+| BERT | 0.071 | 0.086 | 0.052 | 0.077 | 0.06 | 0.213 | 0.205 | 0.225 | 0.192 | 0.253 |
+| RoBERTa | 0.07 | 0.086 | 0.05 | 0.082 | 0.048 | 0.202 | 0.192 | 0.215 | 0.186 | 0.231 |
+| KnowBERT | 0.07 | 0.083 | 0.051 | 0.081 | 0.048 | 0.201 | 0.189 | 0.217 | 0.185 | 0.23 |
+| T5-3B | 0.081 | 0.073 | 0.091 | 0.088 | 0.067 | - | - | - | - | - |
+| EmbedKGQA | 0.288 | 0.286 | 0.29 | 0.411 | 0.057 | 0.672 | 0.632 | 0.725 | 0.85 | 0.341 |
+| T-EaE-add | 0.278 | 0.257 | 0.306 | 0.313 | 0.213 | 0.663 | 0.614 | 0.729 | 0.662 | 0.665 |
+| T-EaE-replace | 0.288 | 0.257 | 0.329 | 0.318 | 0.231 | 0.678 | 0.623 | 0.753 | 0.668 | 0.698 |
+| CRONKGQA | 0.647 | 0.392 | 0.987 | 0.699 | 0.549 | 0.884 | 0.802 | 0.992 | 0.898 | 0.857 |
 
-Table 5: Performance of baselines and our methods on the CRONQUESTIONS dataset. Methods above the midrule do not use any KG embeddings, while the ones below use either temporal or non-temporal KG embeddings. Hits@10 are not available for T5-3B since it is a text-to-text model and makes a single prediction. Please refer to Section [6.2](#page-6-0) for details.
+**Table 5:** Performance of baselines and our methods on the CRONQUESTIONS dataset. Methods above the midrule do not use any KG embeddings, while the ones below use either temporal or non-temporal KG embeddings. Hits@10 are not available for T5-3B since it is a text-to-text model and makes a single prediction. Please refer to Section [6.2](#page-6-0) for details.
 
 we instead expect the model to have the real world knowledge to compute the answer.
 
 - BERT: We experiment with BERT, RoBERTa [\(Liu et al.,](#page-9-21) [2019\)](#page-9-21) and KnowBERT [\(Peters et al.,](#page-9-10) [2019\)](#page-9-10) which is a variant of BERT where information from knowledge bases such as WikiData and WordNet has been injected into BERT. We add a prediction head on top of the [CLS] token of the final layer and do a softmax over it to predict the answer probabilities.
 - T5: In order to apply T5 [\(Raffel et al.,](#page-9-9) [2020\)](#page-9-9) to temporal QA, we transform each question in our dataset to the form '*temporal question:* hquestioni*?*'. For evaluation there are two cases:
-  - 1. Time answer: We do exact string matching between T5 output and correct answer.
-  - 2. Entity answer: We compare the system output to the aliases of all entities in the KG. The entity having an alias with the smallest edit distance [\(Levenshtein,](#page-9-22) [1966\)](#page-9-22) to the predicted text output is taken as the predicted entity.
+- 1. Time answer: We do exact string matching between T5 output and correct answer.
+- 2. Entity answer: We compare the system output to the aliases of all entities in the KG. The entity having an alias with the smallest edit distance [\(Levenshtein,](#page-9-22) [1966\)](#page-9-22) to the predicted text output is taken as the predicted entity.
 - Entities as experts: [Fevry et al.](#page-9-11) ´ [\(2020\)](#page-9-11) proposed EaE, a model which aims to integrate entity knowledge into a transformer-based language model. For temporal KGQA on CRONQUES-TIONS, we assume that all grounded entity and time mention spans are marked in the question[1](#page-6-1) . We will refer to this model as T-EaE-add. We try another variant of EaE, T-EaE-replace, where instead of adding the entity/time and BERT token embeddings, we replace the BERT embeddings with the entity/time embeddings for entity/time mentions.[2](#page-6-2)
 
 ### <span id="page-6-0"></span>6.2 Main results
@@ -327,15 +318,15 @@ Another interesting thing to note is the performance on simple reasoning questio
 <span id="page-7-3"></span>![](_page_7_Figure_0.jpeg)
 <!-- Image Description: The image displays a line graph comparing the performance of four different methods (CRONKGQA simple, CRONKGQA complex, T-EaE-add simple, T-EaE-add complex) for knowledge graph completion. The y-axis represents Hits@10, a metric reflecting retrieval accuracy, and the x-axis shows the percentage of training data used. The graph illustrates how each method's performance (Hits@10) changes with varying training dataset sizes. Red lines represent CRONKGQA, blue lines represent T-EaE-add; solid lines indicate 'simple' models, and dashed lines show 'complex' models. The purpose is to evaluate and compare the effectiveness of the four approaches under different data conditions. -->
 
-Figure 2: Model performance (hits@10) vs. training dataset size (percentage) for CRONKGQA and T-EaEadd. Solid line is for simple reasoning and dashed line is for complex reasoning type questions. For each dataset size, models were trained until validation hits@10 did not increase for 10 epochs. Please refer to Section [6.4](#page-7-0) for details.
+**Figure 2:** Model performance (hits@10) vs. training dataset size (percentage) for CRONKGQA and T-EaEadd. Solid line is for simple reasoning and dashed line is for complex reasoning type questions. For each dataset size, models were trained until validation hits@10 did not increase for 10 epochs. Please refer to Section [6.4](#page-7-0) for details.
 
 2. Another contributing reason could be that there are fewer parameters to be trained in CRONKGQA while a 6-layer Transformer encoder needs to be trained from scratch in T-EaE. Transformers typically require large amounts of varied data to train successfully.
 
-#### <span id="page-7-1"></span>6.3 Performance across question types
+### <span id="page-7-1"></span>6.3 Performance across question types
 
 Table [6](#page-8-8) shows the performance of KG embedding based models across different types of reasoning. As stated above in Section [6.2,](#page-6-0) CRONKGQA performs very well on simple reasoning questions (simple entity, simple time). Among complex question types, all models (except EmbedKGQA) perform the best on time join questions (e.g., '*Who played with Roberto Dinamite on the Brazil national football team*'). This is because such questions typically have multiple answers (such as all the players when *Roberto Dinamite*was playing for Brazil), which makes it easier for the model to make a correct prediction. In the other two question types, the answer is always a single entity/time. Before/after questions seem most challenging for all methods, with the best method achieving only 0.288 hits@1.
 
-#### <span id="page-7-0"></span>6.4 Effect of training dataset size
+### <span id="page-7-0"></span>6.4 Effect of training dataset size
 
 Figure [2](#page-7-3) shows the effect of training dataset size on model performance. As we can see, for T-EaE-add,
 
@@ -349,28 +340,27 @@ We conducted further experiments to study the effect of temporal vs. non-tempora
 
 In this paper we introduce CRONQUESTIONS, a new dataset for Temporal Knowledge Graph Question Answering. While there exist some Temporal KGQA datasets, they are all based on non-temporal KGs (e.g., Freebase) and have relatively few questions. Our dataset consists of both a temporal KG as well as a large set of temporal questions requiring various structures of reasoning. In order to develop such a large dataset, we used a synthetic
 
-|               | Before/ | First/<br>Time |       | Simple | Simple | All   |
+| | Before/ | First/<br>Time | | Simple | Simple | All |
 |---------------|---------|----------------|-------|--------|--------|-------|
-|               | After   | Last           | Join  | Entity | Time   |       |
-| EmbedKGQA     | 0.199   | 0.324          | 0.223 | 0.421  | 0.087  | 0.288 |
-| T-EaE-add     | 0.256   | 0.285          | 0.175 | 0.296  | 0.321  | 0.278 |
-| T-EaE-replace | 0.256   | 0.288          | 0.168 | 0.318  | 0.346  | 0.288 |
-| CRONKGQA      | 0.288   | 0.371          | 0.511 | 0.988  | 0.985  | 0.647 |
+| | After | Last | Join | Entity | Time | |
+| EmbedKGQA | 0.199 | 0.324 | 0.223 | 0.421 | 0.087 | 0.288 |
+| T-EaE-add | 0.256 | 0.285 | 0.175 | 0.296 | 0.321 | 0.278 |
+| T-EaE-replace | 0.256 | 0.288 | 0.168 | 0.318 | 0.346 | 0.288 |
+| CRONKGQA | 0.288 | 0.371 | 0.511 | 0.988 | 0.985 | 0.647 |
 
-<span id="page-8-8"></span>Table 6: Hits@1 for different reasoning type questions. 'Simple Entity' and 'Simple Time' correspond to simple question type in Table [5](#page-6-3) while the others correspond to complex question type. Please refer to section [6.3](#page-7-1) for more details.
+<span id="page-8-8"></span>**Table 6:** Hits@1 for different reasoning type questions. 'Simple Entity' and 'Simple Time' correspond to simple question type in Table [5](#page-6-3) while the others correspond to complex question type. Please refer to section [6.3](#page-7-1) for more details.
 
-<span id="page-8-9"></span>
 
-| Question      | CRONKGQA |       | T-EaE-replace |       |
+| Question | CRONKGQA | | T-EaE-replace | |
 |---------------|----------|-------|---------------|-------|
-| Type          | CX       | TCX   | CX            | TCX   |
-| Simple        | 0.29     | 0.987 | 0.248         | 0.329 |
-| Complex       | 0.286    | 0.392 | 0.247         | 0.257 |
-| Entity Answer | 0.411    | 0.699 | 0.347         | 0.318 |
-| Time Answer   | 0.057    | 0.549 | 0.062         | 0.231 |
-| Overall       | 0.288    | 0.647 | 0.247         | 0.288 |
+| Type | CX | TCX | CX | TCX |
+| Simple | 0.29 | 0.987 | 0.248 | 0.329 |
+| Complex | 0.286 | 0.392 | 0.247 | 0.257 |
+| Entity Answer | 0.411 | 0.699 | 0.347 | 0.318 |
+| Time Answer | 0.057 | 0.549 | 0.062 | 0.231 |
+| Overall | 0.288 | 0.647 | 0.247 | 0.288 |
 
-Table 7: Hits@1 for CRONKGQA and T-EaE-replace using ComplEx(CX) and TComplEx(TCX) KG embeddings. Please refer to Section [6.5](#page-7-2) for more details.
+**Table 7:** Hits@1 for CRONKGQA and T-EaE-replace using ComplEx(CX) and TComplEx(TCX) KG embeddings. Please refer to Section [6.5](#page-7-2) for more details.
 
 generation procedure, leading to a question distribution that is artificial from a semantic perspective. However, having a large dataset provides an opportunity to train models, rather than just evaluate them. We experimentally show that increasing the training dataset size steadily improves the performance of certain methods on the TKGQA task.
 
@@ -427,11 +417,10 @@ We would like to thank the anonymous reviewers for their constructive feedback, 
 
 ### A Appendix
 
-#### <span id="page-10-7"></span>A.1 Entities as Experts (EaE)
+### <span id="page-10-7"></span>A.1 Entities as Experts (EaE)
 
 The model architecture follows Transformer [\(Vaswani et al.,](#page-10-8) [2017\)](#page-10-8) interleaved with an entity memory layer. It has two embedding matrices, for tokens and entities. It works on the input sequence x as follows.
 
-<span id="page-10-9"></span>
 $$
 X^{0} = \text{TokenEmbed}(x)
 $$
@@ -467,7 +456,6 @@ The whole model (transformers, token and entity embeddings, and task-specific he
 
 CRONQUESTIONS does not provide a text corpus for training language models. Therefore, we use BERT [\(Devlin et al.,](#page-8-3) [2019\)](#page-8-3) for Transformer<sup>0</sup> as well as TokenEmbed (eqn. [6\)](#page-10-9). For EntityMemory, we use TComplEx/TimePlex embeddings of entities and timestamps that have been pre-trained using the CRONQUESTIONS KG (please refer to Section [4](#page-4-2) for details on KG embeddings). The modified model is as follows:
 
-<span id="page-10-10"></span>
 $$
 X^{1} = BERT(x)
 $$
@@ -481,7 +469,7 @@ $$
 $$
 X^{3} = \text{LayerNorm}(X^{2} + X^{1})
 $$
- (7)
+(7)
 \n
 $$
 X^{4} = \text{Transformer}_{1}(X^{3}, \text{num\_layers} = 6)
@@ -496,9 +484,9 @@ For simplicity, we assume that all grounded entity and time mention spans are ma
 
 - X<sup>1</sup> [i] contains the contextual BERT embedding of x<sup>i</sup>
 - For X<sup>2</sup> [i] there are 3 cases.
-  - x<sup>i</sup> is a mention of entity e. Then X<sup>2</sup> [i] = E[e].
-  - x<sup>i</sup> is a mention of timestamp t. Then X<sup>2</sup> [i] = T [t].
-  - x<sup>i</sup> is not a mention. Then X<sup>2</sup> [i] is the zero vector.
+- x<sup>i</sup> is a mention of entity e. Then X<sup>2</sup> [i] = E[e].
+- x<sup>i</sup> is a mention of timestamp t. Then X<sup>2</sup> [i] = T [t].
+- x<sup>i</sup> is not a mention. Then X<sup>2</sup> [i] is the zero vector.
 
 PredictionHead takes the final output from Transformer<sup>1</sup> of the token corresponding to the [CLS] token of BERT as the predicted answer embedding. This answer embedding is scored against E.T using dot product to get a score for each possible answer, and softmax is taken to get answer probabilities. The model is trained on the QA dataset using cross-entropy loss. We will refer
 
@@ -515,76 +503,74 @@ The rest of the model remains the same.
 
 Tables [8](#page-12-0) to [12](#page-13-0) contain some example questions from the validation set of CRONQUESTIONS, along with the top 5 predictions of the models we experimented with. T5-3B has a single prediction since it is a text-to-text model.
 
-<span id="page-12-0"></span>
 
-| Question                        | Who held the position of Prime Minister of Sweden before 2nd World War                                                    |
+| Question | Who held the position of Prime Minister of Sweden before 2nd World War |
 |---------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Question Type<br>Gold answer(s) | Before/After<br>Per Albin Hansson                                                                                         |
-| BERT                            | Emil Stang, Sr., Sigurd Ibsen, Johan Nygaardsvold, Laila Freivalds, J. S. Woodsworth                                      |
-| KnowBERT                        | ¨<br>Benito Mussolini, Osten Und<br>en, Hans-Dietrich Genscher, Winston Churchill,<br>´<br>Lutz Graf Schwerin von Krosigk |
-| T5-3B                           | bo osten unden                                                                                                            |
-| EmbedKGQA                       | Per Albin Hansson, Tage Erlander, Carl Gustaf Ekman, Arvid Lindman, Hjalmar Branting                                      |
-| T-EaE-add                       | Per Albin Hansson, Manuel Roxas, Arthur Sauve, Konstantinos Demertzis, Karl Renner<br>´                                   |
-| T-EaE-replace                   | Per Albin Hansson, Tage Erlander, Arvid Lindman, Valere Bernard, Vladko Ma<br>`<br>cek ˇ                                  |
-| CRONKGQA                        | Per Albin Hansson, Tage Erlander, Arvid Lindman, Carl Gustaf Ekman, Hjalmar Branting                                      |
+| Question Type<br>Gold answer(s) | Before/After<br>Per Albin Hansson |
+| BERT | Emil Stang, Sr., Sigurd Ibsen, Johan Nygaardsvold, Laila Freivalds, J. S. Woodsworth |
+| KnowBERT | ¨<br>Benito Mussolini, Osten Und<br>en, Hans-Dietrich Genscher, Winston Churchill,<br>´<br>Lutz Graf Schwerin von Krosigk |
+| T5-3B | bo osten unden |
+| EmbedKGQA | Per Albin Hansson, Tage Erlander, Carl Gustaf Ekman, Arvid Lindman, Hjalmar Branting |
+| T-EaE-add | Per Albin Hansson, Manuel Roxas, Arthur Sauve, Konstantinos Demertzis, Karl Renner<br>´ |
+| T-EaE-replace | Per Albin Hansson, Tage Erlander, Arvid Lindman, Valere Bernard, Vladko Ma<br>`<br>cek ˇ |
+| CRONKGQA | Per Albin Hansson, Tage Erlander, Arvid Lindman, Carl Gustaf Ekman, Hjalmar Branting |
 
-Table 8: Before/After reasoning type question.
+**Table 8:** Before/After reasoning type question.
 
-| Question                        | When did Man on Wire receive Oscar for Best Documentary Feature |
+| Question | When did Man on Wire receive Oscar for Best Documentary Feature |
 |---------------------------------|-----------------------------------------------------------------|
-| Question Type<br>Gold answer(s) | Simple time<br>2008                                             |
-| BERT                            | 1995, 1993, 1999, 1991, 1987                                    |
-| KnowBERT                        | 1993, 1996, 1994, 2006, 1995                                    |
-| T5-3B                           | 1997                                                            |
-| EmbedKGQA                       | 2017, 2008, 2016, 2013, 2004                                    |
-| T-EaE-add                       | 2008, 2009, 2005, 1999, 2007                                    |
-| T-EaE-replace                   | 2009, 2008, 2005, 2006, 2007                                    |
-| CRONKGQA                        | 2008, 2007, 2009, 2002, 1945                                    |
+| Question Type<br>Gold answer(s) | Simple time<br>2008 |
+| BERT | 1995, 1993, 1999, 1991, 1987 |
+| KnowBERT | 1993, 1996, 1994, 2006, 1995 |
+| T5-3B | 1997 |
+| EmbedKGQA | 2017, 2008, 2016, 2013, 2004 |
+| T-EaE-add | 2008, 2009, 2005, 1999, 2007 |
+| T-EaE-replace | 2009, 2008, 2005, 2006, 2007 |
+| CRONKGQA | 2008, 2007, 2009, 2002, 1945 |
 
-Table 9: Simple reasoning question with time answer.
+**Table 9:** Simple reasoning question with time answer.
 
-| Question       | Who did John Alan Lasseter work with while employed at Pixar                 |  |  |
+| Question | Who did John Alan Lasseter work with while employed at Pixar | | |
 |----------------|------------------------------------------------------------------------------|--|--|
-| Question Type  | Time join                                                                    |  |  |
-| Gold answer(s) | Floyd Norman                                                                 |  |  |
-| BERT           | Tim Cook, Eleanor Winsor Leach, David R. Williams, Robert M. Boynton,        |  |  |
-|                | Jules Steeg                                                                  |  |  |
-| KnowBERT       | 1994, 1997, Walt Disney Animation Studios, Christiane Kubrick, 1989          |  |  |
-| T5-3B          | john alan lasseter                                                           |  |  |
-| EmbedKGQA      | John Lasseter,<br>Floyd Norman, Duncan Marjoribanks, Glen Keane, Theodore Ty |  |  |
-| T-EaE-add      | John Lasseter, Anne Marie Bardwell, Will Finn,<br>Floyd Norman,              |  |  |
-|                | Rejean Bourdages                                                             |  |  |
-| T-EaE-replace  | John Lasseter, Will Finn,<br>Floyd Norman, Nik Ranieri, Ken Duncan           |  |  |
-| CRONKGQA       | John Lasseter,<br>Floyd Norman, Duncan Marjoribanks, David Pruiksma,         |  |  |
-|                | Theodore Ty                                                                  |  |  |
+| Question Type | Time join | | |
+| Gold answer(s) | Floyd Norman | | |
+| BERT | Tim Cook, Eleanor Winsor Leach, David R. Williams, Robert M. Boynton, | | |
+| | Jules Steeg | | |
+| KnowBERT | 1994, 1997, Walt Disney Animation Studios, Christiane Kubrick, 1989 | | |
+| T5-3B | john alan lasseter | | |
+| EmbedKGQA | John Lasseter,<br>Floyd Norman, Duncan Marjoribanks, Glen Keane, Theodore Ty | | |
+| T-EaE-add | John Lasseter, Anne Marie Bardwell, Will Finn,<br>Floyd Norman, | | |
+| | Rejean Bourdages | | |
+| T-EaE-replace | John Lasseter, Will Finn,<br>Floyd Norman, Nik Ranieri, Ken Duncan | | |
+| CRONKGQA | John Lasseter,<br>Floyd Norman, Duncan Marjoribanks, David Pruiksma, | | |
+| | Theodore Ty | | |
 
-Table 10: Time join type question.
+**Table 10:** Time join type question.
 
-| Question       | Where did John Hubley work before working for Industrial Films                                                                             |
+| Question | Where did John Hubley work before working for Industrial Films |
 |----------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Question Type  | Before/After                                                                                                                               |
-| Gold answer(s) | The Walt Disney Studios                                                                                                                    |
-| BERT           | The Walt Disney Studios, Warner Bros. Cartoons, Pixar, Microsoft, United States Navy                                                       |
-| KnowBERT       | ´<br>Ecole Polytechnique, Piti<br>e-Salp ´ etri ˆ ere Hospital,<br>The Walt Disney Studios,<br>`<br>Elisabeth Buddenbrook, Yale University |
-| T5-3B          | london film school                                                                                                                         |
-| EmbedKGQA      | The Walt Disney Studios, College de France, Warner Bros. Cartoons,<br>`<br>University of Naples Federico II, ETH Zurich                    |
-| T-EaE-add      | The Walt Disney Studios, Fleischer Studios, UPA, Walter Lantz Productions,<br>Wellesley College                                            |
-| T-EaE-replace  | The Walt Disney Studios, City College of New York, UPA,<br>Yale University, Indiana University                                             |
-| CRONKGQA       | The Walt Disney Studios, UPA, Saint Petersburg State University,<br>Warner Bros. Cartoons, College de France<br>`                          |
+| Question Type | Before/After |
+| Gold answer(s) | The Walt Disney Studios |
+| BERT | The Walt Disney Studios, Warner Bros. Cartoons, Pixar, Microsoft, United States Navy |
+| KnowBERT | ´<br>Ecole Polytechnique, Piti<br>e-Salp ´ etri ˆ ere Hospital,<br>The Walt Disney Studios,<br>`<br>Elisabeth Buddenbrook, Yale University |
+| T5-3B | london film school |
+| EmbedKGQA | The Walt Disney Studios, College de France, Warner Bros. Cartoons,<br>`<br>University of Naples Federico II, ETH Zurich |
+| T-EaE-add | The Walt Disney Studios, Fleischer Studios, UPA, Walter Lantz Productions,<br>Wellesley College |
+| T-EaE-replace | The Walt Disney Studios, City College of New York, UPA,<br>Yale University, Indiana University |
+| CRONKGQA | The Walt Disney Studios, UPA, Saint Petersburg State University,<br>Warner Bros. Cartoons, College de France<br>` |
 
-Table 11: Before/After reasoning type question.
+**Table 11:** Before/After reasoning type question.
 
-<span id="page-13-0"></span>
 
-| Question                        | The last person that Naomi Foner Gyllenhaal was married to was                                                                                   |
+| Question | The last person that Naomi Foner Gyllenhaal was married to was |
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Question Type<br>Gold answer(s) | First/Last<br>Stephen Gyllenhaal                                                                                                                 |
-| BERT                            | 1928, Jennifer Lash, Stephen Mallory, Martin Landau, Bayerische Verfassungsmedaille in Gold                                                      |
-| KnowBERT                        | Nadia Benois, Eugenia Zukerman, Germany national football team, Talulah Riley, Lola Landau                                                       |
-| T5-3B                           | gyllenhaal                                                                                                                                       |
-| EmbedKGQA                       | Stephen Gyllenhaal, Naomi Foner Gyllenhaal, Wolfhard von Boeselager,<br>Heinrich Schweiger, Bruce Paltrow                                        |
-| T-EaE-add                       | Stephen Gyllenhaal, Marianne Zoff, Cotter Smith, Douglas Wilder, Gerd Vespermann                                                                 |
-| T-EaE-replace                   | Stephen Gyllenhaal, Hetty Broedelet-Henkes, Naomi Foner Gyllenhaal,<br>Miles Copeland, Jr., member of the Chamber of Representatives of Colombia |
-| CRONKGQA                        | Stephen Gyllenhaal, Antonia Fraser, Bruce Paltrow,<br>Naomi Foner Gyllenhaal, Wolfhard von Boeselager                                            |
+| Question Type<br>Gold answer(s) | First/Last<br>Stephen Gyllenhaal |
+| BERT | 1928, Jennifer Lash, Stephen Mallory, Martin Landau, Bayerische Verfassungsmedaille in Gold |
+| KnowBERT | Nadia Benois, Eugenia Zukerman, Germany national football team, Talulah Riley, Lola Landau |
+| T5-3B | gyllenhaal |
+| EmbedKGQA | Stephen Gyllenhaal, Naomi Foner Gyllenhaal, Wolfhard von Boeselager,<br>Heinrich Schweiger, Bruce Paltrow |
+| T-EaE-add | Stephen Gyllenhaal, Marianne Zoff, Cotter Smith, Douglas Wilder, Gerd Vespermann |
+| T-EaE-replace | Stephen Gyllenhaal, Hetty Broedelet-Henkes, Naomi Foner Gyllenhaal,<br>Miles Copeland, Jr., member of the Chamber of Representatives of Colombia |
+| CRONKGQA | Stephen Gyllenhaal, Antonia Fraser, Bruce Paltrow,<br>Naomi Foner Gyllenhaal, Wolfhard von Boeselager |
 
-Table 12: First/Last reasoning type question.
+**Table 12:** First/Last reasoning type question.

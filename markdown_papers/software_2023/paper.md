@@ -23,9 +23,6 @@ keywords:
 - semantic web
 ---
 
-
-
-
 # Defining a Knowledge Graph Development Process Through a Systematic Review
 
 [GYTE TAMAŠAUSKAIT](https://orcid.org/0000-0001-9033-4976) ˙ E˙ and [PAUL GROTH,](https://orcid.org/0000-0003-0183-6910) University of Amsterdam, Netherlands
@@ -53,7 +50,7 @@ Authors' address: G. Tamašauskaite and P. Groth, University of Amsterdam, Facul
 ![](_page_1_Figure_1.jpeg)
 <!-- Image Description: This figure is a knowledge graph depicting Albert Einstein's life and career. Nodes represent entities (e.g., Einstein, Physics, University of Zurich), and edges represent relationships (e.g., SonOf, ProposedBy, WinnerOf). The graph visualizes biographical details, academic affiliations, and his contribution to physics, specifically his theory of relativity and Nobel Prize win. It illustrates the interconnectedness of these aspects within a structured knowledge representation. -->
 
-Fig. 1. Entities and relations in a knowledge graph [\[37\]](#page-36-0).
+Figure 1. Entities and relations in a knowledge graph [\[37\]](#page-36-0).
 
 perspective, knowledge graphs provide a fascinating area for study given their inherent combination of software, data, and often human components.
 
@@ -98,7 +95,7 @@ While it is useful to understand these existing approaches; it is also beneficia
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This flowchart details a systematic literature review process. It shows the selection of papers, starting from 683,953+2,598,289 records identified from various databases and other sources. The process includes screening, retrieval, eligibility assessment steps, with numbers of records/papers at each stage indicated (n=...). Ultimately, 57 papers were included in the review, with losses due to irrelevance and insufficient information clearly documented. -->
 
-Fig. 2. The PRISMA workflow of selecting articles for the systematic review.
+Figure 2. The PRISMA workflow of selecting articles for the systematic review.
 
 ## 3 METHODOLOGY
 
@@ -113,20 +110,20 @@ As a basis for this article, relevant and recent research articles were collecte
 *Data sources.*Articles were collected from eight online well-established data sources for academic research (ACM Digital Library, IEEExplore, ScienceDirect, arXiv, SpringerLink, Zeta Alpha-AI Research Navigator, Semantic Scholar, and Google Scholar) within the period of March-April 2021. The majority of the sources are recommended in particular when performing software engineering reviews [\[43\]](#page-36-0).
 *Inclusion and exclusion criteria.*For the search, two keywords were used:*knowledge graph development*and*knowledge graph construction*. Only articles from 2012 onward were considered as
 
-| Year                   | Count of articles |  |  |  |
+| Year | Count of articles | | | |
 |------------------------|-------------------|--|--|--|
-| 2016                   | 1                 |  |  |  |
-| 2017                   | 5                 |  |  |  |
-| 2018                   | 10                |  |  |  |
-| 2019                   | 11                |  |  |  |
-| 2020                   | 24                |  |  |  |
-| 2021                   | 6                 |  |  |  |
-| Type of article        |                   |  |  |  |
-| Domain-specific        | 47                |  |  |  |
-| Methodological         | 10                |  |  |  |
-| Type of KG development |                   |  |  |  |
-| Bottom-up              | 41                |  |  |  |
-| Top-down               | 16                |  |  |  |
+| 2016 | 1 | | | |
+| 2017 | 5 | | | |
+| 2018 | 10 | | | |
+| 2019 | 11 | | | |
+| 2020 | 24 | | | |
+| 2021 | 6 | | | |
+| Type of article | | | | |
+| Domain-specific | 47 | | | |
+| Methodological | 10 | | | |
+| Type of KG development | | | | |
+| Bottom-up | 41 | | | |
+| Top-down | 16 | | | |
 
 Table 1. Summary Details of the Selected Articles
 
@@ -151,12 +148,12 @@ ACM Transactions on Software Engineering and Methodology, Vol. 32, No. 1, Articl
 ![](_page_5_Figure_1.jpeg)
 <!-- Image Description: The image is a hierarchical outline detailing the steps in knowledge graph construction. It outlines the process from data source to knowledge graph storage, breaking down "Knowledge Graph Building" into sub-tasks like reasoning and inference, relation extraction (with specific techniques listed), and entity extraction. Level indicators (I, II, III) denote hierarchy depth within the process. No diagrams or equations are present; it's purely textual. -->
 
-Fig. 3. Example of recorded process steps from [\[87\]](#page-38-0).
+Figure 3. Example of recorded process steps from [\[87\]](#page-38-0).
 
 ![](_page_5_Figure_3.jpeg)
 <!-- Image Description: The flowchart details the methodology for creating a knowledge graph. It begins with 620 initially extracted steps and 47 process figures. After removing synonyms, 414 steps remain. The most frequent steps are then identified to create a draft knowledge graph (5 level I, 18 level II steps), refined further by describing steps per article, resulting in a final graph (6 level I, 11 level II steps). The numbers in parentheses represent the count of different process steps at each stage. -->
 
-Fig. 4. Workflow of data analysis.
+Figure 4. Workflow of data analysis.
 
 The processes were of different granularity, some including the algorithms and techniques used in the knowledge graph construction as steps, while others only indicated the main phases. The process steps were written out in three different levels, specifying the more generic steps and what they consist of (see Figure 3). Level I steps provide a more generic description of the step, Level II steps specify Level I tasks into smaller stages, while Level III steps are specific and focus on describing the algorithms and techniques used.
 
@@ -169,7 +166,7 @@ Initially, a total of 620 steps of all levels were indicated, of which 519 steps
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
 <!-- Image Description: This flowchart details a six-stage process for constructing and maintaining a knowledge graph (KG). It begins with data identification, followed by KG ontology construction (if necessary) and knowledge extraction. Subsequent stages involve knowledge processing, KG construction (storage and display), and finally, KG maintenance through evaluation and updates. Each stage is further broken down into sub-steps. The flowchart illustrates the workflow, highlighting the sequential and conditional dependencies between steps. -->
 
-Fig. 5. The proposed knowledge graph development process.
+Figure 5. The proposed knowledge graph development process.
 
 The III level steps were specific, indicating the algorithms and techniques used, thus, were not considered in further analysis. The full list of process steps is available in a dataset repository.<sup>2</sup>
 
@@ -255,7 +252,7 @@ Finally, knowledge graph optimisation can be performed by removing nodes that ar
 The objective of this step is to ensure that the knowledge graph is accessible and available for use. This includes storing the knowledge graph in a suitable database, displaying and visualising it for exploration, as well as enabling its use.
 *4.5.1 Store Knowledge Graph.*The knowledge graphs can be stored in various ways due to a wide variety of data models, graph algorithms, and applications [\[87\]](#page-38-0). This includes relational databases, key/value stores, triple stores, map/reduce storage [\[87\]](#page-38-0), and graph databases [\[32\]](#page-36-0).
 
-Fig. 6. Examples of knowledge graph visualisations.
+Figure 6. Examples of knowledge graph visualisations.
 
 Relational databases can be used for storage, even though they may not be the most suitable for large graph management [\[87\]](#page-38-0). This type of database can be implemented on top of an existing relational database in the organisation's infrastructure [\[77,](#page-38-0) [87\]](#page-38-0).
 
@@ -308,26 +305,26 @@ The steps of the proposed knowledge graph development process can be mapped to t
 - (1)*Identify data.*This step is omitted in DBpedia's development process as the data source is already identified and clearly defined. As mentioned, DBpedia uses data from various Wikimedia projects. This covers a wide variety of domains, thus, making DBpedia a generic knowledge graph.
 - (2)*Construct knowledge graph ontology.*This step corresponds to the step "Definition of mappings and ontology editing". DBpedia's ontology was first developed based on infoboxes within Wikipedia and is continuously updated [\[44\]](#page-36-0). Currently, the ontology has over 700 classes and 3,000 properties [\[20\]](#page-35-0).
 - (3)*Extract knowledge.*This step corresponds to the step "Execution of the knowledge extraction process over Wikipedia dumps". DBpedia extracts data from Wiki pages through the continuous knowledge extraction process (that is defined by**DBpedia Information Extraction Framework** (**DIEF**)) and live extraction, including entities, relations, and attributes extraction. The continuous extraction is performed every month. DBpedia extraction is available through mapping-based (rule-based), generic (automatic), text, and Wikidata extraction [\[20\]](#page-35-0).
-  - (3.1) *Extract entities*. A key method of entity extraction in DBpedia is to extract unmapped information in Wikipedia infoboxes and create entities from the attribute values [\[20,](#page-35-0) [44\]](#page-36-0).
-  - (3.2) *Extract relations*. Mappings-based extraction is one of the methods used to extract relations from Wikipedia infoboxes [\[20\]](#page-35-0).
-  - (3.3) *Extract attributes*. Other attributes are extracted directly from the article text. Attributes then can be mapped to the existing properties [\[20\]](#page-35-0).
+- (3.1) *Extract entities*. A key method of entity extraction in DBpedia is to extract unmapped information in Wikipedia infoboxes and create entities from the attribute values [\[20,](#page-35-0) [44\]](#page-36-0).
+- (3.2) *Extract relations*. Mappings-based extraction is one of the methods used to extract relations from Wikipedia infoboxes [\[20\]](#page-35-0).
+- (3.3) *Extract attributes*. Other attributes are extracted directly from the article text. Attributes then can be mapped to the existing properties [\[20\]](#page-35-0).
 - (4) *Process knowledge.*This step corresponds to the steps "Parsing and validation of the data against strict rules" and "ID management and knowledge fusion from all language editions".
-  - (4.1)*Integrate knowledge*. At first, the data itself are parsed and validated for early release. Then, it is processed globally, focusing on eliminating redundancy and instability of IRI identifiers. For this process, DBpedia is using FlexiFusion approach that provides flexibility in processing a large variety of data [\[20\]](#page-35-0).
-  - (4.2) *Construct ontology or map to it*. The knowledge is mapped to DBpedia's ontology [\[20\]](#page-35-0). This also allows for the evaluation of the completeness of the extracted knowledge.
-  - (4.3) *Complete knowledge*. Finally, there are multiple data validation and quality rules applied to ensure the completeness of the RDF triples, for example, reviewing conformance to the predefined schema and ontology restrictions as well as identifying missing artifacts [\[30\]](#page-36-0).
+- (4.1)*Integrate knowledge*. At first, the data itself are parsed and validated for early release. Then, it is processed globally, focusing on eliminating redundancy and instability of IRI identifiers. For this process, DBpedia is using FlexiFusion approach that provides flexibility in processing a large variety of data [\[20\]](#page-35-0).
+- (4.2) *Construct ontology or map to it*. The knowledge is mapped to DBpedia's ontology [\[20\]](#page-35-0). This also allows for the evaluation of the completeness of the extracted knowledge.
+- (4.3) *Complete knowledge*. Finally, there are multiple data validation and quality rules applied to ensure the completeness of the RDF triples, for example, reviewing conformance to the predefined schema and ontology restrictions as well as identifying missing artifacts [\[30\]](#page-36-0).
 
 ![](_page_13_Figure_1.jpeg)
 <!-- Image Description: This flowchart illustrates a data processing pipeline. Raw data is captured, transformed using ETL (Extract, Transform, Load) into RDF (Resource Description Framework) format via Tarql. An RDF inference engine generates a knowledge graph, visualized as a node-link diagram. This graph is then published using Jekyll and JSON-LD, creating web navigation and search indices. Finally, user input and analytics feedback allow for iterative improvements. The figure details the technical steps and tools used in the process. -->
 
-Fig. 7. The workflow of the UX Methods Knowledge Graph [\[24\]](#page-35-0).
+Figure 7. The workflow of the UX Methods Knowledge Graph [\[24\]](#page-35-0).
 
 - (5) *Construct knowledge graph.*This step corresponds to the steps "Release of (intermediate) data artifacts" and "Deployment of the resulting knowledge graph". The extracted and processed knowledge is published in an accessible way enabling its use twice—firstly, as intermediate data after strict parsing and validation, and secondly, as a completed knowledge graph [\[20\]](#page-35-0).
-  - (5.1)*Store the knowledge graph*. The data itself are stored in the DBpedia Databus platform.
-  - (5.2) *Display the knowledge graph*. The Databus platform is accessible online as datasets, also, DBpedia Live can be accessed as an API. DBpedia also exposes human readable representations (i.e., HTML pages) of its knowledge in the form of Linked Data [\[44\]](#page-36-0)
-  - (5.3) *Enable use*. Data search is enabled by the DBpedia SPARQL endpoint as well through Linked Data [\[44\]](#page-36-0). This allows to users access data and use it for their own needs.
+- (5.1)*Store the knowledge graph*. The data itself are stored in the DBpedia Databus platform.
+- (5.2) *Display the knowledge graph*. The Databus platform is accessible online as datasets, also, DBpedia Live can be accessed as an API. DBpedia also exposes human readable representations (i.e., HTML pages) of its knowledge in the form of Linked Data [\[44\]](#page-36-0)
+- (5.3) *Enable use*. Data search is enabled by the DBpedia SPARQL endpoint as well through Linked Data [\[44\]](#page-36-0). This allows to users access data and use it for their own needs.
 - (6) *Maintain knowledge graph.*The entire process of DBpedia's development is iterative and constantly reviewed, which allows capturing the most recent and relevant data. This structured release cycle allows to ensure that the knowledge graph is kept up to date [\[30\]](#page-36-0).
-  - (6.1)*Evaluate the knowledge graph*. Community reviews, contributions, and feedback are used to further develop DBpedia. The knowledge graph and its ontology is widely accessible for users to provide feedback and their suggestions on how the data should be updated [\[20,](#page-35-0) [44\]](#page-36-0).
-  - (6.2) *Update the knowledge graph*. As the DBpedia is based on Wikpedia data that is constantly changing and updated, DBpedia is also always maintained and updated version is updated in accordance to the release cycle [\[30\]](#page-36-0).
+- (6.1)*Evaluate the knowledge graph*. Community reviews, contributions, and feedback are used to further develop DBpedia. The knowledge graph and its ontology is widely accessible for users to provide feedback and their suggestions on how the data should be updated [\[20,](#page-35-0) [44\]](#page-36-0).
+- (6.2) *Update the knowledge graph*. As the DBpedia is based on Wikpedia data that is constantly changing and updated, DBpedia is also always maintained and updated version is updated in accordance to the release cycle [\[30\]](#page-36-0).
 
 Overall, DBpedia's process is similar to the proposed one. Nevertheless, DBpedia's process steps are specified to better correspond to the operations and procedures, as they are executed in DBpedia. In addition, DBpedia has two stages of processing and releasing data, which allows earlier access to data, even if it is not completed as a knowledge graph.
 
@@ -342,20 +339,20 @@ The steps of the proposed knowledge graph development process can be mapped to t
 - <span id="page-14-0"></span>(1) *Identify data.*This step corresponds to the step "Capture". The data are submitted by users using Google Forms in a semi-structured way, providing such information as the method name, description, steps, outcomes, subsequent methods, and available web resources. [\[25\]](#page-35-0). Additionally, a headless content management system is used to capture information.
 - (2)*Construct the knowledge graph ontology.*As the ontology of UX Methods is predefined, this step is omitted in the overall workflow. However, the UX Methods uses ontology to describe relationships between different disciplines and methods. It is constantly evolving as new knowledge is added [\[25\]](#page-35-0).
 - (3)*Extract knowledge.*This step corresponds to the step " ETL". The manually captured data are extracted and transformed to RDF, including entities, relations, and attributes. For this purpose, different techniques are used, including auto-classification, semantic data integration, and NLP [\[24\]](#page-35-0).
-  - (3.1)*Extract entities*. Entities are gathered through a headless content management system.
-  - (3.2) *Extract relations*. The knowledge model provides a set of relation types that are then used to create relations between entities.
-  - (3.3) *Extract attributes*. Attributes are also gathered through the headless content management system and mapped to the Knowledge Model.
+- (3.1)*Extract entities*. Entities are gathered through a headless content management system.
+- (3.2) *Extract relations*. The knowledge model provides a set of relation types that are then used to create relations between entities.
+- (3.3) *Extract attributes*. Attributes are also gathered through the headless content management system and mapped to the Knowledge Model.
 - (4) *Process knowledge.*This step corresponds to the steps " ETL" and "Semantic Reasoning".
-  - (4.1)*Integrate knowledge*. Newly extracted knowledge can be linked to the existing entities when the data are being updated; however, this is not explicitly explained as the data are manually gathered.
-  - (4.2) *Construct ontology or map to it*. The extracted knowledge is mapped to the ontology.
-  - (4.3) *Complete knowledge*. The data are processed by Protégé reasoner that allows for enabling the inference and identifying additional relations, and thus, complete the knowledge graph [\[24\]](#page-35-0).
+- (4.1)*Integrate knowledge*. Newly extracted knowledge can be linked to the existing entities when the data are being updated; however, this is not explicitly explained as the data are manually gathered.
+- (4.2) *Construct ontology or map to it*. The extracted knowledge is mapped to the ontology.
+- (4.3) *Complete knowledge*. The data are processed by Protégé reasoner that allows for enabling the inference and identifying additional relations, and thus, complete the knowledge graph [\[24\]](#page-35-0).
 - (5) *Construct knowledge graph.*This step corresponds to the step "Publication" [\[25\]](#page-35-0).
-  - (5.1)*Store the knowledge graph*. The data are stored on Data.world platform [\[24\]](#page-35-0)
-  - (5.2) *Display the knowledge graph*. The processed knowledge is published in RDF/XML format and is used to populate the website, allowing users to query and view it [\[25\]](#page-35-0).
-  - (5.3) *Enable use*. Multiple front-end tools are used to provide access and enable use, including, Jekyll and Jekyll-RDF for querying, Lunr.js for implementing the search functionality, and GULP for automating the development workflow [\[25\]](#page-35-0).
+- (5.1)*Store the knowledge graph*. The data are stored on Data.world platform [\[24\]](#page-35-0)
+- (5.2) *Display the knowledge graph*. The processed knowledge is published in RDF/XML format and is used to populate the website, allowing users to query and view it [\[25\]](#page-35-0).
+- (5.3) *Enable use*. Multiple front-end tools are used to provide access and enable use, including, Jekyll and Jekyll-RDF for querying, Lunr.js for implementing the search functionality, and GULP for automating the development workflow [\[25\]](#page-35-0).
 - (6) *Maintain knowledge graph.*This step corresponds to the step "Iteration".
-  - (6.1)*Evaluate the knowledge graph*. The evaluation, recapturing and reintegration of knowledge is performed based on user input, traffic analytics, and search analytics [\[25\]](#page-35-0).
-  - (6.2) *Update the knowledge graph*. With each iteration data are re-integrated in to data models mappings and queries. The knowledge graph relies on the users' feedback both for the update of the knowledge and maintenance of the knowledge graph itself [\[25\]](#page-35-0).
+- (6.1)*Evaluate the knowledge graph*. The evaluation, recapturing and reintegration of knowledge is performed based on user input, traffic analytics, and search analytics [\[25\]](#page-35-0).
+- (6.2) *Update the knowledge graph*. With each iteration data are re-integrated in to data models mappings and queries. The knowledge graph relies on the users' feedback both for the update of the knowledge and maintenance of the knowledge graph itself [\[25\]](#page-35-0).
 
 Overall, the UX Methods process is similar to the proposed one, as it includes all the identified steps and employs different techniques and algorithms to develop a knowledge graph. However, UX Methods leverages the users' input, feedback, and interaction to further develop the knowledge graph, whereas this is not captured in the proposed process.
 
@@ -405,136 +402,136 @@ Overall, we hope this research provides a foundation for further investigation i
 
 ## A SUMMARY OF ARTICLES
 
-| No. | Article                              | Year | Article type    | Process type | Process label |
+| No. | Article | Year | Article type | Process type | Process label |
 |-----|--------------------------------------|------|-----------------|--------------|---------------|
-| 1   | Sun K. et al. [69]                   | 2016 | Domain specific | Bottom-up    | Process       |
-| 2   | Al-Zaidy R. A. et al. [4]            | 2017 | Domain specific | Bottom-up    | Pipeline      |
-| 3   | Lian H. et al. [48]                  | 2017 | Domain specific | Bottom-up    | Process       |
-| 4   | Qui L. et al. [62]                   | 2017 | Domain specific | Bottom-up    | Process       |
-| 5   | Zhao Y. et al. [91]                  | 2017 | Domain specific | Top-down     | Aspects       |
-| 6   | Lin Z. Q. et al. [49]                | 2017 | Domain specific | Bottom-up    | Overview      |
-| 7   | Xin H. et al. [85]                   | 2018 | Domain specific | Top-down     | Workflow      |
-| 8   | Yan J. et al. [87]                   | 2018 | Methodological  | Bottom-up    | Framework     |
-| 9   | Chen P. et al. [13]                  | 2018 | Domain specific | Bottom-up    | Architecture  |
-| 10  | Wang C. et al. [75]                  | 2018 | Domain specific | Top-down     | Workflow      |
-| 11  | Martinez-Rodriguez J. L. et al. [54] | 2018 | Methodological  | Bottom-up    | Method        |
-| 12  | Shekarpour S. et al. [66]            | 2018 | Domain specific | Top-down     | Pipeline      |
-| 13  | Zhao Z. et al. [92]                  | 2018 | Methodological  | Bottom-up    | Architecture  |
-| 14  | Yang C. et al. [16]                  | 2018 | Domain specific | top-down     | Procedure     |
-| 15  | Chenglin Q. et al. [15]              | 2018 | Domain specific | Top-down     | Technologies  |
-| 16  | Wu T. et al. [82]                    | 2018 | Methodological  | Bottom-up    | Framework     |
-| 17  | Sharafeldeen D. et al. [65]          | 2019 | Domain specific | Bottom-up    | Workflow      |
+| 1 | Sun K. et al. [69] | 2016 | Domain specific | Bottom-up | Process |
+| 2 | Al-Zaidy R. A. et al. [4] | 2017 | Domain specific | Bottom-up | Pipeline |
+| 3 | Lian H. et al. [48] | 2017 | Domain specific | Bottom-up | Process |
+| 4 | Qui L. et al. [62] | 2017 | Domain specific | Bottom-up | Process |
+| 5 | Zhao Y. et al. [91] | 2017 | Domain specific | Top-down | Aspects |
+| 6 | Lin Z. Q. et al. [49] | 2017 | Domain specific | Bottom-up | Overview |
+| 7 | Xin H. et al. [85] | 2018 | Domain specific | Top-down | Workflow |
+| 8 | Yan J. et al. [87] | 2018 | Methodological | Bottom-up | Framework |
+| 9 | Chen P. et al. [13] | 2018 | Domain specific | Bottom-up | Architecture |
+| 10 | Wang C. et al. [75] | 2018 | Domain specific | Top-down | Workflow |
+| 11 | Martinez-Rodriguez J. L. et al. [54] | 2018 | Methodological | Bottom-up | Method |
+| 12 | Shekarpour S. et al. [66] | 2018 | Domain specific | Top-down | Pipeline |
+| 13 | Zhao Z. et al. [92] | 2018 | Methodological | Bottom-up | Architecture |
+| 14 | Yang C. et al. [16] | 2018 | Domain specific | top-down | Procedure |
+| 15 | Chenglin Q. et al. [15] | 2018 | Domain specific | Top-down | Technologies |
+| 16 | Wu T. et al. [82] | 2018 | Methodological | Bottom-up | Framework |
+| 17 | Sharafeldeen D. et al. [65] | 2019 | Domain specific | Bottom-up | Workflow |
 
 Table A.1. Summary of Articles used During Systematic Review
 
 (Continued)
 
-|  |  | Table A.1. Continued |
+| | | Table A.1. Continued |
 |--|--|----------------------|
 |--|--|----------------------|
 
-| No. | Article                      | Year | Article type    | Process type | Process label |
+| No. | Article | Year | Article type | Process type | Process label |
 |-----|------------------------------|------|-----------------|--------------|---------------|
-| 18  | Mehta A. et al. [55]         | 2019 | Domain specific | Bottom-up    | Pipeline      |
-| 19  | Huang L. et al. [34]         | 2019 | Domain specific | Top-down     | Process       |
-| 20  | Zhou Y. et al. [94]          | 2019 | Domain specific | Top-down     | Framework     |
-| 21  | Hu H. et al. [33]            | 2019 | Domain specific | Bottom-up    | Framework     |
-| 22  | Wu T. et al. [83]            | 2019 | Methodological  | Bottom-up    | Framework     |
-| 23  | Christophides V. et al. [17] | 2019 | Methodological  | Bottom-up    | Workflow      |
-| 24  | Kejriwal M. [40]             | 2019 | Methodological  | Bottom-up    | -             |
-| 25  | Chen H. et al. [12]          | 2019 | Domain specific | Top-down     | Framework     |
-| 26  | Wang P. et al. [77]          | 2019 | Domain specific | Bottom-up    | Framework     |
-| 27  | Chen Y. et al. [14]          | 2019 | Domain specific | Bottom-up    | Framework     |
-| 28  | Yu H. et al. [88]            | 2020 | Domain specific | Bottom-up    | Framework     |
-| 29  | Weikum G. et al. [80]        | 2020 | Methodological  | Bottom-up    | Roadmap       |
-| 30  | Li F. et al. [46]            | 2020 | Domain specific | Top-down     | Process       |
-| 31  | Su Y. et al. [67]            | 2020 | Domain specific | Bottom-up    | Method        |
-| 32  | Hertling S. et al. [28]      | 2020 | Domain specific | Bottom-up    | Workflow      |
-| 33  | Nitisha J. [36]              | 2020 | Domain specific | Top-down     | Approach      |
-| 34  | Li L. et al. [47]            | 2020 | Domain specific | Bottom-up    | Procedure     |
-| 35  | Mao S. et al. [53]           | 2020 | Domain specific | Bottom-up    | Process       |
-| 36  | Kim J. E. et al. [42]        | 2020 | Domain specific | Top-down     | Approach      |
-| 37  | Wang Q. et al. [78]          | 2020 | Domain specific | Top-down     | Framework     |
-| 38  | Xiao D. et al. [84]          | 2020 | Domain specific | Bottom-up    | Method        |
-| 39  | Yu S. et al. [89]            | 2020 | Domain specific | Not clear    | Framework     |
-| 40  | Elhammadi S. et al. [21]     | 2020 | Domain specific | Bottom-up    | Pipeline      |
-| 41  | Fang W. et al. [22]          | 2020 | Domain specific | Top-down     | Workflow      |
-| 42  | Wang M. et al. [76]          | 2020 | Domain specific | Bottom-up    | Pipeline      |
-| 43  | Malik K. M. et al. [52]      | 2020 | Domain specific | Bottom-up    | Architecture  |
-| 44  | Muhammad I. et al. [56]      | 2020 | Domain specific | Bottom-up    | Approach      |
-| 45  | Liu S. et al. [51]           | 2020 | Domain specific | Bottom-up    | Framework     |
-| 46  | Jin Y. et al. [38]           | 2020 | Domain specific | Bottom-up    | Process       |
-| 47  | Li F. et al. [45]            | 2020 | Methodological  | Bottom-up    | Flow chart    |
-| 48  | Fensel D. et al. [23]        | 2020 | Methodological  | Bottom-up    | Process       |
-| 49  | Dessì D. et al. [19]         | 2020 | Domain specific | Bottom-up    | Pipeline      |
-| 50  | Aliyu I. et al. [6]          | 2020 | Domain specific | Top-down     | Architecture  |
-| 51  | Yan H. et al. [86]           | 2020 | Domain specific | Bottom-up    | Process       |
-| 52  | Kim H. [41]                  | 2021 | Domain specific | Bottom-up    | Process       |
-| 53  | Yu X. et al. [90]            | 2021 | Domain specific | Bottom-up    | Process       |
-| 54  | Liu J. et al. [50]           | 2021 | Domain specific | Bottom-up    | Workflow      |
-| 55  | Zhou B. et al. [93]          | 2021 | Domain specific | Bottom-up    | Framework     |
-| 56  | Dessì D. et al. [18]         | 2021 | Domain specific | Bottom-up    | Workflow      |
-| 57  | Tan J. et al. [70]           | 2021 | Domain specific | Top-down     | Framework     |
+| 18 | Mehta A. et al. [55] | 2019 | Domain specific | Bottom-up | Pipeline |
+| 19 | Huang L. et al. [34] | 2019 | Domain specific | Top-down | Process |
+| 20 | Zhou Y. et al. [94] | 2019 | Domain specific | Top-down | Framework |
+| 21 | Hu H. et al. [33] | 2019 | Domain specific | Bottom-up | Framework |
+| 22 | Wu T. et al. [83] | 2019 | Methodological | Bottom-up | Framework |
+| 23 | Christophides V. et al. [17] | 2019 | Methodological | Bottom-up | Workflow |
+| 24 | Kejriwal M. [40] | 2019 | Methodological | Bottom-up | - |
+| 25 | Chen H. et al. [12] | 2019 | Domain specific | Top-down | Framework |
+| 26 | Wang P. et al. [77] | 2019 | Domain specific | Bottom-up | Framework |
+| 27 | Chen Y. et al. [14] | 2019 | Domain specific | Bottom-up | Framework |
+| 28 | Yu H. et al. [88] | 2020 | Domain specific | Bottom-up | Framework |
+| 29 | Weikum G. et al. [80] | 2020 | Methodological | Bottom-up | Roadmap |
+| 30 | Li F. et al. [46] | 2020 | Domain specific | Top-down | Process |
+| 31 | Su Y. et al. [67] | 2020 | Domain specific | Bottom-up | Method |
+| 32 | Hertling S. et al. [28] | 2020 | Domain specific | Bottom-up | Workflow |
+| 33 | Nitisha J. [36] | 2020 | Domain specific | Top-down | Approach |
+| 34 | Li L. et al. [47] | 2020 | Domain specific | Bottom-up | Procedure |
+| 35 | Mao S. et al. [53] | 2020 | Domain specific | Bottom-up | Process |
+| 36 | Kim J. E. et al. [42] | 2020 | Domain specific | Top-down | Approach |
+| 37 | Wang Q. et al. [78] | 2020 | Domain specific | Top-down | Framework |
+| 38 | Xiao D. et al. [84] | 2020 | Domain specific | Bottom-up | Method |
+| 39 | Yu S. et al. [89] | 2020 | Domain specific | Not clear | Framework |
+| 40 | Elhammadi S. et al. [21] | 2020 | Domain specific | Bottom-up | Pipeline |
+| 41 | Fang W. et al. [22] | 2020 | Domain specific | Top-down | Workflow |
+| 42 | Wang M. et al. [76] | 2020 | Domain specific | Bottom-up | Pipeline |
+| 43 | Malik K. M. et al. [52] | 2020 | Domain specific | Bottom-up | Architecture |
+| 44 | Muhammad I. et al. [56] | 2020 | Domain specific | Bottom-up | Approach |
+| 45 | Liu S. et al. [51] | 2020 | Domain specific | Bottom-up | Framework |
+| 46 | Jin Y. et al. [38] | 2020 | Domain specific | Bottom-up | Process |
+| 47 | Li F. et al. [45] | 2020 | Methodological | Bottom-up | Flow chart |
+| 48 | Fensel D. et al. [23] | 2020 | Methodological | Bottom-up | Process |
+| 49 | Dessì D. et al. [19] | 2020 | Domain specific | Bottom-up | Pipeline |
+| 50 | Aliyu I. et al. [6] | 2020 | Domain specific | Top-down | Architecture |
+| 51 | Yan H. et al. [86] | 2020 | Domain specific | Bottom-up | Process |
+| 52 | Kim H. [41] | 2021 | Domain specific | Bottom-up | Process |
+| 53 | Yu X. et al. [90] | 2021 | Domain specific | Bottom-up | Process |
+| 54 | Liu J. et al. [50] | 2021 | Domain specific | Bottom-up | Workflow |
+| 55 | Zhou B. et al. [93] | 2021 | Domain specific | Bottom-up | Framework |
+| 56 | Dessì D. et al. [18] | 2021 | Domain specific | Bottom-up | Workflow |
+| 57 | Tan J. et al. [70] | 2021 | Domain specific | Top-down | Framework |
 
 ## <span id="page-19-0"></span>B PRISMA 2020 CHECKLIST
 
-| <b>Section and Topic</b>         | <b>Ite</b><br>$m$ #     | <b>Checklist item</b>                                                                                                                                                                                                                                                                                   | Location<br>where item is<br>reported |
+| <b>Section and Topic</b> | <b>Ite</b><br>$m$ # | <b>Checklist item</b> | Location<br>where item is<br>reported |
 |----------------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
-| <b>TITLE</b>                     |                         |                                                                                                                                                                                                                                                                                                         |                                       |
-| Title                            | $\mathbf{1}$            | Identify the report as a systematic review.                                                                                                                                                                                                                                                             | 1 Introduction                        |
-| <b>ABSTRACT</b>                  |                         |                                                                                                                                                                                                                                                                                                         |                                       |
-| Abstract                         | $\overline{2}$          | See the PRISMA 2020 for Abstracts checklist.                                                                                                                                                                                                                                                            | N/a                                   |
-| <b>INTRODUCTION</b>              |                         |                                                                                                                                                                                                                                                                                                         |                                       |
-| Rationale                        | $\overline{\mathbf{3}}$ | Describe the rationale for the review in the context of existing knowledge.                                                                                                                                                                                                                             | 1 Introduction                        |
-| <b>Objectives</b>                | 4                       | Provide an explicit statement of the objective(s) or question(s) the review addresses.                                                                                                                                                                                                                  | 1 Introduction                        |
-| <b>METHODS</b>                   |                         |                                                                                                                                                                                                                                                                                                         |                                       |
-| Eligibility criteria             | 5                       | Specify the inclusion and exclusion criteria for the review and how studies were grouped for the syntheses.                                                                                                                                                                                             | 3.1 Data<br>Collection                |
-| Information<br>sources           | 6                       | Specify all databases, registers, websites, organisations, reference lists and other sources searched or consulted to identify studies. Specify the date when<br>each source was last searched or consulted.                                                                                            | 3.1 Data<br>Collection                |
-| Search strategy                  | $\overline{7}$          | Present the full search strategies for all databases, registers and websites, including any filters and limits used.                                                                                                                                                                                    | 3.1 Data<br>Collection                |
-| Selection process                | R                       | Specify the methods used to decide whether a study met the inclusion criteria of the review, including how many reviewers screened each record and each<br>report retrieved, whether they worked independently, and if applicable, details of automation tools used in the process.                     | 3.1 Data<br>Collection                |
-| Data collection<br>process       | q.                      | Specify the methods used to collect data from reports, including how many reviewers collected data from each report, whether they worked independently.<br>any processes for obtaining or confirming data from study investigators, and if applicable, details of automation tools used in the process. | 3.1 Data<br>Collection                |
-| Data items                       | 10a                     | List and define all outcomes for which data were sought. Specify whether all results that were compatible with each outcome domain in each study were<br>sought (e.g. for all measures, time points, analyses), and if not, the methods used to decide which results to collect.                        | 3.2 Data<br>Analysis                  |
-|                                  | 10 <sub>b</sub>         | List and define all other variables for which data were sought (e.g. participant and intervention characteristics, funding sources). Describe any assumptions<br>made about any missing or unclear information.                                                                                         | N/a                                   |
-| Study risk of bias<br>assessment | 11                      | Specify the methods used to assess risk of bias in the included studies, including details of the tool(s) used, how many reviewers assessed each study and<br>whether they worked independently, and if applicable, details of automation tools used in the process.                                    | N/a                                   |
-| <b>Effect measures</b>           | 12                      | Specify for each outcome the effect measure(s) (e.g. risk ratio, mean difference) used in the synthesis or presentation of results.                                                                                                                                                                     | N/a                                   |
-| Synthesis methods                | 13a                     | Describe the processes used to decide which studies were eligible for each synthesis (e.g. tabulating the study intervention characteristics and comparing<br>against the planned groups for each synthesis (item #5)).                                                                                 | 3.2 Data<br>Analysis                  |
-|                                  | 13 <sub>b</sub>         | Describe any methods required to prepare the data for presentation or synthesis, such as handling of missing summary statistics, or data conversions.                                                                                                                                                   | 3.2 Data<br>Analysis                  |
-|                                  | 13c                     | Describe any methods used to tabulate or visually display results of individual studies and syntheses.                                                                                                                                                                                                  | 3.2 Data<br>Analysis                  |
-|                                  | 13d                     | Describe any methods used to synthesize results and provide a rationale for the choice(s). If meta-analysis was performed, describe the model(s),                                                                                                                                                       | 3.2 Data                              |
-|                                  |                         | method(s) to identify the presence and extent of statistical heterogeneity, and software package(s) used.                                                                                                                                                                                               | Analysis                              |
-|                                  | 13e                     | Describe any methods used to explore possible causes of heterogeneity among study results (e.g. subgroup analysis, meta-regression).                                                                                                                                                                    | N/a                                   |
-|                                  | 13f                     | Describe any sensitivity analyses conducted to assess robustness of the synthesized results.                                                                                                                                                                                                            | N/a                                   |
-| Reporting bias<br>assessment     | 14                      | Describe any methods used to assess risk of bias due to missing results in a synthesis (arising from reporting biases).                                                                                                                                                                                 | N/a                                   |
+| <b>TITLE</b> | | | |
+| Title | $\mathbf{1}$ | Identify the report as a systematic review. | 1 Introduction |
+| <b>ABSTRACT</b> | | | |
+| Abstract | $\overline{2}$ | See the PRISMA 2020 for Abstracts checklist. | N/a |
+| <b>INTRODUCTION</b> | | | |
+| Rationale | $\overline{\mathbf{3}}$ | Describe the rationale for the review in the context of existing knowledge. | 1 Introduction |
+| <b>Objectives</b> | 4 | Provide an explicit statement of the objective(s) or question(s) the review addresses. | 1 Introduction |
+| <b>METHODS</b> | | | |
+| Eligibility criteria | 5 | Specify the inclusion and exclusion criteria for the review and how studies were grouped for the syntheses. | 3.1 Data<br>Collection |
+| Information<br>sources | 6 | Specify all databases, registers, websites, organisations, reference lists and other sources searched or consulted to identify studies. Specify the date when<br>each source was last searched or consulted. | 3.1 Data<br>Collection |
+| Search strategy | $\overline{7}$ | Present the full search strategies for all databases, registers and websites, including any filters and limits used. | 3.1 Data<br>Collection |
+| Selection process | R | Specify the methods used to decide whether a study met the inclusion criteria of the review, including how many reviewers screened each record and each<br>report retrieved, whether they worked independently, and if applicable, details of automation tools used in the process. | 3.1 Data<br>Collection |
+| Data collection<br>process | q. | Specify the methods used to collect data from reports, including how many reviewers collected data from each report, whether they worked independently.<br>any processes for obtaining or confirming data from study investigators, and if applicable, details of automation tools used in the process. | 3.1 Data<br>Collection |
+| Data items | 10a | List and define all outcomes for which data were sought. Specify whether all results that were compatible with each outcome domain in each study were<br>sought (e.g. for all measures, time points, analyses), and if not, the methods used to decide which results to collect. | 3.2 Data<br>Analysis |
+| | 10 <sub>b</sub> | List and define all other variables for which data were sought (e.g. participant and intervention characteristics, funding sources). Describe any assumptions<br>made about any missing or unclear information. | N/a |
+| Study risk of bias<br>assessment | 11 | Specify the methods used to assess risk of bias in the included studies, including details of the tool(s) used, how many reviewers assessed each study and<br>whether they worked independently, and if applicable, details of automation tools used in the process. | N/a |
+| <b>Effect measures</b> | 12 | Specify for each outcome the effect measure(s) (e.g. risk ratio, mean difference) used in the synthesis or presentation of results. | N/a |
+| Synthesis methods | 13a | Describe the processes used to decide which studies were eligible for each synthesis (e.g. tabulating the study intervention characteristics and comparing<br>against the planned groups for each synthesis (item #5)). | 3.2 Data<br>Analysis |
+| | 13 <sub>b</sub> | Describe any methods required to prepare the data for presentation or synthesis, such as handling of missing summary statistics, or data conversions. | 3.2 Data<br>Analysis |
+| | 13c | Describe any methods used to tabulate or visually display results of individual studies and syntheses. | 3.2 Data<br>Analysis |
+| | 13d | Describe any methods used to synthesize results and provide a rationale for the choice(s). If meta-analysis was performed, describe the model(s), | 3.2 Data |
+| | | method(s) to identify the presence and extent of statistical heterogeneity, and software package(s) used. | Analysis |
+| | 13e | Describe any methods used to explore possible causes of heterogeneity among study results (e.g. subgroup analysis, meta-regression). | N/a |
+| | 13f | Describe any sensitivity analyses conducted to assess robustness of the synthesized results. | N/a |
+| Reporting bias<br>assessment | 14 | Describe any methods used to assess risk of bias due to missing results in a synthesis (arising from reporting biases). | N/a |
 
-| Certainty<br>assessment                 | 15              | Describe any methods used to assess certainty (or confidence) in the body of evidence for an outcome.                                                                                                                                                                                   | 3.3 Evaluation<br>through Case<br>Studies  |
+| Certainty<br>assessment | 15 | Describe any methods used to assess certainty (or confidence) in the body of evidence for an outcome. | 3.3 Evaluation<br>through Case<br>Studies |
 |-----------------------------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
-|                                         |                 |                                                                                                                                                                                                                                                                                         | 5 Case Studies                             |
-| <b>RESULTS</b>                          |                 |                                                                                                                                                                                                                                                                                         |                                            |
-| Study selection                         | 16a             | Describe the results of the search and selection process, from the number of records identified in the search to the number of studies included in the<br>review, ideally using a flow diagram.                                                                                         | 3.1 Data<br>Collection                     |
-|                                         | 16b             | Cite studies that might appear to meet the inclusion criteria, but which were excluded, and explain why they were excluded.                                                                                                                                                             | N/a                                        |
-| Study<br>characteristics                | 17              | Cite each included study and present its characteristics.                                                                                                                                                                                                                               | 3.1 Data<br>Collection                     |
-| Risk of bias in<br>seibutz              | 18              | Present assessments of risk of bias for each included study.                                                                                                                                                                                                                            | N/a                                        |
-| Results of<br>individual studies        | 19              | For all outcomes, present, for each study: (a) summary statistics for each group (where appropriate) and (b) an effect estimate and its precision (e.g.<br>confidence/credible interval), ideally using structured tables or plots.                                                     | N/a                                        |
-| Results of                              | 20a             | For each synthesis, briefly summarise the characteristics and risk of bias among contributing studies.                                                                                                                                                                                  | 6 Discussion                               |
-| syntheses                               | 20 <sub>b</sub> | Present results of all statistical syntheses conducted. If meta-analysis was done, present for each the summary estimate and its precision (e.g.<br>confidence/credible interval) and measures of statistical heterogeneity. If comparing groups, describe the direction of the effect. | N/a                                        |
-|                                         | 20c             | Present results of all investigations of possible causes of heterogeneity among study results.                                                                                                                                                                                          | N/a                                        |
-|                                         | 20d             | Present results of all sensitivity analyses conducted to assess the robustness of the synthesized results.                                                                                                                                                                              | N/a                                        |
-| <b>Reporting biases</b>                 | 21              | Present assessments of risk of bias due to missing results (arising from reporting biases) for each synthesis assessed.                                                                                                                                                                 | N/a                                        |
-| Certainty of<br>evidence                | 22              | Present assessments of certainty (or confidence) in the body of evidence for each outcome assessed.                                                                                                                                                                                     | N/a                                        |
-| <b>DISCUSSION</b>                       |                 |                                                                                                                                                                                                                                                                                         |                                            |
-| Discussion                              | 23a             | Provide a general interpretation of the results in the context of other evidence.                                                                                                                                                                                                       | 4 Results<br>6 Discussion                  |
-|                                         | 23 <sub>b</sub> | Discuss any limitations of the evidence included in the review.                                                                                                                                                                                                                         | 6 Discussion                               |
-|                                         | 23c             | Discuss any limitations of the review processes used.                                                                                                                                                                                                                                   | 6 Discussion                               |
-|                                         | 23d             | Discuss implications of the results for practice, policy, and future research.                                                                                                                                                                                                          | 6 Discussion<br>7 Conclusion               |
-| <b>OTHER INFORMATION</b>                |                 |                                                                                                                                                                                                                                                                                         |                                            |
-| Registration and                        | 24a             | Provide registration information for the review, including register name and registration number, or state that the review was not registered.                                                                                                                                          | N/a                                        |
-| protocol                                | 24 <sub>b</sub> | Indicate where the review protocol can be accessed, or state that a protocol was not prepared.                                                                                                                                                                                          | Figure 4<br>describes the<br>protocol      |
-|                                         | 24c             | Describe and explain any amendments to information provided at registration or in the protocol.                                                                                                                                                                                         | N/a                                        |
-| Support                                 | 25              | Describe sources of financial or non-financial support for the review, and the role of the funders or sponsors in the review.                                                                                                                                                           | There we no<br>sponsors                    |
-| Competing<br><b>interests</b>           | 26              | Declare any competing interests of review authors.                                                                                                                                                                                                                                      | The paper has<br>no competing<br>interests |
-| Availability of data.<br>code and other | 27              | Report which of the following are publicly available and where they can be found: template data collection forms: data extracted from included studies:<br>data used for all analyses: analytic code: any other materials used in the review.                                           | 3.2 Data<br>Analysis                       |
+| | | | 5 Case Studies |
+| <b>RESULTS</b> | | | |
+| Study selection | 16a | Describe the results of the search and selection process, from the number of records identified in the search to the number of studies included in the<br>review, ideally using a flow diagram. | 3.1 Data<br>Collection |
+| | 16b | Cite studies that might appear to meet the inclusion criteria, but which were excluded, and explain why they were excluded. | N/a |
+| Study<br>characteristics | 17 | Cite each included study and present its characteristics. | 3.1 Data<br>Collection |
+| Risk of bias in<br>seibutz | 18 | Present assessments of risk of bias for each included study. | N/a |
+| Results of<br>individual studies | 19 | For all outcomes, present, for each study: (a) summary statistics for each group (where appropriate) and (b) an effect estimate and its precision (e.g.<br>confidence/credible interval), ideally using structured tables or plots. | N/a |
+| Results of | 20a | For each synthesis, briefly summarise the characteristics and risk of bias among contributing studies. | 6 Discussion |
+| syntheses | 20 <sub>b</sub> | Present results of all statistical syntheses conducted. If meta-analysis was done, present for each the summary estimate and its precision (e.g.<br>confidence/credible interval) and measures of statistical heterogeneity. If comparing groups, describe the direction of the effect. | N/a |
+| | 20c | Present results of all investigations of possible causes of heterogeneity among study results. | N/a |
+| | 20d | Present results of all sensitivity analyses conducted to assess the robustness of the synthesized results. | N/a |
+| <b>Reporting biases</b> | 21 | Present assessments of risk of bias due to missing results (arising from reporting biases) for each synthesis assessed. | N/a |
+| Certainty of<br>evidence | 22 | Present assessments of certainty (or confidence) in the body of evidence for each outcome assessed. | N/a |
+| <b>DISCUSSION</b> | | | |
+| Discussion | 23a | Provide a general interpretation of the results in the context of other evidence. | 4 Results<br>6 Discussion |
+| | 23 <sub>b</sub> | Discuss any limitations of the evidence included in the review. | 6 Discussion |
+| | 23c | Discuss any limitations of the review processes used. | 6 Discussion |
+| | 23d | Discuss implications of the results for practice, policy, and future research. | 6 Discussion<br>7 Conclusion |
+| <b>OTHER INFORMATION</b> | | | |
+| Registration and | 24a | Provide registration information for the review, including register name and registration number, or state that the review was not registered. | N/a |
+| protocol | 24 <sub>b</sub> | Indicate where the review protocol can be accessed, or state that a protocol was not prepared. | Figure 4<br>describes the<br>protocol |
+| | 24c | Describe and explain any amendments to information provided at registration or in the protocol. | N/a |
+| Support | 25 | Describe sources of financial or non-financial support for the review, and the role of the funders or sponsors in the review. | There we no<br>sponsors |
+| Competing<br><b>interests</b> | 26 | Declare any competing interests of review authors. | The paper has<br>no competing<br>interests |
+| Availability of data.<br>code and other | 27 | Report which of the following are publicly available and where they can be found: template data collection forms: data extracted from included studies:<br>data used for all analyses: analytic code: any other materials used in the review. | 3.2 Data<br>Analysis |
 
-|  | Fig. B.1. The PRISMA checklist for this review [60]. |  |  |  |
+| | Fig. B.1. The PRISMA checklist for this review [60]. | | | |
 |--|------------------------------------------------------|--|--|--|
 |--|------------------------------------------------------|--|--|--|
 
@@ -550,9 +547,9 @@ Fig. C.1. Workflow of subjective KB construction [\[85\]](#page-38-0).
 
 Fig. C.2. Framework of the construction method [\[88\]](#page-39-0).
 
-| Knowledge graph application<br>Q&A<br>Understanding web tables<br>Text understanding<br>Web search                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                                       |  |  |  |  |
+| Knowledge graph application<br>Q&A<br>Understanding web tables<br>Text understanding<br>Web search | | | | | |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|--|
-| Knowledge graph building<br>Reasoning and inference<br>Logical inference<br>Graph learning and inference<br><b>SRL</b><br>Relational extraction<br>Pattern-based RE<br>Open RE<br>Relational classification<br>Deep learning-based RE<br>High-order relation formation<br>Entity extraction<br><b>Entity linking</b><br>Template-based methods<br><b>NER</b><br>Data source<br>Lexical<br>Vertical<br>Web<br>Encyclopedia<br>database<br>websites<br>text | distributed store<br>Key/Value pairs<br>Knowledge graph storage and management<br>$\overline{a}$<br>Map/Reduce<br>Relational database<br>Triple store |  |  |  |  |
+| Knowledge graph building<br>Reasoning and inference<br>Logical inference<br>Graph learning and inference<br><b>SRL</b><br>Relational extraction<br>Pattern-based RE<br>Open RE<br>Relational classification<br>Deep learning-based RE<br>High-order relation formation<br>Entity extraction<br><b>Entity linking</b><br>Template-based methods<br><b>NER</b><br>Data source<br>Lexical<br>Vertical<br>Web<br>Encyclopedia<br>database<br>websites<br>text | distributed store<br>Key/Value pairs<br>Knowledge graph storage and management<br>$\overline{a}$<br>Map/Reduce<br>Relational database<br>Triple store | | | | |
 
 Fig. C.3. The framework of knowledge graph [\[87\]](#page-38-0).
 

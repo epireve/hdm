@@ -28,7 +28,6 @@ keywords:
 - tkg
 ---
 
-
 ![](_page_0_Picture_2.jpeg)
 <!-- Image Description: That image is not a diagram, chart, graph, equation, or technical illustration from an academic paper. It's a simple graphic button typically found in software or on websites, instructing users to check for updates. It contains a stylized bookmark icon within a circular border and the text "Check for updates." It has no technical content relevant to an academic paper's analysis. -->
 
@@ -60,15 +59,15 @@ ACM ISBN 978-1-4503-8037-9/21/07…\$15.00
 
 <https://doi.org/10.1145/3404835.3462963>
 
-#### KEYWORDS
+### KEYWORDS
 
 Temporal knowledge graph, evolutional representation learning, graph convolution network
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Zixuan Li1,2, Xiaolong Jin1,2, Wei Li<sup>3</sup> , Saiping Guan1,2, Jiafeng Guo1,2, Huawei Shen1,2,, Yuanzhuo Wang1,2 and Xueqi Cheng1,2. 2021. Temporal Knowledge Graph Reasoning Based on Evolutional Representation Learning. In*Proceedings of the 44th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR '21), July 11–15, 2021, Virtual Event, Canada.*ACM, New York, NY, USA, [10](#page-9-0) pages. [https://doi.org/10.1145/](https://doi.org/10.1145/3404835.3462963) [3404835.3462963](https://doi.org/10.1145/3404835.3462963)
 
-#### 1 INTRODUCTION
+### 1 INTRODUCTION
 
 Knowledge Graphs (KGs) have facilitated many real-world applications [\[44](#page-9-1)]. However, they are usually incomplete, which restricts the performance and range of KG-based applications. To alleviate this problem, reasoning over KG [\[2](#page-9-2), [35](#page-9-3)] that attempts to predict missing facts, is a critical task in natural language processing. Traditionally, a KG is considered to be static multi-relational data. However, recent availability of a large amount of event-based interaction data [\[3](#page-9-4)] that exhibits complex temporal dynamics has created the need for approaches that can characterize and reason over Temporal Knowledge Graph (TKG)[[3,](#page-9-4) [11,](#page-9-5) [12](#page-9-6)]. A fact in a TKG can be represented in the form of (subject entity, relation, object entity, timestamp). Actually, a TKG can be denoted as a sequence of KGs with timestamps, each of which contains the facts that cooccur at the same timestamp. The left part of Figure [1](#page-1-0) illustrates an example of TKG from the ICEWS18 [\[16](#page-9-7)] dataset. Despite the ubiquitousness of TKGs, the methods for reasoning over such kind of data are relatively unexplored both in effectiveness and efficiency.
 
@@ -78,7 +77,7 @@ Permission to make digital or hard copies of all or part of this work for person
 
 <span id="page-1-0"></span>![](_page_1_Figure_2.jpeg)
 <!-- Image Description: The image displays a method for predicting entities and relations in an event graph. Two 3D event graphs, showing interactions between entities (e.g., citizens, government) over time (2017-2019), are presented. Adjacent to these graphs are bar charts illustrating entity and relation prediction scores for example queries. Higher scores indicate higher probabilities. The purpose is to visually demonstrate the model's capability to predict likely entities and relations given an input query, based on learned temporal event patterns. -->
-**Figure 1: An illustration of temporal reasoning over a TKG. We present two subgraphs from the KGs at timestamps 18/01/17 and 18/01/18, respectively.**-**Entity Prediction**: Predict which entity will have a given relation together with a given entity at a certain future timestamp (e.g., Who will N.Naidu criticize on 18/01/19?);
+****Figure 1:** An illustration of temporal reasoning over a TKG. We present two subgraphs from the KGs at timestamps 18/01/17 and 18/01/18, respectively.**-**Entity Prediction**: Predict which entity will have a given relation together with a given entity at a certain future timestamp (e.g., Who will N.Naidu criticize on 18/01/19?);
 - **Relation Prediction**: Predict the relation that will occur between two given entities at a certain future timestamp (e.g., What will happen between Government (India) and citizen (India) on 18/01/19?).
 
 To accurately predict future facts, the model is required to dive deeply into historical facts. At each timestamp, entities influence each other via concurrent facts, which form a KG and exhibit complex **structural dependencies**. As an example shown in Figure [1](#page-1-0), the concurrent facts on 18/01/18 demonstrates that *Government (India)*is under pressure from many people, which may influence the behaviors of*Government (India)*on 18/01/19. Besides, the behaviors of each entity embodied in temporally adjacent facts may carry informative**sequential patterns**. As shown in Figure [1,](#page-1-0) the historical behaviors of *N. Naidu*reflect his preferences and affect his future behaviors to a certain degree. The combination of these two kinds of historical information drives the behavioral trends and preferences of entities and relations.
@@ -93,23 +92,24 @@ In general, this paper makes the following contributions:
 - By characterizing TKG from the view of a KG sequence, RE-GCN efficiently models all the historical information in the TKG into evolutional representations, which are applicable for both entity and relation prediction simultaneously. Therefore, it enables up to 82 times speedup compared to the state-of-the-art baseline.
 - Extensive experiments demonstrate that, by modeling the history more comprehensively, RE-GCN achieves consistently and significantly better performance (up to 11.46% improvement in MRR) over both entity and relation prediction tasks on six commonly used benchmarks.
 
-#### 2 RELATED WORKS
+### 2 RELATED WORKS
+
 **Static KG Reasoning.**Existing models for static KG reasoning attempt to infer missing facts in KGs. Recently, embedding based models[[2,](#page-9-2) [6](#page-9-20), [30,](#page-9-21) [35](#page-9-3), [41\]](#page-9-22) have drawn much attention. As GCN[[19\]](#page-9-23) is a representative model to combine content and structural features in a graph, some studies have generalized it to relation-aware GCNs so as to deal with KGs. Among them, R-GCN[[28](#page-9-24)] extends GCN with relation-specific filters, and WGCN[[30](#page-9-21)] utilizes learnable relation-specific weights during aggregation. VR-GCN[[42\]](#page-9-25) and CompGCN [\[36\]](#page-9-26) jointly embeds both nodes and relations in a relational graph during GCN aggregation. The above models are all set in the static KG, and they cannot predict facts in the future.
 **Temporal KG Reasoning.**Reasoning over TKG can be categorized into two settings, interpolation and extrapolation[[16\]](#page-9-7). For the first setting, the models [\[4](#page-9-8), [8–](#page-9-27)[10](#page-9-28), [13,](#page-9-29) [21](#page-9-10), [27,](#page-9-30) [37](#page-9-31), [38,](#page-9-32) [40\]](#page-9-33) attempt to infer missing facts at the historical timestamps. TA-DistMult[[9](#page-9-9)], TA-TransE [\[9](#page-9-9)] and TTransE [\[21\]](#page-9-10) integrate the time when the facts
 
 <span id="page-2-1"></span>![](_page_2_Figure_2.jpeg)
 <!-- Image Description: This diagram illustrates a Recurrent Entity-Relation Graph Convolutional Network (RE-GCN) architecture. It processes temporal knowledge graphs (TKG) represented as a sequence of graphs. Each time step's graph is fed into an evolution unit consisting of a GRU, relation-aware GCN, and pooling layers. The evolution units' outputs, combined with a static graph constraint, are used by score functions to predict entities and relations. The architecture integrates both temporal and static graph information for improved prediction accuracy. -->
-**Figure 2: An illustrative diagram of the proposed RE-GCN model for temporal reasoning at timestamp** + 1**.**<span id="page-2-0"></span>
+****Figure 2:** An illustrative diagram of the proposed RE-GCN model for temporal reasoning at timestamp** + 1**.**<span id="page-2-0"></span>
 
-| Notations                  | Descriptions                                           |
+| Notations | Descriptions |
 |----------------------------|--------------------------------------------------------|
-| 𝑠<br>𝐺, 𝐺<br>, 𝐺𝑡          | TKG, static graph, KG at timestamp 𝑡 in the TKG        |
-| V, R, E𝑡                   | entity set, relation set, fact set (at 𝑡) in the TKG   |
+| 𝑠<br>𝐺, 𝐺<br>, 𝐺𝑡 | TKG, static graph, KG at timestamp 𝑡 in the TKG |
+| V, R, E𝑡 | entity set, relation set, fact set (at 𝑡) in the TKG |
 | V𝑠<br>𝑠<br>𝑠<br>, R<br>, E | entity set, relation set, edge set in the static graph |
-| H𝑡 , R𝑡                    | embedding matrices of entities, relations at 𝑡         |
-| 𝑠<br>H, R, H               | randomly initialized embedding matrices of entities    |
-|                            | and relations, static embedding matrix of entities     |
-**Table 1: Important notations and their descriptions.** occurred into the embeddings of relations. HyTE[[4\]](#page-9-8) associates each timestamp with a corresponding hyperplane. However, they are not able to predict facts at future timestamps and can not directly compatible with the extrapolation setting.
+| H𝑡 , R𝑡 | embedding matrices of entities, relations at 𝑡 |
+| 𝑠<br>H, R, H | randomly initialized embedding matrices of entities |
+| | and relations, static embedding matrix of entities |
+****Table 1:** Important notations and their descriptions.** occurred into the embeddings of relations. HyTE[[4\]](#page-9-8) associates each timestamp with a corresponding hyperplane. However, they are not able to predict facts at future timestamps and can not directly compatible with the extrapolation setting.
 
 The extrapolation setting, which this paper focuses on, attempts to predict new facts at future timestamps based on historical ones. Orthogonal to our work, some models[[14](#page-9-34), [33,](#page-9-12) [34\]](#page-9-13) conduct the future fact prediction by estimating the conditional probability via a temporal point process. They are more capable of modeling TKGs with continuous time, where no facts may occur at the same timestamp. Glean[[5](#page-9-35)] incorporates a word graph constructed by the event summary into the modeling of future fact prediction. However, not all the events have the summary text in the practical application. CyGNet[[43](#page-9-19)] and RE-NET[[16](#page-9-7)] are the most related works with us. They attempt to solve the entity prediction task from the view of each given query, which encodes the historical facts related to the subject entity in each query. CyGNet uses a generate-copy network to model the frequency of the historical facts with the same subject entities and relations to the given queries (i.e., repetitive patterns). RE-NET applies a GCN and GRU to model the sequence of 1-hop subgraphs related to the given subject entity. They both neglect the structural dependencies within KGs at different timestamps and the static properties of entities. Differently, RE-GCN models the KG sequence as a whole, which considers all structural dependencies and enables great improvement in efficiency.
 
@@ -117,24 +117,22 @@ The extrapolation setting, which this paper focuses on, attempts to predict new 
 
 A TKG can be formalized as a sequence of KGs with timestamps, i.e., = {1*,*2*, ..., , ...*}. Each KG, = (V*,* R*,* E), at timestamp is a directed multi-relational graph, where V is the set of
 
-entities, R is the set of relations, and E is the set of facts at timestamp ( is a discrete integer). Any fact in E can be denoted as a quadruple, (*, , ,*), where*,*  ∈ V and ∈ R. It represents a fact of relation that occurs with as its subject entity and as its object entity at timestamp . For each quadruple (*, , ,* ), the inverse quadruple (*,*−<sup>1</sup>*, ,*) is also appended to the dataset. The static graph is denoted as = (V*,*R*,* E ), where V , R and E are the entity set, the relation set and the set of edges in the static graph. The important mathematical notations are in Table [1.](#page-2-0)
+entities, R is the set of relations, and E is the set of facts at timestamp ( is a discrete integer). Any fact in E can be denoted as a quadruple, (*, , ,*), where*,* ∈ V and ∈ R. It represents a fact of relation that occurs with as its subject entity and as its object entity at timestamp . For each quadruple (*, , ,* ), the inverse quadruple (*,*−<sup>1</sup>*, ,*) is also appended to the dataset. The static graph is denoted as = (V*,*R*,* E ), where V , R and E are the entity set, the relation set and the set of edges in the static graph. The important mathematical notations are in Table [1.](#page-2-0)
 
-The entity prediction task aims to predict the missing object entity of a query (*, ,* ?*,*  +1) and the missing subject entity of a query (?*, , ,*  + 1). The relation prediction task attempts to predict the missing relation of a query (*,* ?*, ,*  +1). Under the assumption that the prediction of the facts at a future timestamp + 1 depends on the KGs at the latest timestamps (i.e., {−+1*, ...*}) and the information of the historical KG sequence is modeled in the evolutional embedding matrices of the entities**H**∈ R |V |× and the relations**R**∈ R |R |× at timestamp ( is the dimension of the embeddings), the two temporal reasoning tasks can be formulated as follows:
+The entity prediction task aims to predict the missing object entity of a query (*, ,* ?*,* +1) and the missing subject entity of a query (?*, , ,* + 1). The relation prediction task attempts to predict the missing relation of a query (*,* ?*, ,* +1). Under the assumption that the prediction of the facts at a future timestamp + 1 depends on the KGs at the latest timestamps (i.e., {−+1*, ...*}) and the information of the historical KG sequence is modeled in the evolutional embedding matrices of the entities**H**∈ R |V |× and the relations**R**∈ R |R |× at timestamp ( is the dimension of the embeddings), the two temporal reasoning tasks can be formulated as follows:
 **Task 1. Entity Prediction.** Given a query (*, ,* ?*,*+1), RE-GCN models the conditional probability vector of all object entities with the subject entity , the relation and the historical KG sequence −+1: given:
 
-<span id="page-2-2"></span>
 $$
 \vec{p}(o|s,r,G_{t-m+1:t}) = \vec{p}(o|s,r,H_t,R_t). \tag{1}
 $$
-**Task 2. Relation Prediction.** Given a query (*,* ?*, ,*  + 1), RE-GCN models the conditional probability vector of all relations with the subject entity , the object entity and the historical KG sequence −+1: given:
+**Task 2. Relation Prediction.** Given a query (*,* ?*, ,* + 1), RE-GCN models the conditional probability vector of all relations with the subject entity , the object entity and the historical KG sequence −+1: given:
 
-<span id="page-2-3"></span>
 $$
 \vec{p}(r|s, o, G_{t-m+1:t}) = \vec{p}(r|s, o, H_t, R_t).
 $$
- (2)
+(2)
 
-# 4 THE RE-GCN MODEL
+## 4 THE RE-GCN MODEL
 
 RE-GCN integrates the structural dependencies in a KG at each timestamp, the informative sequential patterns across temporally adjacent facts, and the static properties of entities into the evolutional representations of entities and relations. Based on the learned entity and relation representations, temporal reasoning at future
 
@@ -144,9 +142,8 @@ timestamps can be made with various score functions. Thus RE-GCN contains an evo
 
 The evolution unit consists of a relation-aware GCN, two gate recurrent components, and a static graph constraint component. The relation-aware GCN attempts to capture the structural dependencies within the KG at each timestamp. The two gate recurrent components model the historical KG sequence auto-regressively. Specifically, a time gate recurrent component and a GRU component get the evolutional representations of entities and relations at each timestamp correspondingly.The static graph constraint component integrates the static properties to the evolutional embeddings by adding some constraints between static embeddings and evolutional embeddings of entities. Formally, the evolution unit computes a mapping from a sequence of KGs at the latest timestamps (i.e., {−+1*, ...,* }) to a sequence of entity embedding matrices (i.e., {**H**−+1*, ...***H** }) and a sequence of relation embedding matrices (i.e., {**R**−+1*, ...,* **R**}) recurrently. Particularly, the input at the first timestamp, including the entity embedding matrix**H**and the relation embedding matrix**R**, are randomly initialized.
 
-4.1.1 **Structural Dependencies among Concurrent Facts.** The structural dependencies among concurrent facts capture the associations among the entities through facts and the associations among relations through the shared entities. Since each KG is a multi-relational graph and GCN is a powerful model for the graphstructured data [\[28,](#page-9-24) [30](#page-9-21), [36](#page-9-26), [42](#page-9-25)], an -layer relation-aware GCN is used to model the structural dependencies. More specifically, for a KG at timestamp , an object entity at layer ∈ [0*,*  − 1] gets information from its subject entities under a message-passing framework with embeddings of the relations at layer considered and obtains its embedding at the next + 1 layer, i.e.,
+4.1.1 **Structural Dependencies among Concurrent Facts.** The structural dependencies among concurrent facts capture the associations among the entities through facts and the associations among relations through the shared entities. Since each KG is a multi-relational graph and GCN is a powerful model for the graphstructured data [\[28,](#page-9-24) [30](#page-9-21), [36](#page-9-26), [42](#page-9-25)], an -layer relation-aware GCN is used to model the structural dependencies. More specifically, for a KG at timestamp , an object entity at layer ∈ [0*,* − 1] gets information from its subject entities under a message-passing framework with embeddings of the relations at layer considered and obtains its embedding at the next + 1 layer, i.e.,
 
-<span id="page-3-0"></span>
 $$
 \vec{h}_{o,t}^{l+1} = f\left(\frac{1}{c_o} \sum_{(s,r),\exists (s,r,o)\in\mathcal{E}_t} \mathbf{W}_1^l(\vec{h}_{s,t}^l + \vec{r}_t) + \mathbf{W}_2^l \vec{h}_{o,t}^l\right), \quad (3)
 $$
@@ -201,12 +198,12 @@ where denotes the ascending pace of the angle and ∈ [0*,* 1*, ..,*]. We set th
 
 Then, the cosine value of the angle between the two embeddings of entity , denoted as( ®*ℎ ,* ®*ℎ*−+*,*), should be more than .
 
- Thus, the loss of the static graph constraint component at timestamp can be defined as below:
+Thus, the loss of the static graph constraint component at timestamp can be defined as below:
 
 $$
 L_x^{st} = \sum_{i=0}^{|\mathcal{V}|-1} \max\{cos\theta_x - cos(\vec{h}_i^s, \vec{h}_{t-m+x,i}), 0\}.
 $$
- (10)
+(10)
 
 The loss of the static graph constraint component is = Í =0 .
 
@@ -227,7 +224,7 @@ $$
 
 where (·) is the sigmoid function,® ,® , ® are the embeddings of s, r and o in**H**and**R<sup>t</sup>**, respectively. ConvTransE(®*,*®)*,*ConvTransE (®*,* ®) ∈ R ×1 . The details of ConvTransE are omitted for brevity. Note that, ConvTransE can be replaced by other score functions.
 
-# 4.3 Parameter Learning
+## 4.3 Parameter Learning
 
 Both the entity prediction task and the relation prediction task can be seen as the multi-label learning problems. Let ® +1 ∈ R |V | and ® +1 ∈ R |R | denote the label vectors for the two tasks at the timestamp + 1, respectively. The elements of vectors ® +1 ∈ R |V | and ® +1 ∈ R |R | are 1 for facts that do occur, otherwise, 0. Then,
 
@@ -239,7 +236,7 @@ $$
 L^{r} = \sum_{t=0}^{T-1} \sum_{(s,r,o,t+1) \in \mathcal{E}_{t+1}} \sum_{i=0}^{|\mathcal{R}|-1} y_{t+1,i}^{r} \log p_i(r|s,o,\mathbf{H}_t, \mathbf{R}_t), \qquad (14)
 $$
 
-where is the number of timestamps in the training set, +1*,,*  +1*,*is the*ℎ* element in® +1 ,® +1 . ( |*, ,* **H** *,* **R**) and (|*, ,* **H** *,* **R**) are the probability score of entity and relation .
+where is the number of timestamps in the training set, +1*,,* +1*,*is the*ℎ* element in® +1 ,® +1 . ( |*, ,* **H** *,* **R**) and (|*, ,* **H** *,* **R**) are the probability score of entity and relation .
 
 The two temporal reasoning tasks are conducted under the multitask learning framework. Therefore, the final loss = 1 +2 + . 1 and 2 are the parameters that control the loss terms.
 
@@ -249,24 +246,23 @@ To see the efficiency of the proposed RE-GCN, we analyze the computational compl
 
 ### 5 EXPERIMENTS
 
-# 5.1 Experimental Setup
+## 5.1 Experimental Setup
 
 5.1.1 **Datasets.**There are six typical TKGs commonly used in previous works, namely, ICEWS18 [\[16\]](#page-9-7), ICEWS14[[9\]](#page-9-9), ICEWS05- 15 [\[9](#page-9-9)], WIKI [\[21\]](#page-9-10), YAGO [\[24](#page-9-38)] and GDELT[[22](#page-9-39)]. The first three ones are from the Integrated Crisis Early Warning System [\[3\]](#page-9-4) (ICEWS). GDELT[[16](#page-9-7)] is from the Global Database of Events, Language, and Tone[[22](#page-9-39)]. We evaluate RE-GCN on all these datasets. We divide ICEWS14 and ICEWS05-15 into training, validation, and test sets, with a proportion of 80%, 10% and 10% by timestamps following[[16](#page-9-7)]. The details of the datasets are presented in Table [2](#page-5-0). The time interval represents time granularity between temporally adjacent facts.
 
 5.1.2**Evaluation Metrics.** In the experiments, and@{ 1*,* 3*,*10} are employed as the metrics for entity prediction and relation prediction. For the entity prediction task on WIKI and YAGO, we only report the and @3 results because the results of @1 were not reported by the prior work RE-NET [\[16\]](#page-9-7).
 
-<span id="page-5-0"></span>
 
-| Datasets   | V      | R   | E𝑡𝑟𝑎𝑖𝑛<br> | E𝑣𝑎𝑙𝑖𝑑<br> | E𝑡𝑒𝑠𝑡<br> | E𝑠<br> | V𝑠<br> | Time interval |
+| Datasets | V | R | E𝑡𝑟𝑎𝑖𝑛<br> | E𝑣𝑎𝑙𝑖𝑑<br> | E𝑡𝑒𝑠𝑡<br> | E𝑠<br> | V𝑠<br> | Time interval |
 |------------|--------|-----|------------|------------|-----------|--------|--------|---------------|
-| ICEWS18    | 23,033 | 256 | 373,018    | 45,995     | 49545     | 29,774 | 8,647  | 24 hours      |
-| ICEWS14    | 6,869  | 230 | 74,845     | 8,514      | 7,371     | 8,442  | 3,499  | 24 hours      |
-| ICEWS05-15 | 10,094 | 251 | 368,868    | 46,302     | 46,159    | 12,392 | 5,179  | 24 hours      |
-| WIKI       | 12,554 | 24  | 539,286    | 67,538     | 63,110    | –      | –      | 1 year        |
-| YAGO       | 10,623 | 10  | 161,540    | 19,523     | 20,026    | –      | –      | 1 year        |
-| GDELT      | 7,691  | 240 | 1,734,399  | 238,765    | 305,241   | –      | –      | 15 mins       |
-|            |        |     |            |            |           |        |        |               |
-**Table 2: Statistics of the datasets (**|E |**,** |E |**,**|E |**are the numbers of facts in training, validation, and test sets.).**
+| ICEWS18 | 23,033 | 256 | 373,018 | 45,995 | 49545 | 29,774 | 8,647 | 24 hours |
+| ICEWS14 | 6,869 | 230 | 74,845 | 8,514 | 7,371 | 8,442 | 3,499 | 24 hours |
+| ICEWS05-15 | 10,094 | 251 | 368,868 | 46,302 | 46,159 | 12,392 | 5,179 | 24 hours |
+| WIKI | 12,554 | 24 | 539,286 | 67,538 | 63,110 | – | – | 1 year |
+| YAGO | 10,623 | 10 | 161,540 | 19,523 | 20,026 | – | – | 1 year |
+| GDELT | 7,691 | 240 | 1,734,399 | 238,765 | 305,241 | – | – | 15 mins |
+| | | | | | | | | |
+****Table 2:** Statistics of the datasets (**|E |**,** |E |**,**|E |**are the numbers of facts in training, validation, and test sets.).**
 
 As mentioned in [\[7](#page-9-40), [14](#page-9-34), [15](#page-9-41)], the filtered setting used in[[2,](#page-9-2) [16,](#page-9-7) [43\]](#page-9-19), which removes all the valid facts that appear in the training, validation, or test sets from the ranking list of corrupted facts, is not suitable for temporal reasoning tasks. Take a typical query (*, ,* ?*,* 1) with answer 1 in the test set for example, and assume there is another fact (*, ,* 2*,* 2). Under this filtered setting, <sup>2</sup> will be wrongly considered a correct answer and thus removed from the ranking list of candidate answers. However, 2 is incorrect for the given query, as (*, ,*2) occurs at timestamp <sup>2</sup> instead of 1. Thus, the filtered setting may probably get incorrect higher ranking scores. Without loss of generality, only the experimental results under the raw setting are reported.
 
@@ -276,75 +272,73 @@ As mentioned in [\[7](#page-9-40), [14](#page-9-34), [15](#page-9-41)], the filt
 
 based on the observations in the training set, we evaluate the performance of RE-GCN with the evolutional embeddings at the final timestamp of the training set as the input of score functions following[[43\]](#page-9-19). Besides, we also report the results of the models with ground truth history given during multi-step inference on the test set, namely, w. GT. All experiments are carried out on Tesla V100. Codes are available at<https://github.com/Lee-zix/RE-GCN>.
 
-# 5.2 Experimental Results
+## 5.2 Experimental Results
 
 <span id="page-5-1"></span>5.2.1 **Results on Entity Prediction.** The experimental results on the entity prediction task are presented in Tables [3](#page-6-0) and [4.](#page-6-1) RE-GCN consistently outperforms the baselines on the three ICEWS datasets, WIKI and YAGO. The results convincingly verify its effectiveness. Specifically, RE-GCN significantly outperforms the static models (i.e., those in the first blocks of Tables [3](#page-6-0) and [4\)](#page-6-1) because RE-GCN considers the sequential patterns across timestamps. RE-GCN performs better than the temporal models for the interpolation setting (i.e., those in the second blocks of Tables [3](#page-6-0) and [4](#page-6-1)) because RE-GCN additionally captures temporally sequential patterns and static properties of entities. It can thus obtain more accurate evolutional representations for the unobserved timestamps. Especially, RE-GCN outperforms the temporal models for the extrapolation setting (i.e., those in the third blocks of Tables [3](#page-6-0) and [4\)](#page-6-1). It outperforms RGCRN because the newly designed graph convolution operation and the two recurrent components in the evolution unit learn better evolutional embeddings and the static graph helps learn better evolutional embeddings of entities. CyGNet and RE-NET's good performance verify the importance of the repetitive patterns and 1-hop neighbors to the entity prediction task. Despite this, it is not surprising that RE-GCN performs better than CyGNet because there is much useful information except the repetitive patterns in the history. RE-GCN also performs better than RE-NET, which neglects the structural dependencies within a KG and the static properties of entities. By capturing more comprehensive structural dependencies and sequential patterns, RE-GCN outperforms RE-NET on most datasets. From the last two lines in Tables [3](#page-6-0) and [4](#page-6-1), it can be observed that the performance gap between the last two lines becomes large when the time interval between two adjacent timestamps of the datasets becomes large. For the two datasets, WIKI and YAGO, with the time interval as one year, the model's performance drops rapidly without knowing the ground truth history. This is because the evolutional representations become inaccurate when the time interval is large during the multi-step inference.
 
 Note that RE-GCN even achieves the improvements of 8.97/11.46 % in MRR, 10.60/12.91% in Hits@3 and 12.61/14.01% in Hits@10
 
-<span id="page-6-0"></span>
 
-| Model              |       |       | ICE18 |       | ICE14 |       |       |       | ICE05-15 |       |       |       |
+| Model | | | ICE18 | | ICE14 | | | | ICE05-15 | | | |
 |--------------------|-------|-------|-------|-------|-------|-------|-------|-------|----------|-------|-------|-------|
-|                    | MRR   | H@1   | H@3   | H@10  | MRR   | H@1   | H@3   | H@10  | MRR      | H@1   | H@3   | H@10  |
-| DistMult           | 13.86 | 5.61  | 15.22 | 31.26 | 20.32 | 6.13  | 27.59 | 46.61 | 19.91    | 5.63  | 27.22 | 47.33 |
-| ComplEx            | 15.45 | 8.04  | 17.19 | 30.73 | 22.61 | 9.88  | 28.93 | 47.57 | 20.26    | 6.66  | 26.43 | 47.31 |
-| R-GCN              | 15.05 | 8.13  | 16.49 | 29.00 | 28.03 | 19.42 | 31.95 | 44.83 | 27.13    | 18.83 | 30.41 | 43.16 |
-| ConvE              | 22.81 | 13.63 | 25.83 | 41.43 | 30.30 | 21.30 | 34.42 | 47.89 | 31.40    | 21.56 | 35.70 | 50.96 |
-| ConvTransE         | 23.22 | 14.26 | 26.13 | 41.34 | 31.50 | 22.46 | 34.98 | 50.03 | 30.28    | 20.79 | 33.80 | 49.95 |
-| RotatE             | 14.53 | 6.47  | 15.78 | 31.86 | 25.71 | 16.41 | 29.01 | 45.16 | 19.01    | 10.42 | 21.35 | 36.92 |
-| HyTE               | 7.41  | 3.10  | 7.33  | 16.01 | 16.78 | 2.13  | 24.84 | 43.94 | 16.05    | 6.53  | 20.20 | 34.72 |
-| TTransE            | 8.44  | 1.85  | 8.95  | 22.38 | 12.86 | 3.14  | 15.72 | 33.65 | 16.53    | 5.51  | 20.77 | 39.26 |
-| TA-DistMult        | 16.42 | 8.60  | 18.13 | 32.51 | 26.22 | 16.83 | 29.72 | 45.23 | 27.51    | 17.57 | 31.46 | 47.32 |
-| RGCRN              | 23.46 | 14.24 | 26.62 | 41.96 | 33.31 | 24.08 | 36.55 | 51.54 | 35.93    | 26.23 | 40.02 | 54.63 |
-| CyGNet             | 24.98 | 15.54 | 28.58 | 43.54 | 34.68 | 25.35 | 38.88 | 53.16 | 35.46    | 25.44 | 40.20 | 54.47 |
-| RE-NET             | 26.17 | 16.43 | 29.89 | 44.37 | 35.77 | 25.99 | 40.10 | 54.87 | 36.86    | 26.24 | 41.85 | 57.60 |
-| RE-GCN             | 27.51 | 17.82 | 31.17 | 46.55 | 37.78 | 27.17 | 42.50 | 58.84 | 38.27    | 27.43 | 43.06 | 59.93 |
-| RE-GCN w. GT 30.55 |       | 20.00 | 34.73 | 51.46 | 41.50 | 30.86 | 46.60 | 62.47 | 46.41    | 35.17 | 52.76 | 67.64 |
+| | MRR | H@1 | H@3 | H@10 | MRR | H@1 | H@3 | H@10 | MRR | H@1 | H@3 | H@10 |
+| DistMult | 13.86 | 5.61 | 15.22 | 31.26 | 20.32 | 6.13 | 27.59 | 46.61 | 19.91 | 5.63 | 27.22 | 47.33 |
+| ComplEx | 15.45 | 8.04 | 17.19 | 30.73 | 22.61 | 9.88 | 28.93 | 47.57 | 20.26 | 6.66 | 26.43 | 47.31 |
+| R-GCN | 15.05 | 8.13 | 16.49 | 29.00 | 28.03 | 19.42 | 31.95 | 44.83 | 27.13 | 18.83 | 30.41 | 43.16 |
+| ConvE | 22.81 | 13.63 | 25.83 | 41.43 | 30.30 | 21.30 | 34.42 | 47.89 | 31.40 | 21.56 | 35.70 | 50.96 |
+| ConvTransE | 23.22 | 14.26 | 26.13 | 41.34 | 31.50 | 22.46 | 34.98 | 50.03 | 30.28 | 20.79 | 33.80 | 49.95 |
+| RotatE | 14.53 | 6.47 | 15.78 | 31.86 | 25.71 | 16.41 | 29.01 | 45.16 | 19.01 | 10.42 | 21.35 | 36.92 |
+| HyTE | 7.41 | 3.10 | 7.33 | 16.01 | 16.78 | 2.13 | 24.84 | 43.94 | 16.05 | 6.53 | 20.20 | 34.72 |
+| TTransE | 8.44 | 1.85 | 8.95 | 22.38 | 12.86 | 3.14 | 15.72 | 33.65 | 16.53 | 5.51 | 20.77 | 39.26 |
+| TA-DistMult | 16.42 | 8.60 | 18.13 | 32.51 | 26.22 | 16.83 | 29.72 | 45.23 | 27.51 | 17.57 | 31.46 | 47.32 |
+| RGCRN | 23.46 | 14.24 | 26.62 | 41.96 | 33.31 | 24.08 | 36.55 | 51.54 | 35.93 | 26.23 | 40.02 | 54.63 |
+| CyGNet | 24.98 | 15.54 | 28.58 | 43.54 | 34.68 | 25.35 | 38.88 | 53.16 | 35.46 | 25.44 | 40.20 | 54.47 |
+| RE-NET | 26.17 | 16.43 | 29.89 | 44.37 | 35.77 | 25.99 | 40.10 | 54.87 | 36.86 | 26.24 | 41.85 | 57.60 |
+| RE-GCN | 27.51 | 17.82 | 31.17 | 46.55 | 37.78 | 27.17 | 42.50 | 58.84 | 38.27 | 27.43 | 43.06 | 59.93 |
+| RE-GCN w. GT 30.55 | | 20.00 | 34.73 | 51.46 | 41.50 | 30.86 | 46.60 | 62.47 | 46.41 | 35.17 | 52.76 | 67.64 |
 
-<span id="page-6-1"></span>**Table 3: Performance (in percentage) for the entity prediction task on ICEWS18, ICESW14 and ICEWS05-15 with raw metrics.**| Model              |       | WIKI  |       |       | YAGO  |       |       |       | GDELT |       |
+<span id="page-6-1"></span>****Table 3:** Performance (in percentage) for the entity prediction task on ICEWS18, ICESW14 and ICEWS05-15 with raw metrics.**| Model | | WIKI | | | YAGO | | | | GDELT | |
 |--------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-|                    | MRR   | H@3   | H@10  | MRR   | H@3   | H@10  | MRR   | H@1   | H@3   | H@10  |
-| DistMult           | 27.96 | 32.45 | 39.51 | 44.05 | 49.70 | 59.94 | 8.61  | 3.91  | 8.27  | 17.04 |
-| ComplEx            | 27.69 | 31.99 | 38.61 | 44.09 | 49.57 | 59.64 | 9.84  | 5.17  | 9.58  | 18.23 |
-| R-GCN              | 13.96 | 15.75 | 22.05 | 20.25 | 24.01 | 37.30 | 12.17 | 7.40  | 12.37 | 20.63 |
-| ConvE              | 26.03 | 30.51 | 39.18 | 41.22 | 47.03 | 59.90 | 18.37 | 11.29 | 19.36 | 32.13 |
-| ConvTransE         | 30.89 | 34.30 | 41.45 | 46.67 | 52,22 | 62,52 | 19.07 | 11.85 | 20.32 | 33.14 |
-| RotatE             | 26.08 | 31.63 | 38.51 | 42.08 | 46.77 | 59.39 | 3.62  | 0.52  | 2.26  | 8.37  |
-| HyTE               | 25.40 | 29.16 | 37.54 | 14.42 | 39.73 | 46.98 | 6.69  | 0.01  | 7.57  | 19.06 |
-| TTransE            | 20.66 | 23.88 | 33.04 | 26.10 | 36.28 | 47.73 | 5.53  | 0.46  | 4.97  | 15.37 |
-| TA-DistMult        | 26.44 | 31.36 | 38.97 | 44.98 | 50.64 | 61.11 | 10.34 | 4.44  | 10.44 | 21.63 |
-| RGCRN              | 28.68 | 31.44 | 38.58 | 43.71 | 48.53 | 56.98 | 18.63 | 11.53 | 19.80 | 32.42 |
-| CyGNet             | 30.77 | 33.83 | 41.19 | 46.72 | 52.48 | 61.52 | 18.05 | 11.13 | 19.11 | 31.50 |
-| RE-NET             | 30.87 | 33.55 | 41.27 | 46.81 | 52.71 | 61.93 | 19.60 | 12.03 | 20.56 | 33.89 |
-| RE-GCN             | 39.84 | 44.43 | 53.88 | 58.27 | 65.62 | 75.94 | 19.15 | 11.92 | 20.40 | 33.19 |
-| RE-GCN w. GT 51.53 |       | 58.29 | 69.53 | 63.07 | 71.17 | 82.07 | 19.31 | 11.99 | 20.61 | 33.59 |
-**Table 4: Performance (in percentage) for the entity prediction task on WIKI, YAGO and GDELT with raw metrics.**<span id="page-6-2"></span>
+| | MRR | H@3 | H@10 | MRR | H@3 | H@10 | MRR | H@1 | H@3 | H@10 |
+| DistMult | 27.96 | 32.45 | 39.51 | 44.05 | 49.70 | 59.94 | 8.61 | 3.91 | 8.27 | 17.04 |
+| ComplEx | 27.69 | 31.99 | 38.61 | 44.09 | 49.57 | 59.64 | 9.84 | 5.17 | 9.58 | 18.23 |
+| R-GCN | 13.96 | 15.75 | 22.05 | 20.25 | 24.01 | 37.30 | 12.17 | 7.40 | 12.37 | 20.63 |
+| ConvE | 26.03 | 30.51 | 39.18 | 41.22 | 47.03 | 59.90 | 18.37 | 11.29 | 19.36 | 32.13 |
+| ConvTransE | 30.89 | 34.30 | 41.45 | 46.67 | 52,22 | 62,52 | 19.07 | 11.85 | 20.32 | 33.14 |
+| RotatE | 26.08 | 31.63 | 38.51 | 42.08 | 46.77 | 59.39 | 3.62 | 0.52 | 2.26 | 8.37 |
+| HyTE | 25.40 | 29.16 | 37.54 | 14.42 | 39.73 | 46.98 | 6.69 | 0.01 | 7.57 | 19.06 |
+| TTransE | 20.66 | 23.88 | 33.04 | 26.10 | 36.28 | 47.73 | 5.53 | 0.46 | 4.97 | 15.37 |
+| TA-DistMult | 26.44 | 31.36 | 38.97 | 44.98 | 50.64 | 61.11 | 10.34 | 4.44 | 10.44 | 21.63 |
+| RGCRN | 28.68 | 31.44 | 38.58 | 43.71 | 48.53 | 56.98 | 18.63 | 11.53 | 19.80 | 32.42 |
+| CyGNet | 30.77 | 33.83 | 41.19 | 46.72 | 52.48 | 61.52 | 18.05 | 11.13 | 19.11 | 31.50 |
+| RE-NET | 30.87 | 33.55 | 41.27 | 46.81 | 52.71 | 61.93 | 19.60 | 12.03 | 20.56 | 33.89 |
+| RE-GCN | 39.84 | 44.43 | 53.88 | 58.27 | 65.62 | 75.94 | 19.15 | 11.92 | 20.40 | 33.19 |
+| RE-GCN w. GT 51.53 | | 58.29 | 69.53 | 63.07 | 71.17 | 82.07 | 19.31 | 11.99 | 20.61 | 33.59 |
+****Table 4:** Performance (in percentage) for the entity prediction task on WIKI, YAGO and GDELT with raw metrics.**<span id="page-6-2"></span>
 
-| Model       |       |       | ICE18 ICE14 ICE05-15 |             |       | WIKI YAGO GDELT |
+| Model | | | ICE18 ICE14 ICE05-15 | | | WIKI YAGO GDELT |
 |-------------|-------|-------|----------------------|-------------|-------|-----------------|
-| ConvE       | 37.73 | 38.80 | 37.89                | 78.23       | 91.33 | 18.84           |
-| ConvTransE  | 38.00 | 38.40 | 38.26                | 86.64       | 90.98 | 18.97           |
-| RGCRN       | 37.14 | 38.04 | 38.37                | 88.88       | 90.18 | 18.58           |
-| RE-GCN      | 39.48 | 39.73 |                      | 38.56 95.63 | 95.18 | 19.17           |
-| RE-GCN w.GT | 40.53 | 41.06 |                      | 40.63 97.92 | 97.74 | 19.22           |
-**Table 5: Performance on the relation prediction task.**over the best baseline on WIKI and YAGO. For the two datasets, there are more structural dependencies at each timestamp because the time interval is much large than the other datasets. Therefore, only modeling repetitive patterns or one-hop neighbors will lose a lot of structural dependencies and sequential patterns. The results demonstrate that RE-GCN is more capable of modeling these
+| ConvE | 37.73 | 38.80 | 37.89 | 78.23 | 91.33 | 18.84 |
+| ConvTransE | 38.00 | 38.40 | 38.26 | 86.64 | 90.98 | 18.97 |
+| RGCRN | 37.14 | 38.04 | 38.37 | 88.88 | 90.18 | 18.58 |
+| RE-GCN | 39.48 | 39.73 | | 38.56 95.63 | 95.18 | 19.17 |
+| RE-GCN w.GT | 40.53 | 41.06 | | 40.63 97.92 | 97.74 | 19.22 |
+****Table 5:** Performance on the relation prediction task.**over the best baseline on WIKI and YAGO. For the two datasets, there are more structural dependencies at each timestamp because the time interval is much large than the other datasets. Therefore, only modeling repetitive patterns or one-hop neighbors will lose a lot of structural dependencies and sequential patterns. The results demonstrate that RE-GCN is more capable of modeling these
 
 datasets containing complex structural dependencies among concurrent facts.
 
 The experimental results of static models and temporal models are similarly poor on GDELT, as compared with those of the other five datasets. We further analyze the GDELT dataset and find that many of its entities are abstract concepts that do not indicate specific entities (e.g., POLICE and GOVERNMENT). Among the top 50 frequent entities, 28 are abstract concepts and 43.72% corresponding facts involve abstract concepts. Those abstract concepts make the temporal reasoning for some entities under the raw setting almost impossible, since we cannot predict a government's activities without knowing which country it belongs to. Thus, all the models can only predict partial facts in the GDELT dataset and get similar results. Besides, the noise produced by the abstract concepts influences the evolutional representations of other entities as RE-GCN
 
-<span id="page-7-1"></span>
 
-| Model        |       |       | ICE18 ICE14 ICE05-15 |             |       | WIKI YAGO GDELT |
+| Model | | | ICE18 ICE14 ICE05-15 | | | WIKI YAGO GDELT |
 |--------------|-------|-------|----------------------|-------------|-------|-----------------|
-| RE-GCN w. GT | 30.55 | 41.50 | 46.41                | 51.53       | 63.07 | 19.31           |
-| RE-NET w. GT | 27.87 | 39.13 | 42.92                | 32.44       | 48.60 | 21.29           |
-| -EE w. GT    | 23.22 | 31.50 | 30.28                | 30.89       | 46.67 | 19.07           |
-| +FCN w. GT   | 29.32 | 40.34 | 45.89                | 46.00       | 58.96 | 19.02           |
-| -st w. GT    | 29.10 | 39.48 | 44.68                | –           | –     | –               |
-| -tg w. GT    | 24.51 | 34.85 |                      | 37.65 51.70 | 62.23 | 18.55           |
-**Table 6: Ablation studies on entity prediction.**models the KG sequence as a whole, which makes the results of RE-GCN a little worse than RE-NET.
+| RE-GCN w. GT | 30.55 | 41.50 | 46.41 | 51.53 | 63.07 | 19.31 |
+| RE-NET w. GT | 27.87 | 39.13 | 42.92 | 32.44 | 48.60 | 21.29 |
+| -EE w. GT | 23.22 | 31.50 | 30.28 | 30.89 | 46.67 | 19.07 |
+| +FCN w. GT | 29.32 | 40.34 | 45.89 | 46.00 | 58.96 | 19.02 |
+| -st w. GT | 29.10 | 39.48 | 44.68 | – | – | – |
+| -tg w. GT | 24.51 | 34.85 | | 37.65 51.70 | 62.23 | 18.55 |
+****Table 6:** Ablation studies on entity prediction.**models the KG sequence as a whole, which makes the results of RE-GCN a little worse than RE-NET.
 
 5.2.2**Results on Relation Prediction.**Since some models are not designed for the relation prediction task and for space limitation, we select the typical ones from the baselines and present the experimental results in terms of only MRR in Table [5](#page-6-2). In more detail, we select ConvE [\[6\]](#page-9-20), ConvTransE[[30](#page-9-21)] from the static models, as well as RGCRN [\[29\]](#page-9-43) from the temporal models. RE-NET and CyGNet are not adopted, as they cannot be applied to the relation prediction task directly. It can observe that RE-GCN performs better than all the baselines. The outperformance of RE-GCN demonstrates that our evolution unit can obtain more accurate evolutional representations by modeling the history comprehensively.
 
@@ -354,19 +348,18 @@ The performance gap between RE-GCN and other baselines on the relation predictio
 
 <span id="page-7-0"></span>![](_page_7_Figure_8.jpeg)
 <!-- Image Description: This horizontal bar chart compares the performance of two models, RE-NET and RE-GCN, across six datasets (ICE18, ICE14, ICE05-15, WIKI, YAGO, GDELT). Each bar represents a dataset, segmented by model; the length corresponds to a quantitative measure (likely a count or score) reflecting model performance on that dataset. RE-NET generally outperforms RE-GCN, indicated by longer bars for RE-NET in most cases. The numerical values shown on the chart likely represent the magnitude of the performance metric. -->
-**Figure 3: Runtime (seconds) comparison to RE-NET.**To investigate the efficiency of RE-GCN, we compare RE-GCN to RE-NET in terms of runtime for entity prediction on the test set under the same environment. For a fair comparison, the two models conduct entity prediction with the ground truth history given. From the results in Fig [3,](#page-7-0) it can be seen that RE-GCN is much faster than RE-NET by 66, 36, 17, 82, 82, 22 times on ICE18, ICE14, ICE05-15, WIKI, YAGO, and GDELT, respectively. It is because RE-NET processes individual queries one by one for each timestamp, while RE-GCN characterizes the evolutional representation learning from the view of KG sequence and obtains the representations for all the queries at the same timestamp simultaneously. Therefore, RE-GCN is more efficient than the best baseline, RE-NET.
+****Figure 3:** Runtime (seconds) comparison to RE-NET.**To investigate the efficiency of RE-GCN, we compare RE-GCN to RE-NET in terms of runtime for entity prediction on the test set under the same environment. For a fair comparison, the two models conduct entity prediction with the ground truth history given. From the results in Fig [3,](#page-7-0) it can be seen that RE-GCN is much faster than RE-NET by 66, 36, 17, 82, 82, 22 times on ICE18, ICE14, ICE05-15, WIKI, YAGO, and GDELT, respectively. It is because RE-NET processes individual queries one by one for each timestamp, while RE-GCN characterizes the evolutional representation learning from the view of KG sequence and obtains the representations for all the queries at the same timestamp simultaneously. Therefore, RE-GCN is more efficient than the best baseline, RE-NET.
 
-<span id="page-7-2"></span>
 
-| Model        |       |       | ICE18 ICE14 ICE05-15 |             |       | WIKI YAGO GDELT |
+| Model | | | ICE18 ICE14 ICE05-15 | | | WIKI YAGO GDELT |
 |--------------|-------|-------|----------------------|-------------|-------|-----------------|
-| RE-GCN w. GT | 40.53 | 41.06 |                      | 40.63 97.92 | 97.74 | 19.22           |
-| RGCRN w. GT  | 38.07 | 38.28 | 39.33                | 90.12       | 91.27 | 18.73           |
-| -EE w. GT    | 38.00 | 38.40 | 38.26                | 86.64       | 90.98 | 18.97           |
-| +FCN w. GT   | 39.63 | 40.23 | 40.55                | 97.23       | 93.66 | 19.03           |
-| -st w. GT    | 39.23 | 40.00 | 40.38                | –           | –     | –               |
-| -tg w. GT    | 37.47 | 38.14 | 37.62                | 97.56       | 93.86 | 18.94           |
-**Table 7: Ablation studies on relation prediction.**### 5.4 Ablation Studies
+| RE-GCN w. GT | 40.53 | 41.06 | | 40.63 97.92 | 97.74 | 19.22 |
+| RGCRN w. GT | 38.07 | 38.28 | 39.33 | 90.12 | 91.27 | 18.73 |
+| -EE w. GT | 38.00 | 38.40 | 38.26 | 86.64 | 90.98 | 18.97 |
+| +FCN w. GT | 39.63 | 40.23 | 40.55 | 97.23 | 93.66 | 19.03 |
+| -st w. GT | 39.23 | 40.00 | 40.38 | – | – | – |
+| -tg w. GT | 37.47 | 38.14 | 37.62 | 97.56 | 93.86 | 18.94 |
+****Table 7:** Ablation studies on relation prediction.**### 5.4 Ablation Studies
 
 To eliminate the bias between training and testing on the results, we conduct all ablation studies with ground truth history given on the test sets. To further show the effectiveness of each part of RE-GCN, we also report the results of RE-NET w. GT in Table [6](#page-7-1) and the results of RGCRN w. GT in Table [7.](#page-7-2)
 
@@ -378,41 +371,40 @@ To further verify the effectiveness of our evolution unit under different score 
 
 5.4.3**Impact of the Time Gate Recurrent Component.**–tg w. GT in Tables [6](#page-7-1) and [7](#page-7-2) denote the variants of RE-GCN directly using the evolutional representations at the last timestamp as the input of the evolution unit at the current timestamp without the time gate. The performance of –tg w. GT decreases rapidly when the historical KG sequence gets longer, as compared to RE-GCN w. GT, which sufficiently indicates the necessity of the time gate recurrent
 
-| Protester,<br>Demonstrate, Defense ministry | Defense ministry,<br>Endorse, Police                                                           | Protester, ?, Police                      | Protest violently |
+| Protester,<br>Demonstrate, Defense ministry | Defense ministry,<br>Endorse, Police | Protester, ?, Police | Protest violently |
 |---------------------------------------------|------------------------------------------------------------------------------------------------|-------------------------------------------|-------------------|
-| Citizen,<br>Conduct bombing, Government     | Government,<br>Make statement, Defense ministry<br>Defense Ministry,<br>Make Statement, Police | Defense ministry,<br>Make request, ?      | Citizen           |
-| New Zealand,<br>Host a visit, FIJI          | New Zealand,<br>Criticize, Japan                                                               | New Zealand,<br>Diplomatic cooperation, ? | FIJI              |
-| History at 𝑡 − 2                            | History at 𝑡 − 1                                                                               | Query at 𝑡                                | Answer            |
+| Citizen,<br>Conduct bombing, Government | Government,<br>Make statement, Defense ministry<br>Defense Ministry,<br>Make Statement, Police | Defense ministry,<br>Make request, ? | Citizen |
+| New Zealand,<br>Host a visit, FIJI | New Zealand,<br>Criticize, Japan | New Zealand,<br>Diplomatic cooperation, ? | FIJI |
+| History at 𝑡 − 2 | History at 𝑡 − 1 | Query at 𝑡 | Answer |
 
-|  |  | Table 8: Case study. The first two lines are two cases for entity prediction and the last line is a case for relation prediction. |
+| | | **Table 8:** Case study. The first two lines are two cases for entity prediction and the last line is a case for relation prediction. |
 |--|--|-----------------------------------------------------------------------------------------------------------------------------------|
-|  |  |                                                                                                                                   |
+| | | |
 
-<span id="page-8-0"></span>
 
-| Tasks   | Entity Prediction |      |      |      |      |      |        | Relation Prediction |      |      |   |      |      |        |      |      |      |      |      |      |
+| Tasks | Entity Prediction | | | | | | | Relation Prediction | | | | | | | | | | | | |
 |---------|-------------------|------|------|------|------|------|--------|---------------------|------|------|---|------|------|--------|------|------|------|------|------|------|
-| Subsets |                   | seen |      |      |      |      | unseen |                     |      | seen |   |      |      | unseen |      |      |      |      |      |      |
-|         | a                 | b    | c    | d    | e    | a    | b      | c                   | d    | e    | a | b    | c    | d      | e    | a    | b    | c    | d    | e    |
-| %       | 0                 | 1.8  | 3.9  | 13.8 | 21.0 | 19.8 | 7.6    | 9.1                 | 9.8  | 13.2 | 0 | 22.3 | 6.0  | 5.2    | 1.0  | 37.3 | 8.7  | 11.4 | 5.2  | 1.0  |
-| H@3     | 0                 | 78.6 | 78.4 | 71.6 | 53.3 | 35.2 | 33.2   | 28.8                | 21.4 | 6.9  | 0 | 76.1 | 68.8 | 51.1   | 29.0 | 48.6 | 42.2 | 37.0 | 33.5 | 30.6 |
-**Table 9: Hits@3 on different subsets from the validation set of ICEWS18. The % row shows the proportion of each subset.**component. Actually, the time gate recurrent component helps RE-GCN capture the sequence patterns by a deep-stacked GCN, which usually faces the over-smoothing and vanishing gradient problems when the number of layers becomes large.
+| Subsets | | seen | | | | | unseen | | | seen | | | | unseen | | | | | | |
+| | a | b | c | d | e | a | b | c | d | e | a | b | c | d | e | a | b | c | d | e |
+| % | 0 | 1.8 | 3.9 | 13.8 | 21.0 | 19.8 | 7.6 | 9.1 | 9.8 | 13.2 | 0 | 22.3 | 6.0 | 5.2 | 1.0 | 37.3 | 8.7 | 11.4 | 5.2 | 1.0 |
+| H@3 | 0 | 78.6 | 78.4 | 71.6 | 53.3 | 35.2 | 33.2 | 28.8 | 21.4 | 6.9 | 0 | 76.1 | 68.8 | 51.1 | 29.0 | 48.6 | 42.2 | 37.0 | 33.5 | 30.6 |
+****Table 9:** Hits@3 on different subsets from the validation set of ICEWS18. The % row shows the proportion of each subset.**component. Actually, the time gate recurrent component helps RE-GCN capture the sequence patterns by a deep-stacked GCN, which usually faces the over-smoothing and vanishing gradient problems when the number of layers becomes large.
 
-# 5.5 Case Study
+## 5.5 Case Study
 
 In order to show the structural dependencies among concurrent facts and the sequential patterns across temporally adjacent facts learned by RE-GCN, we illustrate in Table [9](#page-8-0) three cases from the test set of ICEWS18 where RE-GCN ranks the right answers at the top. The first case shows the sequential pattern that*(A, host a visit, B, t-2)*can lead to*(A, diplomatic cooperation, B, t)*. The second case shows that the sequential pattern *(A, Conduct bombing, B, t-2)*, *(B, Make statement, C, t-1)*and structural dependencies of*C*at timestamp −1 joint lead to the final result. The third case illustrates the sequential pattern*(A, Demonstrate, B, t-2), (B, Endorse, C, t-1)*helps the relation prediction*(A, ?, C, t)*. By modeling the KG sequence as a whole, RE-GCN does not omit useful information in the history.
 
-# 5.6 Detailed Analysis
+## 5.6 Detailed Analysis
 
 In order to get insight into the performance of RE-GCN on different kinds of data, we conduct a detailed analysis on the validation set of ICEWS18. For entity prediction, we split the validation set according to the number of the one-hop neighbors of a given entity (0 (a), 1 (b), 2-3 (c), 4-10 (d), >10 (e)) and whether the answer entity has direct interactions with the given entity (i.e., seen and unseen) at the latest (=6) timestamps. For relation prediction, we split the validation set according to the number of relations between two given entities (0 (a), 1 (b), 2-3 (c), 4-10 (d), >10 (e)) and whether the answer relation occurred between the given entities at the latest timestamps. (i.e., seen and unseen). Table [9](#page-8-0) shows the results of RE-GCN with Hits@3 on each subset. For entity prediction, it can be observed that the performance decreases when the number of the neighbors gets large and RE-GCN gets better results in the subset
 
 where the two entities have seen each other in the history. Interestingly, RE-GCN can even conduct predictions where the subject entities have no history. A possible reason is that the static graph and the shared initial evolutional representations already provide some background knowledge and information out of the historical KG sequence. For relation prediction, it can be seen that the performance decreases when the number of relations is large. Table [9](#page-8-0) also demonstrates the repetitive facts account for a certain proportion in the dataset, which further proves the necessity of the time gate recurrent component in RE-GCN.
 
-# 6 CONCLUSIONS
+## 6 CONCLUSIONS
 
 This paper proposed RE-GCN for temporal knowledge graph reasoning, which learns evolutional representations of entities and relations by capturing the structural dependencies among concurrent facts and the informative sequential patterns across temporally adjacent facts. Moreover, it incorporates the static properties of entities such as entity types into the evolutional representations. Thus, temporal reasoning is conducted with various score functions based on the evolutional representations at the final timestamps. Experimental results on six benchmarks demonstrate the significant merits and superiority of RE-GCN on two temporal reasoning tasks. Moreover, by modeling the KG sequence as a whole, RE-GCN enables 17 to 82 times speedup in entity prediction comparing to RE-NET, the state-of-the-art baseline.
 
-# ACKNOWLEDGE
+## ACKNOWLEDGE
 
 The work is supported by the National Key Research and Development Program of China under grant 2016YFB1000902, the National Natural Science Foundation of China under grants U1911401, 62002341, 61772501, U1836206, 91646120, and 61722211, the GFKJ Innovation Program, Beijing Academy of Artificial Intelligence under grant BAAI2019ZD0306, and the Lenovo-CAS Joint Lab Youth Scientist Project.
 

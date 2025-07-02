@@ -30,9 +30,9 @@ Jianing Sun1, Zhichao Zhang<sup>2</sup> and Xueli He1∗,
 
 School of Computer Science, Shaanxi Normal University, Xi'an, China School of Information Science and Technology, Hainan Normal University, Hainan, China Email: {sunjianing, hxl}@snnu.edu.cn Email: zhangzhichao@hainnu.edu.cn
 
-*Abstract*—The field of education is undergoing a significant transformation towards digital and intelligent education, driven by advancements in artificial intelligence. Knowledge graphs (KGs), as a structured representation of knowledge and information, offering a powerful way to integrate diverse and multisourced heterogeneous data from across the Internet. The current methodologies for constructing educational knowledge graphs, however, are confronted with challenges including labor-intensive, time-consuming, and the necessity for substantial computational resources, which severely limit their practical application, especially in resource-constrained environments. In this paper, we proposed an LLM-based automatic construction method to alleviate the labor and time consumption in existing methods, and further explored LLM's capabilities in Chinese-speaking context. Specifically, we designed a structured prompt framework to automatically extract and evaluate educational triples generated from original text. The prompt encompasses both task and model dimensions, allowing for flexible adjustments to different tasks and models, thus significantly improved the transferability of our method. Comparative experimental results from two real-world Chinese-datasets, across four advanced LLMs, demonstrate the effectiveness of the proposed method. We believe that our work represents a significant attempt by the LLM in the field of education.
+**Abstract:** The field of education is undergoing a significant transformation towards digital and intelligent education, driven by advancements in artificial intelligence. Knowledge graphs (KGs), as a structured representation of knowledge and information, offering a powerful way to integrate diverse and multisourced heterogeneous data from across the Internet. The current methodologies for constructing educational knowledge graphs, however, are confronted with challenges including labor-intensive, time-consuming, and the necessity for substantial computational resources, which severely limit their practical application, especially in resource-constrained environments. In this paper, we proposed an LLM-based automatic construction method to alleviate the labor and time consumption in existing methods, and further explored LLM's capabilities in Chinese-speaking context. Specifically, we designed a structured prompt framework to automatically extract and evaluate educational triples generated from original text. The prompt encompasses both task and model dimensions, allowing for flexible adjustments to different tasks and models, thus significantly improved the transferability of our method. Comparative experimental results from two real-world Chinese-datasets, across four advanced LLMs, demonstrate the effectiveness of the proposed method. We believe that our work represents a significant attempt by the LLM in the field of education.
 
-*Index Terms*—Large Language Model; Knowledge graph; Prompt tuning; Intelligent Education
+**Index Terms:** Large Language Model; Knowledge graph; Prompt tuning; Intelligent Education
 
 ## I. INTRODUCTION
 
@@ -73,9 +73,9 @@ With the deepening of the digital transformation in various fields, the knowledg
 At present, the construction of knowledge graph in the field of education is mainly divided into two ways: top-down construction method and bottom-up construction method. The top-down construction method needs to build the ontology first, and then use the ontology to model and standardize the disciplinary knowledge. However, as the number and types of
 
 ![](_page_2_Figure_0.jpeg)
-<!-- Image Description: This flowchart details a two-stage process.  The first stage preprocesses unstructured text (PDFs, Word docs) via segmentation, identifying and semantically comparing chunks, and then uses human-GPT conversations and LLMs for data augmentation to create a dataset. The second stage uses this dataset to extract and evaluate EduTriples via a cyclical process involving structured prompts and LLMs/PLMs.  The diagram visually outlines the workflow and key components of the proposed methodology. -->
+<!-- Image Description: This flowchart details a two-stage process. The first stage preprocesses unstructured text (PDFs, Word docs) via segmentation, identifying and semantically comparing chunks, and then uses human-GPT conversations and LLMs for data augmentation to create a dataset. The second stage uses this dataset to extract and evaluate EduTriples via a cyclical process involving structured prompts and LLMs/PLMs. The diagram visually outlines the workflow and key components of the proposed methodology. -->
 
-Fig. 1. The framework of LLM4CEduKG. There are two main components: 1) Data Preprocessing: including the text segmentation, data cleaning, data filter for original text data, and LLM-based data augmentation for human-GPT conversations; 2) EduTriples Extraction and Evaluation: the proposal of structured prompt and its application in EduKGs.
+Figure 1. The framework of LLM4CEduKG. There are two main components: 1) Data Preprocessing: including the text segmentation, data cleaning, data filter for original text data, and LLM-based data augmentation for human-GPT conversations; 2) EduTriples Extraction and Evaluation: the proposal of structured prompt and its application in EduKGs.
 
 disciplinary knowledge continue to expand, some data types may not be included in the existing ontology. In such cases, the ontology needs to be revised based on the data characteristics, leading to extra workload, which makes it challenging to convert fragmented knowledge into structured knowledge points and to automate the construction of EduKGs.
 
@@ -103,12 +103,12 @@ Under the reality that only a small part of the material obtained in real teachi
 
 For the final dataset, to ensure its effectiveness, we have experts randomly sample it and check whether the contents of the sample is presented correctly and from the original textbook.
 
-| [ORIGINAL TEXT]<br>ᐹቊ㊱ශ(Boolean type)ᱥж〃䙱䗇ᮦᦤ㊱ශθᆹਠᴿњѠ਌ٲθ䙐ᑮᱥtrueૂfalseȾ<br>Boolean type is a logical data type that has only two values, typically true and false.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |  |
+| [ORIGINAL TEXT]<br>ᐹቊ㊱ශ(Boolean type)ᱥж〃䙱䗇ᮦᦤ㊱ශθᆹਠᴿњѠ਌ٲθ䙐ᑮᱥtrueૂfalseȾ<br>Boolean type is a logical data type that has only two values, typically true and false. | |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|
-| [GPT GENERATED]<br>1. ᐹቊ㊱ශ(Boolean type)൞㕌ぁѣ⭞ӄ㺞⽰њ〃⣬ᘷθ঩ⵕૂٽθᑮ⭞ӄᶗԬ࡚ᯣૂ䙱䗇䘆㇍Ⱦ<br>Boolean type in programming is used to represent two states, true and false, commonly used for conditional judgment and logical<br>operations.<br>2. ᐹቊ㊱ශ(Boolean type)൞㕌ぁѣ⭞ӄ䙱䗇࡚ᯣθਥԛᑤࣟぁᓅṯᦤᶗԬᢝ㺂уੂⲺᬃ֒Ⱦ<br>Boolean type in programming is used for logical judgment, helping programs execute different operations based on conditions.<br>3. ൞㕌ぁѣθᐹቊ㊱ශ(Boolean type)ᱥж〃ㆶঋⲺ䙱䗇㊱ශθᆹਠ᧛਍њѠٲφtrue(ⵕ)ᡌfalse(ٽ(Ⱦ<br>In programming, the Boolean type is a simple logical type that accepts only two values: true or false.<br>4. ᐹቊ㊱ශ(Boolean type)ᱥ䇗㇍ᵰ〇ᆜѣⲺж〃ะ⹶ᮦᦤ㊱ශθᆹӻᴿњѠ⣬ᘷφⵕ(true)ૂٽ)false)Ⱦ<br>The Boolean type is a fundamental data type in computer science, with only two states: true and false.                                                                                             |  |
-| [GLM GENERATED]<br>1.ᐹቊ㊱ශᱥ䇗㇍ᵰ㕌ぁѣⲺж〃ㆶঋᮦᦤ㊱ශθᆹⲺٲਠ㜳ᱥtrueᡌfalseȾ<br>Boolean type is a simple data type in computer programming that can only take true or false values.<br>2.ᐹቊ㊱ශ(Boolean type)ኔӄ䙱䗇ᮦᦤ㊱ශθӻऻ੡њѠਥ㜳Ⲻٲθж㡢ᱥⵕ(true)ૂٽ)false)θ⭞ӄ࡚ᯣᶗԬᡌ㺞䗴䙱<br>䗇ⵕٲȾ<br>Bool1ean types are logical data types that contain only two possible values, typically true and false, and are used to determine<br>conditions or express logical truth values.<br>3.൞䙱䗇ᮦᦤ㊱ශѣθᐹቊ㊱ශԛެӻᴿⲺњѠٲθⵕ(true)ૂٽ)false)θᶛ㺞⽰⣬ᘷᡌᶗԬθᒵ⌑ᓊ⭞ӄ䇗㇍ᵰ㕌ぁૂ<br>䙱䗇᧞⨼ѣȾ<br>In logical data types, Boolean types have only two values, true and false, to represent a state or condition, which is widely used in<br>computer programming and logical reasoning.<br>4.൞䇗㇍ᵰ〇ᆜѣθᐹቊᮦᦤ㊱ශᱥж〃ะ⹶㊱ශθᆹਠᴿњѠ⣬ᘷφtrueૂfalseȾ<br>In computer science, the Boolean data type is a primitive type that has only two states: true and false. |  |
+| [GPT GENERATED]<br>1. ᐹቊ㊱ශ(Boolean type)൞㕌ぁѣ⭞ӄ㺞⽰њ〃⣬ᘷθ঩ⵕૂٽθᑮ⭞ӄᶗԬ࡚ᯣૂ䙱䗇䘆㇍Ⱦ<br>Boolean type in programming is used to represent two states, true and false, commonly used for conditional judgment and logical<br>operations.<br>2. ᐹቊ㊱ශ(Boolean type)൞㕌ぁѣ⭞ӄ䙱䗇࡚ᯣθਥԛᑤࣟぁᓅṯᦤᶗԬᢝ㺂уੂⲺᬃ֒Ⱦ<br>Boolean type in programming is used for logical judgment, helping programs execute different operations based on conditions.<br>3. ൞㕌ぁѣθᐹቊ㊱ශ(Boolean type)ᱥж〃ㆶঋⲺ䙱䗇㊱ශθᆹਠ᧛਍њѠٲφtrue(ⵕ)ᡌfalse(ٽ(Ⱦ<br>In programming, the Boolean type is a simple logical type that accepts only two values: true or false.<br>4. ᐹቊ㊱ශ(Boolean type)ᱥ䇗㇍ᵰ〇ᆜѣⲺж〃ะ⹶ᮦᦤ㊱ශθᆹӻᴿњѠ⣬ᘷφⵕ(true)ૂٽ)false)Ⱦ<br>The Boolean type is a fundamental data type in computer science, with only two states: true and false. | |
+| [GLM GENERATED]<br>1.ᐹቊ㊱ශᱥ䇗㇍ᵰ㕌ぁѣⲺж〃ㆶঋᮦᦤ㊱ශθᆹⲺٲਠ㜳ᱥtrueᡌfalseȾ<br>Boolean type is a simple data type in computer programming that can only take true or false values.<br>2.ᐹቊ㊱ශ(Boolean type)ኔӄ䙱䗇ᮦᦤ㊱ශθӻऻ੡њѠਥ㜳Ⲻٲθж㡢ᱥⵕ(true)ૂٽ)false)θ⭞ӄ࡚ᯣᶗԬᡌ㺞䗴䙱<br>䗇ⵕٲȾ<br>Bool1ean types are logical data types that contain only two possible values, typically true and false, and are used to determine<br>conditions or express logical truth values.<br>3.൞䙱䗇ᮦᦤ㊱ශѣθᐹቊ㊱ශԛެӻᴿⲺњѠٲθⵕ(true)ૂٽ)false)θᶛ㺞⽰⣬ᘷᡌᶗԬθᒵ⌑ᓊ⭞ӄ䇗㇍ᵰ㕌ぁૂ<br>䙱䗇᧞⨼ѣȾ<br>In logical data types, Boolean types have only two values, true and false, to represent a state or condition, which is widely used in<br>computer programming and logical reasoning.<br>4.൞䇗㇍ᵰ〇ᆜѣθᐹቊᮦᦤ㊱ශᱥж〃ะ⹶㊱ශθᆹਠᴿњѠ⣬ᘷφtrueૂfalseȾ<br>In computer science, the Boolean data type is a primitive type that has only two states: true and false. | |
 
-Fig. 2. Generated examples on human-GPT conversations.
+Figure 2. Generated examples on human-GPT conversations.
 
 ## *B. EduTriples Extraction and Evaluation*
 
@@ -121,16 +121,16 @@ Specifically, we conceptualize the Prompt-based method as a process of mapping t
 $$
 f: text \overset{prompt}{\rightarrow} \{(key_i, value_i)\}_{i=1}^N
 $$
- (1)
+(1)
 
 In the mapping *f*, the dataset to be processed is defined as *text* and the mapping result is represented as a collection of key-value pairs {(*key*i*, value*i)} N <sup>i</sup>=1. Here, each *key*<sup>i</sup> corresponds uniquely to a *value*i, where every *key*<sup>i</sup> represents a specific data item within *text*, and *value*<sup>i</sup> represents the corresponding mapping results. The *prompt* is a set of instructions that guide the model's output, containing all the inputs relevant to the task. It is refined into three components: (1) Task Description: serves as a blueprint, outlining the problem to be addressed; (2) Model Input: refers to the dataset intended for processing, which is *text*; (3) User Input (Options) : acts as a supplement to (1) and (2), encompassing four parts at both task level and model level, including task-related parameters, task objectives, model thinking techniques and examples of corresponding techniques.
 
 This multidimensional, optional input mode allows for a customized approach to every task, significantly enhancing the model's adaptability and effectiveness in dealing with a range of complex and diverse tasks. For a given task, we merely need to selectively replace the contents of the components.
 
 ![](_page_4_Figure_2.jpeg)
-<!-- Image Description: The image displays the technical specifications for a natural language processing task.  It details the input format (text enclosed in angle brackets),  the expected output format (structured triples of entity1, relation, entity2), and task objectives. The provided examples illustrate the desired input-output relationship, aiming to extract structured educational triples from text.  The text includes definitions of parameters like "relation" and outlines the model's processing steps. -->
+<!-- Image Description: The image displays the technical specifications for a natural language processing task. It details the input format (text enclosed in angle brackets), the expected output format (structured triples of entity1, relation, entity2), and task objectives. The provided examples illustrate the desired input-output relationship, aiming to extract structured educational triples from text. The text includes definitions of parameters like "relation" and outlines the model's processing steps. -->
 
-Fig. 3. EduTriples Extraction Prompt
+Figure 3. EduTriples Extraction Prompt
 
 Take the task of EduTriples Extraction as an example. The *text* consists of multiple trunks, each chunk is stored in a *key*i. The EduTriples are stored in relevant *value*i, as the form of (*e*1*, r, e*2), where *e*1*, e*2 ∈ *text* denotes entities extracted from the chunk, *r* ∈ *R* represents the relation between *e*1 and *e*2. While *R* is a predefined set of relations giving in "taskrelated parameters". we specify a set of steps to be followed in "task objectives", as shown in Figure 3. Initially, we clarify the form in which the text will be given, and then we detail the extraction requirements, including the output format and some restrictions.
 
@@ -148,16 +148,16 @@ The specific parameters of the model deployment are shown in table I, with \* st
 
 TABLE I MODEL DEPLOYMENT AND PARAMETERS SETTING
 
-| Model        | deployment     | parameters                  |  |
+| Model | deployment | parameters | |
 |--------------|----------------|-----------------------------|--|
-| GPT4         | Web<br>default |                             |  |
-| ERNIE        | Web            | default                     |  |
-| qwen-turbo   | API            | Temperature=0.85, Top P=0.8 |  |
-| GLM4         | API            | Temperature=0.95, Top P=0.7 |  |
-| ChatGLM2-6B  | Locally load   | default                     |  |
-| ChatGLM3-6B  | Locally load   | default                     |  |
-| ChatGLM2-6B* | P-Tuning v2    | Epoch=1000, LR=2e-2         |  |
-| ChatGLM3-6B* | P-Tuning v2    | Epoch=1000, LR=2e-2         |  |
+| GPT4 | Web<br>default | | |
+| ERNIE | Web | default | |
+| qwen-turbo | API | Temperature=0.85, Top P=0.8 | |
+| GLM4 | API | Temperature=0.95, Top P=0.7 | |
+| ChatGLM2-6B | Locally load | default | |
+| ChatGLM3-6B | Locally load | default | |
+| ChatGLM2-6B* | P-Tuning v2 | Epoch=1000, LR=2e-2 | |
+| ChatGLM3-6B* | P-Tuning v2 | Epoch=1000, LR=2e-2 | |
 
 ## *B. Evaluation Metrics*
 
@@ -166,12 +166,12 @@ For the assessment of the model's performance, the values of precision (P), reca
 $$
 P = \frac{TP}{TP + FP} \times 100\%
 $$
- (2)
+(2)
 
 $$
 R = \frac{TP}{TP + FN} \times 100\%
 $$
- (3)
+(3)
 
 $$
 F1 = \frac{2PR}{P + R} \times 100\%
@@ -186,16 +186,16 @@ For the method proposed in this paper, we conducted experiments on four models r
 
 TABLE II RESULTS (%) ON DIFFERENT MODELS
 
-| Model        | Precision | Recall | F1    |
+| Model | Precision | Recall | F1 |
 |--------------|-----------|--------|-------|
-| ERNIE        | 95.24     | 86.96  | 90.91 |
-| Qwen-turbo   | 83.95     | 84.47  | 84.21 |
-| GLM4         | 95.48     | 86.36  | 90.69 |
-| ChatGLM2-6B  | 51.22     | 75.90  | 61.17 |
-| ChatGLM3-6B  | 59.26     | 80.00  | 68.09 |
-| ChatGLM2-6B* | 71.62     | 81.54  | 76.27 |
-| ChatGLM3-6B* | 83.75     | 83.75  | 83.75 |
-|              |           |        |       |
+| ERNIE | 95.24 | 86.96 | 90.91 |
+| Qwen-turbo | 83.95 | 84.47 | 84.21 |
+| GLM4 | 95.48 | 86.36 | 90.69 |
+| ChatGLM2-6B | 51.22 | 75.90 | 61.17 |
+| ChatGLM3-6B | 59.26 | 80.00 | 68.09 |
+| ChatGLM2-6B* | 71.62 | 81.54 | 76.27 |
+| ChatGLM3-6B* | 83.75 | 83.75 | 83.75 |
+| | | | |
 
 From Table II, we can see that the best two results are from ERNIE and GLM4. In our proposed LLM-based EduTriples extraction method, we place more emphasis on the correctness of extracted triples. As in real educational applications, it is crucial to ensure that the correctness of the provided content to the greatest extent possible, even if some expected triples are not extracted. This means that our primary goal should be to maximize precision, even at the expense of lower recall.
 
@@ -209,10 +209,10 @@ TABLE III RESULTS (%) ON DIFFERENT MODEL THINKING TECHNIQUES (BASED ON GLM4)
 
 | Model Thinking Techniques | Precision |
 |---------------------------|-----------|
-| Our method                | 95.48     |
-| zero-shot [31]            | 71.55     |
-| few-shots [32]            | 84.31     |
-| CoT [33]                  | 75.61     |
+| Our method | 95.48 |
+| zero-shot [31] | 71.55 |
+| few-shots [32] | 84.31 |
+| CoT [33] | 75.61 |
 
 As depicted in Table III, the few-shot technique, which involves providing the model with a small number of examples before task execution, has demonstrated significant improvement compared to the zero-shot technique that does not utilize any examples. Furthermore, guiding the models through step-by-step instructions in CoT, has also resulted in some enhancements. This indicates that even a small number of examples can significantly improve the final performance, under the application where Prompt is used to guide the LLM in generating Chinese EduTriples from given text.
 

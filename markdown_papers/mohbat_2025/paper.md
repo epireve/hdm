@@ -11,7 +11,6 @@ images_kept: '4'
 images_removed: '0'
 ---
 
-
 # KERL: *K*nowledge-*E*nhanced Personalized Recipe *R*ecommendation using *L*arge Language Models \*
 
 Fnu Mohbat and Mohammed J. Zaki
@@ -37,7 +36,7 @@ We propose a personalized and unified food recommendation system called KERL tha
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
 <!-- Image Description: This flowchart illustrates a recipe generation system. A user query, specifying dietary restrictions and ingredients, is processed via SPARQL query against a Food Knowledge Graph (Food-KG). A subgraph is extracted, then fed into "KERL: Recom" and "KERL: Recipe-Gen" modules generating a personalized recipe with nutritional information, shown as a final output. The Food-KG is depicted as a node graph. -->
 
-Figure 1: KERL Overview: Given a natural language question (with constraints), the system parses entities and generates a SPARQL query to retrieve a subgraph from the KG. The question and this subgraph as context, are given as input to the recommendation model (*KERL-Recom*), which generates a list of recipe names that satisfy the constraints. The *KERL-Recipe*and*KERL-Nutri* models then generate cooking steps and micro-nutrients.
+**Figure 1:** KERL Overview: Given a natural language question (with constraints), the system parses entities and generates a SPARQL query to retrieve a subgraph from the KG. The question and this subgraph as context, are given as input to the recommendation model (*KERL-Recom*), which generates a list of recipe names that satisfy the constraints. The *KERL-Recipe*and*KERL-Nutri* models then generate cooking steps and micro-nutrients.
 
 prises three modules: a recommendation module (*KERL-Recom*), a recipe generation module (*KERL-Recipe*), and a nutrition generation module (*KERL-Nutri*), which are trained using a low-rank adaption (LoRA) approach [\(Hu et al.,](#page-9-8) [2022\)](#page-9-8). The *KERL-Recom*module takes a user query, extracts entities, constructs a SPARQL query to retrieve relevant subgraphs from the KG, and inputs these subgraphs along with the query into the LLM, which returns dish names that satisfy the constraints. The*KERL-Recipe*modules generates recipes from the suggested titles, while the*KERL-Nutri*produces detailed micro-nutritional information for recommended dishes. Overall, we make the following contributions.
 
@@ -46,7 +45,7 @@ prises three modules: a recommendation module (*KERL-Recom*), a recipe generatio
 - We curated two open benchmark datasets using template questions, nutrient constraints, and personal preferences.
 - Through extensive experiments, we show that each module of KERL outperforms the baseline LLMs, showcasing the power of integrating KGs with LLMs.
 
-# 2 Related Work
+## 2 Related Work
 
 Food Recommendation The initial food recommendation systems formulated recommendation as a retrieval task by mapping the recipe components such as title, ingredients, and images into a common embedding space [\(Salvador et al.,](#page-11-8) [2017;](#page-11-8) [Chen et al.,](#page-9-9) [2018;](#page-9-9) [Wahed et al.,](#page-11-9) [2024;](#page-11-9) [Li and Zaki,](#page-10-8) [2022\)](#page-10-8). Later, the focus shifted towards the use of food knowledge graphs. For example, [\(Li and Zaki,](#page-10-8) [2022;](#page-10-8) [Gao et al.,](#page-9-10) [2022\)](#page-9-10) used graph neural network to learn the user-recipe interactions in KGs, and [Chen et al.](#page-9-2) [\(2021\)](#page-9-2) proposed knowledge base question answering through information retrieval by mapping questions and possible answers in a common embedding space. However, recent methods employ LLMs for food recommendations. For example, [\(Kirk et al.,](#page-10-9) [2023\)](#page-10-9) investigated ChatGPT for nutrition questions, and [\(Geng et al.,](#page-9-11) [2022;](#page-9-11) [Rostami](#page-11-10) [et al.,](#page-11-10) [2024\)](#page-11-10) use LLMs as a language processing engine in the food recommendation system. Despite considerable efforts to leverage KGs and LLMs for developing food recommendation systems, there remains limited research on integrating food KGs to augment LLMs for more personalized food recommendation. Specifically, individual preferences, health considerations, and nutritional constraints within a unified framework have not been extensively explored.
 
@@ -61,7 +60,7 @@ of these methods aim to estimate the calories from one or more food images utili
 <span id="page-2-0"></span>![](_page_2_Figure_4.jpeg)
 <!-- Image Description: The diagram illustrates a system using a base Large Language Model (LLM) augmented with three Low-Rank Adaptation (LoRA) modules. Inputs include a constraint question and ingredient lists. The LoRAs specialize in recipe generation ("Recipe"), recommendations ("Recom"), and nutritional information ("Nutri"). The system outputs a list of recipes, cooking instructions, and nutritional information based on input constraints. The diagram visually depicts the workflow and modularity of the LLM-based recipe generation system. -->
 
-Figure 2: KERL Multi-LoRA Setup: With the same base model, a separate LoRA adapter is trained for each task. During inference, the desired adapter is activated while base model remains the same.
+**Figure 2:** KERL Multi-LoRA Setup: With the same base model, a separate LoRA adapter is trained for each task. During inference, the desired adapter is activated while base model remains the same.
 
 ## 3 KERL: Food Recommendation System
 
@@ -80,29 +79,29 @@ the model can fit within the GPU memory. This approach allows the model to learn
 Inference over KG: During inference, the entire FoodKG could theoretically be the context for searching relevant recipes. However, in practice, we parse the tag t<sup>j</sup> from the query and retrieve R(t<sup>j</sup> ) as context. The maximum number of tagged recipes could be potentially very large, and the resulting total number of tokens may exceed the LLM's sequence length, which may also lead to GPU memory overflow. Therefore, like in training, we iterate over R(t<sup>j</sup> ) by providing the LLM with the query and a subset of R(t<sup>j</sup> ) as context C<sup>j</sup> , and combine the responses from multiple calls to the LLM to generate the final answer. This approach allows us to perform inference and evaluate the model on a variable number of recipe subgraphs.
 
 ## 2 KERL-Recipe
+
 *KERL-Recipe*, the recipe generation module enables the recommendation system to generate recipe steps. This module can leverage any recipe generation model, such as LLaVA-Chef [\(Mohbat](#page-10-4) [and Zaki,](#page-10-4) [2024\)](#page-10-4) or FoodMMM [\(Yin et al.,](#page-11-1) [2023\)](#page-11-1). While these models rely on older LLM backbones, recent advances such as LLaMA-3 [\(Grattafiori](#page-9-15) [et al.,](#page-9-15) [2024\)](#page-9-15) and Phi-3 [\(Abdin et al.,](#page-9-16) [2024\)](#page-9-16) have significantly outperformed their predecessors. Therefore, we employed Phi-3-mini for recipe generation, specifically generating cooking steps from the dish names X<sup>t</sup> , and ingredients Xing, or both. Unlike [\(Mohbat and Zaki,](#page-10-4) [2024;](#page-10-4) [Yin et al.,](#page-11-1) [2023\)](#page-11-1), we use LoRA training, which reduces the number of training parameters and decreases the training time. Thus, KERL-Recipe, implemented as a LoRA adapter, integrates seamlessly into the KERL framework, while utilizing Phi-3 Mini as the base model.
 
-<span id="page-4-0"></span>
 
-| Base question: Give me {tag} recipes with {ingredients} and                                                        | Base question: What are the {tag} dishes that contain {ingre                                  |
+| Base question: Give me {tag} recipes with {ingredients} and | Base question: What are the {tag} dishes that contain {ingre |
 |--------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| without {not_have_ingredients}                                                                                     | dients} but do not contain {not_have_ingredients}                                             |
-| Template constraints: have {nutrition} no more than {limit},                                                       | Template constraints: have {nutrition} at least {limit}, and                                  |
-| {nutrition} within range {limit}                                                                                   | {nutrition} less than {limit}                                                                 |
-| Personal preferences: tag: low-protein                                                                             | Personal preferences: tag: vegetarian                                                         |
-| Likes: baking soda, tomato paste, green onions, ground                                                             | Likes: margarine, frozen peas, shredded cheddar cheese,                                       |
-| cinnamon, flour                                                                                                    | baking soda, vinegar                                                                          |
-| Dislikes: orange slice, rice flour, yellow cake mix                                                                | Dislikes: cracked wheat, chili pepper, fresh pepper                                           |
-| Nutrition constraints: cholesterol no more than 0.07,                                                              | Nutrition constraints: fiber at least 4.24, saturated fat                                     |
-| salt per 100g (0.14, 0.26)                                                                                         | less than 6.49                                                                                |
-| Question: Give me low-protein recipes with baking soda,                                                            | Question: What are the top vegetarian recipes containing mar                                  |
-| tomato paste, green onions, ground cinnamon, flour and                                                             | garine, frozen peas, shredded cheddar cheese, baking                                          |
-| without orange slice, sweet rice flour, yellow cake mix,                                                           | soda, vinegar and excluding cracked wheat, chili pepper,                                      |
-| and have cholesterol no more than 0.07, salt per 100g                                                              | fresh pepper, and meeting the fiber at least 4.24, saturated                                  |
-| within range (0.14, 0.26).                                                                                         | fat less than 6.49 condition?                                                                 |
+| without {not_have_ingredients} | dients} but do not contain {not_have_ingredients} |
+| Template constraints: have {nutrition} no more than {limit}, | Template constraints: have {nutrition} at least {limit}, and |
+| {nutrition} within range {limit} | {nutrition} less than {limit} |
+| Personal preferences: tag: low-protein | Personal preferences: tag: vegetarian |
+| Likes: baking soda, tomato paste, green onions, ground | Likes: margarine, frozen peas, shredded cheddar cheese, |
+| cinnamon, flour | baking soda, vinegar |
+| Dislikes: orange slice, rice flour, yellow cake mix | Dislikes: cracked wheat, chili pepper, fresh pepper |
+| Nutrition constraints: cholesterol no more than 0.07, | Nutrition constraints: fiber at least 4.24, saturated fat |
+| salt per 100g (0.14, 0.26) | less than 6.49 |
+| Question: Give me low-protein recipes with baking soda, | Question: What are the top vegetarian recipes containing mar |
+| tomato paste, green onions, ground cinnamon, flour and | garine, frozen peas, shredded cheddar cheese, baking |
+| without orange slice, sweet rice flour, yellow cake mix, | soda, vinegar and excluding cracked wheat, chili pepper, |
+| and have cholesterol no more than 0.07, salt per 100g | fresh pepper, and meeting the fiber at least 4.24, saturated |
+| within range (0.14, 0.26). | fat less than 6.49 condition? |
 | Answer: Aunt Pegs Banana Bread, Sweet Potato Casserole<br>´<br>With Praline Topping, Fresh Apricot Praline Butter. | Answer: B. B. Kings German Chocolate Cake, Apple Bread,<br>´<br>Moms Raisin Rock Cookies<br>´ |
 
-Table 1: Examples of constraints, corresponding questions, and relevant recipe names as ground truth answers. Ingredient preferences specify whether certain ingredients should or should not be included in the recipes. Nutritional constraints are numerical conditions applied to nutrient values, defined by limits such as less than, greater than, or within a specified range.
+**Table 1:** Examples of constraints, corresponding questions, and relevant recipe names as ground truth answers. Ingredient preferences specify whether certain ingredients should or should not be included in the recipes. Nutritional constraints are numerical conditions applied to nutrient values, defined by limits such as less than, greater than, or within a specified range.
 
 ## 3 KERL-Nutri
 
@@ -124,20 +123,19 @@ Nutritional Constraints: We also generate nutrition-related user preferences by 
 
 or a range. To generate nutritional constraints, first we randomly select one of the three filters. Then, we define a threshold for the nutrient x thresh i by sampling a random number in the range of µ(R(t<sup>j</sup> ), Xnutri,i) ± 2σ(R(t<sup>j</sup> ), Xnutri,i), where µ and σ are the mean and standard deviation. For the range filter, the upper and lower bounds are set as either (0, xthresh i ) or (x thresh i , max(Xnutri,i)). Finally, all selected nutritional constraints are combined with the base question. This approach enhances the diversity of the questions, incorporating both conditional logic and negations, which are crucial for generating more complex and realistic queries.
 
-<span id="page-5-0"></span>
 
-|                     |           | KGQA Benchmark | PFoodReq  |          |  |  |
+| | | KGQA Benchmark | PFoodReq | | | |
 |---------------------|-----------|----------------|-----------|----------|--|--|
-| Measure             | Train set | Test set       | Train set | Test set |  |  |
-| Number of questions | 62320     | 7790           | 4613      | 2305     |  |  |
-| R(tj ) (min)        | 7         | 7              | 2         | 2        |  |  |
-| R(tj ) (max)        | 4445      | 4445           | 2486      | 2485     |  |  |
-| R(tj ) (avg)        | 3167      | 3163           | 408.4     | 377.99   |  |  |
-| R+(tj<br>) (min)    | 1         | 1              | 1         | 1        |  |  |
-| R+(tj<br>) (max)    | 1776      | 954            | 296       | 178      |  |  |
-| R+(tj<br>) (avg)    | 10.67     | 9.77           | 2.94      | 2.84     |  |  |
+| Measure | Train set | Test set | Train set | Test set | | |
+| Number of questions | 62320 | 7790 | 4613 | 2305 | | |
+| R(tj ) (min) | 7 | 7 | 2 | 2 | | |
+| R(tj ) (max) | 4445 | 4445 | 2486 | 2485 | | |
+| R(tj ) (avg) | 3167 | 3163 | 408.4 | 377.99 | | |
+| R+(tj<br>) (min) | 1 | 1 | 1 | 1 | | |
+| R+(tj<br>) (max) | 1776 | 954 | 296 | 178 | | |
+| R+(tj<br>) (avg) | 10.67 | 9.77 | 2.94 | 2.84 | | |
 
-Table 2: KGQA Benchmark: Total number of questions, and the number of tagged recipes for overall context R(t<sup>j</sup> ) and ground truth answer R <sup>+</sup>(t<sup>j</sup> ).
+**Table 2:** KGQA Benchmark: Total number of questions, and the number of tagged recipes for overall context R(t<sup>j</sup> ) and ground truth answer R <sup>+</sup>(t<sup>j</sup> ).
 
 ### 2 KGQA Benchmark
 
@@ -155,13 +153,13 @@ benchmark is over an order of magnitude larger than the pFoodReq dataset [\(Chen
 - Based on the cooking instructions provided, calculate the nutritional values of the dish. Instructions: <instructions>.
 - For the following dish, estimate the nutritional values. Recipe: <name> <ingredients> <instructions>.
 
-Table 3: Example prompts utilized for training the *KERL-Nutri*model, where placeholders were replaced with the corresponding information.
+**Table 3:** Example prompts utilized for training the *KERL-Nutri*model, where placeholders were replaced with the corresponding information.
 
-#### 3 Nutrition Generation Benchmark
+### 3 Nutrition Generation Benchmark
 
 In the absence of a standardized benchmark for micro-nutrients, we sourced ground-truth micronutritional information from Recipe1M (and thus FoodKG) and [\(Li et al.,](#page-10-2) [2023\)](#page-10-2), resulting in about 500,000 recipe samples for which we were able to gather nutritional information. Using Recipe1M's predefined train-test splits, we use 19,000 recipes for our test set, with the remaining recipes used as the training set for our nutrition generation benchmark. Subsequently, to train LLMs, we curated about 40 template prompts using GPT-4, with examples of some of the prompts given in Table [3.](#page-5-1) The placeholders <name>, <ingredients>, and <instructions> in the prompts are replaced with their corresponding actual information from the dataset samples. For example, in the prompt "Estimated nutrition for <name>" the placeholder <name> is replaced with the recipe title (name) X<sup>t</sup> , which is then input to the LLM to generate the nutritional information. The prompts are intended to generate nutritional information from recipe attributes such as the title X<sup>t</sup> , ingredients Xing, and cooking instructions Xinstr, or their combinations, which allows the model to learn nutritional information from different attributes of the recipes.
 
-#### <span id="page-6-1"></span>4.4 Recipe Generation Benchmark
+### <span id="page-6-1"></span>4.4 Recipe Generation Benchmark
 
 Recipe generation benchmark utilizes Recipe1M [\(Salvador et al.,](#page-11-8) [2017\)](#page-11-8), which contains over 1 million recipes, split into train, test and validation sets. The training set consists of 720,639 recipes. For the test set, we use a filtered version of the Recipe1M test set from LLaVA-Chef [\(Mohbat and](#page-10-4) [Zaki,](#page-10-4) [2024\)](#page-10-4), referred to as test50k, which contains 50,000 recipes. We base our approach on the template prompts used in LLaVA-Chef [\(Mohbat](#page-10-4) [and Zaki,](#page-10-4) [2024\)](#page-10-4), which employed GPT-3.5 to generate these prompts. The prompts are designed to generate recipes from a given title (Xt), a list of ingredients (Xing), or both. The example prompts are provided in Table [4.](#page-6-2)
 
@@ -175,9 +173,9 @@ Recipe generation benchmark utilizes Recipe1M [\(Salvador et al.,](#page-11-8) [
 - Outline the process of making a delicious <name> using <ingredients>
 - Given <ingredients>, suggest me recipe of <name>
 
-Table 4: Example prompts utilized training*KERL-Recipe*model, where placeholders were replaced with the corresponding information.
+**Table 4:** Example prompts utilized training*KERL-Recipe*model, where placeholders were replaced with the corresponding information.
 
-# 5 Experimental Results
+## 5 Experimental Results
 
 For baseline comparison, we select several open source LLMs, as detailed Appendix [B.](#page-12-1) We report the performance of*KERL-Recom*on standard retrieval metrics such as precision, recall, and F1, and*KERL-Recipe*on various text generation and summarization metrics including BLEU [\(Papineni](#page-10-18) [et al.,](#page-10-18) [2002\)](#page-10-18), Rouge [\(Lin,](#page-10-19) [2004\)](#page-10-19), METEOR [\(El](#page-9-18)[liott and Keller,](#page-9-18) [2013\)](#page-9-18) and CIDer [\(Vedantam et al.,](#page-11-18) [2015\)](#page-11-18). For*KERL-Nutri*, we parse micro-nutrients from the generated response and compute the mean average error (MAE) with ground truth. The metric definitions are provided in Appendix [C.](#page-12-2) Our code and benchmark datasets can be found at [https:](https://github.com/mohbattharani/KERL) [//github.com/mohbattharani/KERL](https://github.com/mohbattharani/KERL).
 
@@ -185,121 +183,118 @@ For baseline comparison, we select several open source LLMs, as detailed Appendi
 
 We leverage Phi-3-mini for its performance and compact size and fine-tuned one LoRA [\(Hu et al.,](#page-9-8) [2022\)](#page-9-8) adapter per task. For each task, we used the same LoRA configuration with r = 64 and α = 16 and dropout = 0.5, where r is the dimensionality of the low rank and α is the scaling factor. We trained a separate LoRA adapter for each task, the overall model is shown in Figure [2.](#page-2-0) During inference, the same model with multiple adapters allows us to deploy once and activate the taskspecific adapter as needed. All experiments were performed on four NVIDIA RTX A6000 GPUs. Each LoRA adapter is trained for two epochs on task related dataset. The training hyper parameters were kept the same for all models, with a starting learning rate of lr = 2×10−<sup>5</sup> and a cosine learning rate scheduler. During validation, hyperparameters were also fixed for all the models. Specifically, we used temperature = 0.2, num beams =1 and maximum new tokens to 1024.
 
-<span id="page-6-3"></span>
 
-| Model                                | mAP   | P     | R     | F1    |
+| Model | mAP | P | R | F1 |
 |--------------------------------------|-------|-------|-------|-------|
-| internLM2 (Cai et al., 2024)         | 0.06  | 0.024 | 0.055 | 0.034 |
-| Mistral (Jiang et al., 2023)         | 0.214 | 0.536 | 0.558 | 0.547 |
-| Phi-2 (Javaheripi et al., 2023)      | 0.271 | 0.084 | 0.378 | 0.137 |
-| Llama-2 (Touvron et al., 2023)       | 0.557 | 0.825 | 0.627 | 0.713 |
-| Llama-3.1 (Grattafiori et al., 2024) | 0.146 | 0.28  | 0.406 | 0.332 |
-| Phi-3-mini-4K (Abdin et al., 2024)   | 0.047 | 0.192 | 0.044 | 0.071 |
-| Phi-3-mini-128K (Abdin et al., 2024) | 0.275 | 0.778 | 0.278 | 0.41  |
-| KERL-Recom                           | 0.96  | 0.978 | 0.969 | 0.973 |
+| internLM2 (Cai et al., 2024) | 0.06 | 0.024 | 0.055 | 0.034 |
+| Mistral (Jiang et al., 2023) | 0.214 | 0.536 | 0.558 | 0.547 |
+| Phi-2 (Javaheripi et al., 2023) | 0.271 | 0.084 | 0.378 | 0.137 |
+| Llama-2 (Touvron et al., 2023) | 0.557 | 0.825 | 0.627 | 0.713 |
+| Llama-3.1 (Grattafiori et al., 2024) | 0.146 | 0.28 | 0.406 | 0.332 |
+| Phi-3-mini-4K (Abdin et al., 2024) | 0.047 | 0.192 | 0.044 | 0.071 |
+| Phi-3-mini-128K (Abdin et al., 2024) | 0.275 | 0.778 | 0.278 | 0.41 |
+| KERL-Recom | 0.96 | 0.978 | 0.969 | 0.973 |
 
-Table 5: KGQA Benchmark Test Set: *KERL-Recom*versus pre-trained LLMs.
+**Table 5:** KGQA Benchmark Test Set: *KERL-Recom*versus pre-trained LLMs.
 
 ## 2*KERL-Recom*Evaluation
+
 *Comparison with Open Source LLMs:*Table [5](#page-6-3) presents the results of recent state-of-the-art LLMs for recipe recommendation. Despite claims of superiority by internLM2 [\(Cai et al.,](#page-9-19) [2024\)](#page-9-19) and Llama-3.1 [\(Grattafiori et al.,](#page-9-15) [2024\)](#page-9-15) on various benchmarks, both failed to understand the complex constraints in our KGQA benchmark questions. The capability of handing larger sequence length by Phi-3-mini-128K [\(Abdin et al.,](#page-9-16) [2024\)](#page-9-16) helps it perform better than Phi-3-mini-4K. Therefore, we selected Phi-3 mini-128K as the base LLM for KERL due to its compact size (3.8B parameters) and competitive performance. Our fine-tuned LoRA*KERL-Recom*model significantly outperforms the other models, achieving a 56-point improvement over Phi-3-mini-128K and 26-point improvement over the larger Llama-2-7B [\(Touvron et al.,](#page-11-19) [2023\)](#page-11-19) in F1 score.
 *Impact of Recipe Types:*To evaluate the generalization across various types of recipes, we compare
 
 <span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
 <!-- Image Description: This bar chart displays F1 scores for five different large language models (Mistral, Llama-2, Llama-3.1, Phi-3-mini-128K, KERL-Recom) across various dietary restrictions (lactose-free, vegan, vegetarian, etc.). Each bar represents a model's performance on a specific dietary constraint. The chart's purpose is to compare the models' abilities to generate text within different dietary contexts, likely evaluating the accuracy and effectiveness of their responses. -->
 
-Figure 3: F1 scores of different models across various recipe types. Our model, KERL-Recom, consistently outperforms others with a significant margin in all categories.
+**Figure 3:** F1 scores of different models across various recipe types. Our model, KERL-Recom, consistently outperforms others with a significant margin in all categories.
 
-<span id="page-7-1"></span>
 
-| Tag             | mAP   | P     | R     | F1    |
+| Tag | mAP | P | R | F1 |
 |-----------------|-------|-------|-------|-------|
-| lactose         | 0.898 | 0.955 | 0.916 | 0.935 |
-| vegan           | 0.964 | 0.988 | 0.975 | 0.981 |
-| vegetarian      | 0.966 | 0.987 | 0.976 | 0.981 |
-| dairy-free      | 0.667 | 0.667 | 0.667 | 0.667 |
-| gluten-free     | 0.922 | 0.992 | 0.779 | 0.873 |
-| nut-free        | 1.0   | 0.909 | 1.0   | 0.952 |
-| egg-free        | 0.939 | 0.982 | 0.951 | 0.966 |
-| low-carb        | 0.952 | 0.983 | 0.965 | 0.974 |
-| low-fat         | 0.964 | 0.956 | 0.966 | 0.961 |
-| low-protein     | 0.981 | 0.988 | 0.981 | 0.984 |
-| low-sodium      | 0.982 | 0.978 | 0.982 | 0.98  |
-| low-cholesterol | 0.924 | 0.98  | 0.951 | 0.965 |
-| high-protein    | 0.992 | 0.944 | 0.967 | 0.956 |
-| high-calcium    | 0.937 | 0.981 | 0.953 | 0.967 |
-| high-fiber      | 0.938 | 1.0   | 0.933 | 0.966 |
+| lactose | 0.898 | 0.955 | 0.916 | 0.935 |
+| vegan | 0.964 | 0.988 | 0.975 | 0.981 |
+| vegetarian | 0.966 | 0.987 | 0.976 | 0.981 |
+| dairy-free | 0.667 | 0.667 | 0.667 | 0.667 |
+| gluten-free | 0.922 | 0.992 | 0.779 | 0.873 |
+| nut-free | 1.0 | 0.909 | 1.0 | 0.952 |
+| egg-free | 0.939 | 0.982 | 0.951 | 0.966 |
+| low-carb | 0.952 | 0.983 | 0.965 | 0.974 |
+| low-fat | 0.964 | 0.956 | 0.966 | 0.961 |
+| low-protein | 0.981 | 0.988 | 0.981 | 0.984 |
+| low-sodium | 0.982 | 0.978 | 0.982 | 0.98 |
+| low-cholesterol | 0.924 | 0.98 | 0.951 | 0.965 |
+| high-protein | 0.992 | 0.944 | 0.967 | 0.956 |
+| high-calcium | 0.937 | 0.981 | 0.953 | 0.967 |
+| high-fiber | 0.938 | 1.0 | 0.933 | 0.966 |
 
-Table 6:*KERL-Recom*: per tag results on KGQA test set
+**Table 6:***KERL-Recom*: per tag results on KGQA test set
 
 F1 score for the baseline models and *KERL-Recom*in Fig. [3](#page-7-0) (and Table [13](#page-15-0) in Appendix); our model consistently outperforms all others. For*dairy-free*recipes, only Llama-2 and our model could recommend the correct recipes. Furthermore, the similarly high scores for*KERL-Recom*for most recipe types, except for*dairy-free*and*gluten-free*, as shown in Table [6](#page-7-1) indicates that it generalizes well across different types of dishes. Relatively lower accuracy and F1 scores for *dairy-free*recipes is due to the dearth of training samples of this tag (see Table [11](#page-12-3) in Appendix).
 *Comparison on pFoodReq Benchmark:*The PFoodReq approach [\(Chen et al.,](#page-9-2) [2021\)](#page-9-2) can also generate recommendations for constrained queries. However, it does it via an embedding-based approach that computes the similarity between the user query embedding and KG subgraph embeddings. Table [7](#page-7-2) shows how our KG-enhanced LLM approach performs on the pFoodReq benchmark dataset. We see that*KERN-Recom*outperforms pFoodRec by 21.7 points on F1; it also outperforms Llama-2-7B by 56.5 points. Our method by utilizing the power of generative models generalizes better and outperforms the classical embedding
 
 <span id="page-7-2"></span>based methods.
 
-| Model      | mAP   | P     | R     | F1    |
+| Model | mAP | P | R | F1 |
 |------------|-------|-------|-------|-------|
-| P-MatchNN  | 0.455 | -     | 0.451 | 0.412 |
-| pFoodReq   | 0.627 | -     | 0.618 | 0.637 |
-| Llama-2    | 0.322 | 0.204 | 0.498 | 0.289 |
+| P-MatchNN | 0.455 | - | 0.451 | 0.412 |
+| pFoodReq | 0.627 | - | 0.618 | 0.637 |
+| Llama-2 | 0.322 | 0.204 | 0.498 | 0.289 |
 | KERL-Recom | 0.769 | 0.825 | 0.885 | 0.854 |
 
-Table 7: PFoodReq Results: Our model compared to baseline shows better scores.
+**Table 7:** PFoodReq Results: Our model compared to baseline shows better scores.
 
 ## 3*KERL-Recipe*Evaluation
 
 Given recipe titles X<sup>t</sup> , recipe ingredients Xing and recipe images X<sup>i</sup> , or subsets thereof, we now evaluate how well models can generate the actual recipe cooking steps Xinst. We compare pretrained LLMs and their fine-tuned counterparts for recipe generation in Table [8.](#page-8-0) LLaVA-Chef [\(Mohbat and Zaki,](#page-10-4) [2024\)](#page-10-4), based on LLaVA, is a state-of-the-art model for this task, and it shows better scores than the pretrained LLaVA and LLaMA baselines. However, we can observe that*KERL-Recipe*, not only outperforms its base Phi-3 model, it has the best overall performance along various recipe quality metrics. It outperforms LLaVA-Chef, which involves entire model training, whereas *KERL-Recipe*is only LoRA fine-tuned. LLaVA-Chef improves almost 7 points on BLEU-1 over its base LLaVA model, whereas*KERL-Recipe*improves about 20 points over Phi-3. Both LLaVA-Chef and*KERL-Recipe*perform better when provided with ingredients Xing, compared to only using the recipe title (Xt), suggesting that the ingredients are important in recipe generation. Note that LLaVA-Chef has the ability to process images, which enables it to generate recipes from food images, whereas*KERL-Recipe*is a text-only model. Overall,*KERL-Recipe*not only outperforms in most metrics, it requires training fewer parameters (LoRA adapter), yet improves over its base model with significant margin.
 
-<span id="page-8-0"></span>
 
-| Model                           | Inputs         | BLEU-1 | BLEU-2 | BLEU-3 | BLEU-4 | SacreBLEU | METEOR | ROUGE-1 | ROUGE-2 | ROUGE-L | CIDEr | Perplexity ↓ |
+| Model | Inputs | BLEU-1 | BLEU-2 | BLEU-3 | BLEU-4 | SacreBLEU | METEOR | ROUGE-1 | ROUGE-2 | ROUGE-L | CIDEr | Perplexity ↓ |
 |---------------------------------|----------------|--------|--------|--------|--------|-----------|--------|---------|---------|---------|-------|--------------|
-| LLaMA (Touvron et al., 2023) Xt | + Xing         | 0.252  | 0.129  | 0.072  | 0.043  | 0.053     | 0.156  | 0.293   | 0.077   | 0.156   | 0.031 | 2.86         |
-| LLaVA (Liu et al., 2024)        | Xi + Xt + Xing | 0.290  | 0.155  | 0.087  | 0.051  | 0.06      | 0.20   | 0.366   | 0.105   | 0.184   | 0.041 | 12.39        |
-| LLaVA-Chef                      | Xt             | 0.283  | 0.149  | 0.081  | 0.047  | 0.116     | 0.142  | 0.37    | 0.108   | 0.193   | 0.094 | 2.08         |
-| LLaVA-Chef                      | Xi + Xing      | 0.337  | 0.197  | 0.12   | 0.077  | 0.156     | 0.177  | 0.45    | 0.156   | 0.232   | 0.203 | 2.43         |
-| LLaVA-Chef                      | Xi + Xt + Xing | 0.366  | 0.218  | 0.137  | 0.09   | 0.170     | 0.189  | 0.473   | 0.17    | 0.240   | 0.242 | 17.90        |
-| Phi-3                           | Xt             | 0.178  | 0.089  | 0.047  | 0.025  | 0.029     | 0.187  | 0.268   | 0.069   | 0.134   | 0.003 | 11.51        |
-| Phi-3                           | Xing           | 0.202  | 0.108  | 0.06   | 0.034  | 0.039     | 0.207  | 0.298   | 0.087   | 0.149   | 0.003 | 11.65        |
-| Phi-3                           | Xt + Xing      | 0.209  | 0.114  | 0.064  | 0.038  | 0.216     | 0.042  | 0.31    | 0.095   | 0.155   | 0.    | 11.99        |
-| KERL-Recipe                     | Xt             | 0.292  | 0.155  | 0.089  | 0.053  | 0.072     | 0.132  | 0.317   | 0.09    | 0.171   | 0.10  | 7.60         |
-| KERL-Recipe                     | Xing           | 0.392  | 0.249  | 0.170  | 0.12   | 0.15      | 0.188  | 0.441   | 0.179   | 0.239   | 0.323 | 8.29         |
-| KERL-Recipe                     | Xt + Xing      | 0.405  | 0.257  | 0.175  | 0.123  | 0.154     | 0.195  | 0.454   | 0.183   | 0.241   | 0.347 | 7.68         |
+| LLaMA (Touvron et al., 2023) Xt | + Xing | 0.252 | 0.129 | 0.072 | 0.043 | 0.053 | 0.156 | 0.293 | 0.077 | 0.156 | 0.031 | 2.86 |
+| LLaVA (Liu et al., 2024) | Xi + Xt + Xing | 0.290 | 0.155 | 0.087 | 0.051 | 0.06 | 0.20 | 0.366 | 0.105 | 0.184 | 0.041 | 12.39 |
+| LLaVA-Chef | Xt | 0.283 | 0.149 | 0.081 | 0.047 | 0.116 | 0.142 | 0.37 | 0.108 | 0.193 | 0.094 | 2.08 |
+| LLaVA-Chef | Xi + Xing | 0.337 | 0.197 | 0.12 | 0.077 | 0.156 | 0.177 | 0.45 | 0.156 | 0.232 | 0.203 | 2.43 |
+| LLaVA-Chef | Xi + Xt + Xing | 0.366 | 0.218 | 0.137 | 0.09 | 0.170 | 0.189 | 0.473 | 0.17 | 0.240 | 0.242 | 17.90 |
+| Phi-3 | Xt | 0.178 | 0.089 | 0.047 | 0.025 | 0.029 | 0.187 | 0.268 | 0.069 | 0.134 | 0.003 | 11.51 |
+| Phi-3 | Xing | 0.202 | 0.108 | 0.06 | 0.034 | 0.039 | 0.207 | 0.298 | 0.087 | 0.149 | 0.003 | 11.65 |
+| Phi-3 | Xt + Xing | 0.209 | 0.114 | 0.064 | 0.038 | 0.216 | 0.042 | 0.31 | 0.095 | 0.155 | 0. | 11.99 |
+| KERL-Recipe | Xt | 0.292 | 0.155 | 0.089 | 0.053 | 0.072 | 0.132 | 0.317 | 0.09 | 0.171 | 0.10 | 7.60 |
+| KERL-Recipe | Xing | 0.392 | 0.249 | 0.170 | 0.12 | 0.15 | 0.188 | 0.441 | 0.179 | 0.239 | 0.323 | 8.29 |
+| KERL-Recipe | Xt + Xing | 0.405 | 0.257 | 0.175 | 0.123 | 0.154 | 0.195 | 0.454 | 0.183 | 0.241 | 0.347 | 7.68 |
 
-Table 8: Performance on Recipe Generation
+**Table 8:** Performance on Recipe Generation
 
-<span id="page-8-1"></span>
 
-| Model                | Inputs                       | Calories      | Fat Calories  | Protein     | Sugar        | Fiber      | Carbohydrates | Sodium     | Cholesterol | Saturated Fat | Total Fat   |
+| Model | Inputs | Calories | Fat Calories | Protein | Sugar | Fiber | Carbohydrates | Sodium | Cholesterol | Saturated Fat | Total Fat |
 |----------------------|------------------------------|---------------|---------------|-------------|--------------|------------|---------------|------------|-------------|---------------|-------------|
-| Dataset Mean         |                              | 426.39± 626.7 | 189.79±332.39 | 15.83±21.26 | 18.56± 52.27 | 3.55± 5.56 | 43.64± 80.57  | 0.66± 2.03 | 0.08± 0.14  | 8.15± 16.49   | 21.14±36.93 |
-| LLaVA-Chef Xt        |                              | 306.54        | 172.16        | 11.8        | 17.44        | 3.85       | 33.31         | 29.02      | 3.13        | 10.46         | 23.4        |
-| LLaVA-Chef Xing      |                              | 323.75        | 160.45        | 15.47       | 20.96        | 7.48       | 38.39         | 160.72     | 16.82       | 19.81         | 37.61       |
-| LLaVA-Chef Xinstruct |                              | 319.42        | 161.77        | 15.39       | 22.31        | 7.86       | 38.87         | 111.78     | 14.63       | 19.76         | 36.94       |
-|                      | LLaVA-Chef Xt + Xing + Xinst | 323.6         | 161.5         | 12.68       | 20.6         | 5.43       | 39.29         | 192.55     | 21.51       | 19.78         | 40.32       |
-| KERL-Nutri           | Xt                           | 258.28        | 134.81        | 8.97        | 14.22        | 2.32       | 29.05         | 0.5        | 0.05        | 6.12          | 14.98       |
-| KERL-Nutri           | Xing                         | 226.65        | 104.98        | 7.44        | 12.28        | 1.88       | 25.38         | 0.38       | 0.04        | 4.56          | 11.67       |
-| KERL-Nutri           | Xinstruct                    | 245.54        | 124.7         | 8.58        | 13.58        | 2.19       | 27.68         | 0.46       | 0.04        | 5.45          | 13.86       |
-| KERL-Nutri           | Xt + Xing + Xinst            | 221.38        | 103.03        | 7.29        | 11.92        | 1.84       | 24.69         | 0.37       | 0.04        | 4.48          | 11.45       |
+| Dataset Mean | | 426.39± 626.7 | 189.79±332.39 | 15.83±21.26 | 18.56± 52.27 | 3.55± 5.56 | 43.64± 80.57 | 0.66± 2.03 | 0.08± 0.14 | 8.15± 16.49 | 21.14±36.93 |
+| LLaVA-Chef Xt | | 306.54 | 172.16 | 11.8 | 17.44 | 3.85 | 33.31 | 29.02 | 3.13 | 10.46 | 23.4 |
+| LLaVA-Chef Xing | | 323.75 | 160.45 | 15.47 | 20.96 | 7.48 | 38.39 | 160.72 | 16.82 | 19.81 | 37.61 |
+| LLaVA-Chef Xinstruct | | 319.42 | 161.77 | 15.39 | 22.31 | 7.86 | 38.87 | 111.78 | 14.63 | 19.76 | 36.94 |
+| | LLaVA-Chef Xt + Xing + Xinst | 323.6 | 161.5 | 12.68 | 20.6 | 5.43 | 39.29 | 192.55 | 21.51 | 19.78 | 40.32 |
+| KERL-Nutri | Xt | 258.28 | 134.81 | 8.97 | 14.22 | 2.32 | 29.05 | 0.5 | 0.05 | 6.12 | 14.98 |
+| KERL-Nutri | Xing | 226.65 | 104.98 | 7.44 | 12.28 | 1.88 | 25.38 | 0.38 | 0.04 | 4.56 | 11.67 |
+| KERL-Nutri | Xinstruct | 245.54 | 124.7 | 8.58 | 13.58 | 2.19 | 27.68 | 0.46 | 0.04 | 5.45 | 13.86 |
+| KERL-Nutri | Xt + Xing + Xinst | 221.38 | 103.03 | 7.29 | 11.92 | 1.84 | 24.69 | 0.37 | 0.04 | 4.48 | 11.45 |
 
-Table 9: Performance on Nutrient Generation: Mean absolute error per micro-nutrient.
+**Table 9:** Performance on Nutrient Generation: Mean absolute error per micro-nutrient.
 
 ## 4*KERL-Nutri* Evaluation
 
 Nutrition generation module (*KERL-Nutri*) is based on LoRA fine-tuning the base Phi-3 model. For comparison, we also fine-tune LLaVA-chef (the full model) on the nutrition generation benchmark. Our model outperforms others, as evident in Table [9](#page-8-1) where the first row shows the mean values of the micro-nutrients in the test set. LLaVA-Chef estimates nutrition slightly better when only title X<sup>t</sup> is given compared to using ingredients Xing or instructions Xinstruct. However for *KERL-Nutri*, ingredients play a crucial role in nutrition estimation, as they contain the actual nutrients. Generating nutrients from only instruction has slightly higher MAE, as instructions may not explicitly mention all ingredients. Overall, *KERL-Nutri*achieves lower errors when provided with the complete recipe, including the title, ingredients, and cooking instructions.
 
-# 6 Conclusion
+## 6 Conclusion
 
 We present KERL, a food recommendation system that combines the power of KGs with LLMs in a question answering framework. We also create a large-scale QA benchmark dataset using FoodKG. After evaluation of several open source LLMs we selected Phi-3-mini as the base LLM, training it to understand the subgraphs from FoodKG to help answer complex constrained questions regarding personalized food recommendations. Using a multi-LoRA approach, we also fine-tune adapters to generate cooking steps and nutritional information for the recipes, offering a seamless solution for meal planning and cooking. Our evaluation shows that
 
 KERL outperforms baseline models for all three tasks, with more relevant recipes, better quality cooking steps, and more accurate nutrient values. In the future, we plan to leverage Chain-of-Thought reasoning along with RAG to further improve the performance while incorporating ingredient substitution, person's health information, and cultural preferences.
 
-# 7 Limitations
+## 7 Limitations
 
 -*KERL-Recom*relies on the recipe subgraphs retrieved from FoodKG [\(Haussmann et al.,](#page-9-1) [2019\)](#page-9-1). Therefore, the system will not recommend any recipe if none of the recipe in KG meet all the constraints. The system may also fail if incorrect context information is provided, hence the results should not be used without proper safeguards.
 -*KERL-Recom*do not directly establish the relationship between the person's health conditions and the corresponding dietary restrictions. For example, it can recommend sugarfree recipes, but it may not accurately recommend the correct recipes for a diabetic person. This capability is left for future research.
 -*KERL-Nutri*generates the micro-nutritional information for most recipes, but it may not accurately generate micro-nutritional details for extreme cases, such as for recipes with high or very low calories.
 
-# References
+## References
 
 - <span id="page-9-16"></span>Marah Abdin, Sam Ade Jacobs, Ammar Ahmad Awan, Jyoti Aneja, Ahmed Awadallah, Hany Awadalla, Nguyen Bach, Amit Bahree, Arash Bakhtiari, Harkirat Behl, et al. 2024. Phi-3 technical report: A highly capable language model locally on your phone.*arXiv preprint arXiv:2404.14219*.
 - <span id="page-9-17"></span>Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. 2023. Gpt-4 technical report.
@@ -379,44 +374,42 @@ Ryan A Rossi, et al. 2024. Kapqa: Knowledgeaugmented product question-answering.
 
 Recipes in FoodKG are tagged with one or more tags, making a total of 490 unique tags. We selected recipes associated with health-related tags, listed in Table [10,](#page-12-4) for the generation of KGQA benchmark to ensure that the question-answer pairs inherently focus on health constraints. Note that the recipes tagged with these tags were also tagged with 454 other tags, indicating that the dataset covers a wide variety of recipe types. An example of a KG subraph correponding to a recipe is shown in Fig. [4.](#page-13-0)
 
-<span id="page-12-4"></span>
 
-| lactose      | vegan           | vegetarian  |
+| lactose | vegan | vegetarian |
 |--------------|-----------------|-------------|
-| dairy-free   | gluten-free     | nut-free    |
-| egg-free     | low-carb        | low-fat     |
-| low-sodium   | low-cholesterol | low-protein |
-| high-protein | high-calcium    | high-fiber  |
+| dairy-free | gluten-free | nut-free |
+| egg-free | low-carb | low-fat |
+| low-sodium | low-cholesterol | low-protein |
+| high-protein | high-calcium | high-fiber |
 
-Table 10: Tags representing various dietary preferences and nutritional constraints.
+**Table 10:** Tags representing various dietary preferences and nutritional constraints.
 
 ## A.2 KGQA benchmark details
 
 The recipes in FoodKG, the knowledge base used for KGQA benchmark, are tagged with one or more tags. Table [11](#page-12-3) shows the number of tagged recipes for each tag used for dataset generation and the associated number of questions in the train and test splits. The limited number of dairy-free tagged recipes (only 7) led to fewer corresponding test questions (only 3). As a result, the evaluated models also show the lowest F1 score for this tag, as shown in Figure [3.](#page-7-0)
 
-<span id="page-12-3"></span>
 
-| Tag             | Tagged recipes | Train set | Test set |
+| Tag | Tagged recipes | Train set | Test set |
 |-----------------|----------------|-----------|----------|
-| lactose         | 366            | 874       | 112      |
-| vegan           | 968            | 2287      | 314      |
-| vegetarian      | 3392           | 8142      | 979      |
-| dairy-free      | 7              | 18        | 3        |
-| gluten-free     | 565            | 1328      | 187      |
-| nut-free        | 45             | 107       | 13       |
-| egg-free        | 440            | 1078      | 124      |
-| low-carb        | 4239           | 10248     | 1244     |
-| low-fat         | 2202           | 5296      | 639      |
-| low-sodium      | 4445           | 10561     | 1407     |
-| low-cholesterol | 3710           | 8990      | 1059     |
-| low-protein     | 3320           | 7944      | 1032     |
-| high-protein    | 690            | 1642      | 219      |
-| high-calcium    | 540            | 1318      | 162      |
-| high-fiber      | 33             | 76        | 8        |
+| lactose | 366 | 874 | 112 |
+| vegan | 968 | 2287 | 314 |
+| vegetarian | 3392 | 8142 | 979 |
+| dairy-free | 7 | 18 | 3 |
+| gluten-free | 565 | 1328 | 187 |
+| nut-free | 45 | 107 | 13 |
+| egg-free | 440 | 1078 | 124 |
+| low-carb | 4239 | 10248 | 1244 |
+| low-fat | 2202 | 5296 | 639 |
+| low-sodium | 4445 | 10561 | 1407 |
+| low-cholesterol | 3710 | 8990 | 1059 |
+| low-protein | 3320 | 7944 | 1032 |
+| high-protein | 690 | 1642 | 219 |
+| high-calcium | 540 | 1318 | 162 |
+| high-fiber | 33 | 76 | 8 |
 
-Table 11: KGQA benchmark: Number of tagged recipes for each tag and questions for each tag.
+**Table 11:** KGQA benchmark: Number of tagged recipes for each tag and questions for each tag.
 
-# <span id="page-12-1"></span>B Foundational Models
+## <span id="page-12-1"></span>B Foundational Models
 
 Here we provide a list of baseline LLMs we compare with in our empirical evaluation.
 
@@ -453,7 +446,7 @@ Then precision (P), recall (R), and F1 scores are computed as follows:
 <span id="page-13-0"></span>![](_page_13_Figure_0.jpeg)
 <!-- Image Description: The image displays a recipe's network graph alongside its nutritional information and ingredients. The graph ("2-Hop Neighbors Graph Visualization") visualizes the relationships between the recipe "Corn Frittata With Cheese" and its ingredients, with nodes representing ingredients and edges showing connections. A table lists the recipe's nutritional details (calories, fat, protein, etc.), and another provides a list of ingredients. The image likely illustrates a method of recipe analysis or visualization within the paper. -->
 
-Figure 4: FoodKG Recipe sample: left panel shows a 2-hop KG subgraph for the recipe node shown on the right.
+**Figure 4:** FoodKG Recipe sample: left panel shows a 2-hop KG subgraph for the recipe node shown on the right.
 
 $$
 P = \frac{|TP|}{|TP| + |FP|}
@@ -531,7 +524,7 @@ $$
 
 where, fθ(x<sup>i</sup> |x<i) signifies the probability assigned by the model to the token x<sup>i</sup> , conditioned on the preceding tokens x<i.
 
-#### C.3 Metrics for Nutrition Generation
+### C.3 Metrics for Nutrition Generation
 
 Micro-nutrients were formatted in a pre-defined JSON style during the training, so the model was also expected to generate text in a similar style, making it easy to parse micro-nutrients and their values. Note that each generated sample output may not contain all the desired micro-nutrients. Therefore, for each sample, we consider the micronutrient tags found in the generated text. We parse all the micro-nutrient tags from the generated text along with their numerical values and compute the mean average error with the ground truth, formally defined as:
 
@@ -547,58 +540,56 @@ Where, y i nutri and y˜ i nutri are the ground truth and predicted values of th
 
 Qualitative results Despite the impressive performance of *KERL-Recom*, it is prone to failure by recommending false positives or missing true positive in recommended recipes. For examples,
 
-<span id="page-15-1"></span>
 
-| Model        | Inputs            | Calories        | Fat Calories  | Protein      | Sugar        | Fiber      | Carbohydrates | Sodium    | Cholesterol | Saturated Fat | Total Fat     |
+| Model | Inputs | Calories | Fat Calories | Protein | Sugar | Fiber | Carbohydrates | Sodium | Cholesterol | Saturated Fat | Total Fat |
 |--------------|-------------------|-----------------|---------------|--------------|--------------|------------|---------------|-----------|-------------|---------------|---------------|
-| Dataset Mean |                   | 321.76 ± 222.82 | 135.36±122.82 | 12.69± 12.51 | 10.01± 11.89 | 2.67± 2.54 | 29.86±23.94   | 0.44±0.44 | 0.05±0.06   | 5.62±5.74     | 15.09 ± 13.65 |
-| LLaVA-Chef   | Xt                | 205.13          | 118.21        | 9.22         | 9.6          | 3.07       | 20.9          | 28.66     | 2.69        | 8.07          | 17.97         |
-| LLaVA-Chef   | Xing              | 229.17          | 111.5         | 13.23        | 14.61        | 6.82       | 27.45         | 155.73    | 15.36       | 18.13         | 34.44         |
-| LLaVA-Chef   | Xinst             | 222.32          | 111.05        | 13.25        | 15.34        | 7.23       | 27.38         | 110.52    | 13.5        | 17.94         | 32.85         |
-| LLaVA-Chef   | Xt + Xing + Xinst | 233.35          | 113.36        | 10.5         | 14.01        | 4.81       | 28.4          | 188.49    | 19.37       | 17.79         | 36.52         |
-| KERL-Nutri   | Xt                | 159.44          | 85.58         | 6.64         | 6.62         | 1.61       | 16.17         | 0.29      | 0.03        | 3.91          | 9.51          |
-| KERL-Nutri   | Xing              | 132.62          | 61.23         | 5.47         | 4.82         | 1.22       | 12.62         | 0.21      | 0.02        | 2.56          | 6.8           |
-| KERL-Nutri   | Xinst             | 147.19          | 75.84         | 6.29         | 6.11         | 1.46       | 14.91         | 0.26      | 0.03        | 3.27          | 8.43          |
-| KERL-Nutri   | Xt + Xing + Xinst | 127.67          | 59.49         | 5.3          | 4.64         | 1.18       | 12.09         | 0.2       | 0.02        | 2.48          | 6.61          |
+| Dataset Mean | | 321.76 ± 222.82 | 135.36±122.82 | 12.69± 12.51 | 10.01± 11.89 | 2.67± 2.54 | 29.86±23.94 | 0.44±0.44 | 0.05±0.06 | 5.62±5.74 | 15.09 ± 13.65 |
+| LLaVA-Chef | Xt | 205.13 | 118.21 | 9.22 | 9.6 | 3.07 | 20.9 | 28.66 | 2.69 | 8.07 | 17.97 |
+| LLaVA-Chef | Xing | 229.17 | 111.5 | 13.23 | 14.61 | 6.82 | 27.45 | 155.73 | 15.36 | 18.13 | 34.44 |
+| LLaVA-Chef | Xinst | 222.32 | 111.05 | 13.25 | 15.34 | 7.23 | 27.38 | 110.52 | 13.5 | 17.94 | 32.85 |
+| LLaVA-Chef | Xt + Xing + Xinst | 233.35 | 113.36 | 10.5 | 14.01 | 4.81 | 28.4 | 188.49 | 19.37 | 17.79 | 36.52 |
+| KERL-Nutri | Xt | 159.44 | 85.58 | 6.64 | 6.62 | 1.61 | 16.17 | 0.29 | 0.03 | 3.91 | 9.51 |
+| KERL-Nutri | Xing | 132.62 | 61.23 | 5.47 | 4.82 | 1.22 | 12.62 | 0.21 | 0.02 | 2.56 | 6.8 |
+| KERL-Nutri | Xinst | 147.19 | 75.84 | 6.29 | 6.11 | 1.46 | 14.91 | 0.26 | 0.03 | 3.27 | 8.43 |
+| KERL-Nutri | Xt + Xing + Xinst | 127.67 | 59.49 | 5.3 | 4.64 | 1.18 | 12.09 | 0.2 | 0.02 | 2.48 | 6.61 |
 
-Table 12: Performance of nutrition generation models, filtered to include only the 95th percentile of samples.
+**Table 12:** Performance of nutrition generation models, filtered to include only the 95th percentile of samples.
 
-<span id="page-15-0"></span>
 
-| Model           | Tag         | mAP   | P     | R      | F1    |
+| Model | Tag | mAP | P | R | F1 |
 |-----------------|-------------|-------|-------|--------|-------|
-| internLM2       |             | 0.015 | 0.008 | 0.017  | 0.011 |
-| Mistral         |             | 0.14  | 0.538 | 0.368  | 0.437 |
-| Llama-2         |             | 0.477 | 0.838 | 0.514  | 0.637 |
-| Llama-3.1       | lactose     | 0.152 | 0.233 | 0.321  | 0.27  |
-| Phi-3-mini-128K |             | 0.202 | 0.812 | 0.217  | 0.343 |
-| KERL-Nutri      |             | 0.898 | 0.955 | 0.916  | 0.935 |
-| internLM2       |             | 0.09  | 0.038 | 0.0079 | 0.051 |
-| Mistral         |             | 0.201 | 0.549 | 0.492  | 0.519 |
-| Llama-2         |             | 0.669 | 0.885 | 0.71   | 0.788 |
-| Llama-3.1       | vegan       | 0.161 | 0.296 | 0.43   | 0.351 |
-| Phi-3-mini-128K |             | 0.404 | 0.873 | 0.421  | 0.568 |
-| KERL-Nutri      |             | 0.964 | 0.988 | 0.975  | 0.981 |
-| internLM2       |             | 0.085 | 0.034 | 0.078  | 0.048 |
-| Mistral         |             | 0.201 | 0.531 | 0.52   | 0.526 |
-| Llama-2         |             | 0.639 | 0.856 | 0.708  | 0.775 |
-| Llama-3.1       | vegetarian  | 0.179 | 0.325 | 0.462  | 0.381 |
-| Phi-3-mini-128K |             | 0.361 | 0.871 | 0.352  | 0.501 |
-| KERL-Nutri      |             | 0.966 | 0.987 | 0.976  | 0.981 |
-| internLM2       |             | 0.062 | 0.027 | 0.058  | 0.037 |
-| Mistral*        |             | 0.26  | 0.581 | 0.673  | 0.624 |
-| Llama-2         |             | 0.559 | 0.87  | 0.609  | 0.717 |
-| Llama-3.1       | gluten-free | 0.208 | 0.364 | 0.548  | 0.438 |
-| Phi-3-mini-128K |             | 0.282 | 0.811 | 0.285  | 0.421 |
-| KERL-Nutri      |             | 0.939 | 0.982 | 0.951  | 0.966 |
-| internLM2       |             | 0.103 | 0.019 | 0.067  | 0.029 |
-| Mistral*|             | 0.224 | 0.542 | 0.591  | 0.565 |
-| Llama-2         |             | 0.628 | 0.833 | 0.682  | 0.75  |
-| Llama-3.1       | nut-free    | 0.243 | 0.345 | 0.455  | 0.392 |
-| Phi-3-mini-128K |             | 0.385 | 0.786 | 0.367  | 0.5   |
-| KERL-Nutri      |             | 1.0   | 0.909 | 1.0    | 0.952 |
+| internLM2 | | 0.015 | 0.008 | 0.017 | 0.011 |
+| Mistral | | 0.14 | 0.538 | 0.368 | 0.437 |
+| Llama-2 | | 0.477 | 0.838 | 0.514 | 0.637 |
+| Llama-3.1 | lactose | 0.152 | 0.233 | 0.321 | 0.27 |
+| Phi-3-mini-128K | | 0.202 | 0.812 | 0.217 | 0.343 |
+| KERL-Nutri | | 0.898 | 0.955 | 0.916 | 0.935 |
+| internLM2 | | 0.09 | 0.038 | 0.0079 | 0.051 |
+| Mistral | | 0.201 | 0.549 | 0.492 | 0.519 |
+| Llama-2 | | 0.669 | 0.885 | 0.71 | 0.788 |
+| Llama-3.1 | vegan | 0.161 | 0.296 | 0.43 | 0.351 |
+| Phi-3-mini-128K | | 0.404 | 0.873 | 0.421 | 0.568 |
+| KERL-Nutri | | 0.964 | 0.988 | 0.975 | 0.981 |
+| internLM2 | | 0.085 | 0.034 | 0.078 | 0.048 |
+| Mistral | | 0.201 | 0.531 | 0.52 | 0.526 |
+| Llama-2 | | 0.639 | 0.856 | 0.708 | 0.775 |
+| Llama-3.1 | vegetarian | 0.179 | 0.325 | 0.462 | 0.381 |
+| Phi-3-mini-128K | | 0.361 | 0.871 | 0.352 | 0.501 |
+| KERL-Nutri | | 0.966 | 0.987 | 0.976 | 0.981 |
+| internLM2 | | 0.062 | 0.027 | 0.058 | 0.037 |
+| Mistral* | | 0.26 | 0.581 | 0.673 | 0.624 |
+| Llama-2 | | 0.559 | 0.87 | 0.609 | 0.717 |
+| Llama-3.1 | gluten-free | 0.208 | 0.364 | 0.548 | 0.438 |
+| Phi-3-mini-128K | | 0.282 | 0.811 | 0.285 | 0.421 |
+| KERL-Nutri | | 0.939 | 0.982 | 0.951 | 0.966 |
+| internLM2 | | 0.103 | 0.019 | 0.067 | 0.029 |
+| Mistral*| | 0.224 | 0.542 | 0.591 | 0.565 |
+| Llama-2 | | 0.628 | 0.833 | 0.682 | 0.75 |
+| Llama-3.1 | nut-free | 0.243 | 0.345 | 0.455 | 0.392 |
+| Phi-3-mini-128K | | 0.385 | 0.786 | 0.367 | 0.5 |
+| KERL-Nutri | | 1.0 | 0.909 | 1.0 | 0.952 |
 
-Table 13: Results on KGQA test set reported for several tags. Overall,*KERL-Recom*performs better for numerous types of recipes.
+**Table 13:** Results on KGQA test set reported for several tags. Overall,*KERL-Recom*performs better for numerous types of recipes.
 
 row-2 in Table [14](#page-16-0) shows the question where*KERL-Recom*suggested false positive whereas in row-3 it suggested a recipe that is not even in context. Similarly, the last row demonstrates an example, where the model failed to select all true positives from context, resulting few true negatives.
 
@@ -606,39 +597,38 @@ row-2 in Table [14](#page-16-0) shows the question where*KERL-Recom*suggested fa
 
 samples reduces MAE by about half for all the nutrients. Nevertheless, our*KERL-Nutri* remains the superior model.
 
-<span id="page-16-0"></span>
 
-| User question                                | Recipe in context        | KERL-Recom<br>recommen  |
+| User question | Recipe in context | KERL-Recom<br>recommen |
 |----------------------------------------------|--------------------------|-------------------------|
-|                                              |                          | dations                 |
-| What low-protein recipes use crushed         | Tamarind Juice,          | Low Carb Balsamic       |
-| red pepper flakes, bacon, ginger ale,        | Mock Sangria,            | Dressing,               |
-| ground black pepper, pepper and ex           | Low-Carb Balsamic        | Mock Champagne,         |
-| clude cream of coconut, tamari, fresh        | Dressing,                | Mock Sangria            |
-| thyme leaves, and have fiber more than       | County Cherry Dessert,   |                         |
-| 4.28, sugars per 100g within range (0,       | Mock Champagne           |                         |
-| 5.99)?                                       |                          |                         |
-| Suggest me vegetarian dishes that re         | Gyoza or Pot Sticker     | Wild Rice Stuffing Side |
-| quire fresh ground black pepper, green       | Dipping Sauce,           | Dish,                   |
-| onions, fresh parsley, plain yogurt, red     | Wild Rice Stuffing Side  | Pixie Cookies           |
-| onions and must not contain fine salt,       | Dish,                    |                         |
-| peach slices, arhar dal, and have a total    | Pixie Cookies            |                         |
-| of fiber not above 5.4, sugars per 100g      |                          |                         |
-| no more than 3.66.                           |                          |                         |
-| Can you list the low-carb recipes that       | Quick Sausage, White     | Jamaican Brown Stew     |
-| use curry powder,<br>cooked spaghetti,       | Bean and Spinach Stew,   | Chicken,                |
-| steak, bottled hot pepper sauce, con         | Jamaican Brown Stew      | Manic Bullet            |
-| densed beef broth but do not contain         | Chicken,                 |                         |
-| whole<br>wheat<br>pancake<br>mix,<br>chicken | Watermelon, Cucumber     |                         |
-| thigh fillets, white bread, while contain    | and Feta Salad           |                         |
-| ing fat cals not less than 203.0, and pro    |                          |                         |
-| tein within range (0, 32.5)?                 |                          |                         |
-| Can you suggest low-sodium recipes           | Fudge Pie, Pasta Pascal, | Fudge Pie,              |
-| cooked with fresh ground black pepper,       | Chocolate-Pecan          | Cold Oven Pound Cake,   |
-| plain yogurt, all - purpose flour, fresh     | Brownies,                | Lemon Meringue Tart     |
-| lemon juice, apples but do not have          | Cold Oven Pound Cake,    |                         |
-| garam masala, wheat and have protein         | Cucumber and Feta Salad, |                         |
-| no more than 13.08, sugars per 100g no       | Lemon Meringue Tart,     |                         |
-| more than 11.53?                             | Cold Oven Pound Cake     |                         |
+| | | dations |
+| What low-protein recipes use crushed | Tamarind Juice, | Low Carb Balsamic |
+| red pepper flakes, bacon, ginger ale, | Mock Sangria, | Dressing, |
+| ground black pepper, pepper and ex | Low-Carb Balsamic | Mock Champagne, |
+| clude cream of coconut, tamari, fresh | Dressing, | Mock Sangria |
+| thyme leaves, and have fiber more than | County Cherry Dessert, | |
+| 4.28, sugars per 100g within range (0, | Mock Champagne | |
+| 5.99)? | | |
+| Suggest me vegetarian dishes that re | Gyoza or Pot Sticker | Wild Rice Stuffing Side |
+| quire fresh ground black pepper, green | Dipping Sauce, | Dish, |
+| onions, fresh parsley, plain yogurt, red | Wild Rice Stuffing Side | Pixie Cookies |
+| onions and must not contain fine salt, | Dish, | |
+| peach slices, arhar dal, and have a total | Pixie Cookies | |
+| of fiber not above 5.4, sugars per 100g | | |
+| no more than 3.66. | | |
+| Can you list the low-carb recipes that | Quick Sausage, White | Jamaican Brown Stew |
+| use curry powder,<br>cooked spaghetti, | Bean and Spinach Stew, | Chicken, |
+| steak, bottled hot pepper sauce, con | Jamaican Brown Stew | Manic Bullet |
+| densed beef broth but do not contain | Chicken, | |
+| whole<br>wheat<br>pancake<br>mix,<br>chicken | Watermelon, Cucumber | |
+| thigh fillets, white bread, while contain | and Feta Salad | |
+| ing fat cals not less than 203.0, and pro | | |
+| tein within range (0, 32.5)? | | |
+| Can you suggest low-sodium recipes | Fudge Pie, Pasta Pascal, | Fudge Pie, |
+| cooked with fresh ground black pepper, | Chocolate-Pecan | Cold Oven Pound Cake, |
+| plain yogurt, all - purpose flour, fresh | Brownies, | Lemon Meringue Tart |
+| lemon juice, apples but do not have | Cold Oven Pound Cake, | |
+| garam masala, wheat and have protein | Cucumber and Feta Salad, | |
+| no more than 13.08, sugars per 100g no | Lemon Meringue Tart, | |
+| more than 11.53? | Cold Oven Pound Cake | |
 
-Table 14: Qualitative results of KERL-Recom: The second column lists the recipes in the subgraph (only names for simplicity) where blue color shows recipes that satisfy the user constraints R<sup>+</sup>(t<sup>j</sup> ). Row 1 shows a perfect result, row 2 shows one false positive recommendation, row 3 shows two suggested recipes, with only one present in the context and is also true positive, and the final row shows a subset of the ground truth selected by the model with missing true positives from recommended recipes. These sample results suggest that despite showing strong performance, it may fail by suggesting false negatives, missing true positives, or recommending unrelated recipes.
+**Table 14:** Qualitative results of KERL-Recom: The second column lists the recipes in the subgraph (only names for simplicity) where blue color shows recipes that satisfy the user constraints R<sup>+</sup>(t<sup>j</sup> ). Row 1 shows a perfect result, row 2 shows one false positive recommendation, row 3 shows two suggested recipes, with only one present in the context and is also true positive, and the final row shows a subset of the ground truth selected by the model with missing true positives from recommended recipes. These sample results suggest that despite showing strong performance, it may fail by suggesting false negatives, missing true positives, or recommending unrelated recipes.

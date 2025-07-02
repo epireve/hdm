@@ -26,8 +26,6 @@ images_removed: 0
 keywords: 
 ---
 
-
-
 # Temporal Knowledge Graph Completion with Time-sensitive Relations in Hypercomplex Space
 
 Li Cai<sup>1</sup>,<sup>2</sup> , Xin Mao<sup>1</sup> , Zhihong Wang<sup>1</sup> , Shangqing Zhao<sup>1</sup> , Yuhao Zhou<sup>1</sup> , Changxu Wu<sup>3</sup> , Man Lan<sup>1</sup> <sup>∗</sup>
@@ -42,11 +40,11 @@ Li Cai<sup>1</sup>,<sup>2</sup> , Xin Mao<sup>1</sup> , Zhihong Wang<sup>1</sup>
 
 wuchangxu@tsinghua.edu.cn, mlan@cs.ecnu.edu.cn
 
-# Abstract
+## Abstract
 
 Temporal knowledge graph completion (TKGC) aims to fill in missing facts within a given temporal knowledge graph at a specific time. Existing methods, operating in real or complex spaces, have demonstrated promising performance in this task. This paper advances beyond conventional approaches by introducing more expressive quaternion representations for TKGC within hypercomplex space. Unlike existing quaternion-based methods, our study focuses on capturing time-sensitive relations rather than time-aware entities. Specifically, we model time-sensitive relations through time-aware rotation and periodic time translation, effectively capturing complex temporal variability. Furthermore, we theoretically demonstrate our method's capability to model symmetric, asymmetric, inverse, compositional, and evolutionary relation patterns. Comprehensive experiments on public datasets validate that our proposed approach achieves state-of-the-art performance in the field of TKGC.
 
-# 1 Introduction
+## 1 Introduction
 
 Knowledge graphs (KGs) serve as organized repositories of information about the world, utilizing a triplet format *(h, r, t)*to represent factual knowledge. In this format, h denotes the head entity, r represents the relation, and t signifies the tail entity. Due to their ability to capture complex relations, KGs have emerged as essential resources in various applications, including search engines [\(Zhao et al.,](#page-9-0) [2023\)](#page-9-0), question-answering systems [\(Wang et al.,](#page-9-1) [2023\)](#page-9-1), and recommendation systems [\(Chen et al.,](#page-8-0) [2023\)](#page-8-0).
 
@@ -55,7 +53,7 @@ Despite their significance, knowledge graphs (KGs) inherently lack completeness 
 <span id="page-0-0"></span>![](_page_0_Figure_13.jpeg)
 <!-- Image Description: This diagram depicts the diplomatic interactions among Barack Obama, Japan, South Korea, and North Korea in 2014. Nodes represent actors, and edges represent actions (visits and negotiations) with dates. Solid lines show confirmed actions; dashed red lines represent uncertain or potential actions. The diagram illustrates the sequence and nature of diplomatic engagements during a specific period, likely to analyze the flow of events and potentially identify key turning points or influential actors. -->
 
-Figure 1: Subgraph example from ICEWS14 dataset for TKGC. Nodes on the graph represent entities, including Obama, Japan, South Korea, North Korea, and edges signify relations (with timestamps in parentheses), encompassing Host a visit, Make a visit, Express intent to meet or negotiate, Engage in negotiation. Solid black arrows denote existing facts, while red dashed arrows indicate missing facts that need to be completed.
+**Figure 1:** Subgraph example from ICEWS14 dataset for TKGC. Nodes on the graph represent entities, including Obama, Japan, South Korea, North Korea, and edges signify relations (with timestamps in parentheses), encompassing Host a visit, Make a visit, Express intent to meet or negotiate, Engage in negotiation. Solid black arrows denote existing facts, while red dashed arrows indicate missing facts that need to be completed.
 
 While KGs store static facts about the world, real-world data is dynamic, with facts evolving over time. This necessitates an extension of traditional KGs to incorporate temporal dimensions, giving rise to temporal knowledge graphs (TKGs). Within TKGs, facts are represented as quadruples (h, r, t, τ ), where τ is the timestamp.
 
@@ -79,7 +77,7 @@ The primary contributions of this paper can be summarized as follows:
 
 (3) Comprehensive experiments on various public datasets demonstrate that our approach achieves SOTA performance.
 
-# 2 Related Works
+## 2 Related Works
 
 ## 1 Knowledge Graph Completion
 
@@ -107,7 +105,7 @@ RotateQVS [\(Chen et al.,](#page-8-6) [2022\)](#page-8-6) utilizes a hypercomple
 
 Quaternions offer greater expressive power than complex numbers thanks to Hamilton multiplication, facilitating more comprehensive interactions. Hence, exploring the potential of quaternions in TKGC is essential.
 
-# 3 Problem Formulation and Quaternion
+## 3 Problem Formulation and Quaternion
 
 ## 1 Problem Formulation of TKGC
 
@@ -127,9 +125,9 @@ $$
 q_1 \otimes q_2 = (a_1 a_2 - b_1 b_2 - c_1 c_2 - d_1 d_2)
 $$
 
-+  $(a_1 b_2 + b_1 a_2 + c_1 d_2 - d_1 c_2) \mathbf{i}$
-+  $(a_1 c_2 - b_1 d_2 + c_1 a_2 + d_1 b_2) \mathbf{j}$
-+  $(a_1 d_2 + b_1 c_2 - c_1 b_2 + d_1 a_2) \mathbf{k}$  (1)
++ $(a_1 b_2 + b_1 a_2 + c_1 d_2 - d_1 c_2) \mathbf{i}$
++ $(a_1 c_2 - b_1 d_2 + c_1 a_2 + d_1 b_2) \mathbf{j}$
++ $(a_1 d_2 + b_1 c_2 - c_1 b_2 + d_1 a_2) \mathbf{k}$ (1)
 
 Inner Product: the inner product (also known as the dot product) of two quaternions is computed as follows:
 
@@ -143,7 +141,7 @@ $$
 \overline{q} = a - b\mathbf{i} - c\mathbf{j} - d\mathbf{k} \tag{3}
 $$
 
-# 4 Methods
+## 4 Methods
 
 The TKGC model consists of four fundamental components: temporal representation, score function, regularizer, and loss function.
 
@@ -179,7 +177,6 @@ the TKG not only change over time but may also adhere to certain periodic patter
 
 Inspired by RotateQVS [\(Chen et al.,](#page-8-6) [2022\)](#page-8-6), we represent temporal relations as rotations in quaternion space. For each time embedding q<sup>τ</sup> (constrained as a unit quaternion), the mapping is a rotation in quaternion space from the base relation embedding q<sup>r</sup> to the time-aware relation embedding qr(τ) , defined as follows:
 
-<span id="page-3-0"></span>
 $$
 \mathbf{q}_{r(\tau)} = \mathbf{q}_{\tau} \otimes \mathbf{q}_{r} \otimes \overline{\mathbf{q}}_{\tau} \tag{5}
 $$
@@ -188,12 +185,11 @@ where ⊗ means Hamilton product. The multiplication of quaternions facilitates 
 
 In recent TKGR models [\(Li et al.,](#page-8-5) [2023;](#page-8-5) [Liang](#page-8-10) [et al.,](#page-8-10) [2023\)](#page-8-10), the periodicity of time is commonly modeled using the sine function. Inspired by this, we adopt the following approach to model the periodicity of relationships. First, we use a quaternion vector q<sup>τ</sup> ′ = e a τ ′ + e b τ ′i + e c τ ′j + e d τ ′k to represent periodic time. Then, we calculate the sin value of the periodic time. We add this sine value to the time-aware relation to obtain the timesensitive relation q ′ r(τ) . This representation captures both the temporal and periodic features of the relation. The process can be described using the following formula:
 
-<span id="page-3-1"></span>
 $$
 \mathbf{q}'_{r(\tau)} = \mathbf{q}_{r(\tau)} + \sin(\mathbf{q}_{\tau'})
 $$
 
-=  $\mathbf{q}_{\tau} \otimes \mathbf{q}_r \otimes \overline{\mathbf{q}}_{\tau} + \sin(\mathbf{q}_{\tau'})$  (6)
+= $\mathbf{q}_{\tau} \otimes \mathbf{q}_r \otimes \overline{\mathbf{q}}_{\tau} + \sin(\mathbf{q}_{\tau'})$ (6)
 
 ### 2 Score Function
 
@@ -207,9 +203,9 @@ $$
 \phi(h,r,t,\tau) = \mathbf{q}_{h(r,\tau)} \cdot \mathbf{q}_t
 $$
 
-=  $\mathbf{q}_h \otimes \mathbf{q'}_{r(\tau)} \cdot \mathbf{q}_t$  (7)
+= $\mathbf{q}_h \otimes \mathbf{q'}_{r(\tau)} \cdot \mathbf{q}_t$ (7)
 
-#### 3 Regularizer
+### 3 Regularizer
 
 Regularizers have been employed in prior studies to improve a model's ability to generalize to unseen facts and reduce overfitting to the training data. These regularizers typically fall into two categories: embedding regularizers and temporal regularizers.
 
@@ -228,7 +224,7 @@ $$
 $$
 (9)
 
-#### 4 Loss Function
+### 4 Loss Function
 
 We adopt the multi-class log-loss in [\(Li et al.,](#page-8-5) [2023\)](#page-8-5), which has demonstrated effectiveness for both KGE models [\(Trouillon et al.,](#page-9-5) [2016\)](#page-9-5) and TKGE models [\(Lacroix et al.,](#page-8-4) [2020;](#page-8-4) [Xu et al.,](#page-9-3) [2021;](#page-9-3) [Zhang et al.,](#page-9-4) [2022\)](#page-9-4). Specifically, our loss function
 
@@ -249,7 +245,7 @@ $$
 
 where λ<sup>e</sup> and λ<sup>τ</sup> are the weight of regularier Ω and Λ, respectively.
 
-#### 5 Relation pattern
+### 5 Relation pattern
 
 In previous TKGC models [\(Sun et al.,](#page-9-6) [2019;](#page-9-6) [Li](#page-8-5) [et al.,](#page-8-5) [2023\)](#page-8-5), five types of relation patterns have been proposed, and their definitions are as follows:
 
@@ -257,17 +253,16 @@ In previous TKGC models [\(Sun et al.,](#page-9-6) [2019;](#page-9-6) [Li](#page
 
 Proposition 1.*TQuatE can model the symmetric relation pattern. (See proof in Appendix [A\)](#page-9-12)*Proposition 2.*TQuatE can model the asymmetric relation pattern. (See proof in Appendix [B\)](#page-10-0)*Proposition 3.*TQuatE can model the inverse relation pattern. (See proof in Appendix [C\)](#page-10-1)*Proposition 4.*TQuatE can model the compositional relation pattern. (See proof in Appendix [D\)](#page-11-0)*Proposition 5.*TQuatE can model the evolutionary relation pattern. (See proof in Appendix [E\)](#page-11-1)*
 
-<span id="page-5-2"></span>
 
-| Datasets   | E      | R   | T     | T rain    | V alid  | T est   | Granularity | T imespan           |
+| Datasets | E | R | T | T rain | V alid | T est | Granularity | T imespan |
 |------------|--------|-----|-------|-----------|---------|---------|-------------|---------------------|
-| ICEWS14    | 7,128  | 230 | 365   | 72,826    | 8,941   | 8,963   | Daily       | 2014.1.1-2014.12.31 |
-| ICEWS05-15 | 10,488 | 251 | 4,017 | 368,962   | 46,275  | 46,092  | Daily       | 2005.1.1-2015.12.31 |
-| GDELT      | 500    | 20  | 366   | 2,735,685 | 341,961 | 341,961 | Daily       | 2015.4.1-2016.3.31  |
+| ICEWS14 | 7,128 | 230 | 365 | 72,826 | 8,941 | 8,963 | Daily | 2014.1.1-2014.12.31 |
+| ICEWS05-15 | 10,488 | 251 | 4,017 | 368,962 | 46,275 | 46,092 | Daily | 2005.1.1-2015.12.31 |
+| GDELT | 500 | 20 | 366 | 2,735,685 | 341,961 | 341,961 | Daily | 2015.4.1-2016.3.31 |
 
-Table 1: Statistics of datasets for temporal knowledge graph completion. |E|, |R|, |T |, |T rain|, |V alid|, and |T est| denote the number of entities, relations, timestamps, facts in training sets, validation sets, and test sets, respectively.
+**Table 1:** Statistics of datasets for temporal knowledge graph completion. |E|, |R|, |T |, |T rain|, |V alid|, and |T est| denote the number of entities, relations, timestamps, facts in training sets, validation sets, and test sets, respectively.
 
-# 5 Experiments
+## 5 Experiments
 
 We conduct the experiments on a workstation with a GeForce RTX 3090 GPU with 28GB memory. The codes and datasets will be available on GitHub.
 
@@ -291,7 +286,7 @@ In the experiments, we compared our proposed model with two categories of advanc
 
 TransE [\(Bordes et al.,](#page-8-7) [2013\)](#page-8-7), ComplEx [\(Trouil](#page-9-5)[lon et al.,](#page-9-5) [2016\)](#page-9-5), RotatE [\(Sun et al.,](#page-9-6) [2019\)](#page-9-6), QuatE [\(Zhang et al.,](#page-9-7) [2019\)](#page-9-7).
 
-#### Temporal methods:
+### Temporal methods:
 
 (1) Real space: TTransE [\(Leblay and Chekol,](#page-8-1) [2018\)](#page-8-1), TA-TransE [\(García-Durán et al.,](#page-8-2) [2018\)](#page-8-2), HyTE [\(Dasgupta et al.,](#page-8-3) [2018\)](#page-8-3), ChronoR [\(Sadeghian](#page-9-9) [et al.,](#page-9-9) [2021\)](#page-9-9), BoxTE [\(Messner et al.,](#page-9-10) [2022\)](#page-9-10);
 
@@ -299,9 +294,9 @@ TransE [\(Bordes et al.,](#page-8-7) [2013\)](#page-8-7), ComplEx [\(Trouil](#pa
 
 (3) Hypercomplex space: RotateQVS [\(Chen](#page-8-6) [et al.,](#page-8-6) [2022\)](#page-8-6), TLT-KGE(Q) [\(Zhang et al.,](#page-9-4) [2022\)](#page-9-4).
 
-#### 2 Settings
+### 2 Settings
 
-#### 2.1 Evaluation Protocol
+### 2.1 Evaluation Protocol
 
 The TKGC task, which focuses on predicting incomplete temporal facts with a missing entity (h, r, ?, τ ) or (?, r, t, τ ), is employed to evaluate the performance of the proposed model. For the inference stage, we adhere to strong baselines [\(Zhang](#page-9-4) [et al.,](#page-9-4) [2022;](#page-9-4) [Li et al.,](#page-8-5) [2023\)](#page-8-5), where we substitute h and t with each entity from E for every quadruple in the test set. Subsequently, we compute scores for all corrupted quadruples (i.e., (h, r, ?, τ ) or (?, r, t, τ )) and rank all candidate entities based on these scores, considering the time-wise filtered settings [\(Zhang et al.,](#page-9-4) [2022;](#page-9-4) [Li et al.,](#page-8-5) [2023\)](#page-8-5).
 
@@ -309,32 +304,31 @@ The model's performance is evaluated using standard evaluation metrics, includin
 
 <span id="page-5-1"></span><span id="page-5-0"></span><sup>1</sup> Further details are available at: http://www.icews.com 2 https://github.com/dellixx/TeAST
 
-<span id="page-6-0"></span>
 
-| Models      |      |        | ICEWS14 | ICEWS05-15 |      |        |        | GDELT   |      |        |        |         |
+| Models | | | ICEWS14 | ICEWS05-15 | | | | GDELT | | | | |
 |-------------|------|--------|---------|------------|------|--------|--------|---------|------|--------|--------|---------|
-|             | MRR  | Hits@1 | Hits@3  | Hits@10    | MRR  | Hits@1 | Hits@3 | Hits@10 | MRR  | Hits@1 | Hits@3 | Hits@10 |
-| TransE∗     | .280 | .094   | -       | .637       | .294 | .090   | -      | .663    | -    | -      | -      | -       |
-| ComplEx∗    | .467 | .347   | .527    | .716       | .481 | .362   | .535   | .729    | -    | -      | -      | -       |
-| RotatE∗     | .418 | .291   | .478    | .690       | .304 | .164   | .355   | .595    | -    | -      | -      | -       |
-| QuatE∗      | .471 | .353   | .530    | .712       | .482 | .370   | .529   | .727    | -    | -      | -      | -       |
-| TTransE⋄    | .255 | .074   | -       | .601       | .271 | .084   | -      | .616    | .115 | .000   | .160   | .318    |
-| TA-TransE∗  | .275 | .095   | -       | .625       | .299 | .096   | -      | .668    | -    | -      | -      | -       |
-| HyTE⋄       | .297 | .108   | .416    | .655       | .316 | .116   | .445   | .681    | .118 | .000   | .165   | .326    |
-| ChronoR†    | .625 | .547   | .669    | .773       | .675 | .596   | .723   | .820    | -    | -      | -      | -       |
-| BoxTE†      | .613 | .528   | .664    | .763       | .667 | .582   | .719   | .820    | .352 | .269   | .377   | .511    |
-| TeRo⋄       | .562 | .468   | .621    | .732       | .586 | .469   | .668   | .795    | .245 | .154   | .264   | .420    |
-| TComplEx⋄   | .619 | .542   | .661    | .767       | .665 | .583   | .716   | .811    | .346 | .259   | .372   | .515    |
-| TeLM†       | .625 | .545   | .673    | .774       | .678 | .599   | .728   | .823    | .350 | .261   | .375   | .504    |
-| TLT-KGE(C)⋄ | .630 | .549   | .678    | .777       | .686 | .607   | .735   | .831    | .356 | .267   | .385   | .532    |
-| TeAST†      | .637 | .560   | .682    | .782       | .683 | .604   | .732   | .829    | .371 | .283   | .401   | .544    |
-| RotatQVS⋄   | .591 | .507   | .642    | .754       | .633 | .529   | .709   | .813    | .270 | .175   | .293   | .458    |
-| TLT-KGE(Q)⋄ | .634 | .551   | .684    | .786       | .690 | .609   | .741   | .835    | .358 | .265   | .388   | .543    |
-| TQuatE      | .639 | .561   | .686    | .787       | .694 | .611   | .748   | .845    | .388 | .302   | .417   | .554    |
+| | MRR | Hits@1 | Hits@3 | Hits@10 | MRR | Hits@1 | Hits@3 | Hits@10 | MRR | Hits@1 | Hits@3 | Hits@10 |
+| TransE∗ | .280 | .094 | - | .637 | .294 | .090 | - | .663 | - | - | - | - |
+| ComplEx∗ | .467 | .347 | .527 | .716 | .481 | .362 | .535 | .729 | - | - | - | - |
+| RotatE∗ | .418 | .291 | .478 | .690 | .304 | .164 | .355 | .595 | - | - | - | - |
+| QuatE∗ | .471 | .353 | .530 | .712 | .482 | .370 | .529 | .727 | - | - | - | - |
+| TTransE⋄ | .255 | .074 | - | .601 | .271 | .084 | - | .616 | .115 | .000 | .160 | .318 |
+| TA-TransE∗ | .275 | .095 | - | .625 | .299 | .096 | - | .668 | - | - | - | - |
+| HyTE⋄ | .297 | .108 | .416 | .655 | .316 | .116 | .445 | .681 | .118 | .000 | .165 | .326 |
+| ChronoR† | .625 | .547 | .669 | .773 | .675 | .596 | .723 | .820 | - | - | - | - |
+| BoxTE† | .613 | .528 | .664 | .763 | .667 | .582 | .719 | .820 | .352 | .269 | .377 | .511 |
+| TeRo⋄ | .562 | .468 | .621 | .732 | .586 | .469 | .668 | .795 | .245 | .154 | .264 | .420 |
+| TComplEx⋄ | .619 | .542 | .661 | .767 | .665 | .583 | .716 | .811 | .346 | .259 | .372 | .515 |
+| TeLM† | .625 | .545 | .673 | .774 | .678 | .599 | .728 | .823 | .350 | .261 | .375 | .504 |
+| TLT-KGE(C)⋄ | .630 | .549 | .678 | .777 | .686 | .607 | .735 | .831 | .356 | .267 | .385 | .532 |
+| TeAST† | .637 | .560 | .682 | .782 | .683 | .604 | .732 | .829 | .371 | .283 | .401 | .544 |
+| RotatQVS⋄ | .591 | .507 | .642 | .754 | .633 | .529 | .709 | .813 | .270 | .175 | .293 | .458 |
+| TLT-KGE(Q)⋄ | .634 | .551 | .684 | .786 | .690 | .609 | .741 | .835 | .358 | .265 | .388 | .543 |
+| TQuatE | .639 | .561 | .686 | .787 | .694 | .611 | .748 | .845 | .388 | .302 | .417 | .554 |
 
-Table 2: Experimental results on ICEWS14, ICEWS05-15 and GDELT. \*: results are taken from [\(Xu et al.,](#page-9-2) [2020\)](#page-9-2), ⋄ : results are taken from [\(Zhang et al.,](#page-9-4) [2022\)](#page-9-4), † : results are taken from [\(Li et al.,](#page-8-5) [2023\)](#page-8-5). "-" means that results are not reported in those papers. The best score is in bold and second best score is underline.
+**Table 2:** Experimental results on ICEWS14, ICEWS05-15 and GDELT. \*: results are taken from [\(Xu et al.,](#page-9-2) [2020\)](#page-9-2), ⋄ : results are taken from [\(Zhang et al.,](#page-9-4) [2022\)](#page-9-4), † : results are taken from [\(Li et al.,](#page-8-5) [2023\)](#page-8-5). "-" means that results are not reported in those papers. The best score is in bold and second best score is underline.
 
-#### 2.2 Implementation Details
+### 2.2 Implementation Details
 
 We implemented our proposed model, TQuatE, using PyTorch on three datasets. The embedding dimension d is set to 2000 for all datasets. We optimized our model with Adagrad [\(Duchi et al.,](#page-8-14) [2011\)](#page-8-14), and the learning rate is set to 0.1. The maximum training epoch is set to 200. The norm p is set to 4.
 
@@ -344,18 +338,17 @@ For hyperparameter tuning, we performed a grid search to find the best weights f
 
 Table [2](#page-6-0) lists the main experimental results of our proposed model and all baselines on the datasets ICEWS14, ICEWS05-15, and GDELT. Both static and time-aware models modeled in hypercomplex space outperform those modeled in real and complex spaces. As time-aware models can capture the evolution of KGs over time, they achieve better performance in TKGC tasks compared to static models. Our proposed model TQuatE represents the KGs in hypercomplex space, offering more degrees of freedom, thus outperforming the SOTA method TeAST modeled in complex space. The improvements of MRR compared to TeAST on the three
 
-<span id="page-6-1"></span>
 
-|        | MRR  | Hits@1 | Hits@3 | Hits@10 |
+| | MRR | Hits@1 | Hits@3 | Hits@10 |
 |--------|------|--------|--------|---------|
-| TQuatE | .639 | .561   | .686   | .787    |
-| w/o PT | .629 | .551   | .675   | .774    |
+| TQuatE | .639 | .561 | .686 | .787 |
+| w/o PT | .629 | .551 | .675 | .774 |
 
-Table 3: Ablation study of TQuatE on ICEWS14. w/o means without.
+**Table 3:** Ablation study of TQuatE on ICEWS14. w/o means without.
 
 datasets are 0.31%, 1.61%, and 4.58%, respectively. Due to the adoption of a more flexible periodic time representation, TQuatE also outperforms the SOTA model TLT-KGE(Q) modeled in quaternion space. Compared to TLT-KGE(Q), TQuatE improves the MRR on the three datasets by 0.79%, 0.58%, and 8.38%, respectively. BoxTE [\(Messner et al.,](#page-9-10) [2022\)](#page-9-10) emphasizes the need for a high level of temporal inductive capacity to capture the significant temporal variability in GDELT effectively. Our proposed model significantly outperforms the existing SOTA model on GDELT, suggesting that both the quaternion representation and periodic time enhance the capability to model complex temporal variability.
 
-# 4 Ablation Study
+## 4 Ablation Study
 
 We conduct an ablation experiment on ICEWS14 to investigate the contributions of modeling periodic time.
 
@@ -364,12 +357,12 @@ As reported in Table [3,](#page-6-1) without periodic time (w/o PT), all metrics
 <span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
 <!-- Image Description: The figure displays a line graph showing the performance of a model (ICEWS14) across varying dimensions ('d'). Four metrics are plotted: MRR, Hits@1, Hits@3, and Hits@10. Each metric's value is shown on the y-axis, and the dimension 'd' is on the x-axis. The graph illustrates how these information retrieval metrics change with respect to the dimensionality of the model, suggesting an optimal range for 'd'. -->
 
-Figure 2: TKGC performance for different embedding dimensions d on ICEWS14.
+**Figure 2:** TKGC performance for different embedding dimensions d on ICEWS14.
 
 <span id="page-7-1"></span>![](_page_7_Figure_2.jpeg)
 <!-- Image Description: The figure displays a line graph showing the Mean Reciprocal Rank (MRR) for the ICEWS14 dataset. Two lines represent MRR values corresponding to different parameters, λe and λτ, across various regularization strength values shown on the x-axis. The graph illustrates how MRR changes with varying regularization strength for the two parameters, likely to analyze optimal parameter settings within the model. -->
 
-Figure 3: MRR values for different weight of embedding regularizer λ<sup>e</sup> and time regularizer λ<sup>τ</sup> on ICEWS14.
+**Figure 3:** MRR values for different weight of embedding regularizer λ<sup>e</sup> and time regularizer λ<sup>τ</sup> on ICEWS14.
 
 ## 5 HyperParameter Analysis
 
@@ -387,20 +380,19 @@ We select the weight of λ<sup>e</sup> and λ<sup>τ</sup> from the set {0.0001,
 
 From Figure [3,](#page-7-1) we can see that the MRR reaches its optimum when λ<sup>e</sup> is around 0.005, while for λ<sup>τ</sup> ,
 
-<span id="page-7-2"></span>
 
-| Model      | Number of Parameters                               |
+| Model | Number of Parameters |
 |------------|----------------------------------------------------|
-| TComplEx   | ( E  +  R  ×<br> T  )<br>2 +<br>× d × 2            |
-| Tero       | ( E  +  R  ×<br> T   ×<br>2) × d × 2 +<br>d        |
-| TeLM       | ( E  +  R  ×<br> T  )<br>2 +<br>× d × 2 +<br>d     |
-| TLT-KGE(C) | ( E  +  R  ×<br> T   ×<br>2 +<br>3 +<br>m) × d × 2 |
-| TeAST      | ( E  +  R  ×<br>2 +<br> T   ×<br>2) × d × 2        |
-| RotateQVS  | ( E  +  R  ×<br> T  )<br>2 +<br>× d × 4            |
-| TLT-KGE(Q) | ( E  +  R  ×<br> T   ×<br>2 +<br>3 +<br>m) × d × 2 |
-| TQuatE     | ( E  +  R  ×<br> T   ×<br>2 +<br>2) × d × 2        |
+| TComplEx | ( E + R ×<br> T )<br>2 +<br>× d × 2 |
+| Tero | ( E + R ×<br> T ×<br>2) × d × 2 +<br>d |
+| TeLM | ( E + R ×<br> T )<br>2 +<br>× d × 2 +<br>d |
+| TLT-KGE(C) | ( E + R ×<br> T ×<br>2 +<br>3 +<br>m) × d × 2 |
+| TeAST | ( E + R ×<br>2 +<br> T ×<br>2) × d × 2 |
+| RotateQVS | ( E + R ×<br> T )<br>2 +<br>× d × 4 |
+| TLT-KGE(Q) | ( E + R ×<br> T ×<br>2 +<br>3 +<br>m) × d × 2 |
+| TQuatE | ( E + R ×<br> T ×<br>2 +<br>2) × d × 2 |
 
-Table 4: The number of parameters of the models. |E|, |R|, |T |, d, and m denote the number of entities, relations, timestamps, embedding dimension, and time windows, respectively.
+**Table 4:** The number of parameters of the models. |E|, |R|, |T |, d, and m denote the number of entities, relations, timestamps, embedding dimension, and time windows, respectively.
 
 the optimum MRR is achieved at around 0.1. This suggests that the impact of temporal regularization during training is greater than that of embedding regularization.
 
@@ -410,24 +402,23 @@ We present the number of parameters during the training phase of competitive TKG
 
 From the table, we observe that TQuatE and TeAST have equal parameters since they share the same embedding dimension (d = 2000). However, owing to the increased degrees of freedom in quaternion space compared to complex space, TQuatE outperforms TeAST. Despite TLT-KGE utilizing dimensions of 1200 in ICEWS and 1500 in GDELT, respectively, the number of parameters is comparable to our proposed method due to the inclusion of additional temporal modeling requirements. TQuatE outperforms TLT-KGE, highlighting the effectiveness of modeling periodic time.
 
-# 6 Conclusion
+## 6 Conclusion
 
 In conclusion, this paper proposes a novel approach for TKGC by leveraging quaternion embeddings in hypercomplex space. Our method effectively models the dynamic evolution of facts over time, incorporating both temporal and periodic features of relations. Through extensive experiments on multiple datasets, including ICEWS14, ICEWS05- 15, and GDELT, we demonstrate that our model achieves SOTA performance, particularly excelling in datasets with complex temporal variability like GDELT.
 
-# 7 Limitations
+## 7 Limitations
 
 Although TQuatE employs the same parameters as TeAST, the quaternion multiplication operation is more complex than complex multiplication. Therefore, our method requires more time than TeAST. However, the performance improvement on the ICEWS14 and ICEWS05-15 datasets is insignificant. Table [5](#page-8-15) shows the MRR values and time cost of TQuatE and TeAST on the ICEWS14 dataset.
 
-<span id="page-8-15"></span>
 
-|        | MRR   | Time Cost (s) |
+| | MRR | Time Cost (s) |
 |--------|-------|---------------|
-| TeAST  | 0.637 | 1487          |
-| TQuatE | 0.639 | 2011          |
+| TeAST | 0.637 | 1487 |
+| TQuatE | 0.639 | 2011 |
 
-Table 5: MRR values and time cost of TQuatE and TeAST on the ICEWS14.
+**Table 5:** MRR values and time cost of TQuatE and TeAST on the ICEWS14.
 
-# References
+## References
 
 - <span id="page-8-8"></span>Ralph Abboud, ˙Ismail ˙Ilkan Ceylan, Thomas Lukasiewicz, and Tommaso Salvatori. 2020. [Boxe:](https://proceedings.neurips.cc/paper/2020/hash/6dbbe6abe5f14af882ff977fc3f35501-Abstract.html) [A box embedding model for knowledge base](https://proceedings.neurips.cc/paper/2020/hash/6dbbe6abe5f14af882ff977fc3f35501-Abstract.html) [completion.](https://proceedings.neurips.cc/paper/2020/hash/6dbbe6abe5f14af882ff977fc3f35501-Abstract.html) In*Advances in Neural Information Processing Systems 33: Annual Conference on Neural Information Processing Systems 2020, NeurIPS 2020, December 6-12, 2020, virtual*.
 - <span id="page-8-11"></span>Charu C. Aggarwal, Alexander Hinneburg, and Daniel A. Keim. 2001. [On the surprising behav](https://doi.org/10.1007/3-540-44503-X_27)[ior of distance metrics in high dimensional spaces.](https://doi.org/10.1007/3-540-44503-X_27) In *Database Theory - ICDT 2001, 8th International Conference, London, UK, January 4-6, 2001, Proceedings*, volume 1973 of *Lecture Notes in Computer Science*, pages 420–434. Springer.
@@ -460,7 +451,7 @@ Table 5: MRR values and time cost of TQuatE and TeAST on the ICEWS14.
 - <span id="page-9-0"></span>Xuejiao Zhao, Huanhuan Chen, Zhenchang Xing, and Chunyan Miao. 2023. [Brain-inspired search engine](https://doi.org/10.1109/TNNLS.2021.3113026) [assistant based on knowledge graph.](https://doi.org/10.1109/TNNLS.2021.3113026) *IEEE Trans. Neural Networks Learn. Syst.*, 34(8):4386–4400.
 - <span id="page-9-11"></span>Arthur Zimek, Erich Schubert, and Hans-Peter Kriegel. 2012. [A survey on unsupervised outlier detection in](https://doi.org/10.1002/SAM.11161) [high-dimensional numerical data.](https://doi.org/10.1002/SAM.11161) *Stat. Anal. Data Min.*, 5(5):363–387.
 
-# <span id="page-9-12"></span>A Proof of Propositions 1
+## <span id="page-9-12"></span>A Proof of Propositions 1
 
 To demonstrate that TQuatE can model symmetric relation pattern, that is ∀h, t, τ, r(h, t, τ,) ∧ r(t, h, τ ) hold True accordding Definetion [1,](#page-4-0) which implies q<sup>h</sup> ⊗ q ′ r(τ) · q<sup>t</sup> = q<sup>t</sup> ⊗ q ′ r(τ) · qh. The proof is as follows:
 
@@ -591,12 +582,12 @@ $$
 \mathbf{q}_t \otimes \mathbf{q'}_{r(\tau)} \cdot \mathbf{q}_h
 $$
 
-=  $\mathbf{e}_t^a \mathbf{e}_{r(\tau)}^a \mathbf{e}_h^a + \mathbf{e}_t^b \mathbf{e}_{r(\tau)}^a \mathbf{e}_h^b - \mathbf{e}_t^c \mathbf{e}_{r(\tau)}^a \mathbf{e}_h^c + \mathbf{e}_t^d \mathbf{e}_{r(\tau)}^a \mathbf{e}_h^d$
+= $\mathbf{e}_t^a \mathbf{e}_{r(\tau)}^a \mathbf{e}_h^a + \mathbf{e}_t^b \mathbf{e}_{r(\tau)}^a \mathbf{e}_h^b - \mathbf{e}_t^c \mathbf{e}_{r(\tau)}^a \mathbf{e}_h^c + \mathbf{e}_t^d \mathbf{e}_{r(\tau)}^a \mathbf{e}_h^d$
 (15)
 
 By comparison, the above two equations are identical. Therefore, when the imaginary part of q ′ r(τ) is zero, TQuatE can model symmetric relations.
 
-# <span id="page-10-0"></span>B Proof of Propositions 2
+## <span id="page-10-0"></span>B Proof of Propositions 2
 
 To model the asymmetric relation pattern, that is ∀h, t, τ, r(h, t, τ,) ∧ ¬r(t, h, τ ) hold True accordding Definetion [2,](#page-4-1) which implies qh⊗q ′ r(τ) ·q<sup>t</sup> ̸= q<sup>t</sup> ⊗ q ′ r(τ) · qh. If the real part of q ′ r(τ) is zero, i.e.
 
@@ -635,7 +626,7 @@ $$
 
 By comparison, the above two equations are not identical because of the different signs of the terms. Therefore, when the real part of q ′ r(τ) is zero, TQuatE can model asymmetric relations.
 
-# <span id="page-10-1"></span>C Proof of Propositions 3
+## <span id="page-10-1"></span>C Proof of Propositions 3
 
 To model the inverse relation pattern, that is ∀h, t, τ, r1(h, t, τ,)∧r2(t, h, τ ) hold True accordding Definetion [3,](#page-4-2) which implies qh⊗q ′ r1(τ) ·q<sup>t</sup> = q<sup>t</sup> ⊗ q ′ r2(τ) · qh. If q ′ <sup>r</sup>2(τ) = q′ r1(τ) , we have:
 
@@ -673,7 +664,7 @@ $$
 
 Therefore, when q ′ r2(τ) is the Conjugate of q ′ r1(τ) , TQuatE can model inverse relations.
 
-# <span id="page-11-0"></span>D Proof of Propositions 4
+## <span id="page-11-0"></span>D Proof of Propositions 4
 
 To model the compositional relation pattern, that is ∀x, y, z, τ, r2(x, y, τ ) ∧ r3(y, z, τ ) => r1(x, z, τ ) hold True accordding Definetion [4,](#page-4-3) which implies (q<sup>h</sup> ⊗q ′ r2(τ) )⊗q ′ r3(τ) ·q<sup>t</sup> = q<sup>h</sup> ⊗q ′ r1(τ) ·q<sup>t</sup> . We can get
 
@@ -681,13 +672,13 @@ $$
 (\mathbf{q}_h \otimes \mathbf{q'}_{r_2(\tau)}) \otimes \mathbf{q'}_{r_3(\tau)} \cdot \mathbf{q}_t
 $$
 
-=  $\mathbf{q}_h \otimes \mathbf{q'}_{r_2(\tau)} \otimes \mathbf{q'}_{r_3(\tau)} \cdot \mathbf{q}_t$
-=  $\mathbf{q}_h \otimes (\mathbf{q'}_{r_2(\tau)}) \otimes \mathbf{q'}_{r_3(\tau)} \cdot \mathbf{q}_t$  (19)
-=  $\mathbf{q}_h \otimes \mathbf{q'}_{r_1(\tau)} \cdot \mathbf{q}_t$
+= $\mathbf{q}_h \otimes \mathbf{q'}_{r_2(\tau)} \otimes \mathbf{q'}_{r_3(\tau)} \cdot \mathbf{q}_t$
+= $\mathbf{q}_h \otimes (\mathbf{q'}_{r_2(\tau)}) \otimes \mathbf{q'}_{r_3(\tau)} \cdot \mathbf{q}_t$ (19)
+= $\mathbf{q}_h \otimes \mathbf{q'}_{r_1(\tau)} \cdot \mathbf{q}_t$
 
 Therefore, TQuatE can model compositional relations.
 
-# <span id="page-11-1"></span>E Proof of Propositions 5
+## <span id="page-11-1"></span>E Proof of Propositions 5
 
 To model the evolutionary relation pattern, that is ∀h, t, τ, r1(h, t, τ1)∧r2(t, h, τ2) hold True accordding Definetion [5,](#page-4-4) which implies qh⊗q ′ r1(τ1) ·q<sup>t</sup> = q<sup>h</sup> ⊗ q ′ r2(τ2) · q<sup>t</sup> . i.e. q ′ <sup>r</sup>1(τ1) = q ′ r2(τ2) .
 

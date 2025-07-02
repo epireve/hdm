@@ -25,9 +25,6 @@ keywords:
 - temporal knowledge graph
 ---
 
-
-
-
 # Recommendation System Based on Temporal Knowledge Graph Path Reasoning
 
 Haoyuan Ren\* College of Electronic Engineering, Naval University of Engineering, Wuhan, China rrren\_hy@163.com.
@@ -44,7 +41,7 @@ Reasoning based on Knowledge graph has been studied and used for explanation rec
 
 • Computing methodologies → Artificial intelligence; Knowledge representation and reasoning; Temporal reasoning; • Information systems → Information systems applications; Data mining.
 
-# KEYWORDS
+## KEYWORDS
 
 Recommendation system, temporal knowledge graph, Graph representation learning, Markov decision process
 
@@ -52,7 +49,7 @@ Recommendation system, temporal knowledge graph, Graph representation learning, 
 
 Haoyuan Ren\* and Liangzhong Cui. 2023. Recommendation System Based on Temporal Knowledge Graph Path Reasoning. In 2023 International Conference on Power, Communication, Computing and Networking Technologies (PCCNT 2023), September 24, 25, 2023, Wuhan, China. ACM, New York, NY, USA, [5](#page-4-0) pages.<https://doi.org/10.1145/3630138.3630436>
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 Due to the network's development and the information's increasing, the collection of useful information required by users from
 
@@ -72,20 +69,20 @@ Permission to make digital or hard copies of all or part of this work for person
 
 <span id="page-1-0"></span>PCCNT 2023, September 24, 25, 2023, Wuhan, China Haoyuan Ren and Liangzhong Cui
 
-Table 1: Notation and Definition.
+**Table 1:** Notation and Definition.
 
-| Notations     | Definition                                 |  |  |  |  |
+| Notations | Definition | | | | |
 |---------------|--------------------------------------------|--|--|--|--|
-| , Gs<br>G, Gt | TKG, KG at time t, static KG               |  |  |  |  |
-| Ht<br>, Rt    | The representation of entities and         |  |  |  |  |
-|               | relations at time t                        |  |  |  |  |
-| sk,S          | state at step k and state space            |  |  |  |  |
-| ak, A         | Action at step k and action space          |  |  |  |  |
-| pk            | historical search path at step k           |  |  |  |  |
-| U, P          | The user set and product set               |  |  |  |  |
-| U-P, U-Pt     | The interaction set and interaction set at |  |  |  |  |
-|               | time t                                     |  |  |  |  |
-| KGitem        | Static KG of item attributes               |  |  |  |  |
+| , Gs<br>G, Gt | TKG, KG at time t, static KG | | | | |
+| Ht<br>, Rt | The representation of entities and | | | | |
+| | relations at time t | | | | |
+| sk,S | state at step k and state space | | | | |
+| ak, A | Action at step k and action space | | | | |
+| pk | historical search path at step k | | | | |
+| U, P | The user set and product set | | | | |
+| U-P, U-Pt | The interaction set and interaction set at | | | | |
+| | time t | | | | |
+| KGitem | Static KG of item attributes | | | | |
 
 In this paper, we first encode the entities and relationships in the temporal Knowledge graph, and the graph neural network with relationship awareness ability is combined with LSTM to obtain the semantic representation of time information, and a simple one-step recommendation prediction is made to obtain the first k pieces of recommendation information. Next, the multi-hop path reasoning algorithm based on Reinforcement learning is used to construct rewards containing time information through the interaction history between users and items, and k pieces of recommendation information are injected into the state to avoid the agent's aimless search path.
 
@@ -130,7 +127,7 @@ $$
 \overrightarrow{h}_{s,t}^{l+1} = f\left(\frac{1}{n}\sum_{(s,r),\exists(s,r,o,t)\in E_t} a_{ij} W_2^l \overrightarrow{h}_{o,t}^l + W_3^l \overrightarrow{h}_{s,t}^l\right) \tag{4}
 $$
 
- 2 , 3 is the learnable parameter used in the −th layer to aggregate neighbor features and self-circulation. (•) is the activation function rReLU. n is the normalization parameter, which is equal to the number of adjacent nodes of entity s.
+2 , 3 is the learnable parameter used in the −th layer to aggregate neighbor features and self-circulation. (•) is the activation function rReLU. n is the normalization parameter, which is equal to the number of adjacent nodes of entity s.
 
 Many events have occurred repeatedly in history. For any entity, its information in historical events includes its behavioral trends and preferences. To incorporate as much information as possible into historical events, the model needs to consider all facts that are adjacent to them in time.
 
@@ -146,7 +143,7 @@ R_t = LSTM(R_{t-1}, R_t^w)
 $$
 \n(6)
 
- , is the result obtained from the training of the layer neural network at the current time; −1, −<sup>1</sup> is the result of the neural network at the previous moment.
+, is the result obtained from the training of the layer neural network at the current time; −1, −<sup>1</sup> is the result of the neural network at the previous moment.
 
 Previous studies [\[5\]](#page-4-5) have shown that ConvTransE [\[6\]](#page-4-6) performs well in predicting the probability of entities or relationships, and the calculation method is as follows:
 
@@ -177,7 +174,7 @@ $$
 L = \omega L^e + (1 - \omega)L^r \tag{11}
 $$
 
- ,+1 , ,+1 represent the i-th label of two tasks, p represents the probability score of entity i or relationship i, and represents a hyperparameter used to control the importance of both entity prediction and relationship prediction losses.
+,+1 , ,+1 represent the i-th label of two tasks, p represents the probability score of entity i or relationship i, and represents a hyperparameter used to control the importance of both entity prediction and relationship prediction losses.
 
 ### 2 Multi-hop Path Reasoning
 
@@ -192,14 +189,14 @@ Transition: When the current state is sk= (u, hk, pk) and the agent selects ak= 
 $$
 s_{k+1} = \delta(s_k, a_k) = \{u, r_1, h_1, ..., r_k, h_k, r_{k+1}, h_{k+1}\}
 $$
- (12)
+(12)
 
 Reward: In the recommendation system, there is no specific recommendation target for the user, so in this article, we calculate the correct probability of the quadruple based on the embedding representation of the quadruple (u, rK, hK, t) by (7) as a reward, which results is a score between 0 and 1.
 
 $$
 R_K = \vec{p}(h|u, r, H_t, R_t) = sigmoid(H_t \text{Convtrans} E(\vec{u}_t, \vec{r}_t))
 $$
- (13)
+(13)
 
 When training the MDP, we need a policy network is needed to guide the agent to find the action that can get maximum expectation in different states. Use the following method to represent the state sk and optional action ak of step k:
 
@@ -222,33 +219,31 @@ where is a softmax function; W<sup>4</sup> and W<sup>5</sup> are linear neural n
 
 Using the reinforcement algorithm [\[8\]](#page-4-8) to train our agents and optimize the parameters of the policy network. Specifically, the training process is achieved by maximizing the expected rewards in the training set, with policy network parameters Optimize as
 
-Table 2: statistics of datasets.
+**Table 2:** statistics of datasets.
 
-<span id="page-2-0"></span>
 
-|              | Cloth      | Phones    | Beauty    |  |
+| | Cloth | Phones | Beauty | |
 |--------------|------------|-----------|-----------|--|
-| Users        | 39,387     | 27,879    | 22,363    |  |
-| Items        | 23,033     | 10,429    | 12,101    |  |
-| Interactions | 278,677    | 194,439   | 198,502   |  |
-| Entities     | 425,528    | 163,249   | 224,074   |  |
-| Quadruples   | 10,671,090 | 6,299,494 | 7,832,720 |  |
+| Users | 39,387 | 27,879 | 22,363 | |
+| Items | 23,033 | 10,429 | 12,101 | |
+| Interactions | 278,677 | 194,439 | 198,502 | |
+| Entities | 425,528 | 163,249 | 224,074 | |
+| Quadruples | 10,671,090 | 6,299,494 | 7,832,720 | |
 
-Table 3: Relations Details.
+**Table 3:** Relations Details.
 
-<span id="page-2-1"></span>
 
-|                 | status            |        |  |  |  |
+| | status | | | | |
 |-----------------|-------------------|--------|--|--|--|
-|                 | Time informations | static |  |  |  |
-| Purchase        | ✓                 | ×      |  |  |  |
-| Mention         | ✓                 | ×      |  |  |  |
-| Described_by    | ✓                 | ×      |  |  |  |
-| Bought_together | ×                 | ✓      |  |  |  |
-| Also_view       | ×                 | ✓      |  |  |  |
-| Also_bought     | ×                 | ✓      |  |  |  |
-| Belong_to       | ×                 | ✓      |  |  |  |
-| Produced_by     | ×                 | ✓      |  |  |  |
+| | Time informations | static | | | |
+| Purchase | ✓ | × | | | |
+| Mention | ✓ | × | | | |
+| Described_by | ✓ | × | | | |
+| Bought_together | × | ✓ | | | |
+| Also_view | × | ✓ | | | |
+| Also_bought | × | ✓ | | | |
+| Belong_to | × | ✓ | | | |
+| Produced_by | × | ✓ | | | |
 
 follows:
 
@@ -262,7 +257,7 @@ Where () represents a reward for a set of quads, where the ultimate goal is to m
 $$
 \nabla_{\theta} J(\theta) \approx \nabla_{\theta} \sum_{k} R(s_K | \mathbf{r}, \mathbf{e}) \log \pi_{\theta}(a_k | s_k)
 $$
- (18)
+(18)
 
 $$
 \theta = \theta + \beta \bullet \nabla_{\theta} J(\theta) \tag{19}
@@ -278,26 +273,26 @@ The experiment was conducted on Amazon's real e-commerce dataset [\[9\]](#page-4
 
 We use NDCG@K, Recall@K and Precision@K to evaluate recommendation performance. The process of obtaining scores for these indicators is shown below. These indicators reflect whether the results of the model are relevant products that users do like. The higher the score, the better the performance achieved by the model. In our experiment, we refer to and assume K=10.
 
-<span id="page-3-1"></span>Table 4: Experimental results on three datasets. The results are reported in percentage (%). The row 'Impv.' indicates the relative performance gain of our model relative to TPRec. (K = 10)
+<span id="page-3-1"></span>**Table 4:** Experimental results on three datasets. The results are reported in percentage (%). The row 'Impv.' indicates the relative performance gain of our model relative to TPRec. (K = 10)
 
-|           |       | cloth  |       | phone |        |       | beauty |        |       |
+| | | cloth | | phone | | | beauty | | |
 |-----------|-------|--------|-------|-------|--------|-------|--------|--------|-------|
-|           | NDCG  | Recall | Prec. | NDCG  | Recall | Prec. | NDCG   | Recall | Prec. |
-| PGPR      | 2.540 | 4.171  | 0.630 | 4.585 | 7.812  | 1.171 | 5.397  | 8.167  | 1.675 |
-| ADAC      | 2.714 | 4.373  | 0.671 | 4.784 | 8.419  | 1.269 | 5.815  | 9.038  | 1.869 |
-| TPRec     | 2.770 | 4.623  | 0.703 | 5.206 | 9.057  | 1.376 | 5.804  | 8.912  | 1.862 |
-| ours      | 2.935 | 4.949  | 0.798 | 5.467 | 9.311  | 1.419 | 5.883  | 9.025  | 1.881 |
-| Impv. (%) | 5.928 | 7.051  | 6.542 | 5.015 | 2.803  | 3.101 | 1.360  | 1.262  | 1.020 |
+| | NDCG | Recall | Prec. | NDCG | Recall | Prec. | NDCG | Recall | Prec. |
+| PGPR | 2.540 | 4.171 | 0.630 | 4.585 | 7.812 | 1.171 | 5.397 | 8.167 | 1.675 |
+| ADAC | 2.714 | 4.373 | 0.671 | 4.784 | 8.419 | 1.269 | 5.815 | 9.038 | 1.869 |
+| TPRec | 2.770 | 4.623 | 0.703 | 5.206 | 9.057 | 1.376 | 5.804 | 8.912 | 1.862 |
+| ours | 2.935 | 4.949 | 0.798 | 5.467 | 9.311 | 1.419 | 5.883 | 9.025 | 1.881 |
+| Impv. (%) | 5.928 | 7.051 | 6.542 | 5.015 | 2.803 | 3.101 | 1.360 | 1.262 | 1.020 |
 
 <span id="page-3-0"></span>![](_page_3_Figure_4.jpeg)
 <!-- Image Description: The image is a graph depicting relationships between entities in a data model. A central "item" node connects to nodes representing "category," "brand," "feature," and "user," with directional edges labeled to indicate the type of relationship (e.g., "produced by," "described by," "bought by"). The graph visualizes the data schema, likely for an e-commerce or product recommendation system. It shows how different data elements are interconnected. -->
 
-Figure 1: Relationships between entities in the dataset.
+**Figure 1:** Relationships between entities in the dataset.
 
 <span id="page-3-2"></span>![](_page_3_Figure_6.jpeg)
 <!-- Image Description: The image is a bar chart comparing the performance of three methods ("ours," TPrec, PGPR) across three product categories (phone, cloth, beauty). The height of each bar represents a performance metric (likely precision or recall, though not specified). The chart visually demonstrates the relative strengths and weaknesses of each method across different product types, allowing for a direct comparison of their effectiveness. -->
 
-Figure 2: The number of invalid users of the three methods on three datasets.
+**Figure 2:** The number of invalid users of the three methods on three datasets.
 
 $$
 NDCG@K = \frac{DCG@K}{IDCG@K} \tag{20}
@@ -311,7 +306,7 @@ $$
 $$
 Precision@K = \frac{|TP|}{|TP| + |FP|}
 $$
- (22)
+(22)
 
 ### 3 Compared Methods
 

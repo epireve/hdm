@@ -74,7 +74,7 @@ Nariman Ammar1,2,3 , PhD; Olufunto A Olusanya<sup>1</sup> , MBBS, PhD, MPH; Chad
 
 Arash Shaban-Nejad, MPH, MSc, PhD Center for Biomedical Informatics, Department of Pediatrics College of Medicine University of Tennessee Health Science Center 50 North Dunlap Street - R492 Memphis, TN United States Phone: 1 9012875863 Email: [ashabann@uthsc.edu](mailto:ashabann@uthsc.edu)
 
-# *Abstract*
+## *Abstract*
 
 **Background:**Health promotion can empower populations to gain more control over their well-being by using digital interventions that focus on preventing the root causes of diseases. Digital platforms for personalized health coaching can improve health literacy and information-seeking behavior, leading to better health outcomes. Personal health records have been designed to enhance patients' self-management of a disease or condition. Existing personal health records have been mostly designed and deployed as a supplementary service that acts as views into electronic health records.
 **Objective:**We aim to overcome some of the limitations of electronic health records. This study aims to design and develop a personal health library (PHL) that generates personalized recommendations for human papillomavirus (HPV) vaccine promotion and cancer prevention.
@@ -87,7 +87,7 @@ Arash Shaban-Nejad, MPH, MSc, PhD Center for Biomedical Informatics, Department 
 
 health information exchanges; knowledge graphs; recommender systems; personal health libraries; vaccine promotion; cancer prevention; personal health informatics
 
-#*Introduction*## Background
+## *Introduction*## Background
 
 Precision health promotion empowers populations and communities to choose health-related behaviors that allow them to gain more control over their health and well-being through a variety of socio-behavioral, environmental, and economic interventions [\[1](#page-7-0)]. The World Health Organization conceptualizes health promotion as "the process of enabling people to increase control over and to improve their health" [\[2](#page-7-1)]. Rather than emphasizing treatments and palliation, health promotion ultimately reduces the risks of chronic diseases by targeting and preventing the root causes of these diseases [[1](#page-7-0)]. Some of the main elements of health promotion [[1\]](#page-7-0) are to (1) improve population health literacy and knowledge acquisition to ensure healthy behavioral choices; (2) create healthy cities through healthy urban planning to mitigate; and (3) prioritize good policies and better health decision-making that facilitates, for example, vaccine uptake [[3\]](#page-7-2). Vaccinations have deterred countless incidences of vaccine-preventable illnesses and some infectious diseases across the globe.
 
@@ -101,17 +101,17 @@ More recently, vaccination uptake behavior has been adversely impacted by growin
 
 Accordingly, it is pertinent that novel techniques that support precision health promotion are implemented to increase vaccination uptake behaviors. The application of digital educational interventions for personalized health coaching can generate customized recommendations in a case-by-case manner, improve health literacy and knowledge acquisition, optimize information-seeking behavior, promote healthy behavior (eg, HPV vaccine uptake; sexually transmitted infection [STI], HPV, or genital warts testing; and cervical cancer screening), and lead to better population health outcomes (eg, HPV-associated cancer prevention) [\[13](#page-7-12),[14\]](#page-8-0). Advances in artificial intelligence (AI) and digital technologies have revolutionized several applications in health care [\[15](#page-8-1)], promoting and enhancing personalized patient care. For instance, formal semantic data and knowledge representation techniques have enabled the implementation of explainable AI systems by providing extra insights for learning and explanations based on hybrid approaches to AI that combine probabilistic machine learning with symbolic, rule-based reasoning. Those approaches use content and contextual knowledge encoded in ontologies to build and enrich personal health knowledge graphs (PHKGs).
 
-# Role of Digital Technologies in Improving Health and the Delivery of Care
+## Role of Digital Technologies in Improving Health and the Delivery of Care
 
 Digital health technologies such as mobile health (mHealth) and mobile medical applications, health information technology, smart devices, wearable sensors, wireless medical devices, and telemedicine or telehealth have revolutionized health care systems [\[15](#page-8-1)]. With the use and application of AI and machine learning, these technologies provide scientists, health care providers, and public health officials with the infrastructure to gather, manage, and interpret heterogeneous complex data sets to provide real-time recommendations for health decision-making and response [\[16\]](#page-8-2). In addition to rapid analysis, digital health solutions could enable personalized and patient-centered approaches to health care management, giving providers better insight into interpreting biological and social markers that could accurately predict actual health status [[17\]](#page-8-3). The application of these innovative tools could optimize decision-making with the ability to tailor treatment and therapies to patient-specific characteristics such as disease history, genetic profile, psychosocial attributes, diagnostic imaging information, or prior treatment responses [\[18](#page-8-4)].
 
-# Design of Digital Health Solutions to Promote Patient Engagement
+## Design of Digital Health Solutions to Promote Patient Engagement
 
 The continual expansion of digital health solutions provides the opportunity for patient empowerment and the ability to participate fully in their health care decision-making processes.
 
 Patient engagement has historically been limited to patient-provider interactions, with little room for self-management of both chronic and acute conditions [[18\]](#page-8-4). Notably, findings from numerous studies demonstrate that patient empowerment and engagement are key factors in achieving positive health outcomes [\[19](#page-8-5)-[22\]](#page-8-6). With the development of digital technologies such as wearable smart devices and sensors, individuals can track essential vitals such as heart rate and blood pressure and even identify cardiac arrhythmias by generating single-lead electrocardiograms at the touch of a finger [\[23](#page-8-7)]. However, despite a well-documented public desire for technological advancements in health management [[24](#page-8-8)[,25](#page-8-9)], digital health solutions are often not effectively used [\[19](#page-8-5)]. This underuse is attributed to numerous challenges of current digital health solutions, such as digital health disparities (ie, the lack of access to digital health services), unsustainable costs, insufficient digital skills, low level of end user satisfaction, poor user experience, digital navigation difficulties, privacy concerns, varying levels of digital and health literacy, and unreliable provider recommendations for use [\[26](#page-8-10)]. To successfully empower patients to take a stake in their health, effective digital health solutions should be designed with end users in mind to fully engage and educate patients on disease management and monitoring, digital health literacy, health information-seeking behaviors, and vaccine safety or efficacy.
 
-#*Methods*## <span id="page-2-0"></span>Study Design
+## *Methods*## <span id="page-2-0"></span>Study Design
 
 We have recently proposed a paradigm-shifting design for building a personal health library (PHL) [\[27](#page-8-11),[28\]](#page-8-12) and demonstrated how the PHL can serve as a knowledge infrastructure for building mHealth apps for the self-management of diabetes [[29\]](#page-8-13). We have also implemented a hybrid evidence-based and knowledge-driven explainable AI recommender and digital assistant for mental health surveillance [[30\]](#page-8-14). The PHL integrates health data with multidimensional and multimodal nonhealth data, including observations of daily living (ODL) and population-level social determinants of health (SDoH). Therefore, it enables both patients and health care professionals to make evidence-based decisions by integrating 3 components: clinical expertise, research literature, and patient preferences [[31\]](#page-8-15). The approach used to build the PHL leverages several innovative technological infrastructures, including Semantic Web, the web application programming interface (API), hypermedia-based discovery, and the social linked data [[32\]](#page-8-16) platform to build a privacy-aware, decentralized, yet linked architecture that enables seamless communication among health professionals across different organizations and platforms.
 
@@ -121,7 +121,7 @@ In this paper, we demonstrate how the Digital Personal Health Librarian (DPHL; [
 ![](_page_2_Figure_9.jpeg)
 <!-- Image Description: This diagram depicts the architecture of a Digital Personal Health Librarian (DPHL) system. It shows the interaction between several components: a Digital Personal Health Librarian, a Hybrid Recommendation Service using ML and symbolic reasoning, a Personal Health Library, and an Explanation Service. The system utilizes domain ontologies (e.g., chronic disease, opinion mining) and linked data from urban health observatories and public opinion to build a Personalized Health Knowledge Graph. Data flows are indicated by arrows, illustrating the system's information processing and knowledge generation. -->
 
-# Health Coaching Scenario
+## Health Coaching Scenario
 
 In [Figure 2,](#page-3-0) we showcase a scenario from the vaccine promotion, education, and cancer prevention domain. Our goal is to identify issues and needs that can be resolved with the help of a digital intervention. This intervention could improve knowledge acquisition, promote safe sexual practices, increase HPV vaccine uptake, and facilitate the adoption of routine HPV-based screening and testing protocols.
 
@@ -129,11 +129,11 @@ In [Figure 2,](#page-3-0) we showcase a scenario from the vaccine promotion, edu
 
 The scenario shows that in a real-world setting, several types of knowledge can be captured through a conversation with a health coach or a clinician. For example, engaging in unprotected sex is considered risky behavior that increases the likelihood of unintended pregnancies, HPV infections, HIV, and other STIs. In addition, other types of knowledge are brought up during the conversation. For example, the fact that Hailey's mom cannot speak English fluently and Hailey's unvaccinated status serve as upstream social determinants of risk factors. We wish to simulate this conversation in a digital health intervention platform, which we will explain next.
 
-# Hybrid DPHL
+## Hybrid DPHL
 
 [Figure 1](#page-2-0) shows the main components of our DPHL, which simulates a digital health coach. The app passes detected entity types and contextual parameter values to backend services, including the recommendation service, the explanation service, and the PHKG generation component. Based on our scenario, the PHL needs to capture knowledge from relevant domains of interest by reusing several domain ontologies and controlled vocabularies focusing on patients' education (eg, Chronic Disease Patient Education Ontology [\[33](#page-8-17)]), behavior change (eg, Behavior Change Ontology [\[34](#page-8-18)]), and supporting healthy lifestyles (eg, HELiS Ontology [[35\]](#page-8-19)). It also uses other ontologies for knowledge misconceptions. Further, if Hailey wants to receive warnings about misconceptions discussed over social media platforms, the PHL can collect such knowledge by using concepts from opinion-mining ontologies (eg, Marl standardized data schema or ontology [\[36](#page-9-0)]). By accessing dynamic knowledge discovered through the PHL, the DPHL can provide real-time hybrid recommendations that are both content and context based. For example, based on our scenario, the DPHLP can provide recommendations on HPV-associated cancer preventive measures, including safe sexual practices, HPV vaccine uptake, and routine HPV testing.
 
-# Setting Up the PHL
+## Setting Up the PHL
 
 We explain the steps by which the PHL processes Hailey's digital health state, including the following: (1) setting up her digital health profile and specifying her web of trusted agents, (2) specifying types of knowledge (concepts) she would like to maintain in the library, (3) populating concepts with content based on evidence, and (4) using context to personalize the collected knowledge-seeking for resources considering SDoH and ODL.
 
@@ -141,7 +141,7 @@ We explain the steps by which the PHL processes Hailey's digital health state, i
 
 It is apparent from the scenario that Hailey may need to rely on (and trust) several individuals, including her mom, the health coach, and the clinician. A personal health coach is qualified to discuss adolescent preventive health care measures, for example, (1) increase Hailey's sexual or reproductive health knowledge; (2) promote HPV vaccine uptake and HPV or STI testing as cancer preventive measures; (3) counsel on safe sexual practices; (4) counsel on contraception, for example, condom use; and (5) screen substance use or depression. The coach can also counsel on the adverse outcomes of HPV or STI and unprotected sex. On the other hand, only the clinician can administer the vaccines and obtain samples for STI tests. Next, we explain how the above scenario reflects needs related to the 4 HPV-associated cancer preventive measures: safe sexual practices, HPV vaccine uptake, routine HPV testing, and cancer screenings.
 
-# Generating the PHKG
+## Generating the PHKG
 
 The PHL then uses those types of knowledge to construct and enrich a PHKG for Hailey ([Figure 3](#page-4-0)). The knowledge graph (KG) refinement is performed in three main iterations: (1) first, the PHL uses the information provided by Hailey as contextual entry points to the KG and links them to entity types already stored in the library; (2) it then infers extra knowledge based on concept hierarchies and object properties stored in different domain ontologies; and (3) then, it populates the inferred concepts with evidence from local (city-level urban observatories) or public knowledge (opinions and research).
 
@@ -153,7 +153,7 @@ The PHL then uses those types of knowledge to construct and enrich a PHKG for Ha
 ![](_page_4_Figure_3.jpeg)
 <!-- Image Description: The image displays two interconnected knowledge graphs representing personal and contextual health knowledge. Nodes represent concepts (e.g., "sexual intercourse," "alcoholism," "internet access"), linked by edges indicating relationships. The upper graph focuses on personal health data, while the lower depicts contextual factors. Different node colors signify data sources (inferred, given, external knowledge). The graphs illustrate how personal information is integrated with broader contextual data to infer rules and personalized insights about an individual (Hailey) regarding STI risk. -->
 
-# Populating PHKG With Evidence
+## Populating PHKG With Evidence
 
 The PHL captures context and collects evidence from several sources of data and knowledge [\(Figure 4](#page-5-0)).
 
@@ -178,11 +178,11 @@ Open Data API. Using this API, we aim to use the data sets on teen vaccinations.
 
 The PHL integrates global knowledge from the above sources with local knowledge in Hailey's library. Some of the collected knowledge is already in semantic representation (eg, LinkedCT [[38\]](#page-9-2), a ClinicalTrials.gov linked data set that defines concepts related to diseases and interventions). For unstructured data, the PHL transforms the collected evidence into a machine-readable format using Semantic Web technologies and links them to semantic conceptual hierarchies of knowledge types stored in the library.
 
-# Ethical Considerations
+## Ethical Considerations
 
 This study does not include any real patient data, identifiable personal information, or any human material, and therefore, it is not human subjects research and did not require ethics committee approval. All information presented in case scenarios are solely generated for the sake of clarity in describing and demonstrating functionalities provided by the PHL.
 
-#*Results*
+## *Results*
 
 The preliminary prototype design and capabilities provided by the DPHL mHealth app are shown in [Figure 5](#page-6-0). Some of the features include preferences to set up their profile, indicating the types of knowledge they are interested in, their level of experience, and their trusted agents, as well as privacy controls. The app will generate recommendations based on their preferences and they can choose different goals. They also obtain reminders of cancer screening and routine testing as well as vaccines.
 
@@ -191,7 +191,7 @@ The preliminary prototype design and capabilities provided by the DPHL mHealth a
 ![](_page_6_Figure_6.jpeg)
 <!-- Image Description: This image displays the interface design of a mobile health (mHealth) application for self-managing HPV-associated cancers. The app's features are presented in a grid, including sections for managing personal profiles, trusted agents, privacy controls, knowledge sources, and various recommendations (safe sex, cancer screening, vaccine uptake, substance abuse). Each section lists functionalities and data types, illustrating the app's structure and scope. A level of generated knowledge indicator is also visible. -->
 
-#*Discussion*Health promotion empowers individuals by facilitating the acquisition of knowledge and information to make healthy choices and decisions. In this work, we have proposed a paradigm-shifting design of the PHL that improves the maturity of EHR implementations. The proposed PHL could integrate and leverage complex individual- and population-level data from several multidimensional sources such as EHR systems (health histories, prescriptions, laboratory results, and demographic information); consumer health applications, wearable sensors, and devices; US Census Bureau (eg, SDoH indicators and neighborhood characteristics); PubMed KG and LinkedCT; CDC data repository; and social media platforms, for example, Reddit, to offer patients a personalized health assessment and wellness plan.
+## *Discussion*Health promotion empowers individuals by facilitating the acquisition of knowledge and information to make healthy choices and decisions. In this work, we have proposed a paradigm-shifting design of the PHL that improves the maturity of EHR implementations. The proposed PHL could integrate and leverage complex individual- and population-level data from several multidimensional sources such as EHR systems (health histories, prescriptions, laboratory results, and demographic information); consumer health applications, wearable sensors, and devices; US Census Bureau (eg, SDoH indicators and neighborhood characteristics); PubMed KG and LinkedCT; CDC data repository; and social media platforms, for example, Reddit, to offer patients a personalized health assessment and wellness plan.
 
 While the primary focus of this paper is on promoting HPV vaccinations and cancer screening with the PHL, this app could also address barriers to the receipt of other vaccinations, including tetanus, diphtheria, and acellular pertussis; viral hepatitis (hepatitis A, hepatitis B, and hepatitis C); meningococcal; influenza; and COVID-19. Additionally, the proposed PHL could address obstacles to health care delivery services, including limited access to care, poor knowledge and the lack of information, and the lack of provider's recommendation, to improve vaccination outcomes.
 
@@ -201,7 +201,7 @@ The PHL uses advances in Semantic Web and AI technologies to augment EHR impleme
 
 The PHL has the potential to offer motivational technological support for projects that span different domains of interest beyond the HPV case study discussed in this paper. We expect that this technology will complement conventional clinical care and management for patients with a variety of other comorbidities and chronic conditions by providing tailored, personalized messaging to improve health-related behaviors and enhance treatment plans. The PHL is currently at the prototype stage and is under active development to implement and optimize its full functionalities. A formal user experience assessment using qualitative focus group interviews and quantitative surveys has been planned to be conducted after the system's full implementation and performance. The assessment of end user experience could be used to gain insights into application effectiveness, functionality, usability, and popularity.
 
-# Acknowledgments
+## Acknowledgments
 
 The project described was supported (in part) by grant 1R37CA234119-01A1 from the National Cancer Institute at the National Institutes of Health.
 
@@ -213,11 +213,11 @@ Data sharing does not apply to this paper as no data sets were generated or anal
 
 NA and OAO conceptualized the study, wrote the original draft, reviewed and edited the writing, and supervised this study. CM, LC, XH, and AS-N wrote the original draft and reviewed and edited it. BMW reviewed and edited the writing. AS-N supervised this study and acquired the funding.
 
-# Conflicts of Interest
+## Conflicts of Interest
 
 <span id="page-7-0"></span>None declared.
 
-# <span id="page-7-1"></span>References
+## <span id="page-7-1"></span>References
 
 - <span id="page-7-2"></span>1. Shaban-Nejad A, Michalowski M, Peek N, Brownstein JS, Buckeridge DL. Seven pillars of precision digital health and medicine. Artif Intell Med 2020;103:101793 [doi: [10.1016/j.artmed.2020.101793](http://dx.doi.org/10.1016/j.artmed.2020.101793)] [Medline: [32143798](http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&list_uids=32143798&dopt=Abstract)]
 - <span id="page-7-3"></span>2. World Health Organization; Canadian Public Health Association. Ottawa charter for health promotion. Bull Pan Am Health Organ 1987;21(2):200-204 [doi: [10.1016/0168-8510\(87\)90136-9\]](http://dx.doi.org/10.1016/0168-8510(87)90136-9)
@@ -261,7 +261,8 @@ NA and OAO conceptualized the study, wrote the original draft, reviewed and edit
 - 38. Hassanzadeh O, Miller RJ. Automatic curation of clinical trials data in LinkedCT. Cham: Springer; 2015 Presented at: The Semantic Web—ISWC 2015: 14th International Semantic Web Conference; October 11-15, 2015; Bethlehem, PA p. 270-278 [doi: [10.1007/978-3-319-25010-6\\_16](http://dx.doi.org/10.1007/978-3-319-25010-6_16)]
 - <span id="page-9-3"></span>39. White BM, Melton C, Zareie P, Davis RL, Bednarczyk RA, Shaban-Nejad A. Exploring celebrity influence on public attitude towards the COVID-19 pandemic: social media shared sentiment analysis. BMJ Health Care Inform 2023;30(1):e100665 [\[FREE Full text](https://informatics.bmj.com/lookup/pmidlookup?view=long&pmid=36810135)] [doi: [10.1136/bmjhci-2022-100665](http://dx.doi.org/10.1136/bmjhci-2022-100665)] [Medline: [36810135](http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&list_uids=36810135&dopt=Abstract)]
 
-# Abbreviations
+## Abbreviations
+
 **AI:**artificial intelligence**API:**application programming interface**CDC:**Centers for Disease Control and Prevention**DPHL:**Digital Personal Health Librarian**EHR:**electronic health record**HPV:**human papillomavirus**KG:**knowledge graph**mHealth:**mobile health**ODL:**observations of daily living**PHKG:**personal health knowledge graph**PHL:**personal health library**SDoH:**social determinants of health**STI:**sexually transmitted infection
 *Edited by A Mavragani; submitted 22.06.23; peer-reviewed by W Wei, A Chaturvedi; comments to author 02.09.23; revised version received 09.10.23; accepted 24.10.23; published 15.11.23*
 

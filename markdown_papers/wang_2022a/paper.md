@@ -28,7 +28,6 @@ keywords:
 - reinforcement learning
 ---
 
-
 # KSG: Knowledge and Skill Graph
 
 Feng Zhao Westlake University Hangzhou, Zhejiang, China zhaofeng@westlake.edu.cn
@@ -37,7 +36,7 @@ Ziqi Zhang Westlake University Hangzhou, Zhejiang, China zhangzq20@mails.tsinghu
 
 Donglin Wang<sup>∗</sup> Westlake University Westlake Institute for Advanced Study Hangzhou, Zhejiang, China wangdonglin@westlake.edu.cn
 
-# ABSTRACT
+## ABSTRACT
 
 The knowledge graph (KG) is an essential form of knowledge representation that has grown in prominence in recent years. Because it concentrates on nominal entities and their relationships, traditional knowledge graphs are static and encyclopedic in nature. On this basis, event knowledge graph (Event KG) models the temporal and spatial dynamics by text processing to facilitate downstream applications, such as question-answering, recommendation and intelligent search. Existing KG research, on the other hand, mostly focuses on text processing and static facts, ignoring the vast quantity of dynamic behavioral information included in photos, movies, and pre-trained neural networks. In addition, no effort has been done to include behavioral intelligence information into the knowledge graph for deep reinforcement learning (DRL) and robot learning. In this paper, we propose a novel dynamic knowledge and skill graph (KSG), and then we develop a basic and specific KSG based on CN-DBpedia. The nodes are divided into entity and attribute nodes, with entity nodes containing the agent, environment, and skill (DRL policy or policy representation), and attribute nodes containing the entity description, pre-train network, and offline dataset. KSG can search for different agents' skills in various environments and provide transferable information for acquiring new skills. This is the first study that we are aware of that looks into dynamic KSG for skill retrieval and learning. Extensive experimental results on new skill learning show that KSG boosts new skill learning efficiency.
 
@@ -49,7 +48,7 @@ The knowledge graph (KG) is an essential form of knowledge representation that h
 
 Knowledge and Skill Graph, Skill Retrieval, Knowledge Graph
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Feng Zhao, Ziqi Zhang, and Donglin Wang. 2022. KSG: Knowledge and Skill Graph. In Proceedings of the 31st ACM International Conference on Information and Knowledge Management (CIKM '22), October 17–21, 2022,
 
@@ -78,23 +77,23 @@ Permission to make digital or hard copies of all or part of this work for person
 ![](_page_1_Figure_2.jpeg)
 <!-- Image Description: This image displays a flowchart depicting a three-stage process. Stage (a) shows training basic skills and structuring data. Stage (b) illustrates knowledge fusion, using CN-DBpedia, involving entity and attribute extraction, alignment, adding new nodes, and quality evaluation. Finally, stage (c) depicts applications of the resulting knowledge and skill graph, including skill learning, knowledge retrieval, and visual display. The diagram uses boxes to represent processes and a graph to visualize the knowledge and skill structure. -->
 
-Figure 1: The architecture of knowledge and skill graph. We first train basic skills and form structured data in (a). Then, we extract dynamic behavioral information from basic skills and construct a preliminary but specific KSG based on CN-DBpedia in (b). Finally, we apply KSG to achieve knowledge retrieval, visual display and skill learning in (c).
+**Figure 1:** The architecture of knowledge and skill graph. We first train basic skills and form structured data in (a). Then, we extract dynamic behavioral information from basic skills and construct a preliminary but specific KSG based on CN-DBpedia in (b). Finally, we apply KSG to achieve knowledge retrieval, visual display and skill learning in (c).
 
 - In order to extend KG to deal with dynamic behaviors, we propose a novel concept of KSG to simultaneously process static and dynamic knowledge.
 - We propose and visualize a preliminary and specific KSG. To the best of our knowledge, our work is the first to implement skill retrieval and skill reuse by introducing behavioral intelligence into KG.
 - Extensive experiments demonstrate the effectiveness of KSG in a variety of tasks, such as QA, knowledge retrieval and skill learning.
 
-#### 2 KNOWLEDGE AND SKILL GRAPH (KSG)
+### 2 KNOWLEDGE AND SKILL GRAPH (KSG)
 
 Our aim is to establish a knowledge and skill graph (KSG) that not only retains the original static facts of the knowledge graph but also deals with dynamic behavior information. As a result, KSG can be utilized for both text-based Q&A systems, retrieval and recommendation, and skill retrieval, as well as providing transferable knowledge for learning new skills. In this paper, we emphasize the last functionality. As shown in Figure 1, knowledge and skill graph is constructed based on CN-DBpedia and the construct process is divided into three parts: a) Training Skills for Data Preparation; b) knowledge Fusion; c) Applications. We first introduce the methods and process of training basic skills and the storage of skills. Then, we elaborate on the details of knowledge fusion. Finally, we explain the main applications and the details are described in section 3.
 
-#### 1 Training Skills for Data Preparation
+### 1 Training Skills for Data Preparation
 
 In the processing of constructing KSG, we firstly train a great deal of basic skills of different agents in different environments. In this paper, the agent Humanoid, Ant and Half Cheetah are from Mujoco [\[30\]](#page-4-33). Environment plane is smooth ground and obstacle represents an obstructed ground. Then, we design different tasks according to the direction of walk. Finally, we consider the 18-DoF quadruped robot. For simulative quadruped robot, we design three environments: plane, stair, and irregular plane, and only consider the walk task. Specifically, we also store the walk skill of real quadruped robot in the environment plane. In this paper, we use SAC [\[12\]](#page-4-34) to train
 
 basic skills. By choosing different tasks, agents and environments, we have trained 23 different skills. For each skill, we store such trained network and offline data as knowledge which will be used to construct KSG.
 
-#### 2 Knowledge Fusion
+### 2 Knowledge Fusion
 
 In this paper, our preliminary KSG is based on the CN-DBpedia dataset. During the process of the KSG construction, we use neo4j and py2neo to import the triple relationship of CN-DBpedia. Among them, Neo4j is a powerful graph database tool that can search specific nodes with O(1) time complexity, and Py2neo is a python package that allows us to manipulate the neo4j database in a python environment. Once we have imported the CN-Dbpedia database, we can directly build the KSG based on it by adding a variety of skills, environments and agents. Different from traditional KG, we innovatively introduce dynamic behavior information into KG and add new nodes where added entity nodes consist of agents, environments and skills, as well as attribute nodes include entity description, skill display, pre-trained network and offline dataset.
 
@@ -103,9 +102,9 @@ To obtain new nodes about skills, we first need knowledge extraction from traine
 ![](_page_2_Figure_1.jpeg)
 <!-- Image Description: This flowchart illustrates a knowledge graph-based question answering system. A query is processed using BERT for entity and relation extraction. Extracted entities and relations are used to search for triplets (Entity, Relation, Attribute) within a knowledge graph (KSG). The resulting "Target Triplets" represent the answer to the query. -->
 
-Figure 2: Process of KSGQA
+**Figure 2:** Process of KSGQA
 
-#### 3 Applications
+### 3 Applications
 
 Except for the construction of KSG, we also build the KSG Question-Answer system (KSGQA) based on the KSG to facilitate the use of prior knowledge (in this paper, prior knowledge means the trained models as well as identity representations). This system can interpret and encode the specified queries in order to acquire target triplets. As shown in Figure 2, our KSGQA utilizes fine-tuned Bert [\[8\]](#page-4-35) to encode query. In this way, we can identify entity and relations between entities from the query. According to the entity, we can first obtain the corresponding triplets including entity, relation and attribute from KSG, and then we use the relation to determine the target triplets. For example, when inputting a query "Do you know what skill humans have?", we can use Bert to extract entity "human" and "skill". Meanwhile, the relation "have" is used to obtain target triplets such as "{'human', 'have', 'walk\_left'}", "{'human', 'have', 'walk\_right'}" and so on. Based on the KSGQA, we can realize some functionalities such as knowledge retrieval, visual display and skill learning.
 
@@ -115,11 +114,11 @@ KSG: Knowledge and Skill Graph CIKM '22, October 17–21, 2022, Atlanta, GA, USA
 
 performing different tasks in the same environment, we select the pre-training model according to the task similarity.
 
-# 3 EXPERIMENTS AND APPLICATIONS OF KSG
+## 3 EXPERIMENTS AND APPLICATIONS OF KSG
 
 We aim to establish a KSG which can be used to search skills and provide transferable knowledge for learning new skills. In this section, we first show KSG's Q&A system and skill retrieval capabilities. Then, we use KSG to retrieve and provide related skill model and offline data for learning new skills.
 
-# 1 Knowledge retrieval and display
+## 1 Knowledge retrieval and display
 
 In this paper, we construct a preliminary and specific KSG based on CN-DBpedia. Compared with traditional knowledge graph, KSG focuses on behavioral intelligence. We retain the original functions of the knowledge graph, meanwhile introducing new dynamic knowledge and skills into it. Therefore, we also design a corresponding knowledge and skill graph question answer system. The important functions of KSGQA are knowledge retrieval and display. As shown in Figure 3, we show the basic functions of knowledge retrieval. We can see that KSG can be used to retrieval existing skills as shown in Figure 3 (a), and then when we need the networks and offline data of these skills, we can call and download them from KSG in Figure 3 (b). In addition, KSG can display the stored skills. For example, when we input "Can you show ant walking down in the plane?", the KSGQA will load the video and show how the ant walks toward the down. Moreover, if we need a new skill which is not existing in KSG, KSG is able to quickly select most related base skills as pre-trained models to help learn new skills.
 
@@ -133,9 +132,9 @@ In this paper, we construct a preliminary and specific KSG based on CN-DBpedia. 
 
 (b) Pre-trained model retrieval
 
-Figure 3: KSGQA for knowledge retrieval.
+**Figure 3:** KSGQA for knowledge retrieval.
 
-# 2 Skill Storage and New Skill Learning
+## 2 Skill Storage and New Skill Learning
 
 In this paper, we consider agents from Mujoco and real quadruped robot as shown in Figure 4. Each agent has different skills in different environments. We add skill nodes and corresponding attribute nodes to store these skills in KSG, where the stored knowledge includes pre-trained model, video and offline data.
 
@@ -144,26 +143,26 @@ CIKM '22, October 17–21, 2022, Atlanta, GA, USA Feng Zhao, Ziqi Zhang, and Don
 ![](_page_3_Figure_1.jpeg)
 <!-- Image Description: The image displays four 3D renderings of different robots on a checkered plane. (a) shows a humanoid robot, (b) an ant-like robot, (c) a half-cheetah robot, and (d) a quadruped robot. The renderings likely illustrate the diverse robot morphologies used in a locomotion study within the paper, showcasing the variety of body plans tested or compared. -->
 
-Figure 4: All agents being considered in our specific KSG.
+**Figure 4:** All agents being considered in our specific KSG.
 
 ![](_page_3_Figure_3.jpeg)
 <!-- Image Description: The image presents three 3D renderings illustrating different terrain types for a robotic agent, likely in a locomotion study. (a) shows a flat plane with a checkered pattern. (b) depicts the same plane but with randomly scattered obstacles. (c) displays the agent navigating a simulated staircase. The purpose is to visually showcase the varied environments used to test the robot's navigation capabilities. -->
 
-Figure 5: All three environments in our preliminary but specific KSG including plane, obstacle and stair.
+**Figure 5:** All three environments in our preliminary but specific KSG including plane, obstacle and stair.
 
 In order to enrich our KSG, we design different environments to complete each task. A part of these environments are shown in Figure 5, including Plane, obstacle, and stair. By performing different tasks in different environments, we can acquire different skills for each agent. These stored skills are transferable knowledge that can be used to learn new skills. In this part, we use KSG to help agent learn new skills in different environment. Actually, the transferable knowledge includes pre-trained neural network and offline dataset. Therefore, we can directly use one of the most relevant models as a pre-training model for new skills, or we can use multiple related skills to combine and learn a new skill.
 
 ![](_page_3_Figure_6.jpeg)
 <!-- Image Description: The image contains two line graphs illustrating the test reward (%) over training steps. (a) shows a quadruped robot's performance across plane, irregular, and stair terrains. (b) compares a baseline irregular terrain performance against a model trained on a plane terrain then tested on irregular terrain; demonstrating transfer learning. Both graphs analyze the success of reinforcement learning algorithms in different locomotion scenarios. -->
 
-Figure 6: Test reward of Quadruped Robot and learn new skills in new environment using pre-trained model.
+**Figure 6:** Test reward of Quadruped Robot and learn new skills in new environment using pre-trained model.
 
 In this paper, we can load stored skill model from KSG as pretrain model to learn new skill. In Figure 6 (a), we show the stored skill model's test reward of real Quadruped Robot. If we now need to acquire the skills of walk for quadruped robot in environment irregular, we can select the most relevant skills from KSG as a pretraining model. This problem belongs to performing the same task in different environments. We first calculate the similarity of environment between irregular, plane and stair. In the above question, we select the skills with the highest similarity by calculating task similarity (Walk in environment plane) as the pre-training model to learn new skill walk in environment irregular. As show in Figure 6 (b), we can see that loading related pre-training models can improve training efficiency and reduce nearly half of the training time compared with direct training from scratch.
 
 ![](_page_3_Figure_10.jpeg)
 <!-- Image Description: The image contains two line graphs comparing "Baseline" and "Load skill: Walk_Up" performance. Each graph plots "Test Reward (%)" against "Step," showing reward progress over training iterations. (a) displays results at a 30-degree incline, (b) at 60 degrees. The graphs likely illustrate the effectiveness of a learned "Walk_Up" skill compared to a baseline, demonstrating improved reward at different inclines. -->
 
-Figure 7: Obliquely upward walk at a different Angle from the horizontal direction
+**Figure 7:** Obliquely upward walk at a different Angle from the horizontal direction
 
 On the other hand, if we need a new skill which is performing different tasks in the same environment, we can select the pretraining model according to the task similarity. When we need two skills that are obliquely upward walk at a different angle from the horizontal direction (30 degrees, 60 degrees), we can automatically select skill walk right and walk up as pre-training models according to the task similarity. As shown in figure 7, we can observe that loading pre-training skills according to task similarity can also improve the learning efficiency of new skills.
 
@@ -173,7 +172,6 @@ In this paper, we propose a novel concept of KSG to simultaneously process stati
 
 Although our KSG now is preliminary, it is very meaningful. In the future, we will continue to expand and improve KSG for real applications. On the one hand, KSG will provide a large amount of basic skills and offline data for reinforcement learning, meta learning, imitation learning and so on. On the other hand, KSG will also provide more complex relation between skills, agents and environments for skill learning and reasoning.
 
-<span id="page-4-0"></span>
 
 ### REFERENCES
 

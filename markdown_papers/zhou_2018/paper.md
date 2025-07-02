@@ -23,26 +23,23 @@ keywords:
 - multi-source
 ---
 
-
-
-
 # Intelligent Bug Fixing with Software Bug Knowledge Graph
 
 Cheng Zhou
 
 School of Information Engineering, Yangzhou University Yang zhou, China canorcheng@foxmail.com
 
-# ABSTRACT
+## ABSTRACT
 
 Software bugs continuously emerge during the process of software evolution. With the increasing size and complexity of software, bug fixing becomes increasingly more difficult. Bug and commit data of open source projects, Q&A documents and other software resources contain a sea of bug knowledge which can be utilized to help developers understand and fix bugs. Existing work focuses on data mining from a certain software resource in isolation to assist in bug fixing, which may reduce the efficiency of bug fixing.
 
 How to obtain, organize and understand bug knowledge from multi-source software data is an urgent problem to be solved. In order to solve this problem, we utilize knowledge graph (KG) technology to explore the deep semantic and structural relationships in the multi-source software data, propose effective search and recommendation techniques based on the knowledge graph, and design a bug-fix knowledge question & answering system to assist developers in intelligent software bug fixing. At present, we have designed a bug knowledge graph construction framework, proposed the identification principles and methods for bug knowledge entities and relationships, constructed a preliminary knowledge graph based on the bug repository. In the following work, we will further improve the knowledge graph, complete the knowledge graph fusion of multi-source database, comprehend bug knowledge through knowledge reasoning, utilize the collaborative search and recommendation technology for bug-fixing knowledge question and answering.
 
-# CCS CONCEPTS
+## CCS CONCEPTS
 
 • Software and its engineering → Software organization and properties; Software defect analysis;
 
-# KEYWORDS
+## KEYWORDS
 
 Intelligent bug fixing, software bug knowledge graph, collaborative search and recommendation, bug-fixing knowledge question and answering
 
@@ -58,7 +55,7 @@ ACM ISBN 978-1-4503-5573-5/18/11. . . \$15.00 <https://doi.org/10.1145/3236024.3
 
 (ESEC/FSE '18), November 4–9, 2018, Lake Buena Vista, FL, USA. ACM, New York, NY, USA, [4](#page-3-0) pages. <https://doi.org/10.1145/3236024.3275428>
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 Due to deviations in understanding of requirements, irrational development processes, or lack of experience for developers, software bugs always occur and cause running errors under certain conditions, resulting in abnormal results or behaviors. In severe cases, it can even cause irreparable and huge losses. In order to facilitate management of these software bugs, many large software systems are equipped with special bug tracking systems such as Bugzilla[1](#page-0-0) to collect and track the bugs of software projects. In the bug tracking systems, which are also called bug repository, the whole life cycle of each bug is well tracked from being submitted or opened to being fixed or reviewed[\[19,](#page-3-1) [20\]](#page-3-2). At the same time, developers are keen to search, communicate and collaborate in the software engineering-specific Q&A communities such as Stack Overflow[2](#page-0-1) , sharing their knowledge and experience, and updating information quickly. Among the many questions posted in Stack Overflow, some provide the descriptions and solutions of different kinds of bugs[\[3\]](#page-3-3). These open source software communities (e.g.,source code[\[11,](#page-3-4) [18\]](#page-3-5), bug reports[\[5,](#page-3-6) [17,](#page-3-7) [23\]](#page-3-8), Q&A documents[\[2\]](#page-3-9)) contain large size, complex, and semantically related bug information and knowledge, which can help developers understand bugs and perform bug fixing[\[4,](#page-3-10) [9,](#page-3-11) [13\]](#page-3-12).
 
@@ -86,9 +83,9 @@ To continue the work for intelligent bug fixing, we are planning to obtain the b
 
 The remainder of this paper is structured as follows: Section 2 describes our existing works in software bug knowledge graph construction. In Section 3, we explain our ongoing works. Section 4 concludes this paper.
 
-# 2 PUBLISHED WORK
+## 2 PUBLISHED WORK
 
-# 1 Bug Knowledge Graph System
+## 1 Bug Knowledge Graph System
 
 Figure 1 shows the framework for bug knowledge graph construction, which consists of four parts: bug knowledge extraction, bug knowledge fusion, bug knowledge graph storage and management, and bug knowledge recommendation.
 
@@ -105,7 +102,7 @@ Code Context = {Identifier, Patch name, Patch content, Submitter, Create date, C
 ![](_page_1_Figure_15.jpeg)
 <!-- Image Description: This diagram depicts a system for bug recommendation using knowledge graphs (KGs). It shows a multi-layered architecture. The bottom layer represents software resources (GitHub, Bugzilla, Stack Overflow). The next layer extracts knowledge (code context, textual descriptions) from these sources to build individual KGs. These are then fused into a central Bug KG, linked via entity relationships. Finally, this consolidated KG supports knowledge storage and management, ultimately aiding in new bug recommendations. -->
 
-Figure 1: The framework for constructing software bug knowledge graph
+**Figure 1:** The framework for constructing software bug knowledge graph
 
 The Q&A communities such as Stack Overflow record and manage data in the form of Q&A documents. We only select Q&A data related to bugs. Each question with its Q&A description text and developer can be extracted as a knowledge entity. Entity properties are set as follows:
 
@@ -123,7 +120,7 @@ Code Context = {Identifier, Patch name, Patch content, Submitter, Create date, C
 
 Developer = { User ID, User Display Name, User Reputation, Stars, Criticism, Views, Created Date , Latest Visit Date}
 
-# 2 Recognizing Software Bug-specific Named Entity
+## 2 Recognizing Software Bug-specific Named Entity
 
 Named entity recognition (NER) is a subtask of information extraction used to construct knowledge graph, that seeks to locate and classify named entities in the target text into pre-defined categories[\[12\]](#page-3-21). By investigating into a large number of bug reports in software bug repository, three characteristics of entities in description text of bug reports are summarized: parts of speech
 
@@ -133,35 +130,35 @@ Named entity recognition (NER) is a subtask of information extraction used to co
 
 ## Table 1: Categories for bug-specific entities
 
-| Entity Categories |                  | Anno.tag | Examples           |
+| Entity Categories | | Anno.tag | Examples |
 |-------------------|------------------|----------|--------------------|
-|                   | core             | core     | loop code          |
-| component         |                  |          | variable type      |
-|                   | GUI              | GUI      | bottom Junk        |
-|                   |                  |          | characters         |
-|                   | Network          | NW       | Modem Openflow     |
-|                   | I/O              | IO       | Monitor LPT        |
-|                   | Driver           | Dri      | FDC HDC HDD        |
-|                   | File System      | FS       | exFAT              |
-|                   |                  |          | copy-on-write      |
-|                   | Hardware         | HD       | Base Memory ECP    |
-| specific          | Language         | LA       | C C# Python        |
-|                   | API              | API      | javax.swing.plaf   |
-|                   | Standard         | SD       | TCP AJAX JSON      |
-|                   | Platform         | PF       | AMD64 Android      |
-|                   | Framework        | FW       | NumPY              |
-|                   |                  |          | Microsoft WORD     |
-| general           | defect test      | TEST     | Static testing SQA |
-|                   | common adjective | CA       | wrong inconsistent |
-|                   | common verb      | CV       | break miss reset   |
-|                   | Mobile           | MOB      | Outgoing call      |
-|                   |                  |          | Touch Panel        |
+| | core | core | loop code |
+| component | | | variable type |
+| | GUI | GUI | bottom Junk |
+| | | | characters |
+| | Network | NW | Modem Openflow |
+| | I/O | IO | Monitor LPT |
+| | Driver | Dri | FDC HDC HDD |
+| | File System | FS | exFAT |
+| | | | copy-on-write |
+| | Hardware | HD | Base Memory ECP |
+| specific | Language | LA | C C# Python |
+| | API | API | javax.swing.plaf |
+| | Standard | SD | TCP AJAX JSON |
+| | Platform | PF | AMD64 Android |
+| | Framework | FW | NumPY |
+| | | | Microsoft WORD |
+| general | defect test | TEST | Static testing SQA |
+| | common adjective | CA | wrong inconsistent |
+| | common verb | CV | break miss reset |
+| | Mobile | MOB | Outgoing call |
+| | | | Touch Panel |
 
 We propose a semi-supervised NER method based on the CRF model called BNER (Bug Named Entity Recognition) and define a set of features for model training based on the baseline corpus[\[24\]](#page-3-22). Moreover, we use the word embedding technique to extract features from the whole software bug repository. We conduct an empirical study on the two projects, Mozilla and Eclipse, and the results show that the designed baseline corpus is useful, and using unsupervised word embeddings as the bug-specific entity's feature has the greatest impact on BNER. In addition, our approach can be also effective for cross-projects NER.
 
-# 3 ONGOING WORK
+## 3 ONGOING WORK
 
-# 1 Automatic Classification of Bugs Based on Bug Knowledge Graph
+## 1 Automatic Classification of Bugs Based on Bug Knowledge Graph
 
 Analysis of software bugs requires software bug classification[\[21\]](#page-3-23). Accurate and reasonable bug classification cannot only help developers to understand bug, but also provide insights on where problems exist and identify a patch resolution. When a new bug reported from users is assigned to developers, they first need to understand what the bug report expresses (what) and why this bug occurs (why) before they fix it. Through multiple rounds of modification, the final fix (how) is determined. In the actual fix process, identifying "why" is a necessary condition for determining "how". Simultaneously, developers always identify "why" by reviewing the "how" information of relevant historical bugs. Based on the powerful association and reasoning functionality of knowledge
 
@@ -175,30 +172,30 @@ Finally, after constructing the bug knowledge graph, through the exploration of 
 
 In summary, the process of automatic classification is the comprehensive analysis and characterization of bugs, which can effectively guide the following intelligent bug fixing process.
 
-# 2 Bug Fixing Search and Recommendation
+## 2 Bug Fixing Search and Recommendation
 
 The proposed framework of bug fixing search and recommendation is shown in Figure 2. Most of the information for new bugs reported by users is incomplete[\[6\]](#page-3-25). The system searches the knowledge graph for related historical bug information as a candidate set through formal search and sub-graph matching. Users can further verify the candidate set for accurate search results. Through the information of the candidate set, the new bugs are complemented and automatically classified. After a certain number of humancomputer interactions, the most appropriate bug fixing locations and patches are finally recommended.
 
-# 3 QA System for Intelligent Bug Fixing
+## 3 QA System for Intelligent Bug Fixing
 
 Question Answering System (QA) provides an effective means to help humans understand and resolve problems. In our work, we also aim to implement a QA to help developers implement intelligent bug fixing. Starting from a question q proposed by the user, we first recognize the entity d in the corresponding bug knowledge graph, and generate a template t based on the concept distribution of d. Finally, given the attribute p of the entity d and the template t, we get its answers by searching the knowledge graph. In addition, some bug fixing knowledge such as bug locations and fixing solutions can be also recommended by exploring the knowledge graph. In this way, a developer can more efficiently understand and fix the bug assigned to him/her.
 
-# 4 CONCLUSION
+## 4 CONCLUSION
 
 Open source projects' source code, bug reports, Q&A documents and other software resources contain a sea of bug knowledge with complex structure and rich semantic associations, which can be <span id="page-3-0"></span>ESEC/FSE '18, November 4–9, 2018, Lake Buena Vista, FL, USA Cheng Zhou
 
 ![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This flowchart depicts a bug classification system. A new bug report ("q") and its associated question graph are processed. Entities are detected and mapped to a knowledge graph, allowing for reasoning and supplementation. Matching subgraphs from candidate answers ("a") are identified, and an embedding matrix ("W") is used to score and rank solutions. The final output is a classification of the bug and suggested fixing measures. -->
 
-Figure 2: Framework of bug fixing search and recommendation
+**Figure 2:** Framework of bug fixing search and recommendation
 
 utilized to help developers understand and fix the bugs. Knowledge graph is suitable for storing and managing this large-scale, complex-structured, and semantically related bug knowledge. In our work, we aim to employ the knowledge graph (KG) technology for intelligent bug fixing, i.e., to study effective search and recommendation techniques based on the knowledge graph, and design a bug-fix knowledge QA system to assist developers for effective bug understanding, bug location, and bug resolution.
 
-# ACKNOWLEDGMENTS
+## ACKNOWLEDGMENTS
 
 I express my gratitude to my supervisors Bin Li and Xiaobing Sun for their continuous support and patience. This work is supported partially by Natural Science Foundation of China under Grant No. 61472344, No. 61611540347, No. 61872312, and No. 61402396, the Jiangsu Qin Lan Project, and by the Natural Science Foundation of Yangzhou City under Grant No. YZ2017113.
 
-# REFERENCES
+## REFERENCES
 
 - <span id="page-3-14"></span>[1] Karan Aggarwal, Finbarr Timbers, Tanner Rutgers, Abram Hindle, Eleni Stroulia, and Russell Greiner. 2017. Detecting duplicate bug reports with software engineering domain knowledge. Journal of Software: Evolution and Process 29, 3 (2017).
 - <span id="page-3-9"></span>[2] Muhammad Ahasanuzzaman, Muhammad Asaduzzaman, Chanchal K. Roy, and Kevin A. Schneider. 2016. Mining duplicate questions in stack overflow. In Proceedings of the 13th International Conference on Mining Software Repositories, MSR 2016, Austin, TX, USA, May 14-22, 2016. 402–412.

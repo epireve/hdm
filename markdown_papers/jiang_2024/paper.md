@@ -50,13 +50,12 @@ keywords:
 - crowdsourcing-based continuous
 ---
 
-
 # OPEN
 
 ![](_page_0_Picture_3.jpeg)
 <!-- Image Description: The image is a simple button graphic displaying the text "Check for updates". A small circular icon, possibly representing a software update notification, is located to the left of the text. The button likely serves as a prompt within the paper's supporting materials or online supplementary information to direct users to check for newer versions of software, datasets, or other digital components associated with the research. -->
 
-# Digital twin system for manufacturing processes based on a multi-layer knowledge graph model
+## Digital twin system for manufacturing processes based on a multi-layer knowledge graph model
 
 **Chang Su1,2, XinTang3,4, Qi Jiang1,2, Yong Han1,2, TaoWang1,2 & Dongsheng Jiang5**
 
@@ -78,25 +77,25 @@ support elements such as virtual and physical spaces, as well as bidirectional i
 
 In summary, although digital twin technology offers numerous advantages and the industrial digital twin model technology has rapidly evolved, challenges remain when deploying on a large scale in industrial production, including the complexity of heterogeneous data integration and multi-source information management issues.
 
-#### Knowledge graph in digital twin
+### Knowledge graph in digital twin
 
 Knowledge grap[h16](#page-13-1), as a structured method of representing knowledge, describe the real-world information through entities, their attributes, and relationships. They support semantic querying and reasoning, thereby enhancing data discovery, connectivity, and utilization. The core of knowledge graphs lies in their ability to integrate and connect a vast array of heterogeneous data sources, providing a rich semantic context for machine learning models and decision support systems. Zhao et al.[17](#page-13-2) proposed a collaborative approach for developing open industrial knowledge graphs to gather knowledge across domains, incorporating tiered matching procedures. Furthermore, Zhao et al.[18](#page-13-3) emphasized the importance of knowledge graphs in driving the next industrial technology revolution, particularly in the automotive sector, by extracting triples automatically from unstructured Chinese text using traditional NLP and deep learning methods. Yakovlev et al[.19](#page-13-4) highlighted the necessity of creating a classification with geomechanically specific phenomena based on the construction of an industrial knowledge graph in the context of coal field development. Moreover, Zhou et al.[20](#page-13-5) introduced a knowledge representation model that associates entities and relations to form an industrial knowledge graph, enhancing knowledge retrieval and question-answering methods. Recent studies have focused on leveraging industrial knowledge graphs to promote the development of cognitive manufacturing networks. Zheng et al[.21](#page-13-6) proposed a multi-agent reinforcement learning approach based on an industrial knowledge graph, while Li et al[.22](#page-13-7) discussed achieving cognitive mass personalization through a self-X cognitive manufacturing network enabled by industrial knowledge graphs and graph embeddings. Additionally, Weihua et al.[23](#page-13-8) conducted a bibliometric analysis of industrial knowledge graph research, revealing that the field is still evolving with hotspots in knowledge graphs, knowledge representation, and the application of knowledge graphs in modeling and industrial management innovation. Lyu et al.[24](#page-13-9) introduced a crowdsourcing-based continuous enrichment method for industrial knowledge graphs to achieve Knowledge-as-a-Service in IIoT-driven smart manufacturing. Industrial knowledge graphs play a crucial role in enhancing information support, knowledge retrieval, and decision-making processes[25.](#page-13-10) Knowledge graphs are increasingly applied in the development of digital twin models across various sectors. Banerjee et al[.26](#page-13-11) proposed a method using a graph-based query language enriched with inference rules to formalize knowledge as digital twin models for industrial production lines. Jiang et al.[27](#page-13-12) proposed a digital twin system structure for assembly processes based on a knowledge graph to record actual process data. Akroyd et al.[28](#page-13-13) discussed a dynamic knowledge graph approach for digital twins, particularly focusing on developing a digital twin of the UK to support energy system decarbonization. Sahlab et al[.29](#page-13-14) suggested a Knowledge Graph-enhanced architecture for intelligent Digital Twins, offering capabilities such as internal linking, knowledge completion, error detection, collective reasoning, and semantic querying. Su et al.[30](#page-13-15) introduced a knowledge-based digital twin system that leverages a comprehensive knowledge graph to construct a digital twin model for the manufacturing process. This approach enables precise description, management, prediction, and optimization of the process through knowledge matching and inference within the knowledge, geometry, and decision models.
 
 In summary, as the maturity of knowledge graphs in industrial applications gradually increases, more scholars are beginning to explore the application of knowledge graph technology in the field of industrial digital twins, leveraging its powerful information management capabilities. Although current research is still in its initial stages, it has shown tremendous potential for development and application prospects, with many technical challenges and issues expected to be resolved in the future.
 
-#### Methodology
+### Methodology
 
 This section introduces a three-layer digital twin knowledge graph model consisting of the concept layer, model layer, and decision layer, as illustrated in Fig. [1.](#page-2-0) Starting from the entire industrial processing cycle, the model
 
 <span id="page-2-0"></span>![](_page_2_Figure_1.jpeg)
 <!-- Image Description: The image is a three-layered architecture diagram for a manufacturing process digital twin system. The *Concept Layer* contains ontologies, rule constraints, and domain expert knowledge. The *Model Layer* represents the manufacturing process with production, object, feature, procedure, regulation, process, event, and relationship data. The *Decision Layer* uses this information via modules to provide decision support, ultimately driving optimization of the manufacturing process. The bottom *Data Layer* integrates the different data sources. The diagram illustrates the information flow and system structure. -->
-**Fig.1**. Whole architecture of multi-layer knowledge graph.
+**Figure 1**. Whole architecture of multi-layer knowledge graph.
 
 undertakes a thorough modeling of physical elements and algorithm applications, deeply analyzing three levels: conceptual abstraction, data instantiation, and decision support implementation. This multi-layered, comprehensive, and dynamic model architecture allows for more precise and detailed modeling and analysis of industrial processing knowledge.
 
 In the concept layer, a universal knowledge graph for the manufacturing domain is constructed by integrating an ontology repository, rule constraints, and domain expert knowledge. This layer provides all the foundational knowledge and frameworks necessary for the model, ensuring the standardization and logical consistency of the knowledge. The model layer instantiates the knowledge from the concept layer, acquiring data and performing digital modeling for specific product objects. The knowledge graph in this layer is transformed into an applicable product knowledge graph, and the constructed digital information model serves as the virtual model of the product, used to simulate and analyze the actual working state and performance of the product. Finally, the decision layer establishes a knowledge graph related to various decision-making functions of the twin system, including the inputs from the model layer's digital twin models and real-time manufacturing data as inputs to implement decision support within different application modules. The key in this layer lies in driving realtime information interaction between the virtual model and the physical system, ensuring timely data updates and decision support, thereby enhancing the system's response speed and processing capabilities. As the manufacturing process continues, the ongoing data interaction between the model and the system updates the knowledge and data, which is fed back into the model, continually updating and optimizing the current model. Through this multi-layered architecture, the model not only accurately maps and optimizes the actual industrial processing operations but also flexibly adapts to the evolving production demands and conditions.
 
-#### Concept layer
+### Concept layer
 
 The concept layer serves as the foundational tier of the multi-level knowledge graph, focusing on building an ontology library tailored for the industrial manufacturing domain. As depicted in Fig. [2](#page-3-0), this layer adopts ontological frameworks, providing a comprehensive theoretical foundation through the structured categorization of knowledge. The construction of the ontology library draws on the deep insights of domain experts and incorporates practical knowledge from various technical manuals and guidelines, ensuring the richness and accuracy of the domain's ontological concepts. Through such methodology, the concept layer successfully constructs a universal knowledge framework representative of the industrial manufacturing field. This framework extensively covers the fundamental concepts relevant to the domain, laying a solid foundation for the further development and implementation of the digital twin model. Additionally, it offers a method to support the integration of complex data and rules. The architecture of the concept layer can be detailed as follows:
 
@@ -104,15 +103,15 @@ $$
 Concept = \{C_{id}, R_T, R_A, C_R, C_I, C_C\} \tag{1}
 $$
 
-*Cid*represents the unique identifiers of basic concepts, ensuring that each concept within the model can be accurately identified and distinguished, supporting the structured management and querying of the model.
+**Cid:** represents the unique identifiers of basic concepts, ensuring that each concept within the model can be accurately identified and distinguished, supporting the structured management and querying of the model.
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
 <!-- Image Description: The image depicts a knowledge representation framework. Three knowledge domains (Manufacturing, Feature, Production) are shown as sets of differently shaped nodes. These, along with expert input and guidance manuals, feed into an ontology framework. The framework's output is a complex network ("Concept Constraints") represented as a graph showing relationships between various nodes, categorized into sub-groups. The diagram illustrates how diverse knowledge sources contribute to a structured ontology for constraints. -->
-**Fig.2**. Concept layer architecture.
+**Figure 2**. Concept layer architecture.
 
 These concepts form the core of the industrial manufacturing domain's knowledge graph, providing the foundational framework and parameters for the digital twin model. *RT*defines the types of rules, which dictate the interactions and constraints between concepts. It illustrates the diversity and complexity of the rules within the concept layer, encompassing but not limited to operational rules, safety standards, and quality control measures within the manufacturing process.*RA*denotes the scope of application for each rule. It specifies the domain and impact of each rule within particular application scenarios, such as rules applicable to specific product lines, manufacturing stages, or operational environments.*CR* represents the collection of basic elements defined by specific rules. It reveals the logical relationships and structural connections between these elements, forming an interconnected network within the knowledge graph that provides a logical basis for data interaction and functional implementation of the digital twin model.*CI* describes the dependencies between concepts, which are crucial for understanding the coordination and optimization of various steps within the production process.*CC*describes the correlations between concepts, used to assess the degree of association and interactive impact of different concepts within specific industrial applications. By analyzing and determining the inter-concept correlations, the connections within the knowledge graph can be more effectively constructed, optimizing information flow and decision-making processes. This element is particularly important in revealing key concepts that interact or depend on each other within production lines or manufacturing processes, thus enhancing the predictive and analytical capabilities of the digital twin model.
 
-#### Model layer
+### Model layer
 
 The model layer focuses on specific product models within the industrial processing domain, instantiating the rules and constraints defined in the concept layer and performing detailed digital modeling of their physical characteristics during the manufacturing process, as illustrated in Fig. [3](#page-4-0). This layer provides crucial data support for the physical entities of the twin model, integrating physical data and theoretical parameters from the actual product manufacturing process into the conceptual model to enable more accurate simulation and analysis of real situations. In constructing the model layer, strict adherence is maintained to the interactive relationships and constraints among elements identified in the concept layer, through comprehensive analysis of each element's physical properties, states, specifications, and common attributes, ensuring the model's completeness and accuracy, and providing a precise and reliable digital representation for the product manufacturing process. The representation of the model layer can be summarized as follows:
 
@@ -120,32 +119,32 @@ $$
 Model = \{M_{id}, M_T, M_C, M_U\}
 $$
 \n<sup>(2)</sup>
-*Mid*represents the unique identifier for each instantiated product within the model, ensuring the independence and identifiability of each product instance within the model.*MT*denotes the type of model entity, corresponding to the type of elements in the concept layer, maintaining consistency and connection between the entity and its original concept.*MC*describes the common attribute set of model entities, which are the characteristic attributes
+**Mid:** represents the unique identifier for each instantiated product within the model, ensuring the independence and identifiability of each product instance within the model.*MT*denotes the type of model entity, corresponding to the type of elements in the concept layer, maintaining consistency and connection between the entity and its original concept.*MC*describes the common attribute set of model entities, which are the characteristic attributes
 
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
 <!-- Image Description: The image displays a conceptual model of virtual entities in a system. Two interconnected node graphs represent a "Concept" and its "Model" instantiation. A separate section depicts "Virtual Entities," including an "Information Model" (table and diagram), a "Process Model" (software interface and drawings), a "Geometry Model" (3D rendering), a "Physical Model" (simulation output), and a "Regulation Model" (texture image). The diagram illustrates the transformation of a conceptual model into a concrete model, showcasing different facets of virtual representation. -->
-**Fig.3**. Model layer architecture.
+**Figure 3**. Model layer architecture.
 
 <span id="page-4-1"></span>![](_page_4_Figure_3.jpeg)
 <!-- Image Description: The image displays a flowchart illustrating a decision-making system. A 3-layer neural network is the core component, processing inputs (geometric, physical, process parameters, and real-time data). The input is preprocessed by a model depicted as a graph. The network's output informs a decision knowledge graph encompassing error compensation, abnormal prediction, process optimization, and product design. The diagram visually represents the system's architecture and workflow. -->
 
-**Fig.4**. Decision layer architecture.
+**Figure 4**. Decision layer architecture.
 
 shared by similar elements during the modeling process, used to demonstrate the similarity among model entities. For example, all product models share static attributes determined before manufacturing, including standardized manufacturing steps, machine tools, and tools used. *MU*represents the unique attribute set of model entities, which are specific characteristic attributes each model entity possesses during instantiation. In the actual manufacturing process, each product instance generates dynamic data based on specific operational conditions and environment. These attributes reflect the specific conditions and personalized parameters of each product instance during processing, highlighting the model's uniqueness and functional features in specific application environments.
 
-#### Decision layer
+### Decision layer
 
 The decision layer represents the practical application phase of the digital twin model within the physical world, leveraging the detailed data provided by the model layer to execute various decision-making tasks. As shown in Fig. [4](#page-4-1), this layer primarily focuses on implementing dynamic optimization, maintenance forecasting, and risk management to ensure the smooth and efficient operation of the manufacturing process. Utilizing the precise digital model constructed by the model layer, the decision layer conducts in-depth analyses and utilizes this data and knowledge for complex computations and predictive analytics, aiming to identify and resolve potential operational issues promptly to optimize overall manufacturing operations. The knowledge graph architecture of this layer not only enhances the decision-making capabilities of the twin model but also, through advanced data analysis and machine learning technologies, enables the digital twin system to respond quickly and accurately to various variables in the industrial environment, improving the manufacturing system's adaptability and decision-making quality. The architecture and operation of the decision layer are described in detail as follows:
 
 $$
 Decision = \{D_{id}, D_T, D_M\} \tag{3}
 $$
-*Did*represents the unique identifier for decision, used to identify and distinguish between different application modules.*DT*indicates the type of decision, displaying the role of the function module within the digital twin system and its targeted specific decision support.*DM*represents the detailed in function modules used for decision, which integrate the latest algorithms and technological methods to effectively process data, execute predictions, and optimize manufacturing process. The computation of*DM*can be described as follows:
+**Did:** represents the unique identifier for decision, used to identify and distinguish between different application modules.*DT*indicates the type of decision, displaying the role of the function module within the digital twin system and its targeted specific decision support.*DM*represents the detailed in function modules used for decision, which integrate the latest algorithms and technological methods to effectively process data, execute predictions, and optimize manufacturing process. The computation of*DM*can be described as follows:
 
 $$
 D_M = \{M_S, M_I, M_O\} \tag{4}
 $$
-*MS*represents the algorithmic structure of the module, detailing the types and configurations of algorithms, including neural network architectures and optimal hyperparameters.*MI*denotes the functional inputs of the module, including the required data types and pre-processing conditions.*MO*represents the output of the module, serving as the interface between the digital twin system and the model, with the output results used to guide subsequent decision-making and operations in the twin system.
+**MS:** represents the algorithmic structure of the module, detailing the types and configurations of algorithms, including neural network architectures and optimal hyperparameters.*MI*denotes the functional inputs of the module, including the required data types and pre-processing conditions.*MO*represents the output of the module, serving as the interface between the digital twin system and the model, with the output results used to guide subsequent decision-making and operations in the twin system.
 
 In the decision-making process of production, a substantial amount of real-time data is generated from various sensors and equipment on the manufacturing floor. Processing this high-frequency data efficiently presents a significant challenge, especially when dealing with large-scale data updates that occur in milliseconds. To address this issue, the digital twin system incorporates a scalable and efficient real-time data processing architecture that ensures timely and accurate reflections of the manufacturing process within the digital model. The system employs an integrated approach that combines edge computing and cloud computing resources to manage real-time data effectively. At the edge level, data processing is performed close to the data sources, which includes initial tasks such as data filtering, noise reduction, and preliminary anomaly detection. By handling these processes locally on edge devices, the system reduces latency and minimizes the volume of data that needs to be transmitted over the network. This local processing is crucial for managing high-frequency updates, as it allows for immediate responses to critical events on the production line without overwhelming the network infrastructure. After the initial processing at the edge, the refined data is transmitted to a cloud platform for more intensive computations and advanced analytics. The cloud infrastructure leverages distributed data processing frameworks capable of handling large-scale data streams. Apache Kafka is utilized for data streaming, enabling the system to handle continuous flows of data efficiently. For real-time analytics, frameworks like Apache Spark is employed, which allow for scalable and fault-tolerant processing of vast amounts of data in real time. To maintain low latency and high throughput, the architecture employs several strategies. In-memory data processing techniques are used to accelerate data analysis and model updates, reducing the time required to access and compute data. Parallel computing is implemented to distribute workloads across multiple processing units, allowing the system to handle vast amounts of data simultaneously. This parallelism ensures that the digital twin models are updated promptly, reflecting the current state of the manufacturing process accurately. The system also supports horizontal scaling, which means that additional computational resources can be added dynamically in response to increasing data loads. This scalability ensures consistent performance even as the volume of real-time data grows. Load balancing mechanisms are in place to distribute incoming data evenly across processing nodes, preventing bottlenecks and ensuring that no single node becomes a point of failure. By integrating edge computing for immediate, localized data processing with cloud computing for more complex analytics, the digital twin system effectively manages high-frequency data updates and large-scale data processing demands. This comprehensive approach ensures that the digital twin remains synchronized with the physical manufacturing environment, enabling real-time monitoring, predictive analytics, and timely decisionmaking. Consequently, the system enhances manufacturing efficiency, reduces downtime, and improves product quality by providing accurate and up-to-date information for process optimization.
 
@@ -159,7 +158,7 @@ Through the decision layer, the digital twin knowledge graph is not merely a sta
 
 the current production conditions but also includes predicting future changes through algorithmic models, thereby making the manufacturing process more intelligent and adaptable. Furthermore, this continual model optimization and data updating mechanism ensures that the digital twin system evolves over time, adapting to new manufacturing technologies and market demands. This iterative process, through continuous learning and adaptation, enhances the accuracy of decisions and the efficiency of manufacturing processes.
 
-#### Case study
+### Case study
 
 Based on the three-layer knowledge graph architecture proposed in this study, a digital twin architecture for the manufacturing process is presented as shown in Fig. [6](#page-7-0). This architecture is divided into three parts: the physical environment, the three-layer knowledge graph, and the virtual environment. The physical environment refers to the actual manufacturing process, where various sensors deployed in machines and other equipment collect data from the manufacturing operations. Additionally, domain experts and related process manuals provide rules and constraints to construct a conceptual framework for the manufacturing process. In this physical setting, diverse and heterogeneous data and information are transmitted to the three-layer knowledge graph through various IoT technologies, constructing the conceptual framework, digital model, and decision-support model of the manufacturing process. The three-layer knowledge graph establishes an interface for information exchange between the physical and virtual environments, allowing for precise interaction. In the virtual environment, a semantic digital twin software tool is developed based on the information from the three-layer knowledge graph, utilizing various computer theories and software engineering technologies and tools. This tool facilitates the construction and simulation of virtual models and the optimization and prediction of relevant data. Through the formulation of relevant decisions, optimized and updated knowledge is fed back into the knowledge graph, thereby enabling the iterative optimization of the model and influencing the actual manufacturing process.The relevant case studies will be conducted within the system based on this architecture.
 
@@ -172,49 +171,46 @@ Illustrated in Fig. [8](#page-8-0), the real physical environment and the CAE di
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
 <!-- Image Description: This figure depicts the architecture of a knowledge graph-based digital twin system. It's a layered diagram showing three main sections: the physical environment (sensors, communication network), the knowledge graph (concept, data processing, model construction), and the virtual environment (modules for data visualization, process optimization, decision support, and abnormal prediction). The system utilizes various software tools (e.g., Matlab, Tensorflow, Unity) and communication protocols (e.g., HTTP, MQTT). The diagram illustrates the system's components and their interrelationships, clarifying its structure and functionality. -->
 
-#### Fig. 6. Manufacturing process digital twin architecture.
+### Fig. 6. Manufacturing process digital twin architecture.
 
-<span id="page-7-1"></span>
 
-| The main vocabulary   | Example                                          |  |
+| The main vocabulary | Example | |
 |-----------------------|--------------------------------------------------|--|
-| rdfs:subClassOf       | Milling machine⊆Machine tool                     |  |
-| rdfs:sameClassAs      | NC ≡ Turning∪Grinding∪Milling                    |  |
-| rdfs:subPropertyOf    | Using a ball-end mill⊆Using a tool               |  |
-| rdfs:domain           | ∃Manufactured by ,T⊆Blade                        |  |
-| rdfs:range            | T⊆∀Manufactured by , Blade Material              |  |
-| owl:disjointWith      | Turning tool∩Broaching tool⊆⊥                    |  |
-| owl:inverseOf         | Causing change ≡ Occurring change                |  |
-| owl:symmetricProperty | Similarity                                       |  |
-| owl:hasValue          | Ball-end milling cutter ≡ Tool model value '001' |  |
+| rdfs:subClassOf | Milling machine⊆Machine tool | |
+| rdfs:sameClassAs | NC ≡ Turning∪Grinding∪Milling | |
+| rdfs:subPropertyOf | Using a ball-end mill⊆Using a tool | |
+| rdfs:domain | ∃Manufactured by ,T⊆Blade | |
+| rdfs:range | T⊆∀Manufactured by , Blade Material | |
+| owl:disjointWith | Turning tool∩Broaching tool⊆⊥ | |
+| owl:inverseOf | Causing change ≡ Occurring change | |
+| owl:symmetricProperty | Similarity | |
+| owl:hasValue | Ball-end milling cutter ≡ Tool model value '001' | |
 
-#### Table1. OWL RL vocabularies.
+### Table1. OWL RL vocabularies.
 
 <span id="page-7-2"></span>![](_page_7_Figure_6.jpeg)
 <!-- Image Description: The image presents two network graphs (a and b). Graph (a) is a labeled graph showing relationships between various concepts related to a machining process, such as "Machine," "Cutting Force," "Test," and "Experience." Graph (b) is a less-labeled, more complex network with nodes of varying colors, potentially representing different classes or attributes within the same process. Both graphs likely illustrate knowledge representation or a conceptual model for analysis within the paper. -->
-**Fig. 7**. (**a**) Manufacturing process ontology(partial); (**b**) Aero-engine blade manufacturing process knowledge graph (partial).
+**Figure 7**. (**a**) Manufacturing process ontology(partial); (**b**) Aero-engine blade manufacturing process knowledge graph (partial).
 
-<span id="page-8-0"></span>
 
-**Fig. 8**. Digital twin system and physical environment in manufacturing process.
+**Figure 8**. Digital twin system and physical environment in manufacturing process.
 
 manufacturing processes and the early prediction of potential issues. Additionally, this CAE system includes a knowledge-driven digital twin subsystem for product manufacturing processes, built around an advanced knowledge graph. This subsystem focuses on the twin model of the products machined by the tool, enabling realtime synchronization of machine-related environment and data within the CAE system with product changes in the subsystem through the knowledge graph. This integration facilitates reliable information interaction between the machine twin model and the product twin model, establishing a comprehensive and synchronized digital twin model for the manufacturing process. This model achieves a digital twin of the manufacturing process from multiple perspectives, enhancing transparency and efficiency throughout the manufacturing workflow. In this subsystem, users can efficiently access detailed data about specific manufacturing operations. Geometry models are neatly catalogued in a model library and integrated via the universally compatible STEP file format, ensuring seamless system integration. The geometric data from each STEP file is also managed through the knowledge graph, allowing users to easily access various parameter details with a simple click. This holistic strategy not only improves the retrieval and clarity of process information but also significantly enhances the overall efficiency and transparency of manufacturing operations.
 
 To validate the generalizability and effectiveness of the proposed three-layer knowledge model, an experiment was conducted to compare its performance with other established methods in automatically extracting knowledge triples from unstructured data. This comparison addresses the concern regarding dependency on specific technologies and tools, ensuring that the proposed approach is versatile and adaptable across different technical environments. The experiment focuses on evaluating the ability of different methods to extract accurate and relevant triples from a dataset derived from manufacturing process documents and reports related to aeroengine blade production. The metrics used for evaluation are Precision (%), Recall (%), and F1 Score, which
 
-<span id="page-9-0"></span>
 
-| Model            | Precision (%) | Recall (%) | F1 Score |
+| Model | Precision (%) | Recall (%) | F1 Score |
 |------------------|---------------|------------|----------|
-| BERT-Bi-LSTM-CRF | 71.43         | 73.17      | 72.29    |
-| Bi-LSTM          | 67.39         | 69.42      | 68.39    |
-| OpenIE           | 63.91         | 64.98      | 64.44    |
-| Proposed Model   | 77.38         | 83.14      | 80.15    |
+| BERT-Bi-LSTM-CRF | 71.43 | 73.17 | 72.29 |
+| Bi-LSTM | 67.39 | 69.42 | 68.39 |
+| OpenIE | 63.91 | 64.98 | 64.44 |
+| Proposed Model | 77.38 | 83.14 | 80.15 |
 
 <span id="page-9-1"></span>![](_page_9_Figure_3.jpeg)
 <!-- Image Description: The image displays screenshots of a software interface for engineering analysis. Panels (a) and (c) show 3D models of turbine blades alongside tables of data and knowledge graphs representing blade parameters and reasoning results. Panel (b) presents a 3D model with color-coded stress analysis overlaid, accompanied by multiple line graphs. Panel (d) shows various graphs (line, pie, and others) displaying simulation results. The image demonstrates the integration of 3D modeling, data analysis, and knowledge representation within the software. -->
 
-**Fig. 9**. System for decision support: (**a**) Geometric model design; (**b**) Process monitoring; (**c**) Knowledge recommendation; (**d**) Prediction and analysis.
+**Figure 9**. System for decision support: (**a**) Geometric model design; (**b**) Process monitoring; (**c**) Knowledge recommendation; (**d**) Prediction and analysis.
 
 are standard measures in information extraction tasks. The experiment selected three comparative models: a Traditional NLP-Based Method using Open Information Extraction (OpenIE), a Deep Learning-Based Method employing a Bi-LSTM neural network, and a Hybrid Method represented by the BERT-Bi-LSTM-CRF model.
 
@@ -229,14 +225,14 @@ As depicted in Fig. [11,](#page-11-0) Throughout the entire lifecycle of the man
 <span id="page-10-0"></span>![](_page_10_Figure_4.jpeg)
 <!-- Image Description: This line graph displays validation results for an aero engine blade production line system. Two lines track metrics over five months: contour error precision (mm), decreasing from 0.073 to 0.062, and qualification rate (%), increasing from 81.5% to 85%. The graph shows an inverse relationship between precision and qualification rate. The data likely assesses system performance and improvement over time. -->
 
-**Fig. 10**. Validation results of the system for aero engine blade production line.
+**Figure 10**. Validation results of the system for aero engine blade production line.
 
 <span id="page-11-0"></span>![](_page_11_Figure_1.jpeg)
 <!-- Image Description: The image is a sequence diagram illustrating the workflow of a product development process using a Knowledge-Based Design Tool System (KBDTS). It shows the interactions between a client, engineer, KBDTS, product, and evaluation stages. The diagram details the sequential steps, from initial product requirements and process design through manufacturing, real-time data analysis, quality checks, and final product delivery. The KBDTS is central, providing query, visualization, simulation, and optimization support. -->
 
-**Fig. 11**. Three layer knowledge graph covers the entire manufacturing process.
+**Figure 11**. Three layer knowledge graph covers the entire manufacturing process.
 
-#### Discussion
+### Discussion
 
 This study, through the practical example of manufacturing aero-engine blades, demonstrates the application of a three-layer architecture knowledge graph in the modern manufacturing industry, particularly in the construction of digital twin models. This three-layer architecture consists of the concept layer, model layer, and functional layer, each designed to meet different needs within the manufacturing process and collectively supporting the digital twin modeling of complex products. The successful application of this system in the aero-engine blade production line suggests broader implications for its use in other complex manufacturing environments. By leveraging the knowledge graph's structured and interconnected information, manufacturers can achieve higher precision and quality in their production lines.
 
@@ -251,7 +247,7 @@ from operational data, and employing natural language processing to reduce relia
 
 Addressing these limitations is essential for realizing the full potential of the three-layer cognitive digital twin model in smart manufacturing. By focusing on these areas, future research can further optimize the digital twin system, leading to broader applicability across various industrial contexts. Overcoming these challenges will contribute to the advancement of intelligent manufacturing, enabling more efficient, flexible, and responsive production systems that align with the goals of intelligent manufacturing.
 
-#### Conclusion
+### Conclusion
 
 This research successfully demonstrates the utility and benefits of a three-layer architecture knowledge graph in constructing digital twin models, particularly validated through a specific case study involving the manufacturing of aero-engine blades. By integrating the concept layer, model layer, and functional layer, the study not only accurately maps the manufacturing process but also achieves dynamic optimization and real-time monitoring, enhancing production efficiency and product quality.
 
@@ -259,13 +255,12 @@ The concept layer provides a robust ontology library and rule constraints, formu
 
 In conclusion, the three-layer architecture knowledge graph provides a powerful methodological framework for digital twins, making operations more efficient and precise during the digital transformation process. Future research could further explore how to expand this framework to other complex manufacturing scenarios to promote the widespread application of smart manufacturing and achieve broader industrial optimization and innovation.
 
-#### Data availability
+### Data availability
 
 The data that support the findings of this study are available from Aecc South Industry Company Limited, but restrictions apply to the availability of these data, which were used under license for the current study, and so are not publicly available. Data are however available from the authors upon reasonable request and with permission of Aecc South Industry Company Limited [Contacts: Mr.Han;E-mail: yonghan@ouc.edu.cn].
 
-Received: 28 June 2024; Accepted: 25 December 2024
 
-#### References
+### References
 
 - <span id="page-12-0"></span>1. Fan, Y. et al. A digital-twin visualized architecture for flexible manufacturing system. *J. Manuf. Syst.* **60**, 176–201. [https://doi.org/1](https://doi.org/10.1016/j.jmsy.2021.05.010) [0.1016/j.jmsy.2021.05.010](https://doi.org/10.1016/j.jmsy.2021.05.010) (2021).
 - <span id="page-12-1"></span>2. Yang, Yi. et al. Digital twin-based smart assembly process design and application framework for complex products and its case study. *J. Manuf. Syst.*<https://doi.org/10.1016/j.jmsy.2020.04.013> (2020).
@@ -299,21 +294,21 @@ Received: 28 June 2024; Accepted: 25 December 2024
 - <span id="page-13-14"></span>29. Sahlab, N., Kamm, S., Müller, T., Jazdi, N. & Weyrich, M. Knowledge Graphs as Enhancers of Intelligent Digital Twins. In *2021 4th IEEE International Conference on Industrial Cyber-Physical Systems (ICPS)*19–24 (Victoria, Canada, 2021) [https://doi.org/10.1109](https://doi.org/10.1109/ICPS49255.2021.9468219) [/ICPS49255.2021.9468219](https://doi.org/10.1109/ICPS49255.2021.9468219).
 - <span id="page-13-15"></span>30. Su, C. et al. Knowledge-based digital twin system: Using a knowlege-driven approach for manufacturing process modeling.*Comput. Ind*. **159–160**, 104101. ISSN 0166–3615. <https://doi.org/10.1016/j.compind.2024.104101>(2024).
 
-#### Author contributions
+### Author contributions
 
 Chang Su wrote and revised the main manuscript text ; Xin Tang assisted to complete the 3rd section of the manuscript and advised method; Qi Jiang assisted to complete the 4rd section of the manuscript and complete the added experiments; Yong Han was responsible for the idea and management of the manuscript, as well as the corresponding and funding resource; Tao Wang was responsible for the software design and visualization of the case study section; Dongsheng Jiang provided authentic experimental data and materials, as well as relevant validation environments;
 
-#### Funding
+### Funding
 
 This research is supported by National Key R&D Program of China (2020YFB1710401).
 
-#### Declarations
+### Declarations
 
 ### Competing interests
 
 The authors declare that they have no competing interests or financial conflicts to disclose.
 
-#### Additional information
+### Additional information
 
 **Correspondence**and requests for materials should be addressed to Y.H.
 **Reprints and permissions information**is available at www.nature.com/reprints.

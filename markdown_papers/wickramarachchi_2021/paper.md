@@ -43,7 +43,6 @@ keywords:
 - question answering
 ---
 
-
 # Saher Mohamed, Kirollos Farah, Abdelrahman Lotfy, Kareem Rizk, Abdelrahman Saeed, Shahenda Mohamed, Ghada Khouriba, Tamer Arafa
 
 School of Information Technology and Computer Science (ITCS), Nile University Giza, Egypt {Smfarag; k.saleh; Alotfy; K.ayman, A.Saeed, shatem; GhadaKhoriba; Tarafa}@nu.edu.eg
@@ -93,38 +92,38 @@ mats such as XML, web pages, and JSON. These various data types are essential in
 ![](_page_5_Figure_2.jpeg)
 <!-- Image Description: The image is a timeline illustrating the historical development of Semantic Web technologies. It shows key milestones: Semantic Networks (1960s), Ontologies (1970s-1980s), culminating in the Semantic Web (1990s-2000s). Linked Data and Knowledge Graphs are shown as later evolutions, building upon earlier concepts. The diagram uses boxes and arrows to connect these concepts chronologically, visually representing their relationships and evolution. -->
 
-Fig. 1. A timeline illustrating the evolution of technologies and concepts in the field of knowledge graphs, from semantic networks in the 1960s to the Semantic Web and dynamic knowledge graphs.
+Figure 1. A timeline illustrating the evolution of technologies and concepts in the field of knowledge graphs, from semantic networks in the 1960s to the Semantic Web and dynamic knowledge graphs.
 
 ![](_page_6_Figure_1.jpeg)
 <!-- Image Description: This flowchart illustrates a knowledge graph construction process. It begins with heterogeneous data (structured, unstructured, semi-structured) inputted into a "machine brain," which preprocesses and analyzes the data. Subsequent stages involve knowledge extraction (entity & attribute/relation extraction), fusion (entity alignment & linking), and refinement (entity classification, relation prediction, anomaly detection). The final output is a knowledge graph, representing the transformation from raw information to knowledge and ultimately, wisdom. Human and machine brains are represented symbolically. -->
 
-Fig. 2. An overview of the process for constructing and utilizing a knowledge graph from heterogeneous data sources.
+Figure 2. An overview of the process for constructing and utilizing a knowledge graph from heterogeneous data sources.
 
 ## 3 Comparison Between Static Knowledge Graph and Dy-namic Knowledge Graphs
 
 Table 1 provides a detailed comparison between static and dynamic knowledge graphs across various features. Each feature is explained for both static and dynamic knowledge graphs, highlighting their differences in terms of definition, data updates, nature of data, use cases, advantages, challenges, data volume, complexity, examples, versioning, querying, construction methods, construction tools, and main applications.
 
-| Feature          | Static Knowledge Graphs                                                                  | Dynamic<br>Knowledge<br>Graphs                                                                           |
+| Feature | Static Knowledge Graphs | Dynamic<br>Knowledge<br>Graphs |
 |------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| Definition       | A knowledge graph with fixed<br>information<br>that<br>does<br>not<br>change over time.  | A knowledge graph that is<br>updated<br>continuously<br>to<br>reflect changes in knowledge<br>over time. |
-| Data Updates     | Rarely or never updated.                                                                 | Frequently updated with new<br>data.                                                                     |
-| Nature of Data   | Historical,<br>archival,<br>or<br>unchanging information.                                | Current, real-time, and rapidly<br>changing information.                                                 |
-| Common Use Cases | Encyclopedic<br>data,<br>lexical<br>databases, and foundational<br>scientific knowledge. | Real-time analytics, social<br>networks, financial markets,<br>and news aggregation.                     |
-| Advantages       | Stability,<br>reliability,<br>and<br>consistency in data.                                | Adaptability, relevancy, and<br>timeliness of information.                                               |
+| Definition | A knowledge graph with fixed<br>information<br>that<br>does<br>not<br>change over time. | A knowledge graph that is<br>updated<br>continuously<br>to<br>reflect changes in knowledge<br>over time. |
+| Data Updates | Rarely or never updated. | Frequently updated with new<br>data. |
+| Nature of Data | Historical,<br>archival,<br>or<br>unchanging information. | Current, real-time, and rapidly<br>changing information. |
+| Common Use Cases | Encyclopedic<br>data,<br>lexical<br>databases, and foundational<br>scientific knowledge. | Real-time analytics, social<br>networks, financial markets,<br>and news aggregation. |
+| Advantages | Stability,<br>reliability,<br>and<br>consistency in data. | Adaptability, relevancy, and<br>timeliness of information. |
 
-Table 1: Comparison of Static and Dynamic Knowledge Graphs
+**Table 1:** Comparison of Static and Dynamic Knowledge Graphs
 
-| Feature                 | Static Knowledge Graphs                                                                      | Dynamic Knowledge Graphs                                                                                                                     |
+| Feature | Static Knowledge Graphs | Dynamic Knowledge Graphs |
 |-------------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| Challenges              | Can become outdated; may not<br>reflect<br>current<br>knowledge<br>or<br>trends.             | Complex to maintain; requires<br>effective<br>data<br>update<br>and<br>versioning mechanisms.                                                |
-| Data Volume             | Typically, less volume compared<br>to dynamic graphs due to the lack<br>of frequent updates. | Potentially large<br>and<br>rapidly<br>growing volume of data due to<br>constant updates.                                                    |
-| Complexity              | Generally simpler in structure<br>and maintenance.                                           | More complex due to the need<br>for<br>handling<br>updates<br>and<br>temporal data.                                                          |
-| Examples                | DBpedia, YAGO, WordNet.                                                                      | Twitter<br>graph,<br>Google<br>Knowledge Graph, LinkedIn's<br>Economic Graph.                                                                |
-| Versioning              | Not typically necessary.                                                                     | Often requires version control to<br>track changes over time.                                                                                |
-| Querying                | Static<br>queries<br>based<br>on<br>a<br>snapshot in time.                                   | Dynamic queries that can handle<br>temporal aspects and changes.                                                                             |
-| Methods of Construction | Compilation<br>from<br>reliable<br>sources and manual curation.                              | Automated<br>collection<br>and<br>integration<br>of<br>data<br>streams,<br>machine<br>learning<br>for<br>pattern<br>recognition and updates. |
-| Construction Tools      | Ontology editors (e.g., Protégé),<br>RDF frameworks (e.g., Apache<br>Jena).                  | Stream processing engines (e.g.,<br>Apache Kafka), dynamic graph<br>databases<br>(e.g.,<br>Neo4j<br>with<br>temporal plugins).               |
-| Main Applications       | Domain ontologies, educational<br>tools, research databases.                                 | Social media analytics, trend<br>forecasting,<br>adaptive<br>learning<br>systems,<br>and<br>IoT<br>data<br>management.                       |
+| Challenges | Can become outdated; may not<br>reflect<br>current<br>knowledge<br>or<br>trends. | Complex to maintain; requires<br>effective<br>data<br>update<br>and<br>versioning mechanisms. |
+| Data Volume | Typically, less volume compared<br>to dynamic graphs due to the lack<br>of frequent updates. | Potentially large<br>and<br>rapidly<br>growing volume of data due to<br>constant updates. |
+| Complexity | Generally simpler in structure<br>and maintenance. | More complex due to the need<br>for<br>handling<br>updates<br>and<br>temporal data. |
+| Examples | DBpedia, YAGO, WordNet. | Twitter<br>graph,<br>Google<br>Knowledge Graph, LinkedIn's<br>Economic Graph. |
+| Versioning | Not typically necessary. | Often requires version control to<br>track changes over time. |
+| Querying | Static<br>queries<br>based<br>on<br>a<br>snapshot in time. | Dynamic queries that can handle<br>temporal aspects and changes. |
+| Methods of Construction | Compilation<br>from<br>reliable<br>sources and manual curation. | Automated<br>collection<br>and<br>integration<br>of<br>data<br>streams,<br>machine<br>learning<br>for<br>pattern<br>recognition and updates. |
+| Construction Tools | Ontology editors (e.g., Protégé),<br>RDF frameworks (e.g., Apache<br>Jena). | Stream processing engines (e.g.,<br>Apache Kafka), dynamic graph<br>databases<br>(e.g.,<br>Neo4j<br>with<br>temporal plugins). |
+| Main Applications | Domain ontologies, educational<br>tools, research databases. | Social media analytics, trend<br>forecasting,<br>adaptive<br>learning<br>systems,<br>and<br>IoT<br>data<br>management. |
 
 Table 1 Continued from previous page
 
@@ -156,11 +155,11 @@ Dynamic KGs, on the other hand, are designed to be adaptable and evolving, integ
 
 While both static and dynamic KGs rely on diverse data sources, their key distinction lies in the approach to data integration. Static KGs prioritize histor-ical data with a structured ontology, whereas dynamic KGs focus on real-time data integration and ontological flexibility.
 
-#### 2 Knowledge Extraction Techniques from Unstructured data
+### 2 Knowledge Extraction Techniques from Unstructured data
 
 This section focuses only on unstructured data, specifically text.
 
-#### 2.1 Large Language Model in Knowledge Extraction
+### 2.1 Large Language Model in Knowledge Extraction
 
 Large language models have become invaluable tools for performing knowledge extraction from unstructured text sources. Due to their pre-training on vast amounts of text, LLMs like BERT, GPT-3 and LLMAs have developed strong abilities to analyze language, identify patterns and relationships within text. One of the primary ways LLMs facilitate knowledge extraction is through named entity recognition. By leveraging their linguistic understanding, LLMs can efi-ciently identify entities mentioned in text like people, organizations, locations, products and more. This extracted entity information can be structured into a knowledge base or graph. In addition, LLMs are also capable of performing
 
@@ -169,9 +168,9 @@ relationship extraction to understand how different entities might be connected 
 ![](_page_10_Figure_2.jpeg)
 <!-- Image Description: The image is a node-link diagram illustrating the relationships between Steve Jobs, Apple Inc., and several of its products. Nodes represent entities (e.g., "Apple Inc.", "Steve Jobs", "iPhone") and links show relationships (e.g., "co-founder," "a product of"). The diagram visually depicts Steve Jobs's central role in Apple's success and his association with iconic products, as well as his attributes like creativity and relentless pursuit. Its purpose is to provide a concise visual summary of key connections within the context of the paper. -->
 
-Fig. 3. Knowledge Graph Extracted Using Llama 7b
+Figure 3. Knowledge Graph Extracted Using Llama 7b
 
-#### 3 Natural Language Processing in Knowledge extraction
+### 3 Natural Language Processing in Knowledge extraction
 
 Sophisticated natural language processing methods are needed to build knowl-edge graphs from unstructured text sources. A significant preliminary process is the pretreatment of input data using linguistic analysis tools. This makes it pos-sible to extract entities and relationships from raw sentences based on syntactic patterns. Many popular NLP libraries, such as spaCy Srinivasa-Desikan (2018), offer strong neural network models that are pre-trained on large corpora and allow the identification of parts of speech, noun phrases, etc., which is necessary for data extraction purposes. After extracting entities and relations, they must be organized into a graph representation with nodes connected to show seman-tic relationships. NetworkX is a great graph library capable of producing the
 
@@ -192,12 +191,12 @@ The spaCy model has a problem in the creativity of defining the entities and the
 ![](_page_12_Figure_1.jpeg)
 <!-- Image Description: The image displays a knowledge graph depicting the structure of a machine learning course. Nodes represent topics (e.g., "Neural Networks and Deep Learning," "Activation Functions"), colored by category. Edges connect related topics, illustrating their interdependencies. The graph serves as a visual table of contents, showing the course's organizational structure and the relationships between different learning concepts. Two central nodes, representing core concepts, have larger sizes. -->
 
-Fig. 4. The knowledge graph with predicting relations without using get-entities.
+Figure 4. The knowledge graph with predicting relations without using get-entities.
 
 ![](_page_12_Figure_3.jpeg)
 <!-- Image Description: This image is a word graph illustrating relationships between words in a text corpus, likely for sentiment analysis or topic modeling. Nodes represent words (e.g., "positive," "bad," "review"), and edges connect related words, labeled with relationship descriptors (e.g., "many," "as," "difficult"). The graph visually displays word co-occurrence and semantic connections within the data, aiding analysis of textual patterns. -->
 
-Fig. 5. Sample part of review KG using get-entities and get-relation
+Figure 5. Sample part of review KG using get-entities and get-relation
 
 logic of extracting entities or relations should be implemented based on the data domain.
 
@@ -212,28 +211,28 @@ Clustering the entities in the knowledge graph allows groups of similar nodes to
 ![](_page_13_Figure_1.jpeg)
 <!-- Image Description: This image is a knowledge graph depicting the structure of a machine learning textbook. It uses nodes (circles) representing topics, such as "Introduction to Artificial Intelligence and Machine Learning" and "Neural Networks and Deep Learning," connected by edges indicating relationships. Larger, orange nodes represent major sections, while smaller, light-blue nodes represent subsections. The graph visually illustrates the hierarchical and interconnected nature of the subject matter. -->
 
-Fig. 6. The knowledge graph with additional predicting relations without using get-entities .
+Figure 6. The knowledge graph with additional predicting relations without using get-entities .
 
 the Wikipedia sentences. K-means clustering employs centroid-based assignment using node embeddings generated by models like node2vec and DeepWalk. The optimal number of clusters is determined through metrics such as silhouette score. Hierarchical agglomerative clustering builds clusters incrementally using distance-based linkage. Gap statistics estimate the best grouping by comparing within-cluster variance against an expected random distribution. Evaluation of clustering accuracy is done through similarity measures like silhouette scores to group entities with high within-cluster similarity while maintaining the distinc-tion between clusters.
 
-#### RDF clustering
+### RDF clustering
 
 the RDF data was loaded into an RDFLIB graph representing the same nodes of entities connected with relations. each node was mapped to a numeric value, and the embeddings in Fig 7 were extracted using the DeepWalk model from the KarateClub library. The elbow method in Fig 8 found the optimal number of clusters for applying the K-means. Based on the embeddings. Finally, the accuracy of the clustering was measured by measuring the similarity between the nodes using the silhouette score.
 
-#### K-means clustering
+### K-means clustering
 
 After the knowledge graph was built by extracting the entities and relations from some Wikipedia sentences, the node2vec algorithm was applied, and also the DeepWalk model was tried to generate the node embeddings for the graph, and then the embeddings were in 2-dimensional as in Fig 10. The number of clusters was chosen based on the silhouette score. As a loop was applied on different values of the number of clusters, the final number should be the best number of clusters for this data based on the embeddings that catch the large node similarity and the best number of clusters. This number of clusters was applied to the K-means, and the nodes were visualized with different colors in Fig 9 based on the cluster assigned to this specific entity.
 
 ![](_page_14_Figure_1.jpeg)
 <!-- Image Description: The scatter plot displays faculty research interests clustered using a dimensionality reduction technique. Points represent individual faculty members, colored by cluster. The x and y axes represent the first two embedding dimensions resulting from the reduction. The plot visually demonstrates the grouping of faculty based on research similarity. Cluster separation suggests distinct research areas within the faculty. -->
 
-Fig. 7. The Embedding Clusters.
+Figure 7. The Embedding Clusters.
 
-#### Gap statistics
+### Gap statistics
 
 the gap statistics were computed to determine the optimal number of clusters for using them in k-means clustering as in Fig 11, but it proved the lowest accuracy of similarity between the entities in the cluster.
 
-#### Agglomerative clustering
+### Agglomerative clustering
 
 The knowledge graph was built on the same data as Wikipedia Sentences, and the graphs' embeddings were extracted using the node2vec model and the Deep-Walk model as presented in Fig 12. The optimal number of clusters was chosen using the silhouette score after iterating on the maximum number of clusters to indicate which represented the best number of clusters. Then according to Fig 13 the nodes were clustered using agglomerative clustering.
 
@@ -241,21 +240,21 @@ After applying the clustering method, LLama 7b after fine-tuning it on our Wikip
 
 These clustering methods have limitations in that after each run; some enti-ties can leave and go to another cluster.
 
-#### ExCut: Explainable Clustering
+### ExCut: Explainable Clustering
 
 To address the limitations of traditional clustering methods, such as the insta-bility of cluster assignments and the lack of interpretability, ExCut Gad-Elrab
 
 ![](_page_15_Figure_1.jpeg)
 <!-- Image Description: The image displays a line graph plotting "Inertia" against "Number of Clusters (k)" in a k-means clustering analysis. The graph shows inertia decreasing as the number of clusters increases, exhibiting an elbow-like shape around k=3, suggesting an optimal cluster number for the dataset. The purpose is to visually determine the optimal number of clusters by identifying the point of diminishing returns in the inertia reduction. -->
 
-Fig. 8. The Elbow Graph.
+Figure 8. The Elbow Graph.
 
 Table 2. Accuracy of the clustering method with the change of the embeddings ex-traction model
 
-| Model    | K-means | Agglomerative clustering |
+| Model | K-means | Agglomerative clustering |
 |----------|---------|--------------------------|
-| Deepwalk | 0.68    | 0.53                     |
-| Node2vec | 0.63    | 0.64                     |
+| Deepwalk | 0.68 | 0.53 |
+| Node2vec | 0.63 | 0.64 |
 
 et al. (2020) is designed to compute explainable entity clusters over knowledge graphs. The central challenge it tackles is the clustering of a vast array of entities from a knowledge graph into meaningful groups. However, merely clustering the entities does not sufice; the clusters must also be explainable and interpretable to users. They necessitate human-comprehensible labels that succinctly describe the essence of each cluster.
 
@@ -264,44 +263,44 @@ ExCut adopts a joint approach that encompasses both clustering and expla-nation 
 ![](_page_16_Figure_1.jpeg)
 <!-- Image Description: The image is a network graph depicting the collaborative relationships in a film production. Nodes, sized variably and colored red, purple, and green, represent individuals and entities (e.g., "Vikram Krishna," "screenplay," "om18 motion pictures"). Edges show production roles ("produced by," "written by"). The graph visually illustrates the complex network of contributors and their interconnected roles in creating the film. -->
 
-Fig. 9. The Clusters of the Nodes Using K-Means .
+Figure 9. The Clusters of the Nodes Using K-Means .
 
 Experiments have demonstrated that ExCut generates clusters of higher quality and greater interpretability compared to baseline methods on real-world knowledge graphs. In essence, ExCut adeptly addresses the problem of comput-ing not just any entity clusters but specifically explainable clusters over knowl-edge graphs, by synergistically combining embedding-based clustering with rule learning in a dynamic, iterative process Gad-Elrab et al. (2020).
 
-#### 2 Graph Neural Network in Link Prediction and Adding New En-tities
+### 2 Graph Neural Network in Link Prediction and Adding New En-tities
 
 One of the major challenges faced with knowledge graphs is disconnected sub-graphs, where entities are not fully connected within the graph. When subgraphs are disconnected, the entities contained within them cannot benefit from poten-tial relationships and links to other parts of the knowledge graph. This fragmen-tation of information limits the insights that can be discovered from the graph. One effective approach for addressing disconnected subgraphs is link prediction using graph neural networks (GNNs). GNNs have the advantage of being able to learn representations of nodes by aggregating features from their neighbor-
 
 ![](_page_17_Figure_1.jpeg)
 <!-- Image Description: This scatter plot visualizes a 2D representation of node embeddings from a clustering algorithm (likely dimensionality reduction). Three distinct clusters are shown using different colors, indicating grouping based on the embedding's features. The x-axis represents Dimension 1, and the y-axis represents Dimension 2. The plot's purpose is to illustrate the effectiveness of the clustering algorithm by showing the separation of distinct clusters in the reduced dimensional space. -->
 
-Fig. 10. The Embedding Clusters Using K-Means.
+Figure 10. The Embedding Clusters Using K-Means.
 
 ing nodes in the graph. RAGAT Liu et al. (2021) is a specialized GNN model designed specifically for the task of link prediction within knowledge graphs. RAGAT predicts a score between 0 and 1 for each pair of entities, with scores closer to 1 indicating higher confidence that a link exists between the two enti-ties. RAGAT has an attention mechanism gives it several advantages over other link prediction models. Unlike methods that iterate over each node in the graph, RAGAT can identify the most nodes for predicting specific links. It assigns at-tention weights to nodes based on their predicted importance to the link. This allows RAGAT to focus its computations only on the subset of nodes most rel-evant to the prediction task. As a result, RAGAT can perform link prediction much more eficiently on large graphs compared to approaches that consider all nodes equally. The attention mechanism enables RAGAT to scale effectively to industry-sized knowledge graphs with millions or billions of entities and relation-ships. Its ability to quickly identify missing links helps address the fragmentation caused by disconnected subgraphs. RAGAT has shown promising results in evaluating its ability to predict missing links. RAGAT was tested on two stan-dard knowledge graph link prediction benchmarks. The datasets are divided into
 
 ![](_page_18_Figure_1.jpeg)
 <!-- Image Description: This image displays a knowledge graph visualizing relationships between various entities related to a film. Nodes represent entities (e.g., people, dates, keywords like "screenplay" or "sequel"), and edges indicate relationships (e.g., "written by," "released in," "produced by"). The graph's purpose is to illustrate the interconnectedness of different aspects of the film's production and context, potentially for analysis of its development or reception. The use of color-coded nodes may indicate categorical distinctions. -->
 
-Fig. 11. The clusters using gap statistics .
+Figure 11. The clusters using gap statistics .
 
 three parts: test, validation, and training as seen in table 3. Each part follows the format of entity, relation, and entity. On the WN18RR benchmark dataset, RAGAT achieved a Mean Reciprocal Rank (MRR) score of 0.489 and a hit@10 score of 0.562. MRR is a common metric for evaluating link prediction mod-els, where higher scores indicate better performance. An MRR of 0.489 means that on average, the correct missing link was ranked in the top two predicted links by RAGAT. RAGAT was also evaluated on the FB15K-237 benchmark dataset, achieving an MRR of 0.365 and hit@10 of 0.547 as shown in table 4. These scores demonstrate RAGAT's effectiveness at the task compared to other GNN and baseline models on both datasets.Its attention mechanism allows it to identify high-confidence missing link predictions to help reduce fragmentation in knowledge graphs. The results on the three standard benchmarks validated RAGAT's ability to predict missing links with competitive performance.
 
 ![](_page_19_Figure_1.jpeg)
 <!-- Image Description: The image displays a 2D scatter plot visualizing node embeddings with clustering. Three distinct clusters of points are color-coded (purple, yellow, teal) and plotted across "Dimension 1" and "Dimension 2". The plot's purpose is to illustrate the effectiveness of a clustering algorithm on node embeddings, showing how the algorithm groups similar nodes together in a low-dimensional space. -->
 
-Fig. 12. The embeddings clusters using agglomerative clustering . Table 3. Dataset Statistics
+Figure 12. The embeddings clusters using agglomerative clustering . Table 3. Dataset Statistics
 
-| Dataset           | Train  | Validation | Test   |
+| Dataset | Train | Validation | Test |
 |-------------------|--------|------------|--------|
-| FB15k-237 272,115 |        | 17,535     | 20,466 |
-| WN18RR            | 86,835 | 3,034      | 3,134  |
+| FB15k-237 272,115 | | 17,535 | 20,466 |
+| WN18RR | 86,835 | 3,034 | 3,134 |
 
 Table 4. RAGAT Performance on Different Benchmark Datasets
 
-| Dataset         | MRR   | Hit@10 |
+| Dataset | MRR | Hit@10 |
 |-----------------|-------|--------|
-| WN18RR          | 0.489 | 0.562  |
-| FB15K-237 0.365 |       | 0.547  |
+| WN18RR | 0.489 | 0.562 |
+| FB15K-237 0.365 | | 0.547 |
 
 ### 3 Traditional Embedding Techniques in Link Predictions and Adding New Entities
 
@@ -310,7 +309,7 @@ Traditional embedding techniques like TransE learn embeddings for entities and r
 ![](_page_20_Figure_1.jpeg)
 <!-- Image Description: This image displays a network graph depicting the production and creative contributions to a film. Nodes, sized proportionally, represent individuals (red), production companies (red), and creative elements (purple/green) like songs, screenplay, and the film itself. Edges connecting nodes illustrate relationships, such as "written by" or "produced by". The graph visualizes the collaborative network involved in the film's creation. -->
 
-Fig. 13. The clusters of the Nodes using agglomerative clustering .
+Figure 13. The clusters of the Nodes using agglomerative clustering .
 
 limitations. They struggle to incorporate new entities, as adding a new entity requires retraining the entire model from scratch, making them less suitable for dynamic knowledge graphs. The models also treat all relations independently without capturing correlations between different relation types, limiting their ability to make accurate predictions involving multiple relations. The learned embeddings may not generalize well to new entities and relations not seen dur-ing training. Furthermore, traditional techniques like TransE assume a single relation between any pair of entities, which may not reflect real-world knowl-edge graphs that can contain multiple relations. More recent techniques aim to address some of the limitations of traditional embeddings. TransE Model
 
@@ -323,21 +322,21 @@ The relation was predicted between two entities using the transE model by comput
 ![](_page_21_Figure_3.jpeg)
 <!-- Image Description: Figure 14 illustrates semantic relation prediction using the TransE model. It shows a directed graph with two nodes, B and C, connected by an edge labeled "HasRelation1 (0.02)". The edge represents a predicted semantic relationship between B and C, with 0.02 indicating the associated distance or confidence score. The arrow points from B to C, showing the direction of the relationship. The figure demonstrates the model's output in predicting relationships between entities. -->
 
-#### 4 Extract triples and predict relations using pre-trained ontology
+### 4 Extract triples and predict relations using pre-trained ontology
 
 there are three distinct methods for extracting triples and predicting relations between entities: DBpediaOntology class connected to the API of DBpedia Spot-light, ConceptNetOntology connecting with an API from ConceptNet, and on top of that, Rebel model retrieved from Babelscape assemblage. Every approach targets the problem of information retrieval from unstructured text; however, they vary in the applied approaches and purposes.
 
-#### DBpediaOntology
+### DBpediaOntology
 
 The DBpediaOntology class uses the DBpedia Spotlight API to extract triple from a text. This process first involves setting a confidence threshold for the API annotations and how this system filters through them. The class then forms the
 
 parameters for an API request, including input text and confidence threshold, before issuing a call to the REST endpoint. The API response is then processed to get important information about entities mentioned within the document, in-cluding Uniform Resource Identifiers and surface forms. These extracted triples consisting of subjects, predicates, and objects represent relationships in the in-put text in a structured way. As a connection to the data in DBpedia knowledge base, it enriches information extracted from text by introducing connections with an enormous database. This method is especially useful in cases where a clear and valid knowledge base linkage implies establishing reliable access to detailed data on entities mentioned within the target text, making further analysis or integration with external sources available.
 
-#### ConceptNetOntology
+### ConceptNetOntology
 
 The ConceptNetOntology class interacts via the concept's API to predict rela-tions between two Input concepts. The class takes the input concepts and builds API parameters around them, which then sends a request to ConceptNet's API service that returns relations regarding relevant edges from concept relation-ships with relation labels. This method emphasizes the construction linking of concepts grounded in the ConceptNet knowledge base, which tries to reveal se-mantic structures between entities.
 
-#### REBEL
+### REBEL
 
 In the process of converting unstructured text to triples and predicting relations, Rebel Huguet Cabot and Navigli (2021) uses a machine-learning approach. The main function is "extract-relations-from-model output," which uses the examples of text by tokenizing and finding tokens that represent relations like subj and obj. These tokens direct the extraction of structured triples from model predic-tions in the form of subject, relation type, and object. The approach systemati-cally accumulates these triples as it walks through the decoded output, utilizing patterns learned from and context information in the pre-trained Rebel model. The model automatically organizes data extracted from the document by de-tecting long-range dependencies and semantic relations. Such relation-extracting methodology, driven by machine learning herewith, provides a framework that is easily configurable and adaptable in situations where Rebel code can extract insights and information as long as it was tested on some triples that were on the same pre-trained domain(e.g., Wikipedia Data). The Rebel model reveals the development of natural language understanding, which can be implemented for relation extraction from heterogeneous text data.
 
@@ -355,7 +354,7 @@ In-modeling Explainability: This approach focuses on the model's inner workings,
 
 Post-modeling Explainability: These techniques describe the application of a KG after a model has been trained. They enhance the explainability of AI models by using KGs to provide insights into what the trained model has learned without altering the underlying model. For example, in one study, a KG was applied to a graph neural network model to capture important features and relationships in a set of news articles, using the relevance scores of entities to guide the embedding of the articles Cui et al. (2020).
 
-#### 2 Knowledge Graph for Automatic Coding
+### 2 Knowledge Graph for Automatic Coding
 
 Knowledge graphs have been proven extremely useful in powering diverse applications in various applications such as program search, code understanding, bug detection,and code automation. GraphGen4Code Abdelaziz et al. (2021) is therefore designed as a toolkit to build knowledge graphs for program code. This toolkit can construct code representations that represent actual program flow along with natural language descriptions of API calls when they exist to enhance code representations.
 
@@ -363,7 +362,7 @@ COCOMIC Ding et al. (2022) is a framework on top of existing code lan-guage mode
 
 represent code components that constitute the project's backbone,and edges in-dicate the relations among these components. (2) Given an incomplete program, the tool will identify the most relevant cross-file context and retrieve their details from the built graph.
 
-#### 3 Knowledge Graph for Self Driving Car
+### 3 Knowledge Graph for Self Driving Car
 
 Zheng and Kordjamshidi (2022) propose the Dynamic Relevance Graph Network (DRGN) model to tackle the challenging problem of commonsense question an-swering using external knowledge from a knowledge graph. Existing approaches have dificulty reasoning over knowledge graphs when edges are missing in the extracted subgraph needed for reasoning chains, or when handling questions with negative words. DRGN operates on a knowledge graph subgraph contain-ing entities mentioned in the question and answers. It adds the question as a node to provide contextual information . Unlike prior models, DRGN com-putes dynamic relevance matrices between node representations at each layer of a relational graph network. This allows it to establish direct connections and potentially recover missing edges by learning new edges based on chang-ing relevance scores. Computing relevance between the question node and entity nodes also helps leverage contextual cues better [1]. Experiments on the CommonsenseQA and OpenbookQA benchmarks demonstrate that DRGN achieves stateof-the-art performance, obtaining particularly strong results on negatively worded questions through its use of question-entity relevance. Ablation studies validate that component such as the knowledge graph, relational edges, question node, and dynamic relevance computation contribute to DRGN's effectiveness at capturing relationships for improved commonsense question answering.
 
@@ -409,7 +408,7 @@ data. Natural language processing may obtain expertise from legal text. Vi-sual 
 
 El Asmar et al. (2020) introduced an AWARE ontology designed to represent the situational awareness of autonomous vehicles operating in manufacturing environments. The ontology builds on existing ontologies like SUMO and SSN and extends them to incorporate concepts relevant to manufacturing autonomous vehicle perceptio. The ontology has three layers - a meta-ontology layer aligning concepts with SUMO, an ontology schema layer representing domain knowledge, and an instance layer forming a knowledge graph. The environment model rep-resents dynamic assets like humans, vehicles, and storage units. The perception capability incorporates sensors, computational models, features extracted from sensor data, and observations linking them together. The ontology models both exteroceptive sensors like cameras and LiDAR as well as proprioceptive sensors like IMU and battery sensors. Features extracted include visual bounding boxes, load status, and battery information. Observations are created to link sensors, computational models, extracted features, and perceived entities. The ontology was evaluated by checking competency questions and expert reviews. The ontol-ogy can provide a basis for autonomous vehicle awareness and behavior control in manufacturing plants. Future work includes developing reasoning and policies over the ontology and grounding robot operations using the ontology.
 
-#### 4 Knowledge Graph for Climate Change
+### 4 Knowledge Graph for Climate Change
 
 Wu et al. (2022a) proposed a climate knowledge graph to integrate multiple climate data sources into a linked data platform for facilitating cross-domain analysis between climate data and other domains. The knowledge graph primar-ily uses data from NOAA climate summaries, OpenStreetMap, and Wikipedia data, and supports joint SPARQL queries across these datasets. A workflow is presented to automatically retrieve and transform NOAA climate data into RDF graphs aligned with a custom ontology, and publish it as linked open data. Ge-ographic data is integrated from OpenStreetMap and linked to Wikipedia data to provide contextual information. The resulting linked data knowledge graph is deployed in a SPARQL endpoint and URIs are dereferenceable for browsing. A web interface and tutorial assist climate researchers in exploring the knowledge graph and trying sample queries. Usability testing indicates the platform suc-ceeds in providing understandable access. Key benefits include easy multi-source integration, open data enrichment, dynamic updates, and added explain ability via semantically structured data.
 
@@ -445,7 +444,7 @@ Yu et al. (2022) published in Geoscience Frontiers in 2023, presents a study on 
 
 Knowledge graphs are really improving how data is used these days. By con-necting different types of information together and learning from examples, it helps integrate, understand, and apply data in many fields much better. Systems that use knowledge graphs can adapt more easily to new situations because they combine rules about specific topics with patterns found in data. This allows knowledge graphs to build very thorough models of things and how they relate to each other.Finding ways for knowledge graphs to eficiently manage and link together even larger sets of data with more complex webs of connections is a big focus. In addition, ensuring these models are understandable will help en-sure they can be trusted for serious applications. By continuing advancements, knowledge graphs will play an increasingly important job in helping many in-dustries gain benefits from massive amounts of information. As knowledge graph technologies continue to evolve, they will further enhance our ability to leverage data, ultimately driving innovation and eficiency across various domains.
 
-# Bibliography
+## Bibliography
 
 - Abdelaziz, I., Dolby, J., McCusker, J., Srinivas, K., 2021. A toolkit for generating code knowledge graphs, in: Proceedings of the 11th on knowledge capture conference, pp. 137–144.
 - Abu-Salih, B., 2021. Domain-specific knowledge graphs: A survey. Journal of Network and Computer Applications 185, 103076.

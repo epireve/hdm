@@ -53,57 +53,56 @@ Srijoni Majumdar Advanced Technology Development Centre Indian Institute of Tech
 
 Partha Pratim Das Department of Computer Science and Engineering Indian Institute of Technology Kharagpur-721302 partha.p.das@gmail.com
 
-*Abstract*—To address the issue of rising software maintenance cost due to program comprehension challenges, we propose SMARTKT (Smart Knowledge Transfer), a search framework, which extracts and integrates knowledge related to various aspects of an application in form of a semantic graph. This graph supports syntax and semantic queries and converts the process of program comprehension into a *google-like*search problem.
-*Index Terms*—Program Comprehension, Knowledge Transfer, Machine Learning, Natural Language Processing, Semantic Graph
+**Abstract:** To address the issue of rising software maintenance cost due to program comprehension challenges, we propose SMARTKT (Smart Knowledge Transfer), a search framework, which extracts and integrates knowledge related to various aspects of an application in form of a semantic graph. This graph supports syntax and semantic queries and converts the process of program comprehension into a *google-like*search problem.
+**Index Terms:** Program Comprehension, Knowledge Transfer, Machine Learning, Natural Language Processing, Semantic Graph
 
 In the last three decades, software maintenance cost has risen to 90% of the total *Software Development Life Cycle*(SDLC) cost [\[9\]](#page-2-0), [\[10\]](#page-2-1), [\[15\]](#page-2-2). Surveys conducted in [\[14\]](#page-2-3), [\[30\]](#page-2-4) conclude that as 80% of the maintenance tasks are adaptive and perfective [\[27\]](#page-2-5), hence the absence of an integrated framework or assistance for knowledge transfer (KT) to lessen program comprehension challenges contributes primarily to this rising cost. To execute a maintenance task, developers spend the majority of their time to manually search and mine source files and other knowledge sources like design documents, defect and version trackers, emails and the like, taking mental notes or scribbling the mappings, in an attempt to infer an overall knowledge about the design, behaviour and evolution of the application [\[30\]](#page-2-4), [\[25\]](#page-2-6) so as to subsequently locate the relevant code sections and their dependencies. However, in most cases, documents are dated with missing information, tracker systems are not updated properly and help from earlier developers are scanty or not available. Due to these factors, coupled with frequent interruptions [\[14\]](#page-2-3) for attending calls or meetings, the developers get involved in a tedious and inefficient process of building, revalidating and rebuilding their understanding of the application and resort to quick fixes which introduces hidden errors that cannot be removed by re-running the golden test cases [\[30\]](#page-2-4).
 
 To address the program comprehension challenges, developers extract software development related knowledge through detection of low-level algorithm details using static instrumentation [\[3\]](#page-2-7) or extraction of the control flow between runtime events using static analysis and dynamic profiling [\[33\]](#page-2-8). Code search tools based on the abstract syntax tree have been proposed in [\[31\]](#page-2-9), [\[5\]](#page-2-10), [\[23\]](#page-2-11), [\[21\]](#page-2-12), [\[22\]](#page-2-13). For extracting application specific entities, concepts have been located in code comments based on enumerated domain concepts [\[12\]](#page-2-14) or ontology [\[2\]](#page-2-15), [\[34\]](#page-2-16), [\[24\]](#page-2-17), [\[20\]](#page-2-18). To extract project management details, comments are mined to track code changes in [\[1\]](#page-2-19) and [\[11\]](#page-2-20) and software repositories are analysed to extract information related to bug history, version changes, developer and tester details and their interrelationships in [\[7\]](#page-2-21), [\[29\]](#page-2-22). Program comprehension can be aided by extracting relevant knowledge from various sources (for a representative set, refer Table [I\)](#page-1-0) related to a working software. However, we observe that the available assistance tools consider only limited sources and additionally there is an absence of an easy to use integrated framework based on these sources.
 
 To analyse the comprehension challenges more specifically and understand the requirements for an effective design of an assistance framework, we conducted surveys and personal interviews with a group of developers in a software company. We present a representative scenario here (names have been changed for confidentiality): A developer*Neha*, working with C++ and traditional Vi editor [\[16\]](#page-2-23), is assigned to fix bug#67 in ClearQuest [\[36\]](#page-2-24), with error message "processing error : unsigned 162 S1". As she is new, she enquires from her senior *Sandra*at every step.*Sandra*uses Cscope [\[35\]](#page-2-25) tool in Vi to grep the code base with the error string and locates function VHDLPosedge#S2 in file VHDLPosedge.cc and provides to her.*Neha*asks*Sandra*for any similar defect.*Sandra*searches ClearQuest, discovers bug#22 and searches the Microsoft Concurrent Versions System (CVS) [\[13\]](#page-2-26) and*emails*to extract the bug related commit summary for code level changes. The summary stated a change of data type from unsigned int to unsigned long int for variable var1, but in present code var1 has type – long int causing bug#67.*Sandra*then recalls this change as part of change request CR123 for optimisation of file VHDLPosedge.cc a month ago.*Sandra*tells*Neha*to revert the datatype to unsigned long int, as it would not affect the behaviour of the code. As part of CR123, VHDLPosedge#S2 is called by a thread start function, so*Sandra*tells*Neha*to add mutex locks for read and writes in the function to prevent data-races.
-*Sandra* responds to queries of Neha based on multiple
+**Sandra:** responds to queries of Neha based on multiple
 
 relevant sources, and also provides additional important information (*Smart*help). However due to evolving teams and fragmented task distribution, resources like*Sandra*who is aware of various aspects of the application, are hardly available.
 
 TABLE I KNOWLEDGE TYPE – KNOWLEDGE SOURCES
 
-<span id="page-1-0"></span>
 
-| Type, Description and Example                | Sources                              |
+| Type, Description and Example | Sources |
 |----------------------------------------------|--------------------------------------|
-| Software Development: domain of program      | Source<br>Code,<br>Runtime<br>Trace, |
-| ming like data structure, algorithm, memory, | Code Comments, Version Trackers      |
-| concurrency. Example: variable, data race    | (SVN, github, CVS), Bug trackers     |
-|                                              | (JIRA,<br>ClearQuest,<br>Bugzilla),  |
-|                                              | Design Documents, KT sessions        |
-| Application Oriented: entities and actions   | Code Comments, Version Trackers,     |
-| of the specific application. Example: Convex | Bug trackers, Design Documents,      |
-| Hull, bookmark                               | KT sessions                          |
-| Version Evolution: commits done for appli    | Version Trackers, Code Comments,     |
-| cation along with summary. Example: Com      | KT sessions                          |
-| mit 71#: Code for new UI functions           |                                      |
-| Defect Evolution: bugs reported and fix      | Bug trackers, Code Comments, KT      |
-| summary and root cause analysis. Example:    | sessions                             |
-| BugZilla#521: Data type mismatch             |                                      |
-| Project Management: mapping of developer     | Code Comments, Version Trackers      |
-| details to defects, version commits, source  | (SVN, github, CVS), Bug trackers,    |
-| code elements, most vulnerable module. Ex    | Emails, KT sessions                  |
-| ample: Developer A fixed bug BugZilla#521,   |                                      |
-| developed two modules                        |                                      |
-| Business Specs.: client & company details.   | Induction manuals, emails, KT ses    |
-| Example: Business profile of clients         | sions                                |
+| Software Development: domain of program | Source<br>Code,<br>Runtime<br>Trace, |
+| ming like data structure, algorithm, memory, | Code Comments, Version Trackers |
+| concurrency. Example: variable, data race | (SVN, github, CVS), Bug trackers |
+| | (JIRA,<br>ClearQuest,<br>Bugzilla), |
+| | Design Documents, KT sessions |
+| Application Oriented: entities and actions | Code Comments, Version Trackers, |
+| of the specific application. Example: Convex | Bug trackers, Design Documents, |
+| Hull, bookmark | KT sessions |
+| Version Evolution: commits done for appli | Version Trackers, Code Comments, |
+| cation along with summary. Example: Com | KT sessions |
+| mit 71#: Code for new UI functions | |
+| Defect Evolution: bugs reported and fix | Bug trackers, Code Comments, KT |
+| summary and root cause analysis. Example: | sessions |
+| BugZilla#521: Data type mismatch | |
+| Project Management: mapping of developer | Code Comments, Version Trackers |
+| details to defects, version commits, source | (SVN, github, CVS), Bug trackers, |
+| code elements, most vulnerable module. Ex | Emails, KT sessions |
+| ample: Developer A fixed bug BugZilla#521, | |
+| developed two modules | |
+| Business Specs.: client & company details. | Induction manuals, emails, KT ses |
+| Example: Business profile of clients | sions |
 
 We propose a search framework named SMARTKT for single and multi-threaded C / C++ and python code-bases, designed to enact*Sandra*and respond to common queries of maintenance engineers [\[32\]](#page-2-27), [\[4\]](#page-2-28) related to syntax and semantics of a software. SMARTKT supports four types of queries – a) Entity based [\[28\]](#page-2-29):*Variable D*?, *Function A*? b) List Search [\[28\]](#page-2-29): *All static variables of file ftpety.c*, *All bugs fixed on 12-03-2013*c) Template based [\[28\]](#page-2-29):*Which is the algorithm in function & what are the data-structures used*? *Function was effected by which bug numbers & how many were fixed by Developer*? d) Free-form english queries:*How many unsynchronised global variables are used to implement the UI Save button*?. For each query, SMARTKT provides direct responses coupled with *Smart*information like*responding with additional data race alerts*for queries on*global variables*. SMARTKT additionally helps to bridge missing information across sources and validates application metadata (like comments).
 
 ![](_page_1_Figure_4.jpeg)
 <!-- Image Description: The image is a directed graph representing relationships between software development entities. Nodes represent commits, bugs, developers, code changes, and data types. Edges represent relationships such as "deployed," "owned by," "affects," and "fixed by". The graph illustrates the interconnectedness of various aspects of a software project, potentially for bug tracking, analysis, or impact assessment. Specific details such as commit IDs, dates, and developer information are included. -->
 
-<span id="page-1-1"></span>Fig. 1. Knowledge Graph (Note: VP stands for VHDLPosedge)
+<span id="page-1-1"></span>Figure 1. Knowledge Graph (Note: VP stands for VHDLPosedge)
 
 ![](_page_1_Figure_6.jpeg)
 <!-- Image Description: This flowchart depicts a software defect prediction system. It shows a multi-stage process: primitive extraction from runtime traces, project documents, and code; feature computation using statistical learning; inference via a knowledge graph (stored in a triple store using RDF/OWL); and finally, a direct and intelligent response to structured and English language queries using a SPARQL query engine. The system leverages NLP and various analysis techniques (e.g., NLTK, Stanford) for data processing. -->
 
-<span id="page-1-2"></span>Fig. 2. Architecture of SMARTKT: Knowledge sources from Table [I](#page-1-0)
+<span id="page-1-2"></span>Figure 2. Architecture of SMARTKT: Knowledge sources from Table [I](#page-1-0)
 
 SMARTKT extracts knowledge from multiple sources (Table [I\)](#page-1-0), associates them and represents them in form of a *semantic*graph (Figure [1](#page-1-1) corresponding to*Sandra's*knowledge). The design (encompassing graph construction and query interface) of SMARTKT (Figure [2\)](#page-1-2) has been incorporated into five layers which we discuss briefly below.
 

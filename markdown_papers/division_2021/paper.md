@@ -52,8 +52,6 @@ keywords:
 ---
 
 
-<span id="page-0-0"></span>
-
 ![](_page_0_Picture_2.jpeg)
 <!-- Image Description: That image is not a diagram, chart, graph, equation, or technical illustration from an academic paper. It's a simple graphical button or icon commonly used in software interfaces. The image displays a circular progress indicator partially filled, overlapping a bookmark icon, and the text "Check for updates." Its purpose within the paper's context is likely to indicate that the paper might have newer versions, suggesting readers look for updated content. -->
 
@@ -77,21 +75,20 @@ From the standpoint of biomedical research, a number of large, data-intensive co
 
 Yuguang Wang, Shanghai Jiao Tong University, China
 
-#### Reviewed by:
+### Reviewed by:
 
 Juan M. Banda, Georgia State University, United States Sridhar Goud, National Institutes of Health (NIH), United States
 
-#### \*Correspondence:
+### \*Correspondence:
 
 Enrique Hernández-Lemus [ehernandez@inmegen.gob.mx](mailto:ehernandez@inmegen.gob.mx)
 
-#### Specialty section:
+### Specialty section:
 
 This article was submitted to Translational Medicine, a section of the journal Frontiers in Medicine
 
-Received: 27 September 2021 Accepted: 28 December 2021 Published: 25 January 2022
 
-#### Citation:
+### Citation:
 
 Martínez-García M and Hernández-Lemus E (2022) Data Integration Challenges for Machine Learning in Precision Medicine. Front. Med. 8:784455. doi: [10.3389/fmed.2021.784455](https://doi.org/10.3389/fmed.2021.784455)
 
@@ -120,7 +117,7 @@ The following section (Precision medicine: transforming biomedical evidence with
 
 Section 5 will deal with one of the main challenges involved in the quest to effectively implement AI/ML in Precision Medicine: Data Integration. Biomedical and clinical knowledge deals with a plethora of phenomena, ranging from the molecular to the socio-political. Currently, we have technologies to massively measure or infer data from most of these domains. How to make sense of these different dimensions to turn them into a coherent, intelligible body of knowledge useful for the researchers, but more importantly, for practising clinicians, the healthcare providers and the patients is an extremely challenging endeavor. Interestingly, a source of information that is becoming key for AI/ML approaches in Precision Medicine is metadata. Metadata, i.e., auxiliary data sources often used to define other data types. Having one's genome sequence is of little use if we do not have a proper annotation file; and knowledge of the zip code or educational level of a patient may provide actual clues for their personalized treatment. Since many data types are actually pre-processed prior to the analysis, it is also relevant to know how has the data been treated prior to its current form. Information of this kind is also considered metadata. Metadata is, hence, becoming more and more relevant. Managing such large amounts of personal data (what can be more personal for us than our healthcare data?), however, does not come without a price. Ethical and legal considerations pose no small problem if one is to provide fair and minimally invasive use of the data, especially if it is of a sensible or private nature. Some of these issues are discussed in section 6. Section 7 is devoted to present the Data Management Plan, a document that will be extremely useful to set the guidelines of any data-intensive project being a research protocol, a clinical trail or a healthcare management design. Finally, in section 8, we present some Conclusions and Perspectives.
 
-#### THE ROLE OF DATA IN TRAINING GOOD AI/ML MODELS
+### THE ROLE OF DATA IN TRAINING GOOD AI/ML MODELS
 
 The current development of highly sophisticated and often quite effective AI/ML and the accompanying proliferation of large scale data sources in the biomedical setting, has raised the expectations regarding the many potential benefits that can be derived from the marriage of good methods + good data. However, in order for these large amounts of data to be useful in producing good AI/ML models, size is not the only thing that matters, a question that is often overlooked [\(50,](#page-13-26) [51\)](#page-13-27).
 
@@ -152,7 +149,7 @@ In view of this emerging paradigm, what is the role that AI/ML may play in its e
 
 In order to deliver such benefits, LSDA needs to be able to address questions, such as how to deal with highly unstructured heterogeneous data (say from EHRs) via high-performance computational techniques for quantitative analytics, but also for data mining, literature mining, and natural language processing algorithms over integrated pipelines. Particularly challenging are the scenarios related to clinical practice since they would be ideally processing such enormous amounts of unstructured data in cuasi-real time, if LSDA is intended to be beneficial for the individual patient [\(79,](#page-14-17) [80\)](#page-14-18). In the following sections, we will discuss some of the opportunities and limitations of applying AI/ML (often in the form of LSDA) in health-related settings.
 
-#### 1. Personalized Medicine: From Data Lakes to Patient Beds
+### 1. Personalized Medicine: From Data Lakes to Patient Beds
 
 LSDA and AI/ML may also play a role in supporting the clinical practitioners to keep up-to-date with the current scientific literature in their fields, an issue that has been struggling attending physicians for a while. In brief, if a medical doctor wants to treat their patients with the current best available therapeutic options, difficulties arise in trying to define what is currently considered better. As is known, the available scientific literature regarding a single medical speciality has been already overwhelming. The situation becomes much worse when one is dealing with multi-morbid patients since clinical guidelines and algorithms are often aimed at the single condition scenario [\(81](#page-14-19)[–85\)](#page-14-20).
 
@@ -210,7 +207,7 @@ Other software solutions from the R ecosystem useful in the LSDA applications in
 
 Other software packages include radtools a set of utilities to extract and analyze medical image metadata [https://cran.r](https://cran.r-project.org/src/contrib/Archive/radtools/)[project.org/src/contrib/Archive/radtools/](https://cran.r-project.org/src/contrib/Archive/radtools/) [\(222\)](#page-17-38); psrwe a library useful to incorporate real-world evidence (RWE) into regulatory and health care decision making [https://cran.r-project.org/web/](https://cran.r-project.org/web/packages/psrwe/index.html) [packages/psrwe/index.html](https://cran.r-project.org/web/packages/psrwe/index.html) [\(223,](#page-17-39) [224\)](#page-17-40); clinDataReview [https://cran.r-project.org/web/packages/clinDataReview/index.](https://cran.r-project.org/web/packages/clinDataReview/index.html) [html](https://cran.r-project.org/web/packages/clinDataReview/index.html) an environment to support exploratory analysis of data in clinical trial settings, patientProfilesVis a tool to create patient profile visualizations for exploration, diagnostic or monitoring purposes during a clinical trial [https://cran.r](https://cran.r-project.org/web/packages/patientProfilesVis/index.html)[project.org/web/packages/patientProfilesVis/index.html;](https://cran.r-project.org/web/packages/patientProfilesVis/index.html) and even healthyR a full suite to review common administrative hospital data. Although this latter application does not seem to be related to LSDA in Precision Medicine, it is not uncommon the application of AI/ML methods to administrative data to infer, for instance, social determinants of health.
 
-#### DATA INTEGRATION: CURRENT CHALLENGES
+### DATA INTEGRATION: CURRENT CHALLENGES
 
 Computational limitations in LSDA for Precision Medicine are gradually being overcome. Deeper challenges, however, arise when we consider the question of how to develop coherent ways to make sense of the data, that is how to build models and analytical frameworks that allow biomedical scientists and clinicians to use all these currently available data types and resources in the best possible way as diagnostic and prognostic tools [\(225\)](#page-17-41). In the context of genomics (and other omics) in biomedicine, important international efforts along these lines have been developed, such is the case of the ELIXIR-EXCELERATE collaboration [\(136\)](#page-15-28), the STATegra project [\(226,](#page-17-42) [227\)](#page-18-0), the SeqAhead consortium [\(228\)](#page-18-1), and others [\(229,](#page-18-2) [230\)](#page-18-3).
 
@@ -220,7 +217,7 @@ In this context, data integration allows the use of multiple data sources with s
 
 LSDA in Precision Medicine is driven by two major sets of goals. On the one hand, we aim to develop high level intuition (HLE) from inductive analyses, via statistical learning and causal inference techniques. HLE may serve to sketch guidelines for current and future experimental and clinical research [\(242\)](#page-18-13). On the other hand, AI/ML approaches may be useful for automated reasoning (AR), i.e., the non-supervised or semisupervised extraction of non-trivial patterns in dynamic databases [\(243–](#page-18-14)[245\)](#page-18-15).
 
-#### 1. The Need for Guidelines and Standardization to Support Precision Medicine
+### 1. The Need for Guidelines and Standardization to Support Precision Medicine
 
 Machine learning and artificial intelligence approaches able to live up to these envisioned objectives will depend on the underlying data resources to a great extent. We will need, not only high throughput carefully curated databases, but also inter-operable data strategies. By creating integrated/integrable databases related to Precision Medicine we will enhance our data discovery and data exploitation capabilities, refine our algorithms for statistical assessment of data-driven discovery and improve our data standardization. Regarding data standards, there have been some advancements from the early days of the MIAME requirements [\(246,](#page-18-16) [247\)](#page-18-17) for genomic data formats, now updated for next generation sequencing data [\(248\)](#page-18-18) and even for single cell RNASeq experiments [\(249\)](#page-18-19); to some more recent efforts for meta-data standardization [\(250,](#page-18-20) [251\)](#page-18-21).
 
@@ -242,7 +239,7 @@ Data is, of course, not the only issue that needs to be assessed and validated t
 
 Data and methods constitute the most visible items within the biomedical analytics ecosystem; metadata, is however, progressively gaining a more relevant role for AI/ML in Precision Medicine, as it contains, in many cases, hints for the automated labeling or classification (even if approximate) tasks that will be further improved by the use of computational intelligence and statistical learning approaches [\(87,](#page-14-30) [267\)](#page-19-1). We will further discuss this issue in the next subsection.
 
-#### 2. An Ocean of Metadata
+### 2. An Ocean of Metadata
 
 Metadata has become a central player in contemporary LSDA endeavors in many fields, including biomedicine; particularly relevant for AI/ML approaches. For this reason, aiming for high quality, well-formatted and standardized metadata has become quite relevant [\(268\)](#page-19-2). Indeed, a number of biomedical data analysis teams and consortia are encouraging the use of standardized metadata guidelines, exemplified, for instance by a checklist of relevant issues to consider when building and publishing companion metadata [\(250,](#page-18-20) [269,](#page-19-3) [270\)](#page-19-4); since such metadata could be instrumental to implement data analytics, as well as AI/ML toward a precision medicine approach [\(267,](#page-19-1) [271\)](#page-19-5).
 
@@ -254,7 +251,7 @@ LSDA approaches must be developed having in mind the presence of spurious correl
 
 Taking these issues into account may require new models to implement metadata reporting standards [\(296,](#page-19-22) [297\)](#page-19-23). Standardizing the way metadata is reported and retrieved in the biomedical and clinical settings will result critical for the development of generalistic machine learning approaches that make full use of these uniform data structures [\(298–](#page-19-24)[300\)](#page-19-25). It has been recently discussed that ignoring or bypassing such standards may jeopardize full research projects [\(301](#page-19-26)[–303\)](#page-19-27).
 
-#### ETHICAL AND LEGAL CHALLENGES FOR COMPUTATIONAL MEDICINE
+### ETHICAL AND LEGAL CHALLENGES FOR COMPUTATIONAL MEDICINE
 
 Aside from the methodologic and logistic issues already discussed, integrating data sources aiming at LSDA in the context of Precison Medicine also brings out concerns related to the ethical and legal problems that may arise, for instance related to privacy and confidentiality. Regarding the purely technological aspects of this problem, most of the members of the community of data analyst in healthcare and biomedicine are actually confident that these can be solved with security and encryption approaches already used to protect personal financial data [\(6,](#page-12-3) [46,](#page-13-23) [304\)](#page-19-28). Aside from privacy concerns, managing sensitive data implies having several layers of access to the data. This is so since some sensitive personal data may be extremely useful for population level studies needed to develop personalized medicine. However, even if it is unlikely that full disclosure of sensitive biomedical and clinical information is needed, there is a fraction—that need to be determined and agreed-upon in advance—of potentially sensitive information that results fundamental for the development of personalized medicine, not just for the individual in particular but also population and sub-population-wise [\(305\)](#page-19-29).
 

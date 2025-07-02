@@ -33,11 +33,8 @@ keywords:
 - transformer-based
 ---
 
-
-
-
-
 # *Article*PRIVAFRAME: A Frame-Based Knowledge Graph for Sensitive Personal Data
+
 **Gaia Gambarelli 1,2,\* ,[†](https://orcid.org/0000-0002-7697-2848) and Aldo Gangemi 1,3,\* ,†**- <sup>1</sup> Department of Filologia Classica e Italianistica (FICLIT), University of Bologna, 40126 Bologna, Italy
 - <sup>2</sup> Ellysse s.r.l., 42124 Reggio Emilia, Italy
 - 3 Institute of Cognitive Sciences and Technologies, National Research Council (ISTC-CNR), 00185 Roma, Italy
@@ -46,7 +43,7 @@ keywords:
 **Abstract:**The pervasiveness of dialogue systems and virtual conversation applications raises an important theme: the potential of sharing sensitive information, and the consequent need for protection. To guarantee the subject's right to privacy, and avoid the leakage of private content, it is important to treat sensitive information. However, any treatment requires firstly to identify sensitive text, and appropriate techniques to do it automatically. The Sensitive Information Detection (SID) task has been explored in the literature in different domains and languages, but there is no common benchmark. Current approaches are mostly based on artificial neural networks (ANN) or transformers based on them. Our research focuses on identifying categories of personal data in informal English sentences, by adopting a new logical-symbolic approach, and eventually hybridising it with ANN models. We present a frame-based knowledge graph built for personal data categories defined in the Data Privacy Vocabulary (DPV). The knowledge graph is designed through the logical composition of already existing frames, and has been evaluated as background knowledge for a SID system against a labeled sensitive information dataset. The accuracy of PRIVAFRAME reached 78%. By comparison, a transformer-based model achieved 12% lower performance on the same dataset. The top-down logical-symbolic frame-based model allows a granular analysis, and does not require a training dataset. These advantages lead us to use it as a layer in a hybrid model, where the logical SID is combined with an ANNs SID tested in a previous study by the authors.
 **Keywords:**sensitive personal data; semantic models; privacy protection; privacy knowledge graph; graph-based AI
 
-# <span id="page-0-0"></span>1. Introduction
+## <span id="page-0-0"></span>1. Introduction
 
 Sharing personal information is a common habit in virtual environments. The sensitive information detection (SID) task concerns the identification of those parts of text considered sensitive in a particular context [\[1\]](#page-16-0). What makes personal information sensitive is none other than its relationship to identifiable individuals, as defined by the General Data Protection Regulation (GDPR): "any information relating to an identified or identifiable natural person ("data subject"); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person" (GDPR, 4.1) [\[2\]](#page-16-1).
 
@@ -55,7 +52,6 @@ To be treated and protected, this information must be identified first. A lot of
 
 Academic Editors: Marco Fisichella and Antonia Russo
 
-Received: 4 August 2022 Accepted: 19 August 2022 Published: 26 August 2022
 
 **Publisher's Note:**MDPI stays neutral with regard to jurisdictional claims in published maps and institutional affiliations.
 **Copyright:** © 2022 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license [\(https://](https://creativecommons.org/licenses/by/4.0/) [creativecommons.org/licenses/by/](https://creativecommons.org/licenses/by/4.0/) 4.0/).
@@ -68,7 +64,7 @@ In this work, a new logical-symbolic approach, never explored in the literature,
 
 The work is structured as follows: In Section [2,](#page-1-0) the related works are analyzed, focusing mainly on the logical and rules-based approaches and underlining the innovative characteristics of the proposed approach. In Section [3.1,](#page-3-0) a description of and motivation for our choice of reference resource (Data Privacy Vocabulary) are provided. Section [3.2](#page-6-0) presents the manually labeled PDCs corpora, constructed by the authors and used for the model evaluation; it was very important to create a common benchmark, which was until now absent for the SID task. In Section [4](#page-7-0) is a description of PRIVAFRAME, the created frame-based knowledge graph, from grounded theoretical bases (Section [4.1\)](#page-7-1) up to its articulation (Section [4.2\)](#page-8-0). Section [5](#page-9-0) is dedicated to the experimental results which evaluate the effectiveness of PRIVAFRAME, followed by a detailed error analysis. The experimental results are strengthened by a comparative experiment conducted using a transformer-based approach. Section [6](#page-14-0) is dedicated to discussion: we reflect on the advantages and disadvantages of the knowledge graph approach, and we introduce a hybrid and more extensive architectural proposal for SID, in which PRIVAFRAME can be integrated. Conclusions and future work are summarized in Section [7.](#page-15-0)
 
-# <span id="page-1-0"></span>2. Related Work
+## <span id="page-1-0"></span>2. Related Work
 
 Some research solutions for the SID task adopt a rule-based approach [\[11,](#page-17-7)[12\]](#page-17-8). Chow et al. [\[11\]](#page-17-7) proposed a model based on the idea that sensitive information can be derived from words that frequently co-occur with sensitive keywords. The specific investigated domains are healthcare privacy, legislation compliance and the protection of organizations' sensitive information (intellectual property, client data, etc.). The authors worked on the first task with a focus a particular topic's detection through identification of all its inference keywords in a Web document. The second task concerned the classification of a sensitive topic when certain words co-occur with seed words. For the first task, the sensitive topics were HIV/AIDS, genetic information, mental health and communicable diseases; for the second task, the sensitive topic "University of Wharton" was explored and evaluated in the Enron dataset [\[13\]](#page-17-9). The inference model achieved 81% recall and 73% precision.
 
@@ -90,7 +86,7 @@ Neural network approaches are context-aware; however, they operate at the senten
 
 Finally, as the review shows, the aforementioned works differ greatly in relation to the language, domain and techniques considered. The lack of a common benchmark, also due to the difficulty in finding labeled corpora of sensitive information (see Section [3.2\)](#page-6-0), is a problem highlighted in SID literature [\[1\]](#page-16-0).
 
-# <span id="page-3-1"></span>3. Materials and Methods
+## <span id="page-3-1"></span>3. Materials and Methods
 
 In this section, the materials and methods considered to develop PRIVAFRAME are described. Section [3.1](#page-3-0) is dedicated to the authoritative resource taken as a reference for the implementation of our top-down knowledge graph: the aforementioned DPV [\[9\]](#page-17-5); Section [3.2](#page-6-0) presents the sensitive data corpus created by the authors and used as the test corpus for the evaluation of PRIVAFRAME.
 
@@ -133,26 +129,26 @@ The DPV-PD presents 168 PDCs. In truth, with the latest release of May 2022, 18 
 
 <span id="page-5-0"></span>**Table 1.** Example of a tabular description of the PDC: AGE as can be found in the DPV-PD resource [\[24\]](#page-17-20). Adapt format: Copyright [\(https://www.w3.org/Consortium/Legal/ipr-notice#](https://www.w3.org/Consortium/Legal/ipr-notice#Copyright) [Copyright,](https://www.w3.org/Consortium/Legal/ipr-notice#Copyright) accessed on 3 August 2022) 2022, the Contributors to the Data Privacy Vocabulary (DPV) Specification, published by the Data Privacy Vocabularies and Controls Community Group [\(https:](https://www.w3.org/groups/cg/dpvcg) [//www.w3.org/groups/cg/dpvcg,](https://www.w3.org/groups/cg/dpvcg) accessed on 3 August 2022) under the W3C Community Contributor License Agreement (CLA) [\(https://www.w3.org/community/about/agreements/cla/,](https://www.w3.org/community/about/agreements/cla/) accessed on 3 August 2022).
 
-| IRI             | https://w3id.org/dpv/dpv-pd#Age, accessed on 3 August 2022 |
+| IRI | https://w3id.org/dpv/dpv-pd#Age, accessed on 3 August 2022 |
 |-----------------|------------------------------------------------------------|
-| Term:           | Age                                                        |
-| Definition:     | Information about age                                      |
-| SubType of:     | dpv-pd:PhysicalCharacteristic                              |
-| Source:         | EnterPrivacy Categories of Personal Information            |
-| Created:        | 4 June 2019                                                |
-| Contributor(s): | Elmar Kiesling; Harshvardhan J. Pandit, Fajar Ekaputra     |
+| Term: | Age |
+| Definition: | Information about age |
+| SubType of: | dpv-pd:PhysicalCharacteristic |
+| Source: | EnterPrivacy Categories of Personal Information |
+| Created: | 4 June 2019 |
+| Contributor(s): | Elmar Kiesling; Harshvardhan J. Pandit, Fajar Ekaputra |
 
 Furthermore, the 168 categories were divided into five different types, concerning their nature and the characteristics that can affect their automatic identification. The subdivision is summarized in Table [2.](#page-5-1) First of all, five of these are macro-categories, to which the SPECIAL CATEGORY PERSONAL DATA was added. Out of the other 162, we asked: which of these can be expressed implicitly or explicitly in written sentences? Information closely related to a person's accent can be extracted from speech, but certainly not from a written text; and the logs of calls made by an individual or fingerprints are data that do not emerge from the text and cannot be investigated through linguistic elements. For this reason, 44 categories were necessarily excluded from our perimeter of interest. Out of the other 118 categories, 74 categories were identified, which would be interesting to investigate through linguistic patterns and textual features useful for automatic identification. At the same time, 21 out of the 118 were excluded because they are uniquely identifiable through regular expressions and named entity recognition, e.g., BANK ACCOUNT and CREDIT CARD NUMBER. Finally, 23 categories were conceptually defined as broad and generic, which is why they are more difficult to deal with (e.g., ATTITUDE, INTENTION and INTEREST).
 
 <span id="page-5-1"></span>**Table 2.**Analysis of the 168 PDCs of the DPV [\[25\]](#page-17-21).
 
-| N. | Type                                                                 | Examples                                                       |
+| N. | Type | Examples |
 |----|----------------------------------------------------------------------|----------------------------------------------------------------|
-| 6  | Macro-categories                                                     | FINANCIAL, EXTERNAL, INTERNAL,<br>HISTORICAL, SOCIAL, TRACKING |
-| 74 | Identifiable through textual analysis                                | AGE, FAVORITE, HEALTH                                          |
-| 23 | Broad boundaries categories identifiable through<br>textual analysis | ATTITUDE, INTEREST, INTENTION                                  |
-| 21 | Uniquely identifiable                                                | BANK ACCOUNT, BLOOD TYPE, CREDIT<br>CARD                       |
-| 44 | Identifiable mainly through non-textual elements                     | ACCENT, BIOMETRIC, CALL LOG                                    |
+| 6 | Macro-categories | FINANCIAL, EXTERNAL, INTERNAL,<br>HISTORICAL, SOCIAL, TRACKING |
+| 74 | Identifiable through textual analysis | AGE, FAVORITE, HEALTH |
+| 23 | Broad boundaries categories identifiable through<br>textual analysis | ATTITUDE, INTEREST, INTENTION |
+| 21 | Uniquely identifiable | BANK ACCOUNT, BLOOD TYPE, CREDIT<br>CARD |
+| 44 | Identifiable mainly through non-textual elements | ACCENT, BIOMETRIC, CALL LOG |
 
 <span id="page-6-0"></span>It is not easy to find corpora of annotated sensitive data in the literature. Some public corpora often used for SID are the Enron Email Dataset [\[1,](#page-16-0)[3,](#page-16-2)[11\]](#page-17-7) and the Monsanto trial Dataset [\[1,](#page-16-0)[26\]](#page-17-22), both concerning the domain of organizational sensitive data. The first one contains more than 600,000 e-mails from the American Enron Corporation, having approximately 2720 documents manually labeled by human annotators, lawyers and professionals in 2010. Annotations cover specific topics, including business transactions, forecasts, projects, actions, intentions, etc. [\[27\]](#page-17-23). The Enron corpus could be representative of conversations in the real world. However, since it dates to 2002, it cannot be considered very representative of today's communication style. The second one, the Monsanto Dataset [\[28\]](#page-18-0), published in 2017, consists of secret legal acts. The Monsanto Dataset, although more recent, is a domain-specific corpus does not cover many PDCs, other than those closely related to the legal domain.
 
@@ -160,10 +156,10 @@ For the aforementioned reasons, they could not represent a point of reference fo
 
 - Wikipedia articles. Wikipedia articles or pages are very easy to acquire and contain different types of sensitive information. A Wikipedia test corpus of 10,000 articles that were randomly collected was used in Hart et al. [\[3\]](#page-16-2). Sánchez et al. [\[14\]](#page-17-10) used Wikipedia pages of individuals, e.g., movie stars. They used manual annotation for sentences on Wikipedia pages relating to sensitive personal information typically defined by keywords and corresponding to PII, e.g., HIV (state of health), Catholicism (religion) and homosexuality (sexual orientation). Unfortunately, this dataset is not publicly available, and in any case, complex sensitive categories are not considered.
 - Dataset from Pastebin. The domain of this dataset used in the literature [\[6\]](#page-17-2) concerns PII (personally identifiable information). The data were collected from Pastebin [\[29\]](#page-18-1) and were labeled with four types of PII information using regular expressions for content-based sensitive information and the BERT–BiLSTM–attention model to automatically extract context-based sensitive information from preprocessed text. The sensitive information concerned:
-  -**–**Personal information: name, social security number, date of birth, nationality, address, phone number, occupation, health and education.
-  -**–**Network identity information.
-  -**–**Secret and credential information.
-  -**–** Financial information.
+-**–**Personal information: name, social security number, date of birth, nationality, address, phone number, occupation, health and education.
+-**–**Network identity information.
+-**–**Secret and credential information.
+-**–** Financial information.
 
 The dataset is not currently available. The categories refer to PII frequently detected through regular expressions or very narrow linguistic patterns.
 
@@ -173,10 +169,10 @@ Three datasets were created: SPeDaC1, SPeDaC2 and SPeDaC3 (for dataset size, see
 
 <span id="page-6-1"></span>**Table 3.** Sizes of SPeDaC1, SPeDaC2 and SPeDaC3.
 
-|           | SPeDaC1 | SPeDaC2 | SPeDaC3 |
+| | SPeDaC1 | SPeDaC2 | SPeDaC3 |
 |-----------|---------|---------|---------|
-| Sentences | 10,675  | 5133    | 5562    |
-| Tokens    | 270,904 | 134,860 | 157,508 |
+| Sentences | 10,675 | 5133 | 5562 |
+| Tokens | 270,904 | 134,860 | 157,508 |
 
 SPeDaC1 is the dataset for the identification of sensitive and non-sensitive sentences. The 10,675 sentences collected from the enTenTen corpus have two types of labels: (1) sentences with sensitive content; (2) sentences with non-sensitive content. Non-sensitive examples correspond to sentences that contain the same linguistic patterns found in sensitive sentences, but in a context that does not confer their sensitivity.
 
@@ -190,11 +186,11 @@ Such corpora may contribute to the lack of public reference material in the fiel
 
 For the knowledge graph evaluation and the experiment described below (Section [4\)](#page-7-0), a part of SPeDaC3 was used, adding to each sentence a multi-labeled annotation (if more than one category of PDCs was present in the sentence). The corpus has also the SPeDaC2 annotations: each specific PDC is traced to its macro-category.
 
-# <span id="page-7-0"></span>4. PRIVAFRAME: A Frame-Based Knowledge Graph
+## <span id="page-7-0"></span>4. PRIVAFRAME: A Frame-Based Knowledge Graph
 
 The aim was to contribute to the state of the art in personal data identification for privacy protection, investigating semantic models and techniques for a context-aware approach.
 
-# <span id="page-7-1"></span>*4.1. Theoretical Basis*The novelty of the approach lies in the implementation of frame semantics [\[32–](#page-18-4)[34\]](#page-18-5), which is a solid, cognitively grounded basis for semantic interoperability.
+## <span id="page-7-1"></span>*4.1. Theoretical Basis*The novelty of the approach lies in the implementation of frame semantics [\[32–](#page-18-4)[34\]](#page-18-5), which is a solid, cognitively grounded basis for semantic interoperability.
 
 A semantic or conceptual frame means the representation of a situation, state or event through lexical units and semantic roles. Frames are usually evoked by the verbs in the sentence. Frame theory is a formal theory of meaning [\[35\]](#page-18-6). This theory holds that the meaning of a word can be understood concerning its context, or the frame by which that word is surrounded. We can then access real-world knowledge through semantic frames that describe situations, objects, events or participants. This theory can be applied to the frame detection activity [\[36\]](#page-18-7), identifying complex relationships in natural language that can contribute to the construction of meaning. Some categories of personal data could be identified through the simple recognition of entities, but as mentioned, our approach is undoubtedly context-aware. The association of lemmas to the frames they evoke and to other lemmas belonging to the same frame should help in terms of recognition and affirmation of coherence [\[33\]](#page-18-8). However, since the need is to represent and identify information from a well-circumscribed domain—the sensitive personal data domain—a frame-based knowledge graph has been designed and implemented.
 
@@ -204,7 +200,7 @@ The rest of the section reports the resources used for the creation of the compo
 
 FrameNet (FN) is a lexical resource based on Fillmore's theory [\[37\]](#page-18-9). In FrameNet, the meanings of words are described through semantic frameworks composed of frame elements (FEs) that represent an event, a relationship, an entity or the participants. The lexical units (LUs) are connected to the frame, e.g., words that can evoke this frame. The annotation of the sentence shows how the FEs adapt syntactically to the evoked words. Each frame presents a name, a description and a list of frame elements with their descriptions and examples (core and non-core FEs) and the relations among them. The main frame– frame relations concern hierarchical relations (inheritance, compositional or subframe), temporal relations (e.g., temporal precedence relations), and logical relations (e.g., causative and inchoative relations). For example, the frame Age is defined as follows: "An Entity has existed for a length of time, the Age. The Age can be characterized as a value of the age Attribute, or a Degree modifier may express the deviation of the Age from the norm. The Expressor exhibits qualities of the age of the entity." The core FEs are Age, Attribute, Degree, Entity, Expressor. Non-core FEs include Circumstances, Descriptor, Duration or Time and LUs, e.g., nouns (age, maturity) or adjectives (ancient, oldish, etc.). E.g., Measurable\_attributes is related to Age by inheritance. FrameNet has more than 1000 semantic frames and approximately 11,000 LUs. Data are freely available.
 
-# 1.2. WordNet
+## 1.2. WordNet
 
 WordNet (WN) [\[38\]](#page-18-10) is a large English lexical database. It contains more than 117,000 synsets, e.g., sets of synonyms (nouns, verbs, adjectives, adverbs), each of which expresses a distinct concept. The synsets are interconnected with each other with semantic and lexical relationships (hyperonymy, hyponymy, meronymy, troponymy, antinomy, etc.). Combining WN and FN gives a more complete semantic representation of the meaning of a text than the resources could do on their own [\[39\]](#page-18-11).
 
@@ -218,7 +214,7 @@ $$
 
 where*f*is a first-order relation,*e*indicates the variable for events or states of affair of the frame and*x*indicates any argument place. Following this definition, in the sentence, "My mum is a medical doctor," the multigrade intensional predicate is:*Be (e, My mum, medical doctor)*; *e* is the situation, represented in Framester as FrameClass. WordNet synsets could be considered as specialized frames or semantic types. They can evoke frames and can be represented in Framester as SynsetFrame. The Framester information about frames is maintained and it is presented in FrameNet, but hierarchical relations with a map of generic frame elements and semantic roles are added. The semantic relations are created starting from the relations already present in WordNet.
 
-# <span id="page-8-0"></span>*4.2. The PRIVAFRAME Knowledge Graph*
+## <span id="page-8-0"></span>*4.2. The PRIVAFRAME Knowledge Graph*
 
 Since Framester covers generic knowledge, it does not necessarily cover the sensitive semantics represented in PDCs. It is therefore possible to resort to the definition of PRI-VAFRAME: a knowledge graph of new compositional frames, built on the hypothesis that each category of sensitive data can be formally described as a compositional frame. A compositional frame is a new frame in which already existing frames and synsets are combined
 
@@ -238,11 +234,11 @@ Therefore, for the construction of the knowledge graph, a top-down approach has 
 
 <span id="page-9-1"></span>**Table 4.**Compositional Relations in PRIVAFRAME.
 
-| Compositional Relation             |    |
+| Compositional Relation | |
 |------------------------------------|----|
-| owl:equivalentClass                | 12 |
-| owl:intersectionOf                 | 16 |
-| owl:unionOf                        | 15 |
+| owl:equivalentClass | 12 |
+| owl:intersectionOf | 16 |
+| owl:unionOf | 15 |
 | owl:intersectionOf ( owl:unionOf ) | 19 |
 | owl:unionOf ( owl:intersectionOf ) | 24 |
 
@@ -254,7 +250,7 @@ PRIVAFRAME contributes formal models, to date scarcely explored in the literatur
 
 This paragraph describes the PRIVAFRAME evaluation experiments conducted on SPeDaC3 (see Section [3.2\)](#page-6-0) and the analysis of the performances obtained by the model in the PDCs identification.
 
-#*5.1. Experimental Process*
+## *5.1. Experimental Process*
 
 **PRIVAFRAME experiment**. For the evaluation of the model, SPeDaC3 was used. The resource presents only one labeled PDC per sentence. First, 34% of the dataset was used for preliminary tests to refine the model during its design, and the PDCs were analyzed in a balanced way. The rest of SPeDaC3 constituted the test set, which included 3671 sentences. Those sentences were multi-tagged; e.g., sentence-level labels were added when they included more than one specific PDC. Furthermore, some PDCs were merged by similarity, e.g., CRIMINAL CHARGE, CONVICTION and PARDON, which were considered under the more generic CRIMINAL PDC. The target labels were in total 33. The detailed distribution can be seen in Table 6. The test-set can be found in the PRIVAFRAME repository: [https://](https://github.com/Gaia-G/PRIVAFRAME) [github.com/Gaia-G/PRIVAFRAME,](https://github.com/Gaia-G/PRIVAFRAME) accessed on 3 August 2022. Due to the aforementioned ethical concerns (Section [3.2\)](#page-6-0), the evaluation labeled dataset and the developed python script can be downloaded in order to replicate the experimental process once an ethical use agreement is signed by interested parties.
 
@@ -272,7 +268,7 @@ The dataset was randomly split into training, validation and test sets (see Tabl
 
 The RoBERTa-base model used presents pre-trained weights and 768 hidden dimensions; the maximum sequence length was set to 256 and the train lot size to 8. AdamW optimizer [\[43\]](#page-18-15) was used to optimize the model, and a learning rate of 1e-5 was set. The performance was evaluated by the loss of binary cross entropy.
 
-##*5.2. Experimental Results*
+## *5.2. Experimental Results*
 
 **PRIVAFRAME experiment**. Concerning correctly identified labels, even on multilabeled sentences, the model achieved an accuracy of 78%; 75% of the sentences (single and multi-labeled) obtained complete identification of the PDCs labels, and 10.2% obtained partial correctness (e.g., not all the labels of the sentence have been predicted). However, it was necessary to analyze the fine-grained analysis performed by the model. You can
 
@@ -280,53 +276,53 @@ see the number of detected labels (true positives, TP) for each PDC and an overv
 
 <span id="page-11-0"></span>**Table 6.** Test-set: number of PDCs labels and number of labels detected.
 
-| PDC                                                               | Labels | TP [%]    | FP  |
+| PDC | Labels | TP [%] | FP |
 |-------------------------------------------------------------------|--------|-----------|-----|
-| Age                                                               | 109    | 57 [52%]  | 156 |
-| Credit & Salary                                                   | 122    | 87 [71%]  | 181 |
-| Criminal (Charge, Conviction & Pardon)                            | 16     | 16 [100%] | 20  |
-| Disability                                                        | 93     | 88 [95%]  | 2   |
-| Ethnicity                                                         | 68     | 46 [68%]  | 16  |
-| Family, Sibling & Parent                                          | 676    | 488 [72%] | 120 |
-| Favorite (Food, Color & Music)                                    | 213    | 171 [80%] | 11  |
-| Fetish                                                            | 51     | 37 [72%]  | 0   |
-| Gender                                                            | 80     | 45 [56%]  | 4   |
-| Demographic, Country & Location                                   | 179    | 146 [82%] | 376 |
-| Hair Color                                                        | 80     | 79 [99%]  | 29  |
-| Health (Medical & Mental), Health History & Family Health History | 407    | 308 [76%] | 119 |
-| Income Bracket                                                    | 40     | 39 [97%]  | 1   |
-| Job, Professional & Employment History                            | 360    | 318 [88%] | 241 |
-| Language                                                          | 155    | 125 [81%] | 48  |
-| Name                                                              | 101    | 92 [91%]  | 63  |
-| Offspring                                                         | 159    | 124 [78%] | 16  |
-| Personal Possession, Apartment Owned, Car Owned & House Owned     | 300    | 284 [95%] | 746 |
-| Physical Traits (Height, Weight, Piercing & Tattoo)               | 223    | 121 [54%] | 33  |
-| Physical Health                                                   | 46     | 28 [61%]  | 77  |
-| Political Affiliation                                             | 9      | 0 [0%]    | 0   |
-| Prescription & Drug Test Result                                   | 205    | 203 [99%] | 1   |
-| Privacy Preference                                                | 8      | 1 [12%]   | 1   |
-| Professional Certification                                        | 22     | 0 [0%]    | 0   |
-| Professional Evaluation                                           | 5      | 0 [0%]    | 0   |
-| Professional Interview                                            | 42     | 28 [67%]  | 26  |
-| Race                                                              | 54     | 21 [39%]  | 3   |
-| Reference                                                         | 12     | 0 [0%]    | 0   |
-| Relationship, Divorce, Marriage & Marital Status                  | 460    | 429 [93%] | 129 |
-| Religion                                                          | 69     | 45 [65%]  | 8   |
-| School                                                            | 166    | 149 [90%] | 38  |
-| Sexual, Sexual Preference, Sexual History & Proclivity            | 221    | 124 [56%] | 3   |
-| Skin Tone                                                         | 58     | 57 [98%]  | 6   |
+| Age | 109 | 57 [52%] | 156 |
+| Credit & Salary | 122 | 87 [71%] | 181 |
+| Criminal (Charge, Conviction & Pardon) | 16 | 16 [100%] | 20 |
+| Disability | 93 | 88 [95%] | 2 |
+| Ethnicity | 68 | 46 [68%] | 16 |
+| Family, Sibling & Parent | 676 | 488 [72%] | 120 |
+| Favorite (Food, Color & Music) | 213 | 171 [80%] | 11 |
+| Fetish | 51 | 37 [72%] | 0 |
+| Gender | 80 | 45 [56%] | 4 |
+| Demographic, Country & Location | 179 | 146 [82%] | 376 |
+| Hair Color | 80 | 79 [99%] | 29 |
+| Health (Medical & Mental), Health History & Family Health History | 407 | 308 [76%] | 119 |
+| Income Bracket | 40 | 39 [97%] | 1 |
+| Job, Professional & Employment History | 360 | 318 [88%] | 241 |
+| Language | 155 | 125 [81%] | 48 |
+| Name | 101 | 92 [91%] | 63 |
+| Offspring | 159 | 124 [78%] | 16 |
+| Personal Possession, Apartment Owned, Car Owned & House Owned | 300 | 284 [95%] | 746 |
+| Physical Traits (Height, Weight, Piercing & Tattoo) | 223 | 121 [54%] | 33 |
+| Physical Health | 46 | 28 [61%] | 77 |
+| Political Affiliation | 9 | 0 [0%] | 0 |
+| Prescription & Drug Test Result | 205 | 203 [99%] | 1 |
+| Privacy Preference | 8 | 1 [12%] | 1 |
+| Professional Certification | 22 | 0 [0%] | 0 |
+| Professional Evaluation | 5 | 0 [0%] | 0 |
+| Professional Interview | 42 | 28 [67%] | 26 |
+| Race | 54 | 21 [39%] | 3 |
+| Reference | 12 | 0 [0%] | 0 |
+| Relationship, Divorce, Marriage & Marital Status | 460 | 429 [93%] | 129 |
+| Religion | 69 | 45 [65%] | 8 |
+| School | 166 | 149 [90%] | 38 |
+| Sexual, Sexual Preference, Sexual History & Proclivity | 221 | 124 [56%] | 3 |
+| Skin Tone | 58 | 57 [98%] | 6 |
 
 Some PDCs were almost always identified, e.g., DISABILITY, NAME, PERSONAL POS-SESSION and RELATIONSHIP; and we can observe particularly critical categories, e.g., PO-LITICAL AFFILIATION, PROFESSIONAL CERTIFICATION, PROFESSIONAL EVALUATION and REFERENCE. Table [7](#page-11-1) presents an overview.
 
 <span id="page-11-1"></span>**Table 7.**Score range of PDCs identification.
 
-| Performance (% acc.) | PDCs                                                                                                                                                                                       |
+| Performance (% acc.) | PDCs |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Excellent (+90%)     | CRIMINAL; DISABILITY; HAIR COLOR; INCOME BRACKET; NAME;<br>PERSONAL POSSESSION; PRESCRIPTION & DRUG TEST RESULT;<br>RELATIONSHIP, DIVORCE, MARRIAGE & MARITAL STATUS; SCHOOL;<br>SKIN TONE |
-| Very Good (+75%)     | HEALTH; FAVORITE; DEMOGRAPHIC, COUNTRY & LOCATION; JOB,<br>PROFESSIONAL & EMPLOYMENT HISTORY; LANGUAGE; OFFSPRING                                                                          |
-| Good (+65%)          | FAMILY, PARENT & SIBLING; FETISH; ETHNICITY; PROFESSIONAL<br>INTERVIEW; RELIGION                                                                                                           |
-| Sufficient (+55%)    | CREDIT & SALARY; GENDER; PHYSICAL HEALTH; SEXUAL                                                                                                                                           |
-| Critical (−55%)      | AGE; PHYSICAL TRAITS; POLITICAL AFFILIATION; PRIVACY<br>PREFERENCE; PROFESSIONAL CERTIFICATION; PROFESSIONAL<br>EVALUATION; RACE; REFERENCE                                                |
+| Excellent (+90%) | CRIMINAL; DISABILITY; HAIR COLOR; INCOME BRACKET; NAME;<br>PERSONAL POSSESSION; PRESCRIPTION & DRUG TEST RESULT;<br>RELATIONSHIP, DIVORCE, MARRIAGE & MARITAL STATUS; SCHOOL;<br>SKIN TONE |
+| Very Good (+75%) | HEALTH; FAVORITE; DEMOGRAPHIC, COUNTRY & LOCATION; JOB,<br>PROFESSIONAL & EMPLOYMENT HISTORY; LANGUAGE; OFFSPRING |
+| Good (+65%) | FAMILY, PARENT & SIBLING; FETISH; ETHNICITY; PROFESSIONAL<br>INTERVIEW; RELIGION |
+| Sufficient (+55%) | CREDIT & SALARY; GENDER; PHYSICAL HEALTH; SEXUAL |
+| Critical (−55%) | AGE; PHYSICAL TRAITS; POLITICAL AFFILIATION; PRIVACY<br>PREFERENCE; PROFESSIONAL CERTIFICATION; PROFESSIONAL<br>EVALUATION; RACE; REFERENCE |
 
 The model performances on the PDCs are calculated in terms of accuracy (the ratio between correct predictions and total predictions for each category).
 **Comparison experiment**. The multiclassification model achieved 66% accuracy. As Figure [3](#page-12-0) shows, not all the PDCs can be found in the predictions. Some PDCs were well classified, e.g., FAVORITE, HEALTH, JOB, LANGUAGE, POSSESSION, PRESCRIPTION & DRUG TEST RESULT, RELATIONSHIP and SEXUAL. Others received a logically justifiable classification; e.g., OFFSPRING was often classified as FAMILY, and SKIN TONE was classified as PHYSICAL TRAITS. Finally, there are categories for which an erroneous classification could instead be observed: DISABILITY and RELIGION were often classified as LANGUAGE, and CRIMINAL was often classified as HEALTH. Table [8](#page-12-1) presents the comparison data.
@@ -336,16 +332,15 @@ The model performances on the PDCs are calculated in terms of accuracy (the rati
 
 **Figure 3.**Predictions of the RoBERTa comparison experiment.
 
-<span id="page-12-1"></span>
 
-|  | Table 8. Comparison of RoBERTa and PRIVAFRAME in SPeDaC3. |  |
+| | Table 8. Comparison of RoBERTa and PRIVAFRAME in SPeDaC3. | |
 |--|-----------------------------------------------------------|--|
-|  |                                                           |  |
+| | | |
 
-|            | Train./Val.<br>Sentences | Tested<br>Sentences | Types of<br>Label | Labels | Detected<br>Labels | % Acc. |
+| | Train./Val.<br>Sentences | Tested<br>Sentences | Types of<br>Label | Labels | Detected<br>Labels | % Acc. |
 |------------|--------------------------|---------------------|-------------------|--------|--------------------|--------|
-| RoBERTa    | 2935                     | 736                 | 33                | 736    | 487                | 66%    |
-| PRIVAFRAME | 0                        | 3671                | 33                | 4809   | 3751               | 78%    |
+| RoBERTa | 2935 | 736 | 33 | 736 | 487 | 66% |
+| PRIVAFRAME | 0 | 3671 | 33 | 4809 | 3751 | 78% |
 **Error analysis**. The rule-based model can be fully explained through an in-depth analysis of the extracted frames, and consequently of the assumptions made. We can identify three main types of recurring hypothesized errors due to the following reasons: (a) Failure of FRED on frames extraction; (b) Lacks or complexity in compositional frame modeling; (c) Errors due to the structure of the sample sentences to be identified (too complex or with few distinctive features). Some errors may likewise be due to dataset labeling errors, but these cannot be assumed as recurring for specific categories. In the error analysis, for each point analyzed we will report in brackets the type(s) of error hypothesized (a, b, or c). The PDCs which report an evident criticality (−55% of TP sentences) can be first observed:
 
 1. AGE (a,c): AGE labeling is often not correctly defined. Analyzing the error frequently in detail: it seems to have been due to the failure of FRED in frames' extraction. In fact, it is possible to observe sentences, e.g., "[. . . ] i am a 31 year old woman," being correctly identified, and at the same time sentences, e.g., "Hi My name is Megisiana (Megi) I am 13 years old [. . . ]," in which the label AGE is missing. Sometimes, the problem was also due to the structure of the sentence, which does not contain sufficient elements for identification, e.g., "I am 24 male."
@@ -370,7 +365,7 @@ For number 5, and in part for number 3, the problem, therefore, lies in the too 
 
 Finally, the results of the deep learning model on fine-grained PDCs identification are presented. The BERT-based model returns as output only a some of the labels on which it is trained, and mostly tends not to recognize very specific PDCs. E.g., DISABILITY, OFFSPRING, INCOME BRACKET and PHYSICAL HEALTH do not produce any output. The model provides a single label classification, but above all, it strongly depends on the training sentences that are provided to it. It is not difficult to think how much its performance could increase if larger training sets were provided for each of the proposed labels. However, if, as in this case, the labeled data available are likely to be scarce compared to the number of labels to be identified, the knowledge graph approach is more accurate.
 
-# <span id="page-14-0"></span>6. Discussion
+## <span id="page-14-0"></span>6. Discussion
 
 PRIVAFRAME proposes a frame-based approach never used in the SID task. PRI-VAFRAME exploits the compositionality of symbolic AI, top-down representing the frame of a PDC as a combination of generic frames, related to each other through logical connections [\[44\]](#page-18-16).
 
@@ -411,7 +406,7 @@ The next step concerns the in-depth analysis of the PDCs that revealed a critica
 **Acknowledgments:**The research is supported by Ellysse s.r.l. and TAILOR Project, H2020-ICT-2019- 3, Foundations of Trustworthy AI—Integrating Reasoning, Learning and Optimization, EC GA952215.
 **Conflicts of Interest:**The authors declare no conflict of interest.
 
-# References
+## References
 
 - <span id="page-16-0"></span>1. Neerbek, J.; Eskildsen, M.; Dolog, P.; Assent, I. A Real-World Data Resource of Complex Sensitive Sentences Based on Documents from the Monsanto Trial. In Proceedings of the 12th Language Resources and Evaluation Conference, Marseille, France, 11–16 May 2020; European Language Resources Association: Marseille, France, 2020; pp. 1258–1267.
 - <span id="page-16-1"></span>2. EU General Data Protection Regulation (EU-GDPR). Available online: <https://www.privacy-regulation.eu/en/4.htm> (accessed on 3 August 2022).

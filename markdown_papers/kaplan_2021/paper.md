@@ -19,10 +19,6 @@ keywords:
 - statement-based
 ---
 
-
-
-
-
 # A Classification for Managing Software Engineering Knowledge
 
 Angelika Kaplan angelika.kaplan@kit.edu Karlsruhe Institute of Technology Karlsruhe, Germany
@@ -43,11 +39,11 @@ This taxonomy paper presents a novel way of knowledge engineering in the softwar
 
 meta-research in software engineering, validation, classification, knowledge management system
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Angelika Kaplan, Maximilian Walter, and Robert Heinrich. 2021. A Classification for Managing Software Engineering Knowledge. In Evaluation and Assessment in Software Engineering (EASE 2021), June 21–23, 2021, Trondheim, Norway. ACM, New York, NY, USA, [7](#page-6-0) pages. [https://doi.org/10.1145/](https://doi.org/10.1145/3463274.3463357) [3463274.3463357](https://doi.org/10.1145/3463274.3463357)
 
-#### 1 INTRODUCTION
+### 1 INTRODUCTION
 
 Software engineering (SE) research is the study of approaches for developing, operating, and maintaining software (cf. IEEE Std 610.12- 1990 [\[1\]](#page-6-1)). Knowledge engineering deals with technical, scientific, and social aspects involved in building, maintaining knowledge in organizations and communities [\[5\]](#page-6-2). This paper aims to present an idea of knowledge engineering for the SE research community based on a classification.
 
@@ -73,7 +69,7 @@ all such statements easily with keyword-based title, title-abstract or full-text
 
 The remainder of this taxonomy paper is organized as follows: In Section [2,](#page-1-0) we elaborate the idea of a novel KMS in more detail. Next, we present a three dimensional classification for SE statements in Section [3.](#page-1-1) Afterwards, we provide an illustration example to show the applicability of our classification approach. We validated and refined our classification by conducting a systematic literature review (SLR) and discuss limitations of the classification in Section [5.](#page-4-0) Related work is discussed in Section [6.](#page-5-0) Finally, the paper concludes with a summary and ongoing work.
 
-# <span id="page-1-0"></span>2 SOFTWARE ENGINEERING RESEARCH KNOWLEDGE MANAGEMENT
+## <span id="page-1-0"></span>2 SOFTWARE ENGINEERING RESEARCH KNOWLEDGE MANAGEMENT
 
 Our idea of a KMS for SE publications allows queries on statements regarding their research object, kind of statement, and the underlying evidence. Kind of statement means either property of an object, relation of object to its context or relevance of the object. In addition, queries can relate to existing statements. Examples of queries – all could easily be formulated in a formal query language – would be in natural language:
 
@@ -151,7 +147,7 @@ For assigning the statements and evidence classes, we analyzed first the dedicat
 
 Table [1](#page-4-1) summarizes our classification. It shows for each contribution the assigned classifications. Figure [1](#page-2-0) also illustrates for the process extension the classification with the connecting lines between the different selected classes.
 
-#### 2 Application Use Cases
+### 2 Application Use Cases
 
 After describing the classification and giving an example application, we illustrate potential use cases within the KMS (cf. Section [2\)](#page-1-0).
 
@@ -159,15 +155,14 @@ For instance, with the help of the classification and topic restriction to furth
 
 Another possible use case could be, that we have developed a metamodel and want to investigate what kind of evaluation is commonly used. Here we would again insert the research object and then have a look at the given evidence to get insights, how other researchers have evaluated their approaches to compare own results with state-of-the-art.
 
-<span id="page-4-1"></span>
 
-| Contributions                 | Research Object | Kind of Statement                                          | Evidence            |
+| Contributions | Research Object | Kind of Statement | Evidence |
 |-------------------------------|-----------------|------------------------------------------------------------|---------------------|
-| process extension             | (1.2)           | (2.3) applicable to scenarios                              | (3.1), (3.2)        |
-| context metamodel             | (1.4)           | (2.2) suitable for analysis, (2.3) applicable to scenarios | (3.2), (3.3)        |
-| analysis (m2m transformation) | (1.5)           | (2.1) accurate results, (2.2) scalable                     | (3.2), (3.3), (3.5) |
+| process extension | (1.2) | (2.3) applicable to scenarios | (3.1), (3.2) |
+| context metamodel | (1.4) | (2.2) suitable for analysis, (2.3) applicable to scenarios | (3.2), (3.3) |
+| analysis (m2m transformation) | (1.5) | (2.1) accurate results, (2.2) scalable | (3.2), (3.3), (3.5) |
 
-#### Table 1: Classification Results Based on Research Object
+### Table 1: Classification Results Based on Research Object
 
 ## <span id="page-4-0"></span>5 VALIDATION
 
@@ -183,11 +178,11 @@ Based on our aim of this literature review, we defined the following research qu
 - RQ2 What kind of statements about the research objects are made?
 - RQ3 How are these statements validated and what kind of evidence can be found in scientific SE papers?
 
-#### 2 Search Strategy
+### 2 Search Strategy
 
 We use manual search as search strategy and choose the International Conference on Software Engineering (ICSE) as high-ranked conference with a broad topic scope, covering all facets of SE research. Thus, we obtained 129 papers from the technical track published at ICSE 2020 for further data selection and analysis.
 
-#### 3 Study Selection
+### 3 Study Selection
 
 Regarding the study selection process, we defined the following inclusion (I) and exclusion (E) criteria:
 
@@ -204,17 +199,16 @@ Derived from our aforementioned RQs, we define a data extraction form (cf. Table
 
 ### Table 2: Data Extraction Form
 
-<span id="page-4-2"></span>
 
-| RQ | Data Item                           | Description                                                                                                                                                  |
+| RQ | Data Item | Description |
 |----|-------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    | RQ1 Research object<br>RQ3 Evidence | Investigated object of research<br>RQ2 Kind of statement property of object (e.g., relevance, novelty etc.)<br>Method design, evidence of statement validity |
+| | RQ1 Research object<br>RQ3 Evidence | Investigated object of research<br>RQ2 Kind of statement property of object (e.g., relevance, novelty etc.)<br>Method design, evidence of statement validity |
 
-#### 5 Findings
+### 5 Findings
 
 After applying our classification, our findings were the following: Our initial classification worked well for constructive contributions and their validation as intended (i.e., new solution approaches either motivated from scientific interest or practical problems in industry). These types of papers helped us to refine the meaning and definition of each subclass of our three dimensions. Further research types (e.g., investigating a problem with no solution approach) were not considered initially. Therefore, we added, e.g., Problem (1.1) to the first dimension (i.e., research object) as a prospective extension (cf. Section [3\)](#page-1-1).
 
-#### 6 Limitations of Approach
+### 6 Limitations of Approach
 
 So far, we considered knowledge retrieved from scientific SE papers and identified three main limitations of our approach.
 
@@ -240,7 +234,7 @@ Performance Bias. For avoiding performance bias, which focuses on the repeatabil
 
 In the following, we present related work and identify two main areas of related work with regard to our initial classification described in Section [3:](#page-1-1) (i) papers in SE research domain and (ii) other research domains.
 
-# 1 Related Work in Software Engineering Research
+## 1 Related Work in Software Engineering Research
 
 As this paper mainly contributes to meta-research in SE, we regard papers as related work that report on classification schemes for SE research.
 

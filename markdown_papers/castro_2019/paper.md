@@ -81,7 +81,7 @@ Despite recent efforts by the research community to get datasets and software re
 ![](_page_2_Figure_1.jpeg)
 <!-- Image Description: The image presents a conceptual framework for Research Knowledge Graphs (RKGs). A central hexagon depicts RKG components: datasets, publications, organizations, annotations/expressions, software, events, authors, presentations, and ML models, categorized by scientific domain. A flowchart illustrates RKG creation methods (manual, rule-based, deep learning) and types (curated vs. automatically generated), showing data flow between community expressions and primary research data. Finally, logos represent example RKG services. The image visually summarizes RKG creation, types, and related resources. -->
 
-Fig. 1. The figure illustrates examples of scholarly artifacts, methodologies to build RKGs, the five categories described in this paper, and examples of well-known services built on top.
+Figure 1. The figure illustrates examples of scholarly artifacts, methodologies to build RKGs, the five categories described in this paper, and examples of well-known services built on top.
 
 To address these challenges, the research community has begun to design and develop Knowledge Graphs (KGs), i.e., networks of machine-readable, semantically rich, interlinked descriptions of entities and their relationships, usually expressed as graph-based databases either as Resource Descriptor Framework (RDF) triples or property graphs. To enhance the interoperability and understanding of Knowledge Graphs, researchers employ standardized vocabularies and ontologies, defining a common set of terms within a specific domain. This semantic layer facilitates consistent interpretation and communication. Furthermore, they use Persistent Identifiers (PIDs) providing a unique and persistent way to reference and retrieve specific resources and ensuring their long-term stability and accessibility.
 
@@ -123,26 +123,26 @@ https://www.dnb.de/DE/Professionell/Standardisierung/AGV/\_content/culturegraph\
 
 <sup>25</sup> https://search.gesis.org/
 
-| Category             | Scale        | Schema       | Data        | Vocabulary             | Connectedness |
+| Category | Scale | Schema | Data | Vocabulary | Connectedness |
 |----------------------|--------------|--------------|-------------|------------------------|---------------|
-| 1. Scholarly<br>re   | medium       | fixed<br>and | evolving    | well-defined,          | high          |
-| source metadata      |              | stable       |             | focused subset         |               |
-| 2. Quality           | small        | fixed<br>and | stable      | well-defined,          | high          |
-| controlled           |              | stable       |             | focused subset         |               |
-| ground<br>truths     |              |              |             |                        |               |
-| data                 |              |              |             |                        |               |
-| 3. RKGs<br>of<br>pri | varies, po   | potentially  | stable      | focused subset varies, | poten         |
-| mary<br>research     | tentially    | fixed<br>and |             |                        | tially high   |
-| data                 | large        | stable       |             |                        |               |
-| 4. Community         | medium       | evolving     | evolving    | recommended/           | local, varies |
-| expressions<br>of    |              | openly,      |             | used,<br>not<br>en     |               |
-| scholarly<br>arti    |              | template     |             | forced                 |               |
-| facts                |              | design       |             |                        |               |
-| 5. Automatically     | large (e.g., | fixed<br>and | potentially | focused subset high    |               |
-| generated            | 300M)        | stable       | evolving    |                        |               |
-| RKGs<br>focusing     |              |              |             |                        |               |
-| on scholarly ar      |              |              |             |                        |               |
-| tifact relations     |              |              |             |                        |               |
+| 1. Scholarly<br>re | medium | fixed<br>and | evolving | well-defined, | high |
+| source metadata | | stable | | focused subset | |
+| 2. Quality | small | fixed<br>and | stable | well-defined, | high |
+| controlled | | stable | | focused subset | |
+| ground<br>truths | | | | | |
+| data | | | | | |
+| 3. RKGs<br>of<br>pri | varies, po | potentially | stable | focused subset varies, | poten |
+| mary<br>research | tentially | fixed<br>and | | | tially high |
+| data | large | stable | | | |
+| 4. Community | medium | evolving | evolving | recommended/ | local, varies |
+| expressions<br>of | | openly, | | used,<br>not<br>en | |
+| scholarly<br>arti | | template | | forced | |
+| facts | | design | | | |
+| 5. Automatically | large (e.g., | fixed<br>and | potentially | focused subset high | |
+| generated | 300M) | stable | evolving | | |
+| RKGs<br>focusing | | | | | |
+| on scholarly ar | | | | | |
+| tifact relations | | | | | |
 
 Table 1. Overview of the introduced qualitative categories for research knowledge graphs.
 
@@ -174,7 +174,7 @@ relations, and then republishing it in the form of graphs. The structuring can b
 
 Deep Learning-based RKG extraction Early systems followed a similar rule-based pipeline as discussed above, however with the advent of the "deep learning tsunami" [21] the KG construction pipelines incorporated neural learning methods. A generalized architecture is neural and symbolic involving a pipeline of complementary deep learning and rule-based solutions at various levels in the knowledge composition workflow. The CS-KG system [8] is a relevant exemplar of neural-symbolic RKG construction. It integrates the DyGIEpp deep learning module [38], which works within the transformers architecture [17] for predefined entity and relation extraction. Additionally, it uses the Computer Science Ontology classifier (CSO-C) [31] for further entity extraction. The Stanford Core NLP suite's OpenIE [2] determines open domain relations, and the Stanford POS Tagger [22] identifies verbs between entity pairs as relation candidates. As alternative or complementary components, the NER and relation extraction tasks for RKG construction can be addressed by finetuning transformer models based on the Bidirectional Encoder Representations from Transformers (BERT) architecture [17] on downstream task application corpora such as the NER or RE datasets discussed in Section 3. BERT offers pretrained parameters from large-scale general domain corpora such as Wikipedia or books trained with the masked language model objective producing language models capable of natural language understanding. The finetuning procedure then simply involves initializing the desired language model with the pretrained NLU models parameters and further in the context of task-specific architectures tuning the probabilistic parameters for a downstream extraction task given task-specific datasets. As such for the scientific domain, the widely used transformer language models are SciBERT [5], PubMedBERT [14], SemMedDB [18], BioBERT [19], BioClinical-BERT [1], and BlueBERT [27]. In the realm of works around RKG construction, it is not uncommon to also leverage external knowledge bases as entity and relation extraction and linking candidates. This is the approach commonly witnessed in biomedicine. For instance, the iASiS knowledge graph [37] from biomedical data including scholarly publications on Lung Cancer and Dementia is generated utilizing NLP techniques coupled with the standardized biomedical ontologies such as UMLS [6] to annotate their extracted entities and relations. This latter system practically demonstrates the discovery of interactions between drugs in the treatments prescribed to lung cancer patients. As a final exemplar, in the domain of Biodiversity Science, OpenBioDiv [26] is a knowledge graph from scholarly articles published by Pensoft<sup>29</sup> and Plazi<sup>30</sup> that is structured by the OpenBiodiv-O ontology [35] for knowledge management. Thus, the themes of knowledge graphs vary between domain-specific subjects such as diseases in biomedicine or plant treatments in biodiversity, or domain-independent subjects such as research activity. While scientific articles are stored in silos isolated from each other, RKGs demonstrate how this is overcome by semantically combining different units of information.
 
-#### 4 Outlook
+### 4 Outlook
 
 Representing data in the form of graphs can open new doors for better managing and making sense of produced research artifacts. This section looks at the RKGs' benefits and incentives and outlines their perspectives.
 

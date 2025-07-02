@@ -50,7 +50,7 @@ In this section, we summarize the key conventions used by Cyc [Lenat & Guha 1990
 
 Monadic microtheory[1](#page-1-0) : PeopleDataMt Time dimension:
 
- (TimeIntervalInclusiveFn (YearFn 1972) (YearFn 1977)) Sentence: (isa TonyGreig-Cricketer Cricketer) In Cyc, instances of *TimeDependentCollection*and*TimeDependentRelation*can be used to represent fluents.
+(TimeIntervalInclusiveFn (YearFn 1972) (YearFn 1977)) Sentence: (isa TonyGreig-Cricketer Cricketer) In Cyc, instances of *TimeDependentCollection*and*TimeDependentRelation*can be used to represent fluents.
 
 Each instance of*TimeDependentCollection*is a collection
 
@@ -64,9 +64,9 @@ Consider the following sentences:
 
 | (isa Fred BiologicalLivingObject) | (A1) |
 |-----------------------------------|------|
-|                                   |      |
+| | |
 
-| (isa Fred Married)           | … (A2) |
+| (isa Fred Married) | … (A2) |
 |------------------------------|--------|
 | (isa Fred MicrosoftEmployee) | … (A3) |
 
@@ -80,19 +80,19 @@ Let us assume that A1, A2, and A3 were true in the year 1990, and we need to fin
 
 represented in the following format: (eventTypeStartsRolePlayersRiskPeriodForState
 
- EVENT-TYPE ROLE STATE). This states that an event of type 'EVENT-TYPE' starts a risk period in which the individual who plays the role 'ROLE' in the event[4](#page-2-0) could become an instance of 'STATE'. This information can be used to derive sentences such as A5.
+EVENT-TYPE ROLE STATE). This states that an event of type 'EVENT-TYPE' starts a risk period in which the individual who plays the role 'ROLE' in the event[4](#page-2-0) could become an instance of 'STATE'. This information can be used to derive sentences such as A5.
 
 (eventStartsRiskPeriodForSentence
 
- WeddingEvent-001 (isa Fred Divorced)) ….(A5) If Fred's wedding event happened on July 1, 1988, then we can derive A6.
+WeddingEvent-001 (isa Fred Divorced)) ….(A5) If Fred's wedding event happened on July 1, 1988, then we can derive A6.
 
 (startingPointOfRiskPeriodOfSentence
 
- (isa Fred Divorced) (DayFn 1 (MonthFn July (YearFn 1988)))) ….(A6) Assertions such as A6 can be derived for each of Fred's weddings.
+(isa Fred Divorced) (DayFn 1 (MonthFn July (YearFn 1988)))) ….(A6) Assertions such as A6 can be derived for each of Fred's weddings.
 
 (b) **Specification of the** *hazard function*: Given the starting point of the risk period, we can calculate the probability that a state-terminating event would occur in a given time interval. Let us divide continuous time into a sequence of time intervals (0, t1], (t1, t2], ..., and so forth, and let (tj-1, tj] be the *j*th time interval. Then, if T is the discrete random variable that indicates the time interval during which a state terminating event occurs, then the discrete hazard, hj, is the conditional probability that a randomly selected individual will experience the stateterminating event in the*j*th time interval, given that he/she has not experienced it in preceding time intervals [Singer & Willett 1993, Singer & Willett 2003]:
 
- h<sup>j</sup> = Pr ( T = j | T ≥ j) ...(E1) Thus, it follows that:
+h<sup>j</sup> = Pr ( T = j | T ≥ j) ...(E1) Thus, it follows that:
 
 Pr(T > k) = (1-h<sub>1</sub>)(1-h<sub>2</sub>)...(1-h<sub>k</sub>)
 =
@@ -108,7 +108,7 @@ $$
 ![](_page_2_Figure_10.jpeg)
 <!-- Image Description: The image displays a line graph illustrating survival likelihood against age (years). The graph shows a high survival likelihood (near 1.0) until around age 30, after which it declines steeply, reaching near zero by age 44. The data points are marked with diamonds. The graph likely depicts mortality data relevant to the paper's subject, possibly showing the lifespan or survival rate of a specific organism or system. -->
 
-Figure 1: Likelihood of truth of sentences of type (isa <ins> Cricketer) as a function of age.
+**Figure 1:** Likelihood of truth of sentences of type (isa <ins> Cricketer) as a function of age.
 
 Given sentences like A6, we will find the last known starting point of risk period. Then expression E2 can be
 
@@ -144,7 +144,7 @@ Sentence: (isa Fred (FrequentPerformerFn Smoking)) ...(A10) Sentence: (isa Fred 
 
 Other covariates (e.g., gender) can be time independent. To scale the hazard when such covariates are present, an expression such as E4 is used.
 
- h(i) ← 1/ (1+e-ɑ(i) e (-Σβ(i)\*X(i))) …(E4) Recall that h(i) is the hazard for the ith time interval. Here, each X(i) is a Boolean variable that corresponds to a covariate such as A10. The value of X(i) is 1 if the covariate is present in the ith time interval, but zero otherwise. The parameters β(i) represent the strengths of the covariates. When a sentence such as A11 is true in an interval *i*, the value of h(i) increases, which leads to a sharper decline in the probability of the persistence of A11. When all of the values of X(i) are zero, the hazard function for the ith time interval reduces to E5.
+h(i) ← 1/ (1+e-ɑ(i) e (-Σβ(i)\*X(i))) …(E4) Recall that h(i) is the hazard for the ith time interval. Here, each X(i) is a Boolean variable that corresponds to a covariate such as A10. The value of X(i) is 1 if the covariate is present in the ith time interval, but zero otherwise. The parameters β(i) represent the strengths of the covariates. When a sentence such as A11 is true in an interval *i*, the value of h(i) increases, which leads to a sharper decline in the probability of the persistence of A11. When all of the values of X(i) are zero, the hazard function for the ith time interval reduces to E5.
 
 $$
 h(i) \leftarrow 1/(1 + e^{-a(i)}) \qquad ...(E5)
@@ -158,10 +158,10 @@ The last argument in A12 is used to specify the value of β(i). Similar assertio
 
 Hazard functions can also be used to infer the persistence of time-dependent predicates. However, in some cases, we need an additional vocabulary for plausible inferences. Consider the following sentences:
 
-| (owns AlbertEinstein Car-780)                         | …(A13) |
+| (owns AlbertEinstein Car-780) | …(A13) |
 |-------------------------------------------------------|--------|
-| (owns AlbertEinstein Toothbrush-392)                  | …(A14) |
-| The sentences A13 and A14 should have different decay |        |
+| (owns AlbertEinstein Toothbrush-392) | …(A14) |
+| The sentences A13 and A14 should have different decay | |
 
 rates. Therefore, we need to specify hazard functions for handling sentences where an instance of a certain collection appears in a given argument position in a predicate<sup>8</sup> [.](#page-3-2) If the known specific conditions are not satisfied for a given assertion, then we must employ generic hazard functions that apply to a given predicate.
 
@@ -173,10 +173,10 @@ The inferences made by the methods discussed above are non-monotonic in nature. 
 
 The first sentence above denotes that situation *s*starts a time interval during which the fluent*f*holds. The core persistence axiom employed in simplified event calculus is as follows [Sadri & Kowalski 1995].
 
-|  |  |                     | Holds(P, T) ← Happens (E1, T1) and Initiates (E1, P) and |            |  |
+| | | | Holds(P, T) ← Happens (E1, T1) and Initiates (E1, P) and | | |
 |--|--|---------------------|----------------------------------------------------------|------------|--|
-|  |  | T1 < T and ~∃E2, T2 | (Happens (E2, T2) and                                    |            |  |
-|  |  |                     | Terminates (E2, P) and T1 < T2 < T)                      | …<br>(A17) |  |
+| | | T1 < T and ~∃E2, T2 | (Happens (E2, T2) and | | |
+| | | | Terminates (E2, P) and T1 < T2 < T) | …<br>(A17) | |
 
 However, the original event calculus description [Kowalski & Sergot 1986] suggested that extra application-specific rules can be added to infer whether an interval for a fluent has been broken if the known events are too far apart for it to hold continuously. This problem can be solved if we combine the event calculus with the survival analysisbased methods discussed above. In step 1a of the algorithm
 
@@ -216,25 +216,25 @@ Conditions C1, C2 and C3 help us identify events that are most temporally proxim
 
 These assertions are derived from domain-specific axioms (e.g., axioms about presidential inauguration) and they are treated as default statements. They can be overridden when contradictory information[10](#page-4-1) is available and assertions such as A16 are derived.
 
-| Algorithm: TemporallyProject                                |  |  |  |  |
+| Algorithm: TemporallyProject | | | | |
 |-------------------------------------------------------------|--|--|--|--|
-| Input: A Knowledge Base, KB                                 |  |  |  |  |
-| A fluent, P, true during a time interval, T.                |  |  |  |  |
-| A likelihood threshold, ɑ.                                  |  |  |  |  |
-| Output: A time interval [T1, T2] that subsumes T, such      |  |  |  |  |
-| that if T3 ɛ [T1, T2], then Prob (P, T3) > ɑ.               |  |  |  |  |
-| 1. If events E1 and E2 exist such that they start and end   |  |  |  |  |
-| intervals for P respectively and satisfy condition C1,      |  |  |  |  |
-| then execute 1a–1c, else goto step 2.                       |  |  |  |  |
-| (1a) Use A17 to construct an interval [T1, T2] that         |  |  |  |  |
-| subsumes T for P.                                           |  |  |  |  |
-| (1b) Use the hazard function for P to construct another     |  |  |  |  |
-| interval [T3, T4] for P.                                    |  |  |  |  |
-| (1c) If [T1, T2] subsumes [T3, T4], then return [T3,        |  |  |  |  |
-| T4], else return [T1, T2].                                  |  |  |  |  |
-| 2. If all known events start intervals for P, use condition |  |  |  |  |
-| C2 to choose an event, and use the relevant hazard          |  |  |  |  |
-| function to create an interval [T5, T6] that extends        |  |  |  |  |
+| Input: A Knowledge Base, KB | | | | |
+| A fluent, P, true during a time interval, T. | | | | |
+| A likelihood threshold, ɑ. | | | | |
+| Output: A time interval [T1, T2] that subsumes T, such | | | | |
+| that if T3 ɛ [T1, T2], then Prob (P, T3) > ɑ. | | | | |
+| 1. If events E1 and E2 exist such that they start and end | | | | |
+| intervals for P respectively and satisfy condition C1, | | | | |
+| then execute 1a–1c, else goto step 2. | | | | |
+| (1a) Use A17 to construct an interval [T1, T2] that | | | | |
+| subsumes T for P. | | | | |
+| (1b) Use the hazard function for P to construct another | | | | |
+| interval [T3, T4] for P. | | | | |
+| (1c) If [T1, T2] subsumes [T3, T4], then return [T3, | | | | |
+| T4], else return [T1, T2]. | | | | |
+| 2. If all known events start intervals for P, use condition | | | | |
+| C2 to choose an event, and use the relevant hazard | | | | |
+| function to create an interval [T5, T6] that extends | | | | |
 
 then return [T5, T6] else goto step 4 3. If all known events terminate intervals for P, use condition C3 to choose an event and use the relevant hazard function to create an interval [T5, T6] that extends backward from the event. If T is subsumed by [T5, T6] then return [T5, T6] else goto step 4.
 
@@ -261,20 +261,20 @@ The values of the hazard functions can be calculated by minimizing L.
 
 | Query set | Mode | #Queries | % Correct | Improvement<br>w.r.t. Mode 1 |
 |-----------|------|----------|-----------|------------------------------|
-| 1         | M1   | 100      | 28%       | -                            |
-|           | M2   | 100      | 56%       | 100%                         |
-| 2         | M1   | 3661     | 39%       | -                            |
-|           | M2   | 3661     | 57%       | 46%                          |
-| 3         | M1   | 423      | 29%       | -                            |
-|           | M2   | 423      | 70%       | 141%                         |
-| 4         | M1   | 2616     | 43%       | -                            |
-|           | M2   | 2616     | 63%       | 47%                          |
-| 5         | M1   | 533      | 26%       |                              |
-|           | M2   | 533      | 34%       | 31%                          |
-| Total     | M1   | 7333     | 39%       |                              |
-|           | M2   | 7333     | 58%       | 49%                          |
+| 1 | M1 | 100 | 28% | - |
+| | M2 | 100 | 56% | 100% |
+| 2 | M1 | 3661 | 39% | - |
+| | M2 | 3661 | 57% | 46% |
+| 3 | M1 | 423 | 29% | - |
+| | M2 | 423 | 70% | 141% |
+| 4 | M1 | 2616 | 43% | - |
+| | M2 | 2616 | 63% | 47% |
+| 5 | M1 | 533 | 26% | |
+| | M2 | 533 | 34% | 31% |
+| Total | M1 | 7333 | 39% | |
+| | M2 | 7333 | 58% | 49% |
 
-#### Table 1: Experimental Results
+### Table 1: Experimental Results
 
 ## Experimental Evaluation
 

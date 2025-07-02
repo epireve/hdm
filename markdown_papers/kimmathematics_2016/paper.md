@@ -57,7 +57,7 @@ keywords:
 Zilinghan Li *Data Science and Learning Division Argonne National Laboratory*Lemont, IL USA zilinghan.li@anl.gov
 
 Ravi Madduri
-*Data Science and Learning Division Argonne National Laboratory*Lemont, IL USA madduri@anl.gov
+**Data Science and Learning Division Argonne National Laboratory:** Lemont, IL USA madduri@anl.gov
 
 Kibaek Kim*Mathematics and Computer Science Argonne National Laboratory*Lemont, IL USA kimk@anl.gov
 
@@ -66,9 +66,9 @@ Minseok Ryu*School of Computing and Augmented Intelligence Arizona State Univers
 Tarak Nandi*Data Science and Learning Division Argonne National Laboratory*Lemont, IL USA tnandi@anl.gov
 
 > Alex Rodriguez*Data Science and Learning Argonne National Laboratory*Lemont, IL USA a.rodriguez@anl.gov
-*Abstract*—The concept of a learning healthcare system (LHS) envisions a self-improving network where multimodal data from patient care are continuously analyzed to enhance future healthcare outcomes. However, realizing this vision faces significant challenges in data sharing and privacy protection. Privacy-Preserving Federated Learning (PPFL) is a transformative and promising approach that has the potential to address these challenges by enabling collaborative learning from decentralized data while safeguarding patient privacy. This paper proposes a vision for integrating PPFL into the healthcare ecosystem to achieve a truly LHS as defined by the Institute of Medicine (IOM) Roundtable.
+**Abstract:** The concept of a learning healthcare system (LHS) envisions a self-improving network where multimodal data from patient care are continuously analyzed to enhance future healthcare outcomes. However, realizing this vision faces significant challenges in data sharing and privacy protection. Privacy-Preserving Federated Learning (PPFL) is a transformative and promising approach that has the potential to address these challenges by enabling collaborative learning from decentralized data while safeguarding patient privacy. This paper proposes a vision for integrating PPFL into the healthcare ecosystem to achieve a truly LHS as defined by the Institute of Medicine (IOM) Roundtable.
 
-*Index Terms*—Privacy-Preserving Federated Learning, Learning Healthcare System, Data Privacy, Healthcare Innovation, Collaborative Learning.
+**Index Terms:** Privacy-Preserving Federated Learning, Learning Healthcare System, Data Privacy, Healthcare Innovation, Collaborative Learning.
 
 ## I. INTRODUCTION
 
@@ -81,7 +81,7 @@ Several approaches have been proposed to alleviate model drift, detect performan
 ![](_page_1_Figure_0.jpeg)
 <!-- Image Description: The diagram illustrates a federated learning architecture for multimodal medical data. Four hospitals (Hospital 1-4) contribute their data (represented by icons like ECGs, X-rays, and lab results) to a central, trusted and secure server. Each hospital trains a local model on its data, and these models' updates are aggregated on the server to improve a shared global model, without exchanging raw patient data. The dashed lines represent data flow. -->
 
-<span id="page-1-0"></span>Fig. 1. An envisioned privacy-preserving federated learning framework for a truly learning healthcare system: Under the coordination of a trusted and secure server, multiple hospitals collaboratively train robust, generalized machine learning models using multimodal biomedical data stored in their cloud or on-premise facilities. With continuous learning capabilities integrated into the framework, the models can detect and avoid performance degradation, adapt dynamically in real time to any shifts in data distributions, availability of new patient data, and evolving health trends.
+<span id="page-1-0"></span>Figure 1. An envisioned privacy-preserving federated learning framework for a truly learning healthcare system: Under the coordination of a trusted and secure server, multiple hospitals collaboratively train robust, generalized machine learning models using multimodal biomedical data stored in their cloud or on-premise facilities. With continuous learning capabilities integrated into the framework, the models can detect and avoid performance degradation, adapt dynamically in real time to any shifts in data distributions, availability of new patient data, and evolving health trends.
 
 reconstruction by attackers. Infrastructure challenges in the implementation of FL at scale include dealing with heterogeneity of computational resources available to researchers, identity and access management challenges to setup end-toend secure federations, ease of use in setting up and running FL experiments, addressing privacy issues for different data types, and FAIRness constructs when performing AI experiments to enable reproducibility [\[14\]](#page-5-10), [\[15\]](#page-5-11).
 
@@ -108,11 +108,11 @@ Integrating data from multiple sources and modalities to train a single AI model
 ![](_page_3_Figure_0.jpeg)
 <!-- Image Description: The image displays three diagrams illustrating different scenarios in multimodal feature spaces. (a) shows clients sharing the same multimodal feature space but having different sample sizes. (b) depicts clients sharing the same sample space but different multimodal feature spaces. (c) illustrates clients with both different sample spaces and multimodal feature spaces. Each diagram uses rectangles to represent client data across different modalities, labeled as "Client 1" and "Client C". The purpose is to visually represent variations in data organization in a multimodal learning context. -->
 
-<span id="page-3-0"></span>Fig. 2. Different sample and multimodal feature distribution patterns among clients in multimodal federated learning.
+<span id="page-3-0"></span>Figure 2. Different sample and multimodal feature distribution patterns among clients in multimodal federated learning.
 
 high dimensional gene expression data [\[33\]](#page-6-10). By carefully selecting embedding generation techniques tailored to each modality, it is possible to harmonize diverse data sources leading to improved model performance and more informative predictions.
 
-##*B. Integration of Multimodal Learning in a Federated Setting*When training a multimodal model in a federated setting, there are three scenarios based on the distribution of the sample and multimodal feature spaces. In the first scenario, when all clients shared the same multimodal feature space, as depicted in Figure [2-](#page-3-0)a, a multimodal model can be trained directly using traditional FL algorithms, where each client trains an individual model with the same architecture and shares the locally trained model parameters for aggregation [\[34\]](#page-6-11), [\[35\]](#page-6-12). In the second scenario, the clients share the same sample space but possess different data modalities, as shown in Figure [2-](#page-3-0)b, making vertical FL (VFL) an appropriate solution. In VFL, each client trains a local model on its respective data modalities, generates latent representations, and sends these to the server to update the global model. The server then sends back gradients for the corresponding latent representations, allowing each client to update its local model [\[36\]](#page-6-13), [\[37\]](#page-6-14). However, VFL typically requires data identifiers to align distributed samples, which may not always be feasible in biomedical applications. In the third scenario, where clients have different sample and multimodal feature spaces and lack unique identifiers for aligning samples (Figure [2-](#page-3-0)c), training a multimodal model collaboratively becomes more challenging. One potential solution is for each client to train a sub-model on its local data modalities and share it with other clients to collectively build a larger multimodal model using intermediate or late fusion techniques. Another approach involves having each client train a local model on its private data modalities and transmit the latent representations of publicly available multimodal data to the server for sample alignment [\[38\]](#page-6-15). Additionally, generative models could be used to create synthetic data that mimics the distribution of each client's multimodal data, enabling alignment without compromising sensitive information. While promising, these approaches remain an open area of research, requiring further investigation to address the complexities of multimodal FL.
+## *B. Integration of Multimodal Learning in a Federated Setting*When training a multimodal model in a federated setting, there are three scenarios based on the distribution of the sample and multimodal feature spaces. In the first scenario, when all clients shared the same multimodal feature space, as depicted in Figure [2-](#page-3-0)a, a multimodal model can be trained directly using traditional FL algorithms, where each client trains an individual model with the same architecture and shares the locally trained model parameters for aggregation [\[34\]](#page-6-11), [\[35\]](#page-6-12). In the second scenario, the clients share the same sample space but possess different data modalities, as shown in Figure [2-](#page-3-0)b, making vertical FL (VFL) an appropriate solution. In VFL, each client trains a local model on its respective data modalities, generates latent representations, and sends these to the server to update the global model. The server then sends back gradients for the corresponding latent representations, allowing each client to update its local model [\[36\]](#page-6-13), [\[37\]](#page-6-14). However, VFL typically requires data identifiers to align distributed samples, which may not always be feasible in biomedical applications. In the third scenario, where clients have different sample and multimodal feature spaces and lack unique identifiers for aligning samples (Figure [2-](#page-3-0)c), training a multimodal model collaboratively becomes more challenging. One potential solution is for each client to train a sub-model on its local data modalities and share it with other clients to collectively build a larger multimodal model using intermediate or late fusion techniques. Another approach involves having each client train a local model on its private data modalities and transmit the latent representations of publicly available multimodal data to the server for sample alignment [\[38\]](#page-6-15). Additionally, generative models could be used to create synthetic data that mimics the distribution of each client's multimodal data, enabling alignment without compromising sensitive information. While promising, these approaches remain an open area of research, requiring further investigation to address the complexities of multimodal FL.
 
 ## IV. HIERARCHICAL FL FOR COLLABORATIVE TRAINING BEYOND THE TRUST BOUNDARIES
 
@@ -123,7 +123,7 @@ Hierarchical federated learning (HierFL) [\[40\]](#page-6-17), [\[41\]](#page-6-
 ![](_page_4_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates a federated healthcare data system. Three trust groups, each comprising a central hospital and two smaller clinics, are depicted. Each group connects to a central cloud server, symbolizing data sharing and aggregation. Icons indicate trust agreements between groups. The image shows a hierarchical, multi-tiered architecture for secure data exchange among healthcare institutions. -->
 
-<span id="page-4-0"></span>Fig. 3. Hierarchical federated learning helps to connect several small trust group to a larger federation.
+<span id="page-4-0"></span>Figure 3. Hierarchical federated learning helps to connect several small trust group to a larger federation.
 
 ## V. FEDERATED CONTINUOUS LEARNING FOR MULTIMODAL BIOMEDICAL MODELS
 
@@ -136,7 +136,7 @@ Additionally, the PPFL framework can be extended with federated evaluation and m
 ![](_page_4_Figure_7.jpeg)
 <!-- Image Description: This flowchart illustrates a system for AI model training and maintenance. It depicts a sequence: initial federated learning from a training set, followed by periodic federated evaluation. If degradation is detected, federated continual learning is initiated using a new labeled dataset to retrain the AI model. The flowchart uses boxes for processes (learning, evaluation) and cylinders for datasets. Arrows indicate data flow and the conditional retraining path. -->
 
-<span id="page-4-1"></span>Fig. 4. Federated continuous learning workflow with a federated evaluation feedback loop for timely performance degradation detection.
+<span id="page-4-1"></span>Figure 4. Federated continuous learning workflow with a federated evaluation feedback loop for timely performance degradation detection.
 
 ## VI. COST-AWARE FL ON THE CLOUD
 
@@ -145,7 +145,7 @@ Training AI models is often expensive, especially when relying on GPU virtual ma
 ![](_page_5_Figure_1.jpeg)
 <!-- Image Description: The diagram illustrates a cloud-based system architecture for healthcare data processing. A central "Cost-aware Scheduler" distributes computation and storage tasks across three major cloud providers: AWS, Google Cloud, and Azure. Each provider is represented with icons for compute and storage resources, showing data flow from storage to compute within each cloud. The diagram's purpose is to visually depict the system's multi-cloud deployment strategy and the role of the scheduler in optimizing resource allocation. -->
 
-<span id="page-5-18"></span>Fig. 5. Using a server-side cost-aware scheduler to achieve cost-effective FL experiments among clients on the cloud.
+<span id="page-5-18"></span>Figure 5. Using a server-side cost-aware scheduler to achieve cost-effective FL experiments among clients on the cloud.
 
 ## VII. CONCLUSIONS
 

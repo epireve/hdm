@@ -26,7 +26,6 @@ keywords:
 - tkg
 ---
 
-
 ![](_page_0_Picture_2.jpeg)
 <!-- Image Description: The image is simply the Wiley publisher logo. It contains no diagrams, charts, graphs, equations, or technical illustrations. Its purpose in the academic paper is to identify the publisher of the work. -->
 
@@ -77,7 +76,7 @@ Overall, this research models both local and global information. It proposes a m
 
 This paper is structured as follows: Section [1](#page-0-2) introduces the research topic and objectives. Section [2](#page-2-0) discusses the related work, which is divided into two subsections: static reasoning methods and dynamic reasoning methods. In Section [3](#page-5-0), we introduce the TD-RKG model, including its definition and overview, and then discuss in detail the dynamic local recurrent encoding layer, dynamic implicit encoding layer, dynamic global information attention layer and decoder layer. Section [4](#page-11-0) provides our experimental setup and results, with each subsection detailing the experimental setup, results and ablation study. Finally, Section [5](#page-16-0) summarises this article and discusses future work.
 
-# <span id="page-2-0"></span>2 | Related Work
+## <span id="page-2-0"></span>2 | Related Work
 
 KG reasoning methods can be divided into two categories based on their adaptability to temporal dynamics: static reasoning methods and dynamic reasoning methods. In this section, we will delve into the core technologies of these two methods. Furthermore, Table [1](#page-3-0) provides an overview of these methods, highlighting their key technologies and potential limitations.
 
@@ -85,32 +84,32 @@ KG reasoning methods can be divided into two categories based on their adaptabil
 
 Static reasoning methods in knowledge graphs do not consider temporal dynamics. They focus only on the static facts stored in the KG and use embedding representations of entities and relationships, mapping them to low-dimensional spaces for learning. Embedding models can primarily be categorised into four types: translation-based models, tensor factorization models, rotation-based models and neural network models (Le, Le, and Le [2023](#page-17-7)). Translation-based models, such as TransE (Bordes et al. [2013](#page-17-8)) and TransH (Wang et al. [2014](#page-18-8)), treat relationships (r) as translation transformations when projecting entity embeddings (e) into the latent space. They utilise distance functions (e.g., L1 norm and L2 norm) to score the fact triplets. Although TransE has been proven effective, it cannot handle certain specific relationships such as one-tomany, many-to-one, symmetry and transitive relationships.
 
-|                  | Key technology                                           |                                                                                                                                                          |                                                                                                |  |  |  |  |  |
+| | Key technology | | | | | | | |
 |------------------|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|--|--|--|--|--|
-| Models           | Encoder                                                  | Decoder                                                                                                                                                  | Limitation                                                                                     |  |  |  |  |  |
-| TransE           | —                                                        | fp(s, o) = ‖s+p−o‖2<br>2                                                                                                                                 | Static KGs cannot                                                                              |  |  |  |  |  |
-| TransH           | —                                                        | 𝜀(s, p, o) = ‖s⊥<br>+ p − o⊥<br>‖                                                                                                                        | simulate time evolution<br>and therefore do not<br>work in practical<br>application scenarios. |  |  |  |  |  |
-| DistMult         | —                                                        | < wp, es, eo<br>>                                                                                                                                        |                                                                                                |  |  |  |  |  |
-| ComplEx          | —                                                        | Re(<br>)<br>< wp, es, eo<br>>                                                                                                                            |                                                                                                |  |  |  |  |  |
-| RotatE           | —                                                        | dp(s, o) = ‖s ◦p<br>− o‖                                                                                                                                 |                                                                                                |  |  |  |  |  |
-| ConvE            | —                                                        | (<br>)<br>(<br>vec(<br>([es;<br>]<br>))W)<br>es, eo<br>rr<br>eo<br>𝜓r<br>= f<br>f<br>∗𝜔                                                                  |                                                                                                |  |  |  |  |  |
-| Conv-TransE      | —                                                        | (<br>)<br>(<br>vec(<br>([es;<br>]<br>))W)<br>es, eo<br>rr<br>eo<br>𝜓r<br>=f<br>f<br>∗𝜔<br>(<br>)<br>(<br>(<br>))<br>es, ep, eo<br>es, eo<br>p<br>=𝜎<br>𝜓 |                                                                                                |  |  |  |  |  |
-| R-GCN            | —                                                        | f (s, p, o) = eT<br>s Rpeo                                                                                                                               |                                                                                                |  |  |  |  |  |
-| TTransE          | —                                                        | ‖s+p+t−o‖1∕2                                                                                                                                             | The interpolation-based                                                                        |  |  |  |  |  |
-| TA-DistMult      | LSTM                                                     | f (s, p, o) = (<br>◦eo<br>)<br>eT<br>es<br>p                                                                                                             | TKG reasoning cannot<br>predict the fact of future                                             |  |  |  |  |  |
-| HyTE             | = s − (<br>)<br>wT<br>st<br>t s<br>wt                    | st<br>+pt<br>−ot<br>‖<br>‖<br>‖1∕2                                                                                                                       | timestamps, nor can it be<br>directly compatible with<br>extrapolation settings.               |  |  |  |  |  |
-| DE models        | {e[n]𝜎(w[n]t+b[n]),<br>1≤n≤𝛾d<br>et[n] =<br>e[n], 𝛾d≤n≤d | ‖<br>1<br>�<br>⟨st, p, ot⟩ + �<br>��<br>ot, p−1,st<br>2                                                                                                  |                                                                                                |  |  |  |  |  |
-| TuckERT<br>model | —                                                        | ⟨M;s, p, o, t⟩                                                                                                                                           |                                                                                                |  |  |  |  |  |
-| TNTComplEx       | —                                                        | re(⟨s, p, o, t⟩)                                                                                                                                         |                                                                                                |  |  |  |  |  |
-| T-SimplE         | —                                                        | 1<br>�<br>⟨s, p, o, t⟩ + �<br>��<br>o, p−1,s,<br>t<br>2                                                                                                  |                                                                                                |  |  |  |  |  |
-| EvoExplore       | Local structure+Global structure                         | —                                                                                                                                                        |                                                                                                |  |  |  |  |  |
-| xERTE            | TRGA                                                     | —                                                                                                                                                        | Ignoring implicit<br>correlation challenge.                                                    |  |  |  |  |  |
-| TLogic           | Temporal random<br>walk+Temporal logical rule            | —                                                                                                                                                        | Ignoring implicit<br>correlation challenge.                                                    |  |  |  |  |  |
-| T-GAP            | GNN                                                      | Iterative sampling                                                                                                                                       | Ignoring implicit<br>correlation challenge.                                                    |  |  |  |  |  |
-| Titre            | RL                                                       | —                                                                                                                                                        | Ignoring implicit<br>correlation challenge.                                                    |  |  |  |  |  |
-| CluSTeR          | RL+R-GCN+GRU                                             | —                                                                                                                                                        | Ignoring implicit<br>correlation challenge.                                                    |  |  |  |  |  |
-| RE-NET           | R-GCN+GRU                                                | MLP                                                                                                                                                      | Ignoring implicit<br>correlation challenge.                                                    |  |  |  |  |  |
-| CyGNet           | Copy mode+Generation mode                                | —                                                                                                                                                        | Ignoring the time<br>sensitivity challenge.                                                    |  |  |  |  |  |
+| Models | Encoder | Decoder | Limitation | | | | | |
+| TransE | — | fp(s, o) = ‖s+p−o‖2<br>2 | Static KGs cannot | | | | | |
+| TransH | — | 𝜀(s, p, o) = ‖s⊥<br>+ p − o⊥<br>‖ | simulate time evolution<br>and therefore do not<br>work in practical<br>application scenarios. | | | | | |
+| DistMult | — | < wp, es, eo<br>> | | | | | | |
+| ComplEx | — | Re(<br>)<br>< wp, es, eo<br>> | | | | | | |
+| RotatE | — | dp(s, o) = ‖s ◦p<br>− o‖ | | | | | | |
+| ConvE | — | (<br>)<br>(<br>vec(<br>([es;<br>]<br>))W)<br>es, eo<br>rr<br>eo<br>𝜓r<br>= f<br>f<br>∗𝜔 | | | | | | |
+| Conv-TransE | — | (<br>)<br>(<br>vec(<br>([es;<br>]<br>))W)<br>es, eo<br>rr<br>eo<br>𝜓r<br>=f<br>f<br>∗𝜔<br>(<br>)<br>(<br>(<br>))<br>es, ep, eo<br>es, eo<br>p<br>=𝜎<br>𝜓 | | | | | | |
+| R-GCN | — | f (s, p, o) = eT<br>s Rpeo | | | | | | |
+| TTransE | — | ‖s+p+t−o‖1∕2 | The interpolation-based | | | | | |
+| TA-DistMult | LSTM | f (s, p, o) = (<br>◦eo<br>)<br>eT<br>es<br>p | TKG reasoning cannot<br>predict the fact of future | | | | | |
+| HyTE | = s − (<br>)<br>wT<br>st<br>t s<br>wt | st<br>+pt<br>−ot<br>‖<br>‖<br>‖1∕2 | timestamps, nor can it be<br>directly compatible with<br>extrapolation settings. | | | | | |
+| DE models | {e[n]𝜎(w[n]t+b[n]),<br>1≤n≤𝛾d<br>et[n] =<br>e[n], 𝛾d≤n≤d | ‖<br>1<br>�<br>⟨st, p, ot⟩ + �<br>��<br>ot, p−1,st<br>2 | | | | | | |
+| TuckERT<br>model | — | ⟨M;s, p, o, t⟩ | | | | | | |
+| TNTComplEx | — | re(⟨s, p, o, t⟩) | | | | | | |
+| T-SimplE | — | 1<br>�<br>⟨s, p, o, t⟩ + �<br>��<br>o, p−1,s,<br>t<br>2 | | | | | | |
+| EvoExplore | Local structure+Global structure | — | | | | | | |
+| xERTE | TRGA | — | Ignoring implicit<br>correlation challenge. | | | | | |
+| TLogic | Temporal random<br>walk+Temporal logical rule | — | Ignoring implicit<br>correlation challenge. | | | | | |
+| T-GAP | GNN | Iterative sampling | Ignoring implicit<br>correlation challenge. | | | | | |
+| Titre | RL | — | Ignoring implicit<br>correlation challenge. | | | | | |
+| CluSTeR | RL+R-GCN+GRU | — | Ignoring implicit<br>correlation challenge. | | | | | |
+| RE-NET | R-GCN+GRU | MLP | Ignoring implicit<br>correlation challenge. | | | | | |
+| CyGNet | Copy mode+Generation mode | — | Ignoring the time<br>sensitivity challenge. | | | | | |
 
 RGCRN CNN+RNN — Ignoring the time-
 
@@ -124,9 +123,9 @@ sensitivity challenge.
 
 sensitivity challenge.
 
-| Models | Encoder                | Decoder    | Limitation                                  |
+| Models | Encoder | Decoder | Limitation |
 |--------|------------------------|------------|---------------------------------------------|
-| DEGAT  | GAT                    | DE-ConvKB  | Ignoring the time<br>sensitivity challenge. |
+| DEGAT | GAT | DE-ConvKB | Ignoring the time<br>sensitivity challenge. |
 | RE-GCN | Relation-aware GCN+GRU | ConvTransE | Ignoring implicit<br>correlation challenge. |
 
 The TransH model overcomes some of the limitations of TransE, but it still assumes that entities and relationships are in the same semantic space, which to some extent limits the representational power of TransH. Tensor factorizationbased methods, including DistMult (Yang et al. [2014\)](#page-18-9) and ComplEx (Trouillon et al. [2016\)](#page-18-10), represent the knowledge graph as a three-dimensional tensor and decompose it into low-dimensional vectors for entities and relationships to learn their embedding representations. DistMult represents relationships using real-valued vector dot products, which can better represent many-to-many relationships. However, due to the simplicity of the model and the small number of parameters, its ability to capture modelling information is weak. ComplEx represents relationships using complex-valued vector multiplications and conjugations, providing more complex modelling capabilities. However, the performance of the model depends on the optimal parameter settings and carries the risk of overfitting. Rotation-based methods, such as RotatE (Sun et al. [2019\)](#page-18-11), map entity and relationship embeddings to a complex vector space and employ rotation operations to model semantic correlations between entities and relationships. However, RotatE is more sensitive to the selection of hyperparameters. Traditional neural network models encode entities and relationships into latent vectors using neural networks for relationship inference in KGs. Convolution-based methods, such as ConvE (Dettmers et al. [2018](#page-17-9)), map entities and relationships to a 2D matrix and use 2D convolutions for feature extraction and relationship inference. Conv-TransE (Shang et al. [2019](#page-18-12)), which combines ConvE and TransE, jointly learns the embedding representations of entities and relationships, considering both semantic correlations and linear relationships between entities and relationships. R-GCN (Schlichtkrull et al. [2018\)](#page-18-13) is a typical graph neural network model that integrates relational information through specialised message passing and aggregation mechanisms, enabling the effective capturing of complex patterns and dependencies within graph-structured data. But it is difficult to capture the complex relationships and temporal dependencies between entities.
@@ -145,34 +144,33 @@ two-stage inference approach, extracting relevant subgraphs using a stochastic b
 
 In this section, the TD-RKG method is extensively discussed. First, the symbols and definitions used are described. Then, the framework of the model and its four modules are presented, namely the dynamic local recurrent encoding layer, dynamic implicit encoding layer, dynamic global information attention layer and decoder layer. Finally, the parameter learning strategy of the model is introduced.
 
-# 3.1 | Definition and Overview
+## 3.1 | Definition and Overview
 
 This section introduces the symbols and definitions used in this article and summarises the framework of the model.
 
-<span id="page-5-1"></span>
 
-| Notations | Descriptions                              |
+| Notations | Descriptions |
 |-----------|-------------------------------------------|
-| G         | A TKG                                     |
-| Gs        | A static KG                               |
-| Gt        | Static Subgraph at timestamp t in the TKG |
-| V         | Set of Entities in the KG                 |
-| R         | Set of Relations in the KG                |
-| T         | Set of Timestamps in the KG               |
-| Ft        | Set of Facts at timestamp t               |
-| s         | Subject Entity, s ∈ V                     |
-| p         | Relation, p ∈ R                           |
-| o         | Object Entity, o ∈ V                      |
-| t         | Timestamp, t ∈ T                          |
-|           |                                           |
+| G | A TKG |
+| Gs | A static KG |
+| Gt | Static Subgraph at timestamp t in the TKG |
+| V | Set of Entities in the KG |
+| R | Set of Relations in the KG |
+| T | Set of Timestamps in the KG |
+| Ft | Set of Facts at timestamp t |
+| s | Subject Entity, s ∈ V |
+| p | Relation, p ∈ R |
+| o | Object Entity, o ∈ V |
+| t | Timestamp, t ∈ T |
+| | |
 
-# 3.1.1 | Problem Formulation
+## 3.1.1 | Problem Formulation
 
 In this article, the entity set is defined as*V*, the relationship set as *R*, aRnd the timestamp set as *T*. The set of facts at timestamp *t*is denoted as*Ft*. A TKG*G*can be represented as a sequence of static KGs with timestamps, that is,*G*= {*G*0,*G*1,*G*2, … ,*Gt*} . The static subgraph at timestamp*t*is represented as*Gt*, where*Gt*= {*V*, *R*, *Ft*} , and it is a directed multi-relational graph. The facts in*Ft* can be formalised as quadruples (*s*, *p*, *o*, *t*), where {*s*, *o*} ∈ *V*, *p*∈*R*, *t*∈*T*, and the inverse quadruple ( *o*, *p*<sup>−</sup>1,*s*, *t*) is also included in the dataset. Table [2](#page-5-1) provides a set of symbols used in the TD-RKG model and their corresponding descriptions.
 
 The task of TKG completion aims to predict the missing parts of quadruples at a certain moment based on the existing facts*F*. It can be divided into two types of prediction tasks: entity prediction and relationship prediction. The purpose of the entity prediction task is to predict a missing subject entity ( ?, *p*, *o*, *t* + 1) or predict a missing object entity (*s*, *p*, ?, *t* + 1). The relationship prediction task attempts to predict the missing relationship in the query (*s*, ?, *o*, *t* + 1).
 
-# 3.1.2 | Framework Overview
+## 3.1.2 | Framework Overview
 
 The basic idea of the proposed model in this study is to integrate the structural dependencies of KG, sequential patterns of information across temporal facts, and static attributes of entities at each timestamp into the evolutionary representations of entities and relations. This enables the model to learn temporal sensitivity in TKGs and the local topological dependencies and implicit correlations in node neighbourhoods. As shown in Figure [3](#page-6-0), the model is based on an encoder-decoder structure, with the relation-aware graph convolutional network (R-GCN) (Schlichtkrull et al. [2018](#page-18-13)), gated recurrent unit (GRU) (Cho et al. [2014\)](#page-17-20) and multi-layer perceptron (MLP) (Tolstikhin et al. [2021](#page-18-21)) serving as the encoder components, and Conv-TransE serving as the decoder components. First, in the dynamic local
 
@@ -183,7 +181,7 @@ The basic idea of the proposed model in this study is to integrate the structura
 
 recurrent encoding layer, the Relation-aware GCN model and GRU model are employed to model each temporal subgraph, resulting in entity embeddings and relation embeddings for the corresponding knowledge subgraph. Unlike conventional GCN networks, the Dynamic Implicit Relational Encoder further learns and integrates the node features extracted by GCN through logical functions and MLP, which better captures these implicit relationships. The learned entity embedding representations not only have rich temporal information but also capture a significant amount of contextual information in the graph. Then, a self-attention mechanism is introduced to calculate the influence of timestamps on the subject entity, relation, and object entity separately, applying the weighted values of attention size and entity time embeddings to the input features, and obtaining the weighted features. Finally, the Conv-TransE is used as the decoder in the architecture, based on the learned entity and relation representations, to perform future time reasoning and obtain potential new triples. Conv-TransE is a scoring function in this model, consisting of a one-dimensional convolutional layer and a fully connected layer, which can be seen as the probability score for candidate triples (*s*, *p*, *o*). Next, the architecture of TD-RKG will be introduced, including the composition of the encoder, the roles of each module in the model, and the selection of the decoder.
 
-# 3.2 | Dynamic Local Recurrent Encoding Layer
+## 3.2 | Dynamic Local Recurrent Encoding Layer
 
 The purpose of this module is to encode the KG sequence, learn the different roles of historical subgraphs of length *k* in the reasoning process, and capture the structural dependencies and sequential patterns of information across temporal neighbouring facts in the KG. Following the processing strategy of RE-GCN, a relation-aware GCN is employed to model the structural dependencies, and the gated recurrent component is used to model the historical KG sequence autoregressively. Specifically, the relation-aware GCN incorporates relationship information into the model, effectively capturing and utilising the relationship information between nodes in the graph structure by learning the relationship features between nodes, thereby better inferring and modelling structural dependency relationships. The entity gating unit obtains the evolving representations of entities at each timestamp, while the relation gating unit obtains the evolving representations of relations at each timestamp. To more intuitively demonstrate the encoding process of the dynamic local recurrent encoding layer, the flowchart in Figure [4](#page-7-0) describes the entire process of structural dependency modelling and autoregressive modelling of historical KG sequences. Next, this section will provide a more detailed description of the encoding process.
 
@@ -236,7 +234,7 @@ $$
 $$
 h_t = z_t \odot \widehat{h}_{t-1} + (1 - z_t) \odot h_t^{\prime}
 $$
- (7)
+(7)
 
 Among them,*W*(*z*) , *U*(*z*) , *W*(*r*) , *U*(*r*) are learnable parameters. *xt*represents the input at time step*t*. *ht*is the output at time step*t*. *zt*,*rt*represent the update gate and reset gate at time step*t*, and *h*' *t*represents the current memory content.*𝜎*is the sigmoid function, and*⊙*denotes the Hadamard product. In this way, the output of the GRU integrates the temporal information and neighbour information. Figure [5](#page-8-0) illustrates the structure of the bi-recurrent gated unit after incorporating the decay rate.
 
@@ -256,7 +254,7 @@ $$
 
 where*Vr*,*<sup>t</sup>*represents all entities connected to*r*at timestamp*t*, and *Ht*−<sup>1</sup> and *Vr*,*<sup>t</sup>*are subjected to mean pooling operation.*Rt*∈*R*<sup>∣</sup>*P*∣×*<sup>d</sup>*, *Rt*−<sup>1</sup> ∈ *R*<sup>∣</sup>*P*∣×*<sup>d</sup>*are the*d*-dimensional relationship embedding matrices at timestamps *t*and*t*− 1. Finally, the relationaware GRU updates*R*(*t*− 1) and the pooled relation to obtain*Rt* .
 
-#### 3.3 | Dynamic Implicit Encoding Layer
+### 3.3 | Dynamic Implicit Encoding Layer
 
 Capturing the implicit correlations between entities is crucial for the task of relation extraction. In this task, the relationships between entities depend not only on their direct connections but also on other factors such as context, co-occurrence relationships, and so on (Wang and El-Gohary [2023](#page-18-23)). Therefore, to better capture these implicit relationships and improve the accuracy and performance of relationship extraction, we introduce an implicit correlation encoder. Figure [6](#page-9-0) provides a more intuitive representation of the learning process of the dynamic implicit encoding layer. It obtains the implicit correlation strength between entities through an S-shaped function and then models the fully connected graph between entities through a multi-layer perceptron (MLP) and fuses it with the output of the relationship-aware GCN to optimise the node features extracted by the dynamic local cyclic encoding layer and avoid any loss of relevant information.
 
@@ -290,7 +288,7 @@ where *h*(*i*) imp is the output of the implicit correlation encoder and represe
 
 By introducing an implicit correlation encoder and calculating the strength of the implicit correlation, this model can better capture the implicit relationships between entities, thereby improving the effectiveness of relation extraction.
 
-#### 3.4 | Dynamic Global Information Attention Layer
+### 3.4 | Dynamic Global Information Attention Layer
 
 In time series tasks, the role of the self-attention mechanism in timestamps allows the model to focus its attention on relevant elements at different positions in the sequence when processing inputs at different time steps, rather than being limited to a fixed local window (Ahmed et al. [2023](#page-17-23)). This is particularly important for models dealing with time series data, as the correlations between different time steps can impact the model's performance. The self-attention mechanism can be achieved by calculating attention weights that indicate which time steps information the model should attend to when processing the input at the current time step. In time series, self-attention can help the model capture long-term dependencies and periodic patterns. By considering the similarity between the input at the current time step and other time steps, the model can better understand the temporal relationships between different time steps. For example, in the field of healthcare, analysing a patient's treatment timeline is crucial for evaluating treatment efficacy, drug effects, and determining the optimal treatment strategy. As shown in Figure [7,](#page-10-0) the most important facts for answering the given questions (medication, cure, object entity to be predicted, 10/24) are that A had the flu on 10/18, went to see a doctor on 10/20, and stopped taking medication on 10/23. Here, it should be noted that valuable information is that A went to see a doctor for medication 4 days before the cure date and stopped taking medication 1 day before the cure date. When considering time events, the most important thing is the relative order and time interval between events, rather than the absolute time of events. To effectively capture time displacement and solve the problem of time sensitivity, this model proposes to add a self-attention mechanism in the network.
 
@@ -311,7 +309,7 @@ $$
 
 where*Hi*is the node feature output by the dynamic implicit encoding layer. Further processing and fusion are performed on the weighted features, and the processed features are returned in the end.
 
-#### 3.5 | Decoder Layer
+### 3.5 | Decoder Layer
 
 Common decoders such as DistMult, TuckER, ConvKB and so forth perform poorly when dealing with complex relational patterns. Specifically, DistMult (Yang et al. [2014\)](#page-18-9) is limited by its symmetry, making it difficult to effectively handle asymmetric relationships, which may lead to inference errors. Although TuckER (Balažević, Allen, and Hospedales [2019\)](#page-17-24) has a relatively strong reasoning ability, its computational complexity is high, especially in large-scale knowledge graphs. Previous studies have shown that graph convolutional networks (GCNs) using convolutional scoring functions can effectively capture the translational properties of evolving embeddings representing hidden entities and relationships, and achieve good performance in KG reasoning. Although ConvKB (Nguyen et al. [2017\)](#page-18-24) introduces convolutional networks to handle entities and relationships, its design mainly focuses on extracting local features, which makes the model perform poorly in capturing long-distance dependencies and expressing complex relationship patterns. Therefore, in this model, we select Conv-TransE as the decoder. As shown in Figure [8](#page-11-1), we employ a 2×3 kernel for 2D convolution. The input to the decoder consists of entity embedding representations and relationship embedding representations. Since the dimensions of the entity embeddings and the relationship embeddings are the same, the two embeddings can be concatenated. Due to the use of a mini-batch stochastic training algorithm, the first step of the decoder is to perform a lookup operation on the embedding matrix to retrieve the inputs*Es*and*Ep*for the triples in the mini-batch. Then, the convolution operation is applied to the inputs to obtain the sum of*Es*and*Ep*, effectively preserving the translational properties of the
 
@@ -326,17 +324,16 @@ Common decoders such as DistMult, TuckER, ConvKB and so forth perform poorly whe
 
 <span id="page-11-1"></span>**FIGURE 8**| Architecture of the decoder layer.
 
-<span id="page-11-2"></span>
 
-|  | TABLE 3   Detailed dataset information. |  |
+| | TABLE 3 Detailed dataset information. | |
 |--|-----------------------------------------|--|
-|  |                                         |  |
+| | | |
 
-| #Datasets  | #Entities | #Relations | #Train  | #Valid | #Test  | #Time interval |
+| #Datasets | #Entities | #Relations | #Train | #Valid | #Test | #Time interval |
 |------------|-----------|------------|---------|--------|--------|----------------|
-| ICEWS14    | 6869      | 230        | 74,845  | 8514   | 7371   | 24h            |
-| ICEWS05-15 | 10,094    | 251        | 368,868 | 46,302 | 46,159 | 24h            |
-| YAGO       | 10,623    | 10         | 161,540 | 19,523 | 20,026 | 1 year         |
+| ICEWS14 | 6869 | 230 | 74,845 | 8514 | 7371 | 24h |
+| ICEWS05-15 | 10,094 | 251 | 368,868 | 46,302 | 46,159 | 24h |
+| YAGO | 10,623 | 10 | 161,540 | 19,523 | 20,026 | 1 year |
 
 embeddings. The output vector of the convolution is aligned with all the kernels to obtain a matrix*M*, which is then linearly transformed by *N*and mapped to the same space as the input dimension through a fully connected layer. Finally, the calculated embeddings are matched with*Eo*through an appropriate distance metric. In this model, the logistic sigmoid function is applied to the scoring. The final output of the Conv-TransE method is defined as follows:
 
@@ -351,7 +348,7 @@ These scores reflect the importance and relevance of entities and relations in K
 
 Conv-TransE preserves the translational property between entities and relations, learning node embeddings for link prediction. These scores reflect the importance and relevance of entities and relations in KG inference. Such modelling approaches can further improve the performance of KG inference and help us better understand and predict interactions between entities and relations in KGs. In addition to providing scores, this modelling approach can also provide valuable information and insights for subsequent inference tasks. Through ongoing research and improvement of these models and methods, we can expect better performance and results in the field of KG reasoning.
 
-# 3.6 | Parameter Learning
+## 3.6 | Parameter Learning
 
 Both entity prediction and relation prediction can be regarded as multi-label learning problems, and they can be trained together. Therefore, the total loss, which includes the entity prediction loss*L<sup>e</sup>*and the relation prediction loss*L<sup>p</sup>*, can be formalised as:
 
@@ -362,44 +359,44 @@ $$
 
 where *P*(*o*|*s*, *<sup>p</sup>*, *<sup>t</sup>*) and *P*(*p*|*s*, *<sup>o</sup>*, *<sup>t</sup>*) are the final probability scores for entity and relation prediction, *y<sup>e</sup> <sup>t</sup>*∈*R*<sup>∣</sup>*E*<sup>∣</sup> and *y p <sup>t</sup>*∈*R*<sup>∣</sup>*R*<sup>∣</sup> are the label vectors for these two tasks, with elements being 1 if the fact occurs and 0 otherwise.
 
-# <span id="page-11-0"></span>4 | Experiment
+## <span id="page-11-0"></span>4 | Experiment
 
 In this section, we evaluated the performance of our proposed TD-RKG model on three popular TKG datasets. We provided a detailed description of the experimental setup and presented the experimental results. In addition, ablation experiments were <span id="page-12-0"></span>**TABLE 4**| Experimental results on ICEWS14 and ICEWS05-15 datasets with filtering settings.
 
-|             | ICEWS14 |        |        |         | ICEWS05-15 |        |        |         |
+| | ICEWS14 | | | | ICEWS05-15 | | | |
 |-------------|---------|--------|--------|---------|------------|--------|--------|---------|
-| Models      | MRR     | Hits@1 | Hits@3 | Hits@10 | MRR        | Hits@1 | Hits@3 | Hits@10 |
-| ConvE       | 30.30   | 21.30  | 34.42  | 47.89   | 31.40      | 21.56  | 35.70  | 50.96   |
-| DistMult    | 20.32   | 6.13   | 27.59  | 46.61   | 19.91      | 5.63   | 27.22  | 47.33   |
-| Conv-TransE | 31.50   | 22.46  | 34.98  | 50.03   | 30.28      | 20.79  | 33.80  | 49.95   |
-| CompLEx     | 22.61   | 9.88   | 28.93  | 47.57   | 20.26      | 6.66   | 26.43  | 47.31   |
-| RotatE      | 25.71   | 16.41  | 29.01  | 45.16   | 19.01      | 10.42  | 21.35  | 36.92   |
-| HyTE        | 16.78   | 2.13   | 24.84  | 43.94   | 16.05      | 6.53   | 20.20  | 34.72   |
-| TTransE     | 12.86   | 3.14   | 15.72  | 33.65   | 16.53      | 5.51   | 20.77  | 39.26   |
-| TA-DistMult | 26.22   | 16.83  | 29.72  | 45.23   | 27.51      | 17.57  | 31.46  | 47.32   |
-| CyGNet      | 34.68   | 25.35  | 38.88  | 53.16   | 35.46      | 25.44  | 40.20  | 54.47   |
-| RE-NET      | 35.77   | 25.99  | 40.10  | 54.87   | 36.86      | 26.24  | 41.85  | 57.60   |
-| RE-GCN      | 35.84   | 26.12  | 40.60  | 54.31   | 37.85      | 27.25  | 42.56  | 58.84   |
-| TD-RKG      | 36.70   | 26.46  | 41.20  | 54.79   | 38.63      | 28.14  | 43.47  | 59.11   |
+| Models | MRR | Hits@1 | Hits@3 | Hits@10 | MRR | Hits@1 | Hits@3 | Hits@10 |
+| ConvE | 30.30 | 21.30 | 34.42 | 47.89 | 31.40 | 21.56 | 35.70 | 50.96 |
+| DistMult | 20.32 | 6.13 | 27.59 | 46.61 | 19.91 | 5.63 | 27.22 | 47.33 |
+| Conv-TransE | 31.50 | 22.46 | 34.98 | 50.03 | 30.28 | 20.79 | 33.80 | 49.95 |
+| CompLEx | 22.61 | 9.88 | 28.93 | 47.57 | 20.26 | 6.66 | 26.43 | 47.31 |
+| RotatE | 25.71 | 16.41 | 29.01 | 45.16 | 19.01 | 10.42 | 21.35 | 36.92 |
+| HyTE | 16.78 | 2.13 | 24.84 | 43.94 | 16.05 | 6.53 | 20.20 | 34.72 |
+| TTransE | 12.86 | 3.14 | 15.72 | 33.65 | 16.53 | 5.51 | 20.77 | 39.26 |
+| TA-DistMult | 26.22 | 16.83 | 29.72 | 45.23 | 27.51 | 17.57 | 31.46 | 47.32 |
+| CyGNet | 34.68 | 25.35 | 38.88 | 53.16 | 35.46 | 25.44 | 40.20 | 54.47 |
+| RE-NET | 35.77 | 25.99 | 40.10 | 54.87 | 36.86 | 26.24 | 41.85 | 57.60 |
+| RE-GCN | 35.84 | 26.12 | 40.60 | 54.31 | 37.85 | 27.25 | 42.56 | 58.84 |
+| TD-RKG | 36.70 | 26.46 | 41.20 | 54.79 | 38.63 | 28.14 | 43.47 | 59.11 |
 *Note:* The best results are marked in bold.
 
 <span id="page-12-1"></span>**TABLE 5**| Experimental results on the YAGO dataset with filtering settings.
 
-|             |       | YAGO   |         |
+| | | YAGO | |
 |-------------|-------|--------|---------|
-| Models      | MRR   | Hits@3 | Hits@10 |
-| ConvE       | 41.22 | 47.03  | 59.90   |
-| DistMult    | 44.05 | 49.70  | 59.94   |
-| Conv-TransE | 46.67 | 52.22  | 62.52   |
-| CompLEx     | 44.09 | 49.57  | 59.64   |
-| RotatE      | 42.08 | 46.77  | 59.39   |
-| HyTE        | 14.42 | 39.73  | 46.98   |
-| TTransE     | 26.10 | 36.28  | 47.73   |
-| TA-DistMult | 44.98 | 50.64  | 61.11   |
-| CyGNet      | 46.72 | 52.48  | 61.52   |
-| RE-NET      | 46.81 | 52.71  | 61.93   |
-| RE-GCN      | 57.44 | 65.49  | 74.49   |
-| TD-RKG      | 57.96 | 65.33  | 75.01   |
+| Models | MRR | Hits@3 | Hits@10 |
+| ConvE | 41.22 | 47.03 | 59.90 |
+| DistMult | 44.05 | 49.70 | 59.94 |
+| Conv-TransE | 46.67 | 52.22 | 62.52 |
+| CompLEx | 44.09 | 49.57 | 59.64 |
+| RotatE | 42.08 | 46.77 | 59.39 |
+| HyTE | 14.42 | 39.73 | 46.98 |
+| TTransE | 26.10 | 36.28 | 47.73 |
+| TA-DistMult | 44.98 | 50.64 | 61.11 |
+| CyGNet | 46.72 | 52.48 | 61.52 |
+| RE-NET | 46.81 | 52.71 | 61.93 |
+| RE-GCN | 57.44 | 65.49 | 74.49 |
+| TD-RKG | 57.96 | 65.33 | 75.01 |
 *Note:*The best results are marked in bold.
 
 conducted to analyse the contributions and impacts of key components in the model.
@@ -438,7 +435,7 @@ correct answer being 'Express intent to cooperate', and assume there is another 
 
 The TD-RKG model is compared with three categories of models: static KG reasoning models, TKG interpolation reasoning models, and TKG extrapolation reasoning models. The static models chosen for comparison are DistMult (Yang et al. [2014\)](#page-18-9), ComplEx (Trouillon et al. [2016](#page-18-10)), RotatE (Sun et al. [2019\)](#page-18-11), ConvE (Dettmers et al. [2018\)](#page-17-9) and Conv-TransE (Shang et al. [2019\)](#page-18-12). The time models selected for the interpolation setting are TTransE (Jiang et al. [2016\)](#page-17-11), HyTE (Dasgupta, Ray, and Talukdar [2018\)](#page-17-12) and TA-DistMult (García-Durán, Dumančić, and Niepert [2018\)](#page-17-2). For the extrapolation setting, the compared models are CyGNet (Zhu et al. [2021](#page-18-7)), CEN (Li et al. [2022\)](#page-17-19), Titre (Sun et al. [2021](#page-18-17)) and RE-GCN (Li, Jin, Li, et al. [2021\)](#page-17-6). It is worth noting that RE-GCN is the most relevant model, and TD-RKG extends its relation GCN to an implicit relation-aware GCN.
 
-#### 4.1.4 | Implementation Details
+### 4.1.4 | Implementation Details
 
 In the process of reasoning, static reasoning models and interpolation reasoning models do not encode historical information.
 
@@ -453,7 +450,7 @@ We implemented the TD-RKG model in PyTorch. The embedding dimension and hidden s
 
 The configuration for Conv-TransE includes 50 kernels with a kernel size of 2×3 and a dropout rate of 0.2. During the joint learning of entity prediction and relation prediction tasks, the coefficients*𝜆*1 and *𝜆*2 are assigned values of 0.7 and 0.3.
 
-#### 4.2 | Experimental Results
+### 4.2 | Experimental Results
 
 This section reports and analyses the performance of TD-RKG compared to existing baseline methods, with experimental results on the ICEWS14, ICEWS05-15 and YAGO datasets under the filtering setting as shown in Tables [4](#page-12-0) and [5.](#page-12-1) The experiments use an early stopping strategy, and the results indicate that TD-RKG outperforms other baseline methods significantly on almost all datasets, providing strong evidence for the superiority of this model. The line graphs in Figure [9](#page-13-0) further compare the performance of the four metrics across the three datasets. It can be observed that the convergence speed of the four metrics in the TD-RKG model is fast, which we believe is because it searches for answers in local subgraphs and pays more attention to explicit clues. As the evolution time extends, explicit cues gradually decrease, and implicit cues become more important. Therefore, the introduction of the dynamic implicit encoding layer in the encoding structure effectively improves the accuracy and timeliness of predictions. In terms of relationship prediction MRR, TD-RKG consistently outperforms these baselines. For the Hits@3 metric, the model did not achieve state-of-the-art results on the YAGO dataset. We believe this is due to the significantly increased number of new entities and timestamps in the two datasets, resulting in higher time complexity and temporal smoothness. However, for the Hits@1 and Hits@10 metrics, TD-RKG outperforms previous studies.
 
@@ -469,12 +466,12 @@ For one of the most important metrics, MRR, the line graph in Figure [10](#page-
 
 <span id="page-15-0"></span>**TABLE 6**| Results of ablation study on time-aware MRR (expressed in percentage). 'LRE' refers to the local recurrent encoding layer, 'IE' refers to the dynamic implicit encoding layer and 'GIA' refers to the dynamic attention layer.
 
-| Models | ICEWS14 | ICEWS05-15 | YAGO  |
+| Models | ICEWS14 | ICEWS05-15 | YAGO |
 |--------|---------|------------|-------|
-| LRE    | 35.84   | 34.42      | 53.89 |
-| IE     | 34.63   | 32.59      | 46.61 |
-| GIA    | 27.98   | 29.03      | 40.36 |
-| TD-RKG | 36.70   | 38.63      | 57.96 |
+| LRE | 35.84 | 34.42 | 53.89 |
+| IE | 34.63 | 32.59 | 46.61 |
+| GIA | 27.98 | 29.03 | 40.36 |
+| TD-RKG | 36.70 | 38.63 | 57.96 |
 *Note:* The best results are marked in bold.
 
 which strongly proves the effectiveness of TD-RKG in solving implicit correlation and time sensitivity challenges.
@@ -483,7 +480,7 @@ Although our model performs well in most cases, there are still some limitations
 
 we found that the Hits@3 metric of the model does not meet the SOTA result on the YAGO dataset. We believe this is due to the high frequency of new entities appearing in the dataset, whose representations are randomly initialized, which limits the inference ability of the model when dealing with these new entities. For the challenge of new entities, we plan to adopt a meta-learning strategy to adapt to them quickly, adjusting model parameters with a few samples to improve the model's reasoning ability for new entities.
 
-# 4.3 | Ablation Study
+## 4.3 | Ablation Study
 
 To better understand the effectiveness of different model components in capturing relevant historical features, ablation studies were conducted in this section. As shown in Table [6](#page-15-0), the dynamic local recurrent encoding layer (LRE) had the greatest impact on performance, indicating the importance of neighbouring historical facts for predictions. The dynamic implicit encoding layer (IE) had a consistent impact across all datasets, highlighting the importance of capturing implicit correlations between entities
 
@@ -506,7 +503,7 @@ For future work, we plan to expand our approach by adopting meta-learning strate
 
 The data that support the findings of this study are available from the corresponding author upon reasonable request.
 
-#### References
+### References
 
 <span id="page-17-23"></span>Ahmed, S., I. E. Nielsen, A. Tripathi, S. Siddiqui, R. P. Ramachandran, and G. Rasool. 2023. "Transformers in Time-Series Analysis: A Tutorial."*Circuits, Systems, and Signal Processing*42, no. 12: 7433–7466.
 

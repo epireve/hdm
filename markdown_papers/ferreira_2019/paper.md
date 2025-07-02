@@ -153,7 +153,7 @@ The Semantic Web, an extension of the World Wide Web, was brought into being by 
 <span id="page-4-1"></span><span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
 <!-- Image Description: This image from an academic paper illustrates data modeling. (a) shows a network diagram representing the interconnection of domain-specific ontologies (e.g., Electrical, Indoor Climate). (b) depicts a Resource Description Framework (RDF) triple, illustrating a Subject-Predicate-Object relationship. (c) presents an entity-relationship diagram for the NGSI-LD information model, defining Entity, Property, and Value components and their relationships. The image's purpose is to visually explain different data modeling approaches within the context of the paper. -->
 
-<span id="page-4-2"></span>Figure 2: Key components of semantic data modeling and interoperability in smart environments.
+<span id="page-4-2"></span>**Figure 2:** Key components of semantic data modeling and interoperability in smart environments.
 
 data is comprehensible and reusable for humans and computers.
 
@@ -183,7 +183,7 @@ Understanding these fundamental concepts is crucial when modeling the operationa
 
 This section focuses on semantic models and the concepts they embody within building operations. Since their inception, ontologies like BOT, SAREF, SSN/SOSA, and Brick have been embraced and put into practice through various use cases. Hence, these ontologies are subject to a more thorough discussion than others that have seen less adoption. While not extensively discussed due to its limited application in existing studies, the PH ontology is acknowledged in a comparative context, as outlined in section [5.](#page-14-0) Nonetheless, its contribution is noteworthy for introducing the innovative concept of tags, a feature incorporated into the Brick ontology. This research recognizes the existence of various data models based on XML or UML. However, these models have been excluded due to their limitations in aligning with linked data methodologies, particularly their inability to incorporate semantics into their specifications as delineated by the W3C [\[39,](#page-23-4) [81\]](#page-25-6). Table [2](#page-12-0) elucidates the main (and other) ontologies discussed in this survey related to the building operational phase. These ontologies focus on various scopes, such as Smart Building, Smart Home, Smart City, Smart Device, Smart Energy, and Smart Grid. However, some of these ontologies are applied to multiple scopes. Smart building refers to buildings that can adapt to their environment by integrating various technological systems to meet the drivers for building progression: energy and efficiency, longevity, and comfort and satisfaction[\[21\]](#page-23-6). These buildings can be of various types, such as residential, commercial, industrial, and others. On the other hand, smart homes are confined to residential buildings equipped with smart technologies to provide tailored services for users [\[105\]](#page-26-5). A smart city is a well-defined geographical area that leverages the integration of high technologies such as ICT, logistics, energy production and others to support users' overall well-being and environmental quality [\[34\]](#page-23-7). Smart Energy is defined as an approach that facilitates the combination of thermal, electricity and thermal grid utilizing storage technologies coordinated to attain an optimal solution for each distinctive sector and the overall energy system [\[102\]](#page-26-6). Smart Grid is an electricity network that efficiently delivers sustainable, economical and secure electricity supplies via the intelligent integration of all users' actions, including generators, consumers and those that do both [\[151\]](#page-28-4). Smart devices are defined as those that autonomously collect data about users or their surroundings to support context awareness or guide action by providing insights into personal or environmental contexts [\[95\]](#page-26-7).
 
-#### 1.1 BOT —Building Topology Ontology
+### 1.1 BOT —Building Topology Ontology
 
 <span id="page-5-2"></span>The Building Topology Ontology (BOT) offers a streamlined and expandable framework for depicting building structures, encompassing stores, spaces, their elements, and their 3D geometrical designs. Introduced in 2019 by the Linked Building Data Community Group (LBD CG) under the W3C Consortium, BOT utilizes linked data and semantic web technologies. While lightweight, BOT helps complementing other ontologies to cover concepts in product details, sensor readings, IoT devices, intricate geometries, or project management data, thus simplifying semantic interoperability. This mechanism aids web-based data integration in the AECO sectors. Although BOT allows for representing essential building topological concepts and the relationships between its various components [\[128\]](#page-27-10), it has not gained recognition as an official W3C standard [\[74\]](#page-25-7).
 
@@ -196,7 +196,7 @@ The BOT element class bot:Element represents concepts such as Envelope, Building
 ![](_page_6_Figure_0.jpeg)
 <!-- Image Description: This 3D diagram illustrates a hierarchical spatial ontology. Nested cuboids represent `bot:Site`, `bot:Building`, `bot:Storey`, and `bot:Space`, showing containment relationships (`bot:containsZone`, `bot:hasBuilding`, `bot:hasStorey`, `bot:hasSpace`). Adjacency is also depicted (`bot:adjacentZone`). The diagram visually clarifies the structure and relationships within the ontology, crucial for understanding the spatial reasoning capabilities of the system described in the paper. -->
 
-<span id="page-6-0"></span>Figure 3: Representation of Building Topology by BOT (image from [\[128\]](#page-27-10)).
+<span id="page-6-0"></span>**Figure 3:** Representation of Building Topology by BOT (image from [\[128\]](#page-27-10)).
 
 forms a networked spatial representation wherein entities and their interfaces form a cohesive, interconnected web, enabling the representation of a building as an interlinked system of spaces and elements.
 
@@ -204,7 +204,7 @@ BOT establishes the relationships among instances of zones and elements based on
 
 BOT is a minimalist ontology aligned with other ontologies to meet the needs of building operational use cases. Thus, it cannot be used alone to semantically describe the building domain. Depending on the use case, it collaborates with other ontologies, employing ontology alignments [\[136\]](#page-27-11).
 
-#### 1.2 SAREF —Smart Applications REFerence Ontology and its Extensions
+### 1.2 SAREF —Smart Applications REFerence Ontology and its Extensions
 
 <span id="page-6-1"></span>Initiated in 2013, The SAREF ontology is a reference for IoT applications [\[62\]](#page-24-2). This project was a joint effort by the European Commission and the European Telecommunication Standardization Institute (ETSI) to create a unified ontology, working closely with the smart appliances industry [\[36\]](#page-23-8). Among a diverse array of IoT standards, platforms, and technologies spanning various sectors [\[49,](#page-24-3) [48\]](#page-24-4), SAREF serves as a universally agreed-upon model facilitating communication between IoT devices from various producers using distinct protocols and standards [\[35\]](#page-23-9). ETSI presents SAREF through a sequence of technical specifications. At the time of this review, the SAREF ontology includes a foundational core ontology tailored for IoT [\[62\]](#page-24-2) and has 12 domain-specific extensions, which covers areas like SAREF4ENER for Energy [\[53\]](#page-24-5), SAREF4ENVI for Environment [\[54\]](#page-24-6), SAREFBLDG for Building [\[51\]](#page-24-7), SAREF4CITY for Smart City [\[57\]](#page-24-8), SAREF4INMA for Industry and Manufacturing [\[55\]](#page-24-9), SAREF4AGRI for Smart Agriculture and Food Chain [\[56\]](#page-24-10), SAREF4AUTO for Automotive [\[50\]](#page-24-11), SAREF4EHAW for eHealth/Ageing-well [\[52\]](#page-24-12), SAREF4WEAR for Wearables [\[60\]](#page-24-13), SAREF4WATR for Water [\[59\]](#page-24-14), SAREF4LIFT for Lift [\[58\]](#page-24-15), and the recently added SAREF4GRID for Smart Grid [\[61\]](#page-24-16). It also includes SAREF for Systems (SAREF4SYST), previously an extension of SAREF. It now functions as a model for illustrating how SAREF can be extended and applied to describe diverse sets of application-specific information in various fields. In 2017, a preliminary solution using SAREF was showcased and applied to current commercial products in the energy domain [\[109\]](#page-26-8). Given the focus of this survey on the building domain, the discussion will center on the relevant SAREF extensions, including the core SAREF, SAREF4BLDG, SAREF4ENER, and SAREF4SYST. The SAREF4GRID ontology, having been recently released, remains unexploited in practical use-case scenarios. Consequently, a brief explanation of this ontology will be provided. The SAREF core ontology encompasses 29 classes, 35 object properties, 4 data properties, and 10 named individuals. Table [1](#page-7-0) shows the number of classes, object properties, data properties, and named individuals for SAREF and its extensions.
 
@@ -212,31 +212,30 @@ At its core lies the concept of saref:Device, representing a tangible object cap
 
 The SAREF ontology introduces the concepts such as saref:Command and saref:Service to facilitate interactions and operations with these devices. Commands act as directives sent to devices, triggering specific actions or changes, while services encapsulate a device's operations or capabilities. Underlying these interactions are saref:Task, specific sets of actions assigned to a device. An essential consideration in this ontology is the saref:Profile, which reflects
 
-<span id="page-7-0"></span>
 
-| Table 1: SAREF and its extension's ontological specification |         |                   |                 |                   |  |  |
+| **Table 1:** SAREF and its extension's ontological specification | | | | | | |
 |--------------------------------------------------------------|---------|-------------------|-----------------|-------------------|--|--|
-| Ontology                                                     | Classes | Object Properties | Data Properties | Named Individuals |  |  |
-| SAREF                                                        | 28      | 35                | 4               | 10                |  |  |
-| SAREF4SYST                                                   | 3       | 9                 | 0               | 0                 |  |  |
-| SAREF4ENER                                                   | 63      | 17                | 40              | 20                |  |  |
-| SAREF4BLDG                                                   | 72      | 179               | 83              | 0                 |  |  |
-| SAREF4ENVI                                                   | 21      | 19                | 8               | 12                |  |  |
-| SAREF4CITY                                                   | 31      | 36                | 7               | 0                 |  |  |
-| SAREF4INMA                                                   | 24      | 20                | 11              | 0                 |  |  |
-| SAREF4AGRI                                                   | 26      | 13                | 5               | 7                 |  |  |
-| SAREF4AUTO                                                   | 109     | 49                | 9               | 22                |  |  |
-| SAREF4EHAW                                                   | 50      | 37                | 52              | 28                |  |  |
-| SAREF4WEAR                                                   | 27      | 21                | 11              | 11                |  |  |
-| SAREF4WATR                                                   | 54      | 34                | 19              | 76                |  |  |
-| SAREF4LIFTS                                                  | 75      | 23                | 18              | 5                 |  |  |
+| Ontology | Classes | Object Properties | Data Properties | Named Individuals | | |
+| SAREF | 28 | 35 | 4 | 10 | | |
+| SAREF4SYST | 3 | 9 | 0 | 0 | | |
+| SAREF4ENER | 63 | 17 | 40 | 20 | | |
+| SAREF4BLDG | 72 | 179 | 83 | 0 | | |
+| SAREF4ENVI | 21 | 19 | 8 | 12 | | |
+| SAREF4CITY | 31 | 36 | 7 | 0 | | |
+| SAREF4INMA | 24 | 20 | 11 | 0 | | |
+| SAREF4AGRI | 26 | 13 | 5 | 7 | | |
+| SAREF4AUTO | 109 | 49 | 9 | 22 | | |
+| SAREF4EHAW | 50 | 37 | 52 | 28 | | |
+| SAREF4WEAR | 27 | 21 | 11 | 11 | | |
+| SAREF4WATR | 54 | 34 | 19 | 76 | | |
+| SAREF4LIFTS | 75 | 23 | 18 | 5 | | |
 
 SAREF4GRID 41 28 43 28
 
 ![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image is an entity-relationship diagram illustrating a conceptual model. Rectangles represent entities (e.g., Service, Function, Device, Profile), and arrows denote relationships (e.g., "hasOperation," "represents," "accomplishes"). The diagram details the relationships between various entities, including features of interest, states, properties, and their values within a specific domain, likely for a service-oriented system or process modeling. The model uses SKOS vocabulary for broader/narrower relationships in states and properties. -->
 
-<span id="page-7-1"></span>Figure 4: Overview of core SAREF ontology (image from [\[62\]](#page-24-2).
+<span id="page-7-1"></span>**Figure 4:** Overview of core SAREF ontology (image from [\[62\]](#page-24-2).
 
 the behaviors concerning power or energy consumption patterns.
 
@@ -252,7 +251,7 @@ The SAREF4ENER establishes concepts such as s4ener:PowerProfile which is a subcl
 
 The Smart Grid Ontology extends SAREF to provide a standardized representation of general concepts for smart grid data oriented to the IoT field [\[61\]](#page-24-16).
 
-#### 1.3 SSN —Semantic Sensor Network and SOSA —Sensor, Observation, Sample, and Actuator
+### 1.3 SSN —Semantic Sensor Network and SOSA —Sensor, Observation, Sample, and Actuator
 
 <span id="page-8-0"></span>The SSN/SOSA ontology results from the fusion of two related ontologies: SSN and SOSA. The W3C SSN Incubator Group created the SSN ontology, uniquely describing sensors regarding their capabilities, measurement processes, observations, and deployments, which aim to represent sensor-based systems [\[29\]](#page-23-10). They offer a robust framework for modeling various building systems and equipment. The SOSA emerged from a reconsideration of the SSN due to scope changes, shifts in the target audience, technological advancements, and lessons learned over the years [\[88\]](#page-25-8). Combining these two ontologies resulted in a more comprehensive ontology, as depicted in Figure [5.](#page-9-0) This combined ontology offers a semantic description of systems comprising sensors and actuators, observations, measurement procedures, the subjects, and their properties observed or acted upon, samples, and the sampling process [\[78\]](#page-25-9).
 
@@ -267,7 +266,7 @@ Additionally, the ssn-system:SystemProperty class enables modelers to define cha
 ![](_page_9_Figure_0.jpeg)
 <!-- Image Description: This image is a graph depicting relationships between entities in a smart home environment using the Sensor Observation Service (SOS) ontology. Nodes represent things (e.g., sensors, actuators, observations, procedures), and edges represent relationships (e.g., `sosa:observes`, `sosa:hasResult`). The graph illustrates data flow and connections among various components, showing how sensor data is collected, processed, and related to specific locations and actions within the house. Specific data points (e.g., temperature, electricity consumption) are included within the graph's nodes. -->
 
-<span id="page-9-0"></span>Figure 5: Integrating Building Data with Observation and Sensor Data Utilizing SOSA/SSN (image from [\[78\]](#page-25-9)).
+<span id="page-9-0"></span>**Figure 5:** Integrating Building Data with Observation and Sensor Data Utilizing SOSA/SSN (image from [\[78\]](#page-25-9)).
 
 ### 1.4 Brick
 
@@ -286,11 +285,11 @@ Brick utilizes a directed, labelled graph to represent its structure. Figure [6]
 ![](_page_10_Figure_2.jpeg)
 <!-- Image Description: This image presents a directed acyclic graph illustrating a Building Information Model (BIM) schema. Rectangles represent entities (e.g., Air Handling Unit, Room), while arrows depict relationships (e.g., "feeds," "hasPart," "hasPoint"). The graph details the hierarchical relationships between HVAC components, from the Air Handling Unit down to individual sensors and setpoints within a specific zone (VAV2-3Zone) encompassing Rooms 410-412. A legend defines the classes used within the schema (Point, Location, Equipment). -->
 
-<span id="page-10-1"></span>Figure 6: Brick model representing an AHU, two VAVs, and a handful of points and rooms (image from [\[20\]](#page-23-5)).
+<span id="page-10-1"></span>**Figure 6:** Brick model representing an AHU, two VAVs, and a handful of points and rooms (image from [\[20\]](#page-23-5)).
 
 The Brick ontology is built on design principles that include completeness, expressiveness, usability, consistency, and extensibility [\[2\]](#page-22-6) [\[3\]](#page-22-7). Completeness is the ability of an ontology to encompass all the information required by building applications. Expressiveness indicates the ontology's capability to represent a wide range of entities and relationships prevalent in buildings, which is crucial for crafting BEM applications. Usability suggests that the ontology ought to be straightforward and user-friendly. Consistency ensures that the modeling process remains uniform across various users when employing the ontology. Extensibility guarantees that the ontology can be effortlessly expanded to incorporate new concepts.
 
-#### <span id="page-10-0"></span>4.1.5 PH —Project Haystack
+### <span id="page-10-0"></span>4.1.5 PH —Project Haystack
 
 <span id="page-10-2"></span>Project Haystack (PH) is a semantic data model designed to represent various equipment and their relationships within automation, control, energy, HVAC, and additional environmental systems [\[80\]](#page-25-10). This initiative aims to provide standardized data to facilitate a seamless exchange of information and unlock value from the vast amounts of data generated by smart devices in homes, buildings, factories, and cities.
 
@@ -318,68 +317,67 @@ This section describes other ontologies covering certain BEM areas, as shown in 
 
 encompass weather-related information [\[19\]](#page-23-16).
 
-<span id="page-12-0"></span>
 
-| Ontology             | Ref.                    | Year    | Uses/Extends Classes Formats |                     |                     | Scope                           | Main Focus                       |
+| Ontology | Ref. | Year | Uses/Extends Classes Formats | | | Scope | Main Focus |
 |----------------------|-------------------------|---------|------------------------------|---------------------|---------------------|---------------------------------|----------------------------------|
-| BOT                  | [128]                   | 2017    | None                         | 7                   | T                   |                                 | Building topology                |
-| SAREF                | [62]                    | 2015    | None                         | 28                  | ∗                   |                                 | Energy efficiency                |
-| SSN / SOSA           | [29, 88]                | 2019    | None                         | 19                  | T                   |                                 | Sensors and measurements         |
-| Brick                | [2]                     | 2016    | PH                           | 5                   | T                   |                                 | Building entities                |
-| PH                   | [80]                    | 2014    | None                         | 479*                | N/A                 |                                 | Building info. from devices      |
-| RealEstateCore [153] |                         | 2019    | SSN / SOSA                   | 141[153]            | R                   |                                 | Buildings in cities              |
-| ThinkHome            | [130]                   | 2010    | None                         | 1152                | O                   |                                 | Energy for homes                 |
-| EFOnt                | [98]                    | 2022    | None                         | 87                  | ∗                   |                                 | Energy-flexibility               |
-| DogOnt               | [15]                    | 2008    | None                         | 1110                | ∗                   |                                 | Devices                          |
-| Mirabel              | [152]                   | 2012    | None                         | 5[134]              | C                   |                                 | Energy flexibility               |
-| PowerOnt             | [16]                    | 2015    | DogOnt                       | 1070                | O                   |                                 | Energy efficiency                |
-| BonSAI               | [143]                   | 2012    | None                         | 84                  | R<br>X              |                                 | Ambient intelligence             |
-| SARGON               | [77]                    | 2020    | SAREF                        | 169                 | T<br>O              |                                 | Building entities                |
-| FSO                  | [94]                    | 2022    | None                         | 14                  | T                   |                                 | Mass/energy flow                 |
-| FPO                  | [92]                    | 2023    | FSO                          | 50[93]              | C                   |                                 | HVAC components                  |
-| BACS                 | [149]                   | 2017    | BOT<br>SSN / SOSA            | 9                   | O                   |                                 | Automation and control           |
-| BASont               | [123]                   | 2012    | None                         | N/A                 | C                   |                                 | Automation systems               |
-| SBonto               | [158]                   | 2017    | None                         | N/A                 | C                   |                                 | Smart buildings                  |
-| Onto-SB              | [40]                    | 2019    | None                         | N/A                 | C<br>O              |                                 | Smart buildings                  |
-| RESPOND              | [46]                    | 2020    | BOT<br>SEAS<br>SAREF         | 45                  | ∗                   |                                 | Energy dispatching               |
-| SEAS                 | [97]                    | 2017    | None                         | 293                 | ∗                   |                                 | Energy analysis                  |
-| OEO                  | [17]                    | 2021    | None                         | 928                 | O                   |                                 | Energy system analysis           |
-| SG1                  | [72]                    | 2014    | None                         | N/A                 | C<br>T              |                                 | Real-time management             |
-| SG2                  | [147]                   | 2023    | None                         | 75                  | O                   |                                 | Vulnerability assessments        |
-| SSG                  | [134]                   | 2019    | None                         | N/A                 | C<br>O<br>T         |                                 | Smart grid component             |
-| SSGIM                | [160]                   | 2012    | None                         | N/A                 | C<br>O              |                                 | DR applications                  |
-| SEPA's SG            | [140]                   | 2020    | None                         | 250[12]             | T                   |                                 | Smart grid applications          |
-| Scopes:<br>Formats:  | Smart<br>T<br>Turtle, R | Device, | Home,<br>RDF, X<br>XML, O    | Building,<br>OWL, J | City,<br>JSON-LD, N | Energy,<br>Grid<br>N-Triples, ∗ | (3+) formats, C<br>Closed Source |
+| BOT | [128] | 2017 | None | 7 | T | | Building topology |
+| SAREF | [62] | 2015 | None | 28 | ∗ | | Energy efficiency |
+| SSN / SOSA | [29, 88] | 2019 | None | 19 | T | | Sensors and measurements |
+| Brick | [2] | 2016 | PH | 5 | T | | Building entities |
+| PH | [80] | 2014 | None | 479* | N/A | | Building info. from devices |
+| RealEstateCore [153] | | 2019 | SSN / SOSA | 141[153] | R | | Buildings in cities |
+| ThinkHome | [130] | 2010 | None | 1152 | O | | Energy for homes |
+| EFOnt | [98] | 2022 | None | 87 | ∗ | | Energy-flexibility |
+| DogOnt | [15] | 2008 | None | 1110 | ∗ | | Devices |
+| Mirabel | [152] | 2012 | None | 5[134] | C | | Energy flexibility |
+| PowerOnt | [16] | 2015 | DogOnt | 1070 | O | | Energy efficiency |
+| BonSAI | [143] | 2012 | None | 84 | R<br>X | | Ambient intelligence |
+| SARGON | [77] | 2020 | SAREF | 169 | T<br>O | | Building entities |
+| FSO | [94] | 2022 | None | 14 | T | | Mass/energy flow |
+| FPO | [92] | 2023 | FSO | 50[93] | C | | HVAC components |
+| BACS | [149] | 2017 | BOT<br>SSN / SOSA | 9 | O | | Automation and control |
+| BASont | [123] | 2012 | None | N/A | C | | Automation systems |
+| SBonto | [158] | 2017 | None | N/A | C | | Smart buildings |
+| Onto-SB | [40] | 2019 | None | N/A | C<br>O | | Smart buildings |
+| RESPOND | [46] | 2020 | BOT<br>SEAS<br>SAREF | 45 | ∗ | | Energy dispatching |
+| SEAS | [97] | 2017 | None | 293 | ∗ | | Energy analysis |
+| OEO | [17] | 2021 | None | 928 | O | | Energy system analysis |
+| SG1 | [72] | 2014 | None | N/A | C<br>T | | Real-time management |
+| SG2 | [147] | 2023 | None | 75 | O | | Vulnerability assessments |
+| SSG | [134] | 2019 | None | N/A | C<br>O<br>T | | Smart grid component |
+| SSGIM | [160] | 2012 | None | N/A | C<br>O | | DR applications |
+| SEPA's SG | [140] | 2020 | None | 250[12] | T | | Smart grid applications |
+| Scopes:<br>Formats: | Smart<br>T<br>Turtle, R | Device, | Home,<br>RDF, X<br>XML, O | Building,<br>OWL, J | City,<br>JSON-LD, N | Energy,<br>Grid<br>N-Triples, ∗ | (3+) formats, C<br>Closed Source |
 
-Table 2: An overview of the analyzed key ontologies.
+**Table 2:** An overview of the analyzed key ontologies.
 
 Continued on next page
 
-| Ontology             | Ref.                    | Year         | Uses/Extends Classes Formats         |                     |                     | Scope                           | Main Focus                       |
+| Ontology | Ref. | Year | Uses/Extends Classes Formats | | | Scope | Main Focus |
 |----------------------|-------------------------|--------------|--------------------------------------|---------------------|---------------------|---------------------------------|----------------------------------|
-| OEMA                 | [32]                    | 2017         | ThinkHome,<br>SAREF4ENER,<br>and SG1 | 24                  | ∗                   |                                 | Different energy domains         |
-| DABGEO               | [33]                    | 2020         | OEMA                                 | 1965                | O                   |                                 | Different energy domains         |
-| DELTA                | [67]                    | 2021         | OpenADR<br>SAREF                     | 59                  | ∗                   |                                 | DR energy market                 |
-| SG-BEMS              | [135]                   | 2016         | None                                 | N/A                 | C<br>O<br>T         |                                 | BEMS                             |
-| CIM                  | [142]                   | 2015         | None                                 | 39                  | O                   |                                 | Model profile                    |
-| (New) OSEIM          | [133, 132]              | 2019,21 None |                                      | N/A                 | C<br>O              |                                 | Electrical energy consumption    |
-| BEM                  | [101]                   | 2019         | SSN                                  | N/A                 | C<br>O              |                                 | Energy optimization              |
-| Digital<br>Buildings | [73, 6]                 | 2020         | Brick<br>PH                          | 1308                | R                   |                                 | Buildings equipment              |
-| ICBMS                | [89]                    | 2017         | SAREF                                | N/A                 | C                   |                                 | Thermal comfort analysis         |
-| EM-KPI               | [100]                   | 2019         | SSN<br>ThinkHome                     | 133                 | ∗                   |                                 | KPI for building performance     |
-| KPI                  | [65]                    | 2020         | saref4city<br>SAREF                  | 17                  | ∗                   |                                 | KPI for building renovation      |
-| PF                   | [30]                    | 2015         | SSN                                  | N/A                 | C                   |                                 | Building performance analysis    |
-| BOP                  | [42]                    | 2021         | None                                 | 18                  | ∗                   |                                 | Building performance analysis    |
-| SBMS                 | [91]                    | 2018         | SSN                                  | 25                  | O                   |                                 | Building automation systems      |
-| SEMANCO              | [104]                   | 2012         | None                                 | 980                 | O                   |                                 | Urban plan. and energy mgmt.     |
-| OpenADR              | [68]                    | 2020         | None                                 | 76                  | ∗                   |                                 | Demand-response                  |
-| SESAME               | [64]                    | 2010         | None                                 | N/A                 | C<br>O<br>N         |                                 | Energy Optimization              |
-| Home Appl.           | [137]                   | 2011         | None                                 | N/A                 | C<br>O              |                                 | Energy consumption               |
-| ONCOM                | [115]                   | 2019         | SSN / SOSA                           | N/A                 | C<br>O              |                                 | Thermal Comfort                  |
-| OP                   | [66]                    | 2020         | SAREF                                | 66                  | ∗                   |                                 | Building energy profiles         |
-| Scopes:<br>Formats:  | Smart<br>T<br>Turtle, R | Device,      | Home,<br>RDF, X<br>XML, O            | Building,<br>OWL, J | City,<br>JSON-LD, N | Energy,<br>Grid<br>N-Triples, ∗ | (3+) formats, C<br>Closed Source |
+| OEMA | [32] | 2017 | ThinkHome,<br>SAREF4ENER,<br>and SG1 | 24 | ∗ | | Different energy domains |
+| DABGEO | [33] | 2020 | OEMA | 1965 | O | | Different energy domains |
+| DELTA | [67] | 2021 | OpenADR<br>SAREF | 59 | ∗ | | DR energy market |
+| SG-BEMS | [135] | 2016 | None | N/A | C<br>O<br>T | | BEMS |
+| CIM | [142] | 2015 | None | 39 | O | | Model profile |
+| (New) OSEIM | [133, 132] | 2019,21 None | | N/A | C<br>O | | Electrical energy consumption |
+| BEM | [101] | 2019 | SSN | N/A | C<br>O | | Energy optimization |
+| Digital<br>Buildings | [73, 6] | 2020 | Brick<br>PH | 1308 | R | | Buildings equipment |
+| ICBMS | [89] | 2017 | SAREF | N/A | C | | Thermal comfort analysis |
+| EM-KPI | [100] | 2019 | SSN<br>ThinkHome | 133 | ∗ | | KPI for building performance |
+| KPI | [65] | 2020 | saref4city<br>SAREF | 17 | ∗ | | KPI for building renovation |
+| PF | [30] | 2015 | SSN | N/A | C | | Building performance analysis |
+| BOP | [42] | 2021 | None | 18 | ∗ | | Building performance analysis |
+| SBMS | [91] | 2018 | SSN | 25 | O | | Building automation systems |
+| SEMANCO | [104] | 2012 | None | 980 | O | | Urban plan. and energy mgmt. |
+| OpenADR | [68] | 2020 | None | 76 | ∗ | | Demand-response |
+| SESAME | [64] | 2010 | None | N/A | C<br>O<br>N | | Energy Optimization |
+| Home Appl. | [137] | 2011 | None | N/A | C<br>O | | Energy consumption |
+| ONCOM | [115] | 2019 | SSN / SOSA | N/A | C<br>O | | Thermal Comfort |
+| OP | [66] | 2020 | SAREF | 66 | ∗ | | Building energy profiles |
+| Scopes:<br>Formats: | Smart<br>T<br>Turtle, R | Device, | Home,<br>RDF, X<br>XML, O | Building,<br>OWL, J | City,<br>JSON-LD, N | Energy,<br>Grid<br>N-Triples, ∗ | (3+) formats, C<br>Closed Source |
 
-Table 2: An overview of the analyzed key ontologies. (Continued)
+**Table 2:** An overview of the analyzed key ontologies. (Continued)
 
 Table Note: In this table, the ontology names are linked to where they are explained in more detail in the text and the numbers of classes are linked to the repositories where the ontologies are publicly available on the Internet.
 
@@ -484,34 +482,33 @@ In an extensive analysis of ontologies and metadata frameworks, the study assess
 
 This section examined the landscape of use case scenarios in ontology applications, shedding light on their relevance across various domains. A detailed analysis of the studies discussed shows that the application of ontologies offers promising prospects for addressing complex challenges and fostering semantic interoperability in BEM.
 
-<span id="page-19-0"></span>
 
-| Usecase                                                                    | Concepts                                                                                                                                                                                             | Classes                                                                                                                                                                                                                                                                                                            | Description                                                                                                                                                                                                                                                                                                                         |
+| Usecase | Concepts | Classes | Description |
 |----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Data Integration<br>for<br>building<br>en<br>ergy analysis [11]            | Building Space, Building system and<br>components, CO2 sensor and con<br>troller                                                                                                                     | Uses SAREF, S4BLDG, S4SYST<br>BuildingSpace<br>SpaceHeater<br>Valve<br>Sensor<br>Controller<br>Damper<br>System<br>Connection<br>ConnectionPoint                                                                                                                                                                   | SAREF ontology was incorporated<br>to model a single zone system.                                                                                                                                                                                                                                                                   |
-| Data<br>Integra<br>tion<br>in<br>Smart<br>Homes [154]                      | Current temperature, CO2 sensor,<br>First time movement detected, Last<br>time movement detected, Motion de<br>tected, Presence detected, Humidity,<br>Smart switch actuator, Target tem<br>perature | Uses<br>SAREF<br>Measurement<br>UnitofMeasure<br>TemperatureUnit<br>Property<br>FeatureOfInterest<br>Device<br>Task<br>Comfort<br>WellBeing<br>Function<br>SensingFunction<br>Command<br>State<br>Service                                                                                                          | SAREF does not possess a class<br>specifically designed to model the<br>unit of measurement for CO2, nor<br>a<br>property<br>class<br>for<br>measuring<br>CO2levels.<br>Nonetheless, it can be<br>easily extended to include these fea<br>tures                                                                                     |
-| Data Integration<br>with<br>OPSD<br>Household<br>Data<br>set [155]         | Energy imported/exported from/to<br>the public grid, Total Photovoltaic<br>energy generation, Electric Vehicle<br>Charging energy, Appliances and<br>Circulation pump energy consump<br>tion         | Uses<br>SAREF<br>Measurement<br>UnitOfMeasure<br>Property<br>PowerUnit<br>Power<br>FeatureOfInterest<br>Device<br>Meter<br>Appliance<br>Task<br>MeterReading<br>Washing<br>WellBeing<br>Comfort<br>Function<br>MeteringFunction                                                                                    | The SAREF ontology was incorpo<br>rated to map building data using the<br>OPSD Household data set                                                                                                                                                                                                                                   |
-| Long-term<br>Ther<br>mal Comfort Eval<br>uation with Brick<br>Schema [145] | Air Handling Unit, Variable Air Vol<br>ume box, Zone Air Temperature,<br>Room and Floor                                                                                                              | Uses Brick<br>Zone<br>Room<br>Floor<br>AHU<br>Variable Air Volume Box<br>Zone Air Temperature Sensor<br>Floor                                                                                                                                                                                                      | The Brick ontology was employed to<br>formalize specific building entities to<br>analyze thermal comfort evaluation.                                                                                                                                                                                                                |
-| Data<br>integration<br>for data-driven an<br>alytics [70]                  | Building<br>system<br>and<br>equipment,<br>Data points                                                                                                                                               | Uses<br>Brick<br>Air Handling Unit<br>Power Meter<br>Building Power Meter<br>Rooftop Unit<br>VAV<br>Chiller<br>Absorption Chiller<br>Temperature Sensor<br>Flow Sensor<br>Return Air Flow Sensor                                                                                                                   | Brick served as a unified model for<br>integrating metadata from different<br>data sources                                                                                                                                                                                                                                          |
-| Energy<br>and<br>Thermal Comfort<br>Analysis [89]                          | Thermal Comfort State, Number of<br>occupants, Occupancy State, Build<br>ing Space, Humidity and CO2Sensor,<br>PMV and PPD values                                                                    | Uses ICBMS<br>CO2Sensor<br>TemperatureSensor<br>HumiditySensor<br>State<br>ThermalComfortState<br>HotState<br>WarmState<br>SlightlyWarmState<br>NeutralState<br>SlightlyCoolState<br>CoolState<br>ColdState<br>OccupancyState<br>OccupiedState<br>VacantState<br>BuildingSpace<br>Extends SAREF<br>Sensor<br>State | ICBMS<br>ontology<br>extends<br>the<br>SAREF ontology and introduces<br>more specific concepts relating to<br>sensor and state information                                                                                                                                                                                          |
-| Data<br>integration<br>for<br>building<br>operational<br>analysis [91]     | Data Points, Sensing, Source, Prop<br>erty, and Feature of Interest                                                                                                                                  | Uses<br>SBMS<br>Address<br>DataPoint<br>Input<br>Property<br>FeatureOfInterest<br>SensingDevice<br>Sensing<br>Observation<br>Extends from SSN<br>SensingDevice<br>Observation<br>Property<br>FeatureOfInterest                                                                                                     | The SBMS ontology represents infor<br>mation available for building opera<br>tional analysis. It is an extension of<br>SSN ontology introducing the con<br>cept of data points.                                                                                                                                                     |
-| Smart building di<br>agnosis [122]                                         | Process,<br>Observation,<br>Properties,<br>Environment<br>Legend:<br>saref:<br>s4bldg:<br>s4syst:                                                                                                    | New classes using namespace PHY<br>PhysicalProcess<br>FeatureLink<br>Anomaly<br>Property<br>Cause<br>Extends<br>from<br>SSN<br>FeatureOfInterest<br>Property<br>Stimulus<br>Sensor<br>Observation<br>icbms:<br>bot:<br>sosa:<br>kpi:                                                                               | This custom ontology utilised the<br>SSN ontology and extended it to<br>model physical and cause-effect rela<br>tionships between sensors to support<br>building applications to automati<br>cally derive complex models for an<br>alytics tasks such as prediction and<br>diagnostics.<br>brick:<br>sbms:<br>ssn:<br>phy:<br>other |
+| Data Integration<br>for<br>building<br>en<br>ergy analysis [11] | Building Space, Building system and<br>components, CO2 sensor and con<br>troller | Uses SAREF, S4BLDG, S4SYST<br>BuildingSpace<br>SpaceHeater<br>Valve<br>Sensor<br>Controller<br>Damper<br>System<br>Connection<br>ConnectionPoint | SAREF ontology was incorporated<br>to model a single zone system. |
+| Data<br>Integra<br>tion<br>in<br>Smart<br>Homes [154] | Current temperature, CO2 sensor,<br>First time movement detected, Last<br>time movement detected, Motion de<br>tected, Presence detected, Humidity,<br>Smart switch actuator, Target tem<br>perature | Uses<br>SAREF<br>Measurement<br>UnitofMeasure<br>TemperatureUnit<br>Property<br>FeatureOfInterest<br>Device<br>Task<br>Comfort<br>WellBeing<br>Function<br>SensingFunction<br>Command<br>State<br>Service | SAREF does not possess a class<br>specifically designed to model the<br>unit of measurement for CO2, nor<br>a<br>property<br>class<br>for<br>measuring<br>CO2levels.<br>Nonetheless, it can be<br>easily extended to include these fea<br>tures |
+| Data Integration<br>with<br>OPSD<br>Household<br>Data<br>set [155] | Energy imported/exported from/to<br>the public grid, Total Photovoltaic<br>energy generation, Electric Vehicle<br>Charging energy, Appliances and<br>Circulation pump energy consump<br>tion | Uses<br>SAREF<br>Measurement<br>UnitOfMeasure<br>Property<br>PowerUnit<br>Power<br>FeatureOfInterest<br>Device<br>Meter<br>Appliance<br>Task<br>MeterReading<br>Washing<br>WellBeing<br>Comfort<br>Function<br>MeteringFunction | The SAREF ontology was incorpo<br>rated to map building data using the<br>OPSD Household data set |
+| Long-term<br>Ther<br>mal Comfort Eval<br>uation with Brick<br>Schema [145] | Air Handling Unit, Variable Air Vol<br>ume box, Zone Air Temperature,<br>Room and Floor | Uses Brick<br>Zone<br>Room<br>Floor<br>AHU<br>Variable Air Volume Box<br>Zone Air Temperature Sensor<br>Floor | The Brick ontology was employed to<br>formalize specific building entities to<br>analyze thermal comfort evaluation. |
+| Data<br>integration<br>for data-driven an<br>alytics [70] | Building<br>system<br>and<br>equipment,<br>Data points | Uses<br>Brick<br>Air Handling Unit<br>Power Meter<br>Building Power Meter<br>Rooftop Unit<br>VAV<br>Chiller<br>Absorption Chiller<br>Temperature Sensor<br>Flow Sensor<br>Return Air Flow Sensor | Brick served as a unified model for<br>integrating metadata from different<br>data sources |
+| Energy<br>and<br>Thermal Comfort<br>Analysis [89] | Thermal Comfort State, Number of<br>occupants, Occupancy State, Build<br>ing Space, Humidity and CO2Sensor,<br>PMV and PPD values | Uses ICBMS<br>CO2Sensor<br>TemperatureSensor<br>HumiditySensor<br>State<br>ThermalComfortState<br>HotState<br>WarmState<br>SlightlyWarmState<br>NeutralState<br>SlightlyCoolState<br>CoolState<br>ColdState<br>OccupancyState<br>OccupiedState<br>VacantState<br>BuildingSpace<br>Extends SAREF<br>Sensor<br>State | ICBMS<br>ontology<br>extends<br>the<br>SAREF ontology and introduces<br>more specific concepts relating to<br>sensor and state information |
+| Data<br>integration<br>for<br>building<br>operational<br>analysis [91] | Data Points, Sensing, Source, Prop<br>erty, and Feature of Interest | Uses<br>SBMS<br>Address<br>DataPoint<br>Input<br>Property<br>FeatureOfInterest<br>SensingDevice<br>Sensing<br>Observation<br>Extends from SSN<br>SensingDevice<br>Observation<br>Property<br>FeatureOfInterest | The SBMS ontology represents infor<br>mation available for building opera<br>tional analysis. It is an extension of<br>SSN ontology introducing the con<br>cept of data points. |
+| Smart building di<br>agnosis [122] | Process,<br>Observation,<br>Properties,<br>Environment<br>Legend:<br>saref:<br>s4bldg:<br>s4syst: | New classes using namespace PHY<br>PhysicalProcess<br>FeatureLink<br>Anomaly<br>Property<br>Cause<br>Extends<br>from<br>SSN<br>FeatureOfInterest<br>Property<br>Stimulus<br>Sensor<br>Observation<br>icbms:<br>bot:<br>sosa:<br>kpi: | This custom ontology utilised the<br>SSN ontology and extended it to<br>model physical and cause-effect rela<br>tionships between sensors to support<br>building applications to automati<br>cally derive complex models for an<br>alytics tasks such as prediction and<br>diagnostics.<br>brick:<br>sbms:<br>ssn:<br>phy:<br>other |
 
-#### Table 3: Usecase Scenarios on the Application of Ontologies.
+### Table 3: Usecase Scenarios on the Application of Ontologies.
 
 Continued on next page
 
-|  |  | Table 3: Usecase Scenarios on the Application of Ontologies. (Continued) |  |  |
+| | | **Table 3:** Usecase Scenarios on the Application of Ontologies. (Continued) | | |
 |--|--|--------------------------------------------------------------------------|--|--|
-|  |  |                                                                          |  |  |
+| | | | | |
 
-| Usecase                                                                                                                | Concepts                                                                                                             | Classes                                                                                                                                                                                                                             | Description                                                                                                                                                                                                                                         |  |  |  |
+| Usecase | Concepts | Classes | Description | | | |
 |------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|
-| Energy<br>Analy<br>sis [159]                                                                                           | Building Basic Information, Geome<br>try and Topology, Energy Consump<br>tion, Environment Condition                 | Uses BOT, SOSA, and a custom KPI<br>ontology<br>Input<br>Result<br>Formula<br>Parameter<br>Operator<br>Building<br>Space<br>Zone<br>Platform<br>Sensor<br>Observation<br>FeatureOfInterest<br>Property                              | This linked data model was used to<br>connect data silos to evaluate build<br>ing's energy consumption efficiency                                                                                                                                   |  |  |  |
-| Semantic<br>model<br>ing of building op<br>erations [41]                                                               | Equipment and Systems, Sensing<br>and Actuation, Building Topology,<br>Unit Of Measurement, Temporal In<br>formation | Uses SAREF4BLDG, SOSA, BOT,<br>and Brick adjacentZone<br>HVAC Zone<br>Supply Air Temperature Sensor<br>VAV<br>AHU<br>Cooling Valve<br>Mixed Air Temperature Sensor<br>Exhaust Fan<br>madeObservation<br>resultTime<br>BuildingSpace | It emphasized on the semantic repre<br>sentation of building assets with in<br>ference mechanisms for building ap<br>plications ranging from fault detec<br>tion and diagnostics, asset manage<br>ment and maintenance and context<br>aware control |  |  |  |
-| Data<br>integration<br>for<br>delivering<br>data-driven<br>application [107]                                           | Dynamic data, Sensor tags, Building<br>topology, Systems equipment, Build<br>ing elements, Product properties        | Uses<br>BOT,<br>Brick,<br>BEO,<br>and<br>PROPS<br>adjacentElement<br>Space<br>Thermostat<br>Space<br>Zone Air Temperature Set Point<br>timeseries<br>Window                                                                         | The linked data was adopted for data<br>integration between multiple diverse<br>data sources to facilitate the devel<br>opment of digital twin applications                                                                                         |  |  |  |
-| Ontologies<br>for<br>Building<br>Energy<br>Applications [126]                                                          | Zones and Spaces, Envelope, Build<br>ing Systems and Equipment, Control<br>Devices, Sensors and Actuators            | Uses<br>BOT,<br>Brick,<br>SSN/-<br>SOSA,<br>SAREF,<br>and<br>REC<br>VAV<br>Device<br>Flow Terminal<br>System<br>BuildingObject<br>VirtualBuildingComponent<br>HVAC Zone<br>Room<br>Space<br>Office                                  | Comparative analysis of five distinct<br>ontologies for modeling an office<br>building to support tasks such as<br>energy audits, AFDD, and optimal<br>control                                                                                      |  |  |  |
-| Legend:<br>saref:<br>s4bldg:<br>s4syst:<br>icbms:<br>bot:<br>sosa:<br>kpi:<br>brick:<br>sbms:<br>ssn:<br>phy:<br>other |                                                                                                                      |                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                     |  |  |  |
+| Energy<br>Analy<br>sis [159] | Building Basic Information, Geome<br>try and Topology, Energy Consump<br>tion, Environment Condition | Uses BOT, SOSA, and a custom KPI<br>ontology<br>Input<br>Result<br>Formula<br>Parameter<br>Operator<br>Building<br>Space<br>Zone<br>Platform<br>Sensor<br>Observation<br>FeatureOfInterest<br>Property | This linked data model was used to<br>connect data silos to evaluate build<br>ing's energy consumption efficiency | | | |
+| Semantic<br>model<br>ing of building op<br>erations [41] | Equipment and Systems, Sensing<br>and Actuation, Building Topology,<br>Unit Of Measurement, Temporal In<br>formation | Uses SAREF4BLDG, SOSA, BOT,<br>and Brick adjacentZone<br>HVAC Zone<br>Supply Air Temperature Sensor<br>VAV<br>AHU<br>Cooling Valve<br>Mixed Air Temperature Sensor<br>Exhaust Fan<br>madeObservation<br>resultTime<br>BuildingSpace | It emphasized on the semantic repre<br>sentation of building assets with in<br>ference mechanisms for building ap<br>plications ranging from fault detec<br>tion and diagnostics, asset manage<br>ment and maintenance and context<br>aware control | | | |
+| Data<br>integration<br>for<br>delivering<br>data-driven<br>application [107] | Dynamic data, Sensor tags, Building<br>topology, Systems equipment, Build<br>ing elements, Product properties | Uses<br>BOT,<br>Brick,<br>BEO,<br>and<br>PROPS<br>adjacentElement<br>Space<br>Thermostat<br>Space<br>Zone Air Temperature Set Point<br>timeseries<br>Window | The linked data was adopted for data<br>integration between multiple diverse<br>data sources to facilitate the devel<br>opment of digital twin applications | | | |
+| Ontologies<br>for<br>Building<br>Energy<br>Applications [126] | Zones and Spaces, Envelope, Build<br>ing Systems and Equipment, Control<br>Devices, Sensors and Actuators | Uses<br>BOT,<br>Brick,<br>SSN/-<br>SOSA,<br>SAREF,<br>and<br>REC<br>VAV<br>Device<br>Flow Terminal<br>System<br>BuildingObject<br>VirtualBuildingComponent<br>HVAC Zone<br>Room<br>Space<br>Office | Comparative analysis of five distinct<br>ontologies for modeling an office<br>building to support tasks such as<br>energy audits, AFDD, and optimal<br>control | | | |
+| Legend:<br>saref:<br>s4bldg:<br>s4syst:<br>icbms:<br>bot:<br>sosa:<br>kpi:<br>brick:<br>sbms:<br>ssn:<br>phy:<br>other | | | | | | |
 
 ## <span id="page-20-0"></span>6 Discussion on Identified Limitations and Forthcoming Steps
 

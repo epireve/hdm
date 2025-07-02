@@ -67,11 +67,11 @@ enhance both the robustness and interpretability of temporal knowledge reasoning
 
 ### 2 Related Work
 
-#### 2.1 Static KG Reasoning
+### 2.1 Static KG Reasoning
 
 Static KG reasoning methods can be summarized into three classes: the translation models [\(Bordes](#page-8-5) [et al.,](#page-8-5) [2013;](#page-8-5) [Wang et al.,](#page-10-4) [2014;](#page-10-4) [Lin et al.,](#page-10-5) [2015\)](#page-10-5), the semantic matching models [\(Yang et al.,](#page-11-3) [2015;](#page-11-3) [Trouillon et al.,](#page-10-6) [2016\)](#page-10-6), and the embedding-based models [\(Dettmers et al.,](#page-8-6) [2018;](#page-8-6) [Shang et al.,](#page-10-7) [2019\)](#page-10-7). Recently, R-GCN [\(Schlichtkrull et al.,](#page-10-8) [2018\)](#page-10-8) and CompGCN [\(Vashishth et al.,](#page-10-9) [2020\)](#page-10-9) extended GCN to relation-aware GCN for KGs.
 
-#### 2.2 TKG Reasoning
+### 2.2 TKG Reasoning
 
 Interpolation TKG Reasoning Many interpolation TKG reasoning methods [\(Leblay and Chekol,](#page-9-3) [2018;](#page-9-3) [Dasgupta et al.,](#page-8-7) [2018;](#page-8-7) [García-Durán et al.,](#page-8-8) [2018;](#page-8-8) [Xu et al.,](#page-10-10) [2019;](#page-10-10) [Lacroix et al.,](#page-9-0) [2020;](#page-9-0) [Jain](#page-9-4) [et al.,](#page-9-4) [2020;](#page-9-4) [Xu et al.,](#page-10-1) [2021\)](#page-10-1) are extended from static KGs to TKGs. Besides, TeRo [\(Xu et al.,](#page-11-1) [2020\)](#page-11-1) represents each relation as dual complex embeddings and can handle the time intervals between relations. RotateQVS [\(Chen et al.,](#page-8-1) [2022\)](#page-8-1) represents temporal evolutions as rotations in quaternion vector space and can model various complex relational patterns. T-GAP [\(Jung et al.,](#page-9-5) [2021\)](#page-9-5) performs pathbased inference by propagating attention through the graph.
 
@@ -79,26 +79,26 @@ Extrapolation TKG Reasoning To predict future facts, many extrapolation TKG reas
 
 gated recurrent units to mine relational correlations and periodic patterns from temporal facts.
 
-#### 2.3 Neural-Symbolic Reasoning
+### 2.3 Neural-Symbolic Reasoning
 
 Neural-symbolic reasoning aims to combine the strengths of both approaches, namely the ability of symbolic reasoning to perform logical inference and the ability of neural networks to perform learning from data [\(Zhang et al.,](#page-11-2) [2021\)](#page-11-2). Generally, it can be divided into three categories: (1) Symbolicdriven neural fashion [\(Guo et al.,](#page-8-9) [2016,](#page-8-9) [2018;](#page-8-10) [Wang](#page-10-11) [et al.,](#page-10-11) [2019\)](#page-10-11), which targets neural reasoning but leverages the logic rules to improve the embeddings. (2) Symbolic-driven probabilistic fashion [\(Richardson and Domingos,](#page-10-12) [2006;](#page-10-12) [Qu and Tang,](#page-10-13) [2019;](#page-10-13) [Raedt et al.,](#page-10-14) [2007\)](#page-10-14), which replaces the neural reasoning with a probabilistic framework, i.e., builds a probabilistic model to infer the answers. (3) Neural-driven symbolic fashion [\(Lao and Co](#page-9-11)[hen,](#page-9-11) [2010;](#page-9-11) [Lao et al.,](#page-9-12) [2012;](#page-9-12) [Neelakantan et al.,](#page-10-15) [2015\)](#page-10-15), which aims to infer rules by symbolic reasoning, and incorporates neural networks to deal with the uncertainty and ambiguity of data. For this work, we adopt the neural-driven symbolic fashion for our TKG reasoning.
 
 ### 3 Preliminaries
 
-#### 3.1 Problem Definition of TKG Reasoning
+### 3.1 Problem Definition of TKG Reasoning
 
 A Temporal knowledge graph is a collection of millions of temporal facts, expressed as G ⊂ E × R × E × T . Here we use E to denote the set of entities, R to denote the set of relations, and T to denote the set of time stamps. Each temporal fact in G is formed as a quadruple (es, r, eo, t), where a relation r ∈ R holds between a subject entity e<sup>s</sup> ∈ E and an object entity e<sup>o</sup> ∈ E at the time t. And for each quadruple (es, r, eo, t)), an inverse quadruple (eo, r−<sup>1</sup> , es, t)) is also added to the dataset.
 
 Let O = {(es, r, eo, t)|t ∈ [t0, T]} represent the set of known facts that we can observe, and let [t0, T] denote the time interval we can access. For a query q = (eq, rq, ?, tq), TKG Reasoning aims to infer the missing object entity given the other three elements. As we have two distinctive TKG Reasoning settings: the interpolation (inferring a query where t<sup>0</sup> ≤ t<sup>q</sup> ≤ T) and the extrapolation (predicting facts for t<sup>q</sup> > T), we use a unified concept of "temporal background" to represent all known temporal facts of existing TKG.
 
-#### <span id="page-2-2"></span>3.2 Bellman-Fold Based Recursive Encoding
+### <span id="page-2-2"></span>3.2 Bellman-Fold Based Recursive Encoding
 
 The Bellman-Ford Algorithm [\(Ford,](#page-8-2) [1956;](#page-8-2) [Bell](#page-8-3)[man,](#page-8-3) [1958;](#page-8-3) [Baras and Theodorakopoulos,](#page-8-4) [2010\)](#page-8-4) provides a recursive approach to search for the shortest path in a graph.[1](#page-2-0) Since TKGs are far from complete, we do not directly copy it for TKG Reasoning, but utilize a recursive encoding method for representations.
 
 <span id="page-2-1"></span>![](_page_2_Figure_9.jpeg)
-<!-- Image Description: The image is a graph illustrating a network structure. Node  `u` connects to nodes  `x₁, x₂, x₃, x₄` which are at distance `l-1` and `l` respectively.  Nodes `x₁, x₂, x₃`  have a directed edge pointing to node `v`, implying a relationship or flow. Dashed concentric ovals represent layers or distance from `u`. The illustration likely depicts a multi-layer network model or a specific graph structure used in the paper's algorithm or analysis. -->
+<!-- Image Description: The image is a graph illustrating a network structure. Node `u` connects to nodes `x₁, x₂, x₃, x₄` which are at distance `l-1` and `l` respectively. Nodes `x₁, x₂, x₃` have a directed edge pointing to node `v`, implying a relationship or flow. Dashed concentric ovals represent layers or distance from `u`. The illustration likely depicts a multi-layer network model or a specific graph structure used in the paper's algorithm or analysis. -->
 
-Figure 1: An illustration of Bellman-Ford-based recursive encoding.
+**Figure 1:** An illustration of Bellman-Ford-based recursive encoding.
 
 As illustrated in Fig[.1,](#page-2-1) the basic idea of our Bellman-Ford-based recursive encoding is: once the representations of the ℓ − 1 iterations (the node x) starting from node u are ready, we can obtain the representations of the ℓ iterations (the node v) by combining them with the edge (x, v):
 
@@ -115,7 +115,7 @@ where 1(u = v) is the indicator function that outputs 1 if u = v and 0 otherwise
 
 In this section, we introduce a novel temporal pathbased reasoning model with a neural-driven symbolic fashion for both the interpolation and the extrapolation TKG Reasoning settings.
 
-#### <span id="page-2-3"></span>4.1 Temporal Path in TKGs
+### <span id="page-2-3"></span>4.1 Temporal Path in TKGs
 
 Definition 1. *(Temporal link). In a TKG, each entity is viewed as a node in the graph, and a temporal link is viewed as an edge connecting two nodes which represent the subject* e<sup>s</sup> *and the object entity* e<sup>o</sup> *in a certain quadruple* (es, r, eo, t)*. Due to the heterogeneity and time constraints, each link is bonded with a relation* r *and a particular time* t*. Thus, we can denote a temporal link as* <sup>t</sup> r (es, eo)*.*
 
@@ -126,7 +126,7 @@ Definition 2. *(Temporal path). A temporal path* P *is a combination of several 
 $$
 t_1
 $$
-<sub>t<sub>1</sub></sub>(e<sub>1</sub>, e<sub>2</sub>)  $\wedge \frac{t_2}{r_2}$ (e<sub>2</sub>, e<sub>3</sub>)  $\wedge \cdots \frac{t_\ell}{r_\ell}$ (e<sub>\ell</sub>, e<sub>\ell+1</sub>), (1)
+<sub>t<sub>1</sub></sub>(e<sub>1</sub>, e<sub>2</sub>) $\wedge \frac{t_2}{r_2}$ (e<sub>2</sub>, e<sub>3</sub>) $\wedge \cdots \frac{t_\ell}{r_\ell}$ (e<sub>\ell</sub>, e<sub>\ell+1</sub>), (1)
 
 *or* V<sup>ℓ</sup> i=1 ti ri (e<sup>i</sup> , ei+1) *for short, where* e1*,* e2*,* ···el+1 *are sequentially connected to form a chain, and* ℓ *is the path length. We take* e<sup>1</sup> *and* el+1 *as the origin and the destination of the path respectively, and use* P(i) *to denote the temporal link* <sup>t</sup><sup>i</sup> ri (e<sup>i</sup> , ei+1) *of the* i*-th step in* P*.* [2](#page-3-0)
 
@@ -143,7 +143,7 @@ As mentioned by [Zhu et al.](#page-11-4) [\(2021a\)](#page-11-4), many facts hav
 $$
 h_{t_i}^p = \sin(\omega_p \Delta t_i + \varphi_p)
 $$
-  
+
 \n
 $$
 h_{t_i}^{np} = \omega_{np} \Delta t_i + \varphi_{np},
@@ -160,7 +160,7 @@ $$
 
 where we use the same embedding dimension d for h p ti , h np ti and ht<sup>i</sup> .
 
-#### 4.3 Recursive Encoding on Temporal Paths
+### 4.3 Recursive Encoding on Temporal Paths
 
 In Section [3.2,](#page-2-2) we have mentioned the idea of Bellman-Ford-based recursive encoding. Now, we start from the query and introduce our recursive encoding on temporal paths for TKG reasoning.
 
@@ -174,7 +174,6 @@ Pe<sup>q</sup> . Thus, we actually have E ℓ <sup>e</sup><sup>q</sup> = E ℓ�
 
 Then, the message is passed along temporal paths Pe<sup>q</sup> from <sup>e</sup><sup>s</sup> to <sup>e</sup>o, where <sup>t</sup> r (es, eo) ∈ Peq,(l) . And we can get the representations for all e<sup>o</sup> ∈ D(Pe<sup>q</sup> ) for ℓ = 1, 2, · · ·L by:
 
-<span id="page-4-2"></span>
 $$
 \boldsymbol{h}_{e_o}^{\ell} = \delta \Big(\boldsymbol{W}^{\ell} \sum\nolimits_{\mathcal{P}_{e_q,(\ell)}} \phi \big(\boldsymbol{h}_{e_s}^{\ell-1}, \boldsymbol{h}_r^{\ell}, \boldsymbol{h}_t\big) \Big),\qquad(4)
 $$
@@ -189,11 +188,11 @@ where δ denotes an activation function, W<sup>ℓ</sup> ∈ R d×d is a learnab
 - 3: collect all the ℓ-length temporal paths and update E ℓ <sup>e</sup><sup>q</sup> with the destination entity set D(P<sup>e</sup><sup>q</sup> ); 4: message passing along temporal paths P<sup>e</sup><sup>q</sup> from
 - e<sup>s</sup> ∈ D(P<sup>e</sup>q,(ℓ−1)) to e<sup>o</sup> ∈ D(P<sup>e</sup>q,(ℓ)): h ℓ <sup>e</sup><sup>o</sup> = δ W<sup>ℓ</sup> P Peq,(l) ϕ h ℓ−1 es ,h ℓ <sup>r</sup>, h<sup>t</sup> , 5: end for L ;
 
-6: assign 
+6: assign
 $$
 \mathbf{h}_{e_a}^L = \mathbf{0}
 $$
- for all  $e_a \notin \mathcal{E}_{e_q}^L$ 
+for all $e_a \notin \mathcal{E}_{e_q}^L$
 
 7: return h L ea for all e<sup>a</sup> ∈ E.
 
@@ -209,7 +208,6 @@ Note that we use the same embedding dimension d for h ℓ−1 es , h ℓ r , h �
 
 Then, we utilize an attention-based mechanism to weigh the message. Inspired by graph attention networks [\(Velickovic et al.,](#page-10-16) [2018\)](#page-10-16), we first take a concatenation operation on h ℓ−1 es , h ℓ r , h ℓ rq and h<sup>t</sup> to get
 
-<span id="page-4-3"></span>
 $$
 \boldsymbol{U}_{(e_s,r,e_o,t)|q} = concat[\boldsymbol{h}_{e_s}^{\ell-1}(e_q,r_q,t_q)||\boldsymbol{h}_r^{\ell}||\boldsymbol{h}_{r_q}^{\ell}||\boldsymbol{h}_t],
 $$
@@ -217,7 +215,6 @@ $$
 
 where U(es,r,eo,t)|<sup>q</sup> ∈ R 4d is the concatenated result. Then, the attention weight for the message can be defined as
 
-<span id="page-4-4"></span>
 $$
 \alpha_{(e_s,r,e_o,t)|\mathbf{q}}^{\ell} = \sigma \Big( (\mathbf{w}_{\alpha}^{\ell})^T ReLU(\mathbf{W}_{\alpha}^{\ell} \cdot \mathbf{U}_{(e_s,r,e_o,t)|\mathbf{q}}) \Big), \tag{7}
 $$
@@ -232,13 +229,12 @@ $$
 
 So far, we have provided a detailed version of our recursive encoding function (also see a general version in Equation [4\)](#page-4-2) for each recursive step ℓ = 1, 2, · · ·L. After L recursive steps, the representation of each entity inside various L-length temporal paths (starting from eq) can be learned step by step. We assign h L ea (eq, rq, tq) = 0 for all e<sup>a</sup> ∈ E / L eq . For each entity e<sup>a</sup> ∈ E, we finally get its representation h L ea after L-length recursive encoding process.
 
-#### 4.4 Reasoning on Temporal Paths
+### 4.4 Reasoning on Temporal Paths
 
 Then, we can leverage the learned representations to measure the quality of temporal paths to reason.
 
 Neural based Scoring To accomplish neuralsymbolic reasoning, we take a neural-based scoring first and use a simple scoring function to compute the likelihood for each candidate answer entity ea:
 
-<span id="page-4-5"></span>
 $$
 f(\boldsymbol{q}, e_a) = \boldsymbol{w}^T \boldsymbol{h}_{e_a}^L(e_q, r_q, t_q), \qquad (9)
 $$
@@ -260,7 +256,7 @@ Symbolic Reasoning As for our symbolic reasoning, we target both the suitable te
 $$
 t_{1}(e_{q}, m_{1}) \wedge \frac{t_{2}}{r_{2}}(m_{1}, m_{2}) \wedge \cdots \frac{t_{L}}{r_{L}}(m_{L-1}, e_{a})
 $$
-  
+
 $$
 \rightarrow \frac{t_{q}}{r_{q}}(e_{q}, e_{a}), \qquad (11)
 $$
@@ -272,7 +268,7 @@ We use A<sup>ℓ</sup> eq ∈ {0, 1} Nℓ×N<sup>ℓ</sup> to denote the adjacen
 $$
 \mathcal{P}^{\star} = \beta^1 A_{e_q}^1 \otimes \beta^2 A_{e_q}^2 \cdots \otimes \beta^L A_{e_q}^L.
 $$
- (12)
+(12)
 
 where β <sup>ℓ</sup> ∈ {0, 1} Nℓ×N<sup>ℓ</sup> is the choice of links for step ℓ.
 
@@ -289,7 +285,7 @@ To summarize, our temporal path-based reasoning first collects temporal paths fr
 
 ### 5 Experiments
 
-#### 5.1 Evaluation Protocol
+### 5.1 Evaluation Protocol
 
 Link prediction task that aims to infer incomplete time-wise fact with a missing entity ((s, r, ?, t) or (?, r, o, t)) is adopted to evaluate the proposed
 
@@ -297,77 +293,74 @@ model for both interpolation and extrapolation reasoning over TKGs. During infer
 
 We use ICEWS14, ICEWS05-15 [\(García-Durán](#page-8-8) [et al.,](#page-8-8) [2018\)](#page-8-8), YAGO11k [\(Dasgupta et al.,](#page-8-7) [2018\)](#page-8-7) and WIKIDATA12k [\(Dasgupta et al.,](#page-8-7) [2018\)](#page-8-7) datasets for interpolation reasoning evaluation, and use ICEWS14 [\(García-Durán et al.,](#page-8-8) [2018\)](#page-8-8), ICEWS18 [\(Jin et al.,](#page-9-1) [2020\)](#page-9-1), YAGO [\(Mahdisoltani et al.,](#page-10-17) [2015\)](#page-10-17) and WIKI [\(Leblay and Chekol,](#page-9-3) [2018\)](#page-9-3) for extrapolation.[4](#page-5-0) The performance is reported on the standard evaluation metrics: the proportion of correct triples ranked in the top 1, 3 and 10 (Hits@1, Hits@3, and Hits@10), and Mean Reciprocal Rank (MRR). All of them are the higher the better. For all experiments, we report averaged results across 5 runs, and we omit the variance as it is generally low.
 
-#### 5.2 Main Results
+### 5.2 Main Results
 
-#### 5.2.1 Interpolation Reasoning
+### 5.2.1 Interpolation Reasoning
 
 Due to space limitations, we share the experimental details in Appendix [D.](#page-13-0) Table [1](#page-6-1) shows the results of the interpolation TKG Reasoning on link prediction over four experimented datasets where the proposed TPAR continuously outperforms all baselines across all metrics. We specifically compare our proposed TPAR with another GNN-based method, T-GAP [\(Jung et al.,](#page-9-5) [2021\)](#page-9-5), which samples a subgraph from the whole TKG for each node. In contrast, our TPAR recursively traverses the entire graph based on previously visited nodes to collect temporal paths. Our experimental results show that TPAR outperforms T-GAP across all evaluation metrics on the ICEWS14 and ICEWS05-15 datasets. This can be attributed to TPAR's ability to capture the temporal information of the entire graph and generate longer paths, which leads to more accurate and comprehensive TKG reasoning.
 
-#### 5.2.2 Extrapolation Reasoning
+### 5.2.2 Extrapolation Reasoning
 
 Experimental details for Extrapolation reasoning are shown in Appendix [E.](#page-13-1) Table [2](#page-6-2) presents the results of the extrapolation TKG reasoning on
 
 <span id="page-5-0"></span><sup>4</sup>More details for datasets can be found in Appdendix [C.](#page-12-2)
 
-<span id="page-6-1"></span>
 
-| Interpolation | ICEWS14 |        |         |       |            | YAGO11k |         |       | ICEWS05-15<br>WIKIDATA12k |        |         |       |            |        |         |       |
+| Interpolation | ICEWS14 | | | | | YAGO11k | | | ICEWS05-15<br>WIKIDATA12k | | | | | | | |
 |---------------|---------|--------|---------|-------|------------|---------|---------|-------|---------------------------|--------|---------|-------|------------|--------|---------|-------|
-|               | Hits@1  | Hits@3 | Hits@10 |       | MRR Hits@1 | Hits@3  | Hits@10 |       | MRR Hits@1                | Hits@3 | Hits@10 |       | MRR Hits@1 | Hits@3 | Hits@10 | MRR   |
-| TTransE       | 7.4     | -      | 60.1    | 25.5  | 2.0        | 15.0    | 25.1    | 10.8  | 8.4                       | -      | 61.6    | 27.1  | 9.6        | 18.4   | 32.9    | 17.2  |
-| HyTE          | 10.8    | 41.6   | 65.5    | 29.7  | 1.5        | 14.3    | 27.2    | 10.5  | 11.6                      | 44.5   | 68.1    | 31.6  | 9.8        | 19.7   | 33.3    | 18.0  |
-| TA-DistMult   | 36.3    | -      | 68.6    | 47.7  | 10.3       | 17.1    | 29.2    | 16.1  | 34.6                      | -      | 72.8    | 47.4  | 12.2       | 23.2   | 44.7    | 21.8  |
-| ATiSE         | 43.6    | 62.9   | 75.0    | 55.0  | 11.0       | 17.1    | 28.8    | 17.0  | 37.8                      | 60.6   | 79.4    | 51.9  | 17.5       | 31.7   | 48.1    | 28.0  |
-| TeRo          | 46.8    | 62.1   | 73.2    | 56.2  | 12.1       | 19.7    | 31.9    | 18.7  | 46.9                      | 66.8   | 79.5    | 58.6  | 19.8       | 32.9   | 50.7    | 29.9  |
-| TComplEx      | 53      | 66     | 77      | 61    | 12.7       | 18.3    | 30.7    | 18.5  | 59                        | 71     | 80      | 66    | 23.3       | 35.7   | 53.9    | 33.1  |
-| T-GAP         | 50.9    | 67.7   | 79.0    | 61.0  | -          | -       | -       | -     | 56.8                      | 74.3   | 84.5    | 67.0  | -          | -      | -       | -     |
-| TELM          | 54.5    | 67.3   | 77.4    | 62.5  | 12.9       | 19.4    | 32.1    | 19.1  | 59.9                      | 72.8   | 82.3    | 67.8  | 23.1       | 36.0   | 54.2    | 33.2  |
-| RotateQVS     | 50.7    | 64.2   | 75.4    | 59.1  | 12.4       | 19.9    | 32.3    | 18.9  | 52.9                      | 70.9   | 81.3    | 63.3  | 20.1       | 32.7   | 51.5    | 30.2  |
-| TGoemE++      | 54.6    | 68.0   | 78.0    | 62.9  | 13.0       | 19.6    | 32.6    | 19.5  | 60.5                      | 73.6   | 83.3    | 68.6  | 23.2       | 36.2   | 54.6    | 33.3  |
-| TPAR (Ours)   | 57.03   | 69.74  | 80.41   | 65.07 | 17.35      | 25.14   | 37.42   | 24.12 | 62.17                     | 75.29  | 85.86   | 69.33 | 25.05      | 38.68  | 54.79   | 34.89 |
+| | Hits@1 | Hits@3 | Hits@10 | | MRR Hits@1 | Hits@3 | Hits@10 | | MRR Hits@1 | Hits@3 | Hits@10 | | MRR Hits@1 | Hits@3 | Hits@10 | MRR |
+| TTransE | 7.4 | - | 60.1 | 25.5 | 2.0 | 15.0 | 25.1 | 10.8 | 8.4 | - | 61.6 | 27.1 | 9.6 | 18.4 | 32.9 | 17.2 |
+| HyTE | 10.8 | 41.6 | 65.5 | 29.7 | 1.5 | 14.3 | 27.2 | 10.5 | 11.6 | 44.5 | 68.1 | 31.6 | 9.8 | 19.7 | 33.3 | 18.0 |
+| TA-DistMult | 36.3 | - | 68.6 | 47.7 | 10.3 | 17.1 | 29.2 | 16.1 | 34.6 | - | 72.8 | 47.4 | 12.2 | 23.2 | 44.7 | 21.8 |
+| ATiSE | 43.6 | 62.9 | 75.0 | 55.0 | 11.0 | 17.1 | 28.8 | 17.0 | 37.8 | 60.6 | 79.4 | 51.9 | 17.5 | 31.7 | 48.1 | 28.0 |
+| TeRo | 46.8 | 62.1 | 73.2 | 56.2 | 12.1 | 19.7 | 31.9 | 18.7 | 46.9 | 66.8 | 79.5 | 58.6 | 19.8 | 32.9 | 50.7 | 29.9 |
+| TComplEx | 53 | 66 | 77 | 61 | 12.7 | 18.3 | 30.7 | 18.5 | 59 | 71 | 80 | 66 | 23.3 | 35.7 | 53.9 | 33.1 |
+| T-GAP | 50.9 | 67.7 | 79.0 | 61.0 | - | - | - | - | 56.8 | 74.3 | 84.5 | 67.0 | - | - | - | - |
+| TELM | 54.5 | 67.3 | 77.4 | 62.5 | 12.9 | 19.4 | 32.1 | 19.1 | 59.9 | 72.8 | 82.3 | 67.8 | 23.1 | 36.0 | 54.2 | 33.2 |
+| RotateQVS | 50.7 | 64.2 | 75.4 | 59.1 | 12.4 | 19.9 | 32.3 | 18.9 | 52.9 | 70.9 | 81.3 | 63.3 | 20.1 | 32.7 | 51.5 | 30.2 |
+| TGoemE++ | 54.6 | 68.0 | 78.0 | 62.9 | 13.0 | 19.6 | 32.6 | 19.5 | 60.5 | 73.6 | 83.3 | 68.6 | 23.2 | 36.2 | 54.6 | 33.3 |
+| TPAR (Ours) | 57.03 | 69.74 | 80.41 | 65.07 | 17.35 | 25.14 | 37.42 | 24.12 | 62.17 | 75.29 | 85.86 | 69.33 | 25.05 | 38.68 | 54.79 | 34.89 |
 
-Table 1: Interpolation TKG Reasoning results (in percentage) on link prediction over four experimented datasets.
+**Table 1:** Interpolation TKG Reasoning results (in percentage) on link prediction over four experimented datasets.
 
-<span id="page-6-2"></span>
 
-| Extrapolation | ICEWS14 |        |         |       |            | YAGO   |         |       | ICEWS18<br>WIKI |        |         |       |            |        |         |       |
+| Extrapolation | ICEWS14 | | | | | YAGO | | | ICEWS18<br>WIKI | | | | | | | |
 |---------------|---------|--------|---------|-------|------------|--------|---------|-------|-----------------|--------|---------|-------|------------|--------|---------|-------|
-|               | Hits@1  | Hits@3 | Hits@10 |       | MRR Hits@1 | Hits@3 | Hits@10 |       | MRR Hits@1      | Hits@3 | Hits@10 |       | MRR Hits@1 | Hits@3 | Hits@10 | MRR   |
-| RE-NET        | 30.11   | 44.02  | 58.21   | 39.86 | 58.59      | 71.48  | 86.84   | 66.93 | 19.73           | 32.55  | 48.46   | 29.78 | 50.01      | 61.23  | 73.57   | 58.32 |
-| CyGNeT        | 27.43   | 42.63  | 57.90   | 37.65 | 58.97      | 76.80  | 86.98   | 68.98 | 17.21           | 30.97  | 46.85   | 27.12 | 47.89      | 66.44  | 78.70   | 58.78 |
-| TANGO         | -       | -      | -       | -     | 60.04      | 65.19  | 68.79   | 63.34 | 18.68           | 30.86  | 44.94   | 27.56 | 51.52      | 53.84  | 55.46   | 53.04 |
-| xERTE         | 32.70   | 45.67  | 57.30   | 40.79 | 80.09      | 88.02  | 89.78   | 84.19 | 21.03           | 33.51  | 46.48   | 29.31 | 69.05      | 78.03  | 79.73   | 73.60 |
-| RE-GCN        | 31.63   | 47.20  | 61.65   | 42.00 | 78.83      | 84.27  | 88.58   | 82.30 | 22.39           | 36.79  | 52.68   | 32.62 | 74.50      | 81.59  | 84.70   | 78.53 |
-| TITer         | 32.76   | 46.46  | 58.44   | 41.73 | 80.09      | 89.96  | 90.27   | 87.47 | 22.05           | 33.46  | 44.83   | 29.98 | 71.70      | 75.41  | 76.96   | 73.91 |
-| CEN           | 32.08   | 47.46  | 61.31   | 42.20 | -          | -      | -       | -     | 21.70           | 35.44  | 50.59   | 31.50 | 75.05      | 81.90  | 84.90   | 78.93 |
-| TLogic        | 33.56   | 48.27  | 61.23   | 43.04 | -          | -      | -       | -     | 20.54           | 33.95  | 48.53   | 29.82 | -          | -      | -       | -     |
-| TIRGN         | 33.83   | 48.95  | 63.84   | 44.04 | 84.34      | 91.37  | 92.92   | 87.95 | 23.19           | 37.99  | 54.22   | 33.66 | 77.77      | 85.12  | 87.08   | 81.65 |
-| RPC           | 34.87   | 49.80  | 65.08   | 44.55 | 85.10      | 92.57  | 94.04   | 88.87 | 24.34           | 38.74  | 55.89   | 34.91 | 76.28      | 85.43  | 88.71   | 81.18 |
-| TPAR (Ours)   | 36.88   | 52.28  | 65.89   | 46.89 | 89.67      | 92.93  | 94.60   | 91.53 | 26.58           | 39.27  | 56.94   | 35.76 | 79.85      | 87.04  | 88.96   | 83.20 |
+| | Hits@1 | Hits@3 | Hits@10 | | MRR Hits@1 | Hits@3 | Hits@10 | | MRR Hits@1 | Hits@3 | Hits@10 | | MRR Hits@1 | Hits@3 | Hits@10 | MRR |
+| RE-NET | 30.11 | 44.02 | 58.21 | 39.86 | 58.59 | 71.48 | 86.84 | 66.93 | 19.73 | 32.55 | 48.46 | 29.78 | 50.01 | 61.23 | 73.57 | 58.32 |
+| CyGNeT | 27.43 | 42.63 | 57.90 | 37.65 | 58.97 | 76.80 | 86.98 | 68.98 | 17.21 | 30.97 | 46.85 | 27.12 | 47.89 | 66.44 | 78.70 | 58.78 |
+| TANGO | - | - | - | - | 60.04 | 65.19 | 68.79 | 63.34 | 18.68 | 30.86 | 44.94 | 27.56 | 51.52 | 53.84 | 55.46 | 53.04 |
+| xERTE | 32.70 | 45.67 | 57.30 | 40.79 | 80.09 | 88.02 | 89.78 | 84.19 | 21.03 | 33.51 | 46.48 | 29.31 | 69.05 | 78.03 | 79.73 | 73.60 |
+| RE-GCN | 31.63 | 47.20 | 61.65 | 42.00 | 78.83 | 84.27 | 88.58 | 82.30 | 22.39 | 36.79 | 52.68 | 32.62 | 74.50 | 81.59 | 84.70 | 78.53 |
+| TITer | 32.76 | 46.46 | 58.44 | 41.73 | 80.09 | 89.96 | 90.27 | 87.47 | 22.05 | 33.46 | 44.83 | 29.98 | 71.70 | 75.41 | 76.96 | 73.91 |
+| CEN | 32.08 | 47.46 | 61.31 | 42.20 | - | - | - | - | 21.70 | 35.44 | 50.59 | 31.50 | 75.05 | 81.90 | 84.90 | 78.93 |
+| TLogic | 33.56 | 48.27 | 61.23 | 43.04 | - | - | - | - | 20.54 | 33.95 | 48.53 | 29.82 | - | - | - | - |
+| TIRGN | 33.83 | 48.95 | 63.84 | 44.04 | 84.34 | 91.37 | 92.92 | 87.95 | 23.19 | 37.99 | 54.22 | 33.66 | 77.77 | 85.12 | 87.08 | 81.65 |
+| RPC | 34.87 | 49.80 | 65.08 | 44.55 | 85.10 | 92.57 | 94.04 | 88.87 | 24.34 | 38.74 | 55.89 | 34.91 | 76.28 | 85.43 | 88.71 | 81.18 |
+| TPAR (Ours) | 36.88 | 52.28 | 65.89 | 46.89 | 89.67 | 92.93 | 94.60 | 91.53 | 26.58 | 39.27 | 56.94 | 35.76 | 79.85 | 87.04 | 88.96 | 83.20 |
 
-Table 2: Extrapolation TKG Reasoning results (in percentage) on link prediction over four experimented datasets.
+**Table 2:** Extrapolation TKG Reasoning results (in percentage) on link prediction over four experimented datasets.
 
 link prediction across four different datasets. Notably, we compare TPAR with two SOTA methods, namely, the neural network-based RPC [\(Liang](#page-9-10) [et al.,](#page-9-10) [2023\)](#page-9-10) and the symbolic-based TLogic [\(Liu](#page-10-3) [et al.,](#page-10-3) [2022\)](#page-10-3). Our results show that TPAR outperforms all baselines, underscoring the benefits of combining neural and symbolic-based approaches for TKG reasoning.
 
-#### <span id="page-6-0"></span>5.3 Analysis on Pipeline Setting
+### <span id="page-6-0"></span>5.3 Analysis on Pipeline Setting
 
 To test the hypothesis that completing missing knowledge about the past can enhance the accuracy of predicting future knowledge, we design a novel experimental pipeline. Building upon the facts within the known time range, we sample a ratio of facts to train interpolation, while the other unsampled facts have either the subject entity or the object entity masked, forming incomplete quadruples. Specifically, we have three settings: set the ratio to 60% for Setting A, 70% for Setting B, and 80% for Setting C.[5](#page-6-3) The lower the ratio, the more incomplete facts need to be interpolated first.
 
 The pipeline involves first completing these incomplete quadruples through interpolation, and subsequently predicting future events. Baselines: Since there are currently no existing methods capable of both interpolation and extrapolation, we assemble SOTA interpolation and extrapolation meth-
 
-<span id="page-6-5"></span>
 
-|           | Interpolation Extrapolation | Setting |                                              |       |  |  |  |  |  |  |
+| | Interpolation Extrapolation | Setting | | | | | | | | |
 |-----------|-----------------------------|---------|----------------------------------------------|-------|--|--|--|--|--|--|
-|           |                             |         | A (Ratio: 60%) B (Ratio: 70%) C (Ratio: 80%) |       |  |  |  |  |  |  |
-| TELM      | TLogic                      | 40.88   | 41.55                                        | 42.09 |  |  |  |  |  |  |
-| \$        | TLogic                      | 41.85   | 41.88                                        | 42.18 |  |  |  |  |  |  |
-| RotateQVS | TIRGN                       | 40.86   | 42.35                                        | 42.78 |  |  |  |  |  |  |
-| \$        | TIRGN                       | 42.53   | 43.68                                        | 43.69 |  |  |  |  |  |  |
-| TPAR      | TPAR                        | 44.56   | 46.07                                        | 46.66 |  |  |  |  |  |  |
-| \$        | TPAR                        | 43.86   | 45.49                                        | 36.36 |  |  |  |  |  |  |
+| | | | A (Ratio: 60%) B (Ratio: 70%) C (Ratio: 80%) | | | | | | | |
+| TELM | TLogic | 40.88 | 41.55 | 42.09 | | | | | | |
+| \$ | TLogic | 41.85 | 41.88 | 42.18 | | | | | | |
+| RotateQVS | TIRGN | 40.86 | 42.35 | 42.78 | | | | | | |
+| \$ | TIRGN | 42.53 | 43.68 | 43.69 | | | | | | |
+| TPAR | TPAR | 44.56 | 46.07 | 46.66 | | | | | | |
+| \$ | TPAR | 43.86 | 45.49 | 36.36 | | | | | | |
 
-Table 3: MRR performance of the pipeline setting on ICEWS 14.
+**Table 3:** MRR performance of the pipeline setting on ICEWS 14.
 
 ods[6](#page-6-4) , and get two combinations: a) TELM and TLogic, b) RotateQVS and TIRGN.
 
@@ -383,38 +376,38 @@ The experimental results in Table [3](#page-6-5) [7](#page-6-6) show two key obs
 
 | (a) Interpolation for the maximum length L = 2. |
 |-------------------------------------------------|
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
-|                                                 |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
 
 (b) Extrapolation for the maximum length L = 3.
 
-Figure 2: Path interpretations of TKG reasoning on ICEWS14 test set. Dashed lines mean inverse relations.
+**Figure 2:** Path interpretations of TKG reasoning on ICEWS14 test set. Dashed lines mean inverse relations.
 
 b) In all three settings, our TPAR with pipeline outperforms the straightforward extrapolation results, which demonstrates the superiority of our TPAR model to effectively integrate interpolation and extrapolation as a unified task for TKG reasoning.
 
-#### <span id="page-7-0"></span>5.4 Case Study: Path Interpretations
+### <span id="page-7-0"></span>5.4 Case Study: Path Interpretations
 
 Benefiting from the neural-symbolic fashion, we can interpret the reasoning results through temporal paths. Following local interpretation methods [\(Zeiler and Fergus,](#page-11-6) [2014;](#page-11-6) [Zhu et al.,](#page-11-7) [2021b\)](#page-11-7), we approximate the local landscape of our TPAR with a linear model over the set of all paths, i.e., 1st-order Taylor polynomial. Thus, the importance of a path can be defined as its weight in the linear model and can be computed by the partial derivative of the prediction w.r.t. the path. Formally, top-k temporal path interpretations for f(q, ea) are defined as
 
@@ -427,15 +420,15 @@ where Peqe<sup>a</sup> denotes the set of all temporal paths starting from e<sup
 Fig. [2](#page-7-1) illustrates the path interpretations of TKG reasoning for both two settings on the ICEWS14 test set. While users may have different insights
 
 <span id="page-7-4"></span>![](_page_7_Figure_9.jpeg)
-<!-- Image Description: This image presents two bar charts comparing the Mean Reciprocal Rank (MRR) of different knowledge graph completion methods (RotateQVS, TELM, TPAR, TLogic, TIRGN) at varying sparsity ratios.  Chart (a) shows interpolation results, while (b) shows extrapolation.  Both charts illustrate how MRR performance changes across different methods as data sparsity increases. The purpose is to compare the robustness of these methods under varying data conditions. -->
+<!-- Image Description: This image presents two bar charts comparing the Mean Reciprocal Rank (MRR) of different knowledge graph completion methods (RotateQVS, TELM, TPAR, TLogic, TIRGN) at varying sparsity ratios. Chart (a) shows interpolation results, while (b) shows extrapolation. Both charts illustrate how MRR performance changes across different methods as data sparsity increases. The purpose is to compare the robustness of these methods under varying data conditions. -->
 
-Figure 3: Performance w.r.t. sparsity ratio on ICEWS14.
+**Figure 3:** Performance w.r.t. sparsity ratio on ICEWS14.
 
 towards the visualization, here are our understandings: 1) In Fig. [2\(a\),](#page-7-2) for the interpolation setting, when we need to reason about the fact that happened on t<sup>q</sup> =2014-02-14, we can use the path formed by the links before or after tq. 2) For the extrapolation of Fig. [2\(b\),](#page-7-3) we do not strictly impose a chronological order constraint on the links in the path, ensuring that the paths used in our reasoning can be as rich as possible. 3) Multiple different temporal paths may lead to the same reasoning destination, and the explanation is that a reasoning result can have multiple evidence chains.
 
 In addition, we conduct analyses on path lengths, and the contents can be found in Appendix [G.](#page-14-2)
 
-#### 5.5 Robustness Analysis
+### 5.5 Robustness Analysis
 
 Fig[.3](#page-7-4) illustrates a performance comparison under varying degrees of data sparsity on the ICEWS14 dataset. We compare our TPAR model with RotateQVS [\(Chen et al.,](#page-8-1) [2022\)](#page-8-1) and TELM [\(Xu et al.,](#page-10-1) [2021\)](#page-10-1) in the interpolation setting, while TLogic [\(Liu et al.,](#page-10-3) [2022\)](#page-10-3) and TIRGN [\(Li et al.,](#page-9-8) [2022a\)](#page-9-8) are taken as extrapolation baselines. Our TPAR demonstrates superior performance compared to the other models across a wide range of data sparsity levels for both interpolation and extrapolation settings. This highlights its exceptional robustness and ability to handle sparse data effectively.
 
@@ -537,36 +530,36 @@ Output: The distance from node s to any node in the graph
 
 ```
 1: d
-    (0) ← [+∞, +∞, ..., +∞]
+(0) ← [+∞, +∞, ..., +∞]
 2: d
-    (0)[s] ← 0
+(0)[s] ← 0
 3: for i = 1 to n − 1 do
 4: d
-      (i) ← d
-              (i−1)
+(i) ← d
+(i−1)
 5: for each edge (u, v) ∈ E do
 6: d
-         (i)
-           [v] ← min n
-                      d
-                       (i)
-                         [v], d(i−1)[u] + w(u, v)
+(i)
+[v] ← min n
+d
+(i)
+[v], d(i−1)[u] + w(u, v)
 7: end for
 8: end for
 9: return d
-            (n−1)
+(n−1)
 ```
 
 o
 
 The Bellman-Ford shortest path algorithm [\(Ford,](#page-8-2) [1956;](#page-8-2) [Bellman,](#page-8-3) [1958;](#page-8-3) [Baras and Theodorakopou](#page-8-4)[los,](#page-8-4) [2010\)](#page-8-4), founded by Richard Bellman and Lester Ford, is an efficient algorithm for searching the shortest path from the starting point to each node in a graph. The details are shown in Algorithm [2.](#page-12-3) And the basic idea is: For a graph with n nodes, the shortest path between two nodes in the graph can contain at most n−1 edges. Then, we can perform n − 1 times of relaxation operations recursively on the graph to obtain the shortest path from the source node to all nodes in the graph.
 
-# <span id="page-12-1"></span>B An Illustration of Temporal Paths and Temporal Links
+## <span id="page-12-1"></span>B An Illustration of Temporal Paths and Temporal Links
 
 <span id="page-12-4"></span>![](_page_12_Figure_7.jpeg)
-<!-- Image Description: The image is a directed graph showing a network of six nodes (e1-e6) representing events.  Each directed edge connects two nodes, labeled with an ordered pair (rᵢ, tᵢ), likely representing reward (rᵢ) and time cost (tᵢ) associated with the transition. The graph illustrates a process or workflow where transitions between events have associated costs and rewards.  Its purpose is to visually represent the structure of a system described by the paper, possibly to explain algorithms or models for optimizing paths or resource allocation within that system. -->
+<!-- Image Description: The image is a directed graph showing a network of six nodes (e1-e6) representing events. Each directed edge connects two nodes, labeled with an ordered pair (rᵢ, tᵢ), likely representing reward (rᵢ) and time cost (tᵢ) associated with the transition. The graph illustrates a process or workflow where transitions between events have associated costs and rewards. Its purpose is to visually represent the structure of a system described by the paper, possibly to explain algorithms or models for optimizing paths or resource allocation within that system. -->
 
-Figure 4: An illustration of temporal paths and temporal links.
+**Figure 4:** An illustration of temporal paths and temporal links.
 
 Fig. [4](#page-12-4) illustrates some temporal paths and temporal links. For example, <sup>t</sup><sup>1</sup> r1 (e1, e2) is a temporal link pointing from e<sup>1</sup> to e2, while <sup>t</sup><sup>2</sup> r2 (e1, e3) ∧ t5 r5 (e3, e4) ∧ t7 r7 (e4, e6) and
 
@@ -574,13 +567,13 @@ t1 r1 (e1, e2) ∧ t3 r3 (e2, e5) ∧ t6 r6 (e5, e6) are two distinct temporal p
 
 ### <span id="page-12-2"></span>C Benchmark Datasets
 
-#### C.1 Interpolation datasets
+### C.1 Interpolation datasets
 
 To evaluate our proposed TKG Reasoning method, we perform link prediction task on four widely-used interpolation datasets, namely ICEWS14, ICEWS05-15 [\(García-Durán et al.,](#page-8-8) [2018\)](#page-8-8), YAGO11k [\(Dasgupta et al.,](#page-8-7) [2018\)](#page-8-7) and WIKIDATA12k [\(Dasgupta et al.,](#page-8-7) [2018\)](#page-8-7).[8](#page-12-5) The left half of Table [4](#page-13-2) summarizes the details of the four interpolation datasets that we use.
 
 ICEWS [\(Lautenschlager et al.,](#page-9-16) [2015\)](#page-9-16) is a repository containing political events with a specific timestamp. ICEWS14 and ICEWS05-15 [\(García-](#page-8-8)[Durán et al.,](#page-8-8) [2018\)](#page-8-8) are two subsets of ICEWS corresponding to facts from 1/1/2014 to 12/31/2014 and from 1/1/2005 to 12/31/2015. YAGO11k and WIKIDATA12k [\(Dasgupta et al.,](#page-8-7) [2018\)](#page-8-7) are subsets of YAGO3 [\(Mahdisoltani et al.,](#page-10-17) [2015\)](#page-10-17) and WIKI [\(Erxleben et al.,](#page-8-13) [2014\)](#page-8-13), where time annotations are represented as time intervals. We derive the two datasets from HyTE [\(Dasgupta et al.,](#page-8-7) [2018\)](#page-8-7) to obtain the same year-level granularity by dropping the month and date information. And the characteristic of a dataset used for the interpolation is disorderly arrangement, which means that it is random and not sorted according to time.
 
-#### C.2 Extrapolation datasets
+### C.2 Extrapolation datasets
 
 The right half of Table [4](#page-13-2) summarizes the details of the four extrapolation datasets that we use, namely ICEWS14 [\(García-Durán et al.,](#page-8-8) [2018\)](#page-8-8), ICEWS18 [\(Jin et al.,](#page-9-1) [2020\)](#page-9-1), YAGO [\(Mahdisoltani et al.,](#page-10-17) [2015\)](#page-10-17) and WIKI [\(Leblay and Chekol,](#page-9-3) [2018\)](#page-9-3).[9](#page-12-6) ICEWS14 [\(García-Durán et al.,](#page-8-8) [2018\)](#page-8-8) and ICEWS18 [\(Jin](#page-9-1) [et al.,](#page-9-1) [2020\)](#page-9-1) are two subsets of ICEWS [\(Laut](#page-9-16)[enschlager et al.,](#page-9-16) [2015\)](#page-9-16) corresponding to facts from 1/1/2014 to 12/31/2014 and from 1/1/2018 to 10/31/2018. We drop the month and date information of YAGO and WIKI here for ease of processing and to obtain the same year-level granularity as [\(Jin et al.,](#page-9-1) [2020\)](#page-9-1). Compared to the interpolation datasets (see the left half of Table [4\)](#page-13-2), the facts in the four datasets for extrapolation are arranged in ascending order according to time. For the purpose
 
@@ -588,27 +581,26 @@ The right half of Table [4](#page-13-2) summarizes the details of the four extra
 
 <span id="page-12-6"></span><sup>9</sup>All of the four extrapolation datasets can be downloaded from [https://github.com/Lee-zix/RE-GCN]( https://github.com/Lee-zix/RE-GCN).
 
-<span id="page-13-2"></span>
 
-|                  |          |         | Interpolation | Extrapolation |          |          |         |         |  |
+| | | | Interpolation | Extrapolation | | | | | |
 |------------------|----------|---------|---------------|---------------|----------|----------|---------|---------|--|
-| Dataset          | ICEWS14  | YAGO11k | ICEWS05-15    | Wikidata12k   | ICEWS14  | ICEWS18  | YAGO    | WIKI    |  |
-| Entities         | 7,128    | 10,623  | 10488         | 12554         | 6,869    | 23,033   | 10,623  | 12,554  |  |
-| Relations        | 230      | 10      | 251           | 24            | 230      | 256      | 10      | 24      |  |
-| Train            | 72,826   | 16,408  | 386,962       | 32,497        | 74,845   | 373,018  | 161,540 | 539,286 |  |
-| Validation       | 8,941    | 2,050   | 46,275        | 4,062         | 8,514    | 45,995   | 19,523  | 67,538  |  |
-| Test             | 8,963    | 2,051   | 46,092        | 4,062         | 7,371    | 49,545   | 20,026  | 63,110  |  |
-| Time granularity | 24 hours | 1 year  | 24 hours      | 1 year        | 24 hours | 24 hours | 1 year  | 1 year  |  |
+| Dataset | ICEWS14 | YAGO11k | ICEWS05-15 | Wikidata12k | ICEWS14 | ICEWS18 | YAGO | WIKI | |
+| Entities | 7,128 | 10,623 | 10488 | 12554 | 6,869 | 23,033 | 10,623 | 12,554 | |
+| Relations | 230 | 10 | 251 | 24 | 230 | 256 | 10 | 24 | |
+| Train | 72,826 | 16,408 | 386,962 | 32,497 | 74,845 | 373,018 | 161,540 | 539,286 | |
+| Validation | 8,941 | 2,050 | 46,275 | 4,062 | 8,514 | 45,995 | 19,523 | 67,538 | |
+| Test | 8,963 | 2,051 | 46,092 | 4,062 | 7,371 | 49,545 | 20,026 | 63,110 | |
+| Time granularity | 24 hours | 1 year | 24 hours | 1 year | 24 hours | 24 hours | 1 year | 1 year | |
 
-Table 4: Statistics of our experimented datasets for both interpolation setting and extrapolation setting.
+**Table 4:** Statistics of our experimented datasets for both interpolation setting and extrapolation setting.
 
 of extrapolation, we follow [Han et al.](#page-9-9) [\(2021a\)](#page-9-9) and split each dataset into three subsets by time, ensuring (time of training set) < (time of validation set) < (time of test set). Thus, we can smoothly use past knowledge (facts in the training set) to predict the future.
 
 Some recent works have shown that the timeunwise filtered setting [\(Bordes et al.,](#page-8-5) [2013\)](#page-8-5) may probably get incorrect higher ranking scores [\(Li](#page-9-2) [et al.,](#page-9-2) [2021\)](#page-9-2), and that the time-wise filtered setting [\(Xu et al.,](#page-10-10) [2019;](#page-10-10) [Goel et al.,](#page-8-12) [2020\)](#page-8-12) is more suitable for TKG Reasoning since it ensures the facts which do not appear at time t are still considered as candidates for evaluating the given test quadruple [\(Xu et al.,](#page-11-1) [2020\)](#page-11-1). Therefore, we use the time-wise filtered setting [\(Xu et al.,](#page-10-10) [2019;](#page-10-10) [Goel et al.,](#page-8-12) [2020\)](#page-8-12) to report the experimental results.
 
-# <span id="page-13-0"></span>D Experimental Details for Interpolation Reasoning
+## <span id="page-13-0"></span>D Experimental Details for Interpolation Reasoning
 
-#### <span id="page-13-3"></span>D.1 Setup
+### <span id="page-13-3"></span>D.1 Setup
 
 In this setting, we split each dataset into three subsets: a training set Ttrain, a validation set Tvalid and a test set Ttest.
 
@@ -620,15 +612,15 @@ For verification and testing, we accomplish reasoning by answering queries deriv
 
 For interpolation TKG Reasoning baselines, we consider TTransE [\(Leblay and Chekol,](#page-9-3) [2018\)](#page-9-3), HyTE [\(Dasgupta et al.,](#page-8-7) [2018\)](#page-8-7), TA-DistMult [\(García-Durán et al.,](#page-8-8) [2018\)](#page-8-8), ATiSE [\(Xu et al.,](#page-10-10) [2019\)](#page-10-10), and TeRo [\(Xu et al.,](#page-11-1) [2020\)](#page-11-1), TComplEx [\(Lacroix et al.,](#page-9-0) [2020\)](#page-9-0), T-GAP [\(Jung et al.,](#page-9-5) [2021\)](#page-9-5), TELM [\(Xu et al.,](#page-10-1) [2021\)](#page-10-1), RotateQVS [\(Chen et al.,](#page-8-1) [2022\)](#page-8-1) and TGeomE++ [\(Xu et al.,](#page-11-8) [2023\)](#page-11-8).
 
-#### <span id="page-13-4"></span>D.3 Hyperparameter
+### <span id="page-13-4"></span>D.3 Hyperparameter
 
 To seek and find proper hyperparameters, we utilize a grid search empirically over the following ranges for all four datasets: embedding dimension d in {32, 64, 128}, learning rate in [10−<sup>5</sup> , 10−<sup>3</sup> ], dimension for attention d<sup>a</sup> in [3, 4, 5], dropout in [0.1, 0.2, 0.3], batch size in [5, 10, 20, 50], the maximum length of temporal paths L in [3, 4, 5], activation function δ in [identity, tanh, ReLU], and the optimizer we use is Adam.
 
 And we have found out the best hyperparameters combination as follows: for ICEWS14, we set learning rate as 0.0003, batch size as 10, and δ as identity; for ICEWS05-15, we set learning rate as 0.00005, batch size as 5, and δ as identity; for YAGO11k, we set learning rate as 0.00005, batch size as 20, and δ as ReLU; for WIKIDATA12k, we set learning rate as 0.00002, batch size as 20, and δ as ReLU; and for all of four datasets, we choose L as 5, d<sup>a</sup> as 5, dropout as 0.2, and d as 128.
 
-# <span id="page-13-1"></span>E Experimental Details for Extrapolation Reasoning
+## <span id="page-13-1"></span>E Experimental Details for Extrapolation Reasoning
 
-#### E.1 Setup
+### E.1 Setup
 
 In this setting, first of all, we need to arrange each dataset in ascending order according to time. In addition to the same splitting operation as in Section [D.1,](#page-13-3) we need to ensure: (time of training set) < (time of validation set) < (time of test set). Since some entities and relations in the validation or test set may not have appeared in the training set, our
 
@@ -636,11 +628,11 @@ extrapolation setting can actually be seen as an inductive inference [\(Sun et a
 
 We use the ground truths for our extrapolation TKG Reasoning, as is the case with many previous methods [\(Jin et al.,](#page-9-1) [2020;](#page-9-1) [Li et al.,](#page-9-2) [2021;](#page-9-2) [Sun et al.,](#page-10-2) [2021\)](#page-10-2). Specifically, for all of the training, validation and testing, we predict future events assuming ground truths of the preceding events are given at inference time [\(Han et al.,](#page-9-9) [2021a\)](#page-9-9).
 
-#### E.2 Baselines
+### E.2 Baselines
 
 For extrapolation TKG Reasoning baselines, we consider RE-NET [\(Jin et al.,](#page-9-1) [2020\)](#page-9-1), CyGNeT [\(Zhu](#page-11-4) [et al.,](#page-11-4) [2021a\)](#page-11-4), TANGO [\(Han et al.,](#page-9-6) [2021b\)](#page-9-6), xERTE [\(Han et al.,](#page-9-9) [2021a\)](#page-9-9), RE-GCN [\(Li et al.,](#page-9-2) [2021\)](#page-9-2), TITer [\(Sun et al.,](#page-10-2) [2021\)](#page-10-2), CEN [\(Li et al.,](#page-9-7) [2022b\)](#page-9-7), TLogic [\(Liu et al.,](#page-10-3) [2022\)](#page-10-3), TIRGN [\(Li et al.,](#page-9-8) [2022a\)](#page-9-8) and RPC [\(Liang et al.,](#page-9-10) [2023\)](#page-9-10).
 
-#### E.3 Hyperparameter
+### E.3 Hyperparameter
 
 A grid search has been taken empirically for the extrapolation TKG Reasoning on the same hyperparameter ranges as in Section [D.3.](#page-13-4) And we have found out the best hyperparameters combination as follows: for ICEWS14, we set learning rate as 0.0003, batch size as 10, d as 128, and δ as identity; for ICEWS18, we set learning rate as 0.00005, batch size as 5, d as 64, and δ as ReLU; for YAGO, we set learning rate as 0.00003, batch size as 10, d as 64, and δ as identity; for WIKI, we set learning rate as 0.00003, batch size as 5, d as 64, and δ as identity; and for all of four datasets, we choose L as 5, d<sup>a</sup> as 5, and dropout as 0.2.
 
@@ -650,87 +642,83 @@ To conduct our experimental pipeline, we sample a certain ratio (60% for Setting
 
 The process of the proposed pipeline can be seen in Table [6.](#page-15-1)
 
-<span id="page-14-1"></span>
 
-| Ratio | Inter-                    | Extra-      |       |       |       | MRR Hits@1 Hits@3 Hits@10 |
+| Ratio | Inter- | Extra- | | | | MRR Hits@1 Hits@3 Hits@10 |
 |-------|---------------------------|-------------|-------|-------|-------|---------------------------|
-| 60%   | -                         | TLogic      | 41.85 | 32.51 | 47.05 | 59.58                     |
-| 60%   | TELM                      | TLogic      | 40.88 | 31.66 | 45.86 | 58.69                     |
-| 60%   | -                         | TIRGN 42.53 |       | 32.04 | 48.10 | 62.16                     |
-|       | 60% RotateQVS TIRGN 40.86 |             |       | 30.24 | 45.78 | 61.63                     |
-| 60%   | -                         | TPAR        | 43.86 | 33.81 | 49.04 | 62.83                     |
-| 60%   | TPAR                      | TPAR        | 44.56 | 34.68 | 49.68 | 63.32                     |
-| 70%   | -                         | TLogic      | 41.88 | 32.51 | 46.91 | 59.97                     |
-| 70%   | TELM                      | TLogic      | 44.55 | 32.29 | 46.55 | 59.53                     |
-| 70%   | -                         | TIRGN 43.68 |       | 33.23 | 48.99 | 63.59                     |
-|       | 70% RotateQVS TIRGN 42.35 |             |       | 31.87 | 47.78 | 62.25                     |
-| 70%   | -                         | TPAR        | 45.49 | 35.69 | 50.33 | 64.30                     |
-| 70%   | TPAR                      | TPAR        | 46.07 | 35.92 | 51.06 | 65.02                     |
-| 80%   | -                         | TLogic      | 42.18 | 32.81 | 47.27 | 60.18                     |
-| 80%   | TELM                      | TLogic      | 42.09 | 32.69 | 47.31 | 59.78                     |
-| 80%   | -                         | TIRGN 43.69 |       | 32.97 | 49.10 | 64.28                     |
-|       | 80% RotateQVS TIRGN 42.78 |             |       | 32.15 | 48.06 | 63.14                     |
-| 80%   | -                         | TPAR        | 46.36 | 36.42 | 51.34 | 65.45                     |
-| 80%   | TPAR                      | TPAR        | 46.66 | 36.68 | 51.82 | 65.54                     |
+| 60% | - | TLogic | 41.85 | 32.51 | 47.05 | 59.58 |
+| 60% | TELM | TLogic | 40.88 | 31.66 | 45.86 | 58.69 |
+| 60% | - | TIRGN 42.53 | | 32.04 | 48.10 | 62.16 |
+| | 60% RotateQVS TIRGN 40.86 | | | 30.24 | 45.78 | 61.63 |
+| 60% | - | TPAR | 43.86 | 33.81 | 49.04 | 62.83 |
+| 60% | TPAR | TPAR | 44.56 | 34.68 | 49.68 | 63.32 |
+| 70% | - | TLogic | 41.88 | 32.51 | 46.91 | 59.97 |
+| 70% | TELM | TLogic | 44.55 | 32.29 | 46.55 | 59.53 |
+| 70% | - | TIRGN 43.68 | | 33.23 | 48.99 | 63.59 |
+| | 70% RotateQVS TIRGN 42.35 | | | 31.87 | 47.78 | 62.25 |
+| 70% | - | TPAR | 45.49 | 35.69 | 50.33 | 64.30 |
+| 70% | TPAR | TPAR | 46.07 | 35.92 | 51.06 | 65.02 |
+| 80% | - | TLogic | 42.18 | 32.81 | 47.27 | 60.18 |
+| 80% | TELM | TLogic | 42.09 | 32.69 | 47.31 | 59.78 |
+| 80% | - | TIRGN 43.69 | | 32.97 | 49.10 | 64.28 |
+| | 80% RotateQVS TIRGN 42.78 | | | 32.15 | 48.06 | 63.14 |
+| 80% | - | TPAR | 46.36 | 36.42 | 51.34 | 65.45 |
+| 80% | TPAR | TPAR | 46.66 | 36.68 | 51.82 | 65.54 |
 
-Table 5: A detailed version of Table [3.](#page-6-5)
+**Table 5:** A detailed version of Table [3.](#page-6-5)
 
 The detailed results of the pipeline setting can be found in Table [5,](#page-14-1) where a concise version has been shown in Table [3](#page-6-5) in Section [5.3.](#page-6-0)
 
 ### <span id="page-14-2"></span>G Analysis on Path Length
 
 <span id="page-14-3"></span>![](_page_14_Figure_13.jpeg)
-<!-- Image Description: This bar chart compares the Mean Reciprocal Rank (MRR) of three methods (xERTE, TLogic, TPAR) for different maximum lengths.  The x-axis represents the maximum length, and the y-axis shows the MRR.  The chart illustrates how the performance of each method varies with the maximum length parameter, allowing for a comparison of their relative effectiveness. -->
+<!-- Image Description: This bar chart compares the Mean Reciprocal Rank (MRR) of three methods (xERTE, TLogic, TPAR) for different maximum lengths. The x-axis represents the maximum length, and the y-axis shows the MRR. The chart illustrates how the performance of each method varies with the maximum length parameter, allowing for a comparison of their relative effectiveness. -->
 
-Figure 5: The MRR performance with different maximum path lengths for the extrapolation reasoning on the ICEWS14 test set.
+**Figure 5:** The MRR performance with different maximum path lengths for the extrapolation reasoning on the ICEWS14 test set.
 
 Fig. [5](#page-14-3) displays the MRR performance with different maximum path lengths for the extrapolation reasoning on ICEWS14 test set. We compare our TPAR with the symbolic method TLogic [\(Liu et al.,](#page-10-3) [2022\)](#page-10-3), where the maximum length L means it contains all lengths not exceeding L (L = 1, 2, · · · 5).
 
 As the maximum length L increases, a greater number of temporal links are covered and can provide more detailed information. However, this also makes it more challenging to learn and reason with this information. The results demonstrate that the performance of TLogic decreases for L values of 4 or higher. In contrast, when L is too small, such as L ≤ 2, our TPAR approach struggles to perform
 
-<span id="page-15-1"></span>
 
 | Step 1<br>(Interpolation) | Inputs: A ratio (denoted as r) of known facts sampled from G, denoted as rG.<br>Queries: The other unsampled facts (1 − r)G with either the subject or the<br>object entity masked.<br>Outputs: Newly acquired facts Gnew<br>by completing the queries. |
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Step 2<br>(Extrapolation) | Inputs: The basic rG, and the newly acquired Gnew.                                                                                                                                                                                                      |
-|                           | Queries: The standard extrapolation test set.                                                                                                                                                                                                           |
-|                           | Outputs: Performance evaluation.                                                                                                                                                                                                                        |
+| Step 2<br>(Extrapolation) | Inputs: The basic rG, and the newly acquired Gnew. |
+| | Queries: The standard extrapolation test set. |
+| | Outputs: Performance evaluation. |
 
-Table 6: The process of the proposed pipeline.
+**Table 6:** The process of the proposed pipeline.
 
 well due to the limited amount of information encoded in these short temporal paths. An interesting discovery can be made: For symbolic TLogic, a balance needs to be struck between the richness of the information contained and the ability to effectively learn from it. However, our TPAR appears to alleviate this issue, as neural-symbolic reasoning is more tolerant of ambiguous and noisy data.
 
-<span id="page-15-2"></span>
 
-| Length | Hits@1 | Hits@3 | Hits@10 | MRR   |
+| Length | Hits@1 | Hits@3 | Hits@10 | MRR |
 |--------|--------|--------|---------|-------|
-| 1      | 10.03  | 10.45  | 10.58   | 10.32 |
-| 2      | 10.39  | 11.06  | 11.45   | 10.84 |
-| 3      | 15.13  | 22.03  | 32.16   | 21.03 |
-| 4      | 15.59  | 22.56  | 33.15   | 21.62 |
-| 5      | 17.35  | 25.14  | 37.42   | 24.12 |
+| 1 | 10.03 | 10.45 | 10.58 | 10.32 |
+| 2 | 10.39 | 11.06 | 11.45 | 10.84 |
+| 3 | 15.13 | 22.03 | 32.16 | 21.03 |
+| 4 | 15.59 | 22.56 | 33.15 | 21.62 |
+| 5 | 17.35 | 25.14 | 37.42 | 24.12 |
 
-Table 7: Performance of our proposed TPAR with different maximum path lengths for the interpolation reasoning on the YAGO11k test set.
+**Table 7:** Performance of our proposed TPAR with different maximum path lengths for the interpolation reasoning on the YAGO11k test set.
 
 We also take a similar study on the interpolation reasoning, and Table [7](#page-15-2) illustrates the performance of our proposed TPAR with different maximum path lengths for the interpolation reasoning on the YAGO11k test set. As the length increases, all metrics of our TPAR have significantly improved.
 
 ### <span id="page-15-0"></span>H Analysis on Chronological Order
 
-<span id="page-15-3"></span>
 
-| Model               |         | TLogic |       | TPAR  |       |  |  |  |
+| Model | | TLogic | | TPAR | | | | |
 |---------------------|---------|--------|-------|-------|-------|--|--|--|
-| Chronological Order |         | #      | !     | #     | !     |  |  |  |
-| ICEWS14             | Hits@1  | 32.60  | 33.56 | 36.88 | 36.02 |  |  |  |
-|                     | Hits@3  | 47.06  | 48.27 | 52.28 | 51.49 |  |  |  |
-|                     | Hits@10 | 60.06  | 61.23 | 65.89 | 64.30 |  |  |  |
-|                     | MRR     | 42.02  | 43.04 | 46.89 | 45.77 |  |  |  |
-| ICEWS18             | Hits@1  | 19.92  | 20.54 | 26.58 | 25.24 |  |  |  |
-|                     | Hits@3  | 33.04  | 33.95 | 39.27 | 38.55 |  |  |  |
-|                     | Hits@10 | 47.75  | 48.53 | 56.94 | 55.54 |  |  |  |
-|                     | MRR     | 28.79  | 29.82 | 35.76 | 33.98 |  |  |  |
+| Chronological Order | | # | ! | # | ! | | | |
+| ICEWS14 | Hits@1 | 32.60 | 33.56 | 36.88 | 36.02 | | | |
+| | Hits@3 | 47.06 | 48.27 | 52.28 | 51.49 | | | |
+| | Hits@10 | 60.06 | 61.23 | 65.89 | 64.30 | | | |
+| | MRR | 42.02 | 43.04 | 46.89 | 45.77 | | | |
+| ICEWS18 | Hits@1 | 19.92 | 20.54 | 26.58 | 25.24 | | | |
+| | Hits@3 | 33.04 | 33.95 | 39.27 | 38.55 | | | |
+| | Hits@10 | 47.75 | 48.53 | 56.94 | 55.54 | | | |
+| | MRR | 28.79 | 29.82 | 35.76 | 33.98 | | | |
 
-Table 8: An analysis on chronological order for the extrapolation reasoning.
+**Table 8:** An analysis on chronological order for the extrapolation reasoning.
 
 As discussed in Section [4.1,](#page-2-3) for extrapolation reasoning, our TPAR does not require strict chronological order between links in a path. Alternatively,
 

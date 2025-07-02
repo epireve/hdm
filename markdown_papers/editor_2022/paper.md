@@ -69,7 +69,7 @@ Copyright © 2023 Kainan Zhang et al. This is an open access article distributed
 
 Since the concept of federated learning (FL) was proposed by Google in 2017, many applications have been combined with FL technology due to its outstanding performance in data integration, computing performance, privacy protection, etc. However, most traditional federated learning-based applications focus on image processing and natural language processing with few achievements in graph neural networks due to the graph's nonindependent identically distributed (IID) nature. Representation learning on graph-structured data generates graph embedding, which helps machines understand graphs effectively. Meanwhile, privacy protection plays a more meaningful role in analyzing graph-structured data such as social networks. Hence, this paper proposes PPFL-GNN, a novel privacy-preserving federated graph neural network framework for node representation learning, which is a pioneer work for graph neural network-based federated learning. In PPFL-GNN, clients utilize a local graph dataset to generate graph embeddings and integrate information from other collaborative clients to utilize federated learning to produce more accurate representation results. More importantly, by integrating embedding alignment techniques in PPFL-GNN, we overcome the obstacles of federated learning on non-IID graph data and can further reduce privacy exposure by sharing preferred information.
 
-# Introduction
+## Introduction
 
 Data providers sometimes share their data to improve the analytical performance of all participants. However, the collaboration among data providers risks privacy leakage of data owners. Insecure data sharing coupled with poor deanonymization is the same as giving away the owner's information for free. Federated learning (FL) is a comparatively different learning strategy that eludes data collection in a centralized location [[1\]](#page-11-0), where a typical server model may reveal a user's sensitive data that he/she is not willing to share. Under this concern, FL is aimed at training deep neural networks on multiple local datasets present on local clients without explicitly exposing the data samples to either the central server or cooperating clients.
 
@@ -83,7 +83,7 @@ Hence, to solve the aforementioned challenges, we propose a novel federated lear
 - (ii) We propose a novel framework to integrate federated learning and embedding alignment techniques into an end-to-end process flow to obtain accurate embedding results for individual clients
 - (iii) We conduct extensive experiments on ground truth datasets to prove the effectiveness of the proposed method with the embedding alignment technique and demonstrate the competitive performance of PPFL-GNN framework with respect to noise resistance
 
-# Related Works
+## Related Works
 
 2.1. Federated Learning with Non-IID Dataset. The non-IID local data usually brings statistical challenges for federated learning, which hurts training convergence and significantly reduces accuracy. To conquer the problem, Zhao et al. propose a strategy to improve the training of non-IID data by creating a small portion of data globally shared among all edge devices [\[8](#page-11-0)]. To offset the bias introduced by non-IID data and accelerate convergence, Wang et al. propose Favor [\[9](#page-11-0)], an experience-driven control framework, which can intelligently select client devices to participate in each round of federated learning. As another research direction, many FL algorithms are proposed to address the problem of learning efficiency under non-IID data settings. FedProx [[10\]](#page-11-0) is a generalization and reparametrization of FedAvg, which pioneers in tackling federated network heterogeneity. In FedPD [\[11](#page-11-0)], the authors also explore the nonconvex behavior of the FedAvg algorithm and propose a federated learning framework with optimal rates and adaptivity to non-IID data. Similarly, Li et al. propose FedBN [[12](#page-11-0)], which uses local batch normalization to alleviate the feature shift before averaging models with the convergence rate speed-up. However, after conducting extensive experiments, Li et al. [[13](#page-11-0)] find that the current state-of-the-art FL algorithm cannot outperform other algorithms in all cases with comprehensive data partitioning strategies that cover the typical non-IID data cases. Moreover, to achieve differential privacy in federated learning under a non-IID scenario, Xiong et al. design the 2DP-FL algorithm [\[14\]](#page-11-0) that adds flexible noise to meet various privacy standards. Although these prior methods have been making progress in different fields, none of them consider using the graph with nature non-IID regarding characteristics as the experiment dataset.
 
@@ -99,11 +99,11 @@ Moreover, federated GNN inherits the core problems from traditional federated se
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
 <!-- Image Description: This diagram illustrates a federated learning architecture. Multiple clients (Client 1 to Client N), each possessing a graph-structured dataset (e.g., social network), process data through a two-layer neural network. These processed outputs are then sent to a server where an "alignment" module harmonizes the results before aggregation. The final aggregated model is then updated and possibly distributed back to the clients. The diagram visually represents the data flow and processing steps within a distributed learning setting. -->
 
-Figure 1: Overview of the federated DeepWalk framework. The red nodes are private, and the blue nodes are public. Local training is highlighted in grey, and server aggregation is highlighted in yellow.
+**Figure 1:** Overview of the federated DeepWalk framework. The red nodes are private, and the blue nodes are public. Local training is highlighted in grey, and server aggregation is highlighted in yellow.
 
 embedding alignments have rapidly grown in the past few years [\[24\]](#page-11-0). Both MUSE [\[25\]](#page-11-0) and VecMap [[26](#page-11-0)] provide modern and oft-cited toolkits for bilingual lexical induction (BLI) datasets. With the development of knowledge-driven applications such as question answering and knowledge graph completion, substantial researches on knowledge graph embedding alignments have emerged recently [[27](#page-11-0), [28](#page-11-0)]. These thorough studies enlighten us to apply the existing alignment technique, instead of the training target, but as a tool of information extraction and data integration during the training process.
 
-# Proposed Work
+## Proposed Work
 
 In this section, we first introduce the problem formulation of our work and then explain the details of our approach to learning graph representation in a privacy-preserving way based on two state-of-the-art models.
 
@@ -138,7 +138,7 @@ In traditional federated learning, each client uploads all weights of the local 
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates a federated graph learning framework. Client nodes (1 and N) each process their local graphs using two layers of graph attention, generating embedding loss and label loss. These are aggregated by a server using an alignment module, resulting in updated model parameters (X'1, X'N). The figure shows the data flow and processing steps within a distributed learning setting. Matrices represent data, and the blocks represent layers and processes. -->
 
-Figure 2: Overview of the federated GAT framework. The red nodes are private, and the blue nodes are public. Local training is highlighted in grey, and server aggregation is highlighted in yellow.
+**Figure 2:** Overview of the federated GAT framework. The red nodes are private, and the blue nodes are public. Local training is highlighted in grey, and server aggregation is highlighted in yellow.
 
 Since the latent representations of public nodes are generated from different training graphs, simple aggregation and distribution will break their connections with the unprocessed latent representations of private nodes on the local client. Thus, we apply an embedding alignment technique in the weight aggregation on the central server to convert the latent representations from other clients into a form that the local client understands. For example, there are two local clients*cx*and*cy*sharing*k*nodes in the graph. Let*<sup>X</sup>* <sup>=</sup> <sup>f</sup>*Φ<sup>x</sup>*ð*u*1Þ, <sup>⋯</sup>, *<sup>Φ</sup><sup>x</sup>*ð*uk*Þg and *<sup>Y</sup>* <sup>=</sup> <sup>f</sup>*Φ<sup>y</sup>*ð*u*1Þ, <sup>⋯</sup>, *<sup>Φ</sup><sup>y</sup>*ð*uk*Þg, *uk*∈**U***<sup>k</sup>*be two sets of*k*public node embeddings coming from*cx*and*cy*, respectively. For *cy*to understand the information of*X*, we need to align/translate *X*into the space of*cy*, which technically is using a linear mapping matrix *W*that maps*X*from the source space*cx*to the target space*cy*. Furthermore, we can encapsulate the problem to the Procrustes problem [\[31\]](#page-11-0) and solve it via the singular value decomposition (SVD) of *Y XT*:
 
@@ -150,7 +150,7 @@ with
 $$
 U \sum V^T = \text{SVD}\left( Y X^T \right)
 $$
- (4)
+(4)
 
 where*Md*ðRÞ is the *<sup>d</sup>*×*<sup>d</sup>*matrix space of real numbers. We denote*Xy*<sup>=</sup>*WX*as the aligned embeddings from source space*cx*to target space*cy*, and *Yx*in the opposite way. The server aggregates*Xy*and*Y*to obtain a merged weight*Y*′ and returns *Y*′ to *cy*for substituting the current public node embedding vector*<sup>Φ</sup>*ð*yk*Þ. For multiple clients **<sup>C</sup>** = f*c*1, *<sup>c</sup>*2, <sup>⋯</sup>*cn*g, the server aligns the embed dings from any pair of clients ∀*ci*,*cj*<sup>∈</sup>**<sup>C</sup>**and applies the average aggregation on all the aligned embeddings in the same client's space to get the returning updates for each client. The local clients use the updates as the initial weights to train in a new round. Algorithm [1](#page-3-0) summarizes the complete training procedure.
 
@@ -168,17 +168,17 @@ Different from the dot product attention mechanism in GCN, GAT applies the addit
 
 Algorithm 2: The federated GAT framework.
 
-Table 1: The results of the federated DeepWalk framework. LOC indicates the result of local training, FED indicates the result of federated learning, and GLOBAL indicates the cumulative improvement of all clients.
+**Table 1:** The results of the federated DeepWalk framework. LOC indicates the result of local training, FED indicates the result of federated learning, and GLOBAL indicates the cumulative improvement of all clients.
 
-| Dataset (classifier) | Client 1 |      | Client 2 |      | Client 3 |      | Client 4 |      |        |
+| Dataset (classifier) | Client 1 | | Client 2 | | Client 3 | | Client 4 | | |
 |----------------------|----------|------|----------|------|----------|------|----------|------|--------|
-|                      | LOC      | FED  | LOC      | FED  | LOC      | FED  | LOC      | FED  | GLOBAL |
-| Cora (MLP)           | 79.1     | 80.1 | 76.0     | 76.0 | 74.3     | 76.1 | 75.0     | 76.6 | +4.41  |
-| Cora (SVC)           | 79.3     | 81.4 | 77.5     | 78.7 | 75.5     | 77.9 | 75.0     | 78.0 | +8.72  |
-| CiteSeer (MLP)       | 48.1     | 51.4 | 46.4     | 50.4 | 48.9     | 51.6 | 49.2     | 51.7 | +12.5  |
-| CiteSeer (SVC)       | 56.3     | 60.6 | 53.5     | 58.6 | 57.3     | 61.6 | 55.3     | 60.4 | +18.8  |
-| Cora (full)          | MLP      |      | 79.9     |      | SVC      |      | 82.0     |      |        |
-| CiteSeer (full)      |          | MLP  |          | 58.6 |          | SVC  |          | 65.4 |        |
+| | LOC | FED | LOC | FED | LOC | FED | LOC | FED | GLOBAL |
+| Cora (MLP) | 79.1 | 80.1 | 76.0 | 76.0 | 74.3 | 76.1 | 75.0 | 76.6 | +4.41 |
+| Cora (SVC) | 79.3 | 81.4 | 77.5 | 78.7 | 75.5 | 77.9 | 75.0 | 78.0 | +8.72 |
+| CiteSeer (MLP) | 48.1 | 51.4 | 46.4 | 50.4 | 48.9 | 51.6 | 49.2 | 51.7 | +12.5 |
+| CiteSeer (SVC) | 56.3 | 60.6 | 53.5 | 58.6 | 57.3 | 61.6 | 55.3 | 60.4 | +18.8 |
+| Cora (full) | MLP | | 79.9 | | SVC | | 82.0 | | |
+| CiteSeer (full) | | MLP | | 58.6 | | SVC | | 65.4 | |
 
 normalized coefficient*α*ð*l*<sup>Þ</sup> is computed by the softmax function in the end:
 
@@ -198,26 +198,25 @@ Having the normalized attention coefficients calculated, GAT generates the next-
 
 Once we obtain the local embeddings, we have to face the similar challenge of collaborating with different clients in federated learning as the federated DeepWalk framework. Although in DeepWalk model we can extract the
 
-<span id="page-6-0"></span>
 
-| Dataset (classifier) | Client 1 |      | Client 2 |      | Client 3 |      | Client 4 |      |        |
+| Dataset (classifier) | Client 1 | | Client 2 | | Client 3 | | Client 4 | | |
 |----------------------|----------|------|----------|------|----------|------|----------|------|--------|
-|                      | LOC      | FED  | LOC      | FED  | LOC      | FED  | LOC      | FED  | GLOBAL |
-| Cora (MLP)           | 84.4     | 86.3 | 85.7     | 85.8 | 83.1     | 83.8 | 85.7     | 86.0 | +3.01  |
-| Cora (SVC)           | 86.1     | 86.7 | 86.5     | 86.0 | 85.6     | 85.0 | 85.4     | 86.0 | +0.1   |
-| Cora_noise (MLP)     | 81.4     | 81.0 | 79.0     | 79.5 | 72.2     | 75.9 | 70.6     | 77.3 | +10.4  |
-| Cora_noise (SVC)     | 82.0     | 82.4 | 80.0     | 80.8 | 74.5     | 77.4 | 72.3     | 78.3 | +10.1  |
-| CiteSeer (MLP)       | 72.3     | 74.7 | 72.8     | 74.1 | 72.8     | 74.3 | 72.7     | 75.0 | +7.51  |
-| CiteSeer (SVC)       | 72.8     | 74.5 | 72.3     | 74.3 | 72.1     | 74.3 | 72.1     | 74.1 | +7.82  |
-| Cora (full)          | MLP      |      | 86.2     |      | SVC      |      | 86.1     |      |        |
-| CiteSeer (full)      | MLP      |      | 74.7     |      | SVC      |      | 74.8     |      |        |
+| | LOC | FED | LOC | FED | LOC | FED | LOC | FED | GLOBAL |
+| Cora (MLP) | 84.4 | 86.3 | 85.7 | 85.8 | 83.1 | 83.8 | 85.7 | 86.0 | +3.01 |
+| Cora (SVC) | 86.1 | 86.7 | 86.5 | 86.0 | 85.6 | 85.0 | 85.4 | 86.0 | +0.1 |
+| Cora_noise (MLP) | 81.4 | 81.0 | 79.0 | 79.5 | 72.2 | 75.9 | 70.6 | 77.3 | +10.4 |
+| Cora_noise (SVC) | 82.0 | 82.4 | 80.0 | 80.8 | 74.5 | 77.4 | 72.3 | 78.3 | +10.1 |
+| CiteSeer (MLP) | 72.3 | 74.7 | 72.8 | 74.1 | 72.8 | 74.3 | 72.7 | 75.0 | +7.51 |
+| CiteSeer (SVC) | 72.8 | 74.5 | 72.3 | 74.3 | 72.1 | 74.3 | 72.1 | 74.1 | +7.82 |
+| Cora (full) | MLP | | 86.2 | | SVC | | 86.1 | | |
+| CiteSeer (full) | MLP | | 74.7 | | SVC | | 74.8 | | |
 
-Table 2: The results of the federated GAT framework. Cora\_noise is the Cora dataset with noisy labels.
+**Table 2:** The results of the federated GAT framework. Cora\_noise is the Cora dataset with noisy labels.
 
 ![](_page_6_Figure_3.jpeg)
 <!-- Image Description: The image contains two line graphs. The top graph shows alignment precision over 15 iterations for different values of K (1, 5, and 10), illustrating convergence. The bottom graph displays classification accuracy across 15 iterations for four different clients (1-4), demonstrating performance variation across clients. Both graphs assess model performance over iterative training. -->
 
-Figure 3: The KNN alignment precision and SVC classification accuracy corresponding to each iteration of the federated DeepWalk framework on the Cora dataset.
+**Figure 3:** The KNN alignment precision and SVC classification accuracy corresponding to each iteration of the federated DeepWalk framework on the Cora dataset.
 
 public nodes' embeddings from the model weights directly, the weights of GAT integrate both public and private information and cannot be split directly by node's category. Therefore, as shown in Figure [2](#page-4-0), we upload the public nodes'
 
@@ -226,7 +225,7 @@ embeddings*X*coming from the model's intermediate layer (i.e.,*h* ð*l*Þ *<sup>
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image contains two line graphs. The top graph shows alignment precision versus iteration for different values of K (1, 5, and 10). The bottom graph displays classification accuracy versus iteration for four different clients (1-4). Both graphs illustrate the performance of a system over iterative updates, showing how alignment precision and classification accuracy improve with each iteration and vary across different parameter settings and clients. -->
 
-Figure 4: The KNN alignment precision and SVC classification accuracy corresponding to each iteration of the federated DeepWalk framework on the CiteSeer dataset.
+**Figure 4:** The KNN alignment precision and SVC classification accuracy corresponding to each iteration of the federated DeepWalk framework on the CiteSeer dataset.
 
 distribute the updates *X*′ to clients. As we cannot use the aligned embedding to manipulate GAT's model weights directly, another cosine-embedding loss *<sup>L</sup>*emb is added beside the original cross-entropy loss *<sup>L</sup>*label to integrate the information of *X*′ back into the model.
 
@@ -237,7 +236,7 @@ $$
 $$
 L_{label} = -\frac{1}{N} \sum_{i=1}^{n} y_i \log\left(\hat{y}_i\right)
 $$
- (8)
+(8)
 
 where *yi* is the one-hot label of each node and ̂*yi* = soft max ð*h* ð*l*+1Þ *<sup>i</sup>*<sup>Þ</sup>. Thus, the new loss of local training is the combination of the cosine-embedding loss and the cross-entropy loss:
 
@@ -247,7 +246,7 @@ $$
 
 where*β*is a model hyperparameter to balance the local information preservation and the external information integration. During the experiment, we observe that the last attention layer is so powerful that it overwhelms the cosine-embedding loss of the final output*h*ð*l*+1<sup>Þ</sup> . Hence, based on two-stage CNN training [[34](#page-12-0)] and federated split learning [[35](#page-12-0)], we inject the external information via the intermediate layer *h*ð*l*<sup>Þ</sup> at an earlier stage. Algorithm [2](#page-5-0) summarizes the complete procedure of the federated GAT framework.
 
-# Experiments
+## Experiments
 
 In this section, we present the experiments developed by PyTorch and conducted on a workstation with an Intel Core i7 2.80 GHz CPU and a NVIDIA GeForce GTX 1070 GPU.
 
@@ -256,7 +255,7 @@ In this section, we present the experiments developed by PyTorch and conducted o
 <span id="page-8-0"></span>![](_page_8_Figure_1.jpeg)
 <!-- Image Description: The image contains two line graphs. The top graph shows alignment precision versus iteration for different values of K (1, 5, and 10). The bottom graph displays classification accuracy versus iteration for four different clients. Both graphs illustrate the performance of a system over multiple iterations, showing how alignment precision and classification accuracy change. The purpose is to demonstrate the convergence and performance stability of the algorithm across different parameters and clients. -->
 
-Figure 5: The KNN alignment precision and SVC classification accuracy corresponding to each iteration of the federated GAT framework on the Cora\_noise dataset.
+**Figure 5:** The KNN alignment precision and SVC classification accuracy corresponding to each iteration of the federated GAT framework on the Cora\_noise dataset.
 
 publications as nodes classified into seven classes, and its citation network consists of 5,429 links. The CiteSeer dataset includes 3,327 nodes classified into six classes, and its citation network consists of 4,732 links. Both datasets use unique words in each document as the node features. We set up four clients participating in the federated learning, so each dataset is split into four subgraphs with an equal number of nodes and assigned to each client. By default, each Cora subgraph has 1,489 (55%) nodes in total with 1,083 (40%) public nodes and 406 (15%) private nodes, while each CiteSeer subgraph has 1,829 (55%) nodes in total with 1,330 (40%) public nodes and 499 (15%) private nodes. (%) shows the percentage of the nodes in the original graph.
 
@@ -269,7 +268,7 @@ For all the implementations, we embed each graph into a 16-dimensional space and
 <span id="page-9-0"></span>![](_page_9_Figure_1.jpeg)
 <!-- Image Description: The image contains two line graphs. The top graph plots alignment precision against iteration number for different values of K (1, 5, and 10). The bottom graph shows classification accuracy versus iteration number for four different clients. Both graphs illustrate the performance of a system across multiple iterations, showing how alignment precision and classification accuracy change over time for various parameter settings and clients. -->
 
-Figure 6: The KNN alignment precision and SVC classification accuracy corresponding to each iteration of the federated GAT framework on the CiteSeer dataset.
+**Figure 6:** The KNN alignment precision and SVC classification accuracy corresponding to each iteration of the federated GAT framework on the CiteSeer dataset.
 
 accuracy on the embeddings trained by full use of the graph data. Under this precondition, the proposed FL methodology can improve the global results by 4.41% (MLP) and 8.72% (SVC) on the Cora dataset, while 12.5% (MLP) and 18.8% (SVC) on the CiteSeer dataset, respectively. Specifically, every client in the CiteSeer experiment receives steady improvement compared with the local baseline.
 
@@ -277,42 +276,42 @@ For the federated GAT framework, we set the hyperparameter *<sup>β</sup>*= 1 fo
 
 4.4. Impact of Alignment on Performance. To demonstrate the effectiveness of applying alignment during the FL aggregation, we plot the alignment precision of the public latent representations and the SVC classification accuracy of the graph embeddings corresponding to each training iteration of both frameworks in Figures [3](#page-6-0)–6. We use *k*-nearest neighbors with *<sup>k</sup>*= 1, 5, and 10 to measure the alignment precision between any pair of the public latent representations. Because we need to align each local representation to the dimension of the other clients, there are 12 pairs in the four clients' settings, and we only show the average value of 12 alignments in the figures as the variance is slight.
 
-Table 3: Results of the different shared public nodes.
+**Table 3:** Results of the different shared public nodes.
 
-| Percent |      | DeepWalk |      | GAT  |      |      |  |
+| Percent | | DeepWalk | | GAT | | | |
 |---------|------|----------|------|------|------|------|--|
-|         | LOC  | FED      | Diff | LOC  | FED  | Diff |  |
-| 5%      | 57.1 | 61.8     | +4.7 | 74.4 | 75.1 | +0.7 |  |
-| 10%     | 57.3 | 62.3     | +5.0 | 73.9 | 75.1 | +1.2 |  |
-| 20%     | 61.8 | 65.0     | +3.2 | 71.8 | 73.5 | +1.9 |  |
-| 30%     | 63.4 | 65.8     | +2.4 | 70.5 | 72.6 | +2.1 |  |
-| 40%     | 67.8 | 69.2     | +1.4 | 70.5 | 73.0 | +2.5 |  |
+| | LOC | FED | Diff | LOC | FED | Diff | |
+| 5% | 57.1 | 61.8 | +4.7 | 74.4 | 75.1 | +0.7 | |
+| 10% | 57.3 | 62.3 | +5.0 | 73.9 | 75.1 | +1.2 | |
+| 20% | 61.8 | 65.0 | +3.2 | 71.8 | 73.5 | +1.9 | |
+| 30% | 63.4 | 65.8 | +2.4 | 70.5 | 72.6 | +2.1 | |
+| 40% | 67.8 | 69.2 | +1.4 | 70.5 | 73.0 | +2.5 | |
 
 For the federated DeepWalk framework in Figures [3](#page-6-0) and [4,](#page-7-0) although the classification accuracy of locally trained graph embedding is acceptable in the initial iteration, their alignment results are inferior because of the random initialization. Consequently, we cannot integrate the information of different clients effectively, which leads to the performance diving in the second iteration. However, the rough integration in the first two iterations helps in the united initialization by setting the tone for the subsequent training. Thus, we observe that the quality of graph embedding improves with the promotion of the alignment effect, which can achieve above 90% precision of*<sup>k</sup>* = 1 at the convergence stage. For the federated GAT framework in Figures [5](#page-8-0) and [6,](#page-9-0) the initial representation alignment results are satisfactory with a fair classification accuracy of graph embedding. Moreover, we observe both alignment precision and classification accuracy surge in the second iteration after the federated learning process. Nevertheless, as we only use cosine-embedding loss at the intermediate layer, partial integrated information is squeezed out when the federated procedure converges within ten iterations. In general, there is a positive correlation between the alignment precision and classification accuracy, which confirms the effectiveness of our method.
 
-# Discussion
+## Discussion
 
 Through previous experiments, we find that our method performs better when applied to the CiteSeer dataset, which is more sparse than the Cora dataset relatively. Denser subgraphs mean the local clients have more information, limiting the improvement effect of federated learning. However, if the degrees of the shared nodes are low, they cannot comprehensively transmit the local information during the integration. Therefore, we design the supplemental experiments to further study the suitable application scenarios. Instead of randomly generating the subgraphs and selecting 40% public nodes to share, we compose the subgraphs with different percentages of top high-degree nodes from the original graph as the public nodes. We conduct the same embedding classification experiment and render the average accuracy of four clients in Table 3.
 
 Under the DeepWalk framework, the classification accuracy of locally generated graph embeddings increases as the degree of nodes in the subgraph increases. Although federated learning can still improve the overall classification effect, the magnitude of improvement diminishes. With a simpler model DeepWalk, the local clients are more likely to get an underfit model with inferior prediction accuracy below 70%. Federated learning tackles the underfitting issue more by sharing public information between clients and indirectly increasing the local training dataset's size. In the experimental group of GAT, we notice that the higher subgraph density reduces the accuracy of local graph embedding. One reason is that the subgraphs generated by our method are disassortative, and the local aggregation mechanism of GAT may fail on disassortative graphs, where nodes within local neighborhoods provide more noise than helpful feature information. Another reason is that the local model is overfitting the denser training subgraph. However, the federated learning setting prevents the local model from focusing on the training data, and the embedding alignment technique has regularization effects empirically to avoid overfitting. Overall, our approach is suitable for general application scenarios, and the improvement effect is more prominent when the local embedding effect is unsatisfied.
 
-# Conclusions
+## Conclusions
 
 This paper investigates a practical problem of federated graph neural networks with non-IID datasets and proposes a novel federated learning framework. Through embedding alignment, we can normalize the common latent representation of each client as uniformly as possible and enable information integration in a federated setting. The experimental results demonstrate that our framework can achieve higher data usability than local training with privacy preservation. Other advanced embedding alignment technologies can be explored in future work for more accurate information integration. Investigation of the shared public nodes is still worthwhile. For future expansion, discovering an optional composition of public nodes to reduce the number of shares can better balance privacy protection and data availability.
 
-# Data Availability
+## Data Availability
 
 The Cora dataset consists of 2,708 scientific publications classified into one of seven classes. The citation network consists of 5,429 links. Each publication in the dataset is described by a 0/1-valued word vector indicating the absence/presence of the corresponding word from the dictionary. The dictionary consists of 1,433 unique words. (original source:<http://web.archive.org>). The CiteSeer dataset consists of 3,312 scientific publications classified into one of six classes. The citation network consists of 4,732 links. Each publication in the dataset is described by a 0/1 valued word vector indicating the absence/presence of the corresponding word from the dictionary. The dictionary consists of 3,703 unique words (introduced by C. Lee Giles et al. in CiteSeer: An Automatic Citation Indexing System).
 
-# Conflicts of Interest
+## Conflicts of Interest
 
 The authors declare that they have no conflicts of interest.
 
-# <span id="page-11-0"></span>Acknowledgments
+## <span id="page-11-0"></span>Acknowledgments
 
 This work was supported by the Electronics and Telecommunications Research Institute (ETRI) grant funded by the Korean Government under grant 20ZR1300 (Core Technology Research on Trust Data Connectome). This work was also supported by the National Science Foundation (No. 1704287).
 
-# References
+## References
 
 - [1] J. Konečný, H. B. McMahan, F. X. Yu, P. Richtárik, A. T. Suresh, and D. Bacon, "Federated learning: strategies for improving communication efficiency," 2016, [https://arxiv.org/abs/](https://arxiv.org/abs/1610.05492) [1610.05492](https://arxiv.org/abs/1610.05492).
 - [2] Z. Wu, S. Pan, F. Chen, G. Long, C. Zhang, and S. Y. Philip, "A comprehensive survey on graph neural networks," IEEE Transactions on Neural Networks and Learning Systems, vol. 32, no. 1, pp. 4–24, 2021.

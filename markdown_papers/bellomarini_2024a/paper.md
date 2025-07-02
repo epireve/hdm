@@ -30,7 +30,7 @@ Luigi Bellomarini<sup>1</sup> , Costanza Catalano<sup>1</sup> , Andrea Coletta<s
 
 > <sup>1</sup> Bank of Italy <sup>2</sup> Universit`a degli studi di Milano
 
-#### Abstract
+### Abstract
 
 Knowledge Graphs (KGs) have recently gained relevant attention in many application domains, from healthcare to biotechnology, from logistics to finance. Financial organisations, central banks, economic research entities, and national supervision authorities apply ontological reasoning on KGs to address crucial business tasks, such as economic policymaking, banking supervision, anti-money laundering, and economic research. Reasoning allows for the generation of derived knowledge capturing complex business semantics and the set up of effective business processes. A major obstacle in KGs sharing is represented by privacy considerations since the identity of the data subjects and their sensitive or company-confidential information may be improperly exposed.
 
@@ -43,9 +43,9 @@ Knowledge Graphs (KG) adopt a graph-based data model to represent knowledge in a
 <sup>∗</sup>The views expressed in this paper are those of the authors and do not necessarily reflect those of the Bank of Italy.
 
 ![](_page_1_Figure_0.jpeg)
-<!-- Image Description: The image is a directed graph illustrating ownership and control structures between companies.  Nodes represent companies (A, B, C, D, E, F), edges represent percentage share ownership (solid lines) and control (dashed lines). Numerical values on the edges indicate the magnitude of shares or control. The graph visually depicts the complex web of shareholdings and control influencing relationships between the companies.  A legend clarifies the edge types. -->
+<!-- Image Description: The image is a directed graph illustrating ownership and control structures between companies. Nodes represent companies (A, B, C, D, E, F), edges represent percentage share ownership (solid lines) and control (dashed lines). Numerical values on the edges indicate the magnitude of shares or control. The graph visually depicts the complex web of shareholdings and control influencing relationships between the companies. A legend clarifies the edge types. -->
 
-<span id="page-1-0"></span>Figure 1: A portion of a Company Ownership KG. Company A controls Company B.
+<span id="page-1-0"></span>**Figure 1:** A portion of a Company Ownership KG. Company A controls Company B.
 
 with adoption in multiple domains, from healthcare to biotechnology, from logistics to finance [\[6,](#page-27-0) [49,](#page-31-0) [43,](#page-30-0) [50,](#page-31-1) [51,](#page-31-2) [10\]](#page-28-0), which goes hand in hand with more and more stable academic interest [\[30,](#page-29-0) [19\]](#page-28-1). As a distinguishing trait of KGs, the socalled ground extensional component, namely, a database that can be seen as a set of nodes and edges along with their attributes, is enriched by an intensional component. It captures the domain of interest through a high-level declarative specification, for example, a logic-based one in Vadalog [\[7\]](#page-27-1), a reason-oriented extension of the Datalog language of databases [\[13\]](#page-28-2). Vadalog models domain knowledge by means of existential rules, whose semantics can be given in an operational way in terms of the well-known chase procedure [\[45\]](#page-30-1): rules are applied to the extensional component, within the so-called reasoning process, until they produce new facts (e.g., new nodes or edges) of the derived extensional component.
 
@@ -53,21 +53,20 @@ In our experience with the Central Bank of Italy, we have studied, engineered, a
 
 Sharing Knowledge Graphs. Let us introduce our setting through a simple but relevant example from the Central Bank of Italy. Figure [1](#page-1-0) shows a company ownership KG: the vertices represent companies and there is an edge from company A to company B with weight w when A owns a fraction w of the shares of B. The notion of company control denotes that a company can exert decision power on another one. In Vadalog, this can be modeled as follows:
 
-#### <span id="page-1-1"></span>Example 1.1.
+### <span id="page-1-1"></span>Example 1.1.
 
 $$
 company(x) \rightarrow control(x, x). \tag{1}
 $$
-  
+
 control(x, y), own(y, z, w), v = sum(w), v > 0.5 \rightarrow control(x, z). \tag{2}
 
 Every company controls itself (Rule 1). A company x controls y, if it owns more than 50% of y's shares or if it controls a set S of companies that jointly own more than 50% of y's shares (Rule 2). ∎
 
 The Bank of Italy wants to share the whole KG in Figure [1](#page-1-0) with untrusted or anyway external financial organizations, along with the new control relationship (red dashed edges). At the same time, it would like to protect the identity of the involved companies [\[40,](#page-30-2) [47\]](#page-30-3). More in general, central banks and financial institutions foster collaboration between the financial world and the academic community for institutional, research, and educational purposes, for which data, and hence KG sharing is of the essence. In our example, independently of the identities, the KG would enable external organisations to perform relevant analyses. For example, they could single out the Italian holdings having more than K controlled companies (e.g., company A in Figure [1](#page-1-0) for K = 2, see also Example [1.2\)](#page-2-0) and use them to train dedicated machine learning models to study the structure of the market, for instance by understanding whether the company is a family business or an entity managed by a professional investor; if its ultimate proprietor is within the EU area; if it pinpoints a market weakness by being likely subject to a takeover action, and many more, which are anyway beyond our scope.
 
-#### <span id="page-2-0"></span>Example 1.2.
+### <span id="page-2-0"></span>Example 1.2.
 
-<span id="page-2-1"></span>
 $$
 holding(x) \leftarrow control(x, y), x \neq y, count(y) \geq K. \tag{3}
 $$
@@ -83,9 +82,9 @@ A key privacy issue arises when an attacker knows the relationships of a few fin
 To address this challenge, several definitions of privacy have been pursued. While certainly relevant, differential privacy [\[32,](#page-29-2) [48,](#page-30-4) [33\]](#page-29-3) is not directly applicable, as it exhibits limitations in its use with highly correlated data and can easily lead to a degradation of the utility of the anonymised graph, i.e., how
 
 ![](_page_3_Figure_0.jpeg)
-<!-- Image Description: The image displays four graphs illustrating a knowledge graph (KG) anonymization process. (a) shows the original KG representing company shareholdings. (b) depicts a 2-anonymity approach, obscuring individual relationships.  (c) presents another 2-anonymity method. (d) showcases the authors' approach, adding synthetic edges (green) to enhance privacy while maintaining graph structure.  Edges are weighted, representing percentage share.  The legend clarifies the symbols and edge types, including "reidentification attack" paths (yellow dashed lines). -->
+<!-- Image Description: The image displays four graphs illustrating a knowledge graph (KG) anonymization process. (a) shows the original KG representing company shareholdings. (b) depicts a 2-anonymity approach, obscuring individual relationships. (c) presents another 2-anonymity method. (d) showcases the authors' approach, adding synthetic edges (green) to enhance privacy while maintaining graph structure. Edges are weighted, representing percentage share. The legend clarifies the symbols and edge types, including "reidentification attack" paths (yellow dashed lines). -->
 
-<span id="page-3-0"></span>Figure 2: Examples of KG and re-identification using a NAG. Dashed lines represent the isomorphism that can lead (or not) to re-identification. Figure (c) shows how existing work fails to protect the privacy of entities in the presence of newly derived links.
+<span id="page-3-0"></span>**Figure 2:** Examples of KG and re-identification using a NAG. Dashed lines represent the isomorphism that can lead (or not) to re-identification. Figure (c) shows how existing work fails to protect the privacy of entities in the presence of newly derived links.
 
 effective the resulting graph is to the use case, due to the added noise [\[33\]](#page-29-3). We will focus on structural anonymisation techniques, which include, for example, k-anonymity [\[54\]](#page-31-4), l-diversity [\[42\]](#page-30-5), and t-closeness [\[39\]](#page-30-6).
 
@@ -107,7 +106,7 @@ Contribution. In this paper, we propose a novel structural anonymisation methodo
 
 Overview. The remainder of the paper is organised as follows. Section [2](#page-5-0) introduces the notation and the main background concepts. Section [3](#page-7-0) and [4](#page-8-0) formalise our problem and introduce the (k, x)-isomorphism anonymisation along with the semantic utility metric. Sections [5](#page-11-0) and [6](#page-14-0) present the anonymisation algorithms, while in Section [7](#page-18-0) we experimentally evaluate our approaches. In Section [8](#page-26-0) and [9,](#page-27-5) we respectively present the related work and the conclusion. Some of the proofs are in the on-line Appendix [\[5\]](#page-27-6).
 
-# <span id="page-5-0"></span>2 Background
+## <span id="page-5-0"></span>2 Background
 
 Let us provide the basic definitions and notation.
 
@@ -135,7 +134,7 @@ Queries. We express business tasks on KGs as queries, like the one in Example [3
 
 In this section, we present our attack model and the privacy requirements. For simplicity but without loss of generality, from now on, we consider KGs with a weakly connected ground extensional component. General cases can be dealt with by applying our method to each weakly connected component of the KG.
 
-#### Adversary attack and privacy requirements
+### Adversary attack and privacy requirements
 
 We consider the scenario of a subgraph-based knowledge attack: the adversary knows the subgraph induced by a subset of vertices and attempts to re-identify such vertices in the anonymised graph in order to learn more information about them, for example, other relationships they are involved in. They do that by exploiting structural similarities between the known subgraph and the anonymised one, considering both the original edges in the extensional components and those derived from the reasoning process. We formalise the adversary knowledge as follows.
 
@@ -186,7 +185,7 @@ with the convention that if the denominator of a term is equal to zero, then the
 
 Both our metrics take values in [0, 1]. The former (7) will measurs the loss of information in the anonymised graph, the latter (8) will also consider possible incorrect answers. In both cases, 0 is the most desiderable value, where we have no loss of information nor incorrect answers.
 
-# <span id="page-8-0"></span>4 Privacy through (k, x)-Isomorphism
+## <span id="page-8-0"></span>4 Privacy through (k, x)-Isomorphism
 
 We now introduce our novel structural anonymisation approach for KGs, which we name (k, x)-isomorphism anonymisation. We require each induced subgraph of x vertices to have at least other (k−1) KG-isomorphic subgraphs with different edge weights and sensitive attributes. This guarantees that the NAG matches at least with k different induced subgraphs, each exhibiting different sensitive attributes, thus protecting the KG from de-anonymisation.
 
@@ -198,28 +197,28 @@ More specifically, we want to anonymise the released graph by creating a new KG 
 - 2. L ∩ L<sup>A</sup> = ∅; [anonymisation of labels]
 - 3. ω<sup>A</sup> (e) ≠ ω(e) for all e ∈ E; [anonymisation of weights]
 - 4. for all X<sup>1</sup> ⊂ V such that ∣X1∣ = x and G[X1] is weakly connected, there exist X2, X3, . . . , X<sup>k</sup> ⊆ V<sup>A</sup> such that:
-  - (i) X<sup>i</sup> ∩ X<sup>j</sup> = ∅ for all i, j ∈ [k], i ≠ j; [vertex-disjointness]
-  - (ii) (A[X1], Σ) ≅ (A[Xi], Σ) through the isomorphism Φi, for all i ∈ [k] with Φ<sup>1</sup> = idX<sup>1</sup> ; [k-anonymity]
-  - (iii) ξ<sup>A</sup> (Φi(v)) ≠ ξ<sup>A</sup> (Φ<sup>j</sup> (v)) for all v ∈ X1, i, j ∈ [k] with i ≠ j. [kdiversity]
+- (i) X<sup>i</sup> ∩ X<sup>j</sup> = ∅ for all i, j ∈ [k], i ≠ j; [vertex-disjointness]
+- (ii) (A[X1], Σ) ≅ (A[Xi], Σ) through the isomorphism Φi, for all i ∈ [k] with Φ<sup>1</sup> = idX<sup>1</sup> ; [k-anonymity]
+- (iii) ξ<sup>A</sup> (Φi(v)) ≠ ξ<sup>A</sup> (Φ<sup>j</sup> (v)) for all v ∈ X1, i, j ∈ [k] with i ≠ j. [kdiversity]
 
 Higher values of k guarantee stronger protection from de-anonymization attacks, as k is related to the number of subgraphs in the KG that are KG-isomorphic to a NAG, thus bringing the probability to re-identify the correct structure down to at most 1/k. The value of x is related to the size of NAGs we want to protect the KG from. At the same time, high values of k and x might substantially increase the computational cost of reaching a (k, x)-isomorphism anonymisation of the KG (see Section [7\)](#page-18-0). Therefore, the choice of k and x is to be evaluated case by case, depending on the application and on the desired level of privacy.
 
 The commutative property in reasoning with KGs. It is interesting to observe that, in general, a (k, x)-isomorphism anonymisation does not guarantee the anonymity against every attack with a NAG of size smaller than x. In fact, an edge between two vertices of an induced subgraph may be derived as a consequence of information outside such subgraph. To see this case more clearly, consider Picture (1) in Figure [3,](#page-10-0) which shows an example of company ownership graph G; the orange edges are derived with the following reasoning rules (ultimate controller : we add a derived edge from x to y if x controls y and x is not controlled by any entity).
 
-#### <span id="page-9-1"></span>Example 4.1.
+### <span id="page-9-1"></span>Example 4.1.
 
 $$
 control(x, y) \rightarrow controlled(y)
 $$
-  
+
 control(x, y), not controlled(x) \rightarrow ultimateC(x, y). (9)
 
 The two subgraphs induced respectively by the vertex sets X = {A, B, C, D, E} and Y = {F, G, H, I, L} are KG-isomorphic. In this scenario, a NAG attack of size x = ∣X∣ = ∣Y ∣ = 5 cannot uniquely re-identify the entities, thanks to the
 
 ![](_page_10_Figure_0.jpeg)
-<!-- Image Description: The image presents two directed graphs illustrating ownership structures.  Nodes represent entities (A-L), and edges show ownership percentages (labeled) representing either shares or ultimate control (indicated by line style: solid for shares, dotted for ultimate control).  The graphs likely depict different scenarios or models within the paper, showing how ownership and control are distributed differently in each structure.  Graph (1) shows a complex ownership network, while (2) illustrates a simpler, less interconnected structure. -->
+<!-- Image Description: The image presents two directed graphs illustrating ownership structures. Nodes represent entities (A-L), and edges show ownership percentages (labeled) representing either shares or ultimate control (indicated by line style: solid for shares, dotted for ultimate control). The graphs likely depict different scenarios or models within the paper, showing how ownership and control are distributed differently in each structure. Graph (1) shows a complex ownership network, while (2) illustrates a simpler, less interconnected structure. -->
 
-<span id="page-10-0"></span>Figure 3: Example of re-identification for NAGs of smaller size for the ultimate controller reasoning rule.
+<span id="page-10-0"></span>**Figure 3:** Example of re-identification for NAGs of smaller size for the ultimate controller reasoning rule.
 
 k = 2 isomorphic structures. However, an attack of size 4 = x ′ < x would be effective. Indeed let X′ = {A, B, C, D} ⊂ X and Y ′ = {F, G, H, L} ⊂ Y . Picture (2) in Figure [3](#page-10-0) shows the KGs that we obtain through reasoning respectively on G[X′ ] and G[Y ′ ]: these two structures are not KG-isomorphic as only in the first one the reasoning produces a derived edge. Therefore, the attacker could uniquely re-identify the correct structure. However, when for any X ⊂ V (G), it holds that Σ(G)[X] = Σ(G[X]), which we call as a commutative property on the subgraphs of G of the reasoning rules Σ, then a (k, x)-isomorphism anonymisation guarantees anonymity for any x ′ ≤ x.
 
@@ -231,7 +230,7 @@ Note that Proposition [4.1](#page-10-1) can be violated if G is not weakly conne
 
 Coversely, the hypothesis of the NAG to be weakly connected could be removed. Indeed, suppose to have a (k, x)-isomorphism anonymisation A of G and a NAG of size x not weakly connected. Let C1, . . . , C<sup>m</sup> be its weakly connected components with ∣C<sup>j</sup> ∣ = x<sup>j</sup> for j ∈ [m]: then each C<sup>j</sup> is a weakly connected NAG with x<sup>j</sup> < x. By Proposition [4.1,](#page-10-1) A is anonymised for any of such components, hence it is resistant to the original attack. In view of this, a NAG that is not weakly connected can be equivalently seen as a sequence C1, . . . , C<sup>m</sup> of weakly connected NAGs of smaller size.
 
-#### Algorithm 1: Klone
+### Algorithm 1: Klone
 
 Input: A knowledge graph (G, <sup>Σ</sup>) with <sup>G</sup> <sup>=</sup> (V, E, L, ρ, ω, l), <sup>k</sup> <sup>∈</sup> <sup>N</sup>, set of queries <sup>Q</sup>, in-degree distribution pin, out-degree distribution pout, L<sup>A</sup> set such that <sup>L</sup><sup>A</sup> <sup>∩</sup> <sup>L</sup> <sup>=</sup> <sup>∅</sup>, weight distribution <sup>p</sup>ω, <sup>M</sup> <sup>∈</sup> <sup>N</sup>. Output: <sup>A</sup> (k, x)-isomorphism anonymisation (A, <sup>Σ</sup>) of (G, <sup>Σ</sup>) for any <sup>x</sup>. <sup>1</sup> <sup>G</sup> <sup>←</sup> WeightNoising(G, G, <sup>Σ</sup>, E, Q, pω,M); <sup>2</sup> for <sup>j</sup> <sup>=</sup> <sup>1</sup>, . . . , k do <sup>G</sup><sup>j</sup> <sup>←</sup> copy of <sup>G</sup>, <sup>V</sup> (G<sup>j</sup> ) <sup>←</sup> {<sup>v</sup> j 1 , . . . , v j n}; <sup>3</sup> <sup>A</sup> <sup>←</sup> <sup>⋃</sup> k <sup>j</sup>=<sup>1</sup> <sup>G</sup><sup>j</sup> ; <sup>A</sup> <sup>←</sup> <sup>E</sup>(A),<sup>V</sup> <sup>←</sup> {}; <sup>4</sup> add a random edge between G<sup>j</sup> and Gj+<sup>1</sup> for <sup>j</sup> <sup>∈</sup> [<sup>k</sup> <sup>−</sup> <sup>1</sup>]; <sup>5</sup> for <sup>i</sup> <sup>=</sup> <sup>1</sup>, . . . , n do <sup>6</sup> δ in <sup>1</sup> <sup>←</sup> <sup>d</sup> in <sup>A</sup> (<sup>v</sup> 1 i ); <sup>δ</sup> out <sup>1</sup> <sup>←</sup> <sup>d</sup> out <sup>A</sup> (<sup>v</sup> 1 i ); <sup>V</sup> <sup>←</sup> <sup>V</sup> <sup>∪</sup> {<sup>v</sup> 1 i } ; <sup>7</sup> for <sup>j</sup> <sup>=</sup> <sup>2</sup>, . . . , k do <sup>8</sup> for <sup>φ</sup> <sup>∈</sup> {in, out} do <sup>9</sup> δ φ <sup>j</sup> <sup>←</sup> <sup>d</sup> φ A (v j i ); <sup>10</sup> while <sup>∃</sup><sup>δ</sup> <sup>∈</sup> {<sup>δ</sup> φ 1 , . . . , δ<sup>φ</sup> j−1 } s.t. <sup>δ</sup> φ j <sup>=</sup> <sup>δ</sup> do <sup>11</sup> δ φ <sup>j</sup> <sup>←</sup> max{<sup>δ</sup> φ j <sup>+</sup> <sup>1</sup>, z <sup>∼</sup> <sup>p</sup>φ} <sup>12</sup> <sup>∆</sup> <sup>←</sup> <sup>δ</sup> φ j − d φ A (v j i ); <sup>13</sup> <sup>C</sup> <sup>←</sup> {<sup>v</sup> <sup>∈</sup> <sup>V</sup> (A) <sup>∶</sup> <sup>v</sup> <sup>∉</sup> (<sup>N</sup> φ A (v j i ) <sup>∪</sup> <sup>V</sup> <sup>∪</sup> <sup>V</sup> (G<sup>j</sup> ))}; <sup>14</sup> if ∣C∣ <sup>&</sup>lt; <sup>∆</sup> then <sup>15</sup> <sup>X</sup> <sup>←</sup> set of ∆ <sup>−</sup> ∣C∣ new vertices; <sup>16</sup> <sup>V</sup> (A) <sup>←</sup> <sup>V</sup> (A) <sup>∪</sup> <sup>X</sup>; <sup>C</sup> <sup>←</sup> <sup>C</sup> <sup>∪</sup> <sup>X</sup>; <sup>17</sup> select ∆ elements {c1, . . . , c∆} from <sup>C</sup>; <sup>18</sup> if <sup>φ</sup> <sup>=</sup> in then <sup>E</sup>(A) <sup>←</sup> <sup>⋃</sup> ∆ t=1 (ct, v j i ) <sup>∪</sup> <sup>E</sup>(A); <sup>19</sup> if <sup>φ</sup> <sup>=</sup> out then <sup>E</sup>(A) <sup>←</sup> <sup>⋃</sup> ∆ t=1 (v j i , ct) <sup>∪</sup> <sup>E</sup>(A); <sup>20</sup> <sup>V</sup> <sup>←</sup> <sup>V</sup> <sup>∪</sup> {<sup>v</sup> j i } ; <sup>21</sup> <sup>S</sup> <sup>←</sup> <sup>E</sup>(A) <sup>∖</sup> <sup>A</sup>; assign to each <sup>v</sup> <sup>∈</sup> <sup>V</sup> (A) a different label of <sup>L</sup>A; <sup>22</sup> <sup>A</sup> <sup>←</sup> WeightNoising(A, G, <sup>Σ</sup>, S, Q, pω,M);
 
@@ -241,7 +240,7 @@ Algorithm [1](#page-11-1) introduces KLONE, our first method to obtain a (k, x)-
 
 More in details, (a) is performed in line 1, where the weights are chosen in way such that the utility U<sup>∆</sup> is minimized. Ideally, we would like the change of weights to completely preserve the output of the queries on the KG. This is done by the WeightNoising function in Algorithm [2,](#page-12-0) which randomly samples new weights for M times and chooses the ones that reach the smallest value of U∆. Phase (b) is in lines 2-3. At this point, the graph A is the disjoint union of k copies of G, which guarantees that each induced subgraph is KG-isomorphic to other k − 1 different subgraphs according to Definition [3.2.](#page-7-1) These copies are linked together in line 4 to guarantee that A is weakly connected. Phase (c) is addressed in lines 5–20. The for loop in line 5 iterates on the vertices of a copy of G while the for loop in line 7 iterates on the copies of G, such that v j i refers
 
-#### Algorithm 2: WeightNoising
+### Algorithm 2: WeightNoising
 
 Input: <sup>A</sup>, <sup>G</sup> weighted labeled directed graphs, inference rules Σ, <sup>S</sup> <sup>⊆</sup> <sup>E</sup>(A), set of queries <sup>Q</sup>, weight distribution <sup>p</sup>ω, <sup>M</sup> <sup>∈</sup> <sup>N</sup>. Output: A weighted labeled directed graph A. <sup>1</sup> for <sup>i</sup> <sup>=</sup> <sup>1</sup>, . . . ,M do <sup>2</sup> <sup>A</sup><sup>i</sup> <sup>←</sup> copy of <sup>A</sup>; for <sup>e</sup> <sup>∈</sup> <sup>S</sup> do <sup>ω</sup>A<sup>i</sup> (e) <sup>←</sup> <sup>z</sup> <sup>∼</sup> <sup>p</sup><sup>ω</sup> ; <sup>3</sup> <sup>u</sup>(i) <sup>←</sup> <sup>U</sup>∆(G, <sup>Σ</sup>, Ai, Q)
 
@@ -275,7 +274,7 @@ Algorithm [3](#page-15-0) introduces KGUARD, our second proposed algorithm to ob
 
 <span id="page-14-1"></span><sup>1</sup>We adapt the algorithm by S. Karakashian et al. [\[34\]](#page-29-5) to the case of directed graphs.
 
-#### Algorithm 3: KGUARD
+### Algorithm 3: KGUARD
 
 Input: A knowledge graph (G, <sup>Σ</sup>) with <sup>G</sup> <sup>=</sup> (V, E, L, ρ, ω, l), k, x <sup>∈</sup> <sup>N</sup>, set of queries <sup>Q</sup>, in-degree distribution pin, out-degree distribution pout, L<sup>A</sup> set such that <sup>L</sup><sup>A</sup> <sup>∩</sup> <sup>L</sup> <sup>=</sup> <sup>∅</sup>, weight distribution <sup>p</sup>ω, <sup>M</sup> <sup>∈</sup> <sup>N</sup>. Output: <sup>A</sup> (k, x)-isomorphism anonymisation (A, <sup>Σ</sup>) of (G, <sup>Σ</sup>). <sup>1</sup> <sup>A</sup> <sup>←</sup> WeightNoising(G, G, <sup>Σ</sup>, E, Q, pω,M); <sup>2</sup> <sup>H</sup> <sup>←</sup> ConnectedInducedSubgraphs(A, x); <sup>G</sup> <sup>←</sup> {Σ(H) ∣<sup>H</sup> <sup>∈</sup> H}; <sup>3</sup> (B,I) <sup>←</sup> IsomorphismBucketing(G); <sup>V</sup> <sup>←</sup> {}; <sup>4</sup> for <sup>B</sup> <sup>∈</sup> <sup>B</sup> do <sup>5</sup> choose <sup>B</sup><sup>ˆ</sup> <sup>⊆</sup> <sup>B</sup> s.t. <sup>∀</sup>H<sup>1</sup> <sup>≠</sup> <sup>H</sup><sup>2</sup> <sup>∈</sup> <sup>B</sup>ˆ, <sup>V</sup> (H1) <sup>∩</sup> <sup>V</sup> (H2) <sup>=</sup> <sup>∅</sup>; <sup>6</sup> while ∣Bˆ<sup>∣</sup> <sup>&</sup>lt; <sup>k</sup> do <sup>7</sup> choose <sup>H</sup> <sup>∈</sup> <sup>B</sup>ˆ; <sup>H</sup>′ <sup>←</sup> copy of <sup>H</sup>; <sup>8</sup> <sup>A</sup> <sup>←</sup> <sup>A</sup> <sup>∪</sup> <sup>H</sup>′ ; <sup>B</sup><sup>ˆ</sup> <sup>←</sup> <sup>B</sup>ˆ<sup>∪</sup> <sup>H</sup>′ ; <sup>9</sup> <sup>B</sup> <sup>←</sup> choose <sup>k</sup> elements from <sup>B</sup>ˆ; <sup>V</sup> <sup>←</sup> <sup>⋃</sup>H∈B <sup>V</sup> (H) <sup>∪</sup> <sup>V</sup>; <sup>10</sup> if <sup>¬</sup>IsW eaklyConnected(A) then add randomly an edge from <sup>A</sup>[<sup>V</sup> ] to each other weakly connected component; <sup>11</sup> {V1, . . . , Vs} <sup>←</sup> IsomorphismPartitioning(V,I) ; <sup>12</sup> for <sup>i</sup> <sup>=</sup> <sup>1</sup>, . . . , s do <sup>13</sup> {<sup>v</sup> 1 i , . . . , v ni i } <sup>←</sup> vertices of <sup>V</sup>i; <sup>14</sup> for <sup>φ</sup> <sup>∈</sup> {in, out} do <sup>15</sup> {Dφ(<sup>v</sup> 1 i ), . . . , Dφ(<sup>v</sup> ni i )}← ChooseDeg(A, φ, pφ, {<sup>v</sup> 1 i , . . . , v ni i }) <sup>16</sup> for <sup>φ</sup> <sup>∈</sup> {in, out} do <sup>17</sup> for <sup>v</sup> ∈V do <sup>18</sup> <sup>∆</sup> <sup>←</sup> <sup>D</sup>φ(v) <sup>−</sup> <sup>d</sup> φ A (v); <sup>X</sup><sup>1</sup> <sup>←</sup> {}; <sup>X</sup><sup>2</sup> <sup>←</sup> {}; <sup>19</sup> <sup>C</sup> <sup>←</sup> {<sup>u</sup> <sup>∈</sup> <sup>V</sup> (A) <sup>∶</sup> <sup>D</sup>¬φ(u) <sup>−</sup> <sup>d</sup> ¬φ A (u) <sup>&</sup>gt; <sup>0</sup>}; <sup>20</sup> <sup>C</sup> <sup>←</sup> <sup>C</sup> <sup>∖</sup> (⋃B∈<sup>B</sup> <sup>⋃</sup>H∈B∶v∈<sup>V</sup> (H) <sup>V</sup> (H) <sup>∪</sup> <sup>N</sup><sup>φ</sup> A (v)); <sup>21</sup> if ∣C∣ <sup>&</sup>lt; <sup>∆</sup> then <sup>22</sup> <sup>m</sup> <sup>←</sup> min{<sup>∆</sup> <sup>−</sup> ∣C∣, <sup>∣</sup><sup>V</sup> (A) <sup>∖</sup> V∣}; <sup>23</sup> <sup>X</sup><sup>1</sup> <sup>←</sup> select <sup>m</sup> elements from <sup>V</sup> (A) <sup>∖</sup> <sup>V</sup>; <sup>24</sup> if ∣C∣ <sup>+</sup> <sup>m</sup> <sup>&</sup>lt; <sup>∆</sup> then <sup>25</sup> <sup>X</sup><sup>2</sup> <sup>←</sup> set of ∆ <sup>−</sup> ∣C∣ <sup>−</sup> <sup>m</sup> new vertices; <sup>26</sup> <sup>V</sup> (A) <sup>←</sup> <sup>V</sup> (A) <sup>∪</sup> <sup>X</sup>2; <sup>C</sup> <sup>←</sup> <sup>C</sup> <sup>∪</sup> <sup>X</sup>2; <sup>27</sup> <sup>C</sup> <sup>←</sup> <sup>C</sup> <sup>∪</sup> <sup>X</sup>1; <sup>28</sup> select ∆ elements {c1, . . . , c∆} from <sup>C</sup>; <sup>29</sup> if <sup>φ</sup> <sup>=</sup> in then <sup>E</sup>(A) <sup>←</sup> <sup>⋃</sup> ∆ t=1 (ct, v) <sup>∪</sup> <sup>E</sup>(A); <sup>30</sup> if <sup>φ</sup> <sup>=</sup> out then <sup>E</sup>(A) <sup>←</sup> <sup>⋃</sup> ∆ t=1 (v, ct) <sup>∪</sup> <sup>E</sup>(A); <sup>31</sup> assign to each <sup>v</sup> <sup>∈</sup> <sup>V</sup> (A) a different label of <sup>L</sup>A; <sup>32</sup> <sup>A</sup> <sup>←</sup> WeightNoising(A, G, <sup>Σ</sup>, S, Q, pω,M);
 
@@ -323,17 +322,17 @@ the Vadalog System [\[7\]](#page-27-1), a state-of-art reasoner to perform the l
 
 For a first batch of experiments we use the inference rule of reachability: a derived edge from vertex u to vertex v is added if there exists a path from u to v whose product of the edges' weight is greater than 0.
 
-#### Example 7.1.
+### Example 7.1.
 
 $$
 own(x, y, w), x \neq y, w > 0 \rightarrow reach(x, y)
 $$
-  
+
 \n
 $$
 reach(x, z), own(z, y, w), x \neq y, z \neq y, w > 0 \rightarrow reach(x, y).
 $$
- (11)
+(11)
 
 where own(x, y, w) is an edge from entity x to y of weight w. ∎
 
@@ -343,7 +342,7 @@ Where not otherwise stated, we consider the control and ultimate controller for 
 
 Evaluation Metrics We evaluate our work according to three key aspects of synthetic graph data, namely fidelity, utility, and privacy [\[51\]](#page-31-2). The fidelity measures how much the anonymised graph is statistically close to the original one. We evaluate it in terms of number of vertices added to the original graph and of the Wasserstein-1 distance [\[17\]](#page-28-9) between the original and anonymised graph of the degree and weight distributions. We then evaluate the utility of the anonymised graph with the metrics U and U△ of Definition [3.4,](#page-8-2) measuring the correctness of potential down-stream tasks in the form of reasoning queries (see Section [3\)](#page-7-0).For example, in the financial domain, they enable analysis on the number of holdings, payments, or controlled entities. We consider the following two business related queries:
 
-#### Example 7.2.
+### Example 7.2.
 
 $$
 owns(x, y, w), x \neq y, k = sum(1, \langle y \rangle), k \ge 2 \rightarrow 2\text{-}owns(x)
@@ -375,31 +374,31 @@ In this section we extensively evaluate our approaches on the Erd˝os-R´enyi an
 Erd˝os-R´enyi In Figure [4](#page-21-0) we investigates the fidelity and utility for the Erd˝os-R´enyi graph models. In Figure [\(4a](#page-21-0)) and [\(4b](#page-21-0)), we vary the number of vertices n of the input graph, from 100 to 10,000. Figure [\(4a](#page-21-0)) shows the percentage of vertices added by the algorithm with respect to the original ones (Nodes Overhead): KLONE consistently adds around 200% more vertices, influenced by the privacy requirement k = 3, while KGUARD adds fewer vertices as it exploits the isomorphic subgraphs that are already present in the input graph. The dotted horizontal line represents the theoretical upper bound of (2k − 1)%
 
 ![](_page_21_Figure_0.jpeg)
-<!-- Image Description: This image displays six graphs comparing the performance of KLONE and KGUARD algorithms.  (a), (c), and (e) show nodes overhead (%) versus the number of nodes (n), parameter k, and subgraph size (x), respectively.  (b), (d), and (f) show utility (U/Δ) versus n, k, and x.  All graphs illustrate the overhead and utility of both algorithms under varying conditions, enabling a performance comparison.  A theoretical line (2k-1) is also plotted for reference in (a), (c), and (e). -->
+<!-- Image Description: This image displays six graphs comparing the performance of KLONE and KGUARD algorithms. (a), (c), and (e) show nodes overhead (%) versus the number of nodes (n), parameter k, and subgraph size (x), respectively. (b), (d), and (f) show utility (U/Δ) versus n, k, and x. All graphs illustrate the overhead and utility of both algorithms under varying conditions, enabling a performance comparison. A theoretical line (2k-1) is also plotted for reference in (a), (c), and (e). -->
 
-<span id="page-21-0"></span>Figure 4: Erd˝os-R´enyi - anonymisation results, varying the graph size and privacy requirements.
+<span id="page-21-0"></span>**Figure 4:** Erd˝os-R´enyi - anonymisation results, varying the graph size and privacy requirements.
 
 added vertices for KLONE (Lemma [5.1\)](#page-12-1). The efficiency of KGUARD with respect to KLONE in terms of added structures is reflected in Figure [\(4b](#page-21-0)), where KGUARD exhibits significantly lower utility loss compared to KLONE. In Figures [\(4c](#page-21-0)) and [\(4d](#page-21-0)), we vary the privacy requirement k from 2 to 8. As expected, in Figure [\(4c](#page-21-0)) KLONE shows a linear increase in additional vertices with respect to k, while KGUARD exhibits only a slight increase due to the need for some new added subgraphs. This trend is also reflected in the utility loss in Figure [\(4d](#page-21-0)), where KLONE has worse utility compared to KGUARD. Finally, in Figures [\(4e](#page-21-0)) and [\(4f](#page-21-0)) we evaluate the anonymisation quality by varying the size x of the subgraphs. The performance of KLONE remains unaffected by x as expected, since the algorithm provides a (k, x)-isomorphism anonymization for any x ∈ [n] (Proposition [5.1\)](#page-13-0), instead KGUARD overhead increases with the size of subgraphs x. In general, when x is sufficiently large, or if we are uncertain about the attacker knowledge, KLONE might be the better choice. In fact, while KGUARD computational time increases with x, KLONE maintains a consistent cost as a single anonymization A of G is effective for any choice of x.
 
 Scale-free. Figure [5](#page-22-0) illustrates the performance of our algorithms on a scalefree network with α = 5 and with varying numbers of vertices up to 100, 000. For networks exceeding 10, 000 vertices (denoted by the vertical red line) we employ and evaluate our split & merge procedure. Figure [\(5a](#page-22-0)) shows that, as the network size increases, KGUARD introduces very few additional vertices, while KLONE remains consistent with around 200% added vertices. Indeed, as the graph size increases, it is more probable to find within it subgraphs that are already KG-isomorphic, thus reducing the number of vertices that KGUARD needs to add. We also note that the split & merge procedure does not introduce any significant overhead. In Figure [\(5b](#page-22-0)) and [\(5c](#page-22-0)) we evaluate the
 
 ![](_page_22_Figure_0.jpeg)
-<!-- Image Description: The image contains four graphs comparing the performance of three graph generation algorithms: KLONE, KGUARD, and Split & Merge.  (a) shows nodes overhead; (b) and (c) show Wasserstein distances of degrees and weights, respectively; and (d) shows computation time.  All graphs plot performance against the number of nodes.  A vertical dashed line indicates a threshold.  The graphs illustrate the trade-offs between the algorithms in terms of overhead, accuracy (Wasserstein distance), and computational cost. -->
+<!-- Image Description: The image contains four graphs comparing the performance of three graph generation algorithms: KLONE, KGUARD, and Split & Merge. (a) shows nodes overhead; (b) and (c) show Wasserstein distances of degrees and weights, respectively; and (d) shows computation time. All graphs plot performance against the number of nodes. A vertical dashed line indicates a threshold. The graphs illustrate the trade-offs between the algorithms in terms of overhead, accuracy (Wasserstein distance), and computational cost. -->
 
-<span id="page-22-0"></span>Figure 5: Scale-free - varying the graph size.
+<span id="page-22-0"></span>**Figure 5:** Scale-free - varying the graph size.
 
-| Graph                     | Algorithm | Utility ↓ | Sym.Utility ↓ | Weights ↓ | Degree ↓ |
+| Graph | Algorithm | Utility ↓ | Sym.Utility ↓ | Weights ↓ | Degree ↓ |
 |---------------------------|-----------|-----------|---------------|-----------|----------|
-| Erdos (n = 10k,M = 50k)   | KLONE     | 0.000     | 0.683         | 0.007     | 4.631    |
-|                           | KGUARD    | 0.000     | 0.028         | 0.009     | 0.663    |
-| Erdos (n = 500,M = 5k)    | KLONE     | 0.000     | 0.667         | 0.423     | 5.314    |
-|                           | KGUARD    | 0.000     | 0.154         | 0.418     | 3.354    |
-| Powerlaw (n = 500, α = 3) | KLONE     | 0.157     | 0.891         | 0.211     | 3.315    |
-|                           | KGUARD    | 0.112     | 0.728         | 0.148     | 2.163    |
-| Powerlaw (n = 10k, α = 5) | KLONE     | 0.118     | 0.970         | 0.186     | 3.165    |
-|                           | KGUARD    | 0.155     | 0.662         | 0.011     | 0.182    |
+| Erdos (n = 10k,M = 50k) | KLONE | 0.000 | 0.683 | 0.007 | 4.631 |
+| | KGUARD | 0.000 | 0.028 | 0.009 | 0.663 |
+| Erdos (n = 500,M = 5k) | KLONE | 0.000 | 0.667 | 0.423 | 5.314 |
+| | KGUARD | 0.000 | 0.154 | 0.418 | 3.354 |
+| Powerlaw (n = 500, α = 3) | KLONE | 0.157 | 0.891 | 0.211 | 3.315 |
+| | KGUARD | 0.112 | 0.728 | 0.148 | 2.163 |
+| Powerlaw (n = 10k, α = 5) | KLONE | 0.118 | 0.970 | 0.186 | 3.165 |
+| | KGUARD | 0.155 | 0.662 | 0.011 | 0.182 |
 
-<span id="page-22-1"></span>Table 1: Erd˝os-R´enyi and Scale-free graphs.
+<span id="page-22-1"></span>**Table 1:** Erd˝os-R´enyi and Scale-free graphs.
 
 fidelity of degree and weight distributions with respect to the original graph. As the number of vertices increases, KGUARD performs better due to fewer alterations made to the graph, while KLONE shows a higher discrepancy in distributions compared to the original graph, with a stable Wasserstein distance due to the consistent changes it makes to the graph. Interestingly, the split & merge procedure only slightly impacts KGUARD performance: the algorithm focuses on smaller subgraphs of ∼ 1, 000 vertices, which require more redundancy to ensure privacy. This overhead is justified in Figure [\(5d](#page-22-0)), where the split procedure significantly reduces the computational time.
 
@@ -409,39 +408,39 @@ Finally, in Table [1](#page-22-1) we present a detailed evaluation of utility an
 
 In this section, we investigate the performance of our approaches for anonymizing six real-world graphs from various domains, including energy and economics. Table [2](#page-23-0) reports for each graph the number of vertices and edges, along with the anonymization performance for KLONE and KGUARD with k = 3 and x = 4. Specifically, we report the utility metrics, the Nodes overhead (%) previously introduced, and the Wasserstein distances between their degree distributions (Degree ↓) and weight distributions (Weights ↓). In the experiments, both KGUARD and KLONE consistently achieve a perfect utility U, close to 0, indicating that the anonymized graph A has no loss of information compared to graph G in terms of utility queries.
 
-| Dataset                       | Metric ↓              | KLONE          | KGUARD         |
+| Dataset | Metric ↓ | KLONE | KGUARD |
 |-------------------------------|-----------------------|----------------|----------------|
-| Company Ownership [43]        | utility U             | 0.010          | 0.010          |
+| Company Ownership [43] | utility U | 0.010 | 0.010 |
 | ∣V ∣ = 3, 000<br>∣E∣ = 3, 900 | utility U△<br>Weights | 0.791<br>0.472 | 0.492<br>0.396 |
-|                               | Degree                | 3.728          | 2.324          |
-|                               | Nodes overhead        | 200.0          | 34.2           |
-| MovieLens small [24]          | utility U             | 0.000          | 0.000          |
-|                               | utility U△            | 0.912          | 0.176          |
-| ∣V ∣ = 2, 100<br>∣E∣ = 3, 200 | Weights               | 0.415          | 0.210          |
-|                               | Degree                | 4.213          | 0.328          |
-|                               | Nodes overhead        | 200.2          | 2.0            |
-| Econ-Mahindas [53]            | utility U             | 0.000          | 0.000          |
-|                               | utility U△            | 0.765          | 0.316          |
-| ∣V ∣ = 1, 200<br>∣E∣ = 3, 300 | Weights               | 0.380          | 0.341          |
-|                               | Degree                | 4.544          | 2.297          |
-|                               | Nodes overhead        | 200.0          | 8.4            |
-| Infect-Dublin [53]            | utility U             | 0.000          | 0.000          |
-|                               | utility U△            | 0.731          | 0.187          |
-| ∣V ∣ = 400<br>∣E∣ = 2, 800    | Weights               | -              | -              |
-|                               | Degree                | 6.509          | 3.829          |
-|                               | Nodes overhead        | 201.4          | 0.0            |
-| Power-1138-Bus [53]           | utility U             | 0.000          | 0.000          |
-|                               | utility U△            | 0.875          | 0.280          |
-| ∣V ∣ = 1, 100<br>∣E∣ = 2, 600 | Weights               | 0.200          | 0.156          |
-|                               | Degree                | 3.880          | 0.650          |
-|                               | Nodes overhead        | 200.1          | 0.3            |
-| Bitcoin Alpha [38]            | utility U             | 0.000          | 0.000          |
-|                               | utility U△            | 0.871          | 0.364          |
-| ∣V ∣ = 1, 700<br>∣E∣ = 3, 100 | Weights               | 0.355          | 0.297          |
-|                               | Degree                | 4.117          | 0.874          |
-|                               | Nodes overhead        | 200.1          | 6.1            |
+| | Degree | 3.728 | 2.324 |
+| | Nodes overhead | 200.0 | 34.2 |
+| MovieLens small [24] | utility U | 0.000 | 0.000 |
+| | utility U△ | 0.912 | 0.176 |
+| ∣V ∣ = 2, 100<br>∣E∣ = 3, 200 | Weights | 0.415 | 0.210 |
+| | Degree | 4.213 | 0.328 |
+| | Nodes overhead | 200.2 | 2.0 |
+| Econ-Mahindas [53] | utility U | 0.000 | 0.000 |
+| | utility U△ | 0.765 | 0.316 |
+| ∣V ∣ = 1, 200<br>∣E∣ = 3, 300 | Weights | 0.380 | 0.341 |
+| | Degree | 4.544 | 2.297 |
+| | Nodes overhead | 200.0 | 8.4 |
+| Infect-Dublin [53] | utility U | 0.000 | 0.000 |
+| | utility U△ | 0.731 | 0.187 |
+| ∣V ∣ = 400<br>∣E∣ = 2, 800 | Weights | - | - |
+| | Degree | 6.509 | 3.829 |
+| | Nodes overhead | 201.4 | 0.0 |
+| Power-1138-Bus [53] | utility U | 0.000 | 0.000 |
+| | utility U△ | 0.875 | 0.280 |
+| ∣V ∣ = 1, 100<br>∣E∣ = 2, 600 | Weights | 0.200 | 0.156 |
+| | Degree | 3.880 | 0.650 |
+| | Nodes overhead | 200.1 | 0.3 |
+| Bitcoin Alpha [38] | utility U | 0.000 | 0.000 |
+| | utility U△ | 0.871 | 0.364 |
+| ∣V ∣ = 1, 700<br>∣E∣ = 3, 100 | Weights | 0.355 | 0.297 |
+| | Degree | 4.117 | 0.874 |
+| | Nodes overhead | 200.1 | 6.1 |
 
-<span id="page-23-0"></span>Table 2: Anonymisation results for real-world graphs.
+<span id="page-23-0"></span>**Table 2:** Anonymisation results for real-world graphs.
 
 For the symmetric utility U△, KLONE shows a more significant presence of incorrect answers due to the k copies it makes of the original graph, as clearly reflected in the higher Perc.vertices value. In contrast, KGUARD maintains a relatively low symmetric utility and Perc.vertices close to 100%, meaning that only a few vertex additions are needed to ensure the k isomorphisms.
 
@@ -453,37 +452,37 @@ We investigate the privacy of our approaches compared to existing work, specific
 
 Analytical comparison. In Table [4](#page-25-1) we summarize the performance of our anonymisation algorithms on the knowledge graph G against various levels of the attacker's knowledge and we compare it with the existing work. The attacker
 
-| Reasoning | Graph                | δ − anonymity ↑ |       |        |  |
+| Reasoning | Graph | δ − anonymity ↑ | | | |
 |-----------|----------------------|-----------------|-------|--------|--|
-|           |                      | K-Iso [14]      | KLONE | KGUARD |  |
-| Reach     | PowerLaw-100         | 0.795           | 1.000 | 1.000  |  |
-|           | PowerLaw-500         | 0.873           | 1.000 | 1.000  |  |
-|           | MovieLens small [24] | 0.818           | 1.000 | 1.000  |  |
-|           | Econ-Mahindas [53]   | 0.923           | 1.000 | 1.000  |  |
-|           | Infect-Dublin [53]   | 1.000           | 1.000 | 1.000  |  |
-|           | Power-1138-Bus [53]  | 0.723           | 1.000 | 1.000  |  |
-|           | Bitcoin Alpha [38]   | 0.605           | 1.000 | 1.000  |  |
-| Control   | PowerLaw-100         | 0.720           | 1.000 | 1.000  |  |
-|           | PowerLaw-500         | 0.728           | 1.000 | 1.000  |  |
-|           | Company Own [43]     | 0.680           | 1.000 | 1.000  |  |
-| Ultimate  | PowerLaw-100         | 0.673           | 1.000 | 1.000  |  |
-|           | PowerLaw-500         | 0.805           | 1.000 | 1.000  |  |
-|           | Company Own [43]     | 0.710           | 1.000 | 1.000  |  |
+| | | K-Iso [14] | KLONE | KGUARD | |
+| Reach | PowerLaw-100 | 0.795 | 1.000 | 1.000 | |
+| | PowerLaw-500 | 0.873 | 1.000 | 1.000 | |
+| | MovieLens small [24] | 0.818 | 1.000 | 1.000 | |
+| | Econ-Mahindas [53] | 0.923 | 1.000 | 1.000 | |
+| | Infect-Dublin [53] | 1.000 | 1.000 | 1.000 | |
+| | Power-1138-Bus [53] | 0.723 | 1.000 | 1.000 | |
+| | Bitcoin Alpha [38] | 0.605 | 1.000 | 1.000 | |
+| Control | PowerLaw-100 | 0.720 | 1.000 | 1.000 | |
+| | PowerLaw-500 | 0.728 | 1.000 | 1.000 | |
+| | Company Own [43] | 0.680 | 1.000 | 1.000 | |
+| Ultimate | PowerLaw-100 | 0.673 | 1.000 | 1.000 | |
+| | PowerLaw-500 | 0.805 | 1.000 | 1.000 | |
+| | Company Own [43] | 0.710 | 1.000 | 1.000 | |
 
-<span id="page-25-0"></span>Table 3: Anonymisation rate of different graph data.
+<span id="page-25-0"></span>**Table 3:** Anonymisation rate of different graph data.
 
-| Attack Model                          | KLONE | KGUARD                  | Existing work |
+| Attack Model | KLONE | KGUARD | Existing work |
 |---------------------------------------|-------|-------------------------|---------------|
-| Gu<br>[X]                             | ✓     | ′ ≤<br>✓ [∀x<br>x]      | [14, 56]‡     |
-| Σ(Gu<br>[X])                          | ✓     | ′ ≤<br>✓ [∀x<br>x]      | [14, 56]§     |
-| (Gu<br>[X], Σ)                        | ✓     | ′ ≤<br>✓ [∀x<br>x]      | ✗             |
-| Unweighted<br>(Gu<br>∗<br>[X], Σ<br>) | ✓     | ′ ≤<br>✓ [∀x<br>x]      | ✗             |
-| G[X]                                  | ✓     | ′ ≤<br>✓ [∀x<br>x]      | [14, 56]§     |
-| Σ(G[X])                               | ✓     | ′ ≤<br>✓ [∀x<br>x]      | ✗             |
-| Weighted<br>(G[X], Σ)                 | ✓     | ′ ≤<br>†<br>✓ [∀x<br>x] | ✗             |
-| ∗<br>(G[X], Σ<br>)                    | ✓     | ✗                       | ✗             |
+| Gu<br>[X] | ✓ | ′ ≤<br>✓ [∀x<br>x] | [14, 56]‡ |
+| Σ(Gu<br>[X]) | ✓ | ′ ≤<br>✓ [∀x<br>x] | [14, 56]§ |
+| (Gu<br>[X], Σ) | ✓ | ′ ≤<br>✓ [∀x<br>x] | ✗ |
+| Unweighted<br>(Gu<br>∗<br>[X], Σ<br>) | ✓ | ′ ≤<br>✓ [∀x<br>x] | ✗ |
+| G[X] | ✓ | ′ ≤<br>✓ [∀x<br>x] | [14, 56]§ |
+| Σ(G[X]) | ✓ | ′ ≤<br>✓ [∀x<br>x] | ✗ |
+| Weighted<br>(G[X], Σ) | ✓ | ′ ≤<br>†<br>✓ [∀x<br>x] | ✗ |
+| ∗<br>(G[X], Σ<br>) | ✓ | ✗ | ✗ |
 
-<span id="page-25-1"></span>Table 4: Comparison of different attack models and solutions: † If a commutative property holds on Σ and G (Proposition [4.1\)](#page-10-1), otherwise it holds for [x ′ = x]; ‡ Only k-isomorphism with G undirected graph; § Possibly adaptable to these cases.
+<span id="page-25-1"></span>**Table 4:** Comparison of different attack models and solutions: † If a commutative property holds on Σ and G (Proposition [4.1\)](#page-10-1), otherwise it holds for [x ′ = x]; ‡ Only k-isomorphism with G undirected graph; § Possibly adaptable to these cases.
 
 can observe a weighted or unweighted induced subgraph, G[X] and G<sup>u</sup> [X] respectively. Moreover, the attacker can have knowledge also on the derived edges of the graph, namely Σ(G), or on the entire reasoning rules Σ, namely the NAG (G[X], Σ). The last cases refer to the use by the attacker of any other reasoning rules Σ<sup>∗</sup> useful to perform the attack. The ✓ indicates that we reach a (k, x)-isomorphism anonymization for any size x, which means that any subgraph has at least other k − 1 KG-isomorphic copies, while the specification [∀x ′ ≤ x] indicates that it is reached a (k, x)-isomorphism anonymization for any size x ′ up to a fixed x in input. For KLONE, in Proposition [5.1](#page-13-0) we proved that it reaches a (k, x)-anonymisation for every x∈[n], thus it is resistant to an attack of type (G[X], Σ) for any X ⊆V (G). Accordingly, it is resistant to attackers with less knowledge, namely Σ(G[X]), G[X] and all the unweighted ones. We are left to prove that it is resistant also to an attack of type (G[X], Σ ∗ ) with Σ<sup>∗</sup> any set of reasoning rules. Such rules necessarily depend on the knowledge graph G: since KLONE copies G exactly k times (after the perturbation of the weights), any rule of Σ<sup>∗</sup> will have the same outputs on each of the copies, so that for any X ⊂ V , (G[X], Σ ∗ ) is KG-isomorphic to other k − 1 subgraphs in A, namely one in each copy of G. As for KGUARD, Proposition [6.1](#page-17-0) proved that it always produces a (k, x)- isomorphism anonymisation A for given k, x ∈ N. However, unless Σ has some other properties (see Proposition [4.1\)](#page-10-1) we cannot guarantee a (k, x′ )-isomorphism anonymisation for any given x ′ < x. Consider now an attack of type Σ(G[X′ ]), where the attacker knows the derived edges of the induced subgraph G[X′ ] but he is not aware of the reasoning rules Σ. If ∣X′ ∣ = x we know that A is resistant to such attack, as the attacker has less knowledge than the NAG attack (G[X′ ], Σ). Suppose now that ∣X′ ∣=x ′ <x. Since G is weakly connected, there exists X such that X′ ⊆ X ⊆ V , ∣X∣ = x and G[X] is weakly connected. Since G[X′ ] ⊆ G[X], it holds that Σ(G[X′ ]) ⊆ Σ(G[X])[X′ ]: if they are equal, then A is resistant to the attack because the (k, x)-isomorphism anonymisation guarantees that Σ(G[X]) has other k −1 KG-isomorphic copies, and so it holds for Σ(G[X])[X′ ] = Σ(G[X′ ]). If Σ(G[X′ ]) ⊂ Σ(G[X])[X′ ], it means that Σ(G[X′ ]) is not a subgraph induced by a set of vertices, so A is resistant again to the attack. Finally, this implies that A is resistant to all the attacks that involve less knowledge than Σ(G[X]), namely G[X] and the unweighted ones (Table [4\)](#page-25-1). Diversity is always guaranteed for both our algorithms.
 

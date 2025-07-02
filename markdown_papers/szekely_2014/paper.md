@@ -21,7 +21,6 @@ keywords:
 - shih-fu
 ---
 
-
 # Building and Using a Knowledge Graph to Combat Human Trafficking
 
 Pedro Szekely<sup>1</sup> , Craig A. Knoblock<sup>1</sup> , Jason Slepicka<sup>1</sup> , Andrew Philpot<sup>1</sup> , Amandeep Singh<sup>1</sup> , Chengye Yin<sup>1</sup> , Dipsy Kapoor<sup>1</sup> , Prem Natarajan<sup>1</sup> , Daniel Marcu<sup>1</sup> , Kevin Knight<sup>1</sup> , David Stallard<sup>1</sup> , Subessware S. Karunamoorthy<sup>1</sup> , Rajagopal Bojanapalli<sup>1</sup> , Steven Minton<sup>2</sup> , Brian Amanatullah<sup>2</sup> , Todd Hughes<sup>3</sup> , Mike Tamayo<sup>3</sup> , David Flynt<sup>3</sup> , Rachel Artiss<sup>3</sup> , Shih-Fu Chang<sup>4</sup> , Tao Chen<sup>4</sup> , Gerald Hiebel<sup>5</sup> , and Lidia Ferreira<sup>6</sup>
@@ -36,7 +35,7 @@ Abstract. There is a huge amount of data spread across the web and stored in dat
 
 Keywords: linked data, knowledge graphs, entity linkage, data integration, information extraction
 
-# 1 Introduction
+## 1 Introduction
 
 Human trafficking is a form of modern slavery where people profit from the control and exploitation of others, forcing them to engage in commercial sex or to provide services against their will. The statistics of the problem are shocking. In 2014 the International Labor Organization on The Economics of Forced Labour<sup>7</sup> reported that \$99 billion came from commercial sexual exploitation. Polaris<sup>8</sup> reports that in the United States 100,000 children are estimated to be involved
 
@@ -50,7 +49,7 @@ The objective of our work is to create generic technology to enable rapid constr
 
 In the following sections we describe the challenges that we faced, present our approach to building a knowledge graph applied to human trafficking and how we addressed these challenges, describe how the system is being used in practice, and then present the related work, discussion, and future directions.
 
-# 2 Challenges
+## 2 Challenges
 
 The main source of data for the human trafficking domain is the web. There are hundreds of web sites containing millions of escort ads that sex providers use to attract clients. Figure 1 shows a screenshot of one web site containing the titles of escort ads. The actual ads contain photos of the provider and text that describe the services provided, prices and contact information. The ads use coded language, and often purposefully obfuscate the information to make it difficult for law enforcement to use search engines such as Google to look for information, as shown here:
 
@@ -58,7 +57,7 @@ The phone number is obfuscated, using unicode characters and letters to code the
 
 Building and Using a Knowledge Graph to Combat Human Trafficking 3
 
-Fig. 1. Example page with an index of escort ads
+Figure 1. Example page with an index of escort ads
 
 In addition to escort ads, we use reference datasets such as Geonames, which provides geographic location information, and phone exchange databases, which provide information about the locations where phone numbers are registered.
 
@@ -73,7 +72,7 @@ No agreement on APIs or schemas: Our team is part of a large consortium of over 
 ![](_page_3_Figure_0.jpeg)
 <!-- Image Description: The image is a graph illustrating relationships between online advertisements (Ad1, Ad2, Ad3). Nodes represent ads, locations (Miami, Orlando, Sacramento), names (Kitty, Yuyu), phone numbers, emails, and images. Edges, colored green and red, show connections; green indicates attributes associated with ads, while red represents text (0.9 similarity) and image (0.8 similarity) comparisons between ads. The graph visually depicts the similarity and connections between seemingly unrelated advertisements based on shared attributes. -->
 
-Fig. 2. Example knowledge graph
+Figure 2. Example knowledge graph
 
 is not possible for a large group of organizations to agree on APIs or schemas for the inputs and outputs of the various components of a larger system. For example, several organizations are developing extraction technologies focusing on different aspects of the problem. The result is a collection of extraction tools that produce output in completely different formats and using completely different schemas. Some encode their extractions in relational databases, some produce text delimited files, and some produce JSON objects. All use different attribute names and structures to encode the information, and they produce literals in different formats (different formats for dates, phone numbers, etc., different units for physical characteristics, time periods, etc.) Our challenge as builders of the knowledge graph is to consume the output of the various extractor and analytic components produced by other organizations.
 
@@ -85,7 +84,7 @@ Query flexibility and performance: Today's users expect the ease of use and perf
 
 Opposition to Semantic Web technology: Most other organizations in the consortium are unfamiliar with Semantic Web technologies, and after initial discussions, clearly unwilling to learn or use these technologies. Our challenge is to seamlessly integrate the Semantic Web technologies we advocate with the "mainstream" technologies that other organizations are comfortable with (e.g., relational databases, NoSQL, Hadoop, JSON).
 
-# 3 Building Knowledge Graphs
+## 3 Building Knowledge Graphs
 
 In this section we describe our overall approach to building knowledge graphs. We present the techniques using the human trafficking domain as an example, although the general approach can be applied to many other domains. Figure 3 shows the architecture of the overall system, called DIG (Domain-Insight Graphs). Each of the following subsections present the components of the DIG architecture in detail and describes how they were applied on the human trafficking data to build a knowledge graph for that domain.
 
@@ -96,7 +95,7 @@ Data acquisition requires finding relevant pages and extracting the required inf
 ![](_page_4_Figure_8.jpeg)
 <!-- Image Description: This flowchart illustrates a knowledge graph construction pipeline. It depicts data acquisition (crawling and extraction), mapping to ontologies (schema.org and geonames), entity linking and similarity checks, knowledge graph deployment to ElasticSearch and a Graph DB, and finally, query and visualization. Nodes and edges represent the data transformations at each stage. The final output is a visualized query result from the knowledge graph. -->
 
-Fig. 3. Architecture for building a knowledge graph
+Figure 3. Architecture for building a knowledge graph
 
 progress, and to define revisit cycles to re-crawl periodically, downloading revisions to already crawled pages. To support focused crawling, we integrated a semi-structured content extractor into Nutch. The extractor can identify specific elements within a page, such as the list page with the ads shown in Figure 1, and direct Nutch to follow only those links.
 
@@ -119,20 +118,20 @@ In DIG we represent the graph edges as first class objects called Features. Each
 ```text
 FeatureCollection a owl:Class .
 hasFeatureCollection a owl:ObjectProperty ;
-    rdfs:range FeatureCollection .
+rdfs:range FeatureCollection .
 Feature a owl:Class .
 featureValue a owl:DatatypeProperty ;
-    rdfs:domain Feature .
+rdfs:domain Feature .
 featureObject a owl:ObjectProperty ;
-    rdfs:domain Feature .
+rdfs:domain Feature .
 ```text
 
 An instance of FeatureCollection represents the collection of edges associated with a node in the graph; hasFeatureCollection associates such an instance with a node in the graph. An instance of Feature represents an edge in the graph. The featureValue represents the value of the Feature as a literal and corresponds to what normally would be a data property in an ontology. When the value of a Feature can also be represented as a structured object, featureObject represents the value of the feature as an RDF object. For each type of edge in the graph, the ontology also includes a property as illustrated in the following example for phone numbers:
 
 ```text
 phonenumber_feature a owl:ObjectProperty ;
-    rdfs:domain FeatureCollection ;
-    rdfs:range Feature .
+rdfs:domain FeatureCollection ;
+rdfs:range Feature .
 ```text
 
 The main benefit of our ontology is that all the information about a node or an edge in the graph can be conveniently accessed using property paths without the need to do separate queries to retrieve metadata or provenance. Consider the following examples:
@@ -149,7 +148,7 @@ The main benefit of our ontology is that all the information about a node or an 
 ![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image displays a graph-based visualization of data from a JSON file ("ads-sample.json"). Nodes represent entities (e.g., WebPage, PhoneNumber, FeatureCollection) and edges represent relationships (e.g., `wasDerivedFrom`, `hasFeatureCollection`). Below the graph, a table shows data instances linked to the nodes, with bar charts indicating data counts for specific URIs. The figure illustrates the data structure and relationships within the JSON file, likely to demonstrate the application of a knowledge representation or data integration method. -->
 
-Fig. 4. Screenshot of Karma showing data extracted from escort ads and the associated model of this source for phone numbers
+Figure 4. Screenshot of Karma showing data extracted from escort ads and the associated model of this source for phone numbers
 
 The first property path returns the Feature objects that hold the phone values as well as the provenance and other metadata associated with each phone number edge; the second one returns the phone numbers as literals, and the third returns the phone numbers as structured objects; the fourth returns the country codes of the phone numbers; the fifth returns the URIs of the original documents from which the phone numbers were extracted; and the sixth returns the URIs that identify the extraction software that produced the value. DIG uses the PROV ontology to record provenance.
 
@@ -175,21 +174,21 @@ Table 1. Example JSON-LD generated by Karma
 
 ```text
 { "@context": "http://...",
-    "a": "WebPage",
-    "hasFeatureCollection": {
-        "a": "FeatureCollection
-        "phonenumber_feature": {
-            "a": "Feature",
-            "featureObject": {
-                "a": "PhoneNumber",
-                "localPhoneNumber": "6626713052" },
-            "featureName": "phonenumber",
-            "wasGeneratedBy": {
-                "wasAttributedTo": "http://dig.isi.edu/ht/data/soft...",
-                "a": "Activity",
-                "endedAtTime": "2014-04-02T17:55:23" },
-            "wasDerivedFrom": "http://dig.isi.edu/ht/data/page/5C27...",
-            "featureValue": "6626713052" }}}
+"a": "WebPage",
+"hasFeatureCollection": {
+"a": "FeatureCollection
+"phonenumber_feature": {
+"a": "Feature",
+"featureObject": {
+"a": "PhoneNumber",
+"localPhoneNumber": "6626713052" },
+"featureName": "phonenumber",
+"wasGeneratedBy": {
+"wasAttributedTo": "http://dig.isi.edu/ht/data/soft...",
+"a": "Activity",
+"endedAtTime": "2014-04-02T17:55:23" },
+"wasDerivedFrom": "http://dig.isi.edu/ht/data/page/5C27...",
+"featureValue": "6626713052" }}}
 ```text
 
 Activity1 object) and constraints to include or exclude specific properties. If the developer does not specify any constraints, Karma uses all nodes connected to the root, breaking cycles arbitrarily. The approach is flexible, allowing developers to specify how much information around the root should be included in the JSON-LD documents. Furthermore, developers can generate JSON-LD documents organized around different roots. For example, developers can produce JSON-LD documents organized around phone numbers, and these would contain all web pages referring to a given phone number.
@@ -234,32 +233,32 @@ Karma can also store the data in AVRO format (avro.apache.org), a format compati
 
 Figure 5 shows a screenshot of the DIG query interface. The interface paradigm is similar to that of popular web sites such as Amazon (amazon.com). Users can search using keywords, and can filter results by clicking on check-boxes to constrain the results. For example, the figure shows that the user clicked on "latina", to filter results to ads with the selected ethnicity. The user interface issues queries to the ElasticSearch index, responding to queries and updating all facets over the 1.4 billion node graph in under 2 seconds.
 
-# 4 In Use
+## 4 In Use
 
 The application of DIG to combat human trafficking is in use today. The system has currently been deployed to six law enforcement agencies and several NGOs that are all using the system in various ways to fight human trafficking, such as by locating victims or researching organizations that are engaging in human trafficking. After evaluation of the current prototype is completed, a updated version of this application will be deployed to more than 200 government agencies that are interested in using DIG. Reports to date indicate that DIG tool has already been successfully used to identify several victims of human trafficking, but due to privacy concerns we cannot provide additional details.
 
 All of the data used in the deployed application comes from publicly available web sites that contain advertisements for services. In the currently deployed
 
-Fig. 5. Screenshot of DIG query interface showing results a query on the keyword "jessica", filtered by city/region, ethnicity and date to focus on a small number of ads
+Figure 5. Screenshot of DIG query interface showing results a query on the keyword "jessica", filtered by city/region, ethnicity and date to focus on a small number of ads
 
 application as of July 2015, there are 60 million ads with roughly 162,000 new ads per day (with new ads updated every hour). The number of objects (RDF subjects) is 1.4 billion and the number of feature objects is 222 million. These features are broken down in Table 2.
 
 The DIG data processing pipeline and the ElasticSearch index that supports the query interface runs on a cluster with 23 nodes (384GB of RAM, 16 cores). The processing pipeline is implemented using Oozie workflows (oozie.apache.org). The times to rebuild the knowledge graph from scratch on a 23 node cluster is 27 hours and 15 minutes. Data files do not need to be redeployed to HDFS for re-processing, so the time to rebuild the graph is under 19 hours, satisfying our requirement to be able to rebuild the knowledge graph in under 24 hours.
 
-| Feature      |                     | Count Feature          |                | Count Feature                     | Count     |
+| Feature | | Count Feature | | Count Feature | Count |
 |--------------|---------------------|------------------------|----------------|-----------------------------------|-----------|
-| Payment      |                     | 533,506 Gender         |                | 823,577 # Tattoos                 | 277,597   |
-| Email        |                     | 1,212,299 Grooming     |                | 181,544 Username                  | 297,287   |
-| In/Out Call  |                     | 92,564 Hair Color      |                | 760,312 Phone Number 46,410,902   |           |
-| Age          |                     | 33,668,863 Hair Length |                | 626,333 Postal Address 49,446,945 |           |
-| Person Build |                     | 1,071,288 Hair Type    |                | 614,043 Provider Name 52,925,078  |           |
-| Bust         | 602,235 Height      |                        | 6,631,311 Rate |                                   | 7,208,428 |
-| Cup Size     |                     | 434,762 Hips Type      |                | 39,375 Website                    | 811,218   |
-| Ethnicity    | 12,790,179 Zip Code |                        |                | 101,749 Eye Color                 | 581,263   |
+| Payment | | 533,506 Gender | | 823,577 # Tattoos | 277,597 |
+| Email | | 1,212,299 Grooming | | 181,544 Username | 297,287 |
+| In/Out Call | | 92,564 Hair Color | | 760,312 Phone Number 46,410,902 | |
+| Age | | 33,668,863 Hair Length | | 626,333 Postal Address 49,446,945 | |
+| Person Build | | 1,071,288 Hair Type | | 614,043 Provider Name 52,925,078 | |
+| Bust | 602,235 Height | | 6,631,311 Rate | | 7,208,428 |
+| Cup Size | | 434,762 Hips Type | | 39,375 Website | 811,218 |
+| Ethnicity | 12,790,179 Zip Code | | | 101,749 Eye Color | 581,263 |
 
 Table 2. Breakdown with number of each feature object in the datastore
 
-# 5 Related Work
+## 5 Related Work
 
 There is a variety of related work on building knowledge graphs. The Linked Open Data can be viewed as a large, heterogeneous knowledge graph. However, the data it contains has not been mapped to a single domain ontology, there is only limited linking, and the quality of the data is highly variable. Nevertheless, there are many useful and high quality sources that do form the basis of a knowledge graph, including DBpedia, Geonames, and the New York Times. These are heavily curated and carefully linked and provide coverage for very specific types of data. Each source in the Linked Open Data is created using different methods and tools and it results in a highly variable knowledge graph that requires considerable additional effort to use to build new applications.
 
@@ -267,7 +266,7 @@ Several commercial efforts that are building knowledge graphs, including the Goo
 
 The Linked Data Integration Framework (LDIF) [9] also focuses on building domain-specific knowledge graphs. Like DIG, it provides a data access module, a data translation module [2], and an identity resolution module [4]. LDIF also addresses scalability, processing data in a cluster using Hadoop. The most significant difference is that LDIF focuses on existing RDF and structured sources while DIG aggregates data from both structured and unstructured sources, including text documents, web pages, databases, and photographs. DIG also provides a highly extensible architecture for integrating new capabilities.
 
-# 6 Conclusion
+## 6 Conclusion
 
 In this paper we described the DIG system<sup>12</sup> and discussed how it can be used to build a knowledge graph for combating human trafficking. The role of Semantic Web technologies is central to the success of the system. We represent all the data in a common ontology, define URIs for all entities, link to external Semantic Web resources (e.g. Geonames), and publish data in RDF using multiple serializations for different back-end databases. DIG is not limited to human trafficking and has already been applied in other problems domains including illicit weapons, counterfeit electronics, identifying patent trolls, and understanding research trends in both material science and autonomous systems.
 
@@ -283,7 +282,7 @@ age ontological axioms to enable richer queries and facets in the user interface
 
 Acknowledgements This research is supported in part by the Defense Advanced Research Projects Agency (DARPA) and the Air Force Research Laboratory (AFRL) under contract number FA8750-14-C-0240, and in part by the National Science Foundation under Grant No. 1117913. Cloud computing resources were provided in part by Microsoft under a Microsoft Azure for Research Award. The views and conclusions contained herein are those of the authors and should not be interpreted as necessarily representing the official policies or endorsements, either expressed or implied, of DARPA, NSF, or the U.S. Government.
 
-# References
+## References
 
 - 1. Benjelloun, O., Garcia-Molina, H., Menestrina, D., Su, Q., Whang, S.E., Widom, J.: Swoosh: A generic approach to entity resolution. The VLDB Journal 18(1), 255–276 (Jan 2009), http://dx.doi.org/10.1007/s00778-008-0098-x
 - 2. Bizer, C., Schultz, A.: The r2r framework: Publishing and discovering mappings on the web. In: Workshop on Consuming Open Linked Data (COLD) (2010)

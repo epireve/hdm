@@ -24,7 +24,6 @@ keywords:
 - well-known
 ---
 
-
 # On a Factorial Knowledge Architecture for Data Science-powered Software Engineering <sup>∗</sup>
 
 Zheng Li Department of Computer Science University of Concepción Concepción, Chile imlizheng@gmail.com
@@ -37,7 +36,7 @@ Given the data-intensive and collaborative trend in science, the software engine
 
 • **Software and its engineering**➝*Software development process management;*•**General and reference**➝ Computing standards, RFCs and guidelines;
 
-# KEYWORDS
+## KEYWORDS
 
 Data science, General system model, Knowledge architecture, Software product engineering, Software project factors
 
@@ -65,7 +64,7 @@ The remainder of this paper is organized as follows. Section 2 clarifies the ess
 
 ### 2 Essential Concepts
 
-#### 2.1 Data, Information, and Knowledge
+### 2.1 Data, Information, and Knowledge
 
 In essence, knowledge and data are inextricably interwoven with each other through information. According to the clarification of relevant concepts [10], data are observation products with their representation symbols. Pure data are generally of little value due to the lack of context. Therefore, to make sense of data, the context (e.g., the structures and/or relationships of data) is needed to organize data into information. In specific, information can be defined as a function of data [10], for containing both the data and their context, as specified in Equation (1).
 
@@ -85,7 +84,7 @@ $$
 
 where () denotes the processing function that returns by making sense of under its context .
 
-# 2.2 Knowledge Architecture (KA)
+## 2.2 Knowledge Architecture (KA)
 
 Emerging from knowledge modelling and knowledge representation [11], KA is a discipline of creating, storing, sharing and utilizing human knowledge from the organizational perspective.
 
@@ -94,7 +93,7 @@ NASA defines KA as a combination of information architecture, knowledge manageme
 $$
 Knowledge Architecture = Data Science +Knowledge Management +Information Architecture
 $$
- (3)
+(3)
 
 In detail, based on the structured and "shared information environments with useful, navigable form that resists entropy and reduces confusion" [14], KAs involve both knowledge extraction and knowledge managerial processes [15] by focusing on the building blocks of knowledge for specific applications [11].
 
@@ -129,7 +128,7 @@ Inspired by the factor-based system model [6], we also treat individual software
 
 ![](_page_2_Figure_11.jpeg)
 <!-- Image Description: The image is a systems diagram depicting an organizational system. Arrows show controllable and uncontrollable environmental factors impacting the system, alongside input factors. The system processes these and generates responses (output factors). The diagram illustrates the interplay of internal and external influences on organizational outcomes within the paper's framework. -->
-**Figure 1: A general system model of software projects from the factorial perspective.**# 3.2 Fitting Factors into the Software Project Model
+****Figure 1:** A general system model of software projects from the factorial perspective.**# 3.2 Fitting Factors into the Software Project Model
 
 Due to the large amount of categories of datasets in the repositories (e.g., [5]), it is impossible to include the factors all at once in this paper. Therefore, we focus on the category of software effort estimation to arrange and fit factors into the software project model (see Figure 1). In specific, the factors are selected by referring to the software project datasets Albrecht<sup>6</sup> , COCOMO, Desharnais, Maxwell, and the 14 general system characteristics in Function Point Analysis<sup>7</sup> , while their arrangement is illustrated in Figure 2 and briefly explained as follows.
 
@@ -167,7 +166,7 @@ A possible threat to our work is that it could be too ambitious to develop the f
 
 The developed factorial KA for data science-powered software engineering will be able to supplement (instead of replacing) the well-known SWEBOK. Firstly, unlike SWEBOK that divides software engineering knowledge into categories, areas and units, our KA provides a factor-centric approach to knowledge retrieval and management. Secondly, unlike SWEBOK that covers the mature knowledge only, our KA represents a K (number of factors) dimensional space that also includes the places for catering potential/future knowledge of software engineering.
 
-# ACKNOWLEDGMENTS
+## ACKNOWLEDGMENTS
 
 This work is supported in part by Chilean National Commission for Scientific and Technological Research (CONICYT, Chile) under Grant FONDECYT Iniciación 11180905.
 

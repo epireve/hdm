@@ -25,7 +25,7 @@ tags:
 ---
 
 ![](_page_0_Picture_0.jpeg)
-<!-- Image Description: That's not a technical image from an academic paper; it's a simple graphical user interface (GUI) element.  The image shows a square button with a circular icon (featuring a red bookmark within concentric teal and yellow rings) and the text "Check for updates".  Its purpose within the paper is likely to indicate a software update mechanism or to direct the reader to check for version control updates relevant to the paper's subject matter or accompanying software.  It contains no charts, graphs, equations, or other technical illustrations beyond the simple button design. -->
+<!-- Image Description: That's not a technical image from an academic paper; it's a simple graphical user interface (GUI) element. The image shows a square button with a circular icon (featuring a red bookmark within concentric teal and yellow rings) and the text "Check for updates". Its purpose within the paper is likely to indicate a software update mechanism or to direct the reader to check for version control updates relevant to the paper's subject matter or accompanying software. It contains no charts, graphs, equations, or other technical illustrations beyond the simple button design. -->
 
 # A Question-Answering Assistant over Personal Knowledge Graph
 
@@ -41,15 +41,15 @@ Xiaolian Zhang Huawei Technologies Co. Ltd. Shenzhen, China zhangxiaolian@huawei
 
 Meng Wang† Tongji University Shanghai, China wangmengsd@outlook.com
 
-# ABSTRACT
+## ABSTRACT
 
 We develop a Personal Knowledge Graph Question-Answering (PKGQA) assistant, seamlessly integrating information from multiple mobile applications into a unified and user-friendly query interface to offer users convenient information retrieval and personalized knowledge services. Based on a fine-grained schema customized for PKG, the PKGQA system in this paper comprises Symbolic Semantic Parsing, Frequently Asked Question (FAQ) Semantic Matching, and Neural Semantic Parsing modules, which are designed to take into account both accuracy and efficiency. The PKGQA system achieves high accuracy on the constructed dataset and demonstrates good performance in answering complex questions. Our system is implemented through an Android application, which is shown in [https://youtu.be/p732U5KPEq4.](https://youtu.be/p732U5KPEq4)
 
-# CCS CONCEPTS
+## CCS CONCEPTS
 
 • Information systems → Question answering.
 
-# KEYWORDS
+## KEYWORDS
 
 knowledge graph, question answering, neural networks, symbolic system, intelligent personal assistant
 
@@ -57,7 +57,7 @@ knowledge graph, question answering, neural networks, symbolic system, intellige
 
 Lingyuan Liu, Huifang Du, Xiaolian Zhang, Mengying Guo, Haofen Wang, and Meng Wang. 2024. A Question-Answering Assistant over Personal Knowledge Graph. In Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR '24), July 14–18, 2024, Washington, DC, USA. ACM, New York, NY, USA, [5](#page-4-0) pages. <https://doi.org/10.1145/3626772.3657665>
 
-# <span id="page-0-1"></span>1 INTRODUCTION
+## <span id="page-0-1"></span>1 INTRODUCTION
 
 In the current information age, numerous applications offer distinct functionalities and generate a substantial amount of isolated or
 
@@ -66,9 +66,9 @@ SIGIR '24, July 14–18, 2024, Washington, DC, USA
 © 2024 Copyright held by the owner/author(s). Publication rights licensed to ACM. ACM ISBN 979-8-4007-0431-4/24/07 <https://doi.org/10.1145/3626772.3657665>
 
 <span id="page-0-0"></span>![](_page_0_Picture_23.jpeg)
-<!-- Image Description: The image depicts a flowchart illustrating the process of arranging a dinner with a friend. It shows a user's thought process progressing through several stages: checking a calendar (structured data), recalling previous messages (unstructured data), noting restaurant choices (unstructured data), and finally updating the calendar (structured data).  Each stage is represented by a text box describing the action and an icon representing the data type.  The flowchart visually explains the transition between structured and unstructured data in a common task. -->
+<!-- Image Description: The image depicts a flowchart illustrating the process of arranging a dinner with a friend. It shows a user's thought process progressing through several stages: checking a calendar (structured data), recalling previous messages (unstructured data), noting restaurant choices (unstructured data), and finally updating the calendar (structured data). Each stage is represented by a text box describing the action and an icon representing the data type. The flowchart visually explains the transition between structured and unstructured data in a common task. -->
 
-Figure 1: An example of a user frequently switching applications when arranging a dinner gathering with a friend.
+**Figure 1:** An example of a user frequently switching applications when arranging a dinner gathering with a friend.
 
 fragmented data. To seek out diverse pieces of information, users frequently have to switch between multiple apps. This issue arises from the multitude of independent applications creating information silos, thereby hindering efficiency.
 
@@ -83,9 +83,9 @@ Recently, the introduction of the Personal Knowledge Graph (PKG) has presented a
 Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than the author(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org.
 
 <span id="page-1-2"></span>![](_page_1_Figure_2.jpeg)
-<!-- Image Description: This image depicts the architecture of a system for question answering using a knowledge graph (PKG).  The system processes a natural language question ("Which doctor treated my mother last time?") through modules for information extraction, semantic parsing (symbolic and neural), and semantic matching against a PKG stored in a relational database.  The process involves generating SQL queries using large language models (LLMs) and calculating similarity scores (using difflib) to find the best match within the PKG.  The final answer is extracted and displayed.  The diagram shows data flow between these components, highlighting different techniques for processing the question and retrieving relevant information. -->
+<!-- Image Description: This image depicts the architecture of a system for question answering using a knowledge graph (PKG). The system processes a natural language question ("Which doctor treated my mother last time?") through modules for information extraction, semantic parsing (symbolic and neural), and semantic matching against a PKG stored in a relational database. The process involves generating SQL queries using large language models (LLMs) and calculating similarity scores (using difflib) to find the best match within the PKG. The final answer is extracted and displayed. The diagram shows data flow between these components, highlighting different techniques for processing the question and retrieving relevant information. -->
 
-Figure 2: The overview of PKGQA system. When a question is posed, components in PKGQA module are operated sequentially.
+**Figure 2:** The overview of PKGQA system. When a question is posed, components in PKGQA module are operated sequentially.
 
 Knowledge Graph Question-Answering (KGQA) [\[4,](#page-4-10) [15,](#page-4-11) [16,](#page-4-12) [20\]](#page-4-13) systems provide users with a simple and intuitive interaction method for querying information across multiple applications. Based on the newly defined schema, we design and implement a multi-strategy PKGQA system, which is comprised of 3 targeted modules according to different types of questions: (1) a Symbolic Semantic Parsing module, (2) a Frequently Asked Question (FAQ) Semantic Matching module, and (3) a Neural Semantic Parsing module. These modules operate in sequence, triggered based on the availability of an answer within previous steps. For simple questions, Symbolic Semantic Parsing and FAQ Semantic Matching modules are capable of providing answers with high efficiency and accuracy. Only complex questions require the Neural Semantic Parsing module, aiming to enhance the flexibility and generalizability of the PKGQA system while ensuring timely responses.
 
@@ -100,25 +100,25 @@ The storage of PKG is designed to be capable of being stored locally on mobile d
 As mentioned in Section [1,](#page-0-1) existing schemas proposed in previous works are inadequate to cover the fine-grained data produced by mobile devices. To better accommodate the everyday use of mobile devices, we design a more comprehensive and detailed PKG schema, which is specifically tailored to capture the complexities and nuances of mobile data usage, ensuring a more accurate and user-centric approach.
 
 <span id="page-1-0"></span>![](_page_1_Figure_10.jpeg)
-<!-- Image Description: This concentric circle diagram categorizes data attributes for social network analysis.  The outermost ring segments personal attributes (basic and contact information), entity relationships (classmates and colleagues), and event attributes (meals and leisure activities).  The inner circle represents the core data structure.  The purpose is to visually illustrate the data model's structure and components for the paper's target audience. -->
+<!-- Image Description: This concentric circle diagram categorizes data attributes for social network analysis. The outermost ring segments personal attributes (basic and contact information), entity relationships (classmates and colleagues), and event attributes (meals and leisure activities). The inner circle represents the core data structure. The purpose is to visually illustrate the data model's structure and components for the paper's target audience. -->
 
-Figure 3: An overview of our schema. We defined personal attributes, entity relationships, and event attributes in our schema. Each of these categories is defined as two levels of granularity, thereby suitable for application in diverse personal information or questions.
+**Figure 3:** An overview of our schema. We defined personal attributes, entity relationships, and event attributes in our schema. Each of these categories is defined as two levels of granularity, thereby suitable for application in diverse personal information or questions.
 
 More specifically, as shown in Figure [3,](#page-1-0) two levels of granularity are defined in our schema, focusing on personal attributes, entity relationships, and event attributes. Different levels of granularity can be chosen according to specific scenarios. For example, in the schema proposed by Yang et al. [\[21\]](#page-4-2), the "Family" relationship is at its most granular level. In contrast, our research enriches this categorization by introducing 12 subcategories under "Family", such as "Father", "Mother", and "Spouse".
 
 <span id="page-2-0"></span>A Question-Answering Assistant over Personal Knowledge Graph SIGIR '24, July 14–18, 2024, Washington, DC, USA
 
 ![](_page_2_Figure_2.jpeg)
-<!-- Image Description: The image displays three screenshots illustrating a user interface. (a) shows a weekly schedule; (b) depicts a question-answering system with logical reasoning, using hyperlinks (blue underlined text) to connect to other parts of the interface; and (c) shows a structured data page containing user profile information.  The figure demonstrates the system's interaction and data organization. -->
+<!-- Image Description: The image displays three screenshots illustrating a user interface. (a) shows a weekly schedule; (b) depicts a question-answering system with logical reasoning, using hyperlinks (blue underlined text) to connect to other parts of the interface; and (c) shows a structured data page containing user profile information. The figure demonstrates the system's interaction and data organization. -->
 
 information page.
 
 ![](_page_2_Picture_3.jpeg)
-<!-- Image Description: This image shows a screenshot of a digital profile for Xiaoxia Liu.  It's a tabular format listing personal information including preferences (movie and hotel), height, job position and workplace, gender, ID number, and educational background.  Both English and Chinese translations are provided for each field.  The purpose is likely to illustrate data representation or user profile structure within the context of the paper. -->
+<!-- Image Description: This image shows a screenshot of a digital profile for Xiaoxia Liu. It's a tabular format listing personal information including preferences (movie and hotel), height, job position and workplace, gender, ID number, and educational background. Both English and Chinese translations are provided for each field. The purpose is likely to illustrate data representation or user profile structure within the context of the paper. -->
 
 (c) **Structured information.** This page shows the attributes of the entity "Xiaoxia Liu" in PKG.
 
-Figure 4: The screenshots of our demonstration.
+**Figure 4:** The screenshots of our demonstration.
 
 ### 2.2 QA System Design and Implementation
 
@@ -139,9 +139,9 @@ Through the close cooperation of these four modules, our PKGQA system can not on
 Implementation. In implementation, we focus on the usage scenario of smartphones and build an Android app as the GUI. Simultaneously, we encapsulate the PKGQA system as a Representational
 
 ![](_page_3_Figure_1.jpeg)
-<!-- Image Description: This image displays a knowledge graph.  Nodes represent entities (persons, events, attributes) color-coded (blue: event; beige: person; orange: attribute). Edges show relationships between entities,  such as "Spouse," "Father," "Friend," "Birth," and "Education Background."  The graph visualizes connections within a family and their associated data, likely used to illustrate knowledge representation or relationship extraction in the paper. -->
+<!-- Image Description: This image displays a knowledge graph. Nodes represent entities (persons, events, attributes) color-coded (blue: event; beige: person; orange: attribute). Edges show relationships between entities, such as "Spouse," "Father," "Friend," "Birth," and "Education Background." The graph visualizes connections within a family and their associated data, likely used to illustrate knowledge representation or relationship extraction in the paper. -->
 
-Figure 5: A demonstration of our PKG, where persons, attributes, and events are all treated as entities.
+**Figure 5:** A demonstration of our PKG, where persons, attributes, and events are all treated as entities.
 
 State Transfer (RESTful) API to ensure seamless integration and functionality. Additionally, our GUI is capable of displaying additional information, including structured data and logical reasoning contained within the PKG. For instance, when a user asks, "When is my mother's birthday?" (refer to Figure [4\(](#page-2-0)b)), our system not only provides the answer but also displays the underlying multi-hop logic reasoning. Entities like "Xiaoxia Liu" are presented as linked texts; clicking on them redirects to their respective structured information display page (refer to Figure [4\(](#page-2-0)c)). Additionally, we present the query results of the user's weekly schedule in PKG in a structured format on the application's homepage, offering users a clear and functional entry (refer to Figure [4\(](#page-2-0)a)).
 
@@ -157,7 +157,7 @@ Method Accuracy (%) Multi-hop Multi-conditional Verify Total all 94.0 60.0 81.0 
 
 w/o NSP 93.5 0.0 80.0 69.0 w/o FAQ 97.5 63.0 81.0 80.0
 
-<span id="page-3-0"></span>Table 1: Ablation results of the PKGQA system under differ-
+<span id="page-3-0"></span>**Table 1:** Ablation results of the PKGQA system under differ-
 
 chosen path "Zi Yang → mother → Xiaoxia Liu → birthday → 1968-05-10", the generated question-answer pair is ("When is my mother's birthday?", "1968-05-10"). We then employ rules to combine different conditions to generate questions, and ultimately use a LLM (GPT-3.5-turbo in our case) for question rewriting, enhancing the diversity and naturalness of the questions.
 

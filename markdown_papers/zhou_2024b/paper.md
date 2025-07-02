@@ -26,7 +26,7 @@ tags:
 ---
 
 <span id="page-0-0"></span>![](_page_0_Picture_0.jpeg)
-<!-- Image Description: That's not a technical image from an academic paper; it's a graphical user interface (GUI) element.  The image shows a button or icon commonly used in software applications.  The icon depicts a bookmark within a circular graphic, and the text reads "Check for updates."  Its purpose is to prompt the user to search for and install software updates.  There are no diagrams, charts, graphs, or equations present. -->
+<!-- Image Description: That's not a technical image from an academic paper; it's a graphical user interface (GUI) element. The image shows a button or icon commonly used in software applications. The icon depicts a bookmark within a circular graphic, and the text reads "Check for updates." Its purpose is to prompt the user to search for and install software updates. There are no diagrams, charts, graphs, or equations present. -->
 
 # Bring Privacy To The Table: Interactive Negotiation for Privacy Setings of Shared Sensing Devices
 
@@ -34,19 +34,19 @@ tags:
 
 Pittsburgh, PA, United States Pittsburgh, PA, United States Pittsburgh, PA, United States
 
-# ABSTRACT
+## ABSTRACT
 
 To address privacy concerns with the Internet of Things (IoT) devices, researchers have proposed enhancements in data collection transparency and user control. However, managing privacy preferences for shared devices with multiple stakeholders remains challenging. We introduced ThingPoll, a system that helps users negotiate privacy confgurations for IoT devices in shared settings. We designed ThingPoll by observing twelve participants verbally negotiating privacy preferences, from which we identifed potentially successful and inefcient negotiation patterns. ThingPoll bootstraps a preference model from a custom crowdsourced privacy preferences dataset. During negotiations, ThingPoll strategically scafolds the process by eliciting users' privacy preferences, providing helpful contexts, and suggesting feasible confguration options. We evaluated ThingPoll with 30 participants negotiating the privacy settings of 4 devices. Using ThingPoll, participants reached an agreement in 97.5% of scenarios within an average of 3.27 minutes. Participants reported high overall satisfaction of 83.3% with ThingPoll as compared to baseline approaches.
 
-# CCS CONCEPTS
+## CCS CONCEPTS
 
 • Security and privacy → Privacy protections; • Computer systems organization → Sensor networks.
 
-# KEYWORDS
+## KEYWORDS
 
 Usable Privacy, Internet of Things, Negotiation Agent, Privacy Enhancing Technology, Privacy Profles, Preference Elicitation
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Haozhe Zhou, Mayank Goel, and Yuvraj Agarwal. 2024. Bring Privacy To The Table: Interactive Negotiation for Privacy Settings of Shared Sensing Devices. In Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '24), May 11–16, 2024, Honolulu, HI, USA. ACM, New York, NY, USA, [22](#page-21-0) pages. <https://doi.org/10.1145/3613904.3642897>
 
@@ -55,7 +55,7 @@ Haozhe Zhou, Mayank Goel, and Yuvraj Agarwal. 2024. Bring Privacy To The Table: 
 Sensor-laden Internet of Things (IoT) devices have become increasingly pervasive. These devices pose signifcant privacy risks because they can measure and collect a wide array of data, including sensitive information such as identity, facial features, and voice [\[52,](#page-16-0)
 
 ![](_page_0_Picture_15.jpeg)
-<!-- Image Description: The image displays a Creative Commons (CC) license attribution.  Specifically, it shows the CC symbol, a person symbol indicating attribution to the author, and "BY", signifying the "Attribution" license type.  The image informs readers of the copyright status and usage permissions of the paper's content. -->
+<!-- Image Description: The image displays a Creative Commons (CC) license attribution. Specifically, it shows the CC symbol, a person symbol indicating attribution to the author, and "BY", signifying the "Attribution" license type. The image informs readers of the copyright status and usage permissions of the paper's content. -->
 
 This work is licensed under a Creative Commons Attribution [International](https://creativecommons.org/licenses/by/4.0/) 4.0 [License.](https://creativecommons.org/licenses/by/4.0/)
 
@@ -80,15 +80,15 @@ In summary, we make the following key contributions:
 - Through a user study of 30 participants, we demonstrated the promises of negotiation-based methods as suggested by increased user satisfaction with a high agreement rate compared to current social norms.
 - We share lessons and implications from our study, which could help inspire future research on IoT privacy tools for shared spaces.
 
-# 2 RELATED WORKS AND INITIAL DESIGN CONSIDERATIONS
+## 2 RELATED WORKS AND INITIAL DESIGN CONSIDERATIONS
 
-#### 2.1 Privacy Challenges of Incidental Users
+### 2.1 Privacy Challenges of Incidental Users
 
 Several studies highlight users' unawareness of data collected by IoT devices and inability to voice their preference [\[68,](#page-16-4) [69,](#page-16-5) [108,](#page-17-8) [110\]](#page-17-3). A bystander's perception of privacy is closely linked to the context of the shared environment, such as the social relationships between the incidental user and homeowner, device location, and the perception of its processing power [\[25,](#page-15-3) [108,](#page-17-8) [110\]](#page-17-3). Studies have highlighted the need to take context into account when estimating incidental user privacy preferences. Importantly, the process of making privacy decisions can be exhausting for the user as they have to navigate technical intricacies [\[39,](#page-15-10) [93,](#page-17-9) [96\]](#page-17-10). The situations worsens when they have to make decisions every time they enter a shared IoT space and with the additional social pressure [\[20\]](#page-15-11). Consequently, it is crucial to aim for efciency and minimize user burden in designing systems that assist incidental users' privacy management.
 
 Several studies have also provided evidence of the cooperative nature of guests and homeowners in resolving privacy tension, especially when in close social relationships. Marky et al. suggest that most owners are comfortable with adjusting their smart home devices for visitors, while guests hope to be informed about the sensor data collection [\[69\]](#page-16-5). Similarly, Cobb et al. showed that most homeowners are willing to turn of devices to make guests feel more comfortable, provided they live together or have close relationships [\[25\]](#page-15-3). Moreover, guests become more comfortable with allowing data collection if provided information and their consent is sought [\[67,](#page-16-11) [100\]](#page-17-0). These fndings indicate that guests and homeowners are likely willing to cooperate to fnd acceptable IoT device privacy confgurations.
 
-#### 2.2 Multi-User IoT Systems
+### 2.2 Multi-User IoT Systems
 
 Several research teams have built systems for IoT device management for multi-user use cases. Zeng et al. [\[115\]](#page-17-11) designed an app that managed access for multiple users based on roles and notifed relevant users when a device is being controlled. Similarly, Kratos [\[94\]](#page-17-12) focuses on resolving conficting demands of multiple users through policy negotiation based on user priorities and roles indicated by pre-defned policy profles. HiveMind [\[58\]](#page-16-6) gathers preference votes from multiple users in public spaces and dynamically adjusts actuator confgurations in public spaces to optimize for the overall utility. Similarly, Chaki et al. [\[21\]](#page-15-12) present a framework based on the Analytic Hierarchy Process (AHP) using pre-defned priorities of contextual factors for multi-user smart homes. However, these systems are not tailored for privacy management and do not enable users to share and mediate concerns.
 
@@ -99,15 +99,15 @@ Prior work has also explored providing privacy notifcations and controls to inci
 Using negotiation as a technique to mediate privacy preferences has been studied in a few contexts such as social media, mobile apps, and IoT. For example, Baarslag et al. [\[10\]](#page-15-13) studied negotiation for mobile app permissions. Further, Filipczuk et al. [\[41\]](#page-15-14) extended the negotiation model to integrate the uncertainty of user preferences in user-service negotiation. Similarly, Alanezi et al. [\[4\]](#page-15-15) proposed an automatic negotiation mechanism that automatically fnds a consensus on device confguration based on pre-defned privacy policies. However, these methods are limited to bilateral negotiation, where an agentrepresenting the user proposes ofersto the opponent to maximize the user's benefts. In addition, several works explored multi-party privacy preference confict resolution and negotiation solutions on social media [\[98,](#page-17-13) [99,](#page-17-14) [102\]](#page-17-15). Recently, Ogunniye and Kökciyan [\[80\]](#page-16-12) proposed a method to resolve privacy conficts using an ontology of contextual integrity. ELVIRA [\[74,](#page-16-13) [75\]](#page-16-14) is an agentbased system that recommends explainable solutions to multi-user
 
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
-<!-- Image Description: The image displays a flowchart illustrating a four-step research process: observation, ideation, prototyping, and testing.  Each step includes studies with participant numbers (N) indicated.  The process involves verbal privacy negotiation analysis, design implication stages,  a mTurk survey (N=198), ThingPoll prototype development, and a final ThingPoll evaluation (N=30).  Sections of the paper corresponding to each stage are also referenced.  The diagram visually represents the research methodology's sequential nature and its components. -->
+<!-- Image Description: The image displays a flowchart illustrating a four-step research process: observation, ideation, prototyping, and testing. Each step includes studies with participant numbers (N) indicated. The process involves verbal privacy negotiation analysis, design implication stages, a mTurk survey (N=198), ThingPoll prototype development, and a final ThingPoll evaluation (N=30). Sections of the paper corresponding to each stage are also referenced. The diagram visually represents the research methodology's sequential nature and its components. -->
 
-Figure 1: An overview of the methodology.
+**Figure 1:** An overview of the methodology.
 
 privacy conficts. Similarly, PARCCART [\[30\]](#page-15-16) focuses on building trust from users through concealment, equity, collaboration, and explainability. While not directly targeting our application scenario, these methods provide useful insights into the theoretical design of our negotiation system.
 
 Researchers have studied IoT privacy negotiation behaviors and perceptions. The work closest to our use case is by Alshehri et al. [\[7\]](#page-15-17), in which 460 crowd workers were surveyed to understand guest and homeowner negotiation behaviors with a digital agent. Their results verifed that social relationships and roles can infuence the negotiation process. Apart from this, Wang et al. [\[105\]](#page-17-16) conducted a vignette study with 867 participants, suggesting the privacy sensitivity of the IoT device is signifcantly associated with AirBnB visitors' tendency to negotiate their privacy preference with the hosts. Although these studies shed light on the nuances of negotiation, they are still insufcient to translate into a clear blueprint for a negotiation system and investigate how an actual negotiation system may beneft users.
 
-# 2.4 Social, Psychological, and Political Views on Negotiation
+## 2.4 Social, Psychological, and Political Views on Negotiation
 
 It is widely accepted that negotiation can be viewed as distributive or integrative depending on the objective [\[104\]](#page-17-17). In distributive negotiation, the outcome is achieved within a zero-sum game, while in integrative negotiation, greater overall benefts can be achieved through fnding mutual interests [\[104\]](#page-17-17). Mixed-motive negotiation can have both distributive and integrative components [\[2\]](#page-14-0). The nature of the negotiation infuences the modeling approaches [\[57\]](#page-16-15) as well as the negotiator's behavior, such as more cooperation in integrative than in distributive negotiation [\[97\]](#page-17-18).
 
@@ -117,7 +117,7 @@ Another dimension to consider is justice. Justice not only serves as an ethical 
 
 Moreover, many personal characteristics are shown to afect the negotiation process and outcomes. Barry & Friedman [\[15\]](#page-15-19) studied the impact of personality traits on negotiations and discovered that agreeableness and extraversion may harm the negotiator's individual gain in distributive negotiations. Beersma et al. [\[19\]](#page-15-20) discovered that prosocial groupstend to achieve better joint outcomes, possibly due to enhanced levels of trust and reduced contentious behavior within these groups. Fehr et al. [\[38\]](#page-15-21) examined the evolutionary evidence supporting altruistic punishment and cooperation in brain neural circuits. These fndings highlight the need to account for users' unique mental states in designing efective negotiation systems while also cautioning against unfairly exploiting altruistic or agreeable individuals.
 
-#### 2.5 Summary of Initial Design Implications
+### 2.5 Summary of Initial Design Implications
 
 Based on the literature review, including privacy challenges for incidental users of IoT, multi-user IoT systems, privacy negotiations, and political, social, and psychological aspects of negotiation studies, we summarize three initial design implications:
 
@@ -127,18 +127,18 @@ Implication ○2 : Negotiations needs to be time efcient and low efort.
 
 Implication ○3 : Negotiations should ensure respectful and fair treatment of users and provide information transparency.
 
-#### 3 METHODOLOGY
+### 3 METHODOLOGY
 
 We followed an iterative design process, as summarized in Figure [1.](#page-2-0) We frst conducted a formative study to inform the design of the negotiation system, ThingPoll, and fnally conducted a summative study. All human-subject studies are approved by our institution's IRB. In this section, we describe an overview of our methodology for designing, building, and evaluating ThingPoll.
 
 Observing Negotiations. Negotiation through conversation is a complex yet spontaneous task for human beings, which involves communicating and keeping track of each user's preferences, resolving conficts, etc. While existing works in social science, political science, and psychology have discovered valuable insights into how human beings negotiate, it is still unclear how these insights are transferable to the context of IoT privacy negotiation. Thus, we conducted a study with 12 participants to observe how humans negotiate about privacy confgurations of a smart home. In this study, we aimed to answer the following research questions:
 
-<span id="page-3-0"></span>Table 1: Verbal Negotiation Device Confguration Space
+<span id="page-3-0"></span>**Table 1:** Verbal Negotiation Device Confguration Space
 
-| Device Type   | Position      | # of Functionalities |
+| Device Type | Position | # of Functionalities |
 |---------------|---------------|----------------------|
-| Smart Speaker | Living Room   | 4                    |
-| Camera        | Entrance Door | 8                    |
+| Smart Speaker | Living Room | 4 |
+| Camera | Entrance Door | 8 |
 
 RQ1(a) What are the various types of interactions that take place during a verbal negotiation on IoT privacy settings?
 
@@ -154,31 +154,31 @@ RQ2(a) How practical, efective, and satisfying is ThingPoll in helping users neg
 
 RQ2(b) How does the negotiation approach compare to baseline non-negotiation approaches?
 
-# 4 STUDY 1: OBSERVATION OF VERBAL PRIVACY NEGOTIATIONS
+## 4 STUDY 1: OBSERVATION OF VERBAL PRIVACY NEGOTIATIONS
 
 We conducted a study to observe how humans behave when negotiating smart home privacy confgurations and inform the design of ThingPoll.
 
-#### 4.1 Study Design
+### 4.1 Study Design
 
 We based the verbal negotiation task on two smart home devices, with specifcations summarized in Table [1.](#page-3-0) Participants were arranged into groups of 3 and assigned one of two roles: homeowner or guest.According to where the participant's preferences are on the
 
-<span id="page-3-1"></span>Table 2: Study 1 Participants Demographic Information
+<span id="page-3-1"></span>**Table 2:** Study 1 Participants Demographic Information
 
-| Variable  | Levels (Count)                                                           |
+| Variable | Levels (Count) |
 |-----------|--------------------------------------------------------------------------|
-| Age       | 18 - 24 (7), 25 - 34 (5)                                                 |
-| Gender    | Female (5), Male (7)                                                     |
+| Age | 18 - 24 (7), 25 - 34 (5) |
+| Gender | Female (5), Male (7) |
 | Education | Bachelor's Degree (7), Master's Degree (4),<br>Doctorate/Prof Degree (1) |
 
 privacy-functionality[1](#page-0-0) spectrum, we assigned the role of the homeowner to the participants who are more functionality-oriented, and the guest role to more privacy-oriented participants. This assignment refects more real world settings assuming that a typical smart-home owner would value functionality over privacy when compared to a typical guest. It also creates more preference conficts, as opposed to random assignment of roles, thus proving more opportunities to observe and resolve conficts using negotiation.
 
 Based on participant availability, we conducted this study either on-site or on a video call. We started the study by asking the homeowner to confgure the devices in a hypothetical home. Next, we asked them to imagine two guests visiting their smart homes with two IoT devices, for which they would need to negotiate their preferred privacy confgurations. The participants were free to structure their verbal communication and negotiation as they wished. The researchers observed and audio-recorded the process without interrupting the participants unless they needed assistance to understand the device's behavior or deviated from the task. We limited the negotiation time to 15 minutes for two devices to prevent stressing participants. We compensated all participants with \$5 USD for their time.
 
-#### 4.2 Participants
+### 4.2 Participants
 
 We recruited 12 participants (4 groups) from our institution's student community (demographics in Table [2\)](#page-3-1), who owned and used at least one smart home device to ensure all participants had basic knowledge and experience with them.
 
-#### 4.3 Findings
+### 4.3 Findings
 
 Among the four groups, only one group completed negotiations for both devices, while other groupsspent most of their time on the frst device, leaving insufcient time for the second one. We transcribed the audio recordings and coded each part of the conversation by extending the previous coding method [\[31,](#page-15-22) [49,](#page-16-20) [50,](#page-16-21) [82,](#page-16-22) [86\]](#page-16-23) to better suit the IoT privacy-functionality negotiation domain. Overall, we discovered seven distinct types of negotiation behaviors, as shown in Table [3.](#page-4-1) Participants spent the majority of their time expressing and explaining their preferences (27.7% and 47.1%, respectively).
 
@@ -186,32 +186,31 @@ We further broke down the components of the explanations for preferences and fou
 
 <sup>1</sup>We always use the term "functionality" to denote the benefts of enabling smart home applications. We use the term "gain" to denote how successful the negotiation outcome is, which ThingPoll attempts to optimize internally. Although the term "utility" is more conventionally used in both contexts, we avoided using it to prevent ambiguity.
 
-<span id="page-4-1"></span>
 
-| Name                       | Example                                                                 | Time  |
+| Name | Example | Time |
 |----------------------------|-------------------------------------------------------------------------|-------|
-| Explain Preference Reasons | Allowing users to make phone calls is not useful for me as a guest      | 47.1% |
-| Express Preference         | I don't want this to be ON                                              | 27.7% |
-| Explain Device Behavior    | It is just collecting the whole time unless you physically turn this of | 14.4% |
-| Ask Preference             | How long do you want to keep the data?                                  | 5.3%  |
-| Bring Up Topic             | Welcome to my home                                                      | 2.7%  |
-| Ask Device Behavior        | Why would a third party be needed to control the lights on or of?       | 1.8%  |
-| Request Clarifcation       | Are we discussing about functionality X?                                | 0.9%  |
+| Explain Preference Reasons | Allowing users to make phone calls is not useful for me as a guest | 47.1% |
+| Express Preference | I don't want this to be ON | 27.7% |
+| Explain Device Behavior | It is just collecting the whole time unless you physically turn this of | 14.4% |
+| Ask Preference | How long do you want to keep the data? | 5.3% |
+| Bring Up Topic | Welcome to my home | 2.7% |
+| Ask Device Behavior | Why would a third party be needed to control the lights on or of? | 1.8% |
+| Request Clarifcation | Are we discussing about functionality X? | 0.9% |
 
-Table 3: Observed Verbal Negotiation Interaction Types and Time Consumption
+**Table 3:** Observed Verbal Negotiation Interaction Types and Time Consumption
 
-Table 4: Verbal Negotiation Time Across 4 Groups
+**Table 4:** Verbal Negotiation Time Across 4 Groups
 
 | Group ID | Device 1 Time | Device 2 Time |
 |----------|---------------|---------------|
-| Group 1  | 10.41 min     | -             |
-| Group 2  | 10.06 min     | -             |
-| Group 3  | 7.82 min      | -             |
-| Group 4  | 2.98 min      | 6.67 min      |
+| Group 1 | 10.41 min | - |
+| Group 2 | 10.06 min | - |
+| Group 3 | 7.82 min | - |
+| Group 4 | 2.98 min | 6.67 min |
 
 concern, expressing the concern is understood, alleviating the concern, expressing concern is resolved. Of these, expressing privacy concern (45.5%), alleviating privacy concern (16.7%), expressing no privacy concern (10.6%) account for the majority of preference explanation time.
 
-#### 4.4 Observations and Discussion
+### 4.4 Observations and Discussion
 
 Lengths and Timing of Explanation. Although detailed explanations can help the negotiator win distributive benefts [\[81\]](#page-16-24), it is a time-consuming process [\[49,](#page-16-20) [107\]](#page-17-21). Consistent with these claims, we observed explaining one's preference was the biggest time sink during a negotiation. However, such an explanation is not always needed if everyone would easily approve of this user's opinion. For instance, at the beginning of the conversation, one user in Group 2 spent 89 seconds explaining their discomfort with storing raw audio data. It turned out that both the homeowner and the other guest shared or understood their concern.
 
@@ -221,7 +220,7 @@ Time to Move Forward. We observed that sometimes participants spent extra time r
 
 Managing Preference. Sometimes participants lost track of each other's preferences. For instance, in Group 3, a guest mentioned their preference for functionality to be of. The conversation was then dominated by the other two participants, who reached an agreement to keep that functionality on. At this point, the frst guest restated their concern and the negotiation continued longer. Mediator and Discussion Lead. We observed thatGroup 4 showed a distinct pattern of negotiation, where the homeowner played the role of a mediator. The homeowner frst solicited everyone's preference, and each user answered this question in one or two sentences without explaining any reasons. Then the homeowner said, 'yeah, I think we can turn of personalized music' when knowing one guest was uncomfortable, and the other was fexible on this. Then, the group was able to move on to discuss other concerns. As prior work shows, an efective mediator can promote confict resolution by shaping the negotiation process and prioritizing negotiation issues [\[18,](#page-15-24) [62,](#page-16-26) [83\]](#page-16-27). This might be one of the reasons why Group 4 fnished negotiation the quickest.
 
-#### 4.5 Summary of Additional Design Implications
+### 4.5 Summary of Additional Design Implications
 
 In additiotn to the three insights from prior research, we here summarize the new insights for designing a negotiation system specifcally for shared IoT devices:
 
@@ -229,31 +228,31 @@ Implication ○4 : Users in privacy negotiations on shared IoT devices may benef
 
 Implication ○6 : Unconstrained negotiation may favor outspoken users, leading to unequal opportunities for expression.
 
-#### <span id="page-4-0"></span>5 THINGPOLL SYSTEM DESIGN IDEATION
+### <span id="page-4-0"></span>5 THINGPOLL SYSTEM DESIGN IDEATION
 
 ### 5.1 System-Mediated Negotiation
 
 Based on prior research and our observations, a system-mediated approach is promising to meet the aforementioned goals of negotiation (Implication ○1 ∼ ○4 ) and alleviates cognitive burden in managing and reasoning users' preference (Implication ○5 ). The mediator role may reduce the burden of expressing preference and making concessions [\[85\]](#page-16-28), and possibly alleviate social pressure. In addition, it may improve procedural justice by providing everyone opportunities to voice their preferences (Implication ○3 and ○6 ), thereby improving satisfaction with the outcomes [\[87\]](#page-16-29). Creating integrative value and optimizing for joint gain requires an accurate understanding of each user's preferences and mutual interests [\[29,](#page-15-25) [35\]](#page-15-26). Prior work has established privacy profles in IoT to predict the user's preference [\[5,](#page-15-8) [33,](#page-15-9) [60,](#page-16-9) [64,](#page-16-10) [76\]](#page-16-2). Furthermore, to resolve conficts, some users will have to change their initial preferences, suggesting the need to solicit user's preferences and mutual interests and update all users' preferences during negotiation.
 
-#### 5.2 Structured User-System Interaction
+### 5.2 Structured User-System Interaction
 
 Another consideration is user interaction with the system, such that it is intuitive and efortless (Implication ○2 ). Based on our observation from Study 1 and prior works, users explain preferences typically around functionality-privacy trade-ofs. Thus, we believe that a structured interaction can sufciently express most of the reasons for preferences, making the negotiation more goaloriented (Implication ○4 ) and enable equalized expression power (Implication ○6 ). In addition, as we observed in Study 1, users specifcally consider the other person's opinion when making a concession. Thus, we decided to include the needs and the rationale of other users when making a confguration suggestion, as useful context, similar to a face-to-face interaction. We believe that revealing the consequences and benefts to the other user promotes empathy and facilitates concessions due to the improved motivation of prosocial behavior [\[17,](#page-15-27) [26\]](#page-15-28).
 
-#### 5.3 Assumptions
+### 5.3 Assumptions
 
 We have assumed that achieving joint gains and resolving conficts efciently are the primary goals of negotiation around the privacy settings of IoT devices. However, other values in real-world negotiations, such as enhancing social intimacy or enjoying engaging conversations, may be neglected. We also assume a certain level of trust that users have in our system. Our proposed design should be viewed as one possible pathway among many that meet the specifc needs and dynamics observed in IoT privacy negotiations.
 
-#### 5.4 Summary of Design Goals
+### 5.4 Summary of Design Goals
 
 In summary, we outline the following high-level design goals for a negotiation system:
 
 Design ○1 : The system should mediate and direct the negotiation process to optimize for joint gain and efciency. Design ○2 : The system should maintain a user preference model, updating it through preference elicitation. Design ○3 : The system should embrace structured interaction characterized by privacy and functionality features. Design ○4 : The system should provide a contextualized negotiation prompt and explanations.
 
-#### <span id="page-5-0"></span>6 THINGPOLL SYSTEM IMPLEMENTATION
+### <span id="page-5-0"></span>6 THINGPOLL SYSTEM IMPLEMENTATION
 
 Based on the insights and our design goals, we developed ThingPoll, a privacy negotiation system for IoT devices in shared spaces. We start with an overview of the negotiation workfow from a user's perspective. Next, we describe our profle modeling approach and user preference estimation. Finally, we describe our negotiation model from an algorithmic perspective.
 
-#### 6.1 Negotiation Workfow Overview
+### 6.1 Negotiation Workfow Overview
 
 The overall workfow of ThingPoll is shown in Figure [2.](#page-6-0) Thing-Poll mediates the negotiation process (Design ○1 ) by strategically querying specifc usersto understand their preferences orto suggest likely acceptable confgurations to everyone.
 
@@ -265,16 +264,16 @@ The overall workfow of ThingPoll is shown in Figure [2.](#page-6-0) Thing-Poll m
 
 <span id="page-5-3"></span>6.1.4 Configuration Suggestion. A device Confguration specifes the complete data collection behavior of a device. ThingPoll displays the confguration and device attributes (e.g., position) in an intuitive and consistent IoT privacy label [\[36,](#page-15-5) [37\]](#page-15-6) (Design ○3 ). An agreement is reached only when everyone agrees to a device confguration. If users reject a confguration, they can specify the reason, such as undesired data collection, storage, or sharing, or if some functionality they want is not supported. During negotiation, ThingPoll decides whether to suggest a confguration or to query a user based on the state of the negotiation and the user preference estimation (Design ○1 ). Since confgurations take more time to read and comprehend, they are only suggested when ThingPoll has higher confdence that they will be accepted by everyone.
 
-#### <span id="page-5-1"></span>6.2 Profle Modeling in Shared Sensing Space
+### <span id="page-5-1"></span>6.2 Profle Modeling in Shared Sensing Space
 
 Building a user preference profle model is crucial for ThingPoll to characterize each user's preferences and guide the negotiation (Design ○2 ). Figure [3b](#page-8-1) illustrates the steps involved to do so.
 
 <span id="page-6-0"></span>![](_page_6_Figure_2.jpeg)
-<!-- Image Description: The image displays a ThingPoll negotiation workflow, depicted as a flowchart showing sequential steps: profile assignment, functionality preference selection, privacy and functionality queries, and a configuration suggestion.  Supporting diagrams detail user preference elicitation through questionnaires regarding data collection for smart home applications (e.g., cooking video recording).  The workflow aims to find an optimal configuration balancing user preferences and application functionality. -->
+<!-- Image Description: The image displays a ThingPoll negotiation workflow, depicted as a flowchart showing sequential steps: profile assignment, functionality preference selection, privacy and functionality queries, and a configuration suggestion. Supporting diagrams detail user preference elicitation through questionnaires regarding data collection for smart home applications (e.g., cooking video recording). The workflow aims to find an optimal configuration balancing user preferences and application functionality. -->
 
 (b) ThingPoll App User Interface
 
-Figure 2: An overview of the ThingPoll workfow (a) and the ThingPoll UI (b). In Step 0, users provide their privacy preference for three hypothetical shared sensing scenarios used to assign them a profle. In Step 1, every user indicates how important each device's functionality is. Next, ThingPoll utilizes each user's preference model to issue Privacy Queries about their comfort level for data collection and access (Step 2.1) and Functional Queries about giving up utility (Step 2.2). ThingPoll fnally suggests a Confguration if it is likely to be accepted by everyone (Step 2.3). Each user may receive one or more queries of each type and confguration. The process concludes when when everyone accepts a suggested confguration or if someone quits (not shown).
+**Figure 2:** An overview of the ThingPoll workfow (a) and the ThingPoll UI (b). In Step 0, users provide their privacy preference for three hypothetical shared sensing scenarios used to assign them a profle. In Step 1, every user indicates how important each device's functionality is. Next, ThingPoll utilizes each user's preference model to issue Privacy Queries about their comfort level for data collection and access (Step 2.1) and Functional Queries about giving up utility (Step 2.2). ThingPoll fnally suggests a Confguration if it is likely to be accepted by everyone (Step 2.3). Each user may receive one or more queries of each type and confguration. The process concludes when when everyone accepts a suggested confguration or if someone quits (not shown).
 
 6.2.1 Data Sources and Data Collection. Inspired by prior works on privacy preference modeling [\[5,](#page-15-8) [33,](#page-15-9) [60,](#page-16-9) [64,](#page-16-10) [76\]](#page-16-2), we deployed surveys on MTurk to create privacy profles that bootstrap ThingPoll with initial preferences. Each survey participant isshown six scenarios of shared sensing devices, in which they are either a homeowner with guests visiting their home or vice-versa. Between each scenario, we varied 10 factors: Location, User Role, Social Relationship, Device Type, Data Type, Data Granularity, Frequency, Retention, Sharing, Purpose. Table [5](#page-7-0) shows the diferent factors and their levels. Many of these factors were proposed in prior research [\[37\]](#page-15-6), which we extend further to include more detailed social contextual factors for shared spaces [\[25,](#page-15-3) [68,](#page-16-4) [69,](#page-16-5) [108,](#page-17-8) [110\]](#page-17-3). Following Emami-Naeni et al. [\[76\]](#page-16-2), we generated all possible combinations of the factors and
 
@@ -284,20 +283,19 @@ pruned them down to 60 practical and meaningful scenarios. We passed these combi
 
 We grouped the 60 scenarios into ten sets of surveys of six scenarios each, and we carefully arranged the scenarios so that the levels of each factor were balanced in each survey. We deployed the 10 sets of the survey on mTurk and selected Master workers with
 
-<span id="page-7-0"></span>
 
-| Variable    | Levels                                                                                        | Description                                              |
+| Variable | Levels | Description |
 |-------------|-----------------------------------------------------------------------------------------------|----------------------------------------------------------|
-| Device Type | Camera, Microphone, Smart Speaker, Vibration<br>Sensor, PIR Sensor, Smart Door lock, Smart TV | Type of sensor device                                    |
-| Data Type   | Video, Face Image, Fingerprint, Sound, Identity,<br>Motion, Presence, Door Open/Close         | Type of data collected                                   |
-| Granularity | Raw, Obfuscated, Featurized                                                                   | Any privacy-enhancing preprocessing steps                |
-| Frequency   | Always, Only-When-Use                                                                         | When the data collection happens                         |
-| Purpose     | Safety & Security, Health, Automation, Energy<br>Efciency, Personalization, Communication     | The category of the functionality provided by the device |
-| Retention   | Never, Week, Month, More than a Month                                                         | The duration that the data is stored                     |
-| Shared      | Manufacture, Third-Party, Owner                                                               | The entity that the data is shared to                    |
-| Location    | Shared-Private, Shared-Public, Owner-Private.                                                 | Type of location where the device is installed           |
+| Device Type | Camera, Microphone, Smart Speaker, Vibration<br>Sensor, PIR Sensor, Smart Door lock, Smart TV | Type of sensor device |
+| Data Type | Video, Face Image, Fingerprint, Sound, Identity,<br>Motion, Presence, Door Open/Close | Type of data collected |
+| Granularity | Raw, Obfuscated, Featurized | Any privacy-enhancing preprocessing steps |
+| Frequency | Always, Only-When-Use | When the data collection happens |
+| Purpose | Safety & Security, Health, Automation, Energy<br>Efciency, Personalization, Communication | The category of the functionality provided by the device |
+| Retention | Never, Week, Month, More than a Month | The duration that the data is stored |
+| Shared | Manufacture, Third-Party, Owner | The entity that the data is shared to |
+| Location | Shared-Private, Shared-Public, Owner-Private. | Type of location where the device is installed |
 
-Table 5: Variables and Levels Used for Describing Shared Sensing Scenarios
+**Table 5:** Variables and Levels Used for Describing Shared Sensing Scenarios
 
 Social Close Contacts, Acquaintance Type of social relationship of the users in the shared space Relationship
 
@@ -316,13 +314,13 @@ We illustrate the individual and concession preferences results in Figure [4b](#
 6.2.4 Profile Assignment and Preference Prediction. To assign a new user to a profle, ThingPoll asks the user's preferences for three shared sensing scenarios (2 questions per scenario), as shown in Figure [2b-](#page-6-0)Step 0. We iterate over the potential trait values of the 7 centroids and assign them to the profle that best aligns with their responses. We evaluated the performance of profle assignment and preference prediction using 5-fold cross-validation. The training
 
 <span id="page-8-1"></span>![](_page_8_Figure_2.jpeg)
-<!-- Image Description: The image displays two flowcharts illustrating a methodology.  (a) shows a model for determining user preferences based on scenario, context, sensitivity, purpose, risk/benefit perception, and individual preference. (b) details a process using a mTurk survey (n=198) to learn respondent traits, cluster them via K-means into 7 profile types using a Bayesian network model, and finally assign profiles and analyze preferences within those types.  The flowcharts highlight data flow and processing steps within a user preference analysis. -->
+<!-- Image Description: The image displays two flowcharts illustrating a methodology. (a) shows a model for determining user preferences based on scenario, context, sensitivity, purpose, risk/benefit perception, and individual preference. (b) details a process using a mTurk survey (n=198) to learn respondent traits, cluster them via K-means into 7 profile types using a Bayesian network model, and finally assign profiles and analyze preferences within those types. The flowcharts highlight data flow and processing steps within a user preference analysis. -->
 
-Figure 3: (a) ThingPoll uses a Bayesian Network to model user profles. Before the negotiation, User Traits variables are assigned by answering privacy preference questions on three shared sensing scenarios. During negotiation, Context, Sensitivity, Purpose, and User Traits are supplied as input variables to the Bayesian Network model, which then estimates the conditional probabilities of Individual Preference and Concession Preference. (b) We applied Expectation Maximization (EM) to jointly optimize the Bayesian Network model on the mTurk survey response data and user trait values of survey participants, which are then clustered into seven distinct types of profles.
+**Figure 3:** (a) ThingPoll uses a Bayesian Network to model user profles. Before the negotiation, User Traits variables are assigned by answering privacy preference questions on three shared sensing scenarios. During negotiation, Context, Sensitivity, Purpose, and User Traits are supplied as input variables to the Bayesian Network model, which then estimates the conditional probabilities of Individual Preference and Concession Preference. (b) We applied Expectation Maximization (EM) to jointly optimize the Bayesian Network model on the mTurk survey response data and user trait values of survey participants, which are then clustered into seven distinct types of profles.
 
 folds were used to jointly learn the model parameters and participants' trait values and subsequently fnd profle clusters. In the test fold, for each participant, we use three scenarios to infer the profle of the participant and the other three scenarios to test the prediction accuracy. Following previous works [\[76\]](#page-16-2), we convert the preference into binary decisions for evaluation by splitting the preferences at neutral (exclusive) into two classes. Overall, our model predicts individual preference at 70.03% accuracy and concession preference at 86.02% accuracy with an assigned profle.
 
-#### <span id="page-8-0"></span>6.3 System-Mediated Negotiation Modeling
+### <span id="page-8-0"></span>6.3 System-Mediated Negotiation Modeling
 
 We now describe our approach to model the system-mediated multiuser privacy negotiation underlying ThingPoll. We focus on the intuition and the essential aspects of our algorithm and provide a detailed formulation in Appendix [A.2.](#page-17-24)
 
@@ -343,9 +341,9 @@ and Section [6.1.4.](#page-5-3) A user can utilize this proposal of confguration
 CHI '24, May 11–16, 2024, Honolulu, HI, USA Zhou et al.
 
 <span id="page-9-0"></span>![](_page_9_Figure_2.jpeg)
-<!-- Image Description: This image from an academic paper presents a multi-faceted analysis of user profiles related to smart home devices.  (a) shows seven radar charts, each visualizing a profile's scores on "Altruism" and "Practicality." (b) and (c) are heatmaps; (b) displays preference for device states (on/off) across various device types and usage contexts, while (c) shows flexibility/stubbornness regarding the same parameters. The purpose is to categorize user preferences and behaviors for smart home technology adoption. -->
+<!-- Image Description: This image from an academic paper presents a multi-faceted analysis of user profiles related to smart home devices. (a) shows seven radar charts, each visualizing a profile's scores on "Altruism" and "Practicality." (b) and (c) are heatmaps; (b) displays preference for device states (on/off) across various device types and usage contexts, while (c) shows flexibility/stubbornness regarding the same parameters. The purpose is to categorize user preferences and behaviors for smart home technology adoption. -->
 
-Figure 4: Seven profle clusters were identifed using K-Means clustering on estimated trait values. (a) showed the seven profle cluster centroids; (b) showed the average response to individual preference for each factor mentioned in the scenario; (c) showed the average response to concession preference for each factor mentioned in the scenario. Values are scaled from 0 to 100 for visualization. The factors are sorted by the average individual preference, from most (left) to least invasive (right).
+**Figure 4:** Seven profle clusters were identifed using K-Means clustering on estimated trait values. (a) showed the seven profle cluster centroids; (b) showed the average response to individual preference for each factor mentioned in the scenario; (c) showed the average response to concession preference for each factor mentioned in the scenario. Values are scaled from 0 to 100 for visualization. The factors are sorted by the average individual preference, from most (left) to least invasive (right).
 
 confguration. In addition, the negotiation has a base gain for reaching an agreement because simply allowing the event to happen as planned and preventing the breakage of the relationship [\[72\]](#page-16-8) can be rewarding outcomes for the users. To estimate the efcacy of a given policy, we introduce the myopic expected gain (, ), which is the expectation of the negotiation outcome gains based on the current estimation of user preference . Intuitively, a high is associated with reaching an agreement earlier and the alignment of each user's individual preference. In addition, both and
 
@@ -363,33 +361,33 @@ At each round, the system fnds an optimal privacy query based on and compares it
 
 6.3.5 User Feedback Integration. The core of the feedback integration is to update the user's preference and acceptance probability based on the historical responses. It is worth noting that this procedure is not only crucial in updating the preferences across each round of actual user feedback but also happens when exploring the hypothetical responses as the system searches for the optimal query. ThingPoll incorporates three feedback mechanisms from users: Privacy Query, Functionality Query, Confguration. Although the Bayesian Network can also be updated with new responses, we found the preference after the update is less predictable and causes excessive latency when searching for the optimal policy and query. Since our main focus is to assist negotiation, we will leave the study on the long-term preference profle learning and efectiveness as a potential future direction. Instead, we adopt a set of heuristic rules to update our preference estimation only for the current negotiation device. For example, if a user responds to a privacy query, indicating feeling comfortable with some invasive data collection for one functionality, then ThingPoll assumes that this user can always accept a confguration that turns OFF this functionality due to the privacy concern. These heuristics ofer a quick and predictable path to update user preference estimations, efectively guiding the negotiation process.
 
-# <span id="page-10-0"></span>7 STUDY 2: EVALUATION OF PRACTICALITY AND EFFICIENCY OF THINGPOLL
+## <span id="page-10-0"></span>7 STUDY 2: EVALUATION OF PRACTICALITY AND EFFICIENCY OF THINGPOLL
 
-#### 7.1 Study Procedure
+### 7.1 Study Procedure
 
 The study gathers subjective and objective measures of ThingPoll's performance and learns the distribution of perceptions of privacy in a shared smart home environment. We gain insights into user experiences, including the workload, perceived advantages and disadvantages of the approach, and the users' willingness to adopt such negotiation apps in real life. The user study was conducted in two phases: Profle Generation and Multi-User Negotiation. Thirty participants completed the two phases of this study and we summarized their demographics in Table. [6.](#page-10-1) None of these participants were in the verbal negotiation study.
 
 7.1.1 Phase 1: Profile Generation. We initially created individual user profles. This process involved participants indicating their individual and concession preferences in three hypothetical scenarios. We then asked participants for frst names of three close contacts
 
-<span id="page-10-1"></span>Table 6: Study 2 Participants Demographic Information
+<span id="page-10-1"></span>**Table 6:** Study 2 Participants Demographic Information
 
-| Variable  | Levels (Count)                                   |
+| Variable | Levels (Count) |
 |-----------|--------------------------------------------------|
-| Age       | 18 - 24 (20), 25 - 34 (10)                       |
-| Gender    | Female (14), Male (14), Other (1), Prefer not to |
-|           | answer (1)                                       |
-|           | Bachelor's Degree (14), Master's Degree (10),    |
-| Education | Doctorate/Prof Degree (1), High School Degree    |
-|           | (2), Some College (3)                            |
+| Age | 18 - 24 (20), 25 - 34 (10) |
+| Gender | Female (14), Male (14), Other (1), Prefer not to |
+| | answer (1) |
+| | Bachelor's Degree (14), Master's Degree (10), |
+| Education | Doctorate/Prof Degree (1), High School Degree |
+| | (2), Some College (3) |
 
-<span id="page-10-2"></span>Table 7: Phase 2 Study Negotiation Device Confguration Space
+<span id="page-10-2"></span>**Table 7:** Phase 2 Study Negotiation Device Confguration Space
 
-| Type          | Position      | # of Functionality |
+| Type | Position | # of Functionality |
 |---------------|---------------|--------------------|
-| Microphone    | Living Room   | 2                  |
-| Smart Speaker | Bathroom      | 2                  |
-| Camera        | Entrance Door | 4                  |
-| Camera        | Kitchen       | 4                  |
+| Microphone | Living Room | 2 |
+| Smart Speaker | Bathroom | 2 |
+| Camera | Entrance Door | 4 |
+| Camera | Kitchen | 4 |
 
 and acquaintances. We kept the contacts' names confdential and used them solely for emulating real-world social relationships during the multi-user negotiation session in Phase 2. We then explained the study and demonstrated ThingPoll to the participants. =
 
@@ -402,15 +400,15 @@ The study began by asking the homeowners to confgure the devices to a setup they
 <span id="page-11-0"></span>![](_page_11_Figure_2.jpeg)
 <!-- Image Description: The image contains three box plots and one line graph. (a) shows completion and active times for four devices using box plots; (b) displays response times for functionality, query, and configuration components across the same four devices as a line graph. (c) presents box plots illustrating mental, temporal, effort, and frustration demands. The figure likely compares performance metrics and user experience across different devices in the context of the paper. -->
 
-Figure 5: Empirical Evaluation of User Workload Using ThingPoll: (a) User Time Consumption on Completing Negotiation; (b) User Average Response Time of Each Action in Negotiation; (c) NASA Task Load Index (TLX)
+**Figure 5:** Empirical Evaluation of User Workload Using ThingPoll: (a) User Time Consumption on Completing Negotiation; (b) User Average Response Time of Each Action in Negotiation; (c) NASA Task Load Index (TLX)
 
-#### 7.2 Negotiation Workload
+### 7.2 Negotiation Workload
 
 The average time to complete the negotiation of all four sensor devices was 786 seconds (13.1 minutes, = 337 seconds). The fastest group spent only 218 seconds(3.6 minutes), while the slowest group spent 1357 seconds(22 minutes). Fig. [5a](#page-11-0) showsthe breakdown of the time consumption for each of the four devices in one session, including the completion time and active time. The completion time is the time it takes either reach an agreement or give up. Since ThingPoll takes synchronized responses from users, users often need to wait for other users' responses before moving on. Thus, we defne active time as the time elapsed between when the system shares new information with the user and when the user submits a response. Compared to completion time, active time is a more precise indicator of the efort that a user spends on processing the received information and making a decision. We observed a strong learning efect. Negotiations for frst device took more time ( = 288.3, = 176.7) and had a larger standard deviation in time to fnish than for the other three devices ( = 165.1, = 108.9). We verifed thislearning efect by measuring response times, as shown in Fig. [5b.](#page-11-0) The response time measures the time it takes for a user to respond to a single action.
 
 We used the NASA Task Load Index (TLX) [\[45\]](#page-16-32) with a 7-point Likert scale to measure the workload levels for the participants. Here, we show the results for Mental Demand, Temporal Demand, Efort, and Frustration levels in Fig. [5c.](#page-11-0) The value selected on each task load measurement is scaled from 0 to 100. Overall, ThingPoll demonstrates high usability and low workload for most participants. Most participants believed ThingPoll imposes a low physical workload ( = 24.6), and most users do not feel frustrated ( = 26.7) or rushed ( = 31.2) in completing the task. Nevertheless, a few participants believed this process was mentally demanding ( = 44.3). We believe the mental demand is due to understanding the technical details of the data collection, envisioning a hypothetical scenario, and resolving confict.
 
-#### 7.3 Negotiation Outcomes using ThingPoll
+### 7.3 Negotiation Outcomes using ThingPoll
 
 In this section, we focus on analyzing the outcomes of negotiation in terms of satisfaction and meeting users' demands for privacy and functionality in shared sensing spaces. We investigate the preferences on functionality and privacy are afected by users' roles.
 
@@ -425,9 +423,9 @@ Negotiation Approach (NG). The negotiation approach generated the most satisfyin
 An important reason behind the high satisfaction is the ability to share needs and concerns. Even in cases where the outcome Bring Privacy To The Table: Interactive Negotiation for Privacy Setings of Shared Sensing Devices CHI '24, May 11–16, 2024, Honolulu, HI, USA Clear Explaination of 6.7% 6.7% 13.3% 33.3% 23.3% 16.7%
 
 <span id="page-12-0"></span>![](_page_12_Figure_2.jpeg)
-<!-- Image Description: This image presents two sets of stacked bar charts (a) and (b), showing homeowner and guest satisfaction, respectively. Each chart displays the percentage distribution of responses across seven levels of agreement (strongly disagree to strongly agree) for three aspects: privacy, functionality, and an overall assessment.  The horizontal axis represents different groups (NG, MV, VV, HP), likely representing different system configurations. The charts visually compare satisfaction levels across these groups and aspects. -->
+<!-- Image Description: This image presents two sets of stacked bar charts (a) and (b), showing homeowner and guest satisfaction, respectively. Each chart displays the percentage distribution of responses across seven levels of agreement (strongly disagree to strongly agree) for three aspects: privacy, functionality, and an overall assessment. The horizontal axis represents different groups (NG, MV, VV, HP), likely representing different system configurations. The charts visually compare satisfaction levels across these groups and aspects. -->
 
-Figure 6: User Rated Outcome Satisfaction on Diferent Preference Aggregation Approaches. (NG: Negotiations, MV: Majority Vote, VV: Veto Vote, HP: Homeowner's Preference)
+**Figure 6:** User Rated Outcome Satisfaction on Diferent Preference Aggregation Approaches. (NG: Negotiations, MV: Majority Vote, VV: Veto Vote, HP: Homeowner's Preference)
 
 diverges from what the user originally prefers, it may still be more satisfying to be able to communicate preferences. For instance, G11 said, 'I am overallsatisfed with the result, it's just regarding turning on the functionality of detecting fres in the kitchen. I feel like it's somehow very important to me, but considering my close friend wants to turn it of, I agreed to turn it of, but I would wish to keep it. But I understand that's why we need to negotiate.'
 
@@ -437,14 +435,14 @@ Majority Vote Approach (MV). This approach has a higher overall satisfaction rat
 
 Veto Vote Approach (VV). This approach is the most strict approach that biases the decision towards maximizing privacy protection. Thus, this approach gets high satisfaction in protecting users' privacy (73.3%). On the other hand, due to its strictness, it also has the lowest satisfaction rating on preserving functionalities (43.3%), especially for homeowners (10%).
 
-#### 7.4 Negotiation Experience using ThingPoll
+### 7.4 Negotiation Experience using ThingPoll
 
 According to users, the biggest advantage of the Negotiation Approach compared to the rest is the ability for users to voice their preferences, regardless of being in the minority or majority. The drawback is that the efort it takes to fnish the negotiation is less predictable beforehand. As G14 mentioned, 'overall, it is good to
 
 <span id="page-12-1"></span>![](_page_12_Figure_10.jpeg)
-<!-- Image Description: This stacked bar chart displays survey results on user opinions regarding privacy and automation in a system.  Each bar represents a statement (e.g., "Clear explanation of risk and benefits") with segments showing the percentage of respondents who strongly agree, agree, somewhat agree, neither agree nor disagree, somewhat disagree, and strongly disagree. The chart's purpose is to illustrate user attitudes towards different aspects of the system's design and inform design improvements. -->
+<!-- Image Description: This stacked bar chart displays survey results on user opinions regarding privacy and automation in a system. Each bar represents a statement (e.g., "Clear explanation of risk and benefits") with segments showing the percentage of respondents who strongly agree, agree, somewhat agree, neither agree nor disagree, somewhat disagree, and strongly disagree. The chart's purpose is to illustrate user attitudes towards different aspects of the system's design and inform design improvements. -->
 
-Figure 7: Experience of Participants in ThingPoll Features During Negotiation
+**Figure 7:** Experience of Participants in ThingPoll Features During Negotiation
 
 negotiate (with) others, especially for privacy preference, but it takes a long time to reach an agreement, which can be exhausting'. The pressure imposed on users when not able to resolve may stress users as well. For example, G3 stated 'it was somewhat annoying because the other party wouldn't change their mind.'
 
@@ -456,11 +454,11 @@ easing the process of privacy negotiation. Another essential beneft, as discusse
 
 Some users indicated that anonymity might make negotiations more efective. For example, G16 wishes there was anonymity as a guest user, commenting that "the probability (to use the app) is not very high, because this is not anonymous". Participants suggested several other improvements. For instance, H2 believed that 'users will most likely not know and not be able to read their devices' privacy features. It might take some efort to educate general users'. Another recurring suggestion is that the negotiation is synchronized. As G19 stated 'if I have to wait to do it with others at the same time, feel like it defeats the purpose of avoiding awkwardness since we have to openly schedule a time for it'.
 
-#### 8 DISCUSSION
+### 8 DISCUSSION
 
 In this section, we discussed the broader implications of the study that may afect or inspire future research and development of privacy tools for shared sensing devices.
 
-#### 8.1 Variability in Opinions and Behaviors
+### 8.1 Variability in Opinions and Behaviors
 
 Power of Owners. Feedback from participants has shown a divide: while some homeowners believe they should have the fnal say, others believe in prioritizing the comfort of their guests. Some guest users also believe they should be obligated to follow the homeowner's setup. The exact acceptable balance and ethical boundaries of power distribution still remain an open question.
 
@@ -468,7 +466,7 @@ Social Awkwardness. We observed that the perceived social awkwardness of negotia
 
 Preference Flexibility. In alignment with previous work [\[25,](#page-15-3) [67,](#page-16-11) [69,](#page-16-5) [100\]](#page-17-0), we observed most users are willing to consider other people's opinions and be cooperative. While some participants were steadfast in their privacy views, others demonstrated fexibility and a willingness to concede. Consequently, the system must navigate between fairness, which might cause the process to become ineffcient due to being stopped by the steadfast user, and efciency, which risks exploiting altruistic users. The exact balance between the two, however, is more open-ended and can vary given diferent situations and contexts.
 
-#### 8.2 Acceptability and Practicality of Negotiation
+### 8.2 Acceptability and Practicality of Negotiation
 
 A system-mediated negotiation system is a promising direction to manage multi-user privacy confgurations. Yet, systems like ThingPoll face several practical challenges to encourage broader acceptance. This subsection outlines key issues concerning the acceptance and practicality of ThingPoll.
 
@@ -476,7 +474,7 @@ Cognitive Load of Negotiation Making privacy decisions is often demanding for in
 
 Negotiation and Context The contextual integrity theory suggests that privacy expectations and norms are inherently contextdependent, varying with the social setting, the nature of collected information, etc. [\[1,](#page-14-1) [8,](#page-15-31) [9,](#page-15-32) [70,](#page-16-36) [78,](#page-16-37) [80\]](#page-16-12). Moreover, negotiation is also inherently infuenced by context, such as power, social relationships, interpersonal trust, time constraints, as well as traits and capabilities of the participating individuals [\[14,](#page-15-33) [44,](#page-16-38) [51,](#page-16-39) [61,](#page-16-40) [92,](#page-17-19) [95,](#page-17-25) [106,](#page-17-20) [117\]](#page-17-26). ThingPoll models context that afects both individual privacy decisions and negotiation among guests and homeowners. For other application scenarios, it is important to adjust the system based on context that may afect privacy decisions and negotiation behaviors. Compatibility and Interoperability In the deployment of a negotiation solution to manage shared device privacy, the interface between the negotiation system and the existing IoT device ecosystem needs to be established. Although many industrial and standardization eforts have been made to enhance interoperability among IoT devices [\[27,](#page-15-34) [79,](#page-16-41) [89\]](#page-16-42), for privacy negotiation specifcally, it is essential to have each smart sensing device provide detailed privacy requirements and confgurable privacy settings through a unifed communication protocol and accessible to incidental users.
 
-#### 8.3 Future Directions for Negotiation Systems
+### 8.3 Future Directions for Negotiation Systems
 
 Having discussed the practicality concerns, we now delve into specifc features that could refne the negotiation system based on the feedback and observations of participants using ThingPoll.
 
@@ -492,7 +490,7 @@ Optional Opt-Out Negotiation. Given that many users either do not care about pri
 
 Explanability. ThingPoll was designed to make its suggestions relatable by revealing how decisions align with users' preferences and identifying the benefting user. However, the decision process itself, including the preference prediction and searching of confguration and queries, is concealed from users. Future work may consider integrating explainability into the negotiation system to enhance decision transparency and trust [\[74,](#page-16-13) [75\]](#page-16-14). Simultaneously, it is critical to limit the amount of information and cognitive load.
 
-#### 8.4 Assumptions and Limitations
+### 8.4 Assumptions and Limitations
 
 Awareness of Privacy Risk. Our research operated under the assumption that all participants make well-informed choices regarding their privacy preferences. Yet, due to a lack of comprehensive knowledge, users often might select preferences that deviate from their true desires or best interests if they were fully informed [\[16,](#page-15-37) [84\]](#page-16-44). Enhancing the public's privacy awareness and knowledge has historically proven challenging across various digital platforms, including mobile systems [\[6\]](#page-15-38), web browsing [\[42\]](#page-15-39), and even IoT [\[52\]](#page-16-0). While enhancing privacy awareness and knowledge represents a distinct challenge outside the scope of this research project, we believe it is an essential step to protect the privacy of incidental users.
 
@@ -506,7 +504,7 @@ Simulated Negotiation Scenarios. For this application domain, it was currently c
 
 Participants and Selection Criteria. Due to the early emergence of IoT technology, we constrained our study to participants who owned and used at least one smart sensing IoT device to a baseline familiarity with the technology to make informed decisions and interactions during our study. However, it's important to note that those unfamiliar with IoT devices might have diferent perspectives. The evaluation of ThingPoll involved 30 participants, a sample size that may not always ofer sufcient statistical power to establish signifcant trends. Consequently, the fndings should be considered more indicative and exploratory rather than defnitive.
 
-#### 9 CONCLUSION
+### 9 CONCLUSION
 
 In this paper, we presented our pathway to developing an interactive negotiation solution to manage IoT privacy preferences from multiple users in shared sensing spaces. We presented our novel privacy negotiation tool ThingPoll that allows multiple users to negotiate privacy preferences in shared space to help them reach an agreement. Based on our evaluation, ThingPoll demonstrated high usability and efectiveness in managing privacy preferences in smart home visitor scenarios and received high satisfaction from both guests and homeowner users. As the landscape of smart home devices continues to grow, we envision ThingPoll as a pioneering tool, paving the way for future research in negotiation-based approaches to IoT privacy. In the near future, these advancements will bring a harmonious and privacy-aware environment for both owners of devices and incidental users.
 
@@ -514,7 +512,7 @@ In this paper, we presented our pathway to developing an interactive negotiation
 
 This research was funded in part by the National Science Foundation award SaTC-1801472. The authors are grateful to Haojian Jin, Sauvik Das, Prasoon Patidar, and Xinyu Wang for their feedback and suggestions on earlier drafts of the paper.
 
-#### REFERENCES
+### REFERENCES
 
 - <span id="page-14-1"></span>[1] Noura Abdi, Xiao Zhan, Kopo M Ramokapane, and Jose Such. 2021. Privacy norms for smart home personal assistants. In Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems (Yokohama, Japan). Association for Computing Machinery, New York, NY, USA, 1–14.
 - <span id="page-14-0"></span>[2] Dan-mallam Yakubu Abigail, Dulzalani Eden, and Awang Ideris. 2018. A review of distributive and integrative strategies in the negotiation process. Malaysian Journal of Social Sciences and Humanities (MJSSH) 3, 5 (2018), 68–74.
@@ -642,9 +640,9 @@ challenges. Transactions on Emerging Telecommunications Technologies 31, 12 (202
 - <span id="page-17-6"></span>[116] Han Zhang, Yuvraj Agarwal, and Matt Fredrikson. 2022. TEO: ephemeral ownership for IoT devices to provide granular data control. In Proceedings of the 20th Annual International Conference on Mobile Systems, Applications and Services (Portland, Oregon) (MobiSys '22). Association for Computing Machinery, New York, NY, USA, 302–315. <https://doi.org/10.1145/3498361.3539774>
 - <span id="page-17-26"></span>[117] Haozhe Zhou, Jieyu Zhan, and Wenjun Ma. 2024. A negotiation protocol with recommendation for multilateral negotiation in trust networks. Expert Systems with Applications 246 (2024), 123185. <https://doi.org/10.1016/j.eswa.2024.123185>
 
-#### A PROFILE AND NEGOTIATION MODELING
+### A PROFILE AND NEGOTIATION MODELING
 
-#### <span id="page-17-23"></span>A.1 Profle Model
+### <span id="page-17-23"></span>A.1 Profle Model
 
 The detailed structure of the Bayesian Network used for ThingPoll profle model is shown in Table [8](#page-18-0) and Figure [8.](#page-18-1) The preference distributions for user are denoted as , which is initialized by the Bayesian Network model and is updated as the negotiation moves forward. Let be the specifcations of a single-issue confguration or a query , which includes a description of one enabled functionality and its privacy requirements. Let = {0, 0.25, 0.5, 0.75, 1.0} denote the Likert scale options from strongly uncomfortable to strongly comfortable. The Bayesian Network model can be used to estimate the probability of each feasible response of the individual preference ∈ and the concession preference ∈ , denoted as ( |, ) and ( |, , ) respectively.
 
@@ -655,50 +653,49 @@ Predicts User Decision. ThingPoll considers the user would the confguration on t
 $$
 P_u(\text{prefer } \omega_i) = \sum_{I_u \in L_+} p_{I_u}(I_u | \omega_i, x_i)
 $$
- (3)
+(3)
 
 Still, the user can to a suggestion that deviates from the user's initial preference, even when it is not higher than neutral, denoted as 0<sup>−</sup> = {0, 0.25, 0.5}. The probability of the user while initially does not is calculated as the sum over all eligible assignments of and :
 
 $$
 P_u(\text{concede } \omega_i \wedge \neg \text{ prefer } \omega_i) =
 $$
-  
+
 $$
 \sum_{I_u \in L_0} \sum_{C_u \in L_+} p_{I_u}(I_u | \omega_i, x_i) \cdot p_{C_u}(C_u | \omega_i, x_i, I_u)
 $$
- (4)
+(4)
 
 To predict the response to queries, we considerthe user would select if either the user wants to select initially or the user concedes to select when initially preferring anything below .
 
 Similarly, we represented the probability of selecting response ∈ for privacy query and or functionality query as either the user initially wants to select the response without conceding to any higher response, or initially a lower response but conceding
 
-<span id="page-18-0"></span>
 
-| Variable                  | Type       | Levels                                                                                        | Description                                                                                       |
+| Variable | Type | Levels | Description |
 |---------------------------|------------|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| Social<br>Relationship    | Observable | Acquaintance, Close Contact                                                                   | The social relationship between the user and other users in the<br>shared space.                  |
-| Sensor<br>Location        | Observable | Owner-Private, Shared-Public,<br>Shared-Private                                               | The type of location where the sensor is installed.                                               |
-| User Role                 | Observable | Guest, Homeowner                                                                              | Whether the user is a guest or homeowner in the shared space                                      |
-| Context Risk              | Hidden     | Low, High                                                                                     | The level of context afecting the perceived privacy risk.                                         |
-| Context<br>Ambiance       | Hidden     | Low, High                                                                                     | The level of context afecting the perceived benefts from<br>functionality.                        |
-| Context<br>Responsibility | Hidden     | Low, High                                                                                     | The level of context afecting the willingness to concede.                                         |
-| Concern                   | Hidden     | Low, High                                                                                     | The extent that the user feels uncomfortable with privacy invasion.                               |
-| Practicality              | Hidden     | Low, High                                                                                     | The extent to which the user embraces the benefts of the<br>functionality of smart devices.       |
-| Altruism                  | Hidden     | Low, High                                                                                     | The extent to which the user is willing to make a concession to<br>beneft other people.           |
-| Data<br>Sensitivity       | Observable | Low, Medium, High                                                                             | The level of sensitivity of the device type, data type, granularity, and<br>collection frequency. |
-| Access<br>Sensitivity     | Observable | Low, Medium, High                                                                             | The level of sensitivity of how the collected data is shared and<br>stored.                       |
-| Purpose Type              | Observable | Safety&Security, Automation,<br>Energy Efciency, Health,<br>Personalization,<br>Communication | The type of the benefts provided by the functionality.                                            |
-| Perceived Risk            | Hidden     | Low, High                                                                                     | The level at which the user perceives the scenario imposing privacy<br>risk.                      |
-| Perceived<br>Benefts      | Hidden     | Low, High                                                                                     | The level at which the user perceives the scenario providing useful<br>functionality.             |
-| Individual<br>Preference  | Observable | 0, 0.25, 0.5, 0.75, 1.0                                                                       | The preference selection that the user would select based on the<br>user's own preference.        |
-| Concession<br>Preference  | Observable | 0, 0.25, 0.5, 0.75, 1.0                                                                       | The preference selection that the user would change if someone else<br>has a diferent preference. |
+| Social<br>Relationship | Observable | Acquaintance, Close Contact | The social relationship between the user and other users in the<br>shared space. |
+| Sensor<br>Location | Observable | Owner-Private, Shared-Public,<br>Shared-Private | The type of location where the sensor is installed. |
+| User Role | Observable | Guest, Homeowner | Whether the user is a guest or homeowner in the shared space |
+| Context Risk | Hidden | Low, High | The level of context afecting the perceived privacy risk. |
+| Context<br>Ambiance | Hidden | Low, High | The level of context afecting the perceived benefts from<br>functionality. |
+| Context<br>Responsibility | Hidden | Low, High | The level of context afecting the willingness to concede. |
+| Concern | Hidden | Low, High | The extent that the user feels uncomfortable with privacy invasion. |
+| Practicality | Hidden | Low, High | The extent to which the user embraces the benefts of the<br>functionality of smart devices. |
+| Altruism | Hidden | Low, High | The extent to which the user is willing to make a concession to<br>beneft other people. |
+| Data<br>Sensitivity | Observable | Low, Medium, High | The level of sensitivity of the device type, data type, granularity, and<br>collection frequency. |
+| Access<br>Sensitivity | Observable | Low, Medium, High | The level of sensitivity of how the collected data is shared and<br>stored. |
+| Purpose Type | Observable | Safety&Security, Automation,<br>Energy Efciency, Health,<br>Personalization,<br>Communication | The type of the benefts provided by the functionality. |
+| Perceived Risk | Hidden | Low, High | The level at which the user perceives the scenario imposing privacy<br>risk. |
+| Perceived<br>Benefts | Hidden | Low, High | The level at which the user perceives the scenario providing useful<br>functionality. |
+| Individual<br>Preference | Observable | 0, 0.25, 0.5, 0.75, 1.0 | The preference selection that the user would select based on the<br>user's own preference. |
+| Concession<br>Preference | Observable | 0, 0.25, 0.5, 0.75, 1.0 | The preference selection that the user would change if someone else<br>has a diferent preference. |
 
-#### Table 8: Variables and Levels used in the Bayesian Network profle model
+### Table 8: Variables and Levels used in the Bayesian Network profle model
 
 <span id="page-18-1"></span>![](_page_18_Figure_4.jpeg)
-<!-- Image Description: This flowchart models factors influencing individual data sharing preferences.  Three top-level categories—Location, User Role, and Social Relationship—influence Context Risk, Context Ambiance, and Context Responsibility, respectively. These contexts further decompose into sub-factors (e.g., Concern, Practicality, Altruism).  These ultimately contribute to Perceived Risk and Perceived Benefit, which converge to determine Individual Preference and Concession Preference.  The diagram visualizes the hierarchical relationships between these factors to explain data sharing behavior. -->
+<!-- Image Description: This flowchart models factors influencing individual data sharing preferences. Three top-level categories—Location, User Role, and Social Relationship—influence Context Risk, Context Ambiance, and Context Responsibility, respectively. These contexts further decompose into sub-factors (e.g., Concern, Practicality, Altruism). These ultimately contribute to Perceived Risk and Perceived Benefit, which converge to determine Individual Preference and Concession Preference. The diagram visualizes the hierarchical relationships between these factors to explain data sharing behavior. -->
 
-Figure 8: The complete graph representation of the Bayesian the functionalities in the confguration: Network Model
+**Figure 8:** The complete graph representation of the Bayesian the functionalities in the confguration: Network Model
 
 ′ to . Let ∈ , this process is formally denoted as:
 
@@ -731,7 +728,7 @@ The probability that all users reached an agreement at the th round with a confg
 $$
 P(\omega^{(t)}) = P(\text{agree } \omega^{(t)}) \cdot \prod_{j=1}^{t-1} (1 - P(\text{agree } \omega^{(j)}))
 $$
- (8)
+(8)
 
 Evaluate Expected Gain. At round , we defne the gain from reaching an agreement with confguration () for all users as:
 
@@ -744,18 +741,17 @@ $$
 $$
 EG(\pi, p) = \sum_{t=1}^{T} P(\omega^{(t)}) \cdot (G_p(\omega^{(t)}) - k(t))
 $$
-  
-+ 
+
++
 $$
 (1 - \sum_{t=1}^{T} P(\omega^{(t)})) \cdot (-k(T))
 $$
- (10)
+(10)
 
 , where () represents the user burden cost caused by receiving confguration proposals.
 
 Privacy Query Feedback. Suppose the user has selected a response for a privacy query , ThingPoll frst updates the user's acceptance probability for the partial confguration as described by :
 
-<span id="page-19-0"></span>
 $$
 P_{u'}(\text{accept } q_v) = \begin{cases} 1 & , r_q > 0.5\\ r_q & , \text{otherwise} \end{cases}
 $$
@@ -763,14 +759,12 @@ $$
 
 We can then update the acceptance probability on the complete confguration of the corresponding issue, = 1, assuming that accepting = 1 is a sufcient condition for accepting :
 
-<span id="page-19-1"></span>
 $$
 P_{u'}(\text{accept } \omega_i = 1) = P_{u'}(\text{accept } q_v) \cdot \frac{P_u(\text{accept } \omega_i = 1)}{P_u(\text{accept } q_v) + \epsilon} \tag{12}
 $$
 
 If a user selects anything below neutral, we assume this user is completely comfortable giving up this functionality because the user is not comfortable with the privacy invasion:
 
-<span id="page-19-2"></span>
 $$
 P_{u'}(\text{accept } \omega_i = 0) = \begin{cases} 1 & ,r_q < 0.5\\ P_u(\text{accept } \omega_i = 0) & ,\text{otherwise} \end{cases}
 $$
@@ -782,13 +776,12 @@ Functionality Query Feedback. A functionality query asks whether the user is com
 
 In addition, the user's response to any query, as contextualized with other users' preferences, should be an upper bound of
 
-# <span id="page-19-5"></span>Algorithm 1 Negotiation Algorithm Require: All users with initial preference
+## <span id="page-19-5"></span>Algorithm 1 Negotiation Algorithm Require: All users with initial preference
 
 Require: Policy pool ; Query pool 1: while ¬ ( ∨ ) do 2: <sup>∗</sup> ← arg max <sup>∈</sup> (, ) 3: <sup>∗</sup> ← arg max∈ (, ) 4: if (<sup>∗</sup> , ) > then 5: ← <sup>∗</sup> 6: while ¬(. ∨ ) do 7: Push and get response for all ∈ . 8: if = for any ∈ . then 9: 10: break 11: else if ≥ 0.5 for all ∈ . then 12: ← pref\_update(, , ) for all ∈ . 13: . = 14: .remove() 15: else 16: ← pref\_update(, , ) for all ∈ . 17: ← .\_ 18: end if 19: end while 20: else 21: Push <sup>∗</sup> = <sup>∗</sup> [0] and get response for all ∈ 22: if = for any ∈ then 23: 24: break 25: else if = for all ∈ then 26: 27: break 28: else 29: ← pref\_update(,∗,) for all ∈ 30: , ← recycle(,∗,) for all ∈ 31: end if 32: end if 33: end while
 
 the user's individual preference. Without overwriting the updated acceptance probabilities, the user's individual preference can be updated by:
 
-<span id="page-19-3"></span>
 $$
 I_{u'}(\omega_i, x_i) = \min\{I_u(\omega_i, x_i), r_q\}
 $$
@@ -806,7 +799,7 @@ If asking a query is more benefcial, the system sends the optimal privacy query 
 
 The negotiation process continues until an agreement or any users give up negotiation to cancel the event if they fnd the process too frustrating.
 
-#### B POST-STUDY QUESTIONNAIRE
+### B POST-STUDY QUESTIONNAIRE
 
 (1) Please rate your satisfaction with the outcome of the negotiation.
 
@@ -846,9 +839,9 @@ Options: Strongly Disagree, Disagree, Somewhat Disagree, Neither Agree Nor Disag
 - (12) Imagine such an app is deployed in real life. If you are a homeowner, how likely are you to use this app to express and negotiate your privacy preferences?
 - (13) Imagine, alternatively, you did not go through the negotiation. Instead, everyone will follow the homeowner's preferred device confgurations. Below, you can see the result of the Homeowner Preference (No Negotiation) approach. Outcome of following the homeowner is shown below.
 - (14) Imagine, alternatively, you did not go through the negotiation. Instead, everyone will follow the homeowner's preferred device confgurations. Please rate the following statements regarding the Homeowner Preference (No Negotiation) approach. Options: Strongly Disagree, Disagree, Somewhat Disagree, Neither Agree Nor Disagree, Somewhat Agree, Agree, Strongly
-  - Agree. (a) The Homeowner Preference approach protects my privacy as I wish.
-  - (b) The Homeowner Preference approach preserves the utility I want from the devices.
-  - (c) I'm satisfed with the result of the Homeowner Preference approach.
+- Agree. (a) The Homeowner Preference approach protects my privacy as I wish.
+- (b) The Homeowner Preference approach preserves the utility I want from the devices.
+- (c) I'm satisfed with the result of the Homeowner Preference approach.
 - (15) How does the Homeowner Preference (No Negotiation) approach compare to the Negotiation approach? Please explain your reasons.
 
 <span id="page-21-0"></span>(16) Imagine, alternatively, you did not go through the negotiation. Instead, the app takes the Majority Vote (i.e., the privacy confguration that most people agree on takes precedence) and confgures the devices accordingly. Please rate the following statements regarding the Majority Vote (No Negotiation) approach.
@@ -862,8 +855,8 @@ Options: Strongly Disagree, Disagree, Somewhat Disagree, Neither Agree Nor Disag
 - (17) How does the Majority Vote (No Negotiation) approach compare to the Negotiation approach? Please explain your reasons.
 
 - (18) Imagine, alternatively, you did not go through the negotiation. Instead, the app takes the Veto Vote (i.e., the most restrictive privacy confguration takes precedence) and confgures the devices accordingly. Please rate the following statements regarding the Veto Vote (No Negotiation) approach. Options: Strongly Disagree, Disagree, Somewhat Disagree, Neither Agree Nor Disagree, Somewhat Agree, Agree, Strongly Agree.
-  - (a) The Veto Vote approach protects my privacy as I wish.
-  - (b) The Veto Vote approach preserves the utility I want from the devices.
-  - (c) I'm satisfed with the result of the Veto Vote approach.
+- (a) The Veto Vote approach protects my privacy as I wish.
+- (b) The Veto Vote approach preserves the utility I want from the devices.
+- (c) I'm satisfed with the result of the Veto Vote approach.
 - (19) How does the Veto Vote (No Negotiation) approach compare to the Negotiation approach? Briefy explain your preference.
 - (20) Are there any other comments, suggestions, and thoughts about the study that you would like to share with the researchers?

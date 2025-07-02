@@ -72,18 +72,18 @@ The ability to federate data across datasets, catalogs, domains, and cultures ca
 
 <sup>{</sup> A number of such community vocabulary projects for science can be seen at the web site of the Research Data Alliance.
 
-| Internal Resource          | <b>External Resource</b>           |
+| Internal Resource | <b>External Resource</b> |
 |----------------------------|------------------------------------|
-| Examples:                  | Examples:                          |
-| Manufacturing              | <b>Government Datasets</b>         |
-| Customer/Sales             | Industry-specific norms            |
-| Financial                  | <b>Scientific Data</b>             |
-| <b>Structured Data</b>     |                                    |
-|                            |                                    |
-| <b>Unstructured Data</b>   |                                    |
-| Examples:                  | Examples:                          |
-| Design documents           | <b>Regulation/Policy documents</b> |
-| <b>Maintenance Reports</b> | <b>Industry News</b>               |
+| Examples: | Examples: |
+| Manufacturing | <b>Government Datasets</b> |
+| Customer/Sales | Industry-specific norms |
+| Financial | <b>Scientific Data</b> |
+| <b>Structured Data</b> | |
+| | |
+| <b>Unstructured Data</b> | |
+| Examples: | Examples: |
+| Design documents | <b>Regulation/Policy documents</b> |
+| <b>Maintenance Reports</b> | <b>Industry News</b> |
 
 FIG. 1. Users increasingly need to integrate data from multiple sources, and of multiple types, into their strategic data analyses.
 
@@ -104,7 +104,7 @@ For the examples, I draw from the extremely large and growing domain of open gov
 ![](_page_1_Picture_11.jpeg)
 <!-- Image Description: The image is a simple alphanumeric identifier: "206BD". It likely serves as a label or code within the academic paper, possibly referring to a specific sample, experiment, or data set. No graphs, charts, or equations are present. The purpose is purely identification. -->
 
-# Integrating Structured Data
+## Integrating Structured Data
 
 Consider the following data analysis problem. The United States and China have both published, and made available in open data repositories, information about their gross domestic products for various years. Not surprisingly, the U.S. data are in dollars, and the Chinese in yuan. As shown in Figure 2, to integrate this data, one needs to find a third
 
@@ -181,7 +181,7 @@ To understand how this works, consider the following simple example: at a univer
 
 anyone who has tried to use multiple databases to do this sort of thing knows, it's never that easy. For example, perhaps in the first database the students and classes are known by name since it is primarily used to print human-readable class lists. In the third database, the students are listed by ID number, because this is used for tracking graduation information internally. Adding the data from a fourth database that includes this mapping would solve the prob-
 
-lem if we can reconcile all the terms (Fig. 5 illustrates the mapping problems in this example).
+lem if we can reconcile all the terms (Figure 5 illustrates the mapping problems in this example).
 
 Clearly, to be able to answer our query, we now need some information that would allow us to assert where the equivalences between terms lie. We need to be able to assert that ''the student relation in DB2 corresponds to the name relation in DB3'' and that ''the ID number in the advisee field of DB4 corresponds to the ID number in the student field of DB3.'' This is painful, but easily fixed by having the university
 
@@ -220,24 +220,24 @@ One other important direction being explored in this area is the creation of pro
 
 x The details of semantic data integration are beyond the scope of this article. Some useful references for more information include Noy<sup>11</sup> and Grimm et al.<sup>12</sup>
 
-| RPI Tetherless World Instance Hub                  | <b>Classes</b><br><b>Named Graphs</b><br>Home                                                                | Search                                                                                              |
+| RPI Tetherless World Instance Hub | <b>Classes</b><br><b>Named Graphs</b><br>Home | Search |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| <b>Alaska</b><br>ě<br>4<br><b>ALASKA</b><br>Google | Map Satellite<br>Map data @2014 Google Terms of Use Report a map error                                       |                                                                                                     |
-| <b>Subject</b>                                     | Predicate                                                                                                    | Object                                                                                              |
-| Alaska                                             | rdf:type                                                                                                     | local_ih2_source_twc-rpi-edu_dataset_instance-hub-us-states-<br>and-territories_vocab:State         |
-|                                                    | owl:sameAs                                                                                                   | dbpedia:Alaska                                                                                      |
-|                                                    | dcterms:isReferencedBy                                                                                       | local_ih2_source_twc-rpi-edu_dataset_instance-hub-us-states-<br>and-territories_version:2011-Oct-09 |
-|                                                    | dcterms:identifier                                                                                           | Alaska                                                                                              |
-|                                                    | dcterms:identifier                                                                                           | AK                                                                                                  |
-|                                                    | dcterms:identifier                                                                                           | 02                                                                                                  |
-|                                                    | dcterms:identifier                                                                                           | alaska                                                                                              |
-|                                                    | dcterms:identifier                                                                                           | <b>ALASKA</b>                                                                                       |
-|                                                    | dcterms:identifier                                                                                           | ak                                                                                                  |
-|                                                    | dcterms:title                                                                                                | Alaska                                                                                              |
-|                                                    | foaf:isPrimaryTopicOf                                                                                        | local_ih2_id_us_state_page:Alaska                                                                   |
-|                                                    | ov:csvRow                                                                                                    | $\mathbf{3}$                                                                                        |
-|                                                    | void:inDataset                                                                                               | local_ih2_source_twc-rpi-edu_dataset_instance-hub-us-states-<br>and-territories_version:2011-Oct-09 |
-|                                                    | local_ih2_source_twc-<br>rpi-edu_dataset_instance-hub-us-states-<br>and-territories_vocab_enhancement_1:fips | 02                                                                                                  |
+| <b>Alaska</b><br>ě<br>4<br><b>ALASKA</b><br>Google | Map Satellite<br>Map data @2014 Google Terms of Use Report a map error | |
+| <b>Subject</b> | Predicate | Object |
+| Alaska | rdf:type | local_ih2_source_twc-rpi-edu_dataset_instance-hub-us-states-<br>and-territories_vocab:State |
+| | owl:sameAs | dbpedia:Alaska |
+| | dcterms:isReferencedBy | local_ih2_source_twc-rpi-edu_dataset_instance-hub-us-states-<br>and-territories_version:2011-Oct-09 |
+| | dcterms:identifier | Alaska |
+| | dcterms:identifier | AK |
+| | dcterms:identifier | 02 |
+| | dcterms:identifier | alaska |
+| | dcterms:identifier | <b>ALASKA</b> |
+| | dcterms:identifier | ak |
+| | dcterms:title | Alaska |
+| | foaf:isPrimaryTopicOf | local_ih2_id_us_state_page:Alaska |
+| | ov:csvRow | $\mathbf{3}$ |
+| | void:inDataset | local_ih2_source_twc-rpi-edu_dataset_instance-hub-us-states-<br>and-territories_version:2011-Oct-09 |
+| | local_ih2_source_twc-<br>rpi-edu_dataset_instance-hub-us-states-<br>and-territories_vocab_enhancement_1:fips | 02 |
 
 FIG. 6. A tabular depiction of some of the different ways the state ''Alaska'' is referred to in different databases.
 

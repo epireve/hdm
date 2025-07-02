@@ -26,14 +26,13 @@ keywords:
 - retrieved-augmented
 ---
 
-
 # Generative AI for Software Architecture. Applications, Challenges, and Future Directions
 
 Matteo Esposito a , Xiaozhou Li a , Sergio Moreschinia,b, Noman Ahmad a , Tomas Cerny c , Karthik Vaidhyanathan d , Valentina Lenarduzzi a , Davide Taibi a
 
 > <sup>a</sup>University of Oulu, Finland <sup>b</sup>Tampere University, Finland <sup>c</sup>University of Arizona, USA <sup>d</sup>Software Engineering Research Center, IIIT Hyderabad, India
 
-# Abstract
+## Abstract
 
 Context. Generative Artificial Intelligence (GenAI) is transforming much of software development, yet its application in software architecture is still in its infancy.
 
@@ -71,7 +70,7 @@ and automate various aspects of the software development lifecycle [\[3\]](#page
 
 Preprint submitted to Journal of Systems and Software June 30, 2025
 
-# practice on the use of GenAI in software architecture.
+## practice on the use of GenAI in software architecture.
 
 Specifically, we conducted a Multivocal Literature Review (MLR) to synthesize the findings from academic literature and gray literature sources, including industry reports, blog posts, and technical documentation [\[5\]](#page-23-5). In particular, our goal is to understand how GenAI is used in software architecture and what the underlying rationales, models, and usage approaches are, as well as the context and practical use cases where GenAI has been adopted for software architecture. Moreover, we aim to understand research gaps highlighted by the literature and to provide an overview of possible research directions to practitioners and researchers.
 
@@ -115,21 +114,21 @@ Schmid et al. [\[17\]](#page-23-19) conducted a systematic literature review exa
 
 Despite the active exploration of LLMs for a variety of software engineering (SE) tasks, particularly code generation, testing, requirements engineering, etc, there is a dearth of a comprehensive literature review dedicated to LLM for software architecture. Further, many of the works related to using GenAI for software design or software architecture are more available in the grey literature. Hence, in this work, we performed a multi-vocal literature review to identify the existing landscape of using GenAI for soft-
 
-| Reference                            | Systematic<br>Study<br>Type | Main Focus Area                                         | Identified<br>Chal<br>lenges                                                  | Key Findings                                                                                                                          |
+| Reference | Systematic<br>Study<br>Type | Main Focus Area | Identified<br>Chal<br>lenges | Key Findings |
 |--------------------------------------|-----------------------------|---------------------------------------------------------|-------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| Hou et al.<br>[9]                    | SLR                         | Process optimization us<br>ing LLMs                     | Limited<br>software<br>de<br>sign applications                                | Majority use in software development phases, under<br>scoring the need for multi-vocal studies.                                       |
-| Ozkaya [10]                          | Hol                         | Risks and opportunities<br>of LLMs in SE                | Bias, data quality, pri<br>vacy, explainability                               | Highlights potential in specification, code, and docu<br>mentation generation tasks.                                                  |
-| Jiang et al.<br>[11]                 | SLR                         | LLMs for code generation                                | Bridging<br>research<br>practice gap                                          | Taxonomy developed; outlined research-practice gaps<br>and future opportunities.                                                      |
-| Wang et al.<br>[12]                  | SLR                         | LLM applications in soft<br>ware testing                | Integration challenges                                                        | Extensive LLM usage in testing highlighted; discussed<br>practical integration barriers.                                              |
-| Marques<br>et al. [13]               | Hol                         | ChatGPT<br>in<br>require<br>ments engineering           | Data accuracy and rel<br>evance                                               | Provided a detailed overview of current use, chal<br>lenges, and identified future directions.                                        |
-| Santos<br>et al. [14]                | SLR                         | Generative AI impact on<br>SE lifecycle                 | Overemphasis<br>on<br>development/testing<br>phases                           | Confirmed dominance of development/testing; sug<br>gested expansion to other SE phases.                                               |
-| Saucedo<br>and<br>Rodr´ıguez<br>[15] | SMS                         | AI for migration to mi<br>croservices                   | Accuracy of unsuper<br>vised learning methods                                 | Highlighted clustering as a prevalent AI technique for<br>migrating monolithic to microservices architecture.                         |
-| Fan<br>et<br>al.<br>[8]              | Hol                         | LLMs in SE lifecycle                                    | Limited exploration in<br>requirements/design                                 | Emphasis predominantly on code generation; limited<br>attention to early SE phases.                                                   |
-| Bucaioni<br>et al. [16]              | SLR                         | AI integration with Soft<br>ware Architecture           | Text<br>notes<br>real-time<br>adaptation,<br>trade-off<br>analysis, etc       | Vision for AI in architecture including design automa<br>tion and diagnostics                                                         |
-| Schmid<br>et al. [17]                | SLR                         | AI usage in Software Ar<br>chitecture                   | Gaps in code genera<br>tion from architecture,<br>cloud-native, etc.          | Key application areas; gaps in advanced prompting<br>and evaluation                                                                   |
-| Our Work                             | MLR                         | Generative AI specifically<br>for software architecture | Scarcity of comprehen<br>sive<br>reviews;<br>domi<br>nance of grey literature | Provides comprehensive insights, bridging academic<br>and industry perspectives in generative AI applied to<br>software architecture. |
+| Hou et al.<br>[9] | SLR | Process optimization us<br>ing LLMs | Limited<br>software<br>de<br>sign applications | Majority use in software development phases, under<br>scoring the need for multi-vocal studies. |
+| Ozkaya [10] | Hol | Risks and opportunities<br>of LLMs in SE | Bias, data quality, pri<br>vacy, explainability | Highlights potential in specification, code, and docu<br>mentation generation tasks. |
+| Jiang et al.<br>[11] | SLR | LLMs for code generation | Bridging<br>research<br>practice gap | Taxonomy developed; outlined research-practice gaps<br>and future opportunities. |
+| Wang et al.<br>[12] | SLR | LLM applications in soft<br>ware testing | Integration challenges | Extensive LLM usage in testing highlighted; discussed<br>practical integration barriers. |
+| Marques<br>et al. [13] | Hol | ChatGPT<br>in<br>require<br>ments engineering | Data accuracy and rel<br>evance | Provided a detailed overview of current use, chal<br>lenges, and identified future directions. |
+| Santos<br>et al. [14] | SLR | Generative AI impact on<br>SE lifecycle | Overemphasis<br>on<br>development/testing<br>phases | Confirmed dominance of development/testing; sug<br>gested expansion to other SE phases. |
+| Saucedo<br>and<br>Rodr´ıguez<br>[15] | SMS | AI for migration to mi<br>croservices | Accuracy of unsuper<br>vised learning methods | Highlighted clustering as a prevalent AI technique for<br>migrating monolithic to microservices architecture. |
+| Fan<br>et<br>al.<br>[8] | Hol | LLMs in SE lifecycle | Limited exploration in<br>requirements/design | Emphasis predominantly on code generation; limited<br>attention to early SE phases. |
+| Bucaioni<br>et al. [16] | SLR | AI integration with Soft<br>ware Architecture | Text<br>notes<br>real-time<br>adaptation,<br>trade-off<br>analysis, etc | Vision for AI in architecture including design automa<br>tion and diagnostics |
+| Schmid<br>et al. [17] | SLR | AI usage in Software Ar<br>chitecture | Gaps in code genera<br>tion from architecture,<br>cloud-native, etc. | Key application areas; gaps in advanced prompting<br>and evaluation |
+| Our Work | MLR | Generative AI specifically<br>for software architecture | Scarcity of comprehen<br>sive<br>reviews;<br>domi<br>nance of grey literature | Provides comprehensive insights, bridging academic<br>and industry perspectives in generative AI applied to<br>software architecture. |
 
-Table 1: Classification and Comparison of Related Systematic Studies Legend: SLR - Systematic Literature Review; SMS - Systematic Mapping Study; MLR - Multivocal Litterature Review; Hol Holistic Review
+**Table 1:** Classification and Comparison of Related Systematic Studies Legend: SLR - Systematic Literature Review; SMS - Systematic Mapping Study; MLR - Multivocal Litterature Review; Hol Holistic Review
 
 ware architectural practices and processes.
 
@@ -141,7 +140,7 @@ This section addresses the methodology, defining the goal and research questions
 
 The goal of this MLR is to provide a comprehensive overview of GenAI's role in software architecture, from its current state to its prospects. We aim to contribute significantly to the body of knowledge in software engineering, providing actionable insights to researchers and practitioners. To carry out this research, we conducted a multivocal review of the literature [\[5\]](#page-23-5). Based on the objectives of our study, we defined the following research questions (RQs).
 
-# RQ<sup>1</sup>
+## RQ<sup>1</sup>
 
 How is Generative AI utilized in software architecture, and what are the underlying rationales, models, and usage approaches?
 
@@ -167,7 +166,7 @@ In what contexts is Generative AI used for software architecture?
 
 Once GenAI technologies have been investigated in the domain of software architecture, the next step is to explore the environments and scenarios where GenAI is integrated, mapping the conditions or settings in which these technologies are applied. Therefore, researchers and practitioners could better identify opportunities where GenAI can be used effectively, improving the architectural design process and addressing complex challenges. In particular, we identified the stages of the software architecture life cycle where GenAI tools are the most beneficial, such as requirements, design, implementation, testing, or maintenance, providing insight for the continuous integration of AI throughout the development life cycle (RQ2.1). Another important aspect is to specify for which architectural styles or design patterns (e.g., microservices, monolithic architectures) (RQ2.2) a GenAI model is more effective and advantageous in improving design coherence and system scalability (RQ2.3). Moreover, since the benefit of adopting a new model should always be validated, it is necessary to evaluate and validate the results produced by GenAI, and architectural analysis or modeling methods have been used (RQ2.4). Exploring the environments and scenarios where GenAI is integrated in architectural task led to identifying use cases where it has been implemented to highlight versatility and adaptability in different cases to solve specific problems, contribute to innovation, and drive industry advancements (RQ2.5).
 
-# RQ<sup>3</sup>
+## RQ<sup>3</sup>
 
 What future challenges are identified for the use of Generative AI in software architecture?
 
@@ -176,7 +175,7 @@ As a last RQ, we investigate the future challenges of GenAI in software architec
 <span id="page-4-0"></span>![](_page_4_Figure_15.jpeg)
 <!-- Image Description: This flowchart depicts a research methodology. It outlines the steps from defining the research goal and questions to data interpretation, showing the process of literature review (using Google Scholar, gray and peer-reviewed literature), data extraction from 46 documents (selected from an initial 1054), synthesis, and interpretation, ultimately providing answers to research questions. The flowchart uses boxes for activities, cylinders for data, and arrows to indicate the sequence and data flow. -->
 
-Figure 1: Study Workflow
+**Figure 1:** Study Workflow
 
 ## 2. Search Strategy
 
@@ -200,22 +199,21 @@ For retrieving the peer-reviewed paper, we selected the list of relevant bibliog
 
 We defined the inclusion and exclusion criteria to be applied to the title and abstract (T/A), the full text (F), or both cases (All), as reported in Table [2.](#page-5-0)
 
-|  |  |  | Table 2: Inclusion and Exclusion Criteria |  |
+| | | | **Table 2:** Inclusion and Exclusion Criteria | |
 |--|--|--|-------------------------------------------|--|
 |--|--|--|-------------------------------------------|--|
 
-<span id="page-5-0"></span>
 
-| ID | Criteria                                                                                     | Step |
+| ID | Criteria | Step |
 |----|----------------------------------------------------------------------------------------------|------|
-| I1 | Papers should specifically use LLM or Generative<br>AI for Software architecture*            | All  |
-| E1 | Not in English                                                                               | T/A  |
-| E2 | Duplicated / extension has been included                                                     | T/A  |
-| E3 | Out of topic                                                                                 | All  |
-| E4 | Non peer-reviewed papers                                                                     | T/A  |
-| E5 | Not accessible by institution                                                                | T/A  |
-| E6 | Papers mentioning software architecture for run<br>ning LLM or Gen-ai                        | F    |
-| E7 | Papers before 15.3.2022 when the initial release of<br>GPT-3.5 was made publicly available** | F    |
+| I1 | Papers should specifically use LLM or Generative<br>AI for Software architecture* | All |
+| E1 | Not in English | T/A |
+| E2 | Duplicated / extension has been included | T/A |
+| E3 | Out of topic | All |
+| E4 | Non peer-reviewed papers | T/A |
+| E5 | Not accessible by institution | T/A |
+| E6 | Papers mentioning software architecture for run<br>ning LLM or Gen-ai | F |
+| E7 | Papers before 15.3.2022 when the initial release of<br>GPT-3.5 was made publicly available** | F |
 
 \*The papers should genuinely be talking about LLM and SA, not just mentioning the buzzword in abstracts/discussion
 
@@ -225,7 +223,7 @@ We only included a paper that specifically uses LLM or GenAI for Software archit
 
 In the exclusion criteria, we excluded a paper that was not written in English (T/A), was duplicated, or had an extension already included in the review (T/A), they were beyond the scope (All), or was not accessible by an institution (T/A).
 
-# 2.4. Search and Selection Process for the Peer-Reviewed Papers (white)
+## 2.4. Search and Selection Process for the Peer-Reviewed Papers (white)
 
 We conducted the search and selection process in February 2025 and included all available publications until this period. The application of the search terms returned 621 unique white papers as reported in Table [5.](#page-8-1)
 
@@ -237,22 +235,22 @@ We conducted the search and selection process in February 2025 and included all 
 
 the protocol proposed by Dyb˚a and Dingsøyr [\[23\]](#page-23-23). To evaluate the selected articles, we prepared a checklist (Table [3\)](#page-6-0) with a set of specific questions. We rank each answer, assigning a score on a five-point Likert scale (0=poor, 4=excellent). A paper satisfied the quality assessment criteria if it achieved a rating higher than (or equal to) 2. Among the 39 papers included in the review of the search and selection process, only 37 fulfilled the quality assessment criteria, as reported in Table [5.](#page-8-1)
 
-<span id="page-6-0"></span>Starting from the 621 unique papers, following the process, we finally included 36 papers as reported in Table [5.](#page-8-1) Table 3: Quality Assessment Criteria - Peer-Reviewed Papers (white)
+<span id="page-6-0"></span>Starting from the 621 unique papers, following the process, we finally included 36 papers as reported in Table [5.](#page-8-1) **Table 3:** Quality Assessment Criteria - Peer-Reviewed Papers (white)
 
-| QAs  | QA                                                                                                          |
+| QAs | QA |
 |------|-------------------------------------------------------------------------------------------------------------|
-| QA1  | Is the paper based on research (or is it merely<br>a "lessons learned" report based on expert opin<br>ion)? |
-| QA2  | Is there a clear statement of the aims of the re<br>search?                                                 |
-| QA3  | Is there an adequate description of the context in<br>which the research was carried out?                   |
-| QA4  | Was the research design appropriate to address<br>the aims of the research?                                 |
-| QA5  | Was the recruitment strategy appropriate for the<br>aims of the research?                                   |
-| QA6  | Was there a control group with which to compare<br>treatments?                                              |
-| QA7  | Was the data collected in a way that addressed<br>the research issue?                                       |
-| QA8  | Was the data analysis sufficiently rigorous?                                                                |
-| QA9  | Has the relationship between researcher and par<br>ticipants been considered to an adequate degree?         |
-| QA10 | Is there a clear statement of findings?                                                                     |
-| QA11 | Is the study of value for research or practice?                                                             |
-|      |                                                                                                             |
+| QA1 | Is the paper based on research (or is it merely<br>a "lessons learned" report based on expert opin<br>ion)? |
+| QA2 | Is there a clear statement of the aims of the re<br>search? |
+| QA3 | Is there an adequate description of the context in<br>which the research was carried out? |
+| QA4 | Was the research design appropriate to address<br>the aims of the research? |
+| QA5 | Was the recruitment strategy appropriate for the<br>aims of the research? |
+| QA6 | Was there a control group with which to compare<br>treatments? |
+| QA7 | Was the data collected in a way that addressed<br>the research issue? |
+| QA8 | Was the data analysis sufficiently rigorous? |
+| QA9 | Has the relationship between researcher and par<br>ticipants been considered to an adequate degree? |
+| QA10 | Is there a clear statement of findings? |
+| QA11 | Is the study of value for research or practice? |
+| | |
 
 Response scale: 4 (Excellent), 3 (Very Good), 2 (Good),
 
@@ -271,205 +269,199 @@ Response scale: 4 (Excellent), 3 (Very Good), 2 (Good),
 
 Starting from the 433 unique papers, following the process, we finally included 10 grey literature papers as reported in Table [5.](#page-8-1)
 
-# 3. Data Extraction
+## 3. Data Extraction
 
 Starting from the initial 1054 unique papers (621 white and 443 grey ), following the process, we finally included 46 papers (36 white and 10 grey) as reported in Table [5.](#page-8-1) The data extraction form, together with the mapping of the information needed to answer each RQ, is summarized in Table [6.](#page-8-2) We extracted the data following the open coding approach [\[7\]](#page-23-7), in which two authors extracted the information, and we involved a third author in case of disagreement. This data is exclusively based on what is reported in the papers, without any kind of personal interpretation.
 
-<span id="page-7-0"></span>
 
-| Criteria                        | Questions                                                                                                                                            | Possible Answers                                                                                                                               |
+| Criteria | Questions | Possible Answers |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| Authority of the producer       | Is the publishing organization reputable?                                                                                                            | 1: reputable and well known organization                                                                                                       |
-|                                 |                                                                                                                                                      | 0.5: existing organization but not well known, 0: unknown<br>or low-reputation organization                                                    |
-|                                 | Is an individual author associated with a reputable organi<br>zation?                                                                                | 1: true                                                                                                                                        |
-|                                 |                                                                                                                                                      | 0: false                                                                                                                                       |
-|                                 | Has the author published other work in the field?                                                                                                    | 1: Published more than three other work                                                                                                        |
-|                                 |                                                                                                                                                      | 0.5: published 1-2 other works, 0: no other works published.                                                                                   |
-|                                 | Does the author have expertise in the area? (e.g., job title<br>principal software engineer)                                                         | 1: author job title is principal software engineer, cloud en<br>gineer, front-end developer or similar                                         |
-|                                 |                                                                                                                                                      | 0: author job not related to any of the previously mentioned<br>groups. )                                                                      |
-| Methodology                     | Does the source have a clearly stated aim?                                                                                                           | 1: yes                                                                                                                                         |
-|                                 |                                                                                                                                                      | 0: no                                                                                                                                          |
-|                                 | Is the source supported by authoritative, documented ref<br>erences?                                                                                 | 1: references pointing to reputable sources                                                                                                    |
-|                                 |                                                                                                                                                      | 0.5: references to non-highly reputable sources                                                                                                |
-|                                 |                                                                                                                                                      | 0: no references                                                                                                                               |
-|                                 | Does the work cover a specific question?                                                                                                             | 1: yes                                                                                                                                         |
-|                                 |                                                                                                                                                      | 0.5: not explicitly                                                                                                                            |
-|                                 |                                                                                                                                                      | 0: no                                                                                                                                          |
-| Objectivity                     | Does the work seem to be balanced in presentation                                                                                                    | 1: yes                                                                                                                                         |
-|                                 |                                                                                                                                                      | 0.5: partially                                                                                                                                 |
-|                                 |                                                                                                                                                      | 0: no                                                                                                                                          |
-|                                 | Is the statement in the sources as objective as possible? Or,<br>is the statement a subjective opinion?                                              | 1: objective                                                                                                                                   |
-|                                 |                                                                                                                                                      | 0.5 partially objective                                                                                                                        |
-|                                 |                                                                                                                                                      | 0: subjective                                                                                                                                  |
-|                                 | Are the conclusions free of bias or is there vested interest?<br>E.g., a tool comparison by authors that are working for a<br>particular tool vendor | 1=no interest                                                                                                                                  |
-|                                 |                                                                                                                                                      | 0.5: partial or small interest                                                                                                                 |
-|                                 |                                                                                                                                                      | 0: strong interest                                                                                                                             |
-|                                 | Are the conclusions supported by the data?                                                                                                           | 1: yes                                                                                                                                         |
-|                                 |                                                                                                                                                      | 0.5: partially                                                                                                                                 |
-|                                 |                                                                                                                                                      | 0: no                                                                                                                                          |
-| Date                            | Does the item have a clearly stated date?                                                                                                            | 1: yes                                                                                                                                         |
-|                                 |                                                                                                                                                      | 0: no                                                                                                                                          |
-| Position w.r.t. related sources | Have key related GL or formal sources been linked to/dis<br>cussed?                                                                                  | 1: yes                                                                                                                                         |
-|                                 |                                                                                                                                                      | 0: no                                                                                                                                          |
-| Novelty                         | Does it enrich or add something unique to the research?                                                                                              | 1: yes                                                                                                                                         |
-|                                 |                                                                                                                                                      | 0.5: partially                                                                                                                                 |
-|                                 |                                                                                                                                                      | 0: no                                                                                                                                          |
-| Outlet type                     | Outlet Control                                                                                                                                       | 1: high outlet control/ high credibility: books, magazines,<br>theses, government reports, white papers                                        |
-|                                 |                                                                                                                                                      | moderate outlet control/ moderate credibility: annual re<br>ports, news articles, videos, Q/A sites (such as StackOver<br>flow), wiki articles |
-|                                 |                                                                                                                                                      | 0: low outlet control/low credibility: blog posts, presenta<br>tions, emails, tweets                                                           |
+| Authority of the producer | Is the publishing organization reputable? | 1: reputable and well known organization |
+| | | 0.5: existing organization but not well known, 0: unknown<br>or low-reputation organization |
+| | Is an individual author associated with a reputable organi<br>zation? | 1: true |
+| | | 0: false |
+| | Has the author published other work in the field? | 1: Published more than three other work |
+| | | 0.5: published 1-2 other works, 0: no other works published. |
+| | Does the author have expertise in the area? (e.g., job title<br>principal software engineer) | 1: author job title is principal software engineer, cloud en<br>gineer, front-end developer or similar |
+| | | 0: author job not related to any of the previously mentioned<br>groups. ) |
+| Methodology | Does the source have a clearly stated aim? | 1: yes |
+| | | 0: no |
+| | Is the source supported by authoritative, documented ref<br>erences? | 1: references pointing to reputable sources |
+| | | 0.5: references to non-highly reputable sources |
+| | | 0: no references |
+| | Does the work cover a specific question? | 1: yes |
+| | | 0.5: not explicitly |
+| | | 0: no |
+| Objectivity | Does the work seem to be balanced in presentation | 1: yes |
+| | | 0.5: partially |
+| | | 0: no |
+| | Is the statement in the sources as objective as possible? Or,<br>is the statement a subjective opinion? | 1: objective |
+| | | 0.5 partially objective |
+| | | 0: subjective |
+| | Are the conclusions free of bias or is there vested interest?<br>E.g., a tool comparison by authors that are working for a<br>particular tool vendor | 1=no interest |
+| | | 0.5: partial or small interest |
+| | | 0: strong interest |
+| | Are the conclusions supported by the data? | 1: yes |
+| | | 0.5: partially |
+| | | 0: no |
+| Date | Does the item have a clearly stated date? | 1: yes |
+| | | 0: no |
+| Position w.r.t. related sources | Have key related GL or formal sources been linked to/dis<br>cussed? | 1: yes |
+| | | 0: no |
+| Novelty | Does it enrich or add something unique to the research? | 1: yes |
+| | | 0.5: partially |
+| | | 0: no |
+| Outlet type | Outlet Control | 1: high outlet control/ high credibility: books, magazines,<br>theses, government reports, white papers |
+| | | moderate outlet control/ moderate credibility: annual re<br>ports, news articles, videos, Q/A sites (such as StackOver<br>flow), wiki articles |
+| | | 0: low outlet control/low credibility: blog posts, presenta<br>tions, emails, tweets |
 
 ## Table 4: Quality Assessment Criteria - Grey literature
 
-Table 5: Search and Selection Process
+**Table 5:** Search and Selection Process
 
-<span id="page-8-1"></span>
 
-| Step                                         | #    |
+| Step | # |
 |----------------------------------------------|------|
-| Retrieval from white sources (unique papers) | 621  |
-| -Reading by title and abstract               | -576 |
-| -Full reading                                | - 18 |
-| -Snowballing                                 | + 11 |
-| -Quality assessment                          | - 2  |
-| Primary studies                              | 36   |
-| Retrieval from grey sources (unique papers)  | 433  |
-| -Reading by title and abstract               | -356 |
-| -Full reading                                | - 70 |
-| -Snowballing                                 | + 3  |
-| Primary studies                              | 10   |
+| Retrieval from white sources (unique papers) | 621 |
+| -Reading by title and abstract | -576 |
+| -Full reading | - 18 |
+| -Snowballing | + 11 |
+| -Quality assessment | - 2 |
+| Primary studies | 36 |
+| Retrieval from grey sources (unique papers) | 433 |
+| -Reading by title and abstract | -356 |
+| -Full reading | - 70 |
+| -Snowballing | + 3 |
+| Primary studies | 10 |
 
-Table 6: Data Extraction
+**Table 6:** Data Extraction
 
-<span id="page-8-2"></span>
 
-| Data                | RQ    | Outcome                                                        |  |
+| Data | RQ | Outcome | |
 |---------------------|-------|----------------------------------------------------------------|--|
-| Work category       |       | List of Category                                               |  |
-| Methods             |       | List<br>of<br>methodological<br>ap<br>proaches                 |  |
-| Author              |       | First and last name                                            |  |
-|                     | na    | Affiliation                                                    |  |
-|                     |       | Peer-reviewed<br>literature<br>(white)                         |  |
-| Publication Sources |       | Grey literature                                                |  |
-|                     |       | Publication name                                               |  |
-|                     |       | Publication type (e.g., journal)                               |  |
-|                     |       | Publication year                                               |  |
-|                     | RQ1.1 | Purpose (why)                                                  |  |
-| GenAI usage         | RQ1.2 | Model (what)                                                   |  |
-|                     | RQ1.3 | How                                                            |  |
-|                     | RQ2.1 | SALC phase                                                     |  |
-|                     | RQ2.2 | For what architectural styles or<br>patterns                   |  |
-| GenAI usage context | RQ2.3 | For what architectural mainte<br>nance / quality-related tasks |  |
-|                     | RQ2.4 | Architecture analysis / model<br>ing method                    |  |
-|                     |       | List of use cases                                              |  |
-| Use case            | RQ2.5 | Analyzed systems                                               |  |
-|                     |       | Programming languages                                          |  |
-| Future Challenges   | RQ3   | List of challenges                                             |  |
+| Work category | | List of Category | |
+| Methods | | List<br>of<br>methodological<br>ap<br>proaches | |
+| Author | | First and last name | |
+| | na | Affiliation | |
+| | | Peer-reviewed<br>literature<br>(white) | |
+| Publication Sources | | Grey literature | |
+| | | Publication name | |
+| | | Publication type (e.g., journal) | |
+| | | Publication year | |
+| | RQ1.1 | Purpose (why) | |
+| GenAI usage | RQ1.2 | Model (what) | |
+| | RQ1.3 | How | |
+| | RQ2.1 | SALC phase | |
+| | RQ2.2 | For what architectural styles or<br>patterns | |
+| GenAI usage context | RQ2.3 | For what architectural mainte<br>nance / quality-related tasks | |
+| | RQ2.4 | Architecture analysis / model<br>ing method | |
+| | | List of use cases | |
+| Use case | RQ2.5 | Analyzed systems | |
+| | | Programming languages | |
+| Future Challenges | RQ3 | List of challenges | |
 
 ### <span id="page-8-0"></span>4. Results
 
 In this Section, we report the results to answer our RQs. From this section onward, we visually and textually distinguish results from white literature using WL, and from gray literature using GL.
 
-#### 1. Study Context
+### 1. Study Context
 
 This sub-section provides an overview of the study context in the reviewed research, including the types of studies conducted, the balance between white and gray literature, and the categories of published works.
 
-Table 7: White and Grey Literature Distribution
+**Table 7:** White and Grey Literature Distribution
 
-<span id="page-8-3"></span>
 
-| Code  | PaperID                                                                                                                                                                                        | #  | %   |
+| Code | PaperID | # | % |
 |-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----|-----|
-| White | WL[1], WL[2], WL[3], WL[4], WL[5],<br>WL[6], WL[7], WL[8], WL[9], WL[10],<br>WL[11],<br>WL[12],<br>WL[13],<br>WL[14],<br>WL[15],<br>WL[16],<br>WL[17],<br>WL[18],                              | 36 | 78% |
-|       | WL[10],<br>WL[19],<br>WL[20],<br>WL[21],<br>WL[22],<br>WL[23],<br>WL[24],<br>WL[25],<br>WL[26],<br>WL[27],<br>WL[28],<br>WL[29],<br>WL[30],<br>WL[31],<br>WL[32],<br>WL[33],<br>WL[34], WL[35] |    |     |
-| Grey  | GL[1],<br>GL[2],<br>GL[3],<br>GL[4],<br>GL[36],<br>GL[5], GL[6], GL[7], GL[8], GL[9]                                                                                                           | 10 | 22% |
+| White | WL[1], WL[2], WL[3], WL[4], WL[5],<br>WL[6], WL[7], WL[8], WL[9], WL[10],<br>WL[11],<br>WL[12],<br>WL[13],<br>WL[14],<br>WL[15],<br>WL[16],<br>WL[17],<br>WL[18], | 36 | 78% |
+| | WL[10],<br>WL[19],<br>WL[20],<br>WL[21],<br>WL[22],<br>WL[23],<br>WL[24],<br>WL[25],<br>WL[26],<br>WL[27],<br>WL[28],<br>WL[29],<br>WL[30],<br>WL[31],<br>WL[32],<br>WL[33],<br>WL[34], WL[35] | | |
+| Grey | GL[1],<br>GL[2],<br>GL[3],<br>GL[4],<br>GL[36],<br>GL[5], GL[6], GL[7], GL[8], GL[9] | 10 | 22% |
 
-Table 8: Study Type
+**Table 8:** Study Type
 
-<span id="page-8-4"></span>
 
-| Code              | PaperID                                                                                                                                                                                                                                                                                  | #  | %   |
+| Code | PaperID | # | % |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----|-----|
-| Case Study        | WL[2], WL[3], WL[5], WL[6],<br>WL[7],<br>WL[8],<br>WL[10],<br>WL[15],<br>WL[16],<br>WL[17],<br>WL[18],<br>WL[20],<br>WL[22],<br>WL[23],<br>WL[24],<br>WL[25],<br>WL[26],<br>WL[27],<br>WL[28],<br>WL[36],<br>WL[29],<br>WL[30],<br>WL[31],<br>WL[33],<br>WL[34],<br>WL[35],GL[8], GL[10] | 28 | 40% |
-| Experiment        | WL[1], WL[4], WL[9], WL[11],<br>WL[12],<br>WL[19],<br>WL[21],<br>WL[24], WL[31], GL[1]                                                                                                                                                                                                   | 10 | 14% |
-| Exploratory Study | WL[14], WL[4]                                                                                                                                                                                                                                                                            | 2  | 3%  |
-| Method Proposal   | WL[1], WL[6], WL[7], WL[8],<br>WL[9],<br>WL[10],<br>WL[11],<br>WL[12],<br>WL[13],<br>WL[17],<br>WL[18],<br>WL[20],<br>WL[25],<br>WL[27],<br>WL[32],<br>WL[33],<br>WL[35], GL[1], GL[8], GL[10]                                                                                           | 20 | 29% |
-| PoC               | WL[13], WL[27]                                                                                                                                                                                                                                                                           | 2  | 3%  |
-| Survey            | WL[15]                                                                                                                                                                                                                                                                                   | 1  | 1%  |
-| Tool Review       | GL[2],<br>GL[3],<br>GL[4],<br>GL[5],<br>GL[6], GL[7], GL[9]                                                                                                                                                                                                                              | 7  | 10% |
+| Case Study | WL[2], WL[3], WL[5], WL[6],<br>WL[7],<br>WL[8],<br>WL[10],<br>WL[15],<br>WL[16],<br>WL[17],<br>WL[18],<br>WL[20],<br>WL[22],<br>WL[23],<br>WL[24],<br>WL[25],<br>WL[26],<br>WL[27],<br>WL[28],<br>WL[36],<br>WL[29],<br>WL[30],<br>WL[31],<br>WL[33],<br>WL[34],<br>WL[35],GL[8], GL[10] | 28 | 40% |
+| Experiment | WL[1], WL[4], WL[9], WL[11],<br>WL[12],<br>WL[19],<br>WL[21],<br>WL[24], WL[31], GL[1] | 10 | 14% |
+| Exploratory Study | WL[14], WL[4] | 2 | 3% |
+| Method Proposal | WL[1], WL[6], WL[7], WL[8],<br>WL[9],<br>WL[10],<br>WL[11],<br>WL[12],<br>WL[13],<br>WL[17],<br>WL[18],<br>WL[20],<br>WL[25],<br>WL[27],<br>WL[32],<br>WL[33],<br>WL[35], GL[1], GL[8], GL[10] | 20 | 29% |
+| PoC | WL[13], WL[27] | 2 | 3% |
+| Survey | WL[15] | 1 | 1% |
+| Tool Review | GL[2],<br>GL[3],<br>GL[4],<br>GL[5],<br>GL[6], GL[7], GL[9] | 7 | 10% |
 
-#### Table 9: Study Category
+### Table 9: Study Category
 
-<span id="page-8-5"></span>
 
-| Code            | PaperID                                                                                                                                                                                                                            | #  | %   |
+| Code | PaperID | # | % |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----|-----|
-| Blog Post       | GL[2], GL[6], GL[7], GL[9]                                                                                                                                                                                                         | 4  | 9%  |
-| Full Paper      | WL[1],<br>WL[3],<br>WL[4],<br>WL[5],<br>WL[7],<br>WL[8],<br>WL[9],<br>WL[11],<br>WL[12], WL[13], WL[14], WL[16],<br>WL[17], WL[18], WL[20], WL[21],<br>WL[24], WL[25], WL[28], WL[29],<br>WL[31], WL[32], WL[33], WL[35],<br>GL[1] | 25 | 54% |
-| Industry Report | WL[30]                                                                                                                                                                                                                             | 1  | 2%  |
-| Position Paper  | WL[36]                                                                                                                                                                                                                             | 1  | 2%  |
-| Short Paper     | WL[2], WL[15], WL[19], WL[22],<br>WL[23], WL[26], WL[34]                                                                                                                                                                           | 7  | 15% |
-| Thesis          | GL[10], GL[8]                                                                                                                                                                                                                      | 2  | 4%  |
-| Vision Paper    | WL[6], WL[10], WL[27]                                                                                                                                                                                                              | 3  | 7 % |
-| White Paper     | GL[4], GL[5]                                                                                                                                                                                                                       | 2  | 4%  |
-| Youtube Video   | GL[3]                                                                                                                                                                                                                              | 1  | 2%  |
+| Blog Post | GL[2], GL[6], GL[7], GL[9] | 4 | 9% |
+| Full Paper | WL[1],<br>WL[3],<br>WL[4],<br>WL[5],<br>WL[7],<br>WL[8],<br>WL[9],<br>WL[11],<br>WL[12], WL[13], WL[14], WL[16],<br>WL[17], WL[18], WL[20], WL[21],<br>WL[24], WL[25], WL[28], WL[29],<br>WL[31], WL[32], WL[33], WL[35],<br>GL[1] | 25 | 54% |
+| Industry Report | WL[30] | 1 | 2% |
+| Position Paper | WL[36] | 1 | 2% |
+| Short Paper | WL[2], WL[15], WL[19], WL[22],<br>WL[23], WL[26], WL[34] | 7 | 15% |
+| Thesis | GL[10], GL[8] | 2 | 4% |
+| Vision Paper | WL[6], WL[10], WL[27] | 3 | 7 % |
+| White Paper | GL[4], GL[5] | 2 | 4% |
+| Youtube Video | GL[3] | 1 | 2% |
 
-|  |  | Table 10: Publication Sources |  |
+| | | **Table 10:** Publication Sources | |
 |--|--|-------------------------------|--|
 |--|--|-------------------------------|--|
 
-| Sources Name                                                                                                                             | Type                 | Count | Years      |
+| Sources Name | Type | Count | Years |
 |------------------------------------------------------------------------------------------------------------------------------------------|----------------------|-------|------------|
-| AIM Research                                                                                                                             | Research Institution | 1     | -          |
-| Communications in Computer and Information Science                                                                                       | Book Series          | 1     | -          |
-| Design Society                                                                                                                           | Society Publication  | 1     | -          |
-| Electronics (Switzerland)                                                                                                                | Journal              | 1     | -          |
-| European Conference on Pattern Languages of Programs, People and Practices                                                               | Proceedings          | 1     | -          |
-| European Conference on Software Architecture                                                                                             | Conference           | 1     | 2024       |
-| Human-Computer Interaction                                                                                                               | Journal              | 1     | -          |
-| IEEE International Conference on Software Quality Reliability and Security Companion<br>(QRS-C)                                          | Proceedings          | 1     | 2023       |
-| IEEE International Conference on Data and Software Engineering (ICoDSE)                                                                  | Proceedings          | 1     | 2023       |
-| IEEE International Requirements Engineering Conference (RE)                                                                              | Conference           | 1     | 2024       |
-| IEEE International Conference on Software Architecture (ICSA)                                                                            | Conference           | 12    | 2024, 2025 |
-| IEEE International Conference on Software Architecture Companion (ICSA-C)                                                                | Conference           | 3     | 2024       |
-| IEEE Software                                                                                                                            | Journal              | 1     | -          |
-| IEEE/ACM Workshop on Multi-disciplinary Open and RElevant Requirements Engineering<br>(MO2RE)                                            | Workshop             | 1     | 2024       |
-| Information Technology                                                                                                                   | Journal              | 1     | -          |
-| Institutional Website                                                                                                                    | Website              | 7     | -          |
-| International Conference on Software Engineering                                                                                         | Proceedings          | 1     | -          |
-| International Workshop on Designing Software                                                                                             | Workshop             | 1     | 2024       |
-| Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli<br>gence and Lecture Notes in Bioinformatics) | Book Series          | 1     | -          |
-| Medium                                                                                                                                   | Online Media         | 2     | -          |
-| Methods                                                                                                                                  | Journal              | 1     | -          |
-| SN Computer Science                                                                                                                      | Journal              | 1     | -          |
-| Studies in Computational Intelligence                                                                                                    | Book Series          | 1     | -          |
-| YouTube                                                                                                                                  | Online Media         | 1     | -          |
+| AIM Research | Research Institution | 1 | - |
+| Communications in Computer and Information Science | Book Series | 1 | - |
+| Design Society | Society Publication | 1 | - |
+| Electronics (Switzerland) | Journal | 1 | - |
+| European Conference on Pattern Languages of Programs, People and Practices | Proceedings | 1 | - |
+| European Conference on Software Architecture | Conference | 1 | 2024 |
+| Human-Computer Interaction | Journal | 1 | - |
+| IEEE International Conference on Software Quality Reliability and Security Companion<br>(QRS-C) | Proceedings | 1 | 2023 |
+| IEEE International Conference on Data and Software Engineering (ICoDSE) | Proceedings | 1 | 2023 |
+| IEEE International Requirements Engineering Conference (RE) | Conference | 1 | 2024 |
+| IEEE International Conference on Software Architecture (ICSA) | Conference | 12 | 2024, 2025 |
+| IEEE International Conference on Software Architecture Companion (ICSA-C) | Conference | 3 | 2024 |
+| IEEE Software | Journal | 1 | - |
+| IEEE/ACM Workshop on Multi-disciplinary Open and RElevant Requirements Engineering<br>(MO2RE) | Workshop | 1 | 2024 |
+| Information Technology | Journal | 1 | - |
+| Institutional Website | Website | 7 | - |
+| International Conference on Software Engineering | Proceedings | 1 | - |
+| International Workshop on Designing Software | Workshop | 1 | 2024 |
+| Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelli<br>gence and Lecture Notes in Bioinformatics) | Book Series | 1 | - |
+| Medium | Online Media | 2 | - |
+| Methods | Journal | 1 | - |
+| SN Computer Science | Journal | 1 | - |
+| Studies in Computational Intelligence | Book Series | 1 | - |
+| YouTube | Online Media | 1 | - |
 
 Most of the works we considered belong to white literature (36; 78%) while 22% (10) to the gray (Table [7\)](#page-8-3). Case studies are the most common type (28; 40%), followed by method proposals (20, 29%) and experiments (10; 14%). Tool reviews are proposed only from gray literature (7; 10%) while proof-of-concept (PoC) studies (2; 3%) interestingly are represented only by white literature. Surprisingly, we only included a few position papers (1; 2%) WL[\[36\]](#page-24-29) and vision papers (3; 7%) (Table [8\)](#page-8-4). Most of them are full papers (25; 52%), followed by short papers (7; 15%) and a few Thesis (2; 4%) (Table [9\)](#page-8-5). Finally, according to Figure [2,](#page-9-0) GenAI in SA was prominently discussed and featured in the gray literature during the start of the hype (2023), but the white literature became prominent the year after consolidating in 2025 as the main publication source for the topic.
 
-# 2. Generative AI for Software Architecture: How is it used (RQ1)
+## 2. Generative AI for Software Architecture: How is it used (RQ1)
 
 Here, we present how GenAI is currently applied in SA in terms of purpose, models used, and techniques for performance improvement, such as prompt engineering practices and the level of human interaction.
 
 <span id="page-9-0"></span>![](_page_9_Figure_5.jpeg)
 <!-- Image Description: The image is a stacked bar chart showing the distribution of "Grey" and "White" across three years: 2023, 2024, and 2025. In 2023, there were 5 Grey and 3 White. In 2024, there were 4 Grey and 22 White. Finally, in 2025, there was 1 Grey and 11 White. The chart likely illustrates trends or quantities of two categories over time within the paper's context. -->
 
-Figure 2: Publication Source Trend
+**Figure 2:** Publication Source Trend
 
 ## 2.1. Why GenAI in SA (RQ1.1)
 
 Architectural decision support is the purpose most frequently investigated in the reviewed studies, appearing in 38% (18) of them (Table [11](#page-11-0) - RQ1.1). This suggests that the primary focus of current research on GenAI in software architecture is its application in assisting architectural decision-making. For example, WL[\[3\]](#page-23-26) uses GenAI to generate microservice names, while GL[\[8\]](#page-25-8) uses it to support software design and requirement engineering, and WL[\[17\]](#page-24-13) uses it to guide software architects in making architectural decisions. Similarly, the second most frequent purpose for using GenAI in the case of reverse engineering for architectural reconstruction appears in 19% (9) of the cases. On the other hand, the least explored uses are Reverse Engineering for Traceability (GL[\[11\]](#page-24-9)) and Migration & Reengineering (WL[\[30\]](#page-24-25)), each of which appeared only in 2% (1) of the studies (Table [11](#page-11-0) - RQ1.1).
 
-# RQ1.<sup>1</sup> (Why GenAI in SA)
+## RQ1.<sup>1</sup> (Why GenAI in SA)
 
 LLMs are primarily used for architectural decision support (38%) and reverse engineering (21%), with less focus on tasks like migration, re-engineering, and traceability.
 
-# 2.2. GenAI Model Used (RQ1.2)
+## 2.2. GenAI Model Used (RQ1.2)
 
 OpenAI GPT models are the ones that rule the roost and were utilized in 62% (105) of the articles, followed by Google's models (15; 9%) (Table [12](#page-12-0) - RQ1.2). Surprisingly, the recently published open-source model DeepSeek has already been applied in two works. It is also worth noting that on-demand cloud-based models are by far the favorable option in place of on-premises due to their resource requirements.
 
 Considering the evolution over time of the AI model providers, it is evident that OpenAI has a consistent prominence. Nevertheless, newer models such as DeepSeek and Qwen gained traction in 2024 and 2025, highlighting a shift in attention toward emerging alternatives. This trend is also confirmed in the increasing presence of models from diversified providers, i.e., miscellaneous category, including specific open source alternatives such as LLaMa (Figur[e3](#page-10-0) - RQ1.2).
 
-# RQ1.<sup>2</sup> (GenAI Model Used)
+## RQ1.<sup>2</sup> (GenAI Model Used)
 
 OpenAI GPT models dominate (62%) the research landscape, while alternatives such as Google LLMs and LLaMA models are significantly less employed.
 
@@ -480,7 +472,7 @@ Among the techniques to enhance the capabilities and performance of GenAI, Fine-
 <span id="page-10-0"></span>![](_page_10_Figure_10.jpeg)
 <!-- Image Description: The stacked bar chart displays the number of large language model (LLM) papers published per year (2023-2025), categorized by the underlying LLM used. The largest contributor in 2024 is OpenAI (29 papers). The chart shows a breakdown of papers using specific LLMs (e.g., Code Qwen, DeepSeek, Google's LLM, LLaMA, Mistral, GitHub Copilot, T0/T5 derivatives) and miscellaneous others. It illustrates the prevalence of different LLMs within research publications over time. -->
 
-Figure 3: LLM Vendor Trend (RQ1.2)
+**Figure 3:** LLM Vendor Trend (RQ1.2)
 
 agement information and align such models to their needed task (Table [13](#page-15-0) - RQ1.3).
 
@@ -490,20 +482,19 @@ Most specifically, prompt engineering is also used to quickly align LLMs to a ne
 
 Most studies involve some form of human interaction with the model (39; 85%), and this indicates that our community is prone to involve human observation, validation, or supplementation when using LLMs for software architecture purposes. This indicates that fully autonomous
 
-<span id="page-11-0"></span>
 
-| Code                                             | PaperID                                                                                                                                                  | Count* | %   |
+| Code | PaperID | Count* | % |
 |--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|--------|-----|
-| Architectural Decision Support                   | WL[2], WL[3], WL[5], WL[7], WL[8], WL[12],<br>WL[15],<br>WL[17],<br>WL[21],<br>WL[22],<br>WL[32],<br>GL[2], GL[3], GL[10], GL[5], GL[6], GL[8],<br>GL[7] | 18     | 38% |
-| Reverse Engineering/Architectural Reconstruction | WL[9],<br>WL[16],<br>WL[19],<br>WL[20],<br>WL[25],<br>WL[27], WL[29], GL[4], GL[9]                                                                       | 9      | 19% |
-| Architecture Generation                          | WL[1],<br>WL[6],<br>WL[10],<br>WL[13],<br>WL[18],<br>WL[28], WL[36], WL[33], WL[35]                                                                      | 9      | 19% |
-| Quality Assessment                               | WL[9], WL[19], WL[20], WL[25]                                                                                                                            | 4      | 9%  |
-| Software Comprehension                           | WL[24], WL[26], WL[31]                                                                                                                                   | 3      | 7%  |
-| Requirement Engineering                          | WL[23], WL[34]                                                                                                                                           | 2      | 4%  |
-| Migration & Re-engineering                       | WL[30]                                                                                                                                                   | 1      | 2%  |
-| Reverse Engineering/Traceability                 | WL[11]                                                                                                                                                   | 1      | 2%  |
+| Architectural Decision Support | WL[2], WL[3], WL[5], WL[7], WL[8], WL[12],<br>WL[15],<br>WL[17],<br>WL[21],<br>WL[22],<br>WL[32],<br>GL[2], GL[3], GL[10], GL[5], GL[6], GL[8],<br>GL[7] | 18 | 38% |
+| Reverse Engineering/Architectural Reconstruction | WL[9],<br>WL[16],<br>WL[19],<br>WL[20],<br>WL[25],<br>WL[27], WL[29], GL[4], GL[9] | 9 | 19% |
+| Architecture Generation | WL[1],<br>WL[6],<br>WL[10],<br>WL[13],<br>WL[18],<br>WL[28], WL[36], WL[33], WL[35] | 9 | 19% |
+| Quality Assessment | WL[9], WL[19], WL[20], WL[25] | 4 | 9% |
+| Software Comprehension | WL[24], WL[26], WL[31] | 3 | 7% |
+| Requirement Engineering | WL[23], WL[34] | 2 | 4% |
+| Migration & Re-engineering | WL[30] | 1 | 2% |
+| Reverse Engineering/Traceability | WL[11] | 1 | 2% |
 
-Table 11: Purpose of the LLM - (RQ1.1)
+**Table 11:** Purpose of the LLM - (RQ1.1)
 
 \*One paper can have more than one purpose
 
@@ -511,15 +502,15 @@ AI-driven architectural decisions are not yet prevalent, but human participation
 
 No human interaction has been reported for 15% (7) of the studies, and the models existed without direct human intervention. The breakdown shows a high preference for interactive approaches, validating that LLMs in software development are used primarily as auxiliary tools and not as standalone decision-makers (Table [13](#page-15-0) - RQ1.3).
 
-# RQ1.<sup>3</sup> (How GenAI is used)
+## RQ1.<sup>3</sup> (How GenAI is used)
 
 Few-shot prompting (31%) is the most common technique, RAG (22%) is frequently used for model enhancement, and 85% of the studies involve human interaction, emphasizing the assistive rather than autonomous role of LLM.
 
-# 3. Generative AI for Software Architecture: In which context (RQ2)
+## 3. Generative AI for Software Architecture: In which context (RQ2)
 
 This section presents the different contexts in which GenAI is applied within the software architecture. Specifically, we examine its role across various phases of the Software Architecture Lifecycle (SALC), the architectural styles and patterns it supports, and the validation methods used to assess its outputs.
 
-# 3.1. SALC Phases (RQ2.1)
+## 3.1. SALC Phases (RQ2.1)
 
 Regarding the use of GenAI across SALC (Table [14](#page-15-1) and Figure [5](#page-14-0) - RQ2.1), the requirement-to-architecture (Reqto-Arch) is the most frequently targeted phase, as mentioned in 40% (24) of the papers. This suggests that LLMs are frequently used to fill in the requirement and architectural design gap, to assist in mapping textual specifications into formal architectural representations. In fact, WL[\[2\]](#page-23-25) leveraged GenAI for collaborative architectural design to assist practitioners in designing the SA from requirements. Similarly, WL[\[3\]](#page-23-26) used ChatGPT to generate microservice names (architecture) based on the requirements.
 
@@ -531,70 +522,69 @@ The requirement-to-architecture-to-code illustrates efforts to optimize the enti
 
 ## Table 12: LLM Models - (RQ1.2)
 
-<span id="page-12-0"></span>
 
-| Model Family      | Model               | PaperID                                                                                                                                                                                                                                                                                                                               | Count* | % (Model) | % (Family) |
+| Model Family | Model | PaperID | Count* | % (Model) | % (Family) |
 |-------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|-----------|------------|
-|                   | GPT                 | WL[1], WL[2], WL[3], WL[4], WL[5], WL[6], WL[7], WL[8],<br>WL[9], WL[10], WL[11], WL[12], WL[13], WL[14], WL[15],<br>WL[16], WL[17], WL[18], WL[19], WL[20], WL[8], WL[21],<br>WL[23], WL[24], WL[25], WL[26], WL[27], WL[28], WL[29],<br>WL[30], WL[31], WL[33], WL[34], WL[35], GL[2], GL[3], GL[10],<br>GL[5], GL[6], GL[7], GL[9] | 39     | 23%       |            |
-|                   | GPT-4               | WL[1], WL[5], WL[6], WL[8], WL[9], WL[11], WL[12], WL[13],<br>WL[14], WL[15], WL[17], WL[18], WL[20], WL[24], WL[25],<br>WL[27], WL[29], WL[30], WL[33] GL[8]                                                                                                                                                                         | 21     | 13%       |            |
-| OpenAI            | ChatGPT             | WL[2], WL[3], WL[4], WL[19], WL[21], WL[28], WL[34], WL[35],<br>GL[2], GL[3], GL[10], GL[5], GL[7]                                                                                                                                                                                                                                    | 14     | 8%        | 62%        |
-|                   | GPT-3               | WL[5], WL[6], WL[7], WL[15], WL[16], WL[23], WL[26], WL[29],<br>WL[31]                                                                                                                                                                                                                                                                | 9      | 5%        |            |
-|                   | GPT-3.5             | WL[5], WL[6], WL[7], WL[16], WL[23], WL[26], WL[29], WL[31]                                                                                                                                                                                                                                                                           | 8      | 5%        |            |
-|                   | GPT-4o              | WL[1], WL[8], WL[9], WL[11], WL[12], WL[25], WL[33]                                                                                                                                                                                                                                                                                   | 7      | 4%        |            |
-|                   | GPT-4o-mini         | WL[1], WL[8], WL[9]                                                                                                                                                                                                                                                                                                                   | 3      | 2%        |            |
-|                   | GPT-2               | WL[5], WL[6]                                                                                                                                                                                                                                                                                                                          | 2      | 1%        |            |
-|                   | GPT-3.4             | WL[15]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
-|                   | GPT-4 Turbo         | WL[24]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
-|                   | Bard                | WL[18], WL[19], WL[29], GL[3], GL[5], GL[9]                                                                                                                                                                                                                                                                                           | 6      | 4%        |            |
-|                   | Gemini              | WL[25], WL[28], GL[9]                                                                                                                                                                                                                                                                                                                 | 3      | 2%        |            |
-| Google's LLM      | Google Bard         | WL[19], WL[29], GL[5]                                                                                                                                                                                                                                                                                                                 | 3      | 2%        |            |
-|                   | Bert                | WL[6]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        | 9%         |
-|                   | Gemini 1.5          | WL[25]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
-|                   | Google Gemini       | WL[28]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
-|                   | LLaMA               | WL[10], WL[11], WL[13], WL[20], WL[36], GL[1], GL[10]                                                                                                                                                                                                                                                                                 | 7      | 4%        |            |
-|                   | LLaMA-3             | GL[10]                                                                                                                                                                                                                                                                                                                                | 2      | 1%        |            |
-|                   | Llama 3.1           | WL[11]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
-| LLaMA             | LLaMA-2             | GL[1]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        | 8%         |
-|                   | Code Llama          | GL[36]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
-|                   | Codellama 13b       | WL[11]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
-|                   | DeepSeek-Coder      | WL[4]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        |            |
-| DeepSeek          | DeepSeek-V2.5       | WL[1]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        | 1%         |
-|                   | CodeQwen            | WL[1] , WL[4]                                                                                                                                                                                                                                                                                                                         | 2      | 1%        |            |
-| CodeQwen          | CodeQwen1.5-7B      | WL[1]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        | 2%         |
-| GitHub Copilot    | Copilot             | WL[28], GL[8], GL[5], GL[6]                                                                                                                                                                                                                                                                                                           | 4      | 2%        | 2%         |
-| Mistral           | Mistral             | GL[1], GL[23]                                                                                                                                                                                                                                                                                                                         | 2      | 1%        | 2%         |
-|                   | Mistral 7b          | WL[23]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
-|                   | T5                  | WL[5], WL[6], WL[36]                                                                                                                                                                                                                                                                                                                  | 3      | 2%        |            |
-|                   | Flan-T5             | WL[5], WL[6]                                                                                                                                                                                                                                                                                                                          | 2      | 1%        |            |
-| T0/T5 Derivatives | T0                  | WL[5], WL[6]                                                                                                                                                                                                                                                                                                                          | 2      | 1%        | 6%         |
-|                   | CodeT5              | WL[36]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
-|                   | CodeWhisperer       | GL[8]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        |            |
-|                   | Adobe Firefly       | GL[6]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        |            |
-|                   | Claude AI           | WL[30]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
-|                   | Codex               | WL[36]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
-|                   | Codium              | GL[5]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        |            |
-| Miscellaneous     | Cursor              | GL[5]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        |            |
-|                   | Falcon              | WL[10]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
-|                   | k8sgpt              | GL[5]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        |            |
-|                   | Mutable.AI          | GL[5]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        | 1%         |
-|                   | N.A                 | WL[22], GL[4]                                                                                                                                                                                                                                                                                                                         | 2      | 1%        |            |
-|                   | Phi-3               | GL[1]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        |            |
-|                   | Replit              | GL[5]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        |            |
-|                   | Robusta ChatGPT bot | GL[5]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        |            |
-|                   | Tabnine             | GL[5]                                                                                                                                                                                                                                                                                                                                 | 1      | 1%        |            |
-|                   | Unknown             | WL[32]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
-|                   | Yi                  | WL[10]                                                                                                                                                                                                                                                                                                                                | 1      | 1%        |            |
+| | GPT | WL[1], WL[2], WL[3], WL[4], WL[5], WL[6], WL[7], WL[8],<br>WL[9], WL[10], WL[11], WL[12], WL[13], WL[14], WL[15],<br>WL[16], WL[17], WL[18], WL[19], WL[20], WL[8], WL[21],<br>WL[23], WL[24], WL[25], WL[26], WL[27], WL[28], WL[29],<br>WL[30], WL[31], WL[33], WL[34], WL[35], GL[2], GL[3], GL[10],<br>GL[5], GL[6], GL[7], GL[9] | 39 | 23% | |
+| | GPT-4 | WL[1], WL[5], WL[6], WL[8], WL[9], WL[11], WL[12], WL[13],<br>WL[14], WL[15], WL[17], WL[18], WL[20], WL[24], WL[25],<br>WL[27], WL[29], WL[30], WL[33] GL[8] | 21 | 13% | |
+| OpenAI | ChatGPT | WL[2], WL[3], WL[4], WL[19], WL[21], WL[28], WL[34], WL[35],<br>GL[2], GL[3], GL[10], GL[5], GL[7] | 14 | 8% | 62% |
+| | GPT-3 | WL[5], WL[6], WL[7], WL[15], WL[16], WL[23], WL[26], WL[29],<br>WL[31] | 9 | 5% | |
+| | GPT-3.5 | WL[5], WL[6], WL[7], WL[16], WL[23], WL[26], WL[29], WL[31] | 8 | 5% | |
+| | GPT-4o | WL[1], WL[8], WL[9], WL[11], WL[12], WL[25], WL[33] | 7 | 4% | |
+| | GPT-4o-mini | WL[1], WL[8], WL[9] | 3 | 2% | |
+| | GPT-2 | WL[5], WL[6] | 2 | 1% | |
+| | GPT-3.4 | WL[15] | 1 | 1% | |
+| | GPT-4 Turbo | WL[24] | 1 | 1% | |
+| | Bard | WL[18], WL[19], WL[29], GL[3], GL[5], GL[9] | 6 | 4% | |
+| | Gemini | WL[25], WL[28], GL[9] | 3 | 2% | |
+| Google's LLM | Google Bard | WL[19], WL[29], GL[5] | 3 | 2% | |
+| | Bert | WL[6] | 1 | 1% | 9% |
+| | Gemini 1.5 | WL[25] | 1 | 1% | |
+| | Google Gemini | WL[28] | 1 | 1% | |
+| | LLaMA | WL[10], WL[11], WL[13], WL[20], WL[36], GL[1], GL[10] | 7 | 4% | |
+| | LLaMA-3 | GL[10] | 2 | 1% | |
+| | Llama 3.1 | WL[11] | 1 | 1% | |
+| LLaMA | LLaMA-2 | GL[1] | 1 | 1% | 8% |
+| | Code Llama | GL[36] | 1 | 1% | |
+| | Codellama 13b | WL[11] | 1 | 1% | |
+| | DeepSeek-Coder | WL[4] | 1 | 1% | |
+| DeepSeek | DeepSeek-V2.5 | WL[1] | 1 | 1% | 1% |
+| | CodeQwen | WL[1] , WL[4] | 2 | 1% | |
+| CodeQwen | CodeQwen1.5-7B | WL[1] | 1 | 1% | 2% |
+| GitHub Copilot | Copilot | WL[28], GL[8], GL[5], GL[6] | 4 | 2% | 2% |
+| Mistral | Mistral | GL[1], GL[23] | 2 | 1% | 2% |
+| | Mistral 7b | WL[23] | 1 | 1% | |
+| | T5 | WL[5], WL[6], WL[36] | 3 | 2% | |
+| | Flan-T5 | WL[5], WL[6] | 2 | 1% | |
+| T0/T5 Derivatives | T0 | WL[5], WL[6] | 2 | 1% | 6% |
+| | CodeT5 | WL[36] | 1 | 1% | |
+| | CodeWhisperer | GL[8] | 1 | 1% | |
+| | Adobe Firefly | GL[6] | 1 | 1% | |
+| | Claude AI | WL[30] | 1 | 1% | |
+| | Codex | WL[36] | 1 | 1% | |
+| | Codium | GL[5] | 1 | 1% | |
+| Miscellaneous | Cursor | GL[5] | 1 | 1% | |
+| | Falcon | WL[10] | 1 | 1% | |
+| | k8sgpt | GL[5] | 1 | 1% | |
+| | Mutable.AI | GL[5] | 1 | 1% | 1% |
+| | N.A | WL[22], GL[4] | 2 | 1% | |
+| | Phi-3 | GL[1] | 1 | 1% | |
+| | Replit | GL[5] | 1 | 1% | |
+| | Robusta ChatGPT bot | GL[5] | 1 | 1% | |
+| | Tabnine | GL[5] | 1 | 1% | |
+| | Unknown | WL[32] | 1 | 1% | |
+| | Yi | WL[10] | 1 | 1% | |
 
 \*One paper can have more than one model
 
 ![](_page_13_Figure_0.jpeg)
 <!-- Image Description: This image is a matrix visualizing the capabilities of various large language models (LLMs). Rows represent model enhancement techniques (fine-tuning, RAG, prompt engineering strategies), and columns list specific LLMs. Colored circles indicate whether each model supports a given technique (e.g., blue for human interaction, orange for zero-shot learning, green for fine-tuning). The purpose is to compare and contrast the features and capabilities of different LLMs. -->
 
-Figure 4: How GenAI is used
+**Figure 4:** How GenAI is used
 
 The distribution of studies indicates that the significant use of LLMs is at the beginning of the SALC, e.g., during requirement analysis as well as architectural design, with less effort going toward changing or reorganizing existing architectures.
 
-# RQ2.<sup>1</sup> (SALC Phases)
+## RQ2.<sup>1</sup> (SALC Phases)
 
 LLMs are most frequently applied in the Requirement-to-Architecture (40%) and Architecture-to-Code (32%) transitions, while Architecture-to-Architecture (3%) is the least explored.
 
@@ -627,13 +617,13 @@ Similarly, studies that perform architectural reconstruction rely on LLM to achi
 <span id="page-14-0"></span>![](_page_14_Figure_0.jpeg)
 <!-- Image Description: This Sankey diagram illustrates the flow of contributions from various large language models (LLMs) to different software development tasks. The width of each colored band represents the number of contributions from a specific LLM (e.g., OpenAI, Google's LLM) to a particular task (e.g., Req-to-Arch, Arch-to-Code). The diagram visually displays the relative contribution of each LLM to different stages of software development, allowing for a comparison of their strengths and focuses. -->
 
-Figure 5: Sankey Plot connecting LLM Models to SALC Phase
+**Figure 5:** Sankey Plot connecting LLM Models to SALC Phase
 
 6. RQ2.<sup>3</sup> (Quality & Maintenance Tasks)
 
 38% of studies use LLMs for antipattern detection, refactoring (WL[\[17\]](#page-24-13), WL[\[32\]](#page-24-5)), and architectural reconstruction (WL[\[16\]](#page-24-6), WL[\[27\]](#page-24-22)). Few integrate external tools, suggesting that LLMs are replacing traditional recovery methods.
 
-# 3.4. Architecture Modeling and Validation Methods (RQ2.4)
+## 3.4. Architecture Modeling and Validation Methods (RQ2.4)
 
 Similarly to programming languages, we can represent SA via many architectural languages (AL). Among such AL, UML (Unified Modeling Language) is most commonly applied as a notation in 17% (8) of the studies (Table [16](#page-16-0) - RQ2.2) thus assessing UML as the still dominant modeling language for studies studying LLM due to its versatility in software design and architecture documentation [\[24\]](#page-23-29). For example, WL[\[33\]](#page-24-26) used LLM to generate UML component diagrams from informal specifications.
 
@@ -645,57 +635,56 @@ On the topic of architectural design language, five studies reported using some 
 
 93% (43) of the studies report that no information was provided on the LLM model output validation techniques (Table [18](#page-16-2) - RQ2.4) while only three of them report how they evaluated the LLM model output. In particular, WL[\[10\]](#page-24-7) used ATAM (Architecture Tradeoff Analysis Method), while WL[\[2\]](#page-23-25) used SAAM (Software Architecture
 
-| Table 13: How GenAI is used (RQ1.3) |  |  |  |  |  |
+| **Table 13:** How GenAI is used (RQ1.3) | | | | | |
 |-------------------------------------|--|--|--|--|--|
 |-------------------------------------|--|--|--|--|--|
 
-<span id="page-15-0"></span>
 
-|                               | Code                | PaperID                                                                                                                                                                                                                                                                                                                                                                             | Count* | %   |
+| | Code | PaperID | Count* | % |
 |-------------------------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|-----|
-| Engineering<br>Prompt         | Few-Shot            | WL[1], WL[4], WL[5], WL[7],<br>WL[9], WL[12], WL[13], WL[14],<br>WL[17],<br>WL[18],<br>WL[20],<br>WL[25], WL[30], WL[33], GL[5],<br>GL[8]                                                                                                                                                                                                                                           | 16     | 31% |
-|                               | Unspecified         | WL[10],<br>WL[10],<br>WL[21],<br>WL[24], WL[28], WL[32], GL[1],<br>GL[2],<br>GL[3],<br>GL[4],<br>GL[6],<br>GL[7], GL[9]                                                                                                                                                                                                                                                             | 13     | 25% |
-|                               | None                | WL[2], WL[3], WL[6], WL[15],<br>WL[16],<br>WL[19],<br>WL[22],<br>WL[23],<br>WL[26],<br>WL[27],<br>WL[29], WL[34]                                                                                                                                                                                                                                                                    | 12     | 23% |
-|                               | Zero-Shot           | WL[4], WL[5], WL[7], WL[30],<br>WL[31], GL[5]                                                                                                                                                                                                                                                                                                                                       | 6      | 12% |
-|                               | Chain-of<br>Thought | WL[8], WL[11], WL[35], GL[36]                                                                                                                                                                                                                                                                                                                                                       | 4      | 8%  |
-|                               | One-Shot            | WL[30]                                                                                                                                                                                                                                                                                                                                                                              | 1      | 2%  |
-| Enhancements                  | Unspecified         | WL[1], WL[8], WL[9], WL[11],<br>WL[12],<br>WL[13],<br>WL[14],<br>WL[17],<br>WL[18],<br>WL[21],<br>WL[25],<br>WL[28],<br>WL[30],<br>WL[36],<br>WL[29],<br>WL[31],<br>WL[32], WL[33], GL[2], GL[3],<br>GL[6], GL[7], GL[8], GL[9]                                                                                                                                                     | 24     | 48% |
-|                               | RAG                 | WL[6], WL[7], WL[10], WL[20],<br>WL[23], WL[24], GL[1], GL[4],<br>GL[10], GL[5]                                                                                                                                                                                                                                                                                                     | 10     | 20% |
-| Model                         | None                | WL[2], WL[3], WL[15], WL[16],<br>WL[19],<br>WL[22],<br>WL[26],<br>WL[27], WL[34]                                                                                                                                                                                                                                                                                                    | 9      | 18% |
-|                               | Fine-Tuning         | WL[4], WL[5], WL[6], WL[35],<br>GL[1], GL[5]                                                                                                                                                                                                                                                                                                                                        | 6      | 12% |
-|                               | Proprietary<br>RAG  | GL[4]                                                                                                                                                                                                                                                                                                                                                                               | 1      | 2%  |
-| Interaction<br>Model<br>Human | Yes                 | WL[1], WL[2], WL[4], WL[6],<br>WL[7], WL[8], WL[9], WL[10],<br>WL[11],<br>WL[12],<br>WL[13],<br>WL[14],<br>WL[15],<br>WL[16],<br>WL[17],<br>WL[18],<br>WL[19],<br>WL[20],<br>WL[21],<br>WL[22],<br>WL[23],<br>WL[24],<br>WL[25],<br>WL[27],<br>WL[28],<br>WL[30],<br>WL[31],<br>WL[32],<br>WL[33],<br>WL[34], WL[35], GL[1], GL[2],<br>GL[3], GL[6], GL[10], GL[7],<br>GL[8], GL[9] | 39     | 85% |
-|                               | No                  | WL[3], WL[5], WL[26], WL[36],<br>WL[29], GL[4], GL[5]                                                                                                                                                                                                                                                                                                                               | 7      | 15% |
-|                               | Model used as-is    | WL[2], WL[3], WL[6], WL[15],<br>WL[16],<br>WL[19],<br>WL[22],<br>WL[23],<br>WL[26],<br>WL[27],<br>WL[29], WL[34]                                                                                                                                                                                                                                                                    | 12     | 26% |
+| Engineering<br>Prompt | Few-Shot | WL[1], WL[4], WL[5], WL[7],<br>WL[9], WL[12], WL[13], WL[14],<br>WL[17],<br>WL[18],<br>WL[20],<br>WL[25], WL[30], WL[33], GL[5],<br>GL[8] | 16 | 31% |
+| | Unspecified | WL[10],<br>WL[10],<br>WL[21],<br>WL[24], WL[28], WL[32], GL[1],<br>GL[2],<br>GL[3],<br>GL[4],<br>GL[6],<br>GL[7], GL[9] | 13 | 25% |
+| | None | WL[2], WL[3], WL[6], WL[15],<br>WL[16],<br>WL[19],<br>WL[22],<br>WL[23],<br>WL[26],<br>WL[27],<br>WL[29], WL[34] | 12 | 23% |
+| | Zero-Shot | WL[4], WL[5], WL[7], WL[30],<br>WL[31], GL[5] | 6 | 12% |
+| | Chain-of<br>Thought | WL[8], WL[11], WL[35], GL[36] | 4 | 8% |
+| | One-Shot | WL[30] | 1 | 2% |
+| Enhancements | Unspecified | WL[1], WL[8], WL[9], WL[11],<br>WL[12],<br>WL[13],<br>WL[14],<br>WL[17],<br>WL[18],<br>WL[21],<br>WL[25],<br>WL[28],<br>WL[30],<br>WL[36],<br>WL[29],<br>WL[31],<br>WL[32], WL[33], GL[2], GL[3],<br>GL[6], GL[7], GL[8], GL[9] | 24 | 48% |
+| | RAG | WL[6], WL[7], WL[10], WL[20],<br>WL[23], WL[24], GL[1], GL[4],<br>GL[10], GL[5] | 10 | 20% |
+| Model | None | WL[2], WL[3], WL[15], WL[16],<br>WL[19],<br>WL[22],<br>WL[26],<br>WL[27], WL[34] | 9 | 18% |
+| | Fine-Tuning | WL[4], WL[5], WL[6], WL[35],<br>GL[1], GL[5] | 6 | 12% |
+| | Proprietary<br>RAG | GL[4] | 1 | 2% |
+| Interaction<br>Model<br>Human | Yes | WL[1], WL[2], WL[4], WL[6],<br>WL[7], WL[8], WL[9], WL[10],<br>WL[11],<br>WL[12],<br>WL[13],<br>WL[14],<br>WL[15],<br>WL[16],<br>WL[17],<br>WL[18],<br>WL[19],<br>WL[20],<br>WL[21],<br>WL[22],<br>WL[23],<br>WL[24],<br>WL[25],<br>WL[27],<br>WL[28],<br>WL[30],<br>WL[31],<br>WL[32],<br>WL[33],<br>WL[34], WL[35], GL[1], GL[2],<br>GL[3], GL[6], GL[10], GL[7],<br>GL[8], GL[9] | 39 | 85% |
+| | No | WL[3], WL[5], WL[26], WL[36],<br>WL[29], GL[4], GL[5] | 7 | 15% |
+| | Model used as-is | WL[2], WL[3], WL[6], WL[15],<br>WL[16],<br>WL[19],<br>WL[22],<br>WL[23],<br>WL[26],<br>WL[27],<br>WL[29], WL[34] | 12 | 26% |
 
 \*One paper can have more than one usage
 
 Analysis Method) and WL[\[21\]](#page-24-17) used static analysis. Hence, our findings suggest that formal assessment methods are still not in common practice, and most studies do not explicitly validate their AI-generated architectural designs.
 
-<span id="page-15-1"></span>Table 14: Use of LLMs in the Software Architecture Life Cycle - (RQ2.1)
+<span id="page-15-1"></span>**Table 14:** Use of LLMs in the Software Architecture Life Cycle - (RQ2.1)
 
-| Code                | PaperID                                                                                                                                                                                                                      | Count* | %   |
+| Code | PaperID | Count* | % |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|-----|
-| Req-to-Arch         | WL[2], WL[3], WL[5], WL[6],<br>WL[7],<br>WL[10],<br>WL[13],<br>WL[15],<br>WL[17],<br>WL[18],<br>WL[22],<br>WL[23],<br>WL[32],<br>WL[33],<br>WL[34],<br>WL[35],<br>GL[2], GL[3], GL[10], GL[5],<br>GL[6], GL[7], GL[8], GL[9] | 24     | 40% |
-| Arch-to-Code        | WL[1], WL[4], WL[9], WL[11],<br>WL[12],<br>WL[14],<br>WL[8],<br>WL[21],<br>WL[22],<br>WL[28],<br>WL[30],<br>WL[36],<br>WL[31],<br>WL[35], GL[1], GL[3], GL[5],<br>GL[6], GL[7]                                               | 19     | 32% |
-| Code-to-Arch        | WL[8],<br>WL[16],<br>WL[19],<br>WL[24],<br>WL[26],<br>WL[27],<br>WL[29], GL[4]                                                                                                                                               | 8      | 13% |
-| Req-to-Arch-to-Code | WL[22], WL[35], GL[3], GL[5],<br>GL[6], GL[7], GL[8]                                                                                                                                                                         | 7      | 12% |
-| Arch-to-Arch        | WL[20], WL[25]                                                                                                                                                                                                               | 2      | 3%  |
+| Req-to-Arch | WL[2], WL[3], WL[5], WL[6],<br>WL[7],<br>WL[10],<br>WL[13],<br>WL[15],<br>WL[17],<br>WL[18],<br>WL[22],<br>WL[23],<br>WL[32],<br>WL[33],<br>WL[34],<br>WL[35],<br>GL[2], GL[3], GL[10], GL[5],<br>GL[6], GL[7], GL[8], GL[9] | 24 | 40% |
+| Arch-to-Code | WL[1], WL[4], WL[9], WL[11],<br>WL[12],<br>WL[14],<br>WL[8],<br>WL[21],<br>WL[22],<br>WL[28],<br>WL[30],<br>WL[36],<br>WL[31],<br>WL[35], GL[1], GL[3], GL[5],<br>GL[6], GL[7] | 19 | 32% |
+| Code-to-Arch | WL[8],<br>WL[16],<br>WL[19],<br>WL[24],<br>WL[26],<br>WL[27],<br>WL[29], GL[4] | 8 | 13% |
+| Req-to-Arch-to-Code | WL[22], WL[35], GL[3], GL[5],<br>GL[6], GL[7], GL[8] | 7 | 12% |
+| Arch-to-Arch | WL[20], WL[25] | 2 | 3% |
 
 \*One paper can have more than one purpose
 
-<span id="page-15-2"></span>Table 15: Use of LLMs for Architectural Style and Patterns - (RQ2.2)
+<span id="page-15-2"></span>**Table 15:** Use of LLMs for Architectural Style and Patterns - (RQ2.2)
 
-| Code                       | PaperID                                                                                                                                                                                                                                                                                                                      | Count* | %   |
+| Code | PaperID | Count* | % |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|-----|
-| Unspecified                | WL[2],<br>WL[5],<br>WL[6],<br>WL[7],<br>WL[8],<br>WL[10],<br>WL[11],<br>WL[13],<br>WL[14],<br>WL[16],<br>WL[17],<br>WL[18],<br>WL[20],<br>WL[8],<br>WL[22],<br>WL[23],<br>WL[24],<br>WL[25],<br>WL[28],<br>WL[36],<br>WL[31],<br>WL[33],<br>WL[34],<br>WL[35],<br>GL[1], GL[2], GL[3], GL[10],<br>GL[5], GL[6], GL[7], GL[9] | 32     | 68% |
-| Monolithic                 | WL[15],<br>WL[19],<br>WL[26],<br>WL[27],<br>WL[29],<br>WL[30],<br>GL[4]                                                                                                                                                                                                                                                      | 7      | 15% |
-| Microservices              | WL[3], WL[9], WL[21]                                                                                                                                                                                                                                                                                                         | 3      | 6%  |
-| Design Patterns            | WL[32]                                                                                                                                                                                                                                                                                                                       | 1      | 2%  |
-| Layered Architecture       | WL[27]                                                                                                                                                                                                                                                                                                                       | 1      | 2%  |
-| Model-Based Architecture   | WL[12]                                                                                                                                                                                                                                                                                                                       | 1      | 2%  |
-| Self-Adaptive Architecture | WL[1]                                                                                                                                                                                                                                                                                                                        | 1      | 2%  |
-| Serverless                 | WL[4]                                                                                                                                                                                                                                                                                                                        | 1      | 2 % |
+| Unspecified | WL[2],<br>WL[5],<br>WL[6],<br>WL[7],<br>WL[8],<br>WL[10],<br>WL[11],<br>WL[13],<br>WL[14],<br>WL[16],<br>WL[17],<br>WL[18],<br>WL[20],<br>WL[8],<br>WL[22],<br>WL[23],<br>WL[24],<br>WL[25],<br>WL[28],<br>WL[36],<br>WL[31],<br>WL[33],<br>WL[34],<br>WL[35],<br>GL[1], GL[2], GL[3], GL[10],<br>GL[5], GL[6], GL[7], GL[9] | 32 | 68% |
+| Monolithic | WL[15],<br>WL[19],<br>WL[26],<br>WL[27],<br>WL[29],<br>WL[30],<br>GL[4] | 7 | 15% |
+| Microservices | WL[3], WL[9], WL[21] | 3 | 6% |
+| Design Patterns | WL[32] | 1 | 2% |
+| Layered Architecture | WL[27] | 1 | 2% |
+| Model-Based Architecture | WL[12] | 1 | 2% |
+| Self-Adaptive Architecture | WL[1] | 1 | 2% |
+| Serverless | WL[4] | 1 | 2 % |
 
 \*One paper can have more than one use of LLMs
 
@@ -703,59 +692,58 @@ Analysis Method) and WL[\[21\]](#page-24-17) used static analysis. Hence, our fi
 
 The most used architecture modeling language is UML (17%), while alternatives (2% each) remain underexplored. Most studies (74%) lack formal architectural modeling and (87%) do not contain information on the use of MDE. ATAM, SAAM, and static analysis are the only validation methods reported, while 93% of the studies do not report any evaluation strategy, indicating a lack of systematic validation for AI-generated architectural output.
 
-# 3.5. Generative AI for Software Architecture: In which cases (RQ2.5)
+## 3.5. Generative AI for Software Architecture: In which cases (RQ2.5)
 
 This subsection presents the specific use cases in which GeneAI has been applied to the software architecture. We
 
-Table 16: Architectural Modelling Language - (RQ2.2)
+**Table 16:** Architectural Modelling Language - (RQ2.2)
 
-<span id="page-16-0"></span>
 
-| Code            | PaperID                                                                                                                                                                                                                                                                                                            | Count* | %   |
+| Code | PaperID | Count* | % |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|-----|
-| Unspecified     | WL[1],<br>WL[3],<br>WL[4],<br>WL[6],<br>WL[7],<br>WL[8],<br>WL[9],<br>WL[10],<br>WL[11], WL[12], WL[14], WL[16],<br>WL[17], WL[19], WL[20], WL[21],<br>WL[23], WL[24], WL[25], WL[26],<br>WL[27], WL[28], WL[36], WL[29],<br>WL[30], WL[31], WL[32], GL[1],<br>GL[2], GL[10], GL[5], GL[6], GL[7],<br>GL[8], GL[9] | 35     | 74% |
-| UML             | WL[2], WL[15], WL[18], WL[22],<br>WL[33], WL[34], WL[35], GL[3]                                                                                                                                                                                                                                                    | 8      | 17% |
-| ADR             | WL[5]                                                                                                                                                                                                                                                                                                              | 1      | 2%  |
-| C4              | WL[15]                                                                                                                                                                                                                                                                                                             | 1      | 2%  |
-| Knowledge Graph | GL[4]                                                                                                                                                                                                                                                                                                              | 1      | 2%  |
-| SysML           | WL[13]                                                                                                                                                                                                                                                                                                             | 1      | 2%  |
+| Unspecified | WL[1],<br>WL[3],<br>WL[4],<br>WL[6],<br>WL[7],<br>WL[8],<br>WL[9],<br>WL[10],<br>WL[11], WL[12], WL[14], WL[16],<br>WL[17], WL[19], WL[20], WL[21],<br>WL[23], WL[24], WL[25], WL[26],<br>WL[27], WL[28], WL[36], WL[29],<br>WL[30], WL[31], WL[32], GL[1],<br>GL[2], GL[10], GL[5], GL[6], GL[7],<br>GL[8], GL[9] | 35 | 74% |
+| UML | WL[2], WL[15], WL[18], WL[22],<br>WL[33], WL[34], WL[35], GL[3] | 8 | 17% |
+| ADR | WL[5] | 1 | 2% |
+| C4 | WL[15] | 1 | 2% |
+| Knowledge Graph | GL[4] | 1 | 2% |
+| SysML | WL[13] | 1 | 2% |
 
 <span id="page-16-1"></span>\*One paper can have more than one language
 
-Table 17: Model-Driven Engineering (MDE) - (RQ2.2)
+**Table 17:** Model-Driven Engineering (MDE) - (RQ2.2)
 
-| Code                                        | PaperID                                                                                                                                                                                                                                                                                                                                                                                  | Count | %   |
+| Code | PaperID | Count | % |
 |---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|-----|
-| Unspecified                                 | WL[2],<br>WL[3],<br>WL[4],<br>WL[5],<br>WL[6],<br>WL[7],<br>WL[8],<br>WL[9],<br>WL[10],<br>WL[11], WL[13], WL[14],<br>WL[15], WL[16], WL[36],<br>WL[18], WL[19], WL[20],<br>WL[21], WL[22], WL[23],<br>WL[24], WL[27], WL[28],<br>WL[29], WL[30], WL[31],<br>WL[33], WL[34], WL[35],<br>GL[1],<br>GL[2],<br>GL[3],<br>GL[4],<br>GL[10],<br>GL[5],<br>GL[6],<br>GL[7],<br>GL[8],<br>GL[9] | 40    | 87% |
-| IoT Architecture Generation                 | WL[1]                                                                                                                                                                                                                                                                                                                                                                                    | 1     | 2%  |
-| Low-code Platform<br>Consistency            | WL[12]                                                                                                                                                                                                                                                                                                                                                                                   | 1     | 2%  |
-| Component<br>Diagram<br>UML<br>Generation   | WL[32]                                                                                                                                                                                                                                                                                                                                                                                   | 1     | 2%  |
-| Source Code to Architecture<br>Mapping      | WL[17]                                                                                                                                                                                                                                                                                                                                                                                   | 1     | 2%  |
-| Conformance<br>Architectural<br>Recommender | WL[25]                                                                                                                                                                                                                                                                                                                                                                                   | 1     | 2%  |
-| Deductive Software<br>Architecture Recovery | WL[26]                                                                                                                                                                                                                                                                                                                                                                                   | 1     | 2%  |
+| Unspecified | WL[2],<br>WL[3],<br>WL[4],<br>WL[5],<br>WL[6],<br>WL[7],<br>WL[8],<br>WL[9],<br>WL[10],<br>WL[11], WL[13], WL[14],<br>WL[15], WL[16], WL[36],<br>WL[18], WL[19], WL[20],<br>WL[21], WL[22], WL[23],<br>WL[24], WL[27], WL[28],<br>WL[29], WL[30], WL[31],<br>WL[33], WL[34], WL[35],<br>GL[1],<br>GL[2],<br>GL[3],<br>GL[4],<br>GL[10],<br>GL[5],<br>GL[6],<br>GL[7],<br>GL[8],<br>GL[9] | 40 | 87% |
+| IoT Architecture Generation | WL[1] | 1 | 2% |
+| Low-code Platform<br>Consistency | WL[12] | 1 | 2% |
+| Component<br>Diagram<br>UML<br>Generation | WL[32] | 1 | 2% |
+| Source Code to Architecture<br>Mapping | WL[17] | 1 | 2% |
+| Conformance<br>Architectural<br>Recommender | WL[25] | 1 | 2% |
+| Deductive Software<br>Architecture Recovery | WL[26] | 1 | 2% |
 
 examine the types of systems analyzed, the domains in which LLMs are deployed, and the programming languages associated with these use cases. Table [19](#page-17-0) presents the use cases and systems addressed in the research papers that apply GenAI to software architecture. According to Table [19,](#page-17-0) Requirements and Architectural Snippets are the most common subjects, appearing in 15% (7) of research papers, which indicates that LLMs are widely tested in fragments of architectural information WL[\[6\]](#page-23-28), WL[\[23\]](#page-24-18). Enterprise and Property Software and IoT, and Smart Systems also attract significant interest, indicating applications in industrial and network environments. For example, WL[\[30\]](#page-24-25) used LLMs to reengineer a legacy system at Volvo Group. Since it is challenging to retrieve large-scale open source systems or to evaluate prioritized mobile applications and embedded systems, our findings evidenced that such do-
 
-<span id="page-16-2"></span>Table 18: Architecture Analysis Method - Adopted Generative AI Outputs Validation Methods - (RQ2.3)
+<span id="page-16-2"></span>**Table 18:** Architecture Analysis Method - Adopted Generative AI Outputs Validation Methods - (RQ2.3)
 
-| Code            | PaperID                       | Count | %   |
+| Code | PaperID | Count | % |
 |-----------------|-------------------------------|-------|-----|
-| Unspecified     | WL[1], WL[3], WL[4], WL[5],   | 43    | 93% |
-|                 | WL[6], WL[7], WL[8], WL[9],   |       |     |
-|                 | WL[11],<br>WL[12],<br>WL[13], |       |     |
-|                 | WL[14],<br>WL[15],<br>WL[16], |       |     |
-|                 | WL[17],<br>WL[18],<br>WL[19], |       |     |
-|                 | WL[20],<br>WL[22],<br>WL[23], |       |     |
-|                 | WL[24],<br>WL[25],<br>WL[26], |       |     |
-|                 | WL[27],<br>WL[28],<br>WL[36], |       |     |
-|                 | WL[29],<br>WL[30],<br>WL[31], |       |     |
-|                 | WL[32],<br>WL[33],<br>WL[34], |       |     |
-|                 | WL[35], GL[1], GL[2], GL[3],  |       |     |
-|                 | GL[4], GL[10], GL[5], GL[6],  |       |     |
-|                 | GL[7], GL[8], GL[9]           |       |     |
-| ATAM            | WL[10]                        | 1     | 2%  |
-| SAAM            | WL[2]                         | 1     | 2%  |
-| Static Analysis | WL[21]                        | 1     | 2%  |
+| Unspecified | WL[1], WL[3], WL[4], WL[5], | 43 | 93% |
+| | WL[6], WL[7], WL[8], WL[9], | | |
+| | WL[11],<br>WL[12],<br>WL[13], | | |
+| | WL[14],<br>WL[15],<br>WL[16], | | |
+| | WL[17],<br>WL[18],<br>WL[19], | | |
+| | WL[20],<br>WL[22],<br>WL[23], | | |
+| | WL[24],<br>WL[25],<br>WL[26], | | |
+| | WL[27],<br>WL[28],<br>WL[36], | | |
+| | WL[29],<br>WL[30],<br>WL[31], | | |
+| | WL[32],<br>WL[33],<br>WL[34], | | |
+| | WL[35], GL[1], GL[2], GL[3], | | |
+| | GL[4], GL[10], GL[5], GL[6], | | |
+| | GL[7], GL[8], GL[9] | | |
+| ATAM | WL[10] | 1 | 2% |
+| SAAM | WL[2] | 1 | 2% |
+| Static Analysis | WL[21] | 1 | 2% |
 
 mains are underrepresented in our study. For example, GL[\[1\]](#page-25-3) experimented with RAG to evaluate green software patterns starting from architectural documents from Instagram, WhatsApp, Dropbox, Uber, and Netflix. Similarly, WL[\[27\]](#page-24-22) investigated the architectural reconstruction of an Android app. Finally, 38% (18) of the research articles did not specify a precise use case, that is, position or vision articles.
 
@@ -763,63 +751,62 @@ Table [20](#page-17-1) presents the programming languages of the use cases exami
 
 A significant 58% (30) of the articles did not report the programming language of the use case, and this is an area of reporting that hinders the measurement of LLM uptake by the technology stacks. The presence of legacy languages such as COBOL (1; 2%) suggests that there is research on legacy systems, but only in a very limited subset of cases. These results show that although Java is the most mentioned language, there is no domination of any language, and the granularity of implementation decision details differs among studies.
 
-# RQ2.<sup>5</sup> (Use Cases)
+## RQ2.<sup>5</sup> (Use Cases)
 
 LLMs are most frequently applied to architectural requirements and snippets (15%), with notable usage in enterprise software and IoT systems (8%), while large-scale, mobile, and embedded systems are less explored. Moreover, Java (13%) is the language most commonly used in LLM-driven architectural studies, but 58% of the studies do not specify a programming language, highlighting a gap in reporting on implementation details.
 
-|  |  |  |  |  |  | Table 19: Use Cases and Systems Analyzed - (RQ2.5) |  |  |  |
+| | | | | | | **Table 19:** Use Cases and Systems Analyzed - (RQ2.5) | | | |
 |--|--|--|--|--|--|----------------------------------------------------|--|--|--|
 |--|--|--|--|--|--|----------------------------------------------------|--|--|--|
 
-<span id="page-17-0"></span>
 
-| Category                                                                                                | PaperID                                                                                                                                                                | Count* | %   |
+| Category | PaperID | Count* | % |
 |---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|-----|
-| Unspecified                                                                                             | WL[7],<br>WL[8],<br>WL[10],<br>WL[14],<br>WL[15],<br>WL[19],<br>WL[22],<br>WL[24],<br>WL[36],<br>WL[32], GL[2], GL[3], GL[4],<br>GL[10], GL[5], GL[6], GL[7],<br>GL[8] | 18     | 38% |
-| Requirement and Architectural Snippets                                                                  | WL[3], WL[4], WL[5], WL[6],<br>WL[23], WL[29], WL[26]                                                                                                                  | 7      | 15% |
-| Social Media and Large-Scale Systems                                                                    | GL[1]                                                                                                                                                                  | 1      | 2%  |
-| Architectural documents of Instagram, WhatsApp, Dropbox, Uber, Netflix                                  |                                                                                                                                                                        |        |     |
-| Educational and Research Platforms                                                                      | WL[11]                                                                                                                                                                 | 1      | 2%  |
-| BigBlueButton, JabRef, TEAMMATES, TeaStore                                                              |                                                                                                                                                                        |        |     |
-| Cloud and Open-Source Solutions                                                                         | WL[31],<br>WL[11],<br>WL[20],<br>GL[9]                                                                                                                                 | 4      | 8%  |
-| Google Jump-Start Solution, Hadoop HDFS, MediaStore, Multiple Open-Source Projects                      |                                                                                                                                                                        |        |     |
-| IoT and Smart Systems                                                                                   | WL[25],<br>WL[1],<br>WL[18],<br>WL[13]                                                                                                                                 | 4      | 8%  |
-| IoT Reference Architectures, Smart City IoT System, Smartwatch App, Remote-Controlled Autonomous Car    |                                                                                                                                                                        |        |     |
-| Mobile and Layered Applications                                                                         | WL[27]                                                                                                                                                                 | 1      | 2%  |
-| Layered App (Android)                                                                                   |                                                                                                                                                                        |        |     |
-| Low-Code and Microservices Architectures                                                                | WL[12], WL[9], WL[21]                                                                                                                                                  | 3      | 6%  |
-| Low-Code Development Platforms, Microservices in GitHub, TrainTicket Microservice Benchmark             |                                                                                                                                                                        |        |     |
-| Monolithic and Traditional Architectures                                                                | WL[2]                                                                                                                                                                  | 1      | 2%  |
-| Monolithic, Single Component                                                                            |                                                                                                                                                                        |        |     |
-| Enterprise and Proprietary Software                                                                     | WL[17],<br>WL[28],<br>WL[35],<br>WL[30]                                                                                                                                | 4      | 8%  |
-| Proprietary Enterprise Scenarios, Ordering System, SuperFrog Scheduler, Volvo SCORE System              |                                                                                                                                                                        |        |     |
-| Requirement Snippets, Snippets of Code, Snippet of Architectural Design Records, Architectural Snippets |                                                                                                                                                                        |        |     |
-| Automotive and Embedded Systems                                                                         | WL[16]                                                                                                                                                                 | 1      | 2%  |
-| PX4 (Drone Software)                                                                                    |                                                                                                                                                                        |        |     |
-| Text-Based and Specialized Systems                                                                      | WL[34], WL[33]                                                                                                                                                         | 2      | 4%  |
-| Text/Aviation System, Software Engineering Exam Traces                                                  |                                                                                                                                                                        |        |     |
+| Unspecified | WL[7],<br>WL[8],<br>WL[10],<br>WL[14],<br>WL[15],<br>WL[19],<br>WL[22],<br>WL[24],<br>WL[36],<br>WL[32], GL[2], GL[3], GL[4],<br>GL[10], GL[5], GL[6], GL[7],<br>GL[8] | 18 | 38% |
+| Requirement and Architectural Snippets | WL[3], WL[4], WL[5], WL[6],<br>WL[23], WL[29], WL[26] | 7 | 15% |
+| Social Media and Large-Scale Systems | GL[1] | 1 | 2% |
+| Architectural documents of Instagram, WhatsApp, Dropbox, Uber, Netflix | | | |
+| Educational and Research Platforms | WL[11] | 1 | 2% |
+| BigBlueButton, JabRef, TEAMMATES, TeaStore | | | |
+| Cloud and Open-Source Solutions | WL[31],<br>WL[11],<br>WL[20],<br>GL[9] | 4 | 8% |
+| Google Jump-Start Solution, Hadoop HDFS, MediaStore, Multiple Open-Source Projects | | | |
+| IoT and Smart Systems | WL[25],<br>WL[1],<br>WL[18],<br>WL[13] | 4 | 8% |
+| IoT Reference Architectures, Smart City IoT System, Smartwatch App, Remote-Controlled Autonomous Car | | | |
+| Mobile and Layered Applications | WL[27] | 1 | 2% |
+| Layered App (Android) | | | |
+| Low-Code and Microservices Architectures | WL[12], WL[9], WL[21] | 3 | 6% |
+| Low-Code Development Platforms, Microservices in GitHub, TrainTicket Microservice Benchmark | | | |
+| Monolithic and Traditional Architectures | WL[2] | 1 | 2% |
+| Monolithic, Single Component | | | |
+| Enterprise and Proprietary Software | WL[17],<br>WL[28],<br>WL[35],<br>WL[30] | 4 | 8% |
+| Proprietary Enterprise Scenarios, Ordering System, SuperFrog Scheduler, Volvo SCORE System | | | |
+| Requirement Snippets, Snippets of Code, Snippet of Architectural Design Records, Architectural Snippets | | | |
+| Automotive and Embedded Systems | WL[16] | 1 | 2% |
+| PX4 (Drone Software) | | | |
+| Text-Based and Specialized Systems | WL[34], WL[33] | 2 | 4% |
+| Text/Aviation System, Software Engineering Exam Traces | | | |
 
 <span id="page-17-1"></span>\*One paper can have more than one use case
 
-Table 20: Use Case Programming Language - (RQ2.5)
+**Table 20:** Use Case Programming Language - (RQ2.5)
 
-| Code            | PaperID                                                                                                                                                                                                                                                                                  | Count | %   |
+| Code | PaperID | Count | % |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|-----|
-| Unspecified     | WL[1], WL[7], WL[8], WL[9], WL[10],<br>WL[11],<br>WL[12],<br>WL[13],<br>WL[14],<br>WL[15],<br>WL[17],<br>WL[18],<br>WL[19],<br>WL[8],<br>WL[22],<br>WL[24],<br>WL[25],<br>WL[36],<br>WL[30],<br>WL[31],<br>WL[32],<br>WL[33], GL[1], GL[2], GL[3], GL[10],<br>GL[5], GL[6], GL[7], GL[9] | 30    | 58% |
-| Java            | WL[20],<br>WL[21],<br>WL[26],<br>WL[27],<br>WL[28], WL[29], WL[4]                                                                                                                                                                                                                        | 7     | 13% |
-| Nature Language | WL[3], WL[5], WL[6], WL[23]                                                                                                                                                                                                                                                              | 4     | 8%  |
-| JavaScript      | WL[28], WL[4]                                                                                                                                                                                                                                                                            | 2     | 4%  |
-| Python          | WL[35], WL[4]                                                                                                                                                                                                                                                                            | 2     | 4%  |
-| UML             | WL[2], WL[34]                                                                                                                                                                                                                                                                            | 2     | 4%  |
-| C++             | WL[16]                                                                                                                                                                                                                                                                                   | 1     | 2%  |
-| COBOL           | GL[4]                                                                                                                                                                                                                                                                                    | 1     | 2%  |
-| Node.js         | WL[28]                                                                                                                                                                                                                                                                                   | 1     | 2%  |
-| React           | WL[28]                                                                                                                                                                                                                                                                                   | 1     | 2%  |
-| TypeScript      | WL[4]                                                                                                                                                                                                                                                                                    | 1     | 2%  |
+| Unspecified | WL[1], WL[7], WL[8], WL[9], WL[10],<br>WL[11],<br>WL[12],<br>WL[13],<br>WL[14],<br>WL[15],<br>WL[17],<br>WL[18],<br>WL[19],<br>WL[8],<br>WL[22],<br>WL[24],<br>WL[25],<br>WL[36],<br>WL[30],<br>WL[31],<br>WL[32],<br>WL[33], GL[1], GL[2], GL[3], GL[10],<br>GL[5], GL[6], GL[7], GL[9] | 30 | 58% |
+| Java | WL[20],<br>WL[21],<br>WL[26],<br>WL[27],<br>WL[28], WL[29], WL[4] | 7 | 13% |
+| Nature Language | WL[3], WL[5], WL[6], WL[23] | 4 | 8% |
+| JavaScript | WL[28], WL[4] | 2 | 4% |
+| Python | WL[35], WL[4] | 2 | 4% |
+| UML | WL[2], WL[34] | 2 | 4% |
+| C++ | WL[16] | 1 | 2% |
+| COBOL | GL[4] | 1 | 2% |
+| Node.js | WL[28] | 1 | 2% |
+| React | WL[28] | 1 | 2% |
+| TypeScript | WL[4] | 1 | 2% |
 
 \*One paper can have more than one Programming Language
 
-# 4. Generative AI for Software Architecture: Future Challenges (RQ3)
+## 4. Generative AI for Software Architecture: Future Challenges (RQ3)
 
 This subsection presents key challenges identified in the original studies, highlighting limitations in model reliability, ethical concerns, quality of AI-generated outputs, and practical integration issues, which need to be addressed for broader adoption.
 
@@ -843,30 +830,29 @@ LLM accuracy (16%), hallucinations (9%), and ethical concerns (7%) dominate, alo
 
 This section discusses the challenges implied by or highlighted in the identified literature and elaborates on future
 
-|  |  |  | Table 21: Future Challenges - (RQ3) |  |
+| | | | **Table 21:** Future Challenges - (RQ3) | |
 |--|--|--|-------------------------------------|--|
 |--|--|--|-------------------------------------|--|
 
-<span id="page-18-1"></span>
 
-| Code                              | PaperID                                                                   | Count* | %   |
+| Code | PaperID | Count* | % |
 |-----------------------------------|---------------------------------------------------------------------------|--------|-----|
-| LLM Accuracy                      | WL[4], WL[11], WL[16],<br>WL[17], WL[18], WL[31],<br>GL[6], GL[10], GL[5] | 9      | 15% |
-| Unspeficied                       | WL[30], WL[23], WL[6],<br>WL[26], WL[19], WL[15],<br>GL[3], GL[9], GL[4]  | 9      | 15% |
-| LLM Hallucinations                | WL[7], WL[28], WL[34],<br>GL[1], GL[10]                                   | 5      | 8%  |
-| Ethical Considerations            | GL[6],<br>GL[10],<br>GL[5],<br>GL[2]                                      | 4      | 7%  |
-| Privacy                           | WL[34], GL[6], GL[10],<br>GL[5]                                           | 4      | 7%  |
-| Architectural Solution Validation | WL[10], WL[27], WL[16],<br>WL[29]                                         | 4      | 7%  |
-| Data Privacy                      | WL[34], GL[6], GL[5]                                                      | 3      | 5%  |
-| Generated Code Maintenability     | WL[21], WL[36]                                                            | 2      | 4%  |
-| Generated Code Quality            | WL[22], WL[5], WL[16]                                                     | 3      | 5%  |
-| LLM Human Interaction             | WL[10], WL[32], WL[2]                                                     | 3      | 5%  |
-| Traceability                      | WL[13], WL[35] GL[8]                                                      | 3      | 5%  |
-| Generated Code Security           | WL[4] GL[2]                                                               | 2      | 4%  |
-| LLM Output Generalizability       | WL[24], WL[3]                                                             | 2      | 4%  |
-| Reduced Human Creativity          | GL[2], GL[7]                                                              | 2      | 4%  |
-| Pattern Recognition Accuracy      | GL[1]                                                                     | 1      | 2%  |
-| Intellectual Property             | WL[2]                                                                     | 1      | 2%  |
+| LLM Accuracy | WL[4], WL[11], WL[16],<br>WL[17], WL[18], WL[31],<br>GL[6], GL[10], GL[5] | 9 | 15% |
+| Unspeficied | WL[30], WL[23], WL[6],<br>WL[26], WL[19], WL[15],<br>GL[3], GL[9], GL[4] | 9 | 15% |
+| LLM Hallucinations | WL[7], WL[28], WL[34],<br>GL[1], GL[10] | 5 | 8% |
+| Ethical Considerations | GL[6],<br>GL[10],<br>GL[5],<br>GL[2] | 4 | 7% |
+| Privacy | WL[34], GL[6], GL[10],<br>GL[5] | 4 | 7% |
+| Architectural Solution Validation | WL[10], WL[27], WL[16],<br>WL[29] | 4 | 7% |
+| Data Privacy | WL[34], GL[6], GL[5] | 3 | 5% |
+| Generated Code Maintenability | WL[21], WL[36] | 2 | 4% |
+| Generated Code Quality | WL[22], WL[5], WL[16] | 3 | 5% |
+| LLM Human Interaction | WL[10], WL[32], WL[2] | 3 | 5% |
+| Traceability | WL[13], WL[35] GL[8] | 3 | 5% |
+| Generated Code Security | WL[4] GL[2] | 2 | 4% |
+| LLM Output Generalizability | WL[24], WL[3] | 2 | 4% |
+| Reduced Human Creativity | GL[2], GL[7] | 2 | 4% |
+| Pattern Recognition Accuracy | GL[1] | 1 | 2% |
+| Intellectual Property | WL[2] | 1 | 2% |
 
 \*One paper can have more than one future challenge
 
@@ -898,7 +884,7 @@ Formal Verification and AI-Driven Compliance Checking: It is easy to start using
 
 Replacement of Human Experts: Literature often mentions that the discipline will move towards a field where human experts manage projects, where GenAI agents can prototype or deliver tasks for them to manage WL[\[28\]](#page-24-23). This suggests the opportunity for research on AI tools for project management. AI replacing humans can be approached once we overcome trust and establish evaluation metrics. For instance, Prakash GL[\[8\]](#page-25-8) suggests GenAI helps developers by that 25% to write code efficiently, fix bugs, and improve software quality. GenAI, as a tool for architects, is not a replacement GL[\[2\]](#page-25-4), GL[\[3\]](#page-25-5), as it is not yet ready, lacking in complex business contexts, and failing in subjective judgment, business intuition, and personal accountability. Apart from this, Fujitsu GL[\[4\]](#page-25-0) recognizes the need for interactive capabilities to verify current application specifications and assess the impact of source code changes. However, it is important to be aware of the challenges and ethical considerations associated with GenAI GL[\[7\]](#page-25-7). AI algorithms are trained on data, and this data can be biased. This bias can be reflected in the output of AI models. GenAI tools can make mistakes, and they should not be used to replace human judgment. It is also essential to consider the ethical implications of AIgenerated architectural patterns and designs before using them.
 
-#### 2. Relationships Among Challenges
+### 2. Relationships Among Challenges
 
 The challenges identified in Generative AI (GenAI) for Software Architecture (SA) are interconnected, influencing each other and impacting the effectiveness and adoption of these technologies. At the core, LLM accuracy and hallucinations represent foundational issues, significantly affecting the reliability of GenAI outputs. Without addressing these critical concerns, the usefulness of GenAI in SA is limited, as inaccurate or misleading outputs directly undermine trust and adoption.
 
@@ -912,7 +898,7 @@ Intellectual property concerns further underline the necessity of clear guidelin
 
 In summary, these challenges collectively highlight the necessity for integrated solutions that comprehensively address accuracy, ethics, privacy, validation, and human interaction, fostering reliable, secure, and ethically responsible application of GenAI technologies in software architecture.
 
-# 3. Relationships Between Challenges and Future Directions
+## 3. Relationships Between Challenges and Future Directions
 
 The identified challenges from the MLR highlight key concerns influencing the future directions of GenAI within software architecture. Addressing these challenges can guide the practical implications for software architecture practice and research (Figure [6\)](#page-21-0).
 
@@ -937,7 +923,7 @@ Our study, being an MLR, covered both the white and gray literature to explore G
 <span id="page-21-0"></span>![](_page_21_Figure_0.jpeg)
 <!-- Image Description: The image displays a Sankey diagram illustrating the relationships between various aspects of Large Language Models (LLMs) and relevant research areas. Each colored band represents a key LLM characteristic (e.g., accuracy, hallucinations, ethical considerations) linked to its corresponding research focus (e.g., formal verification, ethical AI practices). The width of each band visually represents the strength of the relationship, showing which research areas are most strongly associated with each LLM characteristic. The diagram's purpose is to present a high-level overview of the research landscape surrounding LLM development and deployment. -->
 
-Figure 6: Challenges and Implications in GenAI for Software Architecture
+**Figure 6:** Challenges and Implications in GenAI for Software Architecture
 
 ture. The findings revealed notable differences between these two sources. More specifically, the white literature, including peer-reviewed conference papers and journal papers, mainly addresses formalizing and generalizing the contribution of LLMs to formal software architecture processes. The white literature focused on LLMs to automate or facilitate architectural decision making, traceability, and model-driven development. Such studies tend to present systematic experiments, propose new methods, or present conceptual foundations to bring LLM into software architecture activities. Moreover, it tends to investigate empirical aspects of LLM use, such as how good they are at generating architectural fragments or determining architectural conformance to predefined standards.
 
@@ -977,7 +963,7 @@ We provide our raw data, and the MLR workflow in our replication package hosted 
 
 <span id="page-22-2"></span><sup>1</sup><https://doi.org/10.5281/zenodo.15032395>
 
-# Declaration of generative AI and AI-assisted technologies in the writing process
+## Declaration of generative AI and AI-assisted technologies in the writing process
 
 During the preparation of this work, the author used ChatGPT to improve language and readability. After using this service, the authors reviewed and edited the content as needed and take full responsibility for the content of the publication.
 
@@ -1052,7 +1038,7 @@ During the preparation of this work, the author used ChatGPT to improve language
 - <span id="page-24-28"></span>[WL35] B. Wei, Requirements are all you need: From requirements to code with llms, in: 2024 IEEE 32nd International Requirements Engineering Conference (RE), IEEE, 2024, pp. 416–422.
 - <span id="page-24-29"></span>[WL36] T. Sharma, Llms for code: The potential, prospects, and problems, in: 2024 IEEE 21st International Conference on Software Architecture Companion (ICSA-C), 2024, pp. 373– 374.
 
-#### Selected Gray Literature
+### Selected Gray Literature
 
 - <span id="page-25-3"></span>[GL1] N. Ahuja, Y. Feng, L. Li, A. Malik, T. Sivayoganathan, N. Balani, S. Rakhunathan, F. Sarro, Automatically assessing software architecture compliance with green software patterns, 2024. URL: [https://solar.cs.ucl.ac.uk/](https://solar.cs.ucl.ac.uk/pdf/EcoDocSense_Greens2025.pdf) [pdf/EcoDocSense\\_Greens2025.pdf](https://solar.cs.ucl.ac.uk/pdf/EcoDocSense_Greens2025.pdf).
 - <span id="page-25-4"></span>[GL2] K. Chandraraj, Generative ai in software architecture: Don't replace your architects yet, Medium, 2023. URL: [https://medium.com/inspiredbrilliance/generative](https://medium.com/inspiredbrilliance/generative-ai-in-software-architecture-dont-replace-your-architects-yet-cde0c5d462c5)[ai-in-software-architecture-dont-replace-your](https://medium.com/inspiredbrilliance/generative-ai-in-software-architecture-dont-replace-your-architects-yet-cde0c5d462c5)[architects-yet-cde0c5d462c5](https://medium.com/inspiredbrilliance/generative-ai-in-software-architecture-dont-replace-your-architects-yet-cde0c5d462c5), accessed: 2025-03-02.

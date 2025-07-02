@@ -23,7 +23,6 @@ keywords:
 - well-recognized
 ---
 
-
 # Knowledge Graphs: Opportunities and Challenges
 
 Ciyuan Peng<sup>1</sup> , Feng Xia2\*, Mehdi Naseriparsa<sup>3</sup> and Francesco Osborne<sup>4</sup>
@@ -38,7 +37,7 @@ Keynes, MK7 6AA, UK.
 
 With the explosive growth of artificial intelligence (AI) and big data, it has become vitally important to organize and represent the enormous volume of knowledge appropriately. As graph data, knowledge graphs accumulate and convey knowledge of the real world. It has been well-recognized that knowledge graphs effectively represent complex information; hence, they rapidly gain the attention of academia and industry in recent years. Thus to develop a deeper understanding of knowledge graphs, this paper presents a systematic overview of this field. Specifically, we focus on the opportunities and challenges of knowledge graphs. We first review the opportunities of knowledge graphs in terms of two aspects: (1) AI systems built upon knowledge graphs; (2) potential application fields of knowledge graphs. Then, we thoroughly discuss severe technical challenges in this field, such as knowledge graph embeddings, knowledge acquisition, knowledge graph completion, knowledge fusion, and knowledge reasoning. We expect that this survey will shed new light on future research and the development of knowledge graphs. Keywords: Knowledge graphs, artificial intelligence, graph embedding, knowledge engineering, graph learning
 
-# 1 Introduction
+## 1 Introduction
 
 Knowledge plays a vital role in human existence and development. Learning and representing human knowledge are crucial tasks in artificial intelligence (AI) research. While humans are able to understand and analyze their surroundings, AI systems require additional knowledge to obtain the same abilities and solve complex tasks in realistic scenarios [\(Ji et al,](#page-32-0) [2021\)](#page-32-0). To support these systems, we have seen the emergence of many approaches for representing human knowledge according to different conceptual models. In the last decade, knowledge graphs have become a standard solution in this space, as well as a research trend in academia and industry [\(Kong et al,](#page-33-0) [2022\)](#page-33-0).
 
@@ -56,7 +55,7 @@ To deeply understand the development of knowledge graphs, this survey extensivel
 
 The rest of the paper is organized as follows. Section [2](#page-2-0) provides an overview of knowledge graphs, including the definitions and the categorization of existing research on knowledge graphs. To examine the opportunities of knowledge graphs, Section [3](#page-6-0) and Section [4](#page-13-0) introduce relevant AI systems and application fields, respectively. Section [5](#page-19-0) details the challenges of knowledge graphs based on the technologies. Finally, we conclude this paper in Section [6.](#page-27-0)
 
-# <span id="page-2-0"></span>2 Overview
+## <span id="page-2-0"></span>2 Overview
 
 In this section, the definition of knowledge graphs is provided first; then, we categorize significant state-of-the-art research in this area.
 
@@ -67,7 +66,7 @@ A knowledge base is a typical data set that represents real-world facts and sema
 ![](_page_3_Figure_1.jpeg)
 <!-- Image Description: The image is a directed graph illustrating a network topology. Nodes, labeled *e<sub>1</sub>* through *e<sub>9</sub>*, represent entities, with shaded nodes *e<sub>1</sub>* and *e<sub>2</sub>* possibly indicating a special status. Directed edges show relationships or data flow between nodes; 'r<sub>1</sub>' likely labels a specific connection between *e<sub>1</sub>* and *e<sub>2</sub>*. The graph likely serves to visualize a system's structure or information flow within the paper's context, potentially for modeling or algorithm demonstration. -->
 
-<span id="page-3-0"></span>Fig. 1 An example of a knowledge graph. In this knowledge graph, (e1, r1, e2) is a triplet that indicates e<sup>1</sup> and e<sup>2</sup> are connected by relation r1.
+<span id="page-3-0"></span>Figure 1 An example of a knowledge graph. In this knowledge graph, (e1, r1, e2) is a triplet that indicates e<sup>1</sup> and e<sup>2</sup> are connected by relation r1.
 
 In 2012, Google first put forward Knowledge Graph by introducing their knowledge base called Google Knowledge Graph [\(Ehrlinger and W¨oß,](#page-31-0) [2016\)](#page-31-0). Afterward, many knowledge graphs are introduced and adopted such as:
 
@@ -83,7 +82,7 @@ A knowledge graph is a directed graph composed of nodes and edges, where one nod
 ![](_page_4_Figure_1.jpeg)
 <!-- Image Description: The image is a conceptual diagram illustrating the landscape of knowledge graphs. A central node, "Knowledge Graphs," connects to six key areas: Knowledge Acquisition, Graph Embeddings, Graph Completion, Fusion, Reasoning, and Application Fields. Each area branches further, listing specific methods (e.g., neural network-based) and applications (e.g., recommender systems). The diagram visually organizes the key components and relationships within the field of knowledge graphs. -->
 
-<span id="page-4-0"></span>Fig. 2 Research on knowledge graphs.
+<span id="page-4-0"></span>Figure 2 Research on knowledge graphs.
 
 Fig. [1](#page-3-0) depicts an example of a simple knowledge graph. As shown in Fig. [1,](#page-3-0) nodes e<sup>1</sup> and e<sup>2</sup> darkened in color are connected by relation r1, which goes from e<sup>1</sup> to e2. Therefore, e1, e2, and r<sup>1</sup> can form the triplet (e1, r1, e2), in which e<sup>1</sup> and e<sup>2</sup> are the head and tail entities, respectively.
 
@@ -107,7 +106,7 @@ Application Fields: Knowledge graphs have numerous applications in various field
 
 Differing from other works, this paper focuses on surveying the opportunities and challenges of knowledge graphs. In particular, knowledge graphs meet great opportunities by improving the quality of AI services and being applied in various fields. On the contrary, this paper regards the limitations of knowledge graph technologies as the challenges. Therefore, we will discuss the technical limitations regarding knowledge graph embeddings, knowledge acquisition, knowledge graph completion, knowledge fusion, and knowledge reasoning.
 
-# <span id="page-6-0"></span>3 Knowledge Graphs for AI Systems
+## <span id="page-6-0"></span>3 Knowledge Graphs for AI Systems
 
 This section explains the opportunities by analyzing the advantages that knowledge graphs bring for improving the functionalities of AI Systems. Specifically, there are a couple of systems, including recommender systems, question-answering systems, and information retrieval tools [\(Guo et al,](#page-31-2) [2020;](#page-31-2) [Zou,](#page-42-0) [2020\)](#page-42-0), which utilize knowledge graphs for their input data and benefit the most from knowledge graphs. In addition to these systems, other AI systems, such as image recognition systems [\(Chen et al,](#page-29-4) [2020a\)](#page-29-4), have started to consider the characteristic of knowledge graphs. However, the application of knowledge graphs in these systems is not widespread. Moreover, these systems do not directly optimize performance by utilizing knowledge graphs for the input data. Therefore, the advantages that knowledge graphs bring for recommender systems, question-answering systems, and information retrieval tools are discussed in detail to analyze the opportunities of knowledge graphs. Typically, these solutions greatly benefit from adopting knowledge graphs that offer high-quality representations of the domain knowledge. Table 1 presents a summary of the AI systems that we will discuss below.
 
@@ -121,24 +120,24 @@ There are two traditional methods for developing recommender systems, including 
 
 Content-based Recommender Systems: The content-based recommender systems first analyze the content features of items (e.g., descriptions, documents). These items are previously scored by the target users [\(Guo et al,](#page-31-2) [2020;](#page-31-2) [Xia et al,](#page-39-0) [2014b\)](#page-39-0). Then, the recommender systems learn the user interests by employing machine learning models. Thus, these systems are able to effectively recommend trending items to the target users according to their preferences. Some recommender systems utilize the content of the original
 
-| knowledge<br>using<br>ms<br>syste<br>AI<br>1<br>Table | graphs.                                                                                                                                                      |                                                                                                                                                                                     |
+| knowledge<br>using<br>ms<br>syste<br>AI<br>1<br>Table | graphs. | |
 |-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ms<br>Syste<br>AI                                     | Approaches                                                                                                                                                   | graphs<br>wledge<br>kno<br>on<br>Techniques                                                                                                                                         |
-| ms<br>syste<br>mender<br>m<br>Reco                    | 2019c)<br>al,<br>et<br>(Wang<br>N<br>R<br>KP                                                                                                                 | m<br>user-ite<br>on<br>based<br>generation<br>path<br>Entity-relation<br>interaction                                                                                                |
-|                                                       | 2018b)<br>2019a)<br>al,<br>et<br>al,<br>(Wang<br>et<br>et<br>(Wang<br>Net<br>AT<br>Ripple<br>R<br>G<br>K<br>K<br>M<br>M                                      | relation<br>interaction<br>propagation<br>mation<br>m<br>infor<br>user-ite<br>Preference<br>Laten                                                                                   |
-|                                                       | 2021)<br>2021)<br>2020)<br>al,<br>Huang,<br>et<br>al,<br>(Wang<br>and<br>(Sun<br>R<br>(Shu<br>K<br>M<br>Ripp-<br>G<br>K<br>R                                 | reasoning<br>interaction<br>con-<br>graph<br>m<br>wledge<br>user-ite<br>extraction;<br>kno<br>laten<br>lists-based<br>propagation;<br>preferenfce<br>Preference<br>Neighbor<br>User |
-| ms<br>syste<br>wering<br>Question-ans                 | 2018)<br>al,<br>et<br>(Bauer<br>M<br>G<br>HP<br>M                                                                                                            | reasoning<br>relation<br>hop<br>struction<br>Multiple                                                                                                                               |
-|                                                       | al,<br>et<br>2019)<br>2019)<br>(Saxena<br>al,<br>al,<br>et<br>et<br>(Huang<br>A<br>(Shin<br>Q<br>G<br>K<br>mbed<br>A<br>A<br>Q<br>Q<br>E<br>C<br>K<br>E<br>P | multi-hop<br>extraction<br>construction<br>embedding-based<br>relation<br>triplet<br>constraints-based<br>question-based<br>graph<br>wledge<br>Predicate<br>mple<br>Kno<br>Si       |
-| retrieval<br>mation<br>Infor                          | Infor-<br>2014)<br>based<br>al,<br>graph<br>et<br>(Dalton<br>wledge<br>E<br>2020)<br>EQF<br>Kno                                                              | expansion<br>construction<br>feature<br>graph<br>graph-based<br>wledge<br>kno<br>wering<br>wledge<br>ment<br>ans<br>Query-docu<br>kno<br>question<br>Query                          |
-|                                                       | Technology<br>2018a)<br>Retrieval<br>al,<br>et<br>mation<br>Wang<br>(                                                                                        |                                                                                                                                                                                     |
-|                                                       | 2020)<br>2018)<br>al,<br>al,<br>et<br>et<br>(Wise<br>M(Liu<br>G<br>R<br>K<br>D<br>C<br>E                                                                     | graphs<br>wledge<br>construction<br>kno<br>m<br>fro<br>graph<br>mantics<br>wledge<br>se<br>kno<br>of<br>Integration<br>ment<br>Docu                                                 |
-|                                                       |                                                                                                                                                              | represen<br>ments<br>docu<br>and<br>queries<br>entities<br>m<br>fro<br>their<br>entities<br>of<br>tations<br>and                                                                    |
+| ms<br>Syste<br>AI | Approaches | graphs<br>wledge<br>kno<br>on<br>Techniques |
+| ms<br>syste<br>mender<br>m<br>Reco | 2019c)<br>al,<br>et<br>(Wang<br>N<br>R<br>KP | m<br>user-ite<br>on<br>based<br>generation<br>path<br>Entity-relation<br>interaction |
+| | 2018b)<br>2019a)<br>al,<br>et<br>al,<br>(Wang<br>et<br>et<br>(Wang<br>Net<br>AT<br>Ripple<br>R<br>G<br>K<br>K<br>M<br>M | relation<br>interaction<br>propagation<br>mation<br>m<br>infor<br>user-ite<br>Preference<br>Laten |
+| | 2021)<br>2021)<br>2020)<br>al,<br>Huang,<br>et<br>al,<br>(Wang<br>and<br>(Sun<br>R<br>(Shu<br>K<br>M<br>Ripp-<br>G<br>K<br>R | reasoning<br>interaction<br>con-<br>graph<br>m<br>wledge<br>user-ite<br>extraction;<br>kno<br>laten<br>lists-based<br>propagation;<br>preferenfce<br>Preference<br>Neighbor<br>User |
+| ms<br>syste<br>wering<br>Question-ans | 2018)<br>al,<br>et<br>(Bauer<br>M<br>G<br>HP<br>M | reasoning<br>relation<br>hop<br>struction<br>Multiple |
+| | al,<br>et<br>2019)<br>2019)<br>(Saxena<br>al,<br>al,<br>et<br>et<br>(Huang<br>A<br>(Shin<br>Q<br>G<br>K<br>mbed<br>A<br>A<br>Q<br>Q<br>E<br>C<br>K<br>E<br>P | multi-hop<br>extraction<br>construction<br>embedding-based<br>relation<br>triplet<br>constraints-based<br>question-based<br>graph<br>wledge<br>Predicate<br>mple<br>Kno<br>Si |
+| retrieval<br>mation<br>Infor | Infor-<br>2014)<br>based<br>al,<br>graph<br>et<br>(Dalton<br>wledge<br>E<br>2020)<br>EQF<br>Kno | expansion<br>construction<br>feature<br>graph<br>graph-based<br>wledge<br>kno<br>wering<br>wledge<br>ment<br>ans<br>Query-docu<br>kno<br>question<br>Query |
+| | Technology<br>2018a)<br>Retrieval<br>al,<br>et<br>mation<br>Wang<br>( | |
+| | 2020)<br>2018)<br>al,<br>al,<br>et<br>et<br>(Wise<br>M(Liu<br>G<br>R<br>K<br>D<br>C<br>E | graphs<br>wledge<br>construction<br>kno<br>m<br>fro<br>graph<br>mantics<br>wledge<br>se<br>kno<br>of<br>Integration<br>ment<br>Docu |
+| | | represen<br>ments<br>docu<br>and<br>queries<br>entities<br>m<br>fro<br>their<br>entities<br>of<br>tations<br>and |
 
 query result to discover highly-related items for the users that may interest them [\(Naseriparsa et al,](#page-34-3) [2019b\)](#page-34-3). These systems employ machine learning techniques or statistical measures such as correlation to compute the highly-similar items to those that are visited by the users [\(Naseriparsa et al,](#page-34-4) [2019a\)](#page-34-4). Another group of content-based recommender systems employs lexical references such as dictionaries to utilize semantic relationships of the user query results to recommend highly semantically-related items to the users that may directly satisfy their information needs [\(Naseriparsa et al,](#page-34-5) [2018;](#page-34-5) [Sun et al,](#page-37-5) [2017\)](#page-37-5).
 
 CF-based Recommender Systems: CF-based recommender systems suggest items to the users based on the information of user-item interaction [\(Chen et al,](#page-30-3) [2020c\)](#page-30-3). CF-based recommender systems infer the user preference by clustering similar users instead of extracting the features of the items [\(Wang et al,](#page-39-4) [2019b\)](#page-39-4). However, we face data sparsity and cold start problems in traditional CF-based systems. In general, users can only rate a few items among a large number of items, which leads to preventing many items from receiving appropriate feedback. Therefore, the recommender systems do not effectively learn user preferences accurately because of data sparsity [\(Bai et al,](#page-28-2) [2019;](#page-28-2) [Xia et al,](#page-39-5) [2014a\)](#page-39-5). On the other hand, the cold start problem makes it even more difficult to make recommendations when the items or users are new because there is no historical data or ground truth. Moreover, because abundant user information is required for achieving effective recommendations, CF-based recommender systems face privacy issues. How to achieve personalized recommendations while protecting the privacy of users is still an unsolved problem.
 
-#### 1.2 Knowledge Graph-based Recommender Systems
+### 1.2 Knowledge Graph-based Recommender Systems
 
 To address inherent problems of traditional approaches, the community has produced several hybrid recommender systems, which consider both item features and the distribution of user scores. Most of these solutions adopt knowledge graphs for representing and interlinking items [\(Palumbo et al,](#page-35-3) [2020\)](#page-35-3). Specifically, Knowledge graph-based recommender systems integrate knowledge graphs as auxiliary information and leverage users and items networks to learn the relationships of items-users, items-items, and users-users [\(Palumbo et al,](#page-35-4) [2018\)](#page-35-4).
 
@@ -149,7 +148,7 @@ Recently, a great deal of research has been conducted to utilize knowledge graph
 ![](_page_9_Figure_1.jpeg)
 <!-- Image Description: This image depicts a knowledge graph illustrating a movie recommendation system. Three users ("Users 1, 2, 3") are connected to movies ("Moneyball," "Inception") via "isFanOf" relationships. Movies are linked to actors ("Brad Pitt," "Leonardo DiCaprio," "Nolan") and directors via "isActedBy" and "isDirectedBy" relationships. Movies are also linked to genres ("Sci-Fi"). The graph demonstrates how user preferences, actor/director information, and genre influence movie recommendations ("Once Upon A Time in Hollywood," "Interstellar"). -->
 
-<span id="page-9-0"></span>Fig. 3 An example of knowledge graph-based recommender system.
+<span id="page-9-0"></span>Figure 3 An example of knowledge graph-based recommender system.
 
 then infers the user preference based on the entity-relation path. The user-item interaction, which is extracted from knowledge graphs, improves the quality of the recommendations and allows the presentation of the recommended results in a more explainable manner. Wang et al. [\(Wang et al,](#page-38-4) [2019a\)](#page-38-4) also applied multi-task knowledge graph representation (MKR) for recommendation tasks. MKR models knowledge graphs based on the user-item interaction. It is worth noting that MKR focuses on the structural information of knowledge graphs for learning the latent user-item interaction. Sun et al. [\(Sun et al,](#page-37-0) [2020\)](#page-37-0) proposed a Multi-modal Knowledge Graph Attention Network (MKGAT) for achieving precise recommendations. MKGAT constructs knowledge graphs based on two aspects: (1) it enriches entity information by extracting the information of the neighbor entities; (2) it scores the triplets to construct the reasoning relations. Finally, they applied knowledge graphs that are enriched with structured data to recommender systems.
 
@@ -163,7 +162,7 @@ Compared with the traditional recommender systems, knowledge graphbased recommen
 - Alleviating Cold Start Issues: It becomes challenging for traditional recommender systems to make recommendations when there are new users or items in the data set. In knowledge graph-based recommender systems, information about new items and users can be obtained through the relations between entities within knowledge graphs. For example, when a new Science-Fiction movie such as "Tenet" is added to the data set of a movie recommender system that employs knowledge graphs, the information about "Tenet" can be gained by its relationship with the genre Science-Fiction (gaining triplet (Tenet, has genre of, Sci-Fi)).
 - The Explainability of Recommendation: Users and the recommended items are connected along with the links in knowledge graphs. Thereby, the reasoning process can be easily illustrated by the propagation of knowledge graphs.
 
-#### 2 Question-answering Systems
+### 2 Question-answering Systems
 
 Question answering is one of the most central AI services, which aims to search for the answers to natural language questions by analyzing the semantic meanings [\(Dimitrakis et al,](#page-31-5) [2020;](#page-31-5) [Das et al,](#page-30-4) [2022\)](#page-30-4). The traditional questionanswering systems match the textual questions with the answers in the unstructured text database. In the search process, the semantic relationship between the question and answer is analyzed; then, the system matches the questions and answers with the maximum semantic similarity. Finally, the system outputs the answer. However, the answers are obtained by filtrating massive unstructured data, which deteriorates the efficiency of the traditional question-answering systems due to analyzing an enormous search space. To solve this issue, a lot of research focuses on employing structured data for question answering, particularly knowledge graph-based question-answering systems [\(Singh et al,](#page-37-6) [2020;](#page-37-6) [Qiu et al,](#page-35-5) [2020\)](#page-35-5).
 
@@ -172,7 +171,7 @@ The sophisticated representation of information in knowledge graphs is a natural
 ![](_page_11_Figure_1.jpeg)
 <!-- Image Description: The image is a knowledge graph illustrating a question-answering process. A directed acyclic graph represents relationships between "Romeo," "Romeo and Juliet," "Shakespeare," and "Shakespearean tragedy," using labeled edges like "isCharacterOf" and "is WroteBy." The graph visually demonstrates how the answer ("Shakespeare") is derived by traversing the relationships starting from the question's premise ("Romeo"). The diagram showcases a knowledge representation and reasoning method. -->
 
-<span id="page-11-0"></span>Fig. 4 The illustration of knowledge graph based question-anwsering systems.
+<span id="page-11-0"></span>Figure 4 The illustration of knowledge graph based question-anwsering systems.
 
 formats (e.g., SPARQL). Fig [4](#page-11-0) presents an example of the knowledge graphbased question-answering system. The system answer "Shakespeare" is a node that is linked to the node "Romeo". The node "Romeo" is extracted from the question.
 
@@ -185,7 +184,7 @@ Compared to the traditional question answering, the advantages of knowledge grap
 - Increased Efficiency: Instead of searching for answers from massive textual data, which may contain a large volume of useless data items, knowledge graph-based question-answering systems focus only on entities with relevant properties and semantics. Therefore, they reduce the search space significantly and extract the answers effectively and efficiently.
 - Multi-hop Question Answering: The answers can be more complex and sophisticated than the ones produced with traditional methods relying on unstructured data since they can combine several facts and concepts from the knowledge graph via multi-hop question answering.
 
-#### 3 Information Retrieval
+### 3 Information Retrieval
 
 Information retrieval enables retrieval systems to match end-user queries with relevant documents, such as web pages [\(Liu et al,](#page-33-6) [2019\)](#page-33-6). Traditional information retrieval systems index the documents according to the user queries and return the matched documents to the users [\(Hersh,](#page-32-3) [2021\)](#page-32-3). Nevertheless, index processing is complex and requires plenty of time because of the massiveness and diversity of documents. As a result, traditional information retrieval faces the challenge of inaccurate search results and potentially low efficiency. Also, since search engines have limitations with respect to text interpretation ability, keyword-based text search usually outputs limited results. Thus, to address these problems, many modern search engines take advantage of knowledge graphs [\(Bounhas et al,](#page-29-0) [2020;](#page-29-0) [Zheng et al,](#page-41-1) [2020\)](#page-41-1). Knowledge graph-based information retrieval introduces a new research direction that takes advantage of knowledge graphs for improving the performance of search engines and the explainability of the results.
 
@@ -201,7 +200,7 @@ Compared to traditional information retrieval, the knowledge graph-based informa
 - High Search Efficiency: Knowledge graph-based information retrieval can use the advanced representation of the items to reduce the search space significantly (e.g., discarding documents that use the same terms with different meanings), resulting in improved efficiency.
 - Accurate Retrieval Results: In knowledge graph-based information retrieval, the correlation between query and documents is analyzed based on the relations between entities in the knowledge graph. This is more accurate than finding the similarities between queries and documents.
 
-# <span id="page-13-0"></span>4 Applications and Potentials
+## <span id="page-13-0"></span>4 Applications and Potentials
 
 In this section, we discuss the applications and potentials of knowledge graphs in four domains: education, scientific research, social networks, and health/medical care. Although some researchers try to take advantage of knowledge graphs to develop beneficial applications in other domains such as finance [\(Cheng et al,](#page-30-5) [2022c\)](#page-30-5), the knowledge graph-based intelligent service in these areas is relatively obscure and still needs to be explored. Therefore, this section mainly focuses on education, scientific research, social networks, and medical care to summarize the opportunities of knowledge graphs. Table 2 presents several recent applications of knowledge graphs that make contributions to these fields.
 
@@ -209,10 +208,10 @@ In this section, we discuss the applications and potentials of knowledge graphs 
 
 Education is of great importance to the development of human society. Many studies have focused on deploying intelligent applications to improve the quality of education [\(Bai et al,](#page-28-3) [2021;](#page-28-3) [Wang et al,](#page-39-7) [2020d\)](#page-39-7). Specifically, in the age of big data, data processing becomes a challenging task because of the complex and unstructured educational data. Thereby, intelligent educational systems tend to apply structured data, such as knowledge graphs. Several
 
-| Functions               | Generation<br>schedule<br>ment;<br>manage<br>allocation<br>Courses<br>course<br>graphs<br>wledge                      | graph<br>wledge<br>kno<br>Educational<br>struction<br>extrac<br>iden<br>relation<br>concepts          | wledge<br>kno<br>online<br>fficient<br>E<br>con<br>con<br>media<br>learning<br>social<br>mal<br>of                                     | manage<br>publication<br>Scientific<br>aca<br>based<br>graph                                                                    | revie<br>of<br>matching<br>Precise<br>paper<br>rule<br>graph-based<br>ment                                                     | detection<br>ws<br>ne<br>Fake<br>graphs<br>wledge<br>kno                           | mendation<br>m<br>Reco<br>Social<br>of<br>graphs<br>aggregation<br>m<br>user-ite  | extraction<br>relationship<br>Social<br>propogation<br>graph                     | mendation<br>m<br>reco<br>medicine<br>Safe<br>graph<br>wledge<br>kno    | detection<br>mation<br>misinfor<br>Health<br>atten<br>graph<br>guided                                       | discovery<br>Drug<br>relationships<br>the                                        |  |
+| Functions | Generation<br>schedule<br>ment;<br>manage<br>allocation<br>Courses<br>course<br>graphs<br>wledge | graph<br>wledge<br>kno<br>Educational<br>struction<br>extrac<br>iden<br>relation<br>concepts | wledge<br>kno<br>online<br>fficient<br>E<br>con<br>con<br>media<br>learning<br>social<br>mal<br>of | manage<br>publication<br>Scientific<br>aca<br>based<br>graph | revie<br>of<br>matching<br>Precise<br>paper<br>rule<br>graph-based<br>ment | detection<br>ws<br>ne<br>Fake<br>graphs<br>wledge<br>kno | mendation<br>m<br>Reco<br>Social<br>of<br>graphs<br>aggregation<br>m<br>user-ite | extraction<br>relationship<br>Social<br>propogation<br>graph | mendation<br>m<br>reco<br>medicine<br>Safe<br>graph<br>wledge<br>kno | detection<br>mation<br>misinfor<br>Health<br>atten<br>graph<br>guided | discovery<br>Drug<br>relationships<br>the | |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|--|
-| Methods<br>Applications | kno<br>Course<br>based<br>ment<br>2020)<br>Manage<br>al,<br>Graph<br>et<br>(Aliyu<br>wledge<br>Course<br>Model<br>Kno | Educational<br>Instructional<br>tification<br>tion;<br>al,<br>et<br>(Chen<br>Edu<br>w<br>2018)<br>Kno | for<br>Integration<br>and<br>tents<br>tents<br>Graph-based<br>Learning<br>Online<br>2022)<br>wledge<br>(Zablith,<br>for<br>Tool<br>Kno | work<br>wledge<br>net<br>mic<br>Kno<br>de<br>Publication<br>(Chi<br>Model<br>ment<br>2018)<br>Scientific<br>Manage<br>al,<br>et | establish<br>wledge<br>engine<br>Kno<br>al<br>menda<br>et<br>Yong<br>m<br>Reco<br>m<br>Syste<br>wer<br>(2021)<br>Revie<br>tion | Entity<br>ws-<br>Ne<br>(Mayank<br>D<br>E<br>K<br>2021)<br>AP-FA<br>al,<br>DE<br>et | and<br>mation<br>user-user<br>Infor<br>al,<br>et<br>(Fan<br>Rec<br>Graph<br>2019) | wledge<br>Kno<br>Model<br>2018d)<br>Reasoning<br>al,<br>et<br>Wang<br>Graph<br>( | mbeddings<br>Medical<br>e<br>2021)<br>al,<br>et<br>(Gong<br>R<br>M<br>S | work<br>wledge<br>net<br>Kno<br>tion<br>al,<br>et<br>(Cui<br>T<br>N<br>RE<br>R<br>E<br>2020)<br>T<br>E<br>D | drugs<br>ween<br>Mining<br>bet<br>2020)<br>al,<br>et<br>(Lin<br>N<br>N<br>G<br>K |  |
-| Fields                  | Education                                                                                                             |                                                                                                       |                                                                                                                                        | Research<br>Scientific                                                                                                          |                                                                                                                                | works<br>Net<br>Social                                                             |                                                                                   |                                                                                  | Medical<br>Health/<br>Care                                              |                                                                                                             |                                                                                  |  |
+| Methods<br>Applications | kno<br>Course<br>based<br>ment<br>2020)<br>Manage<br>al,<br>Graph<br>et<br>(Aliyu<br>wledge<br>Course<br>Model<br>Kno | Educational<br>Instructional<br>tification<br>tion;<br>al,<br>et<br>(Chen<br>Edu<br>w<br>2018)<br>Kno | for<br>Integration<br>and<br>tents<br>tents<br>Graph-based<br>Learning<br>Online<br>2022)<br>wledge<br>(Zablith,<br>for<br>Tool<br>Kno | work<br>wledge<br>net<br>mic<br>Kno<br>de<br>Publication<br>(Chi<br>Model<br>ment<br>2018)<br>Scientific<br>Manage<br>al,<br>et | establish<br>wledge<br>engine<br>Kno<br>al<br>menda<br>et<br>Yong<br>m<br>Reco<br>m<br>Syste<br>wer<br>(2021)<br>Revie<br>tion | Entity<br>ws-<br>Ne<br>(Mayank<br>D<br>E<br>K<br>2021)<br>AP-FA<br>al,<br>DE<br>et | and<br>mation<br>user-user<br>Infor<br>al,<br>et<br>(Fan<br>Rec<br>Graph<br>2019) | wledge<br>Kno<br>Model<br>2018d)<br>Reasoning<br>al,<br>et<br>Wang<br>Graph<br>( | mbeddings<br>Medical<br>e<br>2021)<br>al,<br>et<br>(Gong<br>R<br>M<br>S | work<br>wledge<br>net<br>Kno<br>tion<br>al,<br>et<br>(Cui<br>T<br>N<br>RE<br>R<br>E<br>2020)<br>T<br>E<br>D | drugs<br>ween<br>Mining<br>bet<br>2020)<br>al,<br>et<br>(Lin<br>N<br>N<br>G<br>K | |
+| Fields | Education | | | Research<br>Scientific | | works<br>Net<br>Social | | | Medical<br>Health/<br>Care | | | |
 
 Table 2 Fields of applications of knowledge graphs.
 
@@ -230,7 +229,7 @@ A variety of knowledge graphs focus on supporting the scientific process and ass
 
 In addition to constructing academic knowledge graphs, many researchers also take advantage of knowledge graphs to develop various applications beneficial to scientific research. Chi et al. [\(Chi et al,](#page-30-6) [2018\)](#page-30-6) proposed a scientific publication management model to help non-researchers learn methods for sustainability from research thinking. They built a knowledge graph-based academic network to manage scientific entities. The scientific entities, including researchers, papers, journals, and organizations, are connected regarding their properties. For the convenience of researchers, many scientific knowledge graph-based recommender systems, including citation recommendation, collaboration recommendation, and reviewer recommendation, are put forward [\(Shao et al,](#page-36-5) [2021\)](#page-36-5). For instance, Yong et al.[\(Yong et al,](#page-40-2) [2021\)](#page-40-2) designed a knowledge graph-based reviewer assignment system to achieve precise matching of reviewers and papers. Particularly, they matched knowledge graphs and recommendation rules to establish a rule engine for the recommendation process.
 
-#### 3 Social Networks
+### 3 Social Networks
 
 With the rapid growth of social media such as Facebook and Twitter, online social networks have penetrated human life and bring plenty of benefits such as social relationship establishment and convenient information acquisition [\(Li et al,](#page-33-8) [2020a;](#page-33-8) [Hashemi and Hall,](#page-32-4) [2020\)](#page-32-4). Various social knowledge graphs are modeled and applied to analyze the critical information from the social network. These knowledge graphs are usually constituted based on the people's activities and their posts on social media, which are applied to numerous applications for different functions [\(Xu et al,](#page-40-5) [2020\)](#page-40-5).
 
@@ -248,7 +247,7 @@ In addition, people's activities on social media reveal social relationships. Fo
 
 One of the biggest problems in this space is fake news [\(Zhang et al,](#page-41-4) [2019a\)](#page-41-4). Online social media has become the principal platform for people to consume news. Therefore, a considerable amount of research has been done for fake news detection [\(Choi et al,](#page-30-9) [2020;](#page-30-9) [Meel and Vishwakarma,](#page-34-7) [2020\)](#page-34-7). Most recently, Mayank et al. [\(Mayank et al,](#page-34-6) [2021\)](#page-34-6) exploited a knowledge graph-based model called DEAP-FAKED to detect fake news on social media. Specifically, DEAP-FAKED learns news content and identifies existing entities in the news as the nodes of the knowledge graph. Afterward, a GNN-based technique is applied to encode the entities and detect anomalies that may be linked with fake news.
 
-#### 4 Health/Medical Care
+### 4 Health/Medical Care
 
 With medical information explosively growing, medical knowledge analysis plays an instrumental role in different healthcare systems. Therefore, research focuses on integrating medical information into knowledge graphs to empower intelligent systems to understand and process medical knowledge quickly and correctly [\(Li et al,](#page-33-4) [2020b\)](#page-33-4). Recently, a variety of biomedical knowledge graphs have become available. Therefore, many medical care applications exploit knowledge graphs. For instance, Zhang et al. [\(Zhang et al,](#page-41-5) [2020a\)](#page-41-5) presented a Health Knowledge Graph Builder (HKGB) to build medical knowledge graphs with clinicians' expertise.
 
@@ -260,7 +259,7 @@ Lastly, drug discovery, such as drug repurposing and drug-drug interaction predi
 
 entities and their relations from images and texts. Afterward, they utilized the constructed knowledge graphs to generate drug repurposing reports.
 
-# <span id="page-19-0"></span>5 Technical Challenges
+## <span id="page-19-0"></span>5 Technical Challenges
 
 Although knowledge graphs offer fantastic opportunities for various services and applications, many challenges are yet to be addressed [\(Noy et al,](#page-35-7) [2019\)](#page-35-7). Specifically, the limitations of existing knowledge graph technologies are the key challenges for promoting the development of knowledge graphs [\(Hogan](#page-32-1) [et al,](#page-32-1) [2021\)](#page-32-1). Therefore, this section discusses the challenges of knowledge graphs in terms of the limitations of five topical knowledge graph technologies, including knowledge graph embeddings, knowledge acquisition, knowledge graph completion, knowledge fusion, and knowledge reasoning.
 
@@ -272,50 +271,49 @@ The aim of knowledge graph embeddings is to effectively represent knowledge grap
 
 The core idea of tensor factorization-based methods is transforming the triplets in the knowledge graph into a 3D tensor [\(Balaˇzevi´c et al,](#page-28-6) [2019\)](#page-28-6). As Fig [5](#page-21-0) presents, the tensor X ∈ R<sup>m</sup>×m×<sup>n</sup>, where m and n indicate the number of entity and relation, respectively, contains n slices, and each slice corresponds to one relation type. If the condition Xijk = 1 is met, the triplet (e<sup>i</sup> , rk, e<sup>j</sup> ), where e and r denote entity and relation, respectively, exists in the knowledge graph. Otherwise, if Xijk = 0, there is no such a triplet in the knowledge graph. Then, the tensor is represented by the embedding matrices that consist of the vectors of entities and relations.
 
-#### 1.2 Translation-based Methods
+### 1.2 Translation-based Methods
 
 Translation-based methods exploit the scoring function, which is based on translation invariance. Translation invariance interprets the distance between the vectors of the two words, which is represented by the vector of their semantic relationships [\(Mikolov et al,](#page-34-9) [2013\)](#page-34-9). Bordes et al. [\(Bordes et al,](#page-29-8) [2013\)](#page-29-8) firstly utilized the translation invariance-based scoring functions to measure
 
-| Categories        |                       | Techniques                                                                                       | Set<br>Data<br>Approaches<br>Evaluation                                                                      | Results              |
+| Categories | | Techniques | Set<br>Data<br>Approaches<br>Evaluation | Results |
 |-------------------|-----------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|----------------------|
-| methods<br>Tensor | factorization-based   | 2011)<br>al,<br>et<br>(Nickel<br>AL<br>C<br>RES                                                  | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>44.1            |
-|                   |                       | 2016)<br>al,<br>2016)<br>et<br>(Trouillon<br>al,<br>et<br>(Nickel<br>Ex<br>mpl<br>E<br>Hol<br>Co | K<br>K<br>B15<br>B15<br>F<br>F<br>@10]<br>@10]<br>Hits<br>Hits<br>prediction[<br>prediction[<br>Link<br>Link | %<br>%<br>73.9<br>84 |
-|                   |                       | 2018)<br>Poole,<br>and<br>mi<br>(Kaze<br>E<br>mpl<br>Si                                          | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>83.8            |
-|                   |                       | 2019a)<br>al,<br>et<br>(Sun<br>E<br>Rotat                                                        | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>88.4            |
-|                   |                       | 2019c)<br>al,<br>et<br>(Zhang<br>E<br>Quat                                                       | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>90              |
-| Translation-based | methods               | 2013)<br>al,<br>et<br>(Bordes<br>E<br>Trans                                                      | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>47.1            |
-|                   |                       | 2014)<br>al,<br>et<br>(Wang<br>H<br>Trans                                                        | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>64.4            |
-|                   |                       | 2015)<br>al,<br>et<br>(Lin<br>R<br>Trans                                                         | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>68.7            |
-|                   |                       | 2015)<br>al,<br>et<br>(Ji<br>D<br>Trans                                                          | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>77.3            |
-|                   |                       | 2016)<br>al,<br>et<br>(Ji<br>TranSparse                                                          | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>79.9            |
-|                   |                       | 2016)<br>al,<br>et<br>(Nguyen<br>E<br>Trans<br>S                                                 | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>79.7            |
-|                   |                       | 2016)<br>al,<br>et<br>(Jia<br>A<br>Trans                                                         | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>80.4            |
-|                   |                       | 2015)<br>al,<br>et<br>(He<br>E<br>G2<br>K                                                        | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>71.5            |
-|                   |                       | 2015)<br>al,<br>et<br>(Xiao<br>G<br>Trans                                                        | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>88.2            |
-| net<br>Neural     | methods<br>work-based | 2014)<br>al,<br>et<br>(Bordes<br>E<br>SM                                                         | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>41.3            |
-|                   |                       | 2013)<br>al,<br>et<br>(Socher<br>N<br>T<br>N                                                     | N11<br>W<br>Accuracy]<br>classification[<br>Triplet                                                          | %<br>86.2            |
-|                   |                       | 2013)<br>al,<br>et<br>(Socher<br>M<br>SL                                                         | N11<br>W<br>Accuracy]<br>classification[<br>Triplet                                                          | %<br>76              |
-|                   |                       | 2016)<br>al,<br>et<br>(Liu<br>N<br>N<br>M<br>R                                                   | N11<br>W<br>Accuracy]<br>classification[<br>Triplet                                                          | %<br>89.9            |
-|                   |                       | 2018)<br>al,<br>et<br>(Schlichtkrull<br>N<br>C<br>G<br>R-                                        | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link                                                         | %<br>84.2            |
-|                   |                       | 2017)<br>al,<br>et<br>(Nguyen<br>B<br>K<br>Conv                                                  | R<br>R<br>N18<br>W<br>@10]<br>Hits<br>prediction[<br>Link                                                    | %<br>52.5            |
-|                   |                       | 2017)<br>Wang,<br>and<br>(Cai<br>N<br>A<br>G<br>B<br>K                                           | N18<br>W<br>@10]<br>Hits<br>prediction[<br>Link                                                              | %<br>89.2            |
+| methods<br>Tensor | factorization-based | 2011)<br>al,<br>et<br>(Nickel<br>AL<br>C<br>RES | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>44.1 |
+| | | 2016)<br>al,<br>2016)<br>et<br>(Trouillon<br>al,<br>et<br>(Nickel<br>Ex<br>mpl<br>E<br>Hol<br>Co | K<br>K<br>B15<br>B15<br>F<br>F<br>@10]<br>@10]<br>Hits<br>Hits<br>prediction[<br>prediction[<br>Link<br>Link | %<br>%<br>73.9<br>84 |
+| | | 2018)<br>Poole,<br>and<br>mi<br>(Kaze<br>E<br>mpl<br>Si | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>83.8 |
+| | | 2019a)<br>al,<br>et<br>(Sun<br>E<br>Rotat | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>88.4 |
+| | | 2019c)<br>al,<br>et<br>(Zhang<br>E<br>Quat | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>90 |
+| Translation-based | methods | 2013)<br>al,<br>et<br>(Bordes<br>E<br>Trans | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>47.1 |
+| | | 2014)<br>al,<br>et<br>(Wang<br>H<br>Trans | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>64.4 |
+| | | 2015)<br>al,<br>et<br>(Lin<br>R<br>Trans | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>68.7 |
+| | | 2015)<br>al,<br>et<br>(Ji<br>D<br>Trans | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>77.3 |
+| | | 2016)<br>al,<br>et<br>(Ji<br>TranSparse | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>79.9 |
+| | | 2016)<br>al,<br>et<br>(Nguyen<br>E<br>Trans<br>S | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>79.7 |
+| | | 2016)<br>al,<br>et<br>(Jia<br>A<br>Trans | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>80.4 |
+| | | 2015)<br>al,<br>et<br>(He<br>E<br>G2<br>K | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>71.5 |
+| | | 2015)<br>al,<br>et<br>(Xiao<br>G<br>Trans | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>88.2 |
+| net<br>Neural | methods<br>work-based | 2014)<br>al,<br>et<br>(Bordes<br>E<br>SM | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>41.3 |
+| | | 2013)<br>al,<br>et<br>(Socher<br>N<br>T<br>N | N11<br>W<br>Accuracy]<br>classification[<br>Triplet | %<br>86.2 |
+| | | 2013)<br>al,<br>et<br>(Socher<br>M<br>SL | N11<br>W<br>Accuracy]<br>classification[<br>Triplet | %<br>76 |
+| | | 2016)<br>al,<br>et<br>(Liu<br>N<br>N<br>M<br>R | N11<br>W<br>Accuracy]<br>classification[<br>Triplet | %<br>89.9 |
+| | | 2018)<br>al,<br>et<br>(Schlichtkrull<br>N<br>C<br>G<br>R- | K<br>B15<br>F<br>@10]<br>Hits<br>prediction[<br>Link | %<br>84.2 |
+| | | 2017)<br>al,<br>et<br>(Nguyen<br>B<br>K<br>Conv | R<br>R<br>N18<br>W<br>@10]<br>Hits<br>prediction[<br>Link | %<br>52.5 |
+| | | 2017)<br>Wang,<br>and<br>(Cai<br>N<br>A<br>G<br>B<br>K | N18<br>W<br>@10]<br>Hits<br>prediction[<br>Link | %<br>89.2 |
 
 Table 3 Knowledge graph embedding methods.
 
 (1) In this table, all the results of link prediction are filter results.
 
-<span id="page-20-0"></span>
 
 ![](_page_21_Figure_1.jpeg)
 <!-- Image Description: The image depicts a schematic diagram illustrating a multi-dimensional array or tensor structure. It shows a series of nested matrices, labeled `e<sub>1</sub>` to `e<sub>m</sub>` representing elements within a matrix, and `r<sub>1</sub>` to `r<sub>n</sub>` suggesting rows or higher-order dimensions. The diagram likely serves to visually represent the data structure used in the paper's algorithm or model, clarifying its dimensionality and element organization. -->
 
-<span id="page-21-0"></span>Fig. 5 An illustration of tensor factorization of knowledge graphs.
+<span id="page-21-0"></span>Figure 5 An illustration of tensor factorization of knowledge graphs.
 
 the embedding results. They creatively proposed the TransE model, which translates all the entities and relations of a knowledge graph into a continuous and low vector space. Specifically, the vectors of the head and tail entities in a triplet are connected by the vector of their relation. Consequently, in the vector space, the semantic meaning of every triplet is preserved. Formally, given a triplet (head, relation, tail), the embedding vectors of the head entity, relation, and tail entity are h, r, and t, respectively. In the vector space, the plausibility of the triplet (h, r, t) is computed by the translation invariance-based scoring function to ensure it follows the geometric principle: h + r ≈ t.
 
 After TransE, a lot of related extensions, such as TransH [\(Wang et al,](#page-39-11) [2014\)](#page-39-11) and TransR [\(Lin et al,](#page-33-10) [2015\)](#page-33-10), are continually proposed to improve the performance of the Translation-based knowledge graph embeddings.
 
-#### 1.3 Neural Network-based Methods
+### 1.3 Neural Network-based Methods
 
 Nowadays, deep learning has become a popular tool that is utilized for knowledge graph embeddings, and a considerable amount of research proposes to employ neural networks to represent the triplets of knowledge graphs [\(Dai et al,](#page-30-10) [2020a\)](#page-30-10). In this section, we discuss three representative works, including SME, ConvKB, and R-GCN, to briefly introduce neural network-based knowledge graph embeddings.
 
@@ -324,7 +322,7 @@ SME [\(Bordes et al,](#page-29-9) [2014\)](#page-29-9) designs an energy functio
 $$
 f_r(h,t) = (\mathbf{W}_{h1}\mathbf{h} + \mathbf{W}_{h2}\mathbf{r} + \mathbf{b}_h) \top (\mathbf{W}_{t1}\mathbf{t} + \mathbf{W}_{t2}\mathbf{r} + \mathbf{b}_t).
 $$
- (1)
+(1)
 
 The scoring function of SME (bilinear) is:
 
@@ -350,7 +348,7 @@ $$
 
 where h (l+1) k is the hidden state of the entity k in l-th layer, N<sup>r</sup> k denotes a neighbor collection of entity k and relation r ∈ R, nk,r is the normalization process, W (l) i and W (l) k are the weight matrices.
 
-#### 1.4 Limitations of Existing Methods
+### 1.4 Limitations of Existing Methods
 
 The existing methods for generating knowledge graph embeddings still suffer several severe limitations. Many established methods only consider surface facts (triplets) of knowledge graphs. However, additional information, such as entity types and relation paths, are ignored, which can further improve the embedding accuracy. The performance of most traditional methods that do not consider the additional information is unsatisfactory. Table [3](#page-20-0) lists the embedding methods, which do not consider the additional information. In Table [3,](#page-20-0) the performance evaluation is based on the link prediction and triplet classification tasks. The metrics that are for evaluation results are hit rate at 10 (Hits@10) and accuracy. As Table [3](#page-20-0) presents, only a few models have impressive results, including the results of QuatE (90%), RMNN (89.9%), and KBGAN (89.2%). Recently, some researchers have started to combine additional information with a knowledge graph to improve the efficiency of embedding models. For example, Guo et al. [\(Guo et al,](#page-31-10) [2015\)](#page-31-10) take advantage of additional entity type information, which is the semantic category of each entity, to obtain the correlation between the entities and to tackle the data sparsity issue. Therefore, knowledge graphs are represented more accurately. Not only entity types, some other information, including relation paths [\(Li et al,](#page-33-12) [2021\)](#page-33-12), time information of dynamic graphs [\(Messner et al,](#page-34-11) [2022\)](#page-34-11), and textual descriptions of entities [\(An](#page-28-7) [et al,](#page-28-7) [2018\)](#page-28-7), are getting the researchers' attention in recent years. However, it is still a daunting challenge to effectively utilize rich additional information to improve the accuracy of knowledge graph embeddings.
 
@@ -358,7 +356,7 @@ General additional information can not adequately represent the semantic meaning
 
 To the best of our knowledge, complex relation path remains an open research problem [\(Peng et al,](#page-35-11) [2021\)](#page-35-11). For example, the inherent relations, referring to the indirect relationships between two unconnected entities, are not represented effectively. Although the inherent relations between the entities can be explored based on the chain of relationships in knowledge graphs, the inherent relations are complex and multiple. Therefore, it is not straightforward to represent these relations effectively.
 
-#### 2 Knowledge Acquisition
+### 2 Knowledge Acquisition
 
 Knowledge acquisition is a critical step for combining data from different sources and generating new knowledge graphs. The knowledge is extracted from both structured and unstructured data. Three main methods of knowledge acquisition are relation extraction, entity extraction, and attribute extraction [\(Fu et al,](#page-31-11) [2019\)](#page-31-11). Here, attribute extraction can be regarded as a special case of entity extraction. Zhang et al. [\(Zhang et al,](#page-41-7) [2019b\)](#page-41-7) took advantage of knowledge graph embeddings and graph convolution networks to extract long-tail relations. Shi et al. [\(Shi et al,](#page-37-11) [2021\)](#page-37-11) proposed entity set expansion to construct large-scale knowledge graphs.
 
@@ -370,7 +368,7 @@ attention to cross-lingual entity extraction and the generation of multilingual 
 
 Multi-modal knowledge graph construction is regarded as another challenging issue of knowledge acquisition. The existing knowledge graphs are mostly represented by pure symbols, which could result in the poor capability of machines to understand our real world [\(Zhu et al,](#page-42-2) [2022b\)](#page-42-2). Therefore, many researchers focus on multi-modal knowledge graphs with various entities, such as texts and images. The construction of multi-modal knowledge graphs requires the exploration of entities with different modalities, which makes the knowledge acquisition tasks complicated and inefficient.
 
-#### 3 Knowledge Graph Completion
+### 3 Knowledge Graph Completion
 
 Knowledge graphs are often incomplete, i.e., missing several relevant triplets and entities [\(Zhang et al,](#page-41-8) [2020b\)](#page-41-8). For instance, in Freebase, one of the most well-known knowledge graphs, more than half of person entities do not have information about their birthplaces and parents. Generally, semi-automated and human leveraging mechanisms, which can be applied to ensure the quality of knowledge graphs, are essential tools for the evaluation of knowledge graph completion. Specifically, human supervision is currently considered the gold standard evaluation in knowledge graph completion [\(Ballandies and](#page-28-8) [Pournaras,](#page-28-8) [2021\)](#page-28-8).
 
@@ -380,7 +378,7 @@ However, most current knowledge graph completion methods only focus on extractin
 
 Knowledge graph completion methods assume knowledge graphs are static and fail to capture the dynamic evolution of knowledge graphs. To obtain accurate facts over time, temporal knowledge graph completion, which considers the temporal information reflecting the validity of knowledge, has emerged. Compared to static knowledge graph completion, temporal knowledge graph completion methods integrate timestamps into the learning process. Hence, they explore the time-sensitive facts and improve the link prediction accuracy significantly. Although temporal knowledge graph completion methods have shown brilliant performance, they still face serious challenges. Because these models consider time information would be less efficient [\(Shao et al,](#page-36-9) [2022\)](#page-36-9), the key challenge of temporal knowledge graph completion is how to effectively incorporate timestamps of facts into the learning models and properly capture the temporal dynamics of facts.
 
-#### 4 Knowledge Fusion
+### 4 Knowledge Fusion
 
 Knowledge fusion aims to combine and integrate knowledge from different data sources. It is often a necessary step for the generation of knowledge graphs [\(Nguyen et al,](#page-35-1) [2020;](#page-35-1) [Smirnov and Levashova,](#page-37-12) [2019\)](#page-37-12). The primary method of knowledge fusion is entity alignment or ontology alignment [\(Ren et al,](#page-36-10) [2021\)](#page-36-10), which aims to match the same entity from multiple knowledge graphs [\(Zhao](#page-41-9) [et al,](#page-41-9) [2020\)](#page-41-9). Achieving efficient and accurate knowledge graph fusion is a challenging task because of the complexity, variety, and large volume of data available today.
 
@@ -390,7 +388,7 @@ Another primary challenge regards entity disambiguation [\(Nguyen et al,](#page-
 
 In addition, many knowledge fusion methods only focus on matching entities with the same modality and ignore multi-modal scenes in which knowledge is presented in different forms. Specifically, entity alignment considering only single-modality knowledge graph scenario has insignificant performance because it can not fully reflect the relationships of entities in the real world [\(Cheng et al,](#page-30-11) [2022a\)](#page-30-11). Recently, to solve this issue, some studies have proposed multi-modal knowledge fusion, which matches the same entities having different modalities and generates a multi-modal knowledge graph. For example, HMEA [\(Guo et al,](#page-31-12) [2021\)](#page-31-12) aligns entities with multiple forms by mapping multimodal representations into hyperbolic space. Although many researchers have worked on multi-modal knowledge fusion, it is still a critical task. Multi-modal knowledge fusion mainly aims to find equivalent entities by integrating their multi-modal features [\(Cheng et al,](#page-30-11) [2022a\)](#page-30-11). Nevertheless, how to efficiently incorporate the features having multiple modalities is still a tricky issue facing current methods.
 
-#### 5 Knowledge Reasoning
+### 5 Knowledge Reasoning
 
 The goal of knowledge reasoning is to infer new knowledge, such as the implicit relations between two entities [\(Liu et al,](#page-33-13) [2021;](#page-33-13) [Wang et al,](#page-39-1) [2019c\)](#page-39-1), based on existing data. For a given knowledge graph, wherein there are two unconnected entities h and t, denoted as h, t ∈ G, here G means the knowledge graph, knowledge reasoning can find out the potential relation r between these entities and form a new triplet (h, r, t). The knowledge reasoning methods are mainly categorized into logic rule-based [\(De Meester et al,](#page-30-12) [2021\)](#page-30-12), distributed representation-based [\(Chen et al,](#page-29-3) [2020b\)](#page-29-3), and neural network-based methods [\(Xiong et al,](#page-40-11) [2017\)](#page-40-11). Logic rule-based knowledge reasoning aims to discover knowledge according to the random walk and logic rules, while distributed representation-based knowledge reasoning embeds entities and relations into a vector space to obtain distributed representation [\(Chen et al,](#page-29-3) [2020b\)](#page-29-3). Neural network-based knowledge reasoning method utilizes neural networks to infer new triplets given the body of knowledge in the graph [\(Xian et al,](#page-40-12) [2019\)](#page-40-12).
 
@@ -398,15 +396,15 @@ There are two tasks in knowledge reasoning: single-hop prediction and multi-hop 
 
 Besides, the verification of inferred new knowledge is also a critical issue. Knowledge reasoning enriches existing knowledge graphs and brings benefits to the downstream tasks [\(Wan et al,](#page-38-11) [2021\)](#page-38-11). However, the inferred new knowledge is sometimes uncertain, and the veracity of new triplets needs to be verified. Furthermore, the conflicts between new and existing knowledge should be detected. To address these problems, some research has proposed multi-source knowledge reasoning [\(Zhao et al,](#page-41-9) [2020\)](#page-41-9) that detects erroneous knowledge and conflicting knowledge. Overall, more attention should be paid to multi-source knowledge reasoning and erroneous knowledge reduction.
 
-# <span id="page-27-0"></span>6 Conclusion
+## <span id="page-27-0"></span>6 Conclusion
 
 Knowledge graphs have played an instrumental role in creating many intelligent services and applications for various fields. In this survey, we provided an overview of knowledge graphs in terms of opportunities and challenges. We first introduced the definitions and existing research directions regarding knowledge graphs to provide an introductory analysis of knowledge graphs. Afterward, we discussed AI systems that take advantage of knowledge graphs. Then, we presented some representative knowledge graph applications in several fields. Furthermore, we analyzed the limitations of current knowledge graph technologies, which lead to severe technical challenges. We expect this survey to spark new ideas and insightful perspectives for future research and development activities involving knowledge graphs.
 
-# Declarations
+## Declarations
 
 Conflict of interest. The authors declare that they have no competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 
-# References
+## References
 
 - <span id="page-28-10"></span>Abu-Salih B (2021) Domain-specific knowledge graphs: A survey. Journal of Network and Computer Applications 185:103,076
 - <span id="page-28-9"></span>Akrami F, Saeef MS, Zhang Q, et al (2020) Realistic re-evaluation of knowledge graph completion methods: An experimental study. In: Proceedings of the 2020 ACM SIGMOD International Conference on Management of Data, pp 1995–2010

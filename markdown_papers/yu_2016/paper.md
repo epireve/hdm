@@ -33,12 +33,11 @@ keywords:
 - two-stream
 ---
 
-
 # <span id="page-0-0"></span>Knowledge-enhanced Multi-perspective Video Representation Learning for Scene Recognition
 
-*Xuzheng Yu*<sup>1</sup>,<sup>2</sup> , *Chen Jiang*<sup>2</sup> , *Wei Zhang*<sup>2</sup> , *Tian Gan*<sup>1</sup> *Linlin Chao*<sup>2</sup> , *Jianan Zhao*<sup>2</sup> , *Yuan Cheng*<sup>2</sup> , *Qingpei Guo*<sup>2</sup> , *Wei Chu*<sup>2</sup> <sup>1</sup>Shandong University <sup>2</sup>Ant Group
+**Xuzheng Yu:** <sup>1</sup>,<sup>2</sup> , *Chen Jiang*<sup>2</sup> , *Wei Zhang*<sup>2</sup> , *Tian Gan*<sup>1</sup> *Linlin Chao*<sup>2</sup> , *Jianan Zhao*<sup>2</sup> , *Yuan Cheng*<sup>2</sup> , *Qingpei Guo*<sup>2</sup> , *Wei Chu*<sup>2</sup> <sup>1</sup>Shandong University <sup>2</sup>Ant Group
 
-# Abstract
+## Abstract
 
 *With the explosive growth of video data in real-world applications, a comprehensive representation of videos becomes increasingly important. In this paper, we address the problem of video scene recognition, whose goal is to learn a high-level video representation to classify scenes in videos. Due to the diversity and complexity of video contents in realistic scenarios, this task remains a challenge. Most existing works identify scenes for videos only from visual or textual information in a temporal perspective, ignoring the valuable information hidden in single frames, while several earlier studies only recognize scenes for separate images in a non-temporal perspective. We argue that these two perspectives are both meaningful for this task and complementary to each other, meanwhile, external introduced knowledge can also promote the comprehension of videos. We propose a novel two-stream framework to model video representations from multiple perspectives, i.e. temporal and non-temporal perspectives, and integrate the two perspectives in an end-to-end manner by self-distillation. Besides, we design a knowledge-enhanced feature fusion and label prediction method that contributes to naturally introducing knowledge into the task of video scene recognition. Experiments conducted on a real-world dataset demonstrate the effectiveness of our proposed method.*# INTRODUCTION
 
@@ -65,7 +64,7 @@ Our main contributions are as follows:
 
 The rest of this paper is structured as follows. In Section 2, we briefly review the related literature. In Section 3, we detail our proposed model, followed by experimental results and analyses in Section 4. We finally conclude the work in Section 5.
 
-# RELATED WORK
+## RELATED WORK
 
 In this section, we mainly review the studies that are most related to our work, including video representation, scene recognition, and knowledge-enhanced learning.
 
@@ -87,7 +86,7 @@ Compared with knowledge graphs focusing on mining the valuable information hidde
 
 The specifically defined knowledge in certain scenarios also appears in numerous recent studies [\[27,](#page-9-0) [31\]](#page-9-6). Zhang*et al.*[\[27\]](#page-9-0) proposed to narrate the user-preferred product characteristics depicted in user-generated product videos, and proposed a novel framework to perform knowledgeenhanced spatio-temporal inference on product-oriented video graphs. Zhu*et al.* [\[31\]](#page-9-6) introduced knowledge modality in multi-modal pretraining to correct the noise and supplement the missing image and text modalities. The aforementioned methods introduce several types of additional associated information, and leverage the specifically defined knowledge to guide the learning of models. However, the introduced knowledge also brings barriers to these methods, because the knowledge and methods usually target specific datasets, and are not easy to be extended to other tasks. In our work, though we similarly introduce additional specifically defined information (*i.e.,* keywords) as knowledge, yet the introduced keywords are easily obtained from text descriptions, making our method extendable and adjustable.
 
-# OUR PROPOSED METHOD
+## OUR PROPOSED METHOD
 
 ## 1. Overview
 
@@ -95,7 +94,7 @@ The specifically defined knowledge in certain scenarios also appears in numerous
 
 Before describing our method, we briefly introduce the problem setting first. Formally, let V, L, and G denote the set of videos, the set of scene labels, and the external knowledge graph respectively. Each video v ∈ V contains textual descriptions t and a sequence of RGB frames. Scene labels L belong to a two-level scene hierarchy, and each video is associated with a set of paths P<sup>v</sup> = {p1, p2, ..., p|Pv<sup>|</sup>} on this hierarchy, where p<sup>l</sup> = {p 1 l , p<sup>2</sup> l | p 1 l , p<sup>2</sup> <sup>l</sup> ∈ L} for p<sup>l</sup> ∈ Pv, and p 1 l is the parent scene label of p 2 l . Our goal is to learn a video scene recognition model, which could recognize suitable scene labels p based on the video frame sequences and the associated text descriptions.
 
-#### 1.2 Model overview.
+### 1.2 Model overview.
 
 Temporal information can well describe what happens in videos, while non-temporal information can well reflect several moments in videos. We argue that these two perspectives are both meaningful for this task and complementary to each other. Meanwhile, external introduced knowledge can also promote the comprehension of videos. In order to make full use of these kinds of information, we propose a novel two-stream framework to model video representations from the two perspectives, i.e. temporal and nontemporal perspectives, and integrate these two perspectives in an end-to-end manner by self-distillation. Besides, in the non-temporal module, we design a knowledge-enhanced feature fusion and label prediction method that contributes to naturally introducing knowledge into the task of video scene recognition.
 
@@ -158,11 +157,11 @@ $$
 $$
 e^{\text{t video}} = o_0,
 $$
- (5)
+(5)
 
 where O indicates the output sequence, pos<sup>j</sup> ( j ∈ [0, N<sup>f</sup> ] ) indicates the position embedding, and N<sup>f</sup> denotes the number of sampled keyframes.
 
-#### 2.2 Hierarchical multi-label prediction.
+### 2.2 Hierarchical multi-label prediction.
 
 After obtaining the video-level temporal features e t video , we employ multi-layer perceptrons to obtain the basic scores of labels score′<sup>t</sup> i for the i th-level scene hierarchical layer. Besides, for each label q<sup>1</sup> in the 1 st-level scene hierarchical layer, we make the refined scores score<sup>t</sup> q1 of it the same as its basic score. And for each label q<sup>2</sup> in the 2 rd-level layer, we obtain the refined scores score<sup>t</sup> q2 of it by summing the basic scores of itself and its parent label µ<sup>q</sup><sup>2</sup>
 
@@ -179,7 +178,7 @@ $$
 $$
 score_{q_2}^t = score'_{1,\mu_{q_2}}^t + score'_{2,q_2},
 $$
- (8)
+(8)
 
 where score<sup>t</sup> <sup>i</sup> ∈ R |Li| and |L<sup>i</sup> | denote the scores and the number of the labels in the i th-level scene hierarchical layer respectively, µ<sup>θ</sup> denotes the parent label of θ in scene hierarchy, δ(·) indicates the activation function, W<sup>i</sup> <sup>4</sup> ∈ R <sup>d</sup>emb×demb and W<sup>i</sup> <sup>5</sup> ∈ R |Li|×demb denote weight matrices in fully connected layers, b i <sup>4</sup> ∈ R <sup>d</sup>emb and b i <sup>5</sup> ∈ R |Li| denote bias vectors, and demb denotes the dimensions of the video-level temporal features.
 
@@ -239,7 +238,7 @@ $$
 
 where Wlocal <sup>Q</sup> , Wlocal <sup>K</sup> , Wlocal <sup>V</sup> indicate the weight matrices corresponding to the queries, keys and values of the selfattention module, and dKey represents the dimensions of the key vectors.
 
-#### 3.2 Knowledge-enhanced video feature fusion.
+### 3.2 Knowledge-enhanced video feature fusion.
 
 In this module, we leverage the entity embeddings pretrained from knowledge graphs G as external knowledge, and denote G<sup>θ</sup> as the pretrained embeddings corresponding to the token θ. In addition, we also employ the embeddingbased [\[3,](#page-8-13) [14\]](#page-8-21) unsupervised keyword extraction algorithm to extract N<sup>k</sup> keywords kw<sup>k</sup> ∈ K<sup>v</sup> ⊆ G from the associated text descriptions of video v.
 
@@ -344,7 +343,7 @@ where β t , β nt and β distill are hyper-parameters as coefficients of J t , 
 
 Moreover, to balance the performance and efficiency of the model, inspired by previous work [\[5,](#page-8-4) [11,](#page-8-5) [15\]](#page-8-1), the two modules are both utilized to participate in the training, but only the temporal module is employed for reasoning. When reasoning, given videos and the associated textual descriptions as queries, the model will first calculate the scene label scores through the temporal module, then take out the scene labels with the Top-K scores or the scores that exceed a specific threshold, and return them to users.
 
-# EXPERIMENTS
+## EXPERIMENTS
 
 In this section, we conduct experiments on a realworld dataset to evaluate the performance of our proposed method.
 
@@ -372,20 +371,20 @@ To evaluate the effectiveness of our model, we compare our proposed method with 
 
 <span id="page-6-0"></span><sup>1</sup>www.koubei.com
 
-| Model                  | RP@90% | F1 score |
+| Model | RP@90% | F1 score |
 |------------------------|--------|----------|
-| MMBT                   | 0.521  | 0.720    |
-| LSCTA                  | 0.324  | 0.706    |
-| HGLTM                  | 0.434  | 0.719    |
-| STGK                   | 0.452  | 0.707    |
-| HCMFL                  | 0.445  | 0.735    |
-| HETFN                  | 0.483  | 0.710    |
-| Ours-S2                | 0.536  | 0.726    |
-| Ours-S2w/o-hier        | 0.511  | 0.731    |
-| Ours-S2w/o-know&w-temp | 0.511  | 0.709    |
-| Ours-S2w/o-know        | 0.504  | 0.707    |
-| Ours-S2w/o-kw          | 0.531  | 0.706    |
-| OurModel               | 0.561  | 0.735    |
+| MMBT | 0.521 | 0.720 |
+| LSCTA | 0.324 | 0.706 |
+| HGLTM | 0.434 | 0.719 |
+| STGK | 0.452 | 0.707 |
+| HCMFL | 0.445 | 0.735 |
+| HETFN | 0.483 | 0.710 |
+| Ours-S2 | 0.536 | 0.726 |
+| Ours-S2w/o-hier | 0.511 | 0.731 |
+| Ours-S2w/o-know&w-temp | 0.511 | 0.709 |
+| Ours-S2w/o-know | 0.504 | 0.707 |
+| Ours-S2w/o-kw | 0.531 | 0.706 |
+| OurModel | 0.561 | 0.735 |
 
 <span id="page-7-1"></span><span id="page-7-0"></span>Table 1. Performance comparison among our model and all fullytrained baselines using the metrics RP@90% and F1 score.
 
@@ -412,11 +411,11 @@ Moreover, Ours-S2 obtain better performance than Ours-S2w/o-know&w-temp and Ours
 
 Finally, compared with Ours-S2w/o-kw, Ours-S2 achieves better performance, verifying that the introduced external knowledge is valuable to our proposed model.
 
-# Conclusions and Future Work
+## Conclusions and Future Work
 
 With the explosive growth of video data in real-world applications, a comprehensive representation of videos becomes increasingly important. In this paper, we address the problem of video scene recognition, whose goal is to learn a high-level video representation to classify scenes in videos. In this paper, we propose a novel two-stream framework to model video representations from the temporal and knowledge-enhanced non-temporal perspectives, and integrate these two perspectives in an end-to-end manner by self-distillation. Besides, we design a knowledge-enhanced feature fusion and label prediction method that contributes to naturally introducing knowledge into the task of video scene recognition. We evaluated our model for scene recognition on a real-world dataset, and the experimental results demonstrate the effectiveness of our proposed model. In addition, we also conducted ablation studies, which demonstrated the effectiveness of our proposed temporal and nontemporal two-stream framework and knowledge-enhanced feature fusion method, respectively. In future work, we may pay more attention to the utilization of knowledge graphs, and try to leverage edge information in knowledge graphs to assist reasoning to enhance video understanding.
 
-# References
+## References
 
 - <span id="page-8-22"></span>[1] Relja Arandjelovic, Petr Gronat, Akihiko Torii, Tom ´ as Pa- ´ jdla, and Josef Sivic. Netvlad: CNN architecture for weakly supervised place recognition. In*IEEE Conference on Computer Vision and Pattern Recognition, CVPR*, pages 5297– 5307. IEEE Computer Society, 2016. [5](#page-4-0)
 - <span id="page-8-17"></span>[2] Joao Carreira and Andrew Zisserman. Quo vadis, action ˜ recognition? A new model and the kinetics dataset. In *IEEE Conference on Computer Vision and Pattern Recognition, CVPR*, pages 4724–4733. IEEE Computer Society, 2017. [3](#page-2-0)

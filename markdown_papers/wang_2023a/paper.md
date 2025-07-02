@@ -21,7 +21,6 @@ keywords:
 - temporal knowledge graph
 ---
 
-
 # A Survey on Temporal Knowledge Graph Completion: Taxonomy, Progress, and Prospects
 
 Jiapu Wang, Boyue Wang, Meikang Qiu, *Senior Member, IEEE*, Shirui Pan, *Senior Member, IEEE*, Bo Xiong, Heng Liu, Linhao Luo, Tengfei Liu, Yongli Hu, Baocai Yin, Wen Gao, *Fellow, IEEE*
@@ -31,7 +30,7 @@ Jiapu Wang, Boyue Wang, Meikang Qiu, *Senior Member, IEEE*, Shirui Pan, *Senior 
 ✦
 **Index Terms**—Knowledge Graphs, Temporal Knowledge Graphs, Knowledge Graph Completion, Interpolation, Extrapolation.
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 K NOWLEDGE Graph (KGs) are structured multirelational knowledge bases that typically contain a set of facts. Each fact in a KG is stored in the form of triplet (s, r, o), where s and o represent the head and tail entities, respectively, and r denotes the relation connecting the head entity and the tail entity. For example, given one triplet *(Barack Hussein Obama, President of, USA)*, "*Barack Hussein Obama*" and "*USA*" are the head entity s and the tail entity o, respectively, while "*president of*" represents the relation r. Currently, large-scale KGs are widely exploited in artificial intelligence and data mining applications, including trafficflow forecasting [\[1\]](#page-16-0), information retrieval [\[2\]](#page-16-1), and dialogue systems [\[3\]](#page-16-2).
 
@@ -46,7 +45,7 @@ The TKGC task aims to predict the missing items according to the available infor
 <span id="page-1-3"></span>![](_page_1_Figure_1.jpeg)
 <!-- Image Description: The image displays two knowledge graph diagrams illustrating interpolation (a) and extrapolation (b) in link prediction. (a) shows a knowledge graph with nodes representing entities (e.g., America, Barack Obama) and edges representing relations (e.g., "president of"). (b) depicts a temporal sequence of knowledge graphs (G₀, G₁, ..., Gₜ₊₁) where the task is to predict links in Gₜ₊₁ based on previous graphs. A separate diagram explains the link prediction process, showing the input of entity and relation sets and the output of the predicted links. -->
 
-<span id="page-1-0"></span>Fig. 1. Two categorizations of the *Temporal Knowledge Graph Completion (TKGC)*, e.g., (a) Interpolation, in which the red bolded "**?**" represents the missing knowledge*(Donald Trump, succeeded, Barack Hussein Obama, 2017)*; (b) Extrapolation, in which Gt denotes the static KG at time t.
+<span id="page-1-0"></span>Figure 1. Two categorizations of the *Temporal Knowledge Graph Completion (TKGC)*, e.g., (a) Interpolation, in which the red bolded "**?**" represents the missing knowledge*(Donald Trump, succeeded, Barack Hussein Obama, 2017)*; (b) Extrapolation, in which Gt denotes the static KG at time t.
 
 estimate unknown knowledge through the relevant known facts, and extrapolation methods aim to estimate unknown knowledge in the future. Fig [1](#page-1-0) illustrates an example of these two different scenarios.
 
@@ -62,7 +61,7 @@ In this paper, we provide an overview of TKGC methods with a fine-grained catego
 
 The rest of this paper is organized as follows. Section [2](#page-1-2) briefly reviews the background of TKGC. Section [3](#page-3-0) details an overview and the categorization of TKGCs. In Section [4,](#page-4-0) we introduce the interpolation methods and classify in detail the interpolation methods. Likewise, Section [5](#page-8-0) presents the extrapolation methods. Afterwards, we discuss the applications of TKG in recommendation and Q&A systems in Section [6.](#page-13-0) Section [7](#page-15-0) discusses the challenges and future research directions. Finally, we conclude this paper in Section [8.](#page-16-7)
 
-# <span id="page-1-2"></span>2 BACKGROUND
+## <span id="page-1-2"></span>2 BACKGROUND
 
 In this section, we describe the background of the*Temporal Knowledge Graph Completion (TKGC)*, including *Preliminaries*, *Loss functions*, *Benchmark datasets*, and *Evaluation protocol*.
 
@@ -74,21 +73,20 @@ In this section, we describe the background of the*Temporal Knowledge Graph Comp
 
 TABLE 1 Statistic information of whole datasets.
 
-<span id="page-2-0"></span>
 
-| Datasets        | #Entities | #Relations | #Timestamps | #Time Span              | #Training | #Validation | #Test   | #Granularity | #Category     |
+| Datasets | #Entities | #Relations | #Timestamps | #Time Span | #Training | #Validation | #Test | #Granularity | #Category |
 |-----------------|-----------|------------|-------------|-------------------------|-----------|-------------|---------|--------------|---------------|
-| ICEWS14 [8]     | 6,869     | 230        | 365         | 01/01/2014 – 12/31/2014 | 72,826    | 8,941       | 8,963   | 24 hours     | Interpolation |
-| ICEWS05-15 [8]  | 10,094    | 251        | 4,017       | 01/01/2005 – 12/31/2015 | 368,962   | 46,275      | 46,092  | 24 hours     | Interpolation |
-| GDELT [5]       | 500       | 20         | 366         | 04/01/2015 – 03/31/2016 | 2,735,685 | 341,961     | 341,961 | 24 hours     | Interpolation |
-| YAGO11k [9]     | 10,623    | 10         | 70          | -431 – 2844             | 16,406    | 2,050       | 2,051   | –            | Interpolation |
-| YAGO15k [8]     | 15,403    | 34         | 198         | 1553 – 2017             | 29,381    | 3,635       | 3,685   | –            | Interpolation |
-| Wikidata12k [9] | 12,554    | 24         | 81          | 1709 – 2018             | 32,497    | 4,062       | 4,062   | –            | Interpolation |
-| ICEWS14 [8]     | 6,869     | 230        | 365         | 01/01/2014 – 12/31/2014 | 72,826    | 8,941       | 8,963   | 24 hours     | Extrapolation |
-| ICEWS18 [10]    | 23,033    | 256        | 304         | 01/01/2018 – 10/31/2018 | 373,018   | 45,995      | 49,545  | 24 hours     | Extrapolation |
-| GDELT [5]       | 7,691     | 240        | 2,751       | 01/01/2018 – 01/31/2018 | 1,734,399 | 238,765     | 305,241 | 15 mins      | Extrapolation |
-| WIKI [11]       | 12,554    | 24         | 232         | 1786 – 2018             | 539,286   | 67,538      | 63,110  | 1 year       | Extrapolation |
-| YAGO [12]       | 10,623    | 10         | 189         | 1830 – 2019             | 161,540   | 19,523      | 20,026  | 1 year       | Extrapolation |
+| ICEWS14 [8] | 6,869 | 230 | 365 | 01/01/2014 – 12/31/2014 | 72,826 | 8,941 | 8,963 | 24 hours | Interpolation |
+| ICEWS05-15 [8] | 10,094 | 251 | 4,017 | 01/01/2005 – 12/31/2015 | 368,962 | 46,275 | 46,092 | 24 hours | Interpolation |
+| GDELT [5] | 500 | 20 | 366 | 04/01/2015 – 03/31/2016 | 2,735,685 | 341,961 | 341,961 | 24 hours | Interpolation |
+| YAGO11k [9] | 10,623 | 10 | 70 | -431 – 2844 | 16,406 | 2,050 | 2,051 | – | Interpolation |
+| YAGO15k [8] | 15,403 | 34 | 198 | 1553 – 2017 | 29,381 | 3,635 | 3,685 | – | Interpolation |
+| Wikidata12k [9] | 12,554 | 24 | 81 | 1709 – 2018 | 32,497 | 4,062 | 4,062 | – | Interpolation |
+| ICEWS14 [8] | 6,869 | 230 | 365 | 01/01/2014 – 12/31/2014 | 72,826 | 8,941 | 8,963 | 24 hours | Extrapolation |
+| ICEWS18 [10] | 23,033 | 256 | 304 | 01/01/2018 – 10/31/2018 | 373,018 | 45,995 | 49,545 | 24 hours | Extrapolation |
+| GDELT [5] | 7,691 | 240 | 2,751 | 01/01/2018 – 01/31/2018 | 1,734,399 | 238,765 | 305,241 | 15 mins | Extrapolation |
+| WIKI [11] | 12,554 | 24 | 232 | 1786 – 2018 | 539,286 | 67,538 | 63,110 | 1 year | Extrapolation |
+| YAGO [12] | 10,623 | 10 | 189 | 1830 – 2019 | 161,540 | 19,523 | 20,026 | 1 year | Extrapolation |
 
 these symbols E, R, T , Q respectively represent the entity, relation, timestamp and quadruplet sets. More specifically, each knowledge in TKGs is stored in the form of quadruplet (s, r, o, t) ∈ Q, where s, o ∈ E are the head and tail entities, r ∈ R denotes the relation and t ∈ T means the timestamp. Furthermore, s and o represent the nodes of the TKG, r denotes the edge from the head entity to the tail entity and t is the temporal label, which mainly contains two forms, such as the time point or the time interval.
 
@@ -129,16 +127,16 @@ However, the aforementioned temporal regularizations primarily emphasize the abs
 $$
 \mathcal{L}_{\tau} = -\frac{1}{|\mathcal{T}| - 1} \sum_{i=1}^{|\mathcal{T}| - 1} (\mathbf{t}_{i+1}^T \cdot \mathbf{t}_i).
 $$
- (5)
+(5)
 
-#### 2.3 Benchmark Datasets
+### 2.3 Benchmark Datasets
 
 We list eleven common datasets widely used in the TKGC task and the major statistics of these datasets are
 
 ![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This flowchart categorizes Temporal Knowledge Graph Completion (TKGC) methods. It branches from a main "Temporal Knowledge Graph Completion" node into two primary categories: interpolation-based and extrapolation-based TKGCs. Each category further subdivides into approaches based on timestamps, deep learning, rule-based methods (with manual or automatic rule mining), graph neural networks, meta-learning, and reinforcement learning. Specific techniques within each subcategory, such as Transformer networks and LSTM, are also listed. The figure organizes and clarifies the various TKGC approaches. -->
 
-<span id="page-3-1"></span>Fig. 2. Fine-grained categorization of*Temporal Knowledge Graph Completion (TKGC)*methods.
+<span id="page-3-1"></span>Figure 2. Fine-grained categorization of*Temporal Knowledge Graph Completion (TKGC)*methods.
 
 summarized in TABLE [1](#page-2-0) [\[21\]](#page-16-21).**ICEWS14**, **ICEWS05-15**[\[8\]](#page-16-8) and**ICEWS18**[\[10\]](#page-16-10) are three subsets of*Integrated Crisis Early Warning System (ICEWS)*[\[4\]](#page-16-3), which involves some political events with time points.**GDELT**[\[5\]](#page-16-4) is a subset of the larger*Global Database of Events, Language, and Tone (GDELT)*[\[5\]](#page-16-4) that contains human social relationships, and timestamps are mainly in the form of time points. It should be emphasized that GDELT exhibits a complex geometry characterized by a small number of nodes and a substantial volume of training data.
 **YAGO11k**[\[9\]](#page-16-9),**YAGO15k**[\[8\]](#page-16-8) and**YAGO**[\[12\]](#page-16-12) are three subsets of YAGO3 [\[12\]](#page-16-12).**Wikidata12k**[\[9\]](#page-16-9) and**WIKI**[\[11\]](#page-16-11) are two subsets of WIKIDATA [\[22\]](#page-16-22). Different from ICEWS and GDELT, time annotations in YAGO11k and Wikidata12k are represented in various forms, i.e., time points like 2015−12−12, time intervals like "Since 2015 ([2015, ##])" and [2015, 2016]. Unlike ICEWS and GDELT, YAGO3 and WIKIDATA have a more sparse graph structure.
@@ -154,7 +152,7 @@ The evaluation protocol serves as a crucial metric for assessing the performance
 
 Higher values of MRR and Hits@N, as well as lower MR, indicate better performance. In addition, the final experimental results consist of two flavors: *Raw*and*Filter*. Specifically, the *Filter*metric is calculated by excluding all reconstituted quadruplets that existed in the training, validation, or test set from the rank, whereas the*Raw*metric does not consider such exclusions. A more extensive description of these metrics can be found in [\[23\]](#page-16-23), [\[24\]](#page-16-24).
 
-# <span id="page-3-0"></span>3 TEMPORAL KNOWLEDGE GRAPH COMPLETION
+## <span id="page-3-0"></span>3 TEMPORAL KNOWLEDGE GRAPH COMPLETION
 
 In this section, we categorize them into two flavors based on whether they forecast future events, including*Interpolation-based TKGCs*(Fig. [1a\)](#page-1-3) and*Extrapolation-based TKGCs*(Fig. [1b\)](#page-1-4). The further fine-grained sub-categories are illustrated in Fig. [2.](#page-3-1)
 
@@ -182,7 +180,7 @@ Extrapolation-based TKGC methods focus on continuous TKGs, enabling predictions 
 
 In the following sections (Section [4](#page-4-0) and Section [5\)](#page-8-0), we will introduce these TKGC categorizations in detail.
 
-# <span id="page-4-0"></span>4 INTERPOLATION-BASED TKGCS
+## <span id="page-4-0"></span>4 INTERPOLATION-BASED TKGCS
 
 In this section, we provide an overview of the interpolation methods from three aspects:*Timestamps dependent-based TKGC methods*, *Timestamps-specific functions-based TKGC methods*and*Deep learning-based TKGC methods*.
 
@@ -198,12 +196,12 @@ $$
 $$
 \mathcal{W} = \mathcal{Z} \times_1 \mathbf{A} \times_2 \mathbf{B} \times_3 \mathbf{C},
 $$
- (6)
+(6)
 
 ![](_page_4_Figure_17.jpeg)
 <!-- Image Description: This figure illustrates the SKGC method for knowledge graph completion. It uses a knowledge graph query example ("Who was the President of the USA from 2009-2017?") to show how entities (Barack Hussein Obama, USA) and relations (President_of) are represented as vectors in a vector space. The diagram depicts vector addition for entity and relation vectors, showing how the method computes a result by combining these vector representations. The boxes represent entities and relations, while the embedded graphs visualize their vector representations. -->
 
-<span id="page-4-1"></span>Fig. 3. The framework of the timestamps dependent-based TKGCs.
+<span id="page-4-1"></span>Figure 3. The framework of the timestamps dependent-based TKGCs.
 
 where W denotes the 3rd-order tensor, which can be decomposed as a core tensor Z and three factor matrices A, B and C; ×<sup>i</sup> represents the tensor multiplication between the core tensor and factor matrix in i-th dimension; g(s, r, o) is the score function. TuckERTNT is an extension of TuckER by introducing timestamps. Moreover, TuckERTNT takes into account the notion that certain facts may vary with respect to time, while others remain independent of time. It defines its score function as,
 
@@ -218,7 +216,8 @@ where ◦ denotes the Hadamard (or element-wise) product.
 
 Timestamps-specific functions-based TKGC methods exploit the specific functions to learn the embeddings of timestamps or the evolution of entities and relations, such as diachronic embedding functions [\[7\]](#page-16-6), Gaussian functions [\[37\]](#page-16-37) and transformation functions [\[38\]](#page-16-38).
 
-###*4.2.1 Transformation Functions*Transformation functions-based TKGC methods encode timestamps via the transformation functions. Some classic methods are proposed, such as**BoxTE**[\[39\]](#page-16-39),**SPLIME**[\[40\]](#page-16-40) and**TARGCN**[\[41\]](#page-16-41).
+### *4.2.1 Transformation Functions*Transformation functions-based TKGC methods encode timestamps via the transformation functions. Some classic methods are proposed, such as**BoxTE**[\[39\]](#page-16-39),**SPLIME**[\[40\]](#page-16-40) and**TARGCN**[\[41\]](#page-16-41).
+
 **Jiang** *et al.*[\[15\]](#page-16-15) first propose a time-aware TKGC method to comprehensively capture the temporal nature of facts. Specifically, they respectively utilize the time-aware embedding model and*Integer Linear Programming (ILP)*to encode temporal order information and temporal consistency information. However, this method has room for improvement in terms of effectively leveraging temporal information.**HTTR**[\[38\]](#page-16-38) introduces the Householder transformation [\[42\]](#page-17-0) to explore the temporal evolution of relations. Specifically, HTTR defines the orthogonal matrix that represents the rotation from the head entity to the tail entity. This orthogonal matrix is obtained through the Householder transformation, and it directly links to the fused information of the relation and the temporal aspects.
 **BoxTE**[\[39\]](#page-16-39) extends from the SKGC model BoxE [\[43\]](#page-17-1). BoxE encodes entities as points and represents relations as a set of boxes to enable the flexible representation of fundamental logical properties. Additionally, BoxTE embeds temporal information via the relation-specific transfer matrix to explore rich inference patterns.**Dai** *et al.*[\[44\]](#page-17-2) propose a model-agnostic method on the basis of BoxTE, in which they initially introduce the generative adversarial learning technique into the TKGC task. Specifically, the generator constructs high-quality plausible quadruplets and the discriminator obtains the embeddings of entities and relations based on the generator. To overcome the problem of vanishing gradients on discrete data, Dai*et al.*simultaneously introduce the Wasserstein distance and Gumbel-Softmax relaxation.
 **SPLIME**[\[40\]](#page-16-40) is essentially a transformation function, which applies*splitting*and*merging*operations to model TKGs through SKGC methods (e.g., McRL [\[45\]](#page-17-3) and BoxE [\[43\]](#page-17-1)). However, a substantial number of parameters introduced in SPLIME lead to large memory consumption and limit the running efficiency.**Ding** *et al.*[\[41\]](#page-16-41) put forward**TARGCN** *(Time-Aware Relational Graph Convolutional Network)*, a time-aware relational graph encoder designed for the TKGC task. It can achieve greater expressiveness with a smaller number of parameters. TARGCN explores the temporal context of each entity to learn entity embeddings and models temporal differences to encode temporal information through a functional temporal encoder. **TASTER**[\[46\]](#page-17-4) explores the evolution process of entities via a sparse transformation matrix and simultaneously models the local information in a specific timestamp and global information. Subsequently, TASTER respectively models entity association and evolution to overcome scalability limitations.**Time-LowFER**[\[47\]](#page-17-5) proposes a cycle-aware time-encoding function to decompose the timestamp into four important components including*year*, *month*, *week*and*day*, so as to better encode the timestamp. Afterwards, Time-LowFER models the association of TKG through LowFER [\[48\]](#page-17-6), which
@@ -226,13 +225,14 @@ Timestamps-specific functions-based TKGC methods exploit the specific functions 
 ![](_page_5_Figure_7.jpeg)
 <!-- Image Description: This flowchart illustrates the process of a knowledge graph completion (KGC) method. It shows how a knowledge triplet (e.g., "Barack Obama, President of, USA") is converted into a complex space representation (using a 2D Argand diagram) and a coordinate system on a sphere, before being processed by SKGC methods to produce a score. The diagram contrasts triplet and quadruplet representations, showing how the addition of a temporal element changes the input. -->
 
-<span id="page-5-0"></span>Fig. 4. The framework of the complex embedding functions-based TKGCs.
+<span id="page-5-0"></span>Figure 4. The framework of the complex embedding functions-based TKGCs.
 
 introduces a low-rank tensor decomposition mechanism to facilitate the interaction between entities and relations.
 
 Moreover, special transformation functions, i.e., diachronic embedding functions, can encode timestamps or associate timestamps with entities and relations more efficiently [\[7\]](#page-16-6), [\[49\]](#page-17-7). **Goel** *et al.*[\[7\]](#page-16-6) first propose a general diachronic embedding function (such as DE-SimplE and DE-DistMult), which is model-independent and can be combined with any SKGC method. The diachronic embedding function can obtain the entity representation at any timestamp. Although DE-SimplE is capable of capturing temporal information of TKGs, it is insufficient to exploit the complex structure of the graph and its entity modeling is not comprehensive enough.**DEGAT**[\[49\]](#page-17-7) exploits the*Graph ATtention network (GAT)*to capture the complex graph structure and introduces the diachronic embedding function to model the association of the entity and timestamp.
 
-##*4.2.2 Complex Embedding Functions*Complex embedding functions-based TKGC methods typically embed TKGs into complex spaces or special coordinate systems to capture various relational patterns, such as symmetry (e.g., spouse), antisymmetry (e.g., predecessor), inversion (e.g., hypernym and hyponym) and composition (e.g., my son's mother is my wife) [\[50\]](#page-17-8), [\[51\]](#page-17-9), [\[52\]](#page-17-10), and semantic information. As shown in Fig. [4,](#page-5-0) the quadruplet*(Barack Hussein Obama, President of, USA, [2009 - 2017])*is converted into the triplet by associating timestamps with entities or relations in complex space or polar/spherical coordinate system, and then the missing item can be predicted through SKGC methods.
+## *4.2.2 Complex Embedding Functions*Complex embedding functions-based TKGC methods typically embed TKGs into complex spaces or special coordinate systems to capture various relational patterns, such as symmetry (e.g., spouse), antisymmetry (e.g., predecessor), inversion (e.g., hypernym and hyponym) and composition (e.g., my son's mother is my wife) [\[50\]](#page-17-8), [\[51\]](#page-17-9), [\[52\]](#page-17-10), and semantic information. As shown in Fig. [4,](#page-5-0) the quadruplet*(Barack Hussein Obama, President of, USA, [2009 - 2017])*is converted into the triplet by associating timestamps with entities or relations in complex space or polar/spherical coordinate system, and then the missing item can be predicted through SKGC methods.
+
 **ChronoR**[\[16\]](#page-16-16) is an extension of RotatE [\[52\]](#page-17-10) that embeds the triplet (s, r, o) into the complex space and interprets the relation as a rotation from the head entity to the tail entity. Similarly, ChronoR associates the timestamp with the relation and treats the combination of relation and timestamp as a rotation from the head entity to the tail entity. The score function is defined as follows,
 
 $$
@@ -247,9 +247,10 @@ The aforementioned methods embed TKGs into complex or quaternion spaces, which a
 ![](_page_6_Figure_5.jpeg)
 <!-- Image Description: This figure illustrates a knowledge prediction model. A query ("Barack Hussein Obama, President_of, ?, [2009-2017]") is processed using two methods. The left shows a non-Euclidean space represented as a 3D surface with data points, and a corresponding function. The right shows a Gaussian space as a 3D probability density function. Both methods contribute to the prediction ("USA"). The figure visually compares these two approaches to knowledge representation and prediction. -->
 
-<span id="page-6-0"></span>Fig. 5. The framework of the non-linear embedding functions-based TKGC methods, which embeds the TKG through*Non-Euclidean Function*and*Gaussian Function*to capture the temporal uncertainty, the semantic and structural information hidden in the TKG.
+<span id="page-6-0"></span>Figure 5. The framework of the non-linear embedding functions-based TKGC methods, which embeds the TKG through*Non-Euclidean Function*and*Gaussian Function*to capture the temporal uncertainty, the semantic and structural information hidden in the TKG.
 
-##*4.2.3 Non-linear Embedding Functions*Non-linear embedding functions-based TKGC methods typically utilize non-linear functions, such as Gaussian and non-Euclidean functions, to embed TKGs, so as to deeply capture the temporal uncertainty, the semantic and structural information. The framework of the non-linear embedding functions-based TKGC methods is shown in Fig. [5.](#page-6-0) Here, we summarize some classic non-linear embedding functions-based TKGC methods, such as**DyERNIE**[\[61\]](#page-17-19),**ATiSE**[\[37\]](#page-16-37) and**HTKE**[\[60\]](#page-17-18).
+## *4.2.3 Non-linear Embedding Functions*Non-linear embedding functions-based TKGC methods typically utilize non-linear functions, such as Gaussian and non-Euclidean functions, to embed TKGs, so as to deeply capture the temporal uncertainty, the semantic and structural information. The framework of the non-linear embedding functions-based TKGC methods is shown in Fig. [5.](#page-6-0) Here, we summarize some classic non-linear embedding functions-based TKGC methods, such as**DyERNIE**[\[61\]](#page-17-19),**ATiSE**[\[37\]](#page-16-37) and**HTKE**[\[60\]](#page-17-18).
+
 **DyERNIE**[\[61\]](#page-17-19) proposes a non-Euclidean embedding function that explores evolving entity representations through a velocity vector defined in the tangent space at each timestamp. Specifically, DyERNIE embeds the TKG into the Riemannian manifold and introduces an entityspecific velocity vector to capture dynamic facts that change over time. The evolution process can be denoted as,
 
 $$
@@ -262,7 +263,7 @@ where ¯s ∈ M<sup>D</sup> c represents the entity embedding that does not chan
 ![](_page_7_Figure_1.jpeg)
 <!-- Image Description: This flowchart illustrates a knowledge base question answering system. A query ("Barack Obama, President_of, ?, 2008-11-4") is processed. A CNN (Convolutional Neural Network) component, depicted with a matrix multiplication example, likely handles entity extraction. An LSTM (Long Short-Term Memory) network, shown as a chain of nodes, processes temporal information (2008-11-4) to predict "USA" as the answer. The system associates entities and relations to produce the final answer. -->
 
-<span id="page-7-0"></span>Fig. 6. The framework of the deep learning-based TKGC methods.
+<span id="page-7-0"></span>Figure 6. The framework of the deep learning-based TKGC methods.
 
 sentations over time. Similarly,**TKGC-AGP**[\[65\]](#page-17-23) embeds entities and relations of TKG into a specific*Multivariate Gaussian Process (MGP)* to improve the flexibility and expressiveness of TKG, and models the temporal uncertainty through the kernel function and entity/relation-specific covariance matrix of MGP. Furthermore, a 1st-order Markov assumption-based algorithm is designed to effectively optimize the training process of TKGC-AGP.
 
@@ -270,38 +271,39 @@ sentations over time. Similarly,**TKGC-AGP**[\[65\]](#page-17-23) embeds entitie
 
 Thanks to the powerful information mining ability, various deep learning algorithms are used to process temporal information in TKGs. As depicted in Fig. [6,](#page-7-0) deep learningbased TKGC methods employ CNN or LSTM to encode the timestamp "*2008-11-4*". Then, the encoded timestamp supports the entity and relation evolution by capturing their intrinsic correlations.
 
-#### *4.3.1 Timestamps-Specific Space*Temporal-specific space-based TKGC methods [\[9\]](#page-16-9), [\[20\]](#page-16-20), [\[60\]](#page-17-18) generally encode timestamps as specific hyperplanes or semantic spaces to enhance the expression of temporal information.
+### *4.3.1 Timestamps-Specific Space*Temporal-specific space-based TKGC methods [\[9\]](#page-16-9), [\[20\]](#page-16-20), [\[60\]](#page-17-18) generally encode timestamps as specific hyperplanes or semantic spaces to enhance the expression of temporal information.
+
 **HyTE**[\[9\]](#page-16-9) associates each timestamp with a corresponding hyperplane, and then maps entities and relations into this hyperplane to perform the translation operation. However, it is worth noting that HyTE is limited in its ability to model and infer complex relation patterns.**HTKE**[\[60\]](#page-17-18) embeds knowledge that happened at the same timestamp into a polar coordinate system, effectively capturing complex relation patterns. It introduces time-specific hyperplanes to explicitly incorporate temporal information with entities and relations.
 
 However, both HyTE and HTKE ignore the diversity of potential temporal properties and relations, as well as the temporal dependency between neighboring hyperplanes. Consequently,**TRHyTE**[\[66\]](#page-17-24) defines three typical temporal properties, such as time interval, open interval, and time point, to distinguish different situations. Specifically, TRHyTE sequentially maps entities to the relational space and subsequently to the temporal hyperplane, enabling the learning of time-relation-aware embeddings. Additionally, TRHyTE applies*Gate Recurrent Unit (GRU)*to simulate the evolution process, so as to capture the temporal dependency between neighboring hyperplanes. Nevertheless, TRHyTE ignores the balance of timestamp distribution, which will severely limit the expressiveness of the TKGC method.**BTHyTE**[\[67\]](#page-17-25) proposes the HyTE [\[9\]](#page-16-9)-based direct encoding temporal information model to embed the timestamp and sets the finest granularity to ensure a balanced distribution of the number of facts in each finest granularity cell.
 
 TABLE 2 Representation of the timestamp.
 
-<span id="page-7-1"></span>
 
-| Section                   | Quarters |  |  | Months |  |  | Weeks |  |  | Days |  |  |                         |  |  |  |  |  |  |
+| Section | Quarters | | | Months | | | Weeks | | | Days | | | | | | | | | |
 |---------------------------|----------|--|--|--------|--|--|-------|--|--|------|--|--|-------------------------|--|--|--|--|--|--|
-| 12 June, 2023 0 1 0 0 0 0 |          |  |  |        |  |  | 1     |  |  |      |  |  | 0 1 0 0 0 0 0 0 0 1 0 0 |  |  |  |  |  |  |
+| 12 June, 2023 0 1 0 0 0 0 | | | | | | | 1 | | | | | | 0 1 0 0 0 0 0 0 0 1 0 0 | | | | | | |
 **ToKEi**[\[68\]](#page-17-26) is also based on the HyTE, representing the timestamp within a vector of four sections of sizes 4, 3, 5, and 7, respectively. Specifically, the first section represents*Quarters*, the second section denotes *Months*, the next section is *Weeks*, and *Days*is the final section. More precisely, a year consists of four quarters, a quarter contains three months, a month encompasses five weeks, and a week comprises seven days. As shown in TABLE [2,](#page-7-1) ToKEi sets the second position of the*Quarters*to 1 (Due to June is in the second quarter) and the rest to 0. Similarly, the third position of the*Months*(corresponding to June being the third month of the second quarter), the second position of the*Weeks*(as the 12th of June falls in the second week) and the fifth position of the*Days*, are set to 1. According to the above operations, ToKEi can obtain the embedding of timestamps. Finally, ToKEi associates timestamps with entities and relations to explore the temporal evolution and accomplish the missing items through HyTE. **SANe**[\[69\]](#page-17-27) employs an adaptive approach to learn different latent spaces for temporal snapshots at different timestamps and introduces*Convolutional Neural Networks (CNN)*to embed KGs of different timestamps into their respective latent spaces. Moreover, SANe assigns different CNN-specific parameters for different timestamps to address the problem of overlapping latent spaces.
 
 However, the above methods are all modeled based on triplets, i.e., they associate timestamps with entities and relations to translate quadruplets into triplets. Undoubtedly, this severely limits the ability to express temporal information. In contrast,**QDN**[\[20\]](#page-16-20) is proposed as an extension of TDN [\[70\]](#page-17-28), independently handling timestamps, entities, and relations in their respective spaces to comprehensively capture their semantics. Afterwards, QDN creatively designs the*Quadruplet Distributor (QD)*to facilitate the representation learning of TKG through the information aggregation and distribution among timestamps, relations and entities. In addition, QDN extends the 3rd-order tensor into 4thorder to build the intrinsic correlation of entities, relations, and timestamps.
 
-####*4.3.2 Long Short-Term Memory*
+### *4.3.2 Long Short-Term Memory*
 
 *Long Short-Term Memory (LSTM)*-based TKGC methods [\[71\]](#page-17-29), [\[72\]](#page-17-30) encode timestamps and the evolution of events by *Recurrent Neural Network (RNN)*[\[73\]](#page-17-31), LSTM [\[74\]](#page-17-32) or its variants [\[75\]](#page-17-33).
 **TA-TransE**and**TA-DistMult**[\[8\]](#page-16-8) first decompose the timestamp into a series of temporal tokens, such as*year*, *month*and*day*. For example, given a fact *(Barack Hussein Obama, born in, USA, 1961-8-4)*, the timestamp "*1961-8-4*" can be represented as *[1y, 9y, 6y, 1y, 8m, 4d]*. Afterward, TA-TransE and TA-DistMult apply RNNs to learn the relation representation incorporated with the timestamp. Finally, they predict the missing item of the quadruplet through TransE [\[14\]](#page-16-14) and DistMult [\[76\]](#page-17-34), respectively. **TDG2E**[\[71\]](#page-17-29) applies the*Gated Recurrent Unit (GRU)*to capture the structural information of each semantic KG, while preserving the evolution process of the TKG. In addition, TDG2E designs a timespan gate within GRU to solve the problem of unbalanced timestamp distribution in TKG. Specifically, the timespan gate can effectively associate the timestamp between the neighboring static KGs. Likewise,**TRHyTE**[\[66\]](#page-17-24) sequentially maps entities to the relational space and subsequently to the temporal hyperplane, and employs GRU to simulate the evolution process, so as to capture the temporal dependency between neighboring hyperplanes.
 **Ma** *et al.*[\[6\]](#page-16-5) decompose the timestamp into sequences through the bag of words model and introduce*Bi-directional Long Short-Term Memory (Bi-LSTM)*to capture the semantic properties of the timestamp together with relations and entities. To further enhance the utilization of uncertain information in TKG,**CTRIEJ**[\[72\]](#page-17-30) employs the GRU-based sequence model to integrate the uncertainty, structural and temporal information. Equally important, CTRIEJ introduces the self-adversarial negative sampling technique to generate negative samples, so as to improve the model expression ability. Similarly,**TeCre**[\[77\]](#page-17-35) vectorizes the timestamp by representing it as a sequence of*year*, *month*and*day*. Moreover, in order to ensure that the model is valid enough for large and complex datasets, TeCre trains the *Long Short-Term Memory (LSTM)*network to learn the joint representation of timestamps and relations. Finally, it creatively designs a novel loss function to guarantee the consistency between entities and relations.
 
-##*4.3.3 Temporal Constraint*Temporal constraint-based TKGC methods [\[78\]](#page-17-36), [\[79\]](#page-17-37) usually regard temporal information as the constraint to ensure the reasoning path along the right direction.
+## *4.3.3 Temporal Constraint*Temporal constraint-based TKGC methods [\[78\]](#page-17-36), [\[79\]](#page-17-37) usually regard temporal information as the constraint to ensure the reasoning path along the right direction.
+
 **Chekol** *et al.*[\[78\]](#page-17-36) simultaneously capture the uncertainty and temporality of TKG and explore*Markov Logic Networks (MLNs)*and*Probabilistic Soft Logics (PSLs)*to achieve reasoning tasks on TKG. However, this method has high computational complexity and limited running efficiency. In contrast,**Kgedl**[\[79\]](#page-17-37) captures the evolution process of TKG by embedding entities, relations and path structures. In particular, Kgedl further applies temporal information to constrain path reasoning and representation learning of entities. Likewise,**T-GAP**[\[80\]](#page-17-38) introduces the novel temporal*Graph Neural Network (GNN)*to adaptively aggregate the query-specific sub-TKG, and further encodes the temporal displacement between the timestamp of query and each edge. Furthermore, T-GAP performs a path-based inference operation over the sub-TKG to reason out the missing item.**TempCaps**[\[81\]](#page-17-39) is a light-weighted capsule network [\[82\]](#page-17-40) based embedding method, which dynamically routes retrieved relations and entities in TKG. Specifically, TempCaps
 
-<span id="page-8-1"></span>Fig. 7. The translation of multi-edges mesh form of TKG to the relational multi-chains forms of TKG.
+<span id="page-8-1"></span>Figure 7. The translation of multi-edges mesh form of TKG to the relational multi-chains forms of TKG.
 
 mainly consists of two important components, including the neighbor selector and the dynamic routing aggregator. More specifically, the neighbor selector is imposed with temporal constraints to facilitate the selection process. Based on the results of the neighbor selector, the dynamic routing aggregator further reasons and aggregates the neighbors, so as to dynamically learn the contextualized embedding of the query.
 
 Existing attention-based methods primarily emphasize entity learning and may even update entities through the original embeddings of relations. Consequently, the importance of relations is significantly diminished in these methods.**RoAN**[\[83\]](#page-17-41) proposes a relation-oriented attention mechanism that enhances the impact of relations. Specifically, RoAN reconstructs the multi-edge mesh form of TKG as the relational multi-chain form of TKG (shown in Fig. [7\)](#page-8-1). Afterwards, RoAN adaptively assigns different weights to different relations to achieve the optimization process of relations. Furthermore, while RoAN focuses on the importance of relations, it ignores the importance of temporal information as well as structural information in TKG.**TAL-TKGC**[\[84\]](#page-18-0) designs a temporal attention module that captures the intrinsic correlation between timestamps and entities, and introduces the weighted GCN module to explore the structure information of the entire TKG.
 
-# <span id="page-8-0"></span>5 EXTRAPOLATION-BASED TKGCS
+## <span id="page-8-0"></span>5 EXTRAPOLATION-BASED TKGCS
 
 In this section, we group the extrapolation-based TKGC methods into the following several categories:*Rule-based TKGC methods*, *Graph neural network-based TKGC methods*, *Reinforcement learning-based TKGC methods*and*Meta learningbased TKGC methods*.
 
@@ -309,7 +311,6 @@ In this section, we group the extrapolation-based TKGC methods into the followin
 
 Rule-based TKGC methods are often praised due to their interpretability and reliability, which obtains great success in static knowledge graph applications [\[86\]](#page-18-1), [\[87\]](#page-18-2). Recently, researchers explore the potential that applies the rule-based methods for TKGC. As shown in Fig. [8,](#page-9-0) rule-based TKGC methods extract a series of temporal logical rules from the given TKG before the reasoning operation. Temporal logical rules define the relationship between two entities x and y at timestamp t<sup>l</sup> ,
 
-<span id="page-8-2"></span>
 $$
 \mathbf{r}(\mathbf{x},\mathbf{y},\mathbf{t}_l) \leftarrow \mathbf{r}_1(\mathbf{x},\mathbf{z}_1,\mathbf{t}_1) \wedge \ldots \wedge \mathbf{r}_{l-1}(\mathbf{z}_{l-1},\mathbf{y},\mathbf{t}_{l-1}), \quad (10)
 $$
@@ -327,20 +328,22 @@ TABLE 3 Summary of the interpolation TKGC methods.
 ![](_page_9_Figure_5.jpeg)
 <!-- Image Description: This image depicts a system for logical rule reasoning. A graph representing mined rules (Rule Mining) feeds into a "Logical Rule Reasoning" block. This block uses logical rules (shown as equations relating r1, r2, r3) to infer new facts from the input graph. The output is a list of new facts derived through logical inference. The diagram visually explains the process flow and the structure of the logical rules used for inference. -->
 
-<span id="page-9-0"></span>Fig. 8. The framework of the rule-based TKGC methods.
+<span id="page-9-0"></span>Figure 8. The framework of the rule-based TKGC methods.
 
 rule body is represented by the conjunction (∧) of a series of body relations r∗.
 
 Each rule is written in the form of a logical implication. If the conditions on the right-hand side (rule body) are satisfied, the statement on the left-hand (rule head) holds true. The extracted rules are fed into a logical rule reasoning module to infer new events on TKG, applying either forward-chain or backward-chain reasoning module [\[88\]](#page-18-4).
 
-# *5.1.1 Manual Rule Mining*Recently, many researchers analyze the characteristic of TKG and manually design some logical rules for TKGC.**TPRG**[\[89\]](#page-18-5) proposes a multi-hop TKGC method based on temporal logical rules. TPRG analyzes the logical connections of multi-hop paths in the TKG. It manually defines fourteen temporal logical rules. These rules capture different kinds of logical relations between entities and can be used to infer new facts.**KGFFP**[\[90\]](#page-18-6) asks human experts to define several temporal logical rules for forest fire prediction.**TLmod**[\[91\]](#page-18-7) analyzes the principles of the temporal logical rule definition. It proposes a pruning strategy to obtain rules and calculate confidence scores. The rules with high confidence are selected for TKGC.
+## *5.1.1 Manual Rule Mining*Recently, many researchers analyze the characteristic of TKG and manually design some logical rules for TKGC.**TPRG**[\[89\]](#page-18-5) proposes a multi-hop TKGC method based on temporal logical rules. TPRG analyzes the logical connections of multi-hop paths in the TKG. It manually defines fourteen temporal logical rules. These rules capture different kinds of logical relations between entities and can be used to infer new facts.**KGFFP**[\[90\]](#page-18-6) asks human experts to define several temporal logical rules for forest fire prediction.**TLmod**[\[91\]](#page-18-7) analyzes the principles of the temporal logical rule definition. It proposes a pruning strategy to obtain rules and calculate confidence scores. The rules with high confidence are selected for TKGC.
 
-##*5.1.2 Automatic Rule Mining*With the increasing relations and entities in TKG, it is burdensome to manually define the logical rules. Thus, automatic rule mining has attached increasing attention from researchers.
+## *5.1.2 Automatic Rule Mining*With the increasing relations and entities in TKG, it is burdensome to manually define the logical rules. Thus, automatic rule mining has attached increasing attention from researchers.
+
 **ALRE-IR**[\[92\]](#page-18-8) proposes an adaptive logical rule embedding model that automatically extracts logical rules from historical data. ALRE-IR extracts all possible rule paths between entities. Then, it adopts GRU to encode the representation of each rule. The learned rule embeddings are
 
 used to predict missing facts.**TLogic**[\[93\]](#page-18-9) introduces a novel symbolic framework based on temporal random walks in TKGs. TLogic directly learns temporal logical rules from TKG and feeds these rules into a symbolic reasoning module for prediction. TLogic offers explicit and human-readable explanations in the form of temporal logical rules that can be easily scaled to accommodate large datasets.**TILP**[\[94\]](#page-18-10) presents a differentiable framework for temporal logical rule learning. TILP proposes the constrained random walk mechanism on TKG. By introducing the temporal operators, TILP enables to learn temporal logical rules from TKG without restrictions. Instead of learning simple chain-like rules as shown in Eq. [10,](#page-8-2)**TFLEX**[\[95\]](#page-18-11) proposes a temporal feature-logic embedding framework that supports complex multi-hop logical rules on TKG.
 
 ### 5.2 Graph Neural Network-based TKGCs
+
 *Graph Neural Network (GNN)*-based TKGC methods generally apply GNN to explore the intrinsic topology relevance between entities or between entities and relations in TKG, so as to obtain high-quality embeddings. In specific, GNNbased TKGC methods mainly consist of *Graph convolutional network-based TKGC methods*, *Graph attention network-based TKGC methods*and*Transformer-based TKGC methods*####*5.2.1 Graph Convolutional Network*
 
 *Graph Convolutional Network (GCN)*-based TKGC methods typically integrate the graph structural encoder and the temporal encoder to derive entity representations. As depicted in Fig. [9,](#page-10-0) each snapshot of the TKG is encoded by *Graph Convolutional Network (GCN)*, while the temporal dependencies among multiple snapshots are captured by *Recurrent Neural Networks (RNNs)*.
@@ -373,7 +376,7 @@ where g denotes an aggregate function and N (s) t stands for all the events rela
 ![](_page_10_Figure_13.jpeg)
 <!-- Image Description: The image depicts a model for link prediction in dynamic graphs. The bottom shows a graph convolutional network processing sequential graph snapshots (G₀, G₁, Gₜ) represented as nodes (eᵢ) and edges (rᵢ). A temporal encoder (top), using recurrent neural networks (RNNs), processes the graph convolutional network's outputs to predict future link formations (Gₜ₊₁), visualized as a bar chart. The overall architecture combines graph convolutional and recurrent neural network approaches for temporal link prediction. -->
 
-<span id="page-10-0"></span>Fig. 9. The framework of the graph convolutional network-based TKGC methods
+<span id="page-10-0"></span>Figure 9. The framework of the graph convolutional network-based TKGC methods
 
 Based on the above framework, subsequent studies have made improvements to the structural encoder and/or the temporal encoder by incorporating more complex message passing or recurrent neural architectures. For instance,**Deng** *et al.*[\[97\]](#page-18-13) utilize CompGCN to capture the influence of neighboring entities and event types, while incorporating GRUs to model the temporal dependency among representations.**TeMP**–*Temporally Enhanced Message Passing*[\[98\]](#page-18-14) leverages RGCN to account for the impact of neighboring entities and introduces a frequency-based gating GRU to capture the temporal dependency among inactive events.**DACHA**[\[99\]](#page-18-15) proposes dual GCN to obtain entity representations, which considers information interaction on both the primal graph (i.e., entity interaction graph) and the edge graph (i.e., relation interaction graph). Moreover, a self-attentive encoder is employed to model the temporal dependency among event types. Similarly,**RE-GCN**[\[100\]](#page-18-16) employs RGCN to aggregate messages from neighboring entities and utilizes an auto-regressive GRU to model the temporal dependency among events.**CyGNet**[\[101\]](#page-18-17) leverages a copy-generation mechanism to capture the global repetition frequency of facts.
 
@@ -382,11 +385,11 @@ However, these methods are difficult to simultaneously consider the sequential, 
 ![](_page_11_Figure_1.jpeg)
 <!-- Image Description: This image depicts a graph attention network for link prediction. The lower part shows a temporal sequence of evolving graphs (G₀, G₁, Gₜ), represented as nodes and edges. The upper part illustrates a graph attention mechanism where αᵢ values represent attention weights applied to nodes within each graph. A bar chart on the right shows the output of the network, Gₜ₊₁, representing predicted link probabilities. The entire diagram illustrates the model's process of learning from temporal graph data to predict future links. -->
 
-<span id="page-11-0"></span>Fig. 10. The framework of the graph attention network-based TKGC methods.
+<span id="page-11-0"></span>Figure 10. The framework of the graph attention network-based TKGC methods.
 
 a gating integration module is developed to adaptively integrate long- and short-term information for each entity and relation.
 
-##*5.2.2 Graph Attention Network*
+## *5.2.2 Graph Attention Network*
 
 *Graph ATtention network (GAT)*-based TKGC methods aggregate neighboring nodes to enhance the expression capability of current node. As illustrated in Fig. [10,](#page-11-0) GATbased TKGC methods assign different weights to neighboring nodes to aggregate them and update the embedding of the current node to enable the link prediction task.
 
@@ -397,12 +400,12 @@ Future events may occur simultaneously, and there may be mutual influences among
 ![](_page_11_Figure_9.jpeg)
 <!-- Image Description: This figure illustrates a graph transformer network for link prediction. The top section depicts the transformer architecture, composed of feed-forward and self-attention layers, along with an encoder-decoder attention mechanism. The bottom shows a temporal sequence of evolving graphs (G₀, G₁, Gₜ), each represented as a node and edge network, illustrating how the model predicts new links over time. A bar chart visualizes the link prediction output. The overall purpose is to detail the model's architecture and its application to dynamic graph analysis. -->
 
-<span id="page-11-1"></span>Fig. 11. The framework of the Transformer-based TKGC methods.
+<span id="page-11-1"></span>Figure 11. The framework of the Transformer-based TKGC methods.
 
 periodic historical events but also requires the integration of potential non-historical events.**CENET**[\[114\]](#page-18-30) considers both types of information, learning a convincing distribution of entities from historical and non-historical events and identifying important entities through a comparative learning algorithm. Currently, the incompleteness issue of lowresource language TKGs is particularly prominent because of the challenge in collecting sufficient corpus and annotations. As a consequence, this leads to suboptimal reasoning performance.**MP-KD**[\[115\]](#page-18-31) aims to enhance reasoning in low-resource TKGs by leveraging high-resource language TKGs through cross-lingual alignment and knowledge distillation.
 **Know-Evolve**[\[116\]](#page-18-32) learns non-linearly evolving entity representations by considering their interactions with other entities in multi-relational space. It mainly models the occurrence of a fact as a multi-dimensional temporal point process, where the conditional intensity function of the process is adjusted based on the relationship score of the event. To consider the continuity of states in the evolution of the TKG,**RTFE**[\[117\]](#page-18-33) treats the sequence of the graph as a Markov chain so that the state of the next timestamp is only related to the previous timestamp. When new timestamps appear, there is no need to retrain previous all timestamps, and the expansion to new timestamps occurs naturally through the state transition process. However, RTFE does not take into account recurring events.**CyGNet**[\[101\]](#page-18-17) addresses this problem by learning knowledge from known events. It involves predicting future events not only from the entire entity vocabulary but also by repeatedly identifying transactions and referencing known facts.**xERTE**[\[118\]](#page-18-34) also designs the temporal relational graph attention mechanism to reason the subgraph and poses temporal constraints to ensure the inference along the right direction. Likewise,**T-GAP**[\[80\]](#page-17-38) explores query-relevant substructure in the TKG for path-based inference. Additionally, T-GAP aggregates useful information by considering the temporal displacement between each edge and the timestamps of input query.
 
-##*5.2.3 Transformer*Transformer-based TKGC methods leverage the powerful modeling ability of Transformer to capture both structural and temporal association within TKGs. As illustrated in Fig. [11,](#page-11-1) Transformer not only enables the exploration of structural associations within each historical snapshot but also captures the temporal relationships among different historical snapshots to accomplish link prediction tasks.
+## *5.2.3 Transformer*Transformer-based TKGC methods leverage the powerful modeling ability of Transformer to capture both structural and temporal association within TKGs. As illustrated in Fig. [11,](#page-11-1) Transformer not only enables the exploration of structural associations within each historical snapshot but also captures the temporal relationships among different historical snapshots to accomplish link prediction tasks.
 
 Existing TKGC methods often only focus on entities or relations, while ignoring the structural information of the entire TKG.**HSAE**[\[119\]](#page-18-35) employs a self-attention mechanism to capture the structural information of entities and relations and utilizes diachronic embedding functions to explore the evolution of entities and relations. Events often come with certain precursors, meaning that future events often evolve from historical events.**rGalT**[\[120\]](#page-18-36) proposes a novel auto-encoder architecture that introduces a relation-aware graph attention layer into Transformer to accommodate extrapolation inference over the TKG.**GHT**[\[121\]](#page-18-37) captures both structural and temporal information by introducing the Transformer framework. It not only predicts the occurrence time of events but also processes unseen timestamps through a continuous-time encoding function and provides personalized query responses.
 
@@ -414,9 +417,10 @@ To address this challenge, the promising meta-learning method learns a meta-lear
 
 ## *5.3.1 Matching Network*Matching network-based TKGC methods aim to learn a metric space where the distance between the few-shot historical facts and the future data can be used to predict new facts.**FTAG**[\[126\]](#page-19-0) proposes a one-shot meta-learning TKGC framework, which designs a novel temporal neighborhood encoder empowered by a self-attention mechanism to capture the temporal interactions between entities and represent historical facts. Subsequently, it builds a matching network to compute the similarity score between new facts and historical examples. In this way, FTAG predicts new facts with only one-shot historical data. To handle fewshot data,**FTMF**[\[127\]](#page-19-1) employs a cyclic recursive aggregation network to aggregate few-shot data and utilizes a fault-tolerant mechanism to consider the noise information. Finally, a RNN-based matching network is employed to measure the similarity between the few-shot data and future data.**TFSC**[\[128\]](#page-19-2) designs a time-aware matching processor that incorporates the temporal information to calculate the similarity score.
 
-###*5.3.2 Meta-optimization*Meta-optimization-based TKGC methods update the parameters with the meta-learning objective on the fewshot samples and better generalize to future data.**MOST**[\[129\]](#page-19-3) proposes a meta-learning framework to learn metarepresentation for the few-shot relations and predict new facts.**MetaTKG**[\[130\]](#page-19-4) designs a temporal meta-learner to learn evolutionary meta-knowledge, which guides the prediction model in adapting to future data. Specifically, a gating integration module adaptively establishes temporal correlations between historical data.**MetaTKGR**[\[131\]](#page-19-5) proposes a novel meta-learning temporal knowledge graph reasoning framework. To consider the dynamic distribution shift, it dynamically adjusts the strategies of sampling and aggregating neighbors from recent facts for new entities. In this way, MetaTKGR enables to handle temporal adaptation with large variance.
+### *5.3.2 Meta-optimization*Meta-optimization-based TKGC methods update the parameters with the meta-learning objective on the fewshot samples and better generalize to future data.**MOST**[\[129\]](#page-19-3) proposes a meta-learning framework to learn metarepresentation for the few-shot relations and predict new facts.**MetaTKG**[\[130\]](#page-19-4) designs a temporal meta-learner to learn evolutionary meta-knowledge, which guides the prediction model in adapting to future data. Specifically, a gating integration module adaptively establishes temporal correlations between historical data.**MetaTKGR**[\[131\]](#page-19-5) proposes a novel meta-learning temporal knowledge graph reasoning framework. To consider the dynamic distribution shift, it dynamically adjusts the strategies of sampling and aggregating neighbors from recent facts for new entities. In this way, MetaTKGR enables to handle temporal adaptation with large variance.
 
 ### 5.4 Reinforcement Learning-based TKGCs
+
 *Reinforcement Learning (RL)*[\[138\]](#page-19-6) adjusts the strategy based on feedback to maximize cumulative rewards in the process of interaction and finally obtain the optimal learning strategy. RL-based methods treat TKGC as a*Markov Decision Process (MDP)* [\[139\]](#page-19-7), which is superior to producing explainable predictions.
 
 For instance, by establishing connections among the temporal events (*COVID-19*, *Infect*, *Tom*, *2022-12-3*), (*Tom*, *Talk to*, *Fack*, *2022-12-4*) and (*Jack*, *Visit*, *City Hall*, *2022-12- 5*), RL-based TKGC methods can infer a new quadruplet (*COVID-19*, *Occur*, *City Hall*, *2022-12-6*) [\[136\]](#page-19-8). These methodes leverage historical TKG snapshots to infer answers for future-related queries. The components of the MDP are described as follows:
@@ -428,29 +432,29 @@ For instance, by establishing connections among the temporal events (*COVID-19*,
 
 TABLE 4 Summary of the extrapolation TKGC methods.
 
-| Methods                                 | Category        | Technique                              | ED | Methods                            | Category      | Technique                                 | ED |
+| Methods | Category | Technique | ED | Methods | Category | Technique | ED |
 |-----------------------------------------|-----------------|----------------------------------------|----|------------------------------------|---------------|-------------------------------------------|----|
-| TPmod(2021) [108]                       | Graph attention | GRU                                    | –  | FTAG(2022) [126]                   | Meta learning | Attention                                 | –  |
-| EvoKG(2022) [109]                       | Graph attention | R-GCN                                  | –  | FTMF(2022) [127]                   | Meta learning | RNN Matching Network                      | –  |
-| DA-Net(2022) [110]                      | Graph attention | Attention                              | –  | MOST(2022) [129]                   | Meta learning | Meta-representation Learner               | –  |
-| TAE(2022) [111]                         | Graph attention | CNN                                    | ✓  | MetaTKGR(2022) [131] Meta learning |               | Temporal Domain Gen                       | –  |
-| EvoExplore(2022) [112]                  | Graph attention | Attention                              | –  | MetaTKG(2023) [130] Meta learning  |               | Gating Integration Module                 | –  |
-| CRNet(2022) [113]                       | Graph attention | Translation                            | –  | TFSC(2023) [128]                   |               | Meta learning Time-aware Matching Network | –  |
-| CENET(2022) [114]                       | Graph attention | Contrastive Learning                   | –  | RE-NET(2019) [10]                  | GNN           | GCN/RNN                                   | ✓  |
-| Know-Evolve(2022) [116] Graph attention |                 | RNN                                    | –  | Glean(2020) [97]                   | GNN           | GCN/GRU                                   | ✓  |
-| RTFE(2022) [117]                        | Graph attention | Contrastive Learning                   | –  | TeMP(2020) [98]                    | GNN           | GCN/gating GRU                            | ✓  |
-| MPKD(2023) [115]                        |                 | Graph attention Knowledge Distillation | –  | DACHA(2021) [99]                   | GNN           | GCN/Self-attention                        | ✓  |
-| CyGNet(2023) [101]                      |                 | Graph attention Knowledge Distillation | –  | RE-GCN(2021) [100]                 | GNN           | GCN/Self-attention                        | ✓  |
-| rGalT(2022) [120]                       | Transformer     | self-attention                         | ✓  | TANGO(2021) [105]                  | GNN           | GCN/Neural ODE                            | ✓  |
-| GHT(2022) [121]                         | Transformer     | self-attention                         | ✓  | TiRGN(2022) [102]                  | GNN           | GCN/Double RNN                            | ✓  |
-| HSAE(2023) [119]                        | Transformer     | self-attention                         | ✓  | HiSMatch(2022) [103]               | GNN           | GCN/RNN                                   | ✓  |
-| KGFFP(2022) [90]                        | Rule Mining     | Manual Rule Mining                     | –  | HGLS(2023) [107]                   | GNN           | GCN/Gating mechanism                      | ✓  |
-| TLogic(2022) [93]                       | Rule Mining     | Temporal Random Walk                   | –  | CluSTeR(2020) [132]                | RL            | Beam-level rewards                        | –  |
-| TILP(2022) [94]                         | Rule Mining     | Differentiable Learning                | –  | TAgent(2021) [133]                 | RL            | Binary terminal rewards                   | –  |
-| TFLEX(2022) [95]                        | Rule Mining     | Logical Embedding                      | –  | TPath(2021) [134]                  | RL            | Path diversity rewards                    | –  |
-| TPRG(2023) [89]                         | Rule Mining     | Manual Rule Mining                     | –  | TITer(2021) [135]                  | RL            | Time-shaped rewards                       | –  |
-| TLmod(2023) [91]                        | Rule Mining     | Manual Rule Mining                     | –  | DREAM(2023) [136]                  | RL            | Attention/dynamic rewards                 | –  |
-| ALRE-IR(2023) [92]                      | Rule Mining     | GRU                                    | ✓  | RLAT(2023) [137]                   | RL            | LSTM/attention/RL                         | –  |
+| TPmod(2021) [108] | Graph attention | GRU | – | FTAG(2022) [126] | Meta learning | Attention | – |
+| EvoKG(2022) [109] | Graph attention | R-GCN | – | FTMF(2022) [127] | Meta learning | RNN Matching Network | – |
+| DA-Net(2022) [110] | Graph attention | Attention | – | MOST(2022) [129] | Meta learning | Meta-representation Learner | – |
+| TAE(2022) [111] | Graph attention | CNN | ✓ | MetaTKGR(2022) [131] Meta learning | | Temporal Domain Gen | – |
+| EvoExplore(2022) [112] | Graph attention | Attention | – | MetaTKG(2023) [130] Meta learning | | Gating Integration Module | – |
+| CRNet(2022) [113] | Graph attention | Translation | – | TFSC(2023) [128] | | Meta learning Time-aware Matching Network | – |
+| CENET(2022) [114] | Graph attention | Contrastive Learning | – | RE-NET(2019) [10] | GNN | GCN/RNN | ✓ |
+| Know-Evolve(2022) [116] Graph attention | | RNN | – | Glean(2020) [97] | GNN | GCN/GRU | ✓ |
+| RTFE(2022) [117] | Graph attention | Contrastive Learning | – | TeMP(2020) [98] | GNN | GCN/gating GRU | ✓ |
+| MPKD(2023) [115] | | Graph attention Knowledge Distillation | – | DACHA(2021) [99] | GNN | GCN/Self-attention | ✓ |
+| CyGNet(2023) [101] | | Graph attention Knowledge Distillation | – | RE-GCN(2021) [100] | GNN | GCN/Self-attention | ✓ |
+| rGalT(2022) [120] | Transformer | self-attention | ✓ | TANGO(2021) [105] | GNN | GCN/Neural ODE | ✓ |
+| GHT(2022) [121] | Transformer | self-attention | ✓ | TiRGN(2022) [102] | GNN | GCN/Double RNN | ✓ |
+| HSAE(2023) [119] | Transformer | self-attention | ✓ | HiSMatch(2022) [103] | GNN | GCN/RNN | ✓ |
+| KGFFP(2022) [90] | Rule Mining | Manual Rule Mining | – | HGLS(2023) [107] | GNN | GCN/Gating mechanism | ✓ |
+| TLogic(2022) [93] | Rule Mining | Temporal Random Walk | – | CluSTeR(2020) [132] | RL | Beam-level rewards | – |
+| TILP(2022) [94] | Rule Mining | Differentiable Learning | – | TAgent(2021) [133] | RL | Binary terminal rewards | – |
+| TFLEX(2022) [95] | Rule Mining | Logical Embedding | – | TPath(2021) [134] | RL | Path diversity rewards | – |
+| TPRG(2023) [89] | Rule Mining | Manual Rule Mining | – | TITer(2021) [135] | RL | Time-shaped rewards | – |
+| TLmod(2023) [91] | Rule Mining | Manual Rule Mining | – | DREAM(2023) [136] | RL | Attention/dynamic rewards | – |
+| ALRE-IR(2023) [92] | Rule Mining | GRU | ✓ | RLAT(2023) [137] | RL | LSTM/attention/RL | – |
 
 <sup>1</sup>**ED**represents whether TKGC methods are Encoder-Decoder structure, and draw ✓if it is;
 
@@ -464,7 +468,7 @@ For temporal multi-hop reasoning,**TPath**[\[134\]](#page-19-11) takes temporal 
 
 and attention mechanism as memory components, which are helpful to train multi-hop reasoning paths. Second, an attention mechanism with an influence factor is proposed. This mechanism measures the influence of neighbor information and provides different feature vectors. The strategy function makes the agent focus on occurring relations with high frequency, allowing for multi-hop reasoning paths with higher correlation.
 
-# <span id="page-13-0"></span>6 APPLICATIONS
+## <span id="page-13-0"></span>6 APPLICATIONS
 
 In this section, we mainly summarize the applications of TKGC to some downstream tasks, including*Question answering systems*, *Medical and risk analysis systems*and*Recommendation systems*.
 
@@ -477,7 +481,7 @@ Question answering systems are crucial applications of TKGCs. They typically per
 ![](_page_14_Figure_1.jpeg)
 <!-- Image Description: This image illustrates a knowledge graph reasoning process (TKG Reasoning). Two knowledge graphs, representing US presidents, are shown. The first uses "Preseident" relations. The second refines this with "Succeeded" relations and temporal information (e.g., [2017,2021]). A query ("Who was the president before Obama?") is processed by a QA model, which outputs "Bush" based on the refined graph. Nodes represent entities (e.g., presidents, USA), and edges represent relationships with time intervals. -->
 
-<span id="page-14-0"></span>Fig. 12. The framework of question answering with TKG reasoning.
+<span id="page-14-0"></span>Figure 12. The framework of question answering with TKG reasoning.
 
 order to better address complex temporal reasoning questions based on the TKG.**TwiRGCN**[\[141\]](#page-19-15) designs a novel weighted GCN to answer questions that require complex temporal reasoning in TKGs. Furthermore,**FORECAST-TKGQA**[\[142\]](#page-19-16) proposes a large-scale TKGQA dataset that aims to predict future facts. For each question in this dataset, the QA models can only have access to the TKG information before the timestamp annotated in the given question for answer inference.**Ong** *et al.*[\[143\]](#page-19-17) propose a new TKGQA dataset based on the TKGC task,which associates over 5000 financial news documents with question-answer pairs.
 
@@ -492,7 +496,7 @@ For the medical domain, traditional systems are designed based on static data, w
 ![](_page_14_Figure_8.jpeg)
 <!-- Image Description: This diagram illustrates a recommendation system. User search history (lipstick and mirror, dates specified) is mined to build a knowledge graph ("TKG Reasoning"). This graph represents relationships between items (e.g., lipstick, mirror, dresser, bag). The graph's analysis informs the recommendation system, ultimately recommending a "dresser". Colored nodes represent items, arrows show relationships, and the dashed lines indicate user search data input. -->
 
-<span id="page-14-1"></span>Fig. 13. The framework of recommendation with TKG Reasoning.
+<span id="page-14-1"></span>Figure 13. The framework of recommendation with TKG Reasoning.
 
 Since most data, in reality, is multi-source spatiotemporal data, it is difficult for traditional static data to reflect the temporal dependency among the data. Especially for analysis systems, most of the data involved are timedependent, such as weather data and traffic data.**Lin** *et al.*[\[151\]](#page-19-25) first present a TKGC model and utilize the complete TKG for analyzing the multi-source data in smart cities. Likewise,**KG4MR**[\[148\]](#page-19-22) designs a TKGC model to predict relations between risky weather and models the relationship among risky weather events, human activity events and element attributes in knowledge graphs. Afterwards, KG4MR proposes a query method to solve the spatio-temporal intersection reasoning and successfully applied it to the Olympic Winter Games Beijing 2022.
 
@@ -503,11 +507,11 @@ Recommendation systems based on TKGC mainly analyze the historical behaviors and
 
 a spatial-temporal KG based on users' historical check-in sequence. It enables the promotion of the next*Point-of-Interest (POI)*recommendations without introducing external attribute information of users and POIs.
 
-#### 6.4 Others
+### 6.4 Others
 
 TKGC also has been widely applied in many other applications, e.g., citiation prediction [\[156\]](#page-19-30), and mobility prediction [\[157\]](#page-19-31).**STKG**[\[157\]](#page-19-31) models the urban mobility trajectories as a temporal knowledge graph, where mobility trajectories, category information of venues, and temporal information are jointly modeled by the facts with different relation types. Then, the mobility prediction is converted to the TKGC problem through an embedding model that captures spatio-temporal patterns.**CTPIR**[\[156\]](#page-19-30) proposes a citation trajectory prediction framework that captures the dynamic influence of citation to predict the future citation trajectory of a paper. It first adopts the R-GCN model to capture the connections between two snapshots. Then, it learns a fine-grained influence representation for trajectory prediction.
 
-# <span id="page-15-0"></span>7 FUTURE DIRECTIONS
+## <span id="page-15-0"></span>7 FUTURE DIRECTIONS
 
 In the previous sections, we comprehensively reviewed the TKGC literature and provided an in-depth dissection of them. Meanwhile, we also identified many challenges and open problems that need to be addressed. In this section, we discuss the future directions of this research area.
 
@@ -531,10 +535,11 @@ Answering complex queries with temporal information, e.g.,*what was the first fi
 
 Knowledge graphs are credited for their good interpretability. However, most existing TKGC methods are based on deep learning algorithms which are black-box models. The reasoning process of TKGC methods used to arrive at their results is not explainable to humans. This largely limits their applications in high-stake scenarios, such as medical diagnosis and legal judgment. Although some works [\[80\]](#page-17-38), [\[85\]](#page-18-3), [\[118\]](#page-18-34) attempt to provide humanunderstandable evidence explaining the forecast, they focus on simple models with plain explanations e.g., logical rules and paths. Explaining the complex captured temporal patterns utilized for reasoning and interpreting the more intricate TKGC models still remains an unresolved matter.
 
-# <span id="page-16-7"></span>8 CONCLUSION
+## <span id="page-16-7"></span>8 CONCLUSION
+
 *Temporal Knowledge Graph Completion (TKGC)*is an emerging and active research direction that has attracted increasing attention from both academia and industry. In this paper, we presented a comprehensive overview of the recent research in this field. Firstly, we detailed the interpolation methods and further categorized them based on how they handle temporal information. The extrapolation methods were then further described and classified based on how they predict future events. Finally, we discussed the challenges and future directions in this field.
 
-# REFERENCES
+## REFERENCES
 
 - <span id="page-16-0"></span>[1] B. Pu, J. Liu, Y. Kang, J. Chen, and P. S. Yu, "MVSTT: A multiview spatial-temporal transformer network for traffic-flow forecasting,"*IEEE Transactions on Cybernetics*, pp. 1–14, 2022.
 - <span id="page-16-1"></span>[2] J. Dalton, L. Dietz, and J. Allan, "Entity query feature expansion using knowledge base links," in *Proceedings of the International ACM SIGIR Conference on Research & Development in Information Retrieval*, 2014, pp. 365–374.
@@ -645,7 +650,7 @@ Knowledge graphs are credited for their good interpretability. However, most exi
 - <span id="page-18-19"></span>[103] Z. Li, Z. Hou, S. Guan, X. Jin, W. Peng, L. Bai, Y. Lyu, W. Li, J. Guo, and X. Cheng, "HiSMatch: Historical structure matching based temporal knowledge graph reasoning," in *Proceedings of the Conference on Empirical Methods in Natural Language Processing*, 2022, pp. 7328–7338.
 - <span id="page-18-20"></span>[104] Z. Wang, H. Du, Q. Yao, and X. Li, "Search to pass messages for temporal knowledge graph completion," in *Proceedings of the*
 
-*Conference on Empirical Methods in Natural Language Processing*, 2022, pp. 6160–6172.
+**Conference on Empirical Methods in Natural Language Processing:** , 2022, pp. 6160–6172.
 
 - <span id="page-18-21"></span>[105] Z. Han, Z. Ding, Y. Ma, Y. Gu, and V. Tresp, "Learning neural ordinary equations for forecasting future links on temporal knowledge graphs," in *Proceedings of the Conference on Empirical Methods in Natural Language Processing*, 2021, pp. 8352–8364.
 - <span id="page-18-22"></span>[106] R. T. Chen, Y. Rubanova, J. Bettencourt, and D. K. Duvenaud, "Neural ordinary differential equations," *Advances in Neural Information Processing Systems*, vol. 31, 2018.

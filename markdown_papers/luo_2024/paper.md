@@ -25,8 +25,6 @@ keywords:
 - temporal knowledge graph
 ---
 
-
-
 # Chain of History: Learning and Forecasting with LLMs for Temporal Knowledge Graph Completion
 
 Ruilin Luo<sup>1</sup><sup>∗</sup> , Tianle Gu<sup>1</sup><sup>∗</sup> , Haoling Li<sup>1</sup><sup>∗</sup> , Junzhe Li<sup>2</sup> , Zicheng Lin<sup>1</sup> , Jiayi Li<sup>3</sup> , Yujiu Yang<sup>1</sup>†
@@ -48,7 +46,7 @@ Knowledge Graphs (KGs), defined as meticulously structured repositories of deter
 
 The missing entity is **North\_Korea.**
 
-Figure 1: LLM undergoes fine-tuning on known data and subsequently utilizes the chain of known factual information to generate the next event.
+**Figure 1:** LLM undergoes fine-tuning on known data and subsequently utilizes the chain of known factual information to generate the next event.
 
 Temporal Knowledge Graphs (TKGs) has gained increased attention due to their ability to provide more accurate information. [\(Leblay and Chekol,](#page-9-1) [2018;](#page-9-1) [Han et al.,](#page-8-1) [2021a;](#page-8-1) [Li et al.,](#page-9-2) [2022;](#page-9-2) [Lee et al.,](#page-9-3) [2023a\)](#page-9-3). A Temporal Knowledge Graph (TKG) stores numerous facts in the form of quadruples (eh, r, e<sup>t</sup> , t<sup>T</sup> ), denoting that e<sup>h</sup> has a directional edge r into e<sup>t</sup> at timestamp t<sup>T</sup> . Given a series of observed facts denoted as F = {(s, p, o, ts)|s, o ∈ S, p ∈ P, t<sup>s</sup> < T}, TKGC under extrapolative setting requires the capability to predict links to future timestamps, i.e., quadruples containing t<sup>s</sup> ≥ T. This extrapolative setting has attracted more research than the interpolation setting, which primarily focuses on events in observed timestamps [\(Zhu](#page-10-2) [et al.,](#page-10-2) [2021;](#page-10-2) [Sun et al.,](#page-10-3) [2021\)](#page-10-3).
 
@@ -110,37 +108,36 @@ Relation-augmented History. In addition to completing the historical chain based
 
 When modeling Hq, we adhere to two criteria for selecting data from Hs, He, and Hr. i) We prioritize the ground-truth history directly related to q, which is Hs. If the history length does not meet the specified value, we then sequentially incorporate facts from H<sup>e</sup> and Hr. ii) Data close to
 
-<span id="page-3-0"></span>
 
-| Strategy       | Prompt                                              |
+| Strategy | Prompt |
 |----------------|-----------------------------------------------------|
-|                | 280: [Japan, Make_a_visit, China]                   |
-| Ordinary       | 281: [Japan, Make_a_visit, Vietnam]                 |
-|                | · · ·                                               |
-|                | 304: [Japan, Make_a_visit, Kiichi_Miyazawa]         |
-|                | Query: 305: [Japan, Make_a_visit, ]                 |
-| Text-aware     | 280: [Japan, reverse Make_a_visit, China]           |
-|                | 281: [Japan, reverse Make_a_visit, Vietnam]         |
-|                | · · ·                                               |
-|                | 304: [Japan, reverse Make_a_visit, Kiichi_Miyazawa] |
-|                | Query: 305: [Japan, reverse Make_a_visit, ]         |
-|                | 280: [China, Make_a_visit, Japan]                   |
-|                | 281: [Vietnam, Make_a_visit, Japan]                 |
-| Position-aware | · · ·                                               |
-|                | 304: [Kiichi_Miyazawa, Make_a_visit, Japan]         |
-|                | Query: 305: [ , Make_a_visit, Japan]                |
+| | 280: [Japan, Make_a_visit, China] |
+| Ordinary | 281: [Japan, Make_a_visit, Vietnam] |
+| | · · · |
+| | 304: [Japan, Make_a_visit, Kiichi_Miyazawa] |
+| | Query: 305: [Japan, Make_a_visit, ] |
+| Text-aware | 280: [Japan, reverse Make_a_visit, China] |
+| | 281: [Japan, reverse Make_a_visit, Vietnam] |
+| | · · · |
+| | 304: [Japan, reverse Make_a_visit, Kiichi_Miyazawa] |
+| | Query: 305: [Japan, reverse Make_a_visit, ] |
+| | 280: [China, Make_a_visit, Japan] |
+| | 281: [Vietnam, Make_a_visit, Japan] |
+| Position-aware | · · · |
+| | 304: [Kiichi_Miyazawa, Make_a_visit, Japan] |
+| | Query: 305: [ , Make_a_visit, Japan] |
 
-Table 1: Prompts for query (*Japan, Make\_a\_visit*<sup>−</sup><sup>1</sup> *, ?, 305*).
+**Table 1:** Prompts for query (*Japan, Make\_a\_visit*<sup>−</sup><sup>1</sup> *, ?, 305*).
 
 the current timestamp is introduced with priority. By following these two criteria, we aim to select the most relevant knowledge to inspire forecasting capabilities in LLMs.
 
-#### 2 Introduction of Reverse Logic
+### 2 Introduction of Reverse Logic
 
 Similar to reasoning on static KGs, we require the model to also possess the capability of reverse inference on TKG [\(Li et al.,](#page-9-4) [2021a\)](#page-9-4). However, recent research indicates that LLM's reasoning has encountered the issue of reversal curse [\(Qi et al.,](#page-9-16) [2023;](#page-9-16) [Berglund et al.,](#page-8-12) [2023;](#page-8-12) [Lv et al.,](#page-9-8) [2023\)](#page-9-8). In this problem, models often succeed in correctly deducing questions like '*Who is Tom Cruise's mother?*' but struggle to answer '*Who is the son of Mary Lee Pfeiffer?*'. We believe that this phenomenon also exists in structured knowledge reasoning. We propose using three prompt strategies to incorporate reverse quadruples during the fine-tuning phase to alleviate this issue, and explore the performance patterns in the context of structured knowledge reasoning scenarios.
 
 As demonstrated in Tbl. [1,](#page-3-0) the most ordinary construction is to treat the structure of backward inferences as forward inferences. The text-aware prompt leverages *reverse* to indicate reverse reasoning, and the position-aware prompt follows the order of backward inference, providing different head entities in the historical records.
 
-#### 3 Instruction-tuning in TKGC
+### 3 Instruction-tuning in TKGC
 
 Instruction-tuning [\(Wei et al.,](#page-10-11) [2021\)](#page-10-11) achieves remarkable zero-shot generalization results by training LLMs on different tasks with instructions. While prior work has demonstrated the effectiveness of fine-tuning LLMs via full-parameter updates, this approach presents considerable challenges at large scale. Hence, we apply the Low-
 
@@ -166,11 +163,10 @@ $$
 
 where Rˆ is the temporal knowledge graph completion predicted by LLM M and R˜ is the given label.
 
-#### 4 Predict with LLMs
+### 4 Predict with LLMs
 
 The instructions constructed are fed into the trained LLMs for prediction. The response is obtained by beam search, which is a decoding strategy that maintains k beams of possible generated responses at each time step t. The generation of response is updated as follows: for each generated response, the k tokens with the highest probabilities are selected based on Eq. [5.](#page-3-1) This results in k × k new response candidates. The next k beams of response are obtained by selecting the top k responses with the highest probabilities from the generated response candidates. The highest probability is determined by the product of probabilities of |R| ˆ tokens that constitute the response, where |R| ˆ represents the length of the current response.
 
-<span id="page-3-1"></span>
 $$
 r_t = argmax_r P(r|r_{1:t-1}) \tag{5}
 $$
@@ -185,76 +181,73 @@ dataset, the model can access the ground truth from past timestamps. Consequentl
 
 In our experimental setup, we utilize the ICEWS14 dataset [\(García-Durán et al.,](#page-8-13) [2018\)](#page-8-13), ICEWS18 dataset [\(Li et al.,](#page-9-4) [2021a\)](#page-9-4), ICEWS05-15 dataset [\(Li](#page-9-17) [et al.,](#page-9-17) [2021b\)](#page-9-17), and YAGO dataset [\(Mahdis](#page-9-9)[oltani et al.,](#page-9-9) [2015\)](#page-9-9) as benchmarks for evaluation. The specific statistics are listed in Tbl. [2.](#page-4-0) We employ partition criteria widely accepted in prior studies [\(Han et al.,](#page-8-1) [2021a\)](#page-8-1) and establish instruction-tuning data on the validation set. Specifically, for the ordered timestamp set T = {t 1 train, t<sup>2</sup> train, · · · , t<sup>n</sup> train, t<sup>1</sup> val, · · · , t<sup>m</sup> val}, comprising training and validation sets, when gathering historical data for timestamp t i val, we observe only facts within the range t < t<sup>i</sup> val. In the context of testing under a single-step setup [\(Trivedi et al.,](#page-10-12) [2017\)](#page-10-12), for a query at timestamp tq, we construct a ground-truth chain of history based on facts preceding timestamp tq, serving as the input to the model.
 
-<span id="page-4-0"></span>
 
-| Datasets   | Entity | Relation | Train  | Valid | Test  | Interval |
+| Datasets | Entity | Relation | Train | Valid | Test | Interval |
 |------------|--------|----------|--------|-------|-------|----------|
-| ICEWS14    | 6869   | 230      | 74845  | 8514  | 7371  | 1 day    |
-| ICEWS05-15 | 10094  | 251      | 368868 | 46302 | 46159 | 1 day    |
-| ICEWS18    | 23033  | 256      | 373018 | 45995 | 49545 | 1 day    |
-| YAGO       | 10623  | 10       | 161540 | 19523 | 20026 | 1 year   |
+| ICEWS14 | 6869 | 230 | 74845 | 8514 | 7371 | 1 day |
+| ICEWS05-15 | 10094 | 251 | 368868 | 46302 | 46159 | 1 day |
+| ICEWS18 | 23033 | 256 | 373018 | 45995 | 49545 | 1 day |
+| YAGO | 10623 | 10 | 161540 | 19523 | 20026 | 1 year |
 
-Table 2: Statistics of leveraged datasets.
+**Table 2:** Statistics of leveraged datasets.
 
-#### 2 Baseline Models
+### 2 Baseline Models
 
 The models selected for comparative analysis primarily fall into two categories: embedding-based methods and LLM-based approaches. Within the realm of embedding-based methods, we present the performance evaluations of RE-NET [\(Jin et al.,](#page-8-4) [2020\)](#page-8-4), RE-GCN [\(Li et al.,](#page-9-4) [2021a\)](#page-9-4), TiRGN [\(Li et al.,](#page-9-2) [2022\)](#page-9-2), xERTE [\(Han et al.,](#page-8-1) [2021a\)](#page-8-1), TANGO [\(Han](#page-8-5) [et al.,](#page-8-5) [2021b\)](#page-8-5), Timetraveler [\(Sun et al.,](#page-10-3) [2021\)](#page-10-3). As for GNN-based methodologies, we choose TiRGN [\(Li et al.,](#page-9-2) [2022\)](#page-9-2) and HGLS [\(Zhang et al.,](#page-10-4) [2023\)](#page-10-4) for comparison. Regarding LLM-based approaches, we test GenTKG [\(Liao et al.,](#page-9-6) [2023\)](#page-9-6) and align with our model settings, we focus on the effects of 8-shot in-context learning for Llama-2-7b [\(Touvron et al.,](#page-10-13) [2023\)](#page-10-13), Vicuna-7b [\(Vicuna,](#page-10-14) [2023\)](#page-10-14), and GPT-NeoX-20B [\(Black et al.,](#page-8-14) [2022\)](#page-8-14). In
 
 addition to these, we also include the rule-based method TLogic [\(Liu et al.,](#page-9-5) [2022\)](#page-9-5) in our comparison.
 
-#### 3 Evaluation Protocol
+### 3 Evaluation Protocol
 
 We acknowledge that, at the metric level, notable distinctions exist between LLM-based methods and embedding-based approaches. The latter proves advantageous as it can furnish a precise ranking of all entities in the graph for a query presented in the form of (s, q, ?), facilitating the calculation of metrics like Mean Reciprocal Rank [\(Chao et al.,](#page-8-15) [2021;](#page-8-15) [Yu et al.,](#page-10-15) [2022\)](#page-10-15). However, for LLM-based methods, we can only furnish the ranking of a predetermined number of candidates, relying on the probabilities of output paths from the open-source model [\(Lee](#page-9-3) [et al.,](#page-9-3) [2023a\)](#page-9-3). This is in contrast to obtaining the ranking of all entities in the graph. This constraint stems from the inability to compel the model to remember all entities directly, and it introduces impractical search costs. Consequently, we choose to report relatively accurate Hits@1, Hits@3, and Hits@10 [\(Sun et al.,](#page-10-16) [2019\)](#page-10-16). Furthermore, we align with the perspective outlined in [\(Ding et al.,](#page-8-16) [2021;](#page-8-16) [Jain et al.,](#page-8-17) [2020\)](#page-8-17) that directly excluding all other valid candidates to a specific query in a filtering setting is not entirely reasonable. Additionally, given that the proprietary LLMs we employ for comparison lack the opportunities to output ranking lists, we report raw metrics without loss of generality.[2](#page-4-1)
 
-#### 4 Main Results
+### 4 Main Results
 
 As shown in Tbl. [3,](#page-5-0) Llama-2-7b-CoH and Vicuna-7b-CoH achieves results that surpass or are comparable to the state-of-the-art across multiple metrics under raw setting. Significantly, on the ICEWS05- 15 and YAGO datasets, Vicuna-7b-CoH shows an improvement of 3.3% and 1.9% in the Hits@1 metric compared to the current best models. We observe that on the YAGO dataset, the 8-shot ICL performance of GPT-NeoX-20B, Llama-2-7b, and vicuna-7b is not significantly worse than Llama-2-7b-CoH. However, there is a noticeable gap on the ICEWS14 series datasets, even falling behind embedding-based models. We also report the metrics under the time-aware filtered setting in Tbl. [4,](#page-5-1) where Llama-2-7b-CoH outperforms the previous best-performing TiRGN model by 4.1 percentage points in the Hits@1 on YAGO and also exhibits a substantial advantage on ICEWS05-15
 
 <span id="page-4-1"></span><sup>2</sup> Supplementary details are in Appendix [A.3.](#page-11-2)
 
-<span id="page-5-0"></span>
 
-| Datasets                              |        | YAGO   |                |       | ICEWS14 |                |       | ICEWS05-15 |                | ICEWS18 |        |         |
+| Datasets | | YAGO | | | ICEWS14 | | | ICEWS05-15 | | ICEWS18 | | |
 |---------------------------------------|--------|--------|----------------|-------|---------|----------------|-------|------------|----------------|---------|--------|---------|
-| Model                                 | Hits@1 | Hits@3 | Hits@10 Hits@1 |       | Hits@3  | Hits@10 Hits@1 |       | Hits@3     | Hits@10 Hits@1 |         | Hits@3 | Hits@10 |
-| RE-NET (Jin et al., 2020)             | 0.404  | 0.530  | 0.629          | 0.293 | 0.431   | 0.575          | 0.334 | 0.478      | 0.611          | 0.192   | 0.323  | 0.483   |
-| RE-GCN (Li et al., 2021a)             | 0.499  | 0.663  | 0.779          | 0.297 | 0.441   | 0.586          | 0.336 | 0.487      | 0.658          | 0.193   | 0.331  | 0.494   |
-| xERTE (Han et al., 2021a)             | 0.506  | 0.719  | 0.828          | 0.312 | 0.453   | 0.570          | 0.347 | 0.497      | 0.633          | 0.206   | 0.330  | 0.458   |
-| TANGO† (Han et al., 2021b)            | 0.409  | 0.554  | 0.637          | 0.151 | 0.272   | 0.431          | 0.311 | 0.476      | 0.622          | 0.178   | 0.314  | 0.460   |
-| Timetraveler (Sun et al., 2021)       | 0.494  | 0.675  | 0.790          | 0.313 | 0.451   | 0.571          | 0.341 | 0.494      | 0.667          | 0.210   | 0.325  | 0.437   |
-| TLogic (Han et al., 2021b)            | 0.454  | 0.703  | 0.782          | 0.322 | 0.470   | 0.603          | 0.345 | 0.525      | 0.673          | 0.205   | 0.339  | 0.484   |
-| TiRGN (Li et al., 2022)               | 0.509  | 0.710  | 0.864          | 0.313 | 0.468   | 0.612          | 0.358 | 0.535      | 0.690          | 0.202   | 0.350  | 0.514   |
-| HGLS (Zhang et al., 2023)             | 0.508  | 0.721  | 0.866          | 0.349 | 0.480   | 0.688          | 0.351 | 0.521      | 0.673          | 0.192   | 0.323  | 0.494   |
-| GenTKG (Liao et al., 2023)            | 0.520  | 0.731  | 0.870          | 0.349 | 0.473   | 0.619          | 0.360 | 0.525      | 0.687          | 0.215   | 0.366  | 0.496   |
-| GPT-NeoX-20B-ICL (Black et al., 2022) | 0.520  | 0.722  | 0.870          | 0.295 | 0.406   | 0.475          | 0.348 | 0.497      | 0.586          | 0.177   | 0.290  | 0.385   |
-| Llama-2-7b-ICL (Touvron et al., 2023) | 0.517  | 0.725  | 0.868          | 0.275 | 0.391   | 0.453          | 0.353 | 0.490      | 0.563          | 0.177   | 0.295  | 0.364   |
-| Vicuna-7b-ICL (Vicuna, 2023)          | 0.514  | 0.714  | 0.868          | 0.270 | 0.386   | 0.453          | 0.347 | 0.483      | 0.563          | 0.172   | 0.288  | 0.364   |
-| Llama-2-7b-CoH                        | 0.527  | 0.747  | 0.874          | 0.338 | 0.462   | 0.587          | 0.370 | 0.531      | 0.699          | 0.219   | 0.361  | 0.520   |
-| Vicuna-7b-CoH                         | 0.530  | 0.754  | 0.859          | 0.315 | 0.445   | 0.648          | 0.372 | 0.531      | 0.701          | 0.206   | 0.344  | 0.531   |
+| Model | Hits@1 | Hits@3 | Hits@10 Hits@1 | | Hits@3 | Hits@10 Hits@1 | | Hits@3 | Hits@10 Hits@1 | | Hits@3 | Hits@10 |
+| RE-NET (Jin et al., 2020) | 0.404 | 0.530 | 0.629 | 0.293 | 0.431 | 0.575 | 0.334 | 0.478 | 0.611 | 0.192 | 0.323 | 0.483 |
+| RE-GCN (Li et al., 2021a) | 0.499 | 0.663 | 0.779 | 0.297 | 0.441 | 0.586 | 0.336 | 0.487 | 0.658 | 0.193 | 0.331 | 0.494 |
+| xERTE (Han et al., 2021a) | 0.506 | 0.719 | 0.828 | 0.312 | 0.453 | 0.570 | 0.347 | 0.497 | 0.633 | 0.206 | 0.330 | 0.458 |
+| TANGO† (Han et al., 2021b) | 0.409 | 0.554 | 0.637 | 0.151 | 0.272 | 0.431 | 0.311 | 0.476 | 0.622 | 0.178 | 0.314 | 0.460 |
+| Timetraveler (Sun et al., 2021) | 0.494 | 0.675 | 0.790 | 0.313 | 0.451 | 0.571 | 0.341 | 0.494 | 0.667 | 0.210 | 0.325 | 0.437 |
+| TLogic (Han et al., 2021b) | 0.454 | 0.703 | 0.782 | 0.322 | 0.470 | 0.603 | 0.345 | 0.525 | 0.673 | 0.205 | 0.339 | 0.484 |
+| TiRGN (Li et al., 2022) | 0.509 | 0.710 | 0.864 | 0.313 | 0.468 | 0.612 | 0.358 | 0.535 | 0.690 | 0.202 | 0.350 | 0.514 |
+| HGLS (Zhang et al., 2023) | 0.508 | 0.721 | 0.866 | 0.349 | 0.480 | 0.688 | 0.351 | 0.521 | 0.673 | 0.192 | 0.323 | 0.494 |
+| GenTKG (Liao et al., 2023) | 0.520 | 0.731 | 0.870 | 0.349 | 0.473 | 0.619 | 0.360 | 0.525 | 0.687 | 0.215 | 0.366 | 0.496 |
+| GPT-NeoX-20B-ICL (Black et al., 2022) | 0.520 | 0.722 | 0.870 | 0.295 | 0.406 | 0.475 | 0.348 | 0.497 | 0.586 | 0.177 | 0.290 | 0.385 |
+| Llama-2-7b-ICL (Touvron et al., 2023) | 0.517 | 0.725 | 0.868 | 0.275 | 0.391 | 0.453 | 0.353 | 0.490 | 0.563 | 0.177 | 0.295 | 0.364 |
+| Vicuna-7b-ICL (Vicuna, 2023) | 0.514 | 0.714 | 0.868 | 0.270 | 0.386 | 0.453 | 0.347 | 0.483 | 0.563 | 0.172 | 0.288 | 0.364 |
+| Llama-2-7b-CoH | 0.527 | 0.747 | 0.874 | 0.338 | 0.462 | 0.587 | 0.370 | 0.531 | 0.699 | 0.219 | 0.361 | 0.520 |
+| Vicuna-7b-CoH | 0.530 | 0.754 | 0.859 | 0.315 | 0.445 | 0.648 | 0.372 | 0.531 | 0.701 | 0.206 | 0.344 | 0.531 |
 
-Table 3: Temporal forecasting with raw metrics Hits@1, Hits@3 and Hits@10. The best results are highlighted in bold and the second-rank results are underlined. The results of the model with † are derived from [\(Han et al.,](#page-8-5) [2021b\)](#page-8-5), while other models have been reproduced by us.
+**Table 3:** Temporal forecasting with raw metrics Hits@1, Hits@3 and Hits@10. The best results are highlighted in bold and the second-rank results are underlined. The results of the model with † are derived from [\(Han et al.,](#page-8-5) [2021b\)](#page-8-5), while other models have been reproduced by us.
 
-<span id="page-5-1"></span>
 
-| Datasets                              |        | YAGO   |                |       | ICEWS14 |                |       | ICEWS05-15 |                | ICEWS18 |        |         |
+| Datasets | | YAGO | | | ICEWS14 | | | ICEWS05-15 | | ICEWS18 | | |
 |---------------------------------------|--------|--------|----------------|-------|---------|----------------|-------|------------|----------------|---------|--------|---------|
-| Model                                 | Hits@1 | Hits@3 | Hits@10 Hits@1 |       | Hits@3  | Hits@10 Hits@1 |       | Hits@3     | Hits@10 Hits@1 |         | Hits@3 | Hits@10 |
-| RE-NET† (Jin et al., 2020)            | 0.586  | 0.715  | 0.868          | 0.301 | 0.440   | 0.582          | 0.336 | 0.488      | 0.627          | 0.197   | 0.326  | 0.485   |
-| RE-GCN† (Li et al., 2021a)            | 0.788  | 0.843  | 0.886          | 0.313 | 0.470   | 0.613          | 0.366 | 0.527      | 0.671          | 0.215   | 0.354  | 0.515   |
-| xERTE† (Han et al., 2021a)            | 0.801  | 0.880  | 0.898          | 0.327 | 0.457   | 0.573          | 0.378 | 0.523      | 0.639          | 0.210   | 0.335  | 0.465   |
-| TANGO‡ (Han et al., 2021b)            | 0.590  | 0.646  | 0.677          | 0.272 | 0.408   | 0.550          | 0.344 | 0.499      | 0.640          | 0.191   | 0.318  | 0.462   |
-| Timetraveler† (Sun et al., 2021)      | 0.801  | 0.900  | 0.903          | 0.327 | 0.465   | 0.584          | 0.383 | 0.527      | 0.649          | 0.221   | 0.335  | 0.448   |
-| TLogic‡ (Han et al., 2021b)           | 0.740  | 0.789  | 0.791          | 0.336 | 0.483   | 0.612          | 0.362 | 0.531      | 0.674          | 0.205   | 0.340  | 0.485   |
-| TiRGN (Li et al., 2022)               | 0.839  | 0.907  | 0.923          | 0.328 | 0.481   | 0.622          | 0.379 | 0.544      | 0.698          | 0.220   | 0.366  | 0.522   |
-| HGLS (Zhang et al., 2023)             | 0.827  | 0.911  | 0.926          | 0.368 | 0.490   | 0.691          | 0.360 | 0.525      | 0.678          | 0.200   | 0.316  | 0.494   |
-| GenTKG (Liao et al., 2023)            | 0.813  | 0.901  | 0.922          | 0.365 | 0.488   | 0.633          | 0.378 | 0.541      | 0.692          | 0.220   | 0.370  | 0.497   |
-| GPT-NeoX-20B-ICL (Black et al., 2022) | 0.792  | 0.890  | 0.909          | 0.295 | 0.406   | 0.475          | 0.367 | 0.503      | 0.587          | 0.192   | 0.300  | 0.389   |
-| Llama-2-7b-ICL (Touvron et al., 2023) | 0.767  | 0.852  | 0.868          | 0.286 | 0.397   | 0.453          | 0.353 | 0.490      | 0.563          | 0.177   | 0.294  | 0.364   |
-| Vicuna-7b-ICL (Vicuna, 2023)          | 0.747  | 0.840  | 0.868          | 0.281 | 0.391   | 0.453          | 0.347 | 0.483      | 0.563          | 0.172   | 0.288  | 0.364   |
-| Llama-2-7b-CoH                        | 0.880  | 0.929  | 0.931          | 0.349 | 0.470   | 0.591          | 0.386 | 0.541      | 0.699          | 0.223   | 0.363  | 0.522   |
-| Vicuna-7b-CoH                         | 0.851  | 0.903  | 0.918          | 0.328 | 0.457   | 0.656          | 0.392 | 0.546      | 0.707          | 0.209   | 0.347  | 0.536   |
+| Model | Hits@1 | Hits@3 | Hits@10 Hits@1 | | Hits@3 | Hits@10 Hits@1 | | Hits@3 | Hits@10 Hits@1 | | Hits@3 | Hits@10 |
+| RE-NET† (Jin et al., 2020) | 0.586 | 0.715 | 0.868 | 0.301 | 0.440 | 0.582 | 0.336 | 0.488 | 0.627 | 0.197 | 0.326 | 0.485 |
+| RE-GCN† (Li et al., 2021a) | 0.788 | 0.843 | 0.886 | 0.313 | 0.470 | 0.613 | 0.366 | 0.527 | 0.671 | 0.215 | 0.354 | 0.515 |
+| xERTE† (Han et al., 2021a) | 0.801 | 0.880 | 0.898 | 0.327 | 0.457 | 0.573 | 0.378 | 0.523 | 0.639 | 0.210 | 0.335 | 0.465 |
+| TANGO‡ (Han et al., 2021b) | 0.590 | 0.646 | 0.677 | 0.272 | 0.408 | 0.550 | 0.344 | 0.499 | 0.640 | 0.191 | 0.318 | 0.462 |
+| Timetraveler† (Sun et al., 2021) | 0.801 | 0.900 | 0.903 | 0.327 | 0.465 | 0.584 | 0.383 | 0.527 | 0.649 | 0.221 | 0.335 | 0.448 |
+| TLogic‡ (Han et al., 2021b) | 0.740 | 0.789 | 0.791 | 0.336 | 0.483 | 0.612 | 0.362 | 0.531 | 0.674 | 0.205 | 0.340 | 0.485 |
+| TiRGN (Li et al., 2022) | 0.839 | 0.907 | 0.923 | 0.328 | 0.481 | 0.622 | 0.379 | 0.544 | 0.698 | 0.220 | 0.366 | 0.522 |
+| HGLS (Zhang et al., 2023) | 0.827 | 0.911 | 0.926 | 0.368 | 0.490 | 0.691 | 0.360 | 0.525 | 0.678 | 0.200 | 0.316 | 0.494 |
+| GenTKG (Liao et al., 2023) | 0.813 | 0.901 | 0.922 | 0.365 | 0.488 | 0.633 | 0.378 | 0.541 | 0.692 | 0.220 | 0.370 | 0.497 |
+| GPT-NeoX-20B-ICL (Black et al., 2022) | 0.792 | 0.890 | 0.909 | 0.295 | 0.406 | 0.475 | 0.367 | 0.503 | 0.587 | 0.192 | 0.300 | 0.389 |
+| Llama-2-7b-ICL (Touvron et al., 2023) | 0.767 | 0.852 | 0.868 | 0.286 | 0.397 | 0.453 | 0.353 | 0.490 | 0.563 | 0.177 | 0.294 | 0.364 |
+| Vicuna-7b-ICL (Vicuna, 2023) | 0.747 | 0.840 | 0.868 | 0.281 | 0.391 | 0.453 | 0.347 | 0.483 | 0.563 | 0.172 | 0.288 | 0.364 |
+| Llama-2-7b-CoH | 0.880 | 0.929 | 0.931 | 0.349 | 0.470 | 0.591 | 0.386 | 0.541 | 0.699 | 0.223 | 0.363 | 0.522 |
+| Vicuna-7b-CoH | 0.851 | 0.903 | 0.918 | 0.328 | 0.457 | 0.656 | 0.392 | 0.546 | 0.707 | 0.209 | 0.347 | 0.536 |
 
-Table 4: Temporal forecasting with time-aware filtered metrics Hits@1, Hits@3 and Hits@10. The best results are highlighted in bold and the second-rank results are underlined. The results of the model with † are derived from [\(Li](#page-9-2) [et al.,](#page-9-2) [2022\)](#page-9-2), and results with ‡ are taken from [\(Lee et al.,](#page-9-3) [2023a\)](#page-9-3).
+**Table 4:** Temporal forecasting with time-aware filtered metrics Hits@1, Hits@3 and Hits@10. The best results are highlighted in bold and the second-rank results are underlined. The results of the model with † are derived from [\(Li](#page-9-2) [et al.,](#page-9-2) [2022\)](#page-9-2), and results with ‡ are taken from [\(Lee et al.,](#page-9-3) [2023a\)](#page-9-3).
 
 and ICEWS18. The relative performance of the model remains generally consistent under both settings.
 
@@ -270,37 +263,34 @@ Illustrating with a practical case, when reasoning about the quadruple (*Economi
 
 We conduct a comprehensive ablation experiment for the introduction of reverse quadruples in the fine-tuning phase. Considering the difficulty of ICEWS18 dataset, we set the length of the history chain to 30, and we set this value to 10 on the other datasets. We use the ordinary prompt as a comparison to verify the effect of the reverse data introduc-
 
-<span id="page-6-0"></span>
 
-| Datasets               | ICEWS14 |          |         | ICEWS05-15 |          |         |         | ICEWS18  |         | YAGO    |          |         |
+| Datasets | ICEWS14 | | | ICEWS05-15 | | | | ICEWS18 | | YAGO | | |
 |------------------------|---------|----------|---------|------------|----------|---------|---------|----------|---------|---------|----------|---------|
-|                        | Forward | Backward | Overall | Forward    | Backward | Overall | Forward | Backward | Overall | Forward | Backward | Overall |
-| Llama-2-7b-CoH w/o aug | 0.353   | 0.297    | 0.325   | 0.400      | 0.357    | 0.379   | 0.226   | 0.196    | 0.211   | 0.555   | 0.491    | 0.523   |
-| Llama-2-7b-CoH         | 0.370   | 0.308    | 0.339   | 0.408      | 0.359    | 0.383   | 0.236   | 0.204    | 0.220   | 0.560   | 0.491    | 0.526   |
-| ∆                      | 4.8%    | 3.7%     | 4.3%    | 2.0%       | 0.6%     | 1.1%    | 4.4%    | 4.1%     | 4.3%    | 0.9%    | 0.0%     | 0.6%    |
+| | Forward | Backward | Overall | Forward | Backward | Overall | Forward | Backward | Overall | Forward | Backward | Overall |
+| Llama-2-7b-CoH w/o aug | 0.353 | 0.297 | 0.325 | 0.400 | 0.357 | 0.379 | 0.226 | 0.196 | 0.211 | 0.555 | 0.491 | 0.523 |
+| Llama-2-7b-CoH | 0.370 | 0.308 | 0.339 | 0.408 | 0.359 | 0.383 | 0.236 | 0.204 | 0.220 | 0.560 | 0.491 | 0.526 |
+| ∆ | 4.8% | 3.7% | 4.3% | 2.0% | 0.6% | 1.1% | 4.4% | 4.1% | 4.3% | 0.9% | 0.0% | 0.6% |
 
-Table 5: Ablations on the structure-based history augmentation. We also report Hits@1 metric. The strategy has achieved comprehensive improvement in bi-directional forecasting.
+**Table 5:** Ablations on the structure-based history augmentation. We also report Hits@1 metric. The strategy has achieved comprehensive improvement in bi-directional forecasting.
 
-<span id="page-6-1"></span>
 
-| Datasets              | ICEWS14 |          |         | ICEWS05-15 |          |         |         | ICEWS18  |         | YAGO    |          |         |
+| Datasets | ICEWS14 | | | ICEWS05-15 | | | | ICEWS18 | | YAGO | | |
 |-----------------------|---------|----------|---------|------------|----------|---------|---------|----------|---------|---------|----------|---------|
-|                       | Forward | Backward | Overall | Forward    | Backward | Overall | Forward | Backward | Overall | Forward | Backward | Overall |
-| Llama-2-7b-CoH w/o rq | 0.367   | 0.298    | 0.333   | 0.396      | 0.343    | 0.369   | 0.238   | 0.188    | 0.213   | 0.560   | 0.489    | 0.524   |
-| Llama-2-7b-CoH        | 0.370   | 0.308    | 0.339   | 0.408      | 0.359    | 0.383   | 0.236   | 0.204    | 0.220   | 0.560   | 0.491    | 0.526   |
-| ∆                     | 0.8%    | 3.4%     | 1.8%    | 3.0%       | 4.7%     | 3.8%    | 0.8%    | 8.5%     | 3.3%    | 0.0%    | 0.4%     | 0.4%    |
+| | Forward | Backward | Overall | Forward | Backward | Overall | Forward | Backward | Overall | Forward | Backward | Overall |
+| Llama-2-7b-CoH w/o rq | 0.367 | 0.298 | 0.333 | 0.396 | 0.343 | 0.369 | 0.238 | 0.188 | 0.213 | 0.560 | 0.489 | 0.524 |
+| Llama-2-7b-CoH | 0.370 | 0.308 | 0.339 | 0.408 | 0.359 | 0.383 | 0.236 | 0.204 | 0.220 | 0.560 | 0.491 | 0.526 |
+| ∆ | 0.8% | 3.4% | 1.8% | 3.0% | 4.7% | 3.8% | 0.8% | 8.5% | 3.3% | 0.0% | 0.4% | 0.4% |
 
-Table 6: Ablations on the incorporation of reciprocal quadruples when fine-tuning. We report Hits@1 on four datasets. Rising and falling trends are indicated by green and red respectively. In order to more clearly observe differences, we use historical chain with a length of 30 on the ICEWS18 dataset, while for other datasets, this value is set to 10.
+**Table 6:** Ablations on the incorporation of reciprocal quadruples when fine-tuning. We report Hits@1 on four datasets. Rising and falling trends are indicated by green and red respectively. In order to more clearly observe differences, we use historical chain with a length of 30 on the ICEWS18 dataset, while for other datasets, this value is set to 10.
 
-<span id="page-6-2"></span>
 
-| Strategy       | YAGO  | ICEWS14 | ICEWS05-15 | ICEWS18 |
+| Strategy | YAGO | ICEWS14 | ICEWS05-15 | ICEWS18 |
 |----------------|-------|---------|------------|---------|
-| Ordinary       | 0.526 | 0.339   | 0.383      | 0.209   |
-| Text-aware     | 0.525 | 0.333   | 0.382      | 0.214   |
-| Position-aware | 0.525 | 0.330   | 0.381      | 0.213   |
+| Ordinary | 0.526 | 0.339 | 0.383 | 0.209 |
+| Text-aware | 0.525 | 0.333 | 0.382 | 0.214 |
+| Position-aware | 0.525 | 0.330 | 0.381 | 0.213 |
 
-Table 7: Overall Hits@1 metrics for three utilized prompt strategies under the raw setting.
+**Table 7:** Overall Hits@1 metrics for three utilized prompt strategies under the raw setting.
 
 tion. The results are demonstrated in Tbl. [6,](#page-6-1) where Llama-2-7b-CoH (w/o rq) indicates that no reverse quadruples are added during the fine-tuning phase. We can see that all the results show an upward trend except for a slight dip in the forward inference on the ICEWS18 dataset. Therefore, we can argue that the inclusion of reverse logic in the fine-tuning stage is not only beneficial to alleviate the curse of reversal in structured knowledge reasoning, but also largely harmless to forward reasoning.
 
@@ -315,36 +305,34 @@ As illustrated in Fig. [2,](#page-6-3) except the ICEWS14 dataset, on other data
 <span id="page-6-3"></span>![](_page_6_Figure_11.jpeg)
 <!-- Image Description: The image displays a line graph showing Hits@1 (a metric indicating accuracy) against History Length for four datasets (ICEWS14, ICEWS05-15, ICEWS18, YAGO). Each dataset's performance is represented by a differently colored line. The graph illustrates how the accuracy of each dataset varies with the length of the historical data considered. The purpose is to compare the performance of different datasets under varying history lengths within the paper. -->
 
-Figure 2: The evolution pattern of the Hits@1 metric across four utilized datasets concerning the history length L.
+**Figure 2:** The evolution pattern of the Hits@1 metric across four utilized datasets concerning the history length L.
 
-<span id="page-6-4"></span>
 
-| Model           | YAGO  | ICEWS14 | ICEWS05-15 | ICEWS18 |
+| Model | YAGO | ICEWS14 | ICEWS05-15 | ICEWS18 |
 |-----------------|-------|---------|------------|---------|
-| Llama-2-7b-CoH  | 0.527 | 0.343   | 0.390      | 0.218   |
-| Llama-2-13b-CoH | 0.526 | 0.343   | 0.392      | 0.210   |
-| Vicuna-33b      | 0.530 | 0.338   | 0.390      | 0.216   |
+| Llama-2-7b-CoH | 0.527 | 0.343 | 0.390 | 0.218 |
+| Llama-2-13b-CoH | 0.526 | 0.343 | 0.392 | 0.210 |
+| Vicuna-33b | 0.530 | 0.338 | 0.390 | 0.216 |
 
-Table 8: Overall Hits@1 metrics on different model sizes.
+**Table 8:** Overall Hits@1 metrics on different model sizes.
 
 hibits an upward trend followed by stabilization as L increases. We calculate the average length of schema-matching history for each query in the test sets of four datasets. For the ICEWS14 dataset, this value is 30.05, significantly lower than the other datasets. On the ICEWS05-15 dataset, this value is 56.95. Consequently, an excessively long required history length may negatively impact the reasoning of LLM due to interference from numerous historical quadruples used for padding. However, even with a smaller input cost (i.e., smaller L) on the ICEWS14 dataset, significant effectiveness is already achievable.
 
-<span id="page-7-0"></span>
 
-| Datasets                         |         | ICEWS14  |         |         | ICEWS05-15 |         |         | ICEWS18  |         |         | YAGO     |         |
+| Datasets | | ICEWS14 | | | ICEWS05-15 | | | ICEWS18 | | | YAGO | |
 |----------------------------------|---------|----------|---------|---------|------------|---------|---------|----------|---------|---------|----------|---------|
-|                                  | Forward | Backward | Overall | Forward | Backward   | Overall | Forward | Backward | Overall | Forward | Backward | Overall |
-| GPT-3.5-turbo                    | 0.260   | 0.158    | 0.209   | 0.157   | 0.177      | 0.167   | 0.079   | 0.070    | 0.075   | 0.496   | 0.441    | 0.481   |
-| GPT-4 (OpenAI, 2023)             | 0.298   | 0.233    | 0.266   | 0.293   | 0.260      | 0.277   | 0.096   | 0.092    | 0.094   | 0.510   | 0.484    | 0.497   |
-| Qwen-72B-Chat (Bai et al., 2023) | 0.279   | 0.216    | 0.248   | 0.357   | 0.343      | 0.350   | 0.159   | 0.148    | 0.154   | 0.499   | 0.463    | 0.481   |
+| | Forward | Backward | Overall | Forward | Backward | Overall | Forward | Backward | Overall | Forward | Backward | Overall |
+| GPT-3.5-turbo | 0.260 | 0.158 | 0.209 | 0.157 | 0.177 | 0.167 | 0.079 | 0.070 | 0.075 | 0.496 | 0.441 | 0.481 |
+| GPT-4 (OpenAI, 2023) | 0.298 | 0.233 | 0.266 | 0.293 | 0.260 | 0.277 | 0.096 | 0.092 | 0.094 | 0.510 | 0.484 | 0.497 |
+| Qwen-72B-Chat (Bai et al., 2023) | 0.279 | 0.216 | 0.248 | 0.357 | 0.343 | 0.350 | 0.159 | 0.148 | 0.154 | 0.499 | 0.463 | 0.481 |
 
-Table 9: The performance of some powerful commercial models on 1000 randomly selected test samples in each dataset.
+**Table 9:** The performance of some powerful commercial models on 1000 randomly selected test samples in each dataset.
 
 ### 4 How Model Size Affects Results
 
 In this section, we explore how model size of LLMs affects performance in TKGC. We choose Llama-2-13b and Vicuna-33b as comparison and consider leveraging total history length with L = 20, and both add inverse quadruples and structure-based augmentation data for fine-tuning. The results, as shown in Tbl. [8,](#page-6-4) depict that these three sizes models achieve very similar results in Hits@1. Unusually, Hits@1 on ICEWS18 dataset decreases by 3.7% and 0.9% compared to Llama-2-7b-CoH. We point out that increasing the size of the model is a relatively inefficient approach in the context of temporal logical reasoning. Larger models do not necessarily result in a better understanding of interactive information along the temporal chain. This leads us to explore data-centric approaches and improvements in the inherent reasoning limitations of LLMs, such as catastrophic forgetting and the curse of reversibility.
 
-#### 5 Performance of Commercial LLMs
+### 5 Performance of Commercial LLMs
 
 In this section, we test the effectiveness of three powerful commercial LLMs on the TKGC task, aiming to explore the performance differences after multi-task instruction fine-tuning and Reinforcement Learning from Human Feedback (RLHF). We provide the same 8-shot ICL prompt samples for each of the three models on different datasets, as detailed in the appendix. For the test data, we randomly select 1000 queries for both directions on each dataset. Since these models do not provide output probabilities, we only present the most accurate exact match metric, equivalent to the Hits@1 metric under the raw setting. After confirming that there are no fine-tuning on TKGC task and related datasets in the available technical reports [\(OpenAI,](#page-9-18) [2023;](#page-9-18) [Bai et al.,](#page-8-18) [2023\)](#page-8-18), we consider this comparison to be relatively fair.
 
@@ -421,13 +409,13 @@ significant factor, and the subpar performance of commercial LLMs suggests that 
 - <span id="page-10-4"></span>Mengqi Zhang, Yuwei Xia, Qiang Liu, Shu Wu, and Liang Wang. 2023. Learning long-and short-term representations for temporal knowledge graph reasoning. In *Proceedings of the ACM Web Conference 2023*, pages 2412–2422.
 - <span id="page-10-2"></span>Cunchao Zhu, Muhao Chen, Changjun Fan, Guangquan Cheng, and Yan Zhang. 2021. [Learning from history:](https://doi.org/10.1609/AAAI.V35I5.16604) [Modeling temporal knowledge graphs with sequen](https://doi.org/10.1609/AAAI.V35I5.16604)[tial copy-generation networks.](https://doi.org/10.1609/AAAI.V35I5.16604) In *Thirty-Fifth AAAI Conference on Artificial Intelligence, AAAI 2021, Thirty-Third Conference on Innovative Applications of Artificial Intelligence, IAAI 2021, The Eleventh Symposium on Educational Advances in Artificial Intelligence, EAAI 2021, Virtual Event, February 2-9, 2021*, pages 4732–4740. AAAI Press.
 
-# A Appendix
+## A Appendix
 
 ## <span id="page-11-0"></span>A.1 Instruction Used by CoH
 
 In this section, we provide a comprehensive design for the prompt, including versions that utilize only entity text (Tbl. [10\)](#page-12-0) and versions identified by number id (Tbl. [11\)](#page-12-1).
 
-# <span id="page-11-1"></span>A.2 Prompt for 8-shot ICL
+## <span id="page-11-1"></span>A.2 Prompt for 8-shot ICL
 
 We design different prompts on different datasets to test the ability of different models to perform ICL on the TKGC task. We show the prompt template on the ICEWS18 dataset as a concrete example, as shown in the Tbl. [12.](#page-13-0)
 
@@ -435,51 +423,49 @@ We design different prompts on different datasets to test the ability of differe
 
 In this section, we describe the supplementary settings of our experiments. The open-source models mainly used are *llama-2-7b*, *llama-2-13b*, *vicuna-7b-v1.5*, and *vicuna-33b-v1.3*. The key search parameters during fine-tuning and inference are shown in the Tbl. [13.](#page-14-0) Our main experiments in Tbl. [3](#page-5-0) and Tbl. [4](#page-5-1) run on 4\*NVIDIA GeForce RTX 4090, and studies of *vicuna-33b-v1.3* run on 4\*NVIDIA A100-SXM-80G.
 
-<span id="page-12-0"></span>
 
-| Section     | Prompt                                                                                   |
+| Section | Prompt |
 |-------------|------------------------------------------------------------------------------------------|
-| Instruction | Given contexts consisting of multiple quadruplets in the form of {time}: [{subject},     |
-|             | {relation}, {object}], please predict the missing entity in the query quadruplet {time}: |
-|             | [{subject}, {relation}, ] in the end.                                                    |
-| Input       | 295: [[Victor_Ponta, Make_statement, Romania]                                            |
-|             | 296: [Victor_Ponta, Make_statement, North_Atlantic_Treaty_Organization]                  |
-|             | 296: [Victor_Ponta, Make_statement, Romania]                                             |
-|             | 300: [Victor_Ponta, Make_statement, Viorel_Hrebenciuc]                                   |
-|             | 301: [Victor_Ponta, Make_statement, Romania]                                             |
-|             | 302: [Victor_Ponta, Make_statement, Romania]                                             |
-|             | 303: [Victor_Ponta, Make_statement, National_Liberal_Party_(Romania)]                    |
-|             | 303: [Victor_Ponta, Make_statement, Romania]                                             |
-|             | 304: [Victor_Ponta, Make_statement, Romania]                                             |
-|             | 307: [Victor_Ponta, Make_statement, Representatives_(Romania)]                           |
-|             | Query:                                                                                   |
-|             | 308: [Victor_Ponta, Make_statement, ]                                                    |
-| Output      | The missing entity of query quadruplet is Romania.                                       |
+| Instruction | Given contexts consisting of multiple quadruplets in the form of {time}: [{subject}, |
+| | {relation}, {object}], please predict the missing entity in the query quadruplet {time}: |
+| | [{subject}, {relation}, ] in the end. |
+| Input | 295: [[Victor_Ponta, Make_statement, Romania] |
+| | 296: [Victor_Ponta, Make_statement, North_Atlantic_Treaty_Organization] |
+| | 296: [Victor_Ponta, Make_statement, Romania] |
+| | 300: [Victor_Ponta, Make_statement, Viorel_Hrebenciuc] |
+| | 301: [Victor_Ponta, Make_statement, Romania] |
+| | 302: [Victor_Ponta, Make_statement, Romania] |
+| | 303: [Victor_Ponta, Make_statement, National_Liberal_Party_(Romania)] |
+| | 303: [Victor_Ponta, Make_statement, Romania] |
+| | 304: [Victor_Ponta, Make_statement, Romania] |
+| | 307: [Victor_Ponta, Make_statement, Representatives_(Romania)] |
+| | Query: |
+| | 308: [Victor_Ponta, Make_statement, ] |
+| Output | The missing entity of query quadruplet is Romania. |
 
-Table 10: Prompt design using text only.
+**Table 10:** Prompt design using text only.
 
-<span id="page-12-1"></span>
 
-| Section     | Prompt                                                                                   |
+| Section | Prompt |
 |-------------|------------------------------------------------------------------------------------------|
-| Instruction | Given contexts consisting of multiple quadruplets in the form of {time}: [{subject},     |
-|             | {relation}, {label}.{object}], please predict the missing entity in the query quadruplet |
-|             | {time}: [{subject}, {relation}, ] in the end.                                            |
-| Input       | 295: [[Victor_Ponta, Make_statement, 0.Romania]                                          |
-|             | 296: [Victor_Ponta, Make_statement, 1.North_Atlantic_Treaty_Organization]                |
-|             | 296: [Victor_Ponta, Make_statement, 0.Romania]                                           |
-|             | 300: [Victor_Ponta, Make_statement, 2.Viorel_Hrebenciuc]                                 |
-|             | 301: [Victor_Ponta, Make_statement, 0.Romania]                                           |
-|             | 302: [Victor_Ponta, Make_statement, 0.Romania]                                           |
-|             | 303: [Victor_Ponta, Make_statement, 3.National_Liberal_Party_(Romania)]                  |
-|             | 303: [Victor_Ponta, Make_statement, 0.Romania]                                           |
-|             | 304: [Victor_Ponta, Make_statement, 0.Romania]                                           |
-|             | 307: [Victor_Ponta, Make_statement, 4.Representatives_(Romania)]                         |
-|             | Query:                                                                                   |
-|             | 308: [Victor_Ponta, Make_statement, ]                                                    |
-| Output      | The missing entity of query quadruplet is 0.Romania.                                     |
+| Instruction | Given contexts consisting of multiple quadruplets in the form of {time}: [{subject}, |
+| | {relation}, {label}.{object}], please predict the missing entity in the query quadruplet |
+| | {time}: [{subject}, {relation}, ] in the end. |
+| Input | 295: [[Victor_Ponta, Make_statement, 0.Romania] |
+| | 296: [Victor_Ponta, Make_statement, 1.North_Atlantic_Treaty_Organization] |
+| | 296: [Victor_Ponta, Make_statement, 0.Romania] |
+| | 300: [Victor_Ponta, Make_statement, 2.Viorel_Hrebenciuc] |
+| | 301: [Victor_Ponta, Make_statement, 0.Romania] |
+| | 302: [Victor_Ponta, Make_statement, 0.Romania] |
+| | 303: [Victor_Ponta, Make_statement, 3.National_Liberal_Party_(Romania)] |
+| | 303: [Victor_Ponta, Make_statement, 0.Romania] |
+| | 304: [Victor_Ponta, Make_statement, 0.Romania] |
+| | 307: [Victor_Ponta, Make_statement, 4.Representatives_(Romania)] |
+| | Query: |
+| | 308: [Victor_Ponta, Make_statement, ] |
+| Output | The missing entity of query quadruplet is 0.Romania. |
 
-Table 11: Prompt design using text and id.
+**Table 11:** Prompt design using text and id.
 
 ### 8-shot Prompt
 
@@ -501,19 +487,18 @@ Example 7: 4248: [Wei Fenghe, Express intent to cooperate, James Mattis] 6552: [
 
 Example 8: 6936: [Police (India), Arrest, detain, or charge with legal action, Student (India)] 6960: [Police (India), Arrest, detain, or charge with legal action, Men (India)] 6960: [Police (India), Arrest, detain, or charge with legal action, Criminal (India)] 6960: [Police (India), Arrest, detain, or charge with legal action, Children (India)] 6960: [Police (India), Arrest, detain, or charge with legal action, Citizen (India)] 6960: [Police (India), Arrest, detain, or charge with legal action, Student (India)] 6960: [Police (India), Arrest, detain, or charge with legal action, Parkash Singh Badal] 6960: [Police (India), Arrest, detain, or charge with legal action, Women (India)]
 
-Table 12: 8-shot ICL prompt design on ICEWS18.
+**Table 12:** 8-shot ICL prompt design on ICEWS18.
 
-<span id="page-14-0"></span>
 
-| Parameter                       | Candidates                                      |
+| Parameter | Candidates |
 |---------------------------------|-------------------------------------------------|
-| batch_size                      | 4, 8                                            |
-| lora_rank                       | 8, 32                                           |
-| lora_dropout                    | 0.1                                             |
-| lora_target_modules             | {q_proj,k_proj,v_proj,o_proj}, {q_proj, k_proj} |
-| lora_alpha                      | 16                                              |
-| truncation_length               | 3000                                            |
-| L                               | 10, 20, 30, 40, 50                              |
-| single_step_inference_candidate | 10                                              |
+| batch_size | 4, 8 |
+| lora_rank | 8, 32 |
+| lora_dropout | 0.1 |
+| lora_target_modules | {q_proj,k_proj,v_proj,o_proj}, {q_proj, k_proj} |
+| lora_alpha | 16 |
+| truncation_length | 3000 |
+| L | 10, 20, 30, 40, 50 |
+| single_step_inference_candidate | 10 |
 
-Table 13: Parameter search space.
+**Table 13:** Parameter search space.

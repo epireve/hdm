@@ -45,7 +45,7 @@ Information systems Entity relationship models.
 
 Personal knowledge graphs, knowledge representation, personal information management
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Krisztian Balog and Tom Kenter. 2019. Personal Knowledge Graphs: A Research Agenda. In The 2019 ACM SIGIR International Conference on the Theory of Information Retrieval (ICTIR '19), October 2–5, 2019, Santa Clara, CA, USA. ACM, New York, NY, USA, [4](#page-3-0) pages. <https://doi.org/10.1145/3341981.3344241>
 
@@ -62,7 +62,7 @@ Tom Kenter Google London, UK tomkenter@google.com
 <span id="page-0-0"></span>![](_page_0_Figure_18.jpeg)
 <!-- Image Description: This diagram illustrates a personal knowledge graph. A central "User" node connects to various nodes representing personal relationships (Mom, Jamie), locations (Hometown, High School), and interests (guitars). Dashed lines link the personal graph to external knowledge sources: a general-purpose knowledge graph and domain-specific knowledge graphs (e.g., an e-commerce catalog and social network). The image showcases the integration of personal information with broader knowledge bases. -->
 
-Figure 1: Illustration of a personal knowledge graph.
+**Figure 1:** Illustration of a personal knowledge graph.
 
 music-related information. Major search providers have also developed (proprietary) KGs to enhance functionality.
 
@@ -109,7 +109,7 @@ The issues above lead to the following research question (RQ1): How should entit
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
 <!-- Image Description: The image presents three example conversational dialogues between a user and an AI assistant. Each example (a, b, c) displays a multi-turn conversation as a sequence of text bubbles, with user messages in orange and AI responses in light blue. The dialogues illustrate different scenarios showcasing the AI's ability to understand user requests, ask clarifying questions, and provide helpful responses, implying a context-aware system capable of task completion and proactive suggestions. The AI is denoted by "AI". -->
 
-Figure 2: Motivating examples of interactions between a user and a digital assistant (depicted as AI).
+**Figure 2:** Motivating examples of interactions between a user and a digital assistant (depicted as AI).
 
 KGs are utilized [\[1\]](#page-3-1). Entity linking usually involves three subtasks—mention detection, entity disambiguation, and NIL-detection[2](#page-2-1)—all of which typically rely on an existing KG as a source of information. This immediately brings out a key difference between the generic and the PKG case: little to no information about entities might be available in a PKG for linking algorithms to leverage.
 
@@ -139,7 +139,7 @@ In case of PKGs, there is a number of important differences. First, unlike tradi
 
 In short, the considerations above lead to (RQ4): How should external knowledge sources continuously be integrated with, in a two-way process, potentially involving the user?
 
-#### 3 Further Opportunities and Challenges
+### 3 Further Opportunities and Challenges
 
 The focus of this paper is to identify the key properties and aspects of PKGs in relation to general KGs. There is a range of further issues, opportunities, and open challenges associated with PKGs. We highlight three specific areas.
 
@@ -155,7 +155,7 @@ Lastly, PKGs enable personalization for various components of (conversational) s
 
 In this paper, we have defined the concept of personal knowledge graphs, discussed key aspects that separate them for general knowledge graphs, identified the main challenges involved, and defined a research agenda by articulating a series of specific research questions. Our intent is that this description of open problems will help to inspire researchers and provide foundations to coordinate efforts in this direction.
 
-#### REFERENCES
+### REFERENCES
 
 - <span id="page-3-1"></span>[1] Krisztian Balog. 2018. Entity-Oriented Search. Springer.
 - <span id="page-3-9"></span>[2] Krisztian Balog, Marc Bron, and Maarten De Rijke. 2011. Query Modeling for Entity Search Based on Terms, Categories, and Examples. ACM Trans. Inf. Syst. 29, 4 (Dec. 2011), 22:1–22:31.

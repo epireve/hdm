@@ -44,7 +44,7 @@ Carbonaro A, Marfoglia A, Nardini F and Mellone S (2023) CONNECTED: leveraging d
 
 © 2023 Carbonaro, Marfoglia, Nardini and Mellone. This is an open-access article distributed under the terms of the [Creative](http://creativecommons.org/licenses/by/4.0/) [Commons Attribution License \(CC BY\).](http://creativecommons.org/licenses/by/4.0/) The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.
 
-# [CONNECTED: leveraging digital](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1322428/full) [twins and personal knowledge](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1322428/full) [graphs in healthcare digitalization](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1322428/full)
+## [CONNECTED: leveraging digital](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1322428/full) [twins and personal knowledge](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1322428/full) [graphs in healthcare digitalization](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1322428/full)
 
 Antonella Carbonaro1 \*, Alberto Marfoglia1 , Filippo Nardini2 and Sabato Mellone<sup>3</sup>
 
@@ -72,7 +72,7 @@ In the existing literature, PKGs have been defined in multiple ways ([6](#page-5
 
 Gyrard et al. propose a PKG framework aimed at developing personalized healthcare applications to effectively manage chronic disease ([8](#page-5-0)). Rastogi and Zaki suggest that PKGs could be used to personalize recommendations from good platforms to encourage a healthy lifestyle [\(9\)](#page-5-0). Ammar et al. present a mobile health digital intervention that combines both patients' personal health data and contextual knowledge from various sources [\(10\)](#page-5-0). The objective is to offer tailored recommendations for enhancing selfcare behaviors among diabetic adults. Seneviratne et al. introduce a PKG that supports the generation of tailored dietary recommendations for Type 2 Diabetes self-management [\(11](#page-5-0)). To do so, reasonings are made over the PKG, that encodes clinical guidelines represented in OWL.
 
-#### Digital twin in healthcare
+### Digital twin in healthcare
 
 DTs have found application in many healthcare sectors, such as oncology [\(12\)](#page-5-0), cardiology ([13](#page-5-0)), geriatrics [\(14\)](#page-5-0), neurology ([15](#page-5-0)), internal medicine ([16](#page-5-0)), trauma management [\(17\)](#page-5-0), pharmaceutics ([18](#page-5-0)), orthopedics ([19](#page-5-0)), surgery ([20\)](#page-5-0).
 
@@ -82,7 +82,7 @@ Björnsson et al. proposed to build DTs of patients, which can be computationall
 
 Aubert et al. developed a virtual replica to evaluate stabilization method variants for tibial plateau fracture surgery at distinct stages of bone healing ([19\)](#page-5-0). It demonstrates how DTs can provide quantitative and high-value information for clinical decision-making.
 
-#### Architectural frameworks for digital twins
+### Architectural frameworks for digital twins
 
 In the domain of DTs, the establishment of robust architectural frameworks serves as a cornerstone for molding their functionalities and expanding their utility ([21](#page-5-0)). This section delves into a selection of significant contributions that introduce architectural models designed to build and elevate DTs across different domains. After an analysis of each one, they will be summarized to highlight their main capabilities. Subsequently, these functionalities will provide the basis for developing our framework's requirements.
 
@@ -99,25 +99,25 @@ The work presented underlines features that address shared crucial needs of DT f
 - Symbolic reasoning: As Knowledge Graphs can effectively describe and manage healthcare information, by employing reasoning algorithms, they facilitate the derivation of insights regarding a patient's status and prognostications. Furthermore, the stored knowledge can be accessed through intuitive semantic queries, in an explorative search fashion.
 - General-purpose Digital Twin: DTs should act as a foundation on top of which smart applications can be developed. Hence, they do not need to be aware of specific program details. In this regard, DTs can be represented by services exposing proper APIs, enabling effective communication with external software.
 
-#### CONNECTED: a framework for general-purpose digital twins
+### CONNECTED: a framework for general-purpose digital twins
 
 In this section we introduce CONNECTED, a conceptual framework aimed at defining guidelines to develop healthcare applications based on DTs of patients. It has been based on the requirements defined in the previous section, and it has been designed following a modular approach. Hence, the result is a multi-layer architecture in which functionalities are partitioned into horizontal levels ([Figure 1](#page-3-0)): Source, Standard, Digital Twin, and Application. The communication between them is monodirectional, so data can flow from one layer to the above one only by passing through designated input and output interfaces.
 
-#### 1. Level 1: Source
+### 1. Level 1: Source
 
 In the healthcare context, a wide array of data sources exists, including personal and medical devices, as well as various platforms and databases. A key aspect of the proposed architecture is its capability to effectively communicate with these sources. Since incoming data may vary in terms of volume, quality, and format, the Source layer functions as a sort of funnel. Its primary role is to efficiently manage this diverse information, accommodating different protocols for communication. Ultimately, its aim is to transmit the data stream to the higher-level layer.
 
-#### 2. Level 2: Standard
+### 2. Level 2: Standard
 
 The second level of the framework focuses on exploiting standards according to the interoperability requirement defined in [Section 4](#page-1-0). To this end, the adoption of a well-known solution, such as FHIR,1 proves essential in providing domain modeling that is validated by a vast international community of experts. This layer operates as a pipe, in which incoming raw data is harmonized and passed to the Digital Twin layer. In this regard, this level must include submodules (Adapters in [Figure 1](#page-3-0)) able to process data from legacy standards, and custom or proprietary formats to modern healthcare standards.
 
-#### 3. Level 3: Digital Twin
+### 3. Level 3: Digital Twin
 
 To enhance our understanding of patients and their progress, we can utilize all the standardized data so far gathered to populate the DTs. From our perspective, these digital replicas serve as reliable sources of truth, enabling us to track a patient's evolution over time. While it doesn't provide simulation capabilities, this DT functions as a versatile repository of data that paints a comprehensive picture of the patient. This data can be leveraged to develop intelligent applications.
 
 Given the heterogeneity of collected information and the constant evolution of the DT model, it is required a data structure capable of managing its changes and expressing semantic relationships between concepts. PKG is identified as an optimal solution to achieve that, as it allows us to capture personal information valuable for a specific subject and integrate it with general concepts of the healthcare domain. This can be done by taking advantage of web semantic tools such as ontologies (e.g., SNOMED-CT) and logical rules (e.g., SWRL). In fact, they can be provided as input to the semantic Reasoning Engine aimed at automatically inferring new knowledge about the patient to support a well-informed decision-making process. Finally, DTs offer APIs to run explorative queries on single patients' PKG. A matching subset of resources is returned to the caller.
 
-#### 4. Level 4: Application
+### 4. Level 4: Application
 
 Since Level 3 doesn't provide computational resources, the computational models implementing DT applications are located on Level 4. This layer hosts all the applications that need to observe the state of DTs, through their APIs. Following the
 
@@ -145,7 +145,7 @@ regulatory issues, such as different privacy policies of distinct organizations.
 
 Future work will focus on selecting the best-suited technologies for implementing the proposed framework and its adoption in realuse case healthcare scenarios. In this regard, we are currently developing a solution aimed at unveiling the issues and practical challenges associated with the concrete implementation of the framework. Specifically, we are evaluating the use of Eclipse Hono2 for the Source layer. This technology empowers the architecture with the ability to communicate with a multitude of IoT devices, regardless of the communication protocol, as well as supporting custom adapters for data transformation. Afterward, standardized data streams are channeled through a distributed and asynchronous message bus, implemented using Apache Kafka<sup>3</sup> . These streams ultimately converge on DTs, where they are stored in a graph database. Our choice for this database is Stardog,<sup>4</sup> primarily due to its capacity to enable information querying and knowledge inference through the utilization of a reasoner. Our aim is to release the resulting prototype as opensource software for readers to validate them. Finally, further extensions of the framework should be investigated, such as the possibility of integrating computational models into the existing vision of DT, enabling simulation capabilities.
 
-#### 2 <https://projects.eclipse.org/projects/iot.hono> 3 <https://kafka.apache.org/>
+### 2 <https://projects.eclipse.org/projects/iot.hono> 3 <https://kafka.apache.org/>
 
 ## Data availability statement
 

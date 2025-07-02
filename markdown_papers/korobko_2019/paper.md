@@ -45,8 +45,6 @@ keywords:
 - synchronization
 ---
 
-
-
 # Matching disparate dimensions for analytical integration of heterogeneous data sources
 
 Anna Korobko Department of Applied Computer Science ICM SB RAS Krasnoyarsk, Russia gglhroom@gmail.com
@@ -61,11 +59,11 @@ The paper presents the first steps towards an authorial integration methodology 
 
 • Information systems➝Data management systems • Middleware for databases ➝ Data federation tools.
 
-#### KEYWORDS
+### KEYWORDS
 
 Analytical Data Integration; OLAP; FCA; Heterogeneous Data; Semantic Analysis.
 
-#### ACM Reference format:
+### ACM Reference format:
 
 Anna Korobko, Aleksei Korobko. 2019. Matching disparate dimensions for analytical integration of heterogeneous data sources. In *Proceedings of the 11th International Conference on Management of Digital EcoSystems (MEDES'19). ACM, New York, NY, USA, 7 pages.*https://doi.org/10.1145/3297662.3365809
 
@@ -73,7 +71,7 @@ Anna Korobko, Aleksei Korobko. 2019. Matching disparate dimensions for analytica
 
 ACM ISBN 978-1-4503-6238-2/19/11…\$15.00 https://doi.org/10.1145/3297662.3365809
 
-#### 1 Introduction
+### 1 Introduction
 
 The growth of computer science and technology provides an increasing volume of accumulated information. Surprisingly, it is an enormous opportunity. In modern economy, information should be the prime asset: raw material for new products and services, smarter decisions, competitive advantages for companies, and larger growth and productivity [25]. The enhancement of the on-line analytical processing (OLAP) of the accumulated data becomes a more important issue for advanced decision-making support.
 
@@ -89,7 +87,7 @@ The central topic of the research is reconciliation and merging of heterogeneous
 
 The paper is organized as follows. In Section 2, we consider the validation of the classical multidimensional model and propose an original simplified multidimensional view for heterogeneous data sources. Section 3 presents the main idea of automatic data integration based on a set of reference dimensions of the integral analytical model. In Section 4, we suggest an algorithm for matching disparate dimensions and illustrate it in the case of collaborative analytical processing of XML-data of the All-Russian website of procurement over the relational data of The Local System of procurement.
 
-#### 2 MULTIDIMENSIONAL MODEL
+### 2 MULTIDIMENSIONAL MODEL
 
 First of all, OLAP provides multidimensional logical views of data to facilitate the analysis [35] according to the requirements of Codd [10]. OLAP demonstrates the ability to analyze large amounts of data by providing intuitive views along multiple dimensions of the problem. In this context, the dimensionality of data and that of a decision problem refer to the parameters of the problem domain which have bearing on the specific decision problem. OLAP provides multidimensional data structures and aggregation techniques for the fast and intuitive execution of complex analytical queries [39]. The multidimensional view provides a technical basis for the on-line analysis [15].
 
@@ -136,28 +134,28 @@ The table presents a set of reference dimension names in rows and a set of new s
 
 The proposed algorithm compares names, alternative names and descriptions of the dimensions. As a result, the algorithm forms a matrix of assessments of their similarity (scores). Now, we need to find a similar reference dimension to each new dimension if possible. We propose to define the similar reference dimension as a column with maximum similarity score in the matrix raw corresponded with the integrated dimension. Additionally, we need to establish a threshold for the similarity scores to consider. The value of the similarity score should be bigger than 0.5 or else we do not use it.
 
-| dim                                      |             |             | dosageOKEI extrabudget fundsBudgetLevel | <b>KTRU</b>             | OKEI        | <b>OKTMO</b> | status      |
+| dim | | | dosageOKEI extrabudget fundsBudgetLevel | <b>KTRU</b> | OKEI | <b>OKTMO</b> | status |
 |------------------------------------------|-------------|-------------|-----------------------------------------|-------------------------|-------------|--------------|-------------|
-| <b>ANALOGGR</b>                          | 0,075714473 | 0,066156531 |                                         |                         | o           | Ω            | о           |
-| <b>DISTRICT</b>                          | 0,046348895 | 0,006732722 |                                         | 0,0394366 0,035303059   | n           | Ω            |             |
-| <b>FOKEI</b>                             | 0,358797982 | 0,01791478  |                                         | 0,412855646 0,016622445 | 0,600247262 | Ω            |             |
-| <b>INVENTORY</b>                         | 0,086677437 | 0,076713541 | 0,031254768                             |                         |             |              |             |
-| <b>INVENTORYCLAS</b>                     | 0,079837526 | 0,087132604 |                                         |                         |             |              |             |
-| MО                                       | 0,24328418  | 0,049134583 |                                         | 0,090844615 0,136437031 | 0           | 0,28128348   |             |
-| <b>MOSTATUS</b>                          |             |             | 0,117758738                             |                         |             | 0            | 0,649865971 |
-| <b>OKVEDII</b>                           | 0,083387743 |             | 0,079441378                             | 0                       | 0,116803614 | 0,094769586  |             |
-| <b>PERIODICITY</b>                       | 0,020592262 | 0,018761423 | 0,033678585                             |                         |             |              |             |
-| <b>PRCACTIVITY</b>                       | 0,027313537 | 0,024424091 |                                         | 0,154308497 0,046220713 |             |              | o           |
-| !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | 0           | 0,02996114  |                                         | 0,055017793             |             |              | o           |
-| <b>PRCSUBACTIVITY</b>                    | 0           | 0,005850749 | 0,126651055                             | 0,093047148             | 0           | Ω            | 0           |
-| <b>PRIVILEGESPR</b>                      | 0           | 0,03822991  | 0                                       | 0,017442206             | 0           | 0            | 0           |
-| <b>RQRT</b>                              | 0           | 0           | 0,026500806                             | 0,019843723             | 0           | Ω            | 0           |
-| <b>RQRT OBJ</b>                          |             |             |                                         |                         |             |              | Ω           |
-| TMO                                      | 0,190356579 | 0,037284036 | 0,041143256                             | 0,126145659             | 0           | 0,471499251  | o           |
-| <b>UO</b>                                | 0,130430805 | 0,049439185 |                                         | 0.088507343             | n           |              | Ω           |
+| <b>ANALOGGR</b> | 0,075714473 | 0,066156531 | | | o | Ω | о |
+| <b>DISTRICT</b> | 0,046348895 | 0,006732722 | | 0,0394366 0,035303059 | n | Ω | |
+| <b>FOKEI</b> | 0,358797982 | 0,01791478 | | 0,412855646 0,016622445 | 0,600247262 | Ω | |
+| <b>INVENTORY</b> | 0,086677437 | 0,076713541 | 0,031254768 | | | | |
+| <b>INVENTORYCLAS</b> | 0,079837526 | 0,087132604 | | | | | |
+| MО | 0,24328418 | 0,049134583 | | 0,090844615 0,136437031 | 0 | 0,28128348 | |
+| <b>MOSTATUS</b> | | | 0,117758738 | | | 0 | 0,649865971 |
+| <b>OKVEDII</b> | 0,083387743 | | 0,079441378 | 0 | 0,116803614 | 0,094769586 | |
+| <b>PERIODICITY</b> | 0,020592262 | 0,018761423 | 0,033678585 | | | | |
+| <b>PRCACTIVITY</b> | 0,027313537 | 0,024424091 | | 0,154308497 0,046220713 | | | o |
+| !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | 0 | 0,02996114 | | 0,055017793 | | | o |
+| <b>PRCSUBACTIVITY</b> | 0 | 0,005850749 | 0,126651055 | 0,093047148 | 0 | Ω | 0 |
+| <b>PRIVILEGESPR</b> | 0 | 0,03822991 | 0 | 0,017442206 | 0 | 0 | 0 |
+| <b>RQRT</b> | 0 | 0 | 0,026500806 | 0,019843723 | 0 | Ω | 0 |
+| <b>RQRT OBJ</b> | | | | | | | Ω |
+| TMO | 0,190356579 | 0,037284036 | 0,041143256 | 0,126145659 | 0 | 0,471499251 | o |
+| <b>UO</b> | 0,130430805 | 0,049439185 | | 0.088507343 | n | | Ω |
 **Figure 3. The fragment of the score matrix for similarity of dimensions**It our example, the set of reference dimensions includes the XSD schema dimensions because this source was first integrated into IAM. And, there is the dimension "OKEI" in the set of reference dimensions. Then, according to the proposed approach, we want to integrate data from the Local System of procurement into IAM. There is the dimension "FOKEI" in the new integrated relational source. So, proposed algorithm shows that the pairs (MOSTATUS, status) and (FOKEI, OKEI) have the significant similarity score. Thus, we make a conclusion that they can be merged and treated as a common (shared) dimension for two heterogeneous sources. Of course, the results of matching dimensions should be affirmed by human before committing. The new dimension of the set of reference dimensions will contain descriptions and alternative names of both similar elements. Other new dimensions will be added into the set of reference dimensions of IAM. The proposed algorithm allows us to integrate the schemata of disparate data sources and construct the virtual integral analytical model with shared dimensions.
 
-#### 5 CONCLUSION
+### 5 CONCLUSION
 
 The research has been done to develop a new integration methodology for heterogeneous data based on IAM. The review of the existing approaches allows us to justify the choice of the virtual integrating schema and multidimensional representation. The integral analytical model and simplified multidimensional model are clearly described as the theoretical background. The matching policy for SMMs, the reference dimensions and, finally, the algorithm of matching disparate dimensions are suggested. SMM has been developed and presented to facilitate the formation of the context for the lattice of the OLAP-cubes, namely IAM. The proposed matching policy supports mappings between the data sources and IAM using only their dimensions. The reference dimension accumulates the names, alternative names and descriptions of one aspect of the analysis from diverse sources. The algorithm proposed in this study integrates OLAP, FCA and methods of semantic analysis to reconcile and merge heterogeneous sources using additional textual features of the dimensions (alternative names and descriptions). The implementation uses open source libraries for data structures, converting a collection of raw documents to a matrix of TF-IDF features (with the 3-grams option) and computing the cosine similarity between the samples.
 
@@ -201,7 +199,7 @@ http://pages.di.unipi.it/ghelli/bd2/DWessential.pdf
 
 OLAP with data mining.*IJCSNS Int. J. Comput. Sci. Netw. Secur.*8, 9 (2008), 290–296. Retrieved from http://paper.ijcsns.org/07\_book/200809/20080942.pdf
 
-- [29] Juan Manuel Pe, Berlanga Rafael, Maria Jose Aramburu, and Torben Bach Pederson. 2008. Integrating Data Warehouses with Web Data : A Survey.*IEEE Trans. Knowl. Data Eng.*20, 7 (2008), 940–955. DOI:https://doi.org/10.1109/TKDE.2007.190746
+- [29] Juan Manuel Pe, Berlanga Rafael, Maria Jose Aramburu, and Torben Bach Pederson. 2008. Integrating Data Warehouses with Web Data : A Survey.*IEEE Trans. Knowl. Data Eng.*20, 7 (2008), 940–955. DOI:https://doi.org/10.1109/TKDE.2007.190746
 - [30] Torben Bach Pedersen and C. S. Jensen. 2001. Multidimensional database technology.*Computer (Long. Beach. Calif).*34, 12 (2001). DOI:https://doi.org/10.1109/2.970558
 - [31] Fabian Pedregosa FABIANPEDREGOSA, Vincent Michel, Olivier Grisel OLIVIERGRISEL, Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Jake Vanderplas, David Cournapeau, Fabian Pedregosa, Gaël Varoquaux, Alexandre Gramfort, Bertrand Thirion, Olivier Grisel, Vincent Dubourg, Alexandre Passos, Matthieu Brucher, Matthieu Perrot andÉdouardand, andÉdouard Duchesnay, and FRÉdouard Duchesnay EDOUARDDUCHESNAY. 2011.*Scikit-learn: Machine Learning in Python Gaël Varoquaux Bertrand Thirion Vincent Dubourg Alexandre Passos PEDREGOSA, VAROQUAUX, GRAMFORT ET AL. Matthieu Perrot*. Retrieved May 3, 2019 from http://scikitlearn.sourceforge.net.
 - [32] T. Penkova and A. Korobko. 2013. *Constructing the integral OLAP-model for scientific activities based on FCA*. DOI:https://doi.org/10.1007/978-3-642- 37343-5\_17

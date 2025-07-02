@@ -40,8 +40,6 @@ keywords:
 - ontology
 ---
 
-
-
 # Developing Knowledge Graph Based System for Urban Computing
 
 Yu Liu liuyu2419@126.com BNRist, Department of Electronic Engineering, Tsinghua University Beijing, China
@@ -142,56 +140,55 @@ Attribute Enrichment. To fuse more urban data into the UrbanKG, the system furth
 
 Statistics. Following the creation process above, the UrbanKG system constructs two UrbanKGs in large cities of Beijing and Shanghai in China, whose basic statistics are shown in Table [3.](#page-3-3) It can be observed that, the UrbanKG system contains millions of
 
-#### <span id="page-2-0"></span>Developing Knowledge Graph Based System for Urban Computing GeoKG '22, November 1, 2022, Seattle, WA, USA
+### <span id="page-2-0"></span>Developing Knowledge Graph Based System for Urban Computing GeoKG '22, November 1, 2022, Seattle, WA, USA
 
 ![](_page_2_Figure_2.jpeg)
 <!-- Image Description: The image is a layered architecture diagram showing a system for city-level modeling. The bottom layer details data construction (schema, entity, relation, attribute), progressing through storage (Virtuoso Database), algorithms (knowledge graph representation, operations like query and link prediction), and an SDK for individual, population, and city-level applications (mobility prediction, OD prediction, site selection, etc.). Scenario data is uploaded, cleaned, and used to update the system. -->
 
-Figure 1: The high-level system architecture.
+**Figure 1:** The high-level system architecture.
 
 <span id="page-2-1"></span>![](_page_2_Figure_4.jpeg)
 <!-- Image Description: This image is a schema diagram depicting relationships between entities in a point-of-interest (POI) dataset. Nodes represent entities like User, Region, POI, Brand, Organization, and categories (coarse, mid, fine-grained). Directed edges show relationships (e.g., a User visits a POI, a POI belongs to a Brand, categories are hierarchical). The diagram illustrates the data structure and relationships for the study's POI data model. -->
 
 ### Figure 2: The schema of UrbanKG. The gray nodes correspond to the cross-modal types of entities.
 
-<span id="page-2-2"></span>Table 1: The summary of relations and corresponding semantics captured in UrbanKG.
+<span id="page-2-2"></span>**Table 1:** The summary of relations and corresponding semantics captured in UrbanKG.
 
-| Relation       | Head<br>Entity |              | Semantics            |  |
+| Relation | Head<br>Entity | | Semantics | |
 |----------------|----------------|--------------|----------------------|--|
-| borderBy       | Region         | Region       | Boundary Sharing     |  |
-| nearBy         | Region         | Region       | Close Distance       |  |
-| locateAt       | POI            | Region       | Spatial Coverage     |  |
-| belongTo       | POI            | Ba           | Spatial Coverage     |  |
-| brandOf        | POI            | Brand        | Affiliation          |  |
-| organization   | POI            | Organization | Affiliation          |  |
-| cate1Of        | POI            | Category     | Coarse-level         |  |
-| cate2Of        | POI            | Category     | Mid-level            |  |
-| cate3Of        | POI            | Category     | Fine-grained         |  |
-| subCateOf      | Category       | Category     | Hierarchy            |  |
-| ODFlow         | Region         | Region       | Flow Transition      |  |
-| similarFunc    | Region         | Region       | POI Distribution     |  |
-| coCheckin      | POI            | POI          | Check-in Concurrence |  |
-| competitive    | POI            | POI          | Competitiveness      |  |
-| provideService | Ba             | Region       | Service Support      |  |
-| openStoreAt    | Brand          | Region       | Site Selection       |  |
-| homeAt         | User           | Region       | Home                 |  |
-| workplaceAt    | User           | Region       | Workplace            |  |
-| visit          | User           | POI          | Visiting             |  |
-| socialRelation | User           | User         | Social Relationship  |  |
+| borderBy | Region | Region | Boundary Sharing | |
+| nearBy | Region | Region | Close Distance | |
+| locateAt | POI | Region | Spatial Coverage | |
+| belongTo | POI | Ba | Spatial Coverage | |
+| brandOf | POI | Brand | Affiliation | |
+| organization | POI | Organization | Affiliation | |
+| cate1Of | POI | Category | Coarse-level | |
+| cate2Of | POI | Category | Mid-level | |
+| cate3Of | POI | Category | Fine-grained | |
+| subCateOf | Category | Category | Hierarchy | |
+| ODFlow | Region | Region | Flow Transition | |
+| similarFunc | Region | Region | POI Distribution | |
+| coCheckin | POI | POI | Check-in Concurrence | |
+| competitive | POI | POI | Competitiveness | |
+| provideService | Ba | Region | Service Support | |
+| openStoreAt | Brand | Region | Site Selection | |
+| homeAt | User | Region | Home | |
+| workplaceAt | User | Region | Workplace | |
+| visit | User | POI | Visiting | |
+| socialRelation | User | User | Social Relationship | |
 
 entities and over ten millions of triples on urban knowledge, which is comparable to large-scale KGs like YAGO [\[2\]](#page-3-4).
 
-<span id="page-2-3"></span>
 
-| Entity      | Attribute                                     |
+| Entity | Attribute |
 |-------------|-----------------------------------------------|
-| POI         | name, location, address, category, activeness |
-| Region      | boundary, area, demographic, land type        |
-| Ba          | name, location, POI distribution              |
-| Brand & Org | name, text description                        |
-| Category    | name, POI number                              |
-| User        | gender, age, education, income, occupation    |
-|             |                                               |
+| POI | name, location, address, category, activeness |
+| Region | boundary, area, demographic, land type |
+| Ba | name, location, POI distribution |
+| Brand & Org | name, text description |
+| Category | name, POI number |
+| User | gender, age, education, income, occupation |
+| | |
 
 ### 3 EVALUATION
 
@@ -202,17 +199,17 @@ To validate the effectiveness of the Construction layer and the Algorithm layer 
 <span id="page-2-4"></span>![](_page_2_Figure_14.jpeg)
 <!-- Image Description: The image displays a 2D scatter plot visualizing the results of a dimensionality reduction technique, likely t-SNE or UMAP, applied to data categorized into various sectors (Brand, Region, Cate_1-3, Sports, Company, Medical, Edu., Car, Service, Shopping, Accomm., Food, Org.). Different colors represent different categories. The plot shows distinct clusters, suggesting that the technique effectively separated the data points based on their categorical labels. The purpose is to illustrate the inherent structure and relationships between different data categories. -->
 
-Figure 3: Entity embedding visualization results for UrbanKG in Beijing, China (better viewed in color).
+**Figure 3:** Entity embedding visualization results for UrbanKG in Beijing, China (better viewed in color).
 
 Specifically, in the experiment, we set the embedding dimensionality to 32, and utilize the early stopping strategy for training, i.e., the training stops when the training loss does not decrease for 10 iterations. In Figure [3,](#page-2-4) we visualize the learned entity embedding using t-SNE, and 10,000 POI entities are randomly selected for visualization. Note that entities in different types and POI entities in different categories are shown in different colors.
 
-| UrbanKG  | Overall Statistics |           |           | Entity Types |         |     |              |           |       |
+| UrbanKG | Overall Statistics | | | Entity Types | | | | | |
 |----------|--------------------|-----------|-----------|--------------|---------|-----|--------------|-----------|-------|
-|          | #Entity            | #Relation | #Triple   | #POI         | #Region | #Ba | #Brand & Org | #Category | #User |
-| Beijing  | 1,493,914          | 20        | 7,455,708 | 1,481,100    | 1,900   | 333 | 1,545        | 14/56/367 | 8,599 |
-| Shanghai | 1,969,788          | 20        | 9,868,686 | 1,957,674    | 2,597   | 280 | 954          | 14/56/480 | 7,733 |
+| | #Entity | #Relation | #Triple | #POI | #Region | #Ba | #Brand & Org | #Category | #User |
+| Beijing | 1,493,914 | 20 | 7,455,708 | 1,481,100 | 1,900 | 333 | 1,545 | 14/56/367 | 8,599 |
+| Shanghai | 1,969,788 | 20 | 9,868,686 | 1,957,674 | 2,597 | 280 | 954 | 14/56/480 | 7,733 |
 
-<span id="page-3-3"></span><span id="page-3-0"></span>Table 3: The basic information of the constructed UrbanKGs. The Ba and Org denote Business area, Organization, respectively. #Category denotes the number of coarse-level/mid-level/fine-grained categories.
+<span id="page-3-3"></span><span id="page-3-0"></span>**Table 3:** The basic information of the constructed UrbanKGs. The Ba and Org denote Business area, Organization, respectively. #Category denotes the number of coarse-level/mid-level/fine-grained categories.
 
 According to the figure, we can observe that entities in different types or categories are clearly separated in space and clustering phenomenon can be easily found in different groups. The visualization results indicate that learned embeddings preserve the semantics of entities, i.e., distil the knowledge in the urban data in some way. Therefore, the Construction layer and Algorithm layer together provide effective representations for entities, which support the urban applications in the upper layer of the system.
 
@@ -229,13 +226,13 @@ Mobility Prediction. The mobility prediction use case [\[7\]](#page-3-6) formula
 
 Especially, the Application layer calls the link prediction operation to predict if there exist visiting links between user entities and POI entities with the time attribute considered. Table [4](#page-3-7) presents the result comparison with the state-of-the-art baseline ARNN [\[3\]](#page-3-8) in respective of accuracy and mean reciprocal rank (MRR). With the multi-source data fused, the UrbanKG system significantly outperforms the traditional baseline.
 
-<span id="page-3-7"></span>Table 4: The result comparison of mobility prediction task.
+<span id="page-3-7"></span>**Table 4:** The result comparison of mobility prediction task.
 
-|         | Beijing |                                               |       | Shanghai |       |       |
+| | Beijing | | | Shanghai | | |
 |---------|---------|-----------------------------------------------|-------|----------|-------|-------|
-|         |         | Acc@1 ↑ Acc@10 ↑ MRR ↑ Acc@1 ↑ Acc@10 ↑ MRR ↑ |       |          |       |       |
-| ARNN    | 0.442   | 0.685                                         | 0.532 | 0.379    | 0.605 | 0.469 |
-| UrbanKG | 0.531   | 0.800                                         | 0.637 | 0.429    | 0.696 | 0.528 |
+| | | Acc@1 ↑ Acc@10 ↑ MRR ↑ Acc@1 ↑ Acc@10 ↑ MRR ↑ | | | | |
+| ARNN | 0.442 | 0.685 | 0.532 | 0.379 | 0.605 | 0.469 |
+| UrbanKG | 0.531 | 0.800 | 0.637 | 0.429 | 0.696 | 0.528 |
 
 Site Selection. The site selection use case [\[6\]](#page-3-9) focuses on the city-level problem, which determines candidate regions for various brands opening stores. Especially, such problem requires to provide explainable results with multiple site selection factors considered.
 
@@ -243,13 +240,13 @@ Firstly, by calling the link prediction operation, the UrbanKG system formulates
 
 comparison with the best traditional solution NeuMF-RS [\[5\]](#page-3-11) in respective of NDCG, hit ratio and precision. The results further demonstrate the effectiveness of the UrbanKG system, which can not only fuse the urban data from multiple sources, but also distil task-specific knowledge via algorithm implementation.
 
-<span id="page-3-10"></span>Table 5: The result comparison of site selection task.
+<span id="page-3-10"></span>**Table 5:** The result comparison of site selection task.
 
-|          | Beijing |                                           |       | Shanghai |       |       |  |
+| | Beijing | | | Shanghai | | | |
 |----------|---------|-------------------------------------------|-------|----------|-------|-------|--|
-|          |         | N@10 ↑ H@10 ↑ P@10 ↑ N@10 ↑ H@10 ↑ P@10 ↑ |       |          |       |       |  |
-| NeuMF-RS | 0.178   | 0.653                                     | 0.155 | 0.168    | 0.615 | 0.148 |  |
-| UrbanKG  | 0.219   | 0.713                                     | 0.186 | 0.205    | 0.671 | 0.177 |  |
+| | | N@10 ↑ H@10 ↑ P@10 ↑ N@10 ↑ H@10 ↑ P@10 ↑ | | | | | |
+| NeuMF-RS | 0.178 | 0.653 | 0.155 | 0.168 | 0.615 | 0.148 | |
+| UrbanKG | 0.219 | 0.713 | 0.186 | 0.205 | 0.671 | 0.177 | |
 
 To summarize, the UrbanKG system supports various applications in urban scenario across multiple using ways and scales. The use cases analysis above provides a strong validation of effectiveness and wide applicability in practical.
 

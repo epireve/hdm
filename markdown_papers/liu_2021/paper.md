@@ -40,9 +40,6 @@ keywords:
 - kg
 ---
 
-
-
-
 # A Study on Temporal Knowledge Graph Enrichment
 
 Yu Liu Master of Engineering
@@ -62,7 +59,7 @@ Our second solution is temporal knowledge graph completion. Temporal KG completi
 
 Our third solution is temporal knowledge graph alignment which aims to discover the *SameAs*edges across two temporal KGs. Not like previous attribute-based alignment models, we further divide attribute facts into character facts, digit facts and time facts. In particular, we observe that the context information is extremely useful for the identification of same entities. Therefore, we propose an alignment model on leveraging temporal contexts to represent entities. However, contexts of the same object can be very different. For example, the value of*career*predicate changed from "football player" to "coach" for the football player "Zidane". This is because entities are evolving over time and thus the predicate values can be different. In our framework, we propose an alignment module that simulates the entity evolving process. Specifically, this module captures the interactions between contexts and aggregates context information to represent the entity. Lastly, we found that not all contexts are relevant, e.g.,*height*v.s.*career*. Actually, only the relevant contexts are useful for capturing the evolving. Therefore, we propose a clustering approach for grouping relevant contexts together. Our experimental results validate the superiority of our proposed alignment model.
 
-# Declaration by author
+## Declaration by author
 
 This thesis is composed of my original work, and contains no material previously published or written by another person except where due reference has been made in the text. I have clearly stated the contribution by others to jointly-authored works that I have included in my thesis.
 
@@ -79,11 +76,11 @@ I acknowledge that copyright of all material contained in my thesis resides with
 - 3. [\[3\]](#page-108-2) Yu Liu, Wen Hua, and Xiaofang Zhou, [Temporal Knowledge Extraction From Large-Scale](https://link.springer.com/article/10.1007/s11280-020-00836-5) [Text Corpus,](https://link.springer.com/article/10.1007/s11280-020-00836-5)*World Wide Web Journal*, 2020
 - 4. Yu Liu, Wen Hua, Jianfeng Qu, Kexuan Xin and Xiaofang Zhou. Temporal Knowledge Completion with Context-Aware Embeddings, *World Wide Web Journal*, 2021.
 
-# Submitted manuscripts included in this thesis
+## Submitted manuscripts included in this thesis
 
 1. Yu Liu, Wen Hua, Kexuan Xin and Xiaofang Zhou, Temporal Knowledge Graph Alignment with Entity Evolving, Expected to submit to the Conference on Special Interest Group on Information Retrieval (SIGIR), 2021.
 
-# Other publications during candidature
+## Other publications during candidature
 
 - 1. [\[4\]](#page-108-3) Kexuan Xin, Wen Hua, Yu Liu, and Xiaofang Zhou, [Entity Disambiguation Based on Parse](https://doi.org/10.1007/978-3-030-34223-4_33) [Tree Neighbours on Graph Attention Network,](https://doi.org/10.1007/978-3-030-34223-4_33) *Web Information Systems Engineering*, (WISE), 523-537, 2019
 - 2. [\[5\]](#page-108-4) Kexuan Xin, Wen Hua, Yu Liu, and Xiaofang Zhou, [LoG: A Locally-Global Model for](https://link.springer.com/article/10.1007/s11280-020-00845-4) [Entity Disambiguation,](https://link.springer.com/article/10.1007/s11280-020-00845-4) *World Wide Web Journal*, 2020
@@ -92,11 +89,11 @@ I acknowledge that copyright of all material contained in my thesis resides with
 
 In all of the presented research in this thesis, Dr. Wen Hua, as my principal advisor, and Prof. Xiaofang Zhou, as my associate advisors, have provided technical guidance for formulating the problems, refining ideas as well as reviewing and polishing the presentation.
 
-# Statement of parts of the thesis submitted to qualify for the award of another degree
+## Statement of parts of the thesis submitted to qualify for the award of another degree
 
 No works submitted towards another degree have been included in this thesis
 
-# Research involving human or animal subjects
+## Research involving human or animal subjects
 
 No animal or human subjects were involved in this research
 
@@ -116,11 +113,11 @@ Last but not least, my deepest gratitude goes to my parents and my girl friend, 
 
 This research was supported by a CSC-UQ Scholarship.
 
-# Keywords
+## Keywords
 
 knowledge graph, temporal knowledge graph, data management, deep learning
 
-# Australian and New Zealand Standard Research Classifications (ANZSRC)
+## Australian and New Zealand Standard Research Classifications (ANZSRC)
 
 ANZSRC code: 080107, Natural Language Processing, 70% ANZSRC code: 080604, Database Management, 30%
 
@@ -128,146 +125,143 @@ ANZSRC code: 080107, Natural Language Processing, 70% ANZSRC code: 080604, Datab
 
 FoR code: 0801, Artificial Intelligence and Image Processing, 70% FoR code: 0806, Information Systems, 30%
 
-# Contents
+## Contents
 
-<span id="page-8-0"></span>
 
-|   | Abstract |                   |                                                              | ii   |
+| | Abstract | | | ii |
 |---|----------|-------------------|--------------------------------------------------------------|------|
-|   | Contents |                   |                                                              | ix   |
-|   |          | List of Figures   |                                                              | xii  |
-|   |          | List of Tables    |                                                              | xiii |
-| 1 |          | Introduction      |                                                              | 1    |
-|   | 1.1      | Background        |                                                              | 1    |
-|   | 1.2      |                   | Problem Statement                                            | 2    |
-|   |          | 1.2.1             | Preliminary                                                  | 3    |
-|   |          | 1.2.2             | Temporal Knowledge Harvesting .                              | 4    |
-|   |          | 1.2.3             | Temporal Knowledge Graph Completion .                        | 5    |
-|   |          | 1.2.4             | Temporal Knowledge Graph Alignment                           | 6    |
-|   | 1.3      |                   | Main Contributions                                           | 7    |
-|   |          | 1.3.1             | Temporal Knowledge Harvesting Algorithms                     | 7    |
-|   |          | 1.3.2             | Temporal Knowledge Graph Embedding and Completion Algorithms | 8    |
-|   |          | 1.3.3             | Temporal Knowledge Graph Alignment Algorithms .              | 8    |
-|   | 1.4      |                   | Thesis Organisation                                          | 9    |
-| 2 |          | Literature Review |                                                              | 11   |
-|   | 2.1      |                   | Temporal Knowledge Harvesting and Related Techniques .       | 11   |
-|   |          | 2.1.1             | Systems for Temporal Knowledge Harvesting                    | 12   |
-|   |          | 2.1.2             | Techniques in Entity Identification and Disambiguation .     | 14   |
-|   |          | 2.1.3             | Approaches in Relation Extraction                            | 16   |
-|   | 2.2      |                   | Temporal KG Completion and Related Techniques .              | 20   |
-|   |          | 2.2.1             | Traditional KG Embedding and Completion                      | 21   |
-|   |          | 2.2.2             | Temporal KG Embedding .                                      | 23   |
-|   | 2.3      |                   | Temporal KG Alignment and Related Techniques                 | 24   |
-|   |          | 2.3.1             | Structure-Based Approaches for KG Alignment                  | 26   |
-|   |          | 2.3.2             | Attribute-Based Approaches for KG Alignment                  | 27   |
-|   |          |                   |                                                              |      |
+| | Contents | | | ix |
+| | | List of Figures | | xii |
+| | | List of Tables | | xiii |
+| 1 | | Introduction | | 1 |
+| | 1.1 | Background | | 1 |
+| | 1.2 | | Problem Statement | 2 |
+| | | 1.2.1 | Preliminary | 3 |
+| | | 1.2.2 | Temporal Knowledge Harvesting . | 4 |
+| | | 1.2.3 | Temporal Knowledge Graph Completion . | 5 |
+| | | 1.2.4 | Temporal Knowledge Graph Alignment | 6 |
+| | 1.3 | | Main Contributions | 7 |
+| | | 1.3.1 | Temporal Knowledge Harvesting Algorithms | 7 |
+| | | 1.3.2 | Temporal Knowledge Graph Embedding and Completion Algorithms | 8 |
+| | | 1.3.3 | Temporal Knowledge Graph Alignment Algorithms . | 8 |
+| | 1.4 | | Thesis Organisation | 9 |
+| 2 | | Literature Review | | 11 |
+| | 2.1 | | Temporal Knowledge Harvesting and Related Techniques . | 11 |
+| | | 2.1.1 | Systems for Temporal Knowledge Harvesting | 12 |
+| | | 2.1.2 | Techniques in Entity Identification and Disambiguation . | 14 |
+| | | 2.1.3 | Approaches in Relation Extraction | 16 |
+| | 2.2 | | Temporal KG Completion and Related Techniques . | 20 |
+| | | 2.2.1 | Traditional KG Embedding and Completion | 21 |
+| | | 2.2.2 | Temporal KG Embedding . | 23 |
+| | 2.3 | | Temporal KG Alignment and Related Techniques | 24 |
+| | | 2.3.1 | Structure-Based Approaches for KG Alignment | 26 |
+| | | 2.3.2 | Attribute-Based Approaches for KG Alignment | 27 |
+| | | | | |
 
-| 3 |                    | Temporal Knowledge Harvesting<br>31 |                                                       |          |  |
+| 3 | | Temporal Knowledge Harvesting<br>31 | | | |
 |---|--------------------|-------------------------------------|-------------------------------------------------------|----------|--|
-|   | 3.1                | Introduction                        |                                                       | 31       |  |
-|   | 3.2                |                                     | Temporal Pattern Extraction                           | 33       |  |
-|   |                    | 3.2.1                               | Temporal Pattern Generation                           | 35       |  |
-|   |                    | 3.2.2                               | Temporal Pattern Scoring .                            | 37       |  |
-|   | 3.3                |                                     | Temporal Instance Extraction .                        | 40       |  |
-|   |                    | 3.3.1                               | Candidate Sentence Retrieval .                        | 40       |  |
-|   |                    | 3.3.2                               | Instance Extraction                                   | 41       |  |
-|   | 3.4                |                                     | Experiments .                                         | 43       |  |
-|   |                    | 3.4.1                               | Experimental Settings .                               | 43       |  |
-|   |                    | 3.4.2                               | Accuracy of Temporal Patterns .                       | 44       |  |
-|   |                    | 3.4.3                               | Accuracy of Temporal Instances                        | 46       |  |
-|   |                    | 3.4.4                               | Case Study                                            | 48       |  |
-|   |                    |                                     |                                                       |          |  |
-| 4 |                    |                                     | Temporal Knowledge Graph Completion                   | 53       |  |
-|   | 4.1                | Introduction                        |                                                       | 53       |  |
-|   | 4.2                |                                     | Problem Definition                                    | 56       |  |
-|   | 4.3                |                                     | Methodology                                           | 57       |  |
-|   |                    | 4.3.1                               | Model Overview                                        | 57       |  |
-|   |                    | 4.3.2                               | Characterizing of the Context Interactions            | 58       |  |
-|   |                    | 4.3.3                               | Characterizing of the Factual Plausibility            | 62       |  |
-|   |                    | 4.3.4                               | Objective Function and Training Process .             | 62       |  |
-|   | 4.4                |                                     | Experiments .                                         | 63       |  |
-|   |                    | 4.4.1                               | Experimental Setting                                  | 63       |  |
-|   |                    | 4.4.2                               | Results of Entity Predictions and Relation Prediction | 65       |  |
-|   |                    | 4.4.3                               | Effectiveness of Context Selection                    | 66       |  |
-|   |                    | 4.4.4                               | Results of Time Predictions .                         | 67       |  |
-| 5 |                    |                                     | Temporal Knowledge Graph Alignment                    | 73       |  |
-|   | 5.1                | Introduction                        |                                                       | 73       |  |
-|   | 5.2                | Problem Definition                  |                                                       |          |  |
-|   | 5.3<br>Methodology |                                     |                                                       | 75<br>76 |  |
-|   |                    | 5.3.1                               | Framework                                             | 76       |  |
-|   |                    | 5.3.2                               | Predicate Clustering .                                | 78       |  |
-|   |                    | 5.3.3                               | Time Facts Encoder with Time Graphs .                 | 80       |  |
-|   | 5.4                |                                     | Experiments .                                         | 83       |  |
-|   |                    | 5.4.1                               | Experimental Setting                                  | 83       |  |
-|   |                    | 5.4.2                               | Main Results                                          | 85       |  |
-|   |                    | 5.4.3                               | Ablation Study                                        | 87       |  |
+| | 3.1 | Introduction | | 31 | |
+| | 3.2 | | Temporal Pattern Extraction | 33 | |
+| | | 3.2.1 | Temporal Pattern Generation | 35 | |
+| | | 3.2.2 | Temporal Pattern Scoring . | 37 | |
+| | 3.3 | | Temporal Instance Extraction . | 40 | |
+| | | 3.3.1 | Candidate Sentence Retrieval . | 40 | |
+| | | 3.3.2 | Instance Extraction | 41 | |
+| | 3.4 | | Experiments . | 43 | |
+| | | 3.4.1 | Experimental Settings . | 43 | |
+| | | 3.4.2 | Accuracy of Temporal Patterns . | 44 | |
+| | | 3.4.3 | Accuracy of Temporal Instances | 46 | |
+| | | 3.4.4 | Case Study | 48 | |
+| | | | | | |
+| 4 | | | Temporal Knowledge Graph Completion | 53 | |
+| | 4.1 | Introduction | | 53 | |
+| | 4.2 | | Problem Definition | 56 | |
+| | 4.3 | | Methodology | 57 | |
+| | | 4.3.1 | Model Overview | 57 | |
+| | | 4.3.2 | Characterizing of the Context Interactions | 58 | |
+| | | 4.3.3 | Characterizing of the Factual Plausibility | 62 | |
+| | | 4.3.4 | Objective Function and Training Process . | 62 | |
+| | 4.4 | | Experiments . | 63 | |
+| | | 4.4.1 | Experimental Setting | 63 | |
+| | | 4.4.2 | Results of Entity Predictions and Relation Prediction | 65 | |
+| | | 4.4.3 | Effectiveness of Context Selection | 66 | |
+| | | 4.4.4 | Results of Time Predictions . | 67 | |
+| 5 | | | Temporal Knowledge Graph Alignment | 73 | |
+| | 5.1 | Introduction | | 73 | |
+| | 5.2 | Problem Definition | | | |
+| | 5.3<br>Methodology | | | 75<br>76 | |
+| | | 5.3.1 | Framework | 76 | |
+| | | 5.3.2 | Predicate Clustering . | 78 | |
+| | | 5.3.3 | Time Facts Encoder with Time Graphs . | 80 | |
+| | 5.4 | | Experiments . | 83 | |
+| | | 5.4.1 | Experimental Setting | 83 | |
+| | | 5.4.2 | Main Results | 85 | |
+| | | 5.4.3 | Ablation Study | 87 | |
 
-|   | CONTENTS                          |    |
+| | CONTENTS | |
 |---|-----------------------------------|----|
-| 6 | Conclusion                        | 91 |
-|   | 6.1<br>Directions for Future Work | 92 |
-|   | Bibliography                      | 95 |
+| 6 | Conclusion | 91 |
+| | 6.1<br>Directions for Future Work | 92 |
+| | Bibliography | 95 |
 
-# List of Figures
+## List of Figures
 
-<span id="page-11-0"></span>
 
-| 1.1 | An example of temporal knowledge graph, in which each vertex is a real-world entity,      |    |
+| 1.1 | An example of temporal knowledge graph, in which each vertex is a real-world entity, | |
 |-----|-------------------------------------------------------------------------------------------|----|
-|     | each edge is a relation, and each edge label is a valid time span. .                      | 3  |
-| 2.1 | An example of bootstrapping relation extraction systems.                                  | 17 |
-| 2.2 | A general framework for embedding-based KG alignment.                                     | 25 |
-| 3.1 | An overview of the framework for temporal pattern extraction.                             | 34 |
-| 3.2 | Parse tree of sentence "Pitt met Friends actress Jennifer Aniston in 1998 and married her |    |
-|     | in a private wedding ceremony in Malibu on July 29, 2000".                                | 36 |
-| 3.3 | Pattern accuracy of different seed popularities. .                                        | 46 |
-| 3.4 | Pattern accuracy of different seed set sizes. .                                           | 46 |
-| 4.1 | An example of temporal interactions for the predicting of fact ("Cristiano Ronaldo",      |    |
-|     | playfor, "Real Madrid", "[2004, 2012]"). .                                                | 54 |
-| 4.2 | An overview of our proposed temporal-aware KGE model.                                     | 57 |
-| 4.3 | The architecture for learning the representation of contextual interactions.              | 61 |
-| 5.1 | An example of temporal KG alignment.                                                      | 75 |
-| 5.2 | An overview of our framework for temporal KG alignment. .                                 | 77 |
-| 5.3 | An illustration of clustering.                                                            | 78 |
-| 5.4 | An illustration of our proposed module for capturing entity evolving over time.           | 81 |
+| | each edge is a relation, and each edge label is a valid time span. . | 3 |
+| 2.1 | An example of bootstrapping relation extraction systems. | 17 |
+| 2.2 | A general framework for embedding-based KG alignment. | 25 |
+| 3.1 | An overview of the framework for temporal pattern extraction. | 34 |
+| 3.2 | Parse tree of sentence "Pitt met Friends actress Jennifer Aniston in 1998 and married her | |
+| | in a private wedding ceremony in Malibu on July 29, 2000". | 36 |
+| 3.3 | Pattern accuracy of different seed popularities. . | 46 |
+| 3.4 | Pattern accuracy of different seed set sizes. . | 46 |
+| 4.1 | An example of temporal interactions for the predicting of fact ("Cristiano Ronaldo", | |
+| | playfor, "Real Madrid", "[2004, 2012]"). . | 54 |
+| 4.2 | An overview of our proposed temporal-aware KGE model. | 57 |
+| 4.3 | The architecture for learning the representation of contextual interactions. | 61 |
+| 5.1 | An example of temporal KG alignment. | 75 |
+| 5.2 | An overview of our framework for temporal KG alignment. . | 77 |
+| 5.3 | An illustration of clustering. | 78 |
+| 5.4 | An illustration of our proposed module for capturing entity evolving over time. | 81 |
 
-# List of Tables
+## List of Tables
 
-<span id="page-12-0"></span>
 
-| 2.1 | An overview of context-independent features for entity ranking.                                     | 15 |
+| 2.1 | An overview of context-independent features for entity ranking. | 15 |
 |-----|-----------------------------------------------------------------------------------------------------|----|
-| 2.2 | An overview of entity linking systems using neural networks. .                                      | 16 |
-| 2.3 | An overview of KG embedding models listed chronologically.                                          | 22 |
-| 2.4 | An overview of temporal KG embedding approaches listed chronologically.                             | 24 |
-| 2.5 | An overview of structure-based KG alignment.                                                        | 27 |
-| 2.6 | An overview of attribute-based KG alignment. .                                                      | 28 |
-| 3.1 | Different cases and examples of temporal distances between two time expressions.                    | 39 |
-| 3.2 | Pattern accuracy of different relations.                                                            | 45 |
-| 3.3 | Instance accuracy of different relations.                                                           | 47 |
-| 3.4 | Manual check of temporal instances.                                                                 | 48 |
-| 3.5 | Case study of temporal patterns and instances. .                                                    | 49 |
-| 4.1 | Details of the two datasets.                                                                        | 64 |
-| 4.2 | Entity prediction results of effectiveness experiments on two datasets.<br>†<br>denotes the results |    |
-|     | are directly taken from [6].                                                                        | 65 |
-| 4.3 | Context statistics of the two datasets. .                                                           | 66 |
-| 4.4 | Entity prediction results of effectiveness of context selection on two datasets.                    | 66 |
-| 4.5 | Entity prediction results on different context size.                                                | 67 |
-| 4.6 | Time Interval prediction results on two datasets.                                                   | 68 |
-| 4.7 | Interval prediction results on different context size.                                              | 68 |
-| 4.8 | Interval prediction results on different context selection method.                                  | 68 |
-| 4.9 | Start/end time prediction results on two datasets. .                                                | 69 |
-| 5.1 | Details of the used datasets. .                                                                     | 83 |
-| 5.2 | ∗<br>A summary of baseline models<br>. .                                                            | 84 |
-| 5.3 | Temporal KG alignment results on DBP datasets on hard setting.                                      | 86 |
-| 5.4 | Temporal KG alignment results on DWY datasets on regular setting †.                                 | 87 |
-| 5.5 | Temporal KG alignment results that only use time facts∗<br>from DBP datasets on hard setting.       | 87 |
-| 5.6 | Cluster study on DBP datasets on hard setting. .                                                    | 87 |
-| 5.7 | Time fact encoder study on DBP datasets on hard setting.                                            | 88 |
+| 2.2 | An overview of entity linking systems using neural networks. . | 16 |
+| 2.3 | An overview of KG embedding models listed chronologically. | 22 |
+| 2.4 | An overview of temporal KG embedding approaches listed chronologically. | 24 |
+| 2.5 | An overview of structure-based KG alignment. | 27 |
+| 2.6 | An overview of attribute-based KG alignment. . | 28 |
+| 3.1 | Different cases and examples of temporal distances between two time expressions. | 39 |
+| 3.2 | Pattern accuracy of different relations. | 45 |
+| 3.3 | Instance accuracy of different relations. | 47 |
+| 3.4 | Manual check of temporal instances. | 48 |
+| 3.5 | Case study of temporal patterns and instances. . | 49 |
+| 4.1 | Details of the two datasets. | 64 |
+| 4.2 | Entity prediction results of effectiveness experiments on two datasets.<br>†<br>denotes the results | |
+| | are directly taken from [6]. | 65 |
+| 4.3 | Context statistics of the two datasets. . | 66 |
+| 4.4 | Entity prediction results of effectiveness of context selection on two datasets. | 66 |
+| 4.5 | Entity prediction results on different context size. | 67 |
+| 4.6 | Time Interval prediction results on two datasets. | 68 |
+| 4.7 | Interval prediction results on different context size. | 68 |
+| 4.8 | Interval prediction results on different context selection method. | 68 |
+| 4.9 | Start/end time prediction results on two datasets. . | 69 |
+| 5.1 | Details of the used datasets. . | 83 |
+| 5.2 | ∗<br>A summary of baseline models<br>. . | 84 |
+| 5.3 | Temporal KG alignment results on DBP datasets on hard setting. | 86 |
+| 5.4 | Temporal KG alignment results on DWY datasets on regular setting †. | 87 |
+| 5.5 | Temporal KG alignment results that only use time facts∗<br>from DBP datasets on hard setting. | 87 |
+| 5.6 | Cluster study on DBP datasets on hard setting. . | 87 |
+| 5.7 | Time fact encoder study on DBP datasets on hard setting. | 88 |
 
-# <span id="page-14-0"></span>Chapter 1
+## <span id="page-14-0"></span>Chapter 1
 
-# Introduction
+## Introduction
 
 In this chapter, we give a brief introduction of the research in this thesis, including the background, the problem statement, our contributions, and organisation of the thesis.
 
@@ -308,7 +302,7 @@ alignment. Since all those techniques aim on temporal KG, we first introduce the
 
 Definition 1.*(Entity) An entity e is an object that exists in the real world, such as "Barack Obama", "Apple Inc.", "New York City", etc. Sometimes, an entity can be associated with a specific entity type, e.g., PERSON, COMPANY, LOCATION, etc.*Definition 2.*(Relation) A relation (also known as predicate) r describes a relationship between two entities, e.g., spouseOf, playFor. We only consider the binary relation as its prevalence in the real world.*Definition 3.*(Valid Time) A valid time t* = [*t<sup>s</sup>* ,*te*] *describes the valid period of given triplet, where t<sup>s</sup> is the beginning time and t<sup>e</sup> is the end time. We use NOW as a placeholder if the SPO triple still holds true at the moment. For example, the valid time of ("Cristiano Ronaldo", playFor, "Real Madrid") is "[2009, 2018]", and the valid time of ("Barack Obama", spouseOf,"Michelle Obama") is "[1992, NOW]".*Definition 4.*(Temporal Fact) A temporal fact (for short fact, and also known as instance) f* = (*s*,*r*,*o*,*t*) *is an 4-tuple describing the relationship between real-world entities, where s is the subject, r is the relation, o is the object and t is the valid time. For example, ("Cristiano Ronaldo", playFor, "Real Madrid", "[2009, 2018]") and ("Barack Obama", spouseOf, "Michelle Obama", "[1992,* *NOW]") are temporal facts. We define that the subject must be an entity, and the object can be either an entity or literal values by considering there are digits and strings in the real world scenario. If the object is an entity, we call it a relation fact, while, if the object is literal, we regard it as a literal fact, (also known as attribute fact). For example, ("Yao Ming", height, 2.29m, "[–, NOW]") is an attribute of "Yao Ming". We use the placeholder*inf*at the ending time if the fact is always holding true since it happened, e.g., ("Steve Jobs", founded, "Apple Inc.", "[1976,* inf*]"). For flexibility, we allow that the valid time is unknown.*Definition 5.*(Temporal Knowledge Graph) A temporal knowledge graph (also known as temporal knowledge base) is a directed graph G* = (*E*,*R*,*L*,*T*,*D*)*, comprising with the entity set E, relation set R, literal set L, time set T and the observed dataset D. Accordingly, we have a set of observed relation facts D <sup>r</sup>*⊆*E* ×*R*×*E* ×*T* ×*T, and attribute facts D <sup>r</sup>*⊆*E* ×*R*×*L*×*T* ×*T, respectively. In order to cooperate with current (static) KGs, we allow that the valid time spans of relational facts D r and attribute facts D<sup>r</sup> are missing (unknown).*The detailed definitions of the temporal KG enrichment techniques will be introduced in respective chapters. Here, we briefly show the ideas of them to help better distinguish those research problems. In terms of temporal knowledge harvesting, the objective of a harvesting algorithm is to extract temporal instances from free text corpus. The input for harvesting is a set of fact seeds and the text corpus, while the output is a set of new temporal facts. On the contrary, temporal KG completion aims to infer the missing parts of a temporal KG, e.g., the entity nodes, relations, and time values. In addition, temporal KG alignment aims to merge two temporal KGs together by the discovery of*SameAs* edges. So the input of temporal KG completion and alignment is temporal KG(s). In short, though they have various input, all of the three techniques aim to enrich the temporal knowledge graph.
 
-#### <span id="page-17-0"></span>1.2.2 Temporal Knowledge Harvesting
+### <span id="page-17-0"></span>1.2.2 Temporal Knowledge Harvesting
 
 Temporal knowledge harvesting is the task of extracting structured facts from free text corpus. As a temporal KG is essentially a set of temporal facts, extracting new facts can obviously enrich temporal KG. However, currently, most temporal knowledge is extracted from structured or semi-structured data, e.g., the Wikipedia Infobox, categories and tables, which greatly limits the coverage of discovered instances and the applicability to widely available free texts.
 
@@ -316,7 +310,7 @@ Although extracting temporal knowledge from free text has been studied recently,
 
 Inspired by pattern-based information extraction systems, we resort to temporal patterns to extract time-aware knowledge from free text. For example, if we know the phrase "get married" strongly implies the beginning of a marriage, then we can apply the temporal pattern (*PERSON*, *PERSON*, *get married*, *TIME*) on the text corpus to extract the start date of all possible facts of the relation *SpouseOf*. However, it is extremely laborious and time-consuming to manually construct temporal patterns, even for a single relation. Hence, in this work, we first focus on designing automatic methods for extracting temporal patterns, in particular, indicating phrases (e.g., "get married") and their temporal status (e.g., *START*and*END*), from large-scale text corpus. Then we study how to leverage the proposed patterns to locate and extract temporal instances. However, it is still challenging to extract instances from sentences with a high accuracy and coverage. In particular, we found entities are often unidentified or mis-identified, which causes the drop of performances. Therefore, we study the problem of entity disambiguation, which is to identify entity surfaces from text and link them with unambiguous uniform resource identifiers (URIs). Moreover, we found even the instance candidates that are located by our proposed patterns may not always correctly represent the target relations, or they are irrelevant to the identified time expression. This is because natural language or sentences are intrinsically ambiguous and there are various ways to express semantics. To this end, we study how to improve the accuracy of extracted temporal instances. Lastly, the coverage is also influenced by the nature of language ambiguities. Therefore, we also study how to keep a high coverage of temporal knowledge harvesting.
 
-#### <span id="page-18-0"></span>1.2.3 Temporal Knowledge Graph Completion
+### <span id="page-18-0"></span>1.2.3 Temporal Knowledge Graph Completion
 
 Incompleteness is a general problem in temporal KGs [\[13,](#page-109-4) [14\]](#page-109-5), which greatly limits their effectiveness and benefits for the downstream applications. For example, over 50% of people have no known residence in YAGO, and only 0.2% of people have a known gender in DBpedia, and only 3% of people have explicitly listed their father in Wikidata [\[15\]](#page-109-6). However, as entities in the real world are co-related in some extent[6](#page-18-1) , we can still infer unobserved facts from the observed ones. For example, the major of London city must be the citizen of Britain. In addition, if a person has graduated from the university that is located in her birthplace, she is likely to still work in the same city. So according to the observed facts, new knowledge can be inferred. Knowledge graph completion (KGC) has been proposed for such inference. Generally, KGC derives new facts using the technique of knowledge graph embedding (KGE). KGE [\[16\]](#page-109-7) maps all the components of a KG (i.e., entities and relations) into low-dimension vector spaces. The embeddings of entities and relations will be used in link predictions to derive new facts.
 
@@ -328,7 +322,7 @@ embedding and completion, most of them still follow previous static KGE approach
 
 However, temporal information is a key asset for temporal KG embedding and completion. We observe there are multiple types of interactions on the temporal dimension, e.g., orders, distances and overlaps. Therefore, we study the problem of how to capture those temporal interactions in order to learn more representative embeddings. Moreover, current temporal KGC models ignore the importance of surrounding contexts. In particular, we observe that contexts are extremely useful for learning the representations of entities and for inferring the unknown time intervals. We found the context interactions happen on temporal dimension and on entity dimension. Hence, we study how to capture the context interactions on each dimension and how to combine them together. At last, current KG completion models mainly focus on entity predictions and ignore the task of time interval prediction. However, time intervals are very important for temporal KG and for many downstream applications. So. in our work, we also focus on the task of time interval prediction.
 
-#### <span id="page-19-0"></span>1.2.4 Temporal Knowledge Graph Alignment
+### <span id="page-19-0"></span>1.2.4 Temporal Knowledge Graph Alignment
 
 Temporal KG alignment involves discovering the *SameAs*edges across two temporal KGs. Nodes connected by*SameAs*edges are pairs of entities that refer to the same objects in the real world but are located in two KGs, e.g., the entity pair*Mount Everest*in DBpedia and*Q513*in Wikidata. With the discovery of*SameAs*edges, entities from other KGs are aligned and previous uncovered facts are merged into the existing KG. Therefore, temporal KG alignment can further improve the coverage of KGs.
 
@@ -346,11 +340,11 @@ As mentioned in Section 1.2.1, in our thesis, we introduce our algorithms to har
 
 sentence, which limits the accuracy and coverage. Our entity disambiguation module works across sentences, and with the help of co-reference annotation tools, we can obtain more linked entities and get high-quality annotated corpus. In the temporal pattern extraction module, we propose various techniques to extract high-quality temporal patterns, including time expression identification, pattern generation, scoring and clustering. These techniques can reduce ambiguity in the text corpus and improve both the accuracy and coverage of the extracted patterns. In the temporal instance extraction module, we propose a parse-tree based method to improve the accuracy by checking the closeness of verb phrases and entities. In addition, to increase the coverage of instances, we consider the relationships between tree components, including part of speech (POS), clause types, constituency and dependency. Compared with the state-of-the-art temporal knowledge frameworks, experiments on real-world datasets verify the effectiveness of our proposed framework.
 
-#### <span id="page-21-0"></span>1.3.2 Temporal Knowledge Graph Embedding and Completion Algorithms
+### <span id="page-21-0"></span>1.3.2 Temporal Knowledge Graph Embedding and Completion Algorithms
 
 According to Section 1.2.2 in our thesis, we present our algorithms for temporal KG completion via KG embeddings to infer more unobserved facts. In this work we propose a context-aware model to capture context interactions. In particular, we focus on the context interactions from two aspects, namely, temporal consistency and contextual consistency. Temporal consistency measures how well the target fact interacts with its surrounding contexts in the temporal dimension. Contextual consistency regards facts as a whole integrity and captures the semantic interactions between multiple contexts. Integrating with factual plausibility, our model learns more representative embeddings of temporal KGs and thus can further improve the coverage of temporal KGs. However, we observe that not all information is useful and some can be misleading. Therefore, we propose a context selection method to select the most useful contexts for the prediction. Lastly, we focus on the task of time interval prediction and propose a graph model to fully aggregate the context semantic information. Extensive experiments verify the effectiveness of our models compared with the state-of-the-art approaches on temporal KG embedding and completion.
 
-#### <span id="page-21-1"></span>1.3.3 Temporal Knowledge Graph Alignment Algorithms
+### <span id="page-21-1"></span>1.3.3 Temporal Knowledge Graph Alignment Algorithms
 
 As mentioned in Section 1.2.3, we propose a temporal KG alignment framework for the enrichment. Our framework focuses on the leverage of time information for temporal KG alignment. In particular, we further divide attribute facts into character facts, digit facts and time facts according to their types, and propose a time fact encoder to learn the entity representations by capturing the entity evolving. We simulate the entity evolving process using a sequence of time graphs, and aggregate the time contexts to learn the entity embeddings by an entity graph. In addition, we observe that not all contexts are relevant and only the relevant contexts are useful for the time graphs. So we propose a cluster approach on contexts. Our clustering approach not only considers the co-occurrence of entity pairs, but also incorporates the template influence and the semantics of predicates. Our experimental results validate
 
@@ -360,9 +354,9 @@ the superiority of our proposed alignment model over existing attribute-based an
 
 The rest of this thesis is organised as follows. In Chapter [2,](#page-24-0) we review the literature related to our topics. Chapter [3](#page-44-0) introduces our study on knowledge harvesting algorithms. Likewise, the temporal KG completion and alignment are presented in Chapte[r4](#page-66-0) and Chapter [5,](#page-86-0) respectively. Finally, we conclude the thesis and discuss future works in Chapter [6.](#page-104-0)
 
-# <span id="page-24-0"></span>Chapter 2
+## <span id="page-24-0"></span>Chapter 2
 
-# Literature Review
+## Literature Review
 
 In this chapter, we will review the related literature regarding the following topics: temporal knowledge harvesting, temporal KG completion and alignment. A short summary is listed, as follows:
 
@@ -382,7 +376,7 @@ Therefore, in this section, we will review the related work on (1) temporal know
 
 Research on temporal knowledge harvesting is very current. To our best knowledge, only a few previous work [\[11,](#page-109-2) [12,](#page-109-3) [24–](#page-110-5)[28\]](#page-111-0) has addressed the problem of extracting temporal knowledge. We classify them into two categories: coupling systems and extracting systems.
 
-#### Coupling Systems for Temporal Knowledge Harvesting
+### Coupling Systems for Temporal Knowledge Harvesting
 
 Coupling systems [\[12,](#page-109-3) [26,](#page-110-6) [29\]](#page-111-1) aim at detecting valid time scopes for existing relations. The input of coupling systems are the text corpus and the target relation instances, and coupling systems output the valid timestamps for each instances.
 
@@ -397,7 +391,7 @@ Coupling systems are unable to discover new relation instances and cannot genera
 
 are relatively low, because they mainly process relation instances one-by-one by retrieving relevant sentences from the text corpus and adopting a sentence-level analysis, which ignores the utility of Web's redundancy and the correlations between relations.
 
-#### Extracting Systems for Temporal Knowledge Harvesting
+### Extracting Systems for Temporal Knowledge Harvesting
 
 Extracting systems [\[11,](#page-109-2) [24,](#page-110-5) [25,](#page-110-7) [28\]](#page-111-0) try to harvest temporal knowledge from scratch, and they discover relations and their valid time from text corpus simultaneously.
 
@@ -407,28 +401,27 @@ Kuzey et al. [\[25\]](#page-110-7) introduce a complete information extraction f
 
 PRAVDA [\[11\]](#page-109-2) uses textual patterns to represent the generated candidate facts and construct a weighted pattern-candidate graph. PRAVDA then labels each candidate fact through a graph-based label propagation algorithm. The idea of label propagation is to propagate the label of vertices (e.g., the possible relations in PRAVDA) to near vertices via weighted edges. In the processing, vertices that have high weighted edges are more likely to have the same labels, because weights are calculated as vertex similarity. In particular, PRAVDA uses several heuristics to calculate the similarity between each vertex, e..g, patten frequency, Jaccard similarity. By optimizing a carefully designed loss function with constraints, PRAVDA is able to yield the correct relation for candidate facts. PRAVDA is the most related system to our task; however, PRAVDA still has some drawbacks. First, PRAVDA uses n-graph patterns for generating candidates, which is too specific for extracting instance for some relations and thus limits the overage of extracted instances. Second, PRAVDA is able to detect only explicit temporal expressions, which great limits the coverage of new instances. Third, PRAVDA operates on the sentence level to derive textual patterns which limits the accuracy and coverage of patterns, because the natural languages are intrinsically ambiguous.
 
-#### <span id="page-27-0"></span>2.1.2 Techniques in Entity Identification and Disambiguation
+### <span id="page-27-0"></span>2.1.2 Techniques in Entity Identification and Disambiguation
 
 The entity identification and disambiguation system works at the first level of temporal knowledge harvesting. In other words, we are interested in collecting all individual entities, e.g., persons, locations and products, and organizing them into semantic types, such as scientists, politicians, football players, cities, music and movies. More specifically, entity identification systems identify entity mentions from text, and entity disambiguation systems map the mentions to corresponding entities (in the URIs form) in existing KGs, such as Wikipedia, DBpedia and WordNet. For example, the entity identification system identifies the mention "Michael Jordan" from the text "Michael Jordan is an American scientist, Professor at the University of California, Berkeley", and the entity disambiguation system maps the mention to the named entity the Berkeley Professor *Michael I. Jordan*according to the contexts and generated candidates.
 
-#### Entity identification
+### Entity identification
 
 Entity identification, also regarded as candidate entity generation, involves identifying all the entity mentions from the given text and generating all possible entity candidates for each entity mention. For example, entity identification systems will generate a set of candidate entities for the textual mention "Michael", including "Michael Jordan", "Michael Jackson" and "Michael Griffin", according to the built name dictionary. State-of-the-art entity identification systems build the name dictionary by leveraging the combinations of different features, such as Wikipedia entity pages, redirection pages, disambiguation pages and anchor phrases in Wikipedia articles. In addition, surface form expansion and search engines have been utilized as well by some systems. Generally, a name dictionary contains a vast amount of information about various names of entities, such as name variations, abbreviations, confusable names, spelling variations and nicknames. Based on the name dictionary, a similarity measures between surface strings and entities are defined and used. The simplest approach is the exact matching between a surface string and a key value of the record in the dictionary. In addition, partial matching [\[32–](#page-111-4)[34\]](#page-111-5), such as the Dice coefficient, and edit distanced-based measures, such as Jaro-Winkler distances [\[35\]](#page-111-6), are popular for generating a candidate entity set for a textual mention.
 
-#### Entity Disambiguation
+### Entity Disambiguation
 
 Entity disambiguation generally is a ranking system that ranks each candidate entity (generated from an identification system) according to the plausibility score. The entity with highest rank will be regarded as the disambiguated one for the textual mention. We can broadly divide entity ranking methods into two categories: (1) unsupervised methods and (2) supervised methods. Unsupervised entity linking systems [\[36–](#page-111-7)[38\]](#page-111-8) leverage a vector space model (VSM) to capture the similarity between entity mentions and the candidate entities, and thus have the advantages of avoiding manually labelled data. However, the performance of unsupervised systems (around 75 percent accuracy) is often lower than the mainstream supervised systems (around 90 percent accuracy). Thus, we review the supervised ranking methods used for ranking candidate entities in detail. Traditional supervised methods use an annotated data set to train a statistical model on various features. These features could be divided into context-independent features and context-dependent features.
 
 • Context-independent features just rely on the surface form (mentions) and the knowledge about the candidate entity, while context-dependent features are based on the surrounding textual context of mentions and the linked documents. Table [2.1](#page-28-0) summarises the popular contextindependent features for entity ranking. These context-independent features are useful for entity linking systems.
 
-<span id="page-28-0"></span>
 
-| Features            | 2Description                                                        |
+| Features | 2Description |
 |---------------------|---------------------------------------------------------------------|
-| Entity/mention name | the surface string of the named entity/mention.                     |
-| Entity/mention type | the type of the named entity/mention.                               |
-| Entity popularity   | the prior probability of the appearance of a candidate entity given |
-|                     | the entity mention.                                                 |
+| Entity/mention name | the surface string of the named entity/mention. |
+| Entity/mention type | the type of the named entity/mention. |
+| Entity popularity | the prior probability of the appearance of a candidate entity given |
+| | the entity mention. |
 
 Table 2.1: An overview of context-independent features for entity ranking.
 
@@ -436,20 +429,19 @@ Table 2.1: An overview of context-independent features for entity ranking.
 
 Different supervised systems regard the entity linking task as different problems. A natural and simple way is to regard the candidate entity ranking task as a binary classification problem in which the system [\[48,](#page-112-7) [49\]](#page-112-8) forms a mention-candidate entity pair and outputs the positive/negative label for each pair. However, this will return more than one positive candidate entity for the same entity mention, which requires other techniques to find the most proper one. Instead of considering all candidate entities independently as a binary classification problem, most entity linking systems follow the learning to ranking framework and take the correlations between entities into consideration. As the problem becomes ranking all the candidate entity sets for the given mention, the correct entity has the highest score out of the other entities in the candidate set. These kinds of systems [\[40,](#page-112-0) [49](#page-112-8)[–51\]](#page-113-0) often use an SVM framework to train a ranking model. The correct entity will have a score higher than any other entities with a margin. A graph model can also be leveraged for entity linking, as it captures the interdependency between entities (instead of pairwise dependency). Systems [\[46,](#page-112-5) [52,](#page-113-1) [53\]](#page-113-2) model both
 
-<span id="page-29-1"></span>
 
-| System         | Architecture        | Vector representation | Attention |
+| System | Architecture | Vector representation | Attention |
 |----------------|---------------------|-----------------------|-----------|
-| He [54]        | neural networks     | one-hot vector        | no        |
-| Sun [55]       | CNNs                | word2vec              | no        |
-| Francis [56]   | CNNs                | word2vec              | no        |
-| Zwicklbauer    | feature engineering | word2vec              | no        |
-| [57]           |                     |                       |           |
-| Fang [58]      | feature engineering | entity embedding∗     | no        |
-| Lample [59]    | LSTM-CRF            | none                  | yes       |
-| Globerson [60] | feature engineering | none                  | yes       |
-| Phan [61]      | LSTMs               | entity embedding∗     | yes       |
-| Ganea [62]     | neural networks     | entity embedding∗     | yes       |
+| He [54] | neural networks | one-hot vector | no |
+| Sun [55] | CNNs | word2vec | no |
+| Francis [56] | CNNs | word2vec | no |
+| Zwicklbauer | feature engineering | word2vec | no |
+| [57] | | | |
+| Fang [58] | feature engineering | entity embedding∗ | no |
+| Lample [59] | LSTM-CRF | none | yes |
+| Globerson [60] | feature engineering | none | yes |
+| Phan [61] | LSTMs | entity embedding∗ | yes |
+| Ganea [62] | neural networks | entity embedding∗ | yes |
 
 Table 2.2: An overview of entity linking systems using neural networks.
 
@@ -459,11 +451,11 @@ the entity popularity, textual context similarity, entity coherences and other f
 
 Recently, to avoid hand-engineered features, neural networks and vector representation techniques have been used in many entity linking systems [\[54](#page-113-3)[–62\]](#page-113-11). Table [2.2](#page-29-1) summarises the current entity linking systems that use neural networks, vector representation techniques or attention mechanisms. As these systems are testing on different datasets under various settings, we skip reporting the accuracy of these systems. But generally speaking, deep neural networks have been used in many entity linking systems and have achieved good performance comparing with traditional feature engineering systems. For example, the input vector of the neural networks encodes the entity relatedness by considering the information of context, words and the connection between entities. As the target entity is not related to all other entities in a document, the attention mechanism is used for capturing the long dependency between entities and is able to assign different weights for different entities according to the context.
 
-#### <span id="page-29-0"></span>2.1.3 Approaches in Relation Extraction
+### <span id="page-29-0"></span>2.1.3 Approaches in Relation Extraction
 
 The task of relation extraction (RE) is an important step for (temporal) knowledge harvesting, which is also called information extraction (IE). Relation extraction typically follows entity linking and aims to gather the relations between entity pairs. For example, from the sentence*Pitt met Friends actress Jennifer Aniston in 1998 and married her in a private wedding ceremony in Malibu on July 29, 2000.*, relation extraction systems will extract the relation *hasSpouseOf* for the entity pair ("Brad Pitt", "Jennifer Aniston") and output the RDF triple (*Brad Pitt, hasSpouseOf, Jennifer Aniston*). Culotta et al. [\[63\]](#page-114-0) define relation extraction as "the task of discovering semantic connections between entities". Nowadays, there are a lot of systems extracting relations from texts, and there are different methods for dealing with this task. Based on the paradigms, we divided relation extraction systems into two categories: (1) pattern-based systems, and (2) neural-networks-based systems.
 
-#### Pattern-Based Approach for Relation Extraction
+### Pattern-Based Approach for Relation Extraction
 
 Pattern-based information extraction has been extensively studied since the 1990s [\[64\]](#page-114-1) and dominates commercial industry, mainly because patterns are interpretable for humans and it is easy to cope with errors [\[65\]](#page-114-2). The most famous hand-crafted patterns for relation extraction is the Hearst pattern [\[66\]](#page-114-3), which aims to identify and extract the *isA*relation for constructing an ontology. For example, noun phrases will be extracted by matching the syntactic pattern*"NP such as* {*NP, NP, ..*}*"*. Here, NP is the POS tag for noun phrases. As discussed by Weikum [\[67\]](#page-114-4), manually constructed patterns (e.g., Hearst pattern) yield relatively high precision, but typically suffer from low recall due to the sparseness of the exact patterns. Besides, it is difficult to manually construct expressive and accurate patterns for arbitrary target relations (e.g., *marriedTo*or*hasAdvisor*). By leveraging the duality of facts and
 
@@ -481,7 +473,7 @@ As there is no labelling data available and we cannot access the ground truth du
 
 However, previous methods are mainly focused on "isA" relation extraction [\[69,](#page-114-6) [72,](#page-114-10) [73,](#page-114-9) [76–](#page-115-1)[78,](#page-115-3) [82,](#page-115-7) [83\]](#page-115-8), which could not be directly applied for scoring temporal instances and temporal patterns. The evaluation of temporal instances and the corresponding patterns can be challenging because of the sparsity of temporal instances and the more severe semantic drift problem. Temporal knowledge is sparser than traditional RDF triples. Even in the Web, this sparsity trends to holds true. The problem of semantic drift becomes more severe due to the higher dimensions of instances, i.e., greater possibility that an instance drifts to an unrelated relation. Early-stage systems, such as DIPRE [\[84\]](#page-115-9), Snowball [\[85\]](#page-115-10) and KnowItAll [\[69\]](#page-114-6), leverage heuristic rules to extract only certain predefined information, and, meanwhile, suffer from low precision and coverage. Recently, large-scale pattern-based information extraction systems, e.g., Probase [\[76\]](#page-115-1), have been built. Probase extracts millions of *isA*instance pairs using Hearst patterns under a probabilistic framework, which captures the inconsistent, ambiguous and uncertain information of relation pairs. Instead of discovering additional syntactic patterns for obtaining new knowledge, Probase proposes an iterative learning algorithm to extract*isA*pairs from Web text and a taxonomy construction algorithm to connect these pairs into a hierarchical structure. During the extraction, each relation pair is associated with two novel probability assessments (e.g., plausibility and typicality). In each iteration, only the trustful relation pairs will be extracted and put into the instance pool. This procedure provides evidences for understanding the ambiguous relation pairs.
 
-#### Neural Networks Based Approach for Relation Extraction
+### Neural Networks Based Approach for Relation Extraction
 
 Purely unsupervised information extraction systems work as Open IE systems. They extract strings of words between entities in large amounts of text, and simplify these word strings into clusters to produce relation-specific strings [\[78\]](#page-115-3). In this section, we focus on a discussion of supervised relation extraction, especially the distant supervision and deep learning methods. In the supervised domain, the relation extraction task refers to the classification of a given entity pair to a set of known relations.
 
@@ -501,77 +493,75 @@ KG completion directly leverages the KG embedding models to predict the plausibi
 
 Besides, various model aim on directly inference and reasoning missing facts without explicitly using the embeddings, including DacKGR [\[111\]](#page-118-0), KEnS [\[112\]](#page-118-1). DacKGR [\[111\]](#page-118-0) works on sparse graph that does not contain enough reasoning paths, which makes reasoning process difficult. DacKGR proposes a reinforcement learning framework and dynamically makes completion actions (true, false, or stay). KEnS [\[112\]](#page-118-1) aims on multilingual knowledge graph embeddings and completion. Since each KG has its own strengths and limitations on data quality and coverage, which leads the challenges of the transfer of knowledge, KEnS propose a framework that maintain the consistency of described facts and transferred knowledge via an alignment model.
 
-#### Transition-based KG Embedding Models
+### Transition-based KG Embedding Models
 
 Transition-based models interpret the underlying relationship of a fact as a transition from head entity (subject) ) to tail entity (object) via their connected relation in the continues vector space. TransE [\[19\]](#page-110-0), a representative and effective model, is the simplest transition-based model. TransE learns a distancebased score function *s*(*h*,*r*,*t*) = −||*h* +*r* −*t*||*l*1/*l*<sup>2</sup> that calculates the *l*<sup>1</sup> or *l*<sup>2</sup> distance of the transition, where *h*,*r*,*t*∈ R*d*is the embeddings of*h*, *r*and*t*, respectively. In order words, TransE requires the fact representations has the property as *h* −*r*=*t*. With the score function, TransE is able to calculate the fact's plausibility and thus predict new links for KG completion. However, as the symmetry of TransE's score function, TransE is only able to model the *one-to-one*relations and fails to model*many-to-one*, *one-to-many*, *many-to-many*relations. To address this issue, many relevant works have been proposed, e.g., TransH [\[114\]](#page-118-2), TransR [\[115\]](#page-118-3). Both TransH and TransR follow transition idea that uses various relation-specific vectors and hyperplanes to handle previous issues, respectively. In particular, TransH uses the score function*s*(*h*,*r*,*t*) = −||(*h*−*w T <sup>r</sup> hwr*) + *r* − (*w T r twr*)||<sup>2</sup> *l*2 , where *w<sup>r</sup>*∈ R*d*is a relationspecific vector. TransR uses a similar method that*s*(*h*,*r*,*t*) = −||*Mrh* +*r* −*M<sup>r</sup> t*||<sup>2</sup> *l*2 where *M<sup>r</sup>*∈ R*k*×*d*is a relation-specific matrix. Though these methods can deal with the mapping problem, but they introduce more relation-specific parameters, which leads overfitting problems. Later, SimplE [\[119\]](#page-119-0), a model that allows entity (and relation) have two embeddings, one for head entity and another for tail entity when using according to their positions in the triples. SimplE is a version of enhancement of Canonical Polyadic (CP) (a tensor factorization approach) which the two embeddings of each entity to be learned dependently. Recently, RotatE [\[120\]](#page-119-1), a transitional model defined on complex field,
 
-<span id="page-35-0"></span>
 
-| Model          | category        | Summary                                                                             |
+| Model | category | Summary |
 |----------------|-----------------|-------------------------------------------------------------------------------------|
-| TransE [19]    | transition      | head vector plus relation vector equals to tail vector;                             |
-|                |                 | h<br>+r<br>≈<br>t                                                                   |
-| NTN [113]      | neural networks | learn representations with fully connected layer                                    |
-| DistMult [106] | semantic        | instead using transition-distance, DistMult uses a simi                             |
-|                |                 | T<br>larity function; h<br>diag(r)t                                                 |
-| TransH [114]   | transition      | head (and tail) vector maps to a relation-specific hyper                            |
-|                |                 | T<br>T<br>plane; (h<br>−w<br>r hwr) +r<br>≈<br>(w<br>twr)<br>r                      |
-| ER-MLP [10]    | neural networks | a simple version of NTN with less parameters;<br>s<br>=                             |
-|                |                 | T<br>w<br>tanh(M1h<br>+<br>M2r<br>+<br>M3t, where<br>Mi<br>is the first layer       |
-|                |                 | parameters and w<br>is the second layer parameter.                                  |
-| TransR [115]   | transition      | (and tail) vector maps to a relation-specific matrix;                               |
-|                |                 | Mrh<br>+r<br>≈<br>Mr<br>t                                                           |
-| HolE [107]     | semantic        | Unlike DistMult, HolE use vectors to represent relations;                           |
-|                |                 | <br>s(h,r,t) =<br>r<br>(h<br>?t)<br>where ?<br>is the circular operation.           |
-| ComplEx [116]  | semantic        | expand embedding from real field to complex field; s<br>=                           |
-|                |                 | TW<br>t¯), where<br>Re(·)<br>Re(h<br>e¯ is the complex conjugate and                |
-|                |                 | is the function that takes real subspace.                                           |
-| ConvE [117]    | neural networks | one of the first and most popular nonlinear models for                              |
-|                |                 | KG embeddings [118]. The main character of ConvE                                    |
-|                |                 | is that it reshapes entity and relation vectors into 2-D                            |
-|                |                 | shape.                                                                              |
-| SimplE [119]   | transition      | Both entity and relation are decomposed into two vectors                            |
-|                |                 | considering their positions in triples;                                             |
-| RotatE [120]   | transition      | expand into complex field and use rotation operations;                              |
-|                |                 | ◦<br>≈<br>h<br>r<br>t                                                               |
-| TuckER [121]   | semantic        | uses Tucker decomposition to represent the semantic                                 |
-|                |                 | of a triple;<br>W<br>×1<br>h<br>×2<br>wr<br>×3<br>t<br>where<br>×i<br>is the tensor |
-|                |                 | product along the ith mode                                                          |
+| TransE [19] | transition | head vector plus relation vector equals to tail vector; |
+| | | h<br>+r<br>≈<br>t |
+| NTN [113] | neural networks | learn representations with fully connected layer |
+| DistMult [106] | semantic | instead using transition-distance, DistMult uses a simi |
+| | | T<br>larity function; h<br>diag(r)t |
+| TransH [114] | transition | head (and tail) vector maps to a relation-specific hyper |
+| | | T<br>T<br>plane; (h<br>−w<br>r hwr) +r<br>≈<br>(w<br>twr)<br>r |
+| ER-MLP [10] | neural networks | a simple version of NTN with less parameters;<br>s<br>= |
+| | | T<br>w<br>tanh(M1h<br>+<br>M2r<br>+<br>M3t, where<br>Mi<br>is the first layer |
+| | | parameters and w<br>is the second layer parameter. |
+| TransR [115] | transition | (and tail) vector maps to a relation-specific matrix; |
+| | | Mrh<br>+r<br>≈<br>Mr<br>t |
+| HolE [107] | semantic | Unlike DistMult, HolE use vectors to represent relations; |
+| | | <br>s(h,r,t) =<br>r<br>(h<br>?t)<br>where ?<br>is the circular operation. |
+| ComplEx [116] | semantic | expand embedding from real field to complex field; s<br>= |
+| | | TW<br>t¯), where<br>Re(·)<br>Re(h<br>e¯ is the complex conjugate and |
+| | | is the function that takes real subspace. |
+| ConvE [117] | neural networks | one of the first and most popular nonlinear models for |
+| | | KG embeddings [118]. The main character of ConvE |
+| | | is that it reshapes entity and relation vectors into 2-D |
+| | | shape. |
+| SimplE [119] | transition | Both entity and relation are decomposed into two vectors |
+| | | considering their positions in triples; |
+| RotatE [120] | transition | expand into complex field and use rotation operations; |
+| | | ◦<br>≈<br>h<br>r<br>t |
+| TuckER [121] | semantic | uses Tucker decomposition to represent the semantic |
+| | | of a triple;<br>W<br>×1<br>h<br>×2<br>wr<br>×3<br>t<br>where<br>×i<br>is the tensor |
+| | | product along the ith mode |
 
 Table 2.3: An overview of KG embedding models listed chronologically.
 
 is proposed to learn more representative embeddings. RotatE captures the patterns of knowledge graph connectivity according to the observed knowledge facts, including symmetric (e.g., marriage) , antisymmetric (e.g., filiation), inversion (e.g., hypernym and hyponym) and composition (e.g., my mother's husband is my father), which further enhance the representativeness of KG embeddings. Their motivation is from Euler's identity*e <sup>i</sup>*<sup>θ</sup> = cos(θ) + *i*sin(θ), which indicates that a unitary complex number can be regarded as a rotation in the complex plane. RotatE regards each relation are a rotation from the source entity to the target entity, *i.e.*, *s*(*h*,*r*,*t*) = −||*h*◦*r* −*t*||*l*<sup>1</sup> , where ◦ is the Hadmard product. Besides,
 
-#### Semantic-based KG Embedding Models
+### Semantic-based KG Embedding Models
 
 Besides measuring fact's plausibility on the transition distance, many other works measure the plausibility on semantic, i.e., matching latent semantics of entities and relations embodied in their vector space representations [\[16\]](#page-109-7), including, DistMult [\[106\]](#page-117-7), HolE [\[107\]](#page-117-8), ComplEx [\[116\]](#page-118-5). These semantic-based models directly learns representation of the triples instead of using transition-like function, and often use product-based functions over embeddings to calculate the plausibility score. DistMult [\[106\]](#page-117-7) is
 
 an early semantic-based model, which defines a similarity function for a triple as *s*=*h T diag*(*r*)*t*. However, as DistMult does not distinguish between head and tail entities, it can only model symmetric relations. HolE [\[107\]](#page-117-8) has more expressive power and with the efficiency and simplicity of DistMult. Instead using a relation matrix like DistMult, HolE still uses vectors to represent both entities and relations. In particular, HolE uses the circular operation to score a fact, *i.e.*, *s*(*h*,*r*,*t*) = *r* | (*h* ?*t*) where ? is the circular operation. As circular operation is not commutative, HolE is able to model asymmetric relations. ComplEx [\[116\]](#page-118-5) extends embeddings into complex field so as to better model asymmetric relations, *i.e.*, *h*, *r*and*t*are complex-valued embeddings. In particular, ComplEx has the score function*s*=*Re*(*h <sup>T</sup>W t*¯), where *e*¯ is the complex conjugate and *Re*(·) is the function that takes real subspace. With the mapping into complex field and less parameters comparing with many neural-network based approaches, ComplEx can learns more expressive KG embeddings. Recently, more powerful semantic-based KG embedding models are proposed using various techniques. TuckER [\[121\]](#page-119-2) proposes a straightforward but powerful linear model based on Tucker decomposition. In particular, the score function used in TuckER is *W*×<sup>1</sup>*h*×<sup>2</sup>*w<sup>r</sup>*×<sup>3</sup>*t* where ×*<sup>i</sup>*is the tensor product along the*i*th mode, which persevere the simplicity of model (few parameters) and the full expressive ability.
 
-#### Deep Learning based KG Embedding Models
+### Deep Learning based KG Embedding Models
 
 Deep learning approaches generally use a neural network that learns how the head, relation, and tail embeddings interact with each other. NTN [\[10\]](#page-109-1) is an deep-learning-based embedding model in the early stage. NTN not only learns the embeddings of entities and relations, also uses multilayer perceptrons (MLPs) to obtain the fact plausibility score. In particular, NTN uses the score function *s*=*r T tanh*(*hM*<sup>1</sup> *r t*+*M*<sup>2</sup> *rh*,*M*<sup>3</sup> *r t*+*br*) where *M<sup>i</sup> r*and*b<sup>r</sup>*are relation specific parameters. However, though NTN has very strong expressive ability, it requires too much parameters per relation, and is not sufficiently simple and efficient to handle large-scale KGs. ER-MLP [\[10\]](#page-109-1) is a simpler approach following NTN where each relation (as well as entity) is associated with a single vector. ER-MLP leverage two layer perceptrons to encode the given triple for all relations. In particular, the score function is*s*=*w T tanh*(*M*1*h*+*M*2*r*+*M*3*t*, where *M<sup>i</sup>*is the first layer parameters and*w*is the second layer parameter. ConvE [\[117\]](#page-118-6) is one of the first and most popular nonlinear models for KG embeddings [\[118\]](#page-118-7). In particular, ConvE [\[117\]](#page-118-6) first maps*h*and*r*into 2-D shape, then leverage a convolutional layer and fully connected layer to obtain the hidden vector. At last, the hidden vector will multiple with the tail entity*t*. Formally, the score function used in ConvE is *s*=*f*(*vec*(*f*([¯*h*;*r*¯]) ∗*w*))*W* )*t*, where *f*(·) is non-linear function, e.g., ReLU. ¯*h*and*r*¯ are the 2-D shape representations, *w*is the kernel in convolutional layer and*W*is the parameter of fully connected layer. With convolution operation, ConvE requires less parameters comparing with pure-MLP based models.
 
-#### <span id="page-36-0"></span>2.2.2 Temporal KG Embedding
+### <span id="page-36-0"></span>2.2.2 Temporal KG Embedding
 
 As temporal KGE is very current, only very few works incorporate temporal information in knowledge graph embedding [\[6,](#page-108-6) [17,](#page-109-8) [18,](#page-109-9) [122–](#page-119-3)[124\]](#page-119-4). Based on how they incorporate the time information, we divide them into three categories, namely, temporal entity approaches, temporal relation approaches, and unified approaches. We summarize them as Table [2.4](#page-37-1) shows.
 
-<span id="page-37-1"></span>
 
-| Model        | Time          | Summary                                                                                         |
+| Model | Time | Summary |
 |--------------|---------------|-------------------------------------------------------------------------------------------------|
-| ET [123]     | entity        | consider all previous events                                                                    |
-| TAE [17]     | relation      | define a temporal scoring function which incorporates order constrains;                         |
-|              |               | g(r1,r2) =<br>  r1T<br>−r2  l1,l2                                                               |
-| Know         | entity        | entity at current time stamp is learned from the state of previous time                         |
-| Evolve [122] |               | stamp.                                                                                          |
-| REM [124]    | relation      | study various methods to combine relation embeddings and time embed                             |
-|              |               | dings by the operators, including concatenate, add, and multiply.                               |
-| HyTE [6]     | entity and re | propose a projection method that maps entities and relations into time                          |
-|              | lation        | specific hyperplanes.                                                                           |
-| TA           | relation      | leverage neural networks to encode temporal embeddings into relation                            |
-| TransE [18]  |               | embeddings.<br>rt<br>=<br>LSTM([r;<br>v1;,<br>vm])<br>where<br>v1,,<br>vm<br>are<br>m<br>charac |
-|              |               | ters in the temporal value.                                                                     |
+| ET [123] | entity | consider all previous events |
+| TAE [17] | relation | define a temporal scoring function which incorporates order constrains; |
+| | | g(r1,r2) =<br> r1T<br>−r2 l1,l2 |
+| Know | entity | entity at current time stamp is learned from the state of previous time |
+| Evolve [122] | | stamp. |
+| REM [124] | relation | study various methods to combine relation embeddings and time embed |
+| | | dings by the operators, including concatenate, add, and multiply. |
+| HyTE [6] | entity and re | propose a projection method that maps entities and relations into time |
+| | lation | specific hyperplanes. |
+| TA | relation | leverage neural networks to encode temporal embeddings into relation |
+| TransE [18] | | embeddings.<br>rt<br>=<br>LSTM([r;<br>v1;,<br>vm])<br>where<br>v1,,<br>vm<br>are<br>m<br>charac |
+| | | ters in the temporal value. |
 
 Table 2.4: An overview of temporal KG embedding approaches listed chronologically.
 
@@ -596,45 +586,43 @@ Structure-based KG alignment mainly leverage the connectivity of KG(s) to learn 
 
 Currently, there are many advance GNN based models to solve the mentioned drawbacks, including HGCN [\[133\]](#page-120-5), RDGCN [\[21\]](#page-110-2), AliNet [\[134\]](#page-120-6), NMN [\[135\]](#page-121-0). HGCN [\[133\]](#page-120-5) has the observation that entity representations and relation representations can promote each other. Therefore, HGCN built a joint framework to learn entity and relation representations in an iterative way. In particular, HGCN first uses GCNs with highway network gates to obtain entities embeddings of two KGs. Then based on the entity representation, it approximates the relation embeddings by taking the average of head entities and tail entities. So this model instead of learning a separated relation vector space, it represents the relations by entities, which provides a more compact representations of entities and thus is able
 
-<span id="page-40-1"></span>
 
-| System         | Main Target                | Method                                     |
+| System | Main Target | Method |
 |----------------|----------------------------|--------------------------------------------|
-| GCN-align [20] | structural information     | Stacked GCNs with weighted adjacent ma     |
-|                |                            | trix                                       |
-| HGCN [133]     | relational message passing | represent relation embeddings by entities  |
-| RDGCN [21]     | relation interactions      | build a relation-centered graph            |
-| AliNet [134]   | heterogeneous structure    | incorporate multi-hop neighbors with atten |
-|                |                            | tion and gating mechanism                  |
-| NMN [135]      | heterogeneous structure    | neighbors sampling and neighbors matching  |
-|                |                            | strategy                                   |
-| DGMC [136]     | many-to-one matching prob  | iterative consensus passing                |
-|                | lem                        |                                            |
+| GCN-align [20] | structural information | Stacked GCNs with weighted adjacent ma |
+| | | trix |
+| HGCN [133] | relational message passing | represent relation embeddings by entities |
+| RDGCN [21] | relation interactions | build a relation-centered graph |
+| AliNet [134] | heterogeneous structure | incorporate multi-hop neighbors with atten |
+| | | tion and gating mechanism |
+| NMN [135] | heterogeneous structure | neighbors sampling and neighbors matching |
+| | | strategy |
+| DGMC [136] | many-to-one matching prob | iterative consensus passing |
+| | lem | |
 
 Table 2.5: An overview of structure-based KG alignment.
 
 to improve the alignment performance. RDGCN [\[21\]](#page-110-2) incorporates relation information with a dual relation graph. In particular, RDGCN not only use the traditional entity-centered graph to capture the structural information. They constructed a dual relation graph whose vertexes denote the relations. Utilizing a graph attention mechanism, RDGCN encourages the interactions between entity graph and relation graph to capture complex relationships. Besides, RDGCN leverage highway gates to allow an easy message passing and thus further integrate neighboring structural information. As KGs have non-isomorphic neighborhood structures, AliNet proposes expand the neighbor scopes and aggregation multi-hop neighbors. AliNet employs an attention mechanism to highlight useful distant neighbors and reduce noise ones. Besides, to aggregate the neighbors on different hops, AliNet [\[134\]](#page-120-6) uses a gating mechanism to control the update and forgetting. NMN [\[135\]](#page-121-0) also aims to the structural heterogeneity challenge. Instead of requiring all neighbor matching, NMN allows neighborhood difference and only requires a few important neighbor are matching. In particular, NMN propose a neighbor sampling strategy to locate discriminative neighbor for matching, then it leverages an cross-graph attention mechanism to locate matched neighbors from pairwise enumerated candidates. Besides, a recent work (DGMC) [\[136\]](#page-121-1) propose an iterative way to solve the many-to-one matching problem, call local matching consensus. Their idea is interesting, GCNs are not only able to pass embedding information, but also pass the matching information. With many iteration of matching information passing, entity neighbors can finial archive the local matching consensus, and thus improve the alignment performance. A short summary of structure-based alignment is listed in Table [2.5.](#page-40-1)
 
-#### <span id="page-40-0"></span>2.3.2 Attribute-Based Approaches for KG Alignment
+### <span id="page-40-0"></span>2.3.2 Attribute-Based Approaches for KG Alignment
 
 Attribute-based (also known as multi-view based) KG alignment not only uses the relational facts, but also leverage other information to learn the entity embeddings, including the entity names, attributes and textual descriptions. Though this kind of approaches leverage other information except attributes, we still call them attribute-base approaches for simplicity.
 
 For example, Multi-KE [\[22\]](#page-110-3) explores the combination based on the views of entity names, relations and attributes to enhance the alignment between two KGs. Multi-KE also designed several combination strategies, including weighted view Averaging and shared space learning. In particular, Multi-KE
 
-<span id="page-41-0"></span>
 
-| Main Target                        | Method                                    |
+| Main Target | Method |
 |------------------------------------|-------------------------------------------|
-| explore name and attribute         | embedding a KG from multi-views           |
-| information                        |                                           |
-| jointly capture values and         | GRU-based characteristics encoder         |
-| value types                        |                                           |
-| many-to-one problem                | collective align entities                 |
+| explore name and attribute | embedding a KG from multi-views |
+| information | |
+| jointly capture values and | GRU-based characteristics encoder |
+| value types | |
+| many-to-one problem | collective align entities |
 | explore<br>attributes<br>in<br>sub | multiple<br>channels<br>and<br>BERT-based |
-| graphs                             | value embeddings                          |
-| leverage entity textual de         | a classifier with BERT-based fine tune    |
-| scriptions                         | module                                    |
-|                                    |                                           |
+| graphs | value embeddings |
+| leverage entity textual de | a classifier with BERT-based fine tune |
+| scriptions | module |
+| | |
 
 Table 2.6: An overview of attribute-based KG alignment.
 
@@ -644,42 +632,42 @@ The following publications have been incorporated as Chapter [3.](#page-44-0)
 
 1. [\[1\]](#page-108-0) Yu Liu, Wen Hua, and Xiaofang Zhou, [Extracting Temporal Patterns From Large-Scale Text](https://link.springer.com/chapter/10.1007/978-3-030-12079-5_2) [Corpus,](https://link.springer.com/chapter/10.1007/978-3-030-12079-5_2) *Australasian Database Conference*(ADC), 17-30, 2019
 
-| Contributor   | Statement of contribution | %   |
+| Contributor | Statement of contribution | % |
 |---------------|---------------------------|-----|
-| Yu Liu        | algorithm design          | 60  |
-|               | experiment design         | 50  |
-|               | experiment implementation | 100 |
-|               | paper writing             | 60  |
-|               | idea discussion           | 60  |
-| Wen Hua       | algorithm design          | 40  |
-|               | experiment design         | 50  |
-|               | paper writing             | 40  |
-|               | proof-reading             | 50  |
-|               | idea discussion           | 30  |
-| Xiaofang Zhou | proof-reading             | 50  |
-|               | idea discussion           | 10  |
+| Yu Liu | algorithm design | 60 |
+| | experiment design | 50 |
+| | experiment implementation | 100 |
+| | paper writing | 60 |
+| | idea discussion | 60 |
+| Wen Hua | algorithm design | 40 |
+| | experiment design | 50 |
+| | paper writing | 40 |
+| | proof-reading | 50 |
+| | idea discussion | 30 |
+| Xiaofang Zhou | proof-reading | 50 |
+| | idea discussion | 10 |
 
 2. [\[3\]](#page-108-2) Yu Liu, Wen Hua, and Xiaofang Zhou, [Temporal Knowledge Extraction From Large-Scale Text](https://link.springer.com/article/10.1007/s11280-020-00836-5) [Corpus,](https://link.springer.com/article/10.1007/s11280-020-00836-5)*World Wide Web Journal*, 2020
 
-| Statement of contribution | %   |
+| Statement of contribution | % |
 |---------------------------|-----|
-| algorithm design          | 80  |
-| experiment design         | 70  |
+| algorithm design | 80 |
+| experiment design | 70 |
 | experiment implementation | 100 |
-| paper writing             | 60  |
-| idea discussion           | 60  |
-| algorithm design          | 20  |
-| experiment design         | 30  |
-| paper writing             | 40  |
-| proof-reading             | 50  |
-| idea discussion           | 30  |
-| proof-reading             | 50  |
-| idea discussion           | 10  |
-|                           |     |
+| paper writing | 60 |
+| idea discussion | 60 |
+| algorithm design | 20 |
+| experiment design | 30 |
+| paper writing | 40 |
+| proof-reading | 50 |
+| idea discussion | 30 |
+| proof-reading | 50 |
+| idea discussion | 10 |
+| | |
 
-# <span id="page-44-0"></span>Chapter 3
+## <span id="page-44-0"></span>Chapter 3
 
-# Temporal Knowledge Harvesting
+## Temporal Knowledge Harvesting
 
 ## <span id="page-44-1"></span>3.1 Introduction
 
@@ -740,7 +728,6 @@ Figure 3.2: Parse tree of sentence "Pitt met Friends actress Jennifer Aniston in
 
 <span id="page-49-1"></span>part-of-speech tags. Intuitively, a verb phrase is more related to a time expression if the verb phrase is closer to the time expression on the parse tree. Formally, for a pair of verb phrase and time expression observed in sentence *h*, i.e., (*v*,*t*) ∈ *h*, we define its parse-tree-based distance as follows:
 
-<span id="page-49-0"></span>
 $$
 l_{v,t} = LCA(v,t) \tag{3.1}
 $$
@@ -752,7 +739,6 @@ $$
 
 where *lv*,*<sup>t</sup>*is the lowest common ancestor (LCA) for*t*and*v*in the parse tree of*h*, (the LCA of *t*and*v*in*h*is the shared ancestor of*t*and*v*that is located farthest from the root),*Path*(*u*,*u*0 ) is the shortest path from*u*to*u*0 , and*dist*(*v*,*t*) is the verb-time distance in the sentence *h*. For example, in Figure [3.2,](#page-49-0) *dist*("marry", "1998") = 3 while *dist*("marry", "July 29, 2000") = 2. We can select the most related verb-time pairs (which have the minimum distance) for each time expression according to its tree-based distance. Similarly, for temporal instance extraction (Section [3.3\)](#page-53-0), we can calculate the distance *dist*(*v*, *e*) between a verb phrase *v*and an entity*e*(can be either subject or object.) in sentence*h*, as follows:
 
-<span id="page-50-2"></span>
 $$
 dist(v, e) = min(|Path(v, l_{v,e})|, |Path(|e, l_{v,e}|)
 $$
@@ -760,7 +746,7 @@ $$
 
 where *lv*,*<sup>t</sup>*is the lowest common ancestor (LCA) for entity*e*and verb*v*on the parse tree of a sentence*h*.
 
-#### <span id="page-50-0"></span>3.2.2 Temporal Pattern Scoring
+### <span id="page-50-0"></span>3.2.2 Temporal Pattern Scoring
 
 In this part, we will introduce our strategies for temporal pattern scoring. Obviously, different temporal patterns have different indicating abilities. From the above example (Figure [3.2\)](#page-49-0), we obtained two candidate patterns. As humans, we know that ("marry", *START*) has a much stronger indication than ("meet", *START*) for the beginning of relation *SpouseOf*. However, it is non-trivial for machines to automatically estimate the indicating strength of patterns. More importantly, not all extracted temporal patterns are guaranteed to be correct since the underlying corpus is intrinsically informal and noisy. This means we have to select the useful patterns to further extract more temporal instances. Naturally, we use top-*k*patterns for temporal knowledge harvesting as long as these patterns can be scored and ranked effectively. In particular, we regard a pattern*p* = (*v*,*sta*) as indicative of relation *r* if and only if
 
@@ -770,7 +756,6 @@ In this part, we will introduce our strategies for temporal pattern scoring. Obv
 
 In-Sentence Scoring. The first heuristic rule captures the in-sentence level features. Formally, given a seed fact (*s*,*r*,*o*,[*t<sup>s</sup>* ,*te*]) and a pattern *p*that is extracted from a relevant sentence*h*, the weight of *p*in*h*in sentence level, denoted as*w*(*p*), can be calculated as follows:
 
-<span id="page-50-1"></span>
 $$
 w(p) = \alpha \cdot w_s(v, s, o) + \beta \cdot w_s(v, t_v) + \gamma \cdot w_s(t_v, t_s, t_e)
 $$
@@ -780,7 +765,6 @@ In Equation [3.4,](#page-50-1) *w*(*v*,*s*,*o*), *w*(*v*,*tv*), and *w*(*tv*,*t<
 
 In practice, calculating temporal distance |*t*<sup>1</sup> −*t*2| is not a easy task. Given an informal and noisy text corpus, a time expression is usually represented as either a specific date (e.g. "2006-01-01", we consider a day as the finest granularity in this work) or a temporal range (e.g. "2006") which, however, cannot be compared directly. Table ?? summaries all possible combinations of two time expressions *t*<sup>1</sup> and *t*2, where star and horizontal line represent a date and a temporal range respectively. Note that the last case where two time expressions have a partial overlapping does not occur due to temporal normalisation in the text corpus. To address this issue, we normalise both *t*<sup>1</sup> and *t*2, and propose a unified method to calculate |*t*<sup>1</sup> −*t*2|. In particular, each time expression *t* is transformed into a temporal range [*t*.*min*,*t*.*max*] such that *t*.*min*(resp.*t*.*max*) is the minimum (resp. maximum) possible date of *t*. *t*.*min*=*t*.*max*if*t* is originally represented as a date. For instance, "May 2006" will be normalised as ["2006-05-01","2006-05-31"]. Then we calculate |*t*<sup>1</sup> −*t*2| using the following equation.
 
-<span id="page-51-0"></span>
 $$
 |t_1 - t_2| = \begin{cases} 0, (t_1.min - t_2.min) \cdot (t_1.max - t_2.max) \le 0 \\ \frac{|t_1.min - t_2.min| + |t_1.max - t_2.max|}{2}, otherwise \end{cases}
 $$
@@ -790,7 +774,6 @@ In Equation [3.5,](#page-51-0) (*t*1.*min* −*t*2.*min*)·(*t*1.*max* −*t*2.*
 
 In particular, measuring temporal distance |*t*<sup>1</sup> −*t*2| is not straightforward since *t*<sup>1</sup> and *t*<sup>2</sup> can be a specific date (e.g., "2006-01-0") or a temporal range (e.g., "2006") which, however, cannot be compared directly. We summarise all possible combinations of two time expressions *t*<sup>1</sup> and *t*<sup>2</sup> in Table [3.1.](#page-52-0) The star and horizontal bar represent a date and a temporal range respectively. The last case where *t*<sup>1</sup> and *t*<sup>2</sup> have a partial overlapping does not occur due to time expression normalisation in the text corpus. Based on this summarisation, we propose a unified method to calculate |*t*<sup>1</sup> −*t*2|. In particular, we transform a time expression *t* into its temporal range denoted as [*t*.*min*,*t*.*max*] such that *t*.*min*(resp.*t*.*max*) is the minimum (resp. maximum) possible date of *t* (*t*.*min*=*t*.*max*if*t* is the date-type time expression). For example, "May 2006" will be normalised as ["2006-05-01", "2006-05-31"]. After both time expressions are transformed into their temporal range, we calculate |*t*<sup>1</sup> −*t*2| as follows:
 
-<span id="page-51-1"></span>
 $$
 |t_1 - t_2| = \begin{cases} 0, (t_1.min - t_2.min) \cdot (t_1.max - t_2.max) \le 0 \\ \frac{|t_1.min - t_2.min| + |t_1.max - t_2.max|}{2}, otherwise \end{cases}
 $$
@@ -798,14 +781,14 @@ $$
 
 In Equation [3.6,](#page-51-1) (*t*1.*min* −*t*2.*min*)·(*t*1.*max* −*t*2.*max*) ≤ 0 reflects that one time expression is fully contained in another, and their temporal distance is regarded as 0 in this work. Table [3.1](#page-52-0) shows some examples of temporal distances |*t*<sup>1</sup> −*t*2|.
 
-| Case |  | Example                       | Distance (days) |
+| Case | | Example | Distance (days) |
 |------|--|-------------------------------|-----------------|
-|      |  | "2006-03-01" vs. "2006-03-16" | 15              |
-|      |  | "March 2006" vs. "2006-05-31" | 75              |
-|      |  | "2006" vs. "2006-03-01"       | 0               |
-|      |  | "March 2006" vs. "May 2006"   | 60              |
-|      |  | "2006" vs. "March 2006"       | 0               |
-|      |  | -                             | -               |
+| | | "2006-03-01" vs. "2006-03-16" | 15 |
+| | | "March 2006" vs. "2006-05-31" | 75 |
+| | | "2006" vs. "2006-03-01" | 0 |
+| | | "March 2006" vs. "May 2006" | 60 |
+| | | "2006" vs. "March 2006" | 0 |
+| | | - | - |
 
 <span id="page-52-0"></span>Table 3.1: Different cases and examples of temporal distances between two time expressions.
 
@@ -817,7 +800,6 @@ $$
 
 Here, *vec*(*p*) is the vector representation of *p*obtained via word embedding on*p*'s verb. We propose a weighted-voting method to adjust pattern scores for each cluster. Consider a cluster P*c*. We denote *p* ∗ as the highest ranked pattern (i.e., has the highest score) in P*c*, i.e., *p* <sup>∗</sup> <sup>=</sup> argmax*pi*∈P*<sup>c</sup> w*(*pi*). We adjust the score of other patterns *p* ∈ P*<sup>c</sup>*by considering two factors: 1) whether*p*is originally indicative and 2) whether*p*∗ can semantically support*p*. The first factor can be regarded as a self-vote mechanism, and the second one is a context-vote factor. Equation [3.8](#page-52-1) shows our voting strategies:
 
-<span id="page-52-1"></span>
 $$
 w(p) = w(p) + \delta \cdot \sin(p, p^*) \cdot (w(p^*) - w(p)) \tag{3.8}
 $$
@@ -843,13 +825,12 @@ Given temporal patterns P*<sup>r</sup>*for relation*r*(*Type*1,*Type*2) (e.g., (
 -*T* = {*t*}, *T*6= /0
 - sentence*h*matches pattern*p* ∈ P*<sup>r</sup>* . In other words, ∃*v*∈*V*s.t.*v*=*p*.*v*The first three conditions require that a candidate sentence contains essential components for a temporal fact, i.e., there exist at least one entity that matches the required type constraints and at least one time expression in the candidate sentence. Such sentences can be retrieved efficiently with our inverted index which is constructed offline. The last condition requires that at least one of the verb phrases in the candidate sentence can match the verb phrase of the temporal pattern. Here, we simply adopt the string-matching algorithm in order to guarantee the knowledge coverage. In practice, temporal patterns contain entity types, such as*"Person", "SoccerClub", "Date"*, and verb phrases in candidate sentences are in various morphology. Hence, we transfer the candidate sentences into their canonical form by replacing entities and time expressions with their types and using verbs' lemma instead of their original forms. In particular, we leverage existing entity linking tools to map textual mentions to disambiguated entities with an existing KG. Then it is straightforward to obtain the entity types by visiting the mapped entries. Furthermore, when a sentence matches more than one pattern, we use the longest cover strategy to filter out redundant ones, since we believe that a more specific pattern contains more information and hence could lead to a more accurate temporal fact. In the next step, we propose several tree-based features to extract high-quality temporal instances from these candidate sentences.
 
-#### <span id="page-54-0"></span>3.3.2 Instance Extraction
+### <span id="page-54-0"></span>3.3.2 Instance Extraction
 
 In this part, we introduce our proposed methods for temporal instance harvesting. It is a non-trivial task because of the difficulty in balancing accuracy and coverage. It is easy to achieve a high accuracy by using exact matching on each sentence with a very complex pattern, but obviously this will dramatically decrease the coverage. On the other hand, we could achieve a good coverage of temporal knowledge by enumerating all possible entity-time pairs, while the accuracy will be extremely low.
 
 In this work, we propose a double-check strategy for harvesting temporal instances and aim to achieve a good balance between accuracy and coverage. Like the previous pattern extraction, we still resort to parse trees to extract temporal instances. Consider a candidate sentence *h* = (*S*,*O*,*T*,*V*) matching the pattern *p* = (*v*,*sta*); we use forward check to collect relevant entity pair (*s*,*o*) and time expression *t*. Since temporal patterns contain the indicating phrases and the temporal status, we first locate the verb phrase *v*∈*V*in sentence*s*such that*v*=*p*.*v*. We then select the most relevant entities *s*, *o*and the time expression*t*from*S*, *O*and*T*, respectively, based on their tree-based distances to the verb phrase *v*=*p*.*v*, as follows:
 
-<span id="page-54-1"></span>
 $$
 s = \underset{e \in S}{\arg\min} dist(v, e) \tag{3.9}
 $$
@@ -914,7 +895,6 @@ In the above equations,*rel<sup>i</sup>*represents the usefulness (the gain) of 
 
 For each relation, we use top-*k START*and*END*pattens to extract temporal instances on both PRAVDA and wiki-people datasets. We evaluate the accuracy of extracted instances via two ways, i.e., automatically comparing with Wikipedia's Infobox and manually checking the validity of each sampled instance. In order to automatically evaluate the accuracy of extracted temporal knowledge, we construct the ground truth G for each relation and for both the*START*and*END*status. In particular, we use regular expressions on Wikipedia's Infobox to extract the relational instances, as well as the coupled time expression(s). We extracted 729,744 and 126,255 temporal instances for the*"PlayForClub"*and*"SpouseOf"*relations, respectively. We use Wikidata [\[152\]](#page-122-9) to evaluate the temporal instances for the*"BornIn"*and*"DiedIn"*relations. We evaluate our approach and compare with the PRAVDA system in terms of the conditional accuracy*Acc*<sup>∗</sup> of the extracted temporal facts (Equation [3.18\)](#page-57-1), as our work mainly focuses on the extraction of temporal facts.
 
-<span id="page-57-1"></span>
 $$
 Acc^* = \frac{|\{(s, o, t) \in \mathbb{G}\}|}{|\{(s, o) \in \mathbb{G}_b\}|}
 $$
@@ -922,22 +902,21 @@ $$
 
 where G*<sup>b</sup>*is the ground truth for binary (static) instances. Furthermore, we also manually evaluate the wrong instances in order to have a better understanding of the accuracy of the extracted temporal instances.
 
-#### <span id="page-57-0"></span>3.4.2 Accuracy of Temporal Patterns
+### <span id="page-57-0"></span>3.4.2 Accuracy of Temporal Patterns
 
 The influence of relation types. In this part, we evaluate the accuracy of our algorithms for different relation types. We run our pattern extraction algorithm using all 20 seeds for each relation and evaluate the*nDCG<sup>k</sup>*scores for the*START*and*END*patterns using P ∗ and report the results on Table [3.2.](#page-58-0) Overall, it is worth noting that*nDCG<sup>k</sup>*decreases gradually when*k*increases. This means most of the correct patterns are ranked relatively high (e.g., in top-1, top-3 or top-5) which to some extent verifies the effectiveness of our proposed methods for pattern generation and scoring. As Table [3.2](#page-58-0) shows, the*START*patterns are generally better than the*END*patterns, which we believe is natural because people tend to talk more about the beginning rather than the termination of a relation in online articles. For example, people prefer to say "Trump won the selection" instead of "Barack's term ended". In addition, we notice that the "PlayFor"*END* patterns have relatively low nDGC scores. This is because 1) sentences of"PlayFor" relation are more complex and ambiguous, which leads to the drop of nDCG
 
 scores; 2) the number of relevant sentences are relatively small compared with other relations; 3). there are large number of false positive relevant sentences for extracting temporal patterns. For the remaining part, we only report the average accuracy of temporal patterns among all the relations and status (*START*and*END*).
 
-<span id="page-58-0"></span>
 
-| Relation         | nDCG1 | nDCG3 | nDCG5 | nDCG10 |
+| Relation | nDCG1 | nDCG3 | nDCG5 | nDCG10 |
 |------------------|-------|-------|-------|--------|
-| SpouseOf - begin | 1.00  | 1.00  | 1.00  | 0.91   |
-| SpouseOf - end   | 1.00  | 1.00  | 1.00  | 0.76   |
-| PlayFor - begin  | 1.00  | 1.00  | 0.82  | 0.88   |
-| PlayFor - end    | 0.60  | 0.54  | 0.50  | 0.48   |
-| BornIn - time    | 1.00  | 1.00  | 1.00  | 0.95   |
-| DiedIn - time    | 1.00  | 0.76  | 0.83  | 0.83   |
+| SpouseOf - begin | 1.00 | 1.00 | 1.00 | 0.91 |
+| SpouseOf - end | 1.00 | 1.00 | 1.00 | 0.76 |
+| PlayFor - begin | 1.00 | 1.00 | 0.82 | 0.88 |
+| PlayFor - end | 0.60 | 0.54 | 0.50 | 0.48 |
+| BornIn - time | 1.00 | 1.00 | 1.00 | 0.95 |
+| DiedIn - time | 1.00 | 0.76 | 0.83 | 0.83 |
 
 Table 3.2: Pattern accuracy of different relations.
 
@@ -955,31 +934,30 @@ The influence of seed set size. Intuitively, the accuracy of extracted patterns 
 
 <span id="page-59-2"></span>Figure 3.4: Pattern accuracy of different seed set sizes.
 
-#### <span id="page-59-0"></span>3.4.3 Accuracy of Temporal Instances
+### <span id="page-59-0"></span>3.4.3 Accuracy of Temporal Instances
 
 Automatic evaluation. We extract temporal instances based on a set of top-*k*temporal patterns for each relation on two datasets, i.e., the PRAVDA dataset and wiki-people dataset. We report the accuracy and number of instances respectively in Table [3.3.](#page-60-0) Overall, our model is quite effective, achieving a high accuracy (>0.7) and a good coverage of the knowledge on both datasets. In particular, we can observe a slight drop in accuracy for all relations on both datasets when the number of used patterns increases, but also a dramatic increase on the number of extracted instances (e.g., top-1 v.s.
 
 top-3 patterns). On one hand, it indirectly verifies the effectiveness of our pattern extraction algorithm since high-quality patterns are ranked higher than low-quality patterns. On the other hand, it illustrates the capability of our proposed methods for achieving a good balance between accuracy and coverage. Comparing our model with the baseline method (PRAVDA System [\[11\]](#page-109-2)), our model (e.g., using top-5 patterns) has a much higher accuracy on all relations (and on both the*START*and*END*status). In terms of coverage, our model is able to extract many more instances on the*SpouseOf*relation and*DiedIn*relation (i.e., three times and two times more than the baseline, respectively), while fewer instances on the*PlayForClub*relation. It is worth noting that our method only uses a few patterns compared to PRAVDA. We also notice that some patterns do not yield any instances, since they are either over-specific or covered by other patterns. Hence, we believe that the number of extracted instances will definitely increase when more patterns are utilised. Comparing the results obtained on the PRAVDA dataset and wiki-people dataset, we further observe that the number of instances extracted from wiki-people is much larger than that of the the PRAVDA dataset for almost all the relations, with a slight degradation of accuracy (except for the*DiedIn*relation). Although the size of the PRAVDA dataset is larger than wiki-people, the news articles included in the PRAVDA dataset are more noisy, containing lots of abbreviations and grammar mistakes, leading to worse performance in the upstream NLP tools, such as parsing and entity linking, which in turn reduces the knowledge coverage on this dataset. Overall, our model achieves satisfactory performance given such noisy free texts, thanks to the robust algorithm design and the offline preprocessing.
 
-<span id="page-60-0"></span>
 
-| PRAVDA Dataset      |           |                |                |                |                 |
+| PRAVDA Dataset | | | | | |
 |---------------------|-----------|----------------|----------------|----------------|-----------------|
-| Relation            | PRAVDA∗   | top-1 patterns | top-3 patterns | top-5 patterns | top-10 patterns |
-| SpouseOf-begin      | 0.78/59   | 0.95/39        | 0.84/164       | 0.84/164       | 0.84/169        |
-| SpouseOf-end        | 0.71/9    | 0.85/11        | 0.84/21        | 0.84/21        | 0.64/35         |
-| PlayFor-begin       | 0.80/1497 | 0.85/199       | 0.85/670       | 0.82/713       | 0.82/713        |
-| PlayFor-end         | 0.71/167  | 0.81/18        | 0.81/18        | 0.76/88        | 0.65/106        |
-| BornIn-time         | 0.82/2846 | 0.96/2875      | 0.96/2875      | 0.96/2875      | 0.96/2875       |
-| DiedIn-time         | 0.88/57   | 0.83/87        | 0.88/113       | 0.88/113       | 0.87/126        |
-| Wiki-People Dataset |           |                |                |                |                 |
-| Relation            | PRAVDA    | top-1 patterns | top-3 patterns | top-5 patterns | top-10 patterns |
-| SpouseOf-begin      | -         | 0.84/284       | 0.84/284       | 0.84/284       | 0.84/284        |
-| SpouseOf-end        | -         | 0.69/9         | 0.69/9         | 0.73/13        | 0.73/13         |
-| PlayFor-begin       | -         | 0.86/918       | 0.85/1019      | 0.85/1019      | 0.84/1245       |
-| PlayFor-end         | -         | 0.71/32        | 0.71/32        | 0.72/42        | 0.73/50         |
-| BornIn-time         | -         | 0.93/5108      | 0.93/5108      | 0.93/5108      | 0.85/5132       |
-| DiedIn-time         | -         | 0.95/943       | 0.95/952       | 0.95/952       | 0.95/964        |
+| Relation | PRAVDA∗ | top-1 patterns | top-3 patterns | top-5 patterns | top-10 patterns |
+| SpouseOf-begin | 0.78/59 | 0.95/39 | 0.84/164 | 0.84/164 | 0.84/169 |
+| SpouseOf-end | 0.71/9 | 0.85/11 | 0.84/21 | 0.84/21 | 0.64/35 |
+| PlayFor-begin | 0.80/1497 | 0.85/199 | 0.85/670 | 0.82/713 | 0.82/713 |
+| PlayFor-end | 0.71/167 | 0.81/18 | 0.81/18 | 0.76/88 | 0.65/106 |
+| BornIn-time | 0.82/2846 | 0.96/2875 | 0.96/2875 | 0.96/2875 | 0.96/2875 |
+| DiedIn-time | 0.88/57 | 0.83/87 | 0.88/113 | 0.88/113 | 0.87/126 |
+| Wiki-People Dataset | | | | | |
+| Relation | PRAVDA | top-1 patterns | top-3 patterns | top-5 patterns | top-10 patterns |
+| SpouseOf-begin | - | 0.84/284 | 0.84/284 | 0.84/284 | 0.84/284 |
+| SpouseOf-end | - | 0.69/9 | 0.69/9 | 0.73/13 | 0.73/13 |
+| PlayFor-begin | - | 0.86/918 | 0.85/1019 | 0.85/1019 | 0.84/1245 |
+| PlayFor-end | - | 0.71/32 | 0.71/32 | 0.72/42 | 0.73/50 |
+| BornIn-time | - | 0.93/5108 | 0.93/5108 | 0.93/5108 | 0.85/5132 |
+| DiedIn-time | - | 0.95/943 | 0.95/952 | 0.95/952 | 0.95/964 |
 
 Table 3.3: Instance accuracy of different relations.
 
@@ -991,59 +969,58 @@ Manual check. In this part, we manually evaluate the wrong instances in order to
 
 instances. In particular, an instance (*s*,*o*,*t*) is regarded as uncovered if (*s*,*o*) 6∈ G*<sup>b</sup>*while*r*(*s*,*o*) actually exists based on manual check. Similarly, (*s*,*o*,*t*) is regarded as a conflict if (*s*,*o*,*t*) 6∈ G while (*s*,*o*,*t*) holds true according to the sentence. Hence, we randomly sample 20 instances {(*s*,*o*,*t*)} with the entity pair (*s*,*o*) 6∈ G*b*, and 20 instances such that (*s*,*o*,*t*) 6∈ G for each relation on both statuses, respectively, and manually check the correctness of each instance according to the original sentences. As Table [3.4](#page-61-1) shows, some entity pairs are not contained in G*<sup>b</sup>* (from 0.1 to 0.45), meaning that the number of actual correct instances can further increase. This illustrates that our approach is actually able to achieve a much better coverage. There are two main reasons that cause the ground truth limitation: (1) Infobox does not contain the entity pair (*s*,*o*) and (2) entities in Infobox have different names, so they cannot be matched and are regarded as uncovered. It is also worthy to notice that there is a large number of instances conflicting with G (from 0.25 to 0.75), which means the actual *Acc*<sup>∗</sup> should increase dramatically. There are three reasons causing such conflict: (1) Wikipedia's Infobox is not always correct, especially for some unpopular entities, (2) the source of extracted instances can be a rumour, and (3) the description ways are different. For example, an Infobox record says a football player joined a soccer club at the 2005-2006 season, while actually, the original sentence describes that he joined the club at the end of 2004. Overall, this manual check verifies that our proposed framework is quite promising in achieving much better accuracy and coverage in practice.
 
-| Relation       | Uncovered | Conflict |
+| Relation | Uncovered | Conflict |
 |----------------|-----------|----------|
-| SpouseOf-begin | 0.3       | 0.4      |
-| SpouseOf-end   | 0.15      | 0.75     |
-| PlayFor-begin  | 0.45      | 0.3      |
-| PlayFor-end    | 0.1       | 0.25     |
-| BornIn-time    | 0.4       | 0.25     |
-| DiedIn-time    | 0.1       | 0.15     |
+| SpouseOf-begin | 0.3 | 0.4 |
+| SpouseOf-end | 0.15 | 0.75 |
+| PlayFor-begin | 0.45 | 0.3 |
+| PlayFor-end | 0.1 | 0.25 |
+| BornIn-time | 0.4 | 0.25 |
+| DiedIn-time | 0.1 | 0.15 |
 
 <span id="page-61-1"></span>Table 3.4: Manual check of temporal instances.
 
-#### <span id="page-61-0"></span>3.4.4 Case Study
+### <span id="page-61-0"></span>3.4.4 Case Study
 
 In this part, we present highly representative temporal patterns and report the extracted instances and related sentences in order to provide a more intuitive view of the performance of our proposed framework. For each relation, we report 2 patterns and 2 instances as demonstrated in Table [3.4.4.](#page-62-0) We can see that some patterns, such as "marry", "divorce" and "join" are very straightforward for a relation, while others, e.g., "tie the knot for" and "be shoot", are not easily constructed or enumerated by human experts. Fortunately, our framework can capture both patterns by automatically analysing a large scale of underlying text corpus. Moreover, we can see that there are sometimes multiple candidate entities and time expressions in a sentence on a target relation (e.g., the second sentence for *SpouseOf-begin*relation). Nevertheless, our proposed algorithm for instance extraction is still able to distinguish these candidates and locate the most relevant (or correct) instances from such a sentence, which guarantees the high accuracy and high coverage of our model. Last but not least, our instance extraction algorithm is quite robust to different sentence structures such as sub-clauses or parenthetical
 
 (e.g., the second sentence for*BornIn*relation), but also sensitive to key phrases (e.g., "sign from" in the second sentence for*PlayFor-end*).
 
-<span id="page-62-0"></span>
 
-| Relation                   | Patterns∗                               | Instances                                                                                          |  |  |
+| Relation | Patterns∗ | Instances | | |
 |----------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------------|--|--|
-|                            | marry                                   | (Martin Scorsese, Helen S. Morris, 1999)                                                           |  |  |
-| SpouseOf-begin             | tie the knot for                        | (Andre Agassi, Steffi Graf, 2001)                                                                  |  |  |
-| Sentences                  |                                         |                                                                                                    |  |  |
-|                            |                                         | Martin Scorsese has been married to Helen Schermerhorn Morris since 1999.                          |  |  |
-|                            |                                         | Andre Agassi/Steffi Graf Two of the most famous players in tennis history got together in 1999     |  |  |
-| and tied the knot in 2001. |                                         |                                                                                                    |  |  |
-| Relation                   | Patterns                                | Instances                                                                                          |  |  |
-|                            | divorce in                              | (Hugo Chavez, Marisabel R. de Ch<br>´<br>avez, 2004)<br>´                                          |  |  |
-| SpouseOf-end               | split from                              | (Paul McCartney, Heather Mills, 2006)                                                              |  |  |
-| Sentences                  |                                         |                                                                                                    |  |  |
-|                            |                                         | His second wife was journalist Marisabel Rodr´ıguez de Chavez, with whom Hugo Ch<br>´<br>avez<br>´ |  |  |
-|                            | separated in 2002 and divorced in 2004. |                                                                                                    |  |  |
-|                            |                                         | The most recent case was that of Paul McCartney and Heather Mills, who split in 2006 after four    |  |  |
-| years of marriage.         |                                         |                                                                                                    |  |  |
-| Relation                   | Patterns                                | Instances                                                                                          |  |  |
-|                            | join                                    | (Emil Larsen, Odense Boldklub, 2012)                                                               |  |  |
-| PlayFor-start              | sign                                    | (Bobby Reid, Plymouth Argyle F.C., 2014)                                                           |  |  |
-| Sentences                  |                                         |                                                                                                    |  |  |
-|                            |                                         | On 9 July 2012, Emil Larsen joined Odense Boldklub on a four-year contract.                        |  |  |
-|                            |                                         | Bobby Reid (footballer, born 1993) signed a one-month loan deal with Plymouth Argyle in            |  |  |
-| September 2014.            |                                         |                                                                                                    |  |  |
-| Relation                   | Patterns                                | Instances                                                                                          |  |  |
-|                            | leave                                   | (Max Harrop, Ashton United F.C., 2015)                                                             |  |  |
-| PlayFor-end                | sign from                               | (Mark Connolly, Wolverhampton W., 2009)                                                            |  |  |
-| Sentences                  |                                         |                                                                                                    |  |  |
-|                            |                                         | In August, 2015, Max Harrop left Ashton United for Ramsbottom United, joining his older            |  |  |
-| brother Kyle Harrop.       |                                         |                                                                                                    |  |  |
-|                            |                                         | Mark Connolly was signed from Wolverhampton Wanderers by Bolton Wanderers on the transfer          |  |  |
-|                            |                                         | dealine in 2009-10 in English football after the clubs agreed a<br>£1,000,000 fee.                 |  |  |
-| Relation                   | Patterns                                | Instances                                                                                          |  |  |
-|                            | be bear in                              | (Billy Eckstine, Pittsburgh, 1914)                                                                 |  |  |
-| BornIn-time                |                                         |                                                                                                    |  |  |
+| | marry | (Martin Scorsese, Helen S. Morris, 1999) | | |
+| SpouseOf-begin | tie the knot for | (Andre Agassi, Steffi Graf, 2001) | | |
+| Sentences | | | | |
+| | | Martin Scorsese has been married to Helen Schermerhorn Morris since 1999. | | |
+| | | Andre Agassi/Steffi Graf Two of the most famous players in tennis history got together in 1999 | | |
+| and tied the knot in 2001. | | | | |
+| Relation | Patterns | Instances | | |
+| | divorce in | (Hugo Chavez, Marisabel R. de Ch<br>´<br>avez, 2004)<br>´ | | |
+| SpouseOf-end | split from | (Paul McCartney, Heather Mills, 2006) | | |
+| Sentences | | | | |
+| | | His second wife was journalist Marisabel Rodr´ıguez de Chavez, with whom Hugo Ch<br>´<br>avez<br>´ | | |
+| | separated in 2002 and divorced in 2004. | | | |
+| | | The most recent case was that of Paul McCartney and Heather Mills, who split in 2006 after four | | |
+| years of marriage. | | | | |
+| Relation | Patterns | Instances | | |
+| | join | (Emil Larsen, Odense Boldklub, 2012) | | |
+| PlayFor-start | sign | (Bobby Reid, Plymouth Argyle F.C., 2014) | | |
+| Sentences | | | | |
+| | | On 9 July 2012, Emil Larsen joined Odense Boldklub on a four-year contract. | | |
+| | | Bobby Reid (footballer, born 1993) signed a one-month loan deal with Plymouth Argyle in | | |
+| September 2014. | | | | |
+| Relation | Patterns | Instances | | |
+| | leave | (Max Harrop, Ashton United F.C., 2015) | | |
+| PlayFor-end | sign from | (Mark Connolly, Wolverhampton W., 2009) | | |
+| Sentences | | | | |
+| | | In August, 2015, Max Harrop left Ashton United for Ramsbottom United, joining his older | | |
+| brother Kyle Harrop. | | | | |
+| | | Mark Connolly was signed from Wolverhampton Wanderers by Bolton Wanderers on the transfer | | |
+| | | dealine in 2009-10 in English football after the clubs agreed a<br>£1,000,000 fee. | | |
+| Relation | Patterns | Instances | | |
+| | be bear in | (Billy Eckstine, Pittsburgh, 1914) | | |
+| BornIn-time | | | | |
 
 be bear on
 
@@ -1051,72 +1028,72 @@ Table 3.5: Case study of temporal patterns and instances.
 
 (Hans Pirkner, Wien, 1946)
 
-| Relation                                                                                         | Patterns∗             | Instances                                                                                   |  |  |  |  |  |  |
+| Relation | Patterns∗ | Instances | | | | | | |
 |--------------------------------------------------------------------------------------------------|-----------------------|---------------------------------------------------------------------------------------------|--|--|--|--|--|--|
-| Sentences                                                                                        |                       |                                                                                             |  |  |  |  |  |  |
-| Born in Pittsburgh on July 8, 1914, William Clarence Eckstine was the youngest of three children |                       |                                                                                             |  |  |  |  |  |  |
-| of William and Charlotte Eckstine.                                                               |                       |                                                                                             |  |  |  |  |  |  |
-| Hans Pirkner (born 25 March 1946 in Wien) is a former Austrian football forward.                 |                       |                                                                                             |  |  |  |  |  |  |
-| Relation                                                                                         | Patterns<br>Instances |                                                                                             |  |  |  |  |  |  |
-| DiedIn-time                                                                                      | die in                | (David Vanole, Salt Lake City, 2007)                                                        |  |  |  |  |  |  |
-|                                                                                                  | be shoot              | (Gianni Versace,Miami, 1997)                                                                |  |  |  |  |  |  |
-| Sentences                                                                                        |                       |                                                                                             |  |  |  |  |  |  |
-| David Vanole, who lived in New York City, died on January 15 2007 in Salt Lake City during a     |                       |                                                                                             |  |  |  |  |  |  |
-| family skiing vacation.                                                                          |                       |                                                                                             |  |  |  |  |  |  |
-|                                                                                                  |                       | Allegra was only 11 when her uncle, Gianni Versace, was shot dead on the steps of his Miami |  |  |  |  |  |  |
-| Beach home in 1997.                                                                              |                       |                                                                                             |  |  |  |  |  |  |
+| Sentences | | | | | | | | |
+| Born in Pittsburgh on July 8, 1914, William Clarence Eckstine was the youngest of three children | | | | | | | | |
+| of William and Charlotte Eckstine. | | | | | | | | |
+| Hans Pirkner (born 25 March 1946 in Wien) is a former Austrian football forward. | | | | | | | | |
+| Relation | Patterns<br>Instances | | | | | | | |
+| DiedIn-time | die in | (David Vanole, Salt Lake City, 2007) | | | | | | |
+| | be shoot | (Gianni Versace,Miami, 1997) | | | | | | |
+| Sentences | | | | | | | | |
+| David Vanole, who lived in New York City, died on January 15 2007 in Salt Lake City during a | | | | | | | | |
+| family skiing vacation. | | | | | | | | |
+| | | Allegra was only 11 when her uncle, Gianni Versace, was shot dead on the steps of his Miami | | | | | | |
+| Beach home in 1997. | | | | | | | | |
 
 Table 3.5 –*Continued from previous page*
 
 \*Verb phrases are transformed into their lemma forms and pattern weights are omitted.
 
-#### 4. EXPERIMENTS 51
+### 4. EXPERIMENTS 51
 
 The following publications have been incorporated as Chapter [4.](#page-66-0)
 
 1. [\[2\]](#page-108-1) Yu Liu, Wen Hua, Kexuan Xin and Xiaofang Zhou, [Context-Aware Temporal Knowledge Graph](https://link.springer.com/chapter/10.1007/978-3-030-34223-4_37) [Embedding,](https://link.springer.com/chapter/10.1007/978-3-030-34223-4_37)*Web Information Systems Engineering*(WISE), 583-598, 2019
 
-| Contributor   | Statement of contribution |     |  |  |
+| Contributor | Statement of contribution | | | |
 |---------------|---------------------------|-----|--|--|
-| Yu Liu        | algorithm design          |     |  |  |
-|               | experiment design         | 50  |  |  |
-|               | experiment implementation | 100 |  |  |
-|               | paper writing             | 70  |  |  |
-|               | idea discussion           | 50  |  |  |
-| Wen Hua       | algorithm design          | 20  |  |  |
-|               | experiment design         | 40  |  |  |
-|               | paper writing             | 30  |  |  |
-|               | proof-reading             | 50  |  |  |
-|               | idea discussion           | 20  |  |  |
-| Kexuan Xin    | experiment design         | 10  |  |  |
-|               | proof-reading             | 20  |  |  |
-|               | idea discussion           | 20  |  |  |
-| Xiaofang Zhou | proof-reading             | 30  |  |  |
-|               | idea discussion           | 10  |  |  |
+| Yu Liu | algorithm design | | | |
+| | experiment design | 50 | | |
+| | experiment implementation | 100 | | |
+| | paper writing | 70 | | |
+| | idea discussion | 50 | | |
+| Wen Hua | algorithm design | 20 | | |
+| | experiment design | 40 | | |
+| | paper writing | 30 | | |
+| | proof-reading | 50 | | |
+| | idea discussion | 20 | | |
+| Kexuan Xin | experiment design | 10 | | |
+| | proof-reading | 20 | | |
+| | idea discussion | 20 | | |
+| Xiaofang Zhou | proof-reading | 30 | | |
+| | idea discussion | 10 | | |
 
 2. Yu Liu, Wen Hua, Jianfeng Qu, Kexuan Xin and Xiaofang Zhou. Temporal Knowledge Completion with Context-Aware Embeddings,*World Wide Web Journal*, 2021.
 
-| Contributor   | Statement of contribution |          |  |  |
+| Contributor | Statement of contribution | | | |
 |---------------|---------------------------|----------|--|--|
-| Yu Liu        | algorithm design          | 70       |  |  |
-|               | experiment design         | 50       |  |  |
-|               | experiment implementation | 100      |  |  |
-|               | paper writing             | 70       |  |  |
-|               | idea discussion           | 50       |  |  |
-| Wen Hua       | algorithm design          | 30       |  |  |
-|               | experiment design         | 30       |  |  |
-|               | paper writing             | 30       |  |  |
-|               | idea discussion           | 20       |  |  |
-| Jianfeng Qu   | experiment design         | 20       |  |  |
-|               | proof-reading             | 50       |  |  |
-|               | idea discussion           | 20       |  |  |
-| Kexuan Xin    | proof-reading             |          |  |  |
-|               | idea discussion           | 20<br>10 |  |  |
-| Xiaofang Zhou | proof-reading             | 30       |  |  |
+| Yu Liu | algorithm design | 70 | | |
+| | experiment design | 50 | | |
+| | experiment implementation | 100 | | |
+| | paper writing | 70 | | |
+| | idea discussion | 50 | | |
+| Wen Hua | algorithm design | 30 | | |
+| | experiment design | 30 | | |
+| | paper writing | 30 | | |
+| | idea discussion | 20 | | |
+| Jianfeng Qu | experiment design | 20 | | |
+| | proof-reading | 50 | | |
+| | idea discussion | 20 | | |
+| Kexuan Xin | proof-reading | | | |
+| | idea discussion | 20<br>10 | | |
+| Xiaofang Zhou | proof-reading | 30 | | |
 
-# <span id="page-66-0"></span>Chapter 4
+## <span id="page-66-0"></span>Chapter 4
 
-# Temporal Knowledge Graph Completion
+## Temporal Knowledge Graph Completion
 
 ## <span id="page-66-1"></span>4.1 Introduction
 
@@ -1157,11 +1134,11 @@ Let *E*, *R*and*T*denote an entity set, a relation set and a timestamp set, resp
 
 Definition 10 (Temporal Knowledge Graph).*A temporal KG is defined as a directed graph G* = (*E*,*R*,*T*) *where (1) E is the set of entities (nodes); (2) R is the set of relations (edges); and (3) T is the set of valid temporal interval (labels).*Definition 11 (Fact).*A fact is defined as the 4-tuples f* = (*s*,*r*,*o*,*t*)*, where s*,*o*∈*E are the subject and object, respectively. r*∈*R is a relation between the subject s and object o, and valid time t* = [*t<sup>s</sup>* ,*te*] ⊆ *T*×*T is the temporal interval when* (*s*,*r*,*o*) *holds in the real world. Facts observed in the KG are stored as a collection D*<sup>+</sup> = {(*s*,*r*,*o*,*t*)}*.*
 
-*Example*: Fact ("Cristiano Ronaldo", *playfor*, "Manchester United", "[2003, 2009]") tells the truth, that Ronaldo played for Manchester from 2003 to 2009.
+**Example:**  Fact ("Cristiano Ronaldo", *playfor*, "Manchester United", "[2003, 2009]") tells the truth, that Ronaldo played for Manchester from 2003 to 2009.
 
 Definition 12 (Contexts). *The contexts of a target entity e are defined as an aggregate set of facts C<sup>e</sup>*= {*f*1,··· , *fn*} *such that each fact f<sup>i</sup> contains e.*
 
-*Example*: (1) Fact ("Cristiano Ronaldo", *playfor*"Real Madrid", "[2009, 2018]") is a context instance for the entity "Cristiano Ronaldo"; (2) Fact ("Wayne Rooney",*playfor*"Manchester United", "[2004, 2017]") is a context for the entity "Manchester United".
+**Example:**  (1) Fact ("Cristiano Ronaldo", *playfor*"Real Madrid", "[2009, 2018]") is a context instance for the entity "Cristiano Ronaldo"; (2) Fact ("Wayne Rooney",*playfor*"Manchester United", "[2004, 2017]") is a context for the entity "Manchester United".
 
 Definition 13 (Temporal Knowledge Graph Embedding).*Temporal KGE is the task to learn the representations of a temporal Knowledge Graph G. In other words, the temporal KGE task aims to embed the entity set E, relation set R and time set T into a low-dimensional continuous vector space, say*R*d .*To evaluate the KGE performance, link prediction [\[19\]](#page-110-0) is widely used. Link prediction aims to predict the missing part of a given incomplete fact. Traditionally, the link prediction task for KGE consists of three subtasks: head prediction, tail prediction and relation prediction. However, for temporal KG, the link prediction has a new task: time prediction as the valid time interval could be unobserved or erroneous. In particular, we replace an observed fact*f* = (*s*,*r*,*o*,*t*) as (?,*r*,*o*,*t*), (*s*, ?,*o*,*t*), (*s*,*r*, ?,*t*) and (*s*,*r*,*o*, ?) for the task of head prediction, relation prediction, tail prediction and time prediction, respectively. Here, ? refers to the missing part. Since the missing part of the valid time
 
@@ -1184,11 +1161,11 @@ Our framework for temporal KG embeddings is shown as Figure [4.2.](#page-70-2) W
 
 the temporal interactions; thus, we propose a fact-aware context selection mechanism. This context selection module calculates the usefulness of each context fact and ranks them accordingly. The top-*k*contexts will be used for calculating temporal consistency and contextual consistency. In our work, a two-layer architecture is used to capture the temporal interactions between the selected contexts and the input fact for calculating the temporal consistency. In order to capture the complex interactions between multiple contexts and the target fact, we use stacked graph convolution networks (GCNs) [\[165\]](#page-123-8) to capture their interactions for calculating the contextual consistency. On the other hand, we follow previous works and calculate the factual plausibility. However, as the input fact has not only the factual components (i.e., entities and relations), but also has timestamps, we have to handle the temporal information carefully. Since a fact is only valid during the given temporal period, we encode the time embeddings into the relation embedding using projection operations to derive a time-aware factual representation. After that, we can calculate the factual plausibility as TransE [\[19\]](#page-110-0). Finally, we use both the factual plausibility and the temporal consistency to predict the correctness of the input fact. Because of the incorporation with context information, we believe our model is able to learn more representative embeddings.
 
-#### <span id="page-71-0"></span>4.3.2 Characterizing of the Context Interactions
+### <span id="page-71-0"></span>4.3.2 Characterizing of the Context Interactions
 
 A major novelty of our work is explicitly characterizing the context interactions, i.e., the temporal consistency and the contextual consistency. In this part, we first study how to select useful contexts of a target fact; then, we study how to use the selected contexts to model the temporal interactions and calculate the temporal consistency, and lastly, we elaborate upon the module for calculating contextual consistency.
 
-#### Context Selection
+### Context Selection
 
 Obviously, not all of an entity's information is related to the target fact, and some can be noisy and misleading. Therefore, we first propose a module that measures the context usefulness for the target fact. Heuristically, contexts on different relations have different influences for a certain fact. For example, consider the target fact ("Cristiano Ronaldo",*playfor*, "Manchester United", "[2003,2009]"). Contexts about "Cristiano" in the soccer field are more useful than the information about his personal life, such as facts on *spouseOf*or*hasChildren*. Besides, information about "Manchester United", such as facts on *locationOf*, *hasCapacity*, and *foundedOf*are noisy for the target fact. Based on this observation, we calculate the relation-usefulness via deep convolution neural networks (CNNs). In particular, given a fact*f* = (*s*,*r*,*o*,[*t<sup>s</sup>* ,*te*]) and all contexts *C<sup>e</sup>* = {*c*1,..., *cn*} for a core entity *e* (*e*can be either subject or object), we calculate the relation-usefulness*u* (*r*) *i*of each context*c<sup>i</sup>*∈*C<sup>e</sup>*as follows:
 
@@ -1218,11 +1195,10 @@ $$
 $$
 u_i^{(e)} = \frac{1}{w} \sum_{j=1}^{w} u_{i,j}^{(e)}
 $$
- (4.5)
+(4.5)
 
 where *e*is the entity embedding of the core entity*e*, and *n <sup>j</sup>*∈ R*d*is the entity embedding of the*j*th nearest neighbour. *W <sup>e</sup>*is the weight matrix and*b<sup>e</sup>* is the bias. ⊕ is the concatenation operation and σ(·) is the TanH activation function. In order to find the discerning contexts, we concatenate the difference (*e* −*n <sup>j</sup>*) with context entities *h<sup>i</sup>*and*t<sup>i</sup>*as the input vector for CNNs. Based on relation-usefulness*u* (*r*) *i*and entity-usefulness*u* (*e*) *i*, we obtain the usefulness score*u<sup>i</sup>*of each contexts*c<sup>i</sup>*∈*C<sup>e</sup>* as follows:
 
-<span id="page-72-1"></span>
 $$
 u_i = u_i^{(r)} + u_i^{(e)}
 $$
@@ -1230,7 +1206,7 @@ $$
 
 Finally, according to Eq. [4.6,](#page-72-1) we can obtain the top-*k*context facts*C*˜ *<sup>s</sup>*and*C*˜ *<sup>o</sup>*from*C<sup>s</sup>*and*Co*, respectively.
 
-#### Temporal Consistency
+### Temporal Consistency
 
 After obtaining the top-*k*useful subject contexts*C*˜ *<sup>s</sup>*and object contexts*C*˜ *<sup>o</sup>*, we now model the temporal interactions and calculate temporal consistency. As mentioned in Section [4.1,](#page-66-1) there are various kinds of temporal interactions, such as temporal orders, temporal distances and temporal intersections. For
 
@@ -1257,7 +1233,6 @@ $$
 
 <span id="page-73-0"></span>where CNNs is a two-depth convolution layer with max-pooling, and *W <sup>t</sup>*and*b<sup>t</sup>*are the weight matrix and bias, respectively. Since each fact reflects the temporal consistency independently, we apply Eq. [4.9](#page-73-0) separately on all contexts of*C*˜ *<sup>s</sup>*and*C*˜ *<sup>o</sup>* and obtain {*s* (*t*) *i*,*h*}*k i*=1 and {*s* (*t*) *i*,*t*}*k i*=1 , respectively. We select the most representative temporal interaction via max function, as follow:
 
-<span id="page-73-1"></span>
 $$
 s_e^{(t)} = \max(\{s_{i,e}^{(t)}\}_{i=1}^k)
 $$
@@ -1270,7 +1245,7 @@ s_t = \frac{1}{2} (s_s^{(t)} + s_o^{(t)})
 $$
 \n(4.11)
 
-#### Contextual Consistency
+### Contextual Consistency
 
 In this part, we introduce how to use the selected contexts, i.e.,*C*˜ *<sup>s</sup>*and*C*˜ *<sup>o</sup>*, to calculate the contextual consistency *s<sup>c</sup>*for improving temporal KG embeddings. Contextual consistency is a state in which head contexts and tail contexts occur together without conflicts regarding the target fact, which requires capturing the context interactions as a whole group instead of modeling them one by one. As human beings, in order to detect conflicts between the target fact and its contexts, we have to first read all of them and know their semantics. Then, according to the observations, we summarise all the contexts and extracted useful clues for making the prediction. In our work, we also follow the previous steps, namely, (1) encoding facts and (2) summarizing and extracting clues as Fig[.4.3](#page-74-0) shows.
 
@@ -1281,7 +1256,6 @@ Figure 4.3: The architecture for learning the representation of contextual inter
 
 In particular, given a target fact*f* = (*s*,*r*,*o*,[*t<sup>s</sup>* ,*te*]) and the selected contexts *C*˜ = {*c*1,..., *ck*}, we use a fact encoder to learn the fact representation *d* (*c*) *f* and context presentations {*d* (*c*) *i*}*k i*=1 , as follows:
 
-<span id="page-74-0"></span>
 $$
 d^{(c)} = W_1^{(c)} f + b_c \tag{4.12}
 $$
@@ -1307,9 +1281,9 @@ $$
 
 where *s<sup>c</sup>*is the score of contextual consistency, ⊕ is the concatenation operation, σ(·) is the TanH activation and*W* (*c*) *i*is the weight matrix.
 
-#### <span id="page-75-0"></span>4.3.3 Characterizing of the Factual Plausibility
+### <span id="page-75-0"></span>4.3.3 Characterizing of the Factual Plausibility
 
-#### Time Projection
+### Time Projection
 
 Before calculating factual plausibility as traditional KGE methods, we need to deal with temporal information well. Since in temporal KG facts are only valid during the given period, we believe the temporal constraint modifies only on relations. Thus, we use projection operations on*t<sup>s</sup>*and*t <sup>e</sup>*with*r*, and obtain the time-aware relation embedding *r<sup>t</sup>*∈ R*d*, as follows:
 
@@ -1319,7 +1293,7 @@ $$
 
 where · is the element-wise dot product and*r*∈ R*d*,*t<sup>s</sup>*∈ R*d*, and*t<sup>t</sup>*∈ R*d*are the embedding of*r*, *t<sup>s</sup>*,*te*, respectively.
 
-#### Factual Plausibility
+### Factual Plausibility
 
 Following with one of the most popular KGE models, transE [\[19\]](#page-110-0), we define the time-aware score function *s<sup>f</sup>*=*s*(*s*,*r<sup>t</sup>* ,*o*) as:
 
@@ -1330,11 +1304,10 @@ $$
 
 where *s<sup>f</sup>*is the factual plausibility, γ > 0 is a hyper-parameter,*s*,*r<sup>t</sup>* ,*o*,∈ R *d*, respectively, and*l*<sup>1</sup> is the *l*<sup>1</sup> norm.
 
-#### <span id="page-75-1"></span>4.3.4 Objective Function and Training Process
+### <span id="page-75-1"></span>4.3.4 Objective Function and Training Process
 
 Given a target fact (*s*,*r*,*o*,*t*) with its label (true or false), our model predicts whether this fact holds true using the following function:
 
-<span id="page-75-2"></span>
 $$
 \hat{y} = f(x) = \mathbf{W}_o(s_t \oplus s_c \oplus s_f) \tag{4.18}
 $$
@@ -1358,10 +1331,10 @@ Datasets. We use YAGO11k and Wikidata12k, two real-world datasets, as previous w
 
 Link Prediction. In order to evaluate KG embeddings, we adopt widely used link prediction tasks [\[19\]](#page-110-0), which contains the head prediction, relation prediction and tail prediction, three sub-tasks. Since
 
-| Dataset     | #Entity | #Relation | Train/Valid/Test |
+| Dataset | #Entity | #Relation | Train/Valid/Test |
 |-------------|---------|-----------|------------------|
-| YAGO11k     | 10,623  | 10        | 16.4k/2k/2k      |
-| Wikidata12k | 12,554  | 24        | 32.5k/4/4k       |
+| YAGO11k | 10,623 | 10 | 16.4k/2k/2k |
+| Wikidata12k | 12,554 | 24 | 32.5k/4/4k |
 
 Table 4.1: Details of the two datasets.
 
@@ -1377,71 +1350,69 @@ Baselines. As research on temporal KGE is very current, we not only compare with
 
 operation to map entities and relations into time-specific hyperplanes and then models the factual plausibility as TransE. Currently, RotatE and HyTE are the state-of-the-art models and achieved the best performance for (static) KGE and temporal KGE, respectively.
 
-#### <span id="page-78-0"></span>4.4.2 Results of Entity Predictions and Relation Prediction
+### <span id="page-78-0"></span>4.4.2 Results of Entity Predictions and Relation Prediction
 
 In this part, we show the effectiveness of our proposed temporal consistency for KG embeddings by comparing it with six baseline methods. In particular, we conducted experiments on both the YAGO11k and Wikidata12K datasets for head prediction, relation prediction and tail prediction tasks. As Table [4.2](#page-78-1) shows, our model is consistently better than all baseline methods on two datasets for entity prediction tasks. Our model gains large improvement on both the Mean Rank metric and Hit@10 metric compared with the state-of-the-art temporal KGE model (HyTE). For example, our model has the improvement from 16.0% to 26.9% on YAGO dataset, and got the improvement from 25.0% to 50.1% on Wikipedia dataset, respectively, using hit@1 metric. In addition, we observe that temporal-aware KGE models generally outperform the traditional (static) KGE models (on Mean Rank). This validates our claim that temporal information is useful for embeddings and can lead to better KEC performances. We also notice there are some traditional models (e.g., CompleEx, RotatE) that have much higher Hit@10 scores than HyTE. This is because CompleEx and RotatE are embedded in the complex field; thus, they have a richer representative ability than the models that are embedded in the real field. Though our model is still embedded in the real field, it still outperforms CompleEx and RotatE in a large margin. This confirms our claim that the temporal interactions are helpful for KG embeddings and shows the effectiveness of temporal consistency. As the number of relations (10 for YAGO and 24 for Wikidata, respectively) is small, we evaluate the relation prediction task on Hit@1 and Mean Rank metrics. Our model achieves a large gain on both datasets compared with traditional KGE models, and is very competitive compared with the HyTE model. Though our model mainly focuses on temporal interactions which rarely involves with relations, these strong competitive results verify that the time projection for factual plausibility still works well.
 
-| Dataset   | YAGO11K   |                |      |                | Wikidata12K |           |      |                |                |      |      |      |
+| Dataset | YAGO11K | | | | Wikidata12K | | | | | | | |
 |-----------|-----------|----------------|------|----------------|-------------|-----------|------|----------------|----------------|------|------|------|
-| Metric    | Mean Rank |                |      | Hit@10 (Hit@1) |             | Mean Rank |      |                | Hit@10 (Hit@1) |      |      |      |
-|           | tail      | head           | rel  | tail           | head        | rel       | tail | head           | rel            | tail | head | rel  |
-| TransE†   | 504       | 2020           | 1.7  | 4.4            | 1.2         | 1.7       | 520  | 740            | 1.35           | 11.0 | 6.0  | 88.4 |
-| HolE†     |           | 1828 1953 2.57 |      | 29.4           | 13.7        | 69.3      | 734  | 808            | 2.23           | 25.0 | 12.3 | 84.0 |
-| ComplEx   |           | 1825 2556 3.59 |      | 29.3           | 17.8        | 61.3      | 411  | 409            | 2.24           | 53.8 | 50.3 | 86.7 |
-| RotatE    |           | 1535 2244 4.17 |      | 16.8           | 11.9        | 32.9      |      | 1283 1264 4.98 |                | 42.1 | 39.1 | 52.8 |
-| t-TransE† | 292       | 1692 1.66      |      | 6.2            | 1.3         | 75.5      | 283  | 413            | 1.97           | 24.5 | 14.5 | 74.2 |
-| HyTE†     | 107       | 1069 1.23      |      | 38.4           | 16.0        | 81.2      | 179  | 237            | 1.13           | 41.6 | 25.0 | 92.6 |
-| our model | 90        | 670            | 1.21 | 42.4           | 26.9        | 79.9      | 109  | 193            | 1.29           | 59.4 | 50.1 | 93.1 |
+| Metric | Mean Rank | | | Hit@10 (Hit@1) | | Mean Rank | | | Hit@10 (Hit@1) | | | |
+| | tail | head | rel | tail | head | rel | tail | head | rel | tail | head | rel |
+| TransE† | 504 | 2020 | 1.7 | 4.4 | 1.2 | 1.7 | 520 | 740 | 1.35 | 11.0 | 6.0 | 88.4 |
+| HolE† | | 1828 1953 2.57 | | 29.4 | 13.7 | 69.3 | 734 | 808 | 2.23 | 25.0 | 12.3 | 84.0 |
+| ComplEx | | 1825 2556 3.59 | | 29.3 | 17.8 | 61.3 | 411 | 409 | 2.24 | 53.8 | 50.3 | 86.7 |
+| RotatE | | 1535 2244 4.17 | | 16.8 | 11.9 | 32.9 | | 1283 1264 4.98 | | 42.1 | 39.1 | 52.8 |
+| t-TransE† | 292 | 1692 1.66 | | 6.2 | 1.3 | 75.5 | 283 | 413 | 1.97 | 24.5 | 14.5 | 74.2 |
+| HyTE† | 107 | 1069 1.23 | | 38.4 | 16.0 | 81.2 | 179 | 237 | 1.13 | 41.6 | 25.0 | 92.6 |
+| our model | 90 | 670 | 1.21 | 42.4 | 26.9 | 79.9 | 109 | 193 | 1.29 | 59.4 | 50.1 | 93.1 |
 
 <span id="page-78-1"></span>Table 4.2: Entity prediction results of effectiveness experiments on two datasets. † denotes the results are directly taken from [\[6\]](#page-108-6).
 
-#### <span id="page-79-0"></span>4.4.3 Effectiveness of Context Selection
+### <span id="page-79-0"></span>4.4.3 Effectiveness of Context Selection
 
 In this part, we evaluate the effectiveness of our proposed context selection method for temporal consistency from (1) the abolition study and (2) the influence of context size. In order to have a deeper understanding of the influence of contexts, we collect the statistic information of the two used datasets, by counting the context length. Table [4.3](#page-79-1) displays the related statistics, e.g., the average length of contexts, max length of contexts, and the number of entities that have no context. We can see that the Wikipedia dataset has a richer but more complex context environment than the YAGO dataset (avg=5.17 v.s. avg=3.05). We also notice the number of relations in the Wikipedia dataset is much larger than the number in the YAGO dataset (24 v.s. 10), which also makes the context environment more complex.
 
 Table 4.3: Context statistics of the two datasets.
 
-| Dataset     | Avg Length | Max Length | # Empty |
+| Dataset | Avg Length | Max Length | # Empty |
 |-------------|------------|------------|---------|
-| YAGO11k     | 3.05       | 254        | 3812    |
-| Wikidata12k | 5.17       | 285        | 155     |
+| YAGO11k | 3.05 | 254 | 3812 |
+| Wikidata12k | 5.17 | 285 | 155 |
 
 <span id="page-79-1"></span>First, we evaluate our proposed context selection method against four variants, i.e., (1) randomly sample contexts, (2) use all contexts, (3) only use the entity-usefulness score function for context selection, (4) only use the relation-usefulness score function for context selection. From Table [4.4,](#page-79-2) we can see that all the methods have very comparative results on both datasets, which empirically validates the significance of temporal consistency for temporal KG embeddings. Our proposed method has the best performance on three metrics on the YAGO dataset. Regarding the Wikidata dataset, though our complete model is not consistently better than the relation-aware (or entity-aware) model, it is always better than all previous baseline models (e.g., HyTE) from Table [4.2.](#page-78-1) Moreover, we also observe that the models with entity-aware selection method and relation-aware selection method generally have better performance than the random selection method and not the selection model on the YAGO dataset. This further empirically validates our claim that not all contexts are useful, and it also verifies the effectiveness of our proposed relation and entity usefulness function.
 
-<span id="page-79-2"></span>
 
-| Table 4.4: Entity prediction results of effectiveness of context selection on two datasets. |  |  |  |
+| Table 4.4: Entity prediction results of effectiveness of context selection on two datasets. | | | |
 |---------------------------------------------------------------------------------------------|--|--|--|
 |---------------------------------------------------------------------------------------------|--|--|--|
 
-| Dataset         | YAGO11K   |      |      |                |                | Wikidata12K |      |      |                |      |                |     |
+| Dataset | YAGO11K | | | | | Wikidata12K | | | | | | |
 |-----------------|-----------|------|------|----------------|----------------|-------------|------|------|----------------|------|----------------|-----|
-|                 | Mean Rank |      |      | Hit@10 (Hit@1) |                | Mean Rank   |      |      | Hit@10 (Hit@1) |      |                |     |
-| Metric          | tail      | head | rel  | tail           | head           | rel         | tail | head | rel            | tail | head           | rel |
-| Random Context  | 94        | 693  | 1.22 |                | 39.7 25.7 79.3 |             | 149  | 183  | 1.07           |      | 57.3 50.6 96.2 |     |
-| All Context     | 95        | 701  | 1.21 |                | 40.7 25.8 80.5 |             | 126  | 143  | 1.10           |      | 58.6 51.9 96.7 |     |
-| Ent-Aware Model | 91        | 696  | 1.21 |                | 41.1 25.5 79.6 |             | 122  | 134  | 1.13           |      | 59.2 50.8 92.8 |     |
-| Rel-Aware Model | 85        | 673  | 1.22 |                | 41.4 26.0 79.0 |             | 111  | 203  | 1.34           |      | 58.3 49.4 91.3 |     |
-| Complete Model  | 90        | 670  | 1.21 |                | 42.4 26.9 79.9 |             | 109  | 193  | 1.29           |      | 59.4 50.1 93.1 |     |
+| | Mean Rank | | | Hit@10 (Hit@1) | | Mean Rank | | | Hit@10 (Hit@1) | | | |
+| Metric | tail | head | rel | tail | head | rel | tail | head | rel | tail | head | rel |
+| Random Context | 94 | 693 | 1.22 | | 39.7 25.7 79.3 | | 149 | 183 | 1.07 | | 57.3 50.6 96.2 | |
+| All Context | 95 | 701 | 1.21 | | 40.7 25.8 80.5 | | 126 | 143 | 1.10 | | 58.6 51.9 96.7 | |
+| Ent-Aware Model | 91 | 696 | 1.21 | | 41.1 25.5 79.6 | | 122 | 134 | 1.13 | | 59.2 50.8 92.8 | |
+| Rel-Aware Model | 85 | 673 | 1.22 | | 41.4 26.0 79.0 | | 111 | 203 | 1.34 | | 58.3 49.4 91.3 | |
+| Complete Model | 90 | 670 | 1.21 | | 42.4 26.9 79.9 | | 109 | 193 | 1.29 | | 59.4 50.1 93.1 | |
 
 Now we study the influence of context size on two datasets. As Table [4.5](#page-80-1) shows, we can see the context size plays different roles on different datasets. On the YAGO dataset, the variants of
 
 different size have similar performance. This is because the YAGO dataset has a relatively simple context environment (e.g., avg=3.05). When*w*=4 or *w*=8, our model generally has better performance than *w*=2 or *w*=16 on the YAGO dataset. This is consistent with our expectation because, when the context size is too small or too large, the representations of selected contexts are in limited. However, on the Wikipedia dataset, which is in a richer and more complex contexts environment, the results are very different from the YAGO dataset. In particular, when the context size is very small (*w*=2), the performance is very bad, but when the context size is relatively large (e.g., *w*=4), the results are getting better. We can see that, when *w*=8 (and *w*=16) our model achieves great improvements from 13.9% to 55.9% (and to 59.4%) for tail prediction on hit@10 metric. This phenomenon highlights the importance of contexts for temporal consistency and empirically validates a claim that a proper context size is matched with the environment of a dataset.
 
-<span id="page-80-1"></span>
 
-| Dataset    | YAGO11K |           |      |      | Wikidata12K    |      |           |      |      |                |      |      |
+| Dataset | YAGO11K | | | | Wikidata12K | | | | | | | |
 |------------|---------|-----------|------|------|----------------|------|-----------|------|------|----------------|------|------|
-|            |         | Mean Rank |      |      | Hit@10 (Hit@1) |      | Mean Rank |      |      | Hit@10 (Hit@1) |      |      |
-| Metric     | tail    | head      | rel  | tail | head           | rel  | tail      | head | rel  | tail           | head | rel  |
-| Context-2  | 92      | 685       | 1.22 | 41.4 | 25.8           | 79.7 | 1283      | 1284 | 9.72 | 11.1           | 9.4  | 46.7 |
-| Context-4  | 88      | 674       | 1.21 | 41.5 | 26.6           | 79.9 | 766       | 819  | 3.94 | 13.9           | 12.4 | 69.4 |
-| Context-8  | 90      | 670       | 1.21 | 42.4 | 26.0           | 79.9 | 150       | 294  | 1.58 | 55.9           | 47.2 | 91.6 |
-| Context-16 | 86      | 677       | 1.21 | 40.6 | 25.8           | 80.3 | 109       | 193  | 1.29 | 59.4           | 50.1 | 93.1 |
+| | | Mean Rank | | | Hit@10 (Hit@1) | | Mean Rank | | | Hit@10 (Hit@1) | | |
+| Metric | tail | head | rel | tail | head | rel | tail | head | rel | tail | head | rel |
+| Context-2 | 92 | 685 | 1.22 | 41.4 | 25.8 | 79.7 | 1283 | 1284 | 9.72 | 11.1 | 9.4 | 46.7 |
+| Context-4 | 88 | 674 | 1.21 | 41.5 | 26.6 | 79.9 | 766 | 819 | 3.94 | 13.9 | 12.4 | 69.4 |
+| Context-8 | 90 | 670 | 1.21 | 42.4 | 26.0 | 79.9 | 150 | 294 | 1.58 | 55.9 | 47.2 | 91.6 |
+| Context-16 | 86 | 677 | 1.21 | 40.6 | 25.8 | 80.3 | 109 | 193 | 1.29 | 59.4 | 50.1 | 93.1 |
 
 Table 4.5: Entity prediction results on different context size.
 
-#### <span id="page-80-0"></span>4.4.4 Results of Time Predictions
+### <span id="page-80-0"></span>4.4.4 Results of Time Predictions
 
 In this part, we evaluate the effectiveness of our proposed contextual consistency for improving time predictions. In particular, we conducted experiments on two different settings, i.e., (1) interval prediction (2) start/end predictions. We elaborate upon these two settings in the following sections.
 
@@ -1451,15 +1422,14 @@ As Table [4.6](#page-81-0) shows, our proposed models are consistently better th
 
 <span id="page-80-2"></span><sup>5</sup>According to [\[6\]](#page-108-6), there are as 61 and 78 different spans for YAGO and Wikidata dataset, respectively.
 
-<span id="page-81-0"></span>
 
-| Dataset           | YAGO11K |         | Wikidata12K |         |  |  |
+| Dataset | YAGO11K | | Wikidata12K | | | |
 |-------------------|---------|---------|-------------|---------|--|--|
-| Metric            | MR-span | MR-year | MR-span     | MR-year |  |  |
-| HyTE-TANS         | 14.0    | –       | 29.3        | –       |  |  |
-| HyTE-TDNS         | 9.88    | –       | 17.6        | –       |  |  |
-| Only sf<br>and st | 15.87   | 32.22   | 10.08       | 12.94   |  |  |
-| Complete model    | 6.92    | 13.98   | 8.68        | 11.26   |  |  |
+| Metric | MR-span | MR-year | MR-span | MR-year | | |
+| HyTE-TANS | 14.0 | – | 29.3 | – | | |
+| HyTE-TDNS | 9.88 | – | 17.6 | – | | |
+| Only sf<br>and st | 15.87 | 32.22 | 10.08 | 12.94 | | |
+| Complete model | 6.92 | 13.98 | 8.68 | 11.26 | | |
 
 Table 4.6: Time Interval prediction results on two datasets.
 
@@ -1469,22 +1439,22 @@ because, in practice, a specific year is more meaningful than a class of label, 
 
 <span id="page-81-1"></span>Table 4.7: Interval prediction results on different context size.
 
-| Dataset    | YAGO11K |                    | Wikidata12K |         |  |  |
+| Dataset | YAGO11K | | Wikidata12K | | | |
 |------------|---------|--------------------|-------------|---------|--|--|
-| Metric     | MR-span | MR-year<br>MR-span |             | MR-year |  |  |
-| Context-2  | 8.61    | 17.04              | 12.95       | 14.78   |  |  |
-| Context-4  | 9.70    | 19.21              | 13.97       | 17.02   |  |  |
-| Context-8  | 6.92    | 13.98              | 10.76       | 13.43   |  |  |
-| Context-16 | 7.95    | 17.93              | 8.68        | 11.26   |  |  |
+| Metric | MR-span | MR-year<br>MR-span | | MR-year | | |
+| Context-2 | 8.61 | 17.04 | 12.95 | 14.78 | | |
+| Context-4 | 9.70 | 19.21 | 13.97 | 17.02 | | |
+| Context-8 | 6.92 | 13.98 | 10.76 | 13.43 | | |
+| Context-16 | 7.95 | 17.93 | 8.68 | 11.26 | | |
 
-| Dataset              | YAGO11K |         |         | Wikidata12K |  |  |
+| Dataset | YAGO11K | | | Wikidata12K | | |
 |----------------------|---------|---------|---------|-------------|--|--|
-| Metric               | MR-span | MR-year | MR-span | MR-year     |  |  |
-| Random Contexts      | 12.13   | 26.45   | 10.20   | 12.61       |  |  |
-| All Contexts         | 11.31   | 22.06   | 9.65    | 12.90       |  |  |
-| Entity Aware Model   | 8.02    | 15.16   | 9.20    | 11.81       |  |  |
-| Relation Aware Model | 7.62    | 15.19   | 9.69    | 11.78       |  |  |
-| Complete Model       | 6.92    | 13.98   | 8.68    | 11.26       |  |  |
+| Metric | MR-span | MR-year | MR-span | MR-year | | |
+| Random Contexts | 12.13 | 26.45 | 10.20 | 12.61 | | |
+| All Contexts | 11.31 | 22.06 | 9.65 | 12.90 | | |
+| Entity Aware Model | 8.02 | 15.16 | 9.20 | 11.81 | | |
+| Relation Aware Model | 7.62 | 15.19 | 9.69 | 11.78 | | |
+| Complete Model | 6.92 | 13.98 | 8.68 | 11.26 | | |
 
 <span id="page-81-2"></span>Table 4.8: Interval prediction results on different context selection method.
 
@@ -1494,14 +1464,13 @@ see that the context size plays an important role for interval prediction, e.g.,
 
 Table 4.9: Start/end time prediction results on two datasets.
 
-<span id="page-82-0"></span>
 
-| Dataset           |            | YAGO11K     | Wikidata12K |           |  |
+| Dataset | | YAGO11K | Wikidata12K | | |
 |-------------------|------------|-------------|-------------|-----------|--|
-| Metric∗           | MR-span    | MR-year     | MR-span     | MR-year   |  |
-| HyTE-TDNS         | 18.07/6.63 | 33.60/14.32 | 5.97/3.68   | 9.44/7.47 |  |
-| Only sf<br>and st | 10.87/2.22 | 17.43/5.28  | 3.04/2.14   | 8.21/6.62 |  |
-| Complete model    | 6.43/1.86  | 12.56/4.39  | 2.91/2.11   | 6.44/4.84 |  |
+| Metric∗ | MR-span | MR-year | MR-span | MR-year | |
+| HyTE-TDNS | 18.07/6.63 | 33.60/14.32 | 5.97/3.68 | 9.44/7.47 | |
+| Only sf<br>and st | 10.87/2.22 | 17.43/5.28 | 3.04/2.14 | 8.21/6.62 | |
+| Complete model | 6.43/1.86 | 12.56/4.39 | 2.91/2.11 | 6.44/4.84 | |
 
 ∗ In the form of start prediction/end prediction on mean rank metrics.
 
@@ -1511,33 +1480,33 @@ Start/End Prediction. We also conducted experiments on a new protocol, namely, t
 
 space of the end time is generally smaller than the search space of the start time, as facts in both datasets are talking about the events in the past 100 years. For example, the start time of a marriage can vary from the couple's 20s to the end time of the marriage; however, the end time can only vary from the start time to the current time (i.e., year 2020). We omitted the results of different context size and of different select methods, since they have similar a trend as Table [4.7](#page-81-1) and Table [4.8.](#page-81-2)
 
-#### 4. EXPERIMENTS 71
+### 4. EXPERIMENTS 71
 
 The following manuscript has been incorporated as Chapter [5.](#page-86-0)
 
 1. Yu Liu, Wen Hua, Kexuan Xin and Xiaofang Zhou, Temporal Knowledge Graph Alignment with Entity Evolving, Expected to submit to the Conference on Special Interest Group on Information Retrieval (SIGIR), 2021.
 
-| Contributor   | Statement of contribution | %   |
+| Contributor | Statement of contribution | % |
 |---------------|---------------------------|-----|
-| Yu Liu        | algorithm design          |     |
-|               | experiment design         | 50  |
-|               | experiment implementation | 100 |
-|               | paper writing             | 70  |
-|               | idea discussion           | 60  |
-| Wen Hua       | algorithm design          | 20  |
-|               | experiment design         | 40  |
-|               | paper writing             | 30  |
-|               | proof-reading             | 50  |
-|               | idea discussion           | 20  |
-| Kexuan Xin    | experiment design         | 10  |
-|               | proof-reading             | 10  |
-|               | idea discussion           | 10  |
-| Xiaofang Zhou | proof-reading             | 40  |
-|               | idea discussion           | 10  |
+| Yu Liu | algorithm design | |
+| | experiment design | 50 |
+| | experiment implementation | 100 |
+| | paper writing | 70 |
+| | idea discussion | 60 |
+| Wen Hua | algorithm design | 20 |
+| | experiment design | 40 |
+| | paper writing | 30 |
+| | proof-reading | 50 |
+| | idea discussion | 20 |
+| Kexuan Xin | experiment design | 10 |
+| | proof-reading | 10 |
+| | idea discussion | 10 |
+| Xiaofang Zhou | proof-reading | 40 |
+| | idea discussion | 10 |
 
-# <span id="page-86-0"></span>Chapter 5
+## <span id="page-86-0"></span>Chapter 5
 
-# Temporal Knowledge Graph Alignment
+## Temporal Knowledge Graph Alignment
 
 ## <span id="page-86-1"></span>5.1 Introduction
 
@@ -1590,7 +1559,7 @@ In particular, we follow the framework of AttrGNN [\[23\]](#page-110-4) and spli
 <!-- Image Description: This flowchart illustrates a knowledge graph (KG) alignment method. Two KGs (KG1, KG2) provide entity information (names, relation, character, digit, and time facts) which are fed into separate fact encoders (name, relation, attribute, and time modules). These produce entity embeddings (name-view, rel-view, attr-view, and time-view). These embeddings, along with seed pairs, are input into a graph alignment module. A multi-channel ensemble then generates aligned pairs. The diagram details the process of aligning two knowledge graphs by generating and combining embeddings from various fact types. -->
 
 <span id="page-90-0"></span>Figure 5.2: An overview of our framework for temporal KG alignment.
-*D c*,*D d*,*D <sup>t</sup>*which are splitting from*D*according to the object type. For each type of information, we apply a type-specific encoder to learn the entity representations under the corresponding channel. Formally, consider a type*u*of information*D u*; there is an encoder*E <sup>u</sup>*=*fu*(*D u*) where*u* ∈ {*n*,*r*, *c*,*d*,*t*}, *E <sup>u</sup>* ∈ R |*E*|×*d* , |*E*| = |*E*<sup>1</sup> ∪*E*2|. Since our work focuses on exploiting the temporal information for temporal KG alignment, so for other types of information, we use the same architecture proposed by AttrGNN [\[23\]](#page-110-4), i.e., name channel, relation channel and attribute channel. In particular, we use a mean aggregator [\[170\]](#page-124-1) and stacked graph attention networks (GATs) [\[171\]](#page-124-2) to gather neighbor information and to generate entity embeddings, respectively. We will elaborate upon the details of our proposed the time encoder in the following section [5.3.3.](#page-93-0)
+**D c:** ,*D d*,*D <sup>t</sup>*which are splitting from*D*according to the object type. For each type of information, we apply a type-specific encoder to learn the entity representations under the corresponding channel. Formally, consider a type*u*of information*D u*; there is an encoder*E <sup>u</sup>*=*fu*(*D u*) where*u* ∈ {*n*,*r*, *c*,*d*,*t*}, *E <sup>u</sup>* ∈ R |*E*|×*d* , |*E*| = |*E*<sup>1</sup> ∪*E*2|. Since our work focuses on exploiting the temporal information for temporal KG alignment, so for other types of information, we use the same architecture proposed by AttrGNN [\[23\]](#page-110-4), i.e., name channel, relation channel and attribute channel. In particular, we use a mean aggregator [\[170\]](#page-124-1) and stacked graph attention networks (GATs) [\[171\]](#page-124-2) to gather neighbor information and to generate entity embeddings, respectively. We will elaborate upon the details of our proposed the time encoder in the following section [5.3.3.](#page-93-0)
 
 When obtaining the entity representations *E u*under view*u*, we use the given seed pairs *S* and the structure graph G*<sup>r</sup>*to do the graph alignment, where*S* = {(*e*1, *e*2)|*e*<sup>1</sup> ∈ *E*1, *e*<sup>2</sup> ∈ *E*2}. G*<sup>r</sup>* = (V*<sup>r</sup>* ,E*r*) is an undirected graph that constructed from all relation facts *D<sup>r</sup>* , and composed of the vertex set V*<sup>r</sup>*=*E*1∪*E*<sup>2</sup> and the edge set E*<sup>r</sup>* . Edge (*eu*, *ev*) exists in E*<sup>r</sup>* if there exists at least one fact(*eu*,∗, *ev*) ∈ *D<sup>r</sup>*(∗ means any relation in*R*.). G*<sup>r</sup>* enable messages passing from neighbors for updating the entity representations as previous structure-based works [\[20,](#page-110-1) [23,](#page-110-4) [133,](#page-120-5) [134\]](#page-120-6). Using G*<sup>r</sup>*and entity embeddings*E u*, we can obtain the similarity matrix*M*(*u*) as follows:
 
@@ -1602,11 +1571,11 @@ $$
 $$
 M^{(u)} = cosine(\boldsymbol{E}_o^u)
 $$
- (5.2)
+(5.2)
 
 where *u*is a specific type, e.g., name, relation facts, etc. *GCNs*(·) is a stacked graph convolution networks (GCNs) taking *E u* and G*<sup>r</sup>*as input,*E u <sup>o</sup>* ∈ R |*E*|×*d*is the output of GCN layers. In particular,*GCNs*(·) is stacked by 2 identical convolutional layers, and each layer has the same hidden dimension, i.e., *d*. *M*(*u*) ∈ R |*E*1|×|*E*2| is the similarity matrix of channel *u*calculated using cosine similarity. In particular, the value of*M*(*u*) at the *i*th row *j*th column is calculate as *mi*, *<sup>j</sup>*=*cosine*(*e<sup>i</sup>*,*e <sup>j</sup>*) where *e<sup>i</sup>*∈*E*<sup>1</sup> and *e <sup>j</sup>*∈*E*2. Finally, we assemble all similarity matrices using *avg*() operation or by learning the weights of each similarity matrix by an SVM classifier as [\[23\]](#page-110-4) did.
 
-#### <span id="page-91-0"></span>5.3.2 Predicate Clustering
+### <span id="page-91-0"></span>5.3.2 Predicate Clustering
 
 In this section, we will introduce our proposed clustering approach, which is essential for improving the performance of our time fact encoder, since only relevant contexts are useful for capturing the entity evolving.
 
@@ -1629,7 +1598,7 @@ where*count*(·) counts the frequency of predicate · appearing in the observed 
 $$
 l_a = level(a) = \begin{cases} 0 & prop_a > \delta_0 \\ 1 & prop_a < \delta_1 \\ unknown & otherwise \end{cases}
 $$
- (5.4)
+(5.4)
 
 And we calculate the proportion of predicate *p<sup>a</sup>*as follows:
 *prop<sup>a</sup>*=*count*(*pa*) *count*(*parent type*(*pa*)) (5.5)
@@ -1677,7 +1646,7 @@ $$
 
 Therefore, for a set of time contexts*c<sup>t</sup>* [*e*] = {(*e*, *p<sup>i</sup>*,*vi*)} *n i*=1 of an entity *e*, according to the predicate clusters C = {*C*1,...,*Ck*}, we can obtain the clustered contexts C*<sup>t</sup>* [*e*] = {*C*1[*e*],...,*C<sup>k</sup>* [*e*]} where *Cj* [*e*] = {(*e*, *p<sup>j</sup>*,*v <sup>j</sup>*)|*p<sup>i</sup>*∈*Cj*}.
 
-#### <span id="page-93-0"></span>5.3.3 Time Facts Encoder with Time Graphs
+### <span id="page-93-0"></span>5.3.3 Time Facts Encoder with Time Graphs
 
 Recall that we have the assumption that if two entities have the same/similar contexts, they are likely to be equivalent in the real world. However, we observe that entities are evolving over time, and old predicate values will transit to new values. For example, the value of *career*predicate will transit from "lecture" to "professor" for a teacher who got promotion, and the*occupation*of a football player can be also changed to "coach" after years of his retirement. So in our module, we aims on capturing the value transitions by simulating the entity evolving process. Instead of charactering each individual context, we propose a set view of modeling contexts since we believe an entity is more likely to be represented by a group of contexts, rather than an individual one, i.e.,*e* ≈ {(*e*, *p<sup>i</sup>*,*vi*)} and *e* 6≈ (*e*, *p<sup>i</sup>*,*vi*). In addition, contexts in a cluster tend to describe the same aspect of entity and these contexts naturally have temporal orders, e.g., *debut*, *playfor*, *activeYears*and*retire*, which is useful for modeling entity evolving paths.
 
@@ -1692,7 +1661,6 @@ as Figure [5.4](#page-94-0) shows. In particular, we generate two kinds of inter
 
 In order to capture the value transition and simulate the evolving path of each aspect, we refine the time graph*G<sup>a</sup>*to a set of window-aware time graphs, i.e., (G (1)*t*,G (2)*t* ,..., G (*w*) *t*) where*w*is the maximum window size. Formally, given entity*e*, a set of time contexts *c<sup>t</sup>* [*e*] = {(*e*, *p<sup>i</sup>*,*vi*)} *n i*=1 and the clustering information C = {*C*1,...,*Ck*}, we construct the time graph G (*m*) *<sup>t</sup>*with window*m* as follows:
 
-<span id="page-94-0"></span>
 $$
 \mathbb{G}_t^{(m)} = (\mathbb{V}_t, \mathbb{E}_t^{(m)}) \tag{5.12}
 $$
@@ -1747,15 +1715,14 @@ In this section, we evaluate our proposed model for temporal knowledge graph ali
 
 Datasets. We test our model on both cross-lingual and monolingual datasets: DBP15k [\[172\]](#page-124-3) and DWY100k [\[127\]](#page-119-8). DBP15k is a cross-lingual dataset collected from DBpedia for KG alignment. DBP15k contains three subsets, a Chinese to English (DBP*ZH*−*EN*), a Japanese to English (DBP*JA*−*EN*), and a French to English (DBP*FR*−*EN*). DWY100k is a larger dataset, and it contains two monolingual subsets: DBpedia to Wikidata (DWY*W D*) and DBpedia to YAGO (DWY*Y G*). As, currently, there are no public available datasets for temporal KG alignment, we resort to the attributes facts that contain time expressions. For a fairly comparison, we don't add additional temporal facts into the KG alignment datasets. We split the original attribute facts into various parts according to the object value type, i.e., character facts, digit facts and time facts. The statistics information of these two datasets is shown in Table [5.1.](#page-96-2) In the following section, we will verify our proposed model can improve the overall performance of KG alignment by exploiting on time facts, though the size of the time facts is relatively small.
 
-<span id="page-96-2"></span>
 
-| Dataset  | #Entity   | #Relation Facts | #Character Facts | #Digit Facts | #Time Facts |
+| Dataset | #Entity | #Relation Facts | #Character Facts | #Digit Facts | #Time Facts |
 |----------|-----------|-----------------|------------------|--------------|-------------|
-| DBPZH−EN | 19k-19k   | 70k-95k         | 170k-147k        | 64k-59k      | 36k-22k     |
-| DBPJA−EN | 19k-19k   | 77k-93k         | 137k-142k        | 72k-60k      | 25k-14k     |
-| DBPFR−EN | 19k-19k   | 105k-115k       | 120k-160k        | 49k-66k      | 26k-22k     |
-| DWYW D   | 100k-100k | 448k-463k       | 567k-302k        | 324k-149k    | 98k-170k    |
-| DWYY G   | 100k-100k | 502k-428k       | 625k-406k        | 114k-176k    | 87k-177k    |
+| DBPZH−EN | 19k-19k | 70k-95k | 170k-147k | 64k-59k | 36k-22k |
+| DBPJA−EN | 19k-19k | 77k-93k | 137k-142k | 72k-60k | 25k-14k |
+| DBPFR−EN | 19k-19k | 105k-115k | 120k-160k | 49k-66k | 26k-22k |
+| DWYW D | 100k-100k | 448k-463k | 567k-302k | 324k-149k | 98k-170k |
+| DWYY G | 100k-100k | 502k-428k | 625k-406k | 114k-176k | 87k-177k |
 
 Table 5.1: Details of the used datasets.
 
@@ -1765,19 +1732,18 @@ Hyperparameters and training details. We select the hyperparameters of our model
 
 for the time graphs. For the DBSCAN algorithm, we use the sklearn.cluster package [\[175\]](#page-124-6). We set θ<sup>0</sup> = 0.8 and θ<sup>1</sup> = 0.1 for a relatively high accuracy when estimate the level of predicates. In particular, we set*eps*= 0.1 and set*minsamples*= 5. We adopt the public geometric deep learning library PyTorch Geometric [\[176\]](#page-125-0) for the implementation of GCNs and GATs. Our work has five channels (name, structure, literal, digit and time). Each channel captures one kind of information to do the kg alignment. Following the previous work [\[23\]](#page-110-4), we use two approaches to assemble all channels together, namely,*avg*(·) and *svm*(·), to obtain the final similarity matrix for evaluation. *avg*(·) gives equal weight to each channel and *svm*(·) learns the weights of each channel via an SVM classifier.
 
-<span id="page-97-0"></span>
 
-| model                     | Structure | Attribute | Name | Time | Iteration |
+| model | Structure | Attribute | Name | Time | Iteration |
 |---------------------------|-----------|-----------|------|------|-----------|
-| JAPE [172]                | X         |           |      |      |           |
-| GCN-Align [20]            | X         | X         |      |      |           |
-| AttrE [173]               | X         | X         | X    |      |           |
-| BootEA [127]              | X         |           |      |      | X         |
-| MultiKE [22]              | X         | X         | X    |      |           |
-| RDGCN [21]                | X         |           | X    |      |           |
-| DGMC [136]                | X         |           | X    |      |           |
-| AttrGNN [23]              | X         | X         | X    |      |           |
-| TimeAttr (our model∗<br>) | X         | X         | X    | X    |           |
+| JAPE [172] | X | | | | |
+| GCN-Align [20] | X | X | | | |
+| AttrE [173] | X | X | X | | |
+| BootEA [127] | X | | | | X |
+| MultiKE [22] | X | X | X | | |
+| RDGCN [21] | X | | X | | |
+| DGMC [136] | X | | X | | |
+| AttrGNN [23] | X | X | X | | |
+| TimeAttr (our model∗<br>) | X | X | X | X | |
 
 Table 5.2: A summary of baseline models <sup>∗</sup> .
 
@@ -1787,44 +1753,43 @@ Hard Setting. Recently, the bias of entity names has been realized, as reported 
 
 Baselines. As research on temporal KG alignment is very current, we can only compare it with state-of-the-art KG alignment models. For a fairly comparison, we don't add additional temporal facts into the KG alignment datasets. We only split the original attribute facts into time facts and non-time facts. Our model works well on capturing the correlations in time facts and can improve the overall performance after ensemble. In particular, we compare it with 7 baseline models, as Table [5.2](#page-97-0) shows. Currently, almost every model leverages structural information for alignment, and most of the models use name information for initialization and for enhancing the performance. These baseline models are all new and published recently (from 2017 to 2020). In particular, AttrGNN is currently the best model that leverages the structure, attribute and name information. TimeAttr (our proposed model) is developed on AttrGNN and focuses on the leveraging of temporal knowledge (time facts in the experiments). In particular, this temporal information is ignored by all previous works, including AttrGNN. However, temporal information is extremely important for improving the overall performance of entity alignment. Therefore, our model focuses on temporal information and aims to capture the temporal interactions of entities. More importantly, our model uses clustering approach to locate relevant contexts and learn the underlying interactions of these contexts to capture the entity evolving behaviours, which are the unique contributions compared with previous works. As mentioned in [\[23\]](#page-110-4) and [\[125\]](#page-119-6), there is a *name bias*issue in current KG alignment datasets. therefore; we conduct our experiments on the hard setting [\[23\]](#page-110-4) of KG alignment which better reflects the robustness of these methods in real-world situations.
 
-#### <span id="page-98-0"></span>5.4.2 Main Results
+### <span id="page-98-0"></span>5.4.2 Main Results
 
 In this part, we show the effectiveness of our proposed model for temporal KG alignment by comparing it with eight popular baseline models. We conducted experiments on both DBP and DWY datasets and evaluate our model on Hit@1, Hit@10 and MRR. In particular, Table [5.3](#page-99-0) and Table [5.4](#page-100-1) shows the results on the smaller dataset DBP15k and larger dataset DWY100k, respectively. We also conduct experiments on the*x* +*time*setting to verify the effectiveness of our model on time facts, which is shown in Table [5.5.](#page-100-2) From Table [5.3,](#page-99-0) we can see our model is consistently better than the top 7 baseline methods on all three datasets on all three evaluation metrics. Our model outperforms than the state-of-the art attribute-based model AttrGNN (middle ones). In particular, comparing it with AttrGNN model, we follow previous ensemble methods [\[23\]](#page-110-4) to obtain the weight of each channel for a fair comparison. Using the*svm*(·) ensemble method, our model consistently gains large improvements on all datasets on all metrics. For example, our model improves the hit@1 metric from 65.90 to 69.89, and from 88.64 to 88.96 on DBP*ZH*−*EN* dataset and on DBP*FR*−*EN*dataset, respectively. This verifies the effectiveness of our model on time facts, especially considering that the size of the time fact is relatively small compared with relation facts and character facts. The performance of our model has a slight drop using*avg*(·) ensemble method on some metrics on DBP*JA*−*EN* and DBP*FR*−*EN*. However, it still (1) has a large margin on Hit@10 and has improvement on MRR and (2) outperforms on other datasets. The reason of performance dropping slightly using *avg*(·) is that the *avg*(·) ensemble method gives equal weight to all channel, and thus dilutes the effectiveness of the name information. As Table [5.5](#page-100-2) shows, we can see that the *name* information plays an very important role, even on the hard setting. In addition, we also notice that RDGCN has the best performance among the top-7 baseline models, especially compared with AttrE and MultiKE, the models that also use name information. This indicates the importance of passing information to neighbors. DGMC also leverages graph-neural networks to communicate information with neighbors, however, it still does not performance as well as
 
 RDGCN. This is because DGMC ignores the relations (e.g., predicates) which also provide important semantics. However, AttrGNN has much a better performance than RDGCN on all datasets, because AttrGNN not only leverages GNNs on structure, but also incorporates attributes information via GNNs. This also verifies our claim that attribute information is important for KG alignment. Lastly, we observe that models with name information (e.g., RDGCN and AttrGNN) have better performance than those models without using name information, even on the hard setting. This also shows the severe of name bias. Table [5.4](#page-100-1) shows the similar results on DWY datasets on the regular setting. We
 
-<span id="page-99-0"></span>
 
-| Dataset     | DBPZH−EN |       | DBPJA−EN |       |       | DBPFR−EN |       |       |       |
+| Dataset | DBPZH−EN | | DBPJA−EN | | | DBPFR−EN | | | |
 |-------------|----------|-------|----------|-------|-------|----------|-------|-------|-------|
-| Metric      | H@1      | H@10  | MMR      | H@1   | H@10  | MMR      | H@1   | H@10  | MMR   |
-| JAPE        | 34.97    | 56.63 | 0.451    | 31.07 | 52.03 | 0.410    | 25.30 | 48.29 | 0.361 |
-| GCN-Align   | 36.59    | 64.66 | 0.464    | 33.94 | 65.30 | 0.448    | 30.32 | 63.69 | 0.414 |
-| AttrE       | 27.64    | 57.77 | 0.378    | 25.38 | 57.28 | 0.361    | 28.53 | 63.08 | 0.399 |
-| BootEA      | 51.26    | 74.60 | 0.593    | 49.31 | 74.64 | 0.578    | 51.28 | 76.93 | 0.603 |
-| MultiKE     | 27.92    | 35.21 | 0.306    | 48.18 | 55.68 | 0.509    | 64.69 | 69.54 | 0.665 |
-| RDGCN       | 60.44    | 76.60 | 0.662    | 68.19 | 83.77 | 0.737    | 82.87 | 93.12 | 0.866 |
-| DGMC        | 50.06    | 66.93 | –        | 60.26 | 71.78 | –        | 83.50 | 90.47 | –     |
-| AttrGNNavg  | 66.21    | 81.81 | 0.719    | 75.72 | 88.76 | 0.805    | 86.41 | 94.67 | 0.894 |
-| AttrGNNsvm  | 65.90    | 81.16 | 0.716    | 77.39 | 90.33 | 0.821    | 88.64 | 95.64 | 0.912 |
-| TimeAttravg | 68.22    | 85.16 | 0.742    | 75.50 | 89.90 | 0.807    | 85.60 | 95.02 | 0.891 |
-| TimeAttrsvm | 69.89    | 85.57 | 0.756    | 78.18 | 91.46 | 0.829    | 88.96 | 96.50 | 0.916 |
+| Metric | H@1 | H@10 | MMR | H@1 | H@10 | MMR | H@1 | H@10 | MMR |
+| JAPE | 34.97 | 56.63 | 0.451 | 31.07 | 52.03 | 0.410 | 25.30 | 48.29 | 0.361 |
+| GCN-Align | 36.59 | 64.66 | 0.464 | 33.94 | 65.30 | 0.448 | 30.32 | 63.69 | 0.414 |
+| AttrE | 27.64 | 57.77 | 0.378 | 25.38 | 57.28 | 0.361 | 28.53 | 63.08 | 0.399 |
+| BootEA | 51.26 | 74.60 | 0.593 | 49.31 | 74.64 | 0.578 | 51.28 | 76.93 | 0.603 |
+| MultiKE | 27.92 | 35.21 | 0.306 | 48.18 | 55.68 | 0.509 | 64.69 | 69.54 | 0.665 |
+| RDGCN | 60.44 | 76.60 | 0.662 | 68.19 | 83.77 | 0.737 | 82.87 | 93.12 | 0.866 |
+| DGMC | 50.06 | 66.93 | – | 60.26 | 71.78 | – | 83.50 | 90.47 | – |
+| AttrGNNavg | 66.21 | 81.81 | 0.719 | 75.72 | 88.76 | 0.805 | 86.41 | 94.67 | 0.894 |
+| AttrGNNsvm | 65.90 | 81.16 | 0.716 | 77.39 | 90.33 | 0.821 | 88.64 | 95.64 | 0.912 |
+| TimeAttravg | 68.22 | 85.16 | 0.742 | 75.50 | 89.90 | 0.807 | 85.60 | 95.02 | 0.891 |
+| TimeAttrsvm | 69.89 | 85.57 | 0.756 | 78.18 | 91.46 | 0.829 | 88.96 | 96.50 | 0.916 |
 
 Table 5.3: Temporal KG alignment results on DBP datasets on hard setting.
 
 conducted experiments on the regular setting because there is no public available DWY dataset on the hard setting. We can see from Table [5.4](#page-100-1) that our model has improvements on all metrics compared with the AttrGNN model. For example, on the DWY*W D*dataset, our model improves the performance on Hit@1, from 85.50 to 97.62 on the*svg*(·) ensembles. As the most part of our model is similar to AttrGNN, this again verifies the effectiveness of incorporating temporal information. In addition, we found both AttrGNN and TimeAttr achieve great results compared with the top 4 baseline models, e.g., almost 100% correct on hit@1 on the DWY*Y G*dataset. This reveals (1) combining with various types of information are effective for KG alignment, (2) BERT initialization for attribute values will greatly improve performance and (3) name bias on a regular setting is very severe. Lastly, we observe BootEA outperforms than all other top baseline models. This is because the iteration mechanism works well on the regular setting since the new discovered pairs are generally high-quality. Table [5.5](#page-100-2) illustrate the effectiveness of time facts using a so-called*x*+*time*setting. Here,*x* is another type of information, except time information. We can see that, with the help of time information, the performance has a large improvement compared with only using one kind of information. For example, though name information has a dominant influence (e.g., 81.73), the time information can still improve the performance (to 87.11) on the DBP*FR*−*EN* dataset. As reported in [\[23\]](#page-110-4), the performance of only using a digital channel is poor because it is challenging to learn the numerical calculation with the supervision of entity alignment. However, with the help of the time channel, the performance is greatly improved, e.g., from 16.56 to 35.34 on the DBP*ZH*−*EN* dataset. Considering that the time facts used in
 
-| Dataset     | DWYW D |       |       | DWYY G |        |       |
+| Dataset | DWYW D | | | DWYY G | | |
 |-------------|--------|-------|-------|--------|--------|-------|
-| Metric      | H@1    | H@10  | MMR   | H@1    | H@10   | MMR   |
-| JAPE        | 31.84  | 58.88 | 0.411 | 23.57  | 48.41  | 0.320 |
-| GCN-Align   | 47.70  | 75.96 | 0.577 | 60.05  | 84.14  | 0.686 |
-| AttrE       | 38.96  | 66.77 | 0.487 | 23.24  | 42.70  | 0.300 |
-| BootEA      | 74.79  | 89.84 | 0.801 | 76.10  | 89.44  | 0.808 |
-| AttrGNNavg  | 96.08  | 98.86 | 0.972 | 99.89  | 99.99  | 0.999 |
-| AttrGNNsvm  | 85.50  | 93.73 | 0.884 | 99.96  | 100.00 | 1.000 |
-| TimeAttravg | 97.27  | 99.26 | 0.981 | 99.97  | 100.00 | 0.999 |
-| TimeAttrsvm | 97.62  | 99.43 | 0.984 | 99.99  | 100.00 | 1.000 |
+| Metric | H@1 | H@10 | MMR | H@1 | H@10 | MMR |
+| JAPE | 31.84 | 58.88 | 0.411 | 23.57 | 48.41 | 0.320 |
+| GCN-Align | 47.70 | 75.96 | 0.577 | 60.05 | 84.14 | 0.686 |
+| AttrE | 38.96 | 66.77 | 0.487 | 23.24 | 42.70 | 0.300 |
+| BootEA | 74.79 | 89.84 | 0.801 | 76.10 | 89.44 | 0.808 |
+| AttrGNNavg | 96.08 | 98.86 | 0.972 | 99.89 | 99.99 | 0.999 |
+| AttrGNNsvm | 85.50 | 93.73 | 0.884 | 99.96 | 100.00 | 1.000 |
+| TimeAttravg | 97.27 | 99.26 | 0.981 | 99.97 | 100.00 | 0.999 |
+| TimeAttrsvm | 97.62 | 99.43 | 0.984 | 99.99 | 100.00 | 1.000 |
 
 <span id="page-100-1"></span>Table 5.4: Temporal KG alignment results on DWY datasets on regular setting †.
 
@@ -1834,32 +1799,31 @@ our model are split from the original digital facts used in the AttrGNN model [\
 
 <span id="page-100-2"></span>Table 5.5: Temporal KG alignment results that only use time facts<sup>∗</sup> from DBP datasets on hard setting.
 
-| Dataset          | DBPZH−EN |       |       | DBPJA−EN |       |       | DBPFR−EN |       |       |
+| Dataset | DBPZH−EN | | | DBPJA−EN | | | DBPFR−EN | | |
 |------------------|----------|-------|-------|----------|-------|-------|----------|-------|-------|
-| Metric           | H@1      | H@10  | MMR   | H@1      | H@10  | MMR   | H@1      | H@10  | MMR   |
-| Structure        | 35.48    | 58.19 | 0.438 | 35.52    | 58.11 | 0.437 | 32.21    | 58.78 | 0.417 |
-| Structure + Time | 38.62    | 0.641 | 47.72 | 38.59    | 64.24 | 0.478 | 36.62    | 67.08 | 0.472 |
-| Literal          | 38.73    | 53.43 | 0.440 | 38.91    | 49.82 | 0.428 | 27.41    | 38.70 | 0.313 |
-| Literal + Time   | 48.39    | 69.66 | 0.559 | 47.77    | 66.57 | 0.543 | 36.60    | 61.31 | 0.452 |
-| Digital          | 16.56    | 28.36 | 0.206 | 15.16    | 25.57 | 0.188 | 4.98     | 12.22 | 0.078 |
-| Digital + Time   | 35.34    | 55.87 | 0.425 | 35.30    | 57.44 | 0.431 | 24.61    | 47.44 | 0.327 |
-| Name             | 43.59    | 57.74 | 0.487 | 63.83    | 76.32 | 0.683 | 81.73    | 88.77 | 0.843 |
-| Name + Time      | 58.99    | 76.21 | 0.652 | 74.56    | 87.64 | 0.793 | 87.11    | 94.27 | 0.898 |
+| Metric | H@1 | H@10 | MMR | H@1 | H@10 | MMR | H@1 | H@10 | MMR |
+| Structure | 35.48 | 58.19 | 0.438 | 35.52 | 58.11 | 0.437 | 32.21 | 58.78 | 0.417 |
+| Structure + Time | 38.62 | 0.641 | 47.72 | 38.59 | 64.24 | 0.478 | 36.62 | 67.08 | 0.472 |
+| Literal | 38.73 | 53.43 | 0.440 | 38.91 | 49.82 | 0.428 | 27.41 | 38.70 | 0.313 |
+| Literal + Time | 48.39 | 69.66 | 0.559 | 47.77 | 66.57 | 0.543 | 36.60 | 61.31 | 0.452 |
+| Digital | 16.56 | 28.36 | 0.206 | 15.16 | 25.57 | 0.188 | 4.98 | 12.22 | 0.078 |
+| Digital + Time | 35.34 | 55.87 | 0.425 | 35.30 | 57.44 | 0.431 | 24.61 | 47.44 | 0.327 |
+| Name | 43.59 | 57.74 | 0.487 | 63.83 | 76.32 | 0.683 | 81.73 | 88.77 | 0.843 |
+| Name + Time | 58.99 | 76.21 | 0.652 | 74.56 | 87.64 | 0.793 | 87.11 | 94.27 | 0.898 |
 
 ∗ : Technically, our model learns the attribute-level entity representations using time facts. Then our model uses one layer GCN on relation-graph passing information to obtain the final representations.
 
-#### <span id="page-100-0"></span>5.4.3 Ablation Study
+### <span id="page-100-0"></span>5.4.3 Ablation Study
 
-<span id="page-100-3"></span>
 
-| Dataset         | DBPZH−EN |       |       | DBPJA−EN |       |       | DBPFR−EN |       |       |
+| Dataset | DBPZH−EN | | | DBPJA−EN | | | DBPFR−EN | | |
 |-----------------|----------|-------|-------|----------|-------|-------|----------|-------|-------|
-| Metric          | H@1      | H@10  | MMR   | H@1      | H@10  | MMR   | H@1      | H@10  | MMR   |
-| no cluster      | 29.79    | 49.97 | 0.371 | 32.06    | 51.78 | 0.392 | 28.90    | 52.70 | 0.373 |
-| random cluster  | 30.02    | 49.64 | 0.372 | 32.17    | 52.01 | 0.397 | 28.86    | 52.98 | 0.374 |
-| occurrence-only | 29.40    | 49.69 | 0.367 | 32.39    | 52.47 | 0.397 | 18.27    | 32.36 | 0.234 |
-| semantic-only   | 30.42    | 49.84 | 0.376 | 31.23    | 51.01 | 0.386 | 29.37    | 53.67 | 0.383 |
-| complete model  | 30.53    | 50.04 | 0.377 | 32.32    | 51.20 | 0.393 | 30.52    | 54.81 | 0.392 |
+| Metric | H@1 | H@10 | MMR | H@1 | H@10 | MMR | H@1 | H@10 | MMR |
+| no cluster | 29.79 | 49.97 | 0.371 | 32.06 | 51.78 | 0.392 | 28.90 | 52.70 | 0.373 |
+| random cluster | 30.02 | 49.64 | 0.372 | 32.17 | 52.01 | 0.397 | 28.86 | 52.98 | 0.374 |
+| occurrence-only | 29.40 | 49.69 | 0.367 | 32.39 | 52.47 | 0.397 | 18.27 | 32.36 | 0.234 |
+| semantic-only | 30.42 | 49.84 | 0.376 | 31.23 | 51.01 | 0.386 | 29.37 | 53.67 | 0.383 |
+| complete model | 30.53 | 50.04 | 0.377 | 32.32 | 51.20 | 0.393 | 30.52 | 54.81 | 0.392 |
 
 Table 5.6: Cluster study on DBP datasets on hard setting.
 
@@ -1867,17 +1831,16 @@ In this part, we evaluate the effectiveness of our proposed time fact encoder fo
 
 First, we evaluate our proposed the clustering algorithm against three variants, i.e., (1) all contexts are in one cluster (named "no cluster"), (2) randomly clustering, (3) only use occurrence information for clustering and (4) only use semantic embedding for clustering. From Table [5.6,](#page-100-3) we can see our complete model is most stable and achieves the best results on all three datasets, which empirically validates the effectiveness of our proposed clustering algorithm. The performances of the no cluster model and random cluster model are poorer than the semantic-only model and our complete model, which also verifies the effectiveness of the clustering approach. The occurrence-only model has good results on the DBP*ZH*−*EN* and DBP*JA*−*EN* datasets, but very poor performance on the DBP*FR*−*EN* dataset. This indicates the importance of incorporating semantic information into clustering. We also observe that the semantic-only model is generally better than the occurrence-only model. This indicates that prior knowledge is still important for clustering. Now we study the influence of our
 
-<span id="page-101-0"></span>
 
-| Dataset           | DBPZH−EN |       |       | DBPJA−EN |       |       | DBPFR−EN |       |       |
+| Dataset | DBPZH−EN | | | DBPJA−EN | | | DBPFR−EN | | |
 |-------------------|----------|-------|-------|----------|-------|-------|----------|-------|-------|
-| Metric            | H@1      | H@10  | MMR   | H@1      | H@10  | MMR   | H@1      | H@10  | MMR   |
-| GRUs              | 10.61    | 25.92 | 0.159 | 9.82     | 24.46 | 0.148 | 11.97    | 34.13 | 0.194 |
-| no entity graph   | 24.46    | 48.06 | 0.326 | 25.99    | 49.71 | 0.343 | 23.33    | 49.52 | 0.323 |
-| no time graph     | 27.13    | 47.66 | 0.348 | 30.48    | 50.47 | 0.378 | 28.27    | 52.69 | 0.369 |
-| no edge direction | 29.82    | 50.39 | 0.374 | 32.60    | 51.67 | 0.396 | 20.26    | 40.43 | 0.274 |
-| no context window | 30.61    | 51.30 | 0.382 | 31.93    | 52.20 | 0.394 | 29.26    | 54.11 | 0.382 |
-| complete model    | 30.53    | 50.04 | 0.377 | 32.32    | 51.20 | 0.393 | 30.52    | 54.81 | 0.392 |
+| Metric | H@1 | H@10 | MMR | H@1 | H@10 | MMR | H@1 | H@10 | MMR |
+| GRUs | 10.61 | 25.92 | 0.159 | 9.82 | 24.46 | 0.148 | 11.97 | 34.13 | 0.194 |
+| no entity graph | 24.46 | 48.06 | 0.326 | 25.99 | 49.71 | 0.343 | 23.33 | 49.52 | 0.323 |
+| no time graph | 27.13 | 47.66 | 0.348 | 30.48 | 50.47 | 0.378 | 28.27 | 52.69 | 0.369 |
+| no edge direction | 29.82 | 50.39 | 0.374 | 32.60 | 51.67 | 0.396 | 20.26 | 40.43 | 0.274 |
+| no context window | 30.61 | 51.30 | 0.382 | 31.93 | 52.20 | 0.394 | 29.26 | 54.11 | 0.382 |
+| complete model | 30.53 | 50.04 | 0.377 | 32.32 | 51.20 | 0.393 | 30.52 | 54.81 | 0.392 |
 
 Table 5.7: Time fact encoder study on DBP datasets on hard setting.
 
@@ -1887,9 +1850,9 @@ As Table [5.7](#page-101-0) shows, the baseline modes performs poorly compared w
 
 naturally have the temporal orders. The performance of the no-window model slightly improves the performance on the DBP*ZH*−*EN* dataset, but it still drops on the DBP*JA*−*EN* and DBP*FR*−*EN* datasets, which highlights the complex relationships between attributes.
 
-# <span id="page-104-0"></span>Chapter 6
+## <span id="page-104-0"></span>Chapter 6
 
-# Conclusion
+## Conclusion
 
 In this thesis, we present our research on the problem of temporal knowledge graph enrichment. Temporal KG is a new kind of KGs in which facts are time-aware, i.e., coupled with their valid times. Therefore, TKGs not only supports current applications but also are beneficial in many advanced techniques. However, research on temporal KG is very current and there are still many problems need to be addressed well. We analyzed public TKGs datasets and we found that the data quality issue is still severe. For example, the number of temporal facts in TKGs are still limited, compared with tradition KGs. Besides, there are many missing entities, relations and time spans in current TKGs. At last, the number of entities, relations are still small, which limits their benefits to downstream applications. Therefore, we summarize the mentioned problems and aim to solve this data quality issue by the TKG enrichment techniques. In particular, we propose three techniques on temporal KG enrichment, namely, temporal knowledge harvesting, temporal KG completion and alignment, to increase (1) the volume of temporal knowledge, (2) the completeness of temporal KGs and (3) the coverage of temporal Ks, respectively. We conduct extensive experiments and demonstrate our proposed techniques are effective to improve the quality of TKGs on the three aspects h on real-world datasets, compared with state-of-the-art models.
 
@@ -1914,7 +1877,7 @@ In the future, we plan to continue to explore our research work on temporal know
 - Temporal knowledge graph partition and efficiency issue. Currently, various graph neural networks are applied on temporal knowledge graphs. However, the size of KGs is too large to feed into GPUs (even CPUs). Graph partition is a way to solve this volume issue and can facilitate the efficiency.
 - Temporal knowledge validation and evaluation. Though there are various way to extract instances from text, the quality of these instances is not well evaluated, especially when there is no golden labeled data. We plan to explore temporal knowledge validation, which involves checking the correctness of new instances.
 
-# Bibliography
+## Bibliography
 
 - <span id="page-108-5"></span><span id="page-108-0"></span>[1] Y. Liu, W. Hua, X. Zhou, Extracting temporal patterns from large-scale text corpus, in: Australasian Database Conference, Springer, 2019, pp. 17–30.
 - <span id="page-108-1"></span>[2] Y. Liu, W. Hua, K. Xin, X. Zhou, Context-aware temporal knowledge graph embedding, in: International Conference on Web Information Systems Engineering, 2019, pp. 583–598.
@@ -2078,7 +2041,7 @@ URL <https://doi.org/10.24963/ijcai.2018/556>
 - <span id="page-120-3"></span>[131] Y. Cao, Z. Liu, C. Li, Z. Liu, J. Li, T. Chua, [Multi-channel graph neural network for entity](https://doi.org/10.18653/v1/p19-1140) [alignment,](https://doi.org/10.18653/v1/p19-1140) in: A. Korhonen, D. R. Traum, L. Marquez (Eds.), Proceedings of the 57th Con- ` ference of the Association for Computational Linguistics, ACL 2019, Florence, Italy, July 28- August 2, 2019, Volume 1: Long Papers, Association for Computational Linguistics, 2019, pp. 1452–1461. [doi:10.18653/v1/p19-1140](http://dx.doi.org/10.18653/v1/p19-1140). URL <https://doi.org/10.18653/v1/p19-1140>
 - <span id="page-120-4"></span>[132] S. Li, X. Li, R. Ye, M. Wang, H. Su, Y. Ou, [Non-translational alignment for multi-relational](https://doi.org/10.24963/ijcai.2018/581) [networks,](https://doi.org/10.24963/ijcai.2018/581) in: J. Lang (Ed.), Proceedings of the Twenty-Seventh International Joint Conference on Artificial Intelligence, IJCAI 2018, July 13-19, 2018, Stockholm, Sweden, ijcai.org, 2018, pp. 4180–4186. [doi:10.24963/ijcai.2018/581](http://dx.doi.org/10.24963/ijcai.2018/581). URL <https://doi.org/10.24963/ijcai.2018/581>
 - <span id="page-120-5"></span>[133] Y. Wu, X. Liu, Y. Feng, Z. Wang, D. Zhao, [Jointly learning entity and relation representations](https://doi.org/10.18653/v1/D19-1023) [for entity alignment,](https://doi.org/10.18653/v1/D19-1023) in: K. Inui, J. Jiang, V. Ng, X. Wan (Eds.), Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing, EMNLP-IJCNLP 2019, Hong Kong, China, November 3-7, 2019, Association for Computational Linguistics, 2019, pp. 240–249. [doi:](http://dx.doi.org/10.18653/v1/D19-1023) [10.18653/v1/D19-1023](http://dx.doi.org/10.18653/v1/D19-1023).
-  - URL <https://doi.org/10.18653/v1/D19-1023>
+- URL <https://doi.org/10.18653/v1/D19-1023>
 - <span id="page-120-6"></span>[134] Z. Sun, C. Wang, W. Hu, M. Chen, J. Dai, W. Zhang, Y. Qu, [Knowledge graph alignment network](https://aaai.org/ojs/index.php/AAAI/article/view/5354) [with gated multi-hop neighborhood aggregation,](https://aaai.org/ojs/index.php/AAAI/article/view/5354) in: The Thirty-Fourth AAAI Conference on
 
 Artificial Intelligence, AAAI 2020, The Thirty-Second Innovative Applications of Artificial Intelligence Conference, IAAI 2020, The Tenth AAAI Symposium on Educational Advances in Artificial Intelligence, EAAI 2020, New York, NY, USA, February 7-12, 2020, AAAI Press, 2020, pp. 222–229.
