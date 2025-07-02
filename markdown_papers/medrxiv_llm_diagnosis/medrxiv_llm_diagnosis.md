@@ -1,10 +1,10 @@
 ---
-cite_key: gao_2014
+cite_key: gao_2024
 title: Large Language Models and Medical Knowledge Grounding for Diagnosis Prediction
 authors: Yanjun Gao, Ruizhe Li, Emma Croxford, Samuel Tesch, Daniel To, John Caskey,
   Brian W. Patterson, Matthew M. Churpek, Timothy Miller, Dmitriy Dligach, Majid Afshar,
   Public Health, Wisconsin Madison
-year: 2014
+year: 2024
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: medrxiv_llm_diagnosis

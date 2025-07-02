@@ -1,7 +1,7 @@
 ---
-cite_key: data_2023
-title: City Research Online
-authors: Opportunities. Transactions on Graph Data
+cite_key: chen_2023
+title: Knowledge Graphs for the Life Sciences: Recent Developments, Challenges and Opportunities
+authors: Jiaoyan Chen, Hang Dong, Janna Hastings, Ernesto Jiménez-Ruiz, Vanessa López, Pierre Monnin, Catia Pesquita, Petr Škoda, Valentina Tamma
 year: 2023
 doi: 10.4230/TGDK.1.1.5
 date_processed: '2025-07-02'

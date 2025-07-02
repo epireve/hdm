@@ -1,7 +1,7 @@
 ---
-cite_key: romli_2022
-title: PAPER • OPEN ACCESS
-authors: A Romli, R Mohamed -
+cite_key: xie_2022
+title: Enabling building digital twin: Ontology-based information management framework for multi-source data integration
+authors: X Xie, N Moretti, J Merino, J Y Chang, P Pauwels, A K Parlikad
 year: 2022
 doi: 10.1088/1755-1315/1101/9/092010
 date_processed: '2025-07-02'

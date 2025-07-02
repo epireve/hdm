@@ -1,8 +1,8 @@
 ---
-cite_key: data_2019
+cite_key: din_2019
 title: Towards a Flexible System Architecture for Automated Knowledge Base Construction
   Frameworks
-authors: Big Data, Software Architecture
+authors: Osman Din
 year: 2019
 doi: 10.14778/2733004.2733069
 date_processed: '2025-07-02'
@@ -17,35 +17,9 @@ tags:
 - Semantic Web
 keywords:
 - API
-- DeepDive
-- KnolwedgeVault
 - LSTM
 - NLP
 - TensorFlow
-- a learning
-- abstract
-- accuracy
-- acid-based
-- acid-based transactions
-- api-based
-- api-based approach
-- api-based design
-- application programming interface
-- application-level
-- artificial intelligence
-- ball-ofmud
-- by learning
-- classification
-- data generation
-- deep dive
-- domain-specific
-- ehri-project
-- end-to-end
-- ending learning
-- ensemble
-- feature extraction
-- fonduer-like
-- for learning
 ---
 
 # Towards a Flexible System Architecture for Automated Knowledge Base Construction Frameworks

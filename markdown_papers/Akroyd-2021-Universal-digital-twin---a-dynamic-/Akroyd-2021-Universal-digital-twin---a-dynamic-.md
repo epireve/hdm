@@ -1,6 +1,6 @@
 ---
 cite_key: akroyd_2021
-title: RESEARCH ARTICLE
+title: "Universal Digital Twin - A Dynamic Knowledge Graph"
 authors: Jethro Akroyd, Sebastian Mosbach, Amit Bhave, Markus Kraft
 year: 2021
 doi: 10.17863/CAM.32260

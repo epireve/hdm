@@ -1,6 +1,6 @@
 ---
 cite_key: callahan_2024
-title: Introduction
+title: An open source knowledge graph ecosystem for the life sciences
 authors: Tifany J. Callahan, Ignacio J. Tripodi, Adrianne L. Stefanski, Luca Cappelletti,
   Sanya B. Taneja, Jordan M. Wyrwa, Elena Casiraghi, Nicolas A. Matentzoglu, Justin
   Reese, Jonathan C. Silverstein, Charles Tapley Hoyt, Richard D. Boyce, Scott A.

@@ -1,9 +1,7 @@
 ---
 cite_key: shaik_2024
-title: 'S3LLM: Large-Scale Scientific Software Understanding with LLMs using Source,
-  Metadata, and Document'
-authors: Kareem Shaik, Dali Wang, Weijian Zheng, Qinglei Cao, Heng Fan, Peter Schwartz,
-  Yunhe Feng
+title: 'S3LLM: Large-Scale Scientific Software Understanding with LLMs using Source,Metadata, and Document'
+authors: Kareem Shaik, Dali Wang, Weijian Zheng, Qinglei Cao, Heng Fan, Peter Schwartz, Yunhe Feng
 year: 2024
 date_processed: '2025-07-02'
 phase2_processed: true

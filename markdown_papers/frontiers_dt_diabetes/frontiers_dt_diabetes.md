@@ -1,8 +1,8 @@
 ---
-cite_key: shmulevich_2023
-title: REVIEWED BY
-authors: Ilya Shmulevich
-year: 2023
+cite_key: zhang_2024
+title: A framework towards digital twins for type 2 diabetes
+authors: Yue Zhang, Guangrong Qin, Boris Aguilar, Noa Rappaport, James T. Yurkovich, Lance Pflieger, Sui Huang, Leroy Hood, Ilya Shmulevich
+year: 2024
 doi: 10.3389/fdgth.2024.1336050
 date_processed: '2025-07-02'
 phase2_processed: true
@@ -21,36 +21,8 @@ tags:
 - Personalized Medicine
 - Semantic Web
 keywords:
-- 1 dataset description and processing
-- 1 introduction
-- 1 predicting clinical trajectories
-- 2 machine learning models
-- 2 materials and methods
-- 3 graph analysis
-- 3 results
-- 4 discussion
-- DeFronzo
-- IlyaLab
-- McCabe
-- PageRank
-- PageRankidentified
-- accuracy
-- aguilar-ramirez
-- artificial intelligence
-- author contributions
-- benito-vicente
-- citation
-- classification
-- classification-based
-- classification-based predictions
-- clinical data
-- color-coding
-- conflict of interest
-- context-sensitive
-- copyright
 - corral-acero
 - cross-validation
-- funding
 ---
 
 EDITED BY Tjalf Ziemssen, University Hospital Carl Gustav Carus, Germany
