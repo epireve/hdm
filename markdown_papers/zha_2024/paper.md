@@ -1,27 +1,27 @@
 ---
-cite_key: "zha_2024"
-title: "Data-centric Artificial Intelligence: A Survey"
-authors: "' addresses: Daochen Zha, daochen.zha@rice.edu, Rice University, United States, Zaid Pervaiz Bhat, zaid.bhat1234@ tamu.edu, Texas A, M University, United States, Kwei-Herng Lai, khlai@rice.edu, Rice University, United States, Fan Yang, fyang@rice.edu, Rice University, United States, Zhimeng Jiang, zhimengj@tamu.edu, Texas A, M University, United States, Shaochen Zhong, hz88@rice.edu, Rice University, United States, Xia Hu, Xia.Hu@rice.edu, Rice University, United States."
+cite_key: zha_2024
+title: Data-centric Artificial Intelligence: A Survey
+authors: Daochen Zha, Zaid Pervaiz Bhat, Kwei-Herng Lai, Fan Yang, Zhimeng Jiang, Shaochen Zhong, Xia Hu
 year: 2024
-doi: "10.48550/arXiv.2303.10158"
-url: "https://arxiv.org/abs/2303.10158"
-relevancy: "High"
-tldr: "First comprehensive survey providing global view of data lifecycle tasks and systematic data engineering for AI systems"
-insights: "Shift from model design to data quality enhancement represents fundamental paradigm change; systematic data engineering crucial for AI success; data-centric approach addresses three key goals: training data development, inference data development, and data maintenance"
-summary: "This survey addresses the emerging concept of data-centric AI, where attention has shifted from advancing model design to enhancing data quality and quantity. The paper discusses the necessity of data-centric AI, followed by a holistic view of three general data-centric goals and representative methods. The authors provide the first comprehensive survey offering a global view of tasks across various stages of the data lifecycle, aiming to help readers grasp the broad picture of systematic data engineering for building AI systems."
+doi: 10.48550/arXiv.2303.10158
+url: https://arxiv.org/abs/2303.10158
+relevancy: High
+tldr: First comprehensive survey providing global view of data lifecycle tasks and systematic data engineering for AI systems
+insights: Shift from model design to data quality enhancement represents fundamental paradigm change; systematic data engineering crucial for AI success; data-centric approach addresses three key goals: training data development, inference data development, and data maintenance
+summary: This survey addresses the emerging concept of data-centric AI, where attention has shifted from advancing model design to enhancing data quality and quantity. The paper discusses the necessity of data-centric AI, followed by a holistic view of three general data-centric goals and representative methods. The authors provide the first comprehensive survey offering a global view of tasks across various stages of the data lifecycle, aiming to help readers grasp the broad picture of systematic data engineering for building AI systems.
 research_question: "How can we systematically engineer data for building AI systems across the entire data lifecycle to improve AI performance and reliability?"
-methodology: "Holistic review of data-centric AI across three goals: training data development, inference data development, and data maintenance; systematic analysis of data lifecycle tasks; comprehensive methodology review for data quality enhancement"
-key_findings: "Shift from model design to data quality enhancement represents fundamental paradigm change; systematic data engineering crucial for AI success; first comprehensive framework for understanding data-centric AI approaches"
-limitations: "Emerging field with evolving methodologies; standardization of data-centric approaches still developing; evaluation metrics for data quality improvements need refinement"
-conclusion: "Systematic data engineering is crucial for AI success, with data quality being more important than model architecture refinements in many applications"
-future_work: "Develop standardized data-centric methodologies; create comprehensive evaluation frameworks; explore domain-specific data engineering approaches"
-implementation_insights: "Emphasizes systematic data engineering over model development; provides framework for data lifecycle management; offers practical guidance for data quality improvement"
+methodology: Holistic review of data-centric AI across three goals: training data development, inference data development, and data maintenance; systematic analysis of data lifecycle tasks; comprehensive methodology review for data quality enhancement
+key_findings: Shift from model design to data quality enhancement represents fundamental paradigm change; systematic data engineering crucial for AI success; first comprehensive framework for understanding data-centric AI approaches
+limitations: Emerging field with evolving methodologies; standardization of data-centric approaches still developing; evaluation metrics for data quality improvements need refinement
+conclusion: Systematic data engineering is crucial for AI success, with data quality being more important than model architecture refinements in many applications
+future_work: Develop standardized data-centric methodologies; create comprehensive evaluation frameworks; explore domain-specific data engineering approaches
+implementation_insights: Emphasizes systematic data engineering over model development; provides framework for data lifecycle management; offers practical guidance for data quality improvement
 tags:
-  - "Data-centric AI"
-  - "Machine Learning"
-  - "Data Quality"
-  - "Data Engineering"
-  - "AI Systems"
+  - Data-centric AI
+  - Machine Learning
+  - Data Quality
+  - Data Engineering
+  - AI Systems
 ---
 
 # Data-centric Artificial Intelligence: A Survey
@@ -30,7 +30,7 @@ DAOCHEN ZHA, Rice University, United States ZAID PERVAIZ BHAT, Texas A&M Univers
 
 Artificial Intelligence (AI) is making a profound impact in almost every domain. A vital enabler of its great success is the availability of abundant and high-quality data for building machine learning models. Recently, the role of data in AI has been significantly magnified, giving rise to the emerging concept of data-centric AI. The attention of researchers and practitioners has gradually shifted from advancing model design to enhancing the quality and quantity of the data. In this survey, we discuss the necessity of data-centric AI, followed by a holistic view of three general data-centric goals (training data development, inference data development, and data maintenance) and the representative methods. We also organize the existing literature from automation and collaboration perspectives, discuss the challenges, and tabulate the benchmarks for various tasks. We believe this is the first comprehensive survey that provides a global view of a spectrum of tasks across various stages of the data lifecycle. We hope it can help the readers efficiently grasp a broad picture of this field, and equip them with the techniques and further research ideas to systematically engineer data for building AI systems. A companion list of data-centric AI resources will be regularly updated on <https://github.com/daochenzha/data-centric-AI>
 
-## CCS Concepts: • Computing methodologies → Artificial intelligence.
+## CCS Concepts: - Computing methodologies -> Artificial intelligence.
 
 Additional Key Words and Phrases: Artificial intelligence, machine learning, data-centric AI
 
@@ -42,17 +42,9 @@ Daochen Zha, Zaid Pervaiz Bhat, Kwei-Herng Lai, Fan Yang, Zhimeng Jiang, Shaoche
 
 The past decade has witnessed dramatic progress in Artificial Intelligence (AI), which has made a profound impact in almost every domain, such as natural language processing [\[47\]](#page-29-0), computer vision [\[236\]](#page-36-0), recommender system [\[285\]](#page-37-0), healthcare [\[161\]](#page-33-0), biology [\[249\]](#page-36-1), finance [\[175\]](#page-34-0), and so forth. A vital enabler of these great successes is the availability of abundant and high-quality data. Many major AI breakthroughs occur only after we have the access to the right training data. For example, AlexNet [\[127\]](#page-32-0), one of the first successful convolutional neural networks, was designed based on
 
-Authors' addresses: Daochen Zha, daochen.zha@rice.edu, Rice University, United States; Zaid Pervaiz Bhat, zaid.bhat1234@ tamu.edu, Texas A&M University, United States; Kwei-Herng Lai, khlai@rice.edu, Rice University, United States; Fan Yang, fyang@rice.edu, Rice University, United States; Zhimeng Jiang, zhimengj@tamu.edu, Texas A&M University, United States; Shaochen Zhong, hz88@rice.edu, Rice University, United States; Xia Hu, Xia.Hu@rice.edu, Rice University, United States.
-
-Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org.
-
-<sup>©</sup> 2023 Association for Computing Machinery.
-
 XXXX-XXXX/2023/6-ART \$15.00
 
 <https://doi.org/10.1145/nnnnnnn.nnnnnnn>
-
-<span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
 
 Fig. 1. Motivating examples that highlight the central role of data in AI. On the left, large and high-quality training data are the driving force of recent successes of GPT models, while model architectures remain similar, except for more model weights. The detailed data collection strategies of GPT models are provided in [\[34,](#page-29-1) [172,](#page-34-1) [174,](#page-34-2) [187,](#page-34-3) [188,](#page-34-4) [296\]](#page-37-1). On the right, when the model becomes sufficiently powerful, we only need to engineer prompts (inference data) to accomplish our objectives, with the model being fixed.
 
@@ -75,11 +67,11 @@ By answering these questions, we make three contributions. Firstly, we provide a
 
 This survey is structured as follows. Section [2](#page-2-0) presents an overview of the concepts and tasks related to data-centric AI. Then, we elaborate on the needs, representative methods, and challenges of three general data-centric AI goals, including training data development (Section [3\)](#page-7-0), inference data development (Section [4\)](#page-16-0), and data maintenance (Section [5\)](#page-19-0). Section [6](#page-24-0) summarizes benchmarks for various tasks. Section [7](#page-26-0) discusses data-centric AI from a global view and highlights the potential future directions. Finally, we conclude this survey in Section [8.](#page-28-2)
 
-# <span id="page-2-0"></span>2 BACKGROUND OF DATA-CENTRIC AI
+# 2 BACKGROUND OF DATA-CENTRIC AI
 
 This section provides a background of data-centric AI. Section [2.1](#page-2-1) defines the relevant concepts. Section [2.2](#page-3-0) discusses why data-centric AI is needed. Section [2.3](#page-4-0) draws a big picture of the related tasks and presents a goal-driven taxonomy to organize the existing literature. Section [2.4](#page-5-0) focuses on automation and human participation in data-centric AI.
 
-# <span id="page-2-1"></span>2.1 Definitions
+# 2.1 Definitions
 
 Researchers have described data-centric AI in different ways. Ng et al. defined it as "the discipline of systematically engineering the data used to build an AI system" [\[168\]](#page-33-5). Polyzotis and Zaharia described it as "an exciting new research field that studies the problem of constructing high-quality datasets for machine learning" [\[183\]](#page-34-5). Jarrahi et al. mentioned that data-centric AI "advocates for a systematic and iterative approach to dealing with data issues" [\[109\]](#page-31-1). Miranda noted that data-centric AI focuses on the problems that "do not only involve the type of model to use, but also the quality of data at hand" [\[162\]](#page-33-6). While all these descriptions have emphasized the importance of data, the scope of data-centric AI remains ambiguous, i.e., what tasks and techniques belong to data-centric AI. Such ambiguity could prevent us from grasping a concrete picture of this field. Before starting the survey, it is essential to define some relevant concepts:
 
@@ -90,13 +82,14 @@ Researchers have described data-centric AI in different ways. Ng et al. defined 
 - Data Maintenance: Data maintenance refers to the process of maintaining the quality and reliability of data, which often involves efficient algorithms, tools, and infrastructures to understand and debug data. Data maintenance plays a crucial role in AI since it ensures training and inference data are accurate and consistent [\[107\]](#page-31-2).
 - Data-centric AI: Data-centric AI refers to a framework to develop, iterate, and maintain data for AI systems [\[269\]](#page-37-2). Data-centric AI involves the tasks and methods for building effective training data, designing proper inference data, and maintaining the data.
 
-#### <span id="page-3-0"></span>2.2 Need for Data-centric AI
+#### 2.2 Need for Data-centric AI
 
 In the past, AI was often viewed as a model-centric field, where the focus was on advancing model designs given fixed datasets. However, the overwhelming reliance on fixed datasets does not necessarily lead to better model behavior in real-world applications, as it overlooks the breadth, difficulty, and fidelity of data to the underlying problem [\[155\]](#page-33-7). Moreover, the models are often difficult to transfer from one problem to another since they are highly specialized and tailored to specific problems. Furthermore, undervaluing data quality could trigger data cascades [\[200\]](#page-34-9), causing negative effects such as decreased accuracy and persistent biases [\[36\]](#page-29-2). This can severely hinder the applicability of AI systems, particularly in high-stakes domains.
 
 Consequently, the attention of researchers and practitioners has gradually shifted toward datacentric AI to pursue data excellence [\[9\]](#page-28-3). Data-centric AI places a greater emphasis on enhancing the quality and quantity of the data with the model relatively more fixed. While this transition is still ongoing, we have already witnessed several accomplishments that shed light on its benefits. For example, the advancement of large language models is greatly dependent on the use of huge datasets [\[34,](#page-29-1) [121,](#page-32-2) [187,](#page-34-3) [188\]](#page-34-4). Compared to GPT-2 [\[188\]](#page-34-4), GPT-3 [\[34\]](#page-29-1) only made minor modifications in the neural architecture while spending efforts collecting a significantly larger high-quality dataset for training. ChatGPT [\[174\]](#page-34-2), a remarkably successful application of GPT-3, adopts a similar neural architecture as GPT-3 and uses a reinforcement learning from human feedback procedure [\[48\]](#page-30-4) to generate high-quality labeled data for fine-tuning. A new approach, known as prompt engineering [\[146\]](#page-33-2), has seen significant success by focusing solely on tuning data inputs. The benefits of data-centric approaches can also be validated by practitioners [\[169,](#page-33-4) [189,](#page-34-7) [241\]](#page-36-4). For instance, Landing AI, a computer vision company, observes improved accuracy, reduced development time, and more
 
-<span id="page-4-1"></span>![](_page_4_Figure_1.jpeg)
+![](_page_4_Figure_1.jpeg)
+<!-- Image Description: The image is a hierarchical diagram outlining the key components of data-centric AI.  It branches from "Data-centric AI" into three main areas:  "Training data development" (including data collection, labeling, preparation, reduction, and augmentation); "Inference data development" (including in-distribution and out-of-distribution evaluation, and prompt engineering); and "Data maintenance" (including data understanding, quality assurance, and storage/retrieval).  The diagram visually organizes the multifaceted aspects of data-centric AI development and management. -->
 
 Fig. 2. Data-centric AI framework.
 
@@ -104,15 +97,13 @@ consistent and scalable methods from the adoption of data-centric approaches [\[
 
 It is noteworthy that data-centric AI does not diminish the value of model-centric AI. Instead, these two paradigms are complementarily interwoven in building AI systems. On the one hand, model-centric methods can be used to achieve data-centric AI goals. For example, we can utilize a generation model, such as GAN [\[86,](#page-31-3) [283\]](#page-37-3) and diffusion model [\[101,](#page-31-4) [124,](#page-32-7) [194\]](#page-34-10), to perform data augmentation and generate more high-quality data. On the other hand, data-centric AI could facilitate the improvement of model-centric AI objectives. For instance, the increased availability of augmented data could inspire further advancements in model design. Therefore, in production scenarios, data and models tend to evolve alternatively in a constantly changing environment [\[183\]](#page-34-5).
 
-#### <span id="page-4-0"></span>2.3 Tasks in Data-centric AI
+#### 2.3 Tasks in Data-centric AI
 
 The ambitious movement to data-centric AI can not be achieved without making progress on concrete and specific tasks. Unfortunately, most of the existing literature has been focused on discussing the foundations and perspectives of data-centric AI without clearly specifying the associated tasks [\[108,](#page-31-0) [109,](#page-31-1) [183,](#page-34-5) [209\]](#page-35-1). As an effort to resolve this ambiguity, the recently proposed DataPerf benchmark [\[155\]](#page-33-7) has defined six data-centric AI tasks: training set creation, test set creation, selection algorithm, debugging algorithm, slicing algorithm, and valuation algorithm. However, this flat taxonomy can only partially cover the existing data-centric AI literature. For example, some crucial tasks such as data labeling [\[284\]](#page-37-4) are not included. The selection algorithm only addresses instance selection but not feature selection [\[138\]](#page-32-4). The test set creation is restricted to selecting items from a supplemental set rather than generating a new set [\[203\]](#page-35-2). Thus, a more nuanced taxonomy is necessary to fully encompass data-centric AI literature.
 
 To gain a more comprehensive understanding of data-centric AI, we draw a big picture of the related tasks and present a goal-driven taxonomy to organize the existing literature in Figure [2.](#page-4-1) We divide data-centric AI into three goals: training data development, inference data development, and data maintenance, where each goal is associated with several sub-goals, and each task belongs to a sug-goal. We give a high-level overview of these goals below.
 
-• Training data development: The goal of training data development is to collect and produce rich and high-quality training data to support the training of machine learning models. It consists of five sub-goals, including 1) data collection for gathering raw training data, 2) data labeling for adding informative labels, 3) data preparation for cleaning and transforming data, 4) data reduction for decreasing data size with potentially improved performance, and 5) data augmentation for enhancing data diversity without collecting more data.
-
-<span id="page-5-1"></span>
+- Training data development: The goal of training data development is to collect and produce rich and high-quality training data to support the training of machine learning models. It consists of five sub-goals, including 1) data collection for gathering raw training data, 2) data labeling for adding informative labels, 3) data preparation for cleaning and transforming data, 4) data reduction for decreasing data size with potentially improved performance, and 5) data augmentation for enhancing data diversity without collecting more data.
 
 | Goal                         | Sub-goal            | Tasks                                                                                                                                    |  |  |  |
 |------------------------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|
@@ -137,11 +128,12 @@ To gain a more comprehensive understanding of data-centric AI, we draw a big pic
 
 Following the three general goals, we survey various data-centric AI tasks, summarized in Table [1.](#page-5-1)
 
-#### <span id="page-5-0"></span>2.4 Automation and Human Participation in Data-centric AI
+#### 2.4 Automation and Human Participation in Data-centric AI
 
 Data-centric AI consists of a spectrum of tasks related to different data lifecycle stages. To keep pace with the ever-growing size of the available data, in some data-centric AI tasks, it is imperative to develop automated algorithms to streamline the process. For example, there is an increasing interest in automation in data augmentation [\[56,](#page-30-2) [273\]](#page-37-7), and feature transformation [\[122\]](#page-32-11). Automation in these tasks will improve not only efficiency but also accuracy [\[155\]](#page-33-7). Moreover, automation can facilitate the consistency of the results, reducing the chance of human errors. Whereas for some other tasks, human involvement is essential to ensure the data is consistent with our intentions. For example, humans often play an indispensable role in labeling data [\[284\]](#page-37-4), which helps machine learning algorithms learn to make the desired predictions. Whether human participation is needed depends on whether our objective is to align data with human expectations. In this survey, we
 
-<span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
+![](_page_6_Figure_1.jpeg)
+<!-- Image Description: The image is a flowchart illustrating the automation levels in data-centric AI papers.  It branches from a "Data-centric AI Paper" source into "Automation" and "Collaboration" paths.  Each path shows further branching into levels of automation (programmatic, learning-based, pipeline) and participation (full, partial, minimum).  The diagram categorizes approaches to AI paper creation based on the degree of automation and human involvement. -->
 
 Fig. 3. Data-centric AI papers are categorized into automation and collaboration depending on whether human participation is needed. Each method has a different level of automation or requires a different degree of human participation.
 
@@ -159,17 +151,18 @@ Note that this categorization does not intend to differentiate good and bad meth
 
 Similarly, the degree of human participation, to a certain extent, only reflects the tradeoff between efficiency (less human labor) and effectiveness (better aligned with humans). The selection of methods depends on the application domain and stakeholders' needs. To summarize, we design Figure [3](#page-6-0) to organize the existing data-centric AI papers. We assign each paper to either a level of automation or a degree of human participation.
 
-<span id="page-7-1"></span>![](_page_7_Figure_1.jpeg)
+![](_page_7_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a data preparation pipeline for machine learning.  It depicts the stages from data collection (using existing datasets, crowdsourcing, and other sources) through labeling, cleaning, feature transformation and reduction, data augmentation, and finally, model training.  Each stage is represented by a labeled box with icons symbolizing the process, showing the flow of data from raw to augmented, ready-for-training format. -->
 
 Fig. 4. An overview of training data development. Note that the figure illustrates only a general pipeline, and not all steps are mandatory. For instance, unsupervised learning does not require data labeling. These steps can be executed in a different order as well. For example, data augmentation can occur before data reduction.
 
 Some previous surveys only focus on specific scopes of data-centric AI, such as data augmentation [\[74,](#page-30-1) [215,](#page-35-6) [250\]](#page-36-8), data labeling [\[284\]](#page-37-4), and feature selection [\[138\]](#page-32-4). The novelty of our paper is that it provides a holistic view of the tasks, methods, and benchmarks by providing a goal-driven taxonomy to organize the tasks followed by an automation- and collaboration-oriented design to categorize methods. Moreover, we discuss the needs, challenges, and future directions from the broad data-centric AI view, aiming to motivate collective initiatives to push forward this field.
 
-#### <span id="page-7-0"></span>3 TRAINING DATA DEVELOPMENT
+#### 3 TRAINING DATA DEVELOPMENT
 
 Training data provides the foundation for machine learning models, as the model performance is heavily influenced by its quality and quantity. In this section, we summarize the essential steps to create and process training data, visualized in Figure [4.](#page-7-1) Data creation focuses on effectively and efficiently encoding human intentions into datasets, including data collection (Section [3.1\)](#page-7-2) and data labeling (Section [3.2\)](#page-9-0). Data processing aims to make data suitable for learning, including data preparation (Section [3.3\)](#page-11-0), data reduction (Section [3.4\)](#page-12-0), and data augmentation (Section [3.5\)](#page-14-0). After introducing these steps, we discuss pipeline search (Section [3.6\)](#page-15-0), an emerging trend that aims to connect them and search for the most effective end-to-end solution. Table [2](#page-9-1) summarizes the representative tasks and methods for training data development.
 
-### <span id="page-7-2"></span>3.1 Data Collection
+### 3.1 Data Collection
 
 Data collection is the process of gathering and acquiring data from various sources, which fundamentally determines data quality and quantity. This process heavily relies on domain knowledge. With the increasing availability of data, there has been a surge in the development of efficient strategies to leverage existing datasets. In the following, we discuss the role of domain knowledge, an overview of more efficient data collection strategies, and challenges.
 
@@ -223,15 +216,13 @@ Table 2. Papers for achieving different sub-goals of training data development.
 
 privacy, and data security. Researchers and practitioners must be aware of these challenges in studying and executing data collection.
 
-# <span id="page-9-0"></span>3.2 Data Labeling
+# 3.2 Data Labeling
 
 Data labeling is the process of assigning one or more descriptive tags or labels to a dataset, enabling algorithms to learn from and make predictions on the labeled data. Traditionally, this is a timeconsuming and resource-intensive manual process, particularly for large datasets. Recently, more efficient labeling methods have been proposed to reduce human efforts. In what follows, we discuss the need for data labeling, efficient labeling strategies, and challenges.
 
 3.2.1 Need for Data Labeling. Labeling plays a crucial role in ensuring that the model trained on the data accurately reflects human intentions. Without proper labeling, a model may not be able to make the desired predictions since the model can, at most, be as good as the data fed into it. Although unsupervised learning techniques are successful in domains such as large language models [\[34,](#page-29-1) [121,](#page-32-2) [187,](#page-34-3) [188\]](#page-34-4) and anomaly detection [\[176\]](#page-34-16), the trained models may not well align with human expectations. Thus, to achieve a better performance, we often still need to fine-tune the large language models with human labels, such as ChatGPT [\[174\]](#page-34-2), and tune anomaly detectors
 
-<span id="page-9-1"></span>
-
-with a small amount of labeled data [\[111,](#page-32-17) [142](#page-33-14)[–144\]](#page-33-15). Thus, labeling data is essential for teaching models to align with and behave like humans.
+with a small amount of labeled data [\[111,](#page-32-17) [142](#page-33-14)[-144\]](#page-33-15). Thus, labeling data is essential for teaching models to align with and behave like humans.
 
 3.2.2 Efficient Labeling Strategies. Researchers have long recognized the importance of data labeling. Various strategies have been proposed to enhance labeling efficiency. We will discuss crowdsourced labeling, semi-supervised labeling, active learning, data programming, and distant supervision. Note that it is possible to combine them as hybrid strategies.
 
@@ -249,7 +240,7 @@ Distant supervision. Another weakly-supervised approach is distant supervision, 
 
 3.2.3 Challenges. The main challenge for data labeling stems from striking a balance between label quality, label quantity, and financial cost. If given adequate financial support, it is possible to hire a sufficient number of expert annotators to obtain a satisfactory quantity of high-quality labels. However, when we have a relatively tight budget, we often have to resort to more efficient labeling strategies. Identifying the proper labeling strategy often requires domain knowledge to balance different tradeoffs, particularly human labor and label quality/quantity. Another difficulty lies in the subjectivity of labeling. While the instructions may be clear to the designer, they may be misinterpreted by annotators, which leads to labeling noise. Last but not least, ethical considerations, such as data privacy and bias, remain a pressing issue, especially when the labeling task is distributed to a large and undefined group of people.
 
-#### <span id="page-11-0"></span>3.3 Data Preparation
+#### 3.3 Data Preparation
 
 Data preparation involves cleaning and transforming raw data into a format that is appropriate for model training. Conventionally, this process often necessitates a considerable amount of engineering work with laborious trial and error. To automate this process, state-of-the-art approaches often adopt search algorithms to discover the most effective strategies. In this subsection, we introduce the need, representative methods, and challenges for data preparation.
 
@@ -267,7 +258,7 @@ Feature transformation. Feature transformation refers to the process of converti
 
 3.3.3 Challenges. Properly cleaning and transforming data is challenging due to the unique characteristics of different datasets. For example, the errors and inconsistencies in text data are quite different from those in time-series data. Even if two datasets have the same data type, their feature values and potential issues can be very diverse. Thus, researchers and data scientists often need to devote a significant amount of time and effort to clean the data. Although learning-based methods can search for the optimal preparation strategy automatically [\[122,](#page-32-11) [126\]](#page-32-15), it remains a challenge to design the appropriate search space, and the search often requires a non-trivial amount of time.
 
-#### <span id="page-12-0"></span>3.4 Data Reduction
+#### 3.4 Data Reduction
 
 The goal of data reduction is to reduce the complexity of a given dataset while retaining its essential information. This is often achieved by either reducing the feature size or the sample size. Our discussion will focus on the need for data reduction, representative methods for feature and sample size reduction, and challenges.
 
@@ -285,7 +276,7 @@ Dimensionality reduction. Dimensionality reduction aims to transform high-dimens
 
 be over associating with protected attributes [\[256\]](#page-36-19). Fairness-aware data reduction is a critical yet under-explored research direction.
 
-#### <span id="page-14-0"></span>3.5 Data Augmentation
+#### 3.5 Data Augmentation
 
 Data augmentation is a technique to increase the size and diversity of data by artificially creating variations of the existing data, which can often improve the model performance. It is worth noting that even though data augmentation and data reduction seem to have contradictory objectives, they can be used in conjunction with each other. While data reduction focuses on eliminating redundant information, data augmentation aims to enhance data diversity. We will delve into the need for data augmentation, various representative methods, and the associated challenges.
 
@@ -299,7 +290,8 @@ Augmentation data synthesis. Another category focuses on synthesizing new traini
 
 3.5.3 Methods Tailored for Class Imbalance. Class imbalance is a fundamental challenge in machine learning, where the number of majority samples is much larger than that of minority samples. Data augmentation can be used to perform upsampling on the minority class to balance the data distribution. One popular approach is SMOTE [\[41\]](#page-29-10), which involves generating synthetic samples
 
-<span id="page-15-1"></span>![](_page_15_Figure_1.jpeg)
+![](_page_15_Figure_1.jpeg)
+<!-- Image Description: The image presents a flowchart illustrating a model evaluation framework.  It shows "in-distribution" evaluation using data slicing and algorithmic recourse, and "out-of-distribution" evaluation using adversarial samples and distribution shift analysis.  All evaluations feed into a central "Model" which is refined via "Prompt engineering" to understand the decision boundary and improve robustness and sensitivity.  Simple icons represent data analysis techniques. -->
 
 Fig. 5. An overview of inference data development.
 
@@ -307,7 +299,7 @@ by linearly interpolating between minority instances and their neighbors. ADASYN
 
 3.5.4 Challenges. One critical challenge in data augmentation is that there is no single augmentation strategy that is suitable for all scenarios. Different data types may require diverse strategies. For example, compared to image data, graph data is irregular and not well-aligned, and thus the vanilla Mixup strategy can not be directly applied [\[93\]](#page-31-11). Even though two datasets have the same data type, the optimal strategy differs. For instance, we often need to upsample the minority samples differently to achieve the best results [\[273\]](#page-37-7). Although search-based algorithms can identify the best strategies with trial and error, it also increases the computation and storage costs, which can be a limiting factor in some applications. More effective and efficient data augmentation techniques are required to overcome these challenges.
 
-#### <span id="page-15-0"></span>3.6 Pipeline Search
+#### 3.6 Pipeline Search
 
 In real-world applications, we often encounter complex data pipelines, where each pipeline step corresponds to a task associated with one of the aforementioned sub-goals. Despite the progress made in each individual task, a pipeline typically functions as a whole, and the various pipeline steps may have an interactive effect. For instance, the best data augmentation strategy may depend on the selected features. Pipeline search is a recent trend that tries to automatically search for the best combinations. This subsection introduces some representative pipeline search algorithms.
 
@@ -315,11 +307,11 @@ One of the first pipeline search frameworks is AutoSklearn [\[76\]](#page-30-11)
 
 Despite these progresses, pipeline search still faces a significant challenge due to the high computational overhead since the search algorithm often needs to try different module combinations repeatedly. This overhead becomes more pronounced as the number of modules increases, leading to an exponential growth of the search space. Thus, more efficient search strategies [\[97,](#page-31-15) [154\]](#page-33-12) are required to enable a broader application of pipeline search in real-world scenarios.
 
-#### <span id="page-16-0"></span>4 INFERENCE DATA DEVELOPMENT
+#### 4 INFERENCE DATA DEVELOPMENT
 
 Another crucial component in building AI systems is to design inference data to evaluate a trained model or unlock a specific capability of the model. In the conventional model-centric paradigm, we often adopt a hold-out evaluation set that is not included in the training data to measure model performance using specific metrics such as accuracy. However, relying solely on performance metrics may not fully capture many important properties of a model, such as its robustness, generalizability, and rationale in decision-making. Moreover, as models become increasingly large, it becomes possible to obtain the desired predictions by solely engineering the data input. This section introduces some representative methods that evaluate models from a more granular view, or engineering data inputs for inference, shown in Figure [5.](#page-15-1) Our discussion involves in-distribution set evaluation (Section [4.1\)](#page-16-1), out-of-distribution evaluation (Section [4.2\)](#page-17-0), and prompt engineering (Section [4.3\)](#page-19-1). We summarize the relevant tasks and methods in Table [3.](#page-17-1)
 
-#### <span id="page-16-1"></span>4.1 In-distribution Evaluation
+#### 4.1 In-distribution Evaluation
 
 In-distribution evaluation data construction aims to generate samples that conform to training data. We will begin by addressing the need for constructing in-distribution evaluation sets. Next, we will review representative methods for two scenarios: evaluating important sub-populations on which the model underperforms through data slicing, and assessing decision boundaries through algorithmic recourse. Lastly, we will discuss the challenges.
 
@@ -328,8 +320,6 @@ In-distribution evaluation data construction aims to generate samples that confo
 4.1.2 Data Slicing. Data slicing involves partitioning a dataset into relevant sub-populations and evaluating a model's performance on each sub-population separately. A common approach to data slicing is to use pre-defined criteria, such as age, gender, or race [\[16\]](#page-28-12). However, data in many real-world applications can be complex, and properly designing the partitioning criteria heavily relies on domain knowledge, such as slicing 3-D seismic data in geophysics [\[267\]](#page-37-14) and program slicing [\[202\]](#page-34-19).
 
 To reduce human effort, automated slicing methods have been developed to discover important data slices by sifting through all potential slices in the data space. One representative work is SliceFinder [\[53\]](#page-30-5), which identifies slices that are both interpretable (i.e., slicing based on a small set of features) and problematic (the model performs poorly on the slice). To solve this search problem, SliceFinder offers two distinct methods, namely the tree-based search and the lattice-based search. The former is more efficient, while the latter has better efficacy. SliceLine [\[198\]](#page-34-20) is another notable work that addresses the scalability limitations of slice finding by focusing on both algorithmic and system perspectives. This approach is motivated by frequent itemset mining and leverages relevant monotonicity properties and upper bounds for effective pruning. Moreover, to address hidden stratification, which occurs when each labeled class contains multiple semantically distinct subclasses, GEORGE [\[217\]](#page-35-14) employs clustering algorithms to slide data across different subclasses. Another tool for automated slicing is Multiaccuracy [\[123\]](#page-32-19), where a simple "auditor" is trained to predict the residual of the full model using input features. Multiaccuracy, in general, is an efficient approach since it only requires a small amount of audit data. Data slicing allows researchers and
-
-<span id="page-17-1"></span>
 
 | Sub-goal     | Task                  |               | Method type Automation level/<br>participation degree References |                                                    |
 |--------------|-----------------------|---------------|------------------------------------------------------------------|----------------------------------------------------|
@@ -343,7 +333,7 @@ To reduce human effort, automated slicing methods have been developed to discove
 | distribution | Distribution shift    | Collaboration | Partial                                                          | [90, 211]                                          |
 |              | Distribution shift    | Automation    | Programmatic                                                     | [11, 87, 145, 223]                                 |
 |              | Distribution shift    | Automation    | Learning-based                                                   | [73, 91]                                           |
-| Prompt       | Manual engineering    | Collaboration | Partial                                                          | [205–207]                                          |
+| Prompt       | Manual engineering    | Collaboration | Partial                                                          | [205-207]                                          |
 | engineering  | Automated engineering | Automation    | Programmatic                                                     | [94, 115, 264]                                     |
 |              | Automated engineering | Automation    | Learning-based                                                   | [82, 239]                                          |
 
@@ -357,7 +347,7 @@ The existing methods primarily vary in their strategies for identifying hypothet
 
 4.1.4 Challenges. The main challenge of constructing in-distribution evaluation sets lies in identifying the targeted samples effectively and efficiently. In the case of data slicing, determining the optimal subset of data is particularly challenging due to the exponential increase in the number of possible subsets with additional data points. Similarly, identifying the closest recourse when limited information is available also requires significant effort.
 
-## <span id="page-17-0"></span>4.2 Out-of-distribution Evaluation
+## 4.2 Out-of-distribution Evaluation
 
 Out-of-distribution evaluation data refers to a set of samples that follow a distribution that differs from the one observed in the training data. We begin by discussing the need for out-of-distribution evaluation, followed by a review of two representative tasks: generating adversarial samples and generating samples with distribution shifts. Then we delve into the challenges associated with out-of-distribution data generation.
 
@@ -375,21 +365,22 @@ samples with distribution shift is essential in evaluating a model's transferabi
 
 4.2.4 Challenges. The challenges for out-of-distribution generation set construction are two-fold. Firstly, generating high-quality out-of-distribution data is challenging. If the training data is not representative, it may be difficult to generate appropriate data. Furthermore, the generation models may encounter mode collapse issues, meaning that they only generate a limited number of similar samples and disregard the diversity of the target distribution. Secondly, evaluating the quality of out-of-distribution generation is difficult since no single metric can capture the diversity and quality of the generated samples. Commonly used metrics, such as likelihood or accuracy, may not be suitable as they may exhibit bias toward generating samples similar to the training data. Therefore, various evaluation metrics have been proposed to assess the distance between in-distribution and out-of-distribution samples [\[21,](#page-29-18) [32,](#page-29-19) [114,](#page-32-23) [171,](#page-34-24) [201\]](#page-34-25). Overall, creating high-quality out-of-distribution data is a complex and demanding task that requires meticulous design.
 
-## <span id="page-19-1"></span>4.3 Prompt Engineering
+## 4.3 Prompt Engineering
 
 With the advent of large language models, it becomes feasible to accomplish a task by solely fine-tuning the input to probe knowledge from the model, while keeping the model fixed. Prompt engineering is an emerging task that aims to design and construct high-quality prompts to achieve the most effective performance on downstream tasks [\[146\]](#page-33-2). For example, when performing text summarization, we can provide the texts we want to summarize followed by specific instructions such as "summarize it" or "TL;DR" to guide the inference. Prompt engineering revolutionizes the traditional workflow by fine-tuning the input data rather than the model itself to achieve a given task.
 
-A natural way is to perform manual prompt engineering by creating templates. For example, in [\[205](#page-35-19)[–207\]](#page-35-20), the authors have pre-defined templates for few-shot learning in text classification and conditional text generation tasks. However, manually crafting templates may not be sufficient to discover the optimal prompts for complex tasks. Thus, automated prompt engineering has been studied. Common programmatic approaches include mining the templates from an external corpus [\[115\]](#page-32-22) and paraphrasing with a seed prompt [\[94,](#page-31-20) [264\]](#page-36-21). Learning-based methods automatically generate the prompt tokens by gradient-based search [\[239\]](#page-36-6) or generative models [\[82\]](#page-31-21). The primary obstacle in prompt engineering arises from the absence of a universal prompt template that consistently performs well. Various templates may result in different model behaviors, and obtaining the desired answers is not guaranteed. Therefore, further research is necessary to gain insight into the response of the model to prompts and guide the prompt engineering process.
+A natural way is to perform manual prompt engineering by creating templates. For example, in [\[205](#page-35-19)[-207\]](#page-35-20), the authors have pre-defined templates for few-shot learning in text classification and conditional text generation tasks. However, manually crafting templates may not be sufficient to discover the optimal prompts for complex tasks. Thus, automated prompt engineering has been studied. Common programmatic approaches include mining the templates from an external corpus [\[115\]](#page-32-22) and paraphrasing with a seed prompt [\[94,](#page-31-20) [264\]](#page-36-21). Learning-based methods automatically generate the prompt tokens by gradient-based search [\[239\]](#page-36-6) or generative models [\[82\]](#page-31-21). The primary obstacle in prompt engineering arises from the absence of a universal prompt template that consistently performs well. Various templates may result in different model behaviors, and obtaining the desired answers is not guaranteed. Therefore, further research is necessary to gain insight into the response of the model to prompts and guide the prompt engineering process.
 
-## <span id="page-19-0"></span>5 DATA MAINTENANCE
+## 5 DATA MAINTENANCE
 
 In production scenarios, data is not created once but is rather continuously updated, making data maintenance a significant challenge that must be considered to ensure reliable and instant data supply in building AI systems. This section provides an overview of the need, representative methods (as depicted in Figure [6\)](#page-20-0), and challenges of data maintenance. Our discussion spans across three aspects: data understanding (Section [5.1\)](#page-19-2), data quality assurance (Section [5.2\)](#page-22-0), and data storage & retrieval (Section [5.3\)](#page-23-0). Additionally, Table [4](#page-21-0) summarizes the relevant tasks and methods.
 
-## <span id="page-19-2"></span>5.1 Data Understanding
+## 5.1 Data Understanding
 
 To ensure proper maintenance, it is essential to first understand the data. The following discussion covers the need for data understanding techniques, ways to gain insights through visualization and valuation, and the challenges involved.
 
-<span id="page-20-0"></span>![](_page_20_Figure_1.jpeg)
+![](_page_20_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a data maintenance process.  Three interconnected blocks represent "Data Understanding" (data visualization and valuation), "Data Quality Assurance" (quality assessment and improvement), and "Data Storage & Retrieval" (resource allocation and query acceleration).  Arrows show how each component contributes to the central "Data Maintenance" process, which supplies high-quality data.  Simple icons further clarify the functions of each block. -->
 
 Fig. 6. An overview of data maintenance.
 
@@ -402,8 +393,6 @@ Visual summarization. Summarizing the raw data as a set of graphical diagrams ca
 Clustering for visualization. Real-world data can be high-dimensional and with complex manifold structures. As such, dimensionality reduction techniques (mentioned in Section [3.4\)](#page-12-0) are often applied to visualize data in a two-or-three-dimensional space. Furthermore, automated clustering methods [\[72\]](#page-30-6) are frequently combined with dimensionality reduction techniques to organize data points in a grouped, categorized, and often color-coded fashion, facilitating human comprehension and insightful analysis of the data.
 
 Visualization recommendation. Building upon various visualization formats, there has been a surge of interest in visualization recommendation, which involves suggesting the most suitable visualization formats for a particular user. Programmatic automation approaches rank visualization candidates based on predefined rules composed of human perceptual metrics such as data type,
-
-<span id="page-21-0"></span>
 
 | Sub-goal            | Task                         | Method type   | Automation level/<br>participation degree | Reference             |
 |---------------------|------------------------------|---------------|-------------------------------------------|-----------------------|
@@ -433,7 +422,7 @@ statistical information, and human visual preference [\[254\]](#page-36-7). Lear
 
 5.1.4 Challenges. There are two major challenges. Firstly, the most effective data visualization formats and algorithms (e.g., clustering algorithms) are often specific to the domain and influenced by human behavior, making it difficult to select the best option. This selection process often requires human input. Determining how to best interact with humans adds an additional complexity. Secondly, developing efficient data valuation algorithms is challenging, since estimating the Shapley value can be computationally expensive, especially as data sizes continue to grow. Additionally, the Shapley value may only offer a limited perspective on data value, as there are many other important factors beyond model performance, such as the problems that can be addressed through training a model on the data.
 
-## <span id="page-22-0"></span>5.2 Data Quality Assurance
+## 5.2 Data Quality Assurance
 
 To ensure a reliable data supply, it is essential to maintain data quality. We will discuss why quality assurance is necessary, the key tasks involved in maintaining data quality (quality assessment and improvement), and the challenges.
 
@@ -451,7 +440,7 @@ Apart from automation, collaborative approaches have been developed to encourage
 
 5.2.4 Challenges. Ensuring data quality poses two main challenges. Firstly, selecting the most suitable assessment metric is not a straightforward task and heavily relies on domain knowledge. A single metric may not always be adequate in a constantly evolving environment. Secondly, quality improvement is a vital yet laborious process that necessitates careful consideration. Although automation is crucial in ensuring sustainable data quality, human involvement may also be necessary to ensure that the data quality meets human expectations. Therefore, data assessment metrics and data improvement strategies must be thoughtfully designed.
 
-#### <span id="page-23-0"></span>5.3 Data Storage & Retrieval
+#### 5.3 Data Storage & Retrieval
 
 Data storage and retrieval systems play an indispensable role in providing the necessary data to build AI systems. To expedite the process of data acquisition, various efficient strategies have been proposed. In the following discussion, we elaborate on the importance of efficient data storage and retrieval, review some representative acceleration methods for resource allocation and query acceleration, and discuss the challenges associated with them.
 
@@ -469,15 +458,13 @@ Query rewriting. In parallel, query rewriting aims to reduce the workload by ide
 
 5.3.4 Challenges. Existing data storage and retrieval methods typically focus on optimizing specific parts of the system, such as resource allocation and query acceleration we mentioned. However, the real data administration system as a whole can be complex since it needs to process a vast amount of data in various formats and structures, making end-to-end optimization a challenging task. Additionally, apart from efficiency, data storage and retrieval require consideration of several other crucial and challenging aspects, such as data access control and system maintenance.
 
-#### <span id="page-24-0"></span>6 DATA BENCHMARK
+#### 6 DATA BENCHMARK
 
 In the previous sections, we explored a diverse range of data-centric AI tasks throughout various stages of the data lifecycle. Examining benchmarks is a promising approach for gaining insight into the progress of research and development in these tasks, as benchmarks comprehensively evaluate various methods based on standard and agreed-upon metrics. It is important to note that, within the context of data-centric AI, we are specifically interested in data benchmarks rather than model benchmarks, which should assess various techniques aimed at achieving data excellence. In this section, we survey the existing benchmarks for different goals of data-centric AI. Firstly, we will introduce the benchmark collection strategy, and subsequently, we will summarize and analyze the collected benchmarks.
 
 Collection strategy. We primarily utilize Google Scholar to search for benchmark papers. Specifically, we generate a series of queries for each task using relevant keywords for the sub-goal and task, and supplement them with terms such as "benchmark", "quantitative analysis", and "quantitative survey". For example, the queries for the task "data cleaning" include "benchmark data cleaning", "benchmark data cleansing", "quantitative analysis for data cleaning", "quantitative survey for data cleaning", etc. It is worth noting that many of the queried benchmarks evaluate models rather than data. Thus, we have carefully read each paper and manually filtered the papers to ensure that they focus on the evaluation of data. We have also screened them based on the number of citations and the reputation of the publication venues.
 
 Summary of the collected benchmarks. Table [5](#page-25-0) comprises the 36 benchmarks that we collected using the above process, out of which 23 incorporate open-source codes. Notably, we did not
-
-<span id="page-25-0"></span>
 
 | Reference                 | Sub-goal            | Task                                                    | Domain                      | Data modality                      | Open-source |  |  |  |
 |---------------------------|---------------------|---------------------------------------------------------|-----------------------------|------------------------------------|-------------|--|--|--|
@@ -528,7 +515,7 @@ encounter a benchmark for the task of "generating distribution shift samples", a
 
 Meta-analysis. We give a bird-eye view of existing data-centric AI research across various dimensions by analyzing these collected benchmarks. ❶ Although the AI community has made the most significant contributions to these benchmarks (17), numerous other domains have also made substantial contributions, including databases (9), computer graphics (3), human-computer interaction (2), biomedical (3), computer security (1), and healthcare (1). Notably, healthcare and biomedical are outside the realm of computer science. An established benchmark in a domain often implies that there is a collection of published works. Therefore, data-centric AI is an interdisciplinary effort that spans various domains within and outside of computer science. ❷ The most frequently benchmarked data modality is tabular data (25), followed by image (15), time-series (7), text (6), audio (6), and graph (2). We conjecture that this is because tabular and image data have been extensively studied, while research on graph data is still emerging. ❸ Training data development has received more attention, if we measure it based on the number of benchmarks (22), compared to evaluation data development (5) and data maintenance (8). We hypothesize that this is due to the fact that many of the tasks involved in training data development were considered as preprocessing steps in the model-centric paradigm.
 
-## <span id="page-26-0"></span>7 DISCUSSION AND FUTURE DIRECTION
+## 7 DISCUSSION AND FUTURE DIRECTION
 
 What is the current stage of data-centric AI research, and what are the potential future directions? This section provides a top-level discussion of data-centric AI and presents some of the open problems that we have identified, aiming to motivate future exploration in this field. We start by trying to answer the research questions posed at the beginning:
 
@@ -539,343 +526,343 @@ What is the current stage of data-centric AI research, and what are the potentia
 
 By attempting to address these questions, our survey delves into a variety of tasks and their needs and challenges, yielding a more concrete picture of the scope and progress of data-centric AI. However, although we have endeavored to broadly and comprehensively cover various tasks and techniques, it is impossible to include every aspect of data-centric AI. In the following, we connect data-centric AI with two other popular research topics in AI:
 
-• Foundation models. A foundation model is a large model that is trained on massive amounts of unlabeled data and can be adapted to various tasks, such as large language models [\[34,](#page-29-1) [172\]](#page-34-1), and Stable Diffusion [\[194\]](#page-34-10). As models become sufficiently powerful, it becomes feasible to perform many data-centric AI tasks with models, such as data labeling [\[172\]](#page-34-1), and data augmentation [\[263\]](#page-36-33). Consequently, the recent trend of foundation models has the potential to fundamentally alter our understanding of data. Unlike the conventional approach of storing raw data values in datasets, the model itself can be a form of data (or a "container" of raw data) since the model can convey information (see the definition of data in Section [2.1\)](#page-2-1). Foundation
+- Foundation models. A foundation model is a large model that is trained on massive amounts of unlabeled data and can be adapted to various tasks, such as large language models [\[34,](#page-29-1) [172\]](#page-34-1), and Stable Diffusion [\[194\]](#page-34-10). As models become sufficiently powerful, it becomes feasible to perform many data-centric AI tasks with models, such as data labeling [\[172\]](#page-34-1), and data augmentation [\[263\]](#page-36-33). Consequently, the recent trend of foundation models has the potential to fundamentally alter our understanding of data. Unlike the conventional approach of storing raw data values in datasets, the model itself can be a form of data (or a "container" of raw data) since the model can convey information (see the definition of data in Section [2.1\)](#page-2-1). Foundation
 
 models blur the boundary between data and model, but their training still heavily relies on large and high-quality datasets.
 
-• Reinforcement learning. Reinforcement learning is a research field that trains intelligent agents to optimize rewards without any initial data [\[131,](#page-32-26) [164,](#page-33-25) [270–](#page-37-19)[272,](#page-37-20) [275,](#page-37-21) [276,](#page-37-22) [279,](#page-37-23) [281\]](#page-37-24). It is a unique learning paradigm that alternates between generating data with the model and training the model with self-generated data. Like foundation models, the advancement of reinforcement learning could also possibly blur the boundary between data and model. Furthermore, reinforcement learning has already been widely adopted in several data-centric AI sub-goals, such as data labeling [\[48,](#page-30-4) [66,](#page-30-10) [274\]](#page-37-9), data preparation [\[122\]](#page-32-11), data reduction [\[148\]](#page-33-11), and data augmentation [\[56,](#page-30-2) [273\]](#page-37-7). The reason could be attributed to its goal-oriented nature, which is well-suited for automation.
+- Reinforcement learning. Reinforcement learning is a research field that trains intelligent agents to optimize rewards without any initial data [\[131,](#page-32-26) [164,](#page-33-25) [270-](#page-37-19)[272,](#page-37-20) [275,](#page-37-21) [276,](#page-37-22) [279,](#page-37-23) [281\]](#page-37-24). It is a unique learning paradigm that alternates between generating data with the model and training the model with self-generated data. Like foundation models, the advancement of reinforcement learning could also possibly blur the boundary between data and model. Furthermore, reinforcement learning has already been widely adopted in several data-centric AI sub-goals, such as data labeling [\[48,](#page-30-4) [66,](#page-30-10) [274\]](#page-37-9), data preparation [\[122\]](#page-32-11), data reduction [\[148\]](#page-33-11), and data augmentation [\[56,](#page-30-2) [273\]](#page-37-7). The reason could be attributed to its goal-oriented nature, which is well-suited for automation.
 
 Upon examining the connections to these two rapidly evolving research fields, we hypothesize that data-centric AI and model-centric AI could become even more intertwined in the development of AI systems. Looking forward, we present some potential future directions we have identified in data-centric AI:
 
 - Cross-task automation. While there has been significant progress in automating various individual data-centric AI tasks, joint automation across multiple tasks remains largely unexplored. Although pipeline search methods [\[76,](#page-30-11) [97,](#page-31-15) [132,](#page-32-6) [280\]](#page-37-13) have emerged, they are limited only to training data development. From a broad data-centric AI perspective, it would be desirable to have a unified framework for jointly automating tasks aimed at different goals, ranging from training data development to inference data development and data maintenance.
 - Data-model co-design. Although data-centric AI advocates for shifting the focus to data, it does not necessarily imply that the model has to remain unchanged. The optimal data strategies may differ when using different models, and vice versa. Furthermore, as discussed above, the boundary between data and model could potentially become increasingly blurred with the advancement of foundation models and reinforcement learning. Consequently, future progress in AI could arise from co-designing data and models, and the co-evolution of data and models could pave the way toward more powerful AI systems.
 - Debiasing data. In many high-stakes applications, AI systems have recently been found to exhibit discriminatory behavior towards certain groups of people, sparking significant concerns about fairness [\[50,](#page-30-28) [65,](#page-30-29) [112,](#page-32-27) [113,](#page-32-28) [157,](#page-33-26) [240\]](#page-36-16). These biases often originate from imbalanced distributions of sensitive variables in the data. From a data-centric perspective, more research efforts are needed to debias data, including but limited to mitigating biases in training data, systematic methodologies to construct evaluation data to expose unfairness issues of unfairness, and continuously maintaining fair data in a dynamic environment.
-- Tackling data in various modalities. Based on the benchmark analysis presented in Section [6,](#page-24-0) most research efforts have been directed toward tabular and image data. However, other data modalities that are comparably important but less studied in data-centric AI pose significant challenges. For instance, time-series data [\[92,](#page-31-32) [141,](#page-33-27) [277\]](#page-37-25) exhibit complex temporal correlations, while graph data [\[134,](#page-32-29) [147,](#page-33-28) [226,](#page-35-29) [290](#page-37-26)[–293\]](#page-37-27) has intricate data dependencies. Therefore, more research on how to engineer data for these modalities is required. Furthermore, developing data-centric AI solutions that can simultaneously address multiple data modalities is an intriguing avenue for future exploration.
+- Tackling data in various modalities. Based on the benchmark analysis presented in Section [6,](#page-24-0) most research efforts have been directed toward tabular and image data. However, other data modalities that are comparably important but less studied in data-centric AI pose significant challenges. For instance, time-series data [\[92,](#page-31-32) [141,](#page-33-27) [277\]](#page-37-25) exhibit complex temporal correlations, while graph data [\[134,](#page-32-29) [147,](#page-33-28) [226,](#page-35-29) [290](#page-37-26)[-293\]](#page-37-27) has intricate data dependencies. Therefore, more research on how to engineer data for these modalities is required. Furthermore, developing data-centric AI solutions that can simultaneously address multiple data modalities is an intriguing avenue for future exploration.
 - Data benchmarks development. The advancement of model-centric AI has been facilitated by benchmarks in advancing model designs. Whereas data-centric AI requires more attention to benchmarking. As discussed in Section [6,](#page-24-0) existing benchmarks for data-centric AI typically only focus on specific tasks. Constructing a unified benchmark to evaluate overall data quality
 
 and various data-centric AI techniques comprehensively presents a significant challenge. Although DataPerf [\[155\]](#page-33-7) has made notable progress towards this objective, it currently supports only a limited number of tasks. The development of more unified data benchmarks would greatly accelerate research progress in this area.
 
-#### <span id="page-28-2"></span>8 CONCLUSION
+#### 8 CONCLUSION
 
 This survey focuses on data-centric AI, an emerging and important research field in AI. We motivated the need for data-centric AI by showing how carefully designing and maintaining data can make AI solutions more desirable across academia and industry. Next, we provided a background of data-centric AI, which includes its definition and a goal-driven taxonomy. Then, guided by the research questions posed, we reviewed various data-centric AI techniques for different purposes from the perspectives of automation and collaboration. Furthermore, we collected data benchmarks from different domains and analyzed them at a meta-level. Lastly, we discussed data-centric AI from a global view and shared our perspectives on the blurred boundaries between data and model. We also presented potential future directions for this field. To conclude in one line, we believe that data will play an increasingly important role in building AI systems. At the same time, there are still numerous challenges that need to be addressed. We hope our survey could inspire collaborative initiatives in our community to push forward this field.
 
 #### REFERENCES
 
-- <span id="page-28-18"></span>[1] Abdelaal, M., Hammacher, C., and Schoening, H. Rein: A comprehensive benchmark framework for data cleaning methods in ml pipelines. arXiv preprint arXiv:2302.04702 (2023).
-- <span id="page-28-5"></span>[2] Abdi, H., and Williams, L. J. Principal component analysis. Wiley interdisciplinary reviews: computational statistics 2, 4 (2010), 433–459.
-- <span id="page-28-14"></span>[3] Agarwal, A., Dahleh, M., and Sarkar, T. A marketplace for data: An algorithmic solution. In EC (2019).
-- <span id="page-28-11"></span>[4] Ahsan, M. M., Mahmud, M. P., Saha, P. K., Gupta, K. D., and Siddiqe, Z. Effect of data scaling methods on machine learning algorithms and model performance. Technologies 9, 3 (2021), 52.
-- <span id="page-28-4"></span>[5] Ali, P. J. M., Faraj, R. H., Koya, E., Ali, P. J. M., and Faraj, R. H. Data normalization and standardization: a technical report. Mach Learn Tech Rep 1, 1 (2014), 1–6.
-- <span id="page-28-17"></span>[6] Apache. Apache. https://storm.apache.org/releases/current/Performance.html (2023).
-- <span id="page-28-0"></span>[7] Armbrust, M., Ghodsi, A., Xin, R., and Zaharia, M. Lakehouse: a new generation of open platforms that unify data warehousing and advanced analytics. In CIDR (2021).
-- <span id="page-28-19"></span>[8] Arocena, P. C., Glavic, B., Mecca, G., Miller, R. J., Papotti, P., and Santoro, D. Benchmarking data curation systems. IEEE Data Eng. Bull. 39, 2 (2016), 47–62.
-- <span id="page-28-3"></span>[9] Aroyo, L., Lease, M., Paritosh, P., and Schaekermann, M. Data excellence for ai: why should you care? Interactions 29, 2 (2022), 66–69.
-- <span id="page-28-9"></span>[10] Azhagusundari, B., Thanamani, A. S., et al. Feature selection based on information gain. International Journal of Innovative Technology and Exploring Engineering (IJITEE) 2, 2 (2013), 18–21.
-- <span id="page-28-13"></span>[11] Azizzadenesheli, K., Liu, A., Yang, F., and Anandkumar, A. Regularized learning for domain adaptation under label shifts. arXiv preprint arXiv:1903.09734 (2019).
-- <span id="page-28-7"></span>[12] Baik, C., Jagadish, H. V., and Li, Y. Bridging the semantic gap with sql query logs in natural language interfaces to databases. In ICDE (2019).
-- <span id="page-28-10"></span>[13] Bank, D., Koenigstein, N., and Giryes, R. Autoencoders. arXiv preprint arXiv:2003.05991 (2020).
-- <span id="page-28-8"></span>[14] Barandas, M., Folgado, D., Fernandes, L., Santos, S., Abreu, M., Bota, P., Liu, H., Schultz, T., and Gamboa, H. Tsfel: Time series feature extraction library. SoftwareX 11 (2020), 100456.
-- <span id="page-28-1"></span>[15] Barclay, T., Gray, J., and Slutz, D. Microsoft terraserver: a spatial data warehouse. In SIGMOD (2000).
-- <span id="page-28-12"></span>[16] Barenstein, M. Propublica's compas data revisited. arXiv preprint arXiv:1906.04711 (2019).
-- <span id="page-28-16"></span>[17] Basu, A., and Blanning, R. W. Discovering implicit integrity constraints in rule bases using metagraphs. In HICSS (1995).
-- <span id="page-28-15"></span>[18] Batini, C., Cappiello, C., Francalanci, C., and Maurino, A. Methodologies for data quality assessment and improvement. ACM computing surveys (CSUR) 41, 3 (2009), 1–52.
-- <span id="page-28-6"></span>[19] Baylor, D., Breck, E., Cheng, H.-T., Fiedel, N., Foo, C. Y., Haqe, Z., Haykal, S., Ispir, M., Jain, V., Koc, L., et al. Tfx: A tensorflow-based production-scale machine learning platform. In KDD (2017).
+- [1] Abdelaal, M., Hammacher, C., and Schoening, H. Rein: A comprehensive benchmark framework for data cleaning methods in ml pipelines. arXiv preprint arXiv:2302.04702 (2023).
+- [2] Abdi, H., and Williams, L. J. Principal component analysis. Wiley interdisciplinary reviews: computational statistics 2, 4 (2010), 433-459.
+- [3] Agarwal, A., Dahleh, M., and Sarkar, T. A marketplace for data: An algorithmic solution. In EC (2019).
+- [4] Ahsan, M. M., Mahmud, M. P., Saha, P. K., Gupta, K. D., and Siddiqe, Z. Effect of data scaling methods on machine learning algorithms and model performance. Technologies 9, 3 (2021), 52.
+- [5] Ali, P. J. M., Faraj, R. H., Koya, E., Ali, P. J. M., and Faraj, R. H. Data normalization and standardization: a technical report. Mach Learn Tech Rep 1, 1 (2014), 1-6.
+- [6] Apache. Apache. https://storm.apache.org/releases/current/Performance.html (2023).
+- [7] Armbrust, M., Ghodsi, A., Xin, R., and Zaharia, M. Lakehouse: a new generation of open platforms that unify data warehousing and advanced analytics. In CIDR (2021).
+- [8] Arocena, P. C., Glavic, B., Mecca, G., Miller, R. J., Papotti, P., and Santoro, D. Benchmarking data curation systems. IEEE Data Eng. Bull. 39, 2 (2016), 47-62.
+- [9] Aroyo, L., Lease, M., Paritosh, P., and Schaekermann, M. Data excellence for ai: why should you care? Interactions 29, 2 (2022), 66-69.
+- [10] Azhagusundari, B., Thanamani, A. S., et al. Feature selection based on information gain. International Journal of Innovative Technology and Exploring Engineering (IJITEE) 2, 2 (2013), 18-21.
+- [11] Azizzadenesheli, K., Liu, A., Yang, F., and Anandkumar, A. Regularized learning for domain adaptation under label shifts. arXiv preprint arXiv:1903.09734 (2019).
+- [12] Baik, C., Jagadish, H. V., and Li, Y. Bridging the semantic gap with sql query logs in natural language interfaces to databases. In ICDE (2019).
+- [13] Bank, D., Koenigstein, N., and Giryes, R. Autoencoders. arXiv preprint arXiv:2003.05991 (2020).
+- [14] Barandas, M., Folgado, D., Fernandes, L., Santos, S., Abreu, M., Bota, P., Liu, H., Schultz, T., and Gamboa, H. Tsfel: Time series feature extraction library. SoftwareX 11 (2020), 100456.
+- [15] Barclay, T., Gray, J., and Slutz, D. Microsoft terraserver: a spatial data warehouse. In SIGMOD (2000).
+- [16] Barenstein, M. Propublica's compas data revisited. arXiv preprint arXiv:1906.04711 (2019).
+- [17] Basu, A., and Blanning, R. W. Discovering implicit integrity constraints in rule bases using metagraphs. In HICSS (1995).
+- [18] Batini, C., Cappiello, C., Francalanci, C., and Maurino, A. Methodologies for data quality assessment and improvement. ACM computing surveys (CSUR) 41, 3 (2009), 1-52.
+- [19] Baylor, D., Breck, E., Cheng, H.-T., Fiedel, N., Foo, C. Y., Haqe, Z., Haykal, S., Ispir, M., Jain, V., Koc, L., et al. Tfx: A tensorflow-based production-scale machine learning platform. In KDD (2017).
 
-- <span id="page-29-13"></span>[20] Becker, M., Burkart, N., Birnstill, P., and Beyerer, J. A step towards global counterfactual explanations: Approximating the feature space through hierarchical division and graph search. Adv. Artif. Intell. Mach. Learn. 1, 2 (2021), 90–110.
-- <span id="page-29-18"></span>[21] Betzalel, E., Penso, C., Navon, A., and Fetaya, E. A study on the evaluation of generative models. arXiv preprint arXiv:2206.10935 (2022).
-- <span id="page-29-5"></span>[22] Bhardwaj, A., Bhattacherjee, S., Chavan, A., Deshpande, A., Elmore, A. J., Madden, S., and Parameswaran, A. G. Datahub: Collaborative data science & dataset version management at scale. In CIDR (2015).
-- <span id="page-29-16"></span>[23] Biggio, B., Corona, I., Maiorca, D., Nelson, B., Šrndić, N., Laskov, P., Giacinto, G., and Roli, F. Evasion attacks against machine learning at test time. In ECMLPKDD (2013).
-- <span id="page-29-8"></span>[24] Bisong, E., and Bisong, E. Introduction to scikit-learn. Building Machine Learning and Deep Learning Models on Google Cloud Platform: A Comprehensive Guide for Beginners (2019), 215–229.
-- <span id="page-29-27"></span>[25] Blachnik, M., and Kordos, M. Comparison of instance selection and construction methods with various classifiers. Applied Sciences 10, 11 (2020), 3933.
-- <span id="page-29-14"></span>[26] Blanchart, P. An exact counterfactual-example-based approach to tree-ensemble models interpretability. arXiv preprint arXiv:2105.14820 (2021).
-- <span id="page-29-7"></span>[27] Boecking, B., Neiswanger, W., Xing, E., and Dubrawski, A. Interactive weak supervision: Learning useful heuristics for data labeling. In ICLR (2021).
-- <span id="page-29-3"></span>[28] Bogatu, A., Fernandes, A. A., Paton, N. W., and Konstantinou, N. Dataset discovery in data lakes. In ICDE (2020).
-- <span id="page-29-21"></span>[29] Bohannon, P., Fan, W., Geerts, F., Jia, X., and Kementsietsidis, A. Conditional functional dependencies for data cleaning. In 2007 IEEE 23rd international conference on data engineering (2006), IEEE, pp. 746–755.
-- <span id="page-29-11"></span>[30] Bollacker, K., Evans, C., Paritosh, P., Sturge, T., and Taylor, J. Freebase: a collaboratively created graph database for structuring human knowledge. In SIGMOD (2008).
-- <span id="page-29-26"></span>[31] Bommert, A., Welchowski, T., Schmid, M., and Rahnenführer, J. Benchmark of filter methods for feature selection in high-dimensional gene expression survival data. Briefings in Bioinformatics 23, 1 (2022), bbab354.
-- <span id="page-29-19"></span>[32] Borgwardt, K. M., Gretton, A., Rasch, M. J., Kriegel, H.-P., Schölkopf, B., and Smola, A. J. Integrating structured biological data by kernel maximum mean discrepancy. Bioinformatics 22, 14 (2006), e49–e57.
-- <span id="page-29-20"></span>[33] Borkin, M. A., Vo, A. A., Bylinskii, Z., Isola, P., Sunkavalli, S., Oliva, A., and Pfister, H. What makes a visualization memorable? IEEE transactions on visualization and computer graphics 19, 12 (2013), 2306–2315.
-- <span id="page-29-1"></span>[34] Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J. D., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., et al. Language models are few-shot learners. NeurIPS (2020).
-- <span id="page-29-25"></span>[35] Buckley, T., Ghosh, B., and Pakrashi, V. A feature extraction & selection benchmark for structural health monitoring. Structural Health Monitoring (2022), 14759217221111141.
-- <span id="page-29-2"></span>[36] Buolamwini, J., and Gebru, T. Gender shades: Intersectional accuracy disparities in commercial gender classification. In FAccT (2018).
-- <span id="page-29-4"></span>[37] Burch, M., and Weiskopf, D. On the benefits and drawbacks of radial diagrams. Handbook of human centric visualization (2014), 429–451.
-- <span id="page-29-15"></span>[38] Carreira-Perpinán, M. A., and Hada, S. S. Counterfactual explanations for oblique decision trees: Exact, efficient algorithms. In AAAI (2021).
-- <span id="page-29-23"></span>[39] Chaudhuri, S., and Narasayya, V. R. An efficient, cost-driven index selection tool for microsoft sql server. In VLDB (1997).
-- <span id="page-29-24"></span>[40] Chavan, M., Guravannavar, R., Ramachandra, K., and Sudarshan, S. Dbridge: A program rewrite tool for set-oriented query execution. In ICDE (2011).
-- <span id="page-29-10"></span>[41] Chawla, N. V., Bowyer, K. W., Hall, L. O., and Kegelmeyer, W. P. Smote: synthetic minority over-sampling technique. Journal of artificial intelligence research 16 (2002), 321–357.
-- <span id="page-29-9"></span>[42] Chen, J., Yang, Z., and Yang, D. Mixtext: Linguistically-informed interpolation of hidden space for semi-supervised text classification. In ACL (2020).
-- <span id="page-29-17"></span>[43] Chen, P.-Y., Zhang, H., Sharma, Y., Yi, J., and Hsieh, C.-J. Zoo: Zeroth order optimization based black-box attacks to deep neural networks without training substitute models. In AISec Workshop (2017).
-- <span id="page-29-22"></span>[44] Chen, T., Han, L., Demartini, G., Indulska, M., and Sadiq, S. Building data curation processes with crowd intelligence. In CAiSE (2020).
-- <span id="page-29-12"></span>[45] Chlap, P., Min, H., Vandenberg, N., Dowling, J., Holloway, L., and Haworth, A. A review of medical image data augmentation techniques for deep learning applications. Journal of Medical Imaging and Radiation Oncology 65, 5 (2021), 545–563.
-- <span id="page-29-6"></span>[46] Chong, Y., Ding, Y., Yan, Q., and Pan, S. Graph-based semi-supervised learning: A review. Neurocomputing 408 (2020), 216–230.
-- <span id="page-29-0"></span>[47] Chowdhary, K., and Chowdhary, K. Natural language processing. Fundamentals of artificial intelligence (2020), 603–649.
+- [20] Becker, M., Burkart, N., Birnstill, P., and Beyerer, J. A step towards global counterfactual explanations: Approximating the feature space through hierarchical division and graph search. Adv. Artif. Intell. Mach. Learn. 1, 2 (2021), 90-110.
+- [21] Betzalel, E., Penso, C., Navon, A., and Fetaya, E. A study on the evaluation of generative models. arXiv preprint arXiv:2206.10935 (2022).
+- [22] Bhardwaj, A., Bhattacherjee, S., Chavan, A., Deshpande, A., Elmore, A. J., Madden, S., and Parameswaran, A. G. Datahub: Collaborative data science & dataset version management at scale. In CIDR (2015).
+- [23] Biggio, B., Corona, I., Maiorca, D., Nelson, B., Šrndić, N., Laskov, P., Giacinto, G., and Roli, F. Evasion attacks against machine learning at test time. In ECMLPKDD (2013).
+- [24] Bisong, E., and Bisong, E. Introduction to scikit-learn. Building Machine Learning and Deep Learning Models on Google Cloud Platform: A Comprehensive Guide for Beginners (2019), 215-229.
+- [25] Blachnik, M., and Kordos, M. Comparison of instance selection and construction methods with various classifiers. Applied Sciences 10, 11 (2020), 3933.
+- [26] Blanchart, P. An exact counterfactual-example-based approach to tree-ensemble models interpretability. arXiv preprint arXiv:2105.14820 (2021).
+- [27] Boecking, B., Neiswanger, W., Xing, E., and Dubrawski, A. Interactive weak supervision: Learning useful heuristics for data labeling. In ICLR (2021).
+- [28] Bogatu, A., Fernandes, A. A., Paton, N. W., and Konstantinou, N. Dataset discovery in data lakes. In ICDE (2020).
+- [29] Bohannon, P., Fan, W., Geerts, F., Jia, X., and Kementsietsidis, A. Conditional functional dependencies for data cleaning. In 2007 IEEE 23rd international conference on data engineering (2006), IEEE, pp. 746-755.
+- [30] Bollacker, K., Evans, C., Paritosh, P., Sturge, T., and Taylor, J. Freebase: a collaboratively created graph database for structuring human knowledge. In SIGMOD (2008).
+- [31] Bommert, A., Welchowski, T., Schmid, M., and Rahnenführer, J. Benchmark of filter methods for feature selection in high-dimensional gene expression survival data. Briefings in Bioinformatics 23, 1 (2022), bbab354.
+- [32] Borgwardt, K. M., Gretton, A., Rasch, M. J., Kriegel, H.-P., Schölkopf, B., and Smola, A. J. Integrating structured biological data by kernel maximum mean discrepancy. Bioinformatics 22, 14 (2006), e49-e57.
+- [33] Borkin, M. A., Vo, A. A., Bylinskii, Z., Isola, P., Sunkavalli, S., Oliva, A., and Pfister, H. What makes a visualization memorable? IEEE transactions on visualization and computer graphics 19, 12 (2013), 2306-2315.
+- [34] Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J. D., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., et al. Language models are few-shot learners. NeurIPS (2020).
+- [35] Buckley, T., Ghosh, B., and Pakrashi, V. A feature extraction & selection benchmark for structural health monitoring. Structural Health Monitoring (2022), 14759217221111141.
+- [36] Buolamwini, J., and Gebru, T. Gender shades: Intersectional accuracy disparities in commercial gender classification. In FAccT (2018).
+- [37] Burch, M., and Weiskopf, D. On the benefits and drawbacks of radial diagrams. Handbook of human centric visualization (2014), 429-451.
+- [38] Carreira-Perpinán, M. A., and Hada, S. S. Counterfactual explanations for oblique decision trees: Exact, efficient algorithms. In AAAI (2021).
+- [39] Chaudhuri, S., and Narasayya, V. R. An efficient, cost-driven index selection tool for microsoft sql server. In VLDB (1997).
+- [40] Chavan, M., Guravannavar, R., Ramachandra, K., and Sudarshan, S. Dbridge: A program rewrite tool for set-oriented query execution. In ICDE (2011).
+- [41] Chawla, N. V., Bowyer, K. W., Hall, L. O., and Kegelmeyer, W. P. Smote: synthetic minority over-sampling technique. Journal of artificial intelligence research 16 (2002), 321-357.
+- [42] Chen, J., Yang, Z., and Yang, D. Mixtext: Linguistically-informed interpolation of hidden space for semi-supervised text classification. In ACL (2020).
+- [43] Chen, P.-Y., Zhang, H., Sharma, Y., Yi, J., and Hsieh, C.-J. Zoo: Zeroth order optimization based black-box attacks to deep neural networks without training substitute models. In AISec Workshop (2017).
+- [44] Chen, T., Han, L., Demartini, G., Indulska, M., and Sadiq, S. Building data curation processes with crowd intelligence. In CAiSE (2020).
+- [45] Chlap, P., Min, H., Vandenberg, N., Dowling, J., Holloway, L., and Haworth, A. A review of medical image data augmentation techniques for deep learning applications. Journal of Medical Imaging and Radiation Oncology 65, 5 (2021), 545-563.
+- [46] Chong, Y., Ding, Y., Yan, Q., and Pan, S. Graph-based semi-supervised learning: A review. Neurocomputing 408 (2020), 216-230.
+- [47] Chowdhary, K., and Chowdhary, K. Natural language processing. Fundamentals of artificial intelligence (2020), 603-649.
 
-- <span id="page-30-4"></span>[48] Christiano, P. F., Leike, J., Brown, T., Martic, M., Legg, S., and Amodei, D. Deep reinforcement learning from human preferences. In NeurIPS (2017).
-- <span id="page-30-20"></span>[49] Chu, X., Ilyas, I. F., and Papotti, P. Discovering denial constraints. In VLDB (2013).
-- <span id="page-30-28"></span>[50] Chuang, Y.-N., Lai, K.-H., Tang, R., Du, M., Chang, C.-Y., Zou, N., and Hu, X. Mitigating relational bias on knowledge graphs. arXiv preprint arXiv:2211.14489 (2022).
-- <span id="page-30-12"></span>[51] Chuang, Y.-N., Wang, G., Yang, F., Liu, Z., Cai, X., Du, M., and Hu, X. Efficient xai techniques: A taxonomic survey. arXiv preprint arXiv:2302.03225 (2023).
-- <span id="page-30-13"></span>[52] Chuang, Y.-N., Wang, G., Yang, F., Zhou, Q., Tripathi, P., Cai, X., and Hu, X. Cortx: Contrastive framework for real-time explanation. In ICLR (2023).
-- <span id="page-30-5"></span>[53] Chung, Y., Kraska, T., Polyzotis, N., Tae, K. H., and Whang, S. E. Slice finder: Automated data slicing for model validation. In ICDE (2019).
-- <span id="page-30-24"></span>[54] Cohen, T., Roberts, K., Gururaj, A. E., Chen, X., Pournejati, S., Alter, G., Hersh, W. R., Demner-Fushman, D., Ohno-Machado, L., and Xu, H. A publicly available benchmark for biomedical dataset retrieval: the reference standard for the 2016 biocaddie dataset retrieval challenge. Database 2017 (2017).
-- <span id="page-30-9"></span>[55] Cohn, D. A., Ghahramani, Z., and Jordan, M. I. Active learning with statistical models. Journal of artificial intelligence research 4 (1996), 129–145.
-- <span id="page-30-2"></span>[56] Cubuk, E. D., Zoph, B., Mane, D., Vasudevan, V., and Le, Q. V. Autoaugment: Learning augmentation policies from data. In CVPR (2019).
-- <span id="page-30-14"></span>[57] Dandl, S., Molnar, C., Binder, M., and Bischl, B. Multi-objective counterfactual explanations. In PPSN (2020).
-- <span id="page-30-8"></span>[58] Dekel, O., and Shamir, O. Vox populi: Collecting high-quality labels from a crowd. In COLT (2009).
-- <span id="page-30-0"></span>[59] Deng, J., Dong, W., Socher, R., Li, L.-J., Li, K., and Fei-Fei, L. Imagenet: A large-scale hierarchical image database. In CVPR (2009).
-- <span id="page-30-21"></span>[60] Deodhar, M., Ma, X., Cai, Y., Koes, A., Beutel, A., and Chen, J. A human-ml collaboration framework for improving video content reviews. arXiv preprint arXiv:2210.09500 (2022).
-- <span id="page-30-19"></span>[61] Desnoyers, L. Toward a taxonomy of visuals in science communication. Technical Communication 58, 2 (2011), 119–134.
-- <span id="page-30-15"></span>[62] Dhurandhar, A., Pedapati, T., Balakrishnan, A., Chen, P.-Y., Shanmugam, K., and Puri, R. Model agnostic contrastive explanations for structured data. arXiv preprint arXiv:1906.00117 (2019).
-- <span id="page-30-17"></span>[63] Ding, F., Hardt, M., Miller, J., and Schmidt, L. Retiring adult: New datasets for fair machine learning. In NeurIPS (2021).
-- <span id="page-30-26"></span>[64] Ding, K., Xu, Z., Tong, H., and Liu, H. Data augmentation for deep graph learning: A survey. ACM SIGKDD Explorations Newsletter 24, 2 (2022), 61–77.
-- <span id="page-30-29"></span>[65] Ding, S., Tang, R., Zha, D., Zou, N., Zhang, K., Jiang, X., and Hu, X. Fairly predicting graft failure in liver transplant for organ assigning. arXiv preprint arXiv:2302.09400 (2023).
-- <span id="page-30-10"></span>[66] Dong, J., Zhang, Q., Huang, X., Tan, Q., Zha, D., and Zhao, Z. Active ensemble learning for knowledge graph error detection. In WSDM (2023).
-- <span id="page-30-27"></span>[67] Dong, Y., Fu, Q.-A., Yang, X., Pang, T., Su, H., Xiao, Z., and Zhu, J. Benchmarking adversarial robustness on image classification. In CVPR (2020).
-- <span id="page-30-3"></span>[68] Drori, I., Krishnamurthy, Y., Rampin, R., Lourenco, R. d. P., Ono, J. P., Cho, K., Silva, C., and Freire, J. Alphad3m: Machine learning pipeline synthesis. arXiv preprint arXiv:2111.02508 (2021).
-- <span id="page-30-23"></span>[69] Duan, S., Thummala, V., and Babu, S. Tuning database configuration parameters with ituned. In VLDB (2009).
-- <span id="page-30-25"></span>[70] Espadoto, M., Martins, R. M., Kerren, A., Hirata, N. S., and Telea, A. C. Toward a quantitative survey of dimension reduction techniques. IEEE transactions on visualization and computer graphics 27, 3 (2019), 2153–2173.
-- <span id="page-30-16"></span>[71] Eykholt, K., Evtimov, I., Fernandes, E., Li, B., Rahmati, A., Xiao, C., Prakash, A., Kohno, T., and Song, D. Robust physical-world attacks on deep learning visual classification. In CVPR (2018).
-- <span id="page-30-6"></span>[72] Fahad, A., Alshatri, N., Tari, Z., Alamri, A., Khalil, I., Zomaya, A. Y., Foufou, S., and Bouras, A. A survey of clustering algorithms for big data: Taxonomy and empirical analysis. IEEE transactions on emerging topics in computing 2, 3 (2014), 267–279.
-- <span id="page-30-18"></span>[73] Farahani, A., Voghoei, S., Rasheed, K., and Arabnia, H. R. A brief review of domain adaptation. Advances in Data Science and Information Engineering: Proceedings from ICDATA 2020 and IKE 2020 (2021), 877–894.
-- <span id="page-30-1"></span>[74] Feng, S. Y., Gangal, V., Wei, J., Chandar, S., Vosoughi, S., Mitamura, T., and Hovy, E. A survey of data augmentation approaches for nlp. In ACL (2021).
-- <span id="page-30-7"></span>[75] Fernandez, R. C., Abedjan, Z., Koko, F., Yuan, G., Madden, S., and Stonebraker, M. Aurum: A data discovery system. In ICDE (2018).
-- <span id="page-30-11"></span>[76] Feurer, M., Klein, A., Eggensperger, K., Springenberg, J., Blum, M., and Hutter, F. Efficient and robust automated machine learning. In NeurIPS (2015).
-- <span id="page-30-22"></span>[77] Foundation, A. S. Hadoop. https://hadoop.apache.org (2023).
+- [48] Christiano, P. F., Leike, J., Brown, T., Martic, M., Legg, S., and Amodei, D. Deep reinforcement learning from human preferences. In NeurIPS (2017).
+- [49] Chu, X., Ilyas, I. F., and Papotti, P. Discovering denial constraints. In VLDB (2013).
+- [50] Chuang, Y.-N., Lai, K.-H., Tang, R., Du, M., Chang, C.-Y., Zou, N., and Hu, X. Mitigating relational bias on knowledge graphs. arXiv preprint arXiv:2211.14489 (2022).
+- [51] Chuang, Y.-N., Wang, G., Yang, F., Liu, Z., Cai, X., Du, M., and Hu, X. Efficient xai techniques: A taxonomic survey. arXiv preprint arXiv:2302.03225 (2023).
+- [52] Chuang, Y.-N., Wang, G., Yang, F., Zhou, Q., Tripathi, P., Cai, X., and Hu, X. Cortx: Contrastive framework for real-time explanation. In ICLR (2023).
+- [53] Chung, Y., Kraska, T., Polyzotis, N., Tae, K. H., and Whang, S. E. Slice finder: Automated data slicing for model validation. In ICDE (2019).
+- [54] Cohen, T., Roberts, K., Gururaj, A. E., Chen, X., Pournejati, S., Alter, G., Hersh, W. R., Demner-Fushman, D., Ohno-Machado, L., and Xu, H. A publicly available benchmark for biomedical dataset retrieval: the reference standard for the 2016 biocaddie dataset retrieval challenge. Database 2017 (2017).
+- [55] Cohn, D. A., Ghahramani, Z., and Jordan, M. I. Active learning with statistical models. Journal of artificial intelligence research 4 (1996), 129-145.
+- [56] Cubuk, E. D., Zoph, B., Mane, D., Vasudevan, V., and Le, Q. V. Autoaugment: Learning augmentation policies from data. In CVPR (2019).
+- [57] Dandl, S., Molnar, C., Binder, M., and Bischl, B. Multi-objective counterfactual explanations. In PPSN (2020).
+- [58] Dekel, O., and Shamir, O. Vox populi: Collecting high-quality labels from a crowd. In COLT (2009).
+- [59] Deng, J., Dong, W., Socher, R., Li, L.-J., Li, K., and Fei-Fei, L. Imagenet: A large-scale hierarchical image database. In CVPR (2009).
+- [60] Deodhar, M., Ma, X., Cai, Y., Koes, A., Beutel, A., and Chen, J. A human-ml collaboration framework for improving video content reviews. arXiv preprint arXiv:2210.09500 (2022).
+- [61] Desnoyers, L. Toward a taxonomy of visuals in science communication. Technical Communication 58, 2 (2011), 119-134.
+- [62] Dhurandhar, A., Pedapati, T., Balakrishnan, A., Chen, P.-Y., Shanmugam, K., and Puri, R. Model agnostic contrastive explanations for structured data. arXiv preprint arXiv:1906.00117 (2019).
+- [63] Ding, F., Hardt, M., Miller, J., and Schmidt, L. Retiring adult: New datasets for fair machine learning. In NeurIPS (2021).
+- [64] Ding, K., Xu, Z., Tong, H., and Liu, H. Data augmentation for deep graph learning: A survey. ACM SIGKDD Explorations Newsletter 24, 2 (2022), 61-77.
+- [65] Ding, S., Tang, R., Zha, D., Zou, N., Zhang, K., Jiang, X., and Hu, X. Fairly predicting graft failure in liver transplant for organ assigning. arXiv preprint arXiv:2302.09400 (2023).
+- [66] Dong, J., Zhang, Q., Huang, X., Tan, Q., Zha, D., and Zhao, Z. Active ensemble learning for knowledge graph error detection. In WSDM (2023).
+- [67] Dong, Y., Fu, Q.-A., Yang, X., Pang, T., Su, H., Xiao, Z., and Zhu, J. Benchmarking adversarial robustness on image classification. In CVPR (2020).
+- [68] Drori, I., Krishnamurthy, Y., Rampin, R., Lourenco, R. d. P., Ono, J. P., Cho, K., Silva, C., and Freire, J. Alphad3m: Machine learning pipeline synthesis. arXiv preprint arXiv:2111.02508 (2021).
+- [69] Duan, S., Thummala, V., and Babu, S. Tuning database configuration parameters with ituned. In VLDB (2009).
+- [70] Espadoto, M., Martins, R. M., Kerren, A., Hirata, N. S., and Telea, A. C. Toward a quantitative survey of dimension reduction techniques. IEEE transactions on visualization and computer graphics 27, 3 (2019), 2153-2173.
+- [71] Eykholt, K., Evtimov, I., Fernandes, E., Li, B., Rahmati, A., Xiao, C., Prakash, A., Kohno, T., and Song, D. Robust physical-world attacks on deep learning visual classification. In CVPR (2018).
+- [72] Fahad, A., Alshatri, N., Tari, Z., Alamri, A., Khalil, I., Zomaya, A. Y., Foufou, S., and Bouras, A. A survey of clustering algorithms for big data: Taxonomy and empirical analysis. IEEE transactions on emerging topics in computing 2, 3 (2014), 267-279.
+- [73] Farahani, A., Voghoei, S., Rasheed, K., and Arabnia, H. R. A brief review of domain adaptation. Advances in Data Science and Information Engineering: Proceedings from ICDATA 2020 and IKE 2020 (2021), 877-894.
+- [74] Feng, S. Y., Gangal, V., Wei, J., Chandar, S., Vosoughi, S., Mitamura, T., and Hovy, E. A survey of data augmentation approaches for nlp. In ACL (2021).
+- [75] Fernandez, R. C., Abedjan, Z., Koko, F., Yuan, G., Madden, S., and Stonebraker, M. Aurum: A data discovery system. In ICDE (2018).
+- [76] Feurer, M., Klein, A., Eggensperger, K., Springenberg, J., Blum, M., and Hutter, F. Efficient and robust automated machine learning. In NeurIPS (2015).
+- [77] Foundation, A. S. Hadoop. https://hadoop.apache.org (2023).
 
-- <span id="page-31-22"></span>[78] Franconeri, S. L., Padilla, L. M., Shah, P., Zacks, J. M., and Hullman, J. The science of visual data communication: What works. Psychological Science in the public interest 22, 3 (2021), 110–161.
-- <span id="page-31-5"></span>[79] Frid-Adar, M., Klang, E., Amitai, M., Goldberger, J., and Greenspan, H. Synthetic data augmentation using gan for improved liver lesion classification. In ISBI (2018).
-- <span id="page-31-8"></span>[80] Galhotra, S., Golshan, B., and Tan, W.-C. Adaptive rule discovery for labeling text data. In SIGMOD (2021).
-- <span id="page-31-24"></span>[81] Gamboa, E., Libreros, A., Hirth, M., and Dubiner, D. Human-ai collaboration for improving the identification of cars for autonomous driving. In CIKM Workshop (2022).
-- <span id="page-31-21"></span>[82] Gao, T., Fisch, A., and Chen, D. Making pre-trained language models better few-shot learners. In ACL (2021).
-- <span id="page-31-6"></span>[83] Ghorbani, A., Kim, M., and Zou, J. A distributional framework for data valuation. In ICML (2020).
-- <span id="page-31-23"></span>[84] Ghorbani, A., and Zou, J. Data shapley: Equitable valuation of data for machine learning. In ICML (2019).
-- <span id="page-31-29"></span>[85] Gijsbers, P., Bueno, M. L., Coors, S., LeDell, E., Poirier, S., Thomas, J., Bischl, B., and Vanschoren, J. Amlb: an automl benchmark. arXiv preprint arXiv:2207.12560 (2022).
-- <span id="page-31-3"></span>[86] Goodfellow, I., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair, S., Courville, A., and Bengio, Y. Generative adversarial networks. Communications of the ACM 63, 11 (2020), 139–144.
-- <span id="page-31-18"></span>[87] Gretton, A., Smola, A., Huang, J., Schmittfull, M., Borgwardt, K., and Schölkopf, B. Covariate shift by kernel mean matching. Dataset shift in machine learning 3, 4 (2009), 5.
-- <span id="page-31-30"></span>[88] Grinstein, G. G., Hoffman, P., Pickett, R. M., and Laskowski, S. J. Benchmark development for the evaluation of visualization for data mining. Information visualization in data mining and knowledge discovery (2002), 129–176.
-- <span id="page-31-27"></span>[89] Grochowski, M., and Jankowski, N. Comparison of instance selection algorithms ii. results and comments. In ICAISC (2004).
-- <span id="page-31-17"></span>[90] Gu, K., Yang, B., Ngiam, J., Le, Q., and Shlens, J. Using videos to evaluate image model robustness. arXiv preprint arXiv:1904.10076 (2019).
-- <span id="page-31-19"></span>[91] Guan, H., and Liu, M. Domain adaptation for medical image analysis: a survey. IEEE Transactions on Biomedical Engineering 69, 3 (2021), 1173–1185.
-- <span id="page-31-32"></span>[92] Hamilton, J. D. Time series analysis. Princeton university press, 2020.
-- <span id="page-31-11"></span>[93] Han, X., Jiang, Z., Liu, N., and Hu, X. G-mixup: Graph data augmentation for graph classification. In ICML (2022).
-- <span id="page-31-20"></span>[94] Haviv, A., Berant, J., and Globerson, A. Bertese: Learning to speak to bert. In EACL (2021).
-- <span id="page-31-14"></span>[95] He, H., Bai, Y., Garcia, E. A., and Li, S. Adasyn: Adaptive synthetic sampling approach for imbalanced learning. In WCCI (2008).
-- <span id="page-31-25"></span>[96] He, Y., Tang, J., Ouyang, H., Kang, C., Yin, D., and Chang, Y. Learning to rewrite queries. In CIKM (2016).
-- <span id="page-31-15"></span>[97] Heffetz, Y., Vainshtein, R., Katz, G., and Rokach, L. Deepline: Automl tool for pipelines generation using deep reinforcement learning and hierarchical actions filtering. In KDD (2020).
-- <span id="page-31-10"></span>[98] Heise, A., Kasneci, G., and Naumann, F. Estimating the number and sizes of fuzzy-duplicate clusters. In CIKM (2014).
-- <span id="page-31-16"></span>[99] Hendrycks, D., and Dietterich, T. Benchmarking neural network robustness to common corruptions and perturbations. arXiv preprint arXiv:1903.12261 (2019).
-- <span id="page-31-7"></span>[100] Herodotou, H., Lim, H., Luo, G., Borisov, N., Dong, L., Cetin, F. B., and Babu, S. Starfish: A self-tuning system for big data analytics. In CIDR (2011).
-- <span id="page-31-4"></span>[101] Ho, J., Jain, A., and Abbeel, P. Denoising diffusion probabilistic models. In NeurIPS (2020).
-- <span id="page-31-12"></span>[102] Ho, J., Saharia, C., Chan, W., Fleet, D. J., Norouzi, M., and Salimans, T. Cascaded diffusion models for high fidelity image generation. J. Mach. Learn. Res. 23, 47 (2022), 1–33.
-- <span id="page-31-9"></span>[103] Hooper, S., Wornow, M., Seah, Y. H., Kellman, P., Xue, H., Sala, F., Langlotz, C., and Re, C. Cut out the annotator, keep the cutout: better segmentation with weak supervision. In ICLR (2021).
-- <span id="page-31-13"></span>[104] Hsu, W.-N., Zhang, Y., and Glass, J. Unsupervised domain adaptation for robust speech recognition via variational autoencoder-based data augmentation. In ASRU (2017).
-- <span id="page-31-28"></span>[105] Iwana, B. K., and Uchida, S. An empirical survey of data augmentation for time series classification with neural networks. Plos one 16, 7 (2021), e0254841.
-- <span id="page-31-26"></span>[106] Jäger, S., Allhorn, A., and Biessmann, F. A benchmark for data imputation methods. Frontiers in big Data 4 (2021), 693674.
-- <span id="page-31-2"></span>[107] Jain, A., Patel, H., Nagalapatti, L., Gupta, N., Mehta, S., Guttula, S., Mujumdar, S., Afzal, S., Sharma Mittal, R., and Munigala, V. Overview and importance of data quality for machine learning tasks. In KDD (2020).
-- <span id="page-31-0"></span>[108] Jakubik, J., Vössing, M., Kühl, N., Walk, J., and Satzger, G. Data-centric artificial intelligence. arXiv preprint arXiv:2212.11854 (2022).
-- <span id="page-31-1"></span>[109] Jarrahi, M. H., Memariani, A., and Guha, S. The principles of data-centric ai (dcai). arXiv preprint arXiv:2211.14611 (2022).
-- <span id="page-31-31"></span>[110] Jia, R., Wu, F., Sun, X., Xu, J., Dao, D., Kailkhura, B., Zhang, C., Li, B., and Song, D. Scalability vs. utility: Do we have to sacrifice one for the other in data importance quantification? In CVPR (2021).
+- [78] Franconeri, S. L., Padilla, L. M., Shah, P., Zacks, J. M., and Hullman, J. The science of visual data communication: What works. Psychological Science in the public interest 22, 3 (2021), 110-161.
+- [79] Frid-Adar, M., Klang, E., Amitai, M., Goldberger, J., and Greenspan, H. Synthetic data augmentation using gan for improved liver lesion classification. In ISBI (2018).
+- [80] Galhotra, S., Golshan, B., and Tan, W.-C. Adaptive rule discovery for labeling text data. In SIGMOD (2021).
+- [81] Gamboa, E., Libreros, A., Hirth, M., and Dubiner, D. Human-ai collaboration for improving the identification of cars for autonomous driving. In CIKM Workshop (2022).
+- [82] Gao, T., Fisch, A., and Chen, D. Making pre-trained language models better few-shot learners. In ACL (2021).
+- [83] Ghorbani, A., Kim, M., and Zou, J. A distributional framework for data valuation. In ICML (2020).
+- [84] Ghorbani, A., and Zou, J. Data shapley: Equitable valuation of data for machine learning. In ICML (2019).
+- [85] Gijsbers, P., Bueno, M. L., Coors, S., LeDell, E., Poirier, S., Thomas, J., Bischl, B., and Vanschoren, J. Amlb: an automl benchmark. arXiv preprint arXiv:2207.12560 (2022).
+- [86] Goodfellow, I., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair, S., Courville, A., and Bengio, Y. Generative adversarial networks. Communications of the ACM 63, 11 (2020), 139-144.
+- [87] Gretton, A., Smola, A., Huang, J., Schmittfull, M., Borgwardt, K., and Schölkopf, B. Covariate shift by kernel mean matching. Dataset shift in machine learning 3, 4 (2009), 5.
+- [88] Grinstein, G. G., Hoffman, P., Pickett, R. M., and Laskowski, S. J. Benchmark development for the evaluation of visualization for data mining. Information visualization in data mining and knowledge discovery (2002), 129-176.
+- [89] Grochowski, M., and Jankowski, N. Comparison of instance selection algorithms ii. results and comments. In ICAISC (2004).
+- [90] Gu, K., Yang, B., Ngiam, J., Le, Q., and Shlens, J. Using videos to evaluate image model robustness. arXiv preprint arXiv:1904.10076 (2019).
+- [91] Guan, H., and Liu, M. Domain adaptation for medical image analysis: a survey. IEEE Transactions on Biomedical Engineering 69, 3 (2021), 1173-1185.
+- [92] Hamilton, J. D. Time series analysis. Princeton university press, 2020.
+- [93] Han, X., Jiang, Z., Liu, N., and Hu, X. G-mixup: Graph data augmentation for graph classification. In ICML (2022).
+- [94] Haviv, A., Berant, J., and Globerson, A. Bertese: Learning to speak to bert. In EACL (2021).
+- [95] He, H., Bai, Y., Garcia, E. A., and Li, S. Adasyn: Adaptive synthetic sampling approach for imbalanced learning. In WCCI (2008).
+- [96] He, Y., Tang, J., Ouyang, H., Kang, C., Yin, D., and Chang, Y. Learning to rewrite queries. In CIKM (2016).
+- [97] Heffetz, Y., Vainshtein, R., Katz, G., and Rokach, L. Deepline: Automl tool for pipelines generation using deep reinforcement learning and hierarchical actions filtering. In KDD (2020).
+- [98] Heise, A., Kasneci, G., and Naumann, F. Estimating the number and sizes of fuzzy-duplicate clusters. In CIKM (2014).
+- [99] Hendrycks, D., and Dietterich, T. Benchmarking neural network robustness to common corruptions and perturbations. arXiv preprint arXiv:1903.12261 (2019).
+- [100] Herodotou, H., Lim, H., Luo, G., Borisov, N., Dong, L., Cetin, F. B., and Babu, S. Starfish: A self-tuning system for big data analytics. In CIDR (2011).
+- [101] Ho, J., Jain, A., and Abbeel, P. Denoising diffusion probabilistic models. In NeurIPS (2020).
+- [102] Ho, J., Saharia, C., Chan, W., Fleet, D. J., Norouzi, M., and Salimans, T. Cascaded diffusion models for high fidelity image generation. J. Mach. Learn. Res. 23, 47 (2022), 1-33.
+- [103] Hooper, S., Wornow, M., Seah, Y. H., Kellman, P., Xue, H., Sala, F., Langlotz, C., and Re, C. Cut out the annotator, keep the cutout: better segmentation with weak supervision. In ICLR (2021).
+- [104] Hsu, W.-N., Zhang, Y., and Glass, J. Unsupervised domain adaptation for robust speech recognition via variational autoencoder-based data augmentation. In ASRU (2017).
+- [105] Iwana, B. K., and Uchida, S. An empirical survey of data augmentation for time series classification with neural networks. Plos one 16, 7 (2021), e0254841.
+- [106] Jäger, S., Allhorn, A., and Biessmann, F. A benchmark for data imputation methods. Frontiers in big Data 4 (2021), 693674.
+- [107] Jain, A., Patel, H., Nagalapatti, L., Gupta, N., Mehta, S., Guttula, S., Mujumdar, S., Afzal, S., Sharma Mittal, R., and Munigala, V. Overview and importance of data quality for machine learning tasks. In KDD (2020).
+- [108] Jakubik, J., Vössing, M., Kühl, N., Walk, J., and Satzger, G. Data-centric artificial intelligence. arXiv preprint arXiv:2212.11854 (2022).
+- [109] Jarrahi, M. H., Memariani, A., and Guha, S. The principles of data-centric ai (dcai). arXiv preprint arXiv:2211.14611 (2022).
+- [110] Jia, R., Wu, F., Sun, X., Xu, J., Dao, D., Kailkhura, B., Zhang, C., Li, B., and Song, D. Scalability vs. utility: Do we have to sacrifice one for the other in data importance quantification? In CVPR (2021).
 
-- <span id="page-32-17"></span>[111] Jiang, M., Hou, C., Zheng, A., Hu, X., Han, S., Huang, H., He, X., Yu, P. S., and Zhao, Y. Weakly supervised anomaly detection: A survey. arXiv preprint arXiv:2302.04549 (2023).
-- <span id="page-32-27"></span>[112] Jiang, Z., Han, X., Fan, C., Liu, Z., Zou, N., Mostafavi, A., and Hu, X. Fmp: Toward fair graph message passing against topology bias. arXiv preprint arXiv:2202.04187 (2022).
-- <span id="page-32-28"></span>[113] Jiang, Z., Han, X., Fan, C., Yang, F., Mostafavi, A., and Hu, X. Generalized demographic parity for group fairness. In ICLR (2022).
-- <span id="page-32-23"></span>[114] Jiang, Z., Han, X., Jin, H., Wang, G., Zou, N., and Hu, X. Weight perturbation can help fairness under distribution shift. arXiv preprint arXiv:2303.03300 (2023).
-- <span id="page-32-22"></span>[115] Jiang, Z., Xu, F. F., Araki, J., and Neubig, G. How can we know what language models know? Transactions of the Association for Computational Linguistics 8 (2020), 423–438.
-- <span id="page-32-14"></span>[116] Jiang, Z., Zhou, K., Liu, Z., Li, L., Chen, R., Choi, S.-H., and Hu, X. An information fusion approach to learning with instance-dependent label noise. In ICLR (2022).
-- <span id="page-32-1"></span>[117] Jumper, J., Evans, R., Pritzel, A., Green, T., Figurnov, M., Ronneberger, O., Tunyasuvunakool, K., Bates, R., Žídek, A., Potapenko, A., et al. Highly accurate protein structure prediction with alphafold. Nature 596, 7873 (2021), 583–589.
-- <span id="page-32-20"></span>[118] Kanamori, K., Takagi, T., Kobayashi, K., and Arimura, H. Dace: Distribution-aware counterfactual explanation by mixed-integer linear optimization. In IJCAI (2020).
-- <span id="page-32-25"></span>[119] Kanthara, S., Leong, R. T. K., Lin, X., Masry, A., Thakkar, M., Hoqe, E., and Joty, S. Chart-to-text: A large-scale benchmark for chart summarization. arXiv preprint arXiv:2203.06486 (2022).
-- <span id="page-32-5"></span>[120] Karimi, A.-H., Schölkopf, B., and Valera, I. Algorithmic recourse: from counterfactual explanations to interventions. In FAccT (2021).
-- <span id="page-32-2"></span>[121] Kenton, J. D. M.-W. C., and Toutanova, L. K. Bert: Pre-training of deep bidirectional transformers for language understanding. In NAACL (2019).
-- <span id="page-32-11"></span>[122] Khurana, U., Samulowitz, H., and Turaga, D. Feature engineering for predictive modeling using reinforcement learning. In AAAI (2018).
-- <span id="page-32-19"></span>[123] Kim, M. P., Ghorbani, A., and Zou, J. Multiaccuracy: Black-box post-processing for fairness in classification. In AIES (2019).
-- <span id="page-32-7"></span>[124] Kingma, D., Salimans, T., Poole, B., and Ho, J. Variational diffusion models. In NeurIPS (2021).
-- <span id="page-32-10"></span>[125] Koh, P. W., Sagawa, S., Marklund, H., Xie, S. M., Zhang, M., Balsubramani, A., Hu, W., Yasunaga, M., Phillips, R. L., Gao, I., et al. Wilds: A benchmark of in-the-wild distribution shifts. In ICML (2021).
-- <span id="page-32-15"></span>[126] Krishnan, S., and Wu, E. Alphaclean: Automatic generation of data cleaning pipelines. arXiv preprint arXiv:1904.11827 (2019).
-- <span id="page-32-0"></span>[127] Krizhevsky, A., Sutskever, I., and Hinton, G. E. Imagenet classification with deep convolutional neural networks. Communications of the ACM 60, 6 (2017), 84–90.
-- <span id="page-32-12"></span>[128] Kumar, A., Naughton, J., Patel, J. M., and Zhu, X. To join or not to join? thinking twice about joins before feature selection. In SIGMOD (2016).
-- <span id="page-32-3"></span>[129] Kurakin, A., Goodfellow, I. J., and Bengio, S. Adversarial examples in the physical world. In Artificial intelligence safety and security. Chapman and Hall/CRC, 2018, pp. 99–112.
-- <span id="page-32-9"></span>[130] Kutlu, M., McDonnell, T., Elsayed, T., and Lease, M. Annotator rationales for labeling tasks in crowdsourcing. Journal of Artificial Intelligence Research 69 (2020), 143–189.
-- <span id="page-32-26"></span>[131] Lai, K.-H., Zha, D., Li, Y., and Hu, X. Dual policy distillation. In IJCAI (2020).
-- <span id="page-32-6"></span>[132] Lai, K.-H., Zha, D., Wang, G., Xu, J., Zhao, Y., Kumar, D., Chen, Y., Zumkhawaka, P., Wan, M., Martinez, D., et al. Tods: An automated time series outlier detection system. In AAAI (2021).
-- <span id="page-32-8"></span>[133] Lai, K.-H., Zha, D., Xu, J., Zhao, Y., Wang, G., and Hu, X. Revisiting time series outlier detection: Definitions and benchmarks. In NeurIPS (2021).
-- <span id="page-32-29"></span>[134] Lai, K.-H., Zha, D., Zhou, K., and Hu, X. Policy-gnn: Aggregation optimization for graph neural networks. In KDD (2020).
-- <span id="page-32-16"></span>[135] Lakshminarayan, K., Harp, S. A., Goldman, R. P., Samad, T., et al. Imputation of missing data using machine learning techniques. In KDD (1996).
-- <span id="page-32-21"></span>[136] Laugel, T., Lesot, M.-J., Marsala, C., Renard, X., and Detyniecki, M. Comparison-based inverse classification for interpretability in machine learning. In IPMU (2018).
-- <span id="page-32-13"></span>[137] Lenzerini, M. Data integration: A theoretical perspective. In PODS (2002).
-- <span id="page-32-4"></span>[138] Li, J., Cheng, K., Wang, S., Morstatter, F., Trevino, R. P., Tang, J., and Liu, H. Feature selection: A data perspective. ACM computing surveys (CSUR) 50, 6 (2017), 1–45.
-- <span id="page-32-24"></span>[139] Li, P., Rao, X., Blase, J., Zhang, Y., Chu, X., and Zhang, C. Cleanml: A benchmark for joint data cleaning and machine learning [experiments and analysis]. arXiv preprint arXiv:1904.09483 (2019), 75.
-- <span id="page-32-18"></span>[140] Li, X., Metsis, V., Wang, H., and Ngu, A. H. H. Tts-gan: A transformer-based time-series generative adversarial
+- [111] Jiang, M., Hou, C., Zheng, A., Hu, X., Han, S., Huang, H., He, X., Yu, P. S., and Zhao, Y. Weakly supervised anomaly detection: A survey. arXiv preprint arXiv:2302.04549 (2023).
+- [112] Jiang, Z., Han, X., Fan, C., Liu, Z., Zou, N., Mostafavi, A., and Hu, X. Fmp: Toward fair graph message passing against topology bias. arXiv preprint arXiv:2202.04187 (2022).
+- [113] Jiang, Z., Han, X., Fan, C., Yang, F., Mostafavi, A., and Hu, X. Generalized demographic parity for group fairness. In ICLR (2022).
+- [114] Jiang, Z., Han, X., Jin, H., Wang, G., Zou, N., and Hu, X. Weight perturbation can help fairness under distribution shift. arXiv preprint arXiv:2303.03300 (2023).
+- [115] Jiang, Z., Xu, F. F., Araki, J., and Neubig, G. How can we know what language models know? Transactions of the Association for Computational Linguistics 8 (2020), 423-438.
+- [116] Jiang, Z., Zhou, K., Liu, Z., Li, L., Chen, R., Choi, S.-H., and Hu, X. An information fusion approach to learning with instance-dependent label noise. In ICLR (2022).
+- [117] Jumper, J., Evans, R., Pritzel, A., Green, T., Figurnov, M., Ronneberger, O., Tunyasuvunakool, K., Bates, R., Žídek, A., Potapenko, A., et al. Highly accurate protein structure prediction with alphafold. Nature 596, 7873 (2021), 583-589.
+- [118] Kanamori, K., Takagi, T., Kobayashi, K., and Arimura, H. Dace: Distribution-aware counterfactual explanation by mixed-integer linear optimization. In IJCAI (2020).
+- [119] Kanthara, S., Leong, R. T. K., Lin, X., Masry, A., Thakkar, M., Hoqe, E., and Joty, S. Chart-to-text: A large-scale benchmark for chart summarization. arXiv preprint arXiv:2203.06486 (2022).
+- [120] Karimi, A.-H., Schölkopf, B., and Valera, I. Algorithmic recourse: from counterfactual explanations to interventions. In FAccT (2021).
+- [121] Kenton, J. D. M.-W. C., and Toutanova, L. K. Bert: Pre-training of deep bidirectional transformers for language understanding. In NAACL (2019).
+- [122] Khurana, U., Samulowitz, H., and Turaga, D. Feature engineering for predictive modeling using reinforcement learning. In AAAI (2018).
+- [123] Kim, M. P., Ghorbani, A., and Zou, J. Multiaccuracy: Black-box post-processing for fairness in classification. In AIES (2019).
+- [124] Kingma, D., Salimans, T., Poole, B., and Ho, J. Variational diffusion models. In NeurIPS (2021).
+- [125] Koh, P. W., Sagawa, S., Marklund, H., Xie, S. M., Zhang, M., Balsubramani, A., Hu, W., Yasunaga, M., Phillips, R. L., Gao, I., et al. Wilds: A benchmark of in-the-wild distribution shifts. In ICML (2021).
+- [126] Krishnan, S., and Wu, E. Alphaclean: Automatic generation of data cleaning pipelines. arXiv preprint arXiv:1904.11827 (2019).
+- [127] Krizhevsky, A., Sutskever, I., and Hinton, G. E. Imagenet classification with deep convolutional neural networks. Communications of the ACM 60, 6 (2017), 84-90.
+- [128] Kumar, A., Naughton, J., Patel, J. M., and Zhu, X. To join or not to join? thinking twice about joins before feature selection. In SIGMOD (2016).
+- [129] Kurakin, A., Goodfellow, I. J., and Bengio, S. Adversarial examples in the physical world. In Artificial intelligence safety and security. Chapman and Hall/CRC, 2018, pp. 99-112.
+- [130] Kutlu, M., McDonnell, T., Elsayed, T., and Lease, M. Annotator rationales for labeling tasks in crowdsourcing. Journal of Artificial Intelligence Research 69 (2020), 143-189.
+- [131] Lai, K.-H., Zha, D., Li, Y., and Hu, X. Dual policy distillation. In IJCAI (2020).
+- [132] Lai, K.-H., Zha, D., Wang, G., Xu, J., Zhao, Y., Kumar, D., Chen, Y., Zumkhawaka, P., Wan, M., Martinez, D., et al. Tods: An automated time series outlier detection system. In AAAI (2021).
+- [133] Lai, K.-H., Zha, D., Xu, J., Zhao, Y., Wang, G., and Hu, X. Revisiting time series outlier detection: Definitions and benchmarks. In NeurIPS (2021).
+- [134] Lai, K.-H., Zha, D., Zhou, K., and Hu, X. Policy-gnn: Aggregation optimization for graph neural networks. In KDD (2020).
+- [135] Lakshminarayan, K., Harp, S. A., Goldman, R. P., Samad, T., et al. Imputation of missing data using machine learning techniques. In KDD (1996).
+- [136] Laugel, T., Lesot, M.-J., Marsala, C., Renard, X., and Detyniecki, M. Comparison-based inverse classification for interpretability in machine learning. In IPMU (2018).
+- [137] Lenzerini, M. Data integration: A theoretical perspective. In PODS (2002).
+- [138] Li, J., Cheng, K., Wang, S., Morstatter, F., Trevino, R. P., Tang, J., and Liu, H. Feature selection: A data perspective. ACM computing surveys (CSUR) 50, 6 (2017), 1-45.
+- [139] Li, P., Rao, X., Blase, J., Zhang, Y., Chu, X., and Zhang, C. Cleanml: A benchmark for joint data cleaning and machine learning [experiments and analysis]. arXiv preprint arXiv:1904.09483 (2019), 75.
+- [140] Li, X., Metsis, V., Wang, H., and Ngu, A. H. H. Tts-gan: A transformer-based time-series generative adversarial
 
 network. In AIME (2022).
 
-- <span id="page-33-27"></span>[141] Li, Y., Chen, Z., Zha, D., Du, M., Ni, J., Zhang, D., Chen, H., and Hu, X. Towards learning disentangled representations for time series. In KDD (2022).
-- <span id="page-33-14"></span>[142] Li, Y., Chen, Z., Zha, D., Zhou, K., Jin, H., Chen, H., and Hu, X. Automated anomaly detection via curiosity-guided search and self-imitation learning. IEEE Transactions on Neural Networks and Learning Systems 33, 6 (2021), 2365–2377.
+- [141] Li, Y., Chen, Z., Zha, D., Du, M., Ni, J., Zhang, D., Chen, H., and Hu, X. Towards learning disentangled representations for time series. In KDD (2022).
+- [142] Li, Y., Chen, Z., Zha, D., Zhou, K., Jin, H., Chen, H., and Hu, X. Automated anomaly detection via curiosity-guided search and self-imitation learning. IEEE Transactions on Neural Networks and Learning Systems 33, 6 (2021), 2365-2377.
 - [143] Li, Y., Chen, Z., Zha, D., Zhou, K., Jin, H., Chen, H., and Hu, X. Autood: Neural architecture search for outlier detection. In ICDE (2021).
-- <span id="page-33-15"></span>[144] Li, Y., Zha, D., Venugopal, P., Zou, N., and Hu, X. Pyodds: An end-to-end outlier detection system with automated machine learning. In WWW (2020).
-- <span id="page-33-19"></span>[145] Lipton, Z., Wang, Y.-X., and Smola, A. Detecting and correcting for label shift with black box predictors. In ICML (2018).
-- <span id="page-33-2"></span>[146] Liu, P., Yuan, W., Fu, J., Jiang, Z., Hayashi, H., and Neubig, G. Pre-train, prompt, and predict: A systematic survey of prompting methods in natural language processing. ACM Computing Surveys 55, 9 (2023), 1–35.
-- <span id="page-33-28"></span>[147] Liu, Z., Chen, S., Zhou, K., Zha, D., Huang, X., and Hu, X. Rsc: Accelerating graph neural networks training via randomized sparse computations. arXiv preprint arXiv:2210.10737 (2022).
-- <span id="page-33-11"></span>[148] Liu, Z., Wei, P., Jiang, J., Cao, W., Bian, J., and Chang, Y. Mesa: boost ensemble imbalanced learning with meta-sampler. In NeurIPS (2020).
-- <span id="page-33-17"></span>[149] Lucic, A., Oosterhuis, H., Haned, H., and de Rijke, M. Focus: Flexible optimizable counterfactual explanations for tree ensembles. In AAAI (2022).
-- <span id="page-33-20"></span>[150] Luo, Y., Qin, X., Tang, N., and Li, G. Deepeye: Towards automatic data visualization. In 2018 IEEE 34th international conference on data engineering (ICDE) (2018), IEEE, pp. 101–112.
-- <span id="page-33-18"></span>[151] Madry, A., Makelov, A., Schmidt, L., Tsipras, D., and Vladu, A. Towards deep learning models resistant to adversarial attacks. arXiv preprint arXiv:1706.06083 (2017).
-- <span id="page-33-21"></span>[152] Management, C. P. Clouderayarntuning. https://docs.cloudera.com/documentation/enterprise/latest/topics/cdh\_ig\_yarn\_tuning.html (2023).
-- <span id="page-33-24"></span>[153] Marcus, R., Kipf, A., van Renen, A., Stoian, M., Misra, S., Kemper, A., Neumann, T., and Kraska, T. Benchmarking learned indexes. In VLDB (2020).
-- <span id="page-33-12"></span>[154] Martinex, D., Zha, D., Tan, Q., and Hu, X. Towards personalized preprocessing pipeline search. arXiv preprint arXiv:2302.14329 (2023).
-- <span id="page-33-7"></span>[155] Mazumder, M., Banbury, C., Yao, X., Karlaš, B., Rojas, W. G., Diamos, S., Diamos, G., He, L., Kiela, D., Jurado, D., et al. Dataperf: Benchmarks for data-centric ai development. arXiv preprint arXiv:2207.10062 (2022).
-- <span id="page-33-22"></span>[156] Meduri, V. V., Popa, L., Sen, P., and Sarwat, M. A comprehensive benchmark framework for active learning methods in entity matching. In SIGMOD (2020).
-- <span id="page-33-26"></span>[157] Mehrabi, N., Morstatter, F., Saxena, N., Lerman, K., and Galstyan, A. A survey on bias and fairness in machine learning. ACM Computing Surveys (CSUR) 54, 6 (2021), 1–35.
-- <span id="page-33-16"></span>[158] Meng, C., Trinh, L., Xu, N., Enouen, J., and Liu, Y. Interpretability and fairness evaluation of deep learning models on mimic-iv dataset. Scientific Reports 12, 1 (2022), 7166.
-- <span id="page-33-13"></span>[159] Milutinovic, M., Schoenfeld, B., Martinez-Garcia, D., Ray, S., Shah, S., and Yan, D. On evaluation of automl systems. In ICML Workshop (2020).
-- <span id="page-33-8"></span>[160] Mintz, M., Bills, S., Snow, R., and Jurafsky, D. Distant supervision for relation extraction without labeled data. In ACL (2009).
-- <span id="page-33-0"></span>[161] Miotto, R., Wang, F., Wang, S., Jiang, X., and Dudley, J. T. Deep learning for healthcare: review, opportunities and challenges. Briefings in bioinformatics 19, 6 (2018), 1236–1246.
-- <span id="page-33-6"></span>[162] Miranda, L. J. Towards data-centric machine learning: a short review. ljvmiranda921.github.io (2021).
-- <span id="page-33-1"></span>[163] Mirdita, M., Von Den Driesch, L., Galiez, C., Martin, M. J., Söding, J., and Steinegger, M. Uniclust databases of clustered and deeply annotated protein sequences and alignments. Nucleic acids research 45, D1 (2017), D170–D176.
-- <span id="page-33-25"></span>[164] Mnih, V., Kavukcuoglu, K., Silver, D., Graves, A., Antonoglou, I., Wierstra, D., and Riedmiller, M. Playing atari with deep reinforcement learning. arXiv preprint arXiv:1312.5602 (2013).
-- <span id="page-33-9"></span>[165] Moosavi-Dezfooli, S.-M., Fawzi, A., and Frossard, P. Deepfool: a simple and accurate method to fool deep neural networks. In CVPR (2016).
-- <span id="page-33-23"></span>[166] Nanni, L., Paci, M., Brahnam, S., and Lumini, A. Comparison of different image data augmentation approaches. Journal of imaging 7, 12 (2021), 254.
-- <span id="page-33-10"></span>[167] Nargesian, F., Zhu, E., Pu, K. Q., and Miller, R. J. Table union search on open data. In VLDB (2018).
-- <span id="page-33-5"></span>[168] Ng, A. Data-centric ai resource hub. Snorkel AI. Available online: https://snorkel.ai/(accessed on 8 February 2023) (2021).
-- <span id="page-33-4"></span>[169] Ng, A. Landing ai. Landing AI. Available online: https://landing.ai/(accessed on 8 February 2023) (2023).
-- <span id="page-33-3"></span>[170] Ng, A., Laird, D., and He, L. Data-centric ai competition. DeepLearning AI. Available online: https://https-deeplearningai. github. io/data-centric-comp/(accessed on 8 December 2021) (2021).
+- [144] Li, Y., Zha, D., Venugopal, P., Zou, N., and Hu, X. Pyodds: An end-to-end outlier detection system with automated machine learning. In WWW (2020).
+- [145] Lipton, Z., Wang, Y.-X., and Smola, A. Detecting and correcting for label shift with black box predictors. In ICML (2018).
+- [146] Liu, P., Yuan, W., Fu, J., Jiang, Z., Hayashi, H., and Neubig, G. Pre-train, prompt, and predict: A systematic survey of prompting methods in natural language processing. ACM Computing Surveys 55, 9 (2023), 1-35.
+- [147] Liu, Z., Chen, S., Zhou, K., Zha, D., Huang, X., and Hu, X. Rsc: Accelerating graph neural networks training via randomized sparse computations. arXiv preprint arXiv:2210.10737 (2022).
+- [148] Liu, Z., Wei, P., Jiang, J., Cao, W., Bian, J., and Chang, Y. Mesa: boost ensemble imbalanced learning with meta-sampler. In NeurIPS (2020).
+- [149] Lucic, A., Oosterhuis, H., Haned, H., and de Rijke, M. Focus: Flexible optimizable counterfactual explanations for tree ensembles. In AAAI (2022).
+- [150] Luo, Y., Qin, X., Tang, N., and Li, G. Deepeye: Towards automatic data visualization. In 2018 IEEE 34th international conference on data engineering (ICDE) (2018), IEEE, pp. 101-112.
+- [151] Madry, A., Makelov, A., Schmidt, L., Tsipras, D., and Vladu, A. Towards deep learning models resistant to adversarial attacks. arXiv preprint arXiv:1706.06083 (2017).
+- [152] Management, C. P. Clouderayarntuning. https://docs.cloudera.com/documentation/enterprise/latest/topics/cdh\_ig\_yarn\_tuning.html (2023).
+- [153] Marcus, R., Kipf, A., van Renen, A., Stoian, M., Misra, S., Kemper, A., Neumann, T., and Kraska, T. Benchmarking learned indexes. In VLDB (2020).
+- [154] Martinex, D., Zha, D., Tan, Q., and Hu, X. Towards personalized preprocessing pipeline search. arXiv preprint arXiv:2302.14329 (2023).
+- [155] Mazumder, M., Banbury, C., Yao, X., Karlaš, B., Rojas, W. G., Diamos, S., Diamos, G., He, L., Kiela, D., Jurado, D., et al. Dataperf: Benchmarks for data-centric ai development. arXiv preprint arXiv:2207.10062 (2022).
+- [156] Meduri, V. V., Popa, L., Sen, P., and Sarwat, M. A comprehensive benchmark framework for active learning methods in entity matching. In SIGMOD (2020).
+- [157] Mehrabi, N., Morstatter, F., Saxena, N., Lerman, K., and Galstyan, A. A survey on bias and fairness in machine learning. ACM Computing Surveys (CSUR) 54, 6 (2021), 1-35.
+- [158] Meng, C., Trinh, L., Xu, N., Enouen, J., and Liu, Y. Interpretability and fairness evaluation of deep learning models on mimic-iv dataset. Scientific Reports 12, 1 (2022), 7166.
+- [159] Milutinovic, M., Schoenfeld, B., Martinez-Garcia, D., Ray, S., Shah, S., and Yan, D. On evaluation of automl systems. In ICML Workshop (2020).
+- [160] Mintz, M., Bills, S., Snow, R., and Jurafsky, D. Distant supervision for relation extraction without labeled data. In ACL (2009).
+- [161] Miotto, R., Wang, F., Wang, S., Jiang, X., and Dudley, J. T. Deep learning for healthcare: review, opportunities and challenges. Briefings in bioinformatics 19, 6 (2018), 1236-1246.
+- [162] Miranda, L. J. Towards data-centric machine learning: a short review. ljvmiranda921.github.io (2021).
+- [163] Mirdita, M., Von Den Driesch, L., Galiez, C., Martin, M. J., Söding, J., and Steinegger, M. Uniclust databases of clustered and deeply annotated protein sequences and alignments. Nucleic acids research 45, D1 (2017), D170-D176.
+- [164] Mnih, V., Kavukcuoglu, K., Silver, D., Graves, A., Antonoglou, I., Wierstra, D., and Riedmiller, M. Playing atari with deep reinforcement learning. arXiv preprint arXiv:1312.5602 (2013).
+- [165] Moosavi-Dezfooli, S.-M., Fawzi, A., and Frossard, P. Deepfool: a simple and accurate method to fool deep neural networks. In CVPR (2016).
+- [166] Nanni, L., Paci, M., Brahnam, S., and Lumini, A. Comparison of different image data augmentation approaches. Journal of imaging 7, 12 (2021), 254.
+- [167] Nargesian, F., Zhu, E., Pu, K. Q., and Miller, R. J. Table union search on open data. In VLDB (2018).
+- [168] Ng, A. Data-centric ai resource hub. Snorkel AI. Available online: https://snorkel.ai/(accessed on 8 February 2023) (2021).
+- [169] Ng, A. Landing ai. Landing AI. Available online: https://landing.ai/(accessed on 8 February 2023) (2023).
+- [170] Ng, A., Laird, D., and He, L. Data-centric ai competition. DeepLearning AI. Available online: https://https-deeplearningai. github. io/data-centric-comp/(accessed on 8 December 2021) (2021).
 
 Data-centric Artificial Intelligence: A Survey 35
 
-- <span id="page-34-24"></span>[171] Obukhov, A., and Krasnyanskiy, M. Quality assessment method for gan based on modified metrics inception score and fréchet inception distance. In CoMeSySo (2020).
-- <span id="page-34-1"></span>[172] OpenAI. Gpt-4 technical report, 2023.
-- <span id="page-34-18"></span>[173] Otles, E., Oh, J., Li, B., Bochinski, M., Joo, H., Ortwine, J., Shenoy, E., Washer, L., Young, V. B., Rao, K., et al. Mind the performance gap: examining dataset shift during prospective validation. In MLHC (2021).
-- <span id="page-34-2"></span>[174] Ouyang, L., Wu, J., Jiang, X., Almeida, D., Wainwright, C. L., Mishkin, P., Zhang, C., Agarwal, S., Slama, K., Ray, A., et al. Training language models to follow instructions with human feedback. In NeurIPS (2022).
-- <span id="page-34-0"></span>[175] Ozbayoglu, A. M., Gudelek, M. U., and Sezer, O. B. Deep learning for financial applications: A survey. Applied Soft Computing 93 (2020), 106384.
-- <span id="page-34-16"></span>[176] Pang, G., Shen, C., Cao, L., and Hengel, A. V. D. Deep learning for anomaly detection: A review. ACM computing surveys (CSUR) 54, 2 (2021), 1–38.
-- <span id="page-34-22"></span>[177] Papernot, N., McDaniel, P., Goodfellow, I., Jha, S., Celik, Z. B., and Swami, A. Practical black-box attacks against machine learning. In ASIACCS (2017).
-- <span id="page-34-31"></span>[178] Pawelczyk, M., Bielawski, S., Heuvel, J. v. d., Richter, T., and Kasneci, G. Carla: a python library to benchmark algorithmic recourse and counterfactual explanation algorithms. arXiv preprint arXiv:2108.00783 (2021).
-- <span id="page-34-27"></span>[179] Pedrozo, W. G., Nievola, J. C., and Ribeiro, D. C. An adaptive approach for index tuning with learning classifier systems on hybrid storage environments. In HAIS (2018).
-- <span id="page-34-30"></span>[180] Pinkel, C., Binnig, C., Jiménez-Ruiz, E., May, W., Ritze, D., Skjæveland, M. G., Solimando, A., and Kharlamov, E. Rodi: A benchmark for automatic mapping generation in relational-to-ontology data integration. In ESWC (2015).
-- <span id="page-34-26"></span>[181] Pipino, L. L., Lee, Y. W., and Wang, R. Y. Data quality assessment. Communications of the ACM 45, 4 (2002), 211–218.
-- <span id="page-34-29"></span>[182] Poess, M., Rabl, T., Jacobsen, H.-A., and Caufield, B. Tpc-di: the first industry benchmark for data integration. In VLDB (2014).
-- <span id="page-34-5"></span>[183] Polyzotis, N., and Zaharia, M. What can data-centric ai learn from data and ml engineering? arXiv preprint arXiv:2112.06439 (2021).
-- <span id="page-34-21"></span>[184] Poyiadzi, R., Sokol, K., Santos-Rodriguez, R., De Bie, T., and Flach, P. Face: feasible and actionable counterfactual explanations. In AAAI (2020).
-- <span id="page-34-17"></span>[185] Press, G. Cleaning big data: Most time-consuming, least enjoyable data science task, survey says, Oct 2022.
-- <span id="page-34-15"></span>[186] Prusa, J., Khoshgoftaar, T. M., Dittman, D. J., and Napolitano, A. Using random undersampling to alleviate class imbalance on tweet sentiment data. In IRI (2015).
-- <span id="page-34-3"></span>[187] Radford, A., Narasimhan, K., Salimans, T., Sutskever, I., et al. Improving language understanding by generative pre-training. OpenAI (2018).
-- <span id="page-34-4"></span>[188] Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., Sutskever, I., et al. Language models are unsupervised multitask learners. OpenAI (2019).
-- <span id="page-34-7"></span>[189] Ratner, A. Scale ai. Snorkel AI. Available online: https://snorkel.ai/(accessed on 8 February 2023) (2023).
-- <span id="page-34-6"></span>[190] Ratner, A., Bach, S. H., Ehrenberg, H., Fries, J., Wu, S., and Ré, C. Snorkel: Rapid training data creation with weak supervision. In VLDB (2017).
-- <span id="page-34-8"></span>[191] Ratner, A. J., De Sa, C. M., Wu, S., Selsam, D., and Ré, C. Data programming: Creating large training sets, quickly. NeurIPS (2016).
-- <span id="page-34-11"></span>[192] Ren, P., Xiao, Y., Chang, X., Huang, P.-Y., Li, Z., Gupta, B. B., Chen, X., and Wang, X. A survey of deep active learning. ACM computing surveys (CSUR) 54, 9 (2021), 1–40.
-- <span id="page-34-13"></span>[193] Riqelme, J. C., Aguilar-Ruiz, J. S., and Toro, M. Finding representative patterns with ordered projections. pattern recognition 36, 4 (2003), 1009–1018.
-- <span id="page-34-10"></span>[194] Rombach, R., Blattmann, A., Lorenz, D., Esser, P., and Ommer, B. High-resolution image synthesis with latent diffusion models. In CVPR (2022).
-- <span id="page-34-14"></span>[195] Sadiq, S., Dasu, T., Dong, X. L., Freire, J., Ilyas, I. F., Link, S., Miller, M. J., Naumann, F., Zhou, X., and Srivastava, D. Data quality: The role of empiricism. ACM SIGMOD Record 46, 4 (2018), 35–43.
-- <span id="page-34-28"></span>[196] Sadri, Z., Gruenwald, L., and Leal, E. Online index selection using deep reinforcement learning for a cluster database. In ICDE Workshop (2020).
-- <span id="page-34-23"></span>[197] Saenko, K., Kulis, B., Fritz, M., and Darrell, T. Adapting visual category models to new domains. In ECCV (2010).
-- <span id="page-34-20"></span>[198] Sagadeeva, S., and Boehm, M. Sliceline: Fast, linear-algebra-based slice finding for ml model debugging. In SIGMOD (2021).
-- <span id="page-34-12"></span>[199] Salau, A. O., and Jain, S. Feature extraction: a survey of the types, techniques, applications. In ICSC (2019).
-- <span id="page-34-9"></span>[200] Sambasivan, N., Kapania, S., Highfill, H., Akrong, D., Paritosh, P., and Aroyo, L. M. "everyone wants to do the model work, not the data work": Data cascades in high-stakes ai. In CHI (2021).
-- <span id="page-34-25"></span>[201] Sangkloy, P., Lu, J., Fang, C., Yu, F., and Hays, J. Scribbler: Controlling deep image synthesis with sketch and color. In CVPR (2017).
-- <span id="page-34-19"></span>[202] Santelices, R., Zhang, Y., Jiang, S., Cai, H., and Zhang, Y.-j. Quantitative program slicing: Separating statements
+- [171] Obukhov, A., and Krasnyanskiy, M. Quality assessment method for gan based on modified metrics inception score and fréchet inception distance. In CoMeSySo (2020).
+- [172] OpenAI. Gpt-4 technical report, 2023.
+- [173] Otles, E., Oh, J., Li, B., Bochinski, M., Joo, H., Ortwine, J., Shenoy, E., Washer, L., Young, V. B., Rao, K., et al. Mind the performance gap: examining dataset shift during prospective validation. In MLHC (2021).
+- [174] Ouyang, L., Wu, J., Jiang, X., Almeida, D., Wainwright, C. L., Mishkin, P., Zhang, C., Agarwal, S., Slama, K., Ray, A., et al. Training language models to follow instructions with human feedback. In NeurIPS (2022).
+- [175] Ozbayoglu, A. M., Gudelek, M. U., and Sezer, O. B. Deep learning for financial applications: A survey. Applied Soft Computing 93 (2020), 106384.
+- [176] Pang, G., Shen, C., Cao, L., and Hengel, A. V. D. Deep learning for anomaly detection: A review. ACM computing surveys (CSUR) 54, 2 (2021), 1-38.
+- [177] Papernot, N., McDaniel, P., Goodfellow, I., Jha, S., Celik, Z. B., and Swami, A. Practical black-box attacks against machine learning. In ASIACCS (2017).
+- [178] Pawelczyk, M., Bielawski, S., Heuvel, J. v. d., Richter, T., and Kasneci, G. Carla: a python library to benchmark algorithmic recourse and counterfactual explanation algorithms. arXiv preprint arXiv:2108.00783 (2021).
+- [179] Pedrozo, W. G., Nievola, J. C., and Ribeiro, D. C. An adaptive approach for index tuning with learning classifier systems on hybrid storage environments. In HAIS (2018).
+- [180] Pinkel, C., Binnig, C., Jiménez-Ruiz, E., May, W., Ritze, D., Skjæveland, M. G., Solimando, A., and Kharlamov, E. Rodi: A benchmark for automatic mapping generation in relational-to-ontology data integration. In ESWC (2015).
+- [181] Pipino, L. L., Lee, Y. W., and Wang, R. Y. Data quality assessment. Communications of the ACM 45, 4 (2002), 211-218.
+- [182] Poess, M., Rabl, T., Jacobsen, H.-A., and Caufield, B. Tpc-di: the first industry benchmark for data integration. In VLDB (2014).
+- [183] Polyzotis, N., and Zaharia, M. What can data-centric ai learn from data and ml engineering? arXiv preprint arXiv:2112.06439 (2021).
+- [184] Poyiadzi, R., Sokol, K., Santos-Rodriguez, R., De Bie, T., and Flach, P. Face: feasible and actionable counterfactual explanations. In AAAI (2020).
+- [185] Press, G. Cleaning big data: Most time-consuming, least enjoyable data science task, survey says, Oct 2022.
+- [186] Prusa, J., Khoshgoftaar, T. M., Dittman, D. J., and Napolitano, A. Using random undersampling to alleviate class imbalance on tweet sentiment data. In IRI (2015).
+- [187] Radford, A., Narasimhan, K., Salimans, T., Sutskever, I., et al. Improving language understanding by generative pre-training. OpenAI (2018).
+- [188] Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., Sutskever, I., et al. Language models are unsupervised multitask learners. OpenAI (2019).
+- [189] Ratner, A. Scale ai. Snorkel AI. Available online: https://snorkel.ai/(accessed on 8 February 2023) (2023).
+- [190] Ratner, A., Bach, S. H., Ehrenberg, H., Fries, J., Wu, S., and Ré, C. Snorkel: Rapid training data creation with weak supervision. In VLDB (2017).
+- [191] Ratner, A. J., De Sa, C. M., Wu, S., Selsam, D., and Ré, C. Data programming: Creating large training sets, quickly. NeurIPS (2016).
+- [192] Ren, P., Xiao, Y., Chang, X., Huang, P.-Y., Li, Z., Gupta, B. B., Chen, X., and Wang, X. A survey of deep active learning. ACM computing surveys (CSUR) 54, 9 (2021), 1-40.
+- [193] Riqelme, J. C., Aguilar-Ruiz, J. S., and Toro, M. Finding representative patterns with ordered projections. pattern recognition 36, 4 (2003), 1009-1018.
+- [194] Rombach, R., Blattmann, A., Lorenz, D., Esser, P., and Ommer, B. High-resolution image synthesis with latent diffusion models. In CVPR (2022).
+- [195] Sadiq, S., Dasu, T., Dong, X. L., Freire, J., Ilyas, I. F., Link, S., Miller, M. J., Naumann, F., Zhou, X., and Srivastava, D. Data quality: The role of empiricism. ACM SIGMOD Record 46, 4 (2018), 35-43.
+- [196] Sadri, Z., Gruenwald, L., and Leal, E. Online index selection using deep reinforcement learning for a cluster database. In ICDE Workshop (2020).
+- [197] Saenko, K., Kulis, B., Fritz, M., and Darrell, T. Adapting visual category models to new domains. In ECCV (2010).
+- [198] Sagadeeva, S., and Boehm, M. Sliceline: Fast, linear-algebra-based slice finding for ml model debugging. In SIGMOD (2021).
+- [199] Salau, A. O., and Jain, S. Feature extraction: a survey of the types, techniques, applications. In ICSC (2019).
+- [200] Sambasivan, N., Kapania, S., Highfill, H., Akrong, D., Paritosh, P., and Aroyo, L. M. "everyone wants to do the model work, not the data work": Data cascades in high-stakes ai. In CHI (2021).
+- [201] Sangkloy, P., Lu, J., Fang, C., Yu, F., and Hays, J. Scribbler: Controlling deep image synthesis with sketch and color. In CVPR (2017).
+- [202] Santelices, R., Zhang, Y., Jiang, S., Cai, H., and Zhang, Y.-j. Quantitative program slicing: Separating statements
 
 36 Daochen Zha, Zaid Pervaiz Bhat, Kwei-Herng Lai, Fan Yang, Zhimeng Jiang, Shaochen Zhong, and Xia Hu
 
 by relevance. In ICSE (2013).
 
-- <span id="page-35-2"></span>[203] Saporta, G. Data fusion and data grafting. Computational statistics & data analysis 38, 4 (2002), 465–473.
-- <span id="page-35-24"></span>[204] Schelter, S., Lange, D., Schmidt, P., Celikel, M., Biessmann, F., and Grafberger, A. Automating large-scale data quality verification. In VLDB (2018).
-- <span id="page-35-19"></span>[205] Schick, T., and Schütze, H. Exploiting cloze questions for few shot text classification and natural language inference. arXiv preprint arXiv:2001.07676 (2020).
-- <span id="page-35-4"></span>[206] Schick, T., and Schütze, H. Few-shot text generation with pattern-exploiting training. arXiv preprint arXiv:2012.11926 (2020).
-- <span id="page-35-20"></span>[207] Schick, T., and Schütze, H. It's not just size that matters: Small language models are also few-shot learners. arXiv preprint arXiv:2009.07118 (2020).
-- <span id="page-35-10"></span>[208] Schnapp, S., and Sabato, S. Active feature selection for the mutual information criterion. In AAAI (2021).
-- <span id="page-35-1"></span>[209] Seedat, N., Imrie, F., and van der Schaar, M. Dc-check: A data-centric ai checklist to guide the development of reliable machine learning systems. arXiv preprint arXiv:2211.05764 (2022).
-- <span id="page-35-16"></span>[210] Shafahi, A., Huang, W. R., Najibi, M., Suciu, O., Studer, C., Dumitras, T., and Goldstein, T. Poison frogs! targeted clean-label poisoning attacks on neural networks. In NeurIPS (2018).
-- <span id="page-35-17"></span>[211] Shankar, V., Dave, A., Roelofs, R., Ramanan, D., Recht, B., and Schmidt, L. Do image classifiers generalize across time? In ICCV (2021).
-- <span id="page-35-15"></span>[212] Sharma, S., Henderson, J., and Ghosh, J. Certifai: Counterfactual explanations for robustness, transparency, interpretability, and fairness of artificial intelligence models. arXiv preprint arXiv:1905.07857 (2019).
-- <span id="page-35-22"></span>[213] Shen, L., Shen, E., Luo, Y., Yang, X., Hu, X., Zhang, X., Tai, Z., and Wang, J. Towards natural language interfaces for data visualization: A survey. arXiv preprint arXiv:2109.03506 (2021).
-- <span id="page-35-21"></span>[214] Shen, Z., Liu, J., He, Y., Zhang, X., Xu, R., Yu, H., and Cui, P. Towards out-of-distribution generalization: A survey. arXiv preprint arXiv:2108.13624 (2021).
-- <span id="page-35-6"></span>[215] Shorten, C., and Khoshgoftaar, T. M. A survey on image data augmentation for deep learning. Journal of big data 6, 1 (2019), 1–48.
-- <span id="page-35-12"></span>[216] Shorten, C., Khoshgoftaar, T. M., and Furht, B. Text data augmentation for deep learning. Journal of big Data 8 (2021), 1–34.
-- <span id="page-35-14"></span>[217] Sohoni, N., Dunnmon, J., Angus, G., Gu, A., and Ré, C. No subclass left behind: Fine-grained robustness in coarse-grained classification problems. In NeurIPS (2020).
-- <span id="page-35-13"></span>[218] Souza, J. T. d., Francisco, A. C. d., Piekarski, C. M., and Prado, G. F. d. Data mining and machine learning to promote smart cities: A systematic review from 2000 to 2018. Sustainability 11, 4 (2019), 1077.
-- <span id="page-35-23"></span>[219] Srinivasan, A., and Setlur, V. Snowy: Recommending utterances for conversational visual analysis. In SIGCHI (2021).
-- <span id="page-35-28"></span>[220] Srivastava, A., Rastogi, A., Rao, A., Shoeb, A. A. M., Abid, A., Fisch, A., Brown, A. R., Santoro, A., Gupta, A., Garriga-Alonso, A., et al. Beyond the imitation game: Quantifying and extrapolating the capabilities of language models. arXiv preprint arXiv:2206.04615 (2022).
-- <span id="page-35-7"></span>[221] Stonebraker, M., Bruckner, D., Ilyas, I. F., Beskales, G., Cherniack, M., Zdonik, S. B., Pagan, A., and Xu, S. Data curation at scale: the data tamer system. In CIDR (2013).
-- <span id="page-35-3"></span>[222] Stonebraker, M., Ilyas, I. F., et al. Data integration: The current status and the way forward. IEEE Data Eng. Bull. 41, 2 (2018), 3–9.
-- <span id="page-35-18"></span>[223] Sugiyama, M., Krauledat, M., and Müller, K.-R. Covariate shift adaptation by importance weighted cross validation. Journal of Machine Learning Research 8, 5 (2007).
-- <span id="page-35-5"></span>[224] Sun, J., and Li, G. An end-to-end learning-based cost estimator. In VLDB (2019).
-- <span id="page-35-11"></span>[225] Sutton, O. Introduction to k nearest neighbour classification and condensed nearest neighbour data reduction. University lectures, University of Leicester 1 (2012).
-- <span id="page-35-29"></span>[226] Tan, Q., Zhang, X., Liu, N., Zha, D., Li, L., Chen, R., Choi, S.-H., and Hu, X. Bring your own view: Graph neural networks for link prediction with personalized subgraph selection. In WSDM (2023).
-- <span id="page-35-8"></span>[227] Tang, W., and Lease, M. Semi-supervised consensus labeling for crowdsourcing. In SIGIR Workshop (2011).
-- <span id="page-35-27"></span>[228] Tao, Y., McKenna, R., Hay, M., Machanavajjhala, A., and Miklau, G. Benchmarking differentially private synthetic data generation algorithms. arXiv preprint arXiv:2112.09238 (2021).
-- <span id="page-35-9"></span>[229] Thaseen, I. S., and Kumar, C. A. Intrusion detection model using fusion of chi-square feature selection and multi class svm. Journal of King Saud University-Computer and Information Sciences 29, 4 (2017), 462–472.
-- <span id="page-35-25"></span>[230] Thirumuruganathan, S., Tang, N., Ouzzani, M., and Doan, A. Data curation with deep learning. In EDBT (2020).
-- <span id="page-35-0"></span>[231] Thusoo, A., Shao, Z., Anthony, S., Borthakur, D., Jain, N., Sen Sarma, J., Murthy, R., and Liu, H. Data warehousing and analytics infrastructure at facebook. In SIGMOD (2010).
-- <span id="page-35-26"></span>[232] Valentin, G., Zuliani, M., Zilio, D. C., Lohman, G., and Skelley, A. Db2 advisor: An optimizer smart enough to recommend its own indexes. In ICDE (2000).
+- [203] Saporta, G. Data fusion and data grafting. Computational statistics & data analysis 38, 4 (2002), 465-473.
+- [204] Schelter, S., Lange, D., Schmidt, P., Celikel, M., Biessmann, F., and Grafberger, A. Automating large-scale data quality verification. In VLDB (2018).
+- [205] Schick, T., and Schütze, H. Exploiting cloze questions for few shot text classification and natural language inference. arXiv preprint arXiv:2001.07676 (2020).
+- [206] Schick, T., and Schütze, H. Few-shot text generation with pattern-exploiting training. arXiv preprint arXiv:2012.11926 (2020).
+- [207] Schick, T., and Schütze, H. It's not just size that matters: Small language models are also few-shot learners. arXiv preprint arXiv:2009.07118 (2020).
+- [208] Schnapp, S., and Sabato, S. Active feature selection for the mutual information criterion. In AAAI (2021).
+- [209] Seedat, N., Imrie, F., and van der Schaar, M. Dc-check: A data-centric ai checklist to guide the development of reliable machine learning systems. arXiv preprint arXiv:2211.05764 (2022).
+- [210] Shafahi, A., Huang, W. R., Najibi, M., Suciu, O., Studer, C., Dumitras, T., and Goldstein, T. Poison frogs! targeted clean-label poisoning attacks on neural networks. In NeurIPS (2018).
+- [211] Shankar, V., Dave, A., Roelofs, R., Ramanan, D., Recht, B., and Schmidt, L. Do image classifiers generalize across time? In ICCV (2021).
+- [212] Sharma, S., Henderson, J., and Ghosh, J. Certifai: Counterfactual explanations for robustness, transparency, interpretability, and fairness of artificial intelligence models. arXiv preprint arXiv:1905.07857 (2019).
+- [213] Shen, L., Shen, E., Luo, Y., Yang, X., Hu, X., Zhang, X., Tai, Z., and Wang, J. Towards natural language interfaces for data visualization: A survey. arXiv preprint arXiv:2109.03506 (2021).
+- [214] Shen, Z., Liu, J., He, Y., Zhang, X., Xu, R., Yu, H., and Cui, P. Towards out-of-distribution generalization: A survey. arXiv preprint arXiv:2108.13624 (2021).
+- [215] Shorten, C., and Khoshgoftaar, T. M. A survey on image data augmentation for deep learning. Journal of big data 6, 1 (2019), 1-48.
+- [216] Shorten, C., Khoshgoftaar, T. M., and Furht, B. Text data augmentation for deep learning. Journal of big Data 8 (2021), 1-34.
+- [217] Sohoni, N., Dunnmon, J., Angus, G., Gu, A., and Ré, C. No subclass left behind: Fine-grained robustness in coarse-grained classification problems. In NeurIPS (2020).
+- [218] Souza, J. T. d., Francisco, A. C. d., Piekarski, C. M., and Prado, G. F. d. Data mining and machine learning to promote smart cities: A systematic review from 2000 to 2018. Sustainability 11, 4 (2019), 1077.
+- [219] Srinivasan, A., and Setlur, V. Snowy: Recommending utterances for conversational visual analysis. In SIGCHI (2021).
+- [220] Srivastava, A., Rastogi, A., Rao, A., Shoeb, A. A. M., Abid, A., Fisch, A., Brown, A. R., Santoro, A., Gupta, A., Garriga-Alonso, A., et al. Beyond the imitation game: Quantifying and extrapolating the capabilities of language models. arXiv preprint arXiv:2206.04615 (2022).
+- [221] Stonebraker, M., Bruckner, D., Ilyas, I. F., Beskales, G., Cherniack, M., Zdonik, S. B., Pagan, A., and Xu, S. Data curation at scale: the data tamer system. In CIDR (2013).
+- [222] Stonebraker, M., Ilyas, I. F., et al. Data integration: The current status and the way forward. IEEE Data Eng. Bull. 41, 2 (2018), 3-9.
+- [223] Sugiyama, M., Krauledat, M., and Müller, K.-R. Covariate shift adaptation by importance weighted cross validation. Journal of Machine Learning Research 8, 5 (2007).
+- [224] Sun, J., and Li, G. An end-to-end learning-based cost estimator. In VLDB (2019).
+- [225] Sutton, O. Introduction to k nearest neighbour classification and condensed nearest neighbour data reduction. University lectures, University of Leicester 1 (2012).
+- [226] Tan, Q., Zhang, X., Liu, N., Zha, D., Li, L., Chen, R., Choi, S.-H., and Hu, X. Bring your own view: Graph neural networks for link prediction with personalized subgraph selection. In WSDM (2023).
+- [227] Tang, W., and Lease, M. Semi-supervised consensus labeling for crowdsourcing. In SIGIR Workshop (2011).
+- [228] Tao, Y., McKenna, R., Hay, M., Machanavajjhala, A., and Miklau, G. Benchmarking differentially private synthetic data generation algorithms. arXiv preprint arXiv:2112.09238 (2021).
+- [229] Thaseen, I. S., and Kumar, C. A. Intrusion detection model using fusion of chi-square feature selection and multi class svm. Journal of King Saud University-Computer and Information Sciences 29, 4 (2017), 462-472.
+- [230] Thirumuruganathan, S., Tang, N., Ouzzani, M., and Doan, A. Data curation with deep learning. In EDBT (2020).
+- [231] Thusoo, A., Shao, Z., Anthony, S., Borthakur, D., Jain, N., Sen Sarma, J., Murthy, R., and Liu, H. Data warehousing and analytics infrastructure at facebook. In SIGMOD (2010).
+- [232] Valentin, G., Zuliani, M., Zilio, D. C., Lohman, G., and Skelley, A. Db2 advisor: An optimizer smart enough to recommend its own indexes. In ICDE (2000).
 
-- <span id="page-36-26"></span>[233] Van Aken, D., Pavlo, A., Gordon, G. J., and Zhang, B. Automatic database management system tuning through large-scale machine learning. In SIGMOD (2017).
-- <span id="page-36-2"></span>[234] Varia, J., Mathew, S., et al. Overview of amazon web services. Amazon Web Services (2014).
-- <span id="page-36-30"></span>[235] Vijayan, A., Fatima, S., Sowmya, A., and Vafaee, F. Blood-based transcriptomic signature panel identification for cancer diagnosis: benchmarking of feature extraction methods. Briefings in Bioinformatics 23, 5 (2022), bbac315.
-- <span id="page-36-0"></span>[236] Voulodimos, A., Doulamis, N., Doulamis, A., Protopapadakis, E., et al. Deep learning for computer vision: A brief review. Computational intelligence and neuroscience 2018 (2018).
-- <span id="page-36-20"></span>[237] Wachter, S., Mittelstadt, B., and Russell, C. Counterfactual explanations without opening the black box: Automated decisions and the gdpr. Harv. JL & Tech. 31 (2017), 841.
-- <span id="page-36-22"></span>[238] Waldner, M., Diehl, A., Gračanin, D., Splechtna, R., Delrieux, C., and Matković, K. A comparison of radial and linear charts for visualizing daily patterns. IEEE transactions on visualization and computer graphics 26, 1 (2019).
-- <span id="page-36-6"></span>[239] Wallace, E., Feng, S., Kandpal, N., Gardner, M., and Singh, S. Universal adversarial triggers for attacking and analyzing nlp. In IJCNLP (2019).
-- <span id="page-36-16"></span>[240] Wan, M., Zha, D., Liu, N., and Zou, N. In-processing modeling techniques for machine learning fairness: A survey. ACM Transactions on Knowledge Discovery from Data (TKDD) (2022).
-- <span id="page-36-4"></span>[241] Wang, A. Scale ai. Scale AI. Available online: https://scale.com/(accessed on 8 February 2023) (2023).
-- <span id="page-36-17"></span>[242] Wang, G., Bhat, Z. P., Jiang, Z., Chen, Y.-W., Zha, D., Reyes, A. C., Niktash, A., Ulkar, G., Okman, E., Cai, X., et al. Bed: A real-time object detection system for edge devices. In CIKM (2022), pp. 4994–4998.
-- <span id="page-36-18"></span>[243] Wang, G., Chuang, Y.-N., Du, M., Yang, F., Zhou, Q., Tripathi, P., Cai, X., and Hu, X. Accelerating shapley explanation via contributive cooperator selection. In ICML (2022).
-- <span id="page-36-9"></span>[244] Wang, J., Kraska, T., Franklin, M. J., and Feng, J. Crowder: crowdsourcing entity resolution. In VLDB (2012).
-- <span id="page-36-11"></span>[245] Wang, S., Tang, J., and Liu, H. Embedded unsupervised feature selection. In AAAI (2015).
-- <span id="page-36-28"></span>[246] Wang, Y., Chen, H., Fan, Y., Wang, S., Tao, R., Hou, W., Wang, R., Yang, L., Zhou, Z., Guo, L.-Z., et al. Usb: A unified semi-supervised learning benchmark for classification. In NeurIPS (2022).
-- <span id="page-36-24"></span>[247] Wang, Y., Wang, Q., Huang, H., Huang, W., Chen, Y., McGarvey, P. B., Wu, C. H., Arighi, C. N., and Consortium, U. A crowdsourcing open platform for literature curation in uniprot. PLoS biology 19, 12 (2021), e3001464.
-- <span id="page-36-10"></span>[248] Wang, Z., Yan, W., and Oates, T. Time series classification from scratch with deep neural networks: A strong baseline. In IJCNN (2017).
-- <span id="page-36-1"></span>[249] Webb, S., et al. Deep learning for biology. Nature 554, 7693 (2018), 555–557.
-- <span id="page-36-8"></span>[250] Wen, Q., Sun, L., Yang, F., Song, X., Gao, J., Wang, X., and Xu, H. Time series data augmentation for deep learning: A survey. In IJCAI (2021).
-- <span id="page-36-3"></span>[251] Whang, S. E., Roh, Y., Song, H., and Lee, J.-G. Data collection and quality challenges in deep learning: A data-centric ai perspective. In VLDB (2023).
-- <span id="page-36-25"></span>[252] White, T. Hadoop: The definitive guide. " O'Reilly Media, Inc.", 2012.
-- <span id="page-36-5"></span>[253] Winston, P. H. Artificial intelligence. Addison-Wesley Longman Publishing Co., Inc., 1984.
-- <span id="page-36-7"></span>[254] Wongsuphasawat, K., Moritz, D., Anand, A., Mackinlay, J., Howe, B., and Heer, J. Voyager: Exploratory analysis via faceted browsing of visualization recommendations. IEEE transactions on visualization and computer graphics 22, 1 (2015), 649–658.
-- <span id="page-36-13"></span>[255] Xanthopoulos, P., Pardalos, P. M., Trafalis, T. B., Xanthopoulos, P., Pardalos, P. M., and Trafalis, T. B. Linear discriminant analysis. Robust data mining (2013), 27–33.
-- <span id="page-36-19"></span>[256] Xing, X., Liu, H., Chen, C., and Li, J. Fairness-aware unsupervised feature selection. In CIKM (2021).
-- <span id="page-36-23"></span>[257] Xue, B., and Zou, L. Knowledge graph quality management: a comprehensive survey. IEEE Transactions on Knowledge and Data Engineering (2022).
-- <span id="page-36-12"></span>[258] Yan, K., and Zhang, D. Feature selection and analysis on correlated gas sensor data with recursive feature elimination. Sensors and Actuators B: Chemical 212 (2015), 353–363.
-- <span id="page-36-29"></span>[259] Yang, Y., and Loog, M. A benchmark and comparison of active learning for logistic regression. Pattern Recognition 83 (2018), 401–415.
-- <span id="page-36-15"></span>[260] Ying, X. An overview of overfitting and its solutions. Journal of physics: Conference series 1168 (2019), 022022.
-- <span id="page-36-31"></span>[261] Yoo, J., Ahn, N., and Sohn, K.-A. Rethinking data augmentation for image super-resolution: A comprehensive analysis and a new strategy. In CVPR (2020).
-- <span id="page-36-32"></span>[262] Yoo, J. Y., Morris, J. X., Lifland, E., and Qi, Y. Searching for a search method: Benchmarking search algorithms for generating nlp adversarial examples. arXiv preprint arXiv:2009.06368 (2020).
-- <span id="page-36-33"></span>[263] Yoo, K. M., Park, D., Kang, J., Lee, S.-W., and Park, W. Gpt3mix: Leveraging large-scale language models for text augmentation. In EMNLP (2021).
-- <span id="page-36-21"></span>[264] Yuan, W., Neubig, G., and Liu, P. Bartscore: Evaluating generated text as text generation. In NeurIPS (2021).
-- <span id="page-36-14"></span>[265] Yuen, M.-C., King, I., and Leung, K.-S. A survey of crowdsourcing systems. In PASSAT (2011).
-- <span id="page-36-27"></span>[266] Zaharia, M., Xin, R. S., Wendell, P., Das, T., Armbrust, M., Dave, A., Meng, X., Rosen, J., Venkataraman, S.,
+- [233] Van Aken, D., Pavlo, A., Gordon, G. J., and Zhang, B. Automatic database management system tuning through large-scale machine learning. In SIGMOD (2017).
+- [234] Varia, J., Mathew, S., et al. Overview of amazon web services. Amazon Web Services (2014).
+- [235] Vijayan, A., Fatima, S., Sowmya, A., and Vafaee, F. Blood-based transcriptomic signature panel identification for cancer diagnosis: benchmarking of feature extraction methods. Briefings in Bioinformatics 23, 5 (2022), bbac315.
+- [236] Voulodimos, A., Doulamis, N., Doulamis, A., Protopapadakis, E., et al. Deep learning for computer vision: A brief review. Computational intelligence and neuroscience 2018 (2018).
+- [237] Wachter, S., Mittelstadt, B., and Russell, C. Counterfactual explanations without opening the black box: Automated decisions and the gdpr. Harv. JL & Tech. 31 (2017), 841.
+- [238] Waldner, M., Diehl, A., Gračanin, D., Splechtna, R., Delrieux, C., and Matković, K. A comparison of radial and linear charts for visualizing daily patterns. IEEE transactions on visualization and computer graphics 26, 1 (2019).
+- [239] Wallace, E., Feng, S., Kandpal, N., Gardner, M., and Singh, S. Universal adversarial triggers for attacking and analyzing nlp. In IJCNLP (2019).
+- [240] Wan, M., Zha, D., Liu, N., and Zou, N. In-processing modeling techniques for machine learning fairness: A survey. ACM Transactions on Knowledge Discovery from Data (TKDD) (2022).
+- [241] Wang, A. Scale ai. Scale AI. Available online: https://scale.com/(accessed on 8 February 2023) (2023).
+- [242] Wang, G., Bhat, Z. P., Jiang, Z., Chen, Y.-W., Zha, D., Reyes, A. C., Niktash, A., Ulkar, G., Okman, E., Cai, X., et al. Bed: A real-time object detection system for edge devices. In CIKM (2022), pp. 4994-4998.
+- [243] Wang, G., Chuang, Y.-N., Du, M., Yang, F., Zhou, Q., Tripathi, P., Cai, X., and Hu, X. Accelerating shapley explanation via contributive cooperator selection. In ICML (2022).
+- [244] Wang, J., Kraska, T., Franklin, M. J., and Feng, J. Crowder: crowdsourcing entity resolution. In VLDB (2012).
+- [245] Wang, S., Tang, J., and Liu, H. Embedded unsupervised feature selection. In AAAI (2015).
+- [246] Wang, Y., Chen, H., Fan, Y., Wang, S., Tao, R., Hou, W., Wang, R., Yang, L., Zhou, Z., Guo, L.-Z., et al. Usb: A unified semi-supervised learning benchmark for classification. In NeurIPS (2022).
+- [247] Wang, Y., Wang, Q., Huang, H., Huang, W., Chen, Y., McGarvey, P. B., Wu, C. H., Arighi, C. N., and Consortium, U. A crowdsourcing open platform for literature curation in uniprot. PLoS biology 19, 12 (2021), e3001464.
+- [248] Wang, Z., Yan, W., and Oates, T. Time series classification from scratch with deep neural networks: A strong baseline. In IJCNN (2017).
+- [249] Webb, S., et al. Deep learning for biology. Nature 554, 7693 (2018), 555-557.
+- [250] Wen, Q., Sun, L., Yang, F., Song, X., Gao, J., Wang, X., and Xu, H. Time series data augmentation for deep learning: A survey. In IJCAI (2021).
+- [251] Whang, S. E., Roh, Y., Song, H., and Lee, J.-G. Data collection and quality challenges in deep learning: A data-centric ai perspective. In VLDB (2023).
+- [252] White, T. Hadoop: The definitive guide. " O'Reilly Media, Inc.", 2012.
+- [253] Winston, P. H. Artificial intelligence. Addison-Wesley Longman Publishing Co., Inc., 1984.
+- [254] Wongsuphasawat, K., Moritz, D., Anand, A., Mackinlay, J., Howe, B., and Heer, J. Voyager: Exploratory analysis via faceted browsing of visualization recommendations. IEEE transactions on visualization and computer graphics 22, 1 (2015), 649-658.
+- [255] Xanthopoulos, P., Pardalos, P. M., Trafalis, T. B., Xanthopoulos, P., Pardalos, P. M., and Trafalis, T. B. Linear discriminant analysis. Robust data mining (2013), 27-33.
+- [256] Xing, X., Liu, H., Chen, C., and Li, J. Fairness-aware unsupervised feature selection. In CIKM (2021).
+- [257] Xue, B., and Zou, L. Knowledge graph quality management: a comprehensive survey. IEEE Transactions on Knowledge and Data Engineering (2022).
+- [258] Yan, K., and Zhang, D. Feature selection and analysis on correlated gas sensor data with recursive feature elimination. Sensors and Actuators B: Chemical 212 (2015), 353-363.
+- [259] Yang, Y., and Loog, M. A benchmark and comparison of active learning for logistic regression. Pattern Recognition 83 (2018), 401-415.
+- [260] Ying, X. An overview of overfitting and its solutions. Journal of physics: Conference series 1168 (2019), 022022.
+- [261] Yoo, J., Ahn, N., and Sohn, K.-A. Rethinking data augmentation for image super-resolution: A comprehensive analysis and a new strategy. In CVPR (2020).
+- [262] Yoo, J. Y., Morris, J. X., Lifland, E., and Qi, Y. Searching for a search method: Benchmarking search algorithms for generating nlp adversarial examples. arXiv preprint arXiv:2009.06368 (2020).
+- [263] Yoo, K. M., Park, D., Kang, J., Lee, S.-W., and Park, W. Gpt3mix: Leveraging large-scale language models for text augmentation. In EMNLP (2021).
+- [264] Yuan, W., Neubig, G., and Liu, P. Bartscore: Evaluating generated text as text generation. In NeurIPS (2021).
+- [265] Yuen, M.-C., King, I., and Leung, K.-S. A survey of crowdsourcing systems. In PASSAT (2011).
+- [266] Zaharia, M., Xin, R. S., Wendell, P., Das, T., Armbrust, M., Dave, A., Meng, X., Rosen, J., Venkataraman, S.,
 
 Franklin, M. J., Ghodsi, A., Gonzalez, J., Shenker, S., and Stoica, I. Apache Spark: A unified engine for big data processing. Communications of the ACM 59 (2016).
 
-- <span id="page-37-14"></span>[267] Zeng, H., Henry, S. C., and Riola, J. P. Stratal slicing, part ii: Real 3-d seismic data. Geophysics 63, 2 (1998), 514–522.
-- <span id="page-37-17"></span>[268] Zeng, Z., Moh, P., Du, F., Hoffswell, J., Lee, T. Y., Malik, S., Koh, E., and Battle, L. An evaluation-focused framework for visualization recommendation algorithms. IEEE Transactions on Visualization and Computer Graphics 28, 1 (2021), 346–356.
-- <span id="page-37-2"></span>[269] Zha, D., Bhat, Z. P., Lai, K.-H., Yang, F., and Hu, X. Data-centric ai: Perspectives and challenges. arXiv preprint arXiv:2301.04819 (2023).
-- <span id="page-37-19"></span>[270] Zha, D., Feng, L., Bhushanam, B., Choudhary, D., Nie, J., Tian, Y., Chae, J., Ma, Y., Kejariwal, A., and Hu, X. Autoshard: Automated embedding table sharding for recommender systems. In KDD (2022).
+- [267] Zeng, H., Henry, S. C., and Riola, J. P. Stratal slicing, part ii: Real 3-d seismic data. Geophysics 63, 2 (1998), 514-522.
+- [268] Zeng, Z., Moh, P., Du, F., Hoffswell, J., Lee, T. Y., Malik, S., Koh, E., and Battle, L. An evaluation-focused framework for visualization recommendation algorithms. IEEE Transactions on Visualization and Computer Graphics 28, 1 (2021), 346-356.
+- [269] Zha, D., Bhat, Z. P., Lai, K.-H., Yang, F., and Hu, X. Data-centric ai: Perspectives and challenges. arXiv preprint arXiv:2301.04819 (2023).
+- [270] Zha, D., Feng, L., Bhushanam, B., Choudhary, D., Nie, J., Tian, Y., Chae, J., Ma, Y., Kejariwal, A., and Hu, X. Autoshard: Automated embedding table sharding for recommender systems. In KDD (2022).
 - [271] Zha, D., Feng, L., Tan, Q., Liu, Z., Lai, K.-H., Bhushanam, B., Tian, Y., Kejariwal, A., and Hu, X. Dreamshard: Generalizable embedding table placement for recommender systems. In NeurIPS (2022).
-- <span id="page-37-20"></span>[272] Zha, D., Lai, K.-H., Huang, S., Cao, Y., Reddy, K., Vargas, J., Nguyen, A., Wei, R., Guo, J., and Hu, X. Rlcard: a platform for reinforcement learning in card games. In IJCAI (2021).
-- <span id="page-37-7"></span>[273] Zha, D., Lai, K.-H., Tan, Q., Ding, S., Zou, N., and Hu, X. B. Towards automated imbalanced learning with deep hierarchical reinforcement learning. In CIKM (2022).
-- <span id="page-37-9"></span>[274] Zha, D., Lai, K.-H., Wan, M., and Hu, X. Meta-aad: Active anomaly detection with deep reinforcement learning. In ICDM (2020).
-- <span id="page-37-21"></span>[275] Zha, D., Lai, K.-H., Zhou, K., and Hu, X. Experience replay optimization. In IJCAI (2019).
-- <span id="page-37-22"></span>[276] Zha, D., Lai, K.-H., Zhou, K., and Hu, X. Simplifying deep reinforcement learning via self-supervision. arXiv preprint arXiv:2106.05526 (2021).
-- <span id="page-37-25"></span>[277] Zha, D., Lai, K.-H., Zhou, K., and Hu, X. Towards similarity-aware time-series classification. In SDM (2022).
-- <span id="page-37-10"></span>[278] Zha, D., and Li, C. Multi-label dataless text classification with topic modeling. Knowledge and Information Systems 61 (2019), 137–160.
-- <span id="page-37-23"></span>[279] Zha, D., Ma, W., Yuan, L., Hu, X., and Liu, J. Rank the episodes: A simple approach for exploration in procedurallygenerated environments. In ICLR (2021).
-- <span id="page-37-13"></span>[280] Zha, D., Pervaiz Bhat, Z., Chen, Y.-W., Wang, Y., Ding, S., Jain, A. K., Qazim Bhat, M., Lai, K.-H., Chen, J., et al. Autovideo: An automated video action recognition system. In IJCAI (2022).
-- <span id="page-37-24"></span>[281] Zha, D., Xie, J., Ma, W., Zhang, S., Lian, X., Hu, X., and Liu, J. Douzero: Mastering doudizhu with self-play deep reinforcement learning. In ICML (2021).
-- <span id="page-37-6"></span>[282] Zhang, H., Cisse, M., Dauphin, Y. N., and Lopez-Paz, D. mixup: Beyond empirical risk minimization. In ICLR (2018).
-- <span id="page-37-3"></span>[283] Zhang, H., Goodfellow, I., Metaxas, D., and Odena, A. Self-attention generative adversarial networks. In IICML (2019).
-- <span id="page-37-4"></span>[284] Zhang, J., Hsieh, C.-Y., Yu, Y., Zhang, C., and Ratner, A. A survey on programmatic weak supervision. arXiv preprint arXiv:2202.05433 (2022).
-- <span id="page-37-0"></span>[285] Zhang, S., Yao, L., Sun, A., and Tay, Y. Deep learning based recommender system: A survey and new perspectives. ACM computing surveys (CSUR) 52, 1 (2019), 1–38.
-- <span id="page-37-18"></span>[286] Zhang, X., Chang, Z., Li, Y., Wu, H., Tan, J., Li, F., and Cui, B. Facilitating database tuning with hyper-parameter optimization: a comprehensive experimental evaluation. In VLDB (2022).
-- <span id="page-37-11"></span>[287] Zhang, X., Mei, C., Chen, D., Yang, Y., and Li, J. Active incremental feature selection using a fuzzy-rough-set-based information entropy. IEEE Transactions on Fuzzy Systems 28, 5 (2019), 901–915.
-- <span id="page-37-12"></span>[288] Zhang, X., Zhao, J., and LeCun, Y. Character-level convolutional networks for text classification. In NeurIPS (2015).
-- <span id="page-37-5"></span>[289] Zhang, Z. Missing data imputation: focusing on single imputation. Annals of translational medicine 4, 1 (2016).
-- <span id="page-37-26"></span>[290] Zhou, J., Cui, G., Hu, S., Zhang, Z., Yang, C., Liu, Z., Wang, L., Li, C., and Sun, M. Graph neural networks: A review of methods and applications. AI open 1 (2020), 57–81.
+- [272] Zha, D., Lai, K.-H., Huang, S., Cao, Y., Reddy, K., Vargas, J., Nguyen, A., Wei, R., Guo, J., and Hu, X. Rlcard: a platform for reinforcement learning in card games. In IJCAI (2021).
+- [273] Zha, D., Lai, K.-H., Tan, Q., Ding, S., Zou, N., and Hu, X. B. Towards automated imbalanced learning with deep hierarchical reinforcement learning. In CIKM (2022).
+- [274] Zha, D., Lai, K.-H., Wan, M., and Hu, X. Meta-aad: Active anomaly detection with deep reinforcement learning. In ICDM (2020).
+- [275] Zha, D., Lai, K.-H., Zhou, K., and Hu, X. Experience replay optimization. In IJCAI (2019).
+- [276] Zha, D., Lai, K.-H., Zhou, K., and Hu, X. Simplifying deep reinforcement learning via self-supervision. arXiv preprint arXiv:2106.05526 (2021).
+- [277] Zha, D., Lai, K.-H., Zhou, K., and Hu, X. Towards similarity-aware time-series classification. In SDM (2022).
+- [278] Zha, D., and Li, C. Multi-label dataless text classification with topic modeling. Knowledge and Information Systems 61 (2019), 137-160.
+- [279] Zha, D., Ma, W., Yuan, L., Hu, X., and Liu, J. Rank the episodes: A simple approach for exploration in procedurallygenerated environments. In ICLR (2021).
+- [280] Zha, D., Pervaiz Bhat, Z., Chen, Y.-W., Wang, Y., Ding, S., Jain, A. K., Qazim Bhat, M., Lai, K.-H., Chen, J., et al. Autovideo: An automated video action recognition system. In IJCAI (2022).
+- [281] Zha, D., Xie, J., Ma, W., Zhang, S., Lian, X., Hu, X., and Liu, J. Douzero: Mastering doudizhu with self-play deep reinforcement learning. In ICML (2021).
+- [282] Zhang, H., Cisse, M., Dauphin, Y. N., and Lopez-Paz, D. mixup: Beyond empirical risk minimization. In ICLR (2018).
+- [283] Zhang, H., Goodfellow, I., Metaxas, D., and Odena, A. Self-attention generative adversarial networks. In IICML (2019).
+- [284] Zhang, J., Hsieh, C.-Y., Yu, Y., Zhang, C., and Ratner, A. A survey on programmatic weak supervision. arXiv preprint arXiv:2202.05433 (2022).
+- [285] Zhang, S., Yao, L., Sun, A., and Tay, Y. Deep learning based recommender system: A survey and new perspectives. ACM computing surveys (CSUR) 52, 1 (2019), 1-38.
+- [286] Zhang, X., Chang, Z., Li, Y., Wu, H., Tan, J., Li, F., and Cui, B. Facilitating database tuning with hyper-parameter optimization: a comprehensive experimental evaluation. In VLDB (2022).
+- [287] Zhang, X., Mei, C., Chen, D., Yang, Y., and Li, J. Active incremental feature selection using a fuzzy-rough-set-based information entropy. IEEE Transactions on Fuzzy Systems 28, 5 (2019), 901-915.
+- [288] Zhang, X., Zhao, J., and LeCun, Y. Character-level convolutional networks for text classification. In NeurIPS (2015).
+- [289] Zhang, Z. Missing data imputation: focusing on single imputation. Annals of translational medicine 4, 1 (2016).
+- [290] Zhou, J., Cui, G., Hu, S., Zhang, Z., Yang, C., Liu, Z., Wang, L., Li, C., and Sun, M. Graph neural networks: A review of methods and applications. AI open 1 (2020), 57-81.
 - [291] Zhou, K., Huang, X., Li, Y., Zha, D., Chen, R., and Hu, X. Towards deeper graph neural networks with differentiable group normalization. In NeurIPS (2020).
 - [292] Zhou, K., Huang, X., Zha, D., Chen, R., Li, L., Choi, S.-H., and Hu, X. Dirichlet energy constrained learning for deep graph neural networks. In NeurIPS (2021).
-- <span id="page-37-27"></span>[293] Zhou, K., Song, Q., Huang, X., Zha, D., Zou, N., and Hu, X. Multi-channel graph neural networks. In IJCAI (2021).
-- <span id="page-37-15"></span>[294] Zhou, X., Jin, L., Sun, J., Zhao, X., Yu, X., Feng, J., Li, S., Wang, T., Li, K., and Liu, L. Dbmind: A self-driving platform in opengauss. In VLDB (2021).
-- <span id="page-37-8"></span>[295] Zhou, Y., and Goldman, S. Democratic co-learning. In ICTAI (2004).
-- <span id="page-37-1"></span>[296] Zhu, Y., Kiros, R., Zemel, R., Salakhutdinov, R., Urtasun, R., Torralba, A., and Fidler, S. Aligning books and movies: Towards story-like visual explanations by watching movies and reading books. In CVPR (2015).
-- <span id="page-37-16"></span>[297] Zöller, M.-A., and Huber, M. F. Benchmark and survey of automated machine learning frameworks. Journal of artificial intelligence research 70 (2021), 409–472.
+- [293] Zhou, K., Song, Q., Huang, X., Zha, D., Zou, N., and Hu, X. Multi-channel graph neural networks. In IJCAI (2021).
+- [294] Zhou, X., Jin, L., Sun, J., Zhao, X., Yu, X., Feng, J., Li, S., Wang, T., Li, K., and Liu, L. Dbmind: A self-driving platform in opengauss. In VLDB (2021).
+- [295] Zhou, Y., and Goldman, S. Democratic co-learning. In ICTAI (2004).
+- [296] Zhu, Y., Kiros, R., Zemel, R., Salakhutdinov, R., Urtasun, R., Torralba, A., and Fidler, S. Aligning books and movies: Towards story-like visual explanations by watching movies and reading books. In CVPR (2015).
+- [297] Zöller, M.-A., and Huber, M. F. Benchmark and survey of automated machine learning frameworks. Journal of artificial intelligence research 70 (2021), 409-472.
 
-<span id="page-38-1"></span><span id="page-38-0"></span>[298] Zoph, B., Ghiasi, G., Lin, T.-Y., Cui, Y., Liu, H., Cubuk, E. D., and Le, Q. Rethinking pre-training and self-training. In NeurIPS (2020).
+[298] Zoph, B., Ghiasi, G., Lin, T.-Y., Cui, Y., Liu, H., Cubuk, E. D., and Le, Q. Rethinking pre-training and self-training. In NeurIPS (2020).
