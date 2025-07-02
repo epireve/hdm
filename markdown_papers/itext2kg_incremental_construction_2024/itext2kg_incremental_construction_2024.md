@@ -1,3 +1,5 @@
+<!-- cite_key: lairgi2024 -->
+
 # iText2KG: Incremental Knowledge Graphs Construction Using Large Language Models
 
 Yassir LAIRGI 1 ,2[0000 −0002 −7284 <sup>−</sup>5489], Ludovic MONCLA1[0000 −0002 −1590 <sup>−</sup>9546], Rémy CAZABET1[0000 −0002 −9429 −3865] , Khalid BENABDESLEM 1 , and Pierre CLÉAU 2
@@ -44,7 +46,7 @@ A comprehensive quantitative and qualitative evaluation of LLMs for KG construct
 
 This work aims to develop a plug-and-play solution for constructing KGs from documents with resolved entities and relations as output. Adopting a 'zero-shot' approach is essential to ensure the solution's applicability across various KG construction scenarios. This approach means that the prompts used to generate the KG do not require prior examples or predefined ontologies.
 
-### 3.1 Problem Formulation
+## 1 Problem Formulation
 
 A graph can be defined as G = (E, R) where E is the set of nodes and R denotes the set of edges [\[5\]](#page-14-1). Considering the difficulty in merging similar concepts, we defined two constraints for the solution:
 
@@ -62,7 +64,7 @@ $$
 \forall r_k, r_l \in \mathcal{R}, \ l \neq k \Rightarrow r_k \neq r_l \tag{2}
 $$
 
-### 3.2 Proposed method
+### 2 Proposed method
 
 We propose the iText2KG approach composed of four modules (see Figure [1\)](#page-4-0): Document Distiller, Incremental Entities Extractor, Incremental Relations Extractor, and Neo4j Graph Integrator. Each module fulfills a distinct role in constructing the KG. Notably, entity extraction and relation extraction tasks are separated following results described in [\[1\]](#page-14-4) that positively impact the performance. Further details of modules 1 to 3 are as follows, with the fourth module serving to visualize the graph.
 
@@ -116,7 +118,7 @@ For the second and third modules, it is important to ensure that the extracted e
 - Triplet Extraction Precision: Evaluate the consistency of the triplets with the corresponding text regardless of the entity/relation resolution process. It is important to note that a relevant triplet is implied and not necessarily directly stated by the text. We define the precision score as the number of extracted relevant triplets divided by the total number of extracted triplets.
 - Entity/Relation Resolution False Discovery Rate: Evaluate the proportion of unresolved (false positive) entities or relations among the total extracted entities or relations. Specifically, we calculate the ratio of unresolved entities or relations to the total number of extracted entities or relations. This metric provides a clear indication of the reliability of the entity and relation extraction process by highlighting the proportion of errors (unresolved entities/relations) within the total extractions.
 
-### 4.1 Datasets and Baseline Methods
+## 1 Datasets and Baseline Methods
 
 To evaluate Document Distiller, we have generated 5 CVs using GPT-4, selected 5 company websites, and 5 scientific articles. It is important to note that we have extracted the textual information from websites, which will serve as input to our model.
 
@@ -126,7 +128,7 @@ conduct manual checks for triplets not present in the dataset. This manual check
 
 We have compared our method against baseline methods including Graph Construction using OpenAI Function Method[6](#page-9-0) , Langchain[7](#page-9-1) , and LlamaIndex[8](#page-9-2) .
 
-### 4.2 First Module Evaluation Results
+### 2 First Module Evaluation Results
 
 Schema Consistency Table [1](#page-9-3) demonstrates that Document Distiller achieves high schema consistency across various document types. Scientific articles and CVs exhibit the highest schema consistency scores, indicating the module's capability to handle structured information, particularly for documents where the data is primarily organized using titles. While still achieving a strong score of 0.94, websites present a slightly lower consistency, which may be attributed to web content's varied and less structured nature. These results highlight the robustness and adaptability of Document Distiller in processing and extracting structured information from diverse document types.
 
@@ -148,7 +150,7 @@ Information Consistency Figure [4](#page-10-0) illustrates the information consi
 
 <span id="page-10-0"></span>Fig. 4. Bar Plot of the Information Consistency Scores for the different types of Documents
 
-### 4.3 Second and Third Modules Evaluation Results
+### 3 Second and Third Modules Evaluation Results
 
 Triplet Extraction Table [2](#page-10-1) shows different behaviors in relation extraction depending on whether global or local entities are used as context with the Semantic Block for the LLM. The precision of relevant triplets when global entities are fed as context is 10% lower than that of relevant triplets when local entities are fed as context. When global entities are used as context, the LLM extracts relations explicitly mentioned and implied within the Semantic Block. This results in a richer graph with more potential information and a higher chance of irrelevant relations. On the other hand, using locally matched entities as context leads the LLM to extract only the directly stated relations, resulting in a less enriched graph but with a lower likelihood of irrelevant relations.
 

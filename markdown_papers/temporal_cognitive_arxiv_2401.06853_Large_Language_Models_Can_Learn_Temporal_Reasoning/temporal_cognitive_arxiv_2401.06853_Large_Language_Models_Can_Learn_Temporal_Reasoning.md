@@ -1,3 +1,5 @@
+<!-- cite_key: xiongsupsupsupsup2024 -->
+
 # arXiv:2401.06853v6 [cs.CL] 8 Oct 2024
 
 # Large Language Models Can Learn Temporal Reasoning
@@ -90,7 +92,7 @@ Step 3: Quality Control. In TGQA, noise might be introduced from the misalignmen
 
 Motivated by human perception, we propose a new paradigm called TG-LLM. We first translate the text into a temporal graph (TG), and then guide the LLM to perform deliberate reasoning on it.
 
-### 3.1 Text-to-TG Translation
+## 1 Text-to-TG Translation
 
 Although LLM (with ICL) might have such capability, we observed a misalignment between the generated TG and pre-defined QAs, i.e, LLM making mistakes or focusing on irrelevant events. Since TG serves as the foundation of the following deliberate reasoning process, we provide a pipeline for high-quality TG data generation to fine-tune the LLM.
 
@@ -110,11 +112,11 @@ provide several in-context demonstrations which include a story and extracted en
 
 other temporal reasoning tasks.
 
-### 3.2 Temporal Graph Reasoning
+### 2 Temporal Graph Reasoning
 
 Given the generated TGs, we teach LLM deliberate reasoning with SFT enhanced by CoT bootstrapping and graph data augmentation.
 
-### 3.2.1 Bootstrapping Chain of Thoughts
+### 2.1 Bootstrapping Chain of Thoughts
 
 It is observed that SFT on reliable CoTs brings better reasoning performance than that on standard Input/Output prompts [\(Wang et al.,](#page-10-12) [2023;](#page-10-12) [Ho et al.,](#page-9-6) [2022\)](#page-9-6). Since asking humans to create the CoT data is not scalable, we use LLM to replace humans. This task is non-trivial for reasoning over knowledge graphs [\(Saparov and He,](#page-10-13) [2022\)](#page-10-13). In this section, we propose a bootstrapping pipeline, i.e., given a query, using LLM to generate several CoTs and selecting them as training data with a weighted sampling strategy. Compared with the conventional Best-of-N sampling, our proposal allows more training data diversity.
 
@@ -139,7 +141,7 @@ $$
 
 where c<sup>k</sup> denotes the current CoT in consideration; q † := {g, e, q}; a ′ denotes a certain wrong answer from the candidate set A′ ; weight γ is a hyperparameter; t<sup>l</sup> denotes the l-th token in a, and t<l denotes the sequence of tokens before t<sup>l</sup> .
 
-### 3.2.2 Graph Data Augmentation
+### 2.2 Graph Data Augmentation
 
 Compared with other tasks, reasoning suffers more from data insufficiency since more information (such as evidence, arguments, and logics) are involved in the intermediate steps [\(Huang and Chang,](#page-9-0) [2022\)](#page-9-0). To address this issue, we propose several graph data augmentation strategies (Figure [3\)](#page-4-4).
 
@@ -169,12 +171,12 @@ Furthermore, to make sure LLM learns the underlying logic of TR instead of just 
 $$
 g' = f_T(f_E(g)), e' = f_T(e),
 $$
-  
+
 \n
 $$
 q' = f_T(f_E(q)), c' = f_T(f_E(c)),
 $$
-\n(7)  
+\n(7)
 \n
 $$
 a' = f_T(f_E(a))
@@ -186,7 +188,7 @@ where fE(·), f<sup>T</sup> (·) denote the global mapping of entity names and t
 
 We aim to answer the following research questions in our experiments: (1) Can our strategies (CoT bootstrapping and graph data augmentation) bring more reliable reasoning over TGs? (2) Can our twostep framework lead to better TR performance? (3) Do these learned capabilities of TR generalize to other tasks?
 
-### 4.1 Experimental Setup
+### 1 Experimental Setup
 
 We demonstrate TG-LLM is a general framework by applying it to, besides TGQA, the two existing datasets, TimeQA [\(Chen et al.,](#page-8-2) [2021\)](#page-8-2) and TempReason [\(Tan et al.,](#page-10-8) [2023a\)](#page-10-8), which are constructed using Wikipedia articles, excerpts, and summaries. Examples from other datasets are listed in Appendix [B.](#page-12-1) We thoroughly evaluate our framework on all the datasets with a combination of the metrics, i.e., token-level F1, exact match (EM) and perplexity-based accuracy (Acc). Besides choosing F1 and EM, which are two basic metrics for span-based QA tasks, we consider Acc for LLM evaluation, i.e., selecting from a candidate set the final answer with the lowest perplexity as the prediction. The rationale and detailed construction of the candidate set for all datasets are listed in Appendix [B.](#page-12-1)
 
@@ -194,7 +196,7 @@ We primarily compare our framework with the leading LLMs, i.e., Llama2 [\(Touvro
 
 used APIs provided by OpenAI for GPT models. We evaluated their few-shot ICL performance on the test set. To prove the effectiveness of our method, we also show the model performance with SFT on standard Input/Output prompts (SP) and CoTs from GPT-3.5. The model versions and prompt templates are provided in Appendix [B](#page-12-1) and [C,](#page-14-0) respectively. We also include the T5-based models [\(Tan et al.,](#page-10-8) [2023a;](#page-10-8) [Yang et al.,](#page-11-5) [2023a\)](#page-11-5) for a comprehensive comparison. Results on TimeQA and TempReason reported in the original papers are used, and these models are fine-tuned and evaluated on TGQA.
 
-### 4.2 Implementation Details
+### 2 Implementation Details
 
 We use Llama2-13B as the baseline due to limited computational resources. We inject two adapters with selectors into the base model for the textto-TG translation and temporal graph reasoning. The adapters are trained in parallel. For inference, we first translate the original story into a temporal graph, and then perform reasoning on it, i.e., the adapters are used in sequence. For data generation, we use GPT-3.5 for story, TG and CoT generation, and the verification of stories and TGs. We use GPT-4 to create the ICL demonstrations of CoT generation, due to its high generation quality. All the prompt templates are given in Appendix [C.](#page-14-0)
 
@@ -238,13 +240,13 @@ Table 3: Human evaluation on the generated CoTs by different strategies. ER: err
 | Llama2-13B (SFT-CoT) | 0.646 | 0.722 | 0.705  | 0.550     | 0.586 | 0.564     | 0.332 | 0.391      | 0.379   | 0.256 | 0.433 | 0.281   | 0.285 | 0.409 | 0.305 |
 | Llama2-13B (SFT-TGR) | 0.797 | 0.850 | 0.819  | 0.664     | 0.691 | 0.673     | 0.631 | 0.664      | 0.649   | 0.424 | 0.522 | 0.432   | 0.356 | 0.469 | 0.399 |
 
-Table 4: Main results using different models and strategies. We report exact match (EM), token-level F1 scores, and perplexity-based accuracy (Acc). Note: (1) Results with † are reported in the original papers. We only fine-tune and evaluate the models on our dataset. (2) Results with \* are evaluated on 1000 random test samples.
+Table 4: Main results using different models and strategies. We report exact match (EM), token-level F1 scores, and perplexity-based accuracy (Acc). Note: (1) Results with † are reported in the original papers. We only fine-tune and evaluate the models on our dataset. (2) Results with \*are evaluated on 1000 random test samples.
 
 <span id="page-6-1"></span>![](_page_6_Figure_2.jpeg)
 
 Figure 5: Performance comparison between different strategies on TimeQA and TempReason. To obtain a fair comparison, we use Llama2-13B as the base model for all strategies. The basic strategy used to calculate the performance changes is in-context learning with standard Input/Output prompt (ICL-SP).
 
-### 4.3 Main Results
+### 3 Main Results
 
 Can our strategies bring more reliable reasoning over TGs? We show the comparison between ICL with CoTs, SFT with CoTs, bootstrapping CoTs, and graph data augmentation on TGQA (Figure [4\)](#page-5-1). It can be seen that LLM learns TR better with SFT than ICL. By providing CoTs with bootstrapping and graph data augmentation strategies, the model performance gets further enhanced. Furthermore, inspired by [\(Wang et al.,](#page-10-12) [2023\)](#page-10-12), we manually check 100 CoTs generated by different strategies (Table [3\)](#page-5-2). Evaluators are asked to classify the errors into four types (using wrong info, logical inconsistency, external knowledge error, and temporal graph error). It can be seen that our strategies reduce all types of error rate.
 
@@ -256,7 +258,7 @@ this performance improvement is because our twostep reasoning process provides a
 
 Do these learned capabilities of temporal reasoning generalize to other tasks? We show the comparison between different strategies (ICL with SP/CoT, SFT with TGQA/original data) on the two existing datasets, TimeQA and TempReason (Figure [5\)](#page-6-1). Our framework learns the capabilities of text-to-TG translation and temporal graph reasoning, which brings better TR. More importantly, we observed that SFT on TGQA improves the model performance compared with ICL. It can be concluded that these necessary capabilities in TR are generalizable to different data distributions. Since TGQA is fully controllable and requires minimal supervision, we actually provide a general and effective way of TR capability improvement.
 
-### 4.4 Ablation Study
+### 4 Ablation Study
 
 We ablate different modules to see their contributions to the performance. We show the performance comparison between different configurations (Table [5\)](#page-7-0). To obtain a fair comparison, we use Llama2- 13B as the base model for all configurations. From the ablation study, we obtain some insights: (1) LLM can benefit from explicitly presented (temporal) graph which is intuitive, concise and structured. (2) Given a reliable graph, CoT bootstrapping with contrastive learning brings better performance than vanilla CoT distillation. (3) Data augmentation is necessary for LLMs to perform complex tasks such as temporal reasoning. (4) The introduction of external knowledge such as mathematics and commonsense can further augment the generation.
 
@@ -305,7 +307,7 @@ This work was supported by a sponsored research award by Cisco Research.
 
 # References
 
-- <span id="page-8-0"></span>Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. 2023. Gpt-4 technical report. *arXiv preprint arXiv:2303.08774*.
+- <span id="page-8-0"></span>Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. 2023. Gpt-4 technical report.*arXiv preprint arXiv:2303.08774*.
 - <span id="page-8-4"></span>Jianhao Chen, Haoyuan Ouyang, Junyang Ren, Wentao Ding, Wei Hu, and Yuzhong Qu. 2024a. Timelinebased sentence decomposition with in-context learning for temporal fact extraction. *arXiv preprint arXiv:2405.10288*.
 - <span id="page-8-2"></span>Wenhu Chen, Xinyi Wang, and William Yang Wang. 2021. A dataset for answering time-sensitive questions. *arXiv preprint arXiv:2108.06314*.
 - <span id="page-8-5"></span>Zhuo Chen, Zhao Zhang, Zixuan Li, Fei Wang, Yutao Zeng, Xiaolong Jin, and Yongjun Xu. 2024b. Selfimprovement programming for temporal knowledge graph question answering. In *Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024)*, pages 14579–14594.

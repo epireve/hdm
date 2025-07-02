@@ -1,4 +1,6 @@
-1
+<!-- cite_key: bernard2024 -->
+
+
 
 # PKG API: A Tool for Personal Knowledge Graph Management
 
@@ -24,7 +26,7 @@ Personal knowledge graphs (PKGs) offer individuals a way to store and consolidat
 
 Personal Knowledge Graphs, Personal Data Management, Knowledge Representation, Semantic Technologies
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 . 2024. PKG API: A Tool for Personal Knowledge Graph Management. In Proceedings of Proceedings of the ACM Web Conference 2024 (WWW '24). ACM, New York, NY, USA, [4](#page-3-0) pages.<https://doi.org/10.1145/nnnnnnn.nnnnnnn>
 

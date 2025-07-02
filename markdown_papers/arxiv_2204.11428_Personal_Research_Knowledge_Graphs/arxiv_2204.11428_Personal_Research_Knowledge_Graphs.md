@@ -1,3 +1,5 @@
+<!-- cite_key: kolkata2000 -->
+
 # Personal Research Knowledge Graphs
 
 Prantika Chakraborty Indian Association for the Cultivation of Science Kolkata, India prantika.ch@gmail.com
@@ -10,7 +12,7 @@ Debarshi Kumar Sanyal Indian Association for the Cultivation of Science Kolkata,
 
 Maintaining research-related information in an organized manner can be challenging for a researcher. In this paper, we envision personal research knowledge graphs (PRKGs) as a means to represent structured information about the research activities of a researcher. PRKGs can be used to power intelligent personal assistants, and personalize various applications. We explore what entities and relations could be potentially included in a PRKG, how to extract them from various sources, and how to share a PRKG within a research group.
 
-#### CCS CONCEPTS
+### CCS CONCEPTS
 
 • Information systems → Entity relationship models; Data mining.
 

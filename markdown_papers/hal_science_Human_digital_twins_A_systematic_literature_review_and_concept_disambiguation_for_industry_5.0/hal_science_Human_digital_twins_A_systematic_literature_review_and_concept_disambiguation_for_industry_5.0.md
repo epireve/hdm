@@ -1,3 +1,5 @@
+<!-- cite_key: gaffineta2002 -->
+
 # Human Digital Twin: Systematic Literature Review and Concept Disambiguation for Industry 5.0
 
 Ben Gaffineta,b, Jana Al Haj Ali<sup>a</sup> , Yannick Naudet<sup>b</sup> , Herv´e Panetto<sup>a</sup>
@@ -10,7 +12,7 @@ Human Digital Twins (HDTs) are an emerging concept with the potential to create 
 
 Keywords: Human Digital Twin, Industry 5.0, Digital Twin, Human-centricity
 
-## 1. Introduction
+## Introduction
 
 Industry 4.0 is a system-centric paradigm that seeks to optimize production outcomes by interconnecting cyber-physical systems and their ability to communicate, control, and compute. Building on the technological advancements from Industry 4.0, the Industry 5.0 paradigm [1] shifts the focus towards human-centricity, sustainability and resilience. Human-centricity in manufacturing goes beyond creating a safe and ergonomic environment for human workers, as it seeks to address higher needs like belonging, esteem and self-actualisation [2]. Humans are recognized as bringing valuable skills like creativity and decision making instead of merely being a cog in the machine. A symbiotic relationship between human and machine is envisioned, such that human capabilities are enhanced, not replaced. For this close human-machine relationship, it is not enough for machines to react to humans' movements and actions. They need to be aware of humans' physiological, psychological and even cognitive state. Ultimately, they have to become "empathic machines"[2] and learn continuously to grow together with human co-workers. The concept of Operator 4.0 is a significant step towards human-centricity. It seeks to enable a balanced and collaborative relation between operators and automated systems by equipping the operator with the required skills and tools. Operator 5.0 advocates to adapt the technological systems to the human instead, which requires awareness of the human state [3]. Enabling technologies for Industry 4.0 are mainly Cyber-Physical Systems (CPS), Internet of Things (IoT), and Digital Twins (DT), all increasingly supported by Artificial Intelligence (AI). They all can support the human-centricity targeted by Industry 5.0, but the DT could be a key element when it is used to represent humans digitally, serving technological systems adaptation sought by Operator 5.0.
 
@@ -20,7 +22,7 @@ HDTs have first appeared in applications in Industry where traditional DTs are w
 
 Before the conceptual understanding between communities drifts further apart we perform a systematic literature review, considering all application domains, to extract and analyse their interpretation of what constitutes an HDT. We examine the differences between traditional DTs and HDTs and disambiguate the concept of HDT by identifying multiple categories that deserve to be differentiated. Finally we propose a domain-agnostic general definition that may serve as clear conceptual foundation for future HDT developments, irrespective of the application area.
 
-## 2. Prior Reviews
+## Prior Reviews
 
 Recently a few landmark reviews have been performed on the progress of HDTs. The reviews come from authors with various backgrounds which informs their point of view and understanding and restricts the scope of their efforts. From Industry multiple reviews are investigating topics that are closely related and overlapping with HDTs, namely the topics of Humancentric DTs [10] and Human-Robot Collaboration DTs [11]. One review from Industry is exclusively focused on HDTs [12]. From Healthcare four reviews that exclusively focus on HDTs have been published [13, 14, 15, 16]. From the field of Mobility a pivotal review [17] has provided a solid basis for HDT developments in their discipline. Finally a set of two reviews are general in scope [18, 19] without restricting themselves to a specific application domain. Besides the application area, the reviews also differ in their focus. Some are interested in the conceptualisation of HDTs while others explore the enabling technologies to provide guidance for designers and developers. See Table 1
 
@@ -60,7 +62,7 @@ Ramasubramanian et al. [11] review DTs for Human-Robot Collaboration and identif
 
 Most recent reviews focus on enabling technologies and provide guidance to developers through guidelines, frameworks and architectures. From the three reviews that address conceptual aspects; one calls for further research into essential components and the definition [15]; one sees HDTs as digital representations of a human [19]; while the last proposes an alternative view where HDT may also represent a human class [18]. With our review we seek to address this gap and divergence in conceptual interpretation.
 
-## 3. Methodology
+## Methodology
 
 Research on HDTs is experiencing an accelerated growth since 2019. We choose to perform a systematic literature review to explore the literature on HDTs in an exhaustive and reproducible way. In this paper we rely exclusively on primary studies i.e.: original research. The objectives of the SLR are to (i) summarise the literature on the concept of the HDT, (ii) identify conflicting interpretations of the concept and (iii) propose a general coherent definition, (iv) summarising research challenges and give research directions.
 
@@ -70,7 +72,7 @@ To achieve exhaustive and reproducible results we adopt a methodology that consi
 - Conduct the Review: Identify research, select relevant primary research, extract and analyse content.
 - Document the Review: Discuss review report, assess study quality, identify research directions.
 
-## 3.1. Research Questions
+## 1. Research Questions
 
 To align our efforts with the main objective of the systematic literature review, we define an overall guiding research question which is:
 
@@ -103,11 +105,11 @@ whether the authors explicitly use an existing definition or propose their own. 
 
 # • RQ4: What are the challenges for HDT development and future research directions?
 
-## 3.2. Review Protocol
+## 2. Review Protocol
 
 To guarantee reproducibility of results, we define a protocol for conducting the review based on the guidelines provided in [21]. It comprises two major steps: (i) identification of articles (Section 3.2.1), (ii) inclusion and exclusion of articles (Section 3.2.2).
 
-## 3.2.1. Search Strategy
+## 2.1. Search Strategy
 
 | 1. SCOPUS              | 5. MEDLINE        |
 |------------------------|-------------------|
@@ -117,7 +119,7 @@ To guarantee reproducibility of results, we define a protocol for conducting the
 
 We select 8 databases to identify relevant research on HDTs. Given the novelty of the HDT concept and the limited literature we choose to use Google Scholar and arXiv to include preprint articles instead of restricting ourselves to journal and conference papers. The full list of selected databases can be seen at the start of the Section. The databases are queried using search strings that consist of keywords and logical operators. To cover the largest possible extent, we apply the search to the full body text instead of restricting ourselves to the Title, Keywords or Abstracts. To minimise the number of irrelevant papers collected we apply the following stopping criterion: Stop collecting articles after encountering 10 consecutive articles with no reasonable link to the search query. The stopping criterion is especially relevant for Google Scholar.
 
-## 3.2.2. Inclusion and Exclusion Criteria
+## 2.2. Inclusion and Exclusion Criteria
 
 Not all papers will be relevant to answer the research questions. A set of inclusion and exclusion criteria is applied to screen the collected papers for their relevance. A paper that meets an inclusion criterion but also an exclusion criterion will be excluded from the review. See the list of all inclusion and exclusion criteria below:
 
@@ -134,7 +136,7 @@ Not all papers will be relevant to answer the research questions. A set of inclu
 
 The established criteria are applied in two separate phases. First, we perform a coarse-grained filtering step during which only the title, abstract, introduction and conclusion are considered. In case of doubt the paper is included during this step and reanalysed in the subsequent step. The second fine-grained step is performed by analysing the full text of the paper.
 
-## 3.3. Collection & Filtering Results
+## 3. Collection & Filtering Results
 
 First we define our search string for the queries with the goal to find all papers that discuss HDTs and tangential concepts. A prominent example of a tangential concept is a Human Digital Shadow, which is a live representation of the twinned entity without returning any feedback. The search string is the following:
 
@@ -158,19 +160,19 @@ Table 3: Number or records extracted by database and total number of unique reco
 
 databases listed in Section 3.2.1 on June 15th 2023 and obtain a total of 1009 results. During the collection of records our stopping criterion is applied which reduces the number of collected records to 560. The breakdown of how many results have been found for each database, and how many are unique, are listed in 3.3.
 
-## 3.3.1. Coarse-grained filtering
+## 3.1. Coarse-grained filtering
 
 The coarse-grained exclusion step results in 106 included papers and 283 excluded papers. For ExC1 most of the 28 exclusions were full proceedings from conferences whose papers are listed separately as well. Other excluded document types were slides, call for submissions, abstract collections and editorials. A total of 49 reviews and surveys were excluded, many of which covered tangential topics, such as IoT hardware or general digital health technologies. This type of review frequently briefly mentions HDT as a future ambition or future enabling technology. A non-negligible number of papers, 83 in total, were inaccessible. A final large category for exclusion was content based (ExC5 and ExC6) with 112 exclusions. We merge ExC5 and ExC6 because in many cases both apply at the simultaneously.
 
-## 3.3.2. Fine-grained filtering
+## 3.2. Fine-grained filtering
 
 After fine-grained exclusion further 16 papers are excluded, leaving us with a collection of 90 papers for analysis. Half of the excluded papers did not talk in any substantial manner about DTs. These are papers that often mention the keyword DT in their abstract but never address it in the paper itself. Three papers were excluded for not being primary sources, and five more for being the wrong type of document. To be precise one was a guidebook, one a company blog post, two were Master's theses, and one was an unpublished draft for a future paper.
 
-## 4. Descriptive Analysis
+## Descriptive Analysis
 
 The objective of the present paper is to describe and analyse the different viewpoints when it comes to the definition of an HDT. A way of categorising the papers is by application areas. The concept of HDT was born in the community of industrial research, where the concept of DTs itself has strong roots. Over time the concept has spread to other application domains such as Healthcare, Metaverse applications or Mobility. Both the variety of applications and ways of conceptualising the HDT have grown over time. In this part of the paper we present the main application areas and how the number of publications has evolved over time in Section 4.1, a quick look at the geographic distribution of research in Section 4.2, and a detailed exploration into the various conceptual understanding in Section 4.3.
 
-## 4.1. Timeline & Application Areas
+## 1. Timeline & Application Areas
 
 This section provides the answer to the first part, namely the evolution over time, of RQ1: How has the research into HDTs evolved? Alongside we provide the answer to RQ2: What are the main application areas for HDTs? We choose to combine the results of both research questions to show how the concept of HDT has spread into new domains with time. Figure 1 shows the key moments in HDT research, namely the appearance of new conceptual perspectives, and entry into new major application areas.
 
@@ -196,11 +198,11 @@ Figure 3: (a) Total number of publications by application area. (b) Total number
 
 Figure 4: Number of publications by year and continent.
 
-## 4.2. Geographic Distribution
+## 2. Geographic Distribution
 
 This section provides an answer to the second part, namely the geographic distribution, of RQ1: How has the research into HDTs evolved? The start and evolution of HDT research divided by continent are shown in Figure 4. First publications start in Europe with a very low volume of publication for 3 years, before growing rapidly. By 2021 the research groups from Africa, North America and Asia have all published research on HDTs. A more detailed breakdown of publications by country and application area is presented in Figure 5. Notably the United States of America is leading in terms of total number of scientific publication, and is the only country to publish for Mobility applications.
 
-## 4.3. Concept of HDT
+## 3. Concept of HDT
 
 This section provides an answer to RQ3: What is the conceptual understanding, or definition, of HDTs? Due to the high number of different application cases many different scientific communities are researching HDTs. With each community comes a different set of domain-specific vocabulary and understandings of what an HDT should consist of. In Figure 1 we highlight
 
@@ -219,7 +221,7 @@ Before proposing a general definition in Section 5.5 we described the current la
 - 1. Digital Twin: The concept of DT first found numerous applications in Industry. However it is a new concept for the Healthcare community. The perception of what constitutes a DT is not uniform within or across scientific communities. We discuss the definition and types of DTs encountered in literature when applied to humans in Section 4.3.1.
 - 2. Twinned Entity: The twinned entity of an HDT needs to be of human nature. From the scientific literature we extracted what the twinned entity of HDTs is and present it in Section 4.3.2.
 
-## 4.3.1. Digital Twin Conceptualisation
+## 3.1. Digital Twin Conceptualisation
 
 This section addresses RQ3.2: How is the concept of DT understood and used? A clear understanding of the DT concept is a fundamental part of any HDT definition. The first mention of the concept is attributed to work on Product Life cycle Management [5]. At its centre a DT is at least composed of a twinned physical system and a digital object that contains all measurable information about the physical system [27]. A later popular definition and model includes 5 dimensions, [28][29]; (1) physical entity (2) DT Data (3) Virtual Models (4) Services (5) Connections between each of the dimensions. Further extensions for specifically Human-Machine DTs have been proposed in [30], which explicitly include the environment, the human user, and a discussion on shared autonomy between the human and their DT.
 
@@ -264,7 +266,7 @@ the concept. All of the conceptual proposals are at least Digital Shadows indica
 
 We observe that the interpretations and implementations of the DT tenants vary across application domains. The use of the word is ambiguous and often used interchangeably with Digital Model and Digital Shadow. We disambiguate the terms in Section 5.
 
-## 4.3.2. Twinned Entity
+## 3.2. Twinned Entity
 
 This section addresses RQ3.1: What is the scope of the twinned entity? HDT is a special application of a DT. While a DT can in principle have any system as its twinned entity, an HDT should have a human entity as its twin. Understanding what is exactly meant by human entity constitutes the second part of our HDT definition.
 
@@ -282,7 +284,7 @@ Figure 8: Count of publications categorised by the nature of the twinned entity.
 
 from a human user of the HDT, which is similar to the operator of a traditional DT.
 
-## 5. Analysis & Discussion
+## Analysis & Discussion
 
 Through our literature review we have explored the main conceptual components of HDTs as they are understood and used by various communities. It revealed that the term HDT is not only used to refer to true DTs, but also to Shadows or Models. In Kritzinger et al. [31] the notion of Digital Object and Physical Object is introduced. To avoid confusion, Figure 9 summarizes the vocabulary used for DTs and HDTs and common synonyms for the Physical Object.
 
@@ -296,7 +298,7 @@ tem. Likewise, an HDT receives data automatically from a human individual throug
 
 Each of the elements are discussed in detail in the Sections below; (i) Physical Object, also referred to as twinned entity (Section 5.1); (ii) automatic data flow to the Digital Object (Section 5.2); (iii) Digital Object (Section 5.3); (iv) automatic feedback to the Physical Object (Section 5.4). After covering all the elements that make up an HDT, and laying out the differences with a traditional DT, we aggregate all our findings in a general and application agnostic definition (Section 5.5).
 
-## 5.1. HDT Specificities: Twinned Entity
+## 1. HDT Specificities: Twinned Entity
 
 For DTs in general the twinned entity can be any physical object. One aspect that separates an HDT from a traditional DT is that the twinned entity needs to be human. In our preliminary definition the twinned entity has to be of human nature. However in Section 4.3.2 we have established that there is high consensus that the twinned entity needs to be a human individual. We align ourselves with the consensus and refine the definition with the necessary, but not sufficient, condition that the twinned entity is a human individual.
 
@@ -314,7 +316,7 @@ Figure 11: Data flows of an augmented Human Digital Twin (aHDT) where a human an
 
 two separate DTs with the ability to share data with each other, as proposed in [38] for a Human-Robot Collaboration context. The most interesting edge case is a DT containing a human and a strongly coupled technical system. Like before data from both the human and technical system are gathered and processed, with the only difference being the level of interdependence. If the strongly coupled technical system is meant to accompany the human for a long period of time, or even their entire life, then we consider it a special type of HDT. To be precise with our language we propose that the DT of a human including technical systems that augment the twinned human should be referred to as Augmented Human Digital Twin (see Figure 11).
 
-## 5.2. HDT Specificites: Data Flow to the Digital Object
+## 2. HDT Specificites: Data Flow to the Digital Object
 
 When considering traditional DTs, for a machine, or an autonomous car for example, there is the possibility to design the technical system with integrated sensors. For a human individual does not come with integrated sensors and some of the internal processes are not easily measurable with today's technology. Lauer-Schmaltz et al. [15] identify that in particular gathering information about human cognition represents a substantial research gap. Besides the challenge of gathering data that provides insights into the human's internal state, it is important to consider how the data is transmitted to the HDT i.e., whether the data flow is manual or automatic, and whether the data is received in real-time.
 
@@ -324,7 +326,7 @@ A second point of contention is whether a DT, in general, needs to receive data 
 
 In short, we take the position that an HDT necessarily receives data automatically from its twinned human individual but it is not necessary to receive the data in real time. The automatically received data can, but does not have to, be complemented by manual entries.
 
-## 5.3. HDT Specificites: Digital Object
+## 3. HDT Specificites: Digital Object
 
 The Digital Object refers to the HDT itself and is purely digital in nature. Its primary role is to be a digital representation of the twinned individual, requiring a model that emulates the state, and possibly behaviour, of the twinned human. Like for a traditional DT, this model may be used to predict future states or run simulations. To build its model, the HDT receives data from its twinned individual through deployed sensors and manual inputs. The personal nature of the data makes security and data management a fundamental responsibility of the HDT. In addition an HDT may deploy communication interfaces to receive data from other DTs or technical systems to provide the needed context to the hosted models and send relevant messages to surrounding systems. The key components described here are fairly similar to traditional DTs, nonetheless we see two specific challenges for HDTs, namely the complexity of humans and the highly dynamic context they live in.
 
@@ -334,7 +336,7 @@ A second difference is the context in which a human or a technical system lives 
 
 In summary, an HDT primarily emulates its twinned human's state and potentially behaviour. Beyond emulation the HDT may have additional functions such as simulation or prediction. Personal data needs to be safeguarded and contextual information may be received by other DTs or technical systems.
 
-## 5.4. HDT Specificites: Feedback to the Physical Object
+## 4. HDT Specificites: Feedback to the Physical Object
 
 According to [31], "A change in state of the physical object directly leads to a change in state of the digital object and vice versa.". This means that for classical DTs, feedback should be direct and automated. However in reality feedback is partially directed towards the twinned system (prescribing real time actions [32]) and partially towards the human operator to adapt their decisions when optimising operations or scheduling maintenance. So we can distinguish two kinds of feedback: (i) direct feedback addressed at the twinned system directly, and (ii) indirect feedback which goes through an operator before any changes to the physical object are applied. The latter kind inhibits the automatic application of the feedback.
 
@@ -346,7 +348,7 @@ Direct feedback is necessarily mediated through a Human-Machine Interface to be 
 
 An HDT needs to provide automated feedback to the twinned individual. Direct feedback through a Human Machine Interface fulfils this condition. Indirect feedback through another human entity, or weakly coupled technical system, is insufficient and would fall into the category of Human Digital Shadow.
 
-## 5.5. General Human Digital Twin Definition
+## 5. General Human Digital Twin Definition
 
 Based on the prior sections on the specificity of an HDT compared to a traditional DT we synthesise a general domain-agnostic definition. From the prior discussion the following elements have been identified:
 
@@ -367,19 +369,19 @@ During the prior discussions about the nature of the twinned entity (Section 5.1
 
 Augmented Human Digital Twin is a class of Human Digital Twin whose twinned entity is a human individual coupled strongly with a technical system. It returns automatic feedback directly to the twinned human individual or to the technical system.
 
-## 6. Challenges and Research Directions
+## Challenges and Research Directions
 
 This section addresses RQ4: What are the challenges for HDT development and future research directions?
 
-## 6.1. Communication and Connectivity
+## 1. Communication and Connectivity
 
 HDTs rely on the data they receive but reliable data transfer is a major challenge. Depending on the use case, the twinned human individual may be moving in various environments throughout the day. Minimising the effect of mobility is a key technical challenge [41]. Lacking network coverage can lead to gaps in data collection which directly impact the HDT's ability to run models in real-time and provide feedback to the twinned individual. A promising approach for continuous real-time synchronisation is prediction-enhanced connectivity which uses the HDT's prediction to relieve the need for constant synchronisation [42]. The computing resources to run the deployed models should be in physical proximity of the human to reduce latency. Techniques like cloud-edge computing are promising approaches [43] that can help minimise the latency. Interesting choices have to be made for what models should be run at on an edge node and which should be delegated to the cloud. The place of models hosting, resource allocation and task off-loading are decisions that need to be optimized. A two-timescale optimization approach, where frequent decisions are run on the edge, while rare decisions are run on the cloud, can help balance accuracy, delay and energy consumption [44]. A set of guidelines to help designers decide which computation delegate to what level would be a helpful contribution to the community.
 
-## 6.2. Sensing Human Data
+## 2. Sensing Human Data
 
 Humans are complex systems and our capability to measure and model the human state is limited. External features like movement, position or gaze are measurable with current day technology through computer vision methods and eye tracking methods. Even for external features data from various sensor types are often required which leads to a need for effective and efficient data fusion techniques. Data about human physiology can be gathered through wearables but only provides a limited picture of the actual human state. Heavy limitations arise when trying to capture data about human cognition [15] where the measurements often rely on invasive imaging techniques like electroencephalography or functional Magnetic Resonance Imaging. Last, not all human aspects can be gathered through sensors, making data directly provided by the twinned human (e.g. issued from questionnaires) important for an HDT. Depending on the use-case, complementing real-time observations from sensors with "manual" data becomes essential. For example, personality today can mostly be obtained from standardised psychological tests (e.g. Big Five [45] or the like). Attempts exist to deduce personality traits from behaviour in games [46], but results are not as reliable as with normalised questionnaires. Another example is biographic data, which most of the time cannot be invented, though they can be retrieved from digital records when available.
 
-## 6.3. Modelling
+## 3. Modelling
 
 Once data is gathered about a specific aspect of the human individual, the challenge becomes modelling their state, evolution and behaviour. Current HDT developments are highly specialised and typically seek to create models that focus on very few aspects of the individual and are restricted to specific contexts. As a result a large variety of models are built and often function as proof of concept. The ambitious vision of HDTs is to create one persistent DT that accompanies the twinned individual throughout their life and is able to provide support in a large variety of contexts. To work towards this vision the efforts across communities need to be coordinated such that a multitude of specialised HDTs can be integrated into a holistic one. A standardised framework and architecture with precise design guidelines with the idea of integration in mind would be of enormous benefit to developers. Multiple frameworks and architectures have been proposed, often with a specific application in mind, but the current challenge is to build consensus across disciplines and decide on a standard.
 
@@ -393,7 +395,7 @@ If the HDT requires real-time operations (e.g. in collaborative motion planning 
 
 Cognitive aspects represent a major modelling challenge [15]. HDTs seek to emulate humans including their cognition and could take inspiration from Cognitive Digital Twin (CDT) research. CDT development aims to create a digital representation of a physical system with additional cognitive capabilities to perform autonomous activities and adapt in real time to varying operational contexts [52]. The field has advanced modelling of perception, memory and reasoning. In particular CDTs can be driven by cognitive architectures that recreate the cognitive cycle of human cognition, to enable real-time adaptation of technical systems [53, 54]. The CDT cognitive cycle may well be used to represent human cognitive processes dynamically on different time scales and in different interaction contexts [55]. However, CDT and HDT pursue different goals, since the former seeks to use cognition to enhance a DT functions (e.g. analysis), while the latter needs to emulate cognition of a human-being [56].
 
-## 6.4. Societal and Ethical Challenges
+## 4. Societal and Ethical Challenges
 
 With new technologies come questions about their ethical use and societal acceptance. HDTs are inherently built on personal data that require more stringent protection. Poor data security & privacy, faulty models and lack of explainability can all erode trust in HDTs and hamper societal acceptance.
 
@@ -407,7 +409,7 @@ HDTs concentrate data about a human individual and with an appropriate design ph
 
 Figure 12: Essentials of Human Digital Twins and categorisation framework based on the twinned entity and level of data integration.
 
-## 7. Conclusions
+## Conclusions
 
 In this systematic literature review, we surveyed the current day understanding of Human Digital Twin (HDT) across all application domains. We have shown how the concept started in Industry before spreading to Healthcare and subsequently to an ever increasing number of new domains. With new domains came new viewpoints, which contributed to a divergence of conceptual understandings. From the analysed papers, we extracted how HDTs were conceptualised and observed a consensus that an HDT's twinned entity is a human individual. In contrast, researchers have different views on the data flows between the individual and their HDT. We analysed the differences to clarify and disambiguate the concept itself. As a result, we provide a domain-agnostic general definition of an HDT, a special edge case of augmented HDT, and a categorisation framework to distinguish between model, shadow and twin, for technical systems, humans or augmented humans (see Figure 12).
 

@@ -1,3 +1,5 @@
+<!-- cite_key: allamanis2021 -->
+
 # Morescient GAI for Software Engineering (Extended Version)
 
 MARCUS KESSEL and COLIN ATKINSON, University of Mannheim, Germany
@@ -8,7 +10,7 @@ The ability of Generative AI (GAI) technology to automatically check, synthesize
 
 Additional Key Words and Phrases: generative AI, morescience, semantics, dynamic, analysis, behavior-aware, observation, dataset, vision, roadmap
 
-#### ACM Reference Format:
+## ACM Reference Format:
 
 Marcus Kessel and Colin Atkinson. 2024. Morescient GAI for Software Engineering (Extended Version). ACM Trans. Softw. Eng. Methodol. 1, 1, Article 1 (November 2024), [17](#page-16-0) pages. <https://doi.org/XXXXXXX.XXXXXXX>
 
@@ -50,7 +52,7 @@ The outline of the paper is as follows. First, in Section [2,](#page-2-0) we dis
 
 At the time of writing, the overwhelming majority of GAI code models have been trained on statically derived data and raw code. There has been a small number of attempts to include de facto (i.e., observed) run-time behavior in the training or use of code LLMs, but since they are highly limited in their scope and scale, we refer to them as semi-morescient. In the following subsection we describe these preliminary attempts at morescience, before summarizing the main obstacles that stand in the way of achieving this in a comprehensive and systematic way in the subsequent subsection.
 
-## 2.1 Semi-Morescient Approaches
+## 1 Semi-Morescient Approaches
 
 To date, researchers have explored three main lines of research to improve the morescience of GAIderived code. The first line, which we refer to as "morescient training", aims to include observations of code modules' run-time behavior in the collection of data used to train and fine-tune code LLMs. The second line, which we refer to as "morescient usage", aims to improve the results gained from code LLM queries by selecting and refining results using feedback from the compilation and/or execution of returned candidates. The third line of research, which we refer to as "morescient benchmarking", uses execution-based feedback to improve the benchmarking of code LLMs. Each of these is elaborated further below.
 
@@ -68,7 +70,7 @@ The authors of [\[35\]](#page-14-9) further showcase the effectiveness of execut
 
 Morescient Benchmarking. Existing benchmarks that reason about the properties of LLM generated code have recently also become more aware of code behavior. While existing popular benchmarks like HumanEval and MBPP [\[39\]](#page-15-1), or CodeContests [\[37\]](#page-14-10), include tests that describe the desired behavior in terms of abstract semantics (i.e., test inputs and expected outputs), they are only used to evaluate the performance of models and their code generation capabilities with respect to the property of functional correctness. However, they do not assess the other fundamental dimension of code models – their ability to reason about the de facto behavior of code. CRUXEval [\[24\]](#page-14-11) is an "execution benchmark" for code reasoning, understanding, and execution evaluation that attempts to address this problem by using 800 Python functions with corresponding input-output pairs to assess their input value prediction and output value prediction capabilities.
 
-## 2.2 Obstacles to Morescient GAI
+## 2 Obstacles to Morescient GAI
 
 Although the aforementioned approaches have delivered useful insights how GAI technology can be made more aware of run-time behavior, they are all limited by a number of fundamental obstacles to the systematic, comprehensive and open development of morescient GAI, as summarized in the following sections.
 
@@ -144,7 +146,7 @@ To achieve full morescience, GAI code models will ultimately need to be trained 
 
 Fig. 1. Proposed Data Structures for Behavior Representation
 
-## 3.1 Data Structures
+## 1 Data Structures
 
 To address this obstacle we propose three new data structures – sequence sheets, which capture sequences of stimulus-response interactions (cf. tests in terms of triples of inputs, operation invocation and corresponding outputs [\[5\]](#page-13-2)) in a tabular form, stimulus-response matrices (SRMs), which capture collections of sequence sheets representing multiple tests of multiple implementations of a given functional abstraction (i.e., functionality or coding problem), and stimulus-response hypercubes (SRHs) which capture collections of SRMs representing multiple repetitions of multiple tests of multiple functional abstractions.
 
@@ -158,7 +160,7 @@ Complex inputs and outputs, such as stateful objects, can be stored in sequence 
 
 Finally, Figure (c) gives a schematic representation of an SRH, the third data structure, which collects multiple SRMs applied to multiple code module implementations multiple times in potentially different conditions (e.g., execution environments). SRHs, therefore, provide a multidimensional way of navigating over and analyzing observations from many executions of many implementations under many controlled conditions, including different target execution environments in which observations are obtainable. Since they are representable in the ubiquitous data frame structures supported by popular data processing languages like Python and R, they also lend themselves to analysis by mainstream data analytics tools (i.e., are highly accessible and offer interoperability).
 
-## 3.2 Platform and Test Driver
+## 2 Platform and Test Driver
 
 The key to obtaining more sophisticated data sets containing (1) executable code and (2) runtime data, at scale, lies in automation. The roadmap envisions a platform that not only realizes the data structures outlined above, but also offers flexible, domain-specific languages to design automatic, data-driven workflows on morescient data sets (e.g., SRHs) based on individual selection criteria tailored to the software engineering task at hand. Our prototype implementation of such a platform, the Large-Scale Software Observatorium (LASSO) [2](#page-8-1) [\[32\]](#page-14-2), features a domain-specific scripting language to design analysis pipelines for generating high-quality data sets based on individual preferences and functional/non-functional properties of interest [\[30\]](#page-14-19). It achieves this by integrating a test driver and additional measurement tools to facilitate the mass-execution of code modules and record their run-time functional and non-functional behavior in SRMs. LASSO employs a dedicated "arena" test driver that efficiently executes large sets of tests and code module implementations (i.e., specified in stimulus matrices) harvested from repositories or synthesized from LLMs, in a distributed manner (using vertical and horizontal parallelization).
 
@@ -166,7 +168,7 @@ The key to obtaining more sophisticated data sets containing (1) executable code
 
 To achieve data quantities for morescient run-time data comparable to those of syntactic code datasets and realize the desired scaling effects of LLMs, we propose developing an ever-growing morescient dataset grounded in the SRH concept introduced earlier. We refer to this concept as an open, continual SRH, which we will describe in the remainder of this section.
 
-## 4.1 Dimensional Extensibility
+## 1 Dimensional Extensibility
 
 There are many potential approaches to developing a continually evolving SRH. However, to ensure its trustworthiness from the outset, we believe it must be designed to be open and accessible. This aligns with the principles of open science and aims to "democratize" access to the data, similar
 
@@ -184,7 +186,7 @@ Similar to today's state-of-the-art code LLMs, an evolving SRH must support poly
 
 With a diverse community helping to evolving SRHs, it is reasonable to assume that the overall quality of the data will improve. As more users engage with the system, they are likely to identify discrepancies or inaccuracies in the data. This collective scrutiny can lead to the detection and correction of errors, ultimately resulting in a more reliable and trustworthy morescient data set (including executable code data sets).
 
-## 4.2 Unified Benchmarking
+## 2 Unified Benchmarking
 
 The open, evolving SRH concept described above not only provides a continuously growing dataset of training data, but also offers a vast repository of sample cases for unified benchmarking. Given that benchmarks are specific to software engineering tasks, individual benchmarks can be derived from the SRH, as long as standard practices in machine learning training like train-validation-test splits are followed to prevent data leakage.
 
@@ -194,13 +196,13 @@ As such an SRH continuously evolves, new revisions (versions) of the data can be
 
 Sanitized stimulus-response data, stored in the aforementioned data structures, can facilitate morescient GAI in several ways. Below, we outline a roadmap for the next few years, highlighting key milestones and research directions for leveraging observational data to drive progress toward fully morescient GAI approaches.
 
-## 5.1 Curating Data Sets
+## 1 Curating Data Sets
 
 Initially, the key enabling factor for morescient GAI approaches will be the availability of large, high-quality data sets. A foundational version of an open, evolving SRH described in the previous section will therefore be created early on. More specifically, to obtain high-quality datasets for morescient GAI, it is essential to first focus on developing high-quality, syntax-driven code models that are executable and testable. This foundation is crucial, as morescient GAI relies on these models to capture run-time observations of functional and non-functional properties in terms of the SRHs discussed before. Therefore, the quality of the syntactic code models will directly impact the accuracy of the morescient data curation process. Thus, the creation of morescient data sets will not only complement the syntactic models that currently exist, it will also further improve their quality since non-executable (non-testable) code can be identified and filtered out.
 
 Scalable code analysis platforms [\[18\]](#page-14-20), such as software observatories (e.g., LASSO) that realize the aforementioned data structures are essential for enabling the mass-execution of code modules at ultra-large scales, thereby generating the vast quantities of run-time data needed to grow the open SRH. Furthermore, automated build systems such as continuous integration platforms can provide a supplementary source of run-time data by continuously building and running code. Despite its potential value, the role and quality of collected build data remain understudied [\[7\]](#page-13-12) and warrant further research to fully realize their exploitation. SRHs can be generated from the build and run-time data collected by these platforms, thereby enhancing the value of what would otherwise be discarded build data. By repurposing this data, SRHs offer a means to preserve the knowledge gained.
 
-## 5.2 Training
+## 2 Training
 
 Once a foundational, evolving SRH has been established, the first and most crucial step is to include it in LLMs' training data, either during the initial pre-training stage when new LLMs are created or in subsequent transfer learning steps, where existing models are further trained on SRHs to "fine-tune" their behavioral awareness. In both scenarios, the observational data encapsulated within SRHs can be made available for training in either a direct or indirect form. In direct approaches, LLMs are presented with "raw" (cleaned) SRH data containing uncensored descriptions of numerous executions of a wide array of code modules.
 
@@ -208,23 +210,23 @@ While this is likely to give the best results, the scale of the data sets involv
 
 State-of-the-art architectures used to train LLMs have achieved impressive performance on natural language texts, including code, leveraging their syntactic capabilities. However, incorporating observational data alongside syntactic data as training inputs may necessitate architectural modifications. The choice of representation for observational data has a significant impact on the construction of more sophisticated models that integrate both facets. Observational data can be treated either as textual content or as an additional modality, similar to image information. Given our assumption that both syntactic and observational data will co-evolve, combining models in the spirit of multi-modal architectures may yield benefits. With the availability of diverse run-time data, it may be advantageous to specify multiple representations of observational data, encompassing various levels of abstraction and semantic precision (Section [2\)](#page-2-0). Given the preliminary findings on observational data presented in Section [2,](#page-2-0) we anticipate that further research will focus on developing suitable architectures and representations for training morescient code models.
 
-## 5.3 Augmented Generation
+## 3 Augmented Generation
 
 The second way is to use an evolving SRH, along with a test driver like LASSO's arena, as an external knowledge source to provide a variety of services that existing, syntactically-trained code models can call to improve their accuracy and relevance. These generation augmentation services [\[47\]](#page-15-13) can range from simple testing services, where the LLM can ask whether a generated piece of code has the expected functionality, to oracle services, where the LLM can ask for oracle values for the desired functionality (see [\[31\]](#page-14-8) for further details). The external knowledge source therefore essentially provides an external fact-checking mechanism that can identify "incorrect" code generations. Recently, researchers have been exploring fact-checking models [\[57\]](#page-16-7) that specialize in verifying the output of LLMs, helping to detect false claims and hallucinations. These models leverage factual information to verify whether an LLM's output is factually accurate. Morescient versions of these models can take advantage of knowledge sources like SRHs to validate a claim by comparing it against established facts (here observational data).
 
-## 5.4 Prompting
+## 4 Prompting
 
 Prompting LLMs involves designing the input prompts to elicit the most accurate, relevant and helpful responses from a model. The design of the prompts used to invoke LLM models, therefore, plays a huge role in their perceived performance [\[36,](#page-14-21) [59\]](#page-16-8). The aforementioned stimulus-response data structures in Section [3](#page-6-0) can help improve prompting in three main ways. First, the minimalistic and structured test representation approach offered by sequence sheets can reduce user errors and misunderstandings when they serve as prompt templates. Secondly, since tests are frequently included in prompts to code LLMs to improve precision, users can enrich their prompts to nonmorescient models using information from SRHs. Thirdly, the service APIs (e.g., functions) of the
 
 platforms that support morescient GAI can themselves be included in prompts to encourage LLMs to obtain external factual information [\[47\]](#page-15-13).
 
-## 5.5 Test-driven Software Experimentation
+## 5 Test-driven Software Experimentation
 
 Finally, the adoption and development of any new technology, including morescient GAI, is critically dependent on experimental evidence of its strengths and weaknesses. Stimulus-response data structures coupled with a scalable test driver of the kind offered by LASSO, are a key foundation for evaluating and comparing code LLMs in a generalizable way. Only by performing large scale test-driven experiments can subtle differences in the generation of alternative code solutions or tests be detected and "n-version" comparisons of the different implementations be performed (e.g., strengthened through differential testing [\[59\]](#page-16-8), or differential GAI in general [\[31\]](#page-14-8)), for example to fine-tune LLM "hyperparameters".
 
 Moreover, making detailed information about the continual SRH openly accessible in accordance with the principles of open science [\[46\]](#page-15-14) facilitates the development of new and improved evaluation metrics, such as pass@k [\[22\]](#page-14-0), or BLEU scores, which rely on a canonical, ground truth implementation [\[19\]](#page-14-15).
 
-## 5.6 AI-driven Software and Decision-Making
+## 6 AI-driven Software and Decision-Making
 
 Orthogonal to the milestones previously described, the integration of generative AI into software products is on the rise, blurring the lines between algorithmic and probabilistic reasoning. Components of a software system can now comprise imperative code and probabilistic models, making it increasingly difficult to distinguish between them. This shift contrasts with retrieval augmented generation, where a model is enhanced by external tools.
 

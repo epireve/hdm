@@ -1,3 +1,5 @@
+<!-- cite_key: laboratory2017 -->
+
 # A Workflow Model for Holistic Data Management and Semantic Interoperability in Quantitative Archival Research
 
 Pavlos Fafalios 1 , Yannis Marketakis 1 , Anastasia Axaridou 1 , Yannis Tzitzikas 1 , 2 , and Martin Doerr 1
@@ -38,7 +40,7 @@ The rest of this paper is organised as follows: Section [2](#page-2-0) provides 
 
 We first explain the basic notions about semantic technologies (Section [2.1\)](#page-2-1) and review how such technologies are used in humanities research, a large part of which concerns archival research (Section [2.2\)](#page-3-0). We then focus on the different data management activities towards semantic interoperability in archival research and present relevant works (Section [2.3\)](#page-4-0). Finally, we position our work (Section [2.4\)](#page-6-0).
 
-#### <span id="page-2-1"></span>2.1 Basic Notions
+## <span id="page-2-1"></span>2.1 Basic Notions
 
 Semantic technologies aim at helping machines understanding data. RDF (Resource Description Framework)[2](#page-2-2) and OWL (Web Ontology Language)[3](#page-2-3) are key semantic technologies that enable encoding the semantics of data, thus allowing to formally represent the meaning involved in information [\(Antoniou and](#page-25-1) [Van Harmelen, 2004\)](#page-25-1). This representation has the form of a semantic network
 
@@ -48,7 +50,7 @@ Semantic technologies aim at helping machines understanding data. RDF (Resource 
 
 (or knowledge graph) which stores interlinked descriptions of "entities" (objects, persons, events, concepts, etc.) in a graph structure in which vertices represent entities and edges represent semantic relations between the entities. Typical standardized semantic networks are expressed as RDF triples (statements of the form subject-predicate-object) stored in a semantic repository (RDF triplestore) [\(Ali](#page-24-1) [et al.](#page-24-1), [2021\)](#page-24-1). Semantic technologies help achieving semantic interoperability, the ability of computer systems to exchange data with unambiguous/shared meaning, which is a requirement to enable machine computable logic, inferencing, knowledge discovery, and data federation between information systems [\(Ouksel](#page-27-2) [and Sheth, 1999\)](#page-27-2).
 
-#### <span id="page-3-0"></span>2.2 Semantic Technologies for Humanities Research
+### <span id="page-3-0"></span>2.2 Semantic Technologies for Humanities Research
 
 There is an increasing adoption of semantic technologies in the humanities field, with a main focus on how to produce and make publicly available interoperable Linked Data [\(Heath and Bizer, 2011\)](#page-25-2) that can be easily queried and integrated with other datasets [\(Hyv¨onen, 2020;](#page-26-0) [Hyv¨onen](#page-26-1) et al., [2014;](#page-26-1) [Hawkins,](#page-25-3) [2021;](#page-25-3) [Beretta, 2021;](#page-25-4) [Fafalios](#page-25-5) et al., [2021a\)](#page-25-5).
 
@@ -113,7 +115,7 @@ To the best of our knowledge, there is no related work that approaches the data 
 
 We first provide an overview of the workflow model (Section [3.1\)](#page-7-2) and then highlight its distinctive characteristics (Section [3.2\)](#page-10-0).
 
-#### <span id="page-7-2"></span>3.1 Roles, Input/Output and Processes
+### <span id="page-7-2"></span>3.1 Roles, Input/Output and Processes
 
 Fig. [1](#page-7-0) depicts the proposed workflow model for supporting holistic data management in archival research.
 
@@ -160,7 +162,7 @@ Below we highlight and motivate the distinctive design and methodological charac
 
 We now provide implementation details for realising the workflow.
 
-#### 4.1 Faithful, Fast and Collaborative Data Transcription
+### 1 Faithful, Fast and Collaborative Data Transcription
 
 Common requirements that a data transcription system should satisfy, include:
 
@@ -172,7 +174,7 @@ These characteristics can highly affect the usability of the data entry system a
 
 For enabling the next data curation process, we first need to identify what are the main entity categories (like persons, locations, objects, etc.) and the main vocabularies or hierarchies of terms that appear in the transcribed data and need curation. To this end, we need to define the fields in the data entry forms that provide entity or term related information. For example, the data entry fields first name and last name provide information for a person instance, while the field profession provides a vocabulary term. The values of these fields must be copied (ideally, automatically) to a new environment that allows for their curation without altering the original data as it appears in the transcripts. We then only need to provide a link from the curated to the original data and/or position information (e.g. record name, table name, row number), in order to retain the provenance information.
 
-#### 4.2 Provenance-aware Data Curation
+#### 2 Provenance-aware Data Curation
 
 Data curation activities that need to be supported by a dedicated software system include:
 
@@ -188,7 +190,7 @@ Instance matching in this context can be multi-stage. A first automated step can
 
 The instance matching/unmatching activities and the provision of preferred terms for vocabulary terms are of key importance for valid quantitative (statistical) analysis over the integrated data. Consider, for example, that a researcher who studies archival documents related to maritime history (like crew lists) wants to find the birth place of sailors that arrived at a specific port, or group them by their profession. Providing the same identity to all sailor instances that represent the same real-world person, as well as providing the same 'preferred' term for all different professions that correspond to the same profession, ensures that the generated aggregated information is correct.
 
-#### 4.3 Ontology-based Integration
+#### 3 Ontology-based Integration
 
 The ontology-based integration of the transcribed and curated data consists of the below tasks:
 
@@ -218,7 +220,7 @@ Transformation. This step takes as input (a) the transcribed and curated dataset
 
 A good practice for managing the semantic data in terms of updating and versioning flexibility is the use of named graphs [\(Carroll](#page-25-12) et al., [2005\)](#page-25-12), one for each source record. When there is a new version of a record, or of its mapping definition file, the record output produced with a new workflow cycle can be easily integrated in the semantic repository by replacing the RDF data in the corresponding named graph. Also, the hierarchies of terms and locations can be effectively managed and updated in distinct named graphs, as well as the result of the materialisation process for semantically inferred statements (the production of new RDF triples as shortcuts that represent long paths, for improving query performance).
 
-#### 4.4 Semantic Network Exploitation
+#### 4 Semantic Network Exploitation
 
 The integrated data of the semantic network can be now exploited as a primary source for archival research. This includes finding answers to complex information needs and analytical queries that require combining information from different sources, as well as visualising the results in different forms, such as tables, charts, timelines, or maps, for direct use in research.
 
@@ -306,14 +308,14 @@ The creation and configuration of the templates in FastCat was not an 'one shot'
 |-----------------------------|-------------------------------------------------------------|--------------------------|----------|------------------------------------------|--------------------------|------------|---------------------|------------------|-------------------------------|--------------------------|--------------|-------------------------|---------------------------------------------------------------|-------|-------------------------------------------------------------------------------------------------------------------|
 |                             | Use english to fill in the fields of this table             |                          |          |                                          |                          |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
 |                             |                                                             | Date                     |          |                                          | Authors                  |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
-| Id                          | <b>Creation</b> date                                        | <b>Last Modified</b>     |          | Name*                                    | Surname*                 | Role       |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
+| Id                          | <b>Creation</b> date                                        | <b>Last Modified</b>     |          | Name*                                    | Surname*| Role       |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
 | 13                          | 2020-09-22T16:16:02<br>2018-03-20<br>Carolina               |                          |          |                                          | Gaggero                  |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
 |                             |                                                             |                          |          |                                          |                          |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
 | <b>Source Identity</b>      |                                                             |                          |          |                                          |                          |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
 |                             | Use the source language to fill in the fields of this table |                          |          |                                          |                          |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
 |                             |                                                             |                          |          |                                          |                          | Document   |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
 |                             | Archive / Library                                           |                          |          |                                          |                          |            | Date of Release     |                  | <b>Issuing Authority</b>      |                          |              |                         | Fond                                                          |       |                                                                                                                   |
-|                             | Name                                                        | Location                 |          | Register Number Number                   |                          | From *     | To                  |                  | Name                          |                          | Location     | Source Type Name Number |                                                               | Title | Series Number                                                                                                     |
+|                             | Name                                                        | Location                 |          | Register Number Number                   |                          | From*     | To                  |                  | Name                          |                          | Location     | Source Type Name Number |                                                               | Title | Series Number                                                                                                     |
 |                             | Archivio di Stato di Genova                                 | Genova                   |          | 14                                       | 6740                     | 1861-01-11 |                     |                  | Direzione marittima di Genova |                          | Genova       |                         |                                                               |       |                                                                                                                   |
 |                             |                                                             |                          |          |                                          |                          |            |                     |                  |                               |                          |              |                         |                                                               |       |                                                                                                                   |
 |                             |                                                             |                          |          | Construction                             |                          |            | Quantity            | Registry         |                               |                          |              | Person                  |                                                               |       |                                                                                                                   |
@@ -381,7 +383,7 @@ A deployment of the application is publicly accessible.[20](#page-21-1)
 
 We discuss data quality aspects as well as relevant lessons learned from the application of the proposed workflow model in maritime history research.
 
-### 7.1 Quality Aspects
+## 1 Quality Aspects
 
 Every workflow cycle ends up with semantic data that in some cases may suffer low quality characteristics, making the data practically difficult to be exploited for the needs of research. In literature, data quality is commonly considered as "fitness for use" as well as an indicator of data usability [\(Pipino](#page-27-11) et al., [2002;](#page-27-11) [Wang and Strong, 1996\)](#page-27-12), and several dimensions and metrics for measuring data quality have been proposed [\(Pipino](#page-27-11) et al., [2002;](#page-27-11) [Zaveri](#page-27-13) et al., [2016\)](#page-27-13). Although studying quality factors in detail is out of the scope of this paper, below we focus on three main quality dimensions of the semantic data that can significantly affect the quantitative analysis process: completeness, consistency, conciseness.
 
@@ -391,7 +393,7 @@ Data consistency. This dimension can be viewed from a number of perspectives [\(
 
 Data conciseness. This quality dimension comprises two perspectives: schemalevel conciseness and instance-level conciseness [\(Zaveri](#page-27-13) et al., [2016;](#page-27-13) [Mendes](#page-26-10) [et al.](#page-26-10), [2012\)](#page-26-10). Schema-level conciseness means that the data does not contain equivalent attributes with different names (responsibility of the data modeling engineer), while instance-level conciseness means that the data does not contain equivalent objects with different identifiers (highly-dependant on the quality of the curation process).
 
-#### 7.2 Lessons Learned
+### 2 Lessons Learned
 
 Next we present issues related to data quality that we faced while implementing the workflow and which should be taken into account.
 

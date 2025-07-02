@@ -1,3 +1,5 @@
+<!-- cite_key: shaiksupsup2024 -->
+
 # S3LLM: Large-Scale Scientific Software Understanding with LLMs using Source, Metadata, and Document
 
 Kareem Shaik<sup>1</sup> , Dali Wang<sup>2</sup> , Weijian Zheng<sup>3</sup> , Qinglei Cao<sup>4</sup> , Heng Fan<sup>1</sup> , Peter Schwartz<sup>2</sup> , and Yunhe Feng<sup>1</sup>
@@ -20,7 +22,7 @@ Keywords: Large-Scale Scientific Software, Large Language Models, Research Softw
 
 Large-scale scientific computing software is crucial in various scientific fields, undergoing extensive development cycles that lead to the formation of intricate software libraries and ecosystems. This complexity stems from the lengthy development periods, ongoing extensions, and evolving development paradigms, making it imperative to provide users with insights into these computing tools. However, understanding such software is a challenging task due to several factors. First, large-scale scientific software often incorporates multiple programming languages, including older languages such as Fortran and Pascal, which poses a significant challenge for contemporary programmers trying to understand the code. Second, the large volume of scientific software, which may encompass millions of lines of code, presents the obstacle to comprehensively understanding each segment of the
 
-### 2 K. Shaik et al.
+## 2 K. Shaik et al.
 
 code. Lastly, the documentation for these software systems is sometimes less than ideal, often lacking detailed explanations, which further complicates the task of gaining a thorough understanding of the software.
 
@@ -57,11 +59,11 @@ Fig. 1: Framework overview of S3LLM
 
 component's design is meticulously outlined to elucidate how S3LLM facilitates a comprehensive investigation of scientific software, ensuring a thorough understanding of its complex ecosystem.
 
-## 3.1 Framework Overview
+## 1 Framework Overview
 
 At the heart of S3LLM lies open-source LLaMA-2 models engineered for conversational interactions in natural language. LLaMA-2 has been intricately configured to support multi-round conversations, maintaining awareness of the ongoing context to ensure continuity and relevance in its responses, thus embodying in-context learning capabilities. As depicted in Figure [1,](#page-3-0) S3LLM is architecturally composed of three primary components dedicated to processing source code, code metadata, and textual technical documents. For all of the three components, LLaMA-2 models play a key role in translating natural languages into desired domain-specific language (DSL) queries or in text information analysis and retrieval. In addition, some consisting components in S3LLM adopt RAG, a methodology designed to enhance the responses of an LLM by consulting an external and authoritative knowledge base not included within its initial training data, thereby refining its output prior to generating a response. The choice of open-source LLaMA-2 models (7B, 13B, and 70B) as the foundation for all language understanding tasks within S3LLM is strategic, offering versatility in model sizes and ensuring a high degree of reproducibility across various computational environments.
 
-## 3.2 Source Code Analysis
+## 2 Source Code Analysis
 
 Large-scale scientific software, such as E3SM, often contains vast quantities of source code, exceeding a million lines in some cases. This presents a significant challenge for open-source LLMs in directly managing such a huge number of tokens by loading all of the tokens into their context windows. Furthermore, many sophisticated source code analysis tools today require users to possess in-depth
 
@@ -86,7 +88,7 @@ In illustrating the strategy of S3LLM for LLM-based source code analysis, we hig
 
 In the conversion process from natural language to FQL queries, S3LLM must master three crucial elements: the purpose and syntax of FQL, comprehension of specific terminologies (e.g. high-performance computing (HPC) programming standards) presented in natural language inputs, and the establishment of an accurate translation from natural language to FQL. To equip the LLM models within S3LLM with a comprehensive grasp of FQL and its programming syntax, we have incorporated a foundational document on FQL alongside a collection of FQL query examples into the RAG framework as external data sources. For a detailed exploration of the RAG methodology utilized in this study, please refer to Section [3.4.](#page-5-0) Addressing the conversion of relevant terminologies from natural language inputs into programming code keywords posed a significant challenge. Initial attempts to generate these keywords using open-source LLM models yielded suboptimal results. Consequently, we select GPT-4 to serve as the terminology translator within S3LLM . This approach simplifies the creation of mappings from terminologies to corresponding programming keywords with precision. These mappings are also stored as external data within RAG. Finally, we prompt S3LLM to generate new FQL queries from provided natural language questions by utilizing few-shot learning techniques and enriching the context with RAG data.
 
-## 3.3 Software Metadata Comprehension
+## 3 Software Metadata Comprehension
 
 In the quest to deepen our comprehension of large-scale scientific software, a variety of code metadata is extracted utilizing current software analysis tools. Particularly, metadata related to software architecture and data structures stands out as some of the most valuable and enlightening for understanding software intricacies. To capitalize on this rich metadata, S3LLM has been meticulously crafted not only to interpret these data but also to respond to queries informed by them. Fundamentally, our framework is adept at managing well-structured metadata formats, such as DOT, thereby enhancing its utility in parsing and understanding the underlying structure and organization of software code.
 
@@ -104,11 +106,11 @@ S3LLM adopts LangChain, an advanced open-source framework specifically designed 
 
 We deploy S3LLM on the Energy Exascale Earth System Model (E3SM) as a case study to demonstrate its effectiveness in analyzing source code, code metadata, and text-based technical reports.
 
-## 4.1 E3SM Introduction
+## 1 E3SM Introduction
 
 The E3SM is a state-of-the-art Earth system modeling framework, developed and supported by the United States Department of Energy (DOE)[\[16\]](#page-12-8). This model is designed to facilitate the detailed simulation of intricate interactions among the Earth's atmospheric, terrestrial, oceanic, and cryospheric components. Standing as one of the most advanced Earth system models globally, E3SM is extensively utilized by the scientific community to explore a large range of critical subjects, including climate dynamics, meteorological prediction, and the assessment of natural hazards. E3SM has a very long history and is written mainly by legacy programming languages such as Fortran. In addition, E3SM contains more than one million lines of code. Therefore, we think E3SM is a qualified large-scale scientific computing software for evaluating the proposed S3LLM . Due to our special interest in kilometer-scale land component development on Exascale computers, we designed several demonstration queries focusing on the ultrahigh resolution E3SM Land Model (uELM) [\[27\]](#page-13-13).
 
-## 4.2 Source Code Query Results
+## 2 Source Code Query Results
 
 To illustrate the effectiveness of S3LLM in source code analysis, we assessed its ability to generate FQL (Feature Query Language) queries across three distinct categories: Library Utilization Queries, Version Assessment Queries, and Feature Enumeration Queries. Through the use of crafted prompts, as demonstrated in the subsequent text boxes, S3LLM successfully generates the correct FQL query in certain instances. Specifically, for the Library Utilization Query, S3LLM produces the precise FQL query in a zero-shot manner. This accuracy is likely attributed to the pretraining of the LLaMA-2 model within S3LLM on RAG supporting documents that include FQL queries and HPC terminologies. Similarly, for Version Assessment and Feature Enumeration Query, "Please Generate FQL query to Find the minimum version of MPI " and "Please Generate FQL query to List MPI process topology used in the Code" can prompt S3LLM to generate accurate queries.
 
@@ -118,7 +120,7 @@ Prompt for Version Assessment Query: Please Generate FQL query to Find the minim
 
 Prompt for Feature Enumeration Query: Please Generate FQL query to List MPI process topology used in the Code Response: LIST (CHECK (MPI\_CART\_CREATE WHERE(\*) AS (Cartesian), CHECK (MPI\_GRAPH\_CREATE WHERE(\*) AS (Graph), CHECK (MPI\_DIST\_GRAPH\_CREATE\_Adjacent WHERE(\*) AS (Distributed Graph)), CHECK (omp parallel num\_threads(dynamic) WHERE(\*) AS (Dynamic Threads), CHECK (omp schedule(static, dynamic, guided, auto, runtime)) WHERE(\*) AS (Scheduling))
 
-## 4.3 Metadata Comprehension with S3LLM
+## 3 Metadata Comprehension with S3LLM
 
 In our study, we utilize three distinct forms of metadata to demonstrate the capabilities of S3LLM in enhancing metadata comprehension. These include DOT files produced by XScan [\[32\]](#page-13-11), CSV files generated by SPEL [\[22\]](#page-13-12)[6](#page-7-0) , and bespoke metadata formats also created by SPEL, all derived from the E3SM. This diverse dataset showcases S3LLM 's versatility and effectiveness in interpreting and leveraging different metadata representations to deepen our understanding of complex scientific software systems.
 
@@ -156,11 +158,11 @@ Table 2: Two CSV files produced by SPEL [\[22\]](#page-13-12) to be processed as
 
 DOT file can describe a directed graph using keyword of "digraph". Inside a directed graph, each line starts with a module name which is followed by the "::" symbol. For example, "allocationmod" is the module in "allocationmod::allocationinit -> clm time manager." Please list all the unique modules in the following DOT file describing directed graph G.
 
-```
+```text
 digraph G {
-```
+```text
 
-```
+```text
 emi_datamod::emidcopy -> emi_datamod::emidallocatememory_real_3d
 emi_datamod::emidcopy -> emi_datamod::emidallocatememory_real_4d
 elm_driver::elm_drv -> decompmod::get_proc_clumps
@@ -178,7 +180,7 @@ controlmod::control_init -> fileutils::relavu
 firemod::firefluxes -> elm_nlutilsmod::find_nlgroup_name
 firemod::firefluxes -> ndepstreammod::elm_domain_mct
 firemod::firefluxes -> histfilemod::hist_addfld1d
-```
+```text
 
 # }
 
@@ -186,7 +188,7 @@ Response:
 
 Sure! Here are the unique modules in the directed graph G described by the DOT file: 1. emi datamod 2. elm driver
 
-### ...
+## ...
 
 16. histfilemod
 
@@ -200,7 +202,7 @@ Please generate SQL commands to construct a new SQL view by joining the followin
 
 Response: CREATE VIEW myview AS SELECT t1.Component, t1.Type, t1.Dimension, t2.DerivedType FROM table1 t1 JOIN table2 t2 ON t1.Component = t2.Component; SELECT \* FROM myview;
 
-```
+```text
 Prompt for Creating SQL Table from CSV:
 Please generate SQL commands to covert the following textural table into an SQL table with
 Component as the PRIMARY KEY:
@@ -224,11 +226,11 @@ INSERT INTO components (Component, Type, Dimension) VALUES
 ('sabg_lyr_patch', 'real', '2D'),
 ('ws_col', 'real', '1D'),
 ('lake_icefrac_col', 'real', '2D');
-```
+```text
 
 ### Prompt for Querying SQL Table:
 
-```
+```text
 Please generate SQL commands to identify the name of the component characterized by a 2D
 Dimension and having a Derived Type of col pp by joining the following two SQL tables: Table
 1 Info; Table 2 Info.
@@ -237,7 +239,7 @@ SELECT Component
 FROM Table1
 JOIN Table2 ON Table1.Component = Table2.Component
 WHERE Dimension = '2D' AND DerivedType = 'col_pp';
-```
+```text
 
 Additionally, a sequence of execution for LakeTemperature as delineated by SPEL [\[22\]](#page-13-12) is shown in the colored box below. This example highlights the execution sequence within E3SM, where the first column lists variables utilized by the LakeTemperature module. The top row segments the execution flow into distinct phases {main (LakeTemperature) -> subroutine -> main -> subroutine -> main}, separated by "|", depicting the procedural pathway. Each column within these sections signifies a Fortran "do loop" sequence. The entries within this table specify each variable's role in the corresponding "do loop", with potential values being "ro" (read-only), "wo" (write-only), "rw" (read-write), or "-" (not in use). This offers an in-depth view of variable usage during the execution process, which is beneficial for code performance optimization (through asynchronous kernel launch) on GPUs. This structured approach to metadata analysis underscores S3LLM 's capability to navigate and elucidate complex metadata representations, enhancing comprehension and facilitating deeper insights into the software's operational mechanisms.
 
@@ -265,7 +267,7 @@ The content of LakeTemperatureAllLoopVariables.txt file:
 | - 1 variable is read-only (filter lakec).                                                                 |                 |  |      |   |   |            |   |           |  |  |   |                |                                |   |      |   |   |   |   |   |                  |
 | - 7 variables are write-only (lake col to filter, ocvts, puddle, frzn, bottomconvect, hc soisno, hc soi). |                 |  |      |   |   |            |   |           |  |  |   |                |                                |   |      |   |   |   |   |   |                  |
 
-## 4.4 Document Parsing
+## 4 Document Parsing
 
 This section demonstrates the effectiveness of combining the RAG framework and LangChain with LLMs, as described in Section [3.4,](#page-5-0) for extracting specific technical information from comprehensive scientific documents. We utilize a 28-page technical report on Lake Temperature (in PDF format), from the Community Land Model [\[21\]](#page-13-14), as the testbed. In Experiment 1, S3LLM adeptly retrieves information regarding the calculation of thermal conductivities at layer interfaces, showcasing the
 

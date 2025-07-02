@@ -1,3 +1,5 @@
+<!-- cite_key: arxiv_240808632_a_survey_on_be -->
+
 # A Survey on Benchmarks of Multimodal Large Language Models
 
 Jian Li1<sup>∗</sup> , Weiheng Lu<sup>2</sup> , Hao Fei<sup>3</sup> , Meng Luo<sup>3</sup> , Ming Dai<sup>4</sup> , Min Xia<sup>2</sup> , Yizhang Jin<sup>1</sup> , Zhenye Gan<sup>1</sup> , Ding Qi<sup>1</sup> , Chaoyou Fu<sup>5</sup> , Ying Tai<sup>5</sup> , Wankou Yang<sup>4</sup> , Yabiao Wang<sup>1</sup> , Chengjie Wang<sup>1</sup>
@@ -43,7 +45,7 @@ Figure 2: Taxonomy of benchmarks for Multimodal Large Language Models
 
 Figure. [1](#page-1-0) compares several common MLLMs including GPT4[\[3\]](#page-20-2), Gemini[\[4\]](#page-20-3), LLaVA[\[193\]](#page-28-17), Qwen-VL[\[194\]](#page-28-18), Claude[\[195\]](#page-28-19), InstructBLIP[\[196\]](#page-28-20), mPLUG-Owl2[\[197\]](#page-28-21), SPHINX[\[198\]](#page-29-0), Intern-VL[\[199\]](#page-29-1), Yi-VL[\[200\]](#page-29-2), VideoChat2[\[201\]](#page-29-3), Video-LLaMA[\[202\]](#page-29-4), Cambrian-1[\[203\]](#page-29-5), PLLaVA[\[204\]](#page-29-6), Blip2[\[205\]](#page-29-7), MiniGPT4-Video[\[206\]](#page-29-8). The standard MLLM framework can be divided into three main modules: a visual encoder g tasked with receiving and processing visual inputs, a pre-trained language model that manages the received multimodal signals and performs reasoning, and a visual-language projector P which functions as a bridge to align the two modalities. A diagram of the architecture and training process is illustrated in Figure. [3.](#page-4-0) This figure outlines the base LLM, the vision encoder, and the projector, as well as the pretraining and instruction tuning.
 
-#### 2.1 MLLM Architecture
+### 1 MLLM Architecture
 
 Vision Encoder Taking the input image X<sup>v</sup> as input, the vision encoder compresses the original image into more compact patch features Zv, as represented by the following formula:
 
@@ -73,7 +75,7 @@ where L denotes the length of Ya. The parameter sizes of large language models (
 
 Figure 3: The architectures and training process of MLLMs.
 
-#### 2.2 MLLM Training
+#### 2 MLLM Training
 
 The standard training process of MLLMs is a crucial factor that determines their performance on downstream tasks and their ability to handle diverse tasks. In this section, we provide an overview of various training methodologies, including pre-training, and instruction-tuning.
 
@@ -91,13 +93,13 @@ Instruction-tuning Instruction-tuning(IT) aims to fine-tune the models on specif
 
 When evaluating the perception and understanding capabilities of MLLMs, we focus on benchmarks that assess the model's fundamental abilities in visual information processing. This includes evaluating the MLLMs' accuracy in object identification and detection, understanding of scene context and object relationships, and ability to respond to questions about image content. Perception and understanding abilities are the cornerstone of MLLMs, enabling them to perform a wide range of tasks and applications. This section first introduces comprehensive evaluation benchmarks for MLLMs, and then separately discusses coarse-grained and fine-grained benchmarks for visual perception.
 
-#### 3.1 Comprehensive Evaluation
+### 1 Comprehensive Evaluation
 
 MLLMs rely on the powerful LLM to perform multimodal tasks, showing amazing emergent abilities in various studies. In order to fully match the flourish of MLLMs, Many comprehensive evaluation benchmarks are proposed.
 
 To advance research on visual-related tasks, LLaVA-Bench [\[16\]](#page-20-15) and OwlEval [\[13\]](#page-20-12) were constructed to examine a variety of MLLM capabilities, but the quantity of these benchmarks was too small to fully reflect the performance of MLLMs. There was still an issue of lacking a more comprehensive evaluation with large-scale data. Fu et al. [\[9\]](#page-20-8) filled this gap by presenting the first comprehensive MLLM evaluation benchmark, MME, which measured both perception and cognition abilities across a range of subtasks. Considering that subjective benchmarks like OwlEval relied on human labor for evaluations, which was not scalable and could exhibit significant bias, Liu et al. [\[12\]](#page-20-11) proposed employing GPT-4 [\[3\]](#page-20-2) to match MLLM predictions and devised MMBench to robustly assess various abilities of MLLMs. However, both the binary judgments used in MME and the multiple-choice answer selection employed by MMBench could not fully capture the complexity of open-ended real-world dialogues. In light of this concern, Open-VQA [\[14\]](#page-20-13) and TouchStone [\[11\]](#page-20-10) were proposed to support open-ended answers. Nevertheless, the relatively small scale of these benchmarks introduced instability in the evaluation statistics. To overcome this limitation, SEED-Bench was introduced with annotations six times larger than existing benchmarks. It included a substantial number of multiple-choice questions covering various evaluation dimensions for both image and video modalities. Additionally, SEED-Bench-2 categorized MLLMs' capabilities into hierarchical levels from L0 to L4 and served as a benchmark for evaluating MLLMs' hierarchical capabilities. Despite the promising qualitative results regarding MLLMs' capabilities, it remained unclear how to systematically evaluate complex multimodal tasks and what the relationships among the evaluated tasks were. Based on this consideration, MM-Vet [\[10\]](#page-20-9) was devised to study integrated vision-language capabilities, allowing the evaluation to provide insights beyond overall model rankings. Moreover, MDVP-Bench [\[6\]](#page-20-5) and LAMM [\[17\]](#page-20-16) were created to provide a comprehensive assessment of MLLMs' capabilities, particularly in understanding visual prompting instructions. Furthermore, to provide a fair and systematic assessment of MLLMs' performance across diverse multimodal tasks, ChEF [\[7\]](#page-20-6) and UniBench [\[8\]](#page-20-7) were constructed as standardized and holistic evaluation frameworks, which helped to comprehensively understand the capabilities and limitations of MLLMs.
 
-#### 3.2 Fine-grained Perception
+#### 2 Fine-grained Perception
 
 One indispensable cornerstone of MLLMs is the ability to perceive visible objects within scenes precisely. This includes evaluating MLLMs' capabilities in object detection and recognition, understanding details within local regions, and achieving accurate vision-language alignment. Such fine-grained perception is crucial for effective multimodal understanding and interaction.
 
@@ -109,7 +111,7 @@ ability of MLLMs to discern details in high-resolution images. Considering that 
 
 Nuanced Vision-language Alignment:Nuanced vision-language alignment involves interpreting complex interactions between visual and textual information, grasping subtle meanings, and aligning semantics between images and text. Winoground [\[35\]](#page-21-12) was designed to require models to match two images with two captions that contained the same set of words in different orders. However, the scale of Winoground was restricted by its costly curation, and it lacked a focus on linguistic phenomena. To address these limitations, VALSE [\[33\]](#page-21-10) and VLChecklist [\[34\]](#page-21-11) examined how MLLMs understood visual-linguistic concepts by converting real captions into confusing alternatives. By modifying textual representations related to relationships, attributes, and order, ARO [\[36\]](#page-21-13) assessed whether MLLMs could achieve fine-grained visual-language alignment on key concepts. Moreover, Eqben[\[31\]](#page-21-8) assessed whether MLLMs were sensitive to visual semantic changes by making minimal semantic changes in images, but the image diversity was limited by virtual engines. To produce diverse images that met the requirements, Peng et al.[\[32\]](#page-21-9) developed a benchmark called SPEC, utilizing a progressive pipeline to synthesize images that varied in a specific attribute while ensuring consistency in other aspects.
 
-#### 3.3 Image Understanding
+#### 3 Image Understanding
 
 The image understanding task involves analyzing visual content to extract meaningful information, which includes grasping the context of scenes and integrating visual details with textual information to generate coherent descriptions and insights.
 
@@ -123,7 +125,7 @@ Image Quality and Aesthetics Perception:Image quality and aesthetics perception 
 
 MLLMs' cognitive and reasoning abilities encompass the model's capacity for advanced processing and complex inference beyond basic perception and understanding. Cognitive abilities involve integrating and manipulating extracted information to form coherent representations, while reasoning abilities focus on drawing logical conclusions and solving problems. Strong cognitive and reasoning abilities enable MLLMs to perform effective logical inference in complex tasks.
 
-## 4.1 General Reasoning
+## 1 General Reasoning
 
 The reasoning ability of MLLMs involves extracting and inferring relevant information from visual and textual inputs to draw logical conclusions and answer questions. This section introduces benchmarks for evaluating MLLMs' general reasoning capabilities, focusing on three key areas: visual relation reasoning, vision-indispensable reasoning, and context-related reasoning.
 
@@ -137,7 +139,7 @@ or reasons to identify objects. However, these benchmarks were relatively simple
 
 Vision-Indispensable Reasoning: Recognizing that MLLMs may rely on language priors rather than visual information when answering questions, some works have aimed to compel MLLMs to prioritize visual data. Goyal et al.[\[63\]](#page-22-19) introduced VQAv2, which consisted of pairs of similar images that led to different answers. However, this approach did not effectively handle open-ended questions. In response, CLEVR[\[62\]](#page-22-18) was designed with open-ended question answering. It also ensured that external information sources, such as commonsense knowledge, did not influence answer accuracy. Nonetheless, CLEVR's reliance on synthetic images overlooked the realism and diversity found in natural photographs. To address these limitations, GQA[\[64\]](#page-22-20) was developed, offering well-defined semantic representations along with the rich semantic and visual complexity of real-world images. Additionally, Chen et al.[\[65\]](#page-22-21) introduced MMStar, a vision-indispensable benchmark that covered a wide range of tasks and difficulty levels.
 
-#### 4.2 Knowledge-based Reasoning
+### 2 Knowledge-based Reasoning
 
 Evaluating MLLMs' ability to utilize knowledge is crucial for ensuring their effectiveness in complex tasks and enhancing their real-world performance. These benchmarks mainly focus on two key aspects. One aspect is knowledge-based question answering, which tests MLLMs' ability to handle questions that require structured or extensive external knowledge. The other aspect is knowledge editing, which assesses MLLMs' accuracy and consistency in updating and maintaining knowledge content.
 
@@ -145,7 +147,7 @@ Knowledge-based Visual Question Answering: Knowledge-based visual question answe
 
 Knowledge Editing: Knowledge editing refers to the ability to update outdated, unknown, or incorrect information within MLLMs. The benchmark MMEdit, proposed by Cheng et al.[\[71\]](#page-23-3), provided a platform for testing the editability of MLLMs. However, it primarily focused on coarsegrained knowledge, which often failed to accurately represent fine-grained entities and scenarios in the real world. To address this limitation, Cheng[\[71\]](#page-23-3) introduced MIKE, a comprehensive and challenging benchmark for fine-grained multimodal entity knowledge editing. Meanwhile, VLKEB [\[73\]](#page-23-5) expanded the evaluation of knowledge editing portability, demonstrating MLLMs' ability to effectively apply edited knowledge in related contexts. Despite that, these benchmarks overlooked the organization of multimodal knowledge and lacked a precise definition of multimodal knowledge editing. To fill this gap, MC-MKE[\[74\]](#page-23-6) was developed as a benchmark to evaluate the reliability, locality, generality, and consistency of MLLMs across different editing formats.
 
-#### 4.3 Intelligence&Cognition:
+#### 3 Intelligence&Cognition:
 
 Inspired by the development of human intelligence, some benchmarks leverage cognitive and educational theories to assess the intelligence of MLLMs. For instance, intelligence tests featuring abstraction visual reasoning and various levels of mathematical problems are used to evaluate MLLMs' logical reasoning capabilities. Additionally, multidisciplinary questions from various educational periods are employed to assess MLLMs' ability to integrate diverse knowledge and apply complex reasoning skills to solve intricate problems. These approaches are crucial for understanding and enhancing the cognitive and problem-solving capabilities of MLLMs.
 
@@ -159,7 +161,7 @@ Multidisciplinary Question Answering: Evaluating MLLMs using multidisciplinary q
 
 This section focuses on MLLMs' capabilities in specific tasks and applications, such as their ability to integrate complex visual and textual information, adapt to decision-making roles in dynamic environments, and effectively process diverse cultural and linguistic data. It then extends to discuss the practical applications of MLLMs, highlighting their impact on various sectors such as medicine, industry, and autonomous driving. By providing an overview of these benchmarks, this section aims to underscore the advancements in evaluating MLLMs' performance and their potential to address real-world challenges across different domains.
 
-## 5.1 Text-rich VQA
+## 1 Text-rich VQA
 
 Evaluating MLLMs in text-rich visual question answering is crucial for understanding how well models interpret and integrate textual and visual information within images. This evaluation covers several aspects, including the accuracy of text recognition, contextual understanding, and the ability to synthesize information from both modalities. In addition to text comprehension, it also requires an understanding of layout and structure to effectively analyze multimodal documents, charts, and HTML.
 
@@ -171,7 +173,7 @@ Chart-oriented Question Answering: Chart understanding plays a pivotal role when
 
 Html-oriented Question Answering: Web pages present a complex interplay of visual and textual information, along with interactive elements, requiring MLLMs to possess rigorous understanding abilities over hierarchical structures and contextual relationships. Web2Code[\[108\]](#page-24-18) was a benchmark with web pages based on instruction-response pairs. The responses included structured questions and answers about the webpage. However, web elements are often small, numerous, and scattered across the page, demanding fine-grained recognition and accurate spatial reasoning. To address these limitations, Liu et al.[\[109\]](#page-24-19) introduced VisualWebBench, which assessed MLLMs at three levels: website-level, element-level, and action-level. Additionally, following the principle "What I cannot create, I do not understand," Plot2Code[\[110\]](#page-24-20) evaluated MLLMs' ability to generate code that effectively rendered a provided image from HTML files, further showcasing their multimodal understanding and reasoning capabilities.
 
-#### 5.2 Decision-making Agents
+### 2 Decision-making Agents
 
 Decision-making agents expect MLLMs to possess human-level planning and scheduling abilities, which are fundamental for making informed decisions and taking appropriate actions in complex environments. This capability holds significant potential for addressing real-world problems.
 
@@ -179,11 +181,11 @@ Embodied Decision-making: Embodied Decision-making requires MLLMs to be able to 
 
 Mobile Agency: Mobile-Agent leverages visual perception tools to accurately identify and locate both visual and textual elements within the app's front-end interface. Drawing on the visual information, it autonomously plans and decomposes complex tasks, navigating the mobile app through each step of the operation. To comprehensively assess Mobile-Agent's capabilities, Wang et al.[\[115\]](#page-25-3) introduced Mobile-Eval, a benchmark centered around current mainstream mobile apps. Mobile-Eval included instructions for various difficulty levels, but it primarily assessed whether MLLMs could complete the instructions, neglecting the fine-grained perception of the web interface. To fill this gap, You et al.[\[116\]](#page-25-4) proposed Ferret-UI, which required MLLMs to explain the functionality and provide fine-grained descriptions of UI elements. However, existing benchmarks for MLM agents in interactive environments were constrained by single environments and lacked detailed and generalized evaluation methods. To overcome these limitations, Xu et al.[\[117\]](#page-25-5) introduced CRAB, the first agent benchmark framework designed to support cross-environment tasks.
 
-#### 5.3 Diverse Cultures and Languages
+#### 3 Diverse Cultures and Languages
 
 Most benchmarks primarily use English, leading to the neglect of other languages and cultures. To address this limitation, some benchmarks have been introduced to supplement data in a broader range of languages. CMMU[\[88\]](#page-23-20), CMMMU[\[86\]](#page-23-18), and MULTI[\[90\]](#page-24-0) were presented for multi-modal and multi-type questions in Chinese, featuring a wider variety of question types. Besides, the Henna benchmark[\[118\]](#page-25-6) was proposed to test MLLMs in Arabic culture, while the LaVy-Bench benchmark[\[119\]](#page-25-7) was designed for evaluating MLLMs' understanding of Vietnamese visual language tasks. To further enrich language diversity, MTVQA[\[120\]](#page-25-8) was proposed as the first benchmark featuring high-quality human expert annotations across 9 diverse languages. However, although MTVQA extended its linguistic range, it kept images the same, resulting in a narrow cultural representation. To address this limitation, Romero[\[121\]](#page-25-9) constructed CVQA, a culturally diverse multilingual visual question answering benchmark designed to cover a rich set of languages and cultures.
 
-#### 5.4 Other Applications
+#### 4 Other Applications
 
 Some works focused on assessing MLLMs' abilities to handle highly professional and domainspecific data, such as medicine, transportation, engineering, remote sensing, and autonomous driving. These evaluations provided insights into how well MLLMs could adapt to and process specialized information in various complex fields, highlighting their potential for applications in areas requiring deep expertise and precise knowledge.
 
@@ -201,7 +203,7 @@ Autonomous Driving: Autonomous driving is a rapidly developing field with immens
 
 These benchmarks evaluated dialogue capabilities, including handling extended dialogues and accurately following instructions, as well as assessing the model's level of hallucination and trustworthiness. Such capabilities are crucial for ensuring that MLLMs perform effectively across a range of real-world applications and can adapt to various practical scenarios.
 
-## 6.1 Conversation Abilities:
+## 1 Conversation Abilities:
 
 Some benchmarks focus on evaluating MLLMs' performance in conversations, specifically assessing how well these models handle long contexts and follow complex instructions accurately. Such evaluations are crucial for ensuring that MLLMs can engage effectively in diverse dialogues and deliver reliable performance in real-world applications.
 
@@ -209,7 +211,7 @@ Long-context Capabilities: Due to the window length limitations inherent in MLLM
 
 Instruction Adherence: Instruction adherence requires that MLLMs execute complicated instructions. This involved not only recognizing the content of the instructions but also meticulously executing the detailed demands without deviation. Wang et al.[\[138\]](#page-26-8) built a benchmark called Demon for demonstrative instruction understanding. However, it focused only on demonstrative instruction following and ignored other flexible instruction scenarios. To explore how MLLMs performed on broader, open-ended prompts, Bitton et al.[\[139\]](#page-26-9) created VisIT-Bench to cover a wide array of 'instruction families' that resembled real-world user behavior. Although these benchmarks evaluated the basic instruction-following capabilities of MLLMs, the ability of MLLMs to adapt to new instructions while incorporating both old and new ones remained unclear. Therefore, Chen et al.[\[136\]](#page-26-6) presented a benchmark named Continual Instruction Tuning (CoIN) to assess MLLMs in a sequential instruction tuning paradigm. To better measure MLLM adherence to instructions, MIA-Bench[\[137\]](#page-26-7) was introduced to test how well MLLMs follow layered instructions and generate accurate responses matching specific patterns.
 
-## 6.2 Hallucination
+## 2 Hallucination
 
 Hallucination refers to information in LVLMs' responses that does not accurately reflect the visual input, which poses potential risks of substantial consequences.
 
@@ -221,7 +223,7 @@ hallucinations and offered detailed annotations to support an LLM-free evaluatio
 
 There are also some works that explored the causes and mechanisms of hallucination. Observing that MLLMs' strong language bias often overshadowed visual information, leading to an overreliance on language priors rather than visual context, HallusionBench[\[145\]](#page-26-15) was proposed to focus on diagnosing both the visual illusion and knowledge hallucination of MLLMs. Cui et al.[\[144\]](#page-26-14) constructed a benchmark called Bingo, which systematically categorized and analyzed the reasons behind the occurrence of hallucinations. Moreover, Han et al.[\[147\]](#page-26-17) identified a typical class of inputs that baffled MLLMs: images that were highly relevant but inconsistent with answers, causing MLLMs to suffer from hallucination. To quantify this effect, they proposed CorrelationQA, the first benchmark that assessed the hallucination level given spurious images.
 
-#### 6.3 Trustworthiness
+### 3 Trustworthiness
 
 Evaluating the trustworthiness of multimodal large language models (MLLMs) encompasses various aspects, including accuracy, consistency across different scenarios, and safety in handling sensitive content. This section focuses on benchmarks that assess MLLMs specifically in terms of robustness and safety. Robustness examines how well the model performs with diverse or unexpected inputs, ensuring reliable outputs across various conditions. Safety evaluates the model's capacity to avoid generating harmful or inappropriate content, thereby protecting users from potential risks. These dimensions are essential for confirming that MLLMs are dependable and safe for real-world applications.
 
@@ -235,7 +237,7 @@ from models. To address this issue, Li et al.[\[160\]](#page-27-7) established M
 
 Beyond the image modality, other modalities such as video, audio, and 3D point clouds also contain rich and diverse information reflective of the real world. These modalities provide critical context and enhance the ability to understand complex scenarios. Evaluating MLLMs across these varied modalities is crucial for developing robust and versatile models capable of handling a wide range of complex real-world tasks. This section provides an overview of benchmarks designed to assess MLLMs across these different modalities, aiming to highlight their strengths and identify areas for further improvement.
 
-#### 7.1 Videos
+## 1 Videos
 
 Compared to images, the video modality features temporal dynamics and sequential context, involving changes over time and interactions between frames. Therefore, evaluating MLLMs on video-related aspects, such as temporal coherence and action understanding, is crucial for assessing their performance in understanding and interpreting video content.
 
@@ -245,11 +247,11 @@ Long Video Understanding: Video MLLMs often use key frame extraction for video u
 
 Comprehensive Evaluation: Comprehensive evaluation of video MLLMs focuses on their overall abilities, including video comprehension, scene recognition, temporal reasoning, and various other related tasks. With the development of video MLLMs, several works collected extensive video datasets to comprehensively evaluate MLLMs, such as Video-Bench [\[177\]](#page-28-1) and AutoEval-Video [\[180\]](#page-28-4). However, they were limited by a lack of diversity in video types and insufficient coverage of temporal dynamics. To create a more comprehensive and high-quality assessment of MLLM in video, Fu et al.[\[179\]](#page-28-3) proposed Video-MME, which offered more diverse video types, broader temporal coverage, and higher quality annotations. Nevertheless, Video-MME employed a multiple-choice question-andanswer format for straightforward and flexible assessment, but this format overlooked the quality and richness of free-form expressions generated by MLLMs. To address this issue, Fang et al.[\[178\]](#page-28-2) introduced MMBench-Video, a comprehensive benchmark that consisted of free-form questions mirroring practical use cases. Additionally, due to the ability of videos to capture rich representations of real-world dynamics and causalities, some works evaluated MLLMs' understanding of videos through the lens of "world models," which required MLLMs to interpret and reason about complex real-world dynamics. MMWorld [\[181\]](#page-28-5) and WorldNet [\[182\]](#page-28-6) were designed to rigorously evaluate the capabilities of MLLMs in world modeling via video understanding. MMWorld spanned a broad spectrum of disciplines, featuring a diverse array of question types for multi-faceted reasoning, while WorldNet encompassed millions of samples across a wide range of real-world scenarios and tasks.
 
-## 7.2 Audio
+## 2 Audio
 
 MLLMs that jointly process audio and language hold great promise for audio understanding. Dynamic-SUPERB [\[183\]](#page-28-7) was a benchmark that assessed MLLMs' ability to follow instructions in the audio domain. Nevertheless, Dynamic-SUPERB focused solely on human speech processing, ignoring other types of audio. To measure the understanding abilities of MLLMs in music, Weck et al. [\[184\]](#page-28-8) presented MuChoMusic, the first benchmark for evaluating music understanding in audio MLLMs. In order to offer comprehensive coverage of audio signals, including human speech, natural sounds, and music, Yang et al. [\[185\]](#page-28-9) presented AIR-Bench, a comprehensive benchmark designed to evaluate MLLMs' ability to comprehend various audio signals and interact according to instructions.
 
-## 7.3 3D Scenes
+## 3 3D Scenes
 
 3D scenes offer a significant advantage over 2D images by providing accurate spatial relationships, depths, and occlusions, which are essential for interpreting complex environments. For MLLMs, enhanced 3D scene perception enables more precise responses in applications such as navigation, augmented reality, and complex spatial reasoning tasks. ScanQA [\[186\]](#page-28-10) was proposed for 3D visual question answering, requiring models to answer given questions based on point clouds. It was formatted as an attribute classification task, which made it difficult to assess MLLMs' detailed understanding of 3D scenes. LAMM[\[17\]](#page-20-16) transformed the classification task into a multiple-choice problem and added two tasks beyond 3D visual question answering: 3D object detection and visual grounding.
 
@@ -417,7 +419,7 @@ Table 1: Summary of existing MLLM evaluations and benchmarks. This table provide
 
 Besides, Zhu et al. [\[187\]](#page-28-11) introduced a benchmark named ScanReason, which required MLLMs to conduct joint reasoning on the question and the 3D environment before predicting the 3D locations of target objects. To evaluate MLLMs' capability to accurately perceive fine-grained spatial relations such as depth, direction, and distance, Cheng et al. [\[55\]](#page-22-11) proposed SpatialRGPT, which specifically focused on MLLMs' ability to understand 3D spatial concepts like metric distance or size differences between objects. Meanwhile, a comprehensive evaluation benchmark for accurately assessing the capability of MLLMs on 3D tasks was crucial. In view of this, Li et al. [\[188\]](#page-28-12) introduced a comprehensive 3D-centric benchmark called M3DBench, which served as the foundation for developing a versatile and practical general-purpose assistant in real-world 3D environments.
 
-## 7.4 Omnimodal
+## 4 Omnimodal
 
 In the real world, people are surrounded by audio, images, videos, and text messages in their daily lives. These diverse modalities collectively enhance our ability to perceive and understand scenes. However, most benchmarks focus on a single modality, which limits their ability to adapt to real-world environments that involve multiple modalities. Therefore, some works focused on evaluating MLLMs' capabilities in handling multiple modalities simultaneously. MusicAVQA [\[191\]](#page-28-15) was constructed to evaluate MLLMs' ability to answer questions regarding visual objects, sounds, and their associations together. However, the visual scenes in MusicAVQA were limited to music performances, where the questions were only about instrument relationships, lacking exploration of more real-life scenarios. In response to this limitation, Yang et al. [\[190\]](#page-28-14) proposed AVQA, which was designed for audio-visual
 
@@ -650,7 +652,7 @@ Evaluation carries profound significance and is becoming imperative in the advan
 - <span id="page-29-12"></span>[210] Maxime Oquab, Timothée Darcet, Théo Moutakanni, Huy Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel Haziza, Francisco Massa, Alaaeldin El-Nouby, et al. Dinov2: Learning robust visual features without supervision. *arXiv preprint arXiv:2304.07193*, 2023.
 - <span id="page-29-13"></span>[211] Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, et al. Llama: Open and efficient foundation language models. *arXiv preprint arXiv:2302.13971*, 2023.
 - <span id="page-29-14"></span>[212] Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, Dan Bikel, Lukas Blecher, Cristian Canton Ferrer, Moya Chen, Guillem Cucurull, David Esiobu, Jude Fernandes, Jeremy Fu, Wenyin Fu, Brian Fuller, Cynthia Gao, Vedanuj Goswami, Naman Goyal, Anthony Hartshorn, Saghar Hosseini, Rui Hou, Hakan Inan, Marcin Kardas, Viktor Kerkez, Madian Khabsa, Isabel Kloumann, Artem Korenev, Punit Singh Koura, Marie-Anne Lachaux, Thibaut Lavril, Jenya Lee, Diana Liskovich, Yinghai Lu, Yuning Mao, Xavier Martinet, Todor Mihaylov, Pushkar Mishra, Igor Molybog, Yixin Nie, Andrew Poulton, Jeremy Reizenstein, Rashi Rungta, Kalyan Saladi, Alan Schelten, Ruan Silva, Eric Michael Smith, Ranjan Subramanian, Xiaoqing Ellen Tan, Binh Tang, Ross Taylor, Adina Williams, Jian Xiang Kuan, Puxin Xu, Zheng Yan, Iliyan Zarov, Yuchen Zhang, Angela Fan, Melanie Kambadur, Sharan Narang, Aurelien Rodriguez, Robert Stojnic, Sergey Edunov, and Thomas Scialom. Llama 2: Open foundation and fine-tuned chat models, 2023.
-- <span id="page-29-15"></span>[213] Wei-Lin Chiang, Zhuohan Li, Zi Lin, Ying Sheng, Zhanghao Wu, Hao Zhang, Lianmin Zheng, Siyuan Zhuang, Yonghao Zhuang, Joseph E Gonzalez, et al. Vicuna: An open-source chatbot impressing gpt-4 with 90%\* chatgpt quality. *See https://vicuna. lmsys. org (accessed 14 April 2023)*, 2(3):6, 2023.
+- <span id="page-29-15"></span>[213] Wei-Lin Chiang, Zhuohan Li, Zi Lin, Ying Sheng, Zhanghao Wu, Hao Zhang, Lianmin Zheng, Siyuan Zhuang, Yonghao Zhuang, Joseph E Gonzalez, et al. Vicuna: An open-source chatbot impressing gpt-4 with 90%\*chatgpt quality.*See https://vicuna. lmsys. org (accessed 14 April 2023)*, 2(3):6, 2023.
 - <span id="page-29-16"></span>[214] Peiyuan Zhang, Guangtao Zeng, Tianduo Wang, and Wei Lu. Tinyllama: An open-source small language model, 2024.
 
 - <span id="page-30-0"></span>[215] Yuanzhi Li, Sébastien Bubeck, Ronen Eldan, Allie Del Giorno, Suriya Gunasekar, and Yin Tat Lee. Textbooks are all you need ii: phi-1.5 technical report, 2023.

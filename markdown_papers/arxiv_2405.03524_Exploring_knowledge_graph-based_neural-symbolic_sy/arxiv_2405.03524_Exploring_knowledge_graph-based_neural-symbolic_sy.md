@@ -1,3 +1,5 @@
+<!-- cite_key: toronto2019 -->
+
 # A SHORT SURVEY: EXPLORING KNOWLEDGE GRAPH-BASED NEURAL-SYMBOLIC SYSTEM FROM APPLICATION PERSPECTIVE
 
 Shenzhe Zhu<sup>∗</sup> University of Toronto Toronto, Canada cho.zhu@mail.utoronto.ca
@@ -41,7 +43,7 @@ In this paper, the term "neural system" primarily denotes deep neural networks[\
 
 Delving into the categorization of neural-symbolic systems unveils three primary interaction models[\[33,](#page-16-20) [34\]](#page-16-21): Symbol for Neural, Neural for Symbol, and Hybrid Neural-Symbolic Integration. Each category represents a distinct approach to integrating neural and symbolic components (see [Figure](#page-2-0) [1\)](#page-2-0). In this section, we will explore the definitions, and frameworks within these three taxonomies and how KG can be integrated into these systems.
 
-#### 2.1 Neural for symbol
+## 1 Neural for symbol
 
 "Neural for Symbol", also known as "Learning for Reasoning", focuses on utilizing the learning capabilities of neural networks for the enhancement and problem solving of traditional symbolic reasoning. In this paradigm, neural networks usually enhance symbolic systems by acceleration [\[35,](#page-16-22) [36,](#page-17-0) [37,](#page-17-1) [38,](#page-17-2) [39,](#page-17-3) [40,](#page-17-4) [41,](#page-17-5) [42,](#page-17-6) [43,](#page-17-7) [44,](#page-17-8) [45,](#page-17-9) [46,](#page-17-10) [47,](#page-17-11) [48,](#page-17-12) [49,](#page-17-13) [50,](#page-17-14) [51,](#page-17-15) [52,](#page-17-16) [53,](#page-17-17) [54,](#page-17-18) [55,](#page-17-19) [56,](#page-17-20) [57,](#page-17-21) [58\]](#page-17-22).Typically, "acceleration" refers to the use of neural networks to improve the speed and efficiency of symbolic systems in knowledge reasoning and processing complex data. For instance, Neural networks can optimize the search path[\[59\]](#page-18-0) in KG reasoning by leveraging their advanced analytical capabilities. [Figure](#page-2-1) [2](#page-2-1) illustrates the architecture of this integrated approach.
 
@@ -51,11 +53,11 @@ Figure 1: This diagram depicts three neural-symbolic system interactions: the or
 
 <span id="page-2-1"></span>![](_page_2_Figure_3.jpeg)
 
-### 2.2 Symbol for neural
+### 2 Symbol for neural
 
 In this context, "Symbol for Neural"[\[60,](#page-18-1) [61,](#page-18-2) [62,](#page-18-3) [63,](#page-18-4) [64,](#page-18-5) [65,](#page-18-6) [66,](#page-18-7) [67,](#page-18-8) [68,](#page-18-9) [69,](#page-18-10) [70,](#page-18-11) [71,](#page-18-12) [20,](#page-16-7) [72,](#page-18-13) [73,](#page-18-14) [74,](#page-18-15) [75,](#page-18-16) [76,](#page-18-17) [77,](#page-18-18) [78,](#page-18-19) [79,](#page-18-20) [80,](#page-19-0) [51,](#page-17-15) [52,](#page-17-16) [81,](#page-19-1) [55,](#page-17-19) [54,](#page-17-18) [82,](#page-19-2) [83,](#page-19-3) [79,](#page-18-20) [78,](#page-18-19) [84,](#page-19-4) [85,](#page-19-5) [83,](#page-19-3) [86,](#page-19-6) [78,](#page-18-19) [87,](#page-19-7) [84,](#page-19-4) [85\]](#page-19-5), also known as "Reasoning for Learning", leverages symbolic systems like KG to furnish a prior knowledge and a logical framework, thereby guiding and shaping neural networks' learning processes. Symbolic knowledge encoded in KG provides a rich source of structured information that enables neural networks to enhance their interpretability and decision-making capabilities. Moreover, KG serves not merely as passive repositories but as active participants, infusing neural networks with domain-specific rules and facts to bolster their learning efficiency. For instance, in developing algorithms for a recommendation system on an online education platform, a KG can categorize courses by content, difficulty, and progression, directing the neural network to tailor learning paths for users, thus optimizing learning outcomes. [Figure](#page-3-1) [3](#page-3-1) illustrates the architecture and rationale of this integrated approach.
 
-#### 2.3 Hybrid neural-symbolic integration
+#### 3 Hybrid neural-symbolic integration
 
 "Hybrid neural-symbolic integration"[\[88,](#page-19-8) [89,](#page-19-9) [90,](#page-19-10) [91,](#page-19-11) [92,](#page-19-12) [93,](#page-19-13) [94,](#page-19-14) [95,](#page-19-15) [96,](#page-19-16) [97,](#page-19-17) [98,](#page-19-18) [99,](#page-19-19) [100,](#page-19-20) [101,](#page-20-0) [102,](#page-20-1) [103,](#page-20-2) [104\]](#page-20-3) shows a more dynamic way of interaction. In this approach, neural networks and symbolic reasoning complement each other without being subordinate, working together to enhance the comprehension and inference capabilities of the AI system. In this system, neural networks first process input data (e.g., images, text, etc.), extracting features and converting them into intermediate representations. These representations are then passed to a symbolic system, which utilizes this data for logical reasoning and possibly combines it with existing KG to make decisions or generate new knowledge. The results of the reasoning are not only used for direct decision-making output but are also fed back to the neural network
 
@@ -73,11 +75,11 @@ Figure 4: Hybrid neural-symbolic integration
 
 In this section, we take an in-depth look at the three taxonomies of neural symbols introduced in Section [2,](#page-1-1) focusing on specific methods for applications. We aim to describe these representative approaches for combining neural symbols with KG techniques, demonstrating progress in several directions. In addition, [Table](#page-4-0) [2](#page-4-0) summarizes the relevant features of these representative methods.
 
-#### 3.1 Neural for symbol
+## 1 Neural for symbol
 
 Deep learning plays a pivotal role in enhancing KG-related applications. In the field of neural for symbol systems, networks significantly accelerate the efficiency of KG's symbolic reasoning. This integration can be categorized into two main categories based on their specific applications: recommender systems enhanced by KG[\[51,](#page-17-15) [52,](#page-17-16) [57,](#page-17-21) [58\]](#page-17-22), Q&A systems enhanced by KG insights[\[53,](#page-17-17) [54,](#page-17-18) [55,](#page-17-19) [56\]](#page-17-20) These categories reflect the different ways in which neural networks promote the development of KG in various uses, enabling the building of faster and high-efficient computational models.
 
-#### 3.1.1 KG-based recommender systems
+### 1.1 KG-based recommender systems
 
 In the field of exploring KG-enhanced recommender systems, research has been divided into three main directions: pathbased approaches[\[106,](#page-20-4) [107,](#page-20-5) [108\]](#page-20-6), embedding-based[\[109,](#page-20-7) [81,](#page-19-1) [110\]](#page-20-8) approaches and propagation-based approaches[\[52,](#page-17-16) [51\]](#page-17-15) that we will introduce below.
 
@@ -137,7 +139,7 @@ where W<sup>r</sup> is the transformation matrix for relation r, e<sup>h</sup> a
 
 In recent years, along with the development of graph attention network technologies such as KGAT, we have witnessed the rise of technologies such as Contextualized Graph Attention Network(CGAT)[\[57\]](#page-17-21) and Heterogeneous Relation Attention Networks(HRAN)[\[58\]](#page-17-22), which further extend the application of graph attention networks in the field of KG reasoning. CGAT greatly enhances the performance of recommender systems by fusing local and non-local contextual information in the project KG. It utilizes a user-specific graph attention mechanism to aggregate neighborhood information in the KG, while taking into account the user's personalized preferences, enabling the model to provide customized recommendation services based on different users' attention to neighboring entities. HRAN, on the other hand, is designed for Heterogeneous KG Embedding (KGE), which operates at multiple semantic levels and hierarchically aggregates neighborhood features, while fully taking into account the information diversity of the KG. By introducing an innovative framework, HRAN uses an attention mechanism to determine the importance of different relational paths, enabling selective aggregation of information features.
 
-#### 3.1.2 KG-based Q&A systems
+#### 1.2 KG-based Q&A systems
 
 KGs play a central role in the construction of contemporary Q&A systems. By integrating and utilizing KGs, Q&A systems can go beyond simple fact retrieval to achieve advanced question processing that requires in-depth semantic understanding and reasoning, while at the same time, we can leverage the learning capability of neural symbols to enhance the inference speed of KGs, thus significantly improving the response quality and user interaction experience.
 
@@ -192,13 +194,13 @@ Figure 8: Architecture of the QA-GNN for question-answering with KG
 
 Conclusion: Recommender systems and Q&A systems, as the core applications combining KGs and neural networks, demonstrate a consensus on the choice of network models to utilize. First, these systems commonly adopt GNNs as their foundation, as they can resolve complex entity relationships and topological information directly on graph structures, providing a clear framework for efficiently processing KG data. For example, GCN-based[\[115\]](#page-20-13) models such as KGCN[\[51\]](#page-17-15) perform convolutional operations on the graph to deeply learn the interactions between nodes and highlight the learning of local connections. And GAT-based[\[116\]](#page-20-15) models, such as KGAT[\[52\]](#page-17-16) and QA-GNN[\[56\]](#page-17-20), introduce the attention mechanism to improve the judgment of the importance of neighbors and achieve a detailed node representation. Second, multi-hop inference is a core technique in neural network-based KG reasoning, which plays an indispensable role in almost all KG applications. By performing multi-step logical reasoning in the KG, this approach can explore and reveal complex, multi-level relationships between data. In recommender systems, multi-hop reasoning helps the system to deeply understand the user's preferences and needs to achieve personalized recommendations, while in Q&A systems, it enables the system to handle more complex queries and provide more accurate and insightful answers. Overall, all these models utilize the information and hierarchical relationships of graph structures to learn the representation of complex entities and relationships. Whether it is local structure capture in GCN, differential attention in GAT, or deep mining in multi-hop reasoning, they all demonstrate their ability to deal with complex and deep information, demonstrating their efficacy in intelligent applications.
 
-#### 3.2 Symbol for neural
+#### 2 Symbol for neural
 
 The reasoning ability of the KG can be accelerated by neural networks, and at the same time, it can provide guidance and constraints for the learning process of neural networks through its rich structured information. This enhancement is reflected in the field of "symbol for neural", especially in two major application directions: KG-driven zero-shot and few-shot learning[\[83,](#page-19-3) [86,](#page-19-6) [78,](#page-18-19) [87\]](#page-19-7), and knowledge-enhanced pre-trained language model (LM)[\[84,](#page-19-4) [85\]](#page-19-5). These
 
 applications demonstrate how KG-based symbol grounding[2](#page-9-1) can uniquely enhance the functionality of neural networks, making network models more robust and interpretable.
 
-#### 3.2.1 KG-driven zero-shot and few-shot learning
+#### 2.1 KG-driven zero-shot and few-shot learning
 
 Knowledge graph-based Zero-Shot Learning (ZSL) models[\[127,](#page-21-3) [128,](#page-21-4) [129\]](#page-21-5) perform well in addressing application problems in the visual field, especially in image recognition and classification. These models can recognize categories that were unseen during training by introducing additional knowledge (e.g., relationships between entities), which enhances the generalization ability of the model.
 
@@ -230,7 +232,7 @@ $$
 
 Here, Pool is a pooling operation (such as max pooling or average pooling) used to obtain a single prototype vector from the output of PGNN, fθ(Sk) represents the feature representation of all nodes in category k processed through a function with parameters θ, and PGNN<sup>ϕ</sup> denotes the PGNN model characterized by the parameter ϕ. Secondly, at the graph level, our goal is to learn the global information of a specific graph through the Hierarchical Graph Representation Gate and utilize this information to enhance the learning effectiveness of the network at the node level. This involves capturing the structural features of the graph at different levels and aggregating these features to form a comprehensive representation of the graph, and then adjusting the parameters ϕ of the graph neural network using a gating mechanism, enabling the model to capture and utilize global structural information at the graph level.
 
-#### 3.2.2 Knowledge-enhanced pre-trained language models
+#### 2.2 Knowledge-enhanced pre-trained language models
 
 Pre-trained language models(PLMs) based on knowledge enhancement improve the understanding and generation of text by incorporating external knowledge, such as KG. These integration methods utilize the structured information in KG to enable the language model to not only process complex text more logically, but also to accurately reference and reason about specialized knowledge, thus making the output more reliable.
 
@@ -256,7 +258,7 @@ Here, w<sup>i</sup> and w<sup>j</sup> represent tokens within the sentence, and 
 
 Conclusion: In the paradigm of neural for symbol, KG has provided neural network learning with a wealth of structured knowledge and deep semantic and contextual information, serving as important guidance during the learning process. Faced with the challenge of scarce samples, the structured information from KGs significantly enhances the neural network's learning capabilities in complex language tasks. For instance, models such as SEKG-ZSL[\[86\]](#page-19-6) and GFL[\[87\]](#page-19-7) effectively learn through semantic embeddings and graph structure reasoning, even in situations with extremely limited samples. Moreover, in handling natural language processing (NLP) tasks, KGs provide the models with rich contextual information and precise factual knowledge that are difficult to obtain from traditional pre-training. This information directly enhances the models' understanding of complex queries and improves their ability to handle terms and concepts specific to certain fields. Additionally, it ensures the factual and logical consistency of the generated text, thereby enhancing the model's interpretability.
 
-#### 3.3 Hybrid neural-symbolic integration
+#### 3 Hybrid neural-symbolic integration
 
 Compared to the two previously mentioned categories, our hybrid integration model focuses more on processing the functions of neural networks and symbolic systems in parallel, allowing them to operate independently without interfering with each other. Through specific mechanisms, these two systems can share information and results. Typically, we expect this parallel operation to promote and grow with each other, forming a cyclic enhancement learning model: the output of each system can become part of the input of the other system, thus driving the iterative progress of the whole system. In addition, this learning model is also expected to apply to a wide range of application tasks, including Q&A systems[\[101\]](#page-20-0), KG-to-text[\[102\]](#page-20-1), entity alignment[\[103\]](#page-20-2) and sentiment identification[\[104\]](#page-20-3), etc.
 
@@ -278,17 +280,17 @@ Conclusion: The four described models of Hybrid neural-symbolic integration, alt
 
 # <span id="page-13-0"></span>4 Future Trends & Direction
 
-#### 4.1 Multimodal and multidomain learning
+## 1 Multimodal and multidomain learning
 
 Multimodal and multidomain learning represents a significant trend in the field of deep learning[\[144,](#page-22-1) [145,](#page-22-2) [146,](#page-22-3) [147,](#page-22-4) [148\]](#page-22-5), offering unprecedented opportunities but also presenting considerable challenges, particularly in terms of information fusion and domain adaptation. The challenge of information fusion primarily involves effectively integrating data from diverse modalities, such as text, images, and audio, which differ significantly in their forms and processing methods. By utilizing KG as a unified semantic framework, we can better align and integrate data from these varied modalities. The structured information within the KG provides essential context, facilitating the fusion of information from different sources, and thereby enhancing the overall understanding capabilities of the model. On the other hand, the issue of domain adaptation focuses on enabling models to operate across different domains while maintaining
 
 performance amidst variations in data distribution and characteristics across these domains. Employing a KG as a bridge for cross-domain data processing, and incorporating common knowledge and rules across domains, can significantly enhance the adaptability and generalization capabilities of models in new scenarios.
 
-### 4.2 Reasoning efficiency
+### 2 Reasoning efficiency
 
 Improving reasoning efficiency is one of the challenges in achieving deep learning productization, especially in scenarios that require fast responses, such as mobile device applications, self-driving, and other real-time processing systems. These application scenarios typically require models to perform tasks quickly and accurately with limited computational resources. KGs may play a key role in this environment by providing neural network models with rich prior knowledge to optimize reasoning paths. More specifically, KGs can predefine the logical relationships and rules required during the inference process, allowing the model to directly perform some of the decisions and computations without the need for deep neural computation. The rules and known facts in the KG can be utilized for direct processing when performing reasoning tasks, thus reducing the reliance on data-driven reasoning. This approach reduces the amount of computation and also increases the speed of reasoning, making the model more efficient and practical in real applications.
 
-### 4.3 Graph-integrated Transformer
+### 3 Graph-integrated Transformer
 
 Although graph neural networks (GNNs)[\[124\]](#page-21-2) have demonstrated excellent capabilities in processing structured data, especially KGs, in practice, GNNs face challenges such as low computational efficiency, limited scalability, and lack of performance when dealing with large-scale datasets. The computational complexity of GNNs stems mainly from the sparseness and irregularity of graph data, which makes the optimization and acceleration of these models particularly difficult. Given these challenges, it is particularly promising to focus future research and applications on combining KGs with Transformer-based models[\[141\]](#page-21-18), which, by their self-attentive mechanism, can efficiently process large-scale datasets and effectively capture long-distance dependencies, and especially excel in the processing of text and other continuous data streams. Specifically, by directly incorporating entities and relationships from the KG into the Transformer's self-attention mechanism, the knowledge-enhanced Transformer model can provide clear inference paths and logical proofs while maintaining efficient data processing.
 
@@ -298,7 +300,7 @@ In this paper, we explore how KG-based neural symbolic integration can be applie
 
 # A Supplemental Material
 
-### A.1 Knowledge Graph
+## A.1 Knowledge Graph
 
 A knowledge graph(KG) is a structured representation of knowledge where entities, their attributes, and the relationships between them are organized into a graph-like structure. In mathematical terms, a KG can be represented as G = (V, E), where V represents the set of vertices or nodes corresponding to entities, and E represents the set of edges or relationships between these entities. Each relationship is often expressed as a triplet (subject, predicate, object), where the subject and object are entities and the predicate represents the relationship between them. Mathematically, this triplet can be denoted as (s, p, o). Each entity is associated with a set of properties or attributes, forming a vector space representation. Mathematically, this can be denoted as V<sup>i</sup> = {p1, p2, ..., pn}, where V<sup>i</sup> represents the ith entity and p1, p2, ..., p<sup>n</sup> represent its attributes. Relationships between entities are represented as directed edges connecting nodes in the graph. By leveraging graph theory and mathematical models, KGs enable the organization, retrieval, and analysis of complex information in a structured and interconnected manner, facilitating various applications such as semantic search, question answering, and knowledge discovery.
 

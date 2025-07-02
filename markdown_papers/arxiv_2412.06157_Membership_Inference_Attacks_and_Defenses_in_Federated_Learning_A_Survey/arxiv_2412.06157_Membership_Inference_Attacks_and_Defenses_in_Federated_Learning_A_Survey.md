@@ -1,3 +1,5 @@
+<!-- cite_key: bai2023 -->
+
 LI BAI, HAIBO HU, QINGQING YE, and HAOYANG LI, The Hong Kong Polytechnic University, Hong Kong
 
 LEIXIA WANG, Renmin University of China, China
@@ -6,7 +8,7 @@ JIANLIANG XU, Hong Kong Baptist University, Hong Kong
 
 Federated learning is a decentralized machine learning approach where clients train models locally and share model updates to develop a global model. This enables low-resource devices to collaboratively build a highquality model without requiring direct access to the raw training data. However, despite only sharing model updates, federated learning still faces several privacy vulnerabilities. One of the key threats is membership inference attacks, which target clients' privacy by determining whether a specific example is part of the training set. These attacks can compromise sensitive information in real-world applications, such as medical diagnoses within a healthcare system. Although there has been extensive research on membership inference attacks, a comprehensive and up-to-date survey specifically focused on it within federated learning is still absent. To fill this gap, we categorize and summarize membership inference attacks and their corresponding defense strategies based on their characteristics in this setting. We introduce a unique taxonomy of existing attack research and provide a systematic overview of various countermeasures. For these studies, we thoroughly analyze the strengths and weaknesses of different approaches. Finally, we identify and discuss key future research directions for readers interested in advancing the field.
 
-## CCS Concepts: • Security and privacy → Privacy protections.
+# CCS Concepts: • Security and privacy → Privacy protections.
 
 Additional Key Words and Phrases: Membership inference attacks, federated learning, deep leaning, privacy risk
 
@@ -105,7 +107,7 @@ this, Section [3](#page-7-0) explores various threat models in FL. Next, Section
 
 This section first presents background knowledge regarding CL and FL. Then we offer a brief overview of MIA and defense studies in CL.
 
-## 2.1 Centralized Learning
+## 1 Centralized Learning
 
 We consider a centralized setting in which training data are pooled in the server to train an ML model [\[37,](#page-29-1) [38\]](#page-29-2), which leverages input-output pairs to train a non-linear function that predicts outcomes for new queries. Let = {(x , )} =0 and = {(x , )} =0 denote the training and test datasets, respectively, where x ∈ R denotes the -dimension feature vector of the -th sample labeled by . The learning goal is to develop an ML model that maps an input x into (x; ), where is the model parameters. To obtain the parameters , a loss function ℓ (·, ·) is typically introduced to measure the discrepancy between the predicted output (x; ) and the ground truth label .
 
@@ -123,7 +125,7 @@ $$
 
 where is a mini-batch of random training examples from , represents the model parameters in the -th round, and denotes the learning rate. The optimization process is terminated when the model converges to a local minimum, or the iteration reaches a preset number. The trained ML model often uses the accuracy on test dataset to validate its performance.
 
-## 2.2 Federated Learning
+## 2 Federated Learning
 
 2.2.1 Brief Introduction of Federated Learning. FL is a collaborative ML paradigm that is widely used in various applications, such as smart healthcare [\[72,](#page-30-10) [73\]](#page-30-11) and the Internet of Things [\[74,](#page-30-12) [75\]](#page-30-13). In contrast to CL, in which training data are collected and processed in a centralized location, FL involves training a shared global model using distributed data from different organizations or devices. Instead of transmitting the raw data to a central server, FL allows local data to remain stored locally and only the model parameters or gradients are exchanged, which addresses the data island problem and alleviates data privacy concerns.
 
@@ -171,7 +173,7 @@ In a classifier-based MIA, a binary classifier attack model is constructed to de
 
 A metric-based MIA is more straightforward and has less computational cost than classifierbased attacks. It deduces membership information for data records by calculating metrics on their prediction vectors. The calculated metrics are then compared with a preset threshold to determine the membership status of a data record [\[39\]](#page-29-3). Several metric options are available, such as prediction correctness [\[85\]](#page-31-1), prediction loss [\[85\]](#page-31-1), confidence score [\[43\]](#page-29-7), and confidence entropy [\[43,](#page-29-7) [86\]](#page-31-2). Based on these intuitive approaches, advanced approaches have been proposed to calibrate calculated metrics or estimate the prediction distribution by introducing more shadow models [\[87,](#page-31-3) [88\]](#page-31-4) to decrease the false positive rate of MIAs.
 
-## 2.4 Membership Inference Defenses in Centralized Learning
+## 4 Membership Inference Defenses in Centralized Learning
 
 Numerous studies have explored membership inference defense techniques in the context of CL, primarily including regularization, knowledge distillation, differential privacy, and output perturbation, designed to thwart membership privacy violations. In this subsection, we touch upon these strategies. For a more comprehensive understanding, readers are encouraged to delve into the detailed introduction provided in [\[40\]](#page-29-4).
 
@@ -183,7 +185,7 @@ In contrast to prior defense techniques that alter input data or the training pr
 
 ## <span id="page-7-0"></span>3 THREAT MODEL AND ATTACK TAXONOMY
 
-## 3.1 Threat Model
+## 1 Threat Model
 
 In this subsection, we overview the threat models of MIAs in the FL setting from three perspectives: the adversary's goal, role, and strategy, as shown in Fig[.4.](#page-7-1) In addition, we discuss and compare the adversarial knowledge that an MIA attacker can access in each threat model.
 
@@ -191,7 +193,7 @@ In this subsection, we overview the threat models of MIAs in the FL setting from
 
 Fig. 4. Categorization of threat models.
 
-## 3.2 Adversary's Goal.
+## 2 Adversary's Goal.
 
 In the existing literature on MIAs in FL, the granularity of the target can be either record-level or source-level. As defined in Eq.[\(3\)](#page-6-1), record-level attacks represent a privacy breach of individual data items. For instance, in a disease-prediction model trained through FL, record-level MIAs infer a patient who likely suffers from disease by identifying the presence of the patient's clinical record in the entire training dataset.
 
@@ -204,7 +206,7 @@ $$
 
 Source-level attacks are a natural extension of record-level attacks and cause greater privacy concerns [\[29\]](#page-28-16). For example, suppose several hospitals collaborate to train a shared global model to predict COVID-19 diagnosis. Record-level MIAs can reveal a patient's identity when her record is used as the training data. By contrast, source-level attacks can identify the hospitals where these patients were treated, which can further leak more information, e.g., patients' addresses.
 
-## 3.3 Adversary's Role.
+## 3 Adversary's Role.
 
 ML models in the FL setting are vulnerable to MIAs launched by either insiders or outsiders. Insiders, such as curious clients or the central server, may perform MIAs to uncover sensitive information about other participants. Outsiders, like eavesdroppers, can exploit intercepted model updates to infer membership privacy related to either local or global models in the FL system.
 
@@ -212,13 +214,13 @@ As insiders, the FL server and clients can legally access local and global model
 
 In general, insider adversaries pose a more significant threat than outsider adversaries as they can access more information and manipulate the training process [\[53\]](#page-29-19). For instance, an honestbut-curious FL server may access the local models of each participant during the aggregation process and use this information to identify whether a query sample belongs to a particular participant. A malicious FL participant may even upload a poisoned model to the FL server to enhance sensitive information to leak [\[26\]](#page-28-9). By comparison, eavesdropping attackers can only passively access communication messages but cannot modify them.
 
-## 3.4 Adversary's Strategy.
+## 4 Adversary's Strategy.
 
 An adversary can infer the membership information in the context of FL through passive or active strategies.
 
 Regarding a passive MIA, an adversary only observes and exploits the learning model without directly interfering, relying solely on the data collected during the normal operation of the FL system. For example, any client in an FL system can exploit the information they collect during training to deduce private data about other participants. Such an attack is challenging to detect because the adversary does not affect the target model during the training phase. In contrast, an insider attacker can launch an active attack to boost attack performance by altering the learning model or data. For instance, a malicious client can actively push a target model far away from the optimum to inspect the response of a training member [\[26\]](#page-28-9). Active inference attacks are easier to mount in FL than CL, as any participant or the server can modify the training data or manipulate the model parameters.
 
-# 3.5 Attack Taxonomy
+# 5 Attack Taxonomy
 
 In this survey, we classify existing research on MIAs in FL into two categories: (1) update-based attacks, which leverage one or more historical versions of the target model to infer membership information; and (2) trend-based attacks, which analyze the trajectory of specific indicators to determine membership status. Given their different threat models, Table [3](#page-9-0) provides a summary of the surveyed attacks.
 
@@ -245,7 +247,7 @@ In this survey, we classify existing research on MIAs in FL into two categories:
 
 In this section, we provide a detailed examination of specific attacks within the FL context from both update-based and trend-based perspectives.
 
-# 4.1 Update-based Membership Inference Attacks
+# 1 Update-based Membership Inference Attacks
 
 Although FL prevents access to the raw training data, it is still vulnerable to MIAs owning to the gradient/weight exchanged. An update-based MIA directly leverages exchanged information to develop an attack model that distinguishes between members and non-members. According to the exchanged information, these attacks can be further divided into those based on model gradient and model parameter. The former directly exploits original gradients or gradient differences as the input of attack models, whereas the latter extends the shadow training method to FL scenarios or uses a specialized structure of the target model to infer membership information.
 
@@ -332,7 +334,7 @@ Table 4. Summary of update-based membership inference attacks on federated learn
 
 To summary, it is intuitive to exploit original gradients to build an inference model. However, high computational and memory resources are required when collecting all intermediate outputs of target models. In addition, these original gradient-based MIAs require an adversary to access partial member data to build a high-quality attack model [\[26,](#page-28-9) [31,](#page-28-12) [94\]](#page-31-10). In contrast, gradient difference techniques are proposed to tackle these challenges efficiently and practically. Additionally, attacks based on model parameters mainly treat one of the snapshots as the target model and conduct MIAs to infer the private information of FL clients. Given the white-box scenario in FL, the shadow training approach is practically implemented and boosted with the help of data augmentation via generative models. On the other hand, the structure modifying approach [\[34,](#page-28-15) [99\]](#page-31-15) is limited to a malicious central server and linear layers, unsuitable for heterogeneous FL settings and complex networks. We present additional details of trend-based attacks in Table [4,](#page-13-0) including the year of application, the application domain, the specific methods employed, attacks used for comparison with the proposed approach, and a summary of each kind for readers' reference.
 
-## 4.2 Trend-based Membership Inference Attacks
+## 2 Trend-based Membership Inference Attacks
 
 Trend-based MIAs examine the evolution of an indicator associated with membership status to determine whether a record is a member during the learning process. Such MIAs typically collect the historical models, extract the indicator information, and make decisions by comparing the indicator distributions between members and non-members, as shown in Fig[.7.](#page-14-0) According to the indicator knowledge used, trend-based attacks can be categorized into those based on prediction score and prediction loss.
 
@@ -373,7 +375,7 @@ Infer Membership via Bias Trajectory. Zhang et al. [\[102\]](#page-31-18) are th
 
 To conclude, trend-based attacks exploit the trajectory of model output or parameter to deduce membership status and exhibit the following advantages. First, instead of collecting a large feature vector like [\[26,](#page-28-9) [31,](#page-28-12) [94\]](#page-31-10), they gather only a single value in a round. Moreover, these approaches can make decisions about membership information by comparing the indicator with a preset threshold or observing the trend direction of the indicator without developing an attack classifier model. These advantages lower the computation and memory resources cost and the implementation complexity. We present additional details of trend-based attacks in Table [5,](#page-17-0) including the year of application, the application domain, the specific methods employed, attacks used for comparison with the proposed approach, and a summary for each kind.
 
-## 4.3 Comparison to Attacks in Centralized Learning
+## 3 Comparison to Attacks in Centralized Learning
 
 In this section, we examine the existing update-based and trend-based MIAs in the context of FL. Update-based approaches focus on extracting membership information from model updates exchanged between clients and the server, including model gradients and historical models throughout the federated learning process. In contrast, trend-based approaches analyze the evolving patterns of the training data to conduct MIAs, capitalizing on the observation that member samples exhibit distinct behaviors compared to non-member samples from an indicator perspective as the learning process progresses.
 
@@ -442,7 +444,7 @@ Various defenses have been proposed to alleviate the growing concerns regarding 
 |--|---------------------------------------------------------------------------|--|--|--|
 |  |                                                                           |  |  |  |
 
-# 5.1 Partial Sharing
+# 1 Partial Sharing
 
 Partial sharing aims to reduce the effectiveness of inference attacks by suppressing certain updates exchanged during the FL process. Since the internal state of FL models is susceptible to MIA attacks through sharing parameters or gradients, one straightforward approach is to limit the information available to adversaries by reducing the amount of data shared [\[66\]](#page-30-5). Defenses based on this category can be further divided into gradient compression and weight pruning.
 
@@ -462,7 +464,7 @@ An extreme solution for compression is to hide all raw gradient values and direc
 
 In a nutshell, partial sharing defense aims to exchange incomplete model updates to mitigate the threat of MIAs and lower communication costs without significant utility loss in FL. In addition, extreme compression methods can defend against other privacy and security threats, such as model inversion attacks [\[116,](#page-32-11) [118\]](#page-32-13) and Byzantine attacks [\[105\]](#page-32-0). However, such approaches only provide limited protection of membership privacy [\[17,](#page-28-3) [123\]](#page-32-18), as they often have to exchange gradients or parameters that contain essential information about the training data to maintain the original performance.
 
-## 5.2 Secure Aggregation
+## 2 Secure Aggregation
 
 Secure aggregation typically relies on cryptographic techniques to prevent information leakage from potential adversaries. The underlying idea is to disclose the encrypted model updates instead of the clear ones throughout the learning process. This privacy-preserving approach can be divided into secure multi-party computation (SMC) and homomorphic encryption (HE).
 
@@ -482,7 +484,7 @@ participants and the server. Designed for a cross-silo FL scenario, BatchCrypt [
 
 To summarize, secure aggregation utilizes encryption methods to reveal essential information to designated participants while safeguarding private data from being deduced [\[137\]](#page-33-9). Furthermore, it can deal with the encrypted updates without affecting the training results of the model [\[138\]](#page-33-10). Nonetheless, cryptographic algorithms introduce computational and communication overhead. Additionally, a curious participant may compromise the privacy of a global model protected by SMC and HE [\[30\]](#page-28-11).
 
-## 5.3 Noise Perturbation
+## 3 Noise Perturbation
 
 Noise perturbation relies on the idea that the introduction of noises can hinder adversaries from discerning sensitive information during inference. These noises are incorporated into the target model in accordance with privacy requirements or optimization objectives. This defense category contains both differential privacy (DP) and random perturbation.
 
@@ -524,7 +526,7 @@ Another research line within this type involves perturbing the model's input dat
 
 In short, noise perturbation reduces the dependence between model performance and input data to maintain private information by adding noise. Theoretical and empirical studies have demonstrated that DP schemes allow participants to maintain local data privacy within the FL framework. However, the effectiveness of DP often comes at the cost of significant utility loss, and it is challenging to select a suitable privacy budget to balance privacy and utility. In contrast, random perturbation adds well-crafted noises restricted by optimization objectives, leading to a better utility-privacy trade-off than DP.
 
-## 5.4 Anomaly Detection
+## 4 Anomaly Detection
 
 Anomaly detection is crucial in safeguarding FL processes by identifying irregular updates and thwarting malicious influences. Collaborative training renders FL models susceptible to malevolent manipulations like model and data poisoning. These attacks have given rise to innovative FL techniques known as poisoning MIAs [\[26,](#page-28-9) [48,](#page-29-12) [49\]](#page-29-13), which exploit vulnerabilities to enhance the leakage of membership information. Notably, the poisoning MIAs focus on sample-level privacy leakage, diverging from conventional model poisoning attacks that seek to compromise overall model performance. Robust aggregation algorithms such as Multi-Krum [\[152\]](#page-34-1), Trimmed-Mean [\[153\]](#page-34-2) and FLTrust [\[154\]](#page-34-3) are inadequate in countering this active threat [\[67\]](#page-30-6). Consequently, the anomaly detection approach are tailored to combat active MIAs in FL.
 
@@ -571,7 +573,7 @@ Table 9. A comparison of defense approaches in centralized and federated learnin
 
 <sup>1</sup> : unique defense G#: partially unique defense #: common defense
 
-# 5.5 Comparison to Defenses in Centralized Learning
+# 5 Comparison to Defenses in Centralized Learning
 
 This section discusses four strategies to mitigate MIAs in FL, but their capabilities to protect against attacks vary. Partial sharing hides certain updates to diminish the effectiveness of attacks, which can be applied to arbitrary threat models. Regarding secure aggregation utilizing cryptographic techniques, SMC and HE generally provide defense against server-side attacks but become ineffective to the inference performed by a client with legal access to the global model. One of the noise perturbation methods, DP offers a strict theoretical guarantee in safeguarding against attacks from all sides in an arbitrary strategy but with an inevitable utility loss, which motivates researchers to address this limitation by incorporating removable or well-crafted noises. The anomaly detection method is tailored to counter active attacks but proves ineffective against passive attacks. Table [8](#page-24-0) summarizes representative defense studies that have reported empirical performance in terms of release year, defender role, defense approach, corresponding MIAs (i.e., corres.attack), and comparison methods.
 
@@ -581,7 +583,7 @@ Moreover, our research explores a comparative analysis of mitigation strategies 
 
 The field of MIA privacy is rapidly evolving, presenting numerous challenges and opportunities. In the following, we discuss potential research directions on MIAs and defense strategies in the context of FL.
 
-## 6.1 Research Direction about Membership Inference Attacks
+## 1 Research Direction about Membership Inference Attacks
 
 Holistic Evaluation Metrics. The existing evaluation metrics for MIAs provide an incomplete picture of attack performance [\[157\]](#page-34-6). Although previous attacks perform well in the FL setting, their evaluation is focused only on member classes, such as the attack accuracy [\[17,](#page-28-3) [26,](#page-28-9) [29\]](#page-28-16), precision, and recall [\[27,](#page-28-10) [93\]](#page-31-9). Such evaluations are often misleading owing to high false positive rate (FPR) or false alarm rate (FAR), which inspires researchers to consider the performance of negative samples by adding FAR or TPR at low FPR [\[88,](#page-31-4) [157\]](#page-34-6). Furthermore, current metrics provide an average evaluation of record-level membership, which is unsuitable for source-level MIAs due to the non-IID phenomenon in FL. Hence, it is necessary to develop a comprehensive and fair evaluation metric for various MIAs.
 
@@ -593,7 +595,7 @@ Attacks toward Emerging Frameworks. The membership privacy risks associated with
 
 Emsembled Attack Strategies. Considering that FL is susceptible to various security attacks, such as poisoning attacks [\[152,](#page-34-1) [163–](#page-34-12)[166\]](#page-34-13) and backdoor attacks [\[167–](#page-34-14)[170\]](#page-34-15), there is an opportunity for future work to incorporate these attacks to enhance the effectiveness of existing MIA techniques or develop potent attack approaches. In particular, data poisoning techniques have emerged as a significant concern, as they can significantly increase the privacy risks associated with benign training samples and amplify the membership exposure of the targeted class effectively [\[48,](#page-29-12) [49,](#page-29-13) [100\]](#page-31-16). Reasons for Information Leakage. The comprehensive analysis of membership information leakage in the context of FL remains inadequate. In the CL scenario, there is considerable evidence that overfitting facilitates the success of MIAs in the black setting [\[22,](#page-28-18) [85,](#page-31-1) [86,](#page-31-2) [89,](#page-31-5) [112\]](#page-32-7). In contrast, regarding white-box FL models, internal exposure, non-IID training samples, and cooperative learning offer adversaries more opportunities [\[26\]](#page-28-9). They present challenges in exploring the underlying reasons behind these factors theoretically and empirically. Such investigations can uncover vulnerabilities within the FL framework and advance the development of effective attack approaches.
 
-# 6.2 Research Direction about Membership Inference Defenses
+# 2 Research Direction about Membership Inference Defenses
 
 Unified Evaluation Benchmark. There is a lack of a standardized evaluation benchmark for assessing the effectiveness of defense mechanisms. Currently, countermeasures are typically evaluated based on distinct MIAs [\[29,](#page-28-16) [36,](#page-29-0) [62\]](#page-30-1) or discussed generally without experimental evidence [\[128,](#page-33-0) [129\]](#page-33-1). Although several researchers [\[65,](#page-30-4) [66,](#page-30-5) [120,](#page-32-15) [150\]](#page-33-22) have evaluated the effectiveness of defense strategies for the same MIAs [\[26\]](#page-28-9), their results cannot be compared owing to the use of different datasets and networks. Consequently, it is challenging to identify suitable mitigation mechanisms for a defender. A unified evaluation benchmark can address this problem and provide valuable guidance in making practical choices.
 

@@ -1,8 +1,10 @@
-## **OPEN**
+<!-- cite_key: zhang_2024_a_novel_customizing -->
+
+# OPEN
 
 ![](_page_0_Picture_3.jpeg)
 
-# **A novel customizing knowledge graph evaluation method for incorporating user needs**
+# A novel customizing knowledge graph evaluation method for incorporating user needs
 
 **Ying Zhang**\* **& Gang Xiao**
 
@@ -27,17 +29,17 @@ Our proposed evaluation method is based on the situation that user behavior rema
 - We present a new methodology for assessing the accuracy of knowledge graphs, which, to our knowledge, is the frst accuracy assessment study to incorporate user usage requirements.
 - Results on a standard dataset show that our method uses a minimum number of samples while ensuring that the bias is as small as possible, yielding reliable accuracy assessment results of practical signifcance in an efcient and cost-saving way.
 
-#### **Related work**
+## Related work
 
 Most of the existing research is centered around the assessment of the accuracy of knowledge graphs. Since the accuracy of knowledge graphs mainly depends on the knowledge sources and the process of constructing knowledge graphs, the assessment methods are mainly designed for the detection of error triples introduced by
 
-2
+
 
 this process. As shown in Table [1](#page-2-0), currently, common methods include the accuracy verifcation method using external data resources represented by Huaman et al.[27](#page-10-9), which mainly assesses the accuracy of the knowledge graph by setting corresponding weights for knowledge from diferent sources. Firstly, through entity matching, the same entities are sequentially obtained from diferent external data sources for comparison, and then the score of each entity is obtained. Similarly, the relevant information is obtained sequentially from diferent external data resources to score the triples associated with the entities, and the confdence scores of the triples are added to the scores of the corresponding entities to obtain the aggregated confdence scores of the entities. Second, some methods rely purely on model stacking to score triples. For example, Jia et al.[28](#page-10-10) evaluated the following three aspects in turn by stringing together three mini-models: the strength of correlation between entities, the satisfaction of translational invariance of relationship vectors, and the existence of reachable paths between head and tail entities. By relying on the model to make full use of the internal semantic information of the triples and the global inference information of the KG for a comprehensive assessment of the knowledge graph. Zhao et al[.31](#page-10-11) assessed the accuracy of the triples using the knowledge graph embedding method, by using the maximum expectation algorithm to combine the knowledge graph embedding model and the logic rules to encode the basic semantics of BioKG, a knowledge graph in the feld of biomedicine, and to judge the correctness of its triple's correctness. Tere are also evaluation methods that combine external knowledge, for example, Zhou et al.[30](#page-10-12) rely on crowdsourcing and neural networks to evaluate the quality of paths in the knowledge graph. Te training dataset is frst constructed by selecting more accurate, logical, and natural paths among the manually annotated paths, followed by using the resulting paths to train a neural network to predict potential path scores.
 
 Although the above studies on knowledge graph accuracy measurement are continuously deepening, many studies focus on improving the accuracy results through time-consuming and labor-intensive methods such as model stacking and incorporating external data resources. Te accuracy results obtained in the end are only slightly improved, and the degree of improvement is far from proportional to the cost incurred. In addition, the original purpose of the evaluation is to assist users in selecting a more appropriate, high-quality knowledge graph that better meets their needs. And the biggest quality problem is the lack of understanding of the requirements, and these methods ignore the actual needs of users in the actual evaluation process. As a result, the evaluation results are not diferent for any usage needs, and these methods treat every triple in the knowledge graph equally, even if it is outdated or will not be used in the future.
 
-#### **Methodology**
+### Methodology
 
 To solve the above problems, we propose a new sampling method EP-TWCS based on users' usage requirements to evaluate the accuracy of knowledge graphs. Our evaluation method assigns diferent weights to diferent entities based on users' usage needs, which makes the fnal accuracy evaluation results more representative. Meanwhile, in the process of sampling entity clusters, additional reference indicators are introduced to further ensure the precision of the measured accuracy and the use of as few samples as possible.
 
@@ -61,7 +63,7 @@ In this section, we describe the approach for knowledge graph accuracy assessmen
 
 in excessive time and labor costs. Next, we consider the user's usage needs and take the accuracy rate of entities with high popularity that are frequently queried and accessed by the user as the user-need-based knowledge graph accuracy rate, to obtain the accuracy assessment results that are more meaningful to the user. Te following are the specifc steps for the accuracy assessment of the knowledge graph based on users' needs.
 
-#### **Preparation step**
+#### Preparation step
 
 Te preparation step requires segmenting the knowledge graph based on entity clusters, calculating entity popularity, and setting the maximum error rate ε acceptable to the user.
 
@@ -81,13 +83,13 @@ $$
 
 where n is the sample size, and z corresponds to the z-value of the standard normal distribution at the selected confdence level, while p represents the probability of correct triples occurring in the current sample. If the computed MoE is greater than the error rate ε, it indicates that the current sample size is insufcient to ensure the desired precision of the estimate, thus necessitating further expansion of the sampling size. Conversely, only when the MoE decreases to less than the error rate ε do we consider the current sample sufcient to refect the characteristics of the population, thereby halting further sampling processes. Trough such a control mechanism, we further ensure the robustness and reliability of the fnal computed results.
 
-4
 
-#### **Sampling step**
+
+#### Sampling step
 
 To save labor and improve efciency, we propose to prioritize the sampling method of entity clusters in the knowledge graph based on two-stage weighted cluster sampling (TWCS). Te entity clusters are frst sorted in descent order based on the entity popularity wpi obtained in the previous step. Ten, the clusters with high popularity are sampled frst, and min nclusteri , n samples are randomly drawn from these clusters, where nclusteri is the number of triples contained in the i th entity cluster, and n is the maximum number of samples that can be drawn from each entity cluster by calculation. Ten, the current error rate MoE is calculated, if the error rate MoE is lower than ε, then stop sampling, otherwise, continue sampling until the error rate MoE is lower than the user-set ε. Eventually, the total sample capacity is NTWCS, and the deviation of the accuracy assessment result obtained by the third step does not exceed the pre-set ε.
 
-#### **Computation step**
+#### Computation step
 
 When evaluating the accuracy of knowledge graphs through sampling methods, as only a portion of the samples can typically be observed, and samples represent only a fraction of the entire population, we need a method to estimate the diference between our estimated value and the true value. In this scenario, confdence intervals ofer an efective approach to assess the uncertainty of accuracy estimation and provide a reliable means to quantify our confdence level in accuracy estimation[32](#page-10-13).
 
@@ -108,15 +110,15 @@ $$
 
 Te resulting confdence interval provides a measure of uncertainty for estimating the accuracy of the knowledge graph. Te calculated outcome represents the level of confdence we have in the estimated accuracy µˆ <sup>C</sup> of the knowledge graph based on user requirements, given a specifc confdence level (or when the margin of error MoE is lower than ε). Te confdence interval indicates the range within which the true accuracy is estimated to fall with a certain probability.
 
-#### **Experiments Datasets**
+#### Experiments Datasets
 
 To evaluate the proposed accuracy assessment method, we use the NELL knowledge graph. NELL is a domain knowledge graph extracted from NELL-Sports, which involves a total of 14 categories of sports, teams, athletes, coaches, etc., with 817 entities, where an entity corresponds to a maximum of 28 triples and a minimum of 1 triple. Afer manual annotation, the actual accuracy of the NELL knowledge graph is 91.3%. In addition, we also utilized the YAGO and MOVIE knowledge graphs. YAGO, a non-domain-specifc subset of YAGO2, consists of 822 entities, with each entity having a maximum of 37 triples and a minimum of 1 triple, achieving an actual accuracy rate of 99%. Te MOVIE knowledge graph comprises a total of 1156 movie entities, with each entity having a maximum of 3 triples and a minimum of 1 triple, with an actual accuracy rate of 90%. In addition, by modifying [https://wikimedia.org/api/rest\\_v1/metrics/pageviews/perarticle/de.wikipedia/all-access/user/entity\\_](https://wikimedia.org/api/rest_v1/metrics/pageviews/perarticle/de.wikipedia/all-access/user/entity_name/daily/) [name/daily/](https://wikimedia.org/api/rest_v1/metrics/pageviews/perarticle/de.wikipedia/all-access/user/entity_name/daily/) start\_time/end\_time's entity\_name feld as well as the start\_time and end\_time felds (in the format of YYYYMMDD), it is possible to crawl to obtain the frequency of diferent entities being accessed in Wikipedia during the corresponding period. We set the time in the range of 25 May 2023 to 1 June 2023. By following the above steps, we sequentially obtained the entity popularity distributions for the NELL, YAGO, and MOVIE knowledge graphs. As shown in Figs. [2](#page-5-0), [3,](#page-5-1) and [4](#page-5-2), we can observe that in knowledge graphs across diferent domains, there are quite a few entities that have had almost no query records during this period. Te possibility of queries revolves mainly around certain important entities.
 
-#### **Settings**
+#### Settings
 
 All this experiment was conducted under the condition that ε is 5% and the confdence level is 95%. To avoid the situation where the triples with the high weights are all correct and cause the MoE to fall below ε prematurely, thus rendering the accuracy results obtained irrelevant, we sampled the top 1% of the prevalence entities beforehand to test the accuracy.
 
-#### **Result and discussion**
+#### Result and discussion
 
 When diferent values of n are taken, 100 experiments were conducted for the NELL, YAGO, and MOVIE knowledge graphs, yielding evaluation results as shown in Tables [2](#page-5-3), [3,](#page-6-0) and [4](#page-6-1) respectively (the data shown are in the case of stabilization of the accuracy). Furthermore, for reference, Tables [5,](#page-6-2) [6](#page-6-3), and [7](#page-6-4) respectively present the experimental results obtained using Simple Random Sampling (SRS), Random Cluster Sampling (RCS), Weighted
 
@@ -182,7 +184,7 @@ For NELL, during the experiment, we observed that when n=1, the sampling method 
 
 To evaluate the accuracy of our method, we computed all triplets sampled from entity clusters in the NELL dataset, obtaining a true accuracy of 95.5%. Combining the experimental results presented in Table [2,](#page-5-3) it can be
 
-7
+
 
 observed that the average accuracy measured in the evaluation gradually converges towards the true accuracy. Te deviation from the actual accuracy decreases gradually with increasing n, reaching a maximum of 0.9%. Ultimately, when n is greater than or equal to 8, the experimentally obtained average accuracy aligns with the true value, with only 67 samples required. Tis indicates that our proposed method provides accuracy assessment results that are not only efective but also more valuable for users. Specifcally, from the experimental results in Table [2](#page-5-3), we also observed instability in accuracy assessment results, confdence intervals, and sample sizes when n is less than 8, showing some fuctuation and bias. However, these metrics stabilize when n is greater than or equal to 8. Hence, it is evident that n=8 serves as the critical threshold for accuracy assessment in NELL. Based on this, we have discussed the diferent values of n, using the second half of the accuracy confdence interval (confdence interval=estimate±critical value×error) as a refection of the stability of n values. Te results, as shown in Fig. [5](#page-7-0), clearly illustrate that the relationship between n and bias roughly follows an "L"-shaped curve, with bias values gradually stabilizing as n increases, and stabilizing at a specifc value when n=8. Concurrently, referring to Table [5](#page-6-2), accuracy stabilizes and approaches the true accuracy at n=8.
 
@@ -194,9 +196,9 @@ To further validate the generality and applicability of our proposed method, ide
 
 ![](_page_7_Figure_5.jpeg)
 
-#### <span id="page-7-1"></span>**Figure 6.** Line graph of n taken as a function of bias (YAGO).
+#### <span id="page-7-1"></span>Figure 6. Line graph of n taken as a function of bias (YAGO).
 
-<span id="page-7-0"></span>**Figure 5.** Line graph of n taken as a function of bias (NELL).
+<span id="page-7-0"></span>**Figure 5.**Line graph of n taken as a function of bias (NELL).
 
 point, the accuracy of 96.8% is closest to the true accuracy of 96.72%, with only 30 samples required. Additionally, in conjunction with Fig. [6](#page-7-1), it can be observed that the bias curve begins to stabilize when n is greater than or equal to 5. Terefore, for YAGO, n=5 serves as the critical threshold for accuracy assessment, indicating that the accuracy measured at n=5 is closest to the true accuracy. Ultimately, our proposed evaluation method for YAGO requires only 30 samples, compared to other evaluation methods presented in Table [6](#page-6-3), which also avoids the sampling and manual annotation of irrelevant triples, achieving accurate assessment at minimal sample size and low cost (Table [7\)](#page-6-4).
 
@@ -225,75 +227,72 @@ $$
 
 In summary, when we know the average size of the entity clusters, the size of the largest cluster, the size of the smallest cluster, and the number of triples contained in the current knowledge graph, we can easily fnd the number of samples currently required for calculating the accuracy of the user-needs-based knowledge graph, by using the formulas mentioned above. Compared with the previous sampling method, our user-needs-centered computation method does not need to involve more entity clusters in sampling, which saves expensive manual annotation costs and ensures the accuracy of the evaluation results.
 
-#### **Conclusion**
+#### Conclusion
 
 In this paper, a new method for evaluating the accuracy of knowledge graphs tailored to user needs has been successfully developed. Trough innovative expansions in sampling strategies, the method achieves a signifcant reduction in sample requirements and costs while maintaining high accuracy, thus efectively generating evaluation reports more practically valuable to users. Tis method is particularly suitable for application scenarios that prioritize user actual needs and seek efcient and cost-efective evaluation solutions. Specifcally, the core contribution of this method lies in shifing the evaluation focus from purely the data level to the user's actual needs, ensuring that the evaluation results closely align with user application scenarios. In the future, we plan to further integrate user requirements with other dimensions of knowledge graph quality to achieve comprehensive and efcient comprehensive evaluations of their quality. We are committed to exploring more economical and convenient approaches to optimize and enrich the knowledge content required by users while saving computing resources and manpower.
 
-#### **Data availability**
+#### Data availability
 
 Te datasets used during the current study are available from the corresponding author on reasonable request.
 
 Received: 28 November 2023; Accepted: 17 April 2024
 
-#### **References**
+#### References
 
-- <span id="page-9-0"></span>1. Wang, X. *et al.* Knowledge graph quality control: A survey. *Fund. Res.* **1**(5), 607–626 (2021).
-- 2. Xue, B. & Zou, L. Knowledge graph quality management: a comprehensive survey. *IEEE Trans. Knowl. Data Eng.* [https://doi.org/](https://doi.org/10.1109/TKDE.2022.3150080) [10.1109/TKDE.2022.3150080](https://doi.org/10.1109/TKDE.2022.3150080) (2022).
-- 3. Issa, S. *et al.* Knowledge graph completeness: A systematic literature review. *IEEE Access* **9**, 31322–31339 (2021).
+- <span id="page-9-0"></span>1. Wang, X.*et al.*Knowledge graph quality control: A survey.*Fund. Res.* **1**(5), 607–626 (2021).
+- 2. Xue, B. & Zou, L. Knowledge graph quality management: a comprehensive survey. *IEEE Trans. Knowl. Data Eng.*[https://doi.org/](https://doi.org/10.1109/TKDE.2022.3150080) [10.1109/TKDE.2022.3150080](https://doi.org/10.1109/TKDE.2022.3150080) (2022).
+- 3. Issa, S.*et al.*Knowledge graph completeness: A systematic literature review.*IEEE Access* **9**, 31322–31339 (2021).
 - 4. Chen, H., Cao, G., Chen, J., & Ding, J. A practical framework for evaluating the quality of knowledge graph. In *Knowledge Graph and Semantic Computing: Knowledge Computing and Language Understanding: 4th China Conference, CCKS 2019, Hangzhou, China*, August 24–27, 2019, Revised Selected Papers 4 (pp. 111–122). Springer Singapore. (2019).
-- <span id="page-9-1"></span>5. He, Q. *et al.* ISLKG: Te Construction of island knowledge graph and knowledge reasoning. *Sustainability* **15**(17), 13189 (2023).
-- <span id="page-9-2"></span>6. Fensel, D. *et al. Knowledge Graphs* (Springer, 2020).
-- <span id="page-9-3"></span>7. Jain, N., Tran, T. K., Gad-Elrab, M. H., & Stepanova, D. Improving knowledge graph embeddings with ontological reasoning. In *International Semantic Web Conference (pp. 410–426)*. Cham: Springer International Publishing (2021).
+- <span id="page-9-1"></span>5. He, Q. *et al.*ISLKG: Te Construction of island knowledge graph and knowledge reasoning.*Sustainability* **15**(17), 13189 (2023).
+- <span id="page-9-2"></span>6. Fensel, D. *et al. Knowledge Graphs*(Springer, 2020).
+- <span id="page-9-3"></span>7. Jain, N., Tran, T. K., Gad-Elrab, M. H., & Stepanova, D. Improving knowledge graph embeddings with ontological reasoning. In*International Semantic Web Conference (pp. 410–426)*. Cham: Springer International Publishing (2021).
 - <span id="page-9-4"></span>8. Zamini, M., Reza, H. & Rabiei, M. A review of knowledge graph completion. *Information* **13**(8), 396 (2022).
-- <span id="page-9-6"></span><span id="page-9-5"></span>9. Shen, T., Zhang, F. & Cheng, J. A comprehensive overview of knowledge graph completion. *Knowl. Based Syst.* **255**, 109597 (2022). 10. Teis, S., *et al.* Requirements for explainability and acceptance of artifcial intelligence in collaborative work. In *International*
-- <span id="page-9-7"></span>*Conference on Human-Computer Interaction* (pp. 355–380). Cham: Springer Nature Switzerland (2023). 11. Tiddi, I. & Schlobach, S. Knowledge graphs as tools for explainable machine learning: A survey. *Artif. Intell.* **302**, 103627 (2022).
-- <span id="page-9-8"></span>12. Chen, Z. *et al.* Knowledge graph completion: A review. *IEEE Access* **8**, 192435–192456 (2020).
+- <span id="page-9-6"></span><span id="page-9-5"></span>9. Shen, T., Zhang, F. & Cheng, J. A comprehensive overview of knowledge graph completion. *Knowl. Based Syst.* **255**, 109597 (2022). 10. Teis, S., *et al.*Requirements for explainability and acceptance of artifcial intelligence in collaborative work. In*International*
+- <span id="page-9-7"></span>*Conference on Human-Computer Interaction*(pp. 355–380). Cham: Springer Nature Switzerland (2023). 11. Tiddi, I. & Schlobach, S. Knowledge graphs as tools for explainable machine learning: A survey.*Artif. Intell.* **302**, 103627 (2022).
+- <span id="page-9-8"></span>12. Chen, Z. *et al.*Knowledge graph completion: A review.*IEEE Access* **8**, 192435–192456 (2020).
 - <span id="page-9-12"></span><span id="page-9-9"></span>13. Abu-Salih, B. Domain-specifc knowledge graphs: A survey. *J. Netw. Comput. Appl.* **185**, 103076 (2021).
 - 14. Chen, X., Jia, S. & Xiang, Y. A review: Knowledge reasoning over knowledge graph. *Expert Syst. Appl.* **141**, 112948 (2020).
-- <span id="page-9-10"></span>15 Bonner, S. *et al.* A review of biomedical datasets relating to drug discovery: a knowledge graph perspective. *Brief. Bioinf.* **23**(6), bbac404 (2022).
-- <span id="page-9-11"></span>16. Zhang, N., *et al.* Relation adversarial network for low resource knowledge graph completion. In *Proceedings of the web conference 2020* (pp. 1–12). (2020).
-- <span id="page-9-13"></span>17. Rossanez, A., Dos Reis, J. C., Torres, R. D. S. & de Ribaupierre, H. KGen: A knowledge graph generator from biomedical scientifc literature. *BMC Med. Inf. Decis. Mak.* **20**(4), 1–24 (2020).
+- <span id="page-9-10"></span>15 Bonner, S. *et al.*A review of biomedical datasets relating to drug discovery: a knowledge graph perspective.*Brief. Bioinf.* **23**(6), bbac404 (2022).
+- <span id="page-9-11"></span>16. Zhang, N., *et al.*Relation adversarial network for low resource knowledge graph completion. In*Proceedings of the web conference 2020*(pp. 1–12). (2020).
+- <span id="page-9-13"></span>17. Rossanez, A., Dos Reis, J. C., Torres, R. D. S. & de Ribaupierre, H. KGen: A knowledge graph generator from biomedical scientifc literature.*BMC Med. Inf. Decis. Mak.* **20**(4), 1–24 (2020).
 
 - <span id="page-10-0"></span>18. Su, Q., Wan, M., Liu, X. & Huang, C. R. Motivations, methods and metrics of misinformation detection: An NLP perspective. *Nat. Lang. Process. Res.* **1**(1–2), 1–13 (2020).
-- <span id="page-10-1"></span>19. Sun, H. *et al.* Medical knowledge graph to enhance fraud, waste, and abuse detection on claim data: Model development and performance evaluation. *JMIR Med. Inf.* **8**(7), e17653 (2020).
-- <span id="page-10-2"></span>20. Abacha, A. B., Yim, W. W., Michalopoulos, G., & Lin, T. An Investigation of Evaluation Methods in Automatic Medical Note Generation. In *Findings of the Association for Computational Linguistics: ACL 2023* (pp. 2575–2588) (2023).
-- <span id="page-10-3"></span>21. Noy, N. *et al.* Industry-scale knowledge graphs: Lessons and challenges: Five diverse technology companies show how it's done. *Queue* **17**(2), 48–75 (2019).
+- <span id="page-10-1"></span>19. Sun, H. *et al.*Medical knowledge graph to enhance fraud, waste, and abuse detection on claim data: Model development and performance evaluation.*JMIR Med. Inf.* **8**(7), e17653 (2020).
+- <span id="page-10-2"></span>20. Abacha, A. B., Yim, W. W., Michalopoulos, G., & Lin, T. An Investigation of Evaluation Methods in Automatic Medical Note Generation. In *Findings of the Association for Computational Linguistics: ACL 2023*(pp. 2575–2588) (2023).
+- <span id="page-10-3"></span>21. Noy, N.*et al.*Industry-scale knowledge graphs: Lessons and challenges: Five diverse technology companies show how it's done.*Queue* **17**(2), 48–75 (2019).
 - <span id="page-10-4"></span>22. Wang, J., Wang, X., Ma, C. & Kou, L. A survey on the development status and application prospects of knowledge graph in smart grids. *IET Gener. Transmiss. Distrib.* **15**(3), 383–407 (2021).
 - <span id="page-10-5"></span>23. Xiao, G., Ding, L., Cogrel, B. & Calvanese, D. Virtual knowledge graphs: An overview of systems and use cases. *Data Intell.* **1**(3), 201–223 (2019).
-- <span id="page-10-6"></span>24. Auer, S. *et al.* Improving access to scientifc literature with knowledge graphs. *Bibliothek Forschung und Praxis* **44**(3), 516–529 (2020).
-- <span id="page-10-7"></span>25. Zhu, Y. *et al.* Knowledge-driven drug repurposing using a comprehensive drug knowledge graph. *Health Inf. J.* **26**(4), 2737–2750 (2020).
+- <span id="page-10-6"></span>24. Auer, S. *et al.*Improving access to scientifc literature with knowledge graphs.*Bibliothek Forschung und Praxis* **44**(3), 516–529 (2020).
+- <span id="page-10-7"></span>25. Zhu, Y. *et al.*Knowledge-driven drug repurposing using a comprehensive drug knowledge graph.*Health Inf. J.* **26**(4), 2737–2750 (2020).
 - <span id="page-10-8"></span>26. Cao, M., Zhang, J., Xu, S., & Ying, Z. Knowledge graphs meet crowdsourcing: a brief survey. In *Cloud Computing: 10th EAI International Conference, CloudComp 2020, Qufu, China, December 11–12, 2020*, Proceedings 10 (pp. 3–17). Springer International Publishing (2021).
-- <span id="page-10-9"></span>27. Huaman, E., Tauqeer, A., & Fensel, A. Towards knowledge graphs validation through weighted knowledge sources. In *Iberoamerican Knowledge Graphs and Semantic Web Conference* (pp. 47–60). Cham: Springer International Publishing (2021).
-- <span id="page-10-10"></span>28. Jia, S., Xiang, Y., Chen, X., & Wang, K. Triple trustworthiness measurement for knowledge graph. In *Te World Wide Web Conference* (pp. 2865–2871) (2019).
-- <span id="page-10-14"></span>29. Gao, J., *et al.* Efcient knowledge graph accuracy evaluation. Preprint at [arXiv:1907.09657](http://arxiv.org/abs/1907.09657) (2019)
-- <span id="page-10-12"></span>30. Zhou, Y., Schockaert, S., & Shah, J. Predicting conceptnet path quality using crowdsourced assessments of naturalness. In *Te World Wide Web Conference* (pp. 2460–2471) (2019).
+- <span id="page-10-9"></span>27. Huaman, E., Tauqeer, A., & Fensel, A. Towards knowledge graphs validation through weighted knowledge sources. In *Iberoamerican Knowledge Graphs and Semantic Web Conference*(pp. 47–60). Cham: Springer International Publishing (2021).
+- <span id="page-10-10"></span>28. Jia, S., Xiang, Y., Chen, X., & Wang, K. Triple trustworthiness measurement for knowledge graph. In*Te World Wide Web Conference*(pp. 2865–2871) (2019).
+- <span id="page-10-14"></span>29. Gao, J.,*et al.*Efcient knowledge graph accuracy evaluation. Preprint at [arXiv:1907.09657](http://arxiv.org/abs/1907.09657) (2019)
+- <span id="page-10-12"></span>30. Zhou, Y., Schockaert, S., & Shah, J. Predicting conceptnet path quality using crowdsourced assessments of naturalness. In*Te World Wide Web Conference*(pp. 2460–2471) (2019).
 - <span id="page-10-11"></span>31. Zhao, S., Qin, B., Liu, T., & Wang, F. Biomedical knowledge graph refnement with embedding and logic rules. Preprint at [arXiv:](http://arxiv.org/abs/2012.01031) [2012.01031](http://arxiv.org/abs/2012.01031) (2020).
-- <span id="page-10-13"></span>32. Gerber, D. *et al.* Defacto—Temporal and multilingual deep fact validation. *J. Web Semant.* **35**, 85–101 (2015).
+- <span id="page-10-13"></span>32. Gerber, D.*et al.*Defacto—Temporal and multilingual deep fact validation.*J. Web Semant.* **35**, 85–101 (2015).
 
-#### **Acknowledgements**
+#### Acknowledgements
 
 Te authors would like to thank the Institute of Systems Engineering related to this work for their support.
 
-#### **Author contributions**
+#### Author contributions
 
 Y.Z. designed and performed the experiments and analyzed the data. Y.Z. wrote the manuscript in consultation with G.X.
 
-### **Funding**
+### Funding
 
 This work was supported by the National Key Laboratory for Complex Systems Simulation Foundation (NO.6142006190301).
 
-#### **Competing interests**
+#### Competing interests
 
 Te authors declare no competing interests.
 
-#### **Additional information**
+#### Additional information
 
-**Correspondence** and requests for materials should be addressed to Y.Z.
-
-**Reprints and permissions information** is available at [www.nature.com/reprints.](www.nature.com/reprints)
-
-**Publisher's note** Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional afliations.
-
+**Correspondence**and requests for materials should be addressed to Y.Z.
+**Reprints and permissions information**is available at [www.nature.com/reprints.](www.nature.com/reprints)
+**Publisher's note**Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional afliations.
 **Open Access** Tis article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. Te images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit<http://creativecommons.org/licenses/by/4.0/>.
 
 © Te Author(s) 2024

@@ -1,21 +1,16 @@
+<!-- cite_key: replication2022 -->
+
 # A Systematic Review on Human Modeling: Digging into Human Digital Twin Implementations
 
 Heribert Pascual\* , Xavi Masip-Bruin\* , Albert Alonso\*\*, Judit Cerdá \*
 
 *\*Advanced Network Architectures Lab (CRAAX), UPC Barcelona Tech \*\*Fundació Clínic per a la Recerca Biomèdica (FCRB), Barcelona {heribert.pascual, xavier.masip, judit.cerda}@upc.edu; aalonso@recerca.clinic.cat*
 
-*Abstract* **— Human Digital Twins (HDTs) are digital replicas of humans that either mirror a complete human body, some parts of it –as can be organs, flows, cells–, or even human behaviors. An HDT is a human specific replica application inferred from the digital twin (DT) manufacturing concept, defined as a technique that creates digital replicas of physical systems or processes aimed at optimizing their performance and supporting more accurate decision-making processes. The main goal of this paper is to provide readers with a comprehensive overview of current efforts in the HDT field, by browsing its basic concepts, differences with DTs, existing developments, and the distinct areas of application. The review methodology includes an exhaustive review of scientific literature, patents, and industrial initiatives, as well as a discussion about ongoing and foreseen HDT research activity, emphasizing its potential benefits and limitations.**
-
-#### *Keywords* **–** *Digital Twin, Human Digital Twin, modelling*
-
-#### I. INTRODUCTION AND MOTIVATION
+*Abstract* **— Human Digital Twins (HDTs) are digital replicas of humans that either mirror a complete human body, some parts of it –as can be organs, flows, cells–, or even human behaviors. An HDT is a human specific replica application inferred from the digital twin (DT) manufacturing concept, defined as a technique that creates digital replicas of physical systems or processes aimed at optimizing their performance and supporting more accurate decision-making processes. The main goal of this paper is to provide readers with a comprehensive overview of current efforts in the HDT field, by browsing its basic concepts, differences with DTs, existing developments, and the distinct areas of application. The review methodology includes an exhaustive review of scientific literature, patents, and industrial initiatives, as well as a discussion about ongoing and foreseen HDT research activity, emphasizing its potential benefits and limitations.**##*Keywords*–*Digital Twin, Human Digital Twin, modelling*### I. INTRODUCTION AND MOTIVATION
 
 Human digital twins (HDTs) are digital replicas of either a human body or some of its organs, used in many distinct sectors and verticals, including health (e.g. monitoring diseases progression), sport (e.g. supervising athlete's performance), or manufacturing (e.g. scheduling tasks in factories), just to name a few. An HDT is an extension of the digital twin (DT) concept, standing for the creation of digital replicas of physical systems or processes in order to both optimizing their performance and improving the decisionmaking processes. It is largely known the fact that nowadays the concept of DTs is gaining popularity, thus being applied in a wide range of sectors.
 
-#### *A. Motivation*
-
-The main goal of this survey is to provide readers with a comprehensive overview of current HDT efforts, particularly focusing on the following objectives:
-
+####*A. Motivation*The main goal of this survey is to provide readers with a comprehensive overview of current HDT efforts, particularly focusing on the following objectives:
 *1) To understand the basic concepts of a DT, including its definition, types, life cycle, and characteristics, thus easing readers to acquire the necessary background about DTs, particularly including their capabilities and limitations, making it easier for them to contextualize HDTs within the broader field of DT.*
 
 *2) To introduce the HDT concept and explain the key differences vs a DT, also illustrating how a HDT may be used.*
@@ -24,19 +19,13 @@ The main goal of this survey is to provide readers with a comprehensive overview
 
 *4) To identify the main sectors HDTs are being and will be applied to, thus emphasizing potential HDTs applicability as well as how different sectors may benefit from its deployment.*
 
-*5) To analyze the rationales for HDTs to be used in all envisioned specific verticals, emphasizing specific goals, challenges and research objectives, while also highlighting potential benefits and limitations..*
+*5) To analyze the rationales for HDTs to be used in all envisioned specific verticals, emphasizing specific goals, challenges and research objectives, while also highlighting potential benefits and limitations..*####*B. The Digital Twin Concept (DT)*A DT is a virtual replica of a physical system, process, or product, that is periodically updated with data collected from its corresponding physical entity and environment. By replicating the behavior of the physical entity under different conditions and analyzing the results, DTs can be used to optimize performance, prevent hardware failures, anticipate maintenance needs, and simulate processes by sending the actuations over its physical entity. The concept of DTs has been widely studied, as summarized in section 2A.
 
-#### *B. The Digital Twin Concept (DT)*
-
-A DT is a virtual replica of a physical system, process, or product, that is periodically updated with data collected from its corresponding physical entity and environment. By replicating the behavior of the physical entity under different conditions and analyzing the results, DTs can be used to optimize performance, prevent hardware failures, anticipate maintenance needs, and simulate processes by sending the actuations over its physical entity. The concept of DTs has been widely studied, as summarized in section 2A.
-
-#### *C. The Human Digital Twin Concept (HDT)*
-
-HDTs apply the DT's replica concept to humans, thus creating digital replicas of either a human or part of it (e.g., organ). HDTs are created by first collecting data from various sources, such as cameras, sensors, wearables, medical devices, medical records, etc., and then using these data to build a digital model. As is later explained in this paper, this information may be processed using different technologies, e.g., Artificial Intelligence (AI), artificial vision, 3D simulations, rule based, etc. The rationale behind the DT concept makes it easier to assess that HDTs may be used to deploy proactive strategies that, in the case of humans, may notably contribute to several aspects, e.g. predict a disease behavior anticipate the disease status or performance of humans under several conditions and contexts (including for example healthcare, manufacturing, and sports), proactively support patient prognosis, etc.
+####*C. The Human Digital Twin Concept (HDT)*HDTs apply the DT's replica concept to humans, thus creating digital replicas of either a human or part of it (e.g., organ). HDTs are created by first collecting data from various sources, such as cameras, sensors, wearables, medical devices, medical records, etc., and then using these data to build a digital model. As is later explained in this paper, this information may be processed using different technologies, e.g., Artificial Intelligence (AI), artificial vision, 3D simulations, rule based, etc. The rationale behind the DT concept makes it easier to assess that HDTs may be used to deploy proactive strategies that, in the case of humans, may notably contribute to several aspects, e.g. predict a disease behavior anticipate the disease status or performance of humans under several conditions and contexts (including for example healthcare, manufacturing, and sports), proactively support patient prognosis, etc.
 
 Indeed, it is widely accepted that HDTs may have the potential to bring many notable benefits to humans, such as improving patients care, optimizing manufacturing processes, enhancing safety in transportation systems, or optimizing athletic performance, to name a few. For example, in health, HDTs can be used to predict the likelihood of a patient to develop a certain condition, or to evaluate the effectiveness of different treatment options. In manufacturing, HDTs can be used to optimize production schedules, thus improving quality. In transportation, HDTs can be used to optimize vehicles design, improve driver safety systems, and reduce accidents. Finally, in sports, HDTs can be used to evaluate training programs, optimize nutrition and hydration, and improve performance.
 
-# *D. Review Methodology*
+#*D. Review Methodology*
 
 A search was conducted in September 2022 in Google Scholar for the first 100 results ordered by relevance for the terms "human AND digital AND twin\*". The same search was also conducted in the Web of Science search engine. In this case 200 results were collected (half of them were patents), in order to analyze a similar volume of results on both searches. The results of both searches (different than patents), were put together in a list, from which repeated papers were eliminated. Only papers written in English were revised by two reviewers, and those that did not include implementation of HDT were rejected. Papers that were marked as not having any implementation by both reviewers were discarded. Papers positively marked by at least one reviewer were included in the eligibility phase. During the eligibility phase, each paper was revised in depth and given a score by the two reviewers, based on the proposal's feasibility, the implementation, and the overall proposal quality. The scores given by the reviewers could be zero, one, or two. Finally, only the most relevant and high-quality papers, as determined by a final score equal or greater than three, were included in the survey.
 
@@ -44,35 +33,28 @@ Patents that did not contain an English abstract were excluded from further anal
 
 Additionally, we undertook many different searches in some search engines looking for private companies' implementations, that allowed us to retrieve documents from grey literature. These private companies' implementations were also considered, as constituting part of the state-of-the art in HDT technology.
 
-# *E. Related Surveys*
+# *E. Related Surveys*Previous work has already been done to summarize the efforts in the DT area, turning into several surveys already published. These surveys are also revisited and analyzed in this paper. Particularly, surveys [1], [2], [3],[4], [5] providing a comprehensive overview of the DTs basic concepts from a global perspective, and surveys conducted on the DT topic [6], [7], [8] are interesting for further research in other areas of HDT, not just the implementation like, were considered.
 
-Previous work has already been done to summarize the efforts in the DT area, turning into several surveys already published. These surveys are also revisited and analyzed in this paper. Particularly, surveys [1], [2], [3],[4], [5] providing a comprehensive overview of the DTs basic concepts from a global perspective, and surveys conducted on the DT topic [6], [7], [8] are interesting for further research in other areas of HDT, not just the implementation like, were considered.
-
-### II. DIGITALTWIN BASIC CONCEPTS
+## II. DIGITALTWIN BASIC CONCEPTS
 
 The concept of a DT was first introduced by Dr. Michael Grieves in a course on Product Lifecycle Management at the University of Michigan, and later published in a whitepaper [9]. In 2010, NASA researchers published Grieves' idea in their roadmap [10] and began investigating ways to use DTs to reduce costs and resources in their space assets. Recently, the interest in DTs has grown significantly mainly motivated by current advances in network capabilities, data collection and delivery technologies (leveraging concepts such as the Internet of Things, big data, and industry 4.0), as well as the availability of data.
 
 ![](_page_1_Figure_10.jpeg)
 
 In this context, DTs have become an important tool for simulating and analyzing the behavior and characteristics of physical entities. Some of the key features of DTs include their ability to:
-
 *1) Mimic the structure, environment, and behavior of physical entities.*
 
 *2) Be dynamically updated with data from the physical entity throughout its life cycle. DTs supporting near to real time updates are called active DTs, while semi-active DTs only support asynchronous updates.*
 
 *3) Perform simulations, detect failures, and make predictions about the performance of physical entities*
 
-*4) Transfer the outcome of simulations and analytics to the physical entity in order to improving its performance by both preventing hardware failures and/or malfunctions, and anticipating maintenance needs*
+*4) Transfer the outcome of simulations and analytics to the physical entity in order to improving its performance by both preventing hardware failures and/or malfunctions, and anticipating maintenance needs*In the following subsections, we will revise the definition, key features, life cycle, and characteristics of DTs, also revisiting some currently common uses for this technology, intended to provide the reader with a more thorough understanding of the concept and its key points.
 
-In the following subsections, we will revise the definition, key features, life cycle, and characteristics of DTs, also revisiting some currently common uses for this technology, intended to provide the reader with a more thorough understanding of the concept and its key points.
-
-#### *A. Definition*
+###*A. Definition*
 
 There is no a universally agreed definition of a DT within the scientific community, in the terms of what we may call a standard. However, several definitions may be found, customized to suit specific sectors and verticals. For example, the American Institute of Aeronautics and Astronautics (AIAA) [11], defines a DT as "*a set of virtual information constructs that mimics the structure, context, and behavior of an individual/unique physical asset, or a group of physical assets, is dynamically updated with data from its physical twin throughout its life cycle and informs decisions that realize value*". A slightly distinct approach by Rainer Stark and Thomas Damerau [12], defines a DT as "*A digital representation of an active unique product (real device, object, machine, service, or intangible asset) or unique product-service system (a system consisting of a product and a related service) that comprises its selected characteristics, properties, conditions, and behaviors by means of models, information, and data within a single or even across multiple life cycle phases*". Many other DT definitions exists [13], and even other similar concepts can be also found in the literature, such as digital mirroring and digital shadow, which are discussed in detail in [14] and [15].
 
-## *B. DT Types and Operation*
-
-There are several types of DT implementations as defined by Grieves and Vickers in [16], each of which serving a specific purpose.
+## *B. DT Types and Operation*There are several types of DT implementations as defined by Grieves and Vickers in [16], each of which serving a specific purpose.
 
 The DT Prototype (DTP) is a digital representation used for collecting data from physical systems or processes, often used as a test before creating other types of DTs. For instance, a manufacturer might use a DTP to collect data from a prototype of a new product to enhance its design and reduce costs. However, it cannot be considered a fully DT as it lacks feedback to the physical system.
 
@@ -100,9 +82,7 @@ Figure 3 Detail of DT communication channels
 
 The parameters referenced before include types of data, information, and processes. These parameters should be carefully chosen and regularly checked during the operation of the DT as their quantity and relevance can affect the DT's fidelity and performance.
 
-#### *C. DT Lifecycle Description*
-
-Figure 4 illustrates the typical procedure for the creation of a DT, which is divided into several phases.
+###*C. DT Lifecycle Description*Figure 4 illustrates the typical procedure for the creation of a DT, which is divided into several phases.
 
 ![](_page_3_Figure_3.jpeg)
 
@@ -118,21 +98,15 @@ During the retire phase, the DTIs and their corresponding DTA and virtual enviro
 
 generated throughout the entire DT lifecycle in the future to design similar products or processes, considering the potential issues that the previous version encountered.
 
-# *D. DT Characteristics*
-
-Two main characteristics may be emphasized for a DT to properly and accurately achieve its objectives, i.e., effective communication and proactive performance.
+#*D. DT Characteristics*Two main characteristics may be emphasized for a DT to properly and accurately achieve its objectives, i.e., effective communication and proactive performance.
 
 Effective communication is crucial for the success of a DT system. The physical and virtual representations must have a communication system enabling continuous and reliable exchange of information about the processes on each side. While the communication channels may utilize different network architectures and synchronization times, a DT isolated from the real-world data would not be effective. Through the communication channels, the DT receives dynamic information from the physical system or process to keep the virtual instance and its environment updated. Using this data, the DT can provide feedback to the physical system and other physical systems in similar environments. All data received, including data generated by the digital twin's processes, should be stored for the DT to access at any time as historical data.
 
 The other important aspect of the DT is its ability to be updated with new data, thus improving its predictive, corrective, and prescriptive capabilities and accurately reflecting the current state of the physical system or process. To this end, DTs often leverage novel technologies and tools, such as mathematical models, artificial intelligence algorithms, data analysis techniques, data dimensionality reduction, self-adaptation, and self-parameterization, to name a few. By using these technologies, the DT can perform its functions efficiently, achieving real-time cyber-physical synchronization, and users can interact with a virtual representation of the physical system or process to view its state, perform stress tests, or simply modify input parameters to predict the final result.
 
-# *E. Key DT Verticals*
+#*E. Key DT Verticals*The following subsections present the most common verticals for DT, each introducing some specific use cases.
 
-The following subsections present the most common verticals for DT, each introducing some specific use cases.
-
-## *1) Manufacturing*
-
-The DT concept has gained widespread adoption in the manufacturing industry [7] mainly because this was the seed vertical other sectors mirrored in. Within the manufacturing sector, DTs are used for two main purposes: products and manufacturing processes. The data collected from DTs help companies to make informed decisions about products and processes, resulting in time and cost savings as well as in increased efficiency.
+##*1) Manufacturing*The DT concept has gained widespread adoption in the manufacturing industry [7] mainly because this was the seed vertical other sectors mirrored in. Within the manufacturing sector, DTs are used for two main purposes: products and manufacturing processes. The data collected from DTs help companies to make informed decisions about products and processes, resulting in time and cost savings as well as in increased efficiency.
 
 On the one hand, in the product domain [17], DTs are commonly used to perform simulations [9] with demanding variables (such as speed, resistance, or environment), to achieve an improved performance, a specific safety, or to determine the product limit specifications in different environments. The collected data is also utilized to identify hardware defects and prevent faults through proactive maintenance planning. All data collected from multiple DTIs or their associated DTA is utilized to inform the design of subsequent product versions.
 
@@ -146,9 +120,7 @@ Once an aircraft is constructed, accurate fault detection and proactive maintena
 
 Finally, in the aviation field, the DT concept is also utilized for pilot and maintenance personnel training, as well as the improvement of airport management procedures and the enhancement of airport passenger capacity.
 
-# *2) Healthcare*
-
-DT technology has the potential to revolutionize healthcare in several ways, depending on the element being twinned. DTs in healthcare can be classified into three main categories: patient twinning, facility or service digitization, and trial digitization.
+#*2) Healthcare*DT technology has the potential to revolutionize healthcare in several ways, depending on the element being twinned. DTs in healthcare can be classified into three main categories: patient twinning, facility or service digitization, and trial digitization.
 
 One area of particular interest in healthcare is patient twinning [25], also referred to as personalized or precision medicine [26]. It aims at creating a DT of a patient using its own data. Usually, the DT mirrors a specific organ related to a specific disease, as a full human body DT is hard to develop and extremely consuming in resources. Some ongoing efforts may be found, such as those referring to the heart [27] for cardiac diseases. The DT model can then be used to predict the progression of the disease [28], evaluate the potential impact of a specific treatment on the patient [29], prepare the patient for surgery [30], and test the size of an implant and the optimal procedure for placement according to the tools and sizes available. Some DT models are also generated from data from multiple patients to train medical personnel who are still gaining experience. The successful implementation of these techniques has the potential to optimize healthcare resources, improve accessibility, and enhance the quality of life for patients.
 
@@ -156,33 +128,25 @@ The DT paradigm is also applicable to hospital infrastructure [31] and services,
 
 Finally, in the pharmaceutical industry, DT technology has also brought significant changes. Some companies have used previously collected data to generate models and conduct pre-clinical trials [33], reducing the cost and time of drug development. In other cases, a digital twin based on a patient's data is used to predict which drug will yield the best results for a patient using data previously collected from multiple patients. This approach has the potential to accelerate the patient's treatment process, saving time and avoiding complications from treatments that may not be as effective as the predicted one.
 
-# *3) Supply Chain*
-
-A supply chain DT is a virtual replica of a company's supply chain, used to analyze and optimize the flow of goods, information, and resources. It allows companies to simulate various scenarios and make informed decisions about their supply chain operations.
+#*3) Supply Chain*A supply chain DT is a virtual replica of a company's supply chain, used to analyze and optimize the flow of goods, information, and resources. It allows companies to simulate various scenarios and make informed decisions about their supply chain operations.
 
 There are many benefits in implementing a supply chain DT, summarized as: i) an enhanced visibility and transparency by tracking and analyzing data from the entire supply chain, and; ii) a more comprehensive view of companies' operations, identifying bottlenecks and inefficiencies, and letting them make better informed decisions about resources' allocation. Therefore, companies are endowed with higher levels of flexibility and agility, as they can quickly and easily respond to changes in demand, market conditions, and other factors. This can be particularly valuable in times of uncertainty or disruption. For example: i) by identifying and addressing the detected inefficiencies in the supply chain, companies can reduce waste, lower costs, and improve their overall efficiency; ii) simulating various scenarios, companies can identify and mitigate potential risks before they occur, helping to reduce the impact of disruptions and protect their business, and; iii) improving the customer satisfaction by optimizing the supply chain, companies can improve their delivery times and responsiveness, leading to increased customer satisfaction. In short, the use of a supply chain DT can help companies to better understand and optimize their operations, leading to improved efficiency, agility, and competitiveness.
 
 The implementation of a fully digital twinned supply chain [34] is a complex task, but even partial twinning can bring numerous benefits. From a global perspective, the supply chain consists of many retail shops connected to one or more warehouses through various modes of transportation. These warehouses are in turn linked to many other warehouses, some of which are connected to the manufacturers of the products, who require raw materials, etc. Given the diverse types of transportation available, each with its own unique set of advantages and disadvantages, creating a DT of the infrastructure [35] can be highly advantageous in decision-making processes, particularly in the face of issues within the transport chain, production chain, or shifts in demand. Historical data generated by DTs can also aid in the prediction of significant changes and the implementation of mitigating actions in advance.
 
-# *4) Communication Networks*
-
-The increasing number of devices connected to communication networks, which is expected to grow by billions annually [36], makes the concept of DTs particularly relevant. DTs of network infrastructure can be used in many areas, with a notable focus on improving service quality, detecting anomalies and controlling traffic. First, with the growing number of devices, networks must be constantly adjusted to meet real-time needs, fueling service providers to dynamically increase capacity or redirect traffic as necessary in order to continuously provide the desired quality of service. While this is already being managed to some extent, the use of DT networks (DTNs) allows for the simulation of network upgrades to determine the most beneficial action for the system. DT networks can also be used to simulate an increase in the number of users at a particular point, enabling better planning for network growth. Second, another key application of DT networks is anomaly detection. A properly functioning network should exhibit a behavior similar to that of its DT network, so if both differ, the DT can alert earlier and help to identify the source of the failure. Finally, in terms of data traffic control, a DT network can be beneficial in configuring routes to reduce the load on certain links. Indeed, with real-time traffic information, a DTN can modify routes to reduce the number of hops for transmitted traffic, leading to an increase in network capacity and a decrease in energy costs. Additionally, traffic generated by routing protocols can be handled in the virtual domain and then transferred to physical devices, reducing the load on actual networks.
+#*4) Communication Networks*The increasing number of devices connected to communication networks, which is expected to grow by billions annually [36], makes the concept of DTs particularly relevant. DTs of network infrastructure can be used in many areas, with a notable focus on improving service quality, detecting anomalies and controlling traffic. First, with the growing number of devices, networks must be constantly adjusted to meet real-time needs, fueling service providers to dynamically increase capacity or redirect traffic as necessary in order to continuously provide the desired quality of service. While this is already being managed to some extent, the use of DT networks (DTNs) allows for the simulation of network upgrades to determine the most beneficial action for the system. DT networks can also be used to simulate an increase in the number of users at a particular point, enabling better planning for network growth. Second, another key application of DT networks is anomaly detection. A properly functioning network should exhibit a behavior similar to that of its DT network, so if both differ, the DT can alert earlier and help to identify the source of the failure. Finally, in terms of data traffic control, a DT network can be beneficial in configuring routes to reduce the load on certain links. Indeed, with real-time traffic information, a DTN can modify routes to reduce the number of hops for transmitted traffic, leading to an increase in network capacity and a decrease in energy costs. Additionally, traffic generated by routing protocols can be handled in the virtual domain and then transferred to physical devices, reducing the load on actual networks.
 
 One major challenge currently facing DT networks is scalability and interoperability, as there is no standardized framework. However, due to the significant benefits of digital
 
 replication, there is significant research being conducted to develop DTN with the aim of being successfully deployed in the near future.
 
-#### *5) Grids – Supply Networks*
+##*5) Grids – Supply Networks*Obtaining a faithful digital replica of oil and gas networks [37], [38], electric power lines [39] and powerplants [40], water supplies [41] and other types of infrastructure can be highly beneficial and strategic for the management teams. There are many areas in these scenarios a DT may significantly contribute to. Indeed, DTs can be used to monitor and regulate the production or flow of energy or service, as well as identify the most efficient paths for transporting it. In addition, DTs can be used to simulate and address anomalies [42] or leakages [43], in the infrastructure, helping to design well-structured and dimensioned systems that provide the best service at the lowest cost. However, creating a DT for large supply networks can be challenging due to their size and unique characteristics. For example, the implementation for the water supply network of Valencia, Spain [43] required a simplification in order to be usable in real-time due to its DT complexity and the amount of information used.
 
-Obtaining a faithful digital replica of oil and gas networks [37], [38], electric power lines [39] and powerplants [40], water supplies [41] and other types of infrastructure can be highly beneficial and strategic for the management teams. There are many areas in these scenarios a DT may significantly contribute to. Indeed, DTs can be used to monitor and regulate the production or flow of energy or service, as well as identify the most efficient paths for transporting it. In addition, DTs can be used to simulate and address anomalies [42] or leakages [43], in the infrastructure, helping to design well-structured and dimensioned systems that provide the best service at the lowest cost. However, creating a DT for large supply networks can be challenging due to their size and unique characteristics. For example, the implementation for the water supply network of Valencia, Spain [43] required a simplification in order to be usable in real-time due to its DT complexity and the amount of information used.
-
-#### III. MATERIAL EVALUATION IN THE HDT FIELD
+### III. MATERIAL EVALUATION IN THE HDT FIELD
 
 After briefly introducing and analyzing the applicability of DTs in different verticals, this section focuses on the deployment of human DTs (HDTs), and discusses the results obtained after revisiting existing efforts in many directions and scopes for HDTs. The results have been divided into three groups, the first referring to scientific publications, the second one related to the knowledge transfer (i.e., patents), and the third on industrial initiatives, an area of relevance albeit not much information is disclosed.
 
-#### *A. Scientific Publications*
-
-In Table 1 a summary of the papers found is presented. The second column indicates the area in which the HDT is applied, while the third column specifies the objective of the HDT proposal. The fourth column lists the type of data or sensors used to generate the input for the HDT, and the fifth column specifies the type of output generated by the HDT. The last column indicates the technology on which the HDT is based.
+####*A. Scientific Publications*In Table 1 a summary of the papers found is presented. The second column indicates the area in which the HDT is applied, while the third column specifies the objective of the HDT proposal. The fourth column lists the type of data or sensors used to generate the input for the HDT, and the fifth column specifies the type of output generated by the HDT. The last column indicates the technology on which the HDT is based.
 
 Two verticals can be identified in the review results where HDTs are designed and partially developed. The first one is healthcare putting together the highest number of HDT real deployments, reaching out 9 of 15. The second one is the manufacturing vertical, where 6 deployments have been found. Certainly, the surveyed contributions presented in this paper are those we found after an exhaustive monitoring and tracking process, but this does not exclude that a more recent or a not sufficiently disseminated effort might not be reported in this manuscript. Set then by the contributions volume, we start reviewing HDT initiatives in the healthcare area.
 
@@ -242,12 +206,7 @@ In [59], a system for real-time calculation of safety distance in human-robot co
 | [57] | M    | Production<br>efficiency<br>and<br>ergonomics                                | Video,<br>MoCap,<br>IMU                                                            | Task<br>schedule,<br>ergonomics assessment                  | Rule based schedule<br>and<br>DH<br>software<br>DhaibaWorks  |
 | [58] | M    | Task<br>scheduling<br>in<br>factories<br>according to expertise and openness | Worker<br>skill,<br>preferences,<br>character,<br>expertise, mood,<br>motivation   | Task schedule                                               | Rule based decision<br>making                                |
 | [59] | M    | Safe human robot interaction                                                 | RGBD sensors                                                                       | Safety distance for the<br>robot to stop or reduce<br>speed | Artificial<br>vision,<br>deep learning and 3d<br>point cloud |
-
-*H healthcare, M manufacturing*
-
-# *B. Intelectual property: Patents*
-
-This section presents the included results from patent analysis exposed in section 1d. Most of the patents are authored by institutions from China and Korea. The patents that pass the screening phase followed in this survey are listed in Table 2, along with their respective focus area and objective. A word cloud graph in Figure 5 illustrates the most frequently occurring words in the titles, having a bigger size for the most repeated words.
+*H healthcare, M manufacturing*#*B. Intelectual property: Patents*This section presents the included results from patent analysis exposed in section 1d. Most of the patents are authored by institutions from China and Korea. The patents that pass the screening phase followed in this survey are listed in Table 2, along with their respective focus area and objective. A word cloud graph in Figure 5 illustrates the most frequently occurring words in the titles, having a bigger size for the most repeated words.
 
 ![](_page_9_Figure_4.jpeg)
 
@@ -266,9 +225,7 @@ Figure 5. Patent titles word cloud
 
 Table 2. Summary of patents in the DT field
 
-# *C. Industrial Initiatives*
-
-The most relevant projects undertaken by the industry sector found in the technology radar process building this survey are discussed in this section. As many of these projects have limited scientific literature available, the websites of the products are referenced, along with a brief overview of the details obtained from each project.
+#*C. Industrial Initiatives*The most relevant projects undertaken by the industry sector found in the technology radar process building this survey are discussed in this section. As many of these projects have limited scientific literature available, the websites of the products are referenced, along with a brief overview of the details obtained from each project.
 
 Semic Health Digital Body Total [76] is a DT of human biological systems, organs, or molecular systems that utilizes artificial intelligence (AI) to aid in the diagnosis of medical conditions and predict possible health complications. It is an evolution of the Cyber Bio Twin project [77] , which aimed to create a digital replica of human biological systems for the purpose of improving healthcare. The Digital Body Total software is based on the collection of data from various subjects to create computational and mathematical models that replicate the physiology of human biological systems. These HDT models are created with the aid of AI. Digital Body Total has obtained approval for use in the US healthcare system by the US Food and Drug Administration (US FDA). This approval highlights the potential value as a tool for healthcare professionals to improve the accuracy of diagnoses and predictions, as well as its adherence to regulatory standards. Digital Body Total software is a valuable tool that can aid in the analysis and management of clinical trials, disease management, outbreak prevention and management, and lifestyle management, while ensuring the privacy and security of an individual's personal medical data. Moreover, the HDT can be modified to examine and predict the effect of changes on an organ and can be experimented on by introducing foreign substances to test their effects. It can also be modeled to consider environmental and medical factors such as air composition and medication or nutrient intake. This allows healthcare professionals to better understand the functions and dysfunctions of various organs and systems within the body and develop more effective treatments and therapies.
 
@@ -314,13 +271,13 @@ Finally, the major technical challenge HDT must face refers to achieving much be
 
 As a summary, any effort towards facing these challenges, will help to benefit from the full potential of HDT systems, supported by a secure, ethical, efficient and accurate adoption of HDTs in many verticals.
 
-#### ACKNOWLEDGMENT
+### ACKNOWLEDGMENT
 
 This work has been supported by the Spanish Ministry of Science and Innovation under contract PID2021-124463OB-I00, the Catalan Government under contract 2021 SGR 00326 and the Catalan Department of Research and Universities.
 
 # REFERENCES
 
-- [1] B. R. Barricelli, E. Casiraghi, and D. Fogli, "A survey on digital twin: Definitions, characteristics, applications, and design implications," *IEEE Access*, vol. 7. Institute of Electrical and Electronics Engineers Inc., 2019. doi: 10.1109/ACCESS.2019.2953499.
+- [1] B. R. Barricelli, E. Casiraghi, and D. Fogli, "A survey on digital twin: Definitions, characteristics, applications, and design implications,"*IEEE Access*, vol. 7. Institute of Electrical and Electronics Engineers Inc., 2019. doi: 10.1109/ACCESS.2019.2953499.
 - [2] M. Singh, E. Fuenmayor, E. P. Hinchy, Y. Qiao, N. Murray, and D. Devine, "Digital Twin: Origin to Future," *Applied System Innovation 2021, Vol. 4, Page 36*, vol. 4, no. 2, p. 36, May 2021, doi: 10.3390/ASI4020036.
 - [3] M. Liu, S. Fang, H. Dong, and C. Xu, "Review of digital twin about concepts, technologies, and industrial applications," *J Manuf Syst*, vol. 58, pp. 346–361, Jan. 2021, doi: 10.1016/J.JMSY.2020.06.017.
 - [4] D. Jones, C. Snider, A. Nassehi, J. Yon, and B. Hicks, "Characterising the Digital Twin: A systematic literature review," *CIRP J Manuf Sci Technol*, vol. 29, pp. 36–52, May 2020, doi: 10.1016/J.CIRPJ.2020.02.002.

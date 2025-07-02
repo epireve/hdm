@@ -1,3 +1,5 @@
+<!-- cite_key: yang2025b -->
+
 # Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs
 
 Boyang Yang1,<sup>2</sup> , Haoye Tian3,<sup>∗</sup> , Jiadong Ren<sup>1</sup> , Shunfu Jin<sup>1</sup> , Yang Liu<sup>4</sup> , Feng Liu<sup>3</sup> , Bach Le<sup>3</sup>
@@ -6,11 +8,11 @@ Boyang Yang1,<sup>2</sup> , Haoye Tian3,<sup>∗</sup> , Jiadong Ren<sup>1</sup>
 
 yangboyang@jisuanke.com, tianhaoyemail@gmail.com, jdren@ysu.edu.cn, jsf@ysu.edu.cn, yangliu@ntu.edu.sg, fengliu.ml@gmail.com, bach.le@unimelb.edu.au
 
-#### Abstract
+## Abstract
 
 Repository-level software repair faces challenges in bridging semantic gaps between issue descriptions and code patches. Existing approaches, which mostly depend on large language models (LLMs), suffer from semantic ambiguities, limited structural context understanding, and insufficient reasoning capability. To address these limitations, we propose KGCompass with two innovations: (1) a novel repository-aware knowledge graph (KG) that accurately links repository artifacts (issues and pull requests) and codebase entities (files, classes, and functions), allowing us to effectively narrow down the vast search space to only 20 most relevant functions with accurate candidate bug locations and contextual information, and (2) a path-guided repair mechanism that leverages KG-mined entity path, tracing through which allows us to augment LLMs with relevant contextual information to generate precise patches along with their explanations. Experimental results in the SWE-Bench-Lite demonstrate that KGCompass achieves state-of-the-art repair performance (45.67%) and function-level localization accuracy (51.33%) across open-source approaches, costing only \$0.20 per repair. Our analysis reveals that among successfully localized bugs, 69.7% require multi-hop traversals through the knowledge graph, without which LLM-based approaches struggle to accurately locate bugs. The knowledge graph built in KGCompass is language agnostic and can be incrementally updated, making it a practical solution for real-world development environments.
 
-#### 1 Introduction
+### 1 Introduction
 
 Large Language Models (LLMs) have demonstrated remarkable coding capabilities in code generation and repair tasks [\[27,](#page-10-0) [31,](#page-10-1) [35,](#page-10-2) [36,](#page-11-0) [45,](#page-11-1) [61\]](#page-11-2). The emergence of repository-level repair benchmarks like SWEbench [\[19\]](#page-10-3) highlights a fundamental challenge: localizing bugs in
 
@@ -66,7 +68,7 @@ We present KGCompass, a repository-level software repair framework that construc
 
 In the Knowledge Graph Mining phase, (i) we construct a comprehensive knowledge graph by integrating multiple information sources from codebases and GitHub artifacts, including issues and pull requests. (ii) Then, we identify top candidate bug locations by extracting the 15 highest-scoring functions from the graph and (iii) augmenting them with up to 5 additional candidates suggested by the LLM. In the Patch Generation phase, (iv) we supply the LLM with these candidate bug locations, accompanied by corresponding source code and relevant entity paths within the graph structure. In the Patch Ranking phase, (v) we leverage LLM to generate reproduction tests and (vi) utilize both LLM-generated reproduction tests and regression tests within codebases to evaluate and rank the generated candidate patches, then select the final patch that is most likely to resolve the target issue.
 
-#### 3.1 Knowledge Graph Mining
+## 1 Knowledge Graph Mining
 
 The Knowledge Graph mining phase constructs a comprehensive knowledge graph by analyzing problem statements to extract entities and their relationships, enabling us to model both structural and semantic connections that are critical for accurate bug localization.
 
@@ -90,14 +92,14 @@ and are textual representations of the problem description and function entity ,
 
 Based on these relevance scores ( ), we select the top 15 functions from the knowledge graph to provide candidate bug locations and context information. We then use an LLM to identify up to 5 potential bug locations from the problem statement, complementing candidate locations with semantic understanding. This hybrid approach combines the strengths of knowledge graph-based structural analysis and LLM-based textual understanding, creating a comprehensive set of up to 20 candidate functions for the following patch generation phase.
 
-# 3.2 Patch Generation
+# 2 Patch Generation
 
 The patch generation phase leverages the identified candidates and graph context to generate patches. KGCompass augments the LLM prompt with path information that illustrates structural connections (function calls, containment relationships, and references from repository artifacts). The prompt provided to the LLM consists of three key components: (1) the issue description, (2) KG-mined relevant functions with entity paths (formatted as Figure [3\)](#page-3-1), and (3) a structured format specifying how to produce search/replace edits [\[12,](#page-10-16) [51\]](#page-11-7). The entity path explicitly traces connections from
 
 relevant functions to the targeted issue through intermediate entities like files, functions, issues, and pull requests. Incorporating KG-mined context enables KGCompass to reason about the role and relevance of each relevant function.
 
-```
-### [full file path]
+```text
+## [full file path]
 - signature: [namespace].[class].[function name]([params])
 - path_info: [function reference] -> [relation type] -> [entity 1]
  -> [relation type] -> [entity 2] -> ... -> root
@@ -106,15 +108,15 @@ relevant functions to the targeted issue through intermediate entities like file
 ...
     [function code]
 ...
-```
+```text
 
-#### Figure 3: KG-mined Relevant Function Format with Entity Path for Bug Repair
+### Figure 3: KG-mined Relevant Function Format with Entity Path for Bug Repair
 
 To address LLMs' inherent context limitations and balance precision with diversity, KGCompass employs a hybrid sampling strategy, combining deterministic (temperature = 0.0) and exploratory (temperature > 0.0) sampling methods during patch generation. Deterministic sampling ensures stability and consistency, while exploratory sampling introduces diversity to cover alternative viable repair scenarios.
 
 Generated patches commonly suffer from syntactic errors due to incorrect indentation [\[30\]](#page-10-17). To address this, KGCompass implements an adaptive indentation correction algorithm (Algorithm [1\)](#page-4-0) that systematically tests minor indentation adjustments (±1, ±2 levels) and selects syntactically valid variants, recovering 2% of invalid patches. All syntactically valid patches are then passed to the subsequent patch ranking phase for evaluation through regression and reproduction tests.
 
-# 3.3 Patch Ranking
+# 3 Patch Ranking
 
 The patch ranking phase integrates reproduction test generation and patch prioritization to provide a comprehensive evaluation framework for selecting optimal repair solutions.
 
@@ -145,9 +147,9 @@ In the reproduction test generation process, KGCompass utilizes a prompt that co
 
 The patch prioritization process employs a multi-tiered ranking strategy. For each syntactically valid patch, we evaluate four metrics in descending priority: (1) regression test passing count, strictly limited to only those tests that the original codebase already passed, (2) reproduction test passing count, (3) majority voting across modelgenerated patches, and (4) normalized patch size. Larger patches are preferred when other criteria are equal, assuming they consider a broader range of edge cases. The highest-ranked patch is selected as the final solution.
 
-#### 4 Experimental Setup
+## 4 Experimental Setup
 
-#### 4.1 Benchmark
+### 1 Benchmark
 
 We evaluate KGCompass on SWE-bench-lite [\[19\]](#page-10-3), a benchmark comprising 300 instances from 11 large-scale Python projects with natural language issue descriptions, codebase snapshots, and test cases. SWE-bench-lite presents distinct challenges from existing benchmarks in two aspects: unlike single-file benchmarks (such as TutorCode [\[53\]](#page-11-13), Humaneval-Java [\[18\]](#page-10-20)) or repository-level benchmarks with explicit bug locations (such as Defects4J [\[21\]](#page-10-21)), it provides only natural language descriptions, requiring approaches to first localize bugs before repairing them. This significantly increases difficulty as approaches must bridge the semantic gap between descriptions and code entities within the codebase. For instance, the Django repository within SWE-Bench-Lite contains 2,750 Python files with 27,867 functions, highlighting the substantial localization challenge without location guidance.
 
@@ -155,11 +157,11 @@ We evaluate KGCompass on SWE-bench-lite [\[19\]](#page-10-3), a benchmark compri
 
 We follow standard evaluation practices for automated program repair and bug localization [\[38,](#page-11-14) [43,](#page-11-10) [51,](#page-11-7) [57\]](#page-11-3), adopting the top-1 success criterion widely used in SWE-Bench-Lite [\[19\]](#page-10-3), which considers only the highest-ranked patch for each instance when determining success or failure. We employ four key metrics: (1) % Resolved: the primary metric measuring the percentage of bugs successfully fixed with patches that pass all test cases; (2) localization precision at both % File Match and % Func Match levels, comparing the bug locations of LLM-generated patches with ground truth patches; and (3) Avg Cost per repair instance, measuring computational efficiency across the complete pipeline. Accurate bug localization metrics are key for real-world software development [\[51,](#page-11-7) [57\]](#page-11-3). Among these metrics, % Func Match provides the best level of detail for evaluating bug localization, representing a natural organizational unit in software development practices [\[43\]](#page-11-10). For multi-function bugs (17% instances of SWE-Bench-Lite), we adopt a strict matching criterion requiring the identification of all affected functions. While successful fixes may occur at different locations than in the ground truth, which reflects the reality of multiple valid or plausible patches for specific bugs, comparing against ground truth patches provides consistent metrics that have been shown to correlate with overall repair capability [\[51\]](#page-11-7).
 
-#### <span id="page-4-1"></span>4.3 Implementation Details
+## <span id="page-4-1"></span>4.3 Implementation Details
 
 We use neo4j [\[39\]](#page-11-15) for building the knowledge graph with plugins apoc-4.4 [\[41\]](#page-11-16) and gds-2.6.8 [\[40\]](#page-11-17). KGCompass integrates state-of-theart LLMs and embedding models in a task-specific manner: Claude 3.5 [\[2\]](#page-10-22) for bug location and patch generation; Deepseek-V3 [\[8\]](#page-10-18) for cost-efficient test generation. Our knowledge graph construction uses jina-embeddings-v2-base-code [\[15\]](#page-10-23) for semantic embeddings, which was selected because it is the only open-source embedding model specifically designed for mixed natural language and code content in software repositories, which can accurately capture semantic relationships between issue descriptions and code entities. We empirically determined the hyper-parameters through initial parameter exploration, setting = 0.6 for path length decay and = 0.3 for the embedding-textual similarity balance in KGCompass. We employ multiple temperature settings: 0.8 for test generation to promote diversity, 0 for deterministic LLM-based bug localization, and temperatures 0 and 0.8 for mixture patch generation, following previous empirical studies [\[46,](#page-11-18) [62\]](#page-11-19).
 
-# 4.4 Research Questions
+# 4 Research Questions
 
 - RQ-1: How effective is KGCompass in repository-level software repair compared to state-of-the-art approaches? We evaluate the KGCompass's performance by comparing repair success rates, localization accuracy, and computational costs against existing open-source approaches, supported by case studies analyzing its strengths and limitations.
 - RQ-2: How does the knowledge graph construction within KGCompass contribute to bug localization? We analyze the effectiveness of our repository-aware knowledge graph in identifying relevant functions, examining multi-hop relationships and path structures connecting issue descriptions to bug locations.
@@ -182,9 +184,9 @@ Table 1: Comparison of Top Open-Source Software Repair Approaches on SWE-Bench-L
 
 • RQ-3: What are the impact of different components in KG-Compass on repair performance? Through ablation studies, we evaluate the contributions of key components, including candidate function selection strategies, entity path information in patch generation, various patch ranking approaches, and different top-k configurations to understand their individual effects on repair success.
 
-#### 5 Experiments & Results
+## 5 Experiments & Results
 
-#### 5.1 RQ-1: Effectiveness of KGCompass
+### 1 RQ-1: Effectiveness of KGCompass
 
 [Objective]: We aim to evaluate KGCompass's effectiveness in repository-level software repair by comparing its repair success rate, localization accuracy, and cost against existing state-of-the-art approaches.
 
@@ -222,7 +224,7 @@ As shown in Figure [4,](#page-5-2) KGCompass uniquely resolves 19 cases that no 
 
 [RQ-1] Findings: (1) KGCompass achieves state-of-the-art repair performance (45.67%) and function-level match rate (51.33%) on SWE-Bench-Lite, outperforming other open-source approaches. (2) KGCompass costs only \$0.20 per repair, significantly lower than other open-source approaches. Insights: Knowledge graph-based approaches show potential for repository-level software repair by bridging semantic gaps between issue descriptions and code.
 
-#### 5.2 RQ-2: Contribution of Knowledge Graph to Bug Localization
+#### 2 RQ-2: Contribution of Knowledge Graph to Bug Localization
 
 [Objective]: We aim to evaluate how the knowledge graph contributes to KGCompass's performance by examining its effectiveness in identifying and ranking relevant functions that contain bug locations, thereby enhancing repair efficiency and reducing costs. [Experimental Design]: We analyze the structure and effectiveness of the knowledge graph in connecting issue descriptions to bug locations. First, we evaluate the coverage of ground truth bug locations within KG-mined candidates to assess how effectively the knowledge graph identifies relevant functions. Second, we examine the hop distribution in paths leading to ground truth bug locations to understand the importance of multi-hop traversals that pure LLM-based approaches fundamentally cannot achieve through textual analysis. Third, we analyze the composition of intermediate entity types along these paths to understand how the knowledge graph integrates both codebase entities and repository artifacts to form comprehensive connections. Finally, we analyze the ranking effectiveness of our candidate functions to assess the performance of our relevance scoring formula (Equation [1\)](#page-2-0).
 
@@ -252,7 +254,7 @@ The ranking effectiveness of our approach is demonstrated in Figure [8,](#page-6
 
 [RQ-2] Findings: (1) Most (69.7%) of the ground truth bug functions require multi-hop traversal within the knowledge graph, empirically validating the necessity of modeling indirect relationships. (2) KG-mined top 20 relevant functions significantly reduce the search space while maintaining high coverage (84.3% file-level, 58.8% function-level) and ranking precision (55.77% of ground truth patches ranked first), simultaneously lowering computational costs and improving repair performance. Insights: Repository-aware knowledge graphs effectively bridge the semantic gap between issue descriptions and bug locations by capturing both direct and indirect structural relationships that pure LLMbased textual approaches cannot model.
 
-#### 5.3 RQ-3: Impact of Components on KGCompass's Repair Performance
+#### 3 RQ-3: Impact of Components on KGCompass's Repair Performance
 
 [Objective]: This experiment aims to understand the individual contributions of different components within KGCompass, including bug localization, knowledge graph construction, path-guided repair, and patch ranking strategies.
 
@@ -319,13 +321,13 @@ Table 6: Top-k with Best Ranking Strategy
 
 #### 6 Discussion
 
-#### 6.1 Case Study of Failed Instance
+#### 1 Case Study of Failed Instance
 
 This case study illustrates the strengths and limitations of KGCompass when handling semantically complex database operations. We examine instance django-12589, which involves an ambiguous "GROUP BY" clause that causes SQL errors. The issue manifests in Django 3.0 when executing queries with certain field annotations, resulting in the error: "ProgrammingError: column reference status is ambiguous". This represents a particularly challenging case for LLM-based repair approaches, as it requires a deep understanding of both SQL semantics and Django's ORM implementation details across versions.
 
 KGCompass attempts to repair the issue by modifying the method set\_group\_by in db/models/sql/query.py, demonstrating the effectiveness of the repository-aware knowledge graph in accurately localizing the fault. KGCompass correctly identifies set\_group\_by as the primary candidate (following the path: root issue → query.py → set\_group\_by), successfully resolving the semantic ambiguity problem through structural relationships where none of the other open-source approaches have even succeeded in localizing this bug. However, while KGCompass generates a patch that disables aliasing when an alias conflicts with column names gathered from all joined tables, the ground truth patch disables aliasing based on column names extracted from the JOINed models. Although KGCompass achieves a partial fix, the repair remains incomplete because the LLM-based patch generation relies on surface-level context [\[33,](#page-10-28) [36,](#page-11-0) [56\]](#page-11-20) and lacks the domain-specific knowledge necessary for this scenario [\[14,](#page-10-29) [24,](#page-10-30) [44\]](#page-11-21). Thus, while KGCompass successfully addresses the semantic ambiguity challenge for bug localization, further improvement of the LLM-based patch generation process is required to resolve such issues.
 
-#### 6.2 Evaluation on Other Open-Source LLMs
+#### 2 Evaluation on Other Open-Source LLMs
 
 While KGCompass demonstrates strong performance with Claude 3.5, we further evaluated its generalizability across different LLMs, including Deepseek V3 [\[8\]](#page-10-18) and Qwen2.5 Max [\[52\]](#page-11-22). As shown in Table [7,](#page-9-0) our approach maintains consistent effectiveness across LLMs, with even open-source LLMs achieving repair rates (36.67% and 33.33%) that surpass previous state-of-the-art approaches with closed-source LLMs. Notably, KGCompass with Deepseek V3 (36.67%)
 
@@ -343,11 +345,11 @@ and Qwen2.5 Max (33.33%) both outperforms closed-source approaches like CodeFuse
 |--|-------------------------------------------------------|--|--|--|--|
 |--|-------------------------------------------------------|--|--|--|--|
 
-# 6.3 Practical Applications
+# 3 Practical Applications
 
 KGCompass offers several advantages for real-world deployment. First, the KG requires only incremental updates when code changes occur or new issues are submitted, with only referenced entities needing updates, enabling efficient KG retrieval in production environments. Second, KGCompass is extensible across programming languages, where core components of KGCompass remain language-independent due to its repository-aware design that primarily models natural language entities (issues and pull requests) and their relationships with codebase entities. The system can leverage third-party abstract syntax tree parsers to process different languages while keeping most of the KG construction process unchanged. Even in the worst-case scenario where complete repository reconstruction is required, KGCompass averages only 238.75s for the process within SWE-Bench-Lite (while incremental updates would be significantly faster) and reproduction tests running asynchronously in parallel, KGCompass efficiently integrates into development workflows, automatically locating bugs, generating patches, and proposing fixes through existing code review systems. Finally, KGCompass demonstrates scalability with large codebases, such as Django, which includes 2,750+ Python files and 27,000+ functions. These advantages position KGCompass as a valuable tool for real-world software development.
 
-#### 7 Threats to Validity
+## 7 Threats to Validity
 
 Internal Validity. Internal validity concerns potential experimental biases that could affect result fairness. To prevent this, we enforced strict temporal constraints in our knowledge graph construction, incorporating only issues and pull requests before each benchmark instance's creation time, preventing knowledge leakage from future artifacts. Similarly, for patch evaluation, we used only regression tests that passed successfully in the original codebase before the bug's introduction, ensuring fair assessment of repair capabilities.
 
@@ -357,15 +359,15 @@ pull requests) and code structures, making the underlying approach transferable 
 
 Construct Validity. Construct validity concerns whether we accurately measure what we claim to evaluate. To address this, we employed multiple complementary metrics: repair success rate ("Resolved"), localization accuracy at file and function levels ("File Match" and "Func Match"), and computational efficiency ("Avg Cost"). By comparing KGCompass's generated patches with ground truth patches, we provided validation beyond test-passing success, helping identify truly correct fixes rather than merely coincidental solutions that happen to pass tests.
 
-#### 8 Related Works
+### 8 Related Works
 
-#### 8.1 Repository-level Software Repair
+#### 1 Repository-level Software Repair
 
 Recent large language models (LLMs) have demonstrated remarkable capabilities in repository-level software repair tasks [\[50,](#page-11-4) [51,](#page-11-7) [54,](#page-11-23) [58\]](#page-11-8). SWE-Bench-Lite [\[19\]](#page-10-3) provides a representative benchmark of 300 real-world GitHub issues, making it suitable for evaluating LLM-based software repair approaches. Repository-level repair approaches fall into two categories: Agentic approaches coordinate multiple specialized agents through observe-think-act loops [\[1,](#page-10-6) [22,](#page-10-8) [48–](#page-11-24)[50,](#page-11-4) [55,](#page-11-5) [58\]](#page-11-8). OpenHands [\[49,](#page-11-25) [50\]](#page-11-4) employs agents interacting with sandbox environments, while AutoCodeRover [\[48,](#page-11-24) [58\]](#page-11-8) leverages hierarchical code search for repository navigation. Composio [\[1\]](#page-10-6) implements a state-machine multi-agent system using LangGraph [\[23\]](#page-10-32), and SWE-agent [\[55\]](#page-11-5) introduces specialized tools for LLM interactions. Procedural approaches employ expert-designed sequential workflows for repair [\[3,](#page-10-13) [11,](#page-10-7) [51,](#page-11-7) [58\]](#page-11-8). Agentless [\[51\]](#page-11-7) employs a threephase repair, including localization, repair, and patch validation. Moatless [\[3,](#page-10-13) [42\]](#page-11-6) proposed that rather than relying on an agent to reason its way to a solution, it is crucial to build good tools to insert the right context into the prompt and handle the response.
 
 Pure LLM-based approaches process repository artifacts and code as separate entities rather than interconnected entities, lacking the ability to bridge the gap between natural language issues and structured codebase. In contrast, KGCompass explicitly LLMs both structural codebase and semantic relationships across repository artifacts through knowledge graphs.
 
-#### 8.2 Knowledge Graph for Repository-level Software
+#### 2 Knowledge Graph for Repository-level Software
 
 Knowledge graphs have emerged as a powerful approach for modeling code repositories by capturing complex relationships between code entities and their dependencies. [\[28,](#page-10-33) [29,](#page-10-34) [43,](#page-11-10) [59\]](#page-11-26). Recent work has demonstrated the effectiveness of knowledge graphs in understanding software repository. RepoGraph [\[43\]](#page-11-10) operates at a fine-grained code line level, demonstrating that modeling explicit definition-reference relationships can effectively guide repair decisions. GraphCoder [\[28\]](#page-10-33) introduces control flow and dependency analysis into code graphs, showing that structural code relationships are critical for understanding code context and predicting the subsequent statements in completion tasks. CodeXGraph [\[29\]](#page-10-34) represents code symbols and their relationships in graph databases,
 

@@ -1,10 +1,12 @@
+<!-- cite_key: zhangsupsup2021 -->
+
 # NARRATIVE-OF-THOUGHT: Improving Temporal Reasoning of Large Language Models via Recounted Narratives
 
 Xinliang Frederick Zhang<sup>1</sup> , Nick Beauchamp<sup>2</sup> , and Lu Wang<sup>1</sup>
 
 <sup>1</sup>Computer Science and Engineering, University of Michigan, Ann Arbor, MI <sup>2</sup>Department of Political Science, Northeastern University, Boston, MA 1 {xlfzhang,wangluxy}@umich.edu, <sup>2</sup>n.beauchamp@northeastern.edu
 
-### Abstract
+## Abstract
 
 Reasoning about time and temporal relations is an integral aspect of human cognition, essential for perceiving the world and navigating our experiences. Though large language models (LLMs) have demonstrated impressive performance in many reasoning tasks, temporal reasoning remains challenging due to its intrinsic complexity. In this work, we first study an essential task of temporal reasoning—temporal graph generation, to unveil LLMs' inherent, global reasoning capabilities. We show that this task presents great challenges even for the most powerful LLMs, such as GPT-3.5/4. We also notice a significant performance gap by small models (< 10B) that lag behind LLMs by 50%. Next, we study how to close this gap with a budget constraint, e.g., not using model finetuning. We propose a new prompting technique tailored for temporal reasoning, NARRATIVE-OF-THOUGHT (NOT), that first converts the events set to a Python class, then prompts a small model to generate a temporally grounded narrative, guiding the final generation of a temporal graph. Extensive experiments showcase the efficacy of NOT in improving various metrics. Notably, NOT attains the highest F1 on the Schema-11 evaluation set, while securing an overall F1 on par with GPT-3.5. NOT also achieves the best structural similarity across the board, even compared with GPT-3.5/4.[1](#page-0-0)
 
@@ -22,9 +24,9 @@ To gain deeper insights, the research community mainly focuses on two ends along
 
 <span id="page-0-0"></span><sup>1</sup>[Our code is available at](#page-14-0) [https://github.com/](https://github.com/launchnlp/NoT) [launchnlp/NoT](#page-14-0).
 
-Worse still, the former is limited to a *local* scope spanning two adjacent sentences only and fails to account for the significance of *global* temporal relations, leading to overly optimistic results [\(Yuan and](#page-14-5) [Liu,](#page-14-5) [2022;](#page-14-5) [Wang and Zhao,](#page-14-1) [2023\)](#page-14-1). Therefore, neither setup provides a clear understanding of LLMs' true temporal reasoning abilities.
+Worse still, the former is limited to a *local*scope spanning two adjacent sentences only and fails to account for the significance of*global*temporal relations, leading to overly optimistic results [\(Yuan and](#page-14-5) [Liu,](#page-14-5) [2022;](#page-14-5) [Wang and Zhao,](#page-14-1) [2023\)](#page-14-1). Therefore, neither setup provides a clear understanding of LLMs' true temporal reasoning abilities.
 
-In this work, we aim to unveil the inherent, global temporal reasoning capabilities of LLMs, evaluating them in isolation *free from confounding factors*, and addressing the limitations of previous studies which only focused on local contexts. We first introduce a task of temporal graph generation (TGG; Figure [1\)](#page-0-1): Given a high-level goal[2](#page-1-0) T (e.g., business change) and a set of events V, the objective is to produce a temporal graph G(V, E) where a directed edge in E reveals the temporal order between events. Though this specific notion of TGG is new, many of its applications are not. In this work, we specifically study TGG in order to evaluate and improve the temporal reasoning capability, since TGG is deemed a major bottleneck when LLMs perform temporal reasoning. With TGG, we put forth the first research question.
+In this work, we aim to unveil the inherent, global temporal reasoning capabilities of LLMs, evaluating them in isolation*free from confounding factors*, and addressing the limitations of previous studies which only focused on local contexts. We first introduce a task of temporal graph generation (TGG; Figure [1\)](#page-0-1): Given a high-level goal[2](#page-1-0) T (e.g., business change) and a set of events V, the objective is to produce a temporal graph G(V, E) where a directed edge in E reveals the temporal order between events. Though this specific notion of TGG is new, many of its applications are not. In this work, we specifically study TGG in order to evaluate and improve the temporal reasoning capability, since TGG is deemed a major bottleneck when LLMs perform temporal reasoning. With TGG, we put forth the first research question.
 
 RQ1: What is the temporal reasoning capability of popular LLMs? Prior work [\(Wang and](#page-14-1) [Zhao,](#page-14-1) [2023;](#page-14-1) [Chu et al.,](#page-11-1) [2023\)](#page-11-1) shows a huge gap between AI systems and human performance on various temporal understanding tasks. Additionally, there is a notable performance disparity between proprietary LLMs (e.g., GPT-4) and open-weights LLMs, particularly those with fewer than 10 billion parameters (henceforth, small LLMs). Our study on temporal reasoning reveals a similar trend and identifies the existence of both gaps, as demonstrated in Table [1.](#page-5-0) This further highlights the importance of an in-depth investigation of TGG, since the performance of downstream tasks (e.g., temporal commonsense understanding) is positively correlated with the inherent, global temporal reasoning capability. Observing the model deficiencies, we are motivated to *fill the gap between openweights, small LLMs and proprietary large models*. This is due to the fact that open-weights LLMs are generally more accessible, reproducible, and cost-effective to use [\(Chen et al.,](#page-10-3) [2023;](#page-10-3) [Zhou et al.,](#page-14-6) [2023\)](#page-14-6). In pursuit of this goal, we present the second research question.
 
@@ -32,45 +34,45 @@ RQ2: With a budget constraint (e.g., not allowing further training), how can sma
 
 up with large models like GPT-3.5/4? Given the constraint that no training will be used, we propose NARRATIVE-OF-THOUGHT (NOT), a special prompting technique tailored for temporal reasoning. This method capitalizes on the recent success of the Chain-of-Thought (CoT) technique [\(Wei](#page-14-7) [et al.,](#page-14-7) [2022b;](#page-14-7) [Kojima et al.,](#page-11-2) [2022\)](#page-11-2), found effective in solving complex reasoning tasks. To approach TGG, NOT produces a final temporal graph via first generating a *temporally grounded narrative*[3](#page-1-1) then sorting the input events topologically in reference to the recounted narrative. Inspired by [Madaan et al.](#page-12-1) [\(2022\)](#page-12-1); [Chen et al.](#page-11-3) [\(2022\)](#page-11-3); [Gao et al.](#page-11-4) [\(2023\)](#page-11-4), NOT also features structural representations by converting the input-output mapping to a Python class, and instructing the generation in code space. We further improve NOT by introducing high-quality reference narratives as part of few-shot demonstrations.
 
-Extensive experiments across three evaluation benchmarks of diverse genres reveal six interesting findings: 1) small LLMs *struggle with temporal reasoning* even with few-shot examples; 2) *CoT is also ineffective at temporal reasoning*, in line with existing finding [\(Chu et al.,](#page-11-1) [2023\)](#page-11-1); 3) *GPT-4 sometimes falls off the throne due to alignment*, when answering sensitive queries; 4) NOT is a powerful tool to assist small LLMs to catch up with or even *surpass GPT-3.5*, and presents strong compatibility with various base LLMs; 5) *the temporally grounded narratives are significant in improving LLMs' temporal reasoning process*; 6) *AI systems are far from mastering temporal reasoning*, trailing the human baseline by 30 F1 points.
+Extensive experiments across three evaluation benchmarks of diverse genres reveal six interesting findings: 1) small LLMs *struggle with temporal reasoning*even with few-shot examples; 2)*CoT is also ineffective at temporal reasoning*, in line with existing finding [\(Chu et al.,](#page-11-1) [2023\)](#page-11-1); 3) *GPT-4 sometimes falls off the throne due to alignment*, when answering sensitive queries; 4) NOT is a powerful tool to assist small LLMs to catch up with or even *surpass GPT-3.5*, and presents strong compatibility with various base LLMs; 5) *the temporally grounded narratives are significant in improving LLMs' temporal reasoning process*; 6) *AI systems are far from mastering temporal reasoning*, trailing the human baseline by 30 F1 points.
 
 We also analyze the impact of shot numbers and perform a holistic evaluation of reference narratives in few-shot examples. 5-shot is found to be the sweet spot for temporal reasoning, after which the performance plateaus, likely due to long-context challenge. We identify three key characteristics of reference narratives for them to avail small LLMs most: conciseness, simplicity, and factuality.
 
 ### 2 Related Work
 
-#### 2.1 Temporal Reasoning
+#### 1 Temporal Reasoning
 
 This work is deeply rooted in a long-standing yet still challenging NLP domain—temporal reasoning [\(Allen,](#page-10-0) [1983;](#page-10-0) [Nebel and Bürckert,](#page-12-0) [1995\)](#page-12-0), which
 
-<span id="page-1-0"></span><sup>2</sup>We use *goal* and *scenario* interchangeably.
+<span id="page-1-0"></span><sup>2</sup>We use *goal*and*scenario*interchangeably.
 
 <span id="page-1-1"></span><sup>3</sup> In our context, "temporally grounded" refers to events being organized and presented in a way that accurately reflects their temporal sequence or timeline.
 
 involves extraction, representation and reasoning with time and events [\(Sanampudi and Kumari,](#page-13-3) [2010\)](#page-13-3). Depending on the cognitive complexity, temporal reasoning in NLP is studied at three levels: temporal expression detection, temporal relation extraction, and temporal graph generation. The simplest temporal expression detection task is to identify phrases in the text that convey temporal information [\(Setzer,](#page-13-4) [2001;](#page-13-4) [Mani et al.,](#page-12-2) [2001;](#page-12-2) [Pustejovsky et al.,](#page-13-5) [2003\)](#page-13-5), commonly known as TimeX. Further, under-specified TimeX is typically converted to explicit expressions (e.g., "summer 2024") through a process called time expression normalization [\(Verhagen et al.,](#page-13-6) [2010\)](#page-13-6).
 
-Explicit TimeX is often absent in text, and events usually carry implicit temporal information. To bridge the gap, TempEval [\(Verhagen et al.,](#page-13-7) [2009;](#page-13-7) [UzZaman et al.,](#page-13-1) [2013\)](#page-13-1) is curated to support the study of temporal relation extraction, which aims to detect the temporal relation between two *events* in a document. The most common benchmarks, TBdense [\(Chambers et al.,](#page-10-4) [2014\)](#page-10-4) and MATRES [\(Ning](#page-12-3) [et al.,](#page-12-3) [2018\)](#page-12-3), have witnessed the technique evolution from LSTM [\(Dligach et al.,](#page-11-5) [2017\)](#page-11-5) and GNNaugmented BERT [\(Mathur et al.,](#page-12-4) [2021;](#page-12-4) [Wang et al.,](#page-13-8) [2022\)](#page-13-8), to LLMs prompting [\(Yuan et al.,](#page-14-2) [2023\)](#page-14-2). Yet, these benchmarks are limited by their *locality assumption*, where only pairs of events within a two-sentence window are annotated. Even in this simplified scenario of temporal relation extraction, ChatGPT perform poorly, trailing supervised systems by over 30% [\(Chan et al.,](#page-10-2) [2024\)](#page-10-2).
+Explicit TimeX is often absent in text, and events usually carry implicit temporal information. To bridge the gap, TempEval [\(Verhagen et al.,](#page-13-7) [2009;](#page-13-7) [UzZaman et al.,](#page-13-1) [2013\)](#page-13-1) is curated to support the study of temporal relation extraction, which aims to detect the temporal relation between two*events*in a document. The most common benchmarks, TBdense [\(Chambers et al.,](#page-10-4) [2014\)](#page-10-4) and MATRES [\(Ning](#page-12-3) [et al.,](#page-12-3) [2018\)](#page-12-3), have witnessed the technique evolution from LSTM [\(Dligach et al.,](#page-11-5) [2017\)](#page-11-5) and GNNaugmented BERT [\(Mathur et al.,](#page-12-4) [2021;](#page-12-4) [Wang et al.,](#page-13-8) [2022\)](#page-13-8), to LLMs prompting [\(Yuan et al.,](#page-14-2) [2023\)](#page-14-2). Yet, these benchmarks are limited by their*locality assumption*, where only pairs of events within a two-sentence window are annotated. Even in this simplified scenario of temporal relation extraction, ChatGPT perform poorly, trailing supervised systems by over 30% [\(Chan et al.,](#page-10-2) [2024\)](#page-10-2).
 
-The most challenging task, contextualized temporal graph extraction, is defined as, given a document, generating a corresponding event-level temporal graph [\(UzZaman et al.,](#page-13-1) [2013;](#page-13-1) [Madaan](#page-12-5) [and Yang,](#page-12-5) [2021\)](#page-12-5). This task addresses the limitation of locality by priming models to comprehend the entire article and infer relationships even between distant events. Yet, this area is largely underinvestigated, partly due to the scarcity of available datasets. A similar task is script learning [\(Regneri](#page-13-9) [et al.,](#page-13-9) [2010;](#page-13-9) [Modi et al.,](#page-12-6) [2016;](#page-12-6) [Sakaguchi et al.,](#page-13-10) [2021\)](#page-13-10), which targets inducing a stereotypical progression of *complex* events [\(Schank and Abelson,](#page-13-11) [1975\)](#page-13-11), represented as a temporal graph of more *atomic* events. This task is usually approached by first extracting information snippets from a given document to build an instance graph, and then expanding the graph to generate a schematic graph using GNN [\(Li et al.,](#page-11-6) [2021;](#page-11-6) [Jin et al.,](#page-11-7) [2022\)](#page-11-7) or LLM prompting [\(Dror et al.,](#page-11-8) [2023\)](#page-11-8). Given the
+The most challenging task, contextualized temporal graph extraction, is defined as, given a document, generating a corresponding event-level temporal graph [\(UzZaman et al.,](#page-13-1) [2013;](#page-13-1) [Madaan](#page-12-5) [and Yang,](#page-12-5) [2021\)](#page-12-5). This task addresses the limitation of locality by priming models to comprehend the entire article and infer relationships even between distant events. Yet, this area is largely underinvestigated, partly due to the scarcity of available datasets. A similar task is script learning [\(Regneri](#page-13-9) [et al.,](#page-13-9) [2010;](#page-13-9) [Modi et al.,](#page-12-6) [2016;](#page-12-6) [Sakaguchi et al.,](#page-13-10) [2021\)](#page-13-10), which targets inducing a stereotypical progression of *complex*events [\(Schank and Abelson,](#page-13-11) [1975\)](#page-13-11), represented as a temporal graph of more*atomic*events. This task is usually approached by first extracting information snippets from a given document to build an instance graph, and then expanding the graph to generate a schematic graph using GNN [\(Li et al.,](#page-11-6) [2021;](#page-11-6) [Jin et al.,](#page-11-7) [2022\)](#page-11-7) or LLM prompting [\(Dror et al.,](#page-11-8) [2023\)](#page-11-8). Given the
 
-remarkable similarities between these two tasks, we instead study a temporal reasoning task formulation that is *fundamental* to both, i.e., temporal graph generation. It differs from prior work in at least two dimensions: (1) a limited-context setting, where only abstract event descriptions are available, and (2) only a few training samples at hand, rendering fine-tuning techniques inapplicable. This motivates a *training-free assessment* of LLMs' *inherent, global* temporal reasoning capability.
+remarkable similarities between these two tasks, we instead study a temporal reasoning task formulation that is*fundamental*to both, i.e., temporal graph generation. It differs from prior work in at least two dimensions: (1) a limited-context setting, where only abstract event descriptions are available, and (2) only a few training samples at hand, rendering fine-tuning techniques inapplicable. This motivates a*training-free assessment*of LLMs'*inherent, global*temporal reasoning capability.
 
 #### <span id="page-2-0"></span>2.2 Chain-of-Thought and its Variants
 
-Despite the strong problem-solving capability in the general domain [\(Wei et al.,](#page-14-8) [2022a\)](#page-14-8), LLMs struggle to address more complex reasoning tasks, such as commonsense understanding and arithmetic reasoning [\(Patel et al.,](#page-12-7) [2021;](#page-12-7) [Talmor et al.,](#page-13-12) [2021a;](#page-13-12) [Huang and Chang,](#page-11-9) [2023\)](#page-11-9). [Wei et al.](#page-14-7) [\(2022b\)](#page-14-7) first introduce the concept *Chain-of-Thought (CoT)* by decomposing multi-step problems into intermediate steps. [Kojima et al.](#page-11-2) [\(2022\)](#page-11-2) further adds a phrase *"Let's think step by step"* to perform zero-shot CoT. These studies underpin the CoT technique in enhancing LLMs' capability for complex reasoning.
+Despite the strong problem-solving capability in the general domain [\(Wei et al.,](#page-14-8) [2022a\)](#page-14-8), LLMs struggle to address more complex reasoning tasks, such as commonsense understanding and arithmetic reasoning [\(Patel et al.,](#page-12-7) [2021;](#page-12-7) [Talmor et al.,](#page-13-12) [2021a;](#page-13-12) [Huang and Chang,](#page-11-9) [2023\)](#page-11-9). [Wei et al.](#page-14-7) [\(2022b\)](#page-14-7) first introduce the concept*Chain-of-Thought (CoT)*by decomposing multi-step problems into intermediate steps. [Kojima et al.](#page-11-2) [\(2022\)](#page-11-2) further adds a phrase*"Let's think step by step"*to perform zero-shot CoT. These studies underpin the CoT technique in enhancing LLMs' capability for complex reasoning.
 
-Down the line, sophisticated prompting schemes are devised through *structuralization*. One approach is to extend the linear chain structure to Tree-of-Thoughts [\(Yao et al.,](#page-14-9) [2023\)](#page-14-9) and Graph-of-Thoughts [\(Besta et al.,](#page-10-5) [2024\)](#page-10-5), enabling expanded exploration space. The huge search space, however, results in a computational resource dilemma. On top of that, leveraging the deterministic execution to narrow the discrepancy between reasoning and final answer, PoT [\(Chen et al.,](#page-11-3) [2022\)](#page-11-3), PAL [\(Gao](#page-11-4) [et al.,](#page-11-4) [2023\)](#page-11-4) and Faithful CoT [\(Lyu et al.,](#page-12-8) [2023\)](#page-12-8) introduce programming languages to describe the reasoning process structurally. These methods are designed exclusively for solving mathematical reasoning and symbolic reasoning, where the reasoning process and computation can be decoupled. In contrast, for temporal reasoning, the reasoning process and the temporal sorting step are intrinsically interleaved. In fact, [Chu et al.](#page-11-1) [\(2023\)](#page-11-1) has attempted to apply CoT but proved unsuccessful.
+Down the line, sophisticated prompting schemes are devised through*structuralization*. One approach is to extend the linear chain structure to Tree-of-Thoughts [\(Yao et al.,](#page-14-9) [2023\)](#page-14-9) and Graph-of-Thoughts [\(Besta et al.,](#page-10-5) [2024\)](#page-10-5), enabling expanded exploration space. The huge search space, however, results in a computational resource dilemma. On top of that, leveraging the deterministic execution to narrow the discrepancy between reasoning and final answer, PoT [\(Chen et al.,](#page-11-3) [2022\)](#page-11-3), PAL [\(Gao](#page-11-4) [et al.,](#page-11-4) [2023\)](#page-11-4) and Faithful CoT [\(Lyu et al.,](#page-12-8) [2023\)](#page-12-8) introduce programming languages to describe the reasoning process structurally. These methods are designed exclusively for solving mathematical reasoning and symbolic reasoning, where the reasoning process and computation can be decoupled. In contrast, for temporal reasoning, the reasoning process and the temporal sorting step are intrinsically interleaved. In fact, [Chu et al.](#page-11-1) [\(2023\)](#page-11-1) has attempted to apply CoT but proved unsuccessful.
 
 Moreover, existing methods are mostly applied to generate intermediate rationales for *simple, atomic outputs*, usually in the format of multichoice options [\(Mihaylov et al.,](#page-12-9) [2018;](#page-12-9) [Talmor](#page-13-0) [et al.,](#page-13-0) [2019;](#page-13-0) [Liu et al.,](#page-11-10) [2020\)](#page-11-10), a number [\(Cobbe](#page-11-0) [et al.,](#page-11-0) [2021;](#page-11-0) [Hendrycks et al.,](#page-11-11) [2021\)](#page-11-11), or yes/no options [\(Talmor et al.,](#page-13-13) [2021b;](#page-13-13) [Wei et al.,](#page-14-8) [2022a\)](#page-14-8). Our work draws a clear distinction where our focus is
 
 <span id="page-3-1"></span>![](_page_3_Figure_0.jpeg)
 
-Figure 2: Overview of NARRATIVE-OF-THOUGHT (NOT), a prompting technique tailored for temporal reasoning. NOT improves the temporal graph by *recounting* a temporally grounded narrative. Also shown are comparisons with existing methods. Full example is in Figure [A4](#page-19-0) and NOT output is in Figure [A7.](#page-20-0)
+Figure 2: Overview of NARRATIVE-OF-THOUGHT (NOT), a prompting technique tailored for temporal reasoning. NOT improves the temporal graph by *recounting*a temporally grounded narrative. Also shown are comparisons with existing methods. Full example is in Figure [A4](#page-19-0) and NOT output is in Figure [A7.](#page-20-0)
 
 on structural output generation, augmented with producing a rationale in the form of a compelling and pertinent narrative.[4](#page-3-0)
 
 ### 3 Method: NARRATIVE-OF-THOUGHT
 
-Figure [2](#page-3-1) provides an overview of the proposed NARRATIVE-OF-THOUGHT (NOT) method, and draws a comparison against common prompting techniques. Overall, given a scenario and a set of events, NOT first converts the input into a Python class, then guides LLMs to produce a temporally grounded narrative by arranging events in the correct temporal order, leveraging LLMs' intrinsic temporal knowledge. Based on the *recounted* temporal relations articulated in the narrative, LLMs are instructed to sort events into a temporal graph. This section will discuss major components in detail: (1) structural representation, (2) NOT prompting template, and (3) narrative-aware demonstrations.
+Figure [2](#page-3-1) provides an overview of the proposed NARRATIVE-OF-THOUGHT (NOT) method, and draws a comparison against common prompting techniques. Overall, given a scenario and a set of events, NOT first converts the input into a Python class, then guides LLMs to produce a temporally grounded narrative by arranging events in the correct temporal order, leveraging LLMs' intrinsic temporal knowledge. Based on the*recounted*temporal relations articulated in the narrative, LLMs are instructed to sort events into a temporal graph. This section will discuss major components in detail: (1) structural representation, (2) NOT prompting template, and (3) narrative-aware demonstrations.
 
 Structural Representation. Following prior work [\(Madaan et al.,](#page-12-1) [2022;](#page-12-1) [Chen et al.,](#page-11-3) [2022;](#page-11-3) [Gao](#page-11-4) [et al.,](#page-11-4) [2023\)](#page-11-4), we cast temporal reasoning as a code completion task. This design decision is motivated by the unordered nature of both event sets and temporal relation sets, making a structural representation the optimal choice. [Wang et al.](#page-13-15) [\(2023a\)](#page-13-15) also shows that combining structural event representations with LLMs trained with a mixture of text and code can unleash the full pretraining power. We extend this framing to handle cross-event structures. Specifically, a temporal graph is commonly presented in DOT format [\(Madaan and Yang,](#page-12-5) [2021;](#page-12-5) [Sakaguchi et al.,](#page-13-10) [2021\)](#page-13-10), the appearance of which lends itself naturally to the usage of coding format. Furthermore, code execution follows a clear, step-by-step logical flow, mirroring the process of reasoning. Bringing these aspects together results in an alignment between temporal graphs and code structure, facilitating the temporal reasoning process. Our further study on this phenomenon also reveals a strong positive correlation between coding capabilities and temporal reasoning, as documented in Appendix [E](#page-16-0) .
 
@@ -78,21 +80,21 @@ Concretely, each scenario is represented as a Python class. Each class encapsula
 
 <span id="page-3-0"></span><sup>4</sup>The significance of narrative in shaping human decisionmaking is well-studied [\(Piper et al.,](#page-13-14) [2021;](#page-13-14) [Emelin et al.,](#page-11-12) [2021;](#page-11-12) [Zhang et al.,](#page-14-10) [2024b\)](#page-14-10); we hypothesize machines are similarly influenced.
 
-NARRATIVE-OF-THOUGHT (NOT). At inference time, NOT first prompts LLMs to produce a temporally grounded narrative using *Narrative Prompt*. Drawing on the generated narrative, LLMs proceed and complete generation in response to *Temporal Graph Prompt*. The entire generation process is in an end-to-end manner, ensuring that LLMs explicitly leverage the temporal relations articulated in the narrative to assist the generation of the final temporal graph. We provide a complete example in Appendix [C.](#page-16-1)
+NARRATIVE-OF-THOUGHT (NOT). At inference time, NOT first prompts LLMs to produce a temporally grounded narrative using*Narrative Prompt*. Drawing on the generated narrative, LLMs proceed and complete generation in response to *Temporal Graph Prompt*. The entire generation process is in an end-to-end manner, ensuring that LLMs explicitly leverage the temporal relations articulated in the narrative to assist the generation of the final temporal graph. We provide a complete example in Appendix [C.](#page-16-1)
 
 #### Narrative Prompt
 
 # Let's think of a narrative to link aforementioned events in the correct temporal order. def get\_narrative(self): # TODO
 
-#### Temporal Graph Prompt
+## Temporal Graph Prompt
 
 def get\_relations(self): # TODO # END
 
-Overall, NOT narrows the gap between pretraining and inference by allowing the LLM to unfold the narrative knowledge seen during pretraining. Concretely, our approach leverages LLMs' inherent strengths in *generating* and *comprehending* text for narrative and temporal graph generation, respectively. In contrast, directly mapping abstract events to a temporal graph is less effective, as such examples are rarely encountered during pre-training. Practically, generated narratives create imagined experiences to navigate, and reify implicit timelines, assisting reasoning over a series of events even without explicit timestamps provided in the text, which are crucial for tasks requiring temporal reasoning. By reading the *recounted* narrative, it becomes easier for the LLMs to construct an implicit timeline to guide event sorting, significantly reducing the reasoning complexity compared to generating temporal graphs from scratch (i.e., using abstract events alone).
+Overall, NOT narrows the gap between pretraining and inference by allowing the LLM to unfold the narrative knowledge seen during pretraining. Concretely, our approach leverages LLMs' inherent strengths in *generating*and*comprehending*text for narrative and temporal graph generation, respectively. In contrast, directly mapping abstract events to a temporal graph is less effective, as such examples are rarely encountered during pre-training. Practically, generated narratives create imagined experiences to navigate, and reify implicit timelines, assisting reasoning over a series of events even without explicit timestamps provided in the text, which are crucial for tasks requiring temporal reasoning. By reading the*recounted*narrative, it becomes easier for the LLMs to construct an implicit timeline to guide event sorting, significantly reducing the reasoning complexity compared to generating temporal graphs from scratch (i.e., using abstract events alone).
 
-Our NOT draws a clear distinction from the CoT prompting and its variants in four aspects. First, for CoT, a final answer cannot be easily extracted unless a post-hoc script is designed [\(Ko](#page-11-2)[jima et al.,](#page-11-2) [2022;](#page-11-2) [Wang et al.,](#page-14-11) [2023b;](#page-14-11) [Zheng et al.,](#page-14-12) [2024\)](#page-14-12), which can be sometimes error-prone, while the output of NOT is easy to obtain by parsing the get\_relations() function. Second, NOT produces final outputs in the structural space, while existing methods solely produce *simple, atomic*
+Our NOT draws a clear distinction from the CoT prompting and its variants in four aspects. First, for CoT, a final answer cannot be easily extracted unless a post-hoc script is designed [\(Ko](#page-11-2)[jima et al.,](#page-11-2) [2022;](#page-11-2) [Wang et al.,](#page-14-11) [2023b;](#page-14-11) [Zheng et al.,](#page-14-12) [2024\)](#page-14-12), which can be sometimes error-prone, while the output of NOT is easy to obtain by parsing the get\_relations() function. Second, NOT produces final outputs in the structural space, while existing methods solely produce*simple, atomic*
 
-*outputs* as discussed in [§2.2.](#page-2-0) Third, NOT produces final temporal graphs cost-effectively without external tools in an end-to-end fashion, unlike pipeline approaches which face error propagation and oversampling issues [\(Dror et al.,](#page-11-8) [2023\)](#page-11-8). Lastly, the generated rationales by CoTs are not necessarily grounded in real-world experience. In contrast, generated narratives by NOT are steered to be more *temporally grounded*, creating an imagined experience for LLMs to navigate, which is proved effective.
+*outputs*as discussed in [§2.2.](#page-2-0) Third, NOT produces final temporal graphs cost-effectively without external tools in an end-to-end fashion, unlike pipeline approaches which face error propagation and oversampling issues [\(Dror et al.,](#page-11-8) [2023\)](#page-11-8). Lastly, the generated rationales by CoTs are not necessarily grounded in real-world experience. In contrast, generated narratives by NOT are steered to be more*temporally grounded*, creating an imagined experience for LLMs to navigate, which is proved effective.
 
 Narrative-aware Demonstrations. Existing studies [\(Brown et al.,](#page-10-6) [2020;](#page-10-6) [Wei et al.,](#page-14-8) [2022a\)](#page-14-8) have demonstrated that in-context demonstrations play a critical role in guiding LLMs to produce meaningful outputs. NOT is no exception, as Table [1](#page-5-0) reveals that even GPT-3.5 struggles with temporal reasoning in a zero-shot setting. Thus, few-shot examples are provided by default. For NOT to succeed, high-quality and relevant rehearsed narratives, termed *reference narratives*, need to be created and embedded in these demonstrations.
 
@@ -102,7 +104,7 @@ Capitalizing on the recent success of using LLMs to generate demonstrations [\(Y
 
 In this work, we focus on Temporal Graph Generation (TGG), an essential task of temporal reasoning. Here, we discuss datasets, experimental setup, baselines, and evaluation metrics. We provide additional implementation details in Appendix [A.](#page-16-3)
 
-#### 4.1 Dataset
+#### 1 Dataset
 
 In line with the literature, we use ProScript [\(Sak](#page-13-10)[aguchi et al.,](#page-13-10) [2021\)](#page-13-10) as the major benchmark, where a temporal script is represented as a directed acyclic graph, which were collected from a diverse range of
 
@@ -139,7 +141,7 @@ Table 1: Main results of base LLMs and strong baselines on TGG evaluation benchm
 
 are in purple . On average, NOT boosts F1 metric over its base model by 16% to 71%, and sometimes improves the GED metric. NOT-augmented LLAMA3-8B achieves best overall F1 (63.5 F1 by 3-shot variant; Figure [3\)](#page-7-1) and GED results on Schema-11. Also, it only trails GPT-3.5 and GPT-4 by 8% and 14% on average, while yielding a lower average GED. Full results in Table [A1.](#page-15-0) \*By default, 5-shot examples are provided, unless otherwise noted.
 
-sources including ROCStories [\(Mostafazadeh et al.,](#page-12-11) [2016\)](#page-12-11), Descript [\(Wanzare et al.,](#page-14-14) [2016\)](#page-14-14), and Virtual home [\(Puig et al.,](#page-13-16) [2018\)](#page-13-16). We also adopt two other datasets to enrich the evaluated genres and domains, and make necessary changes for the TGG task: 1) Schema-11 evaluation set [\(Dror et al.,](#page-11-8) [2023\)](#page-11-8), which contains human-curated event schemas for 11 newsworthy topics, such as *armed robbery* and *business change*; and 2) WikiHow Script corpus [\(Lyu et al.,](#page-12-12) [2021\)](#page-12-12), a collection of multilingual howto articles depicting necessary steps performed in sequence to achieve a high-level goal, covering a wide range of daily activities. Dataset statistics are included in Table [2,](#page-6-0) and we provide detailed dataset processing steps in Appendix [B.](#page-16-4)
+sources including ROCStories [\(Mostafazadeh et al.,](#page-12-11) [2016\)](#page-12-11), Descript [\(Wanzare et al.,](#page-14-14) [2016\)](#page-14-14), and Virtual home [\(Puig et al.,](#page-13-16) [2018\)](#page-13-16). We also adopt two other datasets to enrich the evaluated genres and domains, and make necessary changes for the TGG task: 1) Schema-11 evaluation set [\(Dror et al.,](#page-11-8) [2023\)](#page-11-8), which contains human-curated event schemas for 11 newsworthy topics, such as *armed robbery*and*business change*; and 2) WikiHow Script corpus [\(Lyu et al.,](#page-12-12) [2021\)](#page-12-12), a collection of multilingual howto articles depicting necessary steps performed in sequence to achieve a high-level goal, covering a wide range of daily activities. Dataset statistics are included in Table [2,](#page-6-0) and we provide detailed dataset processing steps in Appendix [B.](#page-16-4)
 
 #### <span id="page-5-1"></span>4.2 Setup
 
@@ -149,7 +151,7 @@ base models to spotlight the compatibility and versatility of NOT. We include ve
 
 Shown in Figure [2,](#page-3-1) we represent the event set as a suite of Python methods, by serializing the unordered event set. For each scenario, we randomly shuffle the input Python methods three times, and apply models to each shuffle with greedy decoding at inference. For NOT, we use *Simple Report*style narratives by GPT-4, which are generated by following instructions to produce concise reports based on provided event descriptions and relations (see style details in Table [A2\)](#page-17-0).
 
-#### 4.3 Baselines
+#### 3 Baselines
 
 To showcase the effectiveness of NOT, for each base model we compare with standard structural prompting and structuralized chain-of-thought prompting (Figure [2\)](#page-3-1). We also remove reference
 
@@ -161,13 +163,13 @@ To showcase the effectiveness of NOT, for each base model we compare with standa
 | Schema-11 (Dror et al.)     | 11         | 7.91    | 11          | 7.18            | 3.48         | 27%         | News   |
 | WikiHow Script (Lyu et al.) | 2,991      | 8.37    | 20          | 7.37            | 9.63         | 0%          | Daily  |
 
-Table 2: Basic statistics of evaluation datasets. Max #events indicate the maximum number of events for a scenario. Event length is defined as the number of words in the event description. %Non-linear tells the proportion of temporal graphs that contain at least one branch. Two domains are considered, *Daily* activity and *News* journalism.
+Table 2: Basic statistics of evaluation datasets. Max #events indicate the maximum number of events for a scenario. Event length is defined as the number of words in the event description. %Non-linear tells the proportion of temporal graphs that contain at least one branch. Two domains are considered, *Daily*activity and*News*journalism.
 
-narratives in demonstrations to highlight the importance of narrative-aware few-shot demonstrations, and conduct a holistic evaluation of reference narratives in [§5.2.](#page-7-0) We include a random baseline, where events are naively connected to form a *linear* temporal chain based on the order they appear in the input. We also experiment with two strong proprietary models, GPT-3.5[5](#page-6-1) and GPT-4 [\(OpenAI,](#page-12-13) [2023\)](#page-12-13) [6](#page-6-2) to help gauge the gap between AI systems and human-level performance.
+narratives in demonstrations to highlight the importance of narrative-aware few-shot demonstrations, and conduct a holistic evaluation of reference narratives in [§5.2.](#page-7-0) We include a random baseline, where events are naively connected to form a*linear*temporal chain based on the order they appear in the input. We also experiment with two strong proprietary models, GPT-3.5[5](#page-6-1) and GPT-4 [\(OpenAI,](#page-12-13) [2023\)](#page-12-13) [6](#page-6-2) to help gauge the gap between AI systems and human-level performance.
 
-#### 4.4 Evaluation Metrics
+#### 4 Evaluation Metrics
 
-We denote the ground-truth and generated temporal graphs as G(V, E) and Gˆ(V, Eˆ), respectively. we compare both semantic and structural similarities between G and Gˆ, following prior work [\(Sakaguchi](#page-13-10) [et al.,](#page-13-10) [2021;](#page-13-10) [Madaan et al.,](#page-12-1) [2022\)](#page-12-1). To evaluate semantic similarity, we report *precision (P)* and *recall (R)*, defined as below, as well as *F1*.
+We denote the ground-truth and generated temporal graphs as G(V, E) and Gˆ(V, Eˆ), respectively. we compare both semantic and structural similarities between G and Gˆ, following prior work [\(Sakaguchi](#page-13-10) [et al.,](#page-13-10) [2021;](#page-13-10) [Madaan et al.,](#page-12-1) [2022\)](#page-12-1). To evaluate semantic similarity, we report*precision (P)*and*recall (R)*, defined as below, as well as *F1*.
 
 $$
 \text{Precision} = \frac{|\mathcal{E} \cap \hat{\mathcal{E}}|}{|\hat{\mathcal{E}}|} \quad \text{Recall} = \frac{|\mathcal{E} \cap \hat{\mathcal{E}}|}{|\mathcal{E}|}
@@ -178,7 +180,7 @@ To assess structural similarities, we consider:
 - *Graph Edit Distance* (*GED*; [Abu-Aisheh et al.,](#page-10-8) [2015\)](#page-10-8) calculates the minimum number of edits (node/edge removal/additions) to transform Gˆ to a graph isomorphic to G.
 - *Graph Statistics*: fraction of the number of edges between Gˆ and G ( |E| ˆ |E|); the number of connected components in Gˆ, denoted as k(G). The goal is to bring both statistics closer to 1, additionally ensuring k(G) is at least 1.
 
-We further calculate *Pair-wise Consistency* between Gˆ <sup>i</sup> and Gˆ <sup>j</sup> , where we compare generated graphs, based on two randomly shuffled inputs, and compute the proportion of common temporal links produced in both graphs, i.e., |E<sup>ˆ</sup> <sup>i</sup>∩Eˆ j | |Eˆ <sup>i</sup>∪Eˆ j | .
+We further calculate *Pair-wise Consistency*between Gˆ <sup>i</sup> and Gˆ <sup>j</sup> , where we compare generated graphs, based on two randomly shuffled inputs, and compute the proportion of common temporal links produced in both graphs, i.e., |E<sup>ˆ</sup> <sup>i</sup>∩Eˆ j | |Eˆ <sup>i</sup>∪Eˆ j | .
 
 ### 5 Results and Analyses
 
@@ -186,13 +188,13 @@ We further calculate *Pair-wise Consistency* between Gˆ <sup>i</sup> and Gˆ <s
 
 Major results are included in Table [1,](#page-5-0) and the full results (across all 7 metrics) can be found in Table [A1.](#page-15-0) Below are our major findings.
 
-1) *With the few-shot setup, small LLMs are dramatically underperforming, reaching barely 50% of GPT-4's capabilities.* The three base models, whether using standard prompting or CoT, consistently under-perform GPT-4 and attain 40% to 60% of its average F1 scores. Among them, MISTRAL-7B achieves the highest F1 scores, while LLAMA3- 8B produces temporal graphs most similar to the ground truth, as measured by GED.
+1)*With the few-shot setup, small LLMs are dramatically underperforming, reaching barely 50% of GPT-4's capabilities.*The three base models, whether using standard prompting or CoT, consistently under-perform GPT-4 and attain 40% to 60% of its average F1 scores. Among them, MISTRAL-7B achieves the highest F1 scores, while LLAMA3- 8B produces temporal graphs most similar to the ground truth, as measured by GED.
 
-2) *Unlike many other reasoning tasks, CoT does not always work for temporal reasoning and sometimes degrades performance.* Unlike mathematical or logical reasoning [\(Wei et al.,](#page-14-7) [2022b\)](#page-14-7), CoT prompting does not necessarily enhance model performance on temporal reasoning tasks. Across all three base models, there is a notable degradation in F1 and GED scores with CoT, except for LLAMA3's F1 scores. This is not TGG-specific, but rather a common pattern across various temporal understanding tasks [\(Chu et al.,](#page-11-1) [2023\)](#page-11-1), highlighting the need for specialized approaches to temporal reasoning. Outputs by CoT are included in Figure [A6.](#page-20-1)
+2)*Unlike many other reasoning tasks, CoT does not always work for temporal reasoning and sometimes degrades performance.*Unlike mathematical or logical reasoning [\(Wei et al.,](#page-14-7) [2022b\)](#page-14-7), CoT prompting does not necessarily enhance model performance on temporal reasoning tasks. Across all three base models, there is a notable degradation in F1 and GED scores with CoT, except for LLAMA3's F1 scores. This is not TGG-specific, but rather a common pattern across various temporal understanding tasks [\(Chu et al.,](#page-11-1) [2023\)](#page-11-1), highlighting the need for specialized approaches to temporal reasoning. Outputs by CoT are included in Figure [A6.](#page-20-1)
 
-3) *GPT-4 is not always the champion, owing to the added safety layer.* GPT-4 implements safety measures through human-preference alignment [\(OpenAI,](#page-12-13) [2023\)](#page-12-13), which enhances model safety by prompting more cautious responses, potentially leading to performance drop [\(Bai et al.,](#page-10-9) [2022;](#page-10-9) [Bek](#page-10-10)[bayev et al.,](#page-10-10) [2023\)](#page-10-10). Especially on Schema-11, GPT-4 refrains from providing answers to sensitive scenarios like "bombing attacks",[7](#page-6-3) and thus fails to produce a valid temporal graph.
+3)*GPT-4 is not always the champion, owing to the added safety layer.*GPT-4 implements safety measures through human-preference alignment [\(OpenAI,](#page-12-13) [2023\)](#page-12-13), which enhances model safety by prompting more cautious responses, potentially leading to performance drop [\(Bai et al.,](#page-10-9) [2022;](#page-10-9) [Bek](#page-10-10)[bayev et al.,](#page-10-10) [2023\)](#page-10-10). Especially on Schema-11, GPT-4 refrains from providing answers to sensitive scenarios like "bombing attacks",[7](#page-6-3) and thus fails to produce a valid temporal graph.
 
-4) *With* NOT*, small LLMs can perform comparably to GPT-3.5, or even take the lead.* When equipped with NOT, the overall semantic correctness (F1) and structural similarity (GED) of the
+4)*With* NOT*, small LLMs can perform comparably to GPT-3.5, or even take the lead.*When equipped with NOT, the overall semantic correctness (F1) and structural similarity (GED) of the
 
 <span id="page-6-1"></span><sup>5</sup> <https://chat.openai.com/>;
 
@@ -210,9 +212,9 @@ Table 3: Performance comparison between NOT and fine-tuning (FT) on ProScript. G
 
 generated temporal graphs are significantly enhanced, regardless of which base LLM is used. The average improvement of F1 over naively prompting the base model is between 16% to 71%. As the power of the base LLM grows, NOT demonstrates greater consistency in its outputs. Notably, with LLAMA3-8B, the strongest base LLM, NOT achieves an F1 score that is comparable to GPT-3.5 (42.2 vs. 45.7), and even outperforms GPT-3.5/4 on GED. These results demonstrate the potential of applying NOT in a wide range of temporal understanding tasks in future research.
 
-5) *Recounting temporally grounded narrative is a prerequisite for LLMs to generate temporal graphs accurately.* Without high-quality reference narratives, LLMs struggle to generate temporally grounded narratives, leading to a detrimental impact on NOT-augmented GEMMA-7B (e.g., a 0.7 F1 drop and a 0.67 GED increase).
+5)*Recounting temporally grounded narrative is a prerequisite for LLMs to generate temporal graphs accurately.*Without high-quality reference narratives, LLMs struggle to generate temporally grounded narratives, leading to a detrimental impact on NOT-augmented GEMMA-7B (e.g., a 0.7 F1 drop and a 0.67 GED increase).
 
-6) *LLMs, including the powerful GPT-4, lag far behind human-level performance in temporal reasoning.* The SOTA F1 score (by GPT-4) on ProScript is 63.9, whereas the human baseline F1 is 89.3 [\(Sakaguchi et al.,](#page-13-10) [2021\)](#page-13-10). While NOT has notably narrowed the gap between small and large LLMs, AI models have not mastered temporal reasoning yet, and further research efforts are needed for LLMs to match human performance.
+6)*LLMs, including the powerful GPT-4, lag far behind human-level performance in temporal reasoning.*The SOTA F1 score (by GPT-4) on ProScript is 63.9, whereas the human baseline F1 is 89.3 [\(Sakaguchi et al.,](#page-13-10) [2021\)](#page-13-10). While NOT has notably narrowed the gap between small and large LLMs, AI models have not mastered temporal reasoning yet, and further research efforts are needed for LLMs to match human performance.
 
 Comparison with fine-tuned LLMs. To evaluate the performance gap between the NOT prompting technique and the computational-intense finetuning (FT) approach, we conduct a side experiment on the ProScript dataset. Specifically, each instruction-tuned base LLM is fine-tuned on the ProScript training set, utilizing LoRA [\(Hu et al.,](#page-11-15) [2022\)](#page-11-15) and mixed-precision training. We follow the same setting as in [§4.2](#page-5-1) where each training example is prepended with 5-shot demonstrations. While significant performance disparities between NOT and FT are observed across the board, the narrowing gap suggests the growing potential of NOT as the underlying LLM continues to evolve. Moreover, fine-tuned small LLMs consistently outperform the few-shot GPT-4, which is the best-performing gen-
 
@@ -236,7 +238,7 @@ What characteristics define effective reference narratives? Given that reference
 
 NOT are machine-generated, we aim to explore what qualities matter most for the TGG task. Here, the three variables influencing reference narratives are: (1) narrative generation model (GPT-3.5 vs. GPT-4), (2) input format (alphabetical vs. descriptive), and (3) 4 meta prompt types (varying degrees of factuality and readability). We show detailed meta prompts in Appendix [D.](#page-16-2)
 
-Figure [4](#page-8-0) and Figure [A2](#page-17-2) show results of F1 and GED with varying meta prompts. Surprisingly, the choice of the generator does not significantly impact the graph quality, with average F1 scores of 36.4 for GPT-3.5 and 37.0 for GPT-4, and GED scores of 1.90 vs. 1.94. Similarly, there is no significant difference between alphabetical and descriptive input formats. The most *impactful* factor is the meta prompt type. Grouping performance bars by prompt type reveals a clear variance in model performance. Among the first three groups, *Simple English* narratives, i.e., good for 10-year-olds, stand out. This suggests that narratives should be simple and concise, as verbose ones are less effective. We find that *News Report* narratives prioritize procedural and factual content, minimizing distractions like descriptive settings or figurative language that can often be found in both fiction or non-fiction stories. We thus combine *Simple English* and *News Report* to leverage their strengths, dubbed *Simple Report*. In summary, we identify three key characteristics for quality reference narratives: *conciseness*, *simplicity* and *factuality*.
+Figure [4](#page-8-0) and Figure [A2](#page-17-2) show results of F1 and GED with varying meta prompts. Surprisingly, the choice of the generator does not significantly impact the graph quality, with average F1 scores of 36.4 for GPT-3.5 and 37.0 for GPT-4, and GED scores of 1.90 vs. 1.94. Similarly, there is no significant difference between alphabetical and descriptive input formats. The most*impactful*factor is the meta prompt type. Grouping performance bars by prompt type reveals a clear variance in model performance. Among the first three groups,*Simple English*narratives, i.e., good for 10-year-olds, stand out. This suggests that narratives should be simple and concise, as verbose ones are less effective. We find that*News Report*narratives prioritize procedural and factual content, minimizing distractions like descriptive settings or figurative language that can often be found in both fiction or non-fiction stories. We thus combine*Simple English*and*News Report*to leverage their strengths, dubbed*Simple Report*. In summary, we identify three key characteristics for quality reference narratives: *conciseness*, *simplicity*and*factuality*.
 
 How faithful is the temporal graph to intermediate narratives? Here, we look into whether NOT-augmented LLMs are self-faithful, i.e., whether the narrative and the temporal graph align in terms of the temporal order of events. Higher self-faithfulness is crucial and desired, as misalignment would diminish the effort of generating a temporally grounded narrative.[8](#page-8-1)
 
@@ -244,7 +246,7 @@ Motivated by the recent success of using LLMs as judges [\(Zheng et al.,](#page-
 
 <span id="page-8-0"></span>![](_page_8_Figure_5.jpeg)
 
-Figure 4: F1 scores on ProScript and Schema-11 with different meta prompts. Average performance grouped by prompt type is also shown. Notably, using a *Simple Report*-style, GPT-4 generated narratives lead to the best score due to its conciseness, simplicity and factuality, which are essential qualities for a *high-quality* reference narrative.
+Figure 4: F1 scores on ProScript and Schema-11 with different meta prompts. Average performance grouped by prompt type is also shown. Notably, using a *Simple Report*-style, GPT-4 generated narratives lead to the best score due to its conciseness, simplicity and factuality, which are essential qualities for a *high-quality*reference narrative.
 
 necessary interventions. Based on automated responses and on-demand human inspections, we find a medium-to-high alignment of 72.8%. Details of templates and the inspection process are included in Appendix [F.](#page-18-0)
 
@@ -270,9 +272,9 @@ GPU resources. The base LLMs used in this work are of 7 to 8 billions parameters
 
 single NVIDIA A40 or NVIDIA L40 with significant CPU and memory resources. The combined inference time for each LLM on the three benchmarks ranges from 10 to 20 hours, depending on the configurations.
 
-### References
+## References
 
-- <span id="page-10-12"></span>Marah I Abdin, Sam Ade Jacobs, Ammar Ahmad Awan, Jyoti Aneja, Ahmed Awadallah, Hany Awadalla, Nguyen Bach, Amit Bahree, Arash Bakhtiari, Harkirat S. Behl, Alon Benhaim, Misha Bilenko, Johan Bjorck, Sébastien Bubeck, Martin Cai, Caio César Teodoro Mendes, Weizhu Chen, Vishrav Chaudhary, Parul Chopra, Allie Del Giorno, Gustavo de Rosa, Matthew Dixon, Ronen Eldan, Dan Iter, Amit Garg, Abhishek Goswami, Suriya Gunasekar, Emman Haider, Junheng Hao, Russell J. Hewett, Jamie Huynh, Mojan Javaheripi, Xin Jin, Piero Kauffmann, Nikos Karampatziakis, Dongwoo Kim, Mahoud Khademi, Lev Kurilenko, James R. Lee, Yin Tat Lee, Yuanzhi Li, Chen Liang, Weishung Liu, Eric Lin, Zeqi Lin, Piyush Madan, Arindam Mitra, Hardik Modi, Anh Nguyen, Brandon Norick, Barun Patra, Daniel Perez-Becker, Thomas Portet, Reid Pryzant, Heyang Qin, Marko Radmilac, Corby Rosset, Sambudha Roy, Olatunji Ruwase, Olli Saarikivi, Amin Saied, Adil Salim, Michael Santacroce, Shital Shah, Ning Shang, Hiteshi Sharma, Xia Song, Masahiro Tanaka, Xin Wang, Rachel Ward, Guanhua Wang, Philipp Witte, Michael Wyatt, Can Xu, Jiahang Xu, Sonali Yadav, Fan Yang, Ziyi Yang, Donghan Yu, Chengruidong Zhang, Cyril Zhang, Jianwen Zhang, Li Lyna Zhang, Yi Zhang, Yue Zhang, Yunan Zhang, and Xiren Zhou. 2024. [Phi-3 technical report: A](https://doi.org/10.48550/ARXIV.2404.14219) [highly capable language model locally on your phone.](https://doi.org/10.48550/ARXIV.2404.14219) *CoRR*, abs/2404.14219.
+- <span id="page-10-12"></span>Marah I Abdin, Sam Ade Jacobs, Ammar Ahmad Awan, Jyoti Aneja, Ahmed Awadallah, Hany Awadalla, Nguyen Bach, Amit Bahree, Arash Bakhtiari, Harkirat S. Behl, Alon Benhaim, Misha Bilenko, Johan Bjorck, Sébastien Bubeck, Martin Cai, Caio César Teodoro Mendes, Weizhu Chen, Vishrav Chaudhary, Parul Chopra, Allie Del Giorno, Gustavo de Rosa, Matthew Dixon, Ronen Eldan, Dan Iter, Amit Garg, Abhishek Goswami, Suriya Gunasekar, Emman Haider, Junheng Hao, Russell J. Hewett, Jamie Huynh, Mojan Javaheripi, Xin Jin, Piero Kauffmann, Nikos Karampatziakis, Dongwoo Kim, Mahoud Khademi, Lev Kurilenko, James R. Lee, Yin Tat Lee, Yuanzhi Li, Chen Liang, Weishung Liu, Eric Lin, Zeqi Lin, Piyush Madan, Arindam Mitra, Hardik Modi, Anh Nguyen, Brandon Norick, Barun Patra, Daniel Perez-Becker, Thomas Portet, Reid Pryzant, Heyang Qin, Marko Radmilac, Corby Rosset, Sambudha Roy, Olatunji Ruwase, Olli Saarikivi, Amin Saied, Adil Salim, Michael Santacroce, Shital Shah, Ning Shang, Hiteshi Sharma, Xia Song, Masahiro Tanaka, Xin Wang, Rachel Ward, Guanhua Wang, Philipp Witte, Michael Wyatt, Can Xu, Jiahang Xu, Sonali Yadav, Fan Yang, Ziyi Yang, Donghan Yu, Chengruidong Zhang, Cyril Zhang, Jianwen Zhang, Li Lyna Zhang, Yi Zhang, Yue Zhang, Yunan Zhang, and Xiren Zhou. 2024. [Phi-3 technical report: A](https://doi.org/10.48550/ARXIV.2404.14219) [highly capable language model locally on your phone.](https://doi.org/10.48550/ARXIV.2404.14219)*CoRR*, abs/2404.14219.
 - <span id="page-10-8"></span>Zeina Abu-Aisheh, Romain Raveaux, Jean-Yves Ramel, and Patrick Martineau. 2015. An exact graph edit distance algorithm for solving pattern recognition problems. In *ICPRAM 2015 - Proceedings of the International Conference on Pattern Recognition Applications and Methods, Volume 1, Lisbon, Portugal, 10-12 January, 2015*, pages 271–278. SciTePress.
 
 <span id="page-10-7"></span>AI@Meta. 2024. [Llama 3 model card.](https://github.com/meta-llama/llama3/blob/main/MODEL_CARD.md)
@@ -416,7 +418,7 @@ Model Cards. In this work, we have experimented with 3 base LLMs. Below lists th
 
 This section documents the processing steps performed on Schema-11 and WikiHow Script to cater for the temporal reasoning task of our interest. We do not use any Python packages for dataset processing. Meanwhile, based on our inspection, we do not spot any offensive content in these three datasets.
 
-Schema-11. In their original annotations, an event node is marked in arg0-trigger-arg<sup>1</sup> format, and we manually convert it to a natural sentence. We specifically adopt annotations under *schemas\_dan\_d* directory.
+Schema-11. In their original annotations, an event node is marked in arg0-trigger-arg<sup>1</sup> format, and we manually convert it to a natural sentence. We specifically adopt annotations under *schemas\_dan\_d*directory.
 
 WikiHow Script corpus. The original dataset features multilingualism, while we only take their English portion for this study. Then, We only keep ordered how-to articles where steps are presented in chronological order. Lastly, we cap the maximum number of steps at 20, which reduces the corpus size from 3, 3035 to 2, 077.
 
@@ -428,7 +430,7 @@ in Figure [A5,](#page-20-2) Figure [A6](#page-20-1) and Figure [A7,](#page-20-0)
 
 ### <span id="page-16-2"></span>D Meta Prompt
 
-This section discusses the major components of a meta prompt, used to generate reference narratives. As shown in Figure [A8](#page-21-0) and Figure [A9,](#page-21-1) a meta prompt consists of two parts: input (in Python programming language) and instruction (above and below the input). The input contains both V (event set) and E (temporal relation set), and the goal is to prompt LLMs to generate a high-quality *reference narrative*. The input has two formats: alphabetical (Figure [A8\)](#page-21-0) format where the function header is represented in the same fashion as in Figure [2,](#page-3-1) and descriptive (Figure [A9\)](#page-21-1) where the function header is the camel-cased version of the complete event description. The instruction part specifies how LLMs are supposed to carry out the narrative generation, reflecting different types and genres. Specifically, we designed four different instructions, listed in Table [A2.](#page-17-0) They are *News Report*, *Simple English*, *Role Play* and *Simple Report*, which is essentially a seamless combination of *News Report* and *Simple English*.
+This section discusses the major components of a meta prompt, used to generate reference narratives. As shown in Figure [A8](#page-21-0) and Figure [A9,](#page-21-1) a meta prompt consists of two parts: input (in Python programming language) and instruction (above and below the input). The input contains both V (event set) and E (temporal relation set), and the goal is to prompt LLMs to generate a high-quality*reference narrative*. The input has two formats: alphabetical (Figure [A8\)](#page-21-0) format where the function header is represented in the same fashion as in Figure [2,](#page-3-1) and descriptive (Figure [A9\)](#page-21-1) where the function header is the camel-cased version of the complete event description. The instruction part specifies how LLMs are supposed to carry out the narrative generation, reflecting different types and genres. Specifically, we designed four different instructions, listed in Table [A2.](#page-17-0) They are *News Report*, *Simple English*, *Role Play*and*Simple Report*, which is essentially a seamless combination of *News Report*and*Simple English*.
 
 ### <span id="page-16-0"></span>E Correlation Analysis
 
@@ -440,10 +442,10 @@ Second, regarding instruction-following capability in code completion, we evalua
 
 | Instruction Type | Detailed Instruction                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| News Report      | You are provided with a set of unordered event descriptions.<br>You are also provided with a set of event relations which instructs you how to temporally link a pair of events.<br>They are displayed as functions defined within a python class. \n<br>Your goal is to write a *news report* based on the provided event descriptions and event relations set.<br>The generated *news report* should adhere to the non-fiction genre.<br>Meanwhile, the generated *news report* should honor the provided temporal information. \n                                                                                                                       |
-| Simple English   | You are provided with a set of unordered event descriptions.<br>You are also provided with a set of event relations which instructs you how to temporally link a pair of events.<br>They are displayed as functions defined within a python class. \n<br>Your goal is to write a *simple and concise story* based on the provided event descriptions and event relations set.<br>The generated *story* should be simple such that it can be understood by a 10-year-old child,<br>and it should be concise such that it can be written within a short paragraph.<br>Meanwhile, the generated *story* should honor the provided temporal information. \n    |
-| Role Play        | You are provided with a set of unordered event descriptions.<br>You are also provided with a set of event relations which instructs you how to temporally link a pair of events.<br>They are displayed as functions defined within a python class. \n<br>Your goal is to write a *simple and concise story* based on the provided event descriptions and event relations set.<br>The generated *story* should honor the provided temporal information. \n<br>Now, imagine you are a character in the *story*.<br>Let's write a *story* that clearly depicts how you, as a character, experience the events, and how you react to them.                     |
-| Simple Report    | You are provided with a set of unordered event descriptions.<br>You are also provided with a set of event relations which instructs you how to temporally link a pair of events.<br>They are displayed as functions defined within a python class. \n<br>Your goal is to write a *simple and concise report* based on the provided event descriptions and event relations set.<br>The generated *report* should be simple such that it can be understood by a 10-year-old child,<br>and it should be concise such that it can be written within a short paragraph.<br>Meanwhile, the generated *report* should honor the provided temporal information. \n |
+| News Report      | You are provided with a set of unordered event descriptions.<br>You are also provided with a set of event relations which instructs you how to temporally link a pair of events.<br>They are displayed as functions defined within a python class. \n<br>Your goal is to write a *news report*based on the provided event descriptions and event relations set.<br>The generated*news report*should adhere to the non-fiction genre.<br>Meanwhile, the generated*news report*should honor the provided temporal information. \n                                                                                                                       |
+| Simple English   | You are provided with a set of unordered event descriptions.<br>You are also provided with a set of event relations which instructs you how to temporally link a pair of events.<br>They are displayed as functions defined within a python class. \n<br>Your goal is to write a*simple and concise story*based on the provided event descriptions and event relations set.<br>The generated*story*should be simple such that it can be understood by a 10-year-old child,<br>and it should be concise such that it can be written within a short paragraph.<br>Meanwhile, the generated*story*should honor the provided temporal information. \n    |
+| Role Play        | You are provided with a set of unordered event descriptions.<br>You are also provided with a set of event relations which instructs you how to temporally link a pair of events.<br>They are displayed as functions defined within a python class. \n<br>Your goal is to write a*simple and concise story*based on the provided event descriptions and event relations set.<br>The generated*story*should honor the provided temporal information. \n<br>Now, imagine you are a character in the*story*.<br>Let's write a *story*that clearly depicts how you, as a character, experience the events, and how you react to them.                     |
+| Simple Report    | You are provided with a set of unordered event descriptions.<br>You are also provided with a set of event relations which instructs you how to temporally link a pair of events.<br>They are displayed as functions defined within a python class. \n<br>Your goal is to write a*simple and concise report*based on the provided event descriptions and event relations set.<br>The generated*report*should be simple such that it can be understood by a 10-year-old child,<br>and it should be concise such that it can be written within a short paragraph.<br>Meanwhile, the generated*report*should honor the provided temporal information. \n |
 
 ![](_page_17_Figure_1.jpeg)
 
@@ -453,13 +455,13 @@ Second, regarding instruction-following capability in code completion, we evalua
 
 Figure A1: GED scores on ProScript (top) and Schema-11 (bottom) in relation to the number of shots in demonstrations. We identify the instability in the standard prompting, and the performance plateau after 5 shots, along with a slight decline with even more shots.
 
-Figure A2: GED scores on ProScript (top) and Schema-11 (bottom) with different meta prompts. Notably, a *Simple Report*-style, GPT-4 generated narrative leads to the best performance due to its conciseness, simplicity and factuality, which are essential qualities of a *highquality* reference narrative.
+Figure A2: GED scores on ProScript (top) and Schema-11 (bottom) with different meta prompts. Notably, a*Simple Report*-style, GPT-4 generated narrative leads to the best performance due to its conciseness, simplicity and factuality, which are essential qualities of a *highquality* reference narrative.
 
 <span id="page-18-2"></span>The temporal graph is represented as a list of tuples, where each tuple contains two events. The first event happens before the second event, connected with '->'.\n Your task is to determine whether the narrative is faithful to the temporal graph.
 
 The faithfulness is solely determined by whether the temporal relations in the temporal graph \*honor\* the chronological order among events in the narrative.\n How to make an assessment: If the temporal graph is completely faithful to the narrative, type 'yes'. If largely faithful with minor mistakes, type 'largely yes'. If largely not faithful with only a few temporal relations captured, type 'largely no'. If completely not faithful, type 'no'. For other cases, type 'ambivalent'.\n Your response should be in the following format:\n\n
 
-"' Answer: yes/largely yes/ambivalent/largely no/no Rationale: <your rationale> Temporal links: <count the number of temporal links in the graph> Correct temporal links: <determine the number of \*correct\* temporal links> "'
+"' Answer: yes/largely yes/ambivalent/largely no/no Rationale: <your rationale> Temporal links: <count the number of temporal links in the graph> Correct temporal links: <determine the number of \*correct\*temporal links> "'
 
 Let's start!
 
@@ -483,35 +485,35 @@ Combining these assessments, the overall ranking for code completion capability 
 
 # <span id="page-18-0"></span>F Faithfulness Checking Details
 
-Table [A3](#page-18-2) shows the template being used to prompt GPT-4 to produce a judgment. GPT-4 performs a 5-way assessment: yes, largely yes, ambivalent, largely no, and no, where yes means exact alignment while no means no alignment at all. With the counting puzzle as a sanity check, we find that GPT-4 does not count the number of temporal links wrong at all. We thus rely on the returned value of *correct temporal links* as a means to determine the failure mode. Before human inspection, the distribution among yes/largely yes/largely no/no
+Table [A3](#page-18-2) shows the template being used to prompt GPT-4 to produce a judgment. GPT-4 performs a 5-way assessment: yes, largely yes, ambivalent, largely no, and no, where yes means exact alignment while no means no alignment at all. With the counting puzzle as a sanity check, we find that GPT-4 does not count the number of temporal links wrong at all. We thus rely on the returned value of*correct temporal links*as a means to determine the failure mode. Before human inspection, the distribution among yes/largely yes/largely no/no
 
 is 243/190/32/135, where GPT-4 does not output "ambivalent".
 
-Faithfulness Checking Manual Inspection. We notice that there are 39 cases where the value of correct temporal links is 0, and 5 cases where GPT-4 refuses to produce a value. Thus, we manually look into these 44 cases. Among these 44 cases, we correct 4 of them. In one case, GPT-4's rationale is "Additionally, all other links, despite being in the correct order, are rendered incorrect due to the initial incorrect link." and GPT-4 marks 0 correct temporal links. However, as GPT-4 has discovered, all except for one link are actually correct, so we change the label from "no" to "yes". There are three cases where GPT-4 is not judging the faithfulness but instead the *correctness*. As we have noted in the main content, faithfulness is not the same as correctness. For example, one rationale is "Given the fundamental logical error in the sequence of dialing and answering, all links are considered incorrect in the context of real-world logic, despite matching the narrative's order" where the narrative mistakenly says "dialing the phone" happens after "answer the phone", so GPT-4 marks "no". Yet, as GPT-4 has also discovered that the temporal graph actually perfectly matches the generated narrative, we thus correct the label from "no" to yes. The aforementioned two cases are the ones where GPT-4 got stuck in this assessment task.
+Faithfulness Checking Manual Inspection. We notice that there are 39 cases where the value of correct temporal links is 0, and 5 cases where GPT-4 refuses to produce a value. Thus, we manually look into these 44 cases. Among these 44 cases, we correct 4 of them. In one case, GPT-4's rationale is "Additionally, all other links, despite being in the correct order, are rendered incorrect due to the initial incorrect link." and GPT-4 marks 0 correct temporal links. However, as GPT-4 has discovered, all except for one link are actually correct, so we change the label from "no" to "yes". There are three cases where GPT-4 is not judging the faithfulness but instead the*correctness*. As we have noted in the main content, faithfulness is not the same as correctness. For example, one rationale is "Given the fundamental logical error in the sequence of dialing and answering, all links are considered incorrect in the context of real-world logic, despite matching the narrative's order" where the narrative mistakenly says "dialing the phone" happens after "answer the phone", so GPT-4 marks "no". Yet, as GPT-4 has also discovered that the temporal graph actually perfectly matches the generated narrative, we thus correct the label from "no" to yes. The aforementioned two cases are the ones where GPT-4 got stuck in this assessment task.
 
 After human inspection, the final adjudicated distribution is 247/190/32/131. This leads to an alignment level of 72.8% where we consider both "yes" and "largely yes" as entailing *alignment*.
 
-```
-# *** Complete the class "WalkIntoStore" by 
-implementing "get_relations()" function 
-marked by #TODO. You should *ONLY* implement 
-the function "get_relations()" and not 
-generate anything else. Don't generate the 
-entire class "BusinessChange". Don't 
-generate comments. Your response must end in 
+```text
+#  Complete the class "WalkIntoStore" by
+implementing "get_relations()" function
+marked by #TODO. You should *ONLY*implement
+the function "get_relations()" and not
+generate anything else. Don't generate the
+entire class "BusinessChange". Don't
+generate comments. Your response must end in
 "# END".
-# *** You are first given a set of 
-demonstrations of how to implement the 
-"get_relations()" function for different 
+#  You are first given a set of
+demonstrations of how to implement the
+"get_relations()" function for different
 classes.
 class WalkIntoStore:
    title = "walk into store"
    steps = 9
    def stepE(self):
-       return "stop for red lights and stop 
+       return "stop for red lights and stop
 signs"
    def stepC(self):
-       return "shut car door and press lock 
+       return "shut car door and press lock
 button"
    def stepH(self):
        return "get in car and go to store"
@@ -520,14 +522,14 @@ button"
    def stepA(self):
        return "park the car"
    def stepB(self):
-       return "take the key out of the 
+       return "take the key out of the
 ignition"
    def stepD(self):
        return "get out of the car"
    def stepI(self):
        return "walk into store"
    def stepF(self):
-       return "push gas pedal to move 
+       return "push gas pedal to move
 vehicle"
    def get_relations(self):
        return [
@@ -541,13 +543,13 @@ vehicle"
            "stepH -> stepF",
        ]
 # END
-# *** Complete the class "BusinessChange" by 
-implementing "get_relations()" function 
-marked by #TODO. You should *ONLY* implement 
-the function "get_relations()" and not 
-generate anything else. Don't generate the 
-entire class "BusinessChange". Don't 
-generate comments. Your response must end in 
+#  Complete the class "BusinessChange" by
+implementing "get_relations()" function
+marked by #TODO. You should*ONLY* implement
+the function "get_relations()" and not
+generate anything else. Don't generate the
+entire class "BusinessChange". Don't
+generate comments. Your response must end in
 "# END".
 class BusinessChange:
    title = "business change"
@@ -563,18 +565,16 @@ class BusinessChange:
    def stepA(self):
        return "government approve the deal"
    def stepB(self):
-       return "company plans on 
+       return "company plans on
 acquisition"
    def get_relations(self):
        #TODO
 # END
-```
+```text
 
 Figure A3: Input for Standard Prompting with 1-shot demonstration. The input for CoT is almost identical to this one, except for an additional comment "Let's think step by step" added right above get\_relations(self)
 
-<span id="page-19-0"></span>**# \*\*\* Complete the class "WalkIntoStore" by implementing "get\_relations()" function marked by #TODO. You should \*ONLY\* implement the function "get\_relations()" and not generate anything else. Don't generate the entire class "BusinessChange". Don't generate comments. Your response must end in "# END". # \*\*\* You are first given a set of demonstrations of how to implement the "get\_relations()" function for different classes. class WalkIntoStore: title = "walk into store" steps = 9 def stepE(self): return "stop for red lights and stop signs" def stepC(self): return "shut car door and press lock button" def stepH(self): return "get in car and go to store" def stepG(self): return "pull into store driveway" def stepA(self): return "park the car" def stepB(self): return "take the key out of the ignition" def stepD(self): return "get out of the car" def stepI(self): return "walk into store" def stepF(self): return "push gas pedal to move vehicle" #Let's think about a narrative to link aforementioned events in the correct temporal order. def get\_narrative(self): return "This is a report about walking into a store. First, someone gets in the car and starts to go to the store. While driving, they push the gas pedal to move the vehicle but stop for red lights and stop signs along the way. After safely navigating the roads, they pull into the store's driveway and then park the car. Once the car is parked, the key is taken out of the ignition. Next, the person gets out of the car and shuts the car door, pressing the lock button to ensure the car is locked. Finally, they walk into the store. By adhering to the provided temporal information, the desired goal is achieved." def get\_relations(self): return [ "stepF -> stepE", "stepE -> stepG", "stepG -> stepA", "stepB -> stepD", "stepA -> stepB", "stepD -> stepC", "stepC -> stepI", "stepH -> stepF", ] # END # \*\*\* Complete the class "BusinessChange" by implementing "get\_narrative()" and "get\_relations()" functions marked by #TODO. "get\_narrative()" serves as an auxiliary function facilitating the temporal cohesion of events. Essentially, it helps ensure the temporal accuracy of the predicted temporal graph produced in "get\_relations()", by explicitly constructing a coherent, temporally correct story involving all provided events. # You should \*ONLY\* implement the function "get\_narrative()" and "get\_relations()", but not generate anything else. Don't generate the entire class "BusinessChange". Don't generate comments. Your response must end in "# END". class BusinessChange: title = "business change" steps = 6 def stepC(self): return "offer acquisition deal" def stepF(self): return "companies reach a deal" def stepE(self): return "companies merge" def stepD(self): return "companies negotiate" def stepA(self): return "government approve the deal" def stepB(self): return "company plans on acquisition" #Let's think of a narrative to link aforementioned events in the correct temporal order. def get\_narrative(self): #TODO def get\_relations(self): #TODO # END**
-
-Figure A4: Input for NOT with 1-shot demonstration including a high-quality reference narrative.
+<span id="page-19-0"></span>**# \*\*\* Complete the class "WalkIntoStore" by implementing "get\_relations()" function marked by #TODO. You should \*ONLY\* implement the function "get\_relations()" and not generate anything else. Don't generate the entire class "BusinessChange". Don't generate comments. Your response must end in "# END". # \*\*\* You are first given a set of demonstrations of how to implement the "get\_relations()" function for different classes. class WalkIntoStore: title = "walk into store" steps = 9 def stepE(self): return "stop for red lights and stop signs" def stepC(self): return "shut car door and press lock button" def stepH(self): return "get in car and go to store" def stepG(self): return "pull into store driveway" def stepA(self): return "park the car" def stepB(self): return "take the key out of the ignition" def stepD(self): return "get out of the car" def stepI(self): return "walk into store" def stepF(self): return "push gas pedal to move vehicle" #Let's think about a narrative to link aforementioned events in the correct temporal order. def get\_narrative(self): return "This is a report about walking into a store. First, someone gets in the car and starts to go to the store. While driving, they push the gas pedal to move the vehicle but stop for red lights and stop signs along the way. After safely navigating the roads, they pull into the store's driveway and then park the car. Once the car is parked, the key is taken out of the ignition. Next, the person gets out of the car and shuts the car door, pressing the lock button to ensure the car is locked. Finally, they walk into the store. By adhering to the provided temporal information, the desired goal is achieved." def get\_relations(self): return [ "stepF -> stepE", "stepE -> stepG", "stepG -> stepA", "stepB -> stepD", "stepA -> stepB", "stepD -> stepC", "stepC -> stepI", "stepH -> stepF", ] # END # \*\*\* Complete the class "BusinessChange" by implementing "get\_narrative()" and "get\_relations()" functions marked by #TODO. "get\_narrative()" serves as an auxiliary function facilitating the temporal cohesion of events. Essentially, it helps ensure the temporal accuracy of the predicted temporal graph produced in "get\_relations()", by explicitly constructing a coherent, temporally correct story involving all provided events. # You should \*ONLY\* implement the function "get\_narrative()" and "get\_relations()", but not generate anything else. Don't generate the entire class "BusinessChange". Don't generate comments. Your response must end in "# END". class BusinessChange: title = "business change" steps = 6 def stepC(self): return "offer acquisition deal" def stepF(self): return "companies reach a deal" def stepE(self): return "companies merge" def stepD(self): return "companies negotiate" def stepA(self): return "government approve the deal" def stepB(self): return "company plans on acquisition" #Let's think of a narrative to link aforementioned events in the correct temporal order. def get\_narrative(self): #TODO def get\_relations(self): #TODO # END**Figure A4: Input for NOT with 1-shot demonstration including a high-quality reference narrative.
 
 <span id="page-20-2"></span>
 
@@ -599,32 +599,32 @@ Figure A7: Output by NOT.
 
 Figure A6: Output by CoT.
 
-```
-You are provided with a set of unordered 
-event descriptions. 
-You are also provided with a set of event 
-relations which instructs you how to 
-temporally link a pair of events. 
-They are displayed as functions defined 
-within a python class. 
-Your goal is to write a *simple and concise 
-report* based on the provided event 
-descriptions and event relations set. 
-The generated *report* should be simple such 
-that it can be understood by a 10-year-old 
-child, and it should be concise such that it 
+```text
+You are provided with a set of unordered
+event descriptions.
+You are also provided with a set of event
+relations which instructs you how to
+temporally link a pair of events.
+They are displayed as functions defined
+within a python class.
+Your goal is to write a*simple and concise
+report*based on the provided event
+descriptions and event relations set.
+The generated*report*should be simple such
+that it can be understood by a 10-year-old
+child, and it should be concise such that it
 can be written within a short paragraph.
-Meanwhile, the generated *report* should 
-honor the provided temporal information. 
-''' 
+Meanwhile, the generated*report*should
+honor the provided temporal information.
+'''
 class WalkIntoStore:
    title = "walk into store"
    steps = 9
    def stepE(self):
-       return "stop for red lights and stop 
+       return "stop for red lights and stop
 signs"
    def stepC(self):
-       return "shut car door and press lock 
+       return "shut car door and press lock
 button"
    def stepH(self):
        return "get in car and go to store"
@@ -633,14 +633,14 @@ button"
    def stepA(self):
        return "park the car"
    def stepB(self):
-       return "take the key out of the 
+       return "take the key out of the
 ignition"
    def stepD(self):
        return "get out of the car"
    def stepI(self):
        return "walk into store"
    def stepF(self):
-       return "push gas pedal to move 
+       return "push gas pedal to move
 vehicle"
    def get_relations(self):
        return [
@@ -653,44 +653,43 @@ vehicle"
            "stepC -> stepI",
            "stepH -> stepF",
        ]
-'''Start your generation with "This is a report 
-about walk into store". 
-End your generation with this sentence: By 
-adhering to the provided temporal 
+'''Start your generation with "This is a report
+about walk into store".
+End your generation with this sentence: By
+adhering to the provided temporal
 information, the desired goal is achieved.
-```
+```text
 
-Figure A8: Meta prompt used to generate reference narrative, where the input format alphabetical and the meta prompt type is *Simple Report*.
+Figure A8: Meta prompt used to generate reference narrative, where the input format alphabetical and the meta prompt type is*Simple Report*.
 
-```
-You are provided with a set of unordered 
-event descriptions. 
-You are also provided with a set of event 
-relations which instructs you how to 
-temporally link a pair of events. Note, for 
-example, "turnOffLight -> leaveClassroom" 
-indicates that turnOffLight *must* happen 
-before leaveClassroom. Observing the 
-provided temporal relations is imporant! 
-They are displayed as functions defined 
-within a python class. 
-Your goal is to write a *news report* based 
-on the provided event descriptions and event 
-relations set. 
-The generated *news report* should adhere to 
-the non-fiction genre. 
-Meanwhile, the generated *news report* 
-should honor the provided temporal 
+```text
+You are provided with a set of unordered
+event descriptions.
+You are also provided with a set of event
+relations which instructs you how to
+temporally link a pair of events. Note, for
+example, "turnOffLight -> leaveClassroom"
+indicates that turnOffLight *must*happen
+before leaveClassroom. Observing the
+provided temporal relations is imporant!
+They are displayed as functions defined
+within a python class.
+Your goal is to write a*news report*based
+on the provided event descriptions and event
+relations set.
+The generated*news report*should adhere to
+the non-fiction genre.
+Meanwhile, the generated*news report*should honor the provided temporal
 information.
-''' 
+'''
 class WalkIntoStore:
    title = "walk into store"
    steps = 9
    def stopForRedLightsAndStopSigns(self):
-       return "stop for red lights and stop 
+       return "stop for red lights and stop
 signs"
    def shutCarDoorAndPressLockButton(self):
-       return "shut car door and press lock 
+       return "shut car door and press lock
 button"
    def getInCarAndGoToStore(self):
        return "get in car and go to store"
@@ -699,44 +698,44 @@ button"
    def parkTheCar(self):
        return "park the car"
    def takeTheKeyOutOfTheIgnition(self):
-       return "take the key out of the 
+       return "take the key out of the
 ignition"
    def getOutOfTheCar(self):
        return "get out of the car"
    def walkIntoStore(self):
        return "walk into store"
    def pushGasPedalToMoveVehicle(self):
-       return "push gas pedal to move 
+       return "push gas pedal to move
 vehicle"
    def get_relations(self):
        return [
-           "pushGasPedalToMoveVehicle -> 
+           "pushGasPedalToMoveVehicle ->
 stopForRedLightsAndStopSigns",
-           "stopForRedLightsAndStopSigns -> 
+           "stopForRedLightsAndStopSigns ->
 pullIntoStoreDriveway",
-           "pullIntoStoreDriveway -> 
+           "pullIntoStoreDriveway ->
 parkTheCar",
-           "takeTheKeyOutOfTheIgnition -> 
+           "takeTheKeyOutOfTheIgnition ->
 getOutOfTheCar",
-           "parkTheCar -> 
+           "parkTheCar ->
 takeTheKeyOutOfTheIgnition",
-           "getOutOfTheCar -> 
+           "getOutOfTheCar ->
 shutCarDoorAndPressLockButton",
            "shutCarDoorAndPressLockButton -
 > walkIntoStore",
-           "getInCarAndGoToStore -> 
+           "getInCarAndGoToStore ->
 pushGasPedalToMoveVehicle",
        ]
-'''Start your generation with "This is a report 
-about walk into store". 
-End your generation with this sentence: By 
-adhering to the provided temporal 
+'''Start your generation with "This is a report
+about walk into store".
+End your generation with this sentence: By
+adhering to the provided temporal
 information, the desired goal is achieved.
-```
+```text
 
-Figure A9: Meta prompt used to generate reference narrative, where the input format descriptive and the meta prompt type is *News Report*.
+Figure A9: Meta prompt used to generate reference narrative, where the input format descriptive and the meta prompt type is*News Report*.
 
-```
+```text
 Sure , here is the completed " get_relations () " function for the " BombingAttacks " class :
 class BombingAttacks :
      title = " bombing ␣ attacks "
@@ -772,11 +771,11 @@ class BombingAttacks :
               " stepH ␣ ->␣ stepA " ,
               " stepA ␣ ->␣ stepD " ,
          ]
-```
+```text
 
 Table A5: GEMMA-7B's output.
 
-```
+```text
 class BombingAttacks :
      title = " bombing ␣ attacks "
      steps = 10
@@ -811,9 +810,9 @@ class BombingAttacks :
                " stepG ␣ ->␣ stepI " ,
                " stepI ␣ ->␣ stepA " ,
                " stepF ␣ ->␣ stepH " ,
-```
+```text
 
-```
+```text
 return [
      " stepB ␣ ->␣ stepF " ,
      " stepF ␣ ->␣ stepH " ,
@@ -824,7 +823,7 @@ return [
      " stepJ ␣ ->␣ stepC " ,
      " stepC ␣ ->␣ stepI " ,
      " stepI ␣ ->␣ stepA " ,
-```
+```text
 
 Table A7: MISTRAL-7B's output.
 

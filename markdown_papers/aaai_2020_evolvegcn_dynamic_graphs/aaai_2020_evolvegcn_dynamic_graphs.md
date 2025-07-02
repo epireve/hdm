@@ -1,3 +1,5 @@
+<!-- cite_key: pareja2020 -->
+
 # EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs
 
 Aldo Pareja,<sup>1</sup>,2<sup>∗</sup> Giacomo Domeniconi,<sup>1</sup>,2<sup>∗</sup> Jie Chen,<sup>1</sup>,2† Tengfei Ma,<sup>1</sup>,<sup>2</sup> Toyotaro Suzumura,<sup>1</sup>,<sup>2</sup> Hiroki Kanezashi,<sup>1</sup>,<sup>2</sup> Tim Kaler,<sup>1</sup>,<sup>3</sup> Tao B. Schardl,<sup>1</sup>,<sup>3</sup> Charles E. Leiserson<sup>1</sup>,<sup>3</sup>
@@ -8,7 +10,7 @@ Aldo Pareja,<sup>1</sup>,2<sup>∗</sup> Giacomo Domeniconi,<sup>1</sup>,2<sup>�
 
 Tengfei.Ma1@ibm.com, {tsuzumura, hirokik}@us.ibm.com, {tfk, neboat, cel}@mit.edu
 
-#### Abstract
+## Abstract
 
 Graph representation learning resurges as a trending research subject owing to the widespread use of deep learning for Euclidean data, which inspire various creative designs of neural networks in the non-Euclidean domain, particularly graphs. With the success of these graph neural networks (GNN) in the static setting, we approach further practical scenarios where the graph dynamically evolves. Existing approaches typically resort to node embeddings and use a recurrent neural network (RNN, broadly speaking) to regulate the embeddings and learn the temporal dynamics. These methods require the knowledge of a node in the full time span (including both training and testing) and are less applicable to the frequent change of the node set. In some extreme scenarios, the node sets at different time steps may completely differ. To resolve this challenge, we propose EvolveGCN, which adapts the graph convolutional network (GCN) model along the temporal dimension without resorting to node embeddings. The proposed approach captures the dynamism of the graph sequence through using an RNN to evolve the GCN parameters. Two architectures are considered for the parameter evolution. We evaluate the proposed approach on tasks including link prediction, edge classification, and node classification. The experimental results indicate a generally higher performance of EvolveGCN compared with related approaches. The code is available at [https://github.com/IBM/EvolveGCN.](https://github.com/IBM/EvolveGCN)
 
@@ -48,7 +50,7 @@ A set of approaches most relevant to this work is combinations of GNNs and recur
 
 # 3 Method
 
-In this section we present a novel method, coined *evolving graph convolutional network* (EvolveGCN), that captures the dynamism underlying a graph sequence by using a recurrent model to evolve the GCN parameters. Throughout we will use subscript t to denote the time index and superscript l to denote the GCN layer index. To avoid notational cluttering, we assume that all graphs have n nodes; although we reiterate that the node sets, as well as the cardinality, may change over time. Then, at time step t, the input data consists of the pair (A<sup>t</sup> ∈ R <sup>n</sup>×<sup>n</sup>, X<sup>t</sup> ∈ R n×d ), where the former is the graph (weighted) adjacency matrix and the latter is the
+In this section we present a novel method, coined *evolving graph convolutional network*(EvolveGCN), that captures the dynamism underlying a graph sequence by using a recurrent model to evolve the GCN parameters. Throughout we will use subscript t to denote the time index and superscript l to denote the GCN layer index. To avoid notational cluttering, we assume that all graphs have n nodes; although we reiterate that the node sets, as well as the cardinality, may change over time. Then, at time step t, the input data consists of the pair (A<sup>t</sup> ∈ R <sup>n</sup>×<sup>n</sup>, X<sup>t</sup> ∈ R n×d ), where the former is the graph (weighted) adjacency matrix and the latter is the
 
 ![](_page_2_Figure_0.jpeg)
 
@@ -56,14 +58,14 @@ Figure 1: Schematic illustration of EvolveGCN. The RNN means a recurrent archite
 
 matrix of input node features. Specifically, each row of X<sup>t</sup> is a d-dimensional feature vector of the corresponding node.
 
-### <span id="page-2-1"></span>3.1 Graph Convolutional Network (GCN)
+## <span id="page-2-1"></span>3.1 Graph Convolutional Network (GCN)
 
 A GCN [\(Kipf and Welling 2017\)](#page-7-10) consists of multiple layers of graph convolution, which is similar to a perceptron but additionally has a neighborhood aggregation step motivated by spectral convolution. At time t, the l-th layer takes the adjacency matrix A<sup>t</sup> and the node embedding matrix H (l) t as input, and uses a weight matrix W (l) t to update the node embedding matrix to H (l+1) t as output. Mathematically, we write
 
 $$
 H_t^{(l+1)} = \text{GCONV}(A_t, H_t^{(l)}, W_t^{(l)})
 $$
-  
+
 $$
 := \sigma(\hat{A}_t H_t^{(l)} W_t^{(l)}),
 $$
@@ -109,35 +111,33 @@ Figure 2: Two versions of EvolveGCN. In each version, the left is a recurrent ar
 
 with details deferred to a later subsection. The LSTM may be replaced by other recurrent architectures, as long as the roles of W (l) t and W (l) t−1 are clear. We use "-O" to denote this version; see the left part of Figure [2\(](#page-3-0)b).
 
-### 3.3 Evolving Graph Convolution Unit (EGCU)
+### 3 Evolving Graph Convolution Unit (EGCU)
 
-Combining the graph convolution unit GCONV presented in Section [3.1](#page-2-1) and a recurrent architecture presented in Section [3.2,](#page-2-2) we reach the *evolving graph convolution unit* (EGCU). Depending on the way that GCN weights are evolved, we have two versions:
+Combining the graph convolution unit GCONV presented in Section [3.1](#page-2-1) and a recurrent architecture presented in Section [3.2,](#page-2-2) we reach the*evolving graph convolution unit*(EGCU). Depending on the way that GCN weights are evolved, we have two versions:
 
-1: **function** 
-$$
+1:**function**$$
 [H_t^{(l+1)}, W_t^{(l)}] =
 $$
- EGCU-H( $A_t, H_t^{(l)}, W_{t-1}^{(l)}$ )  
-\n2:  $W_t^{(l)} =$  GRU( $H_t^{(l)}, W_{t-1}^{(l)}$ )  
+ EGCU-H( $A_t, H_t^{(l)}, W_{t-1}^{(l)}$ )
+\n2:  $W_t^{(l)} =$  GRU( $H_t^{(l)}, W_{t-1}^{(l)}$ )
 \n3:  $H_t^{(l+1)} =$  GCONV( $A_t, H_t^{(l)}, W_t^{(l)}$ )
 
 4: end function
 
-1: **function** 
-$$
+1:**function**$$
 [H_t^{(l+1)}, W_t^{(l)}] =
 $$
- EGCU-O( $A_t, H_t^{(l)}, W_{t-1}^{(l)}$ )  
-\n2:  $W_t^{(l)} =$  LSTM( $W_{t-1}^{(l)}$ )  
+ EGCU-O( $A_t, H_t^{(l)}, W_{t-1}^{(l)}$ )
+\n2:  $W_t^{(l)} =$  LSTM( $W_{t-1}^{(l)}$ )
 \n3:  $H_t^{(l+1)} =$  GCONV( $A_t, H_t^{(l)}, W_t^{(l)}$ )
 
 4: end function
 
 <span id="page-3-0"></span>In the -H version, the GCN weights are treated as hidden states of the recurrent architecture; whereas in the -O version, these weights are treated as input/outputs. In both versions, the EGCU performs graph convolutions along layers and meanwhile evolves the weight matrices over time.
 
-Chaining the units bottom-up, we obtain a GCN with multiple layers for one time step. Then, unrolling over time horizontally, the units form a lattice on which information (H (l) t and W (l) t ) flows. We call the overall model *evolving graph convolutional network* (EvolveGCN).
+Chaining the units bottom-up, we obtain a GCN with multiple layers for one time step. Then, unrolling over time horizontally, the units form a lattice on which information (H (l) t and W (l) t ) flows. We call the overall model*evolving graph convolutional network*(EvolveGCN).
 
-### 3.4 Implementation of the -H Version
+### 4 Implementation of the -H Version
 
 The -H version can be implemented by using a standard GRU, with two extensions: (a) extending the inputs and hidden states from vectors to matrices (because the hidden state is now the GCN weight matrices); and (b) matching the column dimension of the input with that of the hidden state.
 
@@ -153,21 +153,21 @@ The matrix extension is straightforward: One simply places the column vectors si
 
 The second requirement is that the number of columns of the GRU input must match that of the hidden state. Let the latter number be k. Our strategy is to summarize all the node embedding vectors into k representative ones (each used as a column vector). The following pseudocode gives one popular approach for this summarization. By convention, it takes a matrix X<sup>t</sup> with many rows as input and produces a matrix Z<sup>t</sup> with only k rows (see, e.g., [\(Cangea et al. 2018;](#page-7-27) [Gao and Ji 2019\)](#page-7-15)). The summarization requires a parameter vector p that is independent of the time index t (but may vary for different graph convolution layers). This vector is used to compute weights for the rows, among which the ones corresponding to the top k weights are selected and are weighted for output.
 
-1: function 
+1: function
 $$
 Z_t = summarize(X_t, k)
 $$
 
-2: 
+2:
 $$
 y_t = X_t p / \|p\|
 $$
 
-3: 
+3:
 $$
 i_t =
 $$
-top-indices $(y_t, k)$ 
+top-indices $(y_t, k)$
 
 4: Z<sup>t</sup> = [X<sup>t</sup> ◦ tanh(yt)]<sup>i</sup><sup>t</sup>
 
@@ -178,14 +178,14 @@ With the above functions g and summarize, we now completely specify the recurren
 $$
 W_t^{(l)} = \text{GRU}(H_t^{(l)}, W_{t-1}^{(l)})
 $$
-  
- :=  $g(\text{summarize}(H_t^{(l)}, \# \text{col}(W_{t-1}^{(l)}))^T, W_{t-1}^{(l)}),$ 
+
+ :=  $g(\text{summarize}(H_t^{(l)}, \# \text{col}(W_{t-1}^{(l)}))^T, W_{t-1}^{(l)}),$
 
 where #col denotes the number of columns of a matrix and the superscript T denotes matrix transpose. Effectively, it summarizes the node embedding matrix H (l) t into one with appropriate dimensions and then evolves the weight matrix W (l) in the past time step to W (l) t for the current time.
 
 t−1 Note again that the recurrent hidden state may be realized by not only GRU, but also other RNN architectures as well.
 
-### 3.5 Implementation of the -O Version
+### 5 Implementation of the -O Version
 
 Implementing the -O version requires only a straightforward extension of the standard LSTM from the vector version to the matrix version. The following is the pseudocode, where note again that all named variables are only local variables and they are not to be confused with the mathematical notations we have been using so far. We use these local variable names so that the reader easily recognizes the LSTM functionality.
 
@@ -196,7 +196,7 @@ Implementing the -O version requires only a straightforward extension of the sta
 - 5: O<sup>t</sup> = sigmoid(WOX<sup>t</sup> + UOHt−<sup>1</sup> + BO)
 - 6: <sup>C</sup>e<sup>t</sup> = tanh(WCX<sup>t</sup> <sup>+</sup> <sup>U</sup>CHt−<sup>1</sup> <sup>+</sup> <sup>B</sup><sup>C</sup> )
 
-7: 
+7:
 $$
 C_t = F_t \circ C_{t-1} + I_t \circ \tilde{C}_t
 $$
@@ -213,7 +213,7 @@ $$
 
 Note again that the recurrent input-output relationship may be realized by not only LSTM, but also other RNN architectures as well.
 
-### 3.6 Which Version to Use
+### 6 Which Version to Use
 
 Choosing the right version is data set dependent. When node features are informative, the -H version may be more effective, because it incorporates additionally node embedding in the recurrent network. On the other hand, if the node features are not much informative but the graph structure plays a more vital role, the -O version focuses on the change of the structure and may be more effective.
 
@@ -221,7 +221,7 @@ Choosing the right version is data set dependent. When node features are informa
 
 In this section, we present a comprehensive set of experiments to demonstrate the effectiveness of EvolveGCN. The setting includes a variety of data sets, tasks, compared methods, and evaluation metrics. Hyperparameters are tuned by using the validation set and test results are reported at the best validation epoch.
 
-### 4.1 Data Sets
+## 1 Data Sets
 
 We use a combination of synthetic and publicly available benchmark data sets for experiments.
 
@@ -263,7 +263,7 @@ These data sets are summarized in Table [1.](#page-5-3) Training/validation/test
 | Reddit              | 55,863  | 858,490   | 122 / 18 / 34        |  |  |  |  |  |  |  |
 | Elliptic            | 203,769 | 234,355   | 31 / 5 / 13          |  |  |  |  |  |  |  |
 
-### 4.2 Tasks
+### 2 Tasks
 
 The proposed EvolveGCN supports three predictive tasks elaborated below. The model for producing the embeddings and the predictive model are trained end to end. The output embedding of a node u by GCN at time t is denoted by h u t .
 
@@ -279,7 +279,7 @@ Node Classification. Predicting the label of a node u at time t follows the same
 
 Publicly available data sets for node classification in the dynamic setting are rare. We use only one data set (Elliptic) for demonstration. This data set is the largest one in node count in Table [1.](#page-5-3) The evaluation metrics are the same as those for edge classification.
 
-### 4.3 Compared Methods
+### 3 Compared Methods
 
 We compare the two versions of the proposed method, EvolveGCN-H and EvolveGCN-O, with the following four baselines (two supervised and two unsupervised).
 
@@ -291,7 +291,7 @@ DynGEM. [\(Goyal et al. 2017\)](#page-7-24) The third one is an unsupervised nod
 
 dyngraph2vec. [\(Goyal, Chhetri, and Canedo 2019\)](#page-7-28) This method is also unsupervised. It has several variants: dyngraph2vecAE, dyngraph2vecRNN, and dyngraph2vecAERNN. The first one is similar to DynGEM, but additionally incorporates the past node information for autoencoding. The others use RNN to maintain the past node information.
 
-### 4.4 Additional Details
+### 4 Additional Details
 
 The data set Elliptic is equipped with handcrafted node features; and Reddit contains computed feature vectors. For all other data sets, we use one-hot node-degree as the input feature. Following convention, GCN has two layers and MLP has one layer. The embedding size of both GCN layers is set the same, to reduce the effort of hyperparameter tuning. The time window for sequence learning is 10 time steps, except for SBM and Elliptic, where it is 5.
 
@@ -316,15 +316,15 @@ The data set Elliptic is equipped with handcrafted node features; and Reddit con
 
 Table 2: Performance of link prediction. Each column is one data set.
 
-### 4.5 Results for Link Prediction
+### 5 Results for Link Prediction
 
 The MAP and MRR are reported in Table [2.](#page-6-0) At least one version of EvolveGCN achieves the best result for each of the data sets SBM, UCI, and AS. For BC-OTC and BC-Alpha, EvolveGCN also outperforms the two GCN related baselines, but it is inferior to DynGEM and dyngraph2vec. These latter methods differ from others in that node embeddings are obtained in an unsupervised manner. It is surprising that unsupervised approaches are particularly good on certain data sets, given that the link prediction model is trained separately from graph autoencoding. In such a case, graph convolution does not seem to be sufficiently powerful in capturing the intrinsic similarity of the nodes, rendering a much inferior starting point for dynamic models to catch up. Although EvolveGCN improves over GCN substantially, it still does not reach the bar set by graph autoencoding.
 
-### 4.6 Results for Edge Classification
+### 6 Results for Edge Classification
 
 The F1 scores across different methods are compared in Figure [3,](#page-6-1) for the data sets BC-OTC, BC-Alpha, and Reddit. In all cases, the two EvolveGCN versions outperform GCN and GCN-GRU. Moreover, similar observations are made for the precision and the recall, which are omitted due to space limitation. These appealing results corroborate the effectiveness of the proposed method.
 
-### 4.7 Results for Node Classification
+### 7 Results for Node Classification
 
 The F1 scores for the data set Elliptic are plotted also in Figure [3.](#page-6-1) In this data set, the classes correspond to licit and illicit transactions respectively and they are highly skewed. For financial crime forensic, the illicit class (minority) is the main interest. Hence, we plot the minority F1. The micro averages are all higher than 0.95 and not as informative. One sees that EvolveGCN-O performs better than the static GCN, but not so much as GCN-GRU. Indeed, dynamic models are more effective.
 
@@ -344,7 +344,7 @@ A plethora of neural network architectures were proposed recently for graph stru
 
 # References
 
-- <span id="page-7-20"></span>[Belkin and Niyogi 2002] Belkin, M., and Niyogi, P. 2002. Laplacian eigenmaps and spectral techniques for embedding and clustering. In *NIPS*.
+- <span id="page-7-20"></span>[Belkin and Niyogi 2002] Belkin, M., and Niyogi, P. 2002. Laplacian eigenmaps and spectral techniques for embedding and clustering. In*NIPS*.
 - <span id="page-7-5"></span>[Bruna et al. 2014] Bruna, J.; Zaremba, W.; Szlam, A.; and LeCun, Y. 2014. Spectral networks and locally connected networks on graphs. In *ICLR*.
 - <span id="page-7-27"></span>[Cangea et al. 2018] Cangea, C.; Velickovi ˇ c, P.; Jovanovi ´ c,´ N.; and Thomas Kipf, P. L. 2018. Towards sparse hierarchical graph classifiers. In *NIPS Workshop on Relational Representation Learning*.
 - <span id="page-7-2"></span>[Cao, Lu, and Xu 2015] Cao, S.; Lu, W.; and Xu, Q. 2015. GraRep: Learning graph representations with global structural information. In *CIKM*.
@@ -365,13 +365,13 @@ A plethora of neural network architectures were proposed recently for graph stru
 - <span id="page-7-8"></span>[Li et al. 2016] Li, Y.; Tarlow, D.; Brockschmidt, M.; and Zemel, R. 2016. Gated graph sequence neural networks. In *ICLR*.
 - <span id="page-7-21"></span>[Li et al. 2017] Li, J.; Dani, H.; Hu, X.; Tang, J.; Chang, Y.; and Liu, H. 2017. Attributed network embedding for learning in a dynamic environment. In *CIKM*.
 - <span id="page-7-17"></span>[Manessia, Rozza, and Manzo 2017] Manessia, F.; Rozza, A.; and Manzo, M. 2017. Dynamic graph convolutional networks. arXiv:1704.06199.
-- <span id="page-7-18"></span>[Narayan and Roe 2018] Narayan, A., and Roe, P. H. O. 2018. Learning graph dynamics using deep neural networks. *IFAC-PapersOnLine* 51(2):433–438.
-- <span id="page-7-22"></span>[Nguyen et al. 2018] Nguyen, G. H.; Lee, J. B.; Rossi, R. A.; Ahmed, N. K.; Koh, E.; and Kim, S. 2018. Continuous-time dynamic network embeddings. In *WWW*.
+- <span id="page-7-18"></span>[Narayan and Roe 2018] Narayan, A., and Roe, P. H. O. 2018. Learning graph dynamics using deep neural networks. *IFAC-PapersOnLine*51(2):433–438.
+- <span id="page-7-22"></span>[Nguyen et al. 2018] Nguyen, G. H.; Lee, J. B.; Rossi, R. A.; Ahmed, N. K.; Koh, E.; and Kim, S. 2018. Continuous-time dynamic network embeddings. In*WWW*.
 - <span id="page-7-3"></span>[Ou et al. 2016] Ou, M.; Cui, P.; Pei, J.; Zhang, Z.; and Zhu, W. 2016. Asymmetric transitivity preserving graph embedding. In *KDD*.
 - <span id="page-7-0"></span>[Perozzi, Al-Rfou, and Skiena 2014] Perozzi, B.; Al-Rfou, R.; and Skiena, S. 2014. DeepWalk: Online learning of social representations. In *KDD*.
-- <span id="page-7-19"></span>[Roweis and Saul 2000] Roweis, S. T., and Saul, L. K. 2000. Nonlinear dimensionality reduction by locally linear embedding. *Science* 290(5500):2323–2326.
+- <span id="page-7-19"></span>[Roweis and Saul 2000] Roweis, S. T., and Saul, L. K. 2000. Nonlinear dimensionality reduction by locally linear embedding. *Science*290(5500):2323–2326.
 - <span id="page-7-16"></span>[Seo et al. 2016] Seo, Y.; Defferrard, M.; Vandergheynst, P.; and Bresson, X. 2016. Structured sequence modeling with graph convolutional recurrent networks. arXiv:1612.07659.
-- <span id="page-7-1"></span>[Tang et al. 2015] Tang, J.; Qu, M.; Wang, M.; Zhang, M.; Yan, J.; and Mei, Q. 2015. LINE: Large-scale information network embedding. In *WWW*.
+- <span id="page-7-1"></span>[Tang et al. 2015] Tang, J.; Qu, M.; Wang, M.; Zhang, M.; Yan, J.; and Mei, Q. 2015. LINE: Large-scale information network embedding. In*WWW*.
 - <span id="page-7-25"></span>[Trivedi et al. 2017] Trivedi, R.; Dai, H.; Wang, Y.; and Song, L. 2017. Know-Evolve: Deep temporal reasoning for dynamic knowledge graphs. In *ICML*.
 - <span id="page-7-26"></span>[Trivedi et al. 2018] Trivedi, R.; Farajtabar, M.; Biswal, P.; and Zha, H. 2018. Representation learning over dynamic graphs. arXiv:1803.04051.
 - <span id="page-7-14"></span>[Velickovi ˘ c et al. 2018] ´ Velickovi ˘ c, P.; Cucurull, G.; ´ Casanova, A.; Romero, A.; Lio, P.; and Bengio, Y. 2018. ` Graph attention networks. In *ICLR*.

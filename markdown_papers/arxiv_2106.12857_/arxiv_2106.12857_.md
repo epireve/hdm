@@ -1,3 +1,5 @@
+<!-- cite_key: asprino2019 -->
+
 # Pattern-based Visualization of Knowledge Graphs
 
 Luigi Asprino 1 , Christian Colonna 1 , Misael Mongiov`ı 2 , Margherita Porena 2 , and Valentina Presutti 1 , 2
@@ -38,7 +40,7 @@ In this section we briefly review the main concepts we build upon (ODP, OPLa and
 
 <span id="page-2-1"></span><sup>3</sup> <https://lodview.it/>
 
-### <span id="page-3-1"></span>3.1 Background
+## <span id="page-3-1"></span>3.1 Background
 
 Design patterns: Ontology Design Patterns (ODPs)[4](#page-3-0) [\[11\]](#page-15-0) are modeling solutions to recurrent ontology design problems. ODPs can be divided into multiple categories: logical, architectural, content, presentation [\[25\]](#page-15-11). In our case study, we used three ontology design patterns (implemented in the context of ArCo project [\[6\]](#page-14-6)). The first, Time-Indexed Typed Location, represents the locations of an object (e.g. a cultural property) in specific time intervals and with specific purposes (e.g. storage, exposition). It specializes Time-Indexed Situation, a pattern to represent situations that have an explicit time parameter. The second, Measurement Collection, represents a collection of measures. It is a specialization of pattern Collection, to represents collections and their members. Last, Cultural Property Component Of represents a cultural property and its components and specializes Part Of, a pattern to represent entities and their parts.
 
@@ -46,7 +48,7 @@ OPLa: OPLa ontology is an ontology design pattern representation language [\[13\
 
 Key Concepts: Knowledge graph summarization is crucial in graph visualization and other applications where large graphs need to be handled [\[7\]](#page-14-7). In [\[23\]](#page-15-4) the authors introduced key concepts as elements which best summarize an ontology. Following this approach, we adopted the Degree centrality measure [\[7\]](#page-14-7) (a measure often used for knowledge graph summarization [\[27\]](#page-15-13)) for estimating the relevance of each class of a given ontology.
 
-### 3.2 Pattern-based visualization of Knowledge Graphs
+### 2 Pattern-based visualization of Knowledge Graphs
 
 We propose a general framework based on three levels of visualizations. The top level, namely the ODP level, is a view of the knowledge graph that shows a graph whose nodes represent either an ODP instantiated in the KG or a key concept of an ODP. Edges of this graph are modeled according to the OPLa vocabulary and its extension discussed in Sect. [3.1.](#page-3-1) The second level, called exploration level, presents the occurrences of a specific ODP and allows users to filter the occurrences according to her information needs. The third one, the visualization level, is dedicated to the visualization of a single occurrence of an ODP or an
 

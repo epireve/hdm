@@ -1,4 +1,6 @@
-<span id="page-0-0"></span>![](_page_0_Picture_0.jpeg)
+<!-- cite_key: abbas2019 -->
+
+<span id="page-0-0"></span>
 
 # Knowledge Graphs Evolution and Preservation
 
@@ -10,11 +12,11 @@ Bertinoro, Italy
 
 # Authors
 
-#### Main Editors
+## Main Editors
 
 Valentina Anita Carriero, Semantic Technology Lab, ISTC-CNR, IT Luigi Asprino, Semantic Technology Lab, ISTC-CNR, IT Russa Biswas, FIZ Karlsruhe
 
-#### Supervisors
+### Supervisors
 
 Claudia d'Amato, University of Bari, IT Irene Celino, Cefriel, Milan, IT John Domingue, KMi, Open University and President of STI International, UK Michel Dumontier, Maastricht University, NL Marieke van Erp, DHLab, KNAW Humanities Cluster, NL Heiko Paulheim, University of Mannheim, DE Axel Polleres, Vienna University of Economics and Business, AT Valentina Presutti, Semantic Technology Lab, ISTC-CNR, Rome, IT Sebastian Rudolph, TU Dresden, DE Harald Sack, FIZ - Karlsruhe, Karlsruhe Insitute of Technology, AIFB, DE
 
@@ -30,7 +32,7 @@ One of the grand challenges discussed during the Dagstuhl Seminar "Knowledge Gra
 
 Public FAIR Knowledge Graph of Everything: We increasingly see the creation of knowledge graphs that capture information about the entirety of a class of entities. For example, Amazon is creating a knowledge graph of all products in the world and Google and Apple have both created knowledge graphs of all locations in the world. This grand challenge extends this further by asking if we can create a knowledge graph of "everything" ranging from common sense concepts to location based entities. This knowledge graph should be "open to the public" in a FAIR manner democratizing this mass amount of knowledge.
 
-Although linked open data (LOD) is *one* knowledge graph, it is the closest realisation (and probably the only one) to a public FAIR Knowledge Graph (KG) of everything. Surely, LOD provides a unique testbed for experimenting and evaluating research hypotheses on open and FAIR KG.
+Although linked open data (LOD) is *one*knowledge graph, it is the closest realisation (and probably the only one) to a public FAIR Knowledge Graph (KG) of everything. Surely, LOD provides a unique testbed for experimenting and evaluating research hypotheses on open and FAIR KG.
 
 One of the most neglected FAIR issues about KGs is their ongoing evolution and long term preservation. We want to investigate this problem, that is to understand what preserving and supporting the evolution of KGs means and how these problems can be addressed. Clearly, the problem can be approached from different perspectives and may require the development of different approaches, including new theories, ontologies, metrics, strategies, procedures, etc.
 
@@ -89,7 +91,7 @@ This document reports a collaborative effort performed by nine teams of students
 |     | 3.7.1    | Results<br>.                                                    | 42 |
 | 3.8 |          | Discussion and Conclusions<br>.                                 | 43 |
 
-### II Empirical approaches for observing Knowledge Graphs evolution [44](#page-44-0)
+## II Empirical approaches for observing Knowledge Graphs evolution [44](#page-44-0)
 
 | 4 |       | Measuring ontology evolution for supporting reuse                    | 45 |
 |---|-------|----------------------------------------------------------------------|----|
@@ -232,7 +234,7 @@ This document reports a collaborative effort performed by nine teams of students
 |     | 10.3 Profiling end-users through provenance metadata and collecting opinions107                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |     |
 |     | 10.4 Example of Palestine statement provenance visualization<br>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 107 |
 
-9
+
 
 # List of Tables
 
@@ -266,7 +268,7 @@ Despite this need to constantly maintain KGs, another important problem is to un
 
 authors, or the introduction of a new research area. By considering different snapshots of DBLP for a researcher, his/her evolution could be ideally traced. Similarly, the change and/or evolution of a research community (e.g. the semantic web community) over a collection of years could be detected (and possibly tracked), which may turn out useful to beginners and practitioners interested in knowing what are the current trends in a research field.
 
-Our contribution focuses on a methodological proposal for capturing different types of evolution within a KG. Specifically, three different kinds of evolution are targeted: (i) atomic evolution, focusing on the analysis of atomic operations at resource level (entities and links), (ii) local evolution, studying the evolution of a resource within its community and (iii) global evolution, focusing on the detection of communities in the whole graph in order to also understand the general behaviour of the network. Therefore, the main research question that we focused on in this work is: *Would it be possible to automatically capture evolution within KGs?* To try answering this question, we addressed the following sub-questions:
+Our contribution focuses on a methodological proposal for capturing different types of evolution within a KG. Specifically, three different kinds of evolution are targeted: (i) atomic evolution, focusing on the analysis of atomic operations at resource level (entities and links), (ii) local evolution, studying the evolution of a resource within its community and (iii) global evolution, focusing on the detection of communities in the whole graph in order to also understand the general behaviour of the network. Therefore, the main research question that we focused on in this work is:*Would it be possible to automatically capture evolution within KGs?*To try answering this question, we addressed the following sub-questions:
 
 - 1. How can we automatically capture this evolution?
 - 2. Which Machine Learning (ML) approach can be used to achieve that? Are ML existing solutions sufficient for addressing our goal?
@@ -277,16 +279,16 @@ The rest of the paper is organized as follows. Section [1.2](#page-13-0) present
 
 # <span id="page-13-0"></span>1.2 Proposed approach
 
-Evolution in KGs is an open research direction that can be approached from different perspectives. We focus on capturing evolution at three different levels: *atomic*, *local*, and *global* by tracking these changes in different snapshots of a KG.
+Evolution in KGs is an open research direction that can be approached from different perspectives. We focus on capturing evolution at three different levels:*atomic*, *local*, and *global*by tracking these changes in different snapshots of a KG.
 
 Given the scale of KGs we have usually to deal with, we leverage unsupervised and graph-mining methods for our analysis. Nevertheless, graph-mining methods mostly focus on the graph structure, that is they focus on the graph in terms of typeless nodes and edges. However, as briefly discussed in Section [1.1,](#page-12-1) KGs are usually endowed with ontologies acting as background knowledge. In order to exploit the additional semantics therein, background knowledge about the content of the graph can be introduced by querying specific subsets of the KG that carry a homogeneous meaning and then use the proposed methods on them. It is also worth mentioning that since our goal is to automate the process of capturing KG evolution, we only focus on the data within the KG, while the evolution of the meta-data (the ontology/scheme) is out of our scope.
 
 In the following, we first present our hypotheses, hence we illustrate our proposed methodology to address the evolution in KGs.
 
-### <span id="page-14-0"></span>1.2.1 Hypotheses
+## <span id="page-14-0"></span>1.2.1 Hypotheses
 
-- We assume that KGs have a community structure[5](#page-14-2) , meaning that related resources tend to fall into highly linked structures that we call *communities*.
-- Evolution in KG can be observed at several levels of granularity. We theorize that there are three such levels: atomic (evolution on a *resource* level), local (evolution of a resource within its *community*), and global (evolution of *communities* in the whole knowledge graph).
+- We assume that KGs have a community structure[5](#page-14-2) , meaning that related resources tend to fall into highly linked structures that we call*communities*.
+- Evolution in KG can be observed at several levels of granularity. We theorize that there are three such levels: atomic (evolution on a *resource*level), local (evolution of a resource within its*community*), and global (evolution of *communities*in the whole knowledge graph).
 - We may be able to understand the evolution of a KG by extracting some features on each level of abstraction, both explicit ones (e.g. number of resources of a certain type), and latent ones (e.g. connected of a community features).
 
 ### <span id="page-14-1"></span>1.2.2 Overview
@@ -297,7 +299,7 @@ We surmise that evolution in a knowledge graph can manifest on multiple levels:
 - Local: evolution on a community level. We borrow the notion of community from Graph Theory as a "set of nodes which is densely connected internally"[5](#page-14-2) . This refers to detecting when a set of atomic transactions within a community determines an actual and significant change/evolution of the community itself.
 - Global: evolution on the whole graph, which is observed through the evolution of communities, such as the emergence of a new community, the splitting of some community etc.
 
-Our hypothesis is that each kind of evolution can be detected by collecting multiple snapshots of a KG. Precisely, a *snapshot* of a KG is a dump of all or a part of its content at a given timestep. Given two snapshots S<sup>i</sup> and S<sup>j</sup> of some Knowledge Graph such that i < j, we define the following sets:
+Our hypothesis is that each kind of evolution can be detected by collecting multiple snapshots of a KG. Precisely, a*snapshot*of a KG is a dump of all or a part of its content at a given timestep. Given two snapshots S<sup>i</sup> and S<sup>j</sup> of some Knowledge Graph such that i < j, we define the following sets:
 
 $$
 A_{ij} = \{triplet \ t_k \in S_j \mid t_k \notin S_i\}
@@ -321,10 +323,10 @@ in the underlying structure of the graph, such as the apparition of a new commun
 
 At this level, we rely on the set of updates Uij , which contains the atomic operations performed between two snapshots S<sup>i</sup> and S<sup>j</sup> , to extract a first-order idea of the evolution of the KG. This is manifested in two aspects:
 
-- Evolution description: it quantifies the detected changes between the two snapshots. It can be expressed as a statistical analysis of the observed updates as an *expectation of the evolution*. The simplest way to model these changes is to assume a normal distribution and quantify each feature we want to track in terms of its *mean* and *variance*. The features on a resource level can be related to: resources types (e.g. number of inserted/deleted resources of a given type T), relations (e.g. number of insertion/deletions of a property p), and resource-relation counting (e.g. number of insertion/deletions of a property p for each resource of type T). In the considered scholarly domain, we can quantify the average number of publications by an author, or the number of citation a paper gets, etc.
+- Evolution description: it quantifies the detected changes between the two snapshots. It can be expressed as a statistical analysis of the observed updates as an*expectation of the evolution*. The simplest way to model these changes is to assume a normal distribution and quantify each feature we want to track in terms of its *mean*and*variance*. The features on a resource level can be related to: resources types (e.g. number of inserted/deleted resources of a given type T), relations (e.g. number of insertion/deletions of a property p), and resource-relation counting (e.g. number of insertion/deletions of a property p for each resource of type T). In the considered scholarly domain, we can quantify the average number of publications by an author, or the number of citation a paper gets, etc.
 - Noteworthy changes: given the *evolution description*, a statistical analysis can be performed to recognize potentially meaningful changes that happened between two snapshots e.g. by identifying the features which diverge from the expected evolution, given a threshold that would depend on the studied KG.
 
-Formally, given Fr,i as the vector of features of some resource r in a snapshot S<sup>i</sup> , µ and δ 2 as the mean and variance respectively, for the change between two snapshots in those features across the knowledge graph and a sensitivity threshold θ, we flag a resource as *noteworthy* iff:
+Formally, given Fr,i as the vector of features of some resource r in a snapshot S<sup>i</sup> , µ and δ 2 as the mean and variance respectively, for the change between two snapshots in those features across the knowledge graph and a sensitivity threshold θ, we flag a resource as *noteworthy*iff:
 
 $$
 p(\Delta_{i,j}F_r|\mu,\delta^2) < \theta \tag{1.1}
@@ -336,9 +338,9 @@ For more efficiency, the features should be computed from the constructed set of
 
 ### <span id="page-15-1"></span>1.2.4 Local Evolution
 
-As for local evolution, i.e. studying the evolution of a resource within its community, we compute, for each resource, the same features as illustrated in Section [1.2.3,](#page-15-0) but instead of considering the whole graph, the community to which the resource belongs to is solely taken into account for computing the expected statisics (µ<sup>i</sup> and δ 2 i for each community ci) and identifying any *noteworthy* resource. E.g. in the scholarly domain, a publication may not be that *noteworthy* with respect to the whole Scholarly KG, but it stands out within its community (considering that a community may be a subfield of research). This is due to the fact that the expected evolution statistics can be vary significantly across communities.
+As for local evolution, i.e. studying the evolution of a resource within its community, we compute, for each resource, the same features as illustrated in Section [1.2.3,](#page-15-0) but instead of considering the whole graph, the community to which the resource belongs to is solely taken into account for computing the expected statisics (µ<sup>i</sup> and δ 2 i for each community ci) and identifying any*noteworthy*resource. E.g. in the scholarly domain, a publication may not be that*noteworthy*with respect to the whole Scholarly KG, but it stands out within its community (considering that a community may be a subfield of research). This is due to the fact that the expected evolution statistics can be vary significantly across communities.
 
-Importantly, at this level we may also consider community level features such as *graph density*, number of connected nodes, etc, and compute the statistics to identify *noteworthy* communities in a similar fashion as we did with the resources within the graph.
+Importantly, at this level we may also consider community level features such as*graph density*, number of connected nodes, etc, and compute the statistics to identify *noteworthy*communities in a similar fashion as we did with the resources within the graph.
 
 It is also worth noting that we can carry over this local analysis as many times as deemed fit by defining multiple levels of abstraction, i.e. by repeating the process of subdividing the communities into sub-communities and study their evolution on increasingly lower granularities e.g. fields, subfields, research groups, etc.
 
@@ -346,7 +348,7 @@ It is also worth noting that we can carry over this local analysis as many times
 
 The detection of communities is an important task for the analysis of networks, because it may provide insight on the general behaviour of the different entities that belong to that network. KGs can be considered a type of (multi-)community structure, where entities are connected to each other based on their (multiple) relations. Because of this, we are bound to find communities of nodes that are more densely connected by some metric. Furthermore, (multiple) updates on individual entities may affect the communities they belong to. Since we are interested in the evolution of a KG and whether the changes brought by the evolution are significant, we aim at identifying communities in the KG in order to analyse the impact of changes on their entities.
 
-Several algorithms have been proposed to detect communities in networks. The study of Porter et al. [\[114\]](#page-120-0) provides a comparison of a variety of community detection algorithms, including their advantages and disadvantages, emphasizing the effectiveness in different fields of study. We consider the Girvan-Newman Algorithm [\[60\]](#page-115-0) as the most useful one for our purpose since it is based on the *betweenness* of nodes in a graph, and the analysis of Porter et al. [\[114\]](#page-120-0) mentions betweenness-based approaches as the ones that yield the most intuitive communities[6](#page-16-1) .
+Several algorithms have been proposed to detect communities in networks. The study of Porter et al. [\[114\]](#page-120-0) provides a comparison of a variety of community detection algorithms, including their advantages and disadvantages, emphasizing the effectiveness in different fields of study. We consider the Girvan-Newman Algorithm [\[60\]](#page-115-0) as the most useful one for our purpose since it is based on the*betweenness*of nodes in a graph, and the analysis of Porter et al. [\[114\]](#page-120-0) mentions betweenness-based approaches as the ones that yield the most intuitive communities[6](#page-16-1) .
 
 Betweenness is a notion of closeness in graphs that denotes the number of shortest paths that go through a certain node. Intuitively, the more times a node n appears in the shortest path between nodes n<sup>i</sup> and n<sup>j</sup> in a graph, the closer node n is to those nodes.
 
@@ -364,29 +366,29 @@ Given two timesteps i and j such that i < j, and the sets of communities C<sup>i
 
 phenomena: a) Emergence / disappearance of a community; b) Merging / splitting of a community; c) Persisting communities.
 
-Particularly, to detect persisting communities (communities which carry over between the snapshots), we measure the overlap (overlapping triplets, specifically in terms *intersection over union*) of communities. Formally, given a threshold ωoverlap, two communities c<sup>m</sup> ∈ C<sup>i</sup> and c<sup>n</sup> ∈ C<sup>j</sup> are persistent if:
+Particularly, to detect persisting communities (communities which carry over between the snapshots), we measure the overlap (overlapping triplets, specifically in terms*intersection over union*) of communities. Formally, given a threshold ωoverlap, two communities c<sup>m</sup> ∈ C<sup>i</sup> and c<sup>n</sup> ∈ C<sup>j</sup> are persistent if:
 
 $$
 persisting(c_m, c_n) = True \Rightarrow \frac{|S_i \cap S_j|}{|S_i \cup S_j|} > \omega_{overlap}
 $$
 (1.2)
 
-So we consider a community c<sup>m</sup> of C<sup>i</sup> to be the *same* in as a community c<sup>n</sup> of C<sup>j</sup> if there is a high enough ratio (above the fixed threshold) of common to different elements between the two.
+So we consider a community c<sup>m</sup> of C<sup>i</sup> to be the *same*in as a community c<sup>n</sup> of C<sup>j</sup> if there is a high enough ratio (above the fixed threshold) of common to different elements between the two.
 
-Using this definition, we can define the phenomenon of *emergence* of a community cnew of C<sup>j</sup> as a community that is not persisting from the previous snapshot (that is does not have a counterpart in Ci), that is
+Using this definition, we can define the phenomenon of*emergence*of a community cnew of C<sup>j</sup> as a community that is not persisting from the previous snapshot (that is does not have a counterpart in Ci), that is
 
 $$
 c_{new} \in C_j \text{ is an emerging community} \Leftrightarrow \forall c_k \in C_i : persisting(c_{new}, c_k) = False \tag{1.3}
 $$
 
-Similarly, we define the *disappearance* of a community as the inverse phenomenon, i.e. by finding communities in the older snapshot that don't exist in the newer one.
+Similarly, we define the*disappearance*of a community as the inverse phenomenon, i.e. by finding communities in the older snapshot that don't exist in the newer one.
 
-To investigate the phenomenon of merging communities, we use the definition of persistence, this time considering a union of multiple communities as a potential new merged community. Namely, we detect a *merging* event if we can find a subset of C<sup>i</sup> that is the *same* as some community cmerged in C<sup>j</sup> :
+To investigate the phenomenon of merging communities, we use the definition of persistence, this time considering a union of multiple communities as a potential new merged community. Namely, we detect a*merging*event if we can find a subset of C<sup>i</sup> that is the*same*as some community cmerged in C<sup>j</sup> :
 
 $$
 c_{merged} \in C_j \text{ is a merged community} \Leftrightarrow
 $$
-  
+
 $$
 \exists c_l, \dots, c_n \in C_i : persisting(\cup_{i \in l, \dots, n} c_i, c_{merged})
 $$
@@ -412,7 +414,7 @@ Similar to the the case of controlled experiment, given a snapshot S1, we comput
 
 These random changes will differ in the controlled set of experiments in that we have no guarantee that the final result will be meaningful or even consistent. By doing this, we will evaluate the performance of our proposed approach on a more unrestricted environment. Moreover, because parameters m and α can be adjusted without affecting the evaluation process in a higher level, we will increase the scope of the possible evolutionary paths we may evaluate. In particular, some of these evolutionary paths may be impractical and unlikely to occur in real life, but they are important to test the completeness of the designed method.
 
-#### Atomic Evolution
+## Atomic Evolution
 
 In this section, we describe the evaluation of our method for detecting changes at the atomic level on our set of snapshots.
 
@@ -420,7 +422,7 @@ Given that the set of snapshots, we create pairs of consecutive snapshots. In th
 
 Once we know exactly how many changes have been made between snapshots, we may compute all of the noteworthy changes between the snapshots, as defined in Section [1.2.3.](#page-15-0)
 
-#### Local Evolution
+### Local Evolution
 
 In this section, we describe how to evaluate the performance of our method for detecting changes at a local level.
 
@@ -444,9 +446,7 @@ Also of interest is the work by Chakrabarti et al. [\[30\]](#page-112-2) on evol
 
 Finally, we wish to also look ahead and see for what purposes this sort of analysis can be used. In order to motivate the solution, we examined both predictive tasks and summarization tasks as future work. For change prediction, there are several such sources available that focus on predicting different aspects within KGs. One such example is by Dasgupta et al. [\[37\]](#page-113-1), who focus on temporal features within a KG and how they may change over successive versions of the KG. Chiang et al. [\[32\]](#page-113-2) present a particularly important study since they also use the DBLP dataset. However, their system predicts the probability of a value re-appearing over time. These both point toward ways in which we might use our system of identifying evolution to begin predicting evolution instead.
 
-Finally, as future work we explored the possibility to give *intentions* or *explanations*
-
-to sets of changes which bring about detected evolution. One such approach is to summarize the changes that are seen such that a human might be able to deduce the intentions behind those changes. For example, the work by Tasnim et al. [\[130\]](#page-122-0) adds descriptions to entities which have changed over time. However, in our case we would hope to provide a description for changes that occur within a KG, rather than the entities themselves.
+Finally, as future work we explored the possibility to give*intentions*or*explanations*to sets of changes which bring about detected evolution. One such approach is to summarize the changes that are seen such that a human might be able to deduce the intentions behind those changes. For example, the work by Tasnim et al. [\[130\]](#page-122-0) adds descriptions to entities which have changed over time. However, in our case we would hope to provide a description for changes that occur within a KG, rather than the entities themselves.
 
 # <span id="page-20-0"></span>1.5 Conclusions and Future works
 
@@ -482,7 +482,7 @@ RQ1 What are the characteristics of an evolving KG, using DBpedia as the use cas
 
 RQ2 How can the evolution of KGs be exploited as a training signal?
 
-The DBpedia community project is an effort to provide a structured version of the information contained in Wikipedia [\[82\]](#page-117-0). DBpedia periodically extracts the data within infoboxes and other relevant data from Wikipedia, with the infoboxes serving as the main source of information for DBpedia [\[82\]](#page-117-0). DBpedia then provides both an RDF representation and a SPARQL endpoint for further querying [\[82\]](#page-117-0). Using two datasets from DBpedia, we propose an approach to measure the *volatility* of relations in an evolving KG, which can then be used to support further analysis. As a volatile relation, we understand a relation whose objects are likely to change over time, such as the population and the president of a country. In contrast, non-volatile relation is a relation with a low likelihood of such changes, such as the area and the capital of a country.
+The DBpedia community project is an effort to provide a structured version of the information contained in Wikipedia [\[82\]](#page-117-0). DBpedia periodically extracts the data within infoboxes and other relevant data from Wikipedia, with the infoboxes serving as the main source of information for DBpedia [\[82\]](#page-117-0). DBpedia then provides both an RDF representation and a SPARQL endpoint for further querying [\[82\]](#page-117-0). Using two datasets from DBpedia, we propose an approach to measure the*volatility*of relations in an evolving KG, which can then be used to support further analysis. As a volatile relation, we understand a relation whose objects are likely to change over time, such as the population and the president of a country. In contrast, non-volatile relation is a relation with a low likelihood of such changes, such as the area and the capital of a country.
 
 Potential use cases for evolution awareness have been identified, namely:
 
@@ -505,30 +505,29 @@ Taking a cue from [\[129\]](#page-122-2) and [\[106\]](#page-120-1), we focus on
 
 # <span id="page-23-0"></span>2.4 Resources
 
-We make use of sub-datasets from two datasets available for download from DBpedia for the periods 2014 and 2015-04, referred hereon as *DS1* and *DS2* respectively [\[1\]](#page-110-0); [\[2\]](#page-110-1). Although neither are recently published datasets, they were considered suitable for analysis of the research questions due to the fact that from version 2015-10 onward there have been many changes in the way the data was provided. This makes it difficult to compare and track changes across versions because it is no longer possible to distinguish organic updates from updates forced by the changes of the schema.
+We make use of sub-datasets from two datasets available for download from DBpedia for the periods 2014 and 2015-04, referred hereon as*DS1*and*DS2*respectively [\[1\]](#page-110-0); [\[2\]](#page-110-1). Although neither are recently published datasets, they were considered suitable for analysis of the research questions due to the fact that from version 2015-10 onward there have been many changes in the way the data was provided. This makes it difficult to compare and track changes across versions because it is no longer possible to distinguish organic updates from updates forced by the changes of the schema.
+*DS1*is comprised of three files from the 2014 dataset:
 
-*DS1* is comprised of three files from the 2014 dataset:
+-*DS1-MP:*mapping-based properties from the English version [\[3\]](#page-110-2),
+-*DS1-IT:*instance types from the English version [\[4\]](#page-110-3),
 
-- *DS1-MP:* mapping-based properties from the English version [\[3\]](#page-110-2),
-- *DS1-IT:* instance types from the English version [\[4\]](#page-110-3),
+•*DS1-OWL:*the OWL ontology [\[5\]](#page-110-4).
 
-• *DS1-OWL:* the OWL ontology [\[5\]](#page-110-4).
+Similarly,*DS2*is comprised of three files from the 2015-04 dataset:
 
-Similarly, *DS2* is comprised of three files from the 2015-04 dataset:
+-*DS2-MP:*mapping-based properties from the English version [\[6\]](#page-110-5),
+-*DS2-IT:*instance types from the English version [\[7\]](#page-110-6),
+-*DS2-OWL:*the OWL ontology [\[8\]](#page-110-7).
 
-- *DS2-MP:* mapping-based properties from the English version [\[6\]](#page-110-5),
-- *DS2-IT:* instance types from the English version [\[7\]](#page-110-6),
-- *DS2-OWL:* the OWL ontology [\[8\]](#page-110-7).
+For*DS1*, the English version of the dataset contains 583 million triples which describe 'facts' for 4.58 million 'things' [\[9\]](#page-110-8). For *DS2*, the English version has increased to 737 million triples, with the 'things' described now 5.9 million [\[10\]](#page-110-9).
 
-For *DS1*, the English version of the dataset contains 583 million triples which describe 'facts' for 4.58 million 'things' [\[9\]](#page-110-8). For *DS2*, the English version has increased to 737 million triples, with the 'things' described now 5.9 million [\[10\]](#page-110-9).
-
-DBpedia also provides live updates, available for download on an hour-by-hour basis, for example [\[11\]](#page-110-10). Although it would be preferable to consider more recent data in our analysis, due to external constraints, this was not possible. As it was concluded that *DS1* and *DS2* served sufficiently for analysis, DBpedia's live updates could be considered for future work.
+DBpedia also provides live updates, available for download on an hour-by-hour basis, for example [\[11\]](#page-110-10). Although it would be preferable to consider more recent data in our analysis, due to external constraints, this was not possible. As it was concluded that *DS1*and*DS2*served sufficiently for analysis, DBpedia's live updates could be considered for future work.
 
 # <span id="page-24-0"></span>2.5 Proposed approach
 
 In this part, the methods proposed to solve the research questions defined in Section [2.2](#page-22-0) are presented. In subsection [2.5.2,](#page-24-2) the patterns of changes in properties are explored by using basic statistical analysis as a solution for RQ1. Then, Section [2.5.1](#page-24-1) discusses the attempt that has been made to use the identified patterns to help predict the growth of properties in order to address RQ2.
 
-### <span id="page-24-1"></span>2.5.1 Basic Analysis
+## <span id="page-24-1"></span>2.5.1 Basic Analysis
 
 In order to capture the changes of properties over time in the studied datasets, the modified triples are classified into two categories, namely, 'Added' triples and 'Removed' triples, in terms of addition and removal of triples with these properties respectively. The combination of the triples from these two categories is referred to as 'Edited' triples. These three derived data sets are used to explore the changes from different perspectives. In general, we look into the number of changes of properties, w.r.t to the absolute and the relative number of changes. Specifically, basic descriptive statistics is used to discern the most frequently changed properties and the least frequently changed properties.
 
@@ -537,18 +536,15 @@ In order to capture the changes of properties over time in the studied datasets,
 Once the characteristics of the evolution of a KG has been analyzed, it is possible to anticipate future changes that can happen to the KG. Thus, in this section, an approach which can be used to predict the growth of properties is proposed. The growth of properties can be seen, for example, in terms of the degree of properties or in terms of the graph structure of properties. In this research, the focus lies on utilizing the graph structure of properties.
 
 As a first step, a series of snapshots of DBpedia over a period of time are generated for each property. Instead of treating entities as nodes as most KGs do, in our case, dual graphs for each property are constructed, in each of which properties/relations are represented as nodes and entities are treated as edges. In this way, the task is designed as a time-series prediction task on a graph data structure. Formally, the problem can be defined as follows:
-
-*Given a time-series graphs of properties, with a specified time scale, predict the graph structure of properties at the next time step.*
-
-Proposed Solution: Enlightened by the success of graph representation in the past few years, in this research, a Temporal Capsule Neural Network-based model, which extends the Capsule Neural Network [\[121\]](#page-121-1) to the temporal domain is proposed to solve the problem defined above.
+*Given a time-series graphs of properties, with a specified time scale, predict the graph structure of properties at the next time step.*Proposed Solution: Enlightened by the success of graph representation in the past few years, in this research, a Temporal Capsule Neural Network-based model, which extends the Capsule Neural Network [\[121\]](#page-121-1) to the temporal domain is proposed to solve the problem defined above.
 
 # <span id="page-25-0"></span>2.6 Evaluation and Results: Proof of concept - Experiments
 
-### <span id="page-25-1"></span>2.6.1 Ranking Properties Based on Change Frequencies
+## <span id="page-25-1"></span>2.6.1 Ranking Properties Based on Change Frequencies
 
 The frequency of each property was calculated, irrespective of the subjects and objects connected through them for both the 'Added' and 'Removed' files. Each property was ranked based on its frequency in the 'Added' Fig. [2.3a](#page-26-2)nd the 'Removed' Fig. [2.4](#page-27-1) files. This provided us with the top twenty most frequently added properties ( Fig. [2.2\)](#page-26-1) and removed properties (Fig. [2.1\)](#page-26-1). This shows that at least fifteen properties are common between the frequently added and deleted properties Fig. [2.5.](#page-28-0)
 
-Fig [2.3](#page-26-2) represents all the properties that were added to the *DS2* version of DBpedia. The area of each property is based on its frequency in the 'Added' file. The more frequently a property was added, the larger the area. At the bottom right corner we see a large area with three dots in it, representing the expansion of the graph to see less frequently added properties. Fig [2.4](#page-27-1) represents all the properties that were removed from *DS1*. It can be interpreted similarly to the previous figure representing the added properties.
+Fig [2.3](#page-26-2) represents all the properties that were added to the*DS2*version of DBpedia. The area of each property is based on its frequency in the 'Added' file. The more frequently a property was added, the larger the area. At the bottom right corner we see a large area with three dots in it, representing the expansion of the graph to see less frequently added properties. Fig [2.4](#page-27-1) represents all the properties that were removed from*DS1*. It can be interpreted similarly to the previous figure representing the added properties.
 
 From Fig [2.2](#page-26-1) and Fig [2.1,](#page-26-1) we see that birth date, alias, area code and birth year were frequently added in *DS1*, whereas these properties are not in the top twenty frequently removed properties. This is reasonable, as properties such as birth date and birth year do not change frequently, unless it requires a correction. On the other hand, properties such as the current member and squad number were among the top twenty removed properties. These represent the volatile properties as members join and leave and the system needs to be updated with the latest information. Moreover, not all frequently changed properties are volatile in nature, for example, the birth date. From the data, it can be seen that many names were added, suggesting the addition of their birth details, making birth date one of the most frequently changed properties.
 
@@ -618,7 +614,7 @@ Figure 2.9: Relation between the number of properties (Log) and the number of ch
 
 LogLog Plot
 
-from subclass to superclass when the change is lower. We propose this analysis as an initial empirical evidence that we expect to generalize as future work. These analysis can also be generalized to define a metric of the *volatility* of the involved properties.
+from subclass to superclass when the change is lower. We propose this analysis as an initial empirical evidence that we expect to generalize as future work. These analysis can also be generalized to define a metric of the *volatility*of the involved properties.
 
 <span id="page-29-2"></span>![](_page_29_Figure_4.jpeg)
 
@@ -677,7 +673,7 @@ The rest of the paper is structured as follows: Section 4 summarizes related wor
 
 In this section, we first look into techniques used for measuring changes in KGs. Next, we look into methods used for fact-checking in knowledge bases.
 
-### <span id="page-33-1"></span>3.4.1 Changes in KGs
+## <span id="page-33-1"></span>3.4.1 Changes in KGs
 
 In [\[105\]](#page-120-3), the authors proposed a method to analyze the evolution of KG and is therefore highly related to our approach. They tried to address several aspects of the problem of keeping track of human editing in the KG and the real-world changes that happen. The approach was to train a classifier that was not relying on the editors' history but on topological features. In [\[73\]](#page-116-1), the authors present LogMap, which still holds up to the Ontology Alignment Evaluation Initiative challenge for KGs, and is an example for a First Order Logic-based Ontology matching approach. In [\[119\]](#page-121-3) proposed a new semantic similarity measure framework that aimed to analyze the evolution of knowledge graphs. The framework is considering several resource characteristics encoded within KGs semantically. They have identified and considered the relevant resource characteristics (such as, neighbors, class hierarchy or attributes) to determine similarity values among each characteristic accurately. The framework is applied to three different tasks which is therefore related to our approach in measuring the semantic similarities based on entity neighborhoods and their representation in graph embeddings.
 
@@ -716,7 +712,7 @@ In order to evaluate changes and their severity between two version of a knowled
 
 The syntactic difference between two KGs can be captured by looking at their RDF representations. The intuition is that if two RDF representations are different, then the semantics of the KG has changed and capturing the structural changes (namely, how the connections in the KG have evolved) can give insights on it. The work-flow that is proposed is the following: the syntactic changes are captured by calculating the disjunction of the KG<sup>1</sup> and KG<sup>2</sup> RDF triples.
 
-### <span id="page-35-2"></span>3.6.1 Preliminaries and Problem Definition
+## <span id="page-35-2"></span>3.6.1 Preliminaries and Problem Definition
 
 In this section, we first provide definitions of some useful concepts. Then, we define out problem.
 
@@ -743,8 +739,8 @@ Knowledge Graphs are basically labeled graphs, i.e. changes in KGs also might af
 - Node degree For a knowledge graph KG = (V, E), the in-degree of a node nin(v) with v ∈ V corresponds to the number of in-going edges in v. The outdegree of nout(v) with v ∈ V is the number of out-going edges. Thus the ratio of in- and outgoing nodes is calculated by <sup>n</sup>in(v) <sup>n</sup>out(v)+1 . In general this enables to determine a centrality measure of a node but it does not take into account the impact of all the others nodes in the graph.
 - Node Eccentricity the eccentricity e(v) of a node v ∈ V is the maximum distance from v to any other node w ∈ V , i.e. e(v) = maxw∈<sup>V</sup> d(v, w).
 - Graph Radius the graph Radius r(G) is the minimum eccentricity of any v ∈ V , i.e. r(G) = mine(v)∈<sup>V</sup> e(v).
-- Pagerank an alternative way of calculating the centrality of a node is the PageRank [\[109\]](#page-120-4). Instead of measuring the local impact of a node in a KG, *PageRank* allows to consider its global impact on all the graph. This is done by the iterative propagation of the in-edges and out-edges impact.
-- HITS is interesting in the same way, but it is slightly different than PageRank as it calculates *Hub* and *Authority* scores instead of just one measure [\[78\]](#page-117-3). This enables to distinguish the nodes that have a high influence on their neighbours (*authority* scores considers the edges that are outgoing from a node) and the nodes that are highly influenced by the others (*hub* considers the edges that are incoming to a node)
+- Pagerank an alternative way of calculating the centrality of a node is the PageRank [\[109\]](#page-120-4). Instead of measuring the local impact of a node in a KG,*PageRank*allows to consider its global impact on all the graph. This is done by the iterative propagation of the in-edges and out-edges impact.
+- HITS is interesting in the same way, but it is slightly different than PageRank as it calculates*Hub*and*Authority* scores instead of just one measure [\[78\]](#page-117-3). This enables to distinguish the nodes that have a high influence on their neighbours (*authority* scores considers the edges that are outgoing from a node) and the nodes that are highly influenced by the others (*hub*considers the edges that are incoming to a node)
 
 These measures being applied on two versions of a KG can be used to enable an overview of the structural evolution of a KG. After having identified already the syntactic changes, they allow to evaluate how relevant are these changes with respect to the importance of the nodes involved in it. The following sections explain what insight these measures can give for the comparison of two KGs.
 
@@ -827,7 +823,7 @@ accuracy of the predicted items, its costly and time-consuming to collect the pr
 
 As discussed in the related-work section DeFacto is a well known open-source approach that supports simple RDF triple fact-checking. In Defacto the authors first transform the statements in DBpedia to natural language sentences and pass them to the Google search engine to find web pages containing those sentences. Next they assigns low confidence score to the facts that appear in no or only very few web pages. One of the most important advantages of the DeFacto framework is its ability to tackle the problem of temporal information where a relationship is considered correct for just for a certain period of time (e.g., Barack Obama, president of, USA 2009-2017). However due to its reliance on several NLP tools such as BOotstrapping linked datA (BOA) [\[59\]](#page-115-8)(i.e, a supervised machine-learning approach) it only supports 10 relations (i.e, award, birth, foundation, subsidiary, starring, death, nbateam, publication, leader and spouse) which leads to scalability problem.
 
-To address this issue, we propose to extend the Defacto framework for the cases when the relation is other than the one supported by the library. We make us of the existing techniques for unsupervised Open Relation Extraction (ORE) [\[52\]](#page-114-1). The idea in ORE is to discover arbitrary semantic connections between entities in unstructured texts [\[35\]](#page-113-5). Given an input sentence such as *"Turing was born in England"* and two entities like <*Turing, England*>, an ORE system should extract a sub-string which entails the semantic relation between the two entities (i.e. *"was born in"*).
+To address this issue, we propose to extend the Defacto framework for the cases when the relation is other than the one supported by the library. We make us of the existing techniques for unsupervised Open Relation Extraction (ORE) [\[52\]](#page-114-1). The idea in ORE is to discover arbitrary semantic connections between entities in unstructured texts [\[35\]](#page-113-5). Given an input sentence such as*"Turing was born in England"* and two entities like <*Turing, England*>, an ORE system should extract a sub-string which entails the semantic relation between the two entities (i.e. *"was born in"*).
 
 Given a RDF triple we follow the steps below:
 
@@ -849,7 +845,7 @@ Due to time constraints we could not fully implement and execute the test setup.
 - Reality check: With the DeFacto framework there is an existing famework to automatically validate facts with the help of the world wide web. As many facts are time-constraint we expect the newer version of DBpedia to perform better here.
 - As a concrete example we chose to analyse the part of DBpedia that deals with the football player Christiano Ronaldo to check if we can measure the severity of eventual changes on all aforementioned levels and if one of the two graphs (excerpts) and their facts is closer to reality.
 
-### <span id="page-42-1"></span>3.7.1 Results
+## <span id="page-42-1"></span>3.7.1 Results
 
 We used the GNU command grep and the string "Christiano Ronaldo" to make a pre-selection and limited the dump to the dataset "Infobox Properties Mapped" of DBpedia 2016.10 and 2016.4 in the format TTL[6](#page-42-2) [7](#page-42-3). Then we used diff as follows to sort the ttl-files, but to not show line differences snf only string differences: ''diff -wB <(sort file1.ttl) < (sort file2.ttl)''. What we could see was already a long list of difference, and we could only speculate about the reasoning. For example DBpedia 2016.10 included the following triple:
 
@@ -857,11 +853,11 @@ We used the GNU command grep and the string "Christiano Ronaldo" to make a pre-s
 
 <span id="page-42-3"></span><sup>7</sup><https://wiki.dbpedia.org/dbpedia-version-2016-04>
 
-```
+```text
 <http://dbpedia.org/resource/Cristiano_Ronaldo>
   <http://dbpedia.org/property/birthDate>
     ''1985-02-05''ˆˆ<http://www.w3.org/2001/XMLSchema#date>
-```
+```text
 
 whereas this was not included in DBpedia 2016.04. All in all we could observe 161 triples that were different in total. As we only looked at the mapped infobox properties it could of course be that some of the data has been represented in different ways and at different nodes.
 
@@ -901,9 +897,7 @@ The focus of this report are the following research questions:
 
 In the field of knowledge graph evolution this report focuses specifically on the evolution of ontologies. We define Knowledge Graph Evolution as the process of KGs changing over time. Considered changes include nodes and edges being added or removed. Ontology evolution is defined by Maedche et al. [\[88\]](#page-118-4) with the following definition :
 
-*"The timely adaptation of an ontology and consistent propagation of changes to dependent artifacts."*
-
-However, in this report we only regard ontology evolution as a process we aim to observe and understand. In particular we focus on the effect certain ontology changes have on interdependent ontologies.
+*"The timely adaptation of an ontology and consistent propagation of changes to dependent artifacts."*However, in this report we only regard ontology evolution as a process we aim to observe and understand. In particular we focus on the effect certain ontology changes have on interdependent ontologies.
 
 # <span id="page-46-2"></span>4.4 Related Work
 
@@ -988,7 +982,7 @@ MORTAZA ALINAM, WOUTER VAN DEN BERG, LIENTJE MAAS, FABIO MARIANI, ELEONORA MARZI
 
 # <span id="page-52-1"></span>5.1 Research Question
 
-How can the evolution of a concept from the real world as it is described in unstructured natural language text be represented in knowledge graphs? In this work, the evolution of the concept *apple pie* is discussed as a use case.
+How can the evolution of a concept from the real world as it is described in unstructured natural language text be represented in knowledge graphs? In this work, the evolution of the concept*apple pie*is discussed as a use case.
 
 # <span id="page-52-2"></span>5.2 Knowledge Graphs Evolution and Preservation
 
@@ -1003,7 +997,7 @@ Knowledge graph preservation in the context of NLP means that data about natural
 
 # <span id="page-53-0"></span>5.3 Introduction
 
-Knowledge graphs are graphs of data with the intent to compose knowledge. Thereby, *composing* refers to a continual process of extracting and representing knowledge that enhances the interpretability of the resulting knowledge graph [\[27\]](#page-112-5). KGs represent what we consider true about (part of) the world. KGs are created at a certain point in time and can often be considered snapshots of the real world, i.e., they are essentially static [\[132\]](#page-122-5). However, *"Knowledge lives. It is not static, nor does it stand alone"* [\[27\]](#page-112-5). We live in a world with infinite variation and variability. In other words, concepts continuously change over time and can vary between social contexts and locations.
+Knowledge graphs are graphs of data with the intent to compose knowledge. Thereby,*composing*refers to a continual process of extracting and representing knowledge that enhances the interpretability of the resulting knowledge graph [\[27\]](#page-112-5). KGs represent what we consider true about (part of) the world. KGs are created at a certain point in time and can often be considered snapshots of the real world, i.e., they are essentially static [\[132\]](#page-122-5). However,*"Knowledge lives. It is not static, nor does it stand alone"*[\[27\]](#page-112-5). We live in a world with infinite variation and variability. In other words, concepts continuously change over time and can vary between social contexts and locations.
 
 In Named Entity Linking, an attempt is made to map textual mentions to their representation in a knowledge graph. However, especially when analyzing historical text documents, the text often links to a knowledge graph that was not created in the same time period as from which the text originates (or even from the same cultural setting). Yet, what is true knowledge now might be untrue or misleading at another point in time. This leads to the problem that the concept to which the text is linked and the text itself can have disparate meanings, even though this is often not reflected in the annotation. Therefore, the challenge arises to keep KGs up-to-date, or at least make explicit in what time period the model was considered correct [\[103\]](#page-119-4). Adding a temporal dimension to KGs can thus be seen as a contribution to the truthfulness of KGs.
 
@@ -1021,7 +1015,7 @@ Evolution: Defining and structuring the fluidity of a concept in a KG.
 
 Preservation: Historical recipes which appeared in newspaper articles may cease to exist at some point if they were not digitized. However, even digitized articles cannot be preserved in their "original" digitized form if rightsholders keep the data in closed archives.
 
-### <span id="page-54-0"></span>5.3.1 Impact and Contributions
+## <span id="page-54-0"></span>5.3.1 Impact and Contributions
 
 In a broader perspective, the efforts in the presented work (if further advanced) may contribute to the following ongoing areas of research:
 
@@ -1057,11 +1051,11 @@ The remainder of the paper is structured as follows. Section [5.4](#page-55-0) p
 
 # <span id="page-56-0"></span>5.5 Resources
 
-### <span id="page-56-1"></span>5.5.1 Apple pie recipes
+## <span id="page-56-1"></span>5.5.1 Apple pie recipes
 
 In order to study the evolution of apple pie recipes over time, we collected historical data from Dutch and American newspapers. As [\[53\]](#page-115-9) remarked, recipes from newspapers reflect tastes and viewpoints in a certain time period and can offer understanding of food cultures. This makes newspapers an invaluable data source to study evolution compared with e.g., cookbooks, which provide a static collection of recipes. For our research purposes, we analyzed the ingredients of apple pie recipes and their corresponding quantities in different contexts (i.e., time, location).
 
-Since recipes from historical newspapers are not easily accessible, a small selection of recipes from digitized newspapers is made to provide a proof of concept and illustration of our ideas. This selection includes recipes published in one of the four Dutch newspapers *Trouw*, *Het Parool*, *Volkskrant* and *NRC Handelsblad*, or one of the three American newspapers *Evening Star*, *Wilmington Morning Star* and *Pacific Commercial Advertiser* in the period from 1857 until 1995. Recipes were searched using the search term *apple pie*, after which false positives were filtered (e.g., recipes not concerning apple pie but containing the string 'apple pie'), resulting in 347 apple pie recipes. In the next step, the recipes were transformed to a structured format, including the date, location and language of the publication (i.e., context information). We then selected 12 recipes with publication dates more or less evenly spread over the time period 1857- 1995 to represent the full time span. More details about the data selection is provided in Section [5.6.](#page-57-0)
+Since recipes from historical newspapers are not easily accessible, a small selection of recipes from digitized newspapers is made to provide a proof of concept and illustration of our ideas. This selection includes recipes published in one of the four Dutch newspapers*Trouw*, *Het Parool*, *Volkskrant*and*NRC Handelsblad*, or one of the three American newspapers *Evening Star*, *Wilmington Morning Star*and*Pacific Commercial Advertiser*in the period from 1857 until 1995. Recipes were searched using the search term*apple pie*, after which false positives were filtered (e.g., recipes not concerning apple pie but containing the string 'apple pie'), resulting in 347 apple pie recipes. In the next step, the recipes were transformed to a structured format, including the date, location and language of the publication (i.e., context information). We then selected 12 recipes with publication dates more or less evenly spread over the time period 1857- 1995 to represent the full time span. More details about the data selection is provided in Section [5.6.](#page-57-0)
 
 ### <span id="page-56-2"></span>5.5.2 Ontologies
 
@@ -1101,11 +1095,8 @@ A full evaluation was out of the scope of this project, but in this section, we 
 
 When evaluating knowledge graph evolution, one important aspect is to measure how well the model reacts to changes in the data. One way to investigate this is to analyze whether all apple pie recipes in a dataset are actually covered by the knowledge graph. A suitable example for testing is a recipe extracted from an American apple pie recipe as an instant meal that only requires the 'cook' to add water.[6](#page-58-2) If this recipe can be covered by the model, it is an indication that the model covers the domain.
 
-On the other hand, it can be analyzed whether data which are not apple pie recipes are covered by the model. In an Austrian recipe dataset, the following recipe was found: "*Take 1000 kilos of bombs, a few hundred hand grenades, as many boxes of cartridges,*
-
-<span id="page-58-2"></span><sup>6</sup><https://bit.ly/2YAtYOb>
-
-*go to Vienna with them, make a coup there and wait until you get arrested. Then the apple strudel will be ready so that one, even neatly sliced into cuts and carefully cleaned by Remdkorpern, will be served with the wish to 'get well' ¨* " [7](#page-59-1) . This recipe is a war metaphor and not an actual recipe, and therefore it should not be possible to express this via the created model.
+On the other hand, it can be analyzed whether data which are not apple pie recipes are covered by the model. In an Austrian recipe dataset, the following recipe was found: "*Take 1000 kilos of bombs, a few hundred hand grenades, as many boxes of cartridges,*<span id="page-58-2"></span><sup>6</sup><https://bit.ly/2YAtYOb>
+*go to Vienna with them, make a coup there and wait until you get arrested. Then the apple strudel will be ready so that one, even neatly sliced into cuts and carefully cleaned by Remdkorpern, will be served with the wish to 'get well' ¨*" [7](#page-59-1) . This recipe is a war metaphor and not an actual recipe, and therefore it should not be possible to express this via the created model.
 
 A further evaluation approach may involve crowdsourcing. For instance, users may be provided with recipes and requested to judge whether or whether not the provided resource describes an apple pie recipe. If the selection by the users reflects the created knowledge graph, it is another indication for a suitable model.
 
@@ -1115,7 +1106,7 @@ However, an essential takeaway message here is that evaluating whether or not so
 
 The real world is constantly changing and knowledge that was considered true at one point in time in a specific cultural and spatial setting may not be true in another context. That means contexts evolve. On the other hand, there are knowledge graphs, which are created and maintained to continuously compose knowledge. However, often KGs are static and only reflect one snippet of reality. This static representation of the real world is a problem when attempting to understand historical descriptions of concepts (e.g., in newspapers), because linking historical concepts to today's understanding of the same concept may distort its meaning.
 
-This paper tackled this problem on the use case of the evolution of the concept *apple pie*. While the concept itself is seemingly simple, it clearly illustrates challenges concerning knowledge graph evolution in the context of NLP. The contributions of this paper include definitions of evolution and preservation of knowledge graphs in the context of NLP. A preliminary analysis of Dutch and American apple pie recipes was performed which resulted in insights about the variability of what was once understood as an apple pie. Furthermore, an ontology was developed to capture not only the recipe ingredients on their own but also specify that a resource of a recipe (e.g. a newspaper) was published in a temporal and spatial setting than the recipe itself deals with. A visualization shows the differentiating approaches to apple pie in Dutch and American recipes.
+This paper tackled this problem on the use case of the evolution of the concept*apple pie*. While the concept itself is seemingly simple, it clearly illustrates challenges concerning knowledge graph evolution in the context of NLP. The contributions of this paper include definitions of evolution and preservation of knowledge graphs in the context of NLP. A preliminary analysis of Dutch and American apple pie recipes was performed which resulted in insights about the variability of what was once understood as an apple pie. Furthermore, an ontology was developed to capture not only the recipe ingredients on their own but also specify that a resource of a recipe (e.g. a newspaper) was published in a temporal and spatial setting than the recipe itself deals with. A visualization shows the differentiating approaches to apple pie in Dutch and American recipes.
 
 Our take home message is that apple pie, as simple as the concept seems, can never be fully defined using a KG. Instead, the right level of broadness has to be investigated to best describe a real world understanding of apple pie as a concept as it relates to a broad context regarding time, space and culture.
 
@@ -1149,7 +1140,7 @@ Data Privacy. Privacy has become one of the most important human rights issues o
 
 Data Donation in Citizen Science. Bietz et al. [\[18\]](#page-111-0) define data donation research as "research in which people voluntarily contribute their own personal data that was generated for a different purpose to a collective dataset". In the context of citizen science and health research, these data may directly or indirectly contribute to an understanding of humans, and they are contributed by the individuals to whom the data refer [\[18\]](#page-111-0). By "voluntarily contribute" we mean those cases in which individuals make a clear choice to allow data about themselves to be used in a research study. In other words, participants "opt in" to the research. Another important aspect is that the data that get
 
-<span id="page-63-0"></span>![](_page_63_Picture_0.jpeg)
+<span id="page-63-0"></span>
 
 Figure 6.1: A model example on data donation in citizen science [\[18\]](#page-111-0)
 
@@ -1171,7 +1162,7 @@ We are now going to give a description of the VAD<sup>2</sup>ER framework. We st
 
 It is important to remark that the system aims to provide a decentralized, communitydriven environment to help conducting a certain kind of research studies; in this sense we want to avoid any central authority or any use of third party "trusted" services.
 
-### <span id="page-64-1"></span>6.3.1 The Actors
+## <span id="page-64-1"></span>6.3.1 The Actors
 
 We designed the system to allow two kinds of actor: researchers and volunteers.
 
@@ -1187,9 +1178,9 @@ Overall, the blockchain ecosystem we designed provides two main smart contract, 
 
 ### <span id="page-66-0"></span>6.3.2 Joining the System as a Volunteer
 
-User data resides *with the user* in their Solid POD. This gives the user controll over their data and provides a fine-grained privacy layer between the volunteer and the researcher.
+User data resides *with the user*in their Solid POD. This gives the user controll over their data and provides a fine-grained privacy layer between the volunteer and the researcher.
 
-When users want to join the ecosystem they simply invoke the related smart contract in order to be included in the set of volunteers. Ideally the invocation contains a detailed *description* of the provided data, along with any condition to fulfill to be able to access them. The description is provided as a set of triples resembling the structure of the data in the POD. At this stage no data is provided, and the users can revoke their permissions at any time.
+When users want to join the ecosystem they simply invoke the related smart contract in order to be included in the set of volunteers. Ideally the invocation contains a detailed*description*of the provided data, along with any condition to fulfill to be able to access them. The description is provided as a set of triples resembling the structure of the data in the POD. At this stage no data is provided, and the users can revoke their permissions at any time.
 
 ### <span id="page-66-1"></span>6.3.3 Joining the System as a Researcher
 
@@ -1233,7 +1224,7 @@ In order for the system to be user-friendly and easy to use, the whole process o
 - keeping data in the personal POD up-to-date;
 - manage permissions according to which the data is shared with the researchers.
 
-Both can be done through a simplified UI and in particular the open nature of the Solid allows to have seamless integration with other system. In principle, the user will be able to connect their apps and (medical) tools to their PODs (e.g., fitness trackers, blood pressure monitor). Finally, this approach provides *preservation* and *evolution* properties to the user's data. The entire medical record of a patient can be encoded in RDF triple in its POD and use of this data can be checked, verified and filtered through the system.
+Both can be done through a simplified UI and in particular the open nature of the Solid allows to have seamless integration with other system. In principle, the user will be able to connect their apps and (medical) tools to their PODs (e.g., fitness trackers, blood pressure monitor). Finally, this approach provides*preservation*and*evolution*properties to the user's data. The entire medical record of a patient can be encoded in RDF triple in its POD and use of this data can be checked, verified and filtered through the system.
 
 In the future we plan to create incentive mechanisms for motivating volunteers to both participate and remain active in the project. Our approach will be based on a credit system that recognizes volunteers' contributions to research projects. It is well known that reputation systems play a crucial role in building trust, promoting quality, improving collaboration and instilling loyalty [\[44\]](#page-114-3). And we aim to harness this to improve the sustainability over our framework.
 
@@ -1253,7 +1244,7 @@ JAN PORTISCH, VINCENT EMONET, MOHAMAD YASER JARADEH, OMAIMA FALATTAH, BILAL KOTE
 
 In recent years, Linked Open Data (LOD) has been attracting many researchers in the Semantic Web community. LOD refers to the structured data available on the web which also can be processed by machines. It correlates data published in web resources by applying the Linked Data principles [\[84\]](#page-117-8)[\[150\]](#page-124-1). Further, Linked Data is also the base technology behind publicly available Open KGs such as Wikidata [\[142\]](#page-123-7) and DBpedia [\[15\]](#page-111-5), that are available as Linked Data and through SPARQL interfaces.
 
-For instance, the *European Union Data Portal* (EU ODP[1](#page-70-2) ) and the *European Data Portal*[2](#page-70-3) are two popular open governmental data collections i.e. large catalogs of metadata descriptions and links to public datasets. They combine data harvested from national OGD portals and other public bodies. In this work we will attempt to align these Open Data catalogs and their metadata to openly available, large knowledge graphs such as DBpedia and WikiData.
+For instance, the*European Union Data Portal*(EU ODP[1](#page-70-2) ) and the*European Data Portal*[2](#page-70-3) are two popular open governmental data collections i.e. large catalogs of metadata descriptions and links to public datasets. They combine data harvested from national OGD portals and other public bodies. In this work we will attempt to align these Open Data catalogs and their metadata to openly available, large knowledge graphs such as DBpedia and WikiData.
 
 Many works have investigated the interlinking and labeling Open Data portals and the respective datasets therein. The importance of such aligning lies in enabling users to query and search Open Data catalogs [\[95\]](#page-119-5). However, to the best of our knowledge,
 
@@ -1263,24 +1254,19 @@ Many works have investigated the interlinking and labeling Open Data portals and
 
 there are no working applications that link the provenance metadata, namely, the public institutions who published the datasets in a systematic manner to publicly available large knowledge graphs. For instance, in DBpedia, the class 'Organisation' is one of the top 5 classes with 241,000 instances [\[15\]](#page-111-5), which seems to indicate that there is potential in enriching and interlinking Open Data catalogs by additional information from these knowledge graphs about the publishing organisations: we argue that mapping the description of Open Data sources with large KGs will provide an insight of the data published by organisations to capture how they evolve over time. Thus, it can help with improving the quality of Open Data in genera and allow for further innovations in terms of data findability and scaleability.
 
-In this work, specifically we aim at examining mapping techniques to align publishing organisations in existing metadata description of the *European Data Portal* with organisations mentioned in the WikiData and DBpedia KGs. To this end, for instance we propose to link metadata about open data sets in catalogs to these open domain public knowledge graphs. We assume that such linkage can be achieved by applying linking methods from the entity linking domain, for instance, exploiting string similarity, or structural similarity in terms of shared attributes. One particularly important metadata element in Open Data catalogs, that can be linked, is the attribute "publishing organisation", but it is not but the only relevant attribute for linkage.
+In this work, specifically we aim at examining mapping techniques to align publishing organisations in existing metadata description of the *European Data Portal*with organisations mentioned in the WikiData and DBpedia KGs. To this end, for instance we propose to link metadata about open data sets in catalogs to these open domain public knowledge graphs. We assume that such linkage can be achieved by applying linking methods from the entity linking domain, for instance, exploiting string similarity, or structural similarity in terms of shared attributes. One particularly important metadata element in Open Data catalogs, that can be linked, is the attribute "publishing organisation", but it is not but the only relevant attribute for linkage.
 
 Our focus on linking the organisation shall allow for various analyses such as:
 
-- *Influence of Organisational Changes:* with linked metadata, the influence of organisational changes to open data could be analyzed, allowing us to answer questions such as: *Did the frequency of updates of datasets decrease since Donald Trump was elected into office in datasets maintained by the US administration?* or *Does the data of environmental offices change significantly between presidencies?*
-- *Findability of data:* if datasets are linked to publishing organisations, it gets easier to find other datasets by the same organisation. Linking Open Data publishing organisations to the Linked Open Data cloud [\[19\]](#page-111-6) will contribute to aligning a vast amount of valuable data with the FAIR (findable, accessible, interoperable, reusable) principles [\[149\]](#page-124-2). In addition, linking allows for faceted search.
-- *Timeline analyses:* If open datasets are linked to organisations, aggregated timeline analyses are easier to perform. It would be, for example, possible to count the total number of published datasets by a public administration body over a certain time frame.
-- *Trust:* knowing for sure which organisation published which dataset and being able to find out more about the organisation through interlinked knowledge graphs will help to rely on data or datasets. When a researcher sees, for instance, that a dataset was published by [dbr:Federal\\_Statistical\\_Office\\_](dbr:Federal_Statistical_Office_of_Germany) [of\\_Germany](dbr:Federal_Statistical_Office_of_Germany)[3](#page-71-0) and that this entitiy is a dbc:National statistical ser vices, it might help her to judge in how far the data is reliable if she trusts national statistical offices. If the researcher does not know the publishing body, she can use the URI to explore further associations and to learn more about an organisation.
+-*Influence of Organisational Changes:*with linked metadata, the influence of organisational changes to open data could be analyzed, allowing us to answer questions such as:*Did the frequency of updates of datasets decrease since Donald Trump was elected into office in datasets maintained by the US administration?*or*Does the data of environmental offices change significantly between presidencies?*-*Findability of data:*if datasets are linked to publishing organisations, it gets easier to find other datasets by the same organisation. Linking Open Data publishing organisations to the Linked Open Data cloud [\[19\]](#page-111-6) will contribute to aligning a vast amount of valuable data with the FAIR (findable, accessible, interoperable, reusable) principles [\[149\]](#page-124-2). In addition, linking allows for faceted search.
+-*Timeline analyses:*If open datasets are linked to organisations, aggregated timeline analyses are easier to perform. It would be, for example, possible to count the total number of published datasets by a public administration body over a certain time frame.
+-*Trust:*knowing for sure which organisation published which dataset and being able to find out more about the organisation through interlinked knowledge graphs will help to rely on data or datasets. When a researcher sees, for instance, that a dataset was published by [dbr:Federal\\_Statistical\\_Office\\_](dbr:Federal_Statistical_Office_of_Germany) [of\\_Germany](dbr:Federal_Statistical_Office_of_Germany)[3](#page-71-0) and that this entitiy is a dbc:National statistical ser vices, it might help her to judge in how far the data is reliable if she trusts national statistical offices. If the researcher does not know the publishing body, she can use the URI to explore further associations and to learn more about an organisation.
 
 <span id="page-71-0"></span><sup>3</sup>All URL prefixes used herein, such as dbr: can be looked up at <http://prefix.cc>
 
 From the above challenges we derive the following research questions:
 
-- RQ1: *How can publishing organisations of open data knowledge sources be linked to existing knowledge graphs? In how far are the open data publishing organisations represented in knowledge graphs?*
-- RQ2: *How should mappings look like in order to account for knowledge graph evolution as well as evolution of the dataset (including the corresponding metadata)?*
-- RQ3: *How can organisational evolution be represented in a knowledge graph? Or, in other words: are resepctive attributes to model organisational change represented and used in existing KGs?*
-
-# <span id="page-72-0"></span>7.2 Knowledge Graphs Evolution and Preservation
+- RQ1:*How can publishing organisations of open data knowledge sources be linked to existing knowledge graphs? In how far are the open data publishing organisations represented in knowledge graphs?*- RQ2:*How should mappings look like in order to account for knowledge graph evolution as well as evolution of the dataset (including the corresponding metadata)?*- RQ3:*How can organisational evolution be represented in a knowledge graph? Or, in other words: are resepctive attributes to model organisational change represented and used in existing KGs?*# <span id="page-72-0"></span>7.2 Knowledge Graphs Evolution and Preservation
 
 Knowledge Graphs have evolved as flexible and powerful means of representing general world knowledge, and have been in the focus of research since 2012 resulting in a wide variety of published descriptions and definitions. According to Paulheim [\[113\]](#page-120-7), a Knowledge Graph mainly describes real world entities and their interrelations, defines possible classes and relations of entities in a schema, allows for potentially interrelating arbitrary entities with each other and covers various topical domains.
 
@@ -1288,17 +1274,17 @@ Knowledge Graphs (KGs) represent relevant aspects of a domain of interest or gen
 
 # <span id="page-72-1"></span>7.3 Related Work
 
-The *Open Data Portal Watch (ODPW)*[4](#page-72-2) [\[99\]](#page-119-6) project is an attempt to collect weekly snapshots of several monitored data portals. These snapshots are mapped and published by means of homogenized metadata from standard vocabularies such as DCAT[5](#page-72-3) and Schema.org. However, these metadata are not linked to other Knowledge Graphs in order to provide information about publisher organisations and to be able to track the
+The*Open Data Portal Watch (ODPW)*[4](#page-72-2) [\[99\]](#page-119-6) project is an attempt to collect weekly snapshots of several monitored data portals. These snapshots are mapped and published by means of homogenized metadata from standard vocabularies such as DCAT[5](#page-72-3) and Schema.org. However, these metadata are not linked to other Knowledge Graphs in order to provide information about publisher organisations and to be able to track the
 
 <span id="page-72-2"></span><sup>4</sup><https://data.wu.ac.at/>
 
 <span id="page-72-3"></span><sup>5</sup><https://www.w3.org/TR/vocab-dcat/>
 
-evolution of the mentioned organisations. The *Google Dataset Search* is a dataset discovery tool that provides search capabilities over potentially all datasets published on the Web [\[108\]](#page-120-8). In order to make it possible, this tool use metadata information provided by publishers following Schema.org or DCAT vocabularies. Then, these metadata is reconciled with the items of the Google Knowledge Graph. Despite this tool hosts several datasets published on the Web, the provenance of metadata is usually missing and the publisher metadata is not linked to other public Knowledge Graphs. Recently, a new framework[6](#page-73-1) has been implemented in order to allow semantic search between Open Data portals [\[96\]](#page-119-7). It focuses on spatio-temporal as the most relevant metadata that data portals should include as pointed in [\[74\]](#page-116-4). However this framework does not address how to interlink the datasets of organisations from Open Data to public Knowledge Graphs and how to track the evolution of the involved datasets. It is worth mentioning that this work is useful in order to understand the entity linking techniques applied in this approach. The *ADEQUATE* [\[98\]](#page-119-8)[\[97\]](#page-119-9) is a data-and community-driven quality improvements project aimed to improve the quality of metadata in Open Data. The main features of this system include: (i) assessing the quality of datasets and its metadata with quality metrics, (ii) applying different heuristic algorithms to eliminate the quality issues, and (iii) implementing different Semantic Web Methods to Open Data to transform CSV formats into a Linked Data. This work has resulted in interlinking many of the existed Open Data publishing systems. However, this project has not included a mapping solution between the polishers metadata and other open resources. In relation to the Knowledge Graph evolution, there are some techniques that have been proposed earlier [\[136\]](#page-122-8) e.g. to detect changes during their evolution, to use vocabularies in order to represent the change information, or to propagate changes to replicas. Recently, a framework for detecting and analysing changes and the evolution history of LOD datasets has been proposed [\[131\]](#page-122-1). This framework consist of generating a summary of the evolution of entities as molecules containing a compact representation of the objects and properties including its temporal validity. Our work rather aims at exploiting the metadata used to annotate the datasets as a way to handle the representation of the organisational evolution.
+evolution of the mentioned organisations. The *Google Dataset Search*is a dataset discovery tool that provides search capabilities over potentially all datasets published on the Web [\[108\]](#page-120-8). In order to make it possible, this tool use metadata information provided by publishers following Schema.org or DCAT vocabularies. Then, these metadata is reconciled with the items of the Google Knowledge Graph. Despite this tool hosts several datasets published on the Web, the provenance of metadata is usually missing and the publisher metadata is not linked to other public Knowledge Graphs. Recently, a new framework[6](#page-73-1) has been implemented in order to allow semantic search between Open Data portals [\[96\]](#page-119-7). It focuses on spatio-temporal as the most relevant metadata that data portals should include as pointed in [\[74\]](#page-116-4). However this framework does not address how to interlink the datasets of organisations from Open Data to public Knowledge Graphs and how to track the evolution of the involved datasets. It is worth mentioning that this work is useful in order to understand the entity linking techniques applied in this approach. The*ADEQUATE*[\[98\]](#page-119-8)[\[97\]](#page-119-9) is a data-and community-driven quality improvements project aimed to improve the quality of metadata in Open Data. The main features of this system include: (i) assessing the quality of datasets and its metadata with quality metrics, (ii) applying different heuristic algorithms to eliminate the quality issues, and (iii) implementing different Semantic Web Methods to Open Data to transform CSV formats into a Linked Data. This work has resulted in interlinking many of the existed Open Data publishing systems. However, this project has not included a mapping solution between the polishers metadata and other open resources. In relation to the Knowledge Graph evolution, there are some techniques that have been proposed earlier [\[136\]](#page-122-8) e.g. to detect changes during their evolution, to use vocabularies in order to represent the change information, or to propagate changes to replicas. Recently, a framework for detecting and analysing changes and the evolution history of LOD datasets has been proposed [\[131\]](#page-122-1). This framework consist of generating a summary of the evolution of entities as molecules containing a compact representation of the objects and properties including its temporal validity. Our work rather aims at exploiting the metadata used to annotate the datasets as a way to handle the representation of the organisational evolution.
 
 # <span id="page-73-0"></span>7.4 Resources
 
-For our experiments, we used the metadata provided by the *Open Data Portal Watch* (ODPW) project. In particular, for a preliminary analysis, we focused on two portals listed on ODPW, namely: (i) The *European Data Portal* due to the good quality of the metadata available there, and, as a counter-example, (ii) the *Hawaiian Data Portal* as the provenance metadata is of less sufficient quality there. This decision was taken in order to judge the quality of the linker in different realistic situations. The VulcanLinker itself uses pre-crawled label data from DBpedia and Wikidata in order to maximize performance.
+For our experiments, we used the metadata provided by the*Open Data Portal Watch*(ODPW) project. In particular, for a preliminary analysis, we focused on two portals listed on ODPW, namely: (i) The*European Data Portal*due to the good quality of the metadata available there, and, as a counter-example, (ii) the*Hawaiian Data Portal*as the provenance metadata is of less sufficient quality there. This decision was taken in order to judge the quality of the linker in different realistic situations. The VulcanLinker itself uses pre-crawled label data from DBpedia and Wikidata in order to maximize performance.
 
 <span id="page-73-1"></span><sup>6</sup><https://data.wu.ac.at/odgraphsearch>
 
@@ -1306,9 +1292,9 @@ For our experiments, we used the metadata provided by the *Open Data Portal Watc
 
 The approach that we are considering addresses linking certain properties of the metadata describing a dataset.
 
-### <span id="page-74-1"></span>7.5.1 Linking
+## <span id="page-74-1"></span>7.5.1 Linking
 
-This section addresses *research question 1*. Most open datasets reside on individual Web sites and are available in various formats such as CSV, Excel, or RDF, for example. Data portals such as the *European Data Portal* or *Open Data Portal Watch* compile various datasets and provide metadata about the dataset such as the creation date or the publisher. However, the metadata is not formalized and exists only in a pure textual representation as string. In order to perform the task at hand, we present a system called *"VulcanLinker"*. VulcanLinker works by matching certain values to its corresponding entities in linked Knowledge Graphs (e.g. Wikidata and Dbpedia). Our proposed system queries some of the available Knowledge Graphs and computes the coverage of linked entities from those sources. To do so, the system computes the closure of all subclasses C of the entity in question (e.g. dbr:Organization), and then performs a similarity measure sim on the labels of the instances (i) of the fetched set of subclasses. Equation [\(7.1\)](#page-74-2) shows the formalisation of the method.
+This section addresses*research question 1*. Most open datasets reside on individual Web sites and are available in various formats such as CSV, Excel, or RDF, for example. Data portals such as the *European Data Portal*or*Open Data Portal Watch*compile various datasets and provide metadata about the dataset such as the creation date or the publisher. However, the metadata is not formalized and exists only in a pure textual representation as string. In order to perform the task at hand, we present a system called*"VulcanLinker"*. VulcanLinker works by matching certain values to its corresponding entities in linked Knowledge Graphs (e.g. Wikidata and Dbpedia). Our proposed system queries some of the available Knowledge Graphs and computes the coverage of linked entities from those sources. To do so, the system computes the closure of all subclasses C of the entity in question (e.g. dbr:Organization), and then performs a similarity measure sim on the labels of the instances (i) of the fetched set of subclasses. Equation [\(7.1\)](#page-74-2) shows the formalisation of the method.
 
 The approach is a straight forward process of fetching resources from the Knowledge Graphs and then matching them to the available metadata from our Open Data dataset descriptions.
 
@@ -1322,15 +1308,15 @@ The skeleton of the SPARQL query that can fetch the instances of a particular en
 
 Listing 7.1: Skeleton SPARQL query to fetch data for matching
 
-```
+```text
 SELECT ?entity
 WHERE {
-  ?entity <isA>/<subClassOf>* <entityType>;
+  ?entity <isA>/<subClassOf>*<entityType>;
         <att1> ?att1;
         ...
         <attN> ?attN ; .
 }
-```
+```text
 
 To circumvent this, we used look-up services for both example use-cases Knowledge Graphs (e.g. Wikidata and DBpedia) which fetches matching entities from an index based on the label (rdfs:label) of those entities. Afterwards, the next step is see which entity from the fetched set of results matches the surface from of the string we VulcanLinker is linking. At the moment, we use simple exact string matching.
 
@@ -1342,23 +1328,23 @@ $$
 
 ### <span id="page-75-1"></span><span id="page-75-0"></span>7.5.2 Linking Formats
 
-This section addresses *research question 2*. In order to discuss mappings, the concepts *correspondence* and *alignment* are defined in the following: A correspondence is defined here as a semantic link between two elements from two datasets. The set of correspondences of two datasets is also known as alignment. This follows the definitions established in the ontology matching community [\[57\]](#page-115-10). One challenge that is to be addressed is the *moving target problem*: Over time, datasets and Knowledge Graphs are updated and changed. A publishing institution, for instance, might be renamed and accordingly be removed from a Knowledge Graph. Correspondences might end up linking to non-existing elements. In order to address these, we suggest to provide at least the following metadata for each alignment:
+This section addresses*research question 2*. In order to discuss mappings, the concepts *correspondence*and*alignment*are defined in the following: A correspondence is defined here as a semantic link between two elements from two datasets. The set of correspondences of two datasets is also known as alignment. This follows the definitions established in the ontology matching community [\[57\]](#page-115-10). One challenge that is to be addressed is the*moving target problem*: Over time, datasets and Knowledge Graphs are updated and changed. A publishing institution, for instance, might be renamed and accordingly be removed from a Knowledge Graph. Correspondences might end up linking to non-existing elements. In order to address these, we suggest to provide at least the following metadata for each alignment:
 
 - CreationDate: The date the alignment was created. This ensures the validity of the alignment as of a certain date.
-- CreationMethod: The creation method defines which process mapped the metadata. It might be an automated method but a *manual process* is also a valid option.
+- CreationMethod: The creation method defines which process mapped the metadata. It might be an automated method but a *manual process*is also a valid option.
 
 Furthermore, we suggest to add the following metadata for each correspondence:
 
 - Confidence: The confidence of the human annotator of the automatic linker.
 - Explanation: An explanatory, human understandable, explanation for the individual correspondence by the linker.
 
-The metadata given for each correspondence/alignment shall be extensible so that additional metadata can be added. In addition, we propose that the metadata can be queried using a SPARQL [\[115\]](#page-120-9) endpoint. The latter could, for instance, be provided by *Open Data Portal Watch* or any other central data portal. Moreover, the evolution of metadata needs to be queryable. This means that an alignment as of a certain year or date shall be retrievable. Note that one particular snapshot of a dataset might have multiple alignment versions depending on the method applied and the validity (CreationDate).
+The metadata given for each correspondence/alignment shall be extensible so that additional metadata can be added. In addition, we propose that the metadata can be queried using a SPARQL [\[115\]](#page-120-9) endpoint. The latter could, for instance, be provided by*Open Data Portal Watch*or any other central data portal. Moreover, the evolution of metadata needs to be queryable. This means that an alignment as of a certain year or date shall be retrievable. Note that one particular snapshot of a dataset might have multiple alignment versions depending on the method applied and the validity (CreationDate).
 
 Alignments shall be represented in RDF in order to be queryable. Listing [7.2](#page-76-2) shows an example of a possible RDF alingment representation inspired by the Alignment API format [\[39\]](#page-113-10) that is used by the ontology matching community. In the listing a uri refers to the URI of the alignment. c uri refers to the unique URI of an individual correspondence.
 
 Listing 7.2: Exemplary structure of an alignment format.
 
-```
+```text
 <c_uri> rdf:subject <dataSetURI> <a_uri> .
 <c_uri> rdf:object <mappedOrganisation> <a_uri> .
 <c_uri> rdf:predicate <publisher> <a_uri> .
@@ -1367,11 +1353,11 @@ Listing 7.2: Exemplary structure of an alignment format.
 <a_uri> <dc:createdOn> "13-11-1991" <rootGraph> .
 <a_uri> <dc:creator> <orcid> <rootGraph> .
 <a_uri> <methods> <similarity/distance method> <rootGraph> .
-```
+```text
 
 ### <span id="page-76-0"></span>7.5.3 Do Current Open Knowledge Graphs Cover Organisational Evolution?
 
-This section addresses *research question 3*. We assess whether *models* used by current Open Knowledge Graphs, enable to capture the evolution and context of entities (in our case, organisational changes affecting data publishers, date of those changes, etc). Secondly, we want to assess to which extent those models are actually used, e.g., whether and to which degree the *data* in the Knowledge Graphs actually captures evolution of organisations? To this end, two dimensions are suggested to be explored:
+This section addresses*research question 3*. We assess whether *models*used by current Open Knowledge Graphs, enable to capture the evolution and context of entities (in our case, organisational changes affecting data publishers, date of those changes, etc). Secondly, we want to assess to which extent those models are actually used, e.g., whether and to which degree the*data*in the Knowledge Graphs actually captures evolution of organisations? To this end, two dimensions are suggested to be explored:
 
 - 1. Does the ontology (T-Box) allow to define metadata related to the evolution of an organisation?
 - 2. Does the organisational data (A-Box) fully describe the evolution of organisations (T-Box usage)?
@@ -1389,7 +1375,7 @@ We open the horizon of evaluating the system, in term of what has been implement
 | Open Europa portal | 64.1%   | 88.3%    |
 | Hawaii data portal | 6.32%   | 55%      |
 
-### <span id="page-77-0"></span>7.6.1 Interlinking evaluation
+## <span id="page-77-0"></span>7.6.1 Interlinking evaluation
 
 For running proof of concept experiments, the experimental setup comprised a Linux virtual machine running Ubuntu 18.04 LTS, with 48G of memory, and 8 CPUs 2.7GHz. We extracted meta-data from the two portals (<open-data.europa.eu>, <data.hawaii.gov>), as mentioned above, to attempt automated linkage. Our prototypival organisation linkger, VulcanLinker, is written in Python 3.6, and at the moment only implements simple exact string matching on organisation labels as mentioned above, but we envision this matching to be extensible and to be improved in the future. All code that was written in the scope of this prototype has been made publicly available on GitHub.[7](#page-77-3)
 
@@ -1399,7 +1385,7 @@ Table [\(7.1\)](#page-77-2) shows that Wikidata has a better coverage than DBped
 
 As shown in table [7.1,](#page-77-2) the coverage differs significantly between the linking targets. In our experiment, Wikidata performed better, in terms of the number of available relevant organisations in it. Likely reasons are more overall concepts or better label annotations.
 
-In addition, the coverage differs between the two data portals. This is due to the varying quality of the provenance metadata: The quality of the alignments highly depends on the metadata that is provided. In many cases, the metadata given is insufficient, on the *Hawaiian Data Portal*, for instance, organisations are often given in the form of first names such as *Kevin, Kayla*, or *Kaisa*. Such entries are hard to link. A good matcher has to be capable of ignoring such entries. Another approach in linking such harder cases is to include more metadata information in the matching process. From the data set URL, for instance, an organisation might be inferred in order to improve the similarity calculation. This is a future research direction that can be explored.
+In addition, the coverage differs between the two data portals. This is due to the varying quality of the provenance metadata: The quality of the alignments highly depends on the metadata that is provided. In many cases, the metadata given is insufficient, on the*Hawaiian Data Portal*, for instance, organisations are often given in the form of first names such as *Kevin, Kayla*, or *Kaisa*. Such entries are hard to link. A good matcher has to be capable of ignoring such entries. Another approach in linking such harder cases is to include more metadata information in the matching process. From the data set URL, for instance, an organisation might be inferred in order to improve the similarity calculation. This is a future research direction that can be explored.
 
 ### <span id="page-77-1"></span>7.6.2 Wikidata and DBpedia Ontologies and Coverage Assessment
 
@@ -1419,37 +1405,37 @@ On Wikidata, various properties and classes are available to define the evolutio
 
 The data model defined by Wikidata offers an efficient way to represent the evolution of an organisation by providing references, such as the point in time property (wdt:P585) which provides the date from when a fact started to be true.
 
-As for the usage, one relevant organisation is described in the following: the *Scottish National Party* (<https://www.wikidata.org/wiki/Q10658>). This organisation replaces the *National Party of Scotland* ([https://www.wikidata.](https://www.wikidata.org/wiki/Q6974819) [org/wiki/Q6974819](https://www.wikidata.org/wiki/Q6974819)), created in 1928 and dissolved in 1934, as well as the *Scottish Party* (<https://www.wikidata.org/wiki/Q7437896>), created in 1930 and dissolved in 1934. In this case, the replaces property does not hold any references providing the date (which 1934) at which the statement started to be true. This information can theoretically be inferred by the date of dissolution of the the previous party. When looking closer, one can infer that there was merge of the *National Party of Scotland* and the *Scottish Party*. However, such an event should have been recorded by the merger property. So, the underlying ontology is not fully exploited on Wikidata. Multiple such instances can be found.
+As for the usage, one relevant organisation is described in the following: the *Scottish National Party*(<https://www.wikidata.org/wiki/Q10658>). This organisation replaces the*National Party of Scotland*([https://www.wikidata.](https://www.wikidata.org/wiki/Q6974819) [org/wiki/Q6974819](https://www.wikidata.org/wiki/Q6974819)), created in 1928 and dissolved in 1934, as well as the*Scottish Party*(<https://www.wikidata.org/wiki/Q7437896>), created in 1930 and dissolved in 1934. In this case, the replaces property does not hold any references providing the date (which 1934) at which the statement started to be true. This information can theoretically be inferred by the date of dissolution of the the previous party. When looking closer, one can infer that there was merge of the*National Party of Scotland*and the*Scottish Party*. However, such an event should have been recorded by the merger property. So, the underlying ontology is not fully exploited on Wikidata. Multiple such instances can be found.
 
 In order to give an indication of the usage, the replaced property has been closer examined: The SPARQL query in listing [7.3,](#page-78-2) counts the use of the replaces property for subclasses of organisation.
 
 <span id="page-78-2"></span>Listing 7.3: Count the use of the replaces property for subclasses of organisation
 
-```
+```text
 SELECT (COUNT(*) AS ?C)
 WHERE {
    ?item wdt:P1365 ?formerItem .
    ?item wdt:P31/wdt:P279* wd:Q43229.
 }
-```
+```text
 
 The results returned for the replaces property is a count of 15,225 statements. The same query has been used for the replacedBy property, returning 19,102 statements. Those results can be compared to the number of organisations described in Wikidata computed using the SPARQL query presented in listing [7.4.](#page-78-3)
 
 Listing 7.4: Count the number of organisation subclasses
 
-```
+```text
 SELECT (COUNT(*) AS ?C)
 WHERE {
-```
+```text
 
 <span id="page-78-1"></span><span id="page-78-0"></span><sup>8</sup><https://www.wikidata.org/wiki/Property:P571>
 
 <sup>9</sup>The Wikidata ontology also proposes an inverse property for replaces which is replacedBy (wdt:P1366)
 
-```
-?item wdt:P31/wdt:P279* wd:Q43229.
+```text
+?item wdt:P31/wdt:P279*wd:Q43229.
 }
-```
+```text
 
 The result is 1,786,652 organisations. It seems then that information about evolution concern no more than around 1.93% (1,786,652/(19,102+15,225)) of organisations.
 
@@ -1477,7 +1463,7 @@ Our approach considers the evolution of data sets and the evolution of a knowled
 
 which allows to match plain strings (such as organisation strings) to Dbpedia and Wikidata KGs. We ran this simple matcher on publishing organisations given by two data portals. Our experiment revealed that the provenance data quality differs among different portals and that the linking outcome is highly dependent on the latter quality. Our experiment further hinted at Wikidata likely being a better target for matching organisations. Secondly, we proposed a method to version metadata in a way so that point and delta queries are possible. In addition, we suggest that alignment data itself should be versioned, and contain a minimal set of metadata information, e.g., allowing for multiple matching mechanisms to annotated. Furthermore, we should consider the fact that metadata changes over time. Lastly, we analysed the schema of the existing KGs in terms of coverage of properties to model organisational change and evolution.
 
-Future work should focus on versioning approaches of metadata - in particular considering memory consumption and query performance. In addition, the presented *VulcanLinker* returns reasonable results but focuses only on simple matching of labels. However, there are additional attribues than could be taken into consideration (regarding attributes mentioned in equation [\(7.1\)](#page-74-2)) such as URLs of organisations, country of origin (for disambiguation of same named institutions in different countries), publisher dcat:contactPoint info, and much more. Furthermore, the evaluation of different version of the KGs can be tested to discover how the organisational information has evolved (changed) overtime.
+Future work should focus on versioning approaches of metadata - in particular considering memory consumption and query performance. In addition, the presented*VulcanLinker*returns reasonable results but focuses only on simple matching of labels. However, there are additional attribues than could be taken into consideration (regarding attributes mentioned in equation [\(7.1\)](#page-74-2)) such as URLs of organisations, country of origin (for disambiguation of same named institutions in different countries), publisher dcat:contactPoint info, and much more. Furthermore, the evaluation of different version of the KGs can be tested to discover how the organisational information has evolved (changed) overtime.
 
 Another research direction would be to calculate the coverage over different knowledge graph versions to show how the knowledge graphs evolved and changed over time.
 
@@ -1511,13 +1497,13 @@ In this section, we focus on finding out resources and related work that can hel
 
 <span id="page-82-2"></span><sup>1</sup>http://trustyuri.net/
 
-### <span id="page-83-0"></span>8.4.1 FAIR Principles
+## <span id="page-83-0"></span>8.4.1 FAIR Principles
 
 In order to ensure transparency reproducibility and reusability, the authors of [\[148\]](#page-124-3) provide us with the FAIR Principles. The FAIR Principles consist of findability, accessibility, interoperability, and reusability of the digital data.
 
-To be *Findable* means that (meta)data is assigned to a globally unique and persistent identifier, that it is described with rich metadata, metadata clearly and explicitly includes the identifier of the data it describes, and (meta)data are registered or indexed in a searchable resource.
+To be*Findable*means that (meta)data is assigned to a globally unique and persistent identifier, that it is described with rich metadata, metadata clearly and explicitly includes the identifier of the data it describes, and (meta)data are registered or indexed in a searchable resource.
 
-To be *Accessible*, the (meta)data are retrievable by their identifier using a standardized communications protocol, the protocol is open, free, and universally implementable, the protocol allows for an authentication and authorization procedure, where necessary. The metadata is accessible, even when the data are no longer available.
+To be*Accessible*, the (meta)data are retrievable by their identifier using a standardized communications protocol, the protocol is open, free, and universally implementable, the protocol allows for an authentication and authorization procedure, where necessary. The metadata is accessible, even when the data are no longer available.
 
 To be *Interoperable*, the (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation, (meta)data use vocabularies that follow FAIR principles and (meta)data include qualified references to other (meta)data.
 
@@ -1747,7 +1733,7 @@ On the basis of the aforementioned ontology update approaches and frameworks, th
 
 However, the problems of how to preserve the semantic consistency when it relates to user interactions and how to prevent the incomplete change request should be studied. Hence, this work focus on the above problems, the approach of extended ontology update language was proposed for supporting the interactive knowledge graph modification.
 
-```
+```text
 CREATE CHANGEHANDLER <name>
 FOR <changerequest>
 AS
@@ -1778,7 +1764,7 @@ AS
 <SPARQL> ::== where clause of a SPARQL query
 <SPARQL update> ::== a modify action (in SPARQL Update)
 <text> ::== string (may contain SPARQL variables)
-```
+```text
 
 Figure 9.2: Ontology Update Language syntax specification.
 
@@ -1790,11 +1776,11 @@ In this section we propose an extension of the syntax of the Ontology Update Lan
 
 The implementation adds to OUL another type of action, allowing the interaction between the system and the knowledge worker. As mentioned in the previous section the knowledge worker did not have any options while he wanted to modified the knowledge graph. Therefore, in the current suggested structure different options will be offered by the system to the user.
 
-There are three different types of options. The first one is the *approval* interaction, allowing user to approve or not changing in graph that are not mandatory. The second one is *fixedChoice* group of intercaction, divided into *fixedSingleChoice* and *fixedMultipleChoice*. Here the interaction consists in choosing between options that are fixed, because their number is already decided by the ontology update specification. The last one is the *unboundedChoice*, (divided into *unboundedSingleChoice* and *unbounded-MultipleChoice)*, used in case the modification implied a selection between variables that can't be numbered *a priori*, but only thanks to a SPARQL.
+There are three different types of options. The first one is the *approval*interaction, allowing user to approve or not changing in graph that are not mandatory. The second one is*fixedChoice*group of intercaction, divided into*fixedSingleChoice*and*fixedMultipleChoice*. Here the interaction consists in choosing between options that are fixed, because their number is already decided by the ontology update specification. The last one is the *unboundedChoice*, (divided into *unboundedSingleChoice*and*unbounded-MultipleChoice)*, used in case the modification implied a selection between variables that can't be numbered *a priori*, but only thanks to a SPARQL.
 
-### <span id="page-97-0"></span>9.5.1 Algorithm
+## <span id="page-97-0"></span>9.5.1 Algorithm
 
-The algorithm for Change Request (Alg. [1\)](#page-97-2) receive as input a change request specification 'US' and which operator to apply. The first step is to check the syntax and if exists in the ontology the given input. The second step is find all relations that exist for that given input. To do that, we take into account a set of constraints that should not be removed for each predicate in the ontology. It facilitates the ontology management to the knowledge worker. The method *getChoose()* is the user interaction where he has to select a list of candidates. With the list of candidates done, the action is executed and the ontology is updated.
+The algorithm for Change Request (Alg. [1\)](#page-97-2) receive as input a change request specification 'US' and which operator to apply. The first step is to check the syntax and if exists in the ontology the given input. The second step is find all relations that exist for that given input. To do that, we take into account a set of constraints that should not be removed for each predicate in the ontology. It facilitates the ontology management to the knowledge worker. The method *getChoose()*is the user interaction where he has to select a list of candidates. With the list of candidates done, the action is executed and the ontology is updated.
 
 <span id="page-97-2"></span>
 
@@ -1817,7 +1803,7 @@ The algorithm for Change Request (Alg. [1\)](#page-97-2) receive as input a chan
 
 In the current section we provide an example to show the concrete work flow. We start with the knowledge base from Fig. [9.3.](#page-98-0), represented in the knowledge graph in Fig. [9.4.](#page-99-1)
 
-```
+```text
 @prefix ex: <http://example.org/> .
 @prefix hsww:
     <http://hogwarts-school-of-witchcraft-and-wizardry.co.uk/> .
@@ -1859,7 +1845,7 @@ ex:charm-cheese a hsww:Book ;
    hsww:partOf ex:exam-book-collection ;
    hsww:relatedTo ex:charm-cheese-m ;
    hsww:hasTopic hsww:transfiguration .
-```
+```text
 
 Figure 9.3: Example knowledge base in Turtle.
 
@@ -1869,13 +1855,13 @@ This knowledge graph contains the knowledge of the current status of our domain.
 
 Figure 9.4: Hogwarts Library's knowledge graph
 
-cific predicate (isACollectionIn), first look for all triples with predicate partOf and show the different Topic to the user. After that, there is an interaction with the user where he chooses the topic to remove. Based on example knowledge base, figure [9.3](#page-98-0) the knowledge worker want to remove this input: *ex:exam-book-collection isACollectionIn HogwartsLibrary*. The output is to show all topics related to *ex:exam-bookcollection* to the user, one by one, so he chooses which topic to delete. As a result of user interaction are removed all book with the topic selected by the user.
+cific predicate (isACollectionIn), first look for all triples with predicate partOf and show the different Topic to the user. After that, there is an interaction with the user where he chooses the topic to remove. Based on example knowledge base, figure [9.3](#page-98-0) the knowledge worker want to remove this input:*ex:exam-book-collection isACollectionIn HogwartsLibrary*. The output is to show all topics related to *ex:exam-bookcollection* to the user, one by one, so he chooses which topic to delete. As a result of user interaction are removed all book with the topic selected by the user.
 
 # <span id="page-99-0"></span>9.7 Conclusions and Future Work
 
 In this work, the ontology update language was extended for describing the interactions in dynamic knowledge graph. The algorithm of proposed approach was depicted, after that, the specified example was given base in turtle. In addition, the Hogwarts Library's knowledge graph was constructed, and a use case are analysed to examine the concrete workflow. However, there are some possible research directions that could be investigated based on current work.
 
-```
+```text
 CREATE CHANGEHANDLER deleteCollection
 FOR del { ?x isACollectionIn ?y }
    AS applyRequest;
@@ -1892,7 +1878,7 @@ FOR del { ?x isACollectionIn ?y }
            .");
      end;
    end;
-```
+```text
 
 Figure 9.5: Example ontology update specification
 
@@ -1918,17 +1904,16 @@ Knowledge Graphs are built with the help of technological tools and the interven
 
 # <span id="page-102-0"></span>10.3 Introduction and Problem Statement
 
-Knowledge Graphs have bias that must be properly managed to guarantee a correct evolution and preservation of the knowledge inside. KGs that pursue a collaborative approach (*crowdsourced*) to the creation of knowledge like e.g., Wikidata [\[141\]](#page-123-8) enable the creation of high quality structured information and let semantics emerge in a bottom-up fashion [\[16,](#page-111-7) [89\]](#page-118-8). However, reality is ambiguous and there can exist different opinions and perspectives due to cultural differences and heritages. This means that contributors may introduce bias into the resulting knowledge. Human contributors to crowdsourced KGs can be biased by their personal point of view and can therefore enter *implicitly* biased information to the KGs. The implicit nature of the bias means that the contributions are unconsciously and unintentionally adding a bias to the KGs. A meaningful example of such situations is Catalonia being part of Spain or being an independent country, as shown in [\[45,](#page-114-5) [22\]](#page-112-8), where contributors may easily bring their own bias answering this question.
+Knowledge Graphs have bias that must be properly managed to guarantee a correct evolution and preservation of the knowledge inside. KGs that pursue a collaborative approach (*crowdsourced*) to the creation of knowledge like e.g., Wikidata [\[141\]](#page-123-8) enable the creation of high quality structured information and let semantics emerge in a bottom-up fashion [\[16,](#page-111-7) [89\]](#page-118-8). However, reality is ambiguous and there can exist different opinions and perspectives due to cultural differences and heritages. This means that contributors may introduce bias into the resulting knowledge. Human contributors to crowdsourced KGs can be biased by their personal point of view and can therefore enter *implicitly*biased information to the KGs. The implicit nature of the bias means that the contributions are unconsciously and unintentionally adding a bias to the KGs. A meaningful example of such situations is Catalonia being part of Spain or being an independent country, as shown in [\[45,](#page-114-5) [22\]](#page-112-8), where contributors may easily bring their own bias answering this question.
+*Implicit bias*can affect the correctness of knowledge and they must be properly managed within the evolution of KGs [\[48,](#page-114-6) [70,](#page-116-6) [47\]](#page-114-7). In some cases however, biases reflect*knowledge diversity*that must be preserved. There is a number of issues to deal with in order to properly manage bias with respect to knowledge graph evolution and preservation.
 
-*Implicit bias* can affect the correctness of knowledge and they must be properly managed within the evolution of KGs [\[48,](#page-114-6) [70,](#page-116-6) [47\]](#page-114-7). In some cases however, biases reflect *knowledge diversity* that must be preserved. There is a number of issues to deal with in order to properly manage bias with respect to knowledge graph evolution and preservation.
-
-- It is necessary to let *implicit bias* emerge and make them *recognizable*;
+- It is necessary to let*implicit bias*emerge and make them*recognizable*;
 - Identified bias must be evaluated so that to decide whether they represent incorrect information to *fix* (*critical bias*) or knowledge diversity to preserve;
-- Decide how to handle critical bias and how to *refine* a KGs to remove the inconsistency
+- Decide how to handle critical bias and how to *refine*a KGs to remove the inconsistency
 
 Knowledge graphs are created in socio-technical systems and in most of the cases correlated aspects like e.g., knowledge acquisition and knowledge "maintenance" cannot be fully automated. As pointed out in research of [\[26\]](#page-112-7), a proper exploitation of the human-factor within the knowledge graph management life cycle, has several benefits. On the one hand, a formal characterization of user profiles with respect to a number of relevant features like provenance or educational background, could be useful to support the identification and implicit bias. On the other hand, the "enrollment" of users in the evaluation of identified implicit bias could be useful to determine which ones are critical and how to solve them.
 
-In this context, our aim is to propose an iterative framework to address the three points cited above and therefore formalize and capture bias, communicate them and act on the KG to solve inconsistencies caused by "critical bias". The envisaged approach strongly rely on the contribution of humans. Specifically, we propose to distinguish between two types of end-users: (i) *collectors* or *contributors* that like in any other crowdsourced KGs are common people taking part in knowledge acquisition; (ii) *reviewers* that are selected users that are in charge of evaluating implicit bias identified by the framework, and proposing a solution for them. So our contribution aims at pursuing a twofold human-in-the-loop iterative verification and refinement loop to deal with consistent evolution of KGs. Automated steps of the process flow support users by ranking bias to identify critical ones and then aggregate reviewers' feedback to refine the KG.
+In this context, our aim is to propose an iterative framework to address the three points cited above and therefore formalize and capture bias, communicate them and act on the KG to solve inconsistencies caused by "critical bias". The envisaged approach strongly rely on the contribution of humans. Specifically, we propose to distinguish between two types of end-users: (i)*collectors*or*contributors*that like in any other crowdsourced KGs are common people taking part in knowledge acquisition; (ii)*reviewers*that are selected users that are in charge of evaluating implicit bias identified by the framework, and proposing a solution for them. So our contribution aims at pursuing a twofold human-in-the-loop iterative verification and refinement loop to deal with consistent evolution of KGs. Automated steps of the process flow support users by ranking bias to identify critical ones and then aggregate reviewers' feedback to refine the KG.
 
 # <span id="page-103-0"></span>10.4 Related Work
 
@@ -1947,13 +1932,13 @@ level of shared methodology with respect to our "preservation" step. Additionall
 
 # <span id="page-104-0"></span>10.5 Methodology
 
-The core idea is to involve humans within the evolution and preservation of KGs while managing bias that appear in cultural or geographical context. Similarly to other research fields like e.g., cognitive sciences and Theory of Mind [\[133,](#page-122-10) [137\]](#page-122-11), our aim is to lay the foundation for understanding and predicting *mental models* characterizing opinions that (classes) of people may have on different topics, and identify which opinions to preserve and which ones to correct. Our contribution is the formalisation of a general workflow for identifying, classifying and solving bias in KGs, thus iteratively refine KGs preserving and allowing knowledge to evolve correctly. Figure [10.1](#page-104-2) shows the structure of the approach we envisage. The objective is to manage bias accordingly by involving the contribution of humans within the process. Our proposed workflow consists of four steps that can be either made by humans or automated.
+The core idea is to involve humans within the evolution and preservation of KGs while managing bias that appear in cultural or geographical context. Similarly to other research fields like e.g., cognitive sciences and Theory of Mind [\[133,](#page-122-10) [137\]](#page-122-11), our aim is to lay the foundation for understanding and predicting*mental models*characterizing opinions that (classes) of people may have on different topics, and identify which opinions to preserve and which ones to correct. Our contribution is the formalisation of a general workflow for identifying, classifying and solving bias in KGs, thus iteratively refine KGs preserving and allowing knowledge to evolve correctly. Figure [10.1](#page-104-2) shows the structure of the approach we envisage. The objective is to manage bias accordingly by involving the contribution of humans within the process. Our proposed workflow consists of four steps that can be either made by humans or automated.
 
 <span id="page-104-2"></span>![](_page_104_Figure_4.jpeg)
 
 Figure 10.1: Process overview. Orange side of the process concerns with the preservation of KGs while the green side with the evolution. Both processes could involve either not-automated or automated steps that do or do not require human intervention.
 
-### <span id="page-104-1"></span>10.5.1 Collecting biases
+## <span id="page-104-1"></span>10.5.1 Collecting biases
 
 An existing set of triples is used as a starting point for identifying bias. In theory, any statement inside the knowledge base can be biased. However, some subjects are more controversial than others, therefore the statements that represent these topics are more likely to contain bias. In order to make a start on bias identification, existing lists of controversial topics can be used, e.g.[1](#page-105-2) . After selecting a set of controversial topics, the related triples for these topics should be fetched. The next step in the process is to capture the bias for these triples. The bias is collected in a crowd-sourced manner. In this crowd-sourced setup, users are able to either agree or disagree with a certain statement. For each user part of the crowd-sourcing effort, additional data is recorded. This can include the user's date-of-birth, cultural background or educational background. As soon as a statement is rated, the user data is stored as provenance data for the statement.
 
@@ -1981,9 +1966,9 @@ The last step is the refinement of KGs. Once the results from the collection and
 
 In this section we present the experimental protocol to evaluate the envisaged methodology. According to Figure [10.1,](#page-104-2) the experiment is structured into two parts that follow the steps concerning knowledge preservation and the steps concerning knowledge evolution.
 
-### <span id="page-106-3"></span>10.6.1 Collection
+## <span id="page-106-3"></span>10.6.1 Collection
 
-To carry out the evaluation, we checked the list of controversial issues from Wikipedia[2](#page-106-4) . The subject "Israeli-Palestinian conflict and all related issues" is selected, corresponding to the triple[3](#page-106-5) *dbp:Palestine rdf:typeyago:Country108544813*. which is a potential biased triple. Given a KG containing this triple, we design a "crowd-sourcing" campaign to discover if this is a biased statement.
+To carry out the evaluation, we checked the list of controversial issues from Wikipedia[2](#page-106-4) . The subject "Israeli-Palestinian conflict and all related issues" is selected, corresponding to the triple[3](#page-106-5)*dbp:Palestine rdf:typeyago:Country108544813*. which is a potential biased triple. Given a KG containing this triple, we design a "crowd-sourcing" campaign to discover if this is a biased statement.
 
 We plan to do this by showing the triple with different visualizations and asking if the statement is true or not. An example is showing the question "is Palestine an independent country?" and then gather "Yes/No" response. We will select collectors according to their nationality. For example a possible configuration of collectors could be half from Arabic countries and half from "other countries". Metadata about collectors' provenance and their responses are stored to enrich the KG. The pipeline in Figure [10.3](#page-107-2) describes the procedure followed to store collectors' metadata about provenance and gather opinions about the selected topic.
 
@@ -1995,7 +1980,7 @@ Figure 10.3: Profiling end-users through provenance metadata and collecting opin
 
 ### <span id="page-107-0"></span>10.6.2 Analysis
 
-We plan to analyze individual statements collected to identify potential bias. To do so, we will use a number of metrics to evaluate the level of bias. The *Worker-Media Unit Agreement* (WUA) metric used in CrowdTruth [\[47\]](#page-114-7) is useful for this purpose; we will investigate for example if other metrics estimating the *entropy* of the knowledge included in the contributions collected in the previous step. In general, if the resulting metric value is high, it is a sign of potential bias. In the case of the Palestine statement for example we expect this evaluation metric to be high. The result of this analysis will be integrated into the KG as additional metadata for the statement.
+We plan to analyze individual statements collected to identify potential bias. To do so, we will use a number of metrics to evaluate the level of bias. The *Worker-Media Unit Agreement*(WUA) metric used in CrowdTruth [\[47\]](#page-114-7) is useful for this purpose; we will investigate for example if other metrics estimating the*entropy*of the knowledge included in the contributions collected in the previous step. In general, if the resulting metric value is high, it is a sign of potential bias. In the case of the Palestine statement for example we expect this evaluation metric to be high. The result of this analysis will be integrated into the KG as additional metadata for the statement.
 
 ### <span id="page-107-1"></span>10.6.3 Review
 
@@ -2038,103 +2023,103 @@ Please visit <http://www.semanticwebschool.org>
 - <span id="page-110-8"></span>[9] URL: <https://wiki.dbpedia.org/data-set-2014>.
 - <span id="page-110-9"></span>[10] URL: [https://wiki.dbpedia.org/dbpedia-data-set-2015-](https://wiki.dbpedia.org/dbpedia-data-set-2015-04) [04](https://wiki.dbpedia.org/dbpedia-data-set-2015-04).
 - <span id="page-110-10"></span>[11] URL: [http : / / downloads . dbpedia . org / live / changesets /](http://downloads.dbpedia.org/live/changesets/2019/07/01/) [2019/07/01/](http://downloads.dbpedia.org/live/changesets/2019/07/01/).
-- <span id="page-110-11"></span>[12] Maribel Acosta, Amrapali Zaveri, Elena Simperl, Dimitris Kontokostas, Soren ¨ Auer, and Jens Lehmann. "Crowdsourcing Linked Data Quality Assessment". In: *The Semantic Web - ISWC 2013 - 12th International Semantic Web Conference, Sydney, NSW, Australia, October 21-25, 2013, Proceedings, Part II*. Edited by Harith Alani, Lalana Kagal, Achille Fokoue, Paul T. Groth, Chris Biemann, Josiane Xavier Parreira, Lora Aroyo, Natasha F. Noy, Chris Welty, and Krzysztof Janowicz. Volume 8219. Lecture Notes in Computer Science. Springer, 2013, pages 260–276. ISBN: 978-3-642-41337-7. DOI: [10.1007/](https://doi.org/10.1007/978-3-642-41338-4\_17) [978-3-642-41338-4\\\_17](https://doi.org/10.1007/978-3-642-41338-4\_17). URL: [https://doi.org/10.1007/](https://doi.org/10.1007/978-3-642-41338-4%5C_17) [978-3-642-41338-4%5C\\_17](https://doi.org/10.1007/978-3-642-41338-4%5C_17).
-- <span id="page-110-12"></span>[13] Leman Akoglu, Hanghang Tong, and Danai Koutra. "Graph based anomaly detection and description: a survey". In: *Data mining and knowledge discovery* 29.3 (2015), pages 626–688.
+- <span id="page-110-11"></span>[12] Maribel Acosta, Amrapali Zaveri, Elena Simperl, Dimitris Kontokostas, Soren ¨ Auer, and Jens Lehmann. "Crowdsourcing Linked Data Quality Assessment". In:*The Semantic Web - ISWC 2013 - 12th International Semantic Web Conference, Sydney, NSW, Australia, October 21-25, 2013, Proceedings, Part II*. Edited by Harith Alani, Lalana Kagal, Achille Fokoue, Paul T. Groth, Chris Biemann, Josiane Xavier Parreira, Lora Aroyo, Natasha F. Noy, Chris Welty, and Krzysztof Janowicz. Volume 8219. Lecture Notes in Computer Science. Springer, 2013, pages 260–276. ISBN: 978-3-642-41337-7. DOI: [10.1007/](https://doi.org/10.1007/978-3-642-41338-4\_17) [978-3-642-41338-4\\\_17](https://doi.org/10.1007/978-3-642-41338-4\_17). URL: [https://doi.org/10.1007/](https://doi.org/10.1007/978-3-642-41338-4%5C_17) [978-3-642-41338-4%5C\\_17](https://doi.org/10.1007/978-3-642-41338-4%5C_17).
+- <span id="page-110-12"></span>[13] Leman Akoglu, Hanghang Tong, and Danai Koutra. "Graph based anomaly detection and description: a survey". In: *Data mining and knowledge discovery*29.3 (2015), pages 626–688.
 
-- <span id="page-111-2"></span>[14] Alessio Palmero Aprosio, Claudio Giuliano, and Alberto Lavelli. "Extending the Coverage of DBpedia Properties using Distant Supervision over Wikipedia." In: *NLP-DBPEDIA@ ISWC*. 2013.
+- <span id="page-111-2"></span>[14] Alessio Palmero Aprosio, Claudio Giuliano, and Alberto Lavelli. "Extending the Coverage of DBpedia Properties using Distant Supervision over Wikipedia." In:*NLP-DBPEDIA@ ISWC*. 2013.
 - <span id="page-111-5"></span>[15] Soren Auer, Christian Bizer, Georgi Kobilarov, Jens Lehmann, Richard Cyga- ¨ niak, and Zachary Ives. "DBpedia: A Nucleus for a Web of Open Data". In: *The Semantic Web*. 2007, pages 722–735. DOI: [10.1007/978- 3- 540-](https://doi.org/10.1007/978-3-540-76298-0_52) [76298-0\\_52](https://doi.org/10.1007/978-3-540-76298-0_52).
 - <span id="page-111-7"></span>[16] Soren Auer, Christian Bizer, Georgi Kobilarov, Jens Lehmann, Richard Cyga- ¨ niak, and Zachary Ives. "DBpedia: A Nucleus for a Web of Open Data". In: *The Semantic Web*. Edited by Karl Aberer, Key-Sun Choi, Natasha Noy, Dean Allemang, Kyung-Il Lee, Lyndon Nixon, Jennifer Golbeck, Peter Mika, Diana Maynard, Riichiro Mizoguchi, Guus Schreiber, and Philippe Cudre-Mauroux. ´ Berlin, Heidelberg: Springer Berlin Heidelberg, 2007, pages 722–735. ISBN: 978-3-540-76298-0.
-- <span id="page-111-3"></span>[17] Soren Auer, Christian Bizer, Georgi Kobilarov, Jens Lehmann, Richard Cyga- ¨ niak, and Zachary G. Ives. "DBpedia: A Nucleus for a Web of Open Data". In: *The Semantic Web, 6th International Semantic Web Conference, 2nd Asian Semantic Web Conference, ISWC 2007 + ASWC 2007, Busan, Korea, November 11-15, 2007.* Edited by Karl Aberer, Key-Sun Choi, Natasha Fridman Noy, Dean Allemang, Kyung-Il Lee, Lyndon J. B. Nixon, Jennifer Golbeck, Peter Mika, Diana Maynard, Riichiro Mizoguchi, Guus Schreiber, and Philippe Cudre-Mauroux. Volume 4825. Lecture Notes in Computer Science. Springer, ´ 2007, pages 722–735. ISBN: 978-3-540-76297-3. DOI: [10.1007/978-3-](https://doi.org/10.1007/978-3-540-76298-0\_52) [540-76298-0\\\_52](https://doi.org/10.1007/978-3-540-76298-0\_52). URL: [https://doi.org/10.1007/978-3-](https://doi.org/10.1007/978-3-540-76298-0%5C_52) [540-76298-0%5C\\_52](https://doi.org/10.1007/978-3-540-76298-0%5C_52).
-- <span id="page-111-0"></span>[18] Matthew Bietz, Kevin Patrick, and Cinnamon Bloss. "Data Donation as a Model for Citizen Science Health Research". In: *Citizen Science: Theory and Practice* 4.1 (2019).
-- <span id="page-111-6"></span>[19] Chris Bizer, Tom Heath, and u.a. "Interlinking Open Data on the Web". In: *Demonstrations Track, 4th European Semantic Web Conference (ESWC 2007)* (2007).
-- <span id="page-111-4"></span>[20] Christian Bizer, Jens Lehmann, Georgi Kobilarov, Soren Auer, Christian Becker, ¨ Richard Cyganiak, and Sebastian Hellmann. "DBpedia - A crystallization point for the Web of Data". In: *J. Web Semant.* 7.3 (2009), pages 154–165. DOI: [10.1016/j.websem.2009.07.002](https://doi.org/10.1016/j.websem.2009.07.002). URL: [https://doi.org/10.](https://doi.org/10.1016/j.websem.2009.07.002) [1016/j.websem.2009.07.002](https://doi.org/10.1016/j.websem.2009.07.002).
-- <span id="page-111-1"></span>[21] Kurt Bollacker, Colin Evans, Praveen Paritosh, Tim Sturge, and Jamie Taylor. "Freebase: a collaboratively created graph database for structuring human knowledge". In: *CM SIGMOD international conference on Management of data*. ACM. 2008, page 3.
+- <span id="page-111-3"></span>[17] Soren Auer, Christian Bizer, Georgi Kobilarov, Jens Lehmann, Richard Cyga- ¨ niak, and Zachary G. Ives. "DBpedia: A Nucleus for a Web of Open Data". In: *The Semantic Web, 6th International Semantic Web Conference, 2nd Asian Semantic Web Conference, ISWC 2007 + ASWC 2007, Busan, Korea, November 11-15, 2007.*Edited by Karl Aberer, Key-Sun Choi, Natasha Fridman Noy, Dean Allemang, Kyung-Il Lee, Lyndon J. B. Nixon, Jennifer Golbeck, Peter Mika, Diana Maynard, Riichiro Mizoguchi, Guus Schreiber, and Philippe Cudre-Mauroux. Volume 4825. Lecture Notes in Computer Science. Springer, ´ 2007, pages 722–735. ISBN: 978-3-540-76297-3. DOI: [10.1007/978-3-](https://doi.org/10.1007/978-3-540-76298-0\_52) [540-76298-0\\\_52](https://doi.org/10.1007/978-3-540-76298-0\_52). URL: [https://doi.org/10.1007/978-3-](https://doi.org/10.1007/978-3-540-76298-0%5C_52) [540-76298-0%5C\\_52](https://doi.org/10.1007/978-3-540-76298-0%5C_52).
+- <span id="page-111-0"></span>[18] Matthew Bietz, Kevin Patrick, and Cinnamon Bloss. "Data Donation as a Model for Citizen Science Health Research". In:*Citizen Science: Theory and Practice*4.1 (2019).
+- <span id="page-111-6"></span>[19] Chris Bizer, Tom Heath, and u.a. "Interlinking Open Data on the Web". In:*Demonstrations Track, 4th European Semantic Web Conference (ESWC 2007)*(2007).
+- <span id="page-111-4"></span>[20] Christian Bizer, Jens Lehmann, Georgi Kobilarov, Soren Auer, Christian Becker, ¨ Richard Cyganiak, and Sebastian Hellmann. "DBpedia - A crystallization point for the Web of Data". In:*J. Web Semant.*7.3 (2009), pages 154–165. DOI: [10.1016/j.websem.2009.07.002](https://doi.org/10.1016/j.websem.2009.07.002). URL: [https://doi.org/10.](https://doi.org/10.1016/j.websem.2009.07.002) [1016/j.websem.2009.07.002](https://doi.org/10.1016/j.websem.2009.07.002).
+- <span id="page-111-1"></span>[21] Kurt Bollacker, Colin Evans, Praveen Paritosh, Tim Sturge, and Jamie Taylor. "Freebase: a collaboratively created graph database for structuring human knowledge". In:*CM SIGMOD international conference on Management of data*. ACM. 2008, page 3.
 
 - <span id="page-112-8"></span>[22] Tolga Bolukbasi, Kai-Wei Chang, James Zou, Venkatesh Saligrama, and Adam Kalai. "Man is to Computer Programmer As Woman is to Homemaker? Debiasing Word Embeddings". In: *Proceedings of the 30th International Conference on Neural Information Processing Systems*. NIPS'16. Barcelona, Spain: Curran Associates Inc., 2016, pages 4356–4364. ISBN: 978-1-5108-3881-9. URL: <http://dl.acm.org/citation.cfm?id=3157382.3157584>.
-- <span id="page-112-1"></span>[23] Piero Andrea Bonatti, Michael Cochez, Stefan Decker, Axel Polleres, and Valentina Presutti. "Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web". In: *Report from Dagstuhl Seminar 18371* (2018).
-- <span id="page-112-0"></span>[24] Piero Andrea Bonatti, Stefan Decker, Axel Polleres, and Valentina Presutti. "Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web (Dagstuhl Seminar 18371)". In: *Dagstuhl Reports* 8.9 (2018), pages 29–111. DOI: [10.4230/DagRep.8.9.29](https://doi.org/10.4230/DagRep.8.9.29). URL: [https://doi.](https://doi.org/10.4230/DagRep.8.9.29) [org/10.4230/DagRep.8.9.29](https://doi.org/10.4230/DagRep.8.9.29).
+- <span id="page-112-1"></span>[23] Piero Andrea Bonatti, Michael Cochez, Stefan Decker, Axel Polleres, and Valentina Presutti. "Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web". In: *Report from Dagstuhl Seminar 18371*(2018).
+- <span id="page-112-0"></span>[24] Piero Andrea Bonatti, Stefan Decker, Axel Polleres, and Valentina Presutti. "Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web (Dagstuhl Seminar 18371)". In:*Dagstuhl Reports*8.9 (2018), pages 29–111. DOI: [10.4230/DagRep.8.9.29](https://doi.org/10.4230/DagRep.8.9.29). URL: [https://doi.](https://doi.org/10.4230/DagRep.8.9.29) [org/10.4230/DagRep.8.9.29](https://doi.org/10.4230/DagRep.8.9.29).
 - <span id="page-112-6"></span>[25] Piero Andrea Bonatti, Stefan Decker, Axel Polleres, and Valentina Presutti. "Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web (Dagstuhl Seminar 18371)". In: Schloss Dagstuhl-Leibniz-Zentrum fuer Informatik. 2019.
 - <span id="page-112-7"></span>[26] Piero Andrea Bonatti, Stefan Decker, Axel Polleres, and Valentina Presutti. "Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web (Dagstuhl Seminar 18371)". In: Schloss Dagstuhl-Leibniz-Zentrum fuer Informatik. 2019.
-- <span id="page-112-5"></span>[27] Piero Andrea Bonatti, Stefan Decker, Axel Polleres, and Valentina Presutti. "Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web (Dagstuhl Seminar 18371)". In: *Dagstuhl Reports* 8.9 (2019). Edited by Piero Andrea Bonatti, Stefan Decker, Axel Polleres, and Valentina Presutti, pages 29–111. ISSN: 2192-5283. DOI: [10.4230/DagRep.8.9.](https://doi.org/10.4230/DagRep.8.9.29) [29](https://doi.org/10.4230/DagRep.8.9.29). URL: [http://drops.dagstuhl.de/opus/volltexte/2019/](http://drops.dagstuhl.de/opus/volltexte/2019/10328) [10328](http://drops.dagstuhl.de/opus/volltexte/2019/10328).
-- <span id="page-112-4"></span>[28] Antoine Bordes, Nicolas Usunier, Alberto Garcia-Duran, Jason Weston, and ´ Oksana Yakhnenko. "Translating Embeddings for Modeling Multi-relational Data". In: *Advances in Neural Information Processing Systems 26: 27th Annual Conference on Neural Information Processing Systems 2013. Proceedings of a meeting held December 5-8, 2013, Lake Tahoe, Nevada, United States.* Edited by Christopher J. C. Burges, Leon Bottou, Zoubin Ghahramani, and Kilian ´ Q. Weinberger. 2013, pages 2787–2795. URL: [http://papers.nips.](http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data) [cc/paper/5071- translating- embeddings- for- modeling](http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data)[multi-relational-data](http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data).
-- <span id="page-112-3"></span>[29] Volha Bryl and Christian Bizer. "Learning conflict resolution strategies for cross-language wikipedia data fusion". In: *Proceedings of the 23rd International Conference on World Wide Web*. ACM. 2014, pages 1129–1134.
+- <span id="page-112-5"></span>[27] Piero Andrea Bonatti, Stefan Decker, Axel Polleres, and Valentina Presutti. "Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web (Dagstuhl Seminar 18371)". In:*Dagstuhl Reports*8.9 (2019). Edited by Piero Andrea Bonatti, Stefan Decker, Axel Polleres, and Valentina Presutti, pages 29–111. ISSN: 2192-5283. DOI: [10.4230/DagRep.8.9.](https://doi.org/10.4230/DagRep.8.9.29) [29](https://doi.org/10.4230/DagRep.8.9.29). URL: [http://drops.dagstuhl.de/opus/volltexte/2019/](http://drops.dagstuhl.de/opus/volltexte/2019/10328) [10328](http://drops.dagstuhl.de/opus/volltexte/2019/10328).
+- <span id="page-112-4"></span>[28] Antoine Bordes, Nicolas Usunier, Alberto Garcia-Duran, Jason Weston, and ´ Oksana Yakhnenko. "Translating Embeddings for Modeling Multi-relational Data". In:*Advances in Neural Information Processing Systems 26: 27th Annual Conference on Neural Information Processing Systems 2013. Proceedings of a meeting held December 5-8, 2013, Lake Tahoe, Nevada, United States.*Edited by Christopher J. C. Burges, Leon Bottou, Zoubin Ghahramani, and Kilian ´ Q. Weinberger. 2013, pages 2787–2795. URL: [http://papers.nips.](http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data) [cc/paper/5071- translating- embeddings- for- modeling](http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data)[multi-relational-data](http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data).
+- <span id="page-112-3"></span>[29] Volha Bryl and Christian Bizer. "Learning conflict resolution strategies for cross-language wikipedia data fusion". In:*Proceedings of the 23rd International Conference on World Wide Web*. ACM. 2014, pages 1129–1134.
 - <span id="page-112-2"></span>[30] Deepayan Chakrabarti, Ravi Kumar, and Andrew Tomkins. "Evolutionary clustering". In: *Proceedings of the 12th ACM SIGKDD international conference on Knowledge discovery and data mining*. ACM. 2006, pages 554–560.
 
 - <span id="page-113-7"></span>[31] Minsuk Chang, Vivian M. Hare, Juho Kim, and Maneesh Agrawala. "Recipe Scape: Mining and Analyzing Diverse Processes in Cooking Recipes". In: *Proceedings of the 2017 CHI Conference Extended Abstracts on Human Factors in Computing Systems*. CHI EA '17. Denver, Colorado, USA: ACM, 2017, pages 1524–1531. ISBN: 978-1-4503-4656-6.
 - <span id="page-113-2"></span>[32] Yueh-Hsuan Chiang, AnHai Doan, and Jeffrey F Naughton. "Modeling entity evolution for temporal record matching". In: *Proceedings of the 2014 ACM SIGMOD international conference on Management of data*. ACM. 2014, pages 1175– 1186.
-- <span id="page-113-9"></span>[33] Konstantinos Christidis and Michael Devetsikiotis. "Blockchains and smart contracts for the internet of things". In: *Ieee Access* 4 (2016), pages 2292– 2303.
-- <span id="page-113-8"></span>[34] Michael Crosby, Pradan Pattanayak, Sanjeev Verma, Vignesh Kalyanaraman, et al. "Blockchain technology: Beyond bitcoin". In: *Applied Innovation* 2.6-10 (2016), page 71.
-- <span id="page-113-5"></span>[35] Aron Culotta, Andrew McCallum, and Jonathan Betz. "Integrating probabilistic extraction models and data mining to discover relations and patterns in text". In: *Proceedings of the main conference on Human Language Technology Conference of the North American Chapter of the Association of Computational Linguistics*. Association for Computational Linguistics. 2006, pages 296–303.
+- <span id="page-113-9"></span>[33] Konstantinos Christidis and Michael Devetsikiotis. "Blockchains and smart contracts for the internet of things". In: *Ieee Access*4 (2016), pages 2292– 2303.
+- <span id="page-113-8"></span>[34] Michael Crosby, Pradan Pattanayak, Sanjeev Verma, Vignesh Kalyanaraman, et al. "Blockchain technology: Beyond bitcoin". In:*Applied Innovation*2.6-10 (2016), page 71.
+- <span id="page-113-5"></span>[35] Aron Culotta, Andrew McCallum, and Jonathan Betz. "Integrating probabilistic extraction models and data mining to discover relations and patterns in text". In:*Proceedings of the main conference on Human Language Technology Conference of the North American Chapter of the Association of Computational Linguistics*. Association for Computational Linguistics. 2006, pages 296–303.
 - <span id="page-113-0"></span>[36] Etienne Cuvelier and Marie-Aude Aufaure. "Graph mining and communities detection". In: *European Business Intelligence Summer School*. Springer. 2011, pages 117–138.
-- <span id="page-113-1"></span>[37] Shib Sankar Dasgupta, Swayambhu Nath Ray, and Partha Talukdar. "HyTE: Hyperplane-based Temporally aware Knowledge Graph Embedding". In: *International Conference on Empirical Methods in Natural Language Processing EMNLP* (2018).
-- <span id="page-113-11"></span>[38] Linked Data and Semantic Web. "Linked Data". In: *W3C Standard, http://www. w3. org/standards/semanticweb/data* (2015).
-- <span id="page-113-10"></span>[39] Jer´ ome David, J ˆ er´ ome Euzenat, Franc¸ois Scharffe, and C ˆ assia Trojahn dos San- ´ tos. "The Alignment API 4.0". In: *Semantic Web* 2.1 (2011), pages 3–10. DOI: [10.3233/SW-2011-0028](https://doi.org/10.3233/SW-2011-0028). URL: [https://doi.org/10.3233/SW-](https://doi.org/10.3233/SW-2011-0028)[2011-0028](https://doi.org/10.3233/SW-2011-0028).
-- <span id="page-113-3"></span>[40] *DBpedia version 2016-04 Download Page*. https://wiki.dbpedia.org/downloads-2016-04. Accessed: 2019-07-05.
+- <span id="page-113-1"></span>[37] Shib Sankar Dasgupta, Swayambhu Nath Ray, and Partha Talukdar. "HyTE: Hyperplane-based Temporally aware Knowledge Graph Embedding". In: *International Conference on Empirical Methods in Natural Language Processing EMNLP*(2018).
+- <span id="page-113-11"></span>[38] Linked Data and Semantic Web. "Linked Data". In:*W3C Standard, http://www. w3. org/standards/semanticweb/data*(2015).
+- <span id="page-113-10"></span>[39] Jer´ ome David, J ˆ er´ ome Euzenat, Franc¸ois Scharffe, and C ˆ assia Trojahn dos San- ´ tos. "The Alignment API 4.0". In:*Semantic Web*2.1 (2011), pages 3–10. DOI: [10.3233/SW-2011-0028](https://doi.org/10.3233/SW-2011-0028). URL: [https://doi.org/10.3233/SW-](https://doi.org/10.3233/SW-2011-0028)[2011-0028](https://doi.org/10.3233/SW-2011-0028).
+- <span id="page-113-3"></span>[40]*DBpedia version 2016-04 Download Page*. https://wiki.dbpedia.org/downloads-2016-04. Accessed: 2019-07-05.
 - <span id="page-113-4"></span>[41] *DBpedia version 2016-10 Download Page*. https://wiki.dbpedia.org/downloads-2016-10. Accessed: 2019-07-05.
 - <span id="page-113-6"></span>[42] Pieter De Leenheer and Tom Mens. "Ontology Evolution". In: *Ontology Management: Semantic Web, Semantic Web Services, and Business Applications*. Edited by Martin Hepp, Pieter De Leenheer, Aldo De Moor, and York Sure. Boston, MA: Springer US, 2008, pages 131–176.
 
 - <span id="page-114-4"></span>[43] Ben De Meester, Dorthe Arndt, Pieter Bonte, Jabran Bhatti, Wim Dereuddre, ¨ Ruben Verborgh, Femke Ongenae, Filip De Turck, Erik Mannens, and Rik Van de Walle. "Event-Driven Rule-Based Reasoning using EYE." In: *International Conference on Web Information Systems Engineering*. 2015, pages 75–86.
-- <span id="page-114-3"></span>[44] Chrysanthos Dellarocas. "Online reputation systems: How to design one that does what you need". In: *MIT Sloan management review* 51.3 (2010), page 33.
-- <span id="page-114-5"></span>[45] Gianluca Demartini. "Implicit Bias in Crowdsourced Knowledge Graphs". In: *Proceeding WWW '19 Companion Proceedings of The 2019 World Wide Web Conference* (2019), pages 624–630.
-- <span id="page-114-2"></span>[46] Mauro Dragoni and Chiara Ghidini. "Evaluating the Impact of Ontology Evolution Patterns on the Effectiveness of Resources Retrieval." In: *EvoDyn@ ISWC*. Citeseer. 2012.
+- <span id="page-114-3"></span>[44] Chrysanthos Dellarocas. "Online reputation systems: How to design one that does what you need". In: *MIT Sloan management review*51.3 (2010), page 33.
+- <span id="page-114-5"></span>[45] Gianluca Demartini. "Implicit Bias in Crowdsourced Knowledge Graphs". In:*Proceeding WWW '19 Companion Proceedings of The 2019 World Wide Web Conference*(2019), pages 624–630.
+- <span id="page-114-2"></span>[46] Mauro Dragoni and Chiara Ghidini. "Evaluating the Impact of Ontology Evolution Patterns on the Effectiveness of Resources Retrieval." In:*EvoDyn@ ISWC*. Citeseer. 2012.
 - <span id="page-114-7"></span>[47] Anca Dumitrache, Lora Aroyo, and Chris Welty. "Crowdsourcing Semantic Label Propagation in Relation Classification". In: *Proceedings of the First Workshop on Fact Extraction and VERification (FEVER)*. Brussels, Belgium: Association for Computational Linguistics, Nov. 2018, pages 16–21. URL: [https:](https://www.aclweb.org/anthology/W18-5503) [//www.aclweb.org/anthology/W18-5503](https://www.aclweb.org/anthology/W18-5503).
 - <span id="page-114-6"></span>[48] Anca Dumitrache, Lora Aroyo, and Chris Welty. "A Crowdsourced Frame Disambiguation Corpus with Ambiguity". In: *Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)*. Minneapolis, Minnesota: Association for Computational Linguistics, June 2019, pages 2164–2170. URL: [https : / / www . aclweb . org / anthology /](https://www.aclweb.org/anthology/N19-1224) [N19-1224](https://www.aclweb.org/anthology/N19-1224).
-- [49] Lisa Ehrlinger and Wolfram Wob. "Towards a Definition of Knowledge Graphs". In: *Joint Proceedings of the Posters and Demos Track of the 12th International Conference on Semantic Systems - SEMANTiCS2016 and the 1st International Workshop on Semantic Change & Evolving Semantics (SuCCESS'16) co-located with the 12th International Conference on Semantic Systems (SE-MANTiCS 2016), Leipzig, Germany, September 12-15, 2016.* Edited by Michael Martin, Mart´ı Cuquet, and Erwin Folmer. Volume 1695. CEUR Workshop Proceedings. CEUR-WS.org, 2016. URL: [http : / / ceur - ws . org / Vol -](http://ceur-ws.org/Vol-1695/paper4.pdf) [1695/paper4.pdf](http://ceur-ws.org/Vol-1695/paper4.pdf).
-- <span id="page-114-0"></span>[50] Lisa Ehrlinger and Wolfram Woß. "Towards a Definition of Knowledge Graphs." ¨ In: *SEMANTiCS (Posters, Demos, SuCCESS)* 48 (2016).
-- <span id="page-114-8"></span>[51] Carsten Eickhoff. "Cognitive Biases in Crowdsourcing". In: *Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining*. WSDM '18. Marina Del Rey, CA, USA: ACM, 2018, pages 162–170. ISBN: 978-1-4503-5581-0. DOI: [10 . 1145 / 3159652 . 3159654](https://doi.org/10.1145/3159652.3159654). URL: [http :](http://doi.acm.org/10.1145/3159652.3159654) [//doi.acm.org/10.1145/3159652.3159654](http://doi.acm.org/10.1145/3159652.3159654).
+- [49] Lisa Ehrlinger and Wolfram Wob. "Towards a Definition of Knowledge Graphs". In: *Joint Proceedings of the Posters and Demos Track of the 12th International Conference on Semantic Systems - SEMANTiCS2016 and the 1st International Workshop on Semantic Change & Evolving Semantics (SuCCESS'16) co-located with the 12th International Conference on Semantic Systems (SE-MANTiCS 2016), Leipzig, Germany, September 12-15, 2016.*Edited by Michael Martin, Mart´ı Cuquet, and Erwin Folmer. Volume 1695. CEUR Workshop Proceedings. CEUR-WS.org, 2016. URL: [http : / / ceur - ws . org / Vol -](http://ceur-ws.org/Vol-1695/paper4.pdf) [1695/paper4.pdf](http://ceur-ws.org/Vol-1695/paper4.pdf).
+- <span id="page-114-0"></span>[50] Lisa Ehrlinger and Wolfram Woß. "Towards a Definition of Knowledge Graphs." ¨ In:*SEMANTiCS (Posters, Demos, SuCCESS)*48 (2016).
+- <span id="page-114-8"></span>[51] Carsten Eickhoff. "Cognitive Biases in Crowdsourcing". In:*Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining*. WSDM '18. Marina Del Rey, CA, USA: ACM, 2018, pages 162–170. ISBN: 978-1-4503-5581-0. DOI: [10 . 1145 / 3159652 . 3159654](https://doi.org/10.1145/3159652.3159654). URL: [http :](http://doi.acm.org/10.1145/3159652.3159654) [//doi.acm.org/10.1145/3159652.3159654](http://doi.acm.org/10.1145/3159652.3159654).
 - <span id="page-114-1"></span>[52] Hady Elsahar, Elena Demidova, Simon Gottschalk, Christophe Gravier, and Frederique Laforest. "Unsupervised Open Relation Extraction". In: *European Semantic Web Conference*. Springer. 2017, pages 12–16.
 
 - <span id="page-115-9"></span>[53] Marieke van Erp, Melvin Wevers, and Hugo Huurdeman. "Constructing a Recipe Web from Historical Newspapers". In: *International Semantic Web Conference*. Springer. 2018, pages 217–232.
-- <span id="page-115-1"></span>[54] Cristobal Esteban, Volker Tresp, Yinchong Yang, Stephan Baier, and Denis Krompass. "Predicting the Co-Evolution of Event and Knowledge Graphs". In: *arXiv preprint* (2015).
-- <span id="page-115-2"></span>[55] Cristobal Esteban, Volker Tresp, Yinchong Yang, Stephan Baier, and Denis ´ Krompaß. "Predicting the co-evolution of event and knowledge graphs". In: *2016 19th International Conference on Information Fusion (FUSION)*. Ieee. 2016, pages 98–105.
-- <span id="page-115-7"></span>[56] Diego Esteves, Anisa Rula, Aniketh Janardhan Reddy, and Jens Lehmann. "Toward Veracity Assessment in RDF Knowledge Bases: An Exploratory Analysis". In: *J. Data and Information Quality* 9.3 (2018), 16:1–16:26. DOI: [10.](https://doi.org/10.1145/3177873) [1145/3177873](https://doi.org/10.1145/3177873). URL: <https://doi.org/10.1145/3177873>.
-- <span id="page-115-10"></span>[57] Jer´ ome Euzenat and Pavel Shvaiko. ˆ *Ontology Matching, Second Edition*. Springer, 2013. ISBN: 978-3-642-38720-3.
-- <span id="page-115-4"></span>[58] Daniel Gerber, Diego Esteves, Jens Lehmann, Lorenz Buhmann, Ricardo Us- ¨ beck, Axel-Cyrille Ngonga Ngomo, and Rene Speck. "DeFacto - Temporal and ´ multilingual Deep Fact Validation". In: *J. Web Semant.* 35 (2015), pages 85– 101. DOI: [10.1016/j.websem.2015.08.001](https://doi.org/10.1016/j.websem.2015.08.001). URL: [https://doi.](https://doi.org/10.1016/j.websem.2015.08.001) [org/10.1016/j.websem.2015.08.001](https://doi.org/10.1016/j.websem.2015.08.001).
-- <span id="page-115-8"></span>[59] Daniel Gerber and Axel-Cyrille Ngonga Ngomo. "Extracting multilingual naturallanguage patterns for RDF predicates". In: *International Conference on Knowledge Engineering and Knowledge Management*. Springer. 2012, pages 87–96.
-- <span id="page-115-0"></span>[60] Michelle Girvan and Mark EJ Newman. "Community structure in social and biological networks". In: *Proceedings of the national academy of sciences* 99.12 (2002), pages 7821–7826.
-- <span id="page-115-3"></span>[61] Larry Gonzalez and Aidan Hogan. "Modelling dynamics in semantic web knowl- ´ edge graphs with formal concept analysis". In: *Proceedings of the 2018 World Wide Web Conference on World Wide Web*. International World Wide Web Conferences Steering Committee. 2018, pages 1175–1184.
-- <span id="page-115-6"></span>[62] Palash Goyal and Emilio Ferrara. "Graph embedding techniques, applications, and performance: A survey". In: *Knowl.-Based Syst.* 151 (2018), pages 78–94. DOI: [10.1016/j.knosys.2018.03.022](https://doi.org/10.1016/j.knosys.2018.03.022). URL: [https://doi.org/](https://doi.org/10.1016/j.knosys.2018.03.022) [10.1016/j.knosys.2018.03.022](https://doi.org/10.1016/j.knosys.2018.03.022).
-- <span id="page-115-5"></span>[63] Aditya Grover and Jure Leskovec. "Node2Vec: Scalable Feature Learning for Networks". In: *Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, San Francisco, CA, USA, August 13-17, 2016*. Edited by Balaji Krishnapuram, Mohak Shah, Alexander J. Smola, Charu C. Aggarwal, Dou Shen, and Rajeev Rastogi. ACM, 2016, pages 855–864. ISBN: 978-1-4503-4232-2. DOI: [10.1145/2939672.2939754](https://doi.org/10.1145/2939672.2939754). URL: <https://doi.org/10.1145/2939672.2939754>.
+- <span id="page-115-1"></span>[54] Cristobal Esteban, Volker Tresp, Yinchong Yang, Stephan Baier, and Denis Krompass. "Predicting the Co-Evolution of Event and Knowledge Graphs". In: *arXiv preprint*(2015).
+- <span id="page-115-2"></span>[55] Cristobal Esteban, Volker Tresp, Yinchong Yang, Stephan Baier, and Denis ´ Krompaß. "Predicting the co-evolution of event and knowledge graphs". In:*2016 19th International Conference on Information Fusion (FUSION)*. Ieee. 2016, pages 98–105.
+- <span id="page-115-7"></span>[56] Diego Esteves, Anisa Rula, Aniketh Janardhan Reddy, and Jens Lehmann. "Toward Veracity Assessment in RDF Knowledge Bases: An Exploratory Analysis". In: *J. Data and Information Quality*9.3 (2018), 16:1–16:26. DOI: [10.](https://doi.org/10.1145/3177873) [1145/3177873](https://doi.org/10.1145/3177873). URL: <https://doi.org/10.1145/3177873>.
+- <span id="page-115-10"></span>[57] Jer´ ome Euzenat and Pavel Shvaiko. ˆ*Ontology Matching, Second Edition*. Springer, 2013. ISBN: 978-3-642-38720-3.
+- <span id="page-115-4"></span>[58] Daniel Gerber, Diego Esteves, Jens Lehmann, Lorenz Buhmann, Ricardo Us- ¨ beck, Axel-Cyrille Ngonga Ngomo, and Rene Speck. "DeFacto - Temporal and ´ multilingual Deep Fact Validation". In: *J. Web Semant.*35 (2015), pages 85– 101. DOI: [10.1016/j.websem.2015.08.001](https://doi.org/10.1016/j.websem.2015.08.001). URL: [https://doi.](https://doi.org/10.1016/j.websem.2015.08.001) [org/10.1016/j.websem.2015.08.001](https://doi.org/10.1016/j.websem.2015.08.001).
+- <span id="page-115-8"></span>[59] Daniel Gerber and Axel-Cyrille Ngonga Ngomo. "Extracting multilingual naturallanguage patterns for RDF predicates". In:*International Conference on Knowledge Engineering and Knowledge Management*. Springer. 2012, pages 87–96.
+- <span id="page-115-0"></span>[60] Michelle Girvan and Mark EJ Newman. "Community structure in social and biological networks". In: *Proceedings of the national academy of sciences*99.12 (2002), pages 7821–7826.
+- <span id="page-115-3"></span>[61] Larry Gonzalez and Aidan Hogan. "Modelling dynamics in semantic web knowl- ´ edge graphs with formal concept analysis". In:*Proceedings of the 2018 World Wide Web Conference on World Wide Web*. International World Wide Web Conferences Steering Committee. 2018, pages 1175–1184.
+- <span id="page-115-6"></span>[62] Palash Goyal and Emilio Ferrara. "Graph embedding techniques, applications, and performance: A survey". In: *Knowl.-Based Syst.*151 (2018), pages 78–94. DOI: [10.1016/j.knosys.2018.03.022](https://doi.org/10.1016/j.knosys.2018.03.022). URL: [https://doi.org/](https://doi.org/10.1016/j.knosys.2018.03.022) [10.1016/j.knosys.2018.03.022](https://doi.org/10.1016/j.knosys.2018.03.022).
+- <span id="page-115-5"></span>[63] Aditya Grover and Jure Leskovec. "Node2Vec: Scalable Feature Learning for Networks". In:*Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, San Francisco, CA, USA, August 13-17, 2016*. Edited by Balaji Krishnapuram, Mohak Shah, Alexander J. Smola, Charu C. Aggarwal, Dou Shen, and Rajeev Rastogi. ACM, 2016, pages 855–864. ISBN: 978-1-4503-4232-2. DOI: [10.1145/2939672.2939754](https://doi.org/10.1145/2939672.2939754). URL: <https://doi.org/10.1145/2939672.2939754>.
 
-- <span id="page-116-0"></span>[64] Thomas R Gruber. "A translation approach to portable ontology specifications". In: *Knowledge acquisition* 5.2 (1993), pages 199–220.
-- <span id="page-116-3"></span>[65] Jorn Hees, Thomas Roth-Berghofer, Ralf Biedert, Benjamin Adrian, and Andreas Dengel. "BetterRelations: Using a Game to Rate Linked Data Triples". In: *KI 2011: Advances in Artificial Intelligence, 34th Annual German Conference on AI, Berlin, Germany, October 4-7,2011. Proceedings*. Edited by Joscha Bach and Stefan Edelkamp. Volume 7006. Lecture Notes in Computer Science. Springer, 2011, pages 134–138. ISBN: 978-3-642-24454-4. DOI: [10.1007/](https://doi.org/10.1007/978-3-642-24455-1\_12) [978-3-642-24455-1\\\_12](https://doi.org/10.1007/978-3-642-24455-1\_12). URL: [https://doi.org/10.1007/](https://doi.org/10.1007/978-3-642-24455-1%5C_12) [978-3-642-24455-1%5C\\_12](https://doi.org/10.1007/978-3-642-24455-1%5C_12).
-- <span id="page-116-10"></span>[66] Daniel Hernandez, Aidan Hogan, and Markus Kr ´ otzsch. "Reifying RDF: What ¨ works well with wikidata?" In: *SSWS@ ISWC* 1457 (2015), pages 32–47.
-- <span id="page-116-8"></span>[67] Jeff Howe. *Crowdsourcing: Why the Power of the Crowd Is Driving the Future of Business*. New York, NY, USA: Crown Publishing Group, 2008.
+- <span id="page-116-0"></span>[64] Thomas R Gruber. "A translation approach to portable ontology specifications". In: *Knowledge acquisition*5.2 (1993), pages 199–220.
+- <span id="page-116-3"></span>[65] Jorn Hees, Thomas Roth-Berghofer, Ralf Biedert, Benjamin Adrian, and Andreas Dengel. "BetterRelations: Using a Game to Rate Linked Data Triples". In:*KI 2011: Advances in Artificial Intelligence, 34th Annual German Conference on AI, Berlin, Germany, October 4-7,2011. Proceedings*. Edited by Joscha Bach and Stefan Edelkamp. Volume 7006. Lecture Notes in Computer Science. Springer, 2011, pages 134–138. ISBN: 978-3-642-24454-4. DOI: [10.1007/](https://doi.org/10.1007/978-3-642-24455-1\_12) [978-3-642-24455-1\\\_12](https://doi.org/10.1007/978-3-642-24455-1\_12). URL: [https://doi.org/10.1007/](https://doi.org/10.1007/978-3-642-24455-1%5C_12) [978-3-642-24455-1%5C\\_12](https://doi.org/10.1007/978-3-642-24455-1%5C_12).
+- <span id="page-116-10"></span>[66] Daniel Hernandez, Aidan Hogan, and Markus Kr ´ otzsch. "Reifying RDF: What ¨ works well with wikidata?" In: *SSWS@ ISWC*1457 (2015), pages 32–47.
+- <span id="page-116-8"></span>[67] Jeff Howe.*Crowdsourcing: Why the Power of the Crowd Is Driving the Future of Business*. New York, NY, USA: Crown Publishing Group, 2008.
 - <span id="page-116-7"></span>[68] Alan Irwin. *Citizen science: A study of people, expertise and sustainable development*. Routledge, 2002.
 - <span id="page-116-9"></span>[69] Krzysztof Janowicz. "Trust and provenance you cant have one without the other." In: Tech. rep., Technical Report. Institute for Geoinformatics, University of Muenster, Germany, 2009.
 - <span id="page-116-6"></span>[70] Krzysztof Janowicz, Bo Yan, Blake Regalia, Rui Zhu, and Gengchen Mai. "Debiasing Knowledge Graphs: Why Female Presidents are not like Female Popes". In: (2018).
-- <span id="page-116-5"></span>[71] Wassim Jaziri, Leila Bayoudhi, and Najla Sassi. "A Preventive Approach for Consistent OWL 2 DL Ontology Versions". In: *International Journal on Semantic Web and Information Systems (IJSWIS)* 15.1 (2019), pages 76–101.
-- <span id="page-116-2"></span>[72] Shan Jiang and Christo Wilson. "Linguistic Signals under Misinformation and Fact-Checking: Evidence from User Comments on Social Media". In: *PACMHCI* 2.CSCW (2018), 82:1–82:23. DOI: [10.1145/3274351](https://doi.org/10.1145/3274351). URL: [https://](https://doi.org/10.1145/3274351) [doi.org/10.1145/3274351](https://doi.org/10.1145/3274351).
-- <span id="page-116-1"></span>[73] Ernesto Jimenez-Ruiz and Bernardo Cuenca Grau. "LogMap: Logic-Based and Scalable Ontology Matching". In: *The Semantic Web - ISWC 2011 - 10th International Semantic Web Conference, Bonn, Germany, October 23-27, 2011, Proceedings, Part I*. Edited by Lora Aroyo, Chris Welty, Harith Alani, Jamie Taylor, Abraham Bernstein, Lalana Kagal, Natasha Fridman Noy, and Eva Blomqvist. Volume 7031. Lecture Notes in Computer Science. Springer, 2011, pages 273–288. ISBN: 978-3-642-25072-9. DOI: [10.1007/978-3-642-](https://doi.org/10.1007/978-3-642-25073-6\_18) [25073-6\\\_18](https://doi.org/10.1007/978-3-642-25073-6\_18). URL: [https://doi.org/10.1007/978-3-642-](https://doi.org/10.1007/978-3-642-25073-6%5C_18) [25073-6%5C\\_18](https://doi.org/10.1007/978-3-642-25073-6%5C_18).
-- <span id="page-116-4"></span>[74] Emilia Kacprzak, Laura Koesten, Luis Daniel Iba´nez, Tom Blount, Jeni Tenni- ˜ son, and Elena Simperl. "Characterising dataset search - An analysis of search logs and data requests". In: *J. Web Semant.* 55 (2019), pages 37–55. DOI: [10.](https://doi.org/10.1016/j.websem.2018.11.003) [1016/j.websem.2018.11.003](https://doi.org/10.1016/j.websem.2018.11.003). URL: [https://doi.org/10.](https://doi.org/10.1016/j.websem.2018.11.003) [1016/j.websem.2018.11.003](https://doi.org/10.1016/j.websem.2018.11.003).
+- <span id="page-116-5"></span>[71] Wassim Jaziri, Leila Bayoudhi, and Najla Sassi. "A Preventive Approach for Consistent OWL 2 DL Ontology Versions". In: *International Journal on Semantic Web and Information Systems (IJSWIS)*15.1 (2019), pages 76–101.
+- <span id="page-116-2"></span>[72] Shan Jiang and Christo Wilson. "Linguistic Signals under Misinformation and Fact-Checking: Evidence from User Comments on Social Media". In:*PACMHCI*2.CSCW (2018), 82:1–82:23. DOI: [10.1145/3274351](https://doi.org/10.1145/3274351). URL: [https://](https://doi.org/10.1145/3274351) [doi.org/10.1145/3274351](https://doi.org/10.1145/3274351).
+- <span id="page-116-1"></span>[73] Ernesto Jimenez-Ruiz and Bernardo Cuenca Grau. "LogMap: Logic-Based and Scalable Ontology Matching". In:*The Semantic Web - ISWC 2011 - 10th International Semantic Web Conference, Bonn, Germany, October 23-27, 2011, Proceedings, Part I*. Edited by Lora Aroyo, Chris Welty, Harith Alani, Jamie Taylor, Abraham Bernstein, Lalana Kagal, Natasha Fridman Noy, and Eva Blomqvist. Volume 7031. Lecture Notes in Computer Science. Springer, 2011, pages 273–288. ISBN: 978-3-642-25072-9. DOI: [10.1007/978-3-642-](https://doi.org/10.1007/978-3-642-25073-6\_18) [25073-6\\\_18](https://doi.org/10.1007/978-3-642-25073-6\_18). URL: [https://doi.org/10.1007/978-3-642-](https://doi.org/10.1007/978-3-642-25073-6%5C_18) [25073-6%5C\\_18](https://doi.org/10.1007/978-3-642-25073-6%5C_18).
+- <span id="page-116-4"></span>[74] Emilia Kacprzak, Laura Koesten, Luis Daniel Iba´nez, Tom Blount, Jeni Tenni- ˜ son, and Elena Simperl. "Characterising dataset search - An analysis of search logs and data requests". In: *J. Web Semant.*55 (2019), pages 37–55. DOI: [10.](https://doi.org/10.1016/j.websem.2018.11.003) [1016/j.websem.2018.11.003](https://doi.org/10.1016/j.websem.2018.11.003). URL: [https://doi.org/10.](https://doi.org/10.1016/j.websem.2018.11.003) [1016/j.websem.2018.11.003](https://doi.org/10.1016/j.websem.2018.11.003).
 
-- <span id="page-117-6"></span>[75] Tobias Kafer, J ¨ urgen Umbrich, Aidan Hogan, and Axel Polleres. "DyLDO: ¨ Towards a Dynamic Linked Data Observatory". In: *LDOW*. 2012.
+- <span id="page-117-6"></span>[75] Tobias Kafer, J ¨ urgen Umbrich, Aidan Hogan, and Axel Polleres. "DyLDO: ¨ Towards a Dynamic Linked Data Observatory". In:*LDOW*. 2012.
 - <span id="page-117-7"></span>[76] Tobias Kafer, J ¨ urgen Umbrich, Aidan Hogan, and Axel Polleres. "DyLDO: ¨ Towards a Dynamic Linked Data Observatory". In: *LDOW*. 2012.
 - <span id="page-117-5"></span>[77] Michel Klein and Dieter Fensel. "Ontology Versioning on the Semantic Web". In: *Proceedings of the First International Conference on Semantic Web Working*. SWWS'01. California, 2001, pages 75–91.
-- <span id="page-117-3"></span>[78] Jon M. Kleinberg. "Authoritative Sources in a Hyperlinked Environment". In: *J. ACM* 46.5 (Sept. 1999), pages 604–632. ISSN: 0004-5411. DOI: [10.1145/](https://doi.org/10.1145/324133.324140) [324133.324140](https://doi.org/10.1145/324133.324140). URL: [http://doi.acm.org/10.1145/324133.](http://doi.acm.org/10.1145/324133.324140) [324140](http://doi.acm.org/10.1145/324133.324140).
-- <span id="page-117-4"></span>[79] Danai Koutra, Aaditya Ramdas, Ankur Parikh, and Jing Xiang. *Algorithms for Graph Similarity and Subgraph Matching*. 2011.
+- <span id="page-117-3"></span>[78] Jon M. Kleinberg. "Authoritative Sources in a Hyperlinked Environment". In: *J. ACM*46.5 (Sept. 1999), pages 604–632. ISSN: 0004-5411. DOI: [10.1145/](https://doi.org/10.1145/324133.324140) [324133.324140](https://doi.org/10.1145/324133.324140). URL: [http://doi.acm.org/10.1145/324133.](http://doi.acm.org/10.1145/324133.324140) [324140](http://doi.acm.org/10.1145/324133.324140).
+- <span id="page-117-4"></span>[79] Danai Koutra, Aaditya Ramdas, Ankur Parikh, and Jing Xiang.*Algorithms for Graph Similarity and Subgraph Matching*. 2011.
 - <span id="page-117-9"></span>[80] Tobias Kuhn and Michel Dumontier. "Trusty URIs: Verifiable, Immutable, and Permanent Digital Artifacts for Linked Data". In: *The Semantic Web: Trends and Challenges*. Edited by Valentina Presutti, Claudia d'Amato, Fabien Gandon, Mathieu d'Aquin, Steffen Staab, and Anna Tordai. Cham: Springer International Publishing, 2014, pages 395–410.
-- <span id="page-117-10"></span>[81] Edith Law and Luis von Ahn. "Human computation". In: *Synthesis Lectures on Artificial Intelligence and Machine Learning* 5.3 (2011), pages 1–121.
-- <span id="page-117-0"></span>[82] Jens Lehmann, Robert Isele, Max Jakob, Anja Jentzsch, Dimitris Kontokostas, Pablo N Mendes, Sebastian Hellmann, Mohamed Morsey, Patrick Van Kleef, Soren Auer, et al. "DBpedia–a large-scale, multilingual knowledge base ex- ¨ tracted from Wikipedia". In: *Semantic Web* 6.2 (2015), pages 167–195.
-- <span id="page-117-2"></span>[83] Yankai Lin, Zhiyuan Liu, Maosong Sun, Yang Liu, and Xuan Zhu. "Learning Entity and Relation Embeddings for Knowledge Graph Completion". In: *Proceedings of the Twenty-Ninth AAAI Conference on Artificial Intelligence, January 25-30, 2015, Austin, Texas, USA.* Edited by Blai Bonet and Sven Koenig. AAAI Press, 2015, pages 2181–2187. ISBN: 978-1-57735-698-1. URL: [http:](http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/view/9571) [//www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/view/](http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/view/9571) [9571](http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/view/9571).
-- <span id="page-117-8"></span>[84] *Linked Data*. URL: [https://www.w3.org/DesignIssues/LinkedDa](https://www.w3.org/DesignIssues/LinkedData.html)ta. [html](https://www.w3.org/DesignIssues/LinkedData.html). (accessed: 05.07.2019).
-- <span id="page-117-1"></span>[85] Shuangyan Liu, Mathieu d'Aquin, and Enrico Motta. "Towards Linked Data Fact Validation through Measuring Consensus". In: *Proceedings of the 2nd Workshop on Linked Data Quality co-located with 12th Extended Semantic Web Conference (ESWC 2015), Portoroz, Slovenia, June 1, 2015.* Edited by Anisa Rula, Amrapali Zaveri, Magnus Knuth, and Dimitris Kontokostas. Volume 1376. CEUR Workshop Proceedings. CEUR-WS.org, 2015. URL: [http:](http://ceur-ws.org/Vol-1376/LDQ2015%5C_paper%5C_04.pdf) [//ceur-ws.org/Vol-1376/LDQ2015%5C\\_paper%5C\\_04.pdf](http://ceur-ws.org/Vol-1376/LDQ2015%5C_paper%5C_04.pdf).
+- <span id="page-117-10"></span>[81] Edith Law and Luis von Ahn. "Human computation". In: *Synthesis Lectures on Artificial Intelligence and Machine Learning*5.3 (2011), pages 1–121.
+- <span id="page-117-0"></span>[82] Jens Lehmann, Robert Isele, Max Jakob, Anja Jentzsch, Dimitris Kontokostas, Pablo N Mendes, Sebastian Hellmann, Mohamed Morsey, Patrick Van Kleef, Soren Auer, et al. "DBpedia–a large-scale, multilingual knowledge base ex- ¨ tracted from Wikipedia". In:*Semantic Web*6.2 (2015), pages 167–195.
+- <span id="page-117-2"></span>[83] Yankai Lin, Zhiyuan Liu, Maosong Sun, Yang Liu, and Xuan Zhu. "Learning Entity and Relation Embeddings for Knowledge Graph Completion". In:*Proceedings of the Twenty-Ninth AAAI Conference on Artificial Intelligence, January 25-30, 2015, Austin, Texas, USA.*Edited by Blai Bonet and Sven Koenig. AAAI Press, 2015, pages 2181–2187. ISBN: 978-1-57735-698-1. URL: [http:](http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/view/9571) [//www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/view/](http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/view/9571) [9571](http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/view/9571).
+- <span id="page-117-8"></span>[84]*Linked Data*. URL: [https://www.w3.org/DesignIssues/LinkedDa](https://www.w3.org/DesignIssues/LinkedData.html)ta. [html](https://www.w3.org/DesignIssues/LinkedData.html). (accessed: 05.07.2019).
+- <span id="page-117-1"></span>[85] Shuangyan Liu, Mathieu d'Aquin, and Enrico Motta. "Towards Linked Data Fact Validation through Measuring Consensus". In: *Proceedings of the 2nd Workshop on Linked Data Quality co-located with 12th Extended Semantic Web Conference (ESWC 2015), Portoroz, Slovenia, June 1, 2015.*Edited by Anisa Rula, Amrapali Zaveri, Magnus Knuth, and Dimitris Kontokostas. Volume 1376. CEUR Workshop Proceedings. CEUR-WS.org, 2015. URL: [http:](http://ceur-ws.org/Vol-1376/LDQ2015%5C_paper%5C_04.pdf) [//ceur-ws.org/Vol-1376/LDQ2015%5C\\_paper%5C\\_04.pdf](http://ceur-ws.org/Vol-1376/LDQ2015%5C_paper%5C_04.pdf).
 
-- <span id="page-118-2"></span>[86] Shuangyan Liu, Mathieu d'Aquin, and Enrico Motta. "Measuring Accuracy of Triples in Knowledge Graphs". In: *Language, Data, and Knowledge - First International Conference, LDK 2017, Galway, Ireland, June 19-20, 2017, Proceedings*. Edited by Jorge Gracia, Francis Bond, John P. McCrae, Paul Buitelaar, Christian Chiarcos, and Sebastian Hellmann. Volume 10318. Lecture Notes in Computer Science. Springer, 2017, pages 343–357. ISBN: 978-3-319-59887- 1. DOI: [10.1007/978-3-319-59888-8\\\_29](https://doi.org/10.1007/978-3-319-59888-8\_29). URL: [https://doi.](https://doi.org/10.1007/978-3-319-59888-8%5C_29) [org/10.1007/978-3-319-59888-8%5C\\_29](https://doi.org/10.1007/978-3-319-59888-8%5C_29).
+- <span id="page-118-2"></span>[86] Shuangyan Liu, Mathieu d'Aquin, and Enrico Motta. "Measuring Accuracy of Triples in Knowledge Graphs". In:*Language, Data, and Knowledge - First International Conference, LDK 2017, Galway, Ireland, June 19-20, 2017, Proceedings*. Edited by Jorge Gracia, Francis Bond, John P. McCrae, Paul Buitelaar, Christian Chiarcos, and Sebastian Hellmann. Volume 10318. Lecture Notes in Computer Science. Springer, 2017, pages 343–357. ISBN: 978-3-319-59887- 1. DOI: [10.1007/978-3-319-59888-8\\\_29](https://doi.org/10.1007/978-3-319-59888-8\_29). URL: [https://doi.](https://doi.org/10.1007/978-3-319-59888-8%5C_29) [org/10.1007/978-3-319-59888-8%5C\\_29](https://doi.org/10.1007/978-3-319-59888-8%5C_29).
 - <span id="page-118-7"></span>[87] Uta Losch, Sebastian Rudolph, Denny Vrande ¨ ciˇ c, and Rudi Studer. "Tempus ´ fugit". In: *European Semantic Web Conference*. Springer. 2009, pages 278– 292.
-- <span id="page-118-4"></span>[88] A. Maedche, B. Motik, and L. Stojanovic. "Managing multiple and distributed ontologies on the Semantic Web". In: *The VLDB Journal* 12.4 (Nov. 2003), pages 286–302. ISSN: 0949-877X. DOI: [10.1007/s00778-003-0102-](https://doi.org/10.1007/s00778-003-0102-4) [4](https://doi.org/10.1007/s00778-003-0102-4). URL: <https://doi.org/10.1007/s00778-003-0102-4>.
-- <span id="page-118-8"></span>[89] A. Maedche and S. Staab. "Ontology learning for the Semantic Web". In: *IEEE Intelligent Systems* 16.2 (Mar. 2001), pages 72–79. ISSN: 1541-1672. DOI: [10.](https://doi.org/10.1109/5254.920602) [1109/5254.920602](https://doi.org/10.1109/5254.920602).
-- <span id="page-118-6"></span>[90] Essam Mansour, Andrei Vlad Sambra, Sandro Hawke, Maged Zereba, Sarven Capadisli, Abdurrahman Ghanem, Ashraf Aboulnaga, and Tim Berners-Lee. "A demonstration of the solid platform for social web applications". In: *Proceedings of the 25th International Conference Companion on World Wide Web*. International World Wide Web Conferences Steering Committee. 2016, pages 223–226.
+- <span id="page-118-4"></span>[88] A. Maedche, B. Motik, and L. Stojanovic. "Managing multiple and distributed ontologies on the Semantic Web". In: *The VLDB Journal*12.4 (Nov. 2003), pages 286–302. ISSN: 0949-877X. DOI: [10.1007/s00778-003-0102-](https://doi.org/10.1007/s00778-003-0102-4) [4](https://doi.org/10.1007/s00778-003-0102-4). URL: <https://doi.org/10.1007/s00778-003-0102-4>.
+- <span id="page-118-8"></span>[89] A. Maedche and S. Staab. "Ontology learning for the Semantic Web". In:*IEEE Intelligent Systems*16.2 (Mar. 2001), pages 72–79. ISSN: 1541-1672. DOI: [10.](https://doi.org/10.1109/5254.920602) [1109/5254.920602](https://doi.org/10.1109/5254.920602).
+- <span id="page-118-6"></span>[90] Essam Mansour, Andrei Vlad Sambra, Sandro Hawke, Maged Zereba, Sarven Capadisli, Abdurrahman Ghanem, Ashraf Aboulnaga, and Tim Berners-Lee. "A demonstration of the solid platform for social web applications". In:*Proceedings of the 25th International Conference Companion on World Wide Web*. International World Wide Web Conferences Steering Committee. 2016, pages 223–226.
 - <span id="page-118-0"></span>[91] Robert Meusel, Christian Bizer, and Heiko Paulheim. "A web-scale study of the adoption and evolution of the schema. org vocabulary over time". In: *Proceedings of the 5th International Conference on Web Intelligence, Mining and Semantics*. ACM. 2015, page 15.
 - <span id="page-118-1"></span>[92] Rada Mihalcea and Carlo Strapparava. "The Lie Detector: Explorations in the Automatic Recognition of Deceptive Language". In: *ACL 2009, Proceedings of the 47th Annual Meeting of the Association for Computational Linguistics and the 4th International Joint Conference on Natural Language Processing of the AFNLP, 2-7 August 2009, Singapore, Short Papers*. The Association for Computer Linguistics, 2009, pages 309–312. URL: [http://www.aclweb.](http://www.aclweb.org/anthology/P09-2078) [org/anthology/P09-2078](http://www.aclweb.org/anthology/P09-2078).
 - <span id="page-118-3"></span>[93] Camilo Morales, Diego Collarana, Maria-Esther Vidal, and SA¶ren Auer. "Mate- ˜ Tee: A Semantic Similarity Metric Based on Translation Embeddings for Knowledge Graphs". In: (June 2017). URL: [https://www.researchgate.](https://www.researchgate.net/publication/318138527_MateTee_A_Semantic_Similarity_Metric_Based_on_Translation_Embeddings_for_Knowledge_Graphs) [net/publication/318138527\\_MateTee\\_A\\_Semantic\\_Similari](https://www.researchgate.net/publication/318138527_MateTee_A_Semantic_Similarity_Metric_Based_on_Translation_Embeddings_for_Knowledge_Graphs)ty\_ [Metric\\_Based\\_on\\_Translation\\_Embeddings\\_for\\_Knowledge\\_](https://www.researchgate.net/publication/318138527_MateTee_A_Semantic_Similarity_Metric_Based_on_Translation_Embeddings_for_Knowledge_Graphs) [Graphs](https://www.researchgate.net/publication/318138527_MateTee_A_Semantic_Similarity_Metric_Based_on_Translation_Embeddings_for_Knowledge_Graphs).
 - <span id="page-118-5"></span>[94] Shunji Mori, Hirobumi Nishida, and Hiromitsu Yamada. *Optical character recognition*. John Wiley & Sons, Inc., 1999.
 
-- <span id="page-119-5"></span>[95] Sebastian Neumaier and Axel Polleres. "Enabling Spatio-Temporal Search in Open Data". In: *Available at SSRN 3304721* (2018).
-- <span id="page-119-7"></span>[96] Sebastian Neumaier and Axel Polleres. "Enabling Spatio-Temporal Search in Open Data". In: *Journal of Web Semantics* 55 (Dec. 2018). DOI: [10.1016/](https://doi.org/10.1016/j.websem.2018.12.007) [j.websem.2018.12.007](https://doi.org/10.1016/j.websem.2018.12.007).
-- <span id="page-119-9"></span>[97] Sebastian Neumaier, Lorinc Thurnay, Thomas J Lampoltshammer, and Tom ¨ a´ Knap. "Search, Filter, Fork, and Link Open Data: The ADEQUATe platform: data-and community-driven quality improvements". In: *Companion of the The Web Conference 2018 on The Web Conference 2018*. International World Wide Web Conferences Steering Committee. 2018, pages 1523–1526.
-- <span id="page-119-8"></span>[98] Sebastian Neumaier, Jurgen Umbrich, and Axel Polleres. "Automated quality ¨ assessment of metadata across open data portals". In: *Journal of Data and Information Quality (JDIQ)* 8.1 (2016), page 2.
-- <span id="page-119-6"></span>[99] Sebastian Neumaier, Jurgen Umbrich, and Axel Polleres. "Lifting Data Por- ¨ tals to the Web of Data". In: *Workshop on Linked Data on the Web co-located with 26th International World Wide Web Conference (WWW 2017)*. Edited by Soren Auer, Tim Berners-Lee, Christian Bizer, Sarven Capadisli, Tom Heath, ¨ Krzysztof Janowicz, and Jens Lehmann. CEUR Workshop Proceedings. CEUR-WS.org, 2017. URL: [http://ceur- ws.org/Vol- 1809/article-](http://ceur-ws.org/Vol-1809/article-03.pdf)[03.pdf](http://ceur-ws.org/Vol-1809/article-03.pdf).
+- <span id="page-119-5"></span>[95] Sebastian Neumaier and Axel Polleres. "Enabling Spatio-Temporal Search in Open Data". In: *Available at SSRN 3304721*(2018).
+- <span id="page-119-7"></span>[96] Sebastian Neumaier and Axel Polleres. "Enabling Spatio-Temporal Search in Open Data". In:*Journal of Web Semantics*55 (Dec. 2018). DOI: [10.1016/](https://doi.org/10.1016/j.websem.2018.12.007) [j.websem.2018.12.007](https://doi.org/10.1016/j.websem.2018.12.007).
+- <span id="page-119-9"></span>[97] Sebastian Neumaier, Lorinc Thurnay, Thomas J Lampoltshammer, and Tom ¨ a´ Knap. "Search, Filter, Fork, and Link Open Data: The ADEQUATe platform: data-and community-driven quality improvements". In:*Companion of the The Web Conference 2018 on The Web Conference 2018*. International World Wide Web Conferences Steering Committee. 2018, pages 1523–1526.
+- <span id="page-119-8"></span>[98] Sebastian Neumaier, Jurgen Umbrich, and Axel Polleres. "Automated quality ¨ assessment of metadata across open data portals". In: *Journal of Data and Information Quality (JDIQ)*8.1 (2016), page 2.
+- <span id="page-119-6"></span>[99] Sebastian Neumaier, Jurgen Umbrich, and Axel Polleres. "Lifting Data Por- ¨ tals to the Web of Data". In:*Workshop on Linked Data on the Web co-located with 26th International World Wide Web Conference (WWW 2017)*. Edited by Soren Auer, Tim Berners-Lee, Christian Bizer, Sarven Capadisli, Tom Heath, ¨ Krzysztof Janowicz, and Jens Lehmann. CEUR Workshop Proceedings. CEUR-WS.org, 2017. URL: [http://ceur- ws.org/Vol- 1809/article-](http://ceur-ws.org/Vol-1809/article-03.pdf)[03.pdf](http://ceur-ws.org/Vol-1809/article-03.pdf).
 - <span id="page-119-1"></span>[100] C. Nishioka and A. Scherp. "Analysing the Evolution of Knowledge Graphs for the Purpose of Change Verification". In: *2018 IEEE 12th International Conference on Semantic Computing (ICSC)*. Jan. 2018, pages 25–32. DOI: [10 .](https://doi.org/10.1109/ICSC.2018.00013) [1109/ICSC.2018.00013](https://doi.org/10.1109/ICSC.2018.00013).
 - <span id="page-119-2"></span>[101] C. Nishioka and A. Scherp. "Analysing the Evolution of Knowledge Graphs for the Purpose of Change Verification". In: *2018 IEEE 12th International Conference on Semantic Computing (ICSC)*. Jan. 2018, pages 25–32. DOI: [10 .](https://doi.org/10.1109/ICSC.2018.00013) [1109/ICSC.2018.00013](https://doi.org/10.1109/ICSC.2018.00013).
 - <span id="page-119-3"></span>[102] C. Nishioka and A. Scherp. "Analysing the Evolution of Knowledge Graphs for the Purpose of Change Verification". In: *2018 IEEE 12th International Conference on Semantic Computing (ICSC)*. Jan. 2018, pages 25–32. DOI: [10 .](https://doi.org/10.1109/ICSC.2018.00013) [1109/ICSC.2018.00013](https://doi.org/10.1109/ICSC.2018.00013).
@@ -2143,19 +2128,19 @@ Please visit <http://www.semanticwebschool.org>
 
 - <span id="page-120-3"></span>[105] Chifumi Nishioka and Ansgar Scherp. "Analysing the Evolution of Knowledge Graphs for the Purpose of Change Verification". In: *12th IEEE International Conference on Semantic Computing, ICSC 2018, Laguna Hills, CA, USA, January 31 - February 2, 2018*. IEEE Computer Society, 2018, pages 25–32. ISBN: 978-1-5386-4408-9. DOI: [10.1109/ICSC.2018.00013](https://doi.org/10.1109/ICSC.2018.00013). URL: [https:](https://doi.org/10.1109/ICSC.2018.00013) [//doi.org/10.1109/ICSC.2018.00013](https://doi.org/10.1109/ICSC.2018.00013).
 - <span id="page-120-1"></span>[106] Natalya F Noy, Sandhya Kunnatur, Michel Klein, and Mark A Musen. "Tracking changes during ontology evolution". In: *International Semantic Web Conference*. Springer. 2004, pages 259–273.
-- <span id="page-120-6"></span>[107] Natalya F. Noy and Michel Klein. "Ontology Evolution: Not the Same as Schema Evolution". In: *Knowledge and Information Systems* 6.4 (July 2004), pages 428–440. ISSN: 0219-3116. DOI: [10.1007/s10115-003-0137-2](https://doi.org/10.1007/s10115-003-0137-2). URL: <https://doi.org/10.1007/s10115-003-0137-2>.
+- <span id="page-120-6"></span>[107] Natalya F. Noy and Michel Klein. "Ontology Evolution: Not the Same as Schema Evolution". In: *Knowledge and Information Systems*6.4 (July 2004), pages 428–440. ISSN: 0219-3116. DOI: [10.1007/s10115-003-0137-2](https://doi.org/10.1007/s10115-003-0137-2). URL: <https://doi.org/10.1007/s10115-003-0137-2>.
 - <span id="page-120-8"></span>[108] Natasha Noy, Matthew Burgess, and Dan Brickley. "Google Dataset Search: Building a search engine for datasets in an open Web ecosystem". In: (2019).
-- <span id="page-120-4"></span>[109] L. Page, S. Brin, R. Motwani, and T. Winograd. "The PageRank citation ranking: Bringing order to the Web". In: *Proceedings of the 7th International World Wide Web Conference*. Brisbane, Australia, 1998, pages 161–172. URL: [citese](citeseer.nj.nec.com/page98pagerank.html)er. [nj.nec.com/page98pagerank.html](citeseer.nj.nec.com/page98pagerank.html).
+- <span id="page-120-4"></span>[109] L. Page, S. Brin, R. Motwani, and T. Winograd. "The PageRank citation ranking: Bringing order to the Web". In:*Proceedings of the 7th International World Wide Web Conference*. Brisbane, Australia, 1998, pages 161–172. URL: [citese](citeseer.nj.nec.com/page98pagerank.html)er. [nj.nec.com/page98pagerank.html](citeseer.nj.nec.com/page98pagerank.html).
 - <span id="page-120-5"></span>[110] Jeff Pasternack and Dan Roth. "Latent credibility analysis". In: *22nd International World Wide Web Conference, WWW '13, Rio de Janeiro, Brazil, May 13- 17, 2013*. Edited by Daniel Schwabe, Virgilio A. F. Almeida, Hartmut Glaser, Ricardo A. Baeza-Yates, and Sue B. Moon. International World Wide Web Conferences Steering Committee / ACM, 2013, pages 1009–1020. ISBN: 978- 1-4503-2035-1. DOI: [10.1145/2488388.2488476](https://doi.org/10.1145/2488388.2488476). URL: [https://](https://doi.org/10.1145/2488388.2488476) [doi.org/10.1145/2488388.2488476](https://doi.org/10.1145/2488388.2488476).
-- <span id="page-120-10"></span>[111] Heiko Paulheim. "Knowledge graph refinement: A survey of approaches and evaluation methods". In: *Semantic Web* 8 (Dec. 2016), pages 489–508. DOI: [10.3233/SW-160218](https://doi.org/10.3233/SW-160218).
-- <span id="page-120-2"></span>[112] Heiko Paulheim. "Knowledge graph refinement: A survey of approaches and evaluation methods". In: *Semantic Web* 8.3 (2017), pages 489–508. DOI: [10.](https://doi.org/10.3233/SW-160218) [3233/SW-160218](https://doi.org/10.3233/SW-160218). URL: <https://doi.org/10.3233/SW-160218>.
-- <span id="page-120-7"></span>[113] Heiko Paulheim. "Knowledge graph refinement: A survey of approaches and evaluation methods". In: *Semantic Web* 8.3 (2017), pages 489–508. DOI: [10.](https://doi.org/10.3233/SW-160218) [3233/SW-160218](https://doi.org/10.3233/SW-160218). URL: <https://doi.org/10.3233/SW-160218>.
-- <span id="page-120-0"></span>[114] Mason A Porter, Jukka-Pekka Onnela, and Peter J Mucha. "Communities in networks". In: *Notices of the AMS* 56.9 (2009), pages 1082–1097.
-- <span id="page-120-9"></span>[115] Eric Prud'hommeaux and Andy Seaborne. *SPARQL Query Language for RDF*. W3C Recommendation. [http : / / www . w3 . org / TR / rdf - sparql](http://www.w3.org/TR/rdf-sparql-query/)  [query/](http://www.w3.org/TR/rdf-sparql-query/). Jan. 2008. URL: [http://www.w3.org/TR/rdf- sparql](http://www.w3.org/TR/rdf-sparql-query/)[query/](http://www.w3.org/TR/rdf-sparql-query/).
+- <span id="page-120-10"></span>[111] Heiko Paulheim. "Knowledge graph refinement: A survey of approaches and evaluation methods". In: *Semantic Web*8 (Dec. 2016), pages 489–508. DOI: [10.3233/SW-160218](https://doi.org/10.3233/SW-160218).
+- <span id="page-120-2"></span>[112] Heiko Paulheim. "Knowledge graph refinement: A survey of approaches and evaluation methods". In:*Semantic Web*8.3 (2017), pages 489–508. DOI: [10.](https://doi.org/10.3233/SW-160218) [3233/SW-160218](https://doi.org/10.3233/SW-160218). URL: <https://doi.org/10.3233/SW-160218>.
+- <span id="page-120-7"></span>[113] Heiko Paulheim. "Knowledge graph refinement: A survey of approaches and evaluation methods". In:*Semantic Web*8.3 (2017), pages 489–508. DOI: [10.](https://doi.org/10.3233/SW-160218) [3233/SW-160218](https://doi.org/10.3233/SW-160218). URL: <https://doi.org/10.3233/SW-160218>.
+- <span id="page-120-0"></span>[114] Mason A Porter, Jukka-Pekka Onnela, and Peter J Mucha. "Communities in networks". In:*Notices of the AMS*56.9 (2009), pages 1082–1097.
+- <span id="page-120-9"></span>[115] Eric Prud'hommeaux and Andy Seaborne.*SPARQL Query Language for RDF*. W3C Recommendation. [http : / / www . w3 . org / TR / rdf - sparql](http://www.w3.org/TR/rdf-sparql-query/)  [query/](http://www.w3.org/TR/rdf-sparql-query/). Jan. 2008. URL: [http://www.w3.org/TR/rdf- sparql](http://www.w3.org/TR/rdf-sparql-query/)[query/](http://www.w3.org/TR/rdf-sparql-query/).
 
 - <span id="page-121-10"></span>[116] Jay Pujara, Hui Miao, Lise Getoor, and William Cohen. "Knowledge graph identification". In: *International Semantic Web Conference*. Springer. 2013, pages 542–557.
-- <span id="page-121-4"></span>[117] Feng Qian, ChengYue Gong, Karishma Sharma, and Yan Liu. "Neural User Response Generator: Fake News Detection with Collective User Intelligence". In: *Proceedings of the Twenty-Seventh International Joint Conference on Artificial Intelligence, IJCAI 2018, July 13-19, 2018, Stockholm, Sweden.* Edited by Jer´ ome Lang. ijcai.org, 2018, pages 3834–3840. ˆ ISBN: 978-0-9992411-2-7. DOI: [10.24963/ijcai.2018/533](https://doi.org/10.24963/ijcai.2018/533). URL: [https://doi.org/10.](https://doi.org/10.24963/ijcai.2018/533) [24963/ijcai.2018/533](https://doi.org/10.24963/ijcai.2018/533).
-- <span id="page-121-5"></span>[118] Hannah Rashkin, Eunsol Choi, Jin Yea Jang, Svitlana Volkova, and Yejin Choi. "Truth of Varying Shades: Analyzing Language in Fake News and Political Fact-Checking". In: *Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, EMNLP 2017, Copenhagen, Denmark, September 9-11, 2017*. Edited by Martha Palmer, Rebecca Hwa, and Sebastian Riedel. Association for Computational Linguistics, 2017, pages 2931– 2937. ISBN: 978-1-945626-83-8. URL: [https://aclanthology.info/](https://aclanthology.info/papers/D17-1317/d17-1317) [papers/D17-1317/d17-1317](https://aclanthology.info/papers/D17-1317/d17-1317).
+- <span id="page-121-4"></span>[117] Feng Qian, ChengYue Gong, Karishma Sharma, and Yan Liu. "Neural User Response Generator: Fake News Detection with Collective User Intelligence". In: *Proceedings of the Twenty-Seventh International Joint Conference on Artificial Intelligence, IJCAI 2018, July 13-19, 2018, Stockholm, Sweden.*Edited by Jer´ ome Lang. ijcai.org, 2018, pages 3834–3840. ˆ ISBN: 978-0-9992411-2-7. DOI: [10.24963/ijcai.2018/533](https://doi.org/10.24963/ijcai.2018/533). URL: [https://doi.org/10.](https://doi.org/10.24963/ijcai.2018/533) [24963/ijcai.2018/533](https://doi.org/10.24963/ijcai.2018/533).
+- <span id="page-121-5"></span>[118] Hannah Rashkin, Eunsol Choi, Jin Yea Jang, Svitlana Volkova, and Yejin Choi. "Truth of Varying Shades: Analyzing Language in Fake News and Political Fact-Checking". In:*Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, EMNLP 2017, Copenhagen, Denmark, September 9-11, 2017*. Edited by Martha Palmer, Rebecca Hwa, and Sebastian Riedel. Association for Computational Linguistics, 2017, pages 2931– 2937. ISBN: 978-1-945626-83-8. URL: [https://aclanthology.info/](https://aclanthology.info/papers/D17-1317/d17-1317) [papers/D17-1317/d17-1317](https://aclanthology.info/papers/D17-1317/d17-1317).
 - <span id="page-121-3"></span>[119] Ignacio Traverso Ribon. "A Framework for Semantic Similarity Measures to enhance Knowledge Graph Quality". PhD thesis. 2017. URL: [http://digbib](http://digbib.ubka.uni-karlsruhe.de/volltexte/1000073179). [ubka.uni-karlsruhe.de/volltexte/1000073179](http://digbib.ubka.uni-karlsruhe.de/volltexte/1000073179).
 - <span id="page-121-2"></span>[120] Petar Ristoski and Heiko Paulheim. "RDF2Vec: RDF Graph Embeddings for Data Mining". In: Oct. 2016, pages 498–514. ISBN: 978-3-319-46522-7. DOI: [10.1007/978-3-319-46523-4\\_30](https://doi.org/10.1007/978-3-319-46523-4_30).
 - <span id="page-121-1"></span>[121] Sara Sabour, Nicholas Frosst, and Geoffrey E Hinton. "Dynamic routing between capsules". In: *Advances in neural information processing systems*. 2017, pages 3856–3866.
@@ -2165,30 +2150,30 @@ Please visit <http://www.semanticwebschool.org>
 - <span id="page-121-6"></span>[125] Ljiljana Stojanovic, Alexander Maedche, Boris Motik, and Nenad Stojanovic. "User-Driven Ontology Evolution Management". In: *Knowledge Engineering and Knowledge Management: Ontologies and the Semantic Web*. Edited by Asuncion G ´ omez-P ´ erez and V. Richard Benjamins. Berlin, Heidelberg: Springer ´ Berlin Heidelberg, 2002, pages 285–300. ISBN: 978-3-540-45810-4.
 - <span id="page-121-8"></span>[126] M Sc Ljiljana Stojanovic. "Methods and Tools for Ontology Evolution". PhD thesis. Universidad Politecnica de Madrid, 2004.
 
-- <span id="page-122-7"></span>[127] Nick Szabo. "The idea of smart contracts". In: *Nick Szabo's Papers and Concise Tutorials* 6 (1997).
-- <span id="page-122-9"></span>[128] Ruben Taelman, Miel Vander Sande, and Ruben Verborgh. "OSTRICH: Versioned Random-Access Triple Store". In: *Companion Proceedings of the The Web Conference 2018*. WWW '18. Lyon, France: International World Wide Web Conferences Steering Committee, 2018, pages 127–130. ISBN: 978-1- 4503-5640-4. DOI: [10.1145/3184558.3186960](https://doi.org/10.1145/3184558.3186960). URL: [https://doi.](https://doi.org/10.1145/3184558.3186960) [org/10.1145/3184558.3186960](https://doi.org/10.1145/3184558.3186960).
+- <span id="page-122-7"></span>[127] Nick Szabo. "The idea of smart contracts". In: *Nick Szabo's Papers and Concise Tutorials*6 (1997).
+- <span id="page-122-9"></span>[128] Ruben Taelman, Miel Vander Sande, and Ruben Verborgh. "OSTRICH: Versioned Random-Access Triple Store". In:*Companion Proceedings of the The Web Conference 2018*. WWW '18. Lyon, France: International World Wide Web Conferences Steering Committee, 2018, pages 127–130. ISBN: 978-1- 4503-5640-4. DOI: [10.1145/3184558.3186960](https://doi.org/10.1145/3184558.3186960). URL: [https://doi.](https://doi.org/10.1145/3184558.3186960) [org/10.1145/3184558.3186960](https://doi.org/10.1145/3184558.3186960).
 - <span id="page-122-2"></span>[129] Thomas Pellissier Tanon and Fabian M Suchanek. "Querying the Edit History of Wikidata". In: *Extended Semantic Web Conference*. 2019.
-- <span id="page-122-0"></span>[130] Mayesha Tasnim, Diego Collarana, Damien Graux, Fabrizio Orlandi, and Maria-Esther Vida. "Summarizing Entity Temporal Evolution in Knowledge Graphs". In: *Proceedings of MEPDaW 19: Workshop on Managing the Evolution and Preservation of the Data Web MEPDaW* (2019).
-- <span id="page-122-1"></span>[131] Mayesha Tasnim, Diego Collarana, Damien Graux, Fabrizio Orlandi, and Maria-Esther Vidal. "Summarizing Entity Temporal Evolution in Knowledge Graphs". In: *Companion Proceedings of The 2019 World Wide Web Conference*. ACM. 2019, pages 961–965.
+- <span id="page-122-0"></span>[130] Mayesha Tasnim, Diego Collarana, Damien Graux, Fabrizio Orlandi, and Maria-Esther Vida. "Summarizing Entity Temporal Evolution in Knowledge Graphs". In: *Proceedings of MEPDaW 19: Workshop on Managing the Evolution and Preservation of the Data Web MEPDaW*(2019).
+- <span id="page-122-1"></span>[131] Mayesha Tasnim, Diego Collarana, Damien Graux, Fabrizio Orlandi, and Maria-Esther Vidal. "Summarizing Entity Temporal Evolution in Knowledge Graphs". In:*Companion Proceedings of The 2019 World Wide Web Conference*. ACM. 2019, pages 961–965.
 - <span id="page-122-5"></span>[132] Mayesha Tasnim, Diego Collarana, Damien Graux, Fabrizio Orlandi, and Maria-Esther Vidal. "Summarizing Entity Temporal Evolution in Knowledge Graphs". In: Feb. 2019. DOI: [10.1145/3308560.3316521](https://doi.org/10.1145/3308560.3316521).
 - <span id="page-122-10"></span>[133] Paul Thagard. *Mind: Introduction to cognitive science*. Volume 17. MIT press Cambridge, MA, 2005.
-- <span id="page-122-6"></span>[134] Allan Third and John Domingue. "LinkChains: Exploring the space of decentralised trustworthy Linked Data". In: *Proceedings of the 26th International Conference on World Wide Web Companion.* 2017, pages 1431–1436.
-- <span id="page-122-4"></span>[135] Rakshit Trivedi, Hanjun Dai, Yichen Wang, and Le Song. "Know-evolve: Deep Temporal Reasoning for Dynamic Knowledge Graphs". In: *Proceedings of the 34th International Conference on Machine Learning - Volume 70*. ICML'17. Sydney, NSW, Australia: JMLR.org, 2017, pages 3462–3471. URL: [http :](http://dl.acm.org/citation.cfm?id=3305890.3306039) [//dl.acm.org/citation.cfm?id=3305890.3306039](http://dl.acm.org/citation.cfm?id=3305890.3306039).
+- <span id="page-122-6"></span>[134] Allan Third and John Domingue. "LinkChains: Exploring the space of decentralised trustworthy Linked Data". In: *Proceedings of the 26th International Conference on World Wide Web Companion.*2017, pages 1431–1436.
+- <span id="page-122-4"></span>[135] Rakshit Trivedi, Hanjun Dai, Yichen Wang, and Le Song. "Know-evolve: Deep Temporal Reasoning for Dynamic Knowledge Graphs". In:*Proceedings of the 34th International Conference on Machine Learning - Volume 70*. ICML'17. Sydney, NSW, Australia: JMLR.org, 2017, pages 3462–3471. URL: [http :](http://dl.acm.org/citation.cfm?id=3305890.3306039) [//dl.acm.org/citation.cfm?id=3305890.3306039](http://dl.acm.org/citation.cfm?id=3305890.3306039).
 - <span id="page-122-8"></span>[136] Jurgen Umbrich, Boris Villaz ¨ on-Terrazas, and Michael Hausenblas. "Dataset ´ dynamics compendium: A comparative study". In: (2010).
 - <span id="page-122-11"></span>[137] Francisco J Varela, Evan Thompson, and Eleanor Rosch. *The embodied mind: Cognitive science and human experience*. MIT press, 2017.
 - <span id="page-122-3"></span>[138] Svitlana Volkova and Jin Yea Jang. "Misleading or Falsification: Inferring Deceptive Strategies and Types in Online News and Social Media". In: *Companion of the The Web Conference 2018 on The Web Conference 2018, WWW 2018, Lyon , France, April 23-27, 2018*. Edited by Pierre-Antoine Champin, Fabien L. Gandon, Mounia Lalmas, and Panagiotis G. Ipeirotis. ACM, 2018, pages 575–583. DOI: [10.1145/3184558.3188728](https://doi.org/10.1145/3184558.3188728). URL: [https://](https://doi.org/10.1145/3184558.3188728) [doi.org/10.1145/3184558.3188728](https://doi.org/10.1145/3184558.3188728).
 
-- <span id="page-123-6"></span>[139] Piek Vossen, Rodrigo Agerri, Itziar Aldabe, Agata Cybulska, Marieke van Erp, Antske Fokkens, Egoitz Laparra, Anne-Lyse Minard, Alessio Palmero Aprosio, German Rigau, Marco Rospocher, and Roxane Segers. "NewsReader: Using knowledge resources in a cross-lingual reading machine to generate more knowledge from massive streams of news". In: *Knowledge-Based Systems* 110 (2016), pages 60–85. ISSN: 0950-7051. DOI: [https : / / doi . org / 10 .](https://doi.org/https://doi.org/10.1016/j.knosys.2016.07.013) [1016/j.knosys.2016.07.013](https://doi.org/https://doi.org/10.1016/j.knosys.2016.07.013). URL: [http://www.sciencedirec](http://www.sciencedirect.com/science/article/pii/S0950705116302271)t. [com/science/article/pii/S0950705116302271](http://www.sciencedirect.com/science/article/pii/S0950705116302271).
+- <span id="page-123-6"></span>[139] Piek Vossen, Rodrigo Agerri, Itziar Aldabe, Agata Cybulska, Marieke van Erp, Antske Fokkens, Egoitz Laparra, Anne-Lyse Minard, Alessio Palmero Aprosio, German Rigau, Marco Rospocher, and Roxane Segers. "NewsReader: Using knowledge resources in a cross-lingual reading machine to generate more knowledge from massive streams of news". In: *Knowledge-Based Systems*110 (2016), pages 60–85. ISSN: 0950-7051. DOI: [https : / / doi . org / 10 .](https://doi.org/https://doi.org/10.1016/j.knosys.2016.07.013) [1016/j.knosys.2016.07.013](https://doi.org/https://doi.org/10.1016/j.knosys.2016.07.013). URL: [http://www.sciencedirec](http://www.sciencedirect.com/science/article/pii/S0950705116302271)t. [com/science/article/pii/S0950705116302271](http://www.sciencedirect.com/science/article/pii/S0950705116302271).
 - <span id="page-123-0"></span>[140] Denny Vrandeciˇ c and Markus Kr ´ otzsch. "Wikidata: a free collaborative knowl- ¨ edge base". In: (2014).
-- <span id="page-123-8"></span>[141] Denny Vrandeciˇ c and Markus Kr ´ otzsch. "Wikidata: A Free Collaborative Knowl- ¨ edgebase". In: *Commun. ACM* 57.10 (Sept. 2014), pages 78–85. ISSN: 0001- 0782. DOI: [10.1145/2629489](https://doi.org/10.1145/2629489). URL: [http://doi.acm.org/10.](http://doi.acm.org/10.1145/2629489) [1145/2629489](http://doi.acm.org/10.1145/2629489).
-- <span id="page-123-7"></span>[142] Denny Vrandeciˇ c and Markus Kr ´ otzsch. "Wikidata: a free collaborative knowl- ¨ edgebase". In: *Communications of the ACM* 57.10 (2014), pages 78–85.
-- <span id="page-123-1"></span>[143] Q. Wang, Z. Mao, B. Wang, and L. Guo. "Knowledge Graph Embedding: A Survey of Approaches and Applications". In: *IEEE Transactions on Knowledge and Data Engineering* 29.12 (Dec. 2017), pages 2724–2743. ISSN: 1041-4347. DOI: [10.1109/TKDE.2017.2754499](https://doi.org/10.1109/TKDE.2017.2754499).
-- <span id="page-123-2"></span>[144] Quan Wang, Zhendong Mao, Bin Wang, and Li Guo. "Knowledge Graph Embedding: A Survey of Approaches and Applications". In: *IEEE Trans. Knowl. Data Eng.* 29.12 (2017), pages 2724–2743. DOI: [10.1109/TKDE.2017.](https://doi.org/10.1109/TKDE.2017.2754499) [2754499](https://doi.org/10.1109/TKDE.2017.2754499). URL: <https://doi.org/10.1109/TKDE.2017.2754499>.
-- <span id="page-123-5"></span>[145] Shenghui Wang, Stefan Schlobach, and Michel Klein. "Concept drift and how to identify it". In: *Journal of Web Semantics* 9.3 (2011). Semantic Web Dynamics Semantic Web Challenge, 2010, pages 247–265. ISSN: 1570-8268. DOI: [https://doi.org/10.1016/j.websem.2011.05.003](https://doi.org/https://doi.org/10.1016/j.websem.2011.05.003). URL: [http : / / www . sciencedirect . com / science / article / pii /](http://www.sciencedirect.com/science/article/pii/S1570826811000254) [S1570826811000254](http://www.sciencedirect.com/science/article/pii/S1570826811000254).
-- <span id="page-123-3"></span>[146] Zhen Wang, Jianwen Zhang, Jianlin Feng, and Zheng Chen. "Knowledge Graph Embedding by Translating on Hyperplanes". In: *Proceedings of the Twenty-Eighth AAAI Conference on Artificial Intelligence, July 27 -31, 2014, Quebec ´ City, Quebec, Canada. ´* Edited by Carla E. Brodley and Peter Stone. AAAI Press, 2014, pages 1112–1119. ISBN: 978-1-57735-661-5. URL: [http : / /](http://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/view/8531) [www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/view/](http://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/view/8531) [8531](http://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/view/8531).
-- <span id="page-123-4"></span>[147] Mark D Wilkinson, Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, Jan Willem Boiten, Luiz Bonino da Silva Santos, and Philip E Bourne. "The FAIR Guiding Principles for scientific data management and stewardship". In: *Scientific data* 3 (2016).
+- <span id="page-123-8"></span>[141] Denny Vrandeciˇ c and Markus Kr ´ otzsch. "Wikidata: A Free Collaborative Knowl- ¨ edgebase". In:*Commun. ACM*57.10 (Sept. 2014), pages 78–85. ISSN: 0001- 0782. DOI: [10.1145/2629489](https://doi.org/10.1145/2629489). URL: [http://doi.acm.org/10.](http://doi.acm.org/10.1145/2629489) [1145/2629489](http://doi.acm.org/10.1145/2629489).
+- <span id="page-123-7"></span>[142] Denny Vrandeciˇ c and Markus Kr ´ otzsch. "Wikidata: a free collaborative knowl- ¨ edgebase". In:*Communications of the ACM*57.10 (2014), pages 78–85.
+- <span id="page-123-1"></span>[143] Q. Wang, Z. Mao, B. Wang, and L. Guo. "Knowledge Graph Embedding: A Survey of Approaches and Applications". In:*IEEE Transactions on Knowledge and Data Engineering*29.12 (Dec. 2017), pages 2724–2743. ISSN: 1041-4347. DOI: [10.1109/TKDE.2017.2754499](https://doi.org/10.1109/TKDE.2017.2754499).
+- <span id="page-123-2"></span>[144] Quan Wang, Zhendong Mao, Bin Wang, and Li Guo. "Knowledge Graph Embedding: A Survey of Approaches and Applications". In:*IEEE Trans. Knowl. Data Eng.*29.12 (2017), pages 2724–2743. DOI: [10.1109/TKDE.2017.](https://doi.org/10.1109/TKDE.2017.2754499) [2754499](https://doi.org/10.1109/TKDE.2017.2754499). URL: <https://doi.org/10.1109/TKDE.2017.2754499>.
+- <span id="page-123-5"></span>[145] Shenghui Wang, Stefan Schlobach, and Michel Klein. "Concept drift and how to identify it". In:*Journal of Web Semantics*9.3 (2011). Semantic Web Dynamics Semantic Web Challenge, 2010, pages 247–265. ISSN: 1570-8268. DOI: [https://doi.org/10.1016/j.websem.2011.05.003](https://doi.org/https://doi.org/10.1016/j.websem.2011.05.003). URL: [http : / / www . sciencedirect . com / science / article / pii /](http://www.sciencedirect.com/science/article/pii/S1570826811000254) [S1570826811000254](http://www.sciencedirect.com/science/article/pii/S1570826811000254).
+- <span id="page-123-3"></span>[146] Zhen Wang, Jianwen Zhang, Jianlin Feng, and Zheng Chen. "Knowledge Graph Embedding by Translating on Hyperplanes". In:*Proceedings of the Twenty-Eighth AAAI Conference on Artificial Intelligence, July 27 -31, 2014, Quebec ´ City, Quebec, Canada. ´*Edited by Carla E. Brodley and Peter Stone. AAAI Press, 2014, pages 1112–1119. ISBN: 978-1-57735-661-5. URL: [http : / /](http://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/view/8531) [www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/view/](http://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/view/8531) [8531](http://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/view/8531).
+- <span id="page-123-4"></span>[147] Mark D Wilkinson, Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, Jan Willem Boiten, Luiz Bonino da Silva Santos, and Philip E Bourne. "The FAIR Guiding Principles for scientific data management and stewardship". In:*Scientific data*3 (2016).
 
-- <span id="page-124-3"></span>[148] Mark D. Wilkinson et al. "The FAIR Guiding Principles for scientific data management and stewardship". English. In: *Scientific Data* 3 (2016). ISSN: 2052- 4463. DOI: [10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18).
-- <span id="page-124-2"></span>[149] MD Wilkinson and et al. "The FAIR Guiding Principles for scientific data management and stewardship". In: *Scientific Data* 3 (2016). DOI: [http://doi.](https://doi.org/http://doi.org/10.1038/sdata.2016.18) [org/10.1038/sdata.2016.18](https://doi.org/http://doi.org/10.1038/sdata.2016.18).
-- <span id="page-124-1"></span>[150] Liyang Yu. *A Developer's Guide to the Semantic Web*. Springer, 2011. ISBN: 978-3-642-15969-5. DOI: [10.1007/978-3-642-15970-1](https://doi.org/10.1007/978-3-642-15970-1). URL: [https:](https://doi.org/10.1007/978-3-642-15970-1) [//doi.org/10.1007/978-3-642-15970-1](https://doi.org/10.1007/978-3-642-15970-1).
+- <span id="page-124-3"></span>[148] Mark D. Wilkinson et al. "The FAIR Guiding Principles for scientific data management and stewardship". English. In:*Scientific Data*3 (2016). ISSN: 2052- 4463. DOI: [10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18).
+- <span id="page-124-2"></span>[149] MD Wilkinson and et al. "The FAIR Guiding Principles for scientific data management and stewardship". In:*Scientific Data*3 (2016). DOI: [http://doi.](https://doi.org/http://doi.org/10.1038/sdata.2016.18) [org/10.1038/sdata.2016.18](https://doi.org/http://doi.org/10.1038/sdata.2016.18).
+- <span id="page-124-1"></span>[150] Liyang Yu.*A Developer's Guide to the Semantic Web*. Springer, 2011. ISBN: 978-3-642-15969-5. DOI: [10.1007/978-3-642-15970-1](https://doi.org/10.1007/978-3-642-15970-1). URL: [https:](https://doi.org/10.1007/978-3-642-15970-1) [//doi.org/10.1007/978-3-642-15970-1](https://doi.org/10.1007/978-3-642-15970-1).
 - <span id="page-124-0"></span>[151] Yang Zhe, Dalu Zhang, and Ye Chuan. "Evaluation metrics for ontology complexity and evolution analysis". In: *2006 IEEE International Conference on e-Business Engineering (ICEBE'06)*. IEEE. 2006, pages 162–170.

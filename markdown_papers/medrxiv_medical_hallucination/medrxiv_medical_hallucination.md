@@ -1,3 +1,5 @@
+<!-- cite_key: tsvetkovsupsup2024 -->
+
 # Medical Hallucination in Foundation Models and Their Impact on Healthcare
 
 Yubin Kim‡<sup>1</sup> , Hyewon Jeong§<sup>1</sup> , Shan Chen<sup>2</sup> , Shuyue Stella Li<sup>3</sup> , Mingyu Lu§<sup>3</sup> , Kumail Alhamoud<sup>1</sup> , Jimin Mun<sup>4</sup> , Cristina Grau<sup>1</sup> , Minseok Jung<sup>1</sup> , Rodrigo Gameiro<sup>1</sup> , Lizhou Fan<sup>2</sup> , Eugene Park<sup>1</sup> , Tristan Lin<sup>8</sup> , Joonsik Yoon§<sup>5</sup> , Wonjin Yoon<sup>2</sup> , Maarten Sap<sup>4</sup> ,
@@ -8,7 +10,7 @@ Yulia Tsvetkov<sup>3</sup> , Paul Liang<sup>1</sup> , Xuhai Xu<sup>7</sup> , Xin
 
 <sup>5</sup> Seoul National University Hospital <sup>6</sup> Google <sup>7</sup> Columbia University <sup>8</sup> Johns Hopkins University.
 
-#### Abstract
+## Abstract
 
 Foundation Models that are capable of processing and generating multi-modal data have transformed AI's role in medicine. However, a key limitation of their reliability is hallucination, where inaccurate or fabricated information can impact clinical decisions and patient safety. We define medical hallucination as any instance in which a model generates misleading medical content. This paper examines the unique characteristics, causes, and implications of medical hallucinations, with a particular focus on how these errors manifest themselves in real-world clinical scenarios. Our contributions include (1) a taxonomy for understanding and addressing medical hallucinations, (2) benchmarking models using medical hallucination dataset and physician-annotated LLM responses to real medical cases, providing direct insight into the clinical impact of hallucinations, and (3) a multi-national clinician survey on their experiences with medical hallucinations. Our results reveal that inference techniques such as Chainof-Thought (CoT) and Search Augmented Generation can effectively reduce hallucination rates. However, despite these improvements, non-trivial levels of hallucination persist. These findings underscore the ethical and practical imperative for robust detection and mitigation strategies, establishing a foundation for regulatory policies that prioritize patient safety and maintain clinical integrity as AI becomes more integrated into healthcare. The feedback from clinicians highlights the urgent need for not only technical advances but also for clearer ethical and regulatory guidelines to ensure patient safety. A repository organizing the paper resources, summaries, and additional information is available at [https://github.com/mitmedialab/medical](https://github.com/mitmedialab/medical_hallucination) hallucination.
 
@@ -344,7 +346,7 @@ Hallucinations in medical LLMs often arise from a confluence of factors relating
 
 The quality, diversity, and scope of training data profoundly influence model performance. Gaps in these areas are key contributors to hallucinations.
 
-### <span id="page-17-2"></span>3.1.1 Data Quality and Noise
+## <span id="page-17-2"></span>3.1.1 Data Quality and Noise
 
 Clinical datasets, such as electronic health records (EHRs) and physician notes, often contain noise in the form of incomplete entries, misspellings, and ambiguous abbreviations. These inconsistencies propagate errors into LLM training [\(Hegselmann et al.,](#page-63-0) [2024b\)](#page-63-0). For instance, a lack of structured input may confuse models, leading them to replicate false patterns or irrelevant outputs [\(Moradi et al.,](#page-67-4) [2021\)](#page-67-4). Outdated data further compounds this issue. Medical knowledge evolves continuously, and guidelines can quickly become outdated [\(Shekelle et al.,](#page-71-3) [2002\)](#page-71-3). Models trained on static or historical data may recommend ineffective treatments, reducing clinical utility [\(Glicksberg,](#page-62-3) [2024\)](#page-62-3). Addressing these issues requires rigorous data curation, including noise filtering, deduplication, and alignment with current medical guidelines.
 
@@ -362,7 +364,7 @@ While large-scale datasets are critical for training LLMs, general-purpose model
 
 Limitations intrinsic to model architecture and behavior also contribute to hallucinations, particularly in medical applications.
 
-### <span id="page-18-2"></span>3.2.1 Overconfidence and Calibration
+## <span id="page-18-2"></span>3.2.1 Overconfidence and Calibration
 
 LLMs frequently exhibit overconfidence, generating outputs with high certainty even when the information is incorrect. Poor calibration—where confidence scores fail to align with prediction accuracy—can mislead clinicians into trusting inaccurate outputs [\(Cao et al.,](#page-59-2) [2021\)](#page-59-2). For example, [Yuan et al.](#page-78-4) [\(2023\)](#page-78-4) highlight the need for improved uncertainty estimation techniques to mitigate overconfidence. Effective strategies for addressing calibration include probabilistic modeling, confidence-aware training, and ensemble methods. These approaches enable models to provide uncertainty estimates alongside predictions, promoting safer integration into clinical workflows.
 
@@ -394,7 +396,7 @@ We explore several general strategies for hallucination detection in LLMs, along
 
 > generates outputs that are unsupported by factual knowledge or the input context. Detection methods can be broadly categorized into three groups: 1) factual verification, 2) summary consistency verification, and 3) uncertainty-based hallucination detection. Various benchmarks have been developed to evaluate the effectiveness of these detection strategies, as summarized in Table [3.](#page-90-0)
 
-### <span id="page-20-0"></span>4.1.1 Factual Verification
+## <span id="page-20-0"></span>4.1.1 Factual Verification
 
 Factual verification techniques assess whether claims generated by a model are backed by reliable evidence. These methods are critical in domains like healthcare, where hallucinations can lead to significant risks. One approach by [Chen et al.](#page-59-4) [\(2024\)](#page-59-4) decomposes complex claims into sub-questions, retrieves relevant documents from web sources, and evaluates the truthfulness of each sub-component. By isolating individual facts, this method ensures rigorous verification of multi-faceted medical claims. Another method, FACTSCORE [\(Min et al.,](#page-67-7) [2023\)](#page-67-7), evaluates factual precision at a granular level, focusing on "atomic facts" rather than entire sentences. This fine-grained approach is especially useful for medical applications, where even small inaccuracies in a diagnosis or recommendation can have serious consequences. FACTSCORE identifies hallucinations embedded within seemingly plausible outputs, making it a useful tool for fact verification in medical LLMs.
 
@@ -410,11 +412,11 @@ Uncertainty-based hallucination detection assumes that hallucinations occur when
 
 To effectively evaluate and quantify hallucinations in medical LLMs, we propose a systematic framework that aligns with the taxonomy presented in Table [2.](#page-14-0) This framework encompasses multiple measurement approaches, each addressing specific aspects of hallucination detection and evaluation across different healthcare applications. Specific tests designed to detect these hallucinations in clinical contexts are presented in Table [4.](#page-91-0)
 
-#### Factual Accuracy Assessment
+## Factual Accuracy Assessment
 
 This fundamental measurement approach directly addresses Factual Hallucinations and Research Hallucinations by comparing LLM outputs against authoritative medical sources. When an LLM generates information that contradicts established medical knowledge, it indicates the model is fabricating content rather than retrieving and applying accurate information. This involves both automated metrics (entity overlap, relation overlap) and expert verification, with particular emphasis on medical entity recognition and relationship validation. For instance, in Drug Discovery applications, this would assess whether drug-protein interactions described by the LLM align with established biochemical knowledge [\(Juhi et al.,](#page-64-7) [2023\)](#page-64-7).
 
-#### Consistency Analysis
+### Consistency Analysis
 
 This approach employs Natural Language Inference (NLI) and Question-Answer Consistency techniques to detect Decision-Making Hallucinations and Diagnostic Hallucinations in Clinical Decision Support Systems (CDSS) and EHR Management. Internal contradictions in an LLM's response suggest the model is generating information without maintaining a coherent understanding of the medical case, indicating hallucination rather than reasoned analysis [\(Sambara et al.,](#page-72-4) [2024\)](#page-72-4). Future benchmarks and metrics are recommended to examine logical consistency across medical reasoning chains and evaluates whether treatment recommendations align with provided patient information and clinical guidelines.
 
@@ -438,7 +440,7 @@ Each measurement approach may require both automated metrics and expert validati
 
 One of the fundamental challenges in detecting hallucinations lies in the ambiguity of the term itself, which encompasses diverse errors and lacks a universally accepted definition [\(Huang et al.,](#page-63-5) [2024\)](#page-63-5). This makes it difficult to standardize benchmarks or evaluate detection methods effectively. Once a consensus on the definitions of hallucinations is established, there remains the issue of evaluating these phenomena effectively. Developing principled metrics aligned with a clear taxonomy of hallucinations is essential for advancing detection approaches. Often,domain-specific solutions tailored to the complex reasoning processes in medical contexts, such as entailment framework specific to radiology report, is useful to evaluate whether generated statements align with input findings [\(Sambara et al.,](#page-72-4) [2024\)](#page-72-4).
 
-#### Lack of a Reliable Ground Truth
+## Lack of a Reliable Ground Truth
 
 A significant obstacle in hallucination detection is the frequent absence of, or the high cost of collecting a reliable ground truth, especially for complex or novel queries. For example, when simulating diagnostic tasks in radiology or summarizing complex patient histories, it is challenging to define what constitutes a hallucination without pre-established labeled examples [\(Hegselmann et al.,](#page-63-0) [2024b\)](#page-63-0). This gap hinders both the evaluation of detection methods and the supervised training of models for hallucination detection of medical LLMs.
 
@@ -446,7 +448,7 @@ Annotating diagnosis recommendations for real-world medical cases is challenging
 
 Lastly, some clinical cases exhibit significant disagreement among clinicians, making it difficult to condense them into a single annotation. This problem is exacerbated in highly specialized domains, such as oncology, evidenced by a recent study evaluating ChatGPT's ability to provide cancer treatment recommendations against National Comprehensive Cancer Network (NCCN) guidelines [\(Chen et al.,](#page-59-5) [2023b\)](#page-59-5). In this work, full agreement among three oncologists occurred in only 61.9% of cases [\(Chen et al.,](#page-59-5) [2023b\)](#page-59-5), highlighting the inherent complexity of assessing AI-generated medical outputs in specialized domains.
 
-#### Semantic Equivalence and Its Role in Detection
+### Semantic Equivalence and Its Role in Detection
 
 Semantic equivalence is the alignment of meaning between two pieces of text, ensuring they convey the same intended message [\(Finch et al.,](#page-61-3) [2005;](#page-61-3) [Pad´o et al.,](#page-69-2) [2009\)](#page-69-2).
 
@@ -466,7 +468,7 @@ Enhancing data quality and curation is critical for reducing hallucinations, as 
 
 > By leveraging high-quality, well-annotated datasets, models can better align with realworld clinical decision-making and minimize hallucinations that arise from incomplete or misleading information.
 
-### <span id="page-25-0"></span>5.1.2 Augmenting Training Data
+## <span id="page-25-0"></span>5.1.2 Augmenting Training Data
 
 Augmenting training data has become important in enhancing the reasoning capabilities of LLMs in medical applications. Augmentation techniques help bridge knowledge gaps, improve generalization, and mitigate biases in LLM-generated outputs. Several LLM-driven solutions have been introduced to enrich training datasets with clinically relevant information. For example, models used in patient-trial matching [\(Yuan](#page-78-5) [et al.,](#page-78-5) [2023\)](#page-78-5) improve compatibility between electronic health records (EHRs) and clinical trial descriptions, thereby refining model accuracy in real-world clinical settings. Furthermore, models like DALL-M [\(Hsieh et al.,](#page-63-6) [2024\)](#page-63-6) use a multistep process to generate clinically relevant characteristics by synthesizing data from medical images and text reports, allowing for more personalized healthcare solutions. Another prominent model, GatorTronGPT [\(Peng et al.,](#page-70-5) [2023\)](#page-70-5), trained on a comprehensive set of clinical data, improves the generation of biomedical text, facilitating the augmentation of medical training data for various tasks and downstream training applications.
 
@@ -476,7 +478,7 @@ Model-centric approaches focus on directly improving LLMs through advanced train
 
 # <span id="page-25-2"></span>5.2.1 Advanced Training Methods
 
-#### Preference Learning for Factuality
+## Preference Learning for Factuality
 
 To better align model outputs and behaviors with human preferences, several methods have been introduced, including direct preference optimization (DPO; [Rafailov et al.,](#page-70-6) [2024\)](#page-70-6), reinforcement learning from human feedback (RLHF; [Ouyang et al.,](#page-69-3) [2022\)](#page-69-3), and AI feedback (RLAIF; [Lee et al.,](#page-66-7) [2023\)](#page-66-7), utilizing techniques like proximal policy optimization (PPO; [Schulman et al.,](#page-72-5) [2017\)](#page-72-5) as a training mechanism.
 
@@ -502,7 +504,7 @@ In addition to training an LLM to produce more factual outputs, an auxiliary cri
 
 External knowledge integration techniques enhance the capabilities of LLMs by incorporating up-to-date and specialized information from external sources. These approaches are particularly valuable in the medical domain, where timely, accurate, and evidence-based information is crucial for reducing hallucinations and improving decision support.
 
-### <span id="page-27-0"></span>5.3.1 Retrieval-Augmented Generation
+## <span id="page-27-0"></span>5.3.1 Retrieval-Augmented Generation
 
 Retrieval-augmented generation (RAG) [\(Lewis et al.,](#page-66-1) [2020\)](#page-66-1) is a prominent method for integrating external knowledge without additional model retraining. The RAG process begins with the retrieval of relevant text and the integration of it into the generation pipeline [\(Asai et al.,](#page-57-6) [2023\)](#page-57-6), from concatenation to the original input to integration into intermediate Transformer layers [\(Izacard et al.,](#page-63-7) [2023;](#page-63-7) [Borgeaud et al.,](#page-57-7) [2022\)](#page-57-7) and interpolation of token distributions of retrieved text and generated text [\(Yogatama](#page-78-6) [et al.,](#page-78-6) [2021\)](#page-78-6).
 
@@ -546,7 +548,7 @@ Abstention and Deliberation. When models generate multiple hypotheses without a 
 
 > By designing models that effectively convey when they are uncertain—whether via post-hoc calibration, structured confidence sets, or consensus-driven deliberation—practitioners can better interpret and validate AI outputs. Such strategies are crucial for minimizing risk in clinical diagnostics, where the cost of error can be immediate and severe.
 
-### <span id="page-30-0"></span>5.4.2 Confidence Estimation in High-Stakes Applications
+## <span id="page-30-0"></span>5.4.2 Confidence Estimation in High-Stakes Applications
 
 # <span id="page-30-1"></span>5.5 Prompt Engineering Strategies
 
@@ -556,7 +558,7 @@ The interactive self-reflection methodology introduces a recursive prompting arc
 
 Semantic prompt enrichment [\(Penkov,](#page-70-10) [2024\)](#page-70-10) combines biomedical entity recognition with ontological grounding to constrain LLM outputs. Through integration of BioBERT for clinical concept extraction and ChEBI for chemical ontology
 
-#### <span id="page-31-0"></span>Chain-of-Medical-Thought (CoMT) in Medical Report Generation.
+## <span id="page-31-0"></span>Chain-of-Medical-Thought (CoMT) in Medical Report Generation.
 
 ![](_page_31_Picture_2.jpeg)
 
@@ -564,7 +566,7 @@ Medical Report: AP and lateral views of the chest were provided in the X-ray. Lu
 
 upper lobe consolidation; 2. Mild heart failure; 3. Findings of chronic lung disease, most likely sarcoidosis.
 
-#### Construction of Hierarchical QA pair
+### Construction of Hierarchical QA pair
 
 Q1: What modality is used to take this image?
 
@@ -618,9 +620,9 @@ Base: This method served as our baseline. LLMs were directly queried with the qu
 
 System Prompt: We prepended a system prompt to the user's question. These system prompts were designed to guide the LLM towards providing accurate and reliable medical information, explicitly discouraging the generation of fabricated content. Examples of system prompts included instructions to act as a knowledgeable medical expert and to avoid making assumptions. However, it's important to note that research [\(Zheng et al.,](#page-79-4) [2024\)](#page-79-4) has questioned the consistent effectiveness of personas and system prompts in improving LLM performance on objective tasks. While our prompts
 
-#### <span id="page-33-0"></span>Prompt Examples for Each Step of Chain-of-Knowledge (CoK)
+## <span id="page-33-0"></span>Prompt Examples for Each Step of Chain-of-Knowledge (CoK)
 
-#### REASONING GENERATION
+### REASONING GENERATION
 
 Q: This British racing driver came in third at the 2014 Bahrain GP2 Series round and was born in what year
 
@@ -687,7 +689,7 @@ By incorporating these diverse tasks, Med-HALT provides a comprehensive framewor
 
 # <span id="page-35-0"></span>6.3 Metrics
 
-#### Hallucination Pointwise Score
+## Hallucination Pointwise Score
 
 The Pointwise Score used in Med-HALT [\(Pal et al.,](#page-70-0) [2023\)](#page-70-0) is designed to provide an in-depth evaluation of model performance, considering both correct answers and incorrect ones with a penalty. It is calculated as the average score across the samples, where each correct prediction is awarded a positive score (P<sup>c</sup> = +1) and each incorrect prediction incurs a negative penalty (P<sup>w</sup> = −0.25). The formula for the Pointwise Score (S) is given by:
 
@@ -706,7 +708,7 @@ where:
 - P<sup>c</sup> = 1 is the points awarded for a correct prediction.
 - P<sup>w</sup> = −0.25 is the points deducted for an incorrect prediction.
 
-#### Similarity Score
+### Similarity Score
 
 The Similarity Score assesses the semantic similarity between the model's generated responses and the ground truth correct answer, as well as the similarity between the response and the original question. This is achieved using UMLSBERT, a specialized medical text embedding model, and cosine similarity. The process is as follows:
 
@@ -727,19 +729,19 @@ $$
 
 To assess medical hallucinations comprehensively, we evaluated a diverse set of foundation models, selected to represent a range of architectures, training paradigms, and domain specializations. Our selection included both general-purpose models, which represent the forefront of broadly applicable LLM technology, and medical-purpose models, designed or fine-tuned specifically for healthcare applications. This approach allowed us to compare hallucination tendencies across models with varying levels of domain expertise and general reasoning capabilities.
 
-#### General-Purpose LLMs
+## General-Purpose LLMs
 
 These models are trained on extensive datasets encompassing general text and code, designed for broad applicability across diverse tasks. Their inclusion helps establish a baseline for hallucination performance and assesses how well general reasoning capabilities translate to the medical domain. Within this category are models from OpenAI and Google. OpenAI Models include o3-mini and o1-preview, introduced in January 2025 and September 2024 respectively and designed to spend more time "thinking" before responding, enhancing reasoning capabilities for complex tasks like science, coding, and mathematics. Also included are GPT-4o and GPT-4o-mini, released in May and July 2024 respectively. GPT-4o is a multimodal model capable of processing and generating text, images, and audio, offering enhanced reasoning and factual accuracy, while GPT-4o-mini is a smaller, more cost-effective version that maintains strong performance with greater efficiency. Google Gemini Models feature Gemini 2.0 Thinking and Gemini 2.0 Flash, launched in Febuary 2025 and December
 
 > 2024 respectively, designed for enhanced reasoning and efficient, cost-effective performance with multimodal input support. Gemini 1.5 Flash, released in May 2024, is optimized for speed and efficiency, offering low latency and enhanced performance.
 
-#### Medical-Purpose LLMs
+### Medical-Purpose LLMs
 
 These models are specifically adapted or trained for medical or biomedical tasks. Their inclusion is crucial for understanding whether domain-specific training or fine-tuning effectively reduces medical hallucinations compared to general-purpose models. This category includes PMC-LLaMA and Alpaca Variants. PMC-LLaMA is a model fine-tuned from LLaMA on PubMed Central (PMC), a free archive of biomedical and life sciences literature. It is designed to enhance performance in medical question answering and knowledge retrieval by leveraging a large corpus of medical research papers. Alpaca Variants include AlphaCare-13B, an Alpaca style Llama based model further finetuned on a medical question-answering dataset, aiming to improve clinical reasoning and dialogue capabilities. MedAlpaca-13B is another Alpaca style Llama based model, fine-tuned on a combination of medical datasets, including medical question-answering and clinical text, designed to perform well on a range of medical NLP tasks.
 
 # <span id="page-37-0"></span>6.5 Results
 
-### Advanced Reasoning Models Maintain Hallucination Resistance Leadership
+## Advanced Reasoning Models Maintain Hallucination Resistance Leadership
 
 Our experimental results, visualized in Figure [5,](#page-38-0) reinforce the trend of advanced reasoning models excelling in hallucination prevention. Notably, gemini-2.0-thinking emerges as a top performer, exhibiting the highest hallucination resistance among the models tested, especially when augmented with Search. gemini-2.0 and deepseek-r1 also demonstrate robust hallucination resistance, positioning themselves alongside o1-preview and outperforming earlier models. This sustained superiority of generalpurpose models emphasizes that cutting-edge advancements in broad language understanding are directly contributing to enhanced reliability in specialized domains like medicine.
 
@@ -759,7 +761,7 @@ The analysis of similarity scores in Figure 5 reveals a clear stratification of 
 
 The updated results further highlight the previously observed limitations of domainspecific models. Despite being trained on medical data, models like pmc-llama and medalpaca continue to exhibit significantly higher hallucination rates (around 60%) and lower similarity scores compared to advanced general-purpose models. This persistent trend suggests that while domain-specific data is valuable, the broader language understanding and reasoning capabilities developed in state-of-the-art general models are arguably more crucial for achieving high reliability in complex medical tasks. The superior performance of models like deepseek-r1 and o3-mini, which are not explicitly medical-focused but possess strong general language capabilities, further supports this observation.
 
-#### Search-Augmented Generation Shows Nuanced Impact
+## Search-Augmented Generation Shows Nuanced Impact
 
 The effectiveness of search-augmented generation presents a more nuanced picture with the inclusion of newer models. While the trend of diminishing returns for search augmentation in advanced models remains generally true, gemini-2.0-thinking demonstrates a notable benefit from search, achieving the lowest hallucination score with this method. This suggests that even the most capable models can still leverage external, up-to-date information to further refine their responses and minimize hallucinations, particularly when dealing with rapidly evolving medical knowledge. However, for models like deepseek-r1 and o3-mini, the gain from search augmentation appears less pronounced, reinforcing the overall trend that highly advanced architectures are increasingly relying on their internal knowledge base for accuracy.
 
@@ -795,11 +797,11 @@ Our smaller set of 20 cases sought to reflect this distribution, though not perf
 
 To qualitatively assess the LLM's clinical reasoning abilities, we designed three targeted tasks, each focusing on a crucial aspect of medical problem-solving: 1) chronological ordering of events, 2) lab data interpretation, and 3) differential diagnosis generation. These tasks were designed to mimic essential steps in clinical practice, from understanding the patient's history to formulating a diagnosis.
 
-#### Chronological Ordering Test
+## Chronological Ordering Test
 
 We first evaluated the LLM's ability to sequence clinical events, a cornerstone of medical history taking and understanding disease trajectories. For this Chronological Ordering Test, we prompted the LLM with the question: "Order the key events chronologically and identify temporal relationships between symptoms and interventions." Our results indicate that while the generated chronological ordering by the LLM was generally correct, it missed several important landmark events of the patient. For instance, in the case of opioid use disorder [\(Walley et al.,](#page-76-11) [2019\)](#page-76-11), crucial details regarding the patient's history of oxycodone and cocaine use were absent from the generated timeline. These omissions are clinically significant as they provide context for the patient's presentation. Furthermore, in the coronary artery dissection case [\(Tsiaras](#page-73-8) [et al.,](#page-73-8) [2017\)](#page-73-8), key treatment details, such as the administration of isosorbide mononitrate, were omitted. Precise temporal markers, such as specific dates for key events like hospital admission in the adenocarcinoma patient case [\(Murphy et al.,](#page-68-7) [2018\)](#page-68-7), were also lacking. Lastly, we observed in [\(Murphy et al.,](#page-68-7) [2018\)](#page-68-7) that the LLM struggled to group concurrent events, incorrectly treating them as separate, sequential occurrences.
 
-#### Lab Test Understanding Test
+### Lab Test Understanding Test
 
 Next, we stress-tested the LLM's capacity to interpret laboratory test results and, critically, to explain their clinical significance in relation to the patient's symptoms. For this Lab Data Understanding Test, we used the prompt: "Analyze the laboratory findings and explain their clinical significance in relation to the patient's symptoms." Our findings indicate that while the LLM could identify most laboratory results, it frequently failed to highlight and interpret abnormal values critical to understanding the patient's conditions, particularly in cases like [\(Murphy et al.,](#page-68-7) [2018\)](#page-68-7) and [\(Kazi](#page-65-9) [et al.,](#page-65-9) [2020\)](#page-65-9). For example, in the adenocarcinoma patient case [\(Murphy et al.,](#page-68-7) [2018\)](#page-68-7), the patient's laboratory examination revealed a significantly elevated lactate level, a critical indicator of tissue hypoxia. Alarmingly, the LLM failed to report this crucial abnormality in its generated response, demonstrating a potential gap in its ability to prioritize and interpret clinically significant lab results.
 
@@ -813,11 +815,11 @@ Finally, we assessed the LLM's ability to generate differential diagnoses, a vit
 
 Based on expert annotations (Subsection [7.3\)](#page-42-0), we rigorously quantified hallucination rates and the severity of associated clinical risks for five prominent LLMs: 'o1', 'gemini-2.0-flash-exp', 'gpt-4o','gemini-1.5-flash', and 'claude-3.5 sonnet' (see Figure [1\)](#page-8-0). Clinical risks were systematically categorized across a granular scale from 'No Risk' (0) to 'Catastrophic' (5), allowing for a nuanced evaluation of both the frequency and potential clinical ramifications of LLM-generated inaccuracies in medical contexts.
 
-#### Overall Hallucination Rates and Task-Specific Trends
+## Overall Hallucination Rates and Task-Specific Trends
 
 A notable task-specific trend emerged: Diagnosis Prediction consistently exhibited the lowest overall hallucination rates across all models, ranging from 0% to 22%. Conversely, tasks demanding precise factual recall and temporal integration – Chronological Ordering (0.25 - 24.6%) and Lab Data Understanding (0.25 - 18.7%) – presented significantly higher hallucination frequencies. This finding challenges a simplistic assumption that diagnostic tasks, often perceived as complex inferential problems, are inherently more error-prone for LLMs. Instead, our results suggest that current LLM architectures may possess a relative strength in pattern recognition and diagnostic inference within medical case reports, but struggle with the more fundamental tasks of accurately extracting and synthesizing detailed factual and temporal information directly from clinical text.
 
-#### Model-Specific Hallucination Rates
+### Model-Specific Hallucination Rates
 
 GPT-4o consistently demonstrated the highest propensity for hallucinations in tasks requiring factual and temporal accuracy. Specifically, its hallucination rates in Chronological Ordering (24.6%) and Lab Data Understanding (18.7%) were markedly elevated compared to other models. Crucially, a substantial proportion of these hallucinations were independently classified by medical experts as posing 'Significant' or 'Considerable' clinical risk, highlighting not just the frequency but also the potential clinical impact of GPT-4o's inaccuracies in these fundamental tasks. Interestingly, while GPT-4o's hallucination rate in Diagnosis Prediction was also comparatively high in absolute terms (22.0%), it was marginally lower than that observed for Gemini-2.0 flash-exp (2.25%, although a potential data discrepancy between output logs and visual representation warrants further investigation).
 
@@ -833,11 +835,11 @@ While GPT-4o's higher hallucination frequency and associated clinical risk sever
 
 # <span id="page-44-0"></span>7.5 Inter-rater Reliability Analysis
 
-#### Quantifying Agreement in Hallucination Annotation.
+## Quantifying Agreement in Hallucination Annotation.
 
 To rigorously assess the consistency and reliability of our qualitative evaluations, we conducted a comprehensive inter-rater reliability analysis. Seven expert annotators, each possessing an MD degree or advanced clinical specialization, independently evaluated the outputs generated by the language models for each of the 20 clinical case reports. This analysis focused on two critical dimensions of annotation: 1) hallucination type and 2) clinical risk level. To quantify the degree of agreement among annotators, we employed the Average Pairwise Jaccard-like Index [\(Jaccard,](#page-63-9) [1901\)](#page-63-9), a metric well-suited for assessing set similarity and inter-rater agreement in annotation tasks. The aggregate inter-rater agreement, averaged across all cases and language models,
 
-#### <span id="page-45-0"></span>An example of Physician annotations on LLM's response
+### <span id="page-45-0"></span>An example of Physician annotations on LLM's response
 
 #### Prompt to LLM:
 
@@ -1339,7 +1341,7 @@ Annals of Biomedical Engineering 52(5), 1115–1118 (2024)
   - Data science in healthcare
   - Other:
 
-### 2. How many years of experience do you have in your current field?
+## How many years of experience do you have in your current field?
 
 - Less than 5 years
 - 5-10 years
@@ -1347,7 +1349,7 @@ Annals of Biomedical Engineering 52(5), 1115–1118 (2024)
 - 3. What is your primary area of practice/research within your field? (e.g., Oncology, Cardiology, Drug Discovery, Genomics, etc.)
 - 4. In what region do you primarily practice/conduct research? (e.g., North America, Europe, East Asia, Africa, etc.)
 
-# 5. What is the highest degree you have obtained?
+# What is the highest degree you have obtained?
 
 - Bachelor's degree
 - Master's degree
@@ -1393,7 +1395,7 @@ Annals of Biomedical Engineering 52(5), 1115–1118 (2024)
   - Solving board exam questions
   - Other:
 
-# 11. What actions did you take to verify the information provided by the AI/LLM when you encountered a hallucination?
+# What actions did you take to verify the information provided by the AI/LLM when you encountered a hallucination?
 
 - Cross-referenced with other sources
 - Consulted a colleague or expert
@@ -1489,7 +1491,7 @@ Annals of Biomedical Engineering 52(5), 1115–1118 (2024)
   - 5 (Extremely helpful)
 - 26. What are the top 3 medical tasks for which you find AI/LLM tools most useful?
 
-### A.1.5 Improvements and Future Outlook
+## A.1.5 Improvements and Future Outlook
 
 <span id="page-83-1"></span>
 
@@ -1582,7 +1584,7 @@ our text, we again prompted GPT-4o to use the extracted text from pdfminer to re
 
 After refining the extracted content, we stored the content for each case record in a dedicated directory with the following structure:
 
-```
+```text
 Case 1/
 - images /
   - image_001 . png
@@ -1590,7 +1592,7 @@ Case 1/
   - description . json
 - text . txt
 - tables . json
-```
+```text
 
 # <span id="page-88-1"></span>C.4.1 Text
 
@@ -1606,7 +1608,7 @@ All extracted tables are stored in a structured JSON format. Each table entry co
 
 ![](_page_88_Figure_13.jpeg)
 
-```
+```text
 {
     " table_1 ": {
          " table_df ": "{ ' Table 1. Laboratory Data .* ':
@@ -1626,15 +1628,15 @@ All extracted tables are stored in a structured JSON format. Each table entry co
     " table_2 ": {...
     }
 }
-```
+```text
 
-### <span id="page-89-0"></span>C.4.3 Images and Descriptions
+## <span id="page-89-0"></span>C.4.3 Images and Descriptions
 
 The extracted images are saved under the images directory in .png files along with the captions and summaries of the images that are saved in JSON format in description.json.
 
 Example format of description.json:
 
-```
+```text
 {
     " image_1 . png ": {
          " caption ": " MRI scan of the patient 's brain ." ,
@@ -1645,7 +1647,7 @@ Example format of description.json:
          " summary ": " Microscopic examination reveals ..."
     }
 }
-```
+```text
 
 This methodology enabled efficient, ethical, and high-quality extraction of NEJM medical case records into a multi-modal dataset of text, images, and tables.
 

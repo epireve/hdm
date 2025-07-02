@@ -1,13 +1,14 @@
+<!-- cite_key: wang2024 -->
+
 # Question answering over temporal knowledge graphs based on hierarchical semantic extraction
 
-1 st Jian Wang *School of Information Shanghai Ocean University* Shanghai, China wangjian@shou.edu.cn
+1 st Jian Wang *School of Information Shanghai Ocean University*Shanghai, China wangjian@shou.edu.cn
 
-2 nd Wenjuan Zhang *School of Information Shanghai Ocean University* Shanghai, China M230951694@st.shou.edu.cn
+2 nd Wenjuan Zhang*School of Information Shanghai Ocean University*Shanghai, China M230951694@st.shou.edu.cn
 
-3 rd Qi He *School of Information Shanghai Ocean University* Shanghai, China qihe@shou.edu.cn
+3 rd Qi He*School of Information Shanghai Ocean University*Shanghai, China qihe@shou.edu.cn
 
-4 th Danfeng Zhao<sup>B</sup> *School of Information Shanghai Ocean University* Shanghai, China dfzhao@shou.edu.cn
-
+4 th Danfeng Zhao<sup>B</sup>*School of Information Shanghai Ocean University*Shanghai, China dfzhao@shou.edu.cn
 *Abstract*—Temporal Knowledge Graph Question Answering (TKGQA) aims to address problems with temporal constraints using a Temporal Knowledge Graph (TKG). Existing models often overlook the structural information within problems, making it challenging to effectively manage complex temporal issues. To overcome these challenges, we propose the HSTQA model, which employs a hierarchical semantic extraction strategy to precisely capture semantic and implicit temporal information in queries. A multi-granularity fusion technique enhances the model's capability to tackle problems with varying temporal granularities. Additionally, HSTQA incorporates graph convolutional networks to efficiently identify and integrate implicit temporal features and relational patterns. Extensive testing on the MultiTQ dataset shows that HSTQA improves Hits@1 by 10.8% compared to traditional methods, demonstrating its effectiveness in addressing multi-granularity temporal problems and enhancing complex temporal reasoning.
 
 *Index Terms*—Temporal knowledge graph, Question answering, Temporal reasoning, Multi-granularity time question
@@ -36,29 +37,18 @@ the multi-granularity fusion module harmonizes question and TKG temporal granula
 
 ## II. RELATE WORK
 
-## *A. Temporal Knowledge Graph Embedding*
+## *A. Temporal Knowledge Graph Embedding*Timestamps can be efficiently integrated into the model through Temporal Knowledge Graph Embedding (TKGE) to accurately capture entity, relationship, and temporal dynamics information. Jiang et al. [8] proposed the first time-aware embedding model. HyTE [9] assigns each timestamp a corresponding hyperplane to utilize temporal information in the entity-relationship space. The DE-SimplE [10] model treats timestamps as part of a relationship. The TComplEx [11] model, on the other hand, extends ComplEx [12] based on the regular decomposition of the 4th order tensor and is the most widely used of the TKGQA models [2]–[7] . In this paper, we use these TKG embeddings in our approach to work with the temporal relationship representation.
 
-Timestamps can be efficiently integrated into the model through Temporal Knowledge Graph Embedding (TKGE) to accurately capture entity, relationship, and temporal dynamics information. Jiang et al. [8] proposed the first time-aware embedding model. HyTE [9] assigns each timestamp a corresponding hyperplane to utilize temporal information in the entity-relationship space. The DE-SimplE [10] model treats timestamps as part of a relationship. The TComplEx [11] model, on the other hand, extends ComplEx [12] based on the regular decomposition of the 4th order tensor and is the most widely used of the TKGQA models [2]–[7] . In this paper, we use these TKG embeddings in our approach to work with the temporal relationship representation.
-
-## *B. Question Answering Over Temporal Knowledge Graphs*
-
-There are two approaches to TKGQA. The first approach decomposes the original question into non-temporal questions and temporal constraints, then applies a question-and-answer model designed for Knowledge Graphs (KGs) to answer these questions, such as [2]. However, this approach requires handcrafted decomposition rules and cannot handle complex questions. The second approach aims to obtain TKG embeddings to compute the semantic similarity of the answers. CronKGQA [4] does not rely on hand-crafted rules and performs well in answering simple questions but struggles with complex questions requiring time-constrained reasoning. TempoQR [13] addresses complex temporal questions by learning context, entity, and time-aware enhancements of the question representation. However, it does not adequately consider time constraints, leading to unreliable answers. A similar issue is observed in MultiQA [7], which focuses on solving multi-granularity temporal questions.
+##*B. Question Answering Over Temporal Knowledge Graphs*There are two approaches to TKGQA. The first approach decomposes the original question into non-temporal questions and temporal constraints, then applies a question-and-answer model designed for Knowledge Graphs (KGs) to answer these questions, such as [2]. However, this approach requires handcrafted decomposition rules and cannot handle complex questions. The second approach aims to obtain TKG embeddings to compute the semantic similarity of the answers. CronKGQA [4] does not rely on hand-crafted rules and performs well in answering simple questions but struggles with complex questions requiring time-constrained reasoning. TempoQR [13] addresses complex temporal questions by learning context, entity, and time-aware enhancements of the question representation. However, it does not adequately consider time constraints, leading to unreliable answers. A similar issue is observed in MultiQA [7], which focuses on solving multi-granularity temporal questions.
 
 ## III. METHOD
 
 The overall architecture of HSTQA is shown in Fig. 2. The model consists of five components: data preprocessing, embedding module, question inference module, multi-granularity fusion module and answer selection module. Each module is further divided into multiple units.
 
-## *A. Data preprocessing*
+##*A. Data preprocessing*The first step in TKGQA involves identifying the entities and temporal constraints within a query and finding the relevant information in the TKG for further reasoning. Using fuzzy matching directly to identify entities can overlook semantic nuances, resulting in errors and complicating the reasoning process. To overcome this limitation, this paper uses a semantic similarity-based framework GTE [14], to obtain more accurate TKG embeddings of entities by matching them with the entity dictionary in the TKG.
 
-The first step in TKGQA involves identifying the entities and temporal constraints within a query and finding the relevant information in the TKG for further reasoning. Using fuzzy matching directly to identify entities can overlook semantic nuances, resulting in errors and complicating the reasoning process. To overcome this limitation, this paper uses a semantic similarity-based framework GTE [14], to obtain more accurate TKG embeddings of entities by matching them with the entity dictionary in the TKG.
-
-## *B. Embedding Module*
-
-This module is designed to understand the semantic information of the question and the implied temporal relationships. A hierarchical semantic extraction approach is employed to extract diverse features of the problem, providing a more detailed understanding of both global and local semantic information. This approach includes a semantic embedding phase followed by an advanced semantic extraction phase.
-
-*1) Semantic embedding:*
-
-For a given natural language question qtext, the semantic information is extracted using a pre-trained language model. Specifically, the natural language question qtext is transformed into a semantic matrix Q<sup>e</sup> by the pre-trained RoBERTa [15] model:
+##*B. Embedding Module*This module is designed to understand the semantic information of the question and the implied temporal relationships. A hierarchical semantic extraction approach is employed to extract diverse features of the problem, providing a more detailed understanding of both global and local semantic information. This approach includes a semantic embedding phase followed by an advanced semantic extraction phase.
+*1) Semantic embedding:*For a given natural language question qtext, the semantic information is extracted using a pre-trained language model. Specifically, the natural language question qtext is transformed into a semantic matrix Q<sup>e</sup> by the pre-trained RoBERTa [15] model:
 
 $$
 \mathbf{Q}_e = \mathbf{W}_E \text{RoBERTa}(q_{\text{text}})
@@ -72,10 +62,7 @@ Fig. 2. Overall architecture of HSTQA
 where Q<sup>e</sup> = [qCLS, q<sup>e</sup><sup>1</sup> , . . . , q<sup>e</sup><sup>N</sup> ] is a d×l embedding matrix, l is the number of tokens, d is the dimension of the TKG embedding, W<sup>E</sup> is a d × dRoBERTa projection matrix, and dRoBERTa is the dimension of the RoBERTa embedding. The final question semantic representation is denoted as q = qCLS.
 
 The semantic representations obtained in this phase will be used for relationship prediction in the answer scoring phase of the answer selection module.
-
-*2) Advanced semantic extraction phase:*
-
-For a given natural language question qtext, the final hidden state Q<sup>R</sup> is extracted by the RoBERTa model in this phase:
+*2) Advanced semantic extraction phase:*For a given natural language question qtext, the final hidden state Q<sup>R</sup> is extracted by the RoBERTa model in this phase:
 
 $$
 \mathbf{Q}_R = \text{RoBERTa}(q_{\text{text}}) \tag{2}
@@ -83,9 +70,7 @@ $$
 
 where Q<sup>R</sup> ∈ R <sup>n</sup>×dRoBERTa and n denotes the length of the question. Next, a linear transformation is applied to obtain the instruction vector D<sup>R</sup> ∈ C n×d . The instruction vectors obtained at this phase will be used in the question reasoning module.
 
-## *C. Multi-granularity fusion module*
-
-Due to differences in temporal granularity between the question and the temporal knowledge graph, temporal semantic information cannot be obtained directly from pre-trained TKG embeddings. Inspired by MultiQA [6], we propose a multigranularity fusion module to derive the temporal representation of a question through temporal embedding and positional embedding. Taking monthly granularity as an example, assume the time information in the question is represented as monthly time m, and the time granularity of TKG is daily.
+##*C. Multi-granularity fusion module*Due to differences in temporal granularity between the question and the temporal knowledge graph, temporal semantic information cannot be obtained directly from pre-trained TKG embeddings. Inspired by MultiQA [6], we propose a multigranularity fusion module to derive the temporal representation of a question through temporal embedding and positional embedding. Taking monthly granularity as an example, assume the time information in the question is represented as monthly time m, and the time granularity of TKG is daily.
 
 By extracting all the day-level time information in TKG d1, d2, . . . , d<sup>n</sup> and their corresponding time-embedded representations D<sup>d</sup><sup>1</sup> , D<sup>d</sup><sup>2</sup> , . . . , D<sup>d</sup><sup>n</sup> , we aggregate them to obtain the time embedding of monthly granularity Td:
 
@@ -102,7 +87,7 @@ PE
 $$
 (x, j)
 $$
- = 
+ =
 $$
 \begin{cases} \sin\left(\frac{x}{10000^{2i/D}}\right), & \text{if } j = 2i\\ \cos\left(\frac{x}{1000^{2i/D}}\right), & \text{if } j = 2i + 1 \end{cases}
 $$
@@ -114,23 +99,15 @@ Next, we use a Transformer encoder to encode the fused time embedding T ′ d , 
 
 By repeating the above process, the yearly temporal representation t<sup>y</sup> can be obtained. Therefore, the final temporal representation of the question at τ is t<sup>τ</sup> .
 
-## *D. Question reasoning module*
-
-The Question Reasoning module is designed to capture implicit temporal features of questions.
-
-*1) Entity semantic unit:*
-
-Inspired by EaE [16], the token embeddings of entities and timestamps in qtext are replaced with pre-trained TKG embeddings. We sum the entity and timestamp embeddings with their TKG embeddings to obtain the high-level semantic matrix QE. For the command vector DR, each token i in the vector has:
+##*D. Question reasoning module*The Question Reasoning module is designed to capture implicit temporal features of questions.
+*1) Entity semantic unit:*Inspired by EaE [16], the token embeddings of entities and timestamps in qtext are replaced with pre-trained TKG embeddings. We sum the entity and timestamp embeddings with their TKG embeddings to obtain the high-level semantic matrix QE. For the command vector DR, each token i in the vector has:
 
 $$
 Q_{E_i} = \begin{cases} D_{R_i} + W_q e, & \text{the i-th token is an entity mention} \\ D_{R_i} + W_q t, & \text{the i-th token is a timestamp mention} \\ D_{R_i}, & \text{others} \end{cases}
 $$
 
 (5) where Q<sup>E</sup> = [q ′ CLS, q′ E<sup>1</sup> , . . . , q′ E<sup>N</sup> ] is a d×l embedding matrix of the TKG, where l is the number of tokens and d is the dimension of the TKG embeddings. W<sup>q</sup> is a d × dRoBERT a projection matrix, where dRoBERT a is the dimension of RoBERTa embeddings and the extracted relationship representation R<sup>q</sup> = q ′ CLS.
-
-*2) Structure-enhanced units:*
-
-In TKGQA, most approaches focus mainly on relational representations and ignore the importance of structural information in time-constrained questions. This unit aims to integrate multi-head self-attention, Graph Convolutional Network (GCN) and Convolutional Neural Network (CNN) to capture relevant temporal relational features from the question representation and enhance the structural information of the question.
+*2) Structure-enhanced units:*In TKGQA, most approaches focus mainly on relational representations and ignore the importance of structural information in time-constrained questions. This unit aims to integrate multi-head self-attention, Graph Convolutional Network (GCN) and Convolutional Neural Network (CNN) to capture relevant temporal relational features from the question representation and enhance the structural information of the question.
 
 First, we use the multi-head self-attention mechanism to extract important contextual information from the question representation Q<sup>R</sup> of the embedding module. Specifically, multi-head self-attention constructs k attention score matrices, sums these score matrices, and retains the most important context words using a top-k selection strategy(k = 1). This process retains the most useful information while reducing computational complexity. The formula is as follows:
 
@@ -164,10 +141,7 @@ $$
 T_{\text{deep}} = \text{ReLU}(\text{Conv}(H_{qe}^{(2)}))
 $$
 \n(10)
-
-*3) Relation fusion unit:*
-
-Inspired by Jiao et al. [7], relying solely on relational representations can lead to the loss of important time constraint information. Thus, we employ a trainable gating function g to determine how much of the relational representation information and implicit temporal features should be retained. The gating function is formulated as follows:
+*3) Relation fusion unit:*Inspired by Jiao et al. [7], relying solely on relational representations can lead to the loss of important time constraint information. Thus, we employ a trainable gating function g to determine how much of the relational representation information and implicit temporal features should be retained. The gating function is formulated as follows:
 
 $$
 g = \text{Sigmoid}(W_e[T_{deep}, R_q]) \tag{11}
@@ -183,9 +157,7 @@ $$
 
 The first layer of the implicit temporal relationship matrix is used as the implicit temporal relationship representation R′ ∈ C d .
 
-## *E. Answer selection module*
-
-In this module, the implicit temporal relationship representation of the graph embedding module is used as the generating entity embedding vector R′ ent ∈ C d . The temporal prediction of the relationship is denoted by Wtq ∈ C d . If object entity or timestamp is missing, we need to use a dummy object entity (subject entity) or dummy timestamp (0 token). Using the TComplEx [11] method, the entity embeddings s<sup>e</sup> ∈ E, o<sup>e</sup> ∈ E, and the timestamp embeddings obtained by multigranularity fusion t<sup>τ</sup> ∈ T are combined to calculate each entity's e ′ ∈ E score:
+##*E. Answer selection module*In this module, the implicit temporal relationship representation of the graph embedding module is used as the generating entity embedding vector R′ ent ∈ C d . The temporal prediction of the relationship is denoted by Wtq ∈ C d . If object entity or timestamp is missing, we need to use a dummy object entity (subject entity) or dummy timestamp (0 token). Using the TComplEx [11] method, the entity embeddings s<sup>e</sup> ∈ E, o<sup>e</sup> ∈ E, and the timestamp embeddings obtained by multigranularity fusion t<sup>τ</sup> ∈ T are combined to calculate each entity's e ′ ∈ E score:
 
 $$
 \phi(entity) = \max \left( Re(\langle h_e, R'_{\text{ent}}, e', t_\tau \rangle), \right. \\ \left. Re(\langle o_e, R'_{\text{ent}}, e', t_\tau \rangle), \right. \tag{13}
@@ -196,7 +168,7 @@ $$
 $$
 Re(\langle s_e, R'_{ent}, e', t_\tau \rangle) \bigg)
 $$
-  
+
 $$
 h_e = W_s[s_e; o_e]
 $$
@@ -218,11 +190,7 @@ During training, the parameters are updated using crossentropy loss to increase 
 
 ## IV. EXPERIMENTS
 
-## *A. Experimental setup*
-
-## *1) Experimental data set:*
-
-The MultiTQ [6] dataset is a multi-temporal granularity TKGQA dataset comprising 500,000 unique Q&A pairs. The distribution statistics of the questions in this dataset are shown in Table 1. These questions can be categorized into single temporal constraints (including Equal, Before/After, First/Last) and multi-temporal constraints (including Equal Multi, After First, and Before Last).
+##*A. Experimental setup*##*1) Experimental data set:*The MultiTQ [6] dataset is a multi-temporal granularity TKGQA dataset comprising 500,000 unique Q&A pairs. The distribution statistics of the questions in this dataset are shown in Table 1. These questions can be categorized into single temporal constraints (including Equal, Before/After, First/Last) and multi-temporal constraints (including Equal Multi, After First, and Before Last).
 
 TABLE I NUMBER OF QUESTIONS IN THE DATASET WITH DIFFERENT TYPES OF REASONING
 
@@ -238,9 +206,7 @@ TABLE I NUMBER OF QUESTIONS IN THE DATASET WITH DIFFERENT TYPES OF REASONING
 | Before-Last  | 43,107  | 6,532  | 6,247  |  |
 | Total        | 386,787 | 58,979 | 54,584 |  |
 
-## *2) Parameterization:*
-
-The models were trained using Python 3.8 and the PyTorch 1.8.1 framework on a GeForce RTX 3090 GPU running Ubuntu 16.04. TComplEx [11] embeddings were employed as TKG embeddings, featuring dimensions D = 512 and complex space dimension C <sup>d</sup>= 768. Neither the parameters of the language model (LM) nor the TKG embeddings were updated during training. Training proceeded for a maximum of 15 epochs, utilizing the Adam optimizer [17] with the initial learning rate set to 2e-4.
+##*2) Parameterization:*The models were trained using Python 3.8 and the PyTorch 1.8.1 framework on a GeForce RTX 3090 GPU running Ubuntu 16.04. TComplEx [11] embeddings were employed as TKG embeddings, featuring dimensions D = 512 and complex space dimension C <sup>d</sup>= 768. Neither the parameters of the language model (LM) nor the TKG embeddings were updated during training. Training proceeded for a maximum of 15 epochs, utilizing the Adam optimizer [17] with the initial learning rate set to 2e-4.
 
 To assess the model's effectiveness, Hits@1 and Hits@10 are utilized as performance evaluation metrics in this study. Hits@1 denotes the probability that the top-ranked answer is correct, while Hits@10 indicates the probability that the correct answer is among the top 10 ranked answers. The calculation process is as follows:
 
@@ -250,16 +216,12 @@ $$
 
 where |Q| represents the total number of questions,rank<sup>i</sup> denotes the position of the correct answer among the output answers, and f is an indicator function that takes a value of 1 if the condition is met and 0 otherwise.
 
-## *B. Baselines*
-
-- Pre-training models: The effectiveness of language models (LMs) in handling temporal questions is analyzed by obtaining embeddings of entities, times, and questions using BERT [18], DistilBERT [19], and ALBERT [20], and connecting them to compute answers.
+##*B. Baselines*- Pre-training models: The effectiveness of language models (LMs) in handling temporal questions is analyzed by obtaining embeddings of entities, times, and questions using BERT [18], DistilBERT [19], and ALBERT [20], and connecting them to compute answers.
 - EmbedKGQA: EmbedKGQA [21] is designed for static knowledge graphs (KGs). To address multiple temporal granularities, timestamps are ignored and random temporal embeddings are used during pre-training.
 - CronKGQA: CronKGQA [4] is designed for single temporal granularity. To handle multiple granularities, time embeddings with yearly/monthly granularity are randomly selected from the corresponding daily embeddings.
 - MultiQA: MultiQA [6] extracts temporal text from the question and enhances the time-aware embedding of the question with a multi-granularity representation module.
 
-## *C. Experimental results*
-
-Table 2 summarizes the experimental outcomes on the MultiTQ dataset. Models based on knowledge graphs, such as EmbedKGQA and CronKGQA, significantly outperform pretrained models like BERT, DistilBERT, and ALBERT. Specifically, CronKGQA achieves 7.3% and 14.9% improvements in Hits@1 and Hits@10, respectively, compared to Embed-KGQA, highlighting the benefits of temporal embedding in enhancing the accuracy of temporal Q&A reasoning. Among the multi-granularity temporal inference models, HSTQA surpasses MultiQA with improvements of 10.8% in Hits@1 and 10.9% in Hits@10. For single-constraint questions, HSTQA achieves a Hits@1 score of 0.502, outperforming all other models, While it is somewhat less effective than MultiQA for multi-constraint questions, it significantly outperforms other methods. This difference arises because HSTQA successfully utilizes structural information from related temporal contexts to compensate for the lack of implicit temporal features in single-constraint questions but may introduce unnecessary
+##*C. Experimental results*Table 2 summarizes the experimental outcomes on the MultiTQ dataset. Models based on knowledge graphs, such as EmbedKGQA and CronKGQA, significantly outperform pretrained models like BERT, DistilBERT, and ALBERT. Specifically, CronKGQA achieves 7.3% and 14.9% improvements in Hits@1 and Hits@10, respectively, compared to Embed-KGQA, highlighting the benefits of temporal embedding in enhancing the accuracy of temporal Q&A reasoning. Among the multi-granularity temporal inference models, HSTQA surpasses MultiQA with improvements of 10.8% in Hits@1 and 10.9% in Hits@10. For single-constraint questions, HSTQA achieves a Hits@1 score of 0.502, outperforming all other models, While it is somewhat less effective than MultiQA for multi-constraint questions, it significantly outperforms other methods. This difference arises because HSTQA successfully utilizes structural information from related temporal contexts to compensate for the lack of implicit temporal features in single-constraint questions but may introduce unnecessary
 
 | Model                            | Hits@1                  |                              |                         |                         | Hits@10                 |                         |                         |                         |                         |                         |
 |----------------------------------|-------------------------|------------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
@@ -290,9 +252,7 @@ Table 3 highlights the strengths of our approach in addressing multi-granularity
 
 Additionally, various question types were thoroughly analyzed and compared with the MultiQA model, as illustrated in Fig. 3. The HSTQA model demonstrated superior performance across all question types, exhibiting a notable advantage. This is particularly evident in the "First/Last" question, where HSTQA's ability to integrate implicit temporal features, captured by the structural augmentation unit and incorporated into the relational representation, is highlighted. Furthermore, HSTQA excels at solving single-constraint questions, with particular success in the "equal" question.
 
-## *D. Ablation experiments*
-
-To verify the impact of different modules and strategies of HSTQA on performance, we conducted ablation experiments, with the results shown in Table 4. Removing the hierarchical semantic extraction strategy, i.e., not using the semantic embedding phase, results in an overall performance decline of 2.4% in Hits@1 and 5.0% in Hits@10. This demonstrates that the proposed method enhances both the overall semantic information and the local implicit temporal information of the comprehension question. Comparing the results with the deletion of the multi-granularity module, we observe a significant overall decline, particularly in answering temporal questions. This proves that the multi-granularity module effectively aggregates the temporal representations of the questions and improves HSTQA's ability to answer multigranularity questions. Comparing the results of removing the relational fusion unit with HSTQA, there is a significant decrease in single constraint questions with Hits@1 and questions where the answer is an entity. This demonstrates the unit's capability to fuse implicit temporal features and relational representations. For the structure-enhanced unit, the model's Hits@1 performance drops from 0.401 to 0.348. This is because the structure-enhanced unit can sensitively capture implicit temporal features (e.g., "before/after", "first/last" related features).
+##*D. Ablation experiments*To verify the impact of different modules and strategies of HSTQA on performance, we conducted ablation experiments, with the results shown in Table 4. Removing the hierarchical semantic extraction strategy, i.e., not using the semantic embedding phase, results in an overall performance decline of 2.4% in Hits@1 and 5.0% in Hits@10. This demonstrates that the proposed method enhances both the overall semantic information and the local implicit temporal information of the comprehension question. Comparing the results with the deletion of the multi-granularity module, we observe a significant overall decline, particularly in answering temporal questions. This proves that the multi-granularity module effectively aggregates the temporal representations of the questions and improves HSTQA's ability to answer multigranularity questions. Comparing the results of removing the relational fusion unit with HSTQA, there is a significant decrease in single constraint questions with Hits@1 and questions where the answer is an entity. This demonstrates the unit's capability to fuse implicit temporal features and relational representations. For the structure-enhanced unit, the model's Hits@1 performance drops from 0.401 to 0.348. This is because the structure-enhanced unit can sensitively capture implicit temporal features (e.g., "before/after", "first/last" related features).
 
 TABLE IV RESULTS OF ABLATION STUDIES
 
@@ -313,13 +273,13 @@ Fig. 3. Experimental results of MultiQA and HSTQA for different question types (
 
 extracting both semantic representations and implicit temporal features through advanced embedding modules. It uniquely employs multi-granularity fusion to improve performance across various temporal granularities and integrates a GCN to capture nuanced implicit temporal features. This combination enables HSTQA to effectively fuse implicit temporal features with relational representations. Experimental results demonstrate that HSTQA outperforms baseline models in addressing complex temporal questions with multiple granularities. Moving forward, we aim to further integrate HSTQA with additional reasoning strategies to enhance its reasoning capabilities and robustness in multi-constraint temporal questions.
 
-#### ACKNOWLEDGMENT
+### ACKNOWLEDGMENT
 
 National Key Research and Development Program of China (Grant No. 2021YFC3101601); National Natural Science Foundation of China Youth Program 42106190
 
 #### REFERENCES
 
-- [1] Partha Pratim Talukdar, Derry Wijaya, and Tom Mitchell. Coupled temporal scoping of relational facts. In *Proceedings of the fifth ACM international conference on Web search and data mining*, pages 73–82, 2012.
+- [1] Partha Pratim Talukdar, Derry Wijaya, and Tom Mitchell. Coupled temporal scoping of relational facts. In*Proceedings of the fifth ACM international conference on Web search and data mining*, pages 73–82, 2012.
 - [2] Zhen Jia, Abdalghani Abujabal, Rishiraj Saha Roy, Jannik Strotgen, and ¨ Gerhard Weikum. Tequila: Temporal question answering over knowledge bases. In *Proceedings of the 27th ACM International Conference on Information and Knowledge Management*, CIKM '18, page 1807–1810, New York, NY, USA, 2018. Association for Computing Machinery.
 - [3] Aditya Sharma, Apoorv Saxena, Chitrank Gupta, Seyed Mehran Kazemi, Partha Talukdar, and Soumen Chakrabarti. Twirgcn: Temporally weighted graph convolution for question answering over temporal knowledge graphs. *arXiv preprint arXiv:2210.06281*, 2022.
 - [4] Apoorv Saxena, Soumen Chakrabarti, and Partha Talukdar. Question answering over temporal knowledge graphs. *arXiv preprint arXiv:2106.01515*, 2021.

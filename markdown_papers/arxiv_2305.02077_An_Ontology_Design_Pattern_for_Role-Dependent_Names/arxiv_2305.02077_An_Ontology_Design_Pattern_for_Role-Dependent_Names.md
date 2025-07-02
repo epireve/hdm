@@ -1,3 +1,5 @@
+<!-- cite_key: rayan2021b -->
+
 # An Ontology Design Pattern for Role-Dependent Names
 
 Rushrukh Rayan1, Cogan Shimizu<sup>2</sup> , and Pascal Hitzler<sup>1</sup>

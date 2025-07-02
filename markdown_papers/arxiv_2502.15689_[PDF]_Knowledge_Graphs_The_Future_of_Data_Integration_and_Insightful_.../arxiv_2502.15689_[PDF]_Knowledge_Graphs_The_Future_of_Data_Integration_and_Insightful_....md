@@ -1,4 +1,6 @@
-### Saher Mohamed, Kirollos Farah, Abdelrahman Lotfy, Kareem Rizk, Abdelrahman Saeed, Shahenda Mohamed, Ghada Khouriba, Tamer Arafa
+<!-- cite_key: wickramarachchi2021b -->
+
+# Saher Mohamed, Kirollos Farah, Abdelrahman Lotfy, Kareem Rizk, Abdelrahman Saeed, Shahenda Mohamed, Ghada Khouriba, Tamer Arafa
 
 School of Information Technology and Computer Science (ITCS), Nile University Giza, Egypt {Smfarag; k.saleh; Alotfy; K.ayman, A.Saeed, shatem; GhadaKhoriba; Tarafa}@nu.edu.eg
 
@@ -88,7 +90,7 @@ fixed nodes and edges, dynamic graphs are flexible enough to be modified as new 
 
 ## 5 How can we develop a data integration methodology that effectively combines heterogeneous data sources to con-struct static knowledge graphs, ensuring data reliability and accuracy?(RQ1)
 
-#### 5.1 Data Source Diversity and Complexity
+### 1 Data Source Diversity and Complexity
 
 Knowledge graphs (KGs) can be categorized into two types: generic knowledge graphs, which cover multiple domains with encyclopedic content such as Wiki-data, YAGO Suchanek et al. (2007), Freebase Bollacker et al. (2008), and DB-pedia Lehmann et al. (2015), and domain-specific knowledge graphs, focused on narrower domains for specific problems or industries Abu-Salih (2021).
 
@@ -108,11 +110,11 @@ Dynamic KGs, on the other hand, are designed to be adaptable and evolving, integ
 
 While both static and dynamic KGs rely on diverse data sources, their key distinction lies in the approach to data integration. Static KGs prioritize histor-ical data with a structured ontology, whereas dynamic KGs focus on real-time data integration and ontological flexibility.
 
-#### 5.2 Knowledge Extraction Techniques from Unstructured data
+#### 2 Knowledge Extraction Techniques from Unstructured data
 
 This section focuses only on unstructured data, specifically text.
 
-#### 5.2.1 Large Language Model in Knowledge Extraction
+#### 2.1 Large Language Model in Knowledge Extraction
 
 Large language models have become invaluable tools for performing knowledge extraction from unstructured text sources. Due to their pre-training on vast amounts of text, LLMs like BERT, GPT-3 and LLMAs have developed strong abilities to analyze language, identify patterns and relationships within text. One of the primary ways LLMs facilitate knowledge extraction is through named entity recognition. By leveraging their linguistic understanding, LLMs can efi-ciently identify entities mentioned in text like people, organizations, locations, products and more. This extracted entity information can be structured into a knowledge base or graph. In addition, LLMs are also capable of performing
 
@@ -122,7 +124,7 @@ relationship extraction to understand how different entities might be connected 
 
 Fig. 3. Knowledge Graph Extracted Using Llama 7b
 
-#### 5.3 Natural Language Processing in Knowledge extraction
+#### 3 Natural Language Processing in Knowledge extraction
 
 Sophisticated natural language processing methods are needed to build knowl-edge graphs from unstructured text sources. A significant preliminary process is the pretreatment of input data using linguistic analysis tools. This makes it pos-sible to extract entities and relationships from raw sentences based on syntactic patterns. Many popular NLP libraries, such as spaCy Srinivasa-Desikan (2018), offer strong neural network models that are pre-trained on large corpora and allow the identification of parts of speech, noun phrases, etc., which is necessary for data extraction purposes. After extracting entities and relations, they must be organized into a graph representation with nodes connected to show seman-tic relationships. NetworkX is a great graph library capable of producing the
 
@@ -154,7 +156,7 @@ logic of extracting entities or relations should be implemented based on the dat
 
 6.1 Clustering Techniques in Link Prediction and Adding New En-tities
 
-#### 6.1.1 Traditional Clustering
+### 1.1 Traditional Clustering
 
 Clustering the entities in the knowledge graph allows groups of similar nodes to be identified, helping to understand the underlying themes or topics repre-sented. A number of algorithms were tested to cluster the entities derived from
 
@@ -213,7 +215,7 @@ Fig. 9. The Clusters of the Nodes Using K-Means .
 
 Experiments have demonstrated that ExCut generates clusters of higher quality and greater interpretability compared to baseline methods on real-world knowledge graphs. In essence, ExCut adeptly addresses the problem of comput-ing not just any entity clusters but specifically explainable clusters over knowl-edge graphs, by synergistically combining embedding-based clustering with rule learning in a dynamic, iterative process Gad-Elrab et al. (2020).
 
-#### 6.2 Graph Neural Network in Link Prediction and Adding New En-tities
+#### 2 Graph Neural Network in Link Prediction and Adding New En-tities
 
 One of the major challenges faced with knowledge graphs is disconnected sub-graphs, where entities are not fully connected within the graph. When subgraphs are disconnected, the entities contained within them cannot benefit from poten-tial relationships and links to other parts of the knowledge graph. This fragmen-tation of information limits the insights that can be discovered from the graph. One effective approach for addressing disconnected subgraphs is link prediction using graph neural networks (GNNs). GNNs have the advantage of being able to learn representations of nodes by aggregating features from their neighbor-
 
@@ -245,7 +247,7 @@ Table 4. RAGAT Performance on Different Benchmark Datasets
 | WN18RR          | 0.489 | 0.562  |
 | FB15K-237 0.365 |       | 0.547  |
 
-### 6.3 Traditional Embedding Techniques in Link Predictions and Adding New Entities
+### 3 Traditional Embedding Techniques in Link Predictions and Adding New Entities
 
 Traditional embedding techniques like TransE learn embeddings for entities and relations in knowledge graphs to predict missing links. These models learn lowdimensional vector representations of entities and relationships where similar entities and relationships are closer in the embedding space. The models are rel-atively simple and eficient to train. However, these techniques also have several
 
@@ -263,7 +265,7 @@ The relation was predicted between two entities using the transE model by comput
 
 ![](_page_21_Figure_3.jpeg)
 
-#### 6.4 Extract triples and predict relations using pre-trained ontology
+#### 4 Extract triples and predict relations using pre-trained ontology
 
 there are three distinct methods for extracting triples and predicting relations between entities: DBpediaOntology class connected to the API of DBpedia Spot-light, ConceptNetOntology connecting with an API from ConceptNet, and on top of that, Rebel model retrieved from Babelscape assemblage. Every approach targets the problem of information retrieval from unstructured text; however, they vary in the applied approaches and purposes.
 
@@ -285,7 +287,7 @@ These methods had many problems with unknown triples belonging to these ontologi
 
 ## 7 How can retrieved information from knowledge graphs play an important role in different domains? (RQ3)
 
-#### 7.1 Knowledge graph in Explainable AI
+### 1 Knowledge graph in Explainable AI
 
 KG explainability can be utilized at different stages in the AI development pro-cess. Typically, KG explainability is performed before (pre-modeling explainabil-ity), during (explainable modeling), or after (post-modeling explainability) the AI modeling stage Rajabi and Etminani (2022).
 
@@ -295,7 +297,7 @@ In-modeling Explainability: This approach focuses on the model's inner workings,
 
 Post-modeling Explainability: These techniques describe the application of a KG after a model has been trained. They enhance the explainability of AI models by using KGs to provide insights into what the trained model has learned without altering the underlying model. For example, in one study, a KG was applied to a graph neural network model to capture important features and relationships in a set of news articles, using the relevance scores of entities to guide the embedding of the articles Cui et al. (2020).
 
-#### 7.2 Knowledge Graph for Automatic Coding
+#### 2 Knowledge Graph for Automatic Coding
 
 Knowledge graphs have been proven extremely useful in powering diverse applications in various applications such as program search, code understanding, bug detection,and code automation. GraphGen4Code Abdelaziz et al. (2021) is therefore designed as a toolkit to build knowledge graphs for program code. This toolkit can construct code representations that represent actual program flow along with natural language descriptions of API calls when they exist to enhance code representations.
 
@@ -303,7 +305,7 @@ COCOMIC Ding et al. (2022) is a framework on top of existing code lan-guage mode
 
 represent code components that constitute the project's backbone,and edges in-dicate the relations among these components. (2) Given an incomplete program, the tool will identify the most relevant cross-file context and retrieve their details from the built graph.
 
-#### 7.3 Knowledge Graph for Self Driving Car
+#### 3 Knowledge Graph for Self Driving Car
 
 Zheng and Kordjamshidi (2022) propose the Dynamic Relevance Graph Network (DRGN) model to tackle the challenging problem of commonsense question an-swering using external knowledge from a knowledge graph. Existing approaches have dificulty reasoning over knowledge graphs when edges are missing in the extracted subgraph needed for reasoning chains, or when handling questions with negative words. DRGN operates on a knowledge graph subgraph contain-ing entities mentioned in the question and answers. It adds the question as a node to provide contextual information . Unlike prior models, DRGN com-putes dynamic relevance matrices between node representations at each layer of a relational graph network. This allows it to establish direct connections and potentially recover missing edges by learning new edges based on chang-ing relevance scores. Computing relevance between the question node and entity nodes also helps leverage contextual cues better [1]. Experiments on the CommonsenseQA and OpenbookQA benchmarks demonstrate that DRGN achieves stateof-the-art performance, obtaining particularly strong results on negatively worded questions through its use of question-entity relevance. Ablation studies validate that component such as the knowledge graph, relational edges, question node, and dynamic relevance computation contribute to DRGN's effectiveness at capturing relationships for improved commonsense question answering.
 
@@ -349,7 +351,7 @@ data. Natural language processing may obtain expertise from legal text. Vi-sual 
 
 El Asmar et al. (2020) introduced an AWARE ontology designed to represent the situational awareness of autonomous vehicles operating in manufacturing environments. The ontology builds on existing ontologies like SUMO and SSN and extends them to incorporate concepts relevant to manufacturing autonomous vehicle perceptio. The ontology has three layers - a meta-ontology layer aligning concepts with SUMO, an ontology schema layer representing domain knowledge, and an instance layer forming a knowledge graph. The environment model rep-resents dynamic assets like humans, vehicles, and storage units. The perception capability incorporates sensors, computational models, features extracted from sensor data, and observations linking them together. The ontology models both exteroceptive sensors like cameras and LiDAR as well as proprioceptive sensors like IMU and battery sensors. Features extracted include visual bounding boxes, load status, and battery information. Observations are created to link sensors, computational models, extracted features, and perceived entities. The ontology was evaluated by checking competency questions and expert reviews. The ontol-ogy can provide a basis for autonomous vehicle awareness and behavior control in manufacturing plants. Future work includes developing reasoning and policies over the ontology and grounding robot operations using the ontology.
 
-#### 7.4 Knowledge Graph for Climate Change
+#### 4 Knowledge Graph for Climate Change
 
 Wu et al. (2022a) proposed a climate knowledge graph to integrate multiple climate data sources into a linked data platform for facilitating cross-domain analysis between climate data and other domains. The knowledge graph primar-ily uses data from NOAA climate summaries, OpenStreetMap, and Wikipedia data, and supports joint SPARQL queries across these datasets. A workflow is presented to automatically retrieve and transform NOAA climate data into RDF graphs aligned with a custom ontology, and publish it as linked open data. Ge-ographic data is integrated from OpenStreetMap and linked to Wikipedia data to provide contextual information. The resulting linked data knowledge graph is deployed in a SPARQL endpoint and URIs are dereferenceable for browsing. A web interface and tutorial assist climate researchers in exploring the knowledge graph and trying sample queries. Usability testing indicates the platform suc-ceeds in providing understandable access. Key benefits include easy multi-source integration, open data enrichment, dynamic updates, and added explain ability via semantically structured data.
 

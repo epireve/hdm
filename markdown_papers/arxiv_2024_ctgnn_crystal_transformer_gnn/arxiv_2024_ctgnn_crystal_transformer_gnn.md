@@ -1,3 +1,5 @@
+<!-- cite_key: technology2024b -->
+
 # CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property Prediction
 
 Zijian Du,1, 2, [∗](#page-9-0) Luozhijie Jin,1, [∗](#page-9-0) Le Shu,<sup>1</sup> Yan Cen,2, [†](#page-9-1)

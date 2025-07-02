@@ -1,10 +1,12 @@
+<!-- cite_key: yang2024c -->
+
 # Graphusion: Leveraging Large Language Models for Scientific Knowledge Graph Fusion and Construction in NLP Education
 
 Rui Yang<sup>1</sup><sup>∗</sup> , Boming Yang<sup>2</sup> , Sixun Ouyang<sup>3</sup> , Tianwei She<sup>3</sup> , Aosong Feng<sup>4</sup> , Yuang Jiang<sup>3</sup> , Freddy Lecue<sup>5</sup> , Jinghui Lu<sup>3</sup> , Irene Li<sup>2</sup>,3<sup>∗</sup>
 
 <sup>1</sup>Duke-NUS Medical School, <sup>2</sup>University of Tokyo, <sup>3</sup>Smartor Inc., <sup>4</sup>Yale University, <sup>5</sup> INRIA yang.rui@duke-nus.edu, ireneli@ds.itc.u-tokyo.ac.jp
 
-### Abstract
+## Abstract
 
 Knowledge graphs (KGs) are crucial in the field of artificial intelligence and are widely applied in downstream tasks, such as enhancing Question Answering (QA) systems. The construction of KGs typically requires significant effort from domain experts. Recently, Large Language Models (LLMs) have been used for knowledge graph construction (KGC), however, most existing approaches focus on a local perspective, extracting knowledge triplets from individual sentences or documents. In this work, we introduce Graphusion, a zero-shot KGC framework from free text. The core fusion module provides a global view of triplets, incorporating entity merging, conflict resolution, and novel triplet discovery. We showcase how Graphusion could be applied to the natural language processing (NLP) domain and validate it in the educational scenario. Specifically, we introduce TutorQA, a new expert-verified benchmark for graph reasoning and QA, comprising six tasks and a total of 1,200 QA pairs. Our evaluation demonstrates that Graphusion surpasses supervised baselines by up to 10% in accuracy on link prediction. Additionally, it achieves average scores of 2.92 and 2.37 out of 3 in human evaluations for concept entity extraction and relation recognition, respectively.
 
@@ -38,7 +40,7 @@ Educational NLP Modern NLP and Artificial Intelligence (AI) techniques have been
 
 In this section, we introduce our Graphusion Framework for scientific KGC.
 
-### 3.1 Problem Definition
+### 1 Problem Definition
 
 A KG is defined as a set of triplets: KG = {(h<sup>i</sup> , r<sup>i</sup> , ti) | h<sup>i</sup> , t<sup>i</sup> ∈ E, r<sup>i</sup> ∈ R, i = 1, 2, . . . , n}, where: E is the set of entities, R is the set of possible relations, and n is the total number of triplets in the KG. The task of zero-shot KGC involves taking a set of free text T and generating a list of triplets (h, r, t). Optionally, there is
 
@@ -48,7 +50,7 @@ Figure 2: Graphusion framework illustration. Gaphusion consists of 3 steps: S1 S
 
 an expert-annotated KG EG as input, in order to provide some existing knowledge. In our setting, the number of triplets of KG is much larger than EG. We select the domain to be NLP, so the entities are concepts only, other entity types such as people, organizations are not our focus. Following previous works [\(Luan et al.,](#page-9-8) [2018\)](#page-9-8), we define 7 relations types: Prerequisite\_of, Used\_for, Compare, Conjunction, Hyponym\_of, Evaluate\_for and Part\_OF.
 
-## 3.2 Zero-shot Link Prediction
+## 2 Zero-shot Link Prediction
 
 While the task of KGC is to generate a list of triplets, including entities and their corresponding relations, we start with a simpler setting: focusing solely on link prediction for pre-defined entity pairs and a single relation type. This setting helps us understand the capabilities of LLMs on scientific KGC under a zero-shot setting. Specifically, given a concept pair (A, B), the task of link prediction is to determine if a relationship r exists. We choose r =Prerequisite\_of. For instance, the relation "Viterbi Algorithm" → "POS Tagging" implies that to learn the concept of "POS Tagging," one must first understand the "Viterbi Algorithm." Initially, a predefined set of concepts C is given.
 
@@ -61,7 +63,7 @@ We have two {domain} related concepts: A: {concept\_1} and B: {concept\_2}. Do y
 
 {Additional Information}
 
-## 3.3 Graphusion: Zero-shot Knowledge Graph Construction
+## 3 Graphusion: Zero-shot Knowledge Graph Construction
 
 We now introduce our Graphusion framework for constructing scientific KGs, shown in Fig [2.](#page-2-0) Our approach addresses three key challenges in zeroshot KGC: 1) the input consists of free text rather than a predefined list of concepts; 2) the relations encompass multiple types, and conflicts may exist among them; and 3) the output is not a single binary label but a list of triplets, making evaluation more challenging.
 
@@ -103,17 +105,17 @@ Rules for Fusing the Graphs:
 
 {Relation Definition}
 
-### 3.4 Evaluation
+### 4 Evaluation
 
-The evaluation of KGC is challenging since each model generating different triplets from the free text, along with the lack of expert annotations. To address this, we conduct the expert evaluation on the pipeline output. We ask experts to assess both *concept entity quality* and *relation quality*, providing ratings ranging from 1 to 3. The former measures the relevance and specificity of the extracted concepts, while the latter evaluates the logical accuracy between concepts. Additionally, we calculate the Inter-Annotator Agreement (IAA) of the two experts' evaluations using the Kappa score.
+The evaluation of KGC is challenging since each model generating different triplets from the free text, along with the lack of expert annotations. To address this, we conduct the expert evaluation on the pipeline output. We ask experts to assess both *concept entity quality*and*relation quality*, providing ratings ranging from 1 to 3. The former measures the relevance and specificity of the extracted concepts, while the latter evaluates the logical accuracy between concepts. Additionally, we calculate the Inter-Annotator Agreement (IAA) of the two experts' evaluations using the Kappa score.
 
 ### 4 Experiments
 
-#### 4.1 Link Prediction
+#### 1 Link Prediction
 
 We conduct experiments using the LectureBankCD dataset [\(Li et al.,](#page-9-14) [2021\)](#page-9-14) and report the performance on the NLP domain. LectureBankCD contains up to 322 pre-defined NLP concepts and prerequisite relation labels on the concept pairs. We benchmark on the official test set against the following Supervised Baselines: DeepWalk [\(Perozzi et al.,](#page-9-15) [2014\)](#page-9-15), and Node2vec [\(Grover and Leskovec,](#page-8-9) [2016\)](#page-8-9), P2V [\(Wu et al.,](#page-9-16) [2020\)](#page-9-16), and BERT [\(Devlin et al.,](#page-8-10) [2019\)](#page-8-10). These methods utilize pre-trained or graphbased models to encode concept embeddings and then perform binary classification to determine the presence of positive or negative edges in given concept pairs. In our LLM-based experiments, we show two main settings: Zero-shot, which employs LP Prompt; and Zero-shot with RAG, which enhances zero-shot with the addition of Retrieval Augmented Generation (RAG) method [\(Krishna,](#page-9-17) [2023\)](#page-9-17). RAG has shown to improve on existing LLMs on text generation tasks such as QA. In Tab. [1,](#page-4-0) we observe that the zero-shot performance of GPT-4 and GPT-4o surpasses that of the best traditional supervised baseline. This suggests that LLMs can recover a domain-specific concept graph without relying on expert annotations. With the aid of RAG, which incorporates more domain-specific data, GPT-4o achieves significant improvements.
 
-#### 4.2 Knowledge Graph Completion
+#### 2 Knowledge Graph Completion
 
 To conduct KGC, we need a large-scale free-text corpus to serve as the knowledge source. Since there is no standard benchmark for evaluation, we collected the proceedings papers from the ACL conference[1](#page-4-1) spanning 2017-2023, which includes
 
@@ -175,7 +177,7 @@ Table 3: Comparison with other similar benchmarks: Educational or general QA ben
 
 lenging topics that require interaction with the completed graph, as well as proficiency in text comprehension and question answering. We list some similar benchmarks in Tab. [3.](#page-5-0) While numerous opendomain QA benchmarks exist, our focus has been primarily on those within the scientific domain and tailored for college-level education, aligning with our objective to compare with benchmarks that can emulate a learning scenario. Among those, TutorQA is distinguished by its diversity in answer types and features expert-verified questions, ensuring a high standard of quality and relevance.
 
-### 5.1 QA Tasks
+### 1 QA Tasks
 
 We summarize the tasks and provide example data in Fig [3.](#page-6-0) More data statistics and information can be found in Appendix [E.](#page-18-0)
 
@@ -191,13 +193,13 @@ Task 5: Similar Concepts The task requires identifying concepts linked to a cent
 
 Task 6: Idea Hamster The task prompts participants to develop project proposals by applying learned concepts to real-world contexts, providing examples and outcomes to fuel creativity.
 
-#### 5.2 KG-Enhanced Model
+#### 2 KG-Enhanced Model
 
 To address TutorQA tasks, we first utilize Graphusion framework to construct an NLP KG. Then we design an enhanced framework for the interaction
 
 between the LLM and the concept graph, which includes two steps: command query and answer generation. In the command query stage, an LLM independently generates commands to query the concept graph upon receiving the query, thereby retrieving relevant paths. During the answer generation phase, these paths are provided to the LLM as contextual prompt, enabling it to perform concept graph reasoning and generate answers.
 
-#### 5.3 Evaluation
+#### 3 Evaluation
 
 Accuracy We report accuracy score for Task 1 and Task 4, as they are binary classification tasks.
 
@@ -247,7 +249,7 @@ Table 5: Expert evaluation of TutorQA on Task 6.
 
 ## 6 Ablation Study and Analysis
 
-### 6.1 RAG Data for Link Prediction
+### 1 RAG Data for Link Prediction
 
 We explore the potential of external data in enhancing concept graph recovery. This is achieved by expanding the {Additional Information} part in the LP Prompt. We utilize LLaMa as the Base model, focusing on the NLP domain. We introduce three distinct settings: Doc.: In-domain lecture slides data as free-text; Con.: Adding one-hop neighboring concepts from the training set as additional information related to the query concepts. Wiki.: Incorporating the introductory paragraph of the Wikipedia page of each query concept. As illustrated in Fig [4,](#page-7-0) our findings indicate that incorporating LectureBankCD documents (Doc.) significantly diminishes performance. This decline can be attributed to the introduction of noise and excessively lengthy content, which proves challenging for the LLM to process effectively. Conversely, the inclusion of neighboring concepts (Con.) markedly enhances the base model's performance. However, it relies on training data, rendering it incompatible with our primary focus on the zero-shot setting. Incorporating Wikipedia content also yields improvements and outperforms the use of LectureBankCD, likely due to higher text quality.
 
@@ -255,15 +257,15 @@ We explore the potential of external data in enhancing concept graph recovery. T
 
 Figure 4: Link Prediction Ablation Study: Comparison of models with external data.
 
-#### 6.2 Graphusion Modules
+#### 2 Graphusion Modules
 
-We conduct an ablation study on the KGC task by comparing different settings, as shown in Fig [5.](#page-7-1) We evaluate four configurations: Link Prediction using the LP prompt (*LP*), Link Prediction with RAG (*LPRAG*), Candidate Triplet Extraction without Fusion (*Extraction*), and Graphusion (*Graphusion*). In the first two settings, we implement a straightforward scenario where concept pairs are provided, and the relationship is predicted directly through link prediction. All experiments are conducted using GPT-4 as the base language model. We report the average human evaluation rating on relation quality. The concept entities remain fixed, so their ratings are not included. Our findings indicate that the Graphusion framework achieves the best performance. Removing the core fusion component (the *Extraction* setting) significantly diminishes performance, underscoring the effectiveness of the fusion module.
+We conduct an ablation study on the KGC task by comparing different settings, as shown in Fig [5.](#page-7-1) We evaluate four configurations: Link Prediction using the LP prompt (*LP*), Link Prediction with RAG (*LPRAG*), Candidate Triplet Extraction without Fusion (*Extraction*), and Graphusion (*Graphusion*). In the first two settings, we implement a straightforward scenario where concept pairs are provided, and the relationship is predicted directly through link prediction. All experiments are conducted using GPT-4 as the base language model. We report the average human evaluation rating on relation quality. The concept entities remain fixed, so their ratings are not included. Our findings indicate that the Graphusion framework achieves the best performance. Removing the core fusion component (the *Extraction*setting) significantly diminishes performance, underscoring the effectiveness of the fusion module.
 
 <span id="page-7-1"></span>![](_page_7_Figure_5.jpeg)
 
 Figure 5: Ablation study on Graphusion modules: We compare four settings with GPT-4o as base.
 
-#### 6.3 Graphusion Case Study
+#### 3 Graphusion Case Study
 
 In Fig [6,](#page-7-2) we present case studies from our Graphusion framework using GPT-4o. Graphusion effectively merges similar concepts (neural MT and neural machine translation) and resolves relational conflicts (prerequisite of vs hyponym of). Additionally, it can infer novel triplets absent from the input. We highlight both positive and negative outputs from Graphusion. For instance, it correctly identifies that a technique is used for a task (hierarchical attention network, used for, reading comprehension). However, it may make mistakes in concept recognition, such as concepts with poor granularity (annotated data, model generated summary) and identifying incorrect relations (word embedding being inaccurately categorized as part of computer science).
 
@@ -271,7 +273,7 @@ In Fig [6,](#page-7-2) we present case studies from our Graphusion framework usi
 
 Figure 6: Case studies for Graphusion on the GPT-4o model: Correct parts are highlighted in green, resolved and merged parts in orange, and incorrect parts in red.
 
-## 6.4 TutorQA Task 2 & Task 3: Concept Entity Counts
+## 4 TutorQA Task 2 & Task 3: Concept Entity Counts
 
 As depicted in Fig [7,](#page-8-11) We evaluate the average number of concept entities generated by GPT-4o and our Graphusion framework in the responses for Task 2 and Task 3. The results show that without the enhancement of KG, GPT-4o tends to generate more concept entities (Task 2: 11.04, Task 3: 11.54), many of which are irrelevant or broad. In contrast, our Graphusion framework generates more accurate and targeted concept entities.
 
@@ -295,7 +297,7 @@ In our research, we have meticulously addressed ethical considerations, particul
 
 ### References
 
-- <span id="page-8-0"></span>Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. 2023. Gpt-4 technical report. *arXiv preprint arXiv:2303.08774*.
+- <span id="page-8-0"></span>Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. 2023. Gpt-4 technical report.*arXiv preprint arXiv:2303.08774*.
 - <span id="page-8-5"></span>Kian Ahrabian, Xinwei Du, Richard Delwin Myloth, Arun Baalaaji Sankar Ananthan, and Jay Pujara. 2023. Pubgraph: A large-scale scientific knowledge graph. *arXiv preprint arXiv:2302.02231*.
 - <span id="page-8-3"></span>Jinheon Baek, Alham Fikri Aji, and Amir Saffari. 2023. [Knowledge-augmented language model prompting](https://api.semanticscholar.org/CorpusID:259095910) [for zero-shot knowledge graph question answering.](https://api.semanticscholar.org/CorpusID:259095910) *ArXiv*, abs/2306.04136.
 - <span id="page-8-4"></span>Salvatore M. Carta, Alessandro Giuliani, Lee Cecilia piano, Alessandro Sebastian Podda, Livio Pompianu, and Sandro Gabriele Tiddia. 2023. [Iterative zero](https://api.semanticscholar.org/CorpusID:259316469)[shot llm prompting for knowledge graph construction.](https://api.semanticscholar.org/CorpusID:259316469) *ArXiv*, abs/2307.01128.
@@ -348,7 +350,7 @@ In our research, we have meticulously addressed ethical considerations, particul
 
 ## LP Prompt
 
-```
+```text
 We have two {domain} related concepts: A: {concept_1} and B: {concept_2}.
 Do you think learning {concept_1} will help in understanding {concept_2}?
 Hints:
@@ -357,7 +359,7 @@ Hints:
    false, but (A, B) is true.
 3. Your answer will be used to create a knowledge graph.
 {Additional Information}
-```
+```text
 
 ## LP Prompt With Chain-of-Thought
 
@@ -386,7 +388,7 @@ We have two {domain} related concepts: A: {concept\_1} and B: {concept\_2}. Asse
 
 6. If ### Content is empty, output None.
 
-#### Fusion Prompt
+### Fusion Prompt
 
 ### Instruction: You are a knowledge graph builder. Now please fuse two sub-knowledge graphs about the concept "{concept}". Graph 1: {LLM-KG} Graph 2: {E-G} Rules for Fusing the Graphs: 1. Union the concepts and edges. 2. If two concepts are similar, or refer to the same concept, merge them into one concept, keeping he one that is meaningful or specific. For example, "lstm" versus "long short-term memory", please keep "long short-term memory". 3. Only one relation is allowed between two concepts. If there is a conflict, read the "### Background" to help you keep the correct relation. knowledge to keep the correct one. For example, (ROUGE, Evaluate-for, question answering model) and (ROUGE,Used-for , question answering model) are considered to be conflicts. 4. Once step 3 is done, consider every possible concept pair not covered in step 2. For example, take a concept from Graph 1, and match it from Graph 2. Then, please refer to "### Background" to summarize new triplets. Hint: the relation types and their definition. You can use it to do Step 3. We define 7 types of the relations: a) Compare: Represents a relation between two or more entities where a comparison is being made. For example, "A is larger than B" or "X is more efficient than Y." b) Part-of: Denotes a relation where one entity is a constituent or component of another. For instance, "Wheel is a part of a Car." c) Conjunction: Indicates a logical or semantic relation where two or more entities are connected to form a group or composite idea. For example, "Salt and Pepper." d) Evaluate-for: Represents an evaluative relation where one entity is assessed in the context of another. For example, "A tool is evaluated for its effectiveness." e) Is-a-Prerequisite-of: This dual-purpose relation implies that one entity is either a characteristic of another or a required precursor for another. For instance, "The ability to code is a prerequisite of software development." f) Used-for: Denotes a functional relation where one entity is utilized in accomplishing or facilitating the other. For example, "A hammer is used for driving nails." g) Hyponym-Of: Establishes a hierarchical relation where one entity is a more specific version or subtype of another. For instance, "A Sedan is a hyponym of a Car." ### Background: {background} ### Output Instruction: Output the new merged data by listing the triplets. Your answer should ONLY contain triplets in this format: (concept, relation, concept). No other explanations or numbering are needed. Only triplets, no intermediate results.
 
@@ -394,7 +396,7 @@ We have two {domain} related concepts: A: {concept\_1} and B: {concept\_2}. Asse
 
 ### Link Prediction with Doc.
 
-```
+```text
 We have two {domain} related concepts: A: {concept_1} and B: {concept_2}.
 Do you think learning {concept_1} will help in understanding {concept_2}?
 Hints:
@@ -404,11 +406,11 @@ Hints:
 3. Your answer will be used to create a knowledge graph.
 And here are related contents to help:
 {related documents concatenation}
-```
+```text
 
 ### Link Prediction with Con.
 
-```
+```text
 We have two {domain} related concepts: A: {concept_1} and B: {concept_2}.
 Do you think learning {concept_1} will help in understanding {concept_2}?
 Hints:
@@ -425,7 +427,7 @@ We know that {concept_2} is a prerequisite of the following concepts:
 {1-hop successors of concept_2 from training data};
 The following concepts are the prerequisites of {concept_2}:
 {1-hop predecessors of concept_2 from training data}.
-```
+```text
 
 ## Link Prediction with Wiki.
 
@@ -512,7 +514,7 @@ Table 8: Comparison of the effect of finetuning: Results on NLP domain.
 
 ## <span id="page-18-0"></span>E TutorQA
 
-#### E.1 Benchmark Details
+### E.1 Benchmark Details
 
 <span id="page-18-1"></span>We show the data analysis in Tab. [9.](#page-18-1)
 
@@ -574,7 +576,7 @@ Table 11: Case study on TutorQA Task 4: GPT-4o, and GPT-4o-Graphusion.
 
 ## E.5 Task 6: More case study
 
-Task 6: Case Study To further understand how knowledge graphs could help the reasoning, we present a case study on task 6 in Tab. [12.](#page-19-0) The posed question incorporates five concepts (highlighted in blue), with the task being to formulate a feasible project proposal. Although LLaMA offers a substantial project description, its content and relevance to the highlighted concepts (marked in orange) are somewhat lacking. In contrast, GPT-4o not only references the queried concepts but also provides detailed insights (highlighted in purple) on their potential utility within the project, such as the role of *neural question answering*. Lastly, with Graphusion constructed KG, the model provides a more comprehensive solution, elaborating on the concepts and introducing additional ones (highlighted in lavender) that come from the recovered concept graph, like *dependency parsing* and *event extraction*, while initially addressing the queried concepts.
+Task 6: Case Study To further understand how knowledge graphs could help the reasoning, we present a case study on task 6 in Tab. [12.](#page-19-0) The posed question incorporates five concepts (highlighted in blue), with the task being to formulate a feasible project proposal. Although LLaMA offers a substantial project description, its content and relevance to the highlighted concepts (marked in orange) are somewhat lacking. In contrast, GPT-4o not only references the queried concepts but also provides detailed insights (highlighted in purple) on their potential utility within the project, such as the role of *neural question answering*. Lastly, with Graphusion constructed KG, the model provides a more comprehensive solution, elaborating on the concepts and introducing additional ones (highlighted in lavender) that come from the recovered concept graph, like *dependency parsing*and*event extraction*, while initially addressing the queried concepts.
 
 <span id="page-19-0"></span>
 

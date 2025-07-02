@@ -1,3 +1,5 @@
+<!-- cite_key: a2025 -->
+
 # Generative AI for Software Architecture. Applications, Challenges, and Future Directions
 
 Matteo Esposito a , Xiaozhou Li a , Sergio Moreschinia,b, Noman Ahmad a , Tomas Cerny c , Karthik Vaidhyanathan d , Valentina Lenarduzzi a , Davide Taibi a
@@ -18,7 +20,7 @@ Conclusions: GenAI shows significant potential in software design, but there are
 
 Keywords: Generative AI, Software Architecture, Multivocal Literature Review, Large Language Model, Prompt Engineering, Model Human Interaction, XAI
 
-### 1. Introduction
+## Introduction
 
 Generative AI (GenAI) is driven by the need to create, innovate, and automate complex tasks that traditionally require human creativity. It empowers companies and individuals to unlock new possibilities, promote innovation, and improve productivity [\[1\]](#page-23-0).
 
@@ -68,7 +70,7 @@ The main contributions of this study are as follows.
 
 Paper Structure: Section [2](#page-1-0) presents the related work. Section [3](#page-3-0) describes the study design. Section [4](#page-8-0) presents the results obtained, and Section [5](#page-18-0) discusses them. Section [6](#page-22-0) highlights the threats to the validity of our study. Finally, Section [7](#page-22-1) draws the conclusion.
 
-### <span id="page-1-0"></span>2. Related Work
+## <span id="page-1-0"></span>2. Related Work
 
 Different works have been done to understand the extent to which large language models have been applied in software engineering. Fan et al. [\[8\]](#page-23-8) performed a survey to identify how LLMs have been leveraged by different steps in the software engineering lifecycle. The work highlights that while much emphasis has been given to implementation, particularly code generation, not much work has been done in the area of using LLMs for requirements and design. This is further emphasized by Hou et al. [\[9\]](#page-23-9), where the authors performed a systematic literature review to understand the usage of LLMs in software engineering with a particular focus on how LLMs have been leveraged to optimize processes and outcomes. The authors analyzed 395 research articles and concluded that similar to the previous study, most of the applications of LLMs have been on software development. It is also important to note that the work only selected four relevant academic literature that leverage LLMs for software design. Thereby emphasizing the need for a multi-vocal literature review. Ozkaya [\[10\]](#page-23-10) provided a pragmatic view into using LLMs for Software Engineering tasks by enlisting the opportunities, associated risks, and potential challenges. The work points out challenges such as bias, data quality, privacy, explainability, etc, while describing some of the opportunities with respect to specification generation, code generation, documentation, etc.
 
@@ -108,7 +110,7 @@ ware architectural practices and processes.
 
 This section addresses the methodology, defining the goal and research questions. It also provides the search and selection process, as well as inclusion and exclusion criteria for both peer-reviewed and gray literature. Our search strategy is presented in Figure [1.](#page-4-0)
 
-### 3.1. Goal and Research Questions
+### 1. Goal and Research Questions
 
 The goal of this MLR is to provide a comprehensive overview of GenAI's role in software architecture, from its current state to its prospects. We aim to contribute significantly to the body of knowledge in software engineering, providing actionable insights to researchers and practitioners. To carry out this research, we conducted a multivocal review of the literature [\[5\]](#page-23-5). Based on the objectives of our study, we defined the following research questions (RQs).
 
@@ -126,7 +128,7 @@ However, in-depth investigation of the adopted GenAI models can provide a catalo
 
 Other important aspects to be considered are the strategies for implementing GenAI technologies in architectural practices, focusing on the types of projects that benefit from them, and the outcomes of these integrations (RQ1.3).
 
-### RQ<sup>2</sup>
+## RQ<sup>2</sup>
 
 In what contexts is Generative AI used for software architecture?
 
@@ -148,11 +150,11 @@ As a last RQ, we investigate the future challenges of GenAI in software architec
 
 Figure 1: Study Workflow
 
-#### 3.2. Search Strategy
+## 2. Search Strategy
 
 In this Section, we report the process we adopted for collecting the peer-reviewed papers and the gray literature contributions to be included in our revision.
 
-#### 3.2.1. Search Terms
+### 2.1. Search Terms
 
 The search string contained the following search terms:
 
@@ -162,11 +164,11 @@ Search String
 
 In our search string, we used different terms for GenAI, such as gen AI, gen-AI, or genAI, to increase research efficiency. We used an asterisk character (\*), such as software architect\*, to get all possible term variations, such as plurals and verb conjugations. To increase the likelihood of finding papers that addressed our goal, we applied the search string to the title and abstract.
 
-### 3.2.2. Bibliographic Sources
+### 2.2. Bibliographic Sources
 
 For retrieving the peer-reviewed paper, we selected the list of relevant bibliographic sources following Kitchenham and Charters' recommendations [\[20\]](#page-23-20) since these sources are recognized as the most representative in the software engineering domain and are used in many reviews. For the white literature, we used four digital libraries: ACM Digital Library, IEEEXplore Digital Library, Scopus, Web of Science. Concerning the gray literature, we used 3 search engines: Google, Google Scholar, and Bing [\[5\]](#page-23-5).
 
-### 3.2.3. Inclusion and Exclusion Criteria
+### 2.3. Inclusion and Exclusion Criteria
 
 We defined the inclusion and exclusion criteria to be applied to the title and abstract (T/A), the full text (F), or both cases (All), as reported in Table [2.](#page-5-0)
 
@@ -195,7 +197,7 @@ We only included a paper that specifically uses LLM or GenAI for Software archit
 
 In the exclusion criteria, we excluded a paper that was not written in English (T/A), was duplicated, or had an extension already included in the review (T/A), they were beyond the scope (All), or was not accessible by an institution (T/A).
 
-# 3.2.4. Search and Selection Process for the Peer-Reviewed Papers (white)
+# 2.4. Search and Selection Process for the Peer-Reviewed Papers (white)
 
 We conducted the search and selection process in February 2025 and included all available publications until this period. The application of the search terms returned 621 unique white papers as reported in Table [5.](#page-8-1)
 
@@ -241,7 +243,7 @@ Response scale: 4 (Excellent), 3 (Very Good), 2 (Good),
 
 Starting from the 433 unique papers, following the process, we finally included 10 grey literature papers as reported in Table [5.](#page-8-1)
 
-# 3.3. Data Extraction
+# 3. Data Extraction
 
 Starting from the initial 1054 unique papers (621 white and 443 grey ), following the process, we finally included 46 papers (36 white and 10 grey) as reported in Table [5.](#page-8-1) The data extraction form, together with the mapping of the information needed to answer each RQ, is summarized in Table [6.](#page-8-2) We extracted the data following the open coding approach [\[7\]](#page-23-7), in which two authors extracted the information, and we involved a third author in case of disagreement. This data is exclusively based on what is reported in the papers, without any kind of personal interpretation.
 
@@ -288,7 +290,7 @@ Starting from the initial 1054 unique papers (621 white and 443 grey ), followin
 |                                 |                                                                                                                                                      | moderate outlet control/ moderate credibility: annual re<br>ports, news articles, videos, Q/A sites (such as StackOver<br>flow), wiki articles |
 |                                 |                                                                                                                                                      | 0: low outlet control/low credibility: blog posts, presenta<br>tions, emails, tweets                                                           |
 
-#### Table 4: Quality Assessment Criteria - Grey literature
+## Table 4: Quality Assessment Criteria - Grey literature
 
 Table 5: Search and Selection Process
 
@@ -339,7 +341,7 @@ Table 6: Data Extraction
 
 In this Section, we report the results to answer our RQs. From this section onward, we visually and textually distinguish results from white literature using WL, and from gray literature using GL.
 
-#### 4.1. Study Context
+#### 1. Study Context
 
 This sub-section provides an overview of the study context in the reviewed research, including the types of studies conducted, the balance between white and gray literature, and the categories of published works.
 
@@ -416,7 +418,7 @@ Table 8: Study Type
 
 Most of the works we considered belong to white literature (36; 78%) while 22% (10) to the gray (Table [7\)](#page-8-3). Case studies are the most common type (28; 40%), followed by method proposals (20, 29%) and experiments (10; 14%). Tool reviews are proposed only from gray literature (7; 10%) while proof-of-concept (PoC) studies (2; 3%) interestingly are represented only by white literature. Surprisingly, we only included a few position papers (1; 2%) WL[\[36\]](#page-24-29) and vision papers (3; 7%) (Table [8\)](#page-8-4). Most of them are full papers (25; 52%), followed by short papers (7; 15%) and a few Thesis (2; 4%) (Table [9\)](#page-8-5). Finally, according to Figure [2,](#page-9-0) GenAI in SA was prominently discussed and featured in the gray literature during the start of the hype (2023), but the white literature became prominent the year after consolidating in 2025 as the main publication source for the topic.
 
-# 4.2. Generative AI for Software Architecture: How is it used (RQ1)
+# 2. Generative AI for Software Architecture: How is it used (RQ1)
 
 Here, we present how GenAI is currently applied in SA in terms of purpose, models used, and techniques for performance improvement, such as prompt engineering practices and the level of human interaction.
 
@@ -424,25 +426,25 @@ Here, we present how GenAI is currently applied in SA in terms of purpose, model
 
 Figure 2: Publication Source Trend
 
-## 4.2.1. Why GenAI in SA (RQ1.1)
+## 2.1. Why GenAI in SA (RQ1.1)
 
 Architectural decision support is the purpose most frequently investigated in the reviewed studies, appearing in 38% (18) of them (Table [11](#page-11-0) - RQ1.1). This suggests that the primary focus of current research on GenAI in software architecture is its application in assisting architectural decision-making. For example, WL[\[3\]](#page-23-26) uses GenAI to generate microservice names, while GL[\[8\]](#page-25-8) uses it to support software design and requirement engineering, and WL[\[17\]](#page-24-13) uses it to guide software architects in making architectural decisions. Similarly, the second most frequent purpose for using GenAI in the case of reverse engineering for architectural reconstruction appears in 19% (9) of the cases. On the other hand, the least explored uses are Reverse Engineering for Traceability (GL[\[11\]](#page-24-9)) and Migration & Reengineering (WL[\[30\]](#page-24-25)), each of which appeared only in 2% (1) of the studies (Table [11](#page-11-0) - RQ1.1).
 
-# 1. RQ1.<sup>1</sup> (Why GenAI in SA)
+# RQ1.<sup>1</sup> (Why GenAI in SA)
 
 LLMs are primarily used for architectural decision support (38%) and reverse engineering (21%), with less focus on tasks like migration, re-engineering, and traceability.
 
-# 4.2.2. GenAI Model Used (RQ1.2)
+# 2.2. GenAI Model Used (RQ1.2)
 
 OpenAI GPT models are the ones that rule the roost and were utilized in 62% (105) of the articles, followed by Google's models (15; 9%) (Table [12](#page-12-0) - RQ1.2). Surprisingly, the recently published open-source model DeepSeek has already been applied in two works. It is also worth noting that on-demand cloud-based models are by far the favorable option in place of on-premises due to their resource requirements.
 
 Considering the evolution over time of the AI model providers, it is evident that OpenAI has a consistent prominence. Nevertheless, newer models such as DeepSeek and Qwen gained traction in 2024 and 2025, highlighting a shift in attention toward emerging alternatives. This trend is also confirmed in the increasing presence of models from diversified providers, i.e., miscellaneous category, including specific open source alternatives such as LLaMa (Figur[e3](#page-10-0) - RQ1.2).
 
-# 2. RQ1.<sup>2</sup> (GenAI Model Used)
+# RQ1.<sup>2</sup> (GenAI Model Used)
 
 OpenAI GPT models dominate (62%) the research landscape, while alternatives such as Google LLMs and LLaMA models are significantly less employed.
 
-### 4.2.3. How GenAI is used (RQ1.3)
+## 2.3. How GenAI is used (RQ1.3)
 
 Among the techniques to enhance the capabilities and performance of GenAI, Fine-Tuning is applied in 12% (6) of the studies, that is, some researchers have chosen to finetune LLMs for specific architectural tasks with additional training. In particular, WL[\[4\]](#page-23-27) used Fine-Tuning to align the LLM in generating serverless functions. RAG, including proprietary variants, is applied in 20% (10) of the studies, suggesting that applying external knowledge sources is a common method to improve LLM performance in software architecture contexts. For example, WL[\[6\]](#page-23-28) used RAG and Fine-Tuning to retrieve architecture knowledge man-
 
@@ -479,15 +481,15 @@ AI-driven architectural decisions are not yet prevalent, but human participation
 
 No human interaction has been reported for 15% (7) of the studies, and the models existed without direct human intervention. The breakdown shows a high preference for interactive approaches, validating that LLMs in software development are used primarily as auxiliary tools and not as standalone decision-makers (Table [13](#page-15-0) - RQ1.3).
 
-# 3. RQ1.<sup>3</sup> (How GenAI is used)
+# RQ1.<sup>3</sup> (How GenAI is used)
 
 Few-shot prompting (31%) is the most common technique, RAG (22%) is frequently used for model enhancement, and 85% of the studies involve human interaction, emphasizing the assistive rather than autonomous role of LLM.
 
-# 4.3. Generative AI for Software Architecture: In which context (RQ2)
+# 3. Generative AI for Software Architecture: In which context (RQ2)
 
 This section presents the different contexts in which GenAI is applied within the software architecture. Specifically, we examine its role across various phases of the Software Architecture Lifecycle (SALC), the architectural styles and patterns it supports, and the validation methods used to assess its outputs.
 
-# 4.3.1. SALC Phases (RQ2.1)
+# 3.1. SALC Phases (RQ2.1)
 
 Regarding the use of GenAI across SALC (Table [14](#page-15-1) and Figure [5](#page-14-0) - RQ2.1), the requirement-to-architecture (Reqto-Arch) is the most frequently targeted phase, as mentioned in 40% (24) of the papers. This suggests that LLMs are frequently used to fill in the requirement and architectural design gap, to assist in mapping textual specifications into formal architectural representations. In fact, WL[\[2\]](#page-23-25) leveraged GenAI for collaborative architectural design to assist practitioners in designing the SA from requirements. Similarly, WL[\[3\]](#page-23-26) used ChatGPT to generate microservice names (architecture) based on the requirements.
 
@@ -497,7 +499,7 @@ On the other hand, code-to-architecture (8; 13%) and requirement-to-architecture
 
 The requirement-to-architecture-to-code illustrates efforts to optimize the entire process from requirements to architecture to code generation. Using this SALC arch, GL[\[3\]](#page-25-5) presented in its video tutor an LLM-based copilot of such a SALC arch. Similarly, in a position paper, WL[\[22\]](#page-24-1) presented an assisted architecture LLM based on LLMbased software on LLM-based one requirement.
 
-#### Table 12: LLM Models - (RQ1.2)
+## Table 12: LLM Models - (RQ1.2)
 
 <span id="page-12-0"></span>
 
@@ -561,11 +563,11 @@ Figure 4: How GenAI is used
 
 The distribution of studies indicates that the significant use of LLMs is at the beginning of the SALC, e.g., during requirement analysis as well as architectural design, with less effort going toward changing or reorganizing existing architectures.
 
-# 4. RQ2.<sup>1</sup> (SALC Phases)
+# RQ2.<sup>1</sup> (SALC Phases)
 
 LLMs are most frequently applied in the Requirement-to-Architecture (40%) and Architecture-to-Code (32%) transitions, while Architecture-to-Architecture (3%) is the least explored.
 
-## 4.3.2. Architectural Styles and Patterns (RQ2.2)
+## 3.2. Architectural Styles and Patterns (RQ2.2)
 
 Concerning the architectural styles and patterns to which LLMs have been applied, monolithic architectures are mentioned most frequently, appearing in 15% (7) of the articles (Table [15](#page-15-2) - RQ2.2). This suggests that LLMs are applied primarily in the understanding, analysis, or modernization of monolithic systems. In fact, WL[\[27\]](#page-24-22) used LLM to perform architectural recovery from a legacy monolithic system to understand the program.
 
@@ -583,7 +585,7 @@ Such an asymmetrical distribution demonstrates that although the focus is given 
 
 LLMs mainly target monolithic (15%) and microservices architectures, with 68% of studies omitting style details.
 
-### 4.3.3. Quality and Maintenance Tasks (RQ2.3)
+### 3.3. Quality and Maintenance Tasks (RQ2.3)
 
 Concerning quality aspects, 38% of the works explicitly discuss antipattern detection using methods such as LLMbased architectural smell refactoring, AI-based detection, and rule-based learning (RQ2.3). In particular, WL[\[19\]](#page-24-15) and WL[\[20\]](#page-24-16) use LLM to detect antipatterns.
 
@@ -599,7 +601,7 @@ Figure 5: Sankey Plot connecting LLM Models to SALC Phase
 
 38% of studies use LLMs for antipattern detection, refactoring (WL[\[17\]](#page-24-13), WL[\[32\]](#page-24-5)), and architectural reconstruction (WL[\[16\]](#page-24-6), WL[\[27\]](#page-24-22)). Few integrate external tools, suggesting that LLMs are replacing traditional recovery methods.
 
-# 4.3.4. Architecture Modeling and Validation Methods (RQ2.4)
+# 3.4. Architecture Modeling and Validation Methods (RQ2.4)
 
 Similarly to programming languages, we can represent SA via many architectural languages (AL). Among such AL, UML (Unified Modeling Language) is most commonly applied as a notation in 17% (8) of the studies (Table [16](#page-16-0) - RQ2.2) thus assessing UML as the still dominant modeling language for studies studying LLM due to its versatility in software design and architecture documentation [\[24\]](#page-23-29). For example, WL[\[33\]](#page-24-26) used LLM to generate UML component diagrams from informal specifications.
 
@@ -669,7 +671,7 @@ Analysis Method) and WL[\[21\]](#page-24-17) used static analysis. Hence, our fi
 
 The most used architecture modeling language is UML (17%), while alternatives (2% each) remain underexplored. Most studies (74%) lack formal architectural modeling and (87%) do not contain information on the use of MDE. ATAM, SAAM, and static analysis are the only validation methods reported, while 93% of the studies do not report any evaluation strategy, indicating a lack of systematic validation for AI-generated architectural output.
 
-# 4.3.5. Generative AI for Software Architecture: In which cases (RQ2.5)
+# 3.5. Generative AI for Software Architecture: In which cases (RQ2.5)
 
 This subsection presents the specific use cases in which GeneAI has been applied to the software architecture. We
 
@@ -729,7 +731,7 @@ Table [20](#page-17-1) presents the programming languages of the use cases exami
 
 A significant 58% (30) of the articles did not report the programming language of the use case, and this is an area of reporting that hinders the measurement of LLM uptake by the technology stacks. The presence of legacy languages such as COBOL (1; 2%) suggests that there is research on legacy systems, but only in a very limited subset of cases. These results show that although Java is the most mentioned language, there is no domination of any language, and the granularity of implementation decision details differs among studies.
 
-# 8. RQ2.<sup>5</sup> (Use Cases)
+# RQ2.<sup>5</sup> (Use Cases)
 
 LLMs are most frequently applied to architectural requirements and snippets (15%), with notable usage in enterprise software and IoT systems (8%), while large-scale, mobile, and embedded systems are less explored. Moreover, Java (13%) is the language most commonly used in LLM-driven architectural studies, but 58% of the studies do not specify a programming language, highlighting a gap in reporting on implementation details.
 
@@ -785,7 +787,7 @@ Table 20: Use Case Programming Language - (RQ2.5)
 
 \*One paper can have more than one Programming Language
 
-# 4.4. Generative AI for Software Architecture: Future Challenges (RQ3)
+# 4. Generative AI for Software Architecture: Future Challenges (RQ3)
 
 This subsection presents key challenges identified in the original studies, highlighting limitations in model reliability, ethical concerns, quality of AI-generated outputs, and practical integration issues, which need to be addressed for broader adoption.
 
@@ -805,7 +807,7 @@ Formal verification and compliance checking have also been suggested as necessar
 
 LLM accuracy (16%), hallucinations (9%), and ethical concerns (7%) dominate, alongside critical challenges in evaluation metrics, context-awareness, explainability, systematic validation methods, generalizability, intellectual property, and formal verification.
 
-#### <span id="page-18-0"></span>5. Discussion
+## <span id="page-18-0"></span>5. Discussion
 
 This section discusses the challenges implied by or highlighted in the identified literature and elaborates on future
 
@@ -838,7 +840,7 @@ This section discusses the challenges implied by or highlighted in the identifie
 
 directions. Additionally, it summarizes the different implications identified in white and gray literature. Moreover, to complement the discussion of challenges and implications, we analyzed how these aspects are related.
 
-#### 5.1. Implications
+### 1. Implications
 
 The assessed literature has various implications and suggests future direction as follows:
 
@@ -864,7 +866,7 @@ Formal Verification and AI-Driven Compliance Checking: It is easy to start using
 
 Replacement of Human Experts: Literature often mentions that the discipline will move towards a field where human experts manage projects, where GenAI agents can prototype or deliver tasks for them to manage WL[\[28\]](#page-24-23). This suggests the opportunity for research on AI tools for project management. AI replacing humans can be approached once we overcome trust and establish evaluation metrics. For instance, Prakash GL[\[8\]](#page-25-8) suggests GenAI helps developers by that 25% to write code efficiently, fix bugs, and improve software quality. GenAI, as a tool for architects, is not a replacement GL[\[2\]](#page-25-4), GL[\[3\]](#page-25-5), as it is not yet ready, lacking in complex business contexts, and failing in subjective judgment, business intuition, and personal accountability. Apart from this, Fujitsu GL[\[4\]](#page-25-0) recognizes the need for interactive capabilities to verify current application specifications and assess the impact of source code changes. However, it is important to be aware of the challenges and ethical considerations associated with GenAI GL[\[7\]](#page-25-7). AI algorithms are trained on data, and this data can be biased. This bias can be reflected in the output of AI models. GenAI tools can make mistakes, and they should not be used to replace human judgment. It is also essential to consider the ethical implications of AIgenerated architectural patterns and designs before using them.
 
-#### 5.2. Relationships Among Challenges
+#### 2. Relationships Among Challenges
 
 The challenges identified in Generative AI (GenAI) for Software Architecture (SA) are interconnected, influencing each other and impacting the effectiveness and adoption of these technologies. At the core, LLM accuracy and hallucinations represent foundational issues, significantly affecting the reliability of GenAI outputs. Without addressing these critical concerns, the usefulness of GenAI in SA is limited, as inaccurate or misleading outputs directly undermine trust and adoption.
 
@@ -878,7 +880,7 @@ Intellectual property concerns further underline the necessity of clear guidelin
 
 In summary, these challenges collectively highlight the necessity for integrated solutions that comprehensively address accuracy, ethics, privacy, validation, and human interaction, fostering reliable, secure, and ethically responsible application of GenAI technologies in software architecture.
 
-# 5.3. Relationships Between Challenges and Future Directions
+# 3. Relationships Between Challenges and Future Directions
 
 The identified challenges from the MLR highlight key concerns influencing the future directions of GenAI within software architecture. Addressing these challenges can guide the practical implications for software architecture practice and research (Figure [6\)](#page-21-0).
 
@@ -896,7 +898,7 @@ Lastly, the challenge of pattern recognition accuracy and managing heterogeneous
 
 In summary, addressing these highlighted challenges necessitates systematic validation methods, regulatory frameworks, ethical considerations, enhanced human oversight, rigorous comparative studies, and comprehensive integration frameworks. Integrating these insights will be pivotal for effectively realizing the potential of GenAI in software architecture.
 
-### 5.4. Differences between white and gray literature findings
+## 4. Differences between white and gray literature findings
 
 Our study, being an MLR, covered both the white and gray literature to explore GenAI for Software Architec-
 
@@ -946,7 +948,7 @@ We provide our raw data, and the MLR workflow in our replication package hosted 
 
 During the preparation of this work, the author used ChatGPT to improve language and readability. After using this service, the authors reviewed and edited the content as needed and take full responsibility for the content of the publication.
 
-#### References
+## References
 
 - <span id="page-23-0"></span>[1] M. Esposito, F. Palagiano, V. Lenarduzzi, D. Taibi, Beyond Words: On Large Language Models Actionability in Mission-Critical Risk Analysis, in: International Symposium on Empirical Software Engineering and Measurement, ESEM 2024, 2024, pp. 517–527.
 - <span id="page-23-1"></span>[2] D. Russo, Navigating the complexity of generative ai adoption in software engineering, ACM Transactions on Software Engineering and Methodology 33 (2024) 1–50.
@@ -976,7 +978,7 @@ During the preparation of this work, the author used ChatGPT to improve language
 - <span id="page-23-30"></span>[25] L. Lelovic, A. Huzinga, G. Goulis, A. Kaur, R. Boone, U. Muzrapov, A. S. Abdelfattah, T. Cerny, Change impact analysis in microservice systems: A systematic literature review, Journal of Systems and Software (2024) 112241.
 - <span id="page-23-31"></span>[26] T. C. and, Aspect-oriented challenges in system integration with microservices, soa and iot, Enterprise Information Systems 13 (2019) 467–489.
 
-#### Selected White Literature
+### Selected White Literature
 
 - <span id="page-23-24"></span>[WL1] B. Adnan, S. Miryala, A. Sambu, K. Vaidhyanathan, M. De Sanctis, R. Spalazzese, Leveraging llms for dynamic iot systems generation through mixed-initiative interaction, in: 2025 IEEE 22nd International Conference on Software Architecture Companion (ICSA-C), IEEE Computer Society, Los Alamitos, CA, USA, 2025, pp. 488–497.
 - <span id="page-23-25"></span>[WL2] A. Ahmad, M. Waseem, P. Liang, M. Fahmideh, M. S. Aktar, T. Mikkonen, Towards human-bot collaborative software architecting with chatgpt, in: Proceedings of the International Conference on Evaluation and Assessment in Software Engineering (EASE '23), ACM, New York, NY, USA, 2023, p. 7.

@@ -1,37 +1,27 @@
-![](_page_0_Picture_0.jpeg)
+<!-- cite_key: data2019 -->
 
-![](_page_0_Picture_1.jpeg)
 
-# *Brief Report* **The Roadmap toward Personalized Medicine: Challenges and Opportunities**
 
-**Caterina Cinti 1,\* [,](https://orcid.org/0000-0001-8049-0369) Maria Giovanna Trivella 1,\*, Michael Joulie <sup>2</sup> , Hussein Ayoub <sup>2</sup> and Monika Frenzel 2,† on behalf of the International Consortium for Personalised Medicine and Working Group 'Personalised Medicine in Healthcare' (WG2)**
-
-- <sup>1</sup> National Research Council (CNR), 00185 Rome, Italy
+# *Brief Report*The Roadmap toward Personalized Medicine: Challenges and Opportunities
+**Caterina Cinti 1,\* [,](https://orcid.org/0000-0001-8049-0369) Maria Giovanna Trivella 1,\*, Michael Joulie <sup>2</sup> , Hussein Ayoub <sup>2</sup> and Monika Frenzel 2,† on behalf of the International Consortium for Personalised Medicine and Working Group 'Personalised Medicine in Healthcare' (WG2)**- <sup>1</sup> National Research Council (CNR), 00185 Rome, Italy
 - <sup>2</sup> Agence Nationale de la Recherche (ANR), 75013 Paris, France; monika.frenzel@agencerecherche.fr (M.F.)
-- **\*** Correspondence: caterina.cinti@cnr.it (C.C.); mariagiovanna.trivella@cnr.it (M.G.T.)
+-**\***Correspondence: caterina.cinti@cnr.it (C.C.); mariagiovanna.trivella@cnr.it (M.G.T.)
 - † Lead of ICPerMed WG2.
+**Abstract:**In 2019, the International Consortium for Personalised Medicine (ICPerMed) developed a vision on how the use of personalized medicine (PM) approaches will promote "next-generation" medicine in 2030 more firmly centered on the individual's personal characteristics, leading to improved health outcomes within sustainable healthcare systems through research, development, innovation, and implementation for the benefit of patients, citizens, and society. Nevertheless, there are significant hurdles that healthcare professionals, researchers, policy makers, and patients must overcome to implement PM. The ICPerMed aims to provide recommendations to increase stakeholders' awareness on actionable measures to be implemented for the realization of PM. Starting with best practice examples of PM together with consultation of experts and stakeholders, a careful analysis that underlined hurdles, opportunities, recommendations, and information, aiming at developing knowledge on the requirements for PM implementation in healthcare practices, has been provided. A pragmatic roadmap has been defined for PM integration into healthcare systems, suggesting actions to overcome existing barriers and harness the potential of PM for improved health outcomes. In fact, to facilitate the adoption of PM by diverse stakeholders, it is mandatory to have a comprehensive set of resources tailored to stakeholder needs in critical areas of PM. These include engagement strategies, collaboration frameworks, infrastructure development, education and training programs, ethical considerations, resource allocation guidelines, regulatory compliance, and data management and privacy.
+**Keywords:**personalized medicine; ICPerMed; healthcare; health data; precision medicine
 
-**Abstract:** In 2019, the International Consortium for Personalised Medicine (ICPerMed) developed a vision on how the use of personalized medicine (PM) approaches will promote "next-generation" medicine in 2030 more firmly centered on the individual's personal characteristics, leading to improved health outcomes within sustainable healthcare systems through research, development, innovation, and implementation for the benefit of patients, citizens, and society. Nevertheless, there are significant hurdles that healthcare professionals, researchers, policy makers, and patients must overcome to implement PM. The ICPerMed aims to provide recommendations to increase stakeholders' awareness on actionable measures to be implemented for the realization of PM. Starting with best practice examples of PM together with consultation of experts and stakeholders, a careful analysis that underlined hurdles, opportunities, recommendations, and information, aiming at developing knowledge on the requirements for PM implementation in healthcare practices, has been provided. A pragmatic roadmap has been defined for PM integration into healthcare systems, suggesting actions to overcome existing barriers and harness the potential of PM for improved health outcomes. In fact, to facilitate the adoption of PM by diverse stakeholders, it is mandatory to have a comprehensive set of resources tailored to stakeholder needs in critical areas of PM. These include engagement strategies, collaboration frameworks, infrastructure development, education and training programs, ethical considerations, resource allocation guidelines, regulatory compliance, and data management and privacy.
-
-**Keywords:** personalized medicine; ICPerMed; healthcare; health data; precision medicine
-
-# **1. Introduction**
+# 1. Introduction
 
 Personalized medicine perspectives have been recognized years ago as a necessary direction for better therapeutic outcomes [\[1,](#page-6-0)[2\]](#page-6-1), moving from the concept of basic requirements for clinical use to a translational and regulatory science. Furthermore, personalized medicine as an interdisciplinary topic has become a priority in the research and innovation agenda of the European Commission and national agencies. In November 2016, with the support of the European Commission, the International Consortium for Personalised Medicine (ICPerMed) was launched, involving forty European and international partners, including funding bodies, ministries, and other government structures. The ICPerMed has the general objective of linking the different initiatives related to the development of research projects and implementation of personalized medicine.
 
 In recent years, throughout the increased knowledge of genomics and epigenomics [\[3\]](#page-7-0) together with biomarkers [\[4\]](#page-7-1), there has been a flourishing of articles on the applications of personalized medicine in different areas of medicine, especially in oncology [\[5\]](#page-7-2) and more recently in different and rare diseases [\[6](#page-7-3)[–8\]](#page-7-4). The use of big data and new technologies, including the use of artificial intelligence, requires many aspects of ethics and equity to
-
-![](_page_0_Picture_13.jpeg)
-
-**Citation:** Cinti, C.; Trivella, M.G.; Joulie, M.; Ayoub, H.; Frenzel, M., on behalf of the International Consortium for Personalised Medicine and Working Group 'Personalised Medicine in Healthcare' (WG2). The Roadmap toward Personalized Medicine: Challenges and Opportunities. *J. Pers. Med.* **2024**, *14*, 546. [https://doi.org/10.3390/](https://doi.org/10.3390/jpm14060546) [jpm14060546](https://doi.org/10.3390/jpm14060546)
+**Citation:**Cinti, C.; Trivella, M.G.; Joulie, M.; Ayoub, H.; Frenzel, M., on behalf of the International Consortium for Personalised Medicine and Working Group 'Personalised Medicine in Healthcare' (WG2). The Roadmap toward Personalized Medicine: Challenges and Opportunities.*J. Pers. Med.* **2024**, *14*, 546. [https://doi.org/10.3390/](https://doi.org/10.3390/jpm14060546) [jpm14060546](https://doi.org/10.3390/jpm14060546)
 
 Academic Editor: Valeria Conti
 
 Received: 11 April 2024 Revised: 6 May 2024 Accepted: 18 May 2024 Published: 21 May 2024
 
-![](_page_0_Picture_17.jpeg)
-
-**Copyright:** © 2024 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license [\(https://](https://creativecommons.org/licenses/by/4.0/) [creativecommons.org/licenses/by/](https://creativecommons.org/licenses/by/4.0/) 4.0/).
+**Copyright:**© 2024 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license [\(https://](https://creativecommons.org/licenses/by/4.0/) [creativecommons.org/licenses/by/](https://creativecommons.org/licenses/by/4.0/) 4.0/).
 
 be considered [\[9\]](#page-7-5). The International Consortium for Personalised Medicine (ICPerMed), through a survey [\[10\]](#page-7-6) and an active discussion with European and International experts in fields of medical sciences, defined in 2019 a vision for implementing the use of personalized medicine (PM) in 2030, in order to increase effectiveness, economic value, and equitable access for all citizens [\[11](#page-7-7)[,12\]](#page-7-8). The discovery of new molecular characteristics and the development of new diagnostic tests, which allow a more detailed redefinition of pathologies as well as the identification of subgroups of patients who respond well to a therapy, opened important scenarios for the medicine of the future.
 
@@ -44,7 +34,7 @@ Besides genetic profiles, other important pharmacological characteristics associ
 
 To face the PM complexity and the multiple scenarios within the ICPerMed organization, a working group (WG2), having a specific activity on "Personalised Medicine in Healthcare", for three years from 2020 analyzed and defined in some documents the needs and a roadmap for the future [\[13\]](#page-7-9). All the critical issues and the necessary actions have been carefully reported.
 
-## **2. Methods**
+## 2. Methods
 
 A collection of best practice examples of personalized medicine (PM) with the support of the ICPerMed working groups and the ICPerMed Secretariat took place and are published on the ICPerMed website. The best practice examples published cover different aspects of the value chain. Two different types of best practice examples are considered:
 
@@ -65,13 +55,12 @@ Additionally, representatives of examples close to implementation or of examples
 
 In summary, through a review of PM examples and by dedicated interviews of international and European experts in PM, relevant tasks in PM implementation were identified and the importance of various stakeholder involvement processes underlined. national and European experts in PM, relevant tasks in PM implementation were identified and the importance of various stakeholder involvement processes underlined.
 
-#### **3. Results 3. Results**
+### 3. Results 3. Results
 
 <span id="page-2-0"></span>By the above methodology, major facilitators have been identified (Figure [1\)](#page-2-0). By the above methodology, major facilitators have been identified (Figure 1).
 
 ![](_page_2_Figure_5.jpeg)
-
-**Figure 1.** Eight major facilitators in the implementation process of personalized medicine. **Figure 1.** Eight major facilitators in the implementation process of personalized medicine.
+**Figure 1.**Eight major facilitators in the implementation process of personalized medicine.**Figure 1.** Eight major facilitators in the implementation process of personalized medicine.
 
 It appears important to clarify the facilitators in detail. It appears important to clarify the facilitators in detail.
 
@@ -99,7 +88,7 @@ Finally, the need for ethical considerations has been identified. The ethical fi
 
 Furthermore, some identified critical issues are represented in Table [1.](#page-4-0)
 
-<span id="page-4-0"></span>**Table 1.** Critical issues for personalized medicine accessibility.
+<span id="page-4-0"></span>**Table 1.**Critical issues for personalized medicine accessibility.
 
 | Critical Issues for Personalized Medicine<br>Accessibility                                                                                                                         | Underlying Healthcare Systems Challenges                 | Stakeholders                                                                                                                                                            |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -107,14 +96,14 @@ Furthermore, some identified critical issues are represented in Table [1.](#page
 | Cultural differences                                                                                                                                                               | Health inequalities                                      | Healthcare providers, policy makers,<br>healthcare regulators                                                                                                           |
 | Public awareness and acceptance                                                                                                                                                    | People empowerment and self-management                   | Researchers, healthcare providers, patient<br>advocacy groups                                                                                                           |
 | Territories with different densities (urban vs.<br>country population) have different needs for<br>implementation (e.g., mobile phone<br>connection and telemedicine organization) | Health and care access and digital health<br>integration | Healthcare providers, government authorities,<br>healthcare regulators, policy makers, patient<br>advocacy groups, technology providers,<br>telecommunication companies |
-| Family doctor and citizen relationship when<br>the family doctor exists *                                                                                                          | Care continuity                                          |                                                                                                                                                                         |
+| Family doctor and citizen relationship when<br>the family doctor exists*                                                                                                          | Care continuity                                          |                                                                                                                                                                         |
 | Attracting and retaining healthcare<br>professionals                                                                                                                               | Health workforce                                         | Government and healthcare regulators,<br>healthcare managers, healthcare workers,<br>educational institutions, technology and<br>digital health companies               |
 | Interdisciplinary group to approach different<br>medical fields                                                                                                                    | Collaboration toward personalized care<br>delivery       | Researchers, healthcare providers, patient<br>advocacy groups, technology and digital<br>health companies                                                               |
 | Holistic approach of healthcare professionals<br>for a single citizen **                                                                                                           | Integrated care                                          | Health, well-being, and social care services,<br>technology and telehealth providers, patient<br>advocacy groups                                                        |
 
-\* Not in all health system organizations. \*\* Strongly connected with the education of Healthcare Professionals, Laboratory Technicians and Information Technology Specialists, and Patients and Citizens. There is a lack of willingness to move from common practice to a patient-centric approach.
+\* Not in all health system organizations. \*\*Strongly connected with the education of Healthcare Professionals, Laboratory Technicians and Information Technology Specialists, and Patients and Citizens. There is a lack of willingness to move from common practice to a patient-centric approach.
 
-# **4. Discussion**
+# 4. Discussion
 
 While a comprehensive strategy for the implementation of PM is outlined before these results, the ICPerMed also recognizes several critical issues that warrant careful consideration, as summarized in Table [1](#page-4-0) and reported within the document "Challenges, Opportunities, and Facilitators in Implementing Personalised Medicine" [\[13\]](#page-7-9). It has defined that a major challenge is the digital divide, particularly in the context of an aging population that may find it difficult to use devices and engage with telemedicine. Strategies to enhance digital literacy and provide user-friendly technologies are essential to ensure that the benefits of PM and telemedicine are accessible to all age groups. The diverse cultural backgrounds of citizens must be considered in the development and implementation of PM. This includes respecting cultural norms, beliefs, and practices in healthcare delivery and patient engagement strategies. The requirements for implementing PM and novel technologies such as telemedicine differ significantly between urban and rural areas. In rural areas, challenges such as lower population density and limited mobile phone connectivity need specific strategies tailored to their unique context. The relationship between family doctors and citizens varies across different territorial healthcare systems. Strengthening this relationship is crucial, especially in the decentralized model of PM, where family doctors often play a key role in coordinating patients' care. The high turnover of healthcare professionals and the shortage of doctors, specialists, and nurses pose significant challenges to healthcare systems. Addressing these issues is critical for the sustainable implementation of PM. A holistic approach to healthcare is essential, where healthcare professionals consider the overall well-being of the individual, including psychological support. This approach is
 
@@ -132,27 +121,20 @@ interoperable repository of health images, and a scalable high-performance compu
 
 To complete the analysis, in terms of fund allocation, it is important to mention the publication of Nardini et al., where it is reported all the European regions that have included personalized medicine as investment priority [\[14\]](#page-7-10).
 
-## **5. Conclusions**
+## 5. Conclusions
 
 In conclusion, this ICPerMed document, "Challenges, Opportunities, and Facilitators in Implementing Personalised Medicine", presents a roadmap for the integration of PM into healthcare. Its recommendations offer actionable strategies to overcome existing barriers and harness the potential of PM for improved health outcomes. The success of this endeavor hinges on collaborative efforts, innovative thinking, and a steadfast commitment to ethical principles and common goals but also on the availability of sustainable investments in research, innovation, and healthcare infrastructures. As we advance, it is imperative that all stakeholders, including healthcare professionals, researchers, policy makers, and patients, engage actively in this transformative journey. By doing so, we can unlock the full potential of PM, making it a cornerstone of modern healthcare that is accessible, efficient, equitable, and tailored to the individual needs of patients and all citizens. This paradigm shift, while challenging, holds the promise of a future where healthcare is more precise, predictive, and patient-centered, ultimately leading to better health outcomes and quality of life for all.
+**Author Contributions:**Conceptualization, C.C., M.G.T., M.J., H.A. and M.F.; writing—original draft preparation, C.C. and M.G.T.; writing—review and editing, C.C., M.G.T., M.J., H.A. and M.F. All authors have read and agreed to the published version of the manuscript.
+**Funding:**This research was funded by the European Union's Horizon 2020 research and innovation (R&I) programme H2020- EU.3.1.—SOCIETAL CHALLENGES—Health, demographic change and well-being (main programme), H2020-EU.3.1.6.—Health care provision and integrated care, under the grant agreement No. 964197 (DOI: [https://doi.org/10.3030/964197.](https://doi.org/10.3030/964197)), Start data 1 March 2021 and End data 29 February 2024.
+**Institutional Review Board Statement:**This study did not require ethical approval.
+**Informed Consent Statement:**Not applicable.
+**Data Availability Statement:**This study did not report any data.
+**Acknowledgments:**The authors of this paper would like to thank the members of the ICPerMed WG2 and the experts consulted for this work for their contributions to this project: Angel Alonso, Navarra-Biomed, Spain; Valérie Barbié, SIB Swiss Institute of Bioinformatics, Switzerland; Katrin Crameri, Personalized Health Informatics Group SIB Swiss Institute of Bioinformatics, SPHN, Switzerland; Amalia Gastadelli, Institute of Clinical Physiology, CNR, Italy; Thomas Geiger, Swiss Academy of Medical Sciences, Switzerland; Ulrike Köhl, Fraunhofer Institute for Cell Therapy and Immunology (IZI), Germany; Adrián Llerena, Instituto Universitario de Investigación Biosanitaria de Extremadura (INUBE), Spain; Katherine Payne, The University of Manchester, UK; Barbara Prainsack, University of Vienna, Austria; Hege Russness, Oslo University Hospital, Norway; Peter Schirmacher, Institute of Pathology, University Hospital Heidelberg, Germany; Liisa-Maria Voipio-Pulkki, Ministry of Social Affairs and Health, Finland; and Andreas Wicki, University of Zurich, Switzerland.
+**Conflicts of Interest:**The authors declare no conflicts of interest.
 
-**Author Contributions:** Conceptualization, C.C., M.G.T., M.J., H.A. and M.F.; writing—original draft preparation, C.C. and M.G.T.; writing—review and editing, C.C., M.G.T., M.J., H.A. and M.F. All authors have read and agreed to the published version of the manuscript.
+### References
 
-**Funding:** This research was funded by the European Union's Horizon 2020 research and innovation (R&I) programme H2020- EU.3.1.—SOCIETAL CHALLENGES—Health, demographic change and well-being (main programme), H2020-EU.3.1.6.—Health care provision and integrated care, under the grant agreement No. 964197 (DOI: [https://doi.org/10.3030/964197.](https://doi.org/10.3030/964197)), Start data 1 March 2021 and End data 29 February 2024.
-
-**Institutional Review Board Statement:** This study did not require ethical approval.
-
-**Informed Consent Statement:** Not applicable.
-
-**Data Availability Statement:** This study did not report any data.
-
-**Acknowledgments:** The authors of this paper would like to thank the members of the ICPerMed WG2 and the experts consulted for this work for their contributions to this project: Angel Alonso, Navarra-Biomed, Spain; Valérie Barbié, SIB Swiss Institute of Bioinformatics, Switzerland; Katrin Crameri, Personalized Health Informatics Group SIB Swiss Institute of Bioinformatics, SPHN, Switzerland; Amalia Gastadelli, Institute of Clinical Physiology, CNR, Italy; Thomas Geiger, Swiss Academy of Medical Sciences, Switzerland; Ulrike Köhl, Fraunhofer Institute for Cell Therapy and Immunology (IZI), Germany; Adrián Llerena, Instituto Universitario de Investigación Biosanitaria de Extremadura (INUBE), Spain; Katherine Payne, The University of Manchester, UK; Barbara Prainsack, University of Vienna, Austria; Hege Russness, Oslo University Hospital, Norway; Peter Schirmacher, Institute of Pathology, University Hospital Heidelberg, Germany; Liisa-Maria Voipio-Pulkki, Ministry of Social Affairs and Health, Finland; and Andreas Wicki, University of Zurich, Switzerland.
-
-**Conflicts of Interest:** The authors declare no conflicts of interest.
-
-### **References**
-
-- <span id="page-6-1"></span><span id="page-6-0"></span>1. Hamburg, M.A.; Collins, F.S. The Path to Personalized Medicine. *N. Engl. J. Med.* **2010**, *363*, 301–304. [\[CrossRef\]](https://doi.org/10.1056/NEJMp1006304) [\[PubMed\]](https://www.ncbi.nlm.nih.gov/pubmed/20551152)
+- <span id="page-6-1"></span><span id="page-6-0"></span>1. Hamburg, M.A.; Collins, F.S. The Path to Personalized Medicine.*N. Engl. J. Med.* **2010**, *363*, 301–304. [\[CrossRef\]](https://doi.org/10.1056/NEJMp1006304) [\[PubMed\]](https://www.ncbi.nlm.nih.gov/pubmed/20551152)
 - 2. Mathur, S.; Sutton, J. Personalized medicine could transform healthcare (Review). *Biomed. Rep.* **2017**, *7*, 3–5. [\[CrossRef\]](https://doi.org/10.3892/br.2017.922) [\[PubMed\]](https://www.ncbi.nlm.nih.gov/pubmed/28685051)
 
 - <span id="page-7-0"></span>3. Carlsten, C.; Brauer, M.; Brinkman, F.; Brook, J.; Dalet, D.; McNagny, K.; Pui, M.; Royce, D.; Takaro, T.; Denburg, J. Genes, the environment and personalized medicine: We need to harness both environmental and genetic data to maximize personal and population health. *EMBO Rep.* **2014**, *15*, 736–739. [\[CrossRef\]](https://doi.org/10.15252/embr.201438480) [\[PubMed\]](https://www.ncbi.nlm.nih.gov/pubmed/24907240)

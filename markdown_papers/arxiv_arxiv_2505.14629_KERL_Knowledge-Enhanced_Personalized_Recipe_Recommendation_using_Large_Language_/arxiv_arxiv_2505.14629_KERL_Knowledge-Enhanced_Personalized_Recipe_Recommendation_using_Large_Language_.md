@@ -1,3 +1,5 @@
+<!-- cite_key: zaki2018 -->
+
 # KERL: *K*nowledge-*E*nhanced Personalized Recipe *R*ecommendation using *L*arge Language Models \*
 
 Fnu Mohbat and Mohammed J. Zaki
@@ -22,9 +24,9 @@ We propose a personalized and unified food recommendation system called KERL tha
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
 
-Figure 1: KERL Overview: Given a natural language question (with constraints), the system parses entities and generates a SPARQL query to retrieve a subgraph from the KG. The question and this subgraph as context, are given as input to the recommendation model (*KERL-Recom*), which generates a list of recipe names that satisfy the constraints. The *KERL-Recipe* and *KERL-Nutri* models then generate cooking steps and micro-nutrients.
+Figure 1: KERL Overview: Given a natural language question (with constraints), the system parses entities and generates a SPARQL query to retrieve a subgraph from the KG. The question and this subgraph as context, are given as input to the recommendation model (*KERL-Recom*), which generates a list of recipe names that satisfy the constraints. The *KERL-Recipe*and*KERL-Nutri* models then generate cooking steps and micro-nutrients.
 
-prises three modules: a recommendation module (*KERL-Recom*), a recipe generation module (*KERL-Recipe*), and a nutrition generation module (*KERL-Nutri*), which are trained using a low-rank adaption (LoRA) approach [\(Hu et al.,](#page-9-8) [2022\)](#page-9-8). The *KERL-Recom* module takes a user query, extracts entities, constructs a SPARQL query to retrieve relevant subgraphs from the KG, and inputs these subgraphs along with the query into the LLM, which returns dish names that satisfy the constraints. The *KERL-Recipe* modules generates recipes from the suggested titles, while the *KERL-Nutri* produces detailed micro-nutritional information for recommended dishes. Overall, we make the following contributions.
+prises three modules: a recommendation module (*KERL-Recom*), a recipe generation module (*KERL-Recipe*), and a nutrition generation module (*KERL-Nutri*), which are trained using a low-rank adaption (LoRA) approach [\(Hu et al.,](#page-9-8) [2022\)](#page-9-8). The *KERL-Recom*module takes a user query, extracts entities, constructs a SPARQL query to retrieve relevant subgraphs from the KG, and inputs these subgraphs along with the query into the LLM, which returns dish names that satisfy the constraints. The*KERL-Recipe*modules generates recipes from the suggested titles, while the*KERL-Nutri*produces detailed micro-nutritional information for recommended dishes. Overall, we make the following contributions.
 
 - We propose KERL, a unified food recommendation system based on a multi-LoRA approach, with a dedicated adapter for each task, while utilizing the same base model, allowing efficient training and inference.
 - Our work generates comprehensive nutritional information unlike previous approaches that focus mainly on one aspect, such as calorie count.
@@ -49,22 +51,21 @@ Figure 2: KERL Multi-LoRA Setup: With the same base model, a separate LoRA adapt
 
 ## 3 KERL: Food Recommendation System
 
-We propose KERL, a personalize food recommendation system that unifies recommendation with cooking steps and nutrition details generation by leveraging multi-LoRA approach as illustrated in Fig. [1.](#page-1-0) KERL uses the FoodKG [\(Haussmann et al.,](#page-9-1) [2019\)](#page-9-1) as external knowledge source and an LLM as a generative engine. FoodKG contains 1 million recipes from Recipe1M [\(Salvador et al.,](#page-11-8) [2017\)](#page-11-8) with ingredients, nutritional information, and tags, organized into 67 million triplets. Let t<sup>j</sup> be a tag in FoodKG, and R(t<sup>j</sup> ) the set of tagged recipes with tag t<sup>j</sup> where each recipe Xrecipe has a title or name X<sup>t</sup> , ingredients Xing, cooking steps Xinst and nutrients Xnutri. Now, let I(t<sup>j</sup> ) be the set of ingredients in all recipes in R(t<sup>j</sup> ), then we define I <sup>+</sup>(t<sup>j</sup> ) ⊂ I(t<sup>j</sup> ) as the set of ingredients that the user likes to have and I <sup>−</sup>(t<sup>j</sup> ) ⊂ I(t<sup>j</sup> ) as the set of ingredients that the user wants to avoid. Let Xnutri,i be the i th nutrient, then µ(R(t<sup>j</sup> ), Xnutri,i) and σ(R(t<sup>j</sup> ), Xnutri,i) denote the mean and standard deviation of the nutrient, respectively. These statistical measures are later used to define nutrientbased preference filters. To incorporate these constraints into personalized recipe recommendations, we employ a modular approach in designing KERL's multi-LoRA architecture, as shown in Fig. [2,](#page-2-0) where each LoRA adapter is fine-tuned for a distinct sub-task. The *KERL-Recom* adapter is fine-tuned to identify dishes from R(t<sup>j</sup> ) that satisfy the constraints in the user query as recommended recipes. Subsequently, we also fine-tune the *KERL-Recipe* and *KERL-Nutri* adapters for generation of cooking instructions and micro-nutrients for the recommended recipes. Together, the three modules comprise a comprehensive and integrated food recommendation system.
+We propose KERL, a personalize food recommendation system that unifies recommendation with cooking steps and nutrition details generation by leveraging multi-LoRA approach as illustrated in Fig. [1.](#page-1-0) KERL uses the FoodKG [\(Haussmann et al.,](#page-9-1) [2019\)](#page-9-1) as external knowledge source and an LLM as a generative engine. FoodKG contains 1 million recipes from Recipe1M [\(Salvador et al.,](#page-11-8) [2017\)](#page-11-8) with ingredients, nutritional information, and tags, organized into 67 million triplets. Let t<sup>j</sup> be a tag in FoodKG, and R(t<sup>j</sup> ) the set of tagged recipes with tag t<sup>j</sup> where each recipe Xrecipe has a title or name X<sup>t</sup> , ingredients Xing, cooking steps Xinst and nutrients Xnutri. Now, let I(t<sup>j</sup> ) be the set of ingredients in all recipes in R(t<sup>j</sup> ), then we define I <sup>+</sup>(t<sup>j</sup> ) ⊂ I(t<sup>j</sup> ) as the set of ingredients that the user likes to have and I <sup>−</sup>(t<sup>j</sup> ) ⊂ I(t<sup>j</sup> ) as the set of ingredients that the user wants to avoid. Let Xnutri,i be the i th nutrient, then µ(R(t<sup>j</sup> ), Xnutri,i) and σ(R(t<sup>j</sup> ), Xnutri,i) denote the mean and standard deviation of the nutrient, respectively. These statistical measures are later used to define nutrientbased preference filters. To incorporate these constraints into personalized recipe recommendations, we employ a modular approach in designing KERL's multi-LoRA architecture, as shown in Fig. [2,](#page-2-0) where each LoRA adapter is fine-tuned for a distinct sub-task. The*KERL-Recom*adapter is fine-tuned to identify dishes from R(t<sup>j</sup> ) that satisfy the constraints in the user query as recommended recipes. Subsequently, we also fine-tune the*KERL-Recipe*and*KERL-Nutri*adapters for generation of cooking instructions and micro-nutrients for the recommended recipes. Together, the three modules comprise a comprehensive and integrated food recommendation system.
 
-## 3.1 KERL-Recom
+## 1 KERL-Recom
 
-Given a complex user query containing allowed and disallowed ingredients, and other nutrition-based constraints (see Table [1](#page-4-0) for some examples), the main task for the *KERL-Recom* adapter is to recommend relevant recipes leveraging the FoodKG to return a high quality response. The steps involve retrieval of query relevant subgraphs from the KG, fine-tuning the model on user queries, and model inference over the KG for generating the response as recommended recipes.
+Given a complex user query containing allowed and disallowed ingredients, and other nutrition-based constraints (see Table [1](#page-4-0) for some examples), the main task for the*KERL-Recom*adapter is to recommend relevant recipes leveraging the FoodKG to return a high quality response. The steps involve retrieval of query relevant subgraphs from the KG, fine-tuning the model on user queries, and model inference over the KG for generating the response as recommended recipes.
 
-Subgraph Retrieval: Given a natural language question, the first step is to parse entities such as the tag t<sup>j</sup> (e.g., *American*, *Healthy*) and ingredients (e.g., *sugar*, *cheese*). These entities are then used to generate SPARQL queries based on predefined templates, allowing us to retrieve relevant subgraphs from FoodKG. Each subgraph contains the name of the dish, the list of ingredients, and nutritional information. The subgraphs are serialized into a text sequence and given to LLM as a context. An example of a KG subgraph, along with the relevant recipe text is shown in Fig. [4](#page-13-0) (See Appendix).
+Subgraph Retrieval: Given a natural language question, the first step is to parse entities such as the tag t<sup>j</sup> (e.g.,*American*, *Healthy*) and ingredients (e.g., *sugar*, *cheese*). These entities are then used to generate SPARQL queries based on predefined templates, allowing us to retrieve relevant subgraphs from FoodKG. Each subgraph contains the name of the dish, the list of ingredients, and nutritional information. The subgraphs are serialized into a text sequence and given to LLM as a context. An example of a KG subgraph, along with the relevant recipe text is shown in Fig. [4](#page-13-0) (See Appendix).
 
-Model Optimization: *KERL-Recom* model is trained to select recipes from the context that meet the constraints in the question. Given that R(t<sup>j</sup> ) is the set of recipes with the relevant user tag t<sup>j</sup> , let R+(t<sup>j</sup> ) denote the *positive* subset of recipes that meet all query constraints, and let R−(t<sup>j</sup> ) denote the rest of the recipes that make up the *negative* subset. During training, we select a subset of recipes of size at most K, such that we sample at most K/2 positive recipes from R+(t<sup>j</sup> ) and at most K/2 negative recipes from R−(t<sup>j</sup> ). This determines the context C<sup>j</sup> for the LLM training, along with the full query, with K chosen so that
+Model Optimization: *KERL-Recom*model is trained to select recipes from the context that meet the constraints in the question. Given that R(t<sup>j</sup> ) is the set of recipes with the relevant user tag t<sup>j</sup> , let R+(t<sup>j</sup> ) denote the*positive*subset of recipes that meet all query constraints, and let R−(t<sup>j</sup> ) denote the rest of the recipes that make up the*negative*subset. During training, we select a subset of recipes of size at most K, such that we sample at most K/2 positive recipes from R+(t<sup>j</sup> ) and at most K/2 negative recipes from R−(t<sup>j</sup> ). This determines the context C<sup>j</sup> for the LLM training, along with the full query, with K chosen so that
 
 the model can fit within the GPU memory. This approach allows the model to learn to select from a wide distribution of contexts (positive or negative recipes) despite |R−(t<sup>j</sup> )| ≫ |R+(t<sup>j</sup> )| (e.g., see the dataset statistics in Table [2\)](#page-5-0). The recipes sampled from R+(t<sup>j</sup> ) serve as the ground truth answer Y . The model is trained using low-rank adaptation [\(Hu et al.,](#page-9-8) [2022\)](#page-9-8) (see details in Sec. [5.1\)](#page-6-0) with standard cross-entropy loss: LCE = CE(p(Y ), p(Y˜ )), where p(Y ) is probability of ground truth recipe tokens as one hot vector and p(Y˜ ) is the predicted probability of the recipe tokens generated by the model.
 
 Inference over KG: During inference, the entire FoodKG could theoretically be the context for searching relevant recipes. However, in practice, we parse the tag t<sup>j</sup> from the query and retrieve R(t<sup>j</sup> ) as context. The maximum number of tagged recipes could be potentially very large, and the resulting total number of tokens may exceed the LLM's sequence length, which may also lead to GPU memory overflow. Therefore, like in training, we iterate over R(t<sup>j</sup> ) by providing the LLM with the query and a subset of R(t<sup>j</sup> ) as context C<sup>j</sup> , and combine the responses from multiple calls to the LLM to generate the final answer. This approach allows us to perform inference and evaluate the model on a variable number of recipe subgraphs.
 
-## 3.2 KERL-Recipe
-
+## 2 KERL-Recipe
 *KERL-Recipe*, the recipe generation module enables the recommendation system to generate recipe steps. This module can leverage any recipe generation model, such as LLaVA-Chef [\(Mohbat](#page-10-4) [and Zaki,](#page-10-4) [2024\)](#page-10-4) or FoodMMM [\(Yin et al.,](#page-11-1) [2023\)](#page-11-1). While these models rely on older LLM backbones, recent advances such as LLaMA-3 [\(Grattafiori](#page-9-15) [et al.,](#page-9-15) [2024\)](#page-9-15) and Phi-3 [\(Abdin et al.,](#page-9-16) [2024\)](#page-9-16) have significantly outperformed their predecessors. Therefore, we employed Phi-3-mini for recipe generation, specifically generating cooking steps from the dish names X<sup>t</sup> , and ingredients Xing, or both. Unlike [\(Mohbat and Zaki,](#page-10-4) [2024;](#page-10-4) [Yin et al.,](#page-11-1) [2023\)](#page-11-1), we use LoRA training, which reduces the number of training parameters and decreases the training time. Thus, KERL-Recipe, implemented as a LoRA adapter, integrates seamlessly into the KERL framework, while utilizing Phi-3 Mini as the base model.
 
 <span id="page-4-0"></span>
@@ -89,7 +90,7 @@ Inference over KG: During inference, the entire FoodKG could theoretically be th
 
 Table 1: Examples of constraints, corresponding questions, and relevant recipe names as ground truth answers. Ingredient preferences specify whether certain ingredients should or should not be included in the recipes. Nutritional constraints are numerical conditions applied to nutrient values, defined by limits such as less than, greater than, or within a specified range.
 
-## 3.3 KERL-Nutri
+## 3 KERL-Nutri
 
 *KERL-Nutri*, the nutrition generation module, is also a LoRA adapter trained to generate micronutritional information from the recipe name X<sup>t</sup> , the ingredients Xing, and the cooking steps Xinstr or their combination. The module helps ensure that the recommended recipes follow the nutritional constraints in the user query.
 
@@ -97,9 +98,9 @@ All three modules share the same backbone LLM (namely, Phi-3-mini [\(Abdin et al
 
 ## 4 Benchmark Generation
 
-One of our contributions is the creation of a large benchmark dataset of realistic constrained user queries for training and evaluation, given the lack of real user data. For *KERL-Recom* and *KERL-Nutri*, we curated base (template) questions using GPT-4 [\(Achiam et al.,](#page-9-17) [2023\)](#page-9-17), whereas for *KERL-Recipe*, we borrowed template prompts from LLaVA-Chef [\(Mohbat and Zaki,](#page-10-4) [2024\)](#page-10-4) (see Sec. [4.4](#page-6-1) in Appendix). Based on the task, each base question contains placeholders for inputs which are then replaced with their values.
+One of our contributions is the creation of a large benchmark dataset of realistic constrained user queries for training and evaluation, given the lack of real user data. For *KERL-Recom*and*KERL-Nutri*, we curated base (template) questions using GPT-4 [\(Achiam et al.,](#page-9-17) [2023\)](#page-9-17), whereas for *KERL-Recipe*, we borrowed template prompts from LLaVA-Chef [\(Mohbat and Zaki,](#page-10-4) [2024\)](#page-10-4) (see Sec. [4.4](#page-6-1) in Appendix). Based on the task, each base question contains placeholders for inputs which are then replaced with their values.
 
-## 4.1 Generating Personal Preferences
+## 1 Generating Personal Preferences
 
 To personalize the recommendation of recipes, individualized information about the person's likes, dislikes, and other personal choices are important. Our benchmark incorporates both ingredient preferences and nutritional constraints. We combine the base question and constraints to obtain the final constrained question. See Table [1](#page-4-0) for examples. Recipes that satisfy all constraints are considered ground truth answers or a positive set of recipes R+(t<sup>j</sup> ), and the remaining R−(t<sup>j</sup> ) = R(t<sup>j</sup> ) − R+(t<sup>j</sup> ) are considered as a negative set of recipes. This allows us to generate personalized food recommendations that take into account both taste preferences and dietary needs.
 
@@ -124,7 +125,7 @@ or a range. To generate nutritional constraints, first we randomly select one of
 
 Table 2: KGQA Benchmark: Total number of questions, and the number of tagged recipes for overall context R(t<sup>j</sup> ) and ground truth answer R <sup>+</sup>(t<sup>j</sup> ).
 
-#### 4.2 KGQA Benchmark
+### 2 KGQA Benchmark
 
 In the KGQA benchmark, ingredient preferences and nutrition constraints are combined with a user query to create a detailed question. Examples of the base question, constraints, nutritional limits, and the final question are given in Table [1.](#page-4-0) To generate final queries, we randomly sample a base question from the templates, replace the placeholders with ingredient choices and nutritional constraints. The recipes that meet all the conditions in the final question are considered recommended recipes.
 
@@ -140,9 +141,9 @@ benchmark is over an order of magnitude larger than the pFoodReq dataset [\(Chen
 - Based on the cooking instructions provided, calculate the nutritional values of the dish. Instructions: <instructions>.
 - For the following dish, estimate the nutritional values. Recipe: <name> <ingredients> <instructions>.
 
-Table 3: Example prompts utilized for training the *KERL-Nutri* model, where placeholders were replaced with the corresponding information.
+Table 3: Example prompts utilized for training the *KERL-Nutri*model, where placeholders were replaced with the corresponding information.
 
-#### 4.3 Nutrition Generation Benchmark
+#### 3 Nutrition Generation Benchmark
 
 In the absence of a standardized benchmark for micro-nutrients, we sourced ground-truth micronutritional information from Recipe1M (and thus FoodKG) and [\(Li et al.,](#page-10-2) [2023\)](#page-10-2), resulting in about 500,000 recipe samples for which we were able to gather nutritional information. Using Recipe1M's predefined train-test splits, we use 19,000 recipes for our test set, with the remaining recipes used as the training set for our nutrition generation benchmark. Subsequently, to train LLMs, we curated about 40 template prompts using GPT-4, with examples of some of the prompts given in Table [3.](#page-5-1) The placeholders <name>, <ingredients>, and <instructions> in the prompts are replaced with their corresponding actual information from the dataset samples. For example, in the prompt "Estimated nutrition for <name>" the placeholder <name> is replaced with the recipe title (name) X<sup>t</sup> , which is then input to the LLM to generate the nutritional information. The prompts are intended to generate nutritional information from recipe attributes such as the title X<sup>t</sup> , ingredients Xing, and cooking instructions Xinstr, or their combinations, which allows the model to learn nutritional information from different attributes of the recipes.
 
@@ -160,13 +161,13 @@ Recipe generation benchmark utilizes Recipe1M [\(Salvador et al.,](#page-11-8) [
 - Outline the process of making a delicious <name> using <ingredients>
 - Given <ingredients>, suggest me recipe of <name>
 
-Table 4: Example prompts utilized training *KERL-Recipe* model, where placeholders were replaced with the corresponding information.
+Table 4: Example prompts utilized training*KERL-Recipe*model, where placeholders were replaced with the corresponding information.
 
 # 5 Experimental Results
 
-For baseline comparison, we select several open source LLMs, as detailed Appendix [B.](#page-12-1) We report the performance of *KERL-Recom* on standard retrieval metrics such as precision, recall, and F1, and *KERL-Recipe* on various text generation and summarization metrics including BLEU [\(Papineni](#page-10-18) [et al.,](#page-10-18) [2002\)](#page-10-18), Rouge [\(Lin,](#page-10-19) [2004\)](#page-10-19), METEOR [\(El](#page-9-18)[liott and Keller,](#page-9-18) [2013\)](#page-9-18) and CIDer [\(Vedantam et al.,](#page-11-18) [2015\)](#page-11-18). For *KERL-Nutri*, we parse micro-nutrients from the generated response and compute the mean average error (MAE) with ground truth. The metric definitions are provided in Appendix [C.](#page-12-2) Our code and benchmark datasets can be found at [https:](https://github.com/mohbattharani/KERL) [//github.com/mohbattharani/KERL](https://github.com/mohbattharani/KERL).
+For baseline comparison, we select several open source LLMs, as detailed Appendix [B.](#page-12-1) We report the performance of*KERL-Recom*on standard retrieval metrics such as precision, recall, and F1, and*KERL-Recipe*on various text generation and summarization metrics including BLEU [\(Papineni](#page-10-18) [et al.,](#page-10-18) [2002\)](#page-10-18), Rouge [\(Lin,](#page-10-19) [2004\)](#page-10-19), METEOR [\(El](#page-9-18)[liott and Keller,](#page-9-18) [2013\)](#page-9-18) and CIDer [\(Vedantam et al.,](#page-11-18) [2015\)](#page-11-18). For*KERL-Nutri*, we parse micro-nutrients from the generated response and compute the mean average error (MAE) with ground truth. The metric definitions are provided in Appendix [C.](#page-12-2) Our code and benchmark datasets can be found at [https:](https://github.com/mohbattharani/KERL) [//github.com/mohbattharani/KERL](https://github.com/mohbattharani/KERL).
 
-#### <span id="page-6-0"></span>5.1 Experimental Setup
+## <span id="page-6-0"></span>5.1 Experimental Setup
 
 We leverage Phi-3-mini for its performance and compact size and fine-tuned one LoRA [\(Hu et al.,](#page-9-8) [2022\)](#page-9-8) adapter per task. For each task, we used the same LoRA configuration with r = 64 and α = 16 and dropout = 0.5, where r is the dimensionality of the low rank and α is the scaling factor. We trained a separate LoRA adapter for each task, the overall model is shown in Figure [2.](#page-2-0) During inference, the same model with multiple adapters allows us to deploy once and activate the taskspecific adapter as needed. All experiments were performed on four NVIDIA RTX A6000 GPUs. Each LoRA adapter is trained for two epochs on task related dataset. The training hyper parameters were kept the same for all models, with a starting learning rate of lr = 2×10−<sup>5</sup> and a cosine learning rate scheduler. During validation, hyperparameters were also fixed for all the models. Specifically, we used temperature = 0.2, num beams =1 and maximum new tokens to 1024.
 
@@ -183,13 +184,11 @@ We leverage Phi-3-mini for its performance and compact size and fine-tuned one L
 | Phi-3-mini-128K (Abdin et al., 2024) | 0.275 | 0.778 | 0.278 | 0.41  |
 | KERL-Recom                           | 0.96  | 0.978 | 0.969 | 0.973 |
 
-Table 5: KGQA Benchmark Test Set: *KERL-Recom* versus pre-trained LLMs.
+Table 5: KGQA Benchmark Test Set: *KERL-Recom*versus pre-trained LLMs.
 
-## 5.2 *KERL-Recom* Evaluation
-
-*Comparison with Open Source LLMs:* Table [5](#page-6-3) presents the results of recent state-of-the-art LLMs for recipe recommendation. Despite claims of superiority by internLM2 [\(Cai et al.,](#page-9-19) [2024\)](#page-9-19) and Llama-3.1 [\(Grattafiori et al.,](#page-9-15) [2024\)](#page-9-15) on various benchmarks, both failed to understand the complex constraints in our KGQA benchmark questions. The capability of handing larger sequence length by Phi-3-mini-128K [\(Abdin et al.,](#page-9-16) [2024\)](#page-9-16) helps it perform better than Phi-3-mini-4K. Therefore, we selected Phi-3 mini-128K as the base LLM for KERL due to its compact size (3.8B parameters) and competitive performance. Our fine-tuned LoRA *KERL-Recom* model significantly outperforms the other models, achieving a 56-point improvement over Phi-3-mini-128K and 26-point improvement over the larger Llama-2-7B [\(Touvron et al.,](#page-11-19) [2023\)](#page-11-19) in F1 score.
-
-*Impact of Recipe Types:* To evaluate the generalization across various types of recipes, we compare
+## 2*KERL-Recom*Evaluation
+*Comparison with Open Source LLMs:*Table [5](#page-6-3) presents the results of recent state-of-the-art LLMs for recipe recommendation. Despite claims of superiority by internLM2 [\(Cai et al.,](#page-9-19) [2024\)](#page-9-19) and Llama-3.1 [\(Grattafiori et al.,](#page-9-15) [2024\)](#page-9-15) on various benchmarks, both failed to understand the complex constraints in our KGQA benchmark questions. The capability of handing larger sequence length by Phi-3-mini-128K [\(Abdin et al.,](#page-9-16) [2024\)](#page-9-16) helps it perform better than Phi-3-mini-4K. Therefore, we selected Phi-3 mini-128K as the base LLM for KERL due to its compact size (3.8B parameters) and competitive performance. Our fine-tuned LoRA*KERL-Recom*model significantly outperforms the other models, achieving a 56-point improvement over Phi-3-mini-128K and 26-point improvement over the larger Llama-2-7B [\(Touvron et al.,](#page-11-19) [2023\)](#page-11-19) in F1 score.
+*Impact of Recipe Types:*To evaluate the generalization across various types of recipes, we compare
 
 <span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
 
@@ -215,11 +214,10 @@ Figure 3: F1 scores of different models across various recipe types. Our model, 
 | high-calcium    | 0.937 | 0.981 | 0.953 | 0.967 |
 | high-fiber      | 0.938 | 1.0   | 0.933 | 0.966 |
 
-Table 6: *KERL-Recom*: per tag results on KGQA test set
+Table 6:*KERL-Recom*: per tag results on KGQA test set
 
-F1 score for the baseline models and *KERL-Recom* in Fig. [3](#page-7-0) (and Table [13](#page-15-0) in Appendix); our model consistently outperforms all others. For *dairy-free* recipes, only Llama-2 and our model could recommend the correct recipes. Furthermore, the similarly high scores for *KERL-Recom* for most recipe types, except for *dairy-free* and *gluten-free*, as shown in Table [6](#page-7-1) indicates that it generalizes well across different types of dishes. Relatively lower accuracy and F1 scores for *dairy-free* recipes is due to the dearth of training samples of this tag (see Table [11](#page-12-3) in Appendix).
-
-*Comparison on pFoodReq Benchmark:* The PFoodReq approach [\(Chen et al.,](#page-9-2) [2021\)](#page-9-2) can also generate recommendations for constrained queries. However, it does it via an embedding-based approach that computes the similarity between the user query embedding and KG subgraph embeddings. Table [7](#page-7-2) shows how our KG-enhanced LLM approach performs on the pFoodReq benchmark dataset. We see that *KERN-Recom* outperforms pFoodRec by 21.7 points on F1; it also outperforms Llama-2-7B by 56.5 points. Our method by utilizing the power of generative models generalizes better and outperforms the classical embedding
+F1 score for the baseline models and *KERL-Recom*in Fig. [3](#page-7-0) (and Table [13](#page-15-0) in Appendix); our model consistently outperforms all others. For*dairy-free*recipes, only Llama-2 and our model could recommend the correct recipes. Furthermore, the similarly high scores for*KERL-Recom*for most recipe types, except for*dairy-free*and*gluten-free*, as shown in Table [6](#page-7-1) indicates that it generalizes well across different types of dishes. Relatively lower accuracy and F1 scores for *dairy-free*recipes is due to the dearth of training samples of this tag (see Table [11](#page-12-3) in Appendix).
+*Comparison on pFoodReq Benchmark:*The PFoodReq approach [\(Chen et al.,](#page-9-2) [2021\)](#page-9-2) can also generate recommendations for constrained queries. However, it does it via an embedding-based approach that computes the similarity between the user query embedding and KG subgraph embeddings. Table [7](#page-7-2) shows how our KG-enhanced LLM approach performs on the pFoodReq benchmark dataset. We see that*KERN-Recom*outperforms pFoodRec by 21.7 points on F1; it also outperforms Llama-2-7B by 56.5 points. Our method by utilizing the power of generative models generalizes better and outperforms the classical embedding
 
 <span id="page-7-2"></span>based methods.
 
@@ -232,9 +230,9 @@ F1 score for the baseline models and *KERL-Recom* in Fig. [3](#page-7-0) (and Ta
 
 Table 7: PFoodReq Results: Our model compared to baseline shows better scores.
 
-## 5.3 *KERL-Recipe* Evaluation
+## 3*KERL-Recipe*Evaluation
 
-Given recipe titles X<sup>t</sup> , recipe ingredients Xing and recipe images X<sup>i</sup> , or subsets thereof, we now evaluate how well models can generate the actual recipe cooking steps Xinst. We compare pretrained LLMs and their fine-tuned counterparts for recipe generation in Table [8.](#page-8-0) LLaVA-Chef [\(Mohbat and Zaki,](#page-10-4) [2024\)](#page-10-4), based on LLaVA, is a state-of-the-art model for this task, and it shows better scores than the pretrained LLaVA and LLaMA baselines. However, we can observe that *KERL-Recipe*, not only outperforms its base Phi-3 model, it has the best overall performance along various recipe quality metrics. It outperforms LLaVA-Chef, which involves entire model training, whereas *KERL-Recipe* is only LoRA fine-tuned. LLaVA-Chef improves almost 7 points on BLEU-1 over its base LLaVA model, whereas *KERL-Recipe* improves about 20 points over Phi-3. Both LLaVA-Chef and *KERL-Recipe* perform better when provided with ingredients Xing, compared to only using the recipe title (Xt), suggesting that the ingredients are important in recipe generation. Note that LLaVA-Chef has the ability to process images, which enables it to generate recipes from food images, whereas *KERL-Recipe* is a text-only model. Overall, *KERL-Recipe* not only outperforms in most metrics, it requires training fewer parameters (LoRA adapter), yet improves over its base model with significant margin.
+Given recipe titles X<sup>t</sup> , recipe ingredients Xing and recipe images X<sup>i</sup> , or subsets thereof, we now evaluate how well models can generate the actual recipe cooking steps Xinst. We compare pretrained LLMs and their fine-tuned counterparts for recipe generation in Table [8.](#page-8-0) LLaVA-Chef [\(Mohbat and Zaki,](#page-10-4) [2024\)](#page-10-4), based on LLaVA, is a state-of-the-art model for this task, and it shows better scores than the pretrained LLaVA and LLaMA baselines. However, we can observe that*KERL-Recipe*, not only outperforms its base Phi-3 model, it has the best overall performance along various recipe quality metrics. It outperforms LLaVA-Chef, which involves entire model training, whereas *KERL-Recipe*is only LoRA fine-tuned. LLaVA-Chef improves almost 7 points on BLEU-1 over its base LLaVA model, whereas*KERL-Recipe*improves about 20 points over Phi-3. Both LLaVA-Chef and*KERL-Recipe*perform better when provided with ingredients Xing, compared to only using the recipe title (Xt), suggesting that the ingredients are important in recipe generation. Note that LLaVA-Chef has the ability to process images, which enables it to generate recipes from food images, whereas*KERL-Recipe*is a text-only model. Overall,*KERL-Recipe*not only outperforms in most metrics, it requires training fewer parameters (LoRA adapter), yet improves over its base model with significant margin.
 
 <span id="page-8-0"></span>
 
@@ -270,9 +268,9 @@ Table 8: Performance on Recipe Generation
 
 Table 9: Performance on Nutrient Generation: Mean absolute error per micro-nutrient.
 
-## 5.4 *KERL-Nutri* Evaluation
+## 4*KERL-Nutri* Evaluation
 
-Nutrition generation module (*KERL-Nutri*) is based on LoRA fine-tuning the base Phi-3 model. For comparison, we also fine-tune LLaVA-chef (the full model) on the nutrition generation benchmark. Our model outperforms others, as evident in Table [9](#page-8-1) where the first row shows the mean values of the micro-nutrients in the test set. LLaVA-Chef estimates nutrition slightly better when only title X<sup>t</sup> is given compared to using ingredients Xing or instructions Xinstruct. However for *KERL-Nutri*, ingredients play a crucial role in nutrition estimation, as they contain the actual nutrients. Generating nutrients from only instruction has slightly higher MAE, as instructions may not explicitly mention all ingredients. Overall, *KERL-Nutri* achieves lower errors when provided with the complete recipe, including the title, ingredients, and cooking instructions.
+Nutrition generation module (*KERL-Nutri*) is based on LoRA fine-tuning the base Phi-3 model. For comparison, we also fine-tune LLaVA-chef (the full model) on the nutrition generation benchmark. Our model outperforms others, as evident in Table [9](#page-8-1) where the first row shows the mean values of the micro-nutrients in the test set. LLaVA-Chef estimates nutrition slightly better when only title X<sup>t</sup> is given compared to using ingredients Xing or instructions Xinstruct. However for *KERL-Nutri*, ingredients play a crucial role in nutrition estimation, as they contain the actual nutrients. Generating nutrients from only instruction has slightly higher MAE, as instructions may not explicitly mention all ingredients. Overall, *KERL-Nutri*achieves lower errors when provided with the complete recipe, including the title, ingredients, and cooking instructions.
 
 # 6 Conclusion
 
@@ -282,13 +280,13 @@ KERL outperforms baseline models for all three tasks, with more relevant recipes
 
 # 7 Limitations
 
-- *KERL-Recom* relies on the recipe subgraphs retrieved from FoodKG [\(Haussmann et al.,](#page-9-1) [2019\)](#page-9-1). Therefore, the system will not recommend any recipe if none of the recipe in KG meet all the constraints. The system may also fail if incorrect context information is provided, hence the results should not be used without proper safeguards.
-- *KERL-Recom* do not directly establish the relationship between the person's health conditions and the corresponding dietary restrictions. For example, it can recommend sugarfree recipes, but it may not accurately recommend the correct recipes for a diabetic person. This capability is left for future research.
-- *KERL-Nutri* generates the micro-nutritional information for most recipes, but it may not accurately generate micro-nutritional details for extreme cases, such as for recipes with high or very low calories.
+-*KERL-Recom*relies on the recipe subgraphs retrieved from FoodKG [\(Haussmann et al.,](#page-9-1) [2019\)](#page-9-1). Therefore, the system will not recommend any recipe if none of the recipe in KG meet all the constraints. The system may also fail if incorrect context information is provided, hence the results should not be used without proper safeguards.
+-*KERL-Recom*do not directly establish the relationship between the person's health conditions and the corresponding dietary restrictions. For example, it can recommend sugarfree recipes, but it may not accurately recommend the correct recipes for a diabetic person. This capability is left for future research.
+-*KERL-Nutri*generates the micro-nutritional information for most recipes, but it may not accurately generate micro-nutritional details for extreme cases, such as for recipes with high or very low calories.
 
 # References
 
-- <span id="page-9-16"></span>Marah Abdin, Sam Ade Jacobs, Ammar Ahmad Awan, Jyoti Aneja, Ahmed Awadallah, Hany Awadalla, Nguyen Bach, Amit Bahree, Arash Bakhtiari, Harkirat Behl, et al. 2024. Phi-3 technical report: A highly capable language model locally on your phone. *arXiv preprint arXiv:2404.14219*.
+- <span id="page-9-16"></span>Marah Abdin, Sam Ade Jacobs, Ammar Ahmad Awan, Jyoti Aneja, Ahmed Awadallah, Hany Awadalla, Nguyen Bach, Amit Bahree, Arash Bakhtiari, Harkirat Behl, et al. 2024. Phi-3 technical report: A highly capable language model locally on your phone.*arXiv preprint arXiv:2404.14219*.
 - <span id="page-9-17"></span>Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. 2023. Gpt-4 technical report.
 - <span id="page-9-7"></span>Caio Viktor S Avila, Vânia MP Vidal, Wellington Franco, and Marco A Casanova. 2024. Experiments with text-to-sparql based on chatgpt. In *The 18th International Conference on Semantic Computing*, pages 277–284. IEEE.
 - <span id="page-9-6"></span>Debayan Banerjee, Sushil Awale, Ricardo Usbeck, and Chris Biemann. 2023. Dblp-quad: A question answering dataset over the dblp scholarly knowledge graph. *13th International Workshop on Bibliometricenhanced Information Retrieval*.
@@ -460,7 +458,7 @@ $$
 mAP = \frac{1}{N} \sum_{i=1}^{N} AP_i
 $$
 
-#### C.2 Metrics for Recipe Generation
+### C.2 Metrics for Recipe Generation
 
 Here we provide formal definitions of the different metrics used in our evaluation of generated recipes.
 
@@ -529,9 +527,7 @@ Where, y i nutri and y˜ i nutri are the ground truth and predicted values of th
 
 ## D Additional Results
 
-#### D.1 *KERL-Recom*
-
-Performance on Recipe Types Table [13](#page-15-0) shows the performance of open source LLMs and our model on the KGQA benchmark for recipes tagged with some of the tags such as lactose, vegan, vegetarian, gluten-free and nut-free. LLaMA-2 ranks as the second best, except for the gluten-free tag. Mistral performs similarly to or slightly better than Phi-3-mini, but Phi-3-mini is smaller than the other models. Overall, *KERL-Recom*, leveraging Phi-3 mini as the base model, achieves precision and F1 greater than 90 for all tags.
+### D.1 *KERL-Recom*Performance on Recipe Types Table [13](#page-15-0) shows the performance of open source LLMs and our model on the KGQA benchmark for recipes tagged with some of the tags such as lactose, vegan, vegetarian, gluten-free and nut-free. LLaMA-2 ranks as the second best, except for the gluten-free tag. Mistral performs similarly to or slightly better than Phi-3-mini, but Phi-3-mini is smaller than the other models. Overall,*KERL-Recom*, leveraging Phi-3 mini as the base model, achieves precision and F1 greater than 90 for all tags.
 
 Qualitative results Despite the impressive performance of *KERL-Recom*, it is prone to failure by recommending false positives or missing true positive in recommended recipes. For examples,
 
@@ -580,21 +576,19 @@ Table 12: Performance of nutrition generation models, filtered to include only t
 | Phi-3-mini-128K |             | 0.282 | 0.811 | 0.285  | 0.421 |
 | KERL-Nutri      |             | 0.939 | 0.982 | 0.951  | 0.966 |
 | internLM2       |             | 0.103 | 0.019 | 0.067  | 0.029 |
-| Mistral*        |             | 0.224 | 0.542 | 0.591  | 0.565 |
+| Mistral*|             | 0.224 | 0.542 | 0.591  | 0.565 |
 | Llama-2         |             | 0.628 | 0.833 | 0.682  | 0.75  |
 | Llama-3.1       | nut-free    | 0.243 | 0.345 | 0.455  | 0.392 |
 | Phi-3-mini-128K |             | 0.385 | 0.786 | 0.367  | 0.5   |
 | KERL-Nutri      |             | 1.0   | 0.909 | 1.0    | 0.952 |
 
-Table 13: Results on KGQA test set reported for several tags. Overall, *KERL-Recom* performs better for numerous types of recipes.
+Table 13: Results on KGQA test set reported for several tags. Overall,*KERL-Recom*performs better for numerous types of recipes.
 
-row-2 in Table [14](#page-16-0) shows the question where *KERL-Recom* suggested false positive whereas in row-3 it suggested a recipe that is not even in context. Similarly, the last row demonstrates an example, where the model failed to select all true positives from context, resulting few true negatives.
+row-2 in Table [14](#page-16-0) shows the question where*KERL-Recom*suggested false positive whereas in row-3 it suggested a recipe that is not even in context. Similarly, the last row demonstrates an example, where the model failed to select all true positives from context, resulting few true negatives.
 
-## D.2 *KERL-Nutri*
+## D.2*KERL-Nutri*In Table [9,](#page-8-1) we compare the performance of LLaVA-Chef and our*KERL-Nutri*model on generating the micro-nutrients for the recommended recipes. For some nutrients, the MAE is rather large. This happens because some ground truth samples have abnormally high or zero nutritional values, introducing noise that affects model performance. To analyze this, we filtered the samples within a specific percentile range, excluding outliers, and then calculated the MAE. Detailed results on nutrient generation for the 95th percentile of samples are shown in Table [12.](#page-15-1) We observe that removing noisy
 
-In Table [9,](#page-8-1) we compare the performance of LLaVA-Chef and our *KERL-Nutri* model on generating the micro-nutrients for the recommended recipes. For some nutrients, the MAE is rather large. This happens because some ground truth samples have abnormally high or zero nutritional values, introducing noise that affects model performance. To analyze this, we filtered the samples within a specific percentile range, excluding outliers, and then calculated the MAE. Detailed results on nutrient generation for the 95th percentile of samples are shown in Table [12.](#page-15-1) We observe that removing noisy
-
-samples reduces MAE by about half for all the nutrients. Nevertheless, our *KERL-Nutri* remains the superior model.
+samples reduces MAE by about half for all the nutrients. Nevertheless, our*KERL-Nutri* remains the superior model.
 
 <span id="page-16-0"></span>
 

@@ -1,4 +1,6 @@
-![](_page_0_Picture_0.jpeg)
+<!-- cite_key: shaosupsup2023 -->
+
+
 
 # StreamE: Lightweight Updates of Representations for Temporal Knowledge Graphs in Streaming Scenarios
 
@@ -44,7 +46,7 @@ Permission to make digital or hard copies of all or part of this work for person
 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
 
-#### Figure 1: Illustration of a temporal knowledge graph, where the orange nodes denote newly introduced entities and the red dotted edges denote new relations.
+### Figure 1: Illustration of a temporal knowledge graph, where the orange nodes denote newly introduced entities and the red dotted edges denote new relations.
 
 into TKGs by new knowledge. Most of the existing methods (e.g., DE-SimplE [\[7\]](#page-9-9)) require all entities to be present during the training phase, which fails to generalize to unseen entities. 2) Efficient representation updates. It needs to update representations in real time based on new knowledge. The existing methods (e.g., RE-GCN [\[19\]](#page-9-10)) employ recurrent architecture and thus require to rollback steps to obtain the representations, which suffers from high time complexity. 3) Arbitrary timestamp representations. Since queries can be generated at any time, it needs to generate representations at arbitrary timestamps to respond to the queries. The existing methods (e.g., CyGNet [\[43\]](#page-9-8)) mostly discretize a TKG as a set of snapshots and can obtain representations only at active timestamps. Furthermore, they need to learn specific representations for each entity, so the number of parameters will grow dramatically as the number of entities increases. In summary, existing TKG representation learning methods fail to adapt to streaming scenarios mainly due to their tightly coupled model architectures. Specifically, the entity representations depend on model training which impairs generalization ability and increases parameter size. The process of handling new knowledge is included in the process of generating representations which leads to inefficiency.
 
@@ -59,11 +61,11 @@ functions and propose two temporal regularization strategies to stabilize the op
 
 #### 2 RELATED WORK
 
-#### 2.1 Representation Learning for KGs
+#### 1 Representation Learning for KGs
 
 Knowledge graph representation learning aims to project entities and relations to a vector space while preserving their semantics. There are three kinds of methods, namely translation methods, semantic matching methods, and neural network methods. TransE [\[1\]](#page-9-11) is a typical translation method which regards relation as the translation from the subject entity to the object entity in the vector space. Based on TransE, many improved methods have been proposed, such as TransH [\[35\]](#page-9-12), TransR [\[20\]](#page-9-13) and TransD [\[13\]](#page-9-14). RESCAL [\[26\]](#page-9-15) is the first semantic matching method which employs restricted Tucker decomposition to learn KG representations. Since RESCAL requires a large amount of parameters, DistMult [\[39\]](#page-9-16) simplifies RESCAL by using diagonal matrix. Other semantic matching methods include HoIE [\[25\]](#page-9-17) and ComplEx [\[33\]](#page-9-18). Recently, some researchers attempt to learn KG representations based on neural networks. ConvE [\[4\]](#page-9-19) and ConvKB [\[23\]](#page-9-20) employ the convolution neural networks while others attempt to learn KG representations based on the graph neural networks, such as CompGCN [\[34\]](#page-9-21) and KBAT [\[22\]](#page-9-22). However, these methods are designed for the commonsense knowledge, but cannot handle time-sensitive knowledge.
 
-#### 2.2 Representation Learning for TKGs
+#### 2 Representation Learning for TKGs
 
 For temporal knowledge graphs, the existing representation learning methods mainly fall into two categories.
 
@@ -73,11 +75,11 @@ Dynamic representation based methods model the semantic changes in TKGs via the 
 
 To tackle the limitations of existing methods, the proposed StreamE employs a decoupled architecture to use entity representations as a memory module to reduce parameter size. The update function avoids the high time consumption of the recurrent architecture to achieve efficient representation updates. The read function can generate representations at arbitrary timestamps by predicting the future semantics of entities.
 
-## 2.3 Representation Learning for Dynamic Graphs
+## 3 Representation Learning for Dynamic Graphs
 
 A temporal knowledge graph can be regarded as an extension of the dynamic graph with node categories and edge categories. Therefore, we also review the typical dynamic graph representation learning methods in this section. Most of the models regard a dynamic graph as a sequence of snapshots and take a recurrent model as the backbone architecture, and then GNN based models can either be used as the feature encoder for each snapshot [\[8,](#page-9-32) [21\]](#page-9-33) or be used to replace the linear layer in the recurrent model [\[28,](#page-9-34) [30\]](#page-9-35). Since they can only learn representations for nodes in snapshots, they fail to generate node representations at arbitrary timestamps. Even though there also some learning methods without GNN are proposed for dynamic graphs, such as random walk based models [\[24,](#page-9-36) [40\]](#page-9-37) and point process based models [\[32\]](#page-9-38), they have the drawbacks in inductive learning capabilities. Furthermore, since these models are proposed for homogeneous graphs, they are unable to handle the semantics brought by edge categories in TKGs.
 
-#### 3 PROBLEM FORMULATION
+### 3 PROBLEM FORMULATION
 
 A temporal knowledge graph can be denoted as G = (E, R, T ), where E and R are entity set and relation set, respectively. T is the set of arriving timestamps. In streaming scenarios, new knowledge
 
@@ -87,7 +89,7 @@ can be continuously added into a TKG and E and T are enriched over time. TKG rep
 
 As depicted in Figure [2,](#page-3-0) StreamE contains three components: 1) Entity representations that serve as the memory module to store the historical information of entities. They can be flexibly initialized and efficiently updated over time. 2) An update function that receives new knowledge to incrementally update the entity representations, where the interaction unit and the propagation unit generate the direct influence feature and the propagation influence feature respectively. A gated mechanism is learned to adaptively select the information to be updated. 3) A read function that generates entity representations at arbitrary timestamps. It considers both the periodic evolution patterns and the semantic relevance among the closely related entities. We elaborate on each component as follows.
 
-#### 4.1 Entity Representation Initialization
+#### 1 Entity Representation Initialization
 
 The traditional TKG representation learning methods [\[10,](#page-9-29) [19\]](#page-9-10) require the entity representations to be optimized during training. However, such learnable entity representations will lead to an explosion of parameters as the number of entities increases. Furthermore, they handle unseen entities by transferring information from seen entities, which will impair the performance due to oversmoothing [\[18\]](#page-9-39). To achieve lightweight while handling unseen entities more flexibly, StreamE regards entity representations as a memory module to store the historical information of entities. Since it does not need to be optimized during training, the parameter size of our framework depends only on the number of relations, which is far smaller than the number of entities. Meanwhile, the memory module has stored the historical information of entities, and thus the representation of any unseen entity can be flexibly initialized and updated over time. Here, we provide two initialization strategies. When unseen entity is introduced into TKGs by the arriving knowledge ( , , , ) and if has the raw feature e ∈ R (e.g., text descriptions), its representation can be initialized as
 
@@ -112,7 +114,7 @@ $$
 
 where E , is the set of entities that used to be the subject entity of knowledge (?, , , −) before timestamp . E is the set of entities that used to co-occur with relation before timestamp . h − is the most recently updated representation of entity before timestamp . We employ the mean operation on these related entities to obtain the most common semantic features for initialization. For each unseen entity, the time complexity of our initialization strategy is O ( 2 ).
 
-#### 4.2 Update Function
+#### 2 Update Function
 
 Identify influenced entities. As knowledge arrives, the graph structure will change and the semantics of entities also will change. As shown in Figure [2,](#page-3-0) when a piece of new knowledge ( , , , ) arrives, it can first change the semantics of the involved entities and , which we regard as direct influence. For example, when new knowledge (, , , 2021/11/8) arrives, entity should move close to the entity in the vector space because the relation means that Messi will play for PSG, and they should have more interactions in the future. Furthermore, the influence of the arriving knowledge can propagate through the graph structure and change the semantics of other
 
@@ -155,7 +157,7 @@ $$
 
 where is the sigmoid activation and ⊙ denotes the element-wise product. z ∈ R is the gate vector used to determine how much historical information should be retained. c ∈ R is the write vector used to determine how much new information should be added. v is set as d if an entity gets direct influence and set as p if an entity only gets propagation influence. Our update function is scalable since the co-occurring knowledge can be handled in parallel.
 
-#### 4.3 Read Function
+#### 3 Read Function
 
 The semantics of an entity should change slightly over time after its previous update. The existing methods such as [\[10,](#page-9-29) [19\]](#page-9-10) can only obtain representations of an entity at active timestamps and keep them unchanged until the next knowledge involving the entity arrives. Therefore, these methods always make the same response during this interval despite the evolving graph structure, which is obviously unreasonable. In this section, we design a read function to solve the above problem by predicting the future trajectory of entity representations. Assuming it is required to generate representation for entity at inactive timestamp , the read function achieves this based on the following two parts.
 
@@ -183,7 +185,7 @@ $$
 
 The readout representations can be used to respond to queries at arbitrary timestamps. Our read function is fully parallel and is not required to rollback in the time dimension.
 
-#### 4.4 Model Training
+#### 4 Model Training
 
 Recall the purpose of our framework. First, we hope that the update function can accurately extract information from the new knowledge to update the entity representations. To adequately supervise the learning of this part, we propose a reconstruction task that requires the updated representations to reconstruct the arriving knowledge. Following the strategy of TKG representation learning methods such as HyTE [\[3\]](#page-9-23), we use the margin-based ranking loss for optimization,
 
@@ -259,13 +261,13 @@ Evaluation protocol. We evaluate the quality of the learned representations via 
 
 #### 6 RESULTS AND DISCUSSION
 
-#### 6.1 Main Results
+#### 1 Main Results
 
 Table [3](#page-7-0) gives the inductive forecasting results of different methods. According to the results, we have three findings. 1) StreamE outperforms the baseline methods on all of four datasets. Compared with the second best result, our framework achieves 14.1%, 1.6%, 9.1%, and 16.7% higher on the metric on each dataset respectively, which demonstrates the superiority of StreamE on handling new knowledge. The superiority comes from two parts. First, the existing methods can only use short-term history for forecasting due to the high time complexity. On the contrary, StreamE can use the complete history by using entity representation as the memory module. Second, in these models the entity representations depend on model training and the unlearned representations of unseen entities will bring noise. Our StreamE is more robust because it learns functions to manipulate representations over time rather than learn the distinct representations. 2) Graph neural networks (GNNs) based methods (e.g., CompGCN and xERTE) significantly
 
 outperform other baseline methods, which demonstrates the effectiveness of the message passing mechanism. StreamE does not directly adopt GNNs, but our update function is also designed for transferring information among entities, which achieves the same effectiveness. Furthermore, some baseline methods can still achieve meaningful results although they are theoretically unable to handle unseen entities (e.g., TNTComplEX and CyGNet), which may be because that they can learn the co-occurrence relevance between the missing entities and the query relations. 3) Our framework achieves more improvement on the ICEWS14 and YAGO datasets, because these datasets are more sparse and our framework can effectively adapt to sparse data due to our propagation unit and read function. Furthermore, the improvement on the ICEWS 05-15 dataset is relatively small. We suggest that this is because the long time span (i.e., ten years) of this dataset makes our framework more easily bring noise when updating representations.
 
-#### 6.2 Ablation Study
+#### 2 Ablation Study
 
 StreamE-P. In Table [4,](#page-7-1) we note that after removing the propagation unit, both Hit@1 and Hit@10 drop significantly. We suggest that this is because the arriving knowledge can change the semantics of both the involved entities and other entities. Ignoring the propagation influence makes the framework fail to extract sufficient historical information to forecast accurately. Our propagation unit can model the propagation influence by leveraging the propagation paths, and thus achieves performance improvement.
 
@@ -273,7 +275,7 @@ StreamE-LSTM. As shown in Table [4,](#page-7-1) we can see that although the LST
 
 StreamE-R & StreamE-SLP. After removing the read function from our framework, we use the recently updated representation before the query timestamp to predict the missing entity of the query. In Table [4,](#page-7-1) we can see that Hit@10 drops significantly, which demonstrates the weakness of keeping entity representations unchanged in the inactive time intervals. Furthermore, our raw framework outperforms StreamE-SLP, which shows the effectiveness of our read function in predicting the future trajectories of representations.
 
-#### 6.3 Detailed Analysis
+#### 3 Detailed Analysis
 
 Model robustness. First, as shown in Table [4,](#page-7-1) our framework can work with several composition operations and they all achieve considerable performance, which demonstrates that the effectiveness of the update function is not relied on a specific operation. Second, as shown in Figure [3\(](#page-7-2)a), StreamE can obtain competitive performance with xERTE for the seen entity forecasting task which predicts the future knowledge for seen entities, which demonstrates that StreamE can handle both seen entities and unseen entities. Finally, we can observe in Figure [3\(](#page-7-2)b) that StreamE consistently outperforms xERTE with different training data proportions, and as the proportion of training data decreases, the performance of StreamE does not drops drastically (the performance of StreamE only drops
 
@@ -343,7 +345,7 @@ Training strategy. In Table [4,](#page-7-1) we report the performance trained by
 
 Long time forecasting. The standard setting of forecasting task usually predicts knowledge in a short future (i.e., one day). However, in the streaming scenario, the knowledge right before the query may miss, which requires the model to predict knowledge in a long future (i.e., several days). Here, we perform a long time forecasting task, which aims to infer the knowledge at + Δ given the knowledge before , and Δ varies from one day to seven days. According to the performance in Figure [4\(](#page-8-0)a), we can see that StreamE consistently outperforms xERTE as Δ increases. Furthermore, we note that the performance of xERTE drops dramatically when Δ varies from 1 to 2. This is because the performance of xERTE heavily relies on capturing the co-occurring facts of the adjacent timestamps. Differently, our StreamE can leverage the complete history by using entity representations as the memory module.
 
-#### 6.4 Hyperparameter Study
+#### 4 Hyperparameter Study
 
 We show the effect of hyperparameters on model performance, including the number of negative samplings , the magnitude of
 

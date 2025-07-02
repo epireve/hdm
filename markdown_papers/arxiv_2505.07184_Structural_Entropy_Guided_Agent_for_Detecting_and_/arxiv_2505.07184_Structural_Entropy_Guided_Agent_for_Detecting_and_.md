@@ -1,3 +1,5 @@
+<!-- cite_key: wei2015 -->
+
 # Structural Entropy Guided Agent for Detecting and Repairing Knowledge Deficiencies in LLMs
 
 Yifan Wei1,2, Xiaoyan Yu1,3, Tengfei Pan<sup>2</sup> , Angsheng Li1† , Li Du2†
@@ -38,7 +40,7 @@ criteria and ask the LLM itself to assess the quality its responses according to
 
 Given a knowledge graph, the number of possible knowledge paths P (i.e., Figure [1f\)](#page-2-0) increases in a combinatorial speed along with the size of KG, making enumerating all possible paths and detecting the uncertainty of LLM on these paths computationally infeasible. To tackle this challenge, as shown in Figure [1,](#page-2-0) SENATOR employs MCTS to navigate the LLM-based agent to search on the KG for seeking out the most informative paths. To steer the agent to search toward regions with high uncertainty, we introduce a structural entropy based reward function. Based on the identified high-uncertainty paths, data are synthesized to remediate the identified knowledge deficiencies.
 
-#### 3.1 Structural Entropy Guided Knowledge Deficiency Detection
+## 1 Structural Entropy Guided Knowledge Deficiency Detection
 
 The structural entropy based reward function combines the uncertainty of LLM on individual KG triplets with the topological structure information of the KG, guiding the LLM-based agent to perform MCTS over the KG and discover knowledge paths with critical deficiencies.
 
@@ -65,7 +67,7 @@ H<sup>1</sup> (G) = − X u∈V du vol(G) log<sup>2</sup> du vol(G) , (3)
 
 where vol(G) represents the total weighted degree of G. A higher H<sup>1</sup> (G) indicates a more complex and less confidently represented region within the knowledge graph. By formulating SE as the exploration reward in MCTS, we enable the search algorithm to prioritize paths traversing maximally uncertain knowledge structures, thereby efficiently exposing the model's systemic weaknesses.
 
-#### 3.2 MCTS for Knowledge Deficiency Detection
+### 2 MCTS for Knowledge Deficiency Detection
 
 Given the SE-based reward function, we employ MCTS to explore the KG and identify potential knowledge deficiency paths in the model. We define the initial state s<sup>0</sup> as the starting node for traversing the KG, where a set of seed entities from [\(Soman et al., 2024\)](#page-11-11) is selected. KG triplets are incrementally incorporated into the knowledge paths until the maximum search depth T is reached. This process enhances the LLM's awareness of its knowledge deficiencies by maximizing the expected reward, which emphasizes the uncertainty associated with these deficiencies.
 
@@ -83,7 +85,7 @@ Path Expansion. Expansion occurs when a leaf node is reached during the selectio
 $$
 r_{t+1} = r(s_t, a) = I(s_t, a, s_{t+1}) = -\log_2 \frac{d_{s_{t+1}}}{\text{vol}(G)},
 $$
-  
+
 $$
 V(s_t) = r_{t+1} + \gamma V(s_{t+1}) = \sum_{k=0}^{T-k-1} \gamma^k r_{t+k+1},
 $$
@@ -97,7 +99,7 @@ Reward Estimation. A simulation shown in Figure [1c](#page-2-0) is run from the 
 $$
 V(s_t) = H(\mathcal{P}) = \mathbb{E}\left[\sum_{k=0}^{T-k-1} r_{t+k+1} \middle| s_t\right]
 $$
-  
+
 $$
 \approx \mathcal{H}^1(\mathcal{G}) = -\sum_{s_t \in \mathcal{P}} \frac{d_{s_t}}{\text{vol}(\mathcal{G})} \log_2 \frac{d_{s_t}}{\text{vol}(\mathcal{G})},
 $$
@@ -110,7 +112,7 @@ Backpropagation. We update the statistics of each state in the tree that was tra
 $$
 N(s_t) \leftarrow N(s_t) + 1,
 $$
-  
+
 \n
 $$
 Q(s_t, a) \leftarrow \frac{1}{N(s_t, a)} \sum_{i=1}^{N(s_t)} \mathbb{I}_i(s_t, a) V_i(s_t),
@@ -119,17 +121,17 @@ $$
 
 where N(st, a) is the number of times relation action a has been selected from state st, N(st) is the number of times a simulation has been run from state st, and Ii(st, a) is 1 if relation action a was selected from state s<sup>t</sup> on the i-th simulation run from state st, or 0 otherwise.
 
-#### 3.3 Deficiency Knowledge Synthesis and Repair
+#### 3 Deficiency Knowledge Synthesis and Repair
 
-As shown in Figure [1f](#page-2-0) to [1h,](#page-2-0) our framework leverages the trajectories with the highest SE values obtained via MCTS to guide synthetic data generation. Specifically, we prompt the LLM agent to synthesize a set of QA pairs based on the identified knowledge path on which the LLM shows high uncertainty, so that the knowledge deficiency of the LLM can be remedied by training on these QA pairs. Formally, as shown in Figures [5](#page-13-0) and [6,](#page-13-1) given a trajectory P = {s1, s2, . . . , s<sup>T</sup> }, the prompt instructs the LLM to generate a question that focuses on P and an answer that logically explains on the relationship ρt+1 between s<sup>t</sup> and its neighboring entities N (st) in P. So that the synthesized QA pair can adhere to the underlying knowledge about the knowledge path and remedy the knowledge deficiency of the LLM. Furthermore, to maintain high data quality, we implement a multi-tiered evaluation mechanism that includes both heuristic rules and LLM-based judgments. Our quality standards encompass: *Format Consistency:* The generated QA pairs must strictly adhere to the predefined prompt template, ensuring that the structure, punctuation, and length conform to our specifications. This guarantees that the synthesized data maintains a uniform format that facilitates downstream processing. *Logical Coherence:* The QA pairs must exhibit clear and rational reasoning. The answer should provide a logically consistent explanation that reflects the relationships and context derived from the knowledge trajectory, ensuring that the data effectively captures and addresses the identified knowledge deficiencies. *Hallucination Avoidance:* The generated content must be grounded in the input trajectory. Specifically, all entities and facts mentioned in the QA pair must originate exclusively from the given trajectory, preventing the introduction of extraneous or unsupported information that could undermine the model's reliability. Data samples that do not meet these criteria are filtered out through our evaluation mechanism [A.1,](#page-13-2) thereby ensuring that only high-quality synthetic data is used to remediate the LLM's knowledge gaps.
+As shown in Figure [1f](#page-2-0) to [1h,](#page-2-0) our framework leverages the trajectories with the highest SE values obtained via MCTS to guide synthetic data generation. Specifically, we prompt the LLM agent to synthesize a set of QA pairs based on the identified knowledge path on which the LLM shows high uncertainty, so that the knowledge deficiency of the LLM can be remedied by training on these QA pairs. Formally, as shown in Figures [5](#page-13-0) and [6,](#page-13-1) given a trajectory P = {s1, s2, . . . , s<sup>T</sup> }, the prompt instructs the LLM to generate a question that focuses on P and an answer that logically explains on the relationship ρt+1 between s<sup>t</sup> and its neighboring entities N (st) in P. So that the synthesized QA pair can adhere to the underlying knowledge about the knowledge path and remedy the knowledge deficiency of the LLM. Furthermore, to maintain high data quality, we implement a multi-tiered evaluation mechanism that includes both heuristic rules and LLM-based judgments. Our quality standards encompass: *Format Consistency:*The generated QA pairs must strictly adhere to the predefined prompt template, ensuring that the structure, punctuation, and length conform to our specifications. This guarantees that the synthesized data maintains a uniform format that facilitates downstream processing.*Logical Coherence:*The QA pairs must exhibit clear and rational reasoning. The answer should provide a logically consistent explanation that reflects the relationships and context derived from the knowledge trajectory, ensuring that the data effectively captures and addresses the identified knowledge deficiencies.*Hallucination Avoidance:*The generated content must be grounded in the input trajectory. Specifically, all entities and facts mentioned in the QA pair must originate exclusively from the given trajectory, preventing the introduction of extraneous or unsupported information that could undermine the model's reliability. Data samples that do not meet these criteria are filtered out through our evaluation mechanism [A.1,](#page-13-2) thereby ensuring that only high-quality synthetic data is used to remediate the LLM's knowledge gaps.
 
 The training process can be divided into two stages: First, a knowledge injection stage, that aims to enrich the LLMs with deficiency medical knowledge DK. Second, a medical instruction tuning stage, that tailors the model to align with the medical QA domain. (see Appendix [A.3](#page-14-0) for details).
 
 # 4 Experiments
 
-We conduct experiments on the knowledge-intensive *medical domain* to investigate the following research questions (RQs): RQ1: Can the proposed SENATOR framework effectively repair the knowledge deficiencies of existing LLMs? RQ2: How do different components of our proposed framework impact the performance of LLMs? RQ3: Does the synthetic data successfully incorporate knowledge that lies beyond the distribution of the pretraining corpus? RQ4: What is the scaling regularity of synthetic data on model performance?
+We conduct experiments on the knowledge-intensive*medical domain*to investigate the following research questions (RQs): RQ1: Can the proposed SENATOR framework effectively repair the knowledge deficiencies of existing LLMs? RQ2: How do different components of our proposed framework impact the performance of LLMs? RQ3: Does the synthetic data successfully incorporate knowledge that lies beyond the distribution of the pretraining corpus? RQ4: What is the scaling regularity of synthetic data on model performance?
 
-#### 4.1 Experimental Settings
+## 1 Experimental Settings
 
 Language Models We evaluate our methodology on two categories of LLMs: 1) General LLMs: We employ Llama-3-8B and Qwen2-7B as base models to examine the effectiveness of our approach and include Baichuan2 and Llama-2 for comparison. 2) Medical LLMs: Med-Alpaca [\(Han et al.,](#page-9-9) [2023\)](#page-9-9): Fine-tuned on LLaMA-13B with medical instruction data from Alpaca [\(Han et al., 2023\)](#page-9-9), specifically designed for medical dialogues and question-answering tasks. PMC-LLaMA [\(Wu et al.,](#page-11-13) [2024\)](#page-11-13): Enhanced with biomedical knowledge from 4.8 million academic papers and 30,000 medical books, followed by medical-specific instruction tuning on LLaMA-13B. HuatuoGPT-II [\(Chen et al.,](#page-9-10) [2023\)](#page-9-10): Built on Baichuan [\(Yang et al., 2023a\)](#page-11-14), fine-tuned with distilled ChatGPT data and real-world medical data from doctors.
 
@@ -164,11 +166,11 @@ Knowledge Graph We conduct experiments based on the SPOKE knowledge graph [\(Mor
 
 <span id="page-6-0"></span>Table 1: Main Results on Medical Benchmarks in the Zero-shot Setting. ∆ represents the relative change in performance when using our synthetic data generated by SENATOR compared to the corresponding backbone model. "w/" denote "with" and IT represents instruciton tuning data.
 
-#### 4.2 Main Results (RQ1)
+### 2 Main Results (RQ1)
 
 Table [1](#page-6-0) presents the performance of our approach and baseline models across four medical benchmarks. From this, we observe that (1) Through continuous pretraining on medical corpora, previous medical domain LLMs such as PMC-LLaMA could achieve ordinary-human-level performance on certain benchmarks. For example, PMC-LLaMA employs approximately 514k samples, 79 billion tokens of medical data to achieve performances close to such as MedQA and PubMedQA. However, its performance on genetics-related subset of GPQA still shows a substantial gap with human-level, indicating significant knowledge deficiency. (2) In contrast, our proposed SENATOR framework demonstrates its effectiveness in finding knowledge deficiencies to efficiently adapt LLMs to the medical domain. When applied to Llama-3-8B and Qwen2-7B, the SENATOR framework uses a much smaller amount of synthetic data (26k samples, 0.8 million tokens and 128k samples, 3.6 million tokens, respectively) to remedy the targeted knowledge areas, and improve the performance on corresponding benchmarks. For instance, the SENATOR optimizes the Qwen2 model attains an accuracy of 40% on the Genetics component of GPQA, demonstrating that supplementing missing domain-specific data can substantially enhance performance. Overall, on the four medical domainrelated benchmarks, on average, the SENATOR framework improves the performance of Llama-3-8B and Qwen2-7B for 11.98% and 9.15%, respectively. This shows the effectiveness and generality of our approach in comprehensively detecting and remedying the domain-related knowledge for different LLMs. In the following paragraphs (RQ2 and RQ3), we demonstrate that the improvement stems from SENATOR's ability to effectively detect the knowledge deficiencies by synthesizing data beyond the original pretraining corpus, expanding its coverage, and optimizing its distribution.
 
-#### 4.3 Ablation Study (RQ2)
+#### 3 Ablation Study (RQ2)
 
 To validate the efficacy of SENATOR, we conduct ablation studies comparing three configurations: (1) base models, (2) models fine-tuned solely with general domain instruction data D<sup>I</sup> , and (3) models
 
@@ -178,7 +180,7 @@ Figure 2: Distribution of Pretraining Corpus vs. Synthetic Data. In (a)-(d), blu
 
 trained with both instructions and synthesized data. As shown in Table [1,](#page-6-0) SFT on general domain instructions alone yields marginal improvements or even performance degradation (Llama-3-8B: 42.31 → 42.39; Qwen2-7B: 48.32 → 47.67). This suggests that the general domain instructions struggle to alleviate the intrinsic knowledge gaps in general-domain LLMs for the specialized medical domain, and constructing more general domain instructions would inevitably be inefficient. In contrast, incorporating synthetic data leads to a significant improvement. For Llama-3-8B, additional synthesized data make average performance improvements of 5.07, with particularly significant gains in underrepresented domains: +7.5 points in GPQA Genetics and +3.71 points in Molecular Biology. Similarly, Qwen2-7B attains 40.0% accuracy in GPQA Genetics (7.5-point increase) and 40.12% in Molecular Biology (3.7-point gain). These results indicate that performance improvement is brought by synthesizing data from detecting the deficiency of LLMs instead of simply enlarging the size of existing instruction data, and a deficiency-oriented synthetic data generation strategy would be a more efficient method for expanding knowledge of LLMs, suggesting a way towards "new fuel" [\(PwC Australia, 2023\)](#page-10-12) for enriching the existing corpus and empowering future LLMs.
 
-#### 4.4 Analysis for Distribution of Synthesized Data (RQ3)
+#### 4 Analysis for Distribution of Synthesized Data (RQ3)
 
 To examine if our approach can generate synthetic data beyond the original pretraining distribution and address the knowledge deficiency of LLMs, we visualize the distribution of both the original pretraining data, which is sourced from the training sets of PubMedQA, MedQA, and MedMCQA, and the synthetic data. This visualization is achieved by first projecting data into a unified semantic space using 2D UMAP [\(McInnes et al., 2018\)](#page-10-13) and obtaining their distribution using kernel density estimation (KDE) [\(Rosenblat, 1956;](#page-11-15) [Parzen, 1962\)](#page-10-14). From Figure [2](#page-7-0) we can observe: 1) Expanded Coverage by synthetic data: Figures [2a](#page-7-0) to [2h](#page-7-0) reveal that the red area (representing synthetic data) encircles the blue area (pretraining data), indicating that the synthetic data effectively broadens the coverage of the pretraining data. Additionally, Figure [2b](#page-7-0) and [2f](#page-7-0) display smaller blue regions, indicating that the distribution of synthesized data is much broader than the
 
@@ -194,7 +196,7 @@ Figure 4: Performance differences for various data compositions.
 
 shows a high degree of overlap with the overall pretraining data. We hypothesize that this may be due to Llama-3's relatively weaker grasp of pretraining knowledge compared to Qwen2, causing SENATOR to collect information that Llama-3 did not consolidate well during pretraining. 3) Topic-Specific Differences: Compared to Figure [2a,](#page-7-0) Figure [2e](#page-7-0) exhibits an opposite trend. Accordingly, as indicated in Table [1,](#page-6-0) Qwen2 demonstrates a higher performance on PubMedQA. This is likely because Qwen2 demonstrated a stronger mastery of PubMedQA during pretraining [\(Yang et al.,](#page-12-9) [2024a\)](#page-12-9), leading SENATOR to explore that topic distribution to a lesser extent during the defect detection phase. 4) Global Trends and Localized Discrepancies: The analysis of synthetic data distributions generated by Llama-3 and Qwen2 (Figure [3\)](#page-7-1) shows substantial overlap in high-density areas, indicating that both models have a roughly similar pattern (may also share with more LLMs) in knowledge deficiency about the medical domain. This is because of the similarity in the distribution of the pretraining corpus [\(Lee et al., 2022;](#page-10-15) [Yauney et al., 2023\)](#page-12-10). Such similarity indicates the necessity of systematically reviewing the deficiencies of present LLMs to find common knowledge blind spots in the pretraining corpus, and synthesizing data to complement them. However, there still exist differences in certain locations, suggesting model-specific knowledge deficiencies. This suggests the effectiveness of our approach in targeting model-specific knowledge deficiencies.
 
-#### 4.5 Analysis of Synthetic Data Scaling (RQ4)
+#### 5 Analysis of Synthetic Data Scaling (RQ4)
 
 To explore how the amount of synthetic data affects model repair, we integrate different proportions of synthetic data into the SFT stage, as depicted in Figure [4a.](#page-8-0) We observe an upward trend in overall performance, calculated as a weighted average based on dataset sizes, with increasing synthetic data proportions. This indicates that, when the instruction-aligned data D<sup>I</sup> is fixed, expanding the synthetic data enhances model performance. As more synthetic data is used, more LLM knowledge deficiencies can be identified and addressed, thereby improving the model's performance. This highlights the potential of our method to effectively boost model performance by targeting and synthesizing data to fill specific knowledge gaps. Due to the limitation in computation resources, in this paper, for the two base LLMs, Llama and Qwen, we synthesize 26k and 128k data entries, respectively. In future work, we will explore integrating diverse knowledge across more domains to further enhance model performance. Additionally, we compare two settings: the default setting (SENATOR), where each model is fine-tuned using data synthesized using its own detected deficiencies, and the swap setting, where a model is trained with data synthesized using deficiencies of another model, for example, synthetic data produced by Llama-3 is used for SFT of Qwen2, and vice versa. As shown in Figure [4b](#page-8-0) and [4c,](#page-8-0) SENATOR demonstrates effective deficiency correction even under the swap setting. This could be brought by the similarities between the pretraining corpus of different LLMs, which can lead to similar knowledge deficiencies. This finding not only reinforces the potential of our synthetic data as a valuable supplement to human-written corpora, but also highlights the pressing need for efficient and comprehensive strategies to detect and repair knowledge deficiencies in LLMs.
 
@@ -206,7 +208,7 @@ specifically target these deficiencies. Our experiments on medical benchmarks re
 
 # References
 
-- <span id="page-9-6"></span>Yuntao Bai, Saurav Kadavath, Sandipan Kundu, Amanda Askell, Jackson Kernion, Andy Jones, Anna Chen, Anna Goldie, Azalia Mirhoseini, Cameron McKinnon, et al. 2022. Constitutional ai: Harmlessness from ai feedback. *arXiv preprint arXiv:2212.08073*.
+- <span id="page-9-6"></span>Yuntao Bai, Saurav Kadavath, Sandipan Kundu, Amanda Askell, Jackson Kernion, Andy Jones, Anna Chen, Anna Goldie, Azalia Mirhoseini, Cameron McKinnon, et al. 2022. Constitutional ai: Harmlessness from ai feedback.*arXiv preprint arXiv:2212.08073*.
 - <span id="page-9-10"></span>Junying Chen, Xidong Wang, Ke Ji, Anningzhe Gao, Feng Jiang, Shunian Chen, Hongbo Zhang, Dingjie Song, Wenya Xie, Chuyi Kong, et al. 2023. Huatuogpt-ii, one-stage training for medical adaption of llms. *arXiv preprint arXiv:2311.09774*.
 - <span id="page-9-0"></span>Yubo Chen, Liheng Xu, Kang Liu, Daojian Zeng, and Jun Zhao. 2015. Event extraction via dynamic multi-pooling convolutional neural networks. In *Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)*, pages 167–176.
 - <span id="page-9-2"></span>Mor Geva, Roei Schuster, Jonathan Berant, and Omer Levy. 2021. Transformer feed-forward layers are key-value memories. In *Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing*, pages 5484–5495.
@@ -287,7 +289,7 @@ Figure 5: Example prompt for the synthetic data generation stage of SENATOR.
 
 <span id="page-13-1"></span>{generation prompt}
 
-*# Input: Maximum Structual Entropy Trajectory by SENATOR* Disease <hyperphosphatemia> contraindicates the use of compound <Retinol>, Compound <Retinol> is contained in food <hickory nut>, Food <hickory nut> contains compound <Tryptophan>, Compound <Tryptophan> is contained in food <cow milk (liquid)> *# Output: QA Samples generated by the LLMs* Question: What disease is similar to thyroid gland carcinoma, with Symptom Dysphonia and Neck Pain.
+*# Input: Maximum Structual Entropy Trajectory by SENATOR*Disease <hyperphosphatemia> contraindicates the use of compound <Retinol>, Compound <Retinol> is contained in food <hickory nut>, Food <hickory nut> contains compound <Tryptophan>, Compound <Tryptophan> is contained in food <cow milk (liquid)>*# Output: QA Samples generated by the LLMs* Question: What disease is similar to thyroid gland carcinoma, with Symptom Dysphonia and Neck Pain.
 
 Answer: Head and neck cancer.
 
@@ -322,7 +324,7 @@ Figure 7: Example prompt for the sample filtering stage of SENATOR.
 
 Figure 8: Example prompt for the evaluation on medical datasets, where the "#" symbol denotes comments illustrating how a specific data sample is combined with an instruction for zero-shot prompting.
 
-#### <span id="page-14-0"></span>A.3 Supervised fine-tuning hyperparameters
+## <span id="page-14-0"></span>A.3 Supervised fine-tuning hyperparameters
 
 We use cross-entropy for supervised fine-tuning. Table [2](#page-15-0) presents the hyperparameters utilized for SFT of LLMs within the SENATOR framework. As shown in Table [2,](#page-15-0) the settings applied to Llama-3-8B are identical to those of Qwen2-7B. Moreover, all experiments conducted in this paper have been performed using the same hyperparameter configuration.
 
@@ -337,7 +339,7 @@ We use cross-entropy for supervised fine-tuning. Table [2](#page-15-0) presents 
 | Llama-3-8B | 9.65e-6       | -1           | -1          | 1          | 3     | 1024                    |
 | Qwen2-7B   | 9.65e-6       | -1           | -1          | 1          | 3     | 1024                    |
 
-#### A.4 Data Filtering
+### A.4 Data Filtering
 
 While our framework demonstrates significant improvements over baseline methods, we acknowledge that the system remains imperfect. To systematically evaluate its limitations, we conduct a manual examination of 501 randomly sampled QA pairs from SENATOR outputs. The analysis revealed that 311 samples (62.08%) met our quality criteria for valid question-answer pairs. The remaining 190 error-containing samples (37.92%) exhibited the following error distribution: Formulaic errors (84 samples; 16.77%): Questions or answers with truncations, formatting inconsistencies, or multi-answer requirements. Logical errors (98 samples; 19.56%): Answers lacking evidential support from the provided knowledge triples. Hallucination errors (8 samples; 1.59%): Answers referencing entities absent in the supporting evidence. Notably, while our approach effectively mitigates hallucination errors through evidence grounding, generating logically consistent QA pairs remains challenging. This primarily stems from the base model's inherent limitations in performing multi-hop reasoning across knowledge path. Appendix [A.6](#page-15-1) illustrates representative examples of these error categories, demonstrating both the framework's capabilities and its current limitations. In order to improve data quality, we set up an additional data filtering module. For format problems, we use regularization to remove samples that do not meet specifications. For logical error types, we use LLMs to judge the logical consistency of QA pairs and evidences, and filter out unsatisfied samples.
 
@@ -355,7 +357,7 @@ Our framework SENATOR generates <evidence, question, answer> examples based on t
 
 # illustrated in Figures [10](#page-16-0) to [13.](#page-17-0)
 
-#### A.7 Details of the Instruction Tuning Dataset
+## A.7 Details of the Instruction Tuning Dataset
 
 Medical Conversation Data: the dataset includes approximately 100k instances from the ChatDoctor corpus, which contains diverse doctor-patient dialogues collected from real-world scenarios. To enhance instruction diversity and robustness, each prompt is expanded into multiple semantically equivalent forms using GPT-4.
 

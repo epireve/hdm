@@ -1,3 +1,5 @@
+<!-- cite_key: szekelysupsup2014 -->
+
 # Building and Using a Knowledge Graph to Combat Human Trafficking
 
 Pedro Szekely<sup>1</sup> , Craig A. Knoblock<sup>1</sup> , Jason Slepicka<sup>1</sup> , Andrew Philpot<sup>1</sup> , Amandeep Singh<sup>1</sup> , Chengye Yin<sup>1</sup> , Dipsy Kapoor<sup>1</sup> , Prem Natarajan<sup>1</sup> , Daniel Marcu<sup>1</sup> , Kevin Knight<sup>1</sup> , David Stallard<sup>1</sup> , Subessware S. Karunamoorthy<sup>1</sup> , Rajagopal Bojanapalli<sup>1</sup> , Steven Minton<sup>2</sup> , Brian Amanatullah<sup>2</sup> , Todd Hughes<sup>3</sup> , Mike Tamayo<sup>3</sup> , David Flynt<sup>3</sup> , Rachel Artiss<sup>3</sup> , Shih-Fu Chang<sup>4</sup> , Tao Chen<sup>4</sup> , Gerald Hiebel<sup>5</sup> , and Lidia Ferreira<sup>6</sup>
@@ -64,7 +66,7 @@ Opposition to Semantic Web technology: Most other organizations in the consortiu
 
 In this section we describe our overall approach to building knowledge graphs. We present the techniques using the human trafficking domain as an example, although the general approach can be applied to many other domains. Figure 3 shows the architecture of the overall system, called DIG (Domain-Insight Graphs). Each of the following subsections present the components of the DIG architecture in detail and describes how they were applied on the human trafficking data to build a knowledge graph for that domain.
 
-### 3.1 Data Acquisition
+## 1 Data Acquisition
 
 Data acquisition requires finding relevant pages and extracting the required information from those pages. DIG uses Apache Nutch (nutch.apache.org) to support crawling at scale. Nutch offers a RESTful configuration interface that makes it easy to specify the URL patterns to be crawled, to monitor crawling
 
@@ -80,7 +82,7 @@ The DIG semi-structured page extractor, called the landmark extractor, identifie
 
 To support extraction from text, DIG offers a capability to enable data scientists to easily train extractors specialized to an application domain. In the human trafficking domain we need to extract data elements such as eye-color, hair type and color, and ethnicity from the escort advertisements. To train a new extractor for a text corpus, a data scientist highlights the desired data elements in a small number of sample sentences or short paragraphs selected from the corpus. For example, in the sentence "Perfect Green eyes Long curly black hair Im a Irish, Armenian and Filipino", the data scientists highlights "Green eyes" and "Long curly black hair". After the data scientist designates a text corpus and defines the examples, DIG automatically constructs thousands of tasks to acquire additional annotations using the Amazon Mechanical Turk crowd sourcing platform (www.mturk.com). The output of the Mechanical Turk tasks feeds a Conditional Random Field [6] that learns an extractor from the annotations provided.
 
-### 3.2 DIG Ontology
+### 2 DIG Ontology
 
 The DIG ontology defines the terminology for representing the nodes and edges of the knowledge graph. A key decision in the design of our knowledge graph is the desire to record provenance data for each node and edge of the graph. In addition, we want to store the values of nodes in different representations, including a string representation used for keyword search and display, and a structured representation used for structured query and analysis.
 
@@ -90,7 +92,7 @@ Unfortunately, RDF does not provide a convenient way to represent provenance and
 
 In DIG we represent the graph edges as first class objects called Features. Each node in the graph can contain a collection of Feature objects, where each Feature represents an outgoing edge from the node. To represent the knowledge graph in RDF we introduce the following classes and properties:
 
-```
+```text
 FeatureCollection a owl:Class .
 hasFeatureCollection a owl:ObjectProperty ;
     rdfs:range FeatureCollection .
@@ -99,26 +101,26 @@ featureValue a owl:DatatypeProperty ;
     rdfs:domain Feature .
 featureObject a owl:ObjectProperty ;
     rdfs:domain Feature .
-```
+```text
 
 An instance of FeatureCollection represents the collection of edges associated with a node in the graph; hasFeatureCollection associates such an instance with a node in the graph. An instance of Feature represents an edge in the graph. The featureValue represents the value of the Feature as a literal and corresponds to what normally would be a data property in an ontology. When the value of a Feature can also be represented as a structured object, featureObject represents the value of the feature as an RDF object. For each type of edge in the graph, the ontology also includes a property as illustrated in the following example for phone numbers:
 
-```
+```text
 phonenumber_feature a owl:ObjectProperty ;
     rdfs:domain FeatureCollection ;
     rdfs:range Feature .
-```
+```text
 
 The main benefit of our ontology is that all the information about a node or an edge in the graph can be conveniently accessed using property paths without the need to do separate queries to retrieve metadata or provenance. Consider the following examples:
 
-```
+```text
 1. hasFeatureCollection / phonenumber_feature
 2. hasFeatureCollection / phonenumber_feature / featureValue
 3. hasFeatureCollection / phonenumber_feature / featureObject
 4. hasFeatureCollection / phonenumber_feature / featureObject / countryCode
 5. hasFeatureCollection / phonenumber_feature / prov:wasDerivedFrom
 6. hasFeatureCollection / phonenumber_feature / prov:wasAttributedTo
-```
+```text
 
 ![](_page_7_Figure_1.jpeg)
 
@@ -126,7 +128,7 @@ Fig. 4. Screenshot of Karma showing data extracted from escort ads and the assoc
 
 The first property path returns the Feature objects that hold the phone values as well as the provenance and other metadata associated with each phone number edge; the second one returns the phone numbers as literals, and the third returns the phone numbers as structured objects; the fourth returns the country codes of the phone numbers; the fifth returns the URIs of the original documents from which the phone numbers were extracted; and the sixth returns the URIs that identify the extraction software that produced the value. DIG uses the PROV ontology to record provenance.
 
-### 3.3 Mapping Data to the DIG Ontology
+### 3 Mapping Data to the DIG Ontology
 
 The data extraction processes produce a variety of data in different formats. The next step towards construction of a knowledge graph is to convert all the extracted data as well as auxiliary structured sources to the DIG ontology. The data conversion process consists of two parts. We first define a mapping from the source schema to the ontology, and then we execute the mapping to convert the data into JSON-LD, a Linked Data representation in JSON.
 
@@ -146,7 +148,7 @@ The JSON-LD document is organized according to the structure of the model. Devel
 
 Table 1. Example JSON-LD generated by Karma
 
-```
+```text
 { "@context": "http://...",
     "a": "WebPage",
     "hasFeatureCollection": {
@@ -163,13 +165,13 @@ Table 1. Example JSON-LD generated by Karma
                 "endedAtTime": "2014-04-02T17:55:23" },
             "wasDerivedFrom": "http://dig.isi.edu/ht/data/page/5C27...",
             "featureValue": "6626713052" }}}
-```
+```text
 
 Activity1 object) and constraints to include or exclude specific properties. If the developer does not specify any constraints, Karma uses all nodes connected to the root, breaking cycles arbitrarily. The approach is flexible, allowing developers to specify how much information around the root should be included in the JSON-LD documents. Furthermore, developers can generate JSON-LD documents organized around different roots. For example, developers can produce JSON-LD documents organized around phone numbers, and these would contain all web pages referring to a given phone number.
 
 In addition to extending Karma to support JSON-LD, we also modified Karma so that it would run under Hadoop. After we have built a model for a given source, Karma can then apply this model to convert each source, with potentially millions of records, into JSON-LD, running the process on a cluster such as Amazon Web Services (AWS).
 
-### 3.4 Computing Similarity
+### 4 Computing Similarity
 
 The next step in the processing is to identify potential links between similar data items. Due to the size of the datasets, this is a challenging problem. DIG provides capabilities to compute similarity for images and for text data. DIG's image similarity capability uses DeepSentiBank, a deep convolutional neural networks approach [3]. The approach extracts over 2,000 features from each image and computes compact hash codes (only 256 bits per image) that can be used to retrieve similar images. An important benefit of such similarity sensitive hash codes is that there is no need to train the similarity algorithms with images in the domain of interest. In our human trafficking application we used this approach with a database of 20 million images. The system precomputes the compact hash codes, which requires about 40 hours on a single machine, and is then able to find identical and near duplicate images for a new image over the entire 20 million images in less than 2 seconds. For example, given a photo of a person, the system can find other photos of that person taken in similar settings (e.g., in the same room) or with similar clothing, even if the person is in a different pose.
 
@@ -179,7 +181,7 @@ To use these algorithms, DIG constructs a document for each data record and then
 
 In the human trafficking application, we currently compute the similarity of ads based on the text of the ads. This type of similarity helps investigators find ads that are likely authored by the same person or organization. We are currently working to compute similarity on locations, phone numbers, names, etc. and then use the various similarity scores for performing entity resolution.
 
-### 3.5 Resolving Entities
+### 5 Resolving Entities
 
 The next step in the DIG pipeline is to find the matching entities (often called entity resolution). Consider the entities shown in the knowledge graph in Figure 2. The entities are people, locations, phone numbers, etc. and each of these entities has one or more properties associated with them. The task in this step is to determine which data corresponds to the same entities. For example, we want to know which web ads refer to the same person or which geographic references actually refer to the same location. The output of this step is a set of explicit links between entities extracted from different sources.
 
@@ -191,7 +193,7 @@ To solve this variant of the entity resolution problem, a data scientist first u
 
 The second variant of the entity resolution problem addresses the case when there is no reference set for the entities of interest. For example, there is no reference set for the individuals described in the ads. For these cases it is necessary to infer the set of entities from the ads. DIG represents each entity as a set of features (e.g., a person can be represented by the phone number, the photos, the locations mentioned, and so on). This first step creates entities for each of the individuals in the ads. The second step eliminates the redundant entities using a clustering approach similar to Swoosh [1].
 
-### 3.6 Generating the Graph
+### 6 Generating the Graph
 
 At this point, all datasets have been converted into JSON-LD using the domain ontology, and the links between similar records have been identified and evaluated. Next, records containing unique identifiers are merged. A key feature of the approach, is that Karma can use the URIs in the documents to merge JSON-LD documents generated using different models, denormalizing them and thereby precomputing joins. For example, Karma can merge the JSON-LD document shown in Figure 1 with similar documents generated for other features (e.g., location, email, etc.). The resulting merged document will have a single FeatureCollection object containing all the features generated from the various models. The merging occurs at all levels of the JSON documents.
 
@@ -203,7 +205,7 @@ We take advantage of this flexibility, and we index the JSON-LD documents in Ela
 
 Karma can also store the data in AVRO format (avro.apache.org), a format compatible with the Hadoop processing stack. Storing the knowledge graph in AVRO format makes it possible to process the graph data using map/reduce on Hadoop, enabling scalable processing of all the data (e.g., to compute node similarity.)
 
-### 3.7 Query & Visualization
+### 7 Query & Visualization
 
 Figure 5 shows a screenshot of the DIG query interface. The interface paradigm is similar to that of popular web sites such as Amazon (amazon.com). Users can search using keywords, and can filter results by clicking on check-boxes to constrain the results. For example, the figure shows that the user clicked on "latina", to filter results to ads with the selected ethnicity. The user interface issues queries to the ElasticSearch index, responding to queries and updating all facets over the 1.4 billion node graph in under 2 seconds.
 
@@ -212,8 +214,6 @@ Figure 5 shows a screenshot of the DIG query interface. The interface paradigm i
 The application of DIG to combat human trafficking is in use today. The system has currently been deployed to six law enforcement agencies and several NGOs that are all using the system in various ways to fight human trafficking, such as by locating victims or researching organizations that are engaging in human trafficking. After evaluation of the current prototype is completed, a updated version of this application will be deployed to more than 200 government agencies that are interested in using DIG. Reports to date indicate that DIG tool has already been successfully used to identify several victims of human trafficking, but due to privacy concerns we cannot provide additional details.
 
 All of the data used in the deployed application comes from publicly available web sites that contain advertisements for services. In the currently deployed
-
-![](_page_13_Picture_1.jpeg)
 
 Fig. 5. Screenshot of DIG query interface showing results a query on the keyword "jessica", filtered by city/region, ethnicity and date to focus on a small number of ads
 

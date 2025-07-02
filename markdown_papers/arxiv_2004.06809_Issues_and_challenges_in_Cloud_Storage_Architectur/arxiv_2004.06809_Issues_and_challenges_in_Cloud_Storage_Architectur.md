@@ -1,14 +1,11 @@
-![](_page_0_Picture_0.jpeg)
+<!-- cite_key: ghanisupsup2020 -->
+
+
 
 **Received**: 1 April 2020; **Revised**: 7 Jun 2020; **Accepted**: 8 Jun 2020; **Published Online**: 10 June 2020 *Researchpedia Journal of Computing, Volume 1, Issue 1, Article 6, Pages 50–65, Jun 2020*
 
-*Digital Object Identifier 10.1109/RpJC.2020.DOI Number*
-
-# **Issues and challenges in Cloud Storage Architecture: A Survey**
-
-**Anwar Ghani<sup>1</sup> , Afzal Badshah<sup>1</sup> , Saeed Ullah Jan<sup>2</sup> , Abdulrahman A. Alshdadi<sup>3</sup> and Ali Daud<sup>3</sup>**
-
-<sup>1</sup>Department of Computer Science & Software Engineering, International Islamic University Islamabad, 44000, Pakistan (e-mail: anwar.ghani@iiu.edu.pk, afzal.phdcs120@iiu.edu.pk)
+*Digital Object Identifier 10.1109/RpJC.2020.DOI Number*# Issues and challenges in Cloud Storage Architecture: A Survey
+**Anwar Ghani<sup>1</sup> , Afzal Badshah<sup>1</sup> , Saeed Ullah Jan<sup>2</sup> , Abdulrahman A. Alshdadi<sup>3</sup> and Ali Daud<sup>3</sup>**<sup>1</sup>Department of Computer Science & Software Engineering, International Islamic University Islamabad, 44000, Pakistan (e-mail: anwar.ghani@iiu.edu.pk, afzal.phdcs120@iiu.edu.pk)
 
 <sup>2</sup>Department of Computer Science & IT, University of Malakand, Chakdara, 18800, Pakistan (e-mail:saeedullah@uom.edu.pk)
 
@@ -18,13 +15,12 @@ alshdadi@uj.edu.sa, ali\_msdb@hotmail.com)
 
 Corresponding author: Anwar Ghani(e-mail: anwar.ghani@iiu.edu.pk).
 
-## **ABSTRACT**
+## ABSTRACT
 
 [ From home appliances to industrial enterprises, the Information and Communication Technology (ICT) industry is revolutionizing the world. We are witnessing the emergence of new technologies (e.g, Cloud computing, Fog computing, Internet of Things (IoT), Artificial Intelligence (AI) and Block-chain) which proves the growing use of ICT (e,g. business, education, health and home appliances), resulting in massive data generation. It is expected that more than 175 ZB data will be processed annually by 75 billion devices by 2025. The 5G technology (i.e. mobile communication technology) dramatically increases network speed, enabling users to upload ultra high definition videos in real-time, will generate a massive stream of big data. Furthermore, smart devices, having artificial intelligence, will act like a human being (e.g, a self-driving vehicle etc) on the network, will also generate big data. This sudden shift and massive data generation created serious challenges in storing and managing heterogeneous data at such a large scale. This article presents a state-of-the-art review of the issues and challenges involved in storing heterogeneous big data, their countermeasures (i.e, from security and management perspectives), and future opportunities of cloud storage. These challenges are reviewed in detail and new dynamics for researchers in the field of cloud storage are discovered.
+**Keywords**Internet of Things, Cloud Computing, Storage Architecture, Cloud Security, Cloud Data Management
 
-**Keywords** Internet of Things, Cloud Computing, Storage Architecture, Cloud Security, Cloud Data Management
-
-#### **I. INTRODUCTION**
+### I. INTRODUCTION
 
 ]
 
@@ -33,7 +29,6 @@ The recent advances and development in smart technology is getting more attentio
 Today more embedded devices joined the Internet to monitor and connect everything (e.g, traffic facilities, buildings, environment, and lakes), enlarging the size of the data generation [\[5\]](#page-13-4)–[\[9\]](#page-13-5). As the data on the Internet is increasing day by day, therefore, analyzing and storing it through traditional data management method is a great challenge [\[10\]](#page-13-6), [\[11\]](#page-13-7) . However, researchers are struggling to design new kinds of databases based on NoSQL for handling unstructured data at such a large
 
 ![](_page_1_Figure_1.jpeg)
-
 **FIGURE 1.** The cloud devices and revenue forecost.
 
 <span id="page-1-0"></span>![](_page_1_Figure_3.jpeg)
@@ -46,7 +41,7 @@ With the advent of technology, computing requirements of organizations grew expo
 
 ![](_page_2_Figure_1.jpeg)
 
-<span id="page-2-0"></span>**FIGURE 3.** Master and data node in cloud storage architecture.
+<span id="page-2-0"></span>**FIGURE 3.**Master and data node in cloud storage architecture.
 
 demand storage". Currently, the storage providers are fixated towards other aspects related to cloud storage like cost issues, performance issues and incorporating multiple storage [\[27\]](#page-13-18) [\[28\]](#page-13-19) [\[29\]](#page-13-20) [\[30\]](#page-13-21). Fig. [3](#page-2-0) shows the structure of master and data node in cloud storage architecture.
 
@@ -56,23 +51,23 @@ This study explores the cloud storage architecture its challenges and possible s
 
 Rest of this article is structured as follows: Section [II](#page-2-1) provides an insight into the issues related to cloud storage and their countermeasures. Section [II](#page-2-1) discusses the future opportunities of cloud storage. Finally, section [IV](#page-12-0) concludes the article with the key findings and future directions.
 
-## <span id="page-2-1"></span>**II. CLOUD STORAGE CHALLENGES AND POSSIBLE SOLUTIONS**
+## <span id="page-2-1"></span>II. CLOUD STORAGE CHALLENGES AND POSSIBLE SOLUTIONS
 
 Storage in a cloud is a crucial part of the Infrastructure as a Service (IaaS). The lack of proper storage management in cloud environment, may lead to severe consequences [\[31\]](#page-13-22). Cloud storage related issues have been categorized as data security and data management issues [\[32\]](#page-13-23), [\[33\]](#page-13-24). This paper focuses on issues related to these two categories and a review of possible solutions to such issues. Some of the points may overlap both categories, however, this distinction may help in understanding the challenges faced by cloud storage providers and tenants. Fig [4](#page-3-0) shows the challenges in cloud storage architecture. The following subsections elaborate these issues and their counter measures.
 
-# *A. DATA SECURITY ISSUES*
+#*A. DATA SECURITY ISSUES*
 
 Data security is an important requirement from tenant as a right. Secure services attract users to store their data in a cloud. Companies providing the cloud storage services are searching for techniques that can control access to cloud data and improve security. With increase in size of the data, there is also an increase in data attacks and interceptions. The cloud computing provides storage services as a vitalized environment where a user has no control over the data [\[34\]](#page-13-25). In such situation, a user may ask questions like "where exactly is my data located?", "what happen if I delete my data?" and "is the deleted data really deleted?".
 
 ![](_page_3_Figure_1.jpeg)
 
-<span id="page-3-0"></span>**FIGURE 4.** Cloud storage challenges.
+<span id="page-3-0"></span>**FIGURE 4.**Cloud storage challenges.
 
 Many solutions to data security in cloud can be found in literature. Authors in [\[34\]](#page-13-25) divided the security solutions into four layers (i.e. availability, authentication, confidentiality and integrity). They argued that if confidentiality is achieved, it automatically ensures integrity. However, this sub section is dedicated to a more elaborate study of the issues related to data security. A recent study exploring data security and privacy in cloud storage [\[31\]](#page-13-22) pointed out the three main reasons based on the features of cloud computing independent of the technology being used on the server. It includes outsourcing and multitenancy.
 
 A Time Stamp Authority (TSA) and Public Key Infrastructure (PKI) technologies are introduced into the cloud storage system for authentication and security with minimum cost and less system overhead. Trusted time stamp helps in audit and recording [\[19\]](#page-13-12), [\[35\]](#page-13-26)–[\[37\]](#page-13-27). The three points considered are User Identification, Time Stamping and User Verification through cloud storage system. The use of PKI improves security whereas authentication is done through directory services. The use of a time stamp provides security services like audit and evidences with a very minimum overhead. TSA also performs data management and optimization in cloud storage system. The workload is increased by TSA and client communication and the verification of users' operations. As during the communication process no certificate is used so extra overhead is not involved. The operation commands are converted into time stamp and sent to TSA server, which communicates with directory server and verify certificate. On validating the certificate, a time stamp is issued. The corresponding time stamp is then sent to the cloud and further operations may be performed. The cloud system stores the time stamps and operations record. The operations may
 
-#### <span id="page-4-0"></span>**TABLE 1.** Basic approaches used in designing data security techniques
+## <span id="page-4-0"></span>TABLE 1. Basic approaches used in designing data security techniques
 
 |               | Public Key Inscription | Low cost/system overhead             |  |  |
 |---------------|------------------------|--------------------------------------|--|--|
@@ -81,7 +76,7 @@ A Time Stamp Authority (TSA) and Public Key Infrastructure (PKI) technologies ar
 
 be queries, downloads and uploads etc. The basic approaches used in designing data security techniques are shown in Table [1.](#page-4-0) Furthermore, AI, 5G, IoT and block chain are improving the privacy and security [\[38\]](#page-13-28).
 
-#### 1) Confidentiality Issues
+### 1) Confidentiality Issues
 
 Cloud storage is a collection of storage servers on which multiple customers' data is stored, which makes privacy a major concern. The fundamental requirement for confidentiality of the information stored or processed in the cloud is the guaranteed protection of confidential or sensitive information. Based on the requirements of a specific scenario, this may relate to all or part of the externally stored data, the identity of the users who have access to the data or the actions that the users take on the data cite t05. Encryption techniques are used to achieve confidentiality in such systems. Cloud computing is a technology that uses the internet and servers to maintain and manage data and applications. Cloud computing has improved computing capabilities without large investments.
 
@@ -122,9 +117,7 @@ A Lightweight Directory Access Protocol (LDAP) server is used by various compani
 
 A cloud environment is usually shared among many customers to store their data. Therefore, a compromise of the cloud environment means a potential threat to the data of all users making cloud an attractive target for attackers [\[40\]](#page-14-0). R. Cooper in his report [\[54\]](#page-14-14) rated external criminals as the highest threat contributing 73% but with least impact compromising 30,000 records producing 67,500 Pseudo Risk Score (PRS). Similarly, insider threats received the minimum rating of (18%) but with greatest impact compromising 375,000 records with a PRS of 67,500. The middle rating has been received by partners with 73.39% compromising 187,500 with a PRS of 73,125. The security provided by SaaS is argued to be better in comparison to conventional means, however insiders may not have direct database access but it still raises a risk with huge impact on data security. Employees of SaaS providers can cause exposure of customers private information since they have access to a lot of information. In order to avoid such complications, standards like PCI-DSS (Payment Card Industry-Data Security Standards) must be followed by SaaS providers.
 
-# *B. DATA MANAGEMENT ISSUES*
-
-The management issues related to data has been explored in this sub sections. The data management issues has been categorized and briefly explained as follows.
+#*B. DATA MANAGEMENT ISSUES*The management issues related to data has been explored in this sub sections. The data management issues has been categorized and briefly explained as follows.
 
 # 1) Data Dynamics Issues
 
@@ -179,7 +172,7 @@ Security checks may be bypassed using vulnerabilities in application by attacker
 |                 | Load Balancing          | Running on different servers, resilient to software and hardware<br>failure, and be protected against DOS and DDOS attacks                                                                                                                                                                   |
 | Data Locality   | Regional backup servers | Due to the different, region cyber rules, data should be kept in<br>the same region servers to avoid data locality, cultural and cyber<br>rules issues.                                                                                                                                      |
 
-#### 3) Virtualization Issues and Vulnerability
+### 3) Virtualization Issues and Vulnerability
 
 One of the major component of cloud environment which ensures that various instances running over a single machine be ghettoise from each other is known as virtualization. It is the source of major security challenges in a cloud environment which are not fully investigated today [\[59\]](#page-14-19), [\[60\]](#page-14-20). Second issue is the administrative control of the operating systems, operating as guest and host systems and their imperfect provisioning of isolation [\[61\]](#page-14-21) and scalability issues [\[62\]](#page-14-22). Many of the current Virtual Machine Monitors (VMM's) suffer from bugs allowing escape from VM therefore, "root security" is mandatory in such cases to prevent host operating system from being interfere with by any virtualized guest systems. Some virtualization software has been reported to have vulnerabilities which could allow a local user or an attacker to skip certain security checks and gain illegitimate access [\[61\]](#page-14-21), [\[63\]](#page-14-23). One such example is that of Microsoft Virtual Server and Virtual PC vulnerability where a user of guest operating system could be allowed to execute code on other guest operating system or even the host operating system itself. This could allow a raise in privileges which can lead to unauthorized access of sensitive information. Similarly a validation error in "tools/pygrub/src/GrubConf.py" of Xen which could allow a user with "root" access in a guest operating system through specific crafted contents in grub conf to use domain 0 for running various commands at booting time of guest operating system. Fully functional interposition, inspection and complete isolation are not achieved in VMMM yet and need further investigation.
 
@@ -201,7 +194,7 @@ Many applications automatically provide security locks for user accounts after s
 
 In SaaS cloud model, a client uses the application provided by the SaaS and their own business data, but the client is unaware of storage location of the data in the cloud [\[42\]](#page-14-2), [\[68\]](#page-14-26). This may lead to several issues and many cases. For example, due to data privacy laws in different counties, data locality is of utmost importance in enterprise business architecture. For instance in many Southern American States and several countries in European Union, certain types of data may not be allowed to leave the country premises because of the sensitivity of the information. Similarly local GovernmentâA˘ Zs laws and jurisdiction issues ´ may arise in case of any type of investigation [\[69\]](#page-14-27). A secure SaaS model may be capable to provide reliability to its clients at the consumer data locality.
 
-#### **III. CLOUD STORAGE FUTURE AND OPPORTUNITIES**
+#### III. CLOUD STORAGE FUTURE AND OPPORTUNITIES
 
 The future of the cloud is not less than a dream. AI-enabled objects (e.g, self-driving vehicle), the web of IoT devices, and 5G connectivity (i.e, mobile communication technology) is changing the way of living [\[3\]](#page-13-2). The IT industry is rapidly changing everything. Its simple and easy user interface; no cost and capacity constraints; and other numbers of features are attracting the individual and market [\[70\]](#page-14-28). The opportunities of cloud storage is listed in Fig [5.](#page-10-0)
 
@@ -209,61 +202,41 @@ The recent advances in smart technology generate a massive data traffic. The 51 
 
 This section presents a quick review of the cloud storage future and its opportunities [\[42\]](#page-14-2), [\[71\]](#page-14-29)–[\[79\]](#page-14-30).
 
-#### *A. REMOTE ACCESSIBILITY*
+####*A. REMOTE ACCESSIBILITY*
 
 Remote accessibility (i.e, access from everywhere and anytime) is the core of cloud storage. The fast network speed and AI is making it more smarter and faster. Leading cloud provider (i.e, Apple iCloud [\[80\]](#page-14-31), Microsoft OneDrive [\[81\]](#page-14-32), and Google Drive [\[82\]](#page-14-33) etc) are providing fast and reliable remote services to their users. Remote access allows to store and retrieve items from a cloud storage without needing to create a physical connection. Accessibility of storage devices is getting interested after introducing high storage devices and high bandwidth network. Remote access increases the usage of cloud storage and business. In the presence of internet services, cloud storage can provide seamless access to data files [\[72\]](#page-14-34). The coming 5G internet service will make the accessibility very easy and smart as real-time access [\[83\]](#page-14-35).
 
 ![](_page_10_Figure_1.jpeg)
 
-<span id="page-10-0"></span>**FIGURE 5.** Opportunities of cloud storage
+<span id="page-10-0"></span>**FIGURE 5.**Opportunities of cloud storage
 
-# *B. 5G CONNECTIVITY*
+#*B. 5G CONNECTIVITY*With this high-speed technology, humans will be able to virtually operate any machine at a distance of thousands of KMs [\[84\]](#page-14-36). This will reduce the latency of up to 0 ms. Such a big speed will minimize the need for the local hard drive. This technology will able to store and process data on the cloud without facing any jitters or delay. It is making real-time use possible. 5G is a new era of cloud storage [\[85\]](#page-15-0), [\[86\]](#page-15-1).
 
-With this high-speed technology, humans will be able to virtually operate any machine at a distance of thousands of KMs [\[84\]](#page-14-36). This will reduce the latency of up to 0 ms. Such a big speed will minimize the need for the local hard drive. This technology will able to store and process data on the cloud without facing any jitters or delay. It is making real-time use possible. 5G is a new era of cloud storage [\[85\]](#page-15-0), [\[86\]](#page-15-1).
+#*C. INTERNET OF THINGS (IOT)*With the introduction of the Internet of Things (IoT), the number of devices connected to the internet has increased enormously. By 2025, 75 billion devices are expected to be connected to the Internet processing 75 ZB data annually. This is a great number and will need a high technology to process and store this data. These figures clearly shows that the cloud storage has great worth in coming years. Furthermore, the use smart devices are also dramatically increasing. These devices are small in size and have not enough space to store or process big data therefore, they depend on cloud [\[87\]](#page-15-2).
 
-# *C. INTERNET OF THINGS (IOT)*
+#*D. ARTIFICIAL INTELLIGENCE (AI)*From facial expressions to self-driving vehicles, AI is progressing very rapidly. AI is making smart decisions in complex situations. The today AI is called the weak AI which performs limited tasks such as recognizing facial expression and driving a car, however, the future will have general AI which will perform a task just like human beings. The AI is making the cloud storage further smarter and attractive [\[88\]](#page-15-3). Furthermore, the use of block-chain in storage is making it more secure [\[89\]](#page-15-4).
 
-With the introduction of the Internet of Things (IoT), the number of devices connected to the internet has increased enormously. By 2025, 75 billion devices are expected to be connected to the Internet processing 75 ZB data annually. This is a great number and will need a high technology to process and store this data. These figures clearly shows that the cloud storage has great worth in coming years. Furthermore, the use smart devices are also dramatically increasing. These devices are small in size and have not enough space to store or process big data therefore, they depend on cloud [\[87\]](#page-15-2).
+#*E. USABILITY*The provider business directly depends on resources utilization. Today technologies massively increase the cloud usage because it provides a very easy and reliable user interface. Usually, cloud storage has a local desktop folder for PCs and mobile devices which allows users to move files back and forth between the cloud and the local system using drag and drop facilities [\[42\]](#page-14-2), [\[72\]](#page-14-34), [\[76\]](#page-14-37). The integration of smarts technologies (i.e, IoT, AI, fog and 5G), making the cloud storage usability very easy. The 5G will provide a high bandwidth like real-time access. Its cost is very low compared to buy the devices; which is very appealing [\[83\]](#page-14-35).
 
-# *D. ARTIFICIAL INTELLIGENCE (AI)*
+##*F. DISASTER RECOVERY*In today modern world, data is the most valuable asset. Losing it, cause irreversible damage to the business (including loss of productivity, income, reputation and even customers). Business enterprises use cloud storage as a backup for their important files. In cloud storage, data is stored in three different locations and in case of any disaster, data may easily be recovered. Furthermore, cloud storage provides remote access to files therefore, these files can be used for recovery of their system in case any emergency or disaster [\[42\]](#page-14-2). 5G technology made the recovery process very easy and fast. Comparatively to the traditional disaster recovery, cloud storage recovery is very easy, cheaper and fast. High investment, staff and maintenance are required for local disaster recovery site .
 
-From facial expressions to self-driving vehicles, AI is progressing very rapidly. AI is making smart decisions in complex situations. The today AI is called the weak AI which performs limited tasks such as recognizing facial expression and driving a car, however, the future will have general AI which will perform a task just like human beings. The AI is making the cloud storage further smarter and attractive [\[88\]](#page-15-3). Furthermore, the use of block-chain in storage is making it more secure [\[89\]](#page-15-4).
+##*G. COST SAVINGS*When we talk about cloud, it means that we are getting the resources of a supercomputer at our home without buying it. We actually, hire these resources on very cheaper rates which save the capital investment of the consumer. Cloud storage is used by various types of business enterprises to reduce their annual database operation expenses. Especially, the medium corporations, which are not able to invest too much on storage infrastructure, hire the cloud storage. This saves their major investment. Storing one gigabyte of data using cloud storage services cost about three whereas a user can achieve further saving in terms of power consumption as remote cloud storage does not need internal power [\[77\]](#page-14-38), [\[78\]](#page-14-39). Cloud storage saves operational and maintenance cost and just as per their usage.
 
-# *E. USABILITY*
+##*H. INVISIBILITY*The word storage create the imagination of a big physical device to store big data. Big data and storage mean a big physical device, which will need operation and maintenance. However, cloud storage does not need physical space and user access it remotely [\[90\]](#page-15-5). Cloud storage services, use virtualization techniques to provide resources to the customers. Customers do not know the complexities and working of the back end. Cloud storage is invisible and provides storage transparency, with no physical presence on the user side. It does not take up valuable space in the office or at home. It does not need to spare a huge space for rocks and storage. Customers only hire the services and use them on the go.
 
-The provider business directly depends on resources utilization. Today technologies massively increase the cloud usage because it provides a very easy and reliable user interface. Usually, cloud storage has a local desktop folder for PCs and mobile devices which allows users to move files back and forth between the cloud and the local system using drag and drop facilities [\[42\]](#page-14-2), [\[72\]](#page-14-34), [\[76\]](#page-14-37). The integration of smarts technologies (i.e, IoT, AI, fog and 5G), making the cloud storage usability very easy. The 5G will provide a high bandwidth like real-time access. Its cost is very low compared to buy the devices; which is very appealing [\[83\]](#page-14-35).
+##*I. PRIVACY AND SECURITY*Security of cloud storage for sensitive and confidential information is usually higher than that for the locally stored data, especially for enterprises. It uses advance security (i.e, advanced firewalls, event logging, internal firewalls, intrusion detection, data replication, encryption, and physical security) to protect the data from outside attacks. Different type of security layers is used to protect the data houses. Concerning individual storage, enterprises invest more in security. Storage services in the cloud used encrypted data both in transmission as well as at rest ensuring no unauthorized access to data files. AI, 5G, IoT and block chain are improving the privacy and security [\[38\]](#page-13-28).
 
-## *F. DISASTER RECOVERY*
-
-In today modern world, data is the most valuable asset. Losing it, cause irreversible damage to the business (including loss of productivity, income, reputation and even customers). Business enterprises use cloud storage as a backup for their important files. In cloud storage, data is stored in three different locations and in case of any disaster, data may easily be recovered. Furthermore, cloud storage provides remote access to files therefore, these files can be used for recovery of their system in case any emergency or disaster [\[42\]](#page-14-2). 5G technology made the recovery process very easy and fast. Comparatively to the traditional disaster recovery, cloud storage recovery is very easy, cheaper and fast. High investment, staff and maintenance are required for local disaster recovery site .
-
-## *G. COST SAVINGS*
-
-When we talk about cloud, it means that we are getting the resources of a supercomputer at our home without buying it. We actually, hire these resources on very cheaper rates which save the capital investment of the consumer. Cloud storage is used by various types of business enterprises to reduce their annual database operation expenses. Especially, the medium corporations, which are not able to invest too much on storage infrastructure, hire the cloud storage. This saves their major investment. Storing one gigabyte of data using cloud storage services cost about three whereas a user can achieve further saving in terms of power consumption as remote cloud storage does not need internal power [\[77\]](#page-14-38), [\[78\]](#page-14-39). Cloud storage saves operational and maintenance cost and just as per their usage.
-
-## *H. INVISIBILITY*
-
-The word storage create the imagination of a big physical device to store big data. Big data and storage mean a big physical device, which will need operation and maintenance. However, cloud storage does not need physical space and user access it remotely [\[90\]](#page-15-5). Cloud storage services, use virtualization techniques to provide resources to the customers. Customers do not know the complexities and working of the back end. Cloud storage is invisible and provides storage transparency, with no physical presence on the user side. It does not take up valuable space in the office or at home. It does not need to spare a huge space for rocks and storage. Customers only hire the services and use them on the go.
-
-## *I. PRIVACY AND SECURITY*
-
-Security of cloud storage for sensitive and confidential information is usually higher than that for the locally stored data, especially for enterprises. It uses advance security (i.e, advanced firewalls, event logging, internal firewalls, intrusion detection, data replication, encryption, and physical security) to protect the data from outside attacks. Different type of security layers is used to protect the data houses. Concerning individual storage, enterprises invest more in security. Storage services in the cloud used encrypted data both in transmission as well as at rest ensuring no unauthorized access to data files. AI, 5G, IoT and block chain are improving the privacy and security [\[38\]](#page-13-28).
-
-#### *J. AUTOMATION AND SYNCHRONIZATION*
-
-Cloud automation is a term for the processes and tools that are used to reduce the manual effort involved in provisioning and managing cloud workloads. The cloud storage is self managed and does not need any human efforts [\[91\]](#page-15-6). The main issue most businesses and customers have, the proper follow up of data backup. Cloud storage provides an automated data backup service to ease this tedious process. A user simply needs to tell the system what and when to back up, and the cloud service takes care of it by itself.
+###*J. AUTOMATION AND SYNCHRONIZATION*Cloud automation is a term for the processes and tools that are used to reduce the manual effort involved in provisioning and managing cloud workloads. The cloud storage is self managed and does not need any human efforts [\[91\]](#page-15-6). The main issue most businesses and customers have, the proper follow up of data backup. Cloud storage provides an automated data backup service to ease this tedious process. A user simply needs to tell the system what and when to back up, and the cloud service takes care of it by itself.
 
 Another attraction with the cloud storage is automatic synchronization. Synchronization process ensures that user data files are automatically updated across all of the user devices. In this way the latest versions of the user's data files are saved on his/her local device and available on all of other user devices like user Smartphone etc. 5G made the syncing more easy and now the devices works on real time [\[91\]](#page-15-6).
 
-## *K. SHARING AND COLLABORATION*
+##*K. SHARING AND COLLABORATION*Cloud storage makes the sharing easy. Either it is a photo or a file or even a folder containing hundreds of information files, storage service in cloud make it convenient for a user to share it with a few clicks. Furthermore, it makes the files availability everywhere and every time [\[92\]](#page-15-7). Online cloud storage services are also ideal for collaboration purposes. It allows multiple users to collaborate and edit on a single document or data file. User do not have to concern about tracking the up-to-date version or who has made what changes [\[72\]](#page-14-34).
 
-Cloud storage makes the sharing easy. Either it is a photo or a file or even a folder containing hundreds of information files, storage service in cloud make it convenient for a user to share it with a few clicks. Furthermore, it makes the files availability everywhere and every time [\[92\]](#page-15-7). Online cloud storage services are also ideal for collaboration purposes. It allows multiple users to collaborate and edit on a single document or data file. User do not have to concern about tracking the up-to-date version or who has made what changes [\[72\]](#page-14-34).
-
-## *L. MASSIVE DEVICES AND DATA*
+##*L. MASSIVE DEVICES AND DATA*
 
 As mentioned earlier, up to 2025, approximately 75 billion devices will connect to the internet and this will process more than 175 ZB of data per year. This is a very large figure and requires a lot of cloud storage. These predictions will drastically change the need for cloud storage. This shows that cloud storage has a very bright future ahead.
 
-## <span id="page-12-0"></span>**IV. CONCLUSION AND FUTURE DIRECTIONS**
+## <span id="page-12-0"></span>IV. CONCLUSION AND FUTURE DIRECTIONS
 
 The recent advances in IT industry (e.g, Cloud computing, Internet of Things (IoT), Fog computing, Artificial Intelligence (AI) and Block-chain) is rapidly revolutionizing the cloud storage. Especially, the 5G facilitation (i.e, minimum access delay and ultra high speed) boost the use of cloud storage dramatically. This article presented different challenges, their counter measures, opportunities and future of cloud storage. it seems that cloud storage is designed to be highly scalable and conveniently manageable storage system rather than an efficient file system.
 
@@ -271,7 +244,7 @@ Further, it is revealed that despite the ease of use and economic benefits, clou
 
 Finally, it can be concluded that cloud computing (along with the integrated technologies) is a fast-growing technology which rapidly changing traditional computing. However, still, a lot of research efforts are needed to attract customers, especially business and enterprise customers to store their sensitive data, using cloud storage.
 
-#### **REFERENCES**
+### REFERENCES
 
 - <span id="page-13-0"></span>[1] G. Davis, "2020: Life with 50 billion connected devices," in IEEE International Conference on Consumer Electronics (ICCE). Las Vegas, NV, USA: IEEE, Jan 2018, pp. 1–1.
 - <span id="page-13-1"></span>[2] "Forbes: Cloud computing forecast," [https://www.forbes.com/sites/louiscolumbus/2017/04/29/roundup-of-cloud-computing-forecasts2017/#5c42322c31e8/,](https://www.forbes.com/sites/louiscolumbus/2017/04/29/roundup-of-cloud-computing-forecasts2017/#5c42322c31e8/) 2020.

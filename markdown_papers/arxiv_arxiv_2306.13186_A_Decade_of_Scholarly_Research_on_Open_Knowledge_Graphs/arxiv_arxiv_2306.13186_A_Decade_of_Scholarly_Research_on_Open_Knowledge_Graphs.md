@@ -1,3 +1,5 @@
+<!-- cite_key: turki2013 -->
+
 # A Decade of Scholarly Research on Open Knowledge Graphs
 
 Houcemeddine Turki,<sup>1</sup>,2,<sup>3</sup> Abraham Toluwase Owodunni,<sup>2</sup>,<sup>4</sup> Mohamed Ali Hadj Taieb,<sup>1</sup>,<sup>2</sup> Ren´e Fabrice Bile,<sup>2</sup>,<sup>5</sup> Mohamed Ben Aouicha,<sup>1</sup>,<sup>2</sup> Vil´em Zouhar

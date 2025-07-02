@@ -1,3 +1,5 @@
+<!-- cite_key: jilek2012 -->
+
 # Towards Self-organizing Personal Knowledge Assistants in Evolving Corporate Memories
 
 Christian Jilek 1 , 2 [,](https://orcid.org/0000-0002-5926-1673) Markus Schröder 1 [,](https://orcid.org/0000-0001-8416-0535) Heiko Maus 1 [,](https://orcid.org/0000-0003-3508-5860) Sven Schwarz 1 [,](https://orcid.org/0009-0005-3064-5592) and Andreas Dengel 1 , [2](https://orcid.org/0000-0002-6100-8255)
@@ -12,7 +14,7 @@ Abstract. This paper presents a retrospective overview of a decade of research i
 
 Keywords: context-sensitive assistance; personal information management; knowledge work support; self-organization; digital/intentional forgetting; organizational/corporate memories; knowledge graph construction; semantic web/desktop
 
-### 1 Introduction
+## 1 Introduction
 
 For more than 20 years now, the Smart Data & Knowledge Services department (formerly Knowledge Management department) at the German Research Center for Artificial Intelligence (DFKI) has investigated methods for supporting users' (personal) information management (PIM) [\[130\]](#page-62-0) and knowledge work [\[58\]](#page-55-0) activities. Assuming that knowledge [3](#page-0-0) emerges with the individual and eventually
 
@@ -32,17 +34,17 @@ data, adding meaning leads to information and connecting information including p
 
 This section introduces concepts and ideas that are key to our approach.
 
-### 2.1 Constructing Knowledge Graphs by Data Acquisition and Leveraging
+### 1 Constructing Knowledge Graphs by Data Acquisition and Leveraging
 
 When creating Corporate Memory systems and PKAs based on them, we first need to solve the problem of data acquisition, i.e. tapping into and connecting existing data sources on users' personal computers, the intra- and internet. This data space can become heterogeneous, arbitrarily structured, diverse and is distributed in isolated stores [\[84\]](#page-57-0). As a result, it shows a low data quality and is therefore not fit for its intended use [\[172\]](#page-66-0). For example, we often come across short ungrammatical text snippets which are about a special domain, contain technical (or personal) terms and are not comprehensible without expert knowledge [\[118\]](#page-61-1). A prominent example are file names which can mention technical terms, made-up words and even puns [\[45\]](#page-54-0). Due to various file naming strategies, words can be arbitrary concatenated and differently ordered [\[113,](#page-60-0) [54\]](#page-54-1). On the lowest level, data acquisition is typically tackled by crawlers and connection adapters. Next, a leveraging step is performed that adds semantics and interconnects items leading to a KG "on top" of the data. Since sufficient documentation is usually not available (some knowledge is only available in persons' minds), it is necessary to consult domain experts making KG construction by data acquisition and leveraging an iterative, semi-automatic process. For example, the system may come up with first results like extracted concepts, relations or contexts that are then assessed and refined by the user in a Human-in-the-Loop (HumL) [\[220\]](#page-71-0) approach. In follow-up iterations, the system can take such user feedback into account to improve its information extraction and leveraging results. HumL models are typically found in interactive machine learning, where humans actively participate in an algorithm's learning phase [\[115\]](#page-60-1). However, in contrast to typical crowdsourcing scenarios, we usually have only a small number of experts and limited time available. Since assistance systems typically suffer from a socalled cold start problem, i.e. the assistant not knowing anything about its users in the beginning (e.g. information items, observed interaction data, etc.), it is not able to support them well in its initial hours of usage. Thus, data acquisition and leveraging are a crucial bootstrapping step in such scenarios. Besides the bootstrapping, users of a PKA can rightly expect the assistant to consider and have available their personal as well as corporate and public data in its reasoning and support measures.
 
-#### 2.2 The Semantic Desktop as an Ecosystem
+#### 2 The Semantic Desktop as an Ecosystem
 
 Such a personal or corporate KG is a core pillar of the Corporate Memory system and the PKA based on it. Especially solutions developed in our department involve the Semantic Desktop [\[60,](#page-55-2) [180\]](#page-67-1) as an ecosystem bridging users' local devices with the Corporate Memory residing on the intranet. Technically, the Semantic Desktop aims at bringing Semantic Web [\[29\]](#page-52-0) technology to users' desktops. In short, information items (files, emails, bookmarks, etc.) are treated as a Semantic Web resources, each identified by a URI [\[28,](#page-52-1) [30\]](#page-53-0) and accessible and queryable as an RDF graph [\[44,](#page-54-2) [55\]](#page-55-3). Ontologies [\[213\]](#page-70-0) allow users to express personal mental models that interconnect these information items with their mental concepts like persons, organizations, locations, projects, topics, tasks, events, etc. And easy way offered by the Semantic Desktop is users simply tagging items with these concepts. Such a resulting semantic network at the core of the Semantic Desktop is therefore also called the Personal Information Model [\[181\]](#page-67-2), or PIMO for short. As mentioned in the introduction, knowledge eventually spreads into groups, which is also reflected by the system: shared parts of users' individual PIMOs form a Group Information Model (GIMO) [\[148\]](#page-64-0) as part of the Corporate Memory. In more recent terms, one may speak of PIMO and GIMO as a Personal KG [\[19\]](#page-52-2) or Corporate/Enterprise KG [\[86\]](#page-58-0), respectively. Several features of our recent Semantic Desktop prototype that is part of our productively used Corporate Memory system, CoMem, are illustrated in Maus et al. [\[149\]](#page-64-1) and Jilek et al. [\[126\]](#page-62-2) and the CoMem website[4](#page-3-0) .
 
 Our department was among the Semantic Desktop pioneers bringing up the idea and technology in the early 2000s [\[178\]](#page-67-3). Although the hype around the topic finally subsided about a decade later, our department kept working in this area continuously. One of the more recent features using this technology as an ecosystem is Managed Forgetting, a variant of intentional forgetting, discussed in the next section.
 
-#### 2.3 Managed Forgetting – A Variant of Intentional Forgetting
+#### 3 Managed Forgetting – A Variant of Intentional Forgetting
 
 According to Dragan and Decker [\[70\]](#page-56-0) (2012), one of the reasons why the Semantic Desktop was still not widespread at the time, although being superior to conventional desktops as pointed out by Franz et al. [\[85\]](#page-57-1), was the absence of a "killer app", i.e. a highly beneficial feature (possibly not to be found elsewhere) making users adopt the technology. Managed Forgetting tries to fill this gap with its goal to increase the degree of automation of the Semantic Desktop in PIM and knowledge work support scenarios.
 
@@ -64,7 +66,7 @@ Another aspect worth pointing out is the implied paradigm shift allowing the sys
 
 In the Managed Forgetting approach, deciding, for example, which items to forget and which to focus on heavily relies on context: the same information item could be very important in one context while being totally irrelevant in another. Thus, another rather recent feature based on Semantic Desktop technology we envisioned are Context Spaces [\[125\]](#page-62-4). They are introduced in the next section.
 
-### 2.4 Context Spaces – User Context as an Explicit Interaction Element
+### 4 Context Spaces – User Context as an Explicit Interaction Element
 
 When speaking of "context" we actually mean "a 'sense-giving environment' for a (given) nucleus, i.e. a context tries to represent relevant information items and their relations describing the given situation. Such a nucleus can be an activity (e.g. writing a scientific paper), an event (a meeting) or an information item itself (a PDF document, email, etc.). Because of the dynamics of situations, a context evolves over time. The context of a large research task (later containing many documents, links, notes, etc.), for example, could spawn from a small context having only an email calling for participation as its nucleus" [\[87\]](#page-58-1). Since every information item could become the nucleus of such a context, this definition leaves great freedom to the user. What belongs together in a person's mind, should be representable as a context (or Context Space [\[125\]](#page-62-4)) on their computer. In one of our industry use cases (see Section [7\)](#page-40-0), there was a context space with a ticket as its nucleus for every failure incident reported by a customer or system health monitor. Like in folders, items in the same context should then also be displayed together, so their relatedness is clearly visible to the user countering the well-known project fragmentation problem in PIM [\[24\]](#page-52-3), i.e. items of the same context being spread across various applications (files in the file system, mails in the email client, bookmarks in the web browser, etc.). This latter aspect is addressed by injecting context spaces into as many applications as possible. Details will be presented in Section [6.](#page-21-0)
 
@@ -72,7 +74,7 @@ In summary, with context spaces we see context as an active element users can wo
 
 Having introduced these concepts, the next section presents Self-organizing Context Spaces [\[122\]](#page-61-0) as a variant of a PKA that combines these ideas.
 
-#### 2.5 Self-organizing Context Spaces as a PKA Variant
+#### 5 Self-organizing Context Spaces as a PKA Variant
 
 The idea of Self-organizing Context Spaces, or cSpaces for short, is to combine Semantic Desktop technology with Managed Forgetting and Context Spaces in the following way [\[122\]](#page-61-0):
 
@@ -93,7 +95,7 @@ Concluding this section, Figure [1](#page-7-0) shows an overview of our technica
 
 Since this is an overview paper, a lot of related work could be cited here. However, we restrict ourselves to a high-level overview and kindly refer the reader to our individual papers on a particular topic for further pointers to related work.
 
-#### 3.1 Knowledge Graph Construction
+#### 1 Knowledge Graph Construction
 
 The construction of knowledge graphs (KGs) from input data as mentioned before has the goal to formally organize their contents as entities interrelated in
 
@@ -111,7 +113,7 @@ graphs [\[166\]](#page-65-1). This way, they serve as semantic bridges between d
 
 Once humans are involved in forming a KG, approaches are usually associated with the field of Human-Computer Interaction (HCI) [\[67\]](#page-56-1). There are various possibilities to acquire knowledge from participants, such as data collection [\[165,](#page-65-4) [223\]](#page-71-1), document annotation [\[209,](#page-70-2) [92\]](#page-58-2), microtask completion [\[7\]](#page-51-0), data alignment [\[49,](#page-54-3) [78\]](#page-57-5) or data preprocessing [\[164\]](#page-65-5). Games with a purpose [\[9\]](#page-51-1) are often utilized to curate KGs, for example, with crossword puzzles [\[131\]](#page-62-5), rating [\[109\]](#page-60-4) or question answering [\[40\]](#page-53-2). To let participants see and inspect the modeled KG, a common method is graph visualization and browsing [\[12\]](#page-51-2).
 
-#### 3.2 Semantic Desktop and Similar Approaches
+#### 2 Semantic Desktop and Similar Approaches
 
 In general, there is the inspiring vision of Memex by Vannevar Bush [\[41\]](#page-53-3) for many Semantic Desktop and similar approaches.
 
@@ -149,7 +151,7 @@ Researchers of our department were involved in the works mentioned so far. Apart
 
 Siri [23](#page-9-0) that started as a spin-off later bought by Apple[24](#page-9-1). Besides Cortana and Siri, there are also Amazon Alexa[25](#page-9-2) and Google Assistant [26](#page-9-3) (formerly Google Now) as further assistants by major corporations. Google also provided the 2011 discontinued Google Desktop[27](#page-9-4). Other works are TaskTracer [\[71,](#page-56-4) [214,](#page-70-4) [207,](#page-70-5) [208\]](#page-70-6) by Dietterich, Shen, Stumpf et al. or papers on user activity tracking and task detection [\[103,](#page-59-1) [102\]](#page-59-2) by Gyllstrom et al., who also published the information value assessment approach LostRank [\[101\]](#page-59-3) (see next section). The group of Abela, Staff, Handschuh, Scerri et al. (some of whom were also members of the NEPOMUK project) worked on several related topics and presented solutions like DCON [\[182\]](#page-67-7), PiMx(T) [\[6\]](#page-50-1) or (X-)iDeTaCt [\[5,](#page-50-2) [4\]](#page-50-3). Last, there were three large projects, APOSDLE[28](#page-9-5) (2006–2010) [\[144\]](#page-64-4), ACTIVE[29](#page-9-6) (2008–2011) [\[222\]](#page-71-2) and SWELL[30](#page-9-7) (2011–2017) [\[139\]](#page-63-2), each publishing 60 or more papers, several of them relevant. For a slightly more detailed overview see Jilek [\[122\]](#page-61-0).
 
-#### 3.3 Digital Forgetting and especially Managed Forgetting
+#### 3 Digital Forgetting and especially Managed Forgetting
 
 With regard to digital forgetting, presumably the most prominent topic known to a general audience is the Right to Be Forgotten, which is codified in Europe in Article 17 of the General Data Protection Regulation (GDPR) [\[79\]](#page-57-6) and came into effect in 2016. The idea actually originated from one of our colleagues in the ForgetIT project, Victor Mayer-Schönberger, who proposed expiration dates for information items after which they should automatically be deleted (if not explicitly renewed by the user) [\[150\]](#page-64-5). Apart from this legal concept, there is a lot of other related work, to a large part published by our project partners. In Mezaris et al. [\[154\]](#page-64-6), all eleven partners of the ForgetIT project summarized their contributions of three years of joint research. The Managed Forgetting project was embedded in a special priority program (SPP 1921[31](#page-9-8)) by the German Research Foundation (DFG) spanning more than six years and bringing together eight interdisciplinary research teams on the topic of intentional forgetting in organizations. Beside each project's individual publications (e.g. [\[210,](#page-70-7) [211,](#page-70-8) [104,](#page-59-4) [74\]](#page-56-5)), the consortium also published several cross-project papers on their different perspectives on the topic as well as commonalities. Some papers were written from a computer science perspective (e.g. [\[216\]](#page-71-3)), others more from the point-ofview of cognitive science [\[77,](#page-56-6) [76\]](#page-56-7).
 
@@ -173,7 +175,7 @@ Other works on digital forgetting are, for example, in the area of Robotic Memor
 
 Regarding Information Value Assessment (see the introduced Memory Buoyancy and Preservation Value), related approaches are, for example, the ideas of waste data [\[108\]](#page-60-6) or information waste in the file system [\[224\]](#page-71-4) or on the internet [\[11\]](#page-51-3). Turczyk et al. [\[219\]](#page-71-5) investigated file valuation in the area of Information Lifecycle Management (ILM), which seeks to store files on different storage systems according to their (business) value. Gyllstrom and Pedersen [\[101\]](#page-59-3) proposed LostRank, an approach to estimate which documents are most likely to be lost for the user (e.g. important but not recently used) and are thus harder to refind. Sappelli et al. [\[177\]](#page-66-4) presented an approach for email importance estimation. Last, there is work by Attard, Brennan et al. (e.g. [\[16,](#page-51-4) [17,](#page-51-5) [37\]](#page-53-5)) using the mostly synonymous term of data value assessment. Some of these approaches are more business-centric, others aim at more personal use cases. However, to the authors' best knowledge, Memory Buoyancy and Preservation Value are the only approaches that were designed and implemented according to findings of cognitive psychology about human memory and cognition.
 
-### 3.4 Context Spaces and in particular Self-organizing Context Spaces
+### 4 Context Spaces and in particular Self-organizing Context Spaces
 
 Apart from our own prior research, especially work of the aforementioned AC-TIVE project and the area of Semantic File Systems are to some extent related to the idea of working with and in Context Spaces and Self-organizing Context Spaces.
 
@@ -189,7 +191,7 @@ Before coming to this paper's main chapters presenting various experiments and t
 
 In the research area of PIM and knowledge work support, evaluations can become tricky and challenging. Therefore, this section gives an overview of challenges and possible solutions. For us, these challenges resulted in a multi-lane evaluation strategy that is described in the second half of the section.
 
-#### 4.1 Challenges and Possible Solutions
+#### 1 Challenges and Possible Solutions
 
 We faced four major challenges in our experiments. In the following, they are explained in more detail complemented by hints how we tackled them [\[122\]](#page-61-0):
 
@@ -209,7 +211,7 @@ during their study. This is due to the aforementioned copyright reasons as state
 
 We tackled the problem of a missing publicly available dataset by enriching available ones to get closer to our scenarios (if possible) and conducting own data collections.
 
-#### 4.2 Multi-lane Evaluation Strategy
+#### 2 Multi-lane Evaluation Strategy
 
 Tackling the challenges mentioned before resulted in a multi-lane evaluation strategy for us. Given the characteristics of the experiment, time and funding constraints, we typically chose one of the following options [\[122\]](#page-61-0):
 
@@ -241,7 +243,7 @@ Knowledge Graph (KG) construction happens for us on two levels: on a corporate a
 
 PhD thesis of one of this paper's authors, Schröder [\[187\]](#page-67-0), pays particular attention to the construction of KGs from such messy enterprise data. His proposed approaches are described in the following depending on the applied level.
 
-#### <span id="page-15-0"></span>5.1 Corporate Level
+## <span id="page-15-0"></span>5.1 Corporate Level
 
 Employees typically work on shared drives with enterprise-related and not personal documents. Prominent examples of such documents are spreadsheets. In the industrial sector, they are frequently used by knowledge workers to structure information since they are well-understood and provide an easy and fast way to enter data. However, precisely because spreadsheets do not predetermine how they should be filled, data is entered freely which causes the discussed messy data. For instance, it has been observed that people tend to insert data in spreadsheets in a "sloppy" way [\[15\]](#page-51-6) and that they frequently contain miscellaneous errors [\[38\]](#page-53-7). We would like to give a brief overview of possible challenges from our experiences [\[195\]](#page-68-1). If users enter multiple surface forms of the same entity, like "Thomas Smith" and "Smith, T.", the use of Natural Language Processing (NLP) techniques such as named entity normalization [\[121\]](#page-61-5) becomes necessary. Comparable methods are required if, due to the reduction of typing efforts, acronyms and symbols are written by users to express entities and values. Similarly, mixed representations, prominently if dates are written, need to be unified, too. Since spreadsheets allow the usage of styled text, typographical emphasis, fonts and colors (background and foreground) may express certain information. Because of the free entering of text, it can happen that multiple entities are mentioned in a cell or multiple entity types are listed in a table. By mentioning (possibly ambiguous) identifiers, users express implicit references to entities or relationships between them. Such examples demonstrate what peculiarities have to be considered in case of messy spreadsheets.
 
@@ -291,7 +293,7 @@ row and property per column schema as depicted in Figure [4,](#page-18-0) users 
 
 Fig. 4: The RDF Spreadsheet Editor let users create resources (row header), properties (column header) and statements using intersecting cells.
 
-#### 5.2 Personal Level
+### 2 Personal Level
 
 Analyzing data assets or observing data entry, as shown for spreadsheets, give us the opportunity to grasp entities and their relationships in context of an enterprise. More personal information and work related concepts can be found on all devices employees work with.
 
@@ -323,7 +325,7 @@ Self-organizing Context Spaces, or cSpaces for short, were mainly developed as p
 
 In the remainder of the section, we first present the basic interaction cycle with systems like cSpaces or CoMem, followed by an overview of different user interfaces. Next, we share our insights on how working with and in Context Spaces, i.e. context an explicit interaction element, was perceived by test users so far and which benefits we could already identify or even quantify, respectively. This is followed by an overview of support measures offered by CoMem and cSpaces. Last, searching and trust in such self-organizing and especially Forgetting-enabled Information Systems (FIS) are addressed.
 
-#### 6.1 Interaction Cycle
+## 1 Interaction Cycle
 
 The interaction with cSpaces is basically a cycle of six steps [\[122\]](#page-61-0):
 
@@ -349,7 +351,7 @@ Fig. 7: cSpaces interaction cycle
 
 Having introduced the basic interaction cycle with the system, the next section presents some of its user interfaces.
 
-#### <span id="page-24-1"></span>6.2 User Interfaces
+### <span id="page-24-1"></span>6.2 User Interfaces
 
 So far, three different user interfaces have been realized for cSpaces: a dashboard, a sidebar and transparent injections into existing systems like file or web browsers. As shown in the upper left of Figure [8,](#page-25-0) each of these interfaces offers a bit more familiarity to the user.
 
@@ -375,7 +377,7 @@ Towards Self-organizing PKA in Evolving Corporate Memories 27
 
 Fig. 9: Context switching with cSpaces
 
-#### 6.3 Working with and in Context Spaces
+#### 3 Working with and in Context Spaces
 
 One major idea of cSpaces is to enable users to actually work with (i.e. a "tangible object" similar to a folder) and in (immersion) context spaces. This especially allows for unified browsing of contexts that are close(r) to a person's mental model and easy ways of tagging/associating items with these contexts. "Modeling" (in the sense of users making more of their mental model explicit for the machine) should be easy and subtly possible for the user, e.g. dragging a file to a context makes the system automatically create an isContainedIn relation. If the context represents a calendar event, e.g. a business meeting, then the meeting can be associated with entities found in that file, etc. cSpaces addresses all three pressing requirements for future PIM systems stated by Warren [\[221\]](#page-71-7): combat information overload, ease context switching and support information integration across a variety of applications.
 
@@ -425,7 +427,7 @@ More questionnaire items will be mentioned in the subsections about the differen
 
 In summary, one may conclude that the current prototype was already perceived as helpful (in total, ratings were slightly on the positive side of the spectrum), whereas even more potential was seen in the envisioned or early features (ratings very much on the spectrum's positive side). For a detailed break-down of all results please see Jilek [\[122\]](#page-61-0).
 
-#### 6.4 User Support Measures
+#### 4 User Support Measures
 
 This section gives more insights into user support measures offered by cSpaces and/or CoMem. They are an implementation of Managed Forgetting comprising ideas like condensation, temporal hiding or reorganization (see Section [2](#page-2-0) for the complete definition).
 
@@ -494,23 +496,23 @@ Automated context management is a large topic of its own and still under heavy d
 
 Due to their autonomous character and the aforementioned paradigm shift, self-organizing and especially forgetting-enabled PKA raise questions with regard to search and trust that are discussed in the following.
 
-<span id="page-38-0"></span>![](_page_38_Picture_1.jpeg)
+<span id="page-38-0"></span>
 
 Fig. 16: Spawning of a Context Space when creating a new calendar entry
 
-#### 6.5 Searching Forgetting-enabled Information Systems like cSpaces
+#### 5 Searching Forgetting-enabled Information Systems like cSpaces
 
 In the beginning of this paper, we already mentioned that searching forgettingenabled information systems (FIS) is more challenging than traditional search. For example, if no or seemingly incomplete search results are shown, users may start to wonder whether they entered the "right" keywords or whether they really saved the item they are now looking for. Being aware that the system is forgetting-enabled, they may also ask themselves whether the searched items have been forgotten by the system and are therefore not showing up. This may actually be correct because a user is maybe looking for something not used, mentioned or otherwise "stimulated" (e.g. by mentioning related topics) for a very long time and now wants to remember or go back to the item.
 
 We addressed these issues in several FIS search prototypes, of which two are presented in the following. Figure [17](#page-39-0) shows our first prototype developed as part of CoMem. Using a slider, users could decrease the Memory Buoyancy threshold leading to more and more "forgotten" items to show up as shown in the three screenshots from left to right. This led, however, to pathological behavior by users dragging the slider to the left (low MB) instead of rephrasing their query if search results were not satisfactory. Issues and doubts as described above were still present. We thus developed a second prototype as shown in Figure [18.](#page-40-1) Besides the typical input field (A) and the list of results (E), there is a coverage indicator (B) showing how many found items are in the "active" part of the system and how many in the "forgotten part". Users thus get an idea of what actually is or was there without being additionally flooded by possibly rightfully forgotten items. In addition, contextual clustering is performed, showing topic clusters for active (C) and forgotten parts (D) of the user's information sphere
 
-<span id="page-39-0"></span>![](_page_39_Picture_1.jpeg)
+<span id="page-39-0"></span>
 
 Fig. 17: FIS search prototype I: Dragging the Memory Buoyancy slider
 
 allowing for further drill-down of the search. More details and evaluation results can be found in Jilek [\[122\]](#page-61-0).
 
-#### 6.6 Trust in Highly Autonomous Assistants like cSpaces
+#### 6 Trust in Highly Autonomous Assistants like cSpaces
 
 In scenarios involving a highly autonomous PKA like cSpaces that reorganizes a person's information sphere, trust is particularly important. This comprises trust in search results (see last section) and the system's actions and not losing the feeling of control.
 
@@ -535,7 +537,7 @@ The German Research Center for AI (DFKI) is application-oriented and one of its 
 
 <span id="page-40-2"></span><sup>44</sup> A.-S. Ulfert-Blank, J. Knabe and C. Jilek: Forgetting-enabled AI systems: Exploring the role of transparency perceptions and trust (paper in preparation)
 
-#### 7.1 The Corporate Memory CoMem at enviaM
+## 1 The Corporate Memory CoMem at enviaM
 
 The DFKI cooperates with the German energy service provider envia Mitteldeutsche Energie AG (enviaM)[45](#page-41-0), a subsidiary of E.ON SE, since 2017 to demonstrate the practicability of the Corporate Memory approach and transferring the CoMem infrastructure into productive use. As a first pilot, CoMem was implemented in the real estate services for property management to demonstrate its feasibility[46](#page-41-1). Meanwhile the scenario is in productive use together with further domains such as municipal support, compliance management, construction projects, contact search and company-wide inbox management. Further research is in progress to support knowledge workers in accounting (see, e.g., [\[202,](#page-69-6) [22\]](#page-52-10)).
 
@@ -549,7 +551,7 @@ To allow for personalized assistance in this corporate environment, we tackled t
 
 <span id="page-41-1"></span><sup>46</sup> This scenario is explained in more detail at <https://comem.ai/home/showcase>
 
-<span id="page-42-0"></span>![](_page_42_Picture_1.jpeg)
+<span id="page-42-0"></span>
 
 Fig. 19: The layers of the Corporate Memory CoMem (based on Abecker et al. [\[2\]](#page-50-0); adapted from Riss et al. [\[175\]](#page-66-9))
 
@@ -594,7 +596,7 @@ work to derive context and realize immediate benefits. The Semantic Desktop is t
 
 With the CoMem system being in productive use at enviaM and spreading to further departments, it provides us with insights on the feasibility of the approach as well as further research challenges to pursue, such as the previously mentioned assistance in purchase-to-pay processes by Schulze et al. [\[202\]](#page-69-6) or enhancing the assistance with robotic process automation as introduced in Zeyen et al. [\[227\]](#page-72-1).
 
-#### 7.2 supSpaces – cSpaces in IT Support Scenarios
+### 2 supSpaces – cSpaces in IT Support Scenarios
 
 The term supSpaces is short for support (knowledge) spaces for knowledge management in IT support. It was a two-year project together with Mansystems (now CLEVR[49](#page-45-0)), a developer of service management applications, DFKI and two application partners, Deutsche Telekom[50](#page-45-1), a German telecommunications company, and Dogado[51](#page-45-2), a German cloud service provider. In the scenario, a context space is spawned and develops "around" a service ticket covering an incident reported by either a monitoring software or by a customer. By claiming a ticket, a clerk creates and enters such a supSpace.
 
@@ -606,7 +608,7 @@ Its graphical user interface is a dashboard depicted in Figure [22.](#page-47-0)
 
 <span id="page-45-2"></span><sup>51</sup> <https://www.dogado.de/>
 
-<span id="page-46-0"></span>![](_page_46_Picture_1.jpeg)
+<span id="page-46-0"></span>
 
 Fig. 21: The Semantic Desktop enables pro-active information delivery for an lengthy e-mail in the real estate scenario.
 
@@ -618,15 +620,15 @@ Fig. 22: supSpaces dashboard
 
 described above was evaluated in an expert walkthrough (structured interview). A clerk of Deutsche Telekom used the system to solve a set of past tickets and rated the system's different features while doing so. The overall feedback was generally very positive. The idea of a supSpaces prototype was first mentioned in Jilek et al. [\[124\]](#page-61-7) and a retrospective overview (of which this is an excerpt) was provided in Jilek [\[122\]](#page-61-0).
 
-#### 7.3 Wacom Digital/Semantic Ink
+#### 3 Wacom Digital/Semantic Ink
 
 The aforementioned real-time-capable and also inflection-tolerant information extraction approach, together with the idea of CoMem as a whole, was the main focus in a collaboration with Wacom[52](#page-48-0) that started in 2018[53](#page-48-1). DFKI served as a consultant to help Wacom develop tailored versions for their Semantic Ink technology which enhances their Digital Ink with knowledge graphs, in particular Wacom Notes[54](#page-48-2), a worldwide available product.
 
-#### 7.4 Cybermapping of the Financial System
+#### 4 Cybermapping of the Financial System
 
 Ongoing digitization and outsourcing of processes increase the degree of networking between financial systems and IT service providers. Cyber incidents can significantly impair the provision of important functions of the financial system and thus pose a risk to financial stability. To identify these vulnerabilities, it is important to understand the relationships between the financial network and the cyber network which can be realized with a cybermapping [\[35\]](#page-53-9). The International Monetary Fund (IMF) and the European Systemic Risk Board (ESRB) assess cybermapping as an important part of cyber risk monitoring, yet point out a current lack of data [\[8\]](#page-51-10). Therefore, together with the Deutsche Bundesbank [German Federal Bank] we are building such a model in a transfer lab[55](#page-48-3) by utilizing knowledge graphs and semantic technologies. The aim of this project is the development of an approach that enables the analysis of enterprise networking, cyber risk concentrations and transmission of cyber shocks. This requires methods for collecting, linking, compiling, maintaining, analyzing, and evaluating data sources necessary for identifying systemic cyber risks.
 
-#### 7.5 Knowledge Graph Tooling
+#### 5 Knowledge Graph Tooling
 
 Once we deploy knowledge graphs, we provide tools for accessing and working with them for our industry partners. Our customers are often not aware of fundamental topics about Semantic Web and they rather seldom use such technologies. To still enable their software developers to take part in our projects, we support them with appropriate Application Programming Interfaces (APIs).
 
@@ -887,7 +889,7 @@ ber 12-16, 2016. UbiComp 2016. ACM, 2016, pp. 1046–1053. doi: [10.](https://do
 - <span id="page-66-2"></span>[176] T. Rizzo. WinFS 101: Introducing the New Windows File System. Microsoft Docs. Microsoft Corporation, Mar. 2004.
 - <span id="page-66-4"></span>[177] M. Sappelli, S. Verberne, and W. Kraaij. "Combining textual and nontextual features for e-mail importance estimation". In: Proceedings of the
 
-#### 68 C. Jilek, M. Schröder, H. Maus, S. Schwarz, and A. Dengel
+## 68 C. Jilek, M. Schröder, H. Maus, S. Schwarz, and A. Dengel
 
 25th Benelux Conference on Articial Intelligence (BNAIC 2013), Delft, Nov 7-8, 2013. Ed. by K. Hindriks. 2013, pp. 168–174.
 

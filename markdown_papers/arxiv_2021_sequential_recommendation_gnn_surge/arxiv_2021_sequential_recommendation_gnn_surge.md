@@ -1,3 +1,5 @@
+<!-- cite_key: chang2021 -->
+
 # <span id="page-0-0"></span>Sequential Recommendation with Graph Neural Networks
 
 Jianxin Chang<sup>1</sup> , Chen Gao<sup>1</sup> , Yu Zheng<sup>1</sup> , Yiqun Hui<sup>2</sup> , Yanan Niu<sup>2</sup> , Yang Song<sup>2</sup> , Depeng Jin<sup>1</sup> , Yong Li<sup>1</sup>
@@ -18,7 +20,7 @@ Sequential recommendation aims to leverage users' historical behaviors to predic
 
 • Information systems → Recommender systems;
 
-#### KEYWORDS
+### KEYWORDS
 
 Sequential Recommendation, Graph Neural Networks, Dynamic User Preferences
 
@@ -70,7 +72,7 @@ Figure [1](#page-2-0) illustrates our proposed SURGE model which is made up of t
 - Interest-extraction Graph Pooling Layer. Considering users' different preferences at different moments, a dynamic graph pooling operation is conducted to adaptively reserve dynamicallyactivated core preferences.
 - Prediction Layer. After the pooled graphs are flattened into reduced sequences, we model the evolution of the enhanced interest signals and predict the next item that the user has high probability to interact with.
 
-#### 3.1 Interest Graph Construction
+#### 1 Interest Graph Construction
 
 To integrate and distinguish different types of preferences in users' rich historical behaviors, we can convert loose item sequences into tight item-item interest graphs. The co-occurrence relationship between two items is a reasonable construction criterion, but the challenge is that the sparseness of the co-occurrence relationship is not enough to generate a connected graph for each user. In this section, we propose a novel way based on metric learning to automatically construct graph structures for each interaction sequence to explore the distribution of its interests.
 
@@ -113,7 +115,7 @@ It is different from the absolute threshold strategy of the entire graph [\[5\]]
 
 latter returns the indices of a fixed number of maximum values of each row in the adjacency matrix, which will make each node of the generated graph have the same degree. Forcing a uniform sparse distribution will make the downstream GCN unable to fully utilize the graph's dense or sparse structure information.
 
-#### 3.2 Interest-fusion Graph Convolutional Layer
+#### 2 Interest-fusion Graph Convolutional Layer
 
 As mentioned above, we have learnable interest graphs which separate diverse interests. The core interests and peripheral interests form large clusters and small clusters respectively, and different types of interests form different clusters. Furthermore, to gather weak signals to strong ones that can accurately reflect user preferences, we need to aggregate information in the constructed graph.
 
@@ -122,13 +124,13 @@ As mentioned above, we have learnable interest graphs which separate diverse int
 An alignment score is computed to map the importance of target node on it's neighbor node . Once obtained, the normalized attention coefficients are used to perform a weighted combination of the embeddings corresponding to them, to serve as the refined output embeddings for every node after applying a residual connection and a nonlinearity function :
 
 $$
-\vec{h}'_i = \sigma \left( \mathbf{W}_a \cdot \mathbf{Aggregate} \left( E_{ij} * \vec{h}_j | j \in \mathcal{N}_i \right) + \vec{h}_i \right). \tag{4}
+\vec{h}'_i = \sigma \left( \mathbf{W}_a \cdot \mathbf{Aggregate} \left( E_{ij} *\vec{h}_j | j \in \mathcal{N}_i \right) + \vec{h}_i \right). \tag{4}
 $$
 
 Note that aggregation function can be a function such as Mean, Sum, Max, GRU, etc. We use the simple sum function here and leave other functions for future exploration. To stabilize the attention mechanism's learning process, we employ multi-head attention similar to [\[25,](#page-9-15) [26\]](#page-9-18). Precisely, independent attention mechanisms execute the above transformation, and then their embeddings are concatenated as the following output representation:
 
 $$
-\vec{h}'_i = \iint\limits_{\delta=1}^{\phi} \sigma \left( \mathbf{W}_a \delta \cdot \mathbf{Aggregate} \left( E_{ij}^{\delta} * \vec{h}_j | j \in \mathcal{N}_i \right) + \vec{h}_i \right), \quad (5)
+\vec{h}'_i = \iint\limits_{\delta=1}^{\phi} \sigma \left( \mathbf{W}_a \delta \cdot \mathbf{Aggregate} \left( E_{ij}^{\delta}* \vec{h}_j | j \in \mathcal{N}_i \right) + \vec{h}_i \right), \quad (5)
 $$
 
 where ∥ represents concatenation operation, are normalized attention coefficients obtained by the -th attention head, and W<sup>a</sup> is the corresponding linear transformation's weight matrix. It is worth noting that the final returned output ®ℎ ′ will correspond to ′ dimension embeddings (rather than ′ ) for each node.
@@ -159,7 +161,7 @@ $$
 
 where neighborhood N of node includes node itself. In the context of containing self-loop propagation (when equals ), controls how much information the target node can receive, and controls how much information the source node can send.
 
-#### 3.3 Interest-extraction Graph Pooling Layer
+#### 3 Interest-extraction Graph Pooling Layer
 
 The fusion of implicit interest signals to explicit interest signals is completed by performing information aggregation on the interest graph. In this section, we use the graph pooling method [\[17,](#page-9-20) [22,](#page-9-21) [37\]](#page-9-22) to further extract the fused information. Similar to the downsampling of feature maps in Pooling in CNN, graph pooling aims to downsize the graph reasonably. Through the coarsening of the constructed graph structure, loose interest is transformed into tight interest and its distribution is maintained.
 
@@ -178,7 +180,7 @@ where obtained by applying softmax on represents importance score of the -th nod
 Next, we discuss how to learn differentiable soft clusters assignment for nodes. We use the GNN architecture[\[37\]](#page-9-22) to generate the assignment matrix. The probability matrix of the assignment mapping is obtained through standard message passing and the softmax function, based on the adjacency matrix and the node embedding.
 
 $$
-S_{i} = \text{softmax}\left(\mathbf{W}_{\mathbf{p}} \cdot \mathbf{Aggregate}\left(A_{ij} * \vec{h}'_j | j \in \mathcal{N}_i\right)\right), \quad (11)
+S_{i} = \text{softmax}\left(\mathbf{W}_{\mathbf{p}} \cdot \mathbf{Aggregate}\left(A_{ij} *\vec{h}'_j | j \in \mathcal{N}_i\right)\right), \quad (11)
 $$
 
 where the output dimension of weight matrix Wp corresponds to the maximum number of clusters . The softmax function is used to obtain the probability of the -th node being divided into one of clusters. It is worth noting that we can obtain the adjacency matrix <sup>∗</sup> of the pooled graph by performing , ensuring the connectivity between clusters. Then, the repetition of the above equations can perform multi-layer pooling to achieve hierarchical compression of interest.
@@ -214,12 +216,12 @@ where is a position encoding vector {1, 2, . . . , }, and is a position encoding
 3.3.3 Graph readout. At this point, we have obtained a tightly coarsened graph G ∗ representing the user's stronger interest signal. At the same time, we perform a weighted readout on raw graph G to constrain each node's importance, which aggregates all node embeddings after the forward computation of the propagation layer to generate a graph-level representation ®ℎ:
 
 $$
-\vec{h}_g = \text{Readout}(\{\gamma_i * \vec{h}'_i, i \in \mathcal{G}\}),\tag{15}
+\vec{h}_g = \text{Readout}(\{\gamma_i* \vec{h}'_i, i \in \mathcal{G}\}),\tag{15}
 $$
 
 where the weight is the score of each node before pooling, and the Readout function can be a function such as Mean, Sum, Max, etc. We use the simple sum function here to ensure permutation invariant and leave other functions for future exploration. We feed this graph-level representation into the final prediction layer to better extract each cluster's information in the pooling layer.
 
-#### 3.4 Prediction Layer
+#### 4 Prediction Layer
 
 3.4.1 Interest evolution modeling. Under the joint influence of the external environment and internal cognition, the users' core interests are continually evolving. The user may become interested in various sports for a time and need books at another time. However, only using the readout operation mentioned above does not consider the evolution between core interests, which will undoubtedly cause the time order's bias. To supply the final representation of interest with more relative historical information, it is also necessary to consider the chronological relationship between interests.
 
@@ -264,7 +266,7 @@ In this section, we conduct experiments on two real-world datasets for sequentia
 - RQ2: Can the proposed method be able to handle sequences with various length effectively and efficiently?
 - RQ3: What is the effect of different components in the method?
 
-#### 4.1 Experimental Settings
+#### 1 Experimental Settings
 
 4.1.1 Dataset. We evaluate the recommendation performance on a public e-commerce dataset and an industrial short-video dataset. Table [1](#page-5-0) summarizes the basic statistics of the two datasets. Average Length represents the average of users' history length, which indicates that the scale of the industry dataset we adopt is much larger than the public dataset.
 
@@ -322,7 +324,7 @@ It is worth noting that session recommendation is another recommendation task si
 
 The maximum length for user interaction sequences is 50 for the Taobao dataset and 250 for the Kuaishou dataset. We apply careful grid-search to find the best hyper-parameters. All regularization coefficients are searched in [1 −7 , 1 −5 , 1 −3 ]. The pooling length of the user interaction sequence is searched in [10, 20, 30, 40, 50] for Taobao dataset and [50, 100, 150, 200, 250] for Kuaishou dataset.
 
-#### 4.2 Overall Performance (RQ1)
+#### 2 Overall Performance (RQ1)
 
 Table [2](#page-6-0) illustrates the results on the two datasets. From the results, we have the following observations:
 
@@ -332,7 +334,7 @@ Table [2](#page-6-0) illustrates the results on the two datasets. From the resul
 
 terms of the AUC metric, but exhibits poor performance according to ranking metrics. In addition, on Kuaishou with longer interaction sequences, SLi-Rec's performance is worse than GRU4Rec for all metrics, even though GRU4REC does not explicitly model long and short-term interests. This indicates that although SLi-Rec utilizes two separate components to model users' long and short-term interests, it still fails to effectively integrate them into a single model, in particular for long sequences. Moreover, SLi-Rec leverages timestamp information to improve modeling long and short-term interests. However, our method shows better performance by compressing information with metric learning, without the need to explicitly model timestamp.
 
-## 4.3 Study on Sequence Length and Efficiency Comparison (RQ2)
+## 3 Study on Sequence Length and Efficiency Comparison (RQ2)
 
 4.3.1 Study on Sequence Length. In real-world applications, a user may have very long interaction sequences. Long historical sequences often have more patterns that can reflect user interests, but the accompanying increased noise signals will mislead the modeling of real interests. Thus, whether to effectively model the user's long-term history is a significant issue for sequential recommendation. We study how SURGE improves the recommendation for those users with long behavior records. Specifically, we divide all users of the two datasets into five groups based on the length of the interaction history. For each group, we compare the performance of our method with the baseline methods and present the GAUC metric of the two datasets, as shown in Figure [3.](#page-7-0)
 
@@ -365,7 +367,7 @@ Figure 3: Test performance of the baselines by iterations on two datasets. Best 
 
 kuaishou dataset, our method's efficiency improvement compared with all baselines is more than 20%. The reason is that SURGE performs a pooling operation on the sequence before feeding the embedding sequence into the recurrent neural network, which greatly reduces the number of recurrent steps. Besides, since most of the noise is filtered, the compressed sequence only contains the core interest, which will undoubtedly help speed up the model's convergence. Therefore, we concluded that the SURGE model can more efficiently model users' long-term historical sequence.
 
-#### 4.4 Ablation and Hyper-parameter Study (RQ3)
+### 4 Ablation and Hyper-parameter Study (RQ3)
 
 4.4.1 Effectiveness of interest fusion. We propose to perform message passing on the interest graph based on similarity to merge weak signals into strong signals. We now investigate whether this fusion design that strengthens core interests and activates target interests is necessary. To be specific, we compare the no propagation, cluster-aware propagation, query-aware propagation, cluster- and query-aware propagation.
 
@@ -415,7 +417,7 @@ to factorizing user-item rating matrices into user and item embedding matrices f
 
 Differ from aforementioned works, we take advantage of graph convolutional propagation to fuse the weak preference signals to strong ones and propose graph pooling to extract the dynamicallyactivated core preference in the long behavior sequences.
 
-#### 6 CONCLUSIONS AND FUTURE WORK
+### 6 CONCLUSIONS AND FUTURE WORK
 
 In this work, we studies the task of sequential recommender systems. We propose a graph-based solution that re-constructs loose item sequences into tight item-item interest graphs. The model utilizes graph neural network's powerful ability to dynamically fuse and extract users' activated core interests from noisy user behavior sequences. Extensive experiments on both public and proprietary industrial datasets demonstrate the effectiveness of our proposal. Further studies on sequence length confirm that our method can model long behavioral sequences effectively and efficiently.
 

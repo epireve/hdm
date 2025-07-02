@@ -1,3 +1,5 @@
+<!-- cite_key: computing2025 -->
+
 # RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being
 
 Rahatara Ferdousi, *Member, IEEE*, M. Anwar Hossain *Senior Member, IEEE*
@@ -6,13 +8,11 @@ Rahatara Ferdousi, *Member, IEEE*, M. Anwar Hossain *Senior Member, IEEE*
 
 *Index Terms***— Bias mitigation, Consumer Health, Digital twins, Ethical artificial intelligence, Explainable artificial intelligence, Generative AI, Healthcare informatics, Large language models, Multimodal systems, Personalized healthcare, Responsible AI, WHO guidelines You can explore the additional materials and prototype at:**
 
-**[https://github.com/turna1/ResponsibleHealthTwin-RHT](https://github.com/turna1/ResponsibleHealthTwin-RHT-)<https://huggingface.co/spaces/Rahatara/WellebeingDT>**
-
-#### I. INTRODUCTION
+**[https://github.com/turna1/ResponsibleHealthTwin-RHT](https://github.com/turna1/ResponsibleHealthTwin-RHT-)<https://huggingface.co/spaces/Rahatara/WellebeingDT>**## I. INTRODUCTION
 
 Large Language Models (LLMs) have begun to transform healthcare and well-being applications by serving as inter-
 
-#### May 31st 2025
+### May 31st 2025
 
 Rahatara Ferdousi is now with the School of Computing, Queen's University, Goodwin Hall, 25 Union Street, Kingston, ON K7L 3N6 [\(rahatara.ferdousi@queensu.ca\).](mailto:(rahatara.ferdousi@queensu.ca)
 
@@ -32,9 +32,9 @@ To rigorously assess the effectiveness of RHealthTwin, we conducted a structured
 
 We evaluated the RHealthTwin on four health datasets: MentalChat16k, MTS-Dialog v3, NutriBench v2, and SensorQA. These cover mental health, lifestyle, nutrition, and clinical QA. We generated over 4,000 question-based prompts from patient and provider perspectives on these datasets. We used standard metrics: BERT Score, BLEU, and ROUGE-L. We also proposed four key metrics: Factuality Score (FS), Contextual Appropriateness Score (CAS), Instructional Compliance Score (ICS), and WHO-aligned Responsibility Rubric (WRR) based on trending LLM as evaluator approach.
 
-On datasets with ground-truth references (e.g., MentalChat16K and MTS-Dialog), RPE also produced the highest reference-based scores, including BLEU (0.41), ROUGE-L (0.63), and BERTScore (0.89). This indicates that RPE helps to align the generated output of RHT (e.g., decision making, risk identification) closely with human-annotated responses both lexically and semantically. RHealthTwin outperformed zeroshot, few-shot, and instruction-tuned baselines. Through overall experimental evaluation, we found RHealthTwin enables reliable, explainable, and ethically aligned response generation across mental health, nutrition, lifestyle, and clinical QA domains. To assess responsible behavior, we used ICS and WRR. RPE consistently outperformed all baselines, achieving ICS *>* 0.94 and WRR *>* 0.92 across datasets. In MTS-Dialog, for instance, RPE scored ICS = 0.947 and WRR = 0.928, compared to ICS = 0.816 and WRR = 0.775 from instructiontuned prompts. These gains held across both patient and provider roles, reflecting RPE's ability to enforce tone, safety, and ethical alignment. Unlike traditional few-shot prompting, which showed inconsistent tone and safety control (ICS often *<* 0.85), RPE maintained ethical fidelity under all evaluation conditions.
+On datasets with ground-truth references (e.g., MentalChat16K and MTS-Dialog), RPE also produced the highest reference-based scores, including BLEU (0.41), ROUGE-L (0.63), and BERTScore (0.89). This indicates that RPE helps to align the generated output of RHT (e.g., decision making, risk identification) closely with human-annotated responses both lexically and semantically. RHealthTwin outperformed zeroshot, few-shot, and instruction-tuned baselines. Through overall experimental evaluation, we found RHealthTwin enables reliable, explainable, and ethically aligned response generation across mental health, nutrition, lifestyle, and clinical QA domains. To assess responsible behavior, we used ICS and WRR. RPE consistently outperformed all baselines, achieving ICS*>*0.94 and WRR*>*0.92 across datasets. In MTS-Dialog, for instance, RPE scored ICS = 0.947 and WRR = 0.928, compared to ICS = 0.816 and WRR = 0.775 from instructiontuned prompts. These gains held across both patient and provider roles, reflecting RPE's ability to enforce tone, safety, and ethical alignment. Unlike traditional few-shot prompting, which showed inconsistent tone and safety control (ICS often*<*0.85), RPE maintained ethical fidelity under all evaluation conditions.
 
-#### **Our key contributions are as follows:**
+#### Our key contributions are as follows:
 
 - 1) RHealthTwin as the first (to the best of our knowledge) LLM-driven digital twin framework for responsible consumer health and well-being applications.
 - 2) A slot-based responsible prompt engine that dynamically extracts context, constraints, and justification from user input, enabling personalized yet ethically bounded LLM responses.
@@ -47,9 +47,7 @@ The remainder of this paper is organized as follows. Section [II,](#page-1-4) pr
 
 <span id="page-1-4"></span>In this section, we review recent advancements in large language models (LLMs) for healthcare applications. We then summarize key principles for responsible AI in the healthcare domain. Finally, we highlight gaps and remaining challenges in the existing literature that guide the design of the RHealthTwin framework.
 
-#### *A. LLM and Digital Twin Integration in Healthcare*
-
-DTs in healthcare are virtual models of a patient or system that fuse real-time data and simulations to personalize treatment [7] [15]. As tabulated in Table [I,](#page-2-0) existing study on healthcare DTs highlights their potential to predict, prevent, and manage disease by continuously integrating multimodal patient data. Recent research has begun to leverage LLMs as the core engine of such twins, enabling natural-language interaction and reasoning.
+####*A. LLM and Digital Twin Integration in Healthcare*DTs in healthcare are virtual models of a patient or system that fuse real-time data and simulations to personalize treatment [7] [15]. As tabulated in Table [I,](#page-2-0) existing study on healthcare DTs highlights their potential to predict, prevent, and manage disease by continuously integrating multimodal patient data. Recent research has begun to leverage LLMs as the core engine of such twins, enabling natural-language interaction and reasoning.
 
 For example: TWIN-GPT [4] uses a fine-tuned ChatGPT model to create personalized digital patient twins for clinical trial simulation. Given sparse trial outcome data, TWIN-GPT
 
@@ -87,9 +85,7 @@ modeling each counselor's personal linguistic style and treatment approach, then
 
 Existing LLM-based digital twins primarily focus on clinical applications, such as: DT-GPT's EHR-based trajectory forecasting for ICU/lung cancer patients or HDTwin's cognitive health diagnostics. These systems excel in technical accuracy, but face critical gaps in ethical governance, consumer accessibility, and dynamic personalization. In contrast, our proposed RHealthTwin framework addresses these gaps by integrating (1) a responsible prompt engine to enforce transparency and bias mitigation (2) multimodal grounding combining wearables, user queries, and health knowledge, and (3) feedback-driven adaptation to refine outputs iteratively.
 
-#### *B. Trust in Healthcare LLMs*
-
-Building user trust in LLM-based health tools requires rigorous alignment of model behavior to clinical needs. Common strategies include instruction tuning, prompt tuning, and fewshot prompting to better align LLM responses with desired tasks. Instruction tuning involves fine-tuning an LLM on a large dataset of "instruction–response" pairs so it learns to follow healthcare-specific commands. For instance, Wu et al.
+####*B. Trust in Healthcare LLMs*Building user trust in LLM-based health tools requires rigorous alignment of model behavior to clinical needs. Common strategies include instruction tuning, prompt tuning, and fewshot prompting to better align LLM responses with desired tasks. Instruction tuning involves fine-tuning an LLM on a large dataset of "instruction–response" pairs so it learns to follow healthcare-specific commands. For instance, Wu et al.
 
 <span id="page-3-1"></span>
 
@@ -129,9 +125,7 @@ Few-shot prompting (providing a handful of exemplars in the prompt) is also comm
 
 Beyond technical tuning, human-in-the-loop oversight and guidelines-based tuning are crucial. LLM outputs are often calibrated using reinforcement learning from human feedback (RLHF) to avoid unsafe or irrelevant answers (e.g. framing medical advice conservatively) [20].
 
-#### *C. Responsible AI in Healthcare*
-
-Recent WHO guidance [10] has warned against premature deployment of LLMs in healthcare, highlighting risks of hallucinated, biased, or incomplete outputs that can harm patients, especially in consumer-facing or under-resourced settings. The 2024 WHO ethics framework for large multimodal models (LMMs) expands these concerns, calling for rigorous evaluation, informed consent, representative datasets, transparency, and safeguards against algorithmic harm.
+####*C. Responsible AI in Healthcare*Recent WHO guidance [10] has warned against premature deployment of LLMs in healthcare, highlighting risks of hallucinated, biased, or incomplete outputs that can harm patients, especially in consumer-facing or under-resourced settings. The 2024 WHO ethics framework for large multimodal models (LMMs) expands these concerns, calling for rigorous evaluation, informed consent, representative datasets, transparency, and safeguards against algorithmic harm.
 
 These principles are further contextualized in the systematic review by [9], which synthesizes over 100 studies to identify
 
@@ -139,17 +133,15 @@ practical initiatives aligned with responsible AI adoption. These include ensuri
 
 #### III. METHODOLOGY
 
-<span id="page-3-0"></span>The proposed framework leverages a digital twin architecture to improve consumer health applications through personalized, context-aware, and multimodal interactions. As illustrated in Figure [1,](#page-4-0) RHealthTwin system integrates user data with advanced AI-driven modules to create a digital representation (digital twin) of well-being assistant, allowing customized health interventions, risk identification and scenario generation. The framework is designed to ensure autonomy, inclusivity, transparency aligning with human wellbeing principles. To fomalize, The RHealthTwin framework processes multimodal inputs M via the Responsible Prompt Engine to generate structured prompts *P* = FRPE(M*, θ*RPE). These prompts guide an LLM in healthcare care HLLM(*P* ) → *D*twin to produce results, with parameters updated through *θ<sup>t</sup>*+1 = *θ<sup>t</sup>* + *θ*∇*θ*L(∆*feedback,* E), where E enforces ethical
+<span id="page-3-0"></span>The proposed framework leverages a digital twin architecture to improve consumer health applications through personalized, context-aware, and multimodal interactions. As illustrated in Figure [1,](#page-4-0) RHealthTwin system integrates user data with advanced AI-driven modules to create a digital representation (digital twin) of well-being assistant, allowing customized health interventions, risk identification and scenario generation. The framework is designed to ensure autonomy, inclusivity, transparency aligning with human wellbeing principles. To fomalize, The RHealthTwin framework processes multimodal inputs M via the Responsible Prompt Engine to generate structured prompts*P* = FRPE(M*, θ*RPE). These prompts guide an LLM in healthcare care HLLM(*P*) →*D*twin to produce results, with parameters updated through *θ<sup>t</sup>*+1 = *θ<sup>t</sup>*+*θ*∇*θ*L(∆*feedback,* E), where E enforces ethical
 
 ![](_page_4_Figure_1.jpeg)
 
 <span id="page-4-0"></span>Fig. 1. Proposed RHealthTwin Framework
 
-alignment and ∆*feedback* refines results through user interactions.
+alignment and ∆*feedback*refines results through user interactions.
 
-#### *A. Example Scenario*
-
-To illustrate how our framework builds a personalized wellbeing digital twin, let us consider the case of a 31-year-old working mother who queries: *"Check my weekly activity log and suggest how I can reduce fatigue without compromising productivity."*. As illustrated in Fig. [2,](#page-4-1) the RHealthTwin system first collects multimodal inputs, such as a fitness app screenshot showing low step count, high screen time, and elevated evening heart rate, along with self-reported fatigue and irregular meals. The Context Module synthesizes these signals to define her health goal—fatigue reduction while preserving productivity. The Instruction Module configures the LLM to act as a safe, ethical well-being assistant, avoiding unverified or high-risk recommendations. These modules are composed by the RPE, which integrates few-shot reasoning examples, safety filters, and credible justifications such as CDC sleep guidelines (See Fig. [3\).](#page-5-0) The LLM processes this structured prompt to generate four personalized outputs: (1) decision guidance (e.g., yoga routine and fixed sleep schedule), (2) risk alerts (e.g., elevated room temperature disrupting sleep), (3) scenario simulation (e.g., expected REM improvement), and (4) contextual search results (e.g., nearby yoga classes). The user interacts with these suggestions through a multimodal interface, endorsing helpful advice and skipping less relevant ones (See Fig. [8\).](#page-11-1) This feedback is looped into her DT wellbeing assistant, enabling continual refinement and alignment with her evolving well-being needs. This end-to-end workflow
+####*A. Example Scenario*To illustrate how our framework builds a personalized wellbeing digital twin, let us consider the case of a 31-year-old working mother who queries:*"Check my weekly activity log and suggest how I can reduce fatigue without compromising productivity."*. As illustrated in Fig. [2,](#page-4-1) the RHealthTwin system first collects multimodal inputs, such as a fitness app screenshot showing low step count, high screen time, and elevated evening heart rate, along with self-reported fatigue and irregular meals. The Context Module synthesizes these signals to define her health goal—fatigue reduction while preserving productivity. The Instruction Module configures the LLM to act as a safe, ethical well-being assistant, avoiding unverified or high-risk recommendations. These modules are composed by the RPE, which integrates few-shot reasoning examples, safety filters, and credible justifications such as CDC sleep guidelines (See Fig. [3\).](#page-5-0) The LLM processes this structured prompt to generate four personalized outputs: (1) decision guidance (e.g., yoga routine and fixed sleep schedule), (2) risk alerts (e.g., elevated room temperature disrupting sleep), (3) scenario simulation (e.g., expected REM improvement), and (4) contextual search results (e.g., nearby yoga classes). The user interacts with these suggestions through a multimodal interface, endorsing helpful advice and skipping less relevant ones (See Fig. [8\).](#page-11-1) This feedback is looped into her DT wellbeing assistant, enabling continual refinement and alignment with her evolving well-being needs. This end-to-end workflow
 
 ![](_page_4_Picture_6.jpeg)
 
@@ -157,37 +149,28 @@ Fig. 2. Example Use-Case Scenario for Proposed RHealthTwin Framework
 
 <span id="page-4-1"></span>demonstrates how our framework responsibly generates a dynamic and reliable well-being assistant customized for realworld health support.
 
-#### *B. Data Sources and Integration*
+#### *B. Data Sources and Integration*The RHealthTwin framework integrates two primary data streams to generate personalized digital twin outputs: (1)*userprovided data*(direct inputs) and (2)*connected resources*(external data authorized by the user). User directly inputs natural-language queries or commands (optionally accompanied by images or recorded data), and the system also ingests permissioned personal health data (e.g., logs from wearable devices, EHRs, self-report surveys, journals). Envi-
 
-The RHealthTwin framework integrates two primary data streams to generate personalized digital twin outputs: (1) *userprovided data* (direct inputs) and (2) *connected resources*  (external data authorized by the user). User directly inputs natural-language queries or commands (optionally accompanied by images or recorded data), and the system also ingests permissioned personal health data (e.g., logs from wearable devices, EHRs, self-report surveys, journals). Envi-
-
-## **Responsible Prompt Configuration**
-
-**a. User Query:** "Fatigue Management"
-
+## Responsible Prompt Configuration
+**a. User Query:**"Fatigue Management"
 **b. Context:**
 
-**Age:** 31 years, **Role:** Working mother **Wearable Data:** 5.5h sleep avg, *<*3,000 steps/day, high screen time post-9PM **Vitals:** Elevated evening heart rate **Self-reports:** Midday fatigue, high stress, irregular meals
-
+**Age:**31 years,**Role:**Working mother**Wearable Data:**5.5h sleep avg,*<*3,000 steps/day, high screen time post-9PM **Vitals:**Elevated evening heart rate**Self-reports:**Midday fatigue, high stress, irregular meals
 **c. Instruction:**
 
-**Role:** Responsible well-being assistant for working mothers. **Tone:** Lifestyle advisor.
-
+**Role:**Responsible well-being assistant for working mothers.**Tone:**Lifestyle advisor.
 **d. Few-shot Examples:**
 
-**Q:** "I'm feeling mentally drained by midafternoon every day. What can I do?" **A:** "Try a 10-min walk around 2–3 PM. Light exposure can enhance alertness."
-
-**Q:** "How do I stay productive at work without feeling exhausted every evening?" **A:** "Use 90-min work blocks with breaks. Include a mid-morning protein snack."
-
-**Q:** "What are natural ways to reduce fatigue without taking supplements?"
-
+**Q:**"I'm feeling mentally drained by midafternoon every day. What can I do?"**A:**"Try a 10-min walk around 2–3 PM. Light exposure can enhance alertness."
+**Q:**"How do I stay productive at work without feeling exhausted every evening?"**A:**"Use 90-min work blocks with breaks. Include a mid-morning protein snack."
+**Q:**"What are natural ways to reduce fatigue without taking supplements?"
 **A:** "Prioritize hydration, consistent sleep, and light morning activity. Avoid caffeine after 3 PM."
 
-# **e. Filtering**
+# e. Filtering
 
 Enforce ethical constraints by blocking unsafe, biased, or unsupported advice. Promote inclusivity, fairness, and health safety guidelines.
 
-#### **f. Justification**
+## f. Justification
 
 Add concise evidence-based reasons for suggestions. Grounded in WHO, CDC, or peer-reviewed health guidance.
 
@@ -212,12 +195,10 @@ $$
 
 where *θ*constraints enforces the input to be aligned with ethics standards. RPE retrieves the context from user query and dynamically generates user prompt and system instructions with necessary instructions, fewshot examples, and filters (See Fig. [3\).](#page-5-0) We detail the proposed approaches for RPE as follows.
 
-# *C. Responsible Prompt Engine (RPE)*
+# *C. Responsible Prompt Engine (RPE)*At the core of the RHealthTwin framework lies the RPE, which governs the ethical and effective use of LLM-based inference in sensitive consumer health applications. The RPE transforms an unconstrained user input—typically a short, natural-language query into two well-defined prompt structures that align with responsible AI principles:
 
-At the core of the RHealthTwin framework lies the RPE, which governs the ethical and effective use of LLM-based inference in sensitive consumer health applications. The RPE transforms an unconstrained user input—typically a short, natural-language query into two well-defined prompt structures that align with responsible AI principles:
-
-- **System Instruction:** Defines the assistant's behavior, including its role, tone, ethical filters, and format style via few-shot examples.
-- **User Prompt:** Embeds the user's health-related goal, contextual profile, and justification constraints to guide personalized and explainable generation.
+-**System Instruction:**Defines the assistant's behavior, including its role, tone, ethical filters, and format style via few-shot examples.
+-**User Prompt:**Embeds the user's health-related goal, contextual profile, and justification constraints to guide personalized and explainable generation.
 
 Unlike conventional LLM interfaces that rely on usercontrolled system prompts, our proposed RPE enforces a
 
@@ -243,10 +224,9 @@ structured inference mechanism through dynamic slot tagging and semantic templat
 |      | context learning and demonstration.                     |  |  |  |
 
 This innovative approach ensures consistent and contextually relevant outputs by systematically extracting and adapting key components of user input. We outline the architecture of RPE, detailing each module and the algorithms that facilitate this processing as follows.
+*1) Context-Aware Prompt Module:*This component augments the user's query with explicit goals and background context. It identifies the user's intent (e.g. "improve sleep"), health history, current state, and preferences, and injects this into the prompt. By grounding the task in the user's personal context and objectives, it protects user autonomy and ensures the output aligns with what the individual truly wants. For instance, it might append details like known insomnia issues or caffeine intake to the query.
 
-*1) Context-Aware Prompt Module:* This component augments the user's query with explicit goals and background context. It identifies the user's intent (e.g. "improve sleep"), health history, current state, and preferences, and injects this into the prompt. By grounding the task in the user's personal context and objectives, it protects user autonomy and ensures the output aligns with what the individual truly wants. For instance, it might append details like known insomnia issues or caffeine intake to the query.
-
-We define the context-aware prompt *P*user as the composition of the user query UQ ∈ Q and contextual parameters CP ∈ C, both extracted from *M* using structured slot-based transformations:
+We define the context-aware prompt*P*user as the composition of the user query UQ ∈ Q and contextual parameters CP ∈ C, both extracted from *M* using structured slot-based transformations:
 
 $$
 UQ = F_{slot}(M; \theta_{UQ})
@@ -272,13 +252,13 @@ This ensures consistent structure in prompt composition and prevents silent fail
 
 app, which is denoted as M in the equation. The UQ and CP for this example is depicted in Fig. [3](#page-5-0) (a).
 
-*2) System-Adaptive Behaviour Module:* We define the following slot values extracted from *M* using structured slotbased templates for the system behaviour parameters defined as:
+*2) System-Adaptive Behaviour Module:*We define the following slot values extracted from*M* using structured slotbased templates for the system behaviour parameters defined as:
 
 $$
 P_{systemBehavior} = F_{slot}(M; \theta_{ROLE}) \cup F_{slot}(M; \theta_{TONE})
 $$
-  
- 
+
+
 $$
 \cup F_{slot} \cup F_{slot}(M; \theta_{FE})
 $$
@@ -286,17 +266,17 @@ $$
 
 Where (*θ*ROLE , *θ*TONE, *θ*FE, denotes prompt templates for extracting the to set the role (e.g., well being assistant), tone (e.g., engaging), fewshot examples (e.g., output examples for input examples in JSON format), respectively. Figure [3\(c\)](#page-5-0) and Figur[e 3\(d\)](#page-5-0) shows examples for these slots.
 
-*3) Filtering Module:* This module enforces fairness, privacy, and safety by injecting explicit constraints and content filters into the prompt. The constraints target addressing accountability and appropriateness in critical healthcare contexts. Filtering module embeds such controls (e.g., always advising to consult a doctor for high-risk issues) to align the system behavior with professional standards.
+*3) Filtering Module:*This module enforces fairness, privacy, and safety by injecting explicit constraints and content filters into the prompt. The constraints target addressing accountability and appropriateness in critical healthcare contexts. Filtering module embeds such controls (e.g., always advising to consult a doctor for high-risk issues) to align the system behavior with professional standards.
 
-We define the following slot values extracted from *M* using structured slot-based templates for the filtering module is defined as:
+We define the following slot values extracted from*M*using structured slot-based templates for the filtering module is defined as:
 
 $$
 \mathsf{P}_{\text{filter}} = \mathsf{F}_{\text{slot}}(M; \theta_{\text{FILT}}) \tag{8}
 $$
 
-Where *θ*FILT denotes filters (e.g., no medication suggestion) necessary to possible harmful content that may present in the hallucinated output as examplified in Figure [3\(e\)](#page-5-0) This slot defines content constraints (e.g., safety, legality, bias prevention) injected into the system instruction. The filtering output is composed with other instruction modules.
+Where*θ*FILT denotes filters (e.g., no medication suggestion) necessary to possible harmful content that may present in the hallucinated output as examplified in Figure [3\(e\)](#page-5-0) This slot defines content constraints (e.g., safety, legality, bias prevention) injected into the system instruction. The filtering output is composed with other instruction modules.
 
-*4) Justification Module:* This module retrieves relevant supporting data to enable explainability. It queries authorized clinical knowledge bases or the user's own health records for evidence (e.g., established sleep hygiene guidelines when answering a sleep query). By appending pertinent facts or citations to the prompt, it grounds the LLM's reasoning in verifiable information. This aligns with evidence-based approaches to frame the response as transparent and justifiable for trustworthy well-being interventions.
+*4) Justification Module:*This module retrieves relevant supporting data to enable explainability. It queries authorized clinical knowledge bases or the user's own health records for evidence (e.g., established sleep hygiene guidelines when answering a sleep query). By appending pertinent facts or citations to the prompt, it grounds the LLM's reasoning in verifiable information. This aligns with evidence-based approaches to frame the response as transparent and justifiable for trustworthy well-being interventions.
 
 The justification constraint is extracted using its assigned prompt template:
 
@@ -305,10 +285,9 @@ $$
 $$
 
 This slot enforces evidence-driven explanation requirements (e.g., cite reasoning steps, support with guidelines). It is appended to the user prompt Puser.
+*5) Slot Tagging and Template-Based Extraction:*In safetycritical domains such as healthcare, unconstrained user instructions can inadvertently bypass ethical filters, leading to biased or unsafe outputs [9] [10]. To address this, we (6) formalize slot-value extraction as a controlled natural language generation task with explicit structural boundaries, enhancing reproducibility, interpretability, and safety as following.
 
-*5) Slot Tagging and Template-Based Extraction:* In safetycritical domains such as healthcare, unconstrained user instructions can inadvertently bypass ethical filters, leading to biased or unsafe outputs [9] [10]. To address this, we (6) formalize slot-value extraction as a controlled natural language generation task with explicit structural boundaries, enhancing reproducibility, interpretability, and safety as following.
-
-Each slot *s* ∈ S is associated with a predefined template *θs*, which wraps the user input with a natural language instruction
+Each slot*s*∈ S is associated with a predefined template*θs*, which wraps the user input with a natural language instruction
 
 | a. Slot Templates For User Prompt                                                                                                                                                                                                                                                                                | b. Slot Templates For System Instruction                                                                                                                                                                                                                                                                                                                                                                  |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -320,23 +299,20 @@ Each slot *s* ∈ S is associated with a predefined template *θs*, which wraps 
 
 <span id="page-7-0"></span>Fig. 4. Structured Slot Template Schema for Responsible Prompt Generation
 
-<span id="page-7-1"></span>Fig. 5. Structured prompt template for responsible well-being response generation. **(a)** User Prompt Template combines the user query (UQ), personal context (CP), and justification guideline (J) to guide tailored response generation. **(b)** System Instruction Template configures the assistant's behavior, specifying role (ROLE), tone (TONE), safety constraints (FILT), and illustrative few-shot examples (FE) to ensure ethical and compliant output.
+<span id="page-7-1"></span>Fig. 5. Structured prompt template for responsible well-being response generation. **(a)**User Prompt Template combines the user query (UQ), personal context (CP), and justification guideline (J) to guide tailored response generation.**(b)**System Instruction Template configures the assistant's behavior, specifying role (ROLE), tone (TONE), safety constraints (FILT), and illustrative few-shot examples (FE) to ensure ethical and compliant output.
 
 and structural tags (e.g., <UQ>, </UQ>). The model output is then post-processed using span-based information extraction, a common technique in sequence labeling and constrained text generation. The value of each slot is computed as:
+*s s* SlotValue*<sup>s</sup>*= SpanStartTag*,*EndTag (FLLM(*θs*(*M*))) (10)
 
-*s s* SlotValue*<sup>s</sup>* = SpanStartTag *,*EndTag (FLLM(*θs*(*M*))) (10)
-
-where FLLM denotes the generative model inference function and *θs*(*M* ) is the templated prompt generated by injecting the user input *M* ∈ M into the slot-specific instruction.
+where FLLM denotes the generative model inference function and *θs*(*M*) is the templated prompt generated by injecting the user input*M*∈ M into the slot-specific instruction.
 
 The extracted slot values are then composed into the final UserPrompt and SystemInstruction, which are forwarded to the domain-specialized health LLM for responsible response generation.
 
 Algorithm [1,](#page-8-0) faciliates the process of our proposed adaptive slot-based responsible prompt engineering to dynamically construct the final user prompt and system instruction, which is key to inference the healthcare LLM. The first part of the algorithm focus on retrieving the slots using the predefined templates as demonstrated in Figure [4.](#page-7-0) The second part of the algorithm focus on structuring the user prompt and system instruction into a predefined slot based template as illustrated in Figure [5.](#page-7-1)
 
-## *D. AI Inference Engine*
+##*D. AI Inference Engine*The AI Inference Engine in the RHealthTwin framework comprises two core components: (1) a Healthcare LLM and (2) a Multimodal Agent.
 
-The AI Inference Engine in the RHealthTwin framework comprises two core components: (1) a Healthcare LLM and (2) a Multimodal Agent.
-
-The **Healthcare LLM** can be any instruction-tuned large language model suitable for health and well-being applications, such as GPT-4, Gemini Flash 2.5, LLaMA 4, or Qwen-V2. It may also refer to a domain-adapted variant of these models fine-tuned on specific healthcare tasks. For instance, in one of our ongoing studies, LLaMA has been fine-tuned on
+The**Healthcare LLM**can be any instruction-tuned large language model suitable for health and well-being applications, such as GPT-4, Gemini Flash 2.5, LLaMA 4, or Qwen-V2. It may also refer to a domain-adapted variant of these models fine-tuned on specific healthcare tasks. For instance, in one of our ongoing studies, LLaMA has been fine-tuned on
 
 <span id="page-8-0"></span>
 
@@ -372,46 +348,38 @@ The **Healthcare LLM** can be any instruction-tuned large language model suitabl
 
 a curated mental health dialogue dataset to generate contextaware and empathetic responses.
 
-The **Multimodal Agent** extends the capabilities of the Healthcare LLM by enabling response augmentation and realworld automation. It enhances accessibility by transforming LLM-generated outputs into actionable formats, such as converting structured JSON responses into user-friendly messages, reminders, or visual summaries. The agent can also interface with third-party applications or APIs to trigger follow-up actions based on AI responses.
+The**Multimodal Agent**extends the capabilities of the Healthcare LLM by enabling response augmentation and realworld automation. It enhances accessibility by transforming LLM-generated outputs into actionable formats, such as converting structured JSON responses into user-friendly messages, reminders, or visual summaries. The agent can also interface with third-party applications or APIs to trigger follow-up actions based on AI responses.
 
-In the RHealthTwin framework, **Data Sources** supply input for both fine-tuning and RAG operations. RHealthTwin supports a dedicated fine-tuning pipeline as well as an optional multimodal RAG setup to enhance the performance and contextual grounding of the Healthcare LLM. This enables the Healthcare LLM to retrieve relevant supporting information from internal knowledge bases or external sources, grounding its outputs with verifiable context. For example, in [21] such as LLMTherapist, a multimodal RAG-based architecture has been employed to support mental health counseling by integrating user history, affective cues, and clinical literature. Similarly, RHealthTwin allows grounding snippets to be injected into the system prompt to enhance factuality and therapeutic alignment.
+In the RHealthTwin framework,**Data Sources** supply input for both fine-tuning and RAG operations. RHealthTwin supports a dedicated fine-tuning pipeline as well as an optional multimodal RAG setup to enhance the performance and contextual grounding of the Healthcare LLM. This enables the Healthcare LLM to retrieve relevant supporting information from internal knowledge bases or external sources, grounding its outputs with verifiable context. For example, in [21] such as LLMTherapist, a multimodal RAG-based architecture has been employed to support mental health counseling by integrating user history, affective cues, and clinical literature. Similarly, RHealthTwin allows grounding snippets to be injected into the system prompt to enhance factuality and therapeutic alignment.
 
-<span id="page-8-1"></span>**Algorithm 2** Responsible AI Inference **Input:** UserInput, MultimodalLLM, SessionState, UseRAG, UseWeb, UseAgent **Output:** Final LLM Response (UserPrompt, SystemInstruction) ← EXTRACTPROMPT-SLOTSCLEANLY(UserInput, MultimodalLLM) GroundingSnippets ← [ ], AgentResults ← [ ] **if** UseRAG **then** Keywords ← EXTRACTKEYWORDS(UserPrompt) GroundingSnippets ← MULTIMODAL-RAGSEARCH(Keywords, MaxResults=5) **else if** UseWeb **then** Keywords ← EXTRACTKEYWORDS(UserPrompt) GroundingSnippets ← PERFORMWEB-SEARCH(Keywords, MaxResults=5) **end if if** UseAgent **then** AgentTasks ← IDENTIFYAGENTTASKS(UserPrompt, SystemInstruction) **for** each Task in AgentTasks **do if** Task.Type = "SendEmail" **then** EmailContent ← GENERATEEMAILCON-TENT(UserPrompt, GroundingSnippets, MultimodalLLM) AgentResults.append(SENDEMAIL(EmailContent)) **else** AgentResults.append(EXECUTEAGENTACTION(Task)) **end if end for end if** Messages ← [ ] Messages.append({Role: "system", Content: SystemInstruction}) **if** GroundingSnippets is not empty **then** Evidence ← "[Retrieved Evidence] " + JOIN(GroundingSnippets, "\n") Messages.append({Role: "assistant", Content: Evidence}) **end if** Messages.append({Role: "user", Content: UserPrompt}) Response ← MultimodalLLM.GenerateChat(Messages) **if** AgentResults is not empty **then** Response ← Response + "\n[Agent Actions]\n" + JOIN(AgentResults, "\n") **end if** SessionState["chat history"].append({UserPrompt, SystemInstruction, LLMResponse: Response}) **Return:** Response
+<span id="page-8-1"></span>**Algorithm 2**Responsible AI Inference**Input:**UserInput, MultimodalLLM, SessionState, UseRAG, UseWeb, UseAgent**Output:**Final LLM Response (UserPrompt, SystemInstruction) ← EXTRACTPROMPT-SLOTSCLEANLY(UserInput, MultimodalLLM) GroundingSnippets ← [ ], AgentResults ← [ ]**if**UseRAG**then**Keywords ← EXTRACTKEYWORDS(UserPrompt) GroundingSnippets ← MULTIMODAL-RAGSEARCH(Keywords, MaxResults=5)**else if**UseWeb**then**Keywords ← EXTRACTKEYWORDS(UserPrompt) GroundingSnippets ← PERFORMWEB-SEARCH(Keywords, MaxResults=5)**end if if**UseAgent**then**AgentTasks ← IDENTIFYAGENTTASKS(UserPrompt, SystemInstruction)**for**each Task in AgentTasks**do if**Task.Type = "SendEmail"**then**EmailContent ← GENERATEEMAILCON-TENT(UserPrompt, GroundingSnippets, MultimodalLLM) AgentResults.append(SENDEMAIL(EmailContent))**else**AgentResults.append(EXECUTEAGENTACTION(Task))**end if end for end if**Messages ← [ ] Messages.append({Role: "system", Content: SystemInstruction})**if**GroundingSnippets is not empty**then**Evidence ← "[Retrieved Evidence] " + JOIN(GroundingSnippets, "\n") Messages.append({Role: "assistant", Content: Evidence})**end if**Messages.append({Role: "user", Content: UserPrompt}) Response ← MultimodalLLM.GenerateChat(Messages)**if**AgentResults is not empty**then**Response ← Response + "\n[Agent Actions]\n" + JOIN(AgentResults, "\n")**end if**SessionState["chat history"].append({UserPrompt, SystemInstruction, LLMResponse: Response})**Return:**Response
 
-#### <span id="page-9-1"></span>**Algorithm 3** Update Slots From Feedback
+### <span id="page-9-1"></span>Algorithm 3 Update Slots From Feedback
 
 |  | 1: Input: | FeedbackInput, |  | SessionState, | MultimodalLLM |  |
 |--|-----------|----------------|--|---------------|---------------|--|
 |--|-----------|----------------|--|---------------|---------------|--|
 
-- 2: **Output:** Updated SlotTemplates
-- 3: **if** SessionState.FeedbackFlag = 1 **then**
-- 4: FeedbackIntent ← MultimodalLLM.Generate("Extract semantic intent from: " + FeedbackInput + "\nOutput: <INTENT>...</INTENT>")
+- 2:**Output:**Updated SlotTemplates
+- 3:**if**SessionState.FeedbackFlag = 1**then**- 4: FeedbackIntent ← MultimodalLLM.Generate("Extract semantic intent from: " + FeedbackInput + "\nOutput: <INTENT>...</INTENT>")
 - 5: Intent <sup>←</sup> ExtractSubstring(FeedbackIntent, \<INTENT>", \</INTENT>")
 - 6: Last ← SessionState["chat history"][-1]
 - 7: SlotTemplates ← UpdateSlotTemplates(Intent, Last["slot templates"])
 - 8: Last["slot templates"] ← SlotTemplates
 - 9: SessionState["chat history"][-1] ← Last
-- 10: **return** SlotTemplates
-- 11: **end if**
-
-As depicted in Figure [1,](#page-4-0) the **RPE** modules enable instruction tuning and safety tuning to the AI-inference engine. The AI-Inference Engine consumes the UserPrompt and SystemInstruction produced by the Slot-Based RPE (see Algorithm [1\).](#page-8-0) These inputs are passed into the sessionlevel inference algorithm (Algorithm [2\).](#page-8-1) The refined prompts from the RPE feed into the AI-Inference Engine. In practice, we employ instruction tuning and safety tuning to align the LLM with clinical needs. Because careful prompt and instruction engineering allows open source LLMs to rival finetuned models on medical benchmarks [22]. We describe these processes as follows.
-
-*1) Instruction Tuning:* In the *System Instruction construction step* of Algorithm [2,](#page-8-1) instruction tuning is applied at inference time by injecting role, tone, and task directives into the assistant's context. This method enables behavior alignment without retraining the base model. As supported by recent literature [22], instruction tuning yields more user-aligned and explainable outputs while avoiding the high compute and dataset requirements of full fine-tuning.
-
-*2) Safety Tuning:* Safety constraints, derived from the FILT and J slots, are injected into the system instruction during the same step. This design ensures that the LLM adheres to ethical guardrails and avoids hallucinations or medically inappropriate suggestions. The inclusion of justification directives also improves the transparency and trustworthiness of the model's recommendations, particularly in sensitive healthcare applications.
-
-*3) Multimodal RAG:* The optional *Evidence Retrieval step* in Algorithm [2,](#page-8-1) enhances factual grounding through keywordbased search using either a local RAG pipeline or external web sources. When enabled, relevant snippets are prepended to the assistant context prior to generation. This allows the LLM to reference external evidence without requiring internal memorization of medical facts. Injecting retrieved information into the assistant message improves the factuality and traceability of the response, especially for health-related queries.
+- 10:**return**SlotTemplates
+- 11:**end if**As depicted in Figure [1,](#page-4-0) the**RPE**modules enable instruction tuning and safety tuning to the AI-inference engine. The AI-Inference Engine consumes the UserPrompt and SystemInstruction produced by the Slot-Based RPE (see Algorithm [1\).](#page-8-0) These inputs are passed into the sessionlevel inference algorithm (Algorithm [2\).](#page-8-1) The refined prompts from the RPE feed into the AI-Inference Engine. In practice, we employ instruction tuning and safety tuning to align the LLM with clinical needs. Because careful prompt and instruction engineering allows open source LLMs to rival finetuned models on medical benchmarks [22]. We describe these processes as follows.
+*1) Instruction Tuning:*In the*System Instruction construction step*of Algorithm [2,](#page-8-1) instruction tuning is applied at inference time by injecting role, tone, and task directives into the assistant's context. This method enables behavior alignment without retraining the base model. As supported by recent literature [22], instruction tuning yields more user-aligned and explainable outputs while avoiding the high compute and dataset requirements of full fine-tuning.
+*2) Safety Tuning:*Safety constraints, derived from the FILT and J slots, are injected into the system instruction during the same step. This design ensures that the LLM adheres to ethical guardrails and avoids hallucinations or medically inappropriate suggestions. The inclusion of justification directives also improves the transparency and trustworthiness of the model's recommendations, particularly in sensitive healthcare applications.
+*3) Multimodal RAG:*The optional*Evidence Retrieval step*in Algorithm [2,](#page-8-1) enhances factual grounding through keywordbased search using either a local RAG pipeline or external web sources. When enabled, relevant snippets are prepended to the assistant context prior to generation. This allows the LLM to reference external evidence without requiring internal memorization of medical facts. Injecting retrieved information into the assistant message improves the factuality and traceability of the response, especially for health-related queries.
 
 <span id="page-9-0"></span>Fig. 6. Digital Twin assessment of personalized health risks for a truck driver using lifestyle indicators (smoking, alcohol use).
 
-#### *E. DT Well-being Assistant*
+####*E. DT Well-being Assistant*The DT in the RHealthTwin framework (see Figure [2\)](#page-4-1) functions as a dynamic, personalized health companion that generates individualized well-being insights based on multimodal user input and responsible prompt engineering. Once generated via the AI inference engine, the the DT operates across multiple functional dimensions, aligning with established digital twin classifications as follows.
 
-The DT in the RHealthTwin framework (see Figure [2\)](#page-4-1) functions as a dynamic, personalized health companion that generates individualized well-being insights based on multimodal user input and responsible prompt engineering. Once generated via the AI inference engine, the the DT operates across multiple functional dimensions, aligning with established digital twin classifications as follows.
-
-- **Information Twin:** The DT continuously aggregates and analyzes data from various sources, including wearable devices, self-reported inputs, and environmental sensors. This integration offers a comprehensive view of the user's current health status, enabling the identification of latent risk factors such as stress-induced hypertension or irregular sleep patterns. Figure [6,](#page-9-0) illustrates an example where smoking and alcohol-related risks are summarized for a truck driver based on known consumption levels.
-- **Predictive Twin:** Leveraging historical data and advanced analytics, the DT simulates potential future health scenarios. For instance, it can model the impact of behavioral changes, such as adjusting sleep schedules or dietary habits, on health outcomes like fatigue levels or cardiovascular risk. This predictive modeling empowers users to anticipate the consequences of lifestyle modifications. Figure [7,](#page-10-0) shows how occupational routines (e.g., truck driving) influence activity distribution and inform future planning.
-- **Action Twin:** Beyond monitoring and prediction, the DT provides personalized, actionable recommendations customized to the user's goals and context. These interventions may include suggestions for physical activity, nutritional adjustments, or stress management techniques. By aligning recommendations with real-world constraints and user preferences (as shown in Figure [7\),](#page-10-0) the DT supports search and documentation of resources (e.g.
+-**Information Twin:**The DT continuously aggregates and analyzes data from various sources, including wearable devices, self-reported inputs, and environmental sensors. This integration offers a comprehensive view of the user's current health status, enabling the identification of latent risk factors such as stress-induced hypertension or irregular sleep patterns. Figure [6,](#page-9-0) illustrates an example where smoking and alcohol-related risks are summarized for a truck driver based on known consumption levels.
+-**Predictive Twin:**Leveraging historical data and advanced analytics, the DT simulates potential future health scenarios. For instance, it can model the impact of behavioral changes, such as adjusting sleep schedules or dietary habits, on health outcomes like fatigue levels or cardiovascular risk. This predictive modeling empowers users to anticipate the consequences of lifestyle modifications. Figure [7,](#page-10-0) shows how occupational routines (e.g., truck driving) influence activity distribution and inform future planning.
+-**Action Twin:**Beyond monitoring and prediction, the DT provides personalized, actionable recommendations customized to the user's goals and context. These interventions may include suggestions for physical activity, nutritional adjustments, or stress management techniques. By aligning recommendations with real-world constraints and user preferences (as shown in Figure [7\),](#page-10-0) the DT supports search and documentation of resources (e.g.
 
 ![](_page_10_Figure_1.jpeg)
 
@@ -423,9 +391,7 @@ The RHealthTwin exemplifies an intelligent health management system. By identify
 
 To refine responses and continuously personalize interactions, we integrate a feedback mechanism that processes user reactions—submitted as text or structured inputs (like/dislike), via a designated feedback field in the user interface. When activated, this feedback loop analyzes the semantic intent behind user input and updates the responsible prompt generation pipeline. The process ensures that subsequent prompt construction (e.g., slot templates for query interpretation, role, tone, or filtering) reflects the user's evolving preferences and concerns.
 
-#### *F. Feedback Integration and Adaptive Message Tuning*
-
-In RHealthTwin framework feedback is captured via a specific feedback field in the multimodal user interface. This enables users to comment on or rate previous AI outputs. Both structured inputs (like/dislike buttons) and unstructured text (e.g., "This advice feels too generic") are supported. While this feedback loop facilitates user-centric personalization and system accountability, its true impact relies on stakeholder collaboration. As shown in Figure [8,](#page-11-1) the user interacts with
+####*F. Feedback Integration and Adaptive Message Tuning*In RHealthTwin framework feedback is captured via a specific feedback field in the multimodal user interface. This enables users to comment on or rate previous AI outputs. Both structured inputs (like/dislike buttons) and unstructured text (e.g., "This advice feels too generic") are supported. While this feedback loop facilitates user-centric personalization and system accountability, its true impact relies on stakeholder collaboration. As shown in Figure [8,](#page-11-1) the user interacts with
 
 <span id="page-10-0"></span>the system through a feedback field in the interface. They express their experience using free-text input or structured responses (e.g., like/dislike). This feedback is semantically parsed to extract positive or negative sentiment, key behavior cues (e.g., "yoga," "early dinner"), and intent signals (e.g., "keep reminding me"). The system integrates this contextual information into the real user Profile, modifies the system instruction accordingly, and updates future prompts to reflect the user's preferred routines. In this way, the system adapts to evolving user preferences and reinforce positive habits through adjusted system behavior in future sessions.
 
@@ -448,17 +414,12 @@ While this feedback loop improves personalization, it alone does not guarantee c
 - The impact of slot-based prompting on LLM output quality
 - Comparison with standard prompting paradigms (zeroshot, few-shot, instruction-tuned) to understand effect of RPE for safe, transparent, and grounded generated output.
 
-### *A. Dataset*
+###*A. Dataset*We conduct experiments across four benchmark datasets spanning diverse health domains, including mental health, clinical QA, nutrition planning, and lifestyle monitoring. In Table [IV,](#page-12-0) we summarize the dataset properties, use case categories, and sample sizes.
+**MentalChat16k (16,113 dialogues)**consists of synthetic and anonymized therapist–patient conversations covering topics such as depression, anxiety, and emotional distress. We
 
-We conduct experiments across four benchmark datasets spanning diverse health domains, including mental health, clinical QA, nutrition planning, and lifestyle monitoring. In Table [IV,](#page-12-0) we summarize the dataset properties, use case categories, and sample sizes.
+use it to assess RHealthTwin's ability to generate empathetic and safe responses in mental health support scenarios.**MTS-Dialog v3 (1,701 dialogues)**contains structured doctor–patient consultations paired with clinical summaries. It serves as a testbed for evaluating RHealthTwin's capability to generate clinically coherent and role-appropriate responses under diagnostic or procedural queries.**NutriBench v2 (11,857 entries)**provides human-verified meal descriptions annotated with macronutrient content. This dataset is used to assess how well RHealthTwin delivers accurate and personalized dietary recommendations grounded in nutritional standards.**SensorQA (5,600 QA pairs)**includes questions derived from long-term wearable sensor data. It supports evaluating RHealthTwin's ability to interpret multimodal behavioral logs and offer personalized lifestyle advice, such as sleep, activity, or hydration guidance.
 
-**MentalChat16k (16,113 dialogues)** consists of synthetic and anonymized therapist–patient conversations covering topics such as depression, anxiety, and emotional distress. We
-
-use it to assess RHealthTwin's ability to generate empathetic and safe responses in mental health support scenarios. **MTS-Dialog v3 (1,701 dialogues)** contains structured doctor–patient consultations paired with clinical summaries. It serves as a testbed for evaluating RHealthTwin's capability to generate clinically coherent and role-appropriate responses under diagnostic or procedural queries. **NutriBench v2 (11,857 entries)** provides human-verified meal descriptions annotated with macronutrient content. This dataset is used to assess how well RHealthTwin delivers accurate and personalized dietary recommendations grounded in nutritional standards. **SensorQA (5,600 QA pairs)** includes questions derived from long-term wearable sensor data. It supports evaluating RHealthTwin's ability to interpret multimodal behavioral logs and offer personalized lifestyle advice, such as sleep, activity, or hydration guidance.
-
-#### *B. Test Prompts*
-
-To enable responsible, personalized dialogue across datasets that lacked structured prompts, we synthetically generated two sets of prompts per instance: one simulating the patient side and another from the perspective of a care provider (e.g., doctor, nutritionist, or AI health coach). For each sample, we used the structured attributes (e.g., symptoms, nutrition labels, sensor data) to generate a realistic, context-rich patient query, alongside a corresponding provider question to initiate or follow-up on a relevant health conversation. This setup reflects real-world human-AI interactions in both reactive and proactive use cases. For example, in the NutriBench v2 dataset: *Patient Prompt: "I'm a vegetarian trying to manage my iron levels. What can I cook with lentils and spinach that's also low in carbs?"* Care Provider Prompt: *"Given this meal description, are there any missing nutrients or contraindicated combinations for a patient with low iron and mild anemia?"*.
+####*B. Test Prompts*To enable responsible, personalized dialogue across datasets that lacked structured prompts, we synthetically generated two sets of prompts per instance: one simulating the patient side and another from the perspective of a care provider (e.g., doctor, nutritionist, or AI health coach). For each sample, we used the structured attributes (e.g., symptoms, nutrition labels, sensor data) to generate a realistic, context-rich patient query, alongside a corresponding provider question to initiate or follow-up on a relevant health conversation. This setup reflects real-world human-AI interactions in both reactive and proactive use cases. For example, in the NutriBench v2 dataset:*Patient Prompt: "I'm a vegetarian trying to manage my iron levels. What can I cook with lentils and spinach that's also low in carbs?"*Care Provider Prompt:*"Given this meal description, are there any missing nutrients or contraindicated combinations for a patient with low iron and mild anemia?"*.
 
 TABLE IV BENCHMARK DATASETS WITH WELL-BEING USE CASES IN RESPONSIBLEHEALTHTWIN EVALUATION
 
@@ -486,17 +447,10 @@ TABLE IV BENCHMARK DATASETS WITH WELL-BEING USE CASES IN RESPONSIBLEHEALTHTWIN E
 
 In Table [V,](#page-12-1) we represent the example test prompts used in our experiment. The prompts used in these datasets are available in RHealthTwin's open-source repository. <sup>5</sup> .
 
-### *C. Selected Models*
-
-We selected a diverse range of large language models to systematically assess how RPE handles structured prompt generation, and responsibility enforcement across both generalpurpose and healthcare-specialized LLMs. For multimodal understanding and grounded inference, we included **LLAMA 4** 6 , **Gemini 2.5 (Flash and Pro)**[7](#page-12-2) , and **GPT-[4](#page-12-3)** 8 , aligning with use cases from studies like HealthLLM [22] and DT-GPT [6]. We also incorporated domain-specific biomedical models such as **BioMistral-7B**[9](#page-12-4) and **Asclepius-7B**[10](#page-12-5). To benchmark against widely used open models in prior work such as Twin-GPT [4] and PsyDT [23], we additionally tested **LLaMA3- 8B-Instruct**[11](#page-12-6) , **Qwen2-7B-Instruct**[12](#page-12-7) , **Qwen VL**[13](#page-12-8) , **Mistral-**
-
-<span id="page-12-7"></span>[Meta-Llama-3-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct)
-
+### *C. Selected Models*We selected a diverse range of large language models to systematically assess how RPE handles structured prompt generation, and responsibility enforcement across both generalpurpose and healthcare-specialized LLMs. For multimodal understanding and grounded inference, we included**LLAMA 4**6 ,**Gemini 2.5 (Flash and Pro)**[7](#page-12-2) , and **GPT-[4](#page-12-3)**8 , aligning with use cases from studies like HealthLLM [22] and DT-GPT [6]. We also incorporated domain-specific biomedical models such as**BioMistral-7B**[9](#page-12-4) and **Asclepius-7B**[10](#page-12-5). To benchmark against widely used open models in prior work such as Twin-GPT [4] and PsyDT [23], we additionally tested **LLaMA3- 8B-Instruct**[11](#page-12-6) , **Qwen2-7B-Instruct**[12](#page-12-7) , **Qwen VL**[13](#page-12-8) , **Mistral-**<span id="page-12-7"></span>[Meta-Llama-3-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct)
 **7B**[14](#page-12-9) , and **GPT-3.5**[15](#page-12-9) .
 
-#### *D. Responsible Prompt Generation*
-
-To ensure a balanced trade-off between coverage and computational feasibility, we sample approximately 15% of each benchmark dataset for evaluation. This sampling rate is inspired by prior findings in the HealthLLM study [22], which demonstrated that fine-tuning only 15% of healthspecific datasets can already yield significant performance improvements over zero-shot baselines across diverse medical tasks. Although our study focuses on prompt-level inference rather than fine-tuning, we adopt a similar sampling threshold to ensure that our comparisons reflect meaningful variation in task type, user context, and response requirements without incurring prohibitive computational costs.
+#### *D. Responsible Prompt Generation*To ensure a balanced trade-off between coverage and computational feasibility, we sample approximately 15% of each benchmark dataset for evaluation. This sampling rate is inspired by prior findings in the HealthLLM study [22], which demonstrated that fine-tuning only 15% of healthspecific datasets can already yield significant performance improvements over zero-shot baselines across diverse medical tasks. Although our study focuses on prompt-level inference rather than fine-tuning, we adopt a similar sampling threshold to ensure that our comparisons reflect meaningful variation in task type, user context, and response requirements without incurring prohibitive computational costs.
 
 The evaluation process involved two primary stages. In the first stage, we utilized textual data inputs, including structured tables and sensor readings. In the second stage, we incorporated two categories of screenshots into the multimodal LLMs. Subsequently, we conducted evaluations on these generated responses, comparing our RPE implementation against baseline prompt tuning strategies such as zero-shot, few-shot, and system instruction methods.
 
@@ -524,20 +478,17 @@ For each dataset, we extracted representative prompt scenarios. For instance, in
 
 [ResponsibleHealthTwin-RHT-](https://github.com/turna1/ResponsibleHealthTwin-RHT-) for full output examples and code.
 
-#### *E. Evaluation Metrics*
+####*E. Evaluation Metrics*To assess the effectiveness of our ResponsibleHealthTwin framework and Responsible Prompt Engine, we adopted and adapted a set of evaluation metrics aligned with prior studies such as Twin-GPT [4], DT-GPT [6], HealthLLM [22], and PsyDT [23]. Consistent with these works, our evaluation is fully automated using GPT-based evaluation in place of human annotation, ensuring consistency, scalability, and objectivity across models.
+*1) Reference-Based Metrics:*For benchmark datasets with ground truth responses, such as**MentalChat16K**, we report the following standard reference-based evaluation metrics:
 
-To assess the effectiveness of our ResponsibleHealthTwin framework and Responsible Prompt Engine, we adopted and adapted a set of evaluation metrics aligned with prior studies such as Twin-GPT [4], DT-GPT [6], HealthLLM [22], and PsyDT [23]. Consistent with these works, our evaluation is fully automated using GPT-based evaluation in place of human annotation, ensuring consistency, scalability, and objectivity across models.
-
-*1) Reference-Based Metrics:* For benchmark datasets with ground truth responses, such as **MentalChat16K**, we report the following standard reference-based evaluation metrics:
-
-• **ROUGE-L:** Measures the longest common subsequence (LCS) between the generated output and the reference text. The ROUGE-L score is defined as:
+• **ROUGE-L:**Measures the longest common subsequence (LCS) between the generated output and the reference text. The ROUGE-L score is defined as:
 
 $$
 ROUGE-L = \frac{LCS(X, Y)}{\text{length}(Y)} \tag{11}
 $$
 
-- where *X* is the generated sequence, *Y* is the reference, and *LCS*(*X, Y* ) is the length of their longest common subsequence. *Higher ROUGE-L indicates better content overlap*.
-- **BERT Score:** Computes semantic similarity using contextual embeddings. For each token in the generated text *X* and reference *Y* , the similarity is calculated using *<sup>N</sup>* <sup>6</sup>
+- where*X*is the generated sequence,*Y*is the reference, and*LCS*(*X, Y*) is the length of their longest common subsequence.*Higher ROUGE-L indicates better content overlap*.
+- **BERT Score:**Computes semantic similarity using contextual embeddings. For each token in the generated text*X*and reference*Y*, the similarity is calculated using*<sup>N</sup>*<sup>6</sup>
 
 cosine similarity of BERT embeddings: WRR =
 
@@ -545,40 +496,33 @@ $$
 BERTScore = \frac{1}{|X|} \sum_{x \in X} \max_{y \in Y} \text{cosine}(E(x), E(y)) \quad (12)
 $$
 
-where *E*(·) denotes the BERT embedding function. *Higher BERTScore values (closer to 1) imply greater semantic similarity.*
-
-• **BLEU:** Measures n-gram overlap between generated and reference responses. The BLEU score up to 4-grams is:
+where*E*(·) denotes the BERT embedding function. *Higher BERTScore values (closer to 1) imply greater semantic similarity.*•**BLEU:**Measures n-gram overlap between generated and reference responses. The BLEU score up to 4-grams is:
 
 $$
 BELU = BP \cdot \exp \sum_{n=1}^{4} w_n \log p_n \tag{13}
 $$
 
-where *p<sup>n</sup>* is the modified precision for *n*-grams, *w<sup>n</sup>* are weights (typically uniform), and BP is the brevity penalty. *Higher BLEU indicates better word-level accuracy with respect to the reference.*
+where*p<sup>n</sup>*is the modified precision for*n*-grams, *w<sup>n</sup>*are weights (typically uniform), and BP is the brevity penalty.*Higher BLEU indicates better word-level accuracy with respect to the reference.*These metrics complement GPT-based evaluation by quantifying lexical and semantic alignment with annotated responses.**In all cases, higher values indicate better performance**.
 
-These metrics complement GPT-based evaluation by quantifying lexical and semantic alignment with annotated responses. **In all cases, higher values indicate better performance**.
-
-*2) Factuality Score (FS):* We employ the Factuality Score to measure the degree to which generated outputs align with known medical knowledge. Following the HealthLLM framework [22], GPT-4 is used as an evaluator to rate factual correctness on a 1–5 Likert scale. The average score across all test instances defines the metric:
+*2) Factuality Score (FS):*We employ the Factuality Score to measure the degree to which generated outputs align with known medical knowledge. Following the HealthLLM framework [22], GPT-4 is used as an evaluator to rate factual correctness on a 1–5 Likert scale. The average score across all test instances defines the metric:
 
 $$
 MFS = \frac{1}{N} \sum_{i=1}^{\mathbf{\Sigma}^N} \text{GPT4Score}(y_i \text{RefFacts}_i), \quad (14)
 $$
-
-*3) Contextual Appropriateness Score (CAS):* Adopted from Twin-GPT [4], this metric quantifies how well the generated response integrates and reasons over the provided user context. Evaluated via GPT-4 as a judge:
+*3) Contextual Appropriateness Score (CAS):*Adopted from Twin-GPT [4], this metric quantifies how well the generated response integrates and reasons over the provided user context. Evaluated via GPT-4 as a judge:
 
 $$
 CAS = \frac{1}{N} \sum_{i=1}^{N} \text{GPT4Judge}(y_i \mid c_i)
 $$
  (15)
 
-where *c<sup>i</sup>* is the user context (e.g., lifestyle, symptom history).
-
-*4) Instructional Compliance Score (ICS):* This score verifies whether generated responses adhere to the structure, tone, and intent defined in the prompt template or RPE-generated instruction.
+where*c<sup>i</sup>*is the user context (e.g., lifestyle, symptom history).
+*4) Instructional Compliance Score (ICS):*This score verifies whether generated responses adhere to the structure, tone, and intent defined in the prompt template or RPE-generated instruction.
 
 $$
 ICS = \frac{1}{N} \sum_{i=1}^{N} 1[GPT4Judge(y_i \mid prompt_i) = "compliant"]
 $$
 \n(16)
-
 *5) WHO-Aligned Responsibility Rubric (WRR):* To assess responsible behavior aligned with WHO guidelines on ethical AI for health, we introduce a rubric-based score consisting of six criteria—*Safety, Transparency, Explainability, Fairness, Human Agency, and Accountability*. Each criterion is rated on a binary scale (0 or 1) per generation instance:
 
 $$
@@ -586,15 +530,12 @@ WRR = \frac{1}{6N} \sum_{i=1}^{N} \sum_{j=1}^{6} w_{ij}
 $$
  (17)
 
-where *wij* ∈ {0*,* 1} is GPT-4's compliance judgment for instance *i* on criterion *j*. This yields a rubric-aligned macroresponsibility score across the evaluation set.
+where *wij* ∈ {0*,*1} is GPT-4's compliance judgment for instance*i*on criterion*j*. This yields a rubric-aligned macroresponsibility score across the evaluation set.
 
-#### *F. Result Analysis*
+#### *F. Result Analysis*To evaluate the effectiveness of the Responsible Prompt Engine within the RHealthTwin framework, we conducted a comprehensive analysis using both reference-based metrics and GPT-judged rubric scores across four diverse well-being datasets. Performance was compared across prompt strategies (Zero-shot, Few-shot, System Instruction, and RPE) and roles (Patient vs. Healthcare Provider). We detail the result analysis as followings.
+*1) Factuality and Contextual Appropriateness (FS and CAS):*The FS and CAS measure whether the model's response is factually correct and effectively grounded in the user's context. Figure [9](#page-14-0) presents the average Factuality Score (FS) and Contextual Appropriateness Score (CAS) across all datasets and models. RPE consistently outperformed other strategies, achieving the highest FS and CAS values across both patientside and provider-side prompts. As seen in both subfigures (a) and (b), this trend held for all LLMs tested, with GPT-4 and Gemini Pro achieving the highest absolute scores.
 
-To evaluate the effectiveness of the Responsible Prompt Engine within the RHealthTwin framework, we conducted a comprehensive analysis using both reference-based metrics and GPT-judged rubric scores across four diverse well-being datasets. Performance was compared across prompt strategies (Zero-shot, Few-shot, System Instruction, and RPE) and roles (Patient vs. Healthcare Provider). We detail the result analysis as followings.
-
-*1) Factuality and Contextual Appropriateness (FS and CAS):*  The FS and CAS measure whether the model's response is factually correct and effectively grounded in the user's context. Figure [9](#page-14-0) presents the average Factuality Score (FS) and Contextual Appropriateness Score (CAS) across all datasets and models. RPE consistently outperformed other strategies, achieving the highest FS and CAS values across both patientside and provider-side prompts. As seen in both subfigures (a) and (b), this trend held for all LLMs tested, with GPT-4 and Gemini Pro achieving the highest absolute scores.
-
-Specifically, RPE yielded scores exceeding 4.5 on the 5 point Likert scale across all datasets, while Few-shot prompting exhibited the lowest average CAS, in low-context domains such as MTS-Dialog. The consistently high FS and CAS sug-Here, *y<sup>i</sup>* = Generated Output and model output, reinforcing the feasibility of RPE as a safe gest improved inferential alignment between prompt structure
+Specifically, RPE yielded scores exceeding 4.5 on the 5 point Likert scale across all datasets, while Few-shot prompting exhibited the lowest average CAS, in low-context domains such as MTS-Dialog. The consistently high FS and CAS sug-Here,*y<sup>i</sup>*= Generated Output and model output, reinforcing the feasibility of RPE as a safe gest improved inferential alignment between prompt structure
 
 ![](_page_14_Figure_1.jpeg)
 
@@ -605,8 +546,7 @@ Specifically, RPE yielded scores exceeding 4.5 on the 5 point Likert scale acros
 <span id="page-14-1"></span>Fig. 10. Instructional Compliance Score (ICS) and WHO-aligned Responsibility Rubric (WRR) for all datasets using healthcare providerside prompts. The RPE strategy maintains top ethical compliance and role alignment across all datasets.
 
 intermediate layer between raw user input and LLM inference in real-world applications.
-
-*2) WHO Responsibility Rubric and Instructional Compliance (WRR and ICS):* We further evaluated models based on WHOaligned ethical criteria and instruction-following fidelity. Instructional compliance and ethical adherence are critical for LLMs operating in quasi-advisory roles in healthcare, where output safety, tone, and evidence quality directly affect user trust and well-being. As shown in Figure [10,](#page-14-1) RPE consistently achieved near-perfect ICS, exceeding 0.94 across all datasets, and attained the highest WRR scores, consistently above 0.92. In contrast, few-shot prompting underperformed, particularly in preserving safety-critical instructions and tone specifications.
+*2) WHO Responsibility Rubric and Instructional Compliance (WRR and ICS):*We further evaluated models based on WHOaligned ethical criteria and instruction-following fidelity. Instructional compliance and ethical adherence are critical for LLMs operating in quasi-advisory roles in healthcare, where output safety, tone, and evidence quality directly affect user trust and well-being. As shown in Figure [10,](#page-14-1) RPE consistently achieved near-perfect ICS, exceeding 0.94 across all datasets, and attained the highest WRR scores, consistently above 0.92. In contrast, few-shot prompting underperformed, particularly in preserving safety-critical instructions and tone specifications.
 
 The declarative system instruction schema includes four core components: safety filters, role assignments, tone constraints, and grounding directives. Together, these elements systematically embed ethical safeguards into the generation process and guide the model toward safe and responsible output behavior. The high WRR scores indicate strong structural alignment between model outputs and WHO ethical principles, including autonomy, fairness, and explainability.
 
@@ -619,8 +559,7 @@ Fig. 11. SensorQA FS and CAS for patient and nutritionist roles.
 <span id="page-14-3"></span>Fig. 12. SensorQA WRR and ICS comparison for patient and nutritionist roles.
 
 This highlights the potential of RPE-driven prompt regulation as a scalable and model-agnostic alternative to reinforcement learning with human feedback, particularly in health-sensitive applications where real-time adaptability and rule-based governance are essential.
-
-*3) Multimodal Performance Comparison:* Multimodal data introduce additional challenges in aligning LLM output with contextual cues due to the complexity of cross-modal fusion. Assessing RPE performance under such conditions evaluates its generalizability beyond the textual domains. As depicted in Figure [11,](#page-14-2) RPE maintained the latest FS (4.3 +) and CAS (4.2 +) in all multimodal LLMs tested. Performance was consistent between patient and nutrition roles, with provider-side prompts benefiting marginally from higher context density.
+*3) Multimodal Performance Comparison:*Multimodal data introduce additional challenges in aligning LLM output with contextual cues due to the complexity of cross-modal fusion. Assessing RPE performance under such conditions evaluates its generalizability beyond the textual domains. As depicted in Figure [11,](#page-14-2) RPE maintained the latest FS (4.3 +) and CAS (4.2 +) in all multimodal LLMs tested. Performance was consistent between patient and nutrition roles, with provider-side prompts benefiting marginally from higher context density.
 
 WRR and ICS also remained stable, implying that ethical fidelity was preserved under input variation. However, patientside prompts generally scored slightly lower than nutritionistside ones in the FS and CAS evaluation, reflecting a greater need for context grounding when user input is less structured. The results confirm that RPE's slot-tagging mechanisms enable effective context grounding even with semantically noisy modalities (e.g., screenshots, sensor logs).
 
@@ -631,14 +570,11 @@ A similar trend emerged in WRR and ICS evaluations, as shown in Figure [12,](#pa
 TABLE VI
 
 fited more from system instructions and contextual filtering modules. The results suggest that multimodal input types (e.g., screenshots, sensor logs) demand more robust contextual disambiguation, which the RPE handles effectively.
-
-*4) Reference-Based Evaluation Summary:* Table [VI](#page-15-0) presents the full reference-based evaluation (ROUGE-L, BERTScore, BLEU) across prompt strategies and roles. RPE consistently ranks highest across models, particularly for GPT-4, Gemini Pro, and BioMistral-7B. Patient-side responses achieved slightly higher BLEU and ROUGE scores, indicating more literal overlaps with reference texts. In contrast, provider-side prompts benefited more from semantically rich completions as captured in BERTScore. These results provide strong evidence that the Responsible Prompt Engine improves both surface-level accuracy and deeper semantic alignment with reference responses. By using structured slot composition, the method reduces ambiguity in the prompt. This helps the model generate outputs that
+*4) Reference-Based Evaluation Summary:*Table [VI](#page-15-0) presents the full reference-based evaluation (ROUGE-L, BERTScore, BLEU) across prompt strategies and roles. RPE consistently ranks highest across models, particularly for GPT-4, Gemini Pro, and BioMistral-7B. Patient-side responses achieved slightly higher BLEU and ROUGE scores, indicating more literal overlaps with reference texts. In contrast, provider-side prompts benefited more from semantically rich completions as captured in BERTScore. These results provide strong evidence that the Responsible Prompt Engine improves both surface-level accuracy and deeper semantic alignment with reference responses. By using structured slot composition, the method reduces ambiguity in the prompt. This helps the model generate outputs that
 
 are syntactically coherent and contextually faithful. Because ground-truth responses are available in both the MentalChat and MTS-Dialog datasets, we report reference-based scores for these benchmarks Overall, the obtained scores suggest that dynamically generated slot-based prompting can functionally substitute parameter-level optimization in mid-resource healthcare settings. Therefore, we recommend RPE in mid-resource healthcare applications, where training data or compute resources may be limited.
 
-# *G. Summary*
-
-While several recent LLM-powered digital twin frameworks, such as Twin-GPT, DT-GPT, HDTwin, and PsyDT have reported promising results, a standardized evaluation pipeline remains lacking. Twin-GPT primarily focused on AUROC for outcome prediction, while HDTwin emphasized cognitive accuracy. PsyDT prioritized qualitative therapeutic style simulation, and DT-GPT evaluated forecasting accuracy on
+#*G. Summary*While several recent LLM-powered digital twin frameworks, such as Twin-GPT, DT-GPT, HDTwin, and PsyDT have reported promising results, a standardized evaluation pipeline remains lacking. Twin-GPT primarily focused on AUROC for outcome prediction, while HDTwin emphasized cognitive accuracy. PsyDT prioritized qualitative therapeutic style simulation, and DT-GPT evaluated forecasting accuracy on
 
 <span id="page-16-2"></span>TABLE VII SUMMARY OF REPORTED EVALUATION RESULTS ACROSS DIGITAL TWIN FRAMEWORKS
 
@@ -657,7 +593,7 @@ Unlike prior systems, RHealthTwin is the first to explicitly integrate WHO-align
 
 However, we caution that due to the divergent experimental setups, data sources, and model types used in these studies, direct performance comparisons may not be valid. Instead, Table [VII](#page-16-2) is intended to provide a high-level landscape of evaluation trends and reported metrics. As the field matures, establishing standardized benchmarks and metrics will be essential for rigorous cross-system comparison.
 
-#### V. DISCUSSION AND OPEN CHALLENGES
+## V. DISCUSSION AND OPEN CHALLENGES
 
 <span id="page-16-0"></span>Despite its strengths, RHealthTwin has limitations and open challenges, which requires consideration. Following we highlight them.
 
@@ -673,9 +609,9 @@ dynamic prompt generation, enhancing responsiveness to diverse user inputs.
 
 <span id="page-16-1"></span>We introduced RHealthTwin, a structured framework for ethically aligned digital twin generation for well-being assitance. At the heart of RHealthTwin is the Responsible Prompt Engine, which dynamically constructs system instructions and user prompts based on multimodal inputs and user query. This approach operationalizes key WHO principles on responsible AI while enabling personalized, transparent, and rolesensitive interactions. Our evaluation spanned four benchmark datasets covering diverse domains such as mental health counseling, clinical QA, nutrition, and wearable-based lifestyle monitoring. Our experimental evaluation demonstraes that RHealthTwin meets the goals in ethical alignment, factuality, and instructional compliance. Beyond empirical performance, RHealthTwin offers a modular architecture that enables adaptive behavior, slot-based explainability, and feedback-aware refinement. While our results demonstrate promising capabilities, challenges remain in areas such as longitudinal feedback integration, cross-domain generalization, and stakeholder codesign. Addressing these will be essential to fully realize the potential of responsible AI-driven health digital twins in realworld practice.
 
-#### REFERENCES
+### REFERENCES
 
-- [1] K. Singhal, S. Azizi, T. Tu, S. S. Mahdavi, J. Wei, H. W. Chung, N. Scales, A. Tanwani, H. Cole-Lewis, S. Pfohl *et al.*, "Large language models encode clinical knowledge," *Nature*, vol. 620, no. 7972, pp. 172– 180, 2023.
+- [1] K. Singhal, S. Azizi, T. Tu, S. S. Mahdavi, J. Wei, H. W. Chung, N. Scales, A. Tanwani, H. Cole-Lewis, S. Pfohl*et al.*, "Large language models encode clinical knowledge," *Nature*, vol. 620, no. 7972, pp. 172– 180, 2023.
 - [2] J. Qiu, L. Li, J. Sun, J. Peng, P. Shi, R. Zhang, Y. Dong, K. Lam, F. P.-W. Lo, B. Xiao *et al.*, "Large ai models in health informatics: Applications, challenges, and the future," *IEEE Journal of Biomedical and Health Informatics*, vol. 27, no. 12, pp. 6074–6087, 2023.
 - [3] F. P.-W. Lo, J. Qiu, Z. Wang, J. Chen, B. Xiao, W. Yuan, S. Giannarou, G. Frost, and B. Lo, "Dietary assessment with multimodal chatgpt: a systematic analysis," *IEEE Journal of Biomedical and Health Informatics*, 2024.
 - [4] Y. Wang, T. Fu, Y. Xu, Z. Ma, H. Xu, B. Du, Y. Lu, H. Gao, J. Wu, and J. Chen, "Twin-gpt: digital twins for clinical trials via large language model," *ACM Transactions on Multimedia Computing, Communications and Applications*, 2024.

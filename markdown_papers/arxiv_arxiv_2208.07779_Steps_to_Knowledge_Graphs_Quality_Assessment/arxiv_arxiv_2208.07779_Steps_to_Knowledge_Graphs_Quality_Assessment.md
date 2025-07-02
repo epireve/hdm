@@ -1,3 +1,5 @@
+<!-- cite_key: 2012b -->
+
 # Steps to Knowledge Graphs Quality Assessment
 
 Elwin Huaman1[0000 −0002 −2410 −4977]
@@ -8,7 +10,7 @@ Abstract. Knowledge Graphs (KGs) have been popularized during the last decade, f
 
 Keywords: Knowledge Graph Assessment · Knowledge Graph Quality
 
-### 1 Introduction
+## 1 Introduction
 
 Large amounts of knowledge are used to power web applications, for instance, in 2012 the Google's Knowledge Graph was presented as means to improve the web search results of Google's search engine. In the same year, Wikidata KG is released as crowd-sourced, non-commercial, and open on the web. Furthermore, many other KGs are available on the web, either created semi-automatically (e.g. DBpedia) or automatically (e.g., NELL). However, an issue that comes with KGs is their quality. Incomplete or inconsistent statements are present in KGs, making them unreliable. Assessing the quality of KGs is a challenge since quality is conceived as fitness for use .
 
@@ -138,7 +140,7 @@ Table [2](#page-3-0) displays the 20 QDs along with questions, metrics, and metr
 
 In order to assess a KG, we propose a user-driven assessment framework that enables users to select quality dimensions and metrics according to their degree of importance (e.g., domain, a task at hand, or use case). Our approach consists of 4 steps: Identification, setting, assessment, and exploitation (see Fig. [1\)](#page-5-0).
 
-### 4.1 Identification
+### 1 Identification
 
 In this step, we propose to identify 3 main points: a user, a use case, and a KG.
 
@@ -146,7 +148,7 @@ In this step, we propose to identify 3 main points: a user, a use case, and a KG
 - ii. Use Cases (UCs), domain, or tasks at hand need to be understood so that the weights are assigned appropriately. In KGs context, it is important to identify which QDs and QMs are relevant for a domain (see Table [2\)](#page-3-0).
 - iii. KGs must be identified by the users as relevant for the UC, e.g., for Points of Interest (POI) domain, KGs such as DBpedia, Google's Knowledge Graph, and Wikidata may be suggested.
 
-### 4.2 Setting
+### 2 Setting
 
 The goal of developing an assessment framework is to obtain a quality status of a KG for a specific UC. For that, the user needs to set up a KG into the framework, then select, based on weights of importance, a set of QDs and QMs to evaluate in the KG. This process involves:
 
@@ -166,7 +168,7 @@ iii. QMs Weighting. Alpha-weights (αi,j ) defines a weight of importance for ea
 $$
 \sum_{j=1}^{j_i} \alpha_{i,j} = 1
 $$
- for all  $i = 1, ..., 20$ 
+ for all  $i = 1, ..., 20$
 
 <span id="page-5-1"></span><sup>1</sup> label is a RDFs property used to describe a name for a subject. [https://www.w3.](https://www.w3.org/2000/01/rdf-schema#label) [org/2000/01/rdf-schema#label](https://www.w3.org/2000/01/rdf-schema#label)
 
@@ -174,7 +176,7 @@ $$
 
 <span id="page-5-3"></span><sup>3</sup> Q82799 is a property used to describe the name of an instance in the Wikidata KG. <https://www.wikidata.org/wiki/Q82799>
 
-### 4.3 Assessment
+### 3 Assessment
 
 In this step, the framework performs 3 main tasks: Assessing the QM, calculating the aggregated score for QDs, and the total aggregated score for a KG.
 
@@ -197,7 +199,7 @@ Furthermore, n is the number of QDs, di(g) is the score of the i th QD of g, β<
 
 As described above, the alpha- and beta- weights select, as well as define, the impact of the QDs and QMs on the overall score of the assessed KG.
 
-### 4.4 Exploitation
+### 4 Exploitation
 
 As described above, the alpha- and beta- weights affect the overall result of an assessed KG. Therefore, the results can be compared, tuned, and visualized.
 
@@ -217,7 +219,7 @@ On one hand, since there is no unique solution to assess the status of KGs, furt
 
 Acknowledgments. The initial work for this paper was funded by the Mind-Lab project: <https://mindlab.ai/>
 
-### References
+## References
 
 - <span id="page-7-5"></span>1. Behkamal, B., Kahani, M., Bagheri, E., Jeremic, Z.: A metrics-driven approach for quality assessment of linked open data. J. Theor. Appl. Electron. Commer. Res. 9(2), 64–79 (2014), [http://www.jtaer.com/may2014/Behkamal\\_Kahani\\_Bagheri\\_](http://www.jtaer.com/may2014/Behkamal_Kahani_Bagheri_Jeremic_p5.pdf) [Jeremic\\_p5.pdf](http://www.jtaer.com/may2014/Behkamal_Kahani_Bagheri_Jeremic_p5.pdf)
 - <span id="page-7-1"></span>2. Bizer, C.: Quality-driven information filtering in the context of web-based information systems. Ph.D. thesis, Free University of Berlin (2007)

@@ -1,3 +1,5 @@
+<!-- cite_key: in2021 -->
+
 # TIMEBENCH: A Comprehensive Evaluation of Temporal Reasoning Abilities in Large Language Models
 
 Zheng Chu<sup>1</sup> , Jingchang Chen<sup>1</sup> , Qianglong Chen<sup>2</sup> , Weijiang Yu<sup>3</sup> , Haotian Wang<sup>1</sup> , Ming Liu<sup>1</sup>,4\*, Bing Qin<sup>1</sup>,<sup>4</sup> <sup>1</sup>Harbin Institute of Technology, Harbin, China <sup>2</sup>Zhejiang University <sup>3</sup>Sun Yat-sen University <sup>4</sup>Peng Cheng Laboratory {zchu,jcchen,mliu,qinb}@ir.hit.edu.cn {chenqianglong.ai, wanght1998, weijiangyu8}@gmail.com
@@ -36,13 +38,13 @@ We aspire for temporal reasoning to garner increased attention within the resear
 
 # 2 TIMEBENCH Benchmark
 
-#### 2.1 Benchmark Design Principal
+## 1 Benchmark Design Principal
 
 TIMEBENCH focuses on a comprehensive evaluation of the temporal reasoning capabilities of large language models in challenging and complex scenarios. To achieve this goal, we summarize the difficulties and challenges faced in temporal reasoning, categorize them into three levels, and integrate diverse task formats to better align with the intricate nature of temporal reasoning.
 
 Just as the human cognitive process unfolds from foundational cognition and conceptual understanding to practical reasoning, we delineate temporal reasoning into three hierarchical levels. Specifically, TIMEBENCH categorizes temporal reasoning into symbolic, commonsense and event temporal reasoning, covering 10 datasets with a total of 16 subtasks. (1) Symbolic Temporal Reasoning focuses on the comprehension of fundamental abstract temporal expressions. (2) Temporal Commonsense Reasoning emphasizes the mastery of temporal principles, concepts and world knowledge. (3) Event Temporal Reasoning concentrates on modeling the temporal relationships between events and times within authentic scenarios.
 
-#### 2.2 Difficulties and Challenges
+### 2 Difficulties and Challenges
 
 We delineate the essential competencies and the challenges that arise from a human cognitive standpoint in the realm of temporal reasoning, and language models confront similar challenges. We present the dataset statistics, task formats, and the associated challenges in Table [7.](#page-16-0)
 
@@ -54,29 +56,25 @@ Event-Time Relations assesses the model's grounding capability to establish temp
 
 #### <span id="page-2-0"></span>DATE ARITH
 
-Q: *What is the time 2 year and 4 month before Mar, 1755* A: Nov, 1752
+Q: *What is the time 2 year and 4 month before Mar, 1755*A: Nov, 1752
 
 # TIMEX NLI
 
-Premise: *On 28th May 1967, I graduated.* Hypothesis: *Before 23rd October 1920, I graduated.* A: Contradiction
+Premise:*On 28th May 1967, I graduated.*Hypothesis:*Before 23rd October 1920, I graduated.*A: Contradiction
 
 Table 1: Examples of symbolic temporal reasoning
 
-#### <span id="page-2-1"></span>MCTACO
+## <span id="page-2-1"></span>MCTACO
 
-C: *Ransome looks after her as well as for young Fern Simon , who has declared her love for him.* Q: *How often do Ransome and Fern talk?*
+C:*Ransome looks after her as well as for young Fern Simon , who has declared her love for him.*Q:*How often do Ransome and Fern talk?*O: each century, once a day, once a century, every night
 
-O: each century, once a day, once a century, every night
+### TIMEDIAL
 
-#### TIMEDIAL
-
-Dialog: *... Person1: Do you go to work by train every day Person2: Yes . I commute <MASK> a week by train...*
-
-O: five days, 25 days, a minute, six days
+Dialog:*... Person1: Do you go to work by train every day Person2: Yes . I commute <MASK> a week by train...*O: five days, 25 days, a minute, six days
 
 #### SITUATEDGEN
 
-Keywords: *axis, one day, one month, Earth, Moon* A: Earth rotates on its axis once in one day. It takes one month for the Moon to rotate on its axis.
+Keywords:*axis, one day, one month, Earth, Moon*A: Earth rotates on its axis once in one day. It takes one month for the Moon to rotate on its axis.
 
 Table 2: Examples of commonsense temporal reasoning.
 
@@ -86,21 +84,19 @@ Event-Event Relations not only involve eventtime grounding but also introduce mu
 
 Implicit Temporal Reasoning involves going beyond the surface of texts, engaging in deeper reasoning such as drawing upon temporal commonsense, identifying implicit temporal factors and discerning hidden temporal relationships among events. Implicit temporal reasoning is pivotal in complex real-world scenarios where events and time are intricately interwoven.
 
-# 2.3 Symbolic Temporal Reasoning
+# 3 Symbolic Temporal Reasoning
 
 To evaluate the language model's comprehension of abstract time expressions, we utilize two symbolic reasoning tasks stripped of semantic content: date arithmetic and time expression inference. Table [1](#page-2-0) shows examples of symbolic temporal reasoning.
 
-#### <span id="page-2-2"></span>TIMEQA
+## <span id="page-2-2"></span>TIMEQA
 
-C: *... He worked in Utrecht for the firm of P Smits & de Wolf from 1864 to 1867 and then returned to ...* Q: *Where did Ludwig Mond work between Mar 1866 and Sep 1866?*
+C:*... He worked in Utrecht for the firm of P Smits & de Wolf from 1864 to 1867 and then returned to ...*Q:*Where did Ludwig Mond work between Mar 1866 and Sep 1866?*A: Utrecht
 
-A: Utrecht
+### MENATQA
 
-#### MENATQA
+C:*... After the French evacuated Egypt in 1801, Hurshid Pasha was named governor of Egypt in 1804. Muhammad Ali had himself named governor of Egypt in May 1805 ...*Q:*Which position did Hurshid Pasha hold from 1804 to 1806, if Hurshid Pasha tepped down as the governor of Egypt in 1808?*A: governor of Egypt TEMPREASON
 
-C: *... After the French evacuated Egypt in 1801, Hurshid Pasha was named governor of Egypt in 1804. Muhammad Ali had himself named governor of Egypt in May 1805 ...* Q: *Which position did Hurshid Pasha hold from 1804 to 1806, if Hurshid Pasha tepped down as the governor of Egypt in 1808?* A: governor of Egypt TEMPREASON
-
-C: *... Peter Corke works for Queensland University of Technology from Jan, 2010 to Dec, 2022. Peter Corke works for Commonwealth Scientific from Jan, 1984 to Jan, 2009. ...* Q: *Which employer did Peter Corke work for before Queensland University of Technology?* A: Commonwealth Scientific
+C:*... Peter Corke works for Queensland University of Technology from Jan, 2010 to Dec, 2022. Peter Corke works for Commonwealth Scientific from Jan, 1984 to Jan, 2009. ...*Q:*Which employer did Peter Corke work for before Queensland University of Technology?*A: Commonwealth Scientific
 
 Table 3: Examples of event temporal reasoning.
 
@@ -108,7 +104,7 @@ Date Arithmetic [\(Tan et al.,](#page-11-5) [2023\)](#page-11-5) assesses the mo
 
 TimeX NLI [\(Thukral et al.,](#page-11-6) [2021\)](#page-11-6) focuses on the logical entailment relationships among abstract TimeX, including three aspects: order (s1), duration (s2), and duration with unit conversion (s3).
 
-### 2.4 Commonsense Temporal Reasoning
+### 4 Commonsense Temporal Reasoning
 
 We measure the model's mastery of temporal commonsense and world knowledge, along with its capacity for reasoning based on these insights. Table [2](#page-2-1) presents examples of temporal commonsense reasoning in QA and generation forms.
 
@@ -120,7 +116,7 @@ TimeDial [\(Qin et al.,](#page-11-7) [2021\)](#page-11-7) considers temporal com
 
 SituatedGen [\(Zhang and Wan,](#page-12-6) [2023\)](#page-12-6) considers generative commonsense reasoning in a constrained text generation scenario. Given a set of contrasting keywords, the model needs to choose appropriate keywords for each sentence and generate a pair of contrasting sentences that satisfy temporal commonsense.
 
-# 2.5 Event Temporal Reasoning
+# 5 Event Temporal Reasoning
 
 Event temporal reasoning assesses the model's understanding of relationships between events and time in real-world scenarios, as well as its ability to reasoning under certain temporal or event constraints. Examples are shown in Table [3.](#page-2-2)
 
@@ -132,7 +128,7 @@ TempReason [\(Tan et al.,](#page-11-5) [2023\)](#page-11-5) removes irrelevant c
 
 TRACIE [\(Zhou et al.,](#page-13-1) [2021\)](#page-13-1) evaluates the model's comprehension of temporal order between implicit events. The model needs to identify events implied in the context and then determine their chronological order.
 
-## 2.6 Task Formats and Evaluation Metrics
+## 6 Task Formats and Evaluation Metrics
 
 TIMEBENCH is a multispectral benchmark encompassing four task types: free-form reading comprehension, natural language inference, constrained text generation, and multi-select questions. For detailed task types and their corresponding evaluation metrics, please refer to Appendix [A.3](#page-14-0) and [A.4.](#page-14-1)
 
@@ -151,7 +147,7 @@ $$
 prompt_{fs}^{sp} = \{INST\} \{Q_1\} \{A_1\}..\{Q\} \quad (2)
 $$
 
-Chain-of-Thought Prompting The instructions of CoT are the same as standard prompting. In the zero-shot setting, following Zeroshot CoT [\(Ko](#page-10-5)[jima et al.,](#page-10-5) [2022\)](#page-10-5), we add a reasoning trigger *Let's think step by step* after questions to perform chainof-thought reasoning. In the few-shot setting, we manually annotate CoT demonstrations for each task to guide the step-by-step reasoning. Prompts can be found in Appendix [B.3.](#page-15-0)
+Chain-of-Thought Prompting The instructions of CoT are the same as standard prompting. In the zero-shot setting, following Zeroshot CoT [\(Ko](#page-10-5)[jima et al.,](#page-10-5) [2022\)](#page-10-5), we add a reasoning trigger*Let's think step by step*after questions to perform chainof-thought reasoning. In the few-shot setting, we manually annotate CoT demonstrations for each task to guide the step-by-step reasoning. Prompts can be found in Appendix [B.3.](#page-15-0)
 
 $$
 prompt_{zs}^{cot} = \{INST\} \{Q\} \{TRIG\}
@@ -163,17 +159,17 @@ $$
 
 # 4 Experimental Setup
 
-#### 4.1 Models
+## 1 Models
 
 We evaluate several popular LLMs, including both open-source and proprietary models, with parameter sizes ranging from 6B to 70B.[2](#page-3-0) The complete list of models can be found in Appendix [B.1.](#page-14-2)
 
-# 4.2 Implementation Details
+# 2 Implementation Details
 
-We access proprietary models through Azure API 0613 version. For open-source models, we deploy them locally through FastAPI. We set the temperature to 0.0 for greedy decoding in all experiments. To improve answer extraction accuracy, we prompt models with trigger *Therefore, the answer is* before model outputs to deduce final answers.
+We access proprietary models through Azure API 0613 version. For open-source models, we deploy them locally through FastAPI. We set the temperature to 0.0 for greedy decoding in all experiments. To improve answer extraction accuracy, we prompt models with trigger*Therefore, the answer is*before model outputs to deduce final answers.
 
 # 5 Experimental Results
 
-# 5.1 Few-shot Results
+# 1 Few-shot Results
 
 Table [4](#page-4-0) presents the experimental results under few-shot settings. GPT-4 achieves the best performance across three categories, while LLaMA270b and GPT-3.5 rank in the second tier. However, there remains a substantial gap of 19.4% between the most powerful LLM and humans.
 
@@ -201,7 +197,7 @@ Table 4: Experimental results under few-shot settings (standard prompting by def
 
 other models exhibit a significant decline in comparison to GPT-4. In commonsense temporal reasoning tasks, GPT4 lags behind humans by only 8.0%, indicating its powerful internal knowledge reservoir. With the model scale shrinking, its knowledge reservoir also decreases gradually, leading to a decline in performance. Notably, there is a significant gap of 25.2% between LLMs and humans in event temporal reasoning, which suggests that LLMs encounter major challenges in modeling intricate event-time relationships.
 
-# 5.2 Zero-shot Results
+# 2 Zero-shot Results
 
 Experimental results of alignment models under zero-shot settings are shown in Table [5.](#page-5-0) In zeroshot settings, GPT-4 and GPT-3.5 rank first and second, respectively, and they significantly outperform all open-source models by a large margin. It is noteworthy that open-source models exhibit a larger performance decline compared to proprietary models when transitioning from few-shot to zero-shot scenarios. GPT, Baichuan2 and LLaMA2 suffer drops of 5.6%, 14.6% and 27.2%, respectively. We attribute this performance decline to the quality of alignment. Restricted by their limited instruction-following capability, open-source models struggle to fully unleash their performance
 
@@ -211,9 +207,9 @@ Figure 2: Performance gap with and without CoT prompting. The results are averag
 
 solely through instructions. Therefore, few-shot prompting is a better approach for stimulating their temporal reasoning abilities.
 
-# 5.3 Chain-of-Thought in Temporal Reasoning
+# 3 Chain-of-Thought in Temporal Reasoning
 
-Previous research has found that chain-of-thought prompting can enhance the model's reasoning ability [\(Wei et al.,](#page-12-4) [2022;](#page-12-4) [Kojima et al.,](#page-10-5) [2022\)](#page-10-5). We aim to explore the following questions: *Does CoT prompting bring consistent improvement in temporal reasoning?* Due to the diversity of temporal reasoning, the above question has not yet been definitively answered. To investigate this, we select several popular LLMs and analyze their performance affected by chain-of-thought prompting.
+Previous research has found that chain-of-thought prompting can enhance the model's reasoning ability [\(Wei et al.,](#page-12-4) [2022;](#page-12-4) [Kojima et al.,](#page-10-5) [2022\)](#page-10-5). We aim to explore the following questions:*Does CoT prompting bring consistent improvement in temporal reasoning?*Due to the diversity of temporal reasoning, the above question has not yet been definitively answered. To investigate this, we select several popular LLMs and analyze their performance affected by chain-of-thought prompting.
 
 <span id="page-5-0"></span>
 
@@ -242,7 +238,7 @@ Impact of CoT prompting across tasks. In order to explore the impact of CoT on v
 
 # 6 Analysis and Discussion
 
-# 6.1 Scaling Effect of Model Size
+# 1 Scaling Effect of Model Size
 
 We investigate how the scale of models affects temporal reasoning capabilities. The trend is illustrated in Figure [4.](#page-6-1) As the model scale increases, there is a notable improvement in performance. When the parameter size expands from 7B to 13B, LLaMA2 and Baichuan2 show improvements of
 
@@ -256,7 +252,7 @@ Figure 4: Scaling effect of model size and overall temporal reasoning performanc
 
 13.0% and 10.5%, respectively. Furthermore, when LLaMA scales up to 70B, the trend of performance improvement continues without stopping. The overall improvement follows a log-linear relationship with scale. There are no significant performance differences among LLaMA2, Baichuan2, and ChatGLM3 under similar parameter specifications, while Mistral demonstrates impressive prowess, outperforming all other 13B models with nearly half the number of parameters.
 
-#### 6.2 Challenges in Temporal Reasoning
+## 2 Challenges in Temporal Reasoning
 
 LLMs underperform in (multi-hop) symbolic reasoning Except for GPT-4, the performance of all other models in symbolic temporal reasoning is unsatisfactory. A noticeable decrease is observed in duration-conversion task compared to other atomic tasks (25% in GPT-4 and 27% in LLaMA270b). This is because the duration-conversion task (s3)
 
@@ -284,31 +280,28 @@ Figure 5: Performance difference between base and alignment models under few-sho
 
 LLMs are good factual reasoners rather than factual extractors When humans engage in temporal reasoning, it generally involves two steps: first, extracting time-fact pairs from the context, and then performing fact-based reasoning. TempReason provides extracted facts for conducting fact-based reasoning. By comparing the model's performance in context-based (TimeQA) against fact-based (TempReason) reasoning, we identify the bottleneck in event temporal reasoning. LLMs excel in TempReason, which signifies their strong capability in fact-based reasoning. However, their performance in context-based reasoning is significantly weaker compared to their performance in fact-based reasoning. This implies that errors could arise during the extraction of time-sensitive facts from the context. We attribute this performance gap to the model's deficiency in factual extraction capabilities Thus, we consider LLMs to be strong factual reasoners rather than factual extractors in event temporal reasoning.
 
-#### 6.3 Alignment Impairs Temporal Reasoning
+### 3 Alignment Impairs Temporal Reasoning
 
 In the experiments mentioned earlier (Table [5\)](#page-5-0), we observe a sharp decline in zero-shot performance of alignment models. To investigate whether alignment is the cause of the decline in temporal reasoning, we conducted experiments on alignment models under few-shot settings. Figure [5](#page-7-0) illustrates the overall performance decline after alignment. With the exception of Baichuan2, all other models are severely impaired, experiencing a significant drop of up to 22%. Through manual analysis of error cases, we have summarized two reasons: (1) Alignment reduces the model's usability, causing it to tend towards refusal to answer when confronted with knowledge-sensitive questions. (2) Alignment damages the model's in-context learning capability,
 
 resulting in situations where the model deviates from the demonstrations. Furthermore, we believe that the lack of temporal reasoning-related training data in alignment exacerbates this issue, leading to disparities between different reasoning capabilities, such as mathematical and temporal reasoning.
 
-#### 6.4 Error Analysis
+#### 4 Error Analysis
 
 We manually analyze 100 predictions by GPT-4, GPT-3.5 and LLaMa2-base70<sup>b</sup> from each subtask. The visualization of errors is shown in Figure [6.](#page-8-0)
 
-Symbolic Reasoning We categorize symbolic reasoning errors into five groups: (a) *Expression*: The model provides an incorrect time calculation expression. (b) *Computation*: The model provides the correct time calculation expression, but there is a calculation error. (c) *Conversion*: The model has an error in the conversion of time units. (d) *Comparison*: The model has an error when comparing two time-expressions (or intervals). (e) *Combination*: The model encounters errors in the combination of multiple above operations. LLMs exhibit numerous computation, conversion, and comparison errors, which suggests a substantial deficiency in their understanding of fundamental temporal expressions. Additionally, a higher frequency of errors is observed in combination questions, highlighting that multi-step reasoning continues to be a significant challenge for current models
+Symbolic Reasoning We categorize symbolic reasoning errors into five groups: (a)*Expression*: The model provides an incorrect time calculation expression. (b) *Computation*: The model provides the correct time calculation expression, but there is a calculation error. (c) *Conversion*: The model has an error in the conversion of time units. (d) *Comparison*: The model has an error when comparing two time-expressions (or intervals). (e) *Combination*: The model encounters errors in the combination of multiple above operations. LLMs exhibit numerous computation, conversion, and comparison errors, which suggests a substantial deficiency in their understanding of fundamental temporal expressions. Additionally, a higher frequency of errors is observed in combination questions, highlighting that multi-step reasoning continues to be a significant challenge for current models
 
-Commonsense Reasoning We categorize the errors of commonsense reasoning into two groups: (a) *No Answer*: The model fails to provide a final answer. (b) *Reasoning Error*: The model encounters reasoning errors, which can be subdivided into five types of knowledge-related errors. We observe that GPT series models have a higher *No Answer* rate, while LLaMA is always able to provide answers. This discrepancy can be attributed to two factors: firstly, the models may lack the necessary commonsense knowledge to formulate an answer; secondly, the preference alignment mechanism may prompt the model to abstain from answering when confronted with questions outside its knowledge scope. Integration of retrieval can alleviate the problem of knowledge scarcity to a certain degree.
+Commonsense Reasoning We categorize the errors of commonsense reasoning into two groups: (a) *No Answer*: The model fails to provide a final answer. (b) *Reasoning Error*: The model encounters reasoning errors, which can be subdivided into five types of knowledge-related errors. We observe that GPT series models have a higher *No Answer*rate, while LLaMA is always able to provide answers. This discrepancy can be attributed to two factors: firstly, the models may lack the necessary commonsense knowledge to formulate an answer; secondly, the preference alignment mechanism may prompt the model to abstain from answering when confronted with questions outside its knowledge scope. Integration of retrieval can alleviate the problem of knowledge scarcity to a certain degree.
 
-Event Temporal Reasoning We categorize the errors of event temporal reasoning into four groups: (a) *No Answer*: The model is unable to find the answer in the context. (b) *Reasoning Error*: The model encounters reasoning errors. (c) *Halluci-*
-
-<span id="page-8-0"></span>![](_page_8_Figure_0.jpeg)
+Event Temporal Reasoning We categorize the errors of event temporal reasoning into four groups: (a)*No Answer*: The model is unable to find the answer in the context. (b) *Reasoning Error*: The model encounters reasoning errors. (c) *Halluci-*<span id="page-8-0"></span>![](_page_8_Figure_0.jpeg)
 
 Figure 6: Error analysis for Symbolic, Commonsense, and Event Temporal. We select 100 test samples from each subtask for GPT-4, GPT-3.5 and LLaMa2-base70b.
-
 *nation*: The model's prediction does not exist in the context, known as hallucination reasoning. (d) *Metric*: The model's prediction is correct, but the metric is limited by the evaluation criteria. It can be observed that, except for reasoning errors, failures to provide answers account for approximately 30%, indicating that models still have flaws in grounding temporal facts from context. Additionally, models occasionally experience hallucination phenomena, leading to erroneous reasoning.
 
 # 7 Related Work
 
-#### 7.1 Temporal Reasoning
+## 1 Temporal Reasoning
 
 There are numerous efforts addressing diverse challenges in temporal reasoning. Early research mainly relies on TimeML [\(Pustejovsky et al.,](#page-11-8) [2003\)](#page-11-8), focusing TimeX extraction and temporal relation extraction [\(Verhagen et al.,](#page-12-8) [2007,](#page-12-8) [2010;](#page-12-9) [UzZa](#page-12-10)[man et al.,](#page-12-10) [2013;](#page-12-10) [Llorens et al.,](#page-10-6) [2015;](#page-10-6) [Miller](#page-10-7) [et al.,](#page-10-7) [2015;](#page-10-7) [Mathur et al.,](#page-10-8) [2021;](#page-10-8) [Vashishtha et al.,](#page-12-11) [2019\)](#page-12-11). The advent of pre-trained language models (PLMs) has brought about commonsense reasoning as a tool to explore the world knowledge in models [\(Zhou et al.,](#page-13-0) [2019;](#page-13-0) [Qin et al.,](#page-11-7) [2021;](#page-11-7) [Dhin](#page-10-2)[gra et al.,](#page-10-2) [2022\)](#page-10-2). Recently, much attention has shifted towards event temporal reasoning [\(Chen](#page-9-2) [et al.,](#page-9-2) [2021;](#page-9-2) [Tan et al.,](#page-11-5) [2023;](#page-11-5) [Wei et al.,](#page-12-7) [2023\)](#page-12-7). [Han et al.](#page-10-9) [\(2021\)](#page-10-9); [Yang et al.](#page-12-12) [\(2023b\)](#page-12-12); [Son and](#page-11-9) [Oh](#page-11-9) [\(2023\)](#page-11-9); [Chen et al.](#page-9-5) [\(2023\)](#page-9-5) continuously pretrains LLMs on time-aware data to elicit temporal reasoning, and [Zhu et al.](#page-13-2) [\(2023\)](#page-13-2); [Su et al.](#page-11-10) [\(2023\)](#page-11-10); [Chu et al.](#page-10-10) [\(2023\)](#page-10-10) explicitly represent temporal relationships using temporal graphs and timelines. Additionally, some works extend beyond text, evaluating temporal reasoning in structured tables and video domains [\(Gupta et al.,](#page-10-11) [2023;](#page-10-11) [Ko et al.,](#page-10-12) [2023\)](#page-10-12).
 
@@ -318,7 +311,7 @@ and [Wang and Zhao](#page-12-1) [\(2023\)](#page-12-1) introduces a unified form
 
 Distinguished from other works, TIMEBENCH is multispectral, offering a comprehensive evaluation of LLM's temporal reasoning abilities.
 
-#### 7.2 Large Language Models
+### 2 Large Language Models
 
 In recent years, there has been rapid progress in the research of large language models (LLM) [\(Zhao](#page-13-3) [et al.,](#page-13-3) [2023\)](#page-13-3). They exhibit outstanding performance across a multitude of tasks without the need for finetuning [\(Brown et al.,](#page-9-0) [2020;](#page-9-0) [Kojima et al.,](#page-10-5) [2022\)](#page-10-5). Furthermore, they have achieved astonishing results in complex reasoning tasks, such as mathematical reasoning [\(Cobbe et al.,](#page-10-0) [2021;](#page-10-0) [Mishra](#page-11-0) [et al.,](#page-11-0) [2022\)](#page-11-0) and logical reasoning [\(Yu et al.,](#page-12-0) [2020;](#page-12-0) [Liu et al.,](#page-10-14) [2023\)](#page-10-14). Moreover, some studies suggest that the chain-of-thought prompting can further enhance the model's capabilities in complex reasoning scenarios [\(Wei et al.,](#page-12-4) [2022;](#page-12-4) [Kojima et al.,](#page-10-5) [2022;](#page-10-5) [Chu et al.,](#page-9-6) [2024;](#page-9-6) [Zhang et al.,](#page-12-13) [2023\)](#page-12-13).
 
@@ -346,8 +339,8 @@ Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, Re
 
 - <span id="page-9-2"></span>Wenhu Chen, Xinyi Wang, and William Yang Wang. 2021. [A dataset for answering time-sensitive ques](https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/1f0e3dad99908345f7439f8ffabdffc4-Abstract-round2.html)[tions.](https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/1f0e3dad99908345f7439f8ffabdffc4-Abstract-round2.html) In *Proceedings of the Neural Information Processing Systems Track on Datasets and Benchmarks 1, NeurIPS Datasets and Benchmarks 2021, December 2021, virtual*.
 - <span id="page-9-5"></span>Ziqiang Chen, Shaojuan Wu, Xiaowang Zhang, and Zhiyong Feng. 2023. [TML: A temporal-aware multi](https://doi.org/10.1145/3543873.3587347)[task learning framework for time-sensitive question](https://doi.org/10.1145/3543873.3587347) [answering.](https://doi.org/10.1145/3543873.3587347) In *Companion Proceedings of the ACM Web Conference 2023, WWW 2023, Austin, TX, USA, 30 April 2023 - 4 May 2023*, pages 200–203. ACM.
-- <span id="page-9-4"></span>Wei-Lin Chiang, Zhuohan Li, Zi Lin, Ying Sheng, Zhanghao Wu, Hao Zhang, Lianmin Zheng, Siyuan Zhuang, Yonghao Zhuang, Joseph E. Gonzalez, Ion Stoica, and Eric P. Xing. 2023. [Vicuna: An open](https://lmsys.org/blog/2023-03-30-vicuna/)[source chatbot impressing gpt-4 with 90%\\* chatgpt](https://lmsys.org/blog/2023-03-30-vicuna/) [quality.](https://lmsys.org/blog/2023-03-30-vicuna/)
-- <span id="page-9-1"></span>Aakanksha Chowdhery, Sharan Narang, Jacob Devlin, Maarten Bosma, Gaurav Mishra, Adam Roberts, Paul Barham, Hyung Won Chung, Charles Sutton, Sebastian Gehrmann, Parker Schuh, Kensen Shi, Sasha Tsvyashchenko, Joshua Maynez, Abhishek Rao, Parker Barnes, Yi Tay, Noam Shazeer, Vinodkumar Prabhakaran, Emily Reif, Nan Du, Ben Hutchinson, Reiner Pope, James Bradbury, Jacob Austin, Michael Isard, Guy Gur-Ari, Pengcheng Yin, Toju Duke, Anselm Levskaya, Sanjay Ghemawat, Sunipa Dev, Henryk Michalewski, Xavier Garcia, Vedant Misra, Kevin Robinson, Liam Fedus, Denny Zhou, Daphne Ippolito, David Luan, Hyeontaek Lim, Barret Zoph, Alexander Spiridonov, Ryan Sepassi, David Dohan, Shivani Agrawal, Mark Omernick, Andrew M. Dai, Thanumalayan Sankaranarayana Pillai, Marie Pellat, Aitor Lewkowycz, Erica Moreira, Rewon Child, Oleksandr Polozov, Katherine Lee, Zongwei Zhou, Xuezhi Wang, Brennan Saeta, Mark Diaz, Orhan Firat, Michele Catasta, Jason Wei, Kathy Meier-Hellstern, Douglas Eck, Jeff Dean, Slav Petrov, and Noah Fiedel. 2023. [Palm: Scaling language mod](http://jmlr.org/papers/v24/22-1144.html)[eling with pathways.](http://jmlr.org/papers/v24/22-1144.html) *J. Mach. Learn. Res.*, 24:240:1– 240:113.
+- <span id="page-9-4"></span>Wei-Lin Chiang, Zhuohan Li, Zi Lin, Ying Sheng, Zhanghao Wu, Hao Zhang, Lianmin Zheng, Siyuan Zhuang, Yonghao Zhuang, Joseph E. Gonzalez, Ion Stoica, and Eric P. Xing. 2023. [Vicuna: An open](https://lmsys.org/blog/2023-03-30-vicuna/)[source chatbot impressing gpt-4 with 90%\\*chatgpt](https://lmsys.org/blog/2023-03-30-vicuna/) [quality.](https://lmsys.org/blog/2023-03-30-vicuna/)
+- <span id="page-9-1"></span>Aakanksha Chowdhery, Sharan Narang, Jacob Devlin, Maarten Bosma, Gaurav Mishra, Adam Roberts, Paul Barham, Hyung Won Chung, Charles Sutton, Sebastian Gehrmann, Parker Schuh, Kensen Shi, Sasha Tsvyashchenko, Joshua Maynez, Abhishek Rao, Parker Barnes, Yi Tay, Noam Shazeer, Vinodkumar Prabhakaran, Emily Reif, Nan Du, Ben Hutchinson, Reiner Pope, James Bradbury, Jacob Austin, Michael Isard, Guy Gur-Ari, Pengcheng Yin, Toju Duke, Anselm Levskaya, Sanjay Ghemawat, Sunipa Dev, Henryk Michalewski, Xavier Garcia, Vedant Misra, Kevin Robinson, Liam Fedus, Denny Zhou, Daphne Ippolito, David Luan, Hyeontaek Lim, Barret Zoph, Alexander Spiridonov, Ryan Sepassi, David Dohan, Shivani Agrawal, Mark Omernick, Andrew M. Dai, Thanumalayan Sankaranarayana Pillai, Marie Pellat, Aitor Lewkowycz, Erica Moreira, Rewon Child, Oleksandr Polozov, Katherine Lee, Zongwei Zhou, Xuezhi Wang, Brennan Saeta, Mark Diaz, Orhan Firat, Michele Catasta, Jason Wei, Kathy Meier-Hellstern, Douglas Eck, Jeff Dean, Slav Petrov, and Noah Fiedel. 2023. [Palm: Scaling language mod](http://jmlr.org/papers/v24/22-1144.html)[eling with pathways.](http://jmlr.org/papers/v24/22-1144.html)*J. Mach. Learn. Res.*, 24:240:1– 240:113.
 - <span id="page-9-6"></span>Zheng Chu, Jingchang Chen, Qianglong Chen, Weijiang Yu, Tao He, Haotian Wang, Weihua Peng, Ming Liu, Bing Qin, and Ting Liu. 2024. [Navigate through](https://arxiv.org/abs/2309.15402) [enigmatic labyrinth a survey of chain of thought rea](https://arxiv.org/abs/2309.15402)[soning: Advances, frontiers and future.](https://arxiv.org/abs/2309.15402) In *The 62nd Annual Meeting of the Association for Computational*
 
 *Linguistics: ACL 2024, Bangkok, Thailand, August 11–16, 2024*. Association for Computational Linguistics.
@@ -418,9 +411,9 @@ TIMEBENCH features 3 major categories, 10 tasks and 15 subtasks, each with disti
 
 # A.1 Benchmark Construction
 
-TimeX Arithmetic [\(Tan et al.,](#page-11-5) [2023\)](#page-11-5) TimeX Arithmetic data is derived from the *l1: time-time* reasoning data in TempReason. We retain 4,000 instances, where time expressions are calculated with a minimum unit of one day.
+TimeX Arithmetic [\(Tan et al.,](#page-11-5) [2023\)](#page-11-5) TimeX Arithmetic data is derived from the *l1: time-time*reasoning data in TempReason. We retain 4,000 instances, where time expressions are calculated with a minimum unit of one day.
 
-TimeX NLI [\(Thukral et al.,](#page-11-6) [2021\)](#page-11-6) The original data of TimeXNLI is in NLI format, including three sub-tasks, *Temp-Order*, *Temp-Duration*, and *Cross-Unit Duration*, including 6,140, 3,540, and 15,840 instances respectively. We conduct a random sampling of 2,213, 2,332 and 2,429 entries, resulting in a combined total of 6,965 instances.
+TimeX NLI [\(Thukral et al.,](#page-11-6) [2021\)](#page-11-6) The original data of TimeXNLI is in NLI format, including three sub-tasks,*Temp-Order*, *Temp-Duration*, and *Cross-Unit Duration*, including 6,140, 3,540, and 15,840 instances respectively. We conduct a random sampling of 2,213, 2,332 and 2,429 entries, resulting in a combined total of 6,965 instances.
 
 MCTACO [\(Zhou et al.,](#page-13-0) [2019\)](#page-13-0) The original MC-TACO dataset consists of yes/no questions, containing 1,332 questions with 9,442 options. To guarantee that the questions are presented in a 4-way multi-select style, we initially remove questions that have less than four options. Subsequently, to ensure that each question has at least one correct option, we filter out questions where all options are labeled as "no". For each remaining question, we randomly sample four options, striving to maintain a balance between correct and incorrect options. In most cases, a question is accompanied by 2 correct and 2 incorrect options. A minority of questions have an option distribution of 1-3 or 3-1. After the aforementioned filtering process, we obtain 852 pieces of data in a 4-way multi-select format.
 
@@ -428,9 +421,9 @@ DurationQA [\(Virgo et al.,](#page-12-5) [2022\)](#page-12-5) The original Durat
 
 TimeDial [\(Qin et al.,](#page-11-7) [2021\)](#page-11-7) consists of 4-way multi-select instances in a two-person dialogue scenario. We leave the original data unaltered and simply randomize the sequence of options, yielding 1,446 pieces of 4-way multi-select instances.
 
-SituateGen [\(Zhang and Wan,](#page-12-6) [2023\)](#page-12-6) Situated-Gen includes 1,220 test cases, which span across two distinct reasoning domains: *time* and *geography*. We manually screen the original test data and retain those with clear time features for temporal reasoning evaluation, resulting in 115 instances.
+SituateGen [\(Zhang and Wan,](#page-12-6) [2023\)](#page-12-6) Situated-Gen includes 1,220 test cases, which span across two distinct reasoning domains: *time*and*geography*. We manually screen the original test data and retain those with clear time features for temporal reasoning evaluation, resulting in 115 instances.
 
-TimeQA [\(Chen et al.,](#page-9-2) [2021\)](#page-9-2) The original data of TimeQA includes two splits, *Easy* and *Hard*, with each question containing 20 Wikipedia paragraphs. The excessively long context may exceed the model's maximum length limit and incur significant inference overhead. Therefore, we have reduced the context of the original data. For the paragraphs in the original data, we refer to those containing the answer as relevant paragraphs, and the rest as irrelevant paragraphs. For each question, we keep the first paragraph, all relevant paragraphs, and one random irrelevant paragraph as distractor. This ensures that most questions have at least three paragraphs. After that, we sample 500 pieces of data from those where the context length is less than 650 tokens. For both *Easy* and *Hard* splits,
+TimeQA [\(Chen et al.,](#page-9-2) [2021\)](#page-9-2) The original data of TimeQA includes two splits, *Easy*and*Hard*, with each question containing 20 Wikipedia paragraphs. The excessively long context may exceed the model's maximum length limit and incur significant inference overhead. Therefore, we have reduced the context of the original data. For the paragraphs in the original data, we refer to those containing the answer as relevant paragraphs, and the rest as irrelevant paragraphs. For each question, we keep the first paragraph, all relevant paragraphs, and one random irrelevant paragraph as distractor. This ensures that most questions have at least three paragraphs. After that, we sample 500 pieces of data from those where the context length is less than 650 tokens. For both *Easy*and*Hard*splits,
 
 we apply the aforementioned filtration, resulting in 500 questions each, totaling 1,000 instances.
 
@@ -438,13 +431,13 @@ TempReason [\(Tan et al.,](#page-11-5) [2023\)](#page-11-5) TempReason dataset c
 
 MenatQA [\(Wei et al.,](#page-12-7) [2023\)](#page-12-7) MenatQA consists of 999 data entries, formatted similarly to TimeQA, where each question is accompanied by several corresponding paragraphs. Following the paper's proposed method, we modify the original data by incorporating the three time-sensitive factors: scope, order, and counterfactual. Subsequently, for each factor, we randomly sample 400 instances, resulting in a total of 1,200 data points.
 
-TRACIE [\(Zhou et al.,](#page-13-1) [2021\)](#page-13-1) The original TRA-CIE dataset consists of yes/no type questions, containing 4,248 test instances. We randomly sample 500 instances from the *iid* split in the test set.
+TRACIE [\(Zhou et al.,](#page-13-1) [2021\)](#page-13-1) The original TRA-CIE dataset consists of yes/no type questions, containing 4,248 test instances. We randomly sample 500 instances from the*iid*split in the test set.
 
-#### A.2 Human Performance Evaluation
+## A.2 Human Performance Evaluation
 
 Unless otherwise stated, the results of human evaluation are derived from original dataset papers. Please refer to the corresponding paper for human evaluation details. TimeXNLI, Date Arith, and MCTACO are manually evaluated by three authors from the TimeBench team. Within each subtask, we randomly sample 50 instances, and the average of the performances by three human evaluators is considered the final human performance.
 
-#### <span id="page-14-0"></span>A.3 Task Formats
+### <span id="page-14-0"></span>A.3 Task Formats
 
 TIMEBENCH is a multispectral benchmark, which features four different task formats.
 
@@ -472,7 +465,7 @@ As the overall score S does not represent a percentile, we proceed to normalize 
 
 # B Supplemental Materials
 
-#### <span id="page-14-2"></span>B.1 Models
+## <span id="page-14-2"></span>B.1 Models
 
 ChatGPT-3.5/GPT-4 [\(Ouyang et al.,](#page-11-4) [2022;](#page-11-4) [Ope](#page-11-2)[nAI,](#page-11-2) [2023\)](#page-11-2) ChatGPT is a chat model aligned
 
@@ -484,7 +477,7 @@ Symbolic Common Sense Event Temporal
 
 Figure 7: The quantity and proportion of data for each task and its respective subtasks within TIMEBENCH.
 
-through SFT and RLHF based on GPT-3 [\(Brown](#page-9-0) [et al.,](#page-9-0) [2020\)](#page-9-0). GPT-4 is an upgraded version of Chat-GPT with enhanced reasoning capabilities, making it the most powerful LLM. Unless otherwise stated, ChatGPT refers to *gpt-3.5-turbo-0613* and GPT-4 refers to *gpt-4-0613*.
+through SFT and RLHF based on GPT-3 [\(Brown](#page-9-0) [et al.,](#page-9-0) [2020\)](#page-9-0). GPT-4 is an upgraded version of Chat-GPT with enhanced reasoning capabilities, making it the most powerful LLM. Unless otherwise stated, ChatGPT refers to*gpt-3.5-turbo-0613*and GPT-4 refers to*gpt-4-0613*.
 
 Llama2/Vicuna-1.5 [\(Touvron et al.,](#page-11-3) [2023;](#page-11-3) [Chi](#page-9-4)[ang et al.,](#page-9-4) [2023\)](#page-9-4) LLaMA2 is an open foundation model trained on 2T tokens with efficient groupedquery attention [\(Ainslie et al.,](#page-9-8) [2023\)](#page-9-8). LLaMA2 chat is the official aligned model with SFT and RLHF, and Vicuna-1.5 is aligned with SFT only by the community[4](#page-15-3) .
 
@@ -643,7 +636,7 @@ Options: A. Entailment B. Contradiction C. Neutral Answer: Tuesday is before Thu
 
 Figure 10: Chain-of-Thought demonstrations of TimeX-NLI (s1-order).
 
-#### CoT Demonstration of DATE ARITHMETIC (4-shot)
+## CoT Demonstration of DATE ARITHMETIC (4-shot)
 
 Question: What is the time 4 year and 1 month after Apr, 2000? Answer: First, 4 years after 2000 is 2004. Next, 1 month after April is May. Therefore, 4 year and 1 month after Apr, 2000 is May, 2004.
 
@@ -655,7 +648,7 @@ Question: What is the time 6 year and 9 month before Jan, 1234? Answer: First, s
 
 Figure 11: Chain-of-Thought demonstrations of Date Arithmetic.
 
-#### CoT Demonstration of TRACIE (4-shot)
+### CoT Demonstration of TRACIE (4-shot)
 
 Read the following story and hypothesis, determine whether the hypothesis can be inferred from the story. You need to understand the implicit temporal relationships between events to make judgments
 
@@ -719,7 +712,7 @@ Answer: According to commonsense knowledge, waking up for high school typically 
 
 Figure 14: Chain-of-Thought demonstrations of MCTACO.
 
-#### CoT Demonstration of TIMEDIAL (4-shot)
+## CoT Demonstration of TIMEDIAL (4-shot)
 
 There is a two-person dialogue with several options.
 
@@ -727,7 +720,7 @@ Choose all appropriate options to substitute the <mask> in the dialogue, and eac
 
 ......
 
-#### Dialogue:
+### Dialogue:
 
 A:What schools have you attended ?
 

@@ -1,3 +1,5 @@
+<!-- cite_key: wu2022 -->
+
 # FedGNN: Federated Graph Neural Network for Privacy-Preserving Recommendation
 
 Chuhan Wu<sup>1</sup> , Fangzhao Wu<sup>2</sup> , Yang Cao<sup>3</sup> , Yongfeng Huang<sup>1</sup> , Xing Xie<sup>2</sup>
@@ -16,7 +18,7 @@ Graph neural network (GNN) is widely used for recommendation to model high-order
 
 Personalized recommendation, Graph neural network, Privacypreserving, Federated learning
 
-#### ACM Reference Format:
+## ACM Reference Format:
 
 Chuhan Wu<sup>1</sup> , Fangzhao Wu<sup>2</sup> , Yang Cao<sup>3</sup> , Yongfeng Huang<sup>1</sup> , Xing Xie<sup>2</sup> 2021. FedGNN: Federated Graph Neural Network for Privacy-Preserving Recommendation. In Proceedings of ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2021), Jennifer B. Sartor, Theo D'Hondt, and Wolfgang De Meuter (Eds.). ACM, New York, NY, USA, Article 4, [9](#page-8-0) pages. [https://doi.org/10.475/123\\_4](https://doi.org/10.475/123_4)
 
@@ -54,11 +56,11 @@ The major contributions of this paper are summarized as follows:
 
 # 2 RELATED WORK
 
-# 2.1 GNN for Recommendation
+# 1 GNN for Recommendation
 
 Graph neural networks are preferred by many recommendation methods to model high-order relations between users and items [\[2,](#page-8-4) [5,](#page-8-8) [7,](#page-8-9) [10,](#page-8-10) [27,](#page-8-11) [30](#page-8-12)[–34,](#page-8-13) [36,](#page-8-3) [37\]](#page-8-5). For example, [Berg et al.](#page-8-4) [\[2\]](#page-8-4) proposed a graph convolutional matrix completion (GC-MC) approach. GC-MC uses a graph convolutional encoder to learn user and item representations from the user-item bipartite graph, and then predicts unknown ratings via a bilinear decoder. [Ying et al.](#page-8-3) [\[36\]](#page-8-3) proposed a graph convolutional neural network based method for recommendation named PinSage. It learns item representations from an item-item graph via 2-hop graph convolutions, and uses these representations in downstream recommendation tasks. [Wang et al.](#page-8-2) [\[31\]](#page-8-2) proposed a neural graph collaborative filtering (NGCF) approach that uses 3-hop graph neural networks to learn user and item embeddings from the user-item bipartite graph. Besides the user-item graph, several GNN-based recommendation methods also incorporate other kinds of graphs into recommendation, such as useritem-entity graph [\[29\]](#page-8-14) and user-user-item graph [\[5\]](#page-8-8). For example, [Wang et al.](#page-8-12) [\[30\]](#page-8-12) proposed a knowledge-graph enhanced recommendation approach based on Knowledge Graph Attention Network (KGAT). They use a 3-hop graph-attention network to learn user, item and entity representations from a heterogeneous graph, which is formed by linking entities in knowledge graphs with items in the user-item graph. [Fan et al.](#page-8-8) [\[5\]](#page-8-8) proposed a social recommendation approach named GraphRec. They use graph attention networks to learn user and item embeddings from the user-item bipartite graph and the user-user social graph. However, these methods need centralized storage of users' interactions with items to form the entire user-item graph, which may arouse users' privacy concerns and the risk of private data leakage. Different from them, in our FedGNN method the raw user data never leaves the local user devices. In addition, FedGNN leverages a privacy-preserving model update method to protect private gradients and a privacy-preserving useritem graph expansion method to incorporate high-order user-item interactions. Thus, FedGNN can employ GNN models for grasping high-order information in a privacy-preserving way.
 
-# 2.2 Federated Learning
+# 2 Federated Learning
 
 Federated learning is a machine learning technique to collectively learn intelligent models based on decentralized user data in a privacy-preserving manner [\[14,](#page-8-15) [17\]](#page-8-16). Different from existing machine learning methods based on centralized storage of user data, in federated learning the user data is kept locally on user devices [\[35\]](#page-8-17). Each device maintains a local model and computes local model updates based on the user data stored on this device. The local model updates from a number of users are uploaded to a central server that coordinates the model training process. These updates are aggregated into a unified one to update the global model maintained by this server. The updated model is further distributed to
 
@@ -79,11 +81,11 @@ The framework of federated learning has been applied to personalized recommendat
 
 In this section, we first present the problem definitions in our federated GNN-based recommendation framework (FedGNN), then introduce the details of our FedGNN approach for privacy-preserving recommendation, and finally provide some discussions and analysis on privacy protection.
 
-# 3.1 Problem Formulation
+# 1 Problem Formulation
 
 Denote U = {1, 2, ..., } and T = {1, 2, ..., } as the sets of users and items respectively, where is the number of users and is the number of items. Denote the rating matrix between users and items as Y ∈ R × , which is used to form a bipartite useritem graph G based on the observed ratings Y . We assume that the user has interactions with items, which are denoted by [,1, ,2, ..., ,]. These items and the user can form a first-order local user-item subgraph G . The ratings that given to these items by user are denoted by [,1, ,2, ..., ,]. To protect user privacy (both the private ratings and the items a user has interactions with), each user device locally keeps the interaction data of this user, and the raw data never leaves the user device. We aim to predict the unobserved ratings ( ∈ Y\Y ) based on the interaction data G locally stored on user devices in a privacy-preserving way. Note that there is no global user-item interaction graph in our approach and local graphs are built and stored in different device, which is very different from existing federated GNN methods [\[11,](#page-8-25) [18\]](#page-8-26) that require the entire graph is built and stored together in at least one platform or device.
 
-# 3.2 FedGNN Framework
+# 2 FedGNN Framework
 
 Next, we introduce the framework of our FedGNN method for privacy-preserving GNN-based recommendation. It can leverage the highly decentralized user interaction data to learn GNN models for recommendation by exploiting the high-order user-item interactions in a privacy-preserving way. The framework of FedGNN is shown in Fig. [2.](#page-3-0) It mainly consists of a central server and a large number of user clients. The user client keeps a local subgraph that consists of the user interaction histories with items and the neighbors of this user. Each client learns the user/item embeddings and the GNN models from its local subgraph, and uploads the gradients to a central server. The central server is responsible for coordinating these user clients in the model learning process by aggregating the gradients received from a number of user clients and delivering the aggregated gradients to them. Next, we introduce how they work in detail.
 
@@ -99,7 +101,7 @@ Next, we apply a graph neural network to these embeddings to model the interacti
 
 The server aims to coordinate all user devices and compute the global gradients to update the model and embedding parameters in these devices. In each round, the server awakes a certain number of user clients to compute gradients locally and send them to the server. After the server receiving the gradients from these users, the aggregator in this server will aggregate these local gradients into a unified one g. [3](#page-3-2) Then, the server sends the aggregated gradients to each client to conduct local parameter update.[4](#page-3-3) Denote the parameter set in the -th user device as Θ . It is updated by Θ = Θ − g, where is the learning rate. This process will be iteratively executed until the model converges. We summarize the framework of our FedGNN method in Algorithm [1.](#page-4-0) We will then introduce two modules for privacy protection in FedGNN, i.e., a privacy-preserving model update module (corresponding to Lines 9-11 in Algorithm [1\)](#page-4-0) for protecting gradients in the model update and a privacy-preserving user-item graph expansion module (corresponding to Line 15 in Algorithm [1\)](#page-4-0) to protect user privacy when modeling high-order user-item interactions.
 
-# 3.3 Privacy-Preserving Model Update
+# 3 Privacy-Preserving Model Update
 
 If we directly upload the GNN model and item embedding gradients, then there may be some privacy issues due to following reasons. First, for embedding gradients, only the items that a user has interactions with have non-zero gradients to update their embeddings, and the server can directly recover the full user-item interaction history based on the non-zero item embedding gradients. Second, besides the embedding gradients, the gradients of the
 
@@ -109,7 +111,7 @@ If we directly upload the GNN model and item embedding gradients, then there may
 
 <span id="page-3-3"></span><sup>4</sup>Only sends the gradients of the model and the corresponding user and item (including pseudo interacted ones) embeddings.
 
-#### <span id="page-4-0"></span>Algorithm 1 FedGNN
+## <span id="page-4-0"></span>Algorithm 1 FedGNN
 
 - 1: Each client constructs its local subgraph G
 - 2: Initialize Θ on each user client using the same seed
@@ -118,7 +120,7 @@ If we directly upload the GNN model and item embedding gradients, then there may
 
 // Server
 
-#### 5: repeat
+### 5: repeat
 
 - 6: Select a subset S from the user set U randomly
 - 7: g = 0
@@ -166,7 +168,7 @@ $$
 
 where is the strength of Laplacian noise.[6](#page-4-2) The protected gradients g are uploaded to the server for aggregation.
 
-# 3.4 Privacy-Preserving User-Item Graph Expansion
+# 4 Privacy-Preserving User-Item Graph Expansion
 
 Then, we introduce our privacy-preserving user-item graph expansion method that aims to find the neighbors of users and extend the local user-item graphs in a privacy-preserving way. In existing GNN-based recommendation method based on centralized graph storage, high-order user-item interactions can be directly derived from the global user-item graph. However, when user data is decentralized, it is a non-trivial task to incorporate high-order user-item interactions without violating user privacy protection. To solve this problem, we propose a privacy-preserving user-item graph expansion method that finds the anonymous neighbors of users to enhance user and item representation learning, where user privacy does not leak. Its framework is shown in Fig. [3.](#page-4-3) We introduce its details as follows.
 
@@ -195,7 +197,7 @@ is shown in [\[21\]](#page-8-30) that the upper bound of the privacy budget is 2
 
 # 4 EXPERIMENTS
 
-# 4.1 Dataset and Experimental Settings
+# 1 Dataset and Experimental Settings
 
 In our experiments, following [\[2\]](#page-8-4) we use six widely used benchmark datasets for recommendation, including MovieLens[11](#page-5-5) (100K, 1M, and 10M), Flixster, Douban, and YahooMusic. We use the preprocessed subsets of the Flixster, Douban, and YahooMusic datasets provided by [\[20\]](#page-8-33).[12](#page-5-6) We denote the three versions of MovieLens as ML-100K, ML-1M and ML-10M respectively, and we denote YahooMusic as Yahoo. The detailed statistics of these datasets are summarized in Table [2.](#page-5-7)
 
@@ -214,7 +216,7 @@ Table 2: Statistics of the datasets.
 
 In our experiments, we use graph attention network (GAT) [\[28\]](#page-8-29) as the GNN model, and use dot product to implement the rating predictor. The user and item embeddings and their hidden representations learned by graph neural networks are 256-dim. The epoch threshold is 2. The gradient clipping threshold is set to 0.1, and the strength of Laplacian noise in the LDP module is set to 0.2 to achieve 1-differential privacy. The number of pseudo interacted items is set to 1,000. The number of users used in each round of model training is 128, and the total number of epoch is 3. The ratio of dropout [\[25\]](#page-8-34) is 0.2. SGD is selected as the optimization algorithm, and its learning rate is 0.01. The splits of datasets are the same as those used in [\[2\]](#page-8-4), and these hyperparameters are selected according to the validation performance. The metric used in our experiments is rooted mean square error (RMSE), and we report the average RMSE scores over the 10 repetitions.
 
-# 4.2 Performance Evaluation
+# 2 Performance Evaluation
 
 First, we compare the performance of our FedGNN approach with several recommendation methods based on centralized storage of user data and several privacy-preserving ones based on federated learning, including:
 
@@ -264,7 +266,7 @@ The recommendation performance of these methods is summarized in Table [3.](#pag
 
 FedGNN can incorporate high-order information of the user-item graphs, while FCF and FedMF cannot. Besides, our approach can protect both ratings and user-item interaction histories, while FCF and FedMF can only protect ratings.
 
-# 4.3 Model Effectiveness
+# 3 Model Effectiveness
 
 Then, we validate the effectiveness of incorporating high-order information of the user-item graphs as well as the generality of our approach. We compare the performance of FedGNN and its variants with fully trainable neighbor user embeddings or without high-order user-item interactions. In addition, we also compare their results under different implementations of their GNN models (GGNN, GCN and GAT). The results are shown in Fig. [4,](#page-6-1) which reveals several findings. First, compared with the baseline performance reported in Table [3,](#page-6-0) the performance of FedGNN and its variants implemented with other different GNN models is satisfactory. This result shows that our approach is compatible with different GNN architectures. Second, FedGNN slightly outperforms its variants based on GCN and GGNN. This may be because the GAT network can more effectively model the importance of the interactions between nodes than GCN and GGNN, which is beneficial for user and item modeling. Third, the variants that can utilize the high-order information by using our FedGNN framework perform better than those without high-order information. It validates the effectiveness of our approach in incorporating high-order information of the user-item graph into recommendation. Fourth, we find that using fixed neighbor user embeddings that are trained for a certain number of iterations is slightly better than using fully trainable ones that are updated in each iteration. This may be because the neighboring user embeddings may not be accurate at the
 
@@ -278,15 +280,15 @@ Figure 6: The recommendation RMSE (left y-axis) and communication cost (right y-
 
 beginning of model training, which is not beneficial for learning precise user and item representations.
 
-# 4.4 Hyperparameter Analysis
+# 4 Hyperparameter Analysis
 
 Finally, we explore the influence of three important hyperparameters, i.e., the gradient clip threshold , the strength of the Laplacian noise in the LDP module, and the number of the pseudo interacted items. We first compare the performance of our FedGNN approach by varying both hyperparameters, and the results are plotted in Fig. [5.](#page-7-0)[13](#page-7-1) According to these results, we find that the difference between the model performance under = 0.1 and = 0.2 is quite marginal. However, if we clip the gradients with a smaller threshold such as 0.05, the prediction error will substantially increase. Thus, we prefer to set = 0.1 because we can achieve better privacy protection without much sacrifice of model performance. In addition, the model performance declines with the growth of the noise strength , while the performance loss is not too heavy if is not too large. Thus, a moderate value of such as 0.2 is preferable to achieve a good balance between privacy protection and recommendation accuracy.[14](#page-7-2)
 
 We also compare the performance and communication cost[15](#page-7-3) of FedGNN w.r.t. different in Fig. [6.](#page-7-4) From Fig. [6,](#page-7-4) we observe that the performance is the best if is 0, but the user-item interaction histories cannot be protected. According to the discussions in Section [3.5,](#page-5-8) if is too small the user privacy cannot be well-protected. In addition, the performance also declines because the randomly generated gradients will influence the accuracy of item gradients. By comparing the results on the three MovieLens datasets, we find
 
-```
+```text
 14We achieve 1-differential privacy under  = 0.1 and  = 0.2.
-```
+```text
 
 that the rating matrix is sparser[16](#page-7-5) , may need to be larger to keep good recommendation performance. This ie because when is relatively large, the random gradients of pseudo interacted items will be better counteracted after aggregation and their influence will be mitigated. However, as shown in Fig. [6,](#page-7-4) the communication cost is also proportional to and it will be very heavy if is too large. Therefore, we choose as 1,000 to achieve good privacy protection and recommendation performance under reasonable communication cost.
 

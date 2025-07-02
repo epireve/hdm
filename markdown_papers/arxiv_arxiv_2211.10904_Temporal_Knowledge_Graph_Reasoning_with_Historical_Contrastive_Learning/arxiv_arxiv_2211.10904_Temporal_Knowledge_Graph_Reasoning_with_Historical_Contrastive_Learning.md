@@ -1,10 +1,12 @@
+<!-- cite_key: xu2020b -->
+
 # Temporal Knowledge Graph Reasoning with Historical Contrastive Learning
 
 Yi Xu, Junjie Ou, Hui Xu, Luoyi Fu\*
 
 Department of Computer Science and Engineering Shanghai Jiao Tong University {yixu98, j michael, xhui 1, yiluofu}@sjtu.edu.cn
 
-#### Abstract
+## Abstract
 
 Temporal knowledge graph, serving as an effective way to store and model dynamic relations, shows promising prospects in event forecasting. However, most temporal knowledge graph reasoning methods are highly dependent on the recurrence or periodicity of events, which brings challenges to inferring future events related to entities that lack historical interaction. In fact, the current moment is often the combined effect of a small part of historical information and those unobserved underlying factors. To this end, we propose a new event forecasting model called Contrastive Event Network (CENET), based on a novel training framework of historical contrastive learning. CENET learns both the historical and non-historical dependency to distinguish the most potential entities that can best match the given query. Simultaneously, it trains representations of queries to investigate whether the current moment depends more on historical or non-historical events by launching contrastive learning. The representations further help train a binary classifier whose output is a boolean mask to indicate related entities in the search space. During the inference process, CENET employs a mask-based strategy to generate the final results. We evaluate our proposed model on five benchmark graphs. The results demonstrate that CENET significantly outperforms all existing methods in most metrics, achieving at least 8.3% relative improvement of Hits@1 over previous state-of-the-art baselines on event-based datasets.
 
@@ -26,9 +28,9 @@ Many efforts (Garcia-Duran, Dumanciˇ c, and Niepert ´ 2018; Jin et al. 2020) h
 
 Copyright © 2023, Association for the Advancement of Artificial Intelligence (www.aaai.org). All rights reserved.
 
-However, in terms of the event-based TKG *Integrated Crisis Early Warning System*, new events that have never occurred before account for about 40% (Boschee et al. 2015). It is challenging to infer these new events because they have fewer temporal interaction traces during the whole timeline. For instance, the right part of Figure 1 (b) shows the query *(the United States, Negotiate, ?, t+1)* and its corresponding new events *(the United States, Negotiate, Russia, t+1)*, where most existing methods often obtain incorrect results over such query due to their focus on the high frequent recurring events. Additionally, during the inference process, existing methods rank the probability scores of overall candidate entities in the whole graph without any bias. We argue that the bias is necessary when approaching the missing entities of different events. For repetitive or periodic events, models are expected to prioritize a few frequently occurring entities, and for new events, models should pay more attention to entities with less historical interaction.
+However, in terms of the event-based TKG *Integrated Crisis Early Warning System*, new events that have never occurred before account for about 40% (Boschee et al. 2015). It is challenging to infer these new events because they have fewer temporal interaction traces during the whole timeline. For instance, the right part of Figure 1 (b) shows the query *(the United States, Negotiate, ?, t+1)*and its corresponding new events*(the United States, Negotiate, Russia, t+1)*, where most existing methods often obtain incorrect results over such query due to their focus on the high frequent recurring events. Additionally, during the inference process, existing methods rank the probability scores of overall candidate entities in the whole graph without any bias. We argue that the bias is necessary when approaching the missing entities of different events. For repetitive or periodic events, models are expected to prioritize a few frequently occurring entities, and for new events, models should pay more attention to entities with less historical interaction.
 
-In this work, we will go beyond the limits of historical information and mine potential temporal patterns from the whole knowledge. To elaborate our design clearer, we call the past events associated with the entities in the current query (s, p, ?, t) *historical events*, and others *non-historical events*. Their corresponding entities are called *historical* and *non-historical entities*, respectively. We will give formal definitions in Section 3.1. We intuitively consider that the events in TKG are not only related to their historical events but also indirectly related to unobserved underlying factors. The historical events we can see are only the tip of the iceberg. We propose a novel TKG reasoning model called CENET (Contrastive Event Network) for event forecasting based on contrastive learning. Given a query (s, p, ?, t) whose real object entity is o, CNENT takes into account its historical and non-historical events and identify significant entities via contrastive learning. Specifically, a copy mechanism-based scoring strategy is first adopted to model the dependency of historical and non-historical events. In addition, all queries can be divided into two classes according to their real object entities: either the object entity o is a historical entity or a non-historical entity. Therefore, CENET naturally employs supervised contrastive learning to train representations of the two classes of queries, further helping train a classifier whose output is a boolean value to identify which kind of entities should receive more attention. During the inference, CENET combines the distribution from the historical and non-historical dependency, and further considers highly correlated entities with a mask-based strategy according to the classification results.
+In this work, we will go beyond the limits of historical information and mine potential temporal patterns from the whole knowledge. To elaborate our design clearer, we call the past events associated with the entities in the current query (s, p, ?, t) *historical events*, and others *non-historical events*. Their corresponding entities are called *historical*and*non-historical entities*, respectively. We will give formal definitions in Section 3.1. We intuitively consider that the events in TKG are not only related to their historical events but also indirectly related to unobserved underlying factors. The historical events we can see are only the tip of the iceberg. We propose a novel TKG reasoning model called CENET (Contrastive Event Network) for event forecasting based on contrastive learning. Given a query (s, p, ?, t) whose real object entity is o, CNENT takes into account its historical and non-historical events and identify significant entities via contrastive learning. Specifically, a copy mechanism-based scoring strategy is first adopted to model the dependency of historical and non-historical events. In addition, all queries can be divided into two classes according to their real object entities: either the object entity o is a historical entity or a non-historical entity. Therefore, CENET naturally employs supervised contrastive learning to train representations of the two classes of queries, further helping train a classifier whose output is a boolean value to identify which kind of entities should receive more attention. During the inference, CENET combines the distribution from the historical and non-historical dependency, and further considers highly correlated entities with a mask-based strategy according to the classification results.
 
 The contributions of our paper are summarized as follows:
 
@@ -40,13 +42,13 @@ graphs. The results demonstrate that CENET outperforms the state-of-the-art TKG 
 
 # 2 Related Work
 
-### 2.1 Temporal Knowledge Graph Reasoning
+## 1 Temporal Knowledge Graph Reasoning
 
 There are two different settings for TKG reasoning: interpolation and extrapolation (Jin et al. 2020). Given a TKG with timestamps ranging from t<sup>0</sup> to tn, models with the interpolation setting aim to complete missing events that happened in the interval [t0, tn], which is also called TKG completion. In contrast, the extrapolation setting aims to predict possible events after the given time tn, i.e., inferring the entity o (or s) given query q = (s, p, ?, t) (or (?, p, o, t)) where t > tn.
 
 Models in the former case such as HyTE (Dasgupta, Ray, and Talukdar 2018), TeMP (Wu et al. 2020), and ChronoR (Sadeghian et al. 2021) are designed to infer missing relations within the observed data. However, such models are not designed to predict future events that fall out of the specified time interval. In the latter case, various methods are designed for the purpose of future event prediction. Know-Evolve (Trivedi et al. 2017) is the first model to learn non-linearly evolving entity embeddings, yet unable to capture the long-term dependency. xERTE (Han et al. 2020) and TLogic (Liu et al. 2022) provide understandable evidence that can explain the forecast, but their application scenarios are limited. TANGO (Han et al. 2021) employs neural ordinary differential equations to model the TKGs. A copy-generation mechanism is adopted in CyGNet (Zhu et al. 2021) to identify high-frequency repetitive events. CluSTeR (Li et al. 2021a) is designed with reinforcement learning, yet constraining its applicability to event-based TKGs. There also emerge some models which try to adopt GNN (Kipf and Welling 2016) or RNN architecture to capture spatial temporal patterns. Typical examples include RE-NET (Jin et al. 2020), RE-GCN (Li et al. 2021b), HIP (He et al. 2021), and EvoKG (Park et al. 2022).
 
-### 2.2 Contrastive Learning
+### 2 Contrastive Learning
 
 Contrastive learning as a self-supervised learning paradigm focuses on distinguishing instances of different categories. In self-supervised contrastive learning, most methods (Chen et al. 2020) derive augmented examples from a randomly sampled minibatch of N examples, resulting in 2N samples to optimize the following loss function given a positive pair of examples (i, j). Equation 1 is the contrastive loss:
 
@@ -65,11 +67,11 @@ Figure 2: The overall architecture of CENET. The left part learns the distributi
 
 As shown in Figure 2, CENET captures both the historical and non-historical dependency. Simultaneously, it utilizes contrastive learning to identify highly correlated entities. A mask-based inference process is further employed for reasoning performing. In the following parts, we will introduce our proposed method in detail.
 
-### 3.1 Preliminaries
+## 1 Preliminaries
 
 Let E, R, and T denote a finite set of entities, relation types, and timestamps, respectively. A temporal knowledge graph G is a set of quadruples formalized as (s, p, o, t), where s ∈ E is a subject (head) entity, o ∈ E is an object (tail) entity, p ∈ R is the relation (predicate) occurring at timestamp t between s and o. G<sup>t</sup> represents a TKG snapshot which is the set of quadruples occurring at time t. We use boldfaced s, p, o for the embedding vectors of s, p, and o respectively, the dimension of which is d. E ∈ R |E|×d is the embeddings of all entities, the row of which represents the embedding vector of an entity such as s and o. Similarly, P ∈ R |R|×d is the embeddings of all relation types.
 
-Given a query q = (s, p, ?, t), we define the set of *historical events* as D s,p t and the corresponding set of *historical entities* as H s,p t in the following equations:
+Given a query q = (s, p, ?, t), we define the set of *historical events*as D s,p t and the corresponding set of*historical entities*as H s,p t in the following equations:
 
 $$
 \mathcal{D}_{t}^{s,p} = \bigcup_{k < t} \{ (s, p, o, k) \in \mathcal{G}_{k} \},\tag{2}
@@ -80,9 +82,9 @@ $$
 $$
  (3)
 
-Naturally, entities not in H s,p t are called *non-historical entities*, and the set {(s, p, o<sup>0</sup> , k)|o <sup>0</sup> 6∈ Hs,p t , k < t} denotes the set of *non-historical events*, where some quadruples may not exist in G. It is worth noting that we also use D s,p t to represent the set of historical events for a current event (s, p, o, t). If an event (s, p, o, t) itself does not exist in its corresponding D s,p t , then it is a new event. Without loss of generality, we detail how CENET predicts object entities with a given query q = (s, p, ?, t) in the following parts.
+Naturally, entities not in H s,p t are called*non-historical entities*, and the set {(s, p, o<sup>0</sup> , k)|o <sup>0</sup> 6∈ Hs,p t , k < t} denotes the set of *non-historical events*, where some quadruples may not exist in G. It is worth noting that we also use D s,p t to represent the set of historical events for a current event (s, p, o, t). If an event (s, p, o, t) itself does not exist in its corresponding D s,p t , then it is a new event. Without loss of generality, we detail how CENET predicts object entities with a given query q = (s, p, ?, t) in the following parts.
 
-### 3.2 Historical and Non-historical Dependency
+### 2 Historical and Non-historical Dependency
 
 In most TKGs, although many events often show repeated occurrence pattern, new events may have no historical events to refer to. To this end, CENET takes not only historical but also non-historical entities into consideration. We first investigate the frequencies of historical entities for the given query q = (s, p, ?, t) during data pre-processing. More specifically, we count the frequencies F s,p <sup>t</sup> ∈ R |E| of all entities served as the objects associated with subject s and predicate p before time t, as shown in Equation 4:
 
@@ -105,7 +107,7 @@ $$
 \mathbf{H}_{his}^{s,p} = \underbrace{\tanh(\mathbf{W}_{his}(\mathbf{s} \oplus \mathbf{p}) + \mathbf{b}_{his})\mathbf{E}^T}_{\text{similarity score between } q \text{ and } \mathcal{E}} + \mathbf{Z}_t^{s,p}, \qquad (6)
 $$
 
-where *tanh* is the activation function, ⊕ represents the concatenation operator, Whis ∈ R d×2d and bhis ∈ R d are trainable parameters. We use a linear layer with *tanh* activation to aggregate the query's information. The output of the linear layer is then multiplied by E to obtain an |E|-dimensional vector, where each element represents the similarity score between the corresponding entity o <sup>0</sup> ∈ E and the query q. Then, according to the copy mechanism, we add the copyterm Z s,p t to change the index scores of historical entities in H s,p his to higher values directly without contributing to the gradient update. Thus, Z s,p <sup>t</sup> makes H s,p his pay more attention to historical entities. Similarly, for non-historical dependency, the latent context vector H s,p nhis is defined as:
+where *tanh*is the activation function, ⊕ represents the concatenation operator, Whis ∈ R d×2d and bhis ∈ R d are trainable parameters. We use a linear layer with*tanh*activation to aggregate the query's information. The output of the linear layer is then multiplied by E to obtain an |E|-dimensional vector, where each element represents the similarity score between the corresponding entity o <sup>0</sup> ∈ E and the query q. Then, according to the copy mechanism, we add the copyterm Z s,p t to change the index scores of historical entities in H s,p his to higher values directly without contributing to the gradient update. Thus, Z s,p <sup>t</sup> makes H s,p his pay more attention to historical entities. Similarly, for non-historical dependency, the latent context vector H s,p nhis is defined as:
 
 $$
 \mathbf{H}_{nhis}^{s,p} = tanh(\mathbf{W}_{nhis}(\mathbf{s} \oplus \mathbf{p}) + \mathbf{b}_{nhis})\mathbf{E}^T - \mathbf{Z}_t^{s,p}.
@@ -128,7 +130,7 @@ $$
 
 where the entity with maximum value is the most likely entity the component predicts.
 
-### 3.3 Historical Contrastive Learning
+### 3 Historical Contrastive Learning
 
 Clearly, the learning mechanism defined above well captures the historical and non-historical dependency for each query. However, many repetitive and periodic events are only associated with historical entities. Besides, for new events, existing models are likely to ignore those entities with less historical interaction and predict the wrong entities that frequently interact with other events. The proposed historical contrastive learning trains contrastive representations of queries to identify a small number of highly correlated entities at the query level.
 
@@ -187,7 +189,7 @@ Input: Observed graph quadruples set G, entity set E, relation type set R, hyper
 - 15: Train the classification layer in Net according to I<sup>q</sup> and v<sup>q</sup> with binary cross-entropy;
 - 16: return Net;
 
-### 3.4 Parameter Learning and Inference
+### 4 Parameter Learning and Inference
 
 We minimize the loss function in the first stage:
 
@@ -214,15 +216,15 @@ $$
 $$
  (17)
 
-We call the former version in Equation 15 *hard-mask*, the latter in Equation 17 *soft-mask*. The hard-mask can reduce the search space and the soft-mask can obtain a more convincing distribution which makes the model more conservative.
+We call the former version in Equation 15*hard-mask*, the latter in Equation 17 *soft-mask*. The hard-mask can reduce the search space and the soft-mask can obtain a more convincing distribution which makes the model more conservative.
 
 # 4 Experiments
 
 This section conducts a series of experiments to validate the performance of CENET. We first present the experimental settings and then compare CENET with a wide selection of TKG models. After that, the ablation study is implemented to evaluate the effectiveness of various components. Finally, the analysis of hyper-parameter is discussed. All our datasets and codes are publicly available<sup>1</sup> .
 
-### 4.1 Experimental Settings
+## 1 Experimental Settings
 
-Datasets and Baselines We select five benchmark datasets, including three event-based TKGs and two public KGs. These two types of datasets are constructed in different ways. The former three event-based TKGs consist of *Integrated Crisis Early Warning System* (ICEWS18 (Boschee et al. 2015) and ICEWS14 (Trivedi et al. 2017)) and *Global Database of Events, Language, and Tone* (GDELT (Leetaru and Schrodt 2013)) where a single event may happen at any time. The last two public KGs (WIKI (Leblay and Chekol 2018) and YAGO (Mahdisoltani, Biega, and Suchanek 2014)) consist of temporally associated facts which last a long time and hardly occur in the future. Table 1 provides the statistics of these datasets.
+Datasets and Baselines We select five benchmark datasets, including three event-based TKGs and two public KGs. These two types of datasets are constructed in different ways. The former three event-based TKGs consist of *Integrated Crisis Early Warning System*(ICEWS18 (Boschee et al. 2015) and ICEWS14 (Trivedi et al. 2017)) and*Global Database of Events, Language, and Tone*(GDELT (Leetaru and Schrodt 2013)) where a single event may happen at any time. The last two public KGs (WIKI (Leblay and Chekol 2018) and YAGO (Mahdisoltani, Biega, and Suchanek 2014)) consist of temporally associated facts which last a long time and hardly occur in the future. Table 1 provides the statistics of these datasets.
 
 | Dataset        |        |     |           | Entities Relation Training Validation | Test    |
 |----------------|--------|-----|-----------|---------------------------------------|---------|
@@ -260,11 +262,11 @@ Training Settings and Evaluation Metrics All datasets except ICEWS14 are split i
 | HIP            | 48.37   | 43.51  | 51.32  | 58.49   | 50.57 | 45.73  | 54.28   | 61.65   | 52.76 | 46.35  | 55.31  | 61.87   |
 | CENET          | 51.06   | 47.10  | 51.92  | 58.82   | 53.35 | 49.61  | 54.07   | 60.62   | 58.48 | 55.99  | 58.63  | 62.96   |
 
-Table 2: Experimental results of temporal link prediction on three event-based TKGs. *1 day* means running time is more than 1 day. The best results are boldfaced, and the results of previous SOTAs are underlined.
+Table 2: Experimental results of temporal link prediction on three event-based TKGs.*1 day*means running time is more than 1 day. The best results are boldfaced, and the results of previous SOTAs are underlined.
 
 of contrastive learning is limited to 20. The value of hyperparameter α is set to 0.2, and λ is set to 2. For the settings of baselines, we use their recommended configurations.
 
-### 4.2 Results
+### 2 Results
 
 Results on Event-based TKGs Table 2 presents the MRR and Hits@1/3/10 results of link (event) prediction on three event-based TKGs. Our proposed CENET outperforms other baselines in most cases. It can be observed that many static models are inferior to temporal models because static models do not consider temporal information and their dependency between different snapshots. In the case of temporal models, TeMP is designed to complete missing links (graph interpolation) rather than predict new events, and it thus shows worse performance than extrapolation models. Although xERTE provides a certain degree of predictive explainability, it is computationally inefficient to handle largescale datasets such as GDELT, whose training set contains more than 1 million samples. In terms of Hits@10, CENET is on par with HIP on these three event-based datasets. Nevertheless, the results of Hits@1 improve the most in our model. CENET achieves up to 8.25%, 8.48%, and 20.80% improvements of Hits@1 on ICEWS18, ICEWS14, and GDELT respectively. The main reason is that there exist a large proportion of new events without historical events in event-based datasets. CENET learns the historical and non-historical dependency of new events simultaneously, which mines those unobserved underlying factors. In contrast, models including TANGO and HIP perform well in terms of Hits@10 but cannot predict the correct entities exactly, making Hits@1 much lower than ours.
 
@@ -292,7 +294,7 @@ Results on Public KGs CENET also outperforms the baselines in all metrics on WIK
 
 Table 3: Experimental results of temporal link prediction on two public KGs. See Appendix for more results.
 
-7.08% (Hits@3) over SOTA on public KGs. This is because the recurrence rates in these two datasets are imbalanced (Zhu et al. 2021), and our model can easily handle such data. In terms of the WIKI dataset, 62.3% object entities associated with their corresponding facts (grouped by *(subject, relation)* tuples) have appeared repeatedly at least once in history. In contrast, the recurrence rate of subject entities (grouped by *(object, relation)* tuples) is 23.4%, which hinders many models learning from the historical information when inferring subject entities. CENET can effectively alleviate the problem of the imbalanced recurrence rate because the concurrent learning of historical and non-historical dependency can complement each other to generate the en-
+7.08% (Hits@3) over SOTA on public KGs. This is because the recurrence rates in these two datasets are imbalanced (Zhu et al. 2021), and our model can easily handle such data. In terms of the WIKI dataset, 62.3% object entities associated with their corresponding facts (grouped by*(subject, relation)*tuples) have appeared repeatedly at least once in history. In contrast, the recurrence rate of subject entities (grouped by*(object, relation)*tuples) is 23.4%, which hinders many models learning from the historical information when inferring subject entities. CENET can effectively alleviate the problem of the imbalanced recurrence rate because the concurrent learning of historical and non-historical dependency can complement each other to generate the en-
 
 | Method                      |       |        | ICEWS18 |         | YAGO  |        |        |         |  |  |
 |-----------------------------|-------|--------|---------|---------|-------|--------|--------|---------|--|--|
@@ -311,13 +313,13 @@ Table 4: Ablation study of CENET on ICEWS18 and YAGO.
 
 tity distribution. Also, the probability of selecting unrelated entities is greatly reduced on account of the binary classifier regardless of the imbalanced recurrence rate.
 
-### 4.3 Ablation Study
+### 3 Ablation Study
 
 We choose ICEWS18 and YAGO to investigate the effectiveness of the historical/non-historical dependency, contrastive learning, and the mask-based inference. Table 4 shows the results of ablation.
 
 CENET-his only considers the historical dependency while CENET-nhis keeps the non-historical dependency. Both of them employ the contrastive learning. The performance of CENET-his is better than CENET-nhis since most events can be traced to their historical events especially in event-based TKGs. Still, for CENET-nhis, it also works on event prediction to a certain extent. Thus, it is necessary to consider both dependencies at the same time. We remove L sup and only retain L ce as the variant CENET-L ce. In the case of ICEWS18, the L ce is capable of achieving high results close to the proposed CENET, while the results in YAGO have dropped about 7%. Such results verify the positive influence of the stage 1 in the historical contrastive learning. CENET-w/o-stage-2 is another variant that minimizes L ce and L sup without training the binary classifier, which naturally discards the mask-based inference. Such changes cause 1.7% and 3.8% drop in terms of Hits@1 on ICEWS18 and YAGO respectively. CENET-w/o-CL removing the historical contrastive learning has worse performance than the above two variants. These results prove the significance of our proposed historical contrastive learning. As to the mask strategy. The mask vector is a randomly generated boolean vector in CENET-random-mask. CENET-hard-mask and CENET-soft-mask are our proposed two ways to tackle the mask vector. We use the ground truth in the testing set to generate a mask vector represented by CENET-GT-mask to explore the upper bound of CENET. We can see that untrained model with randomly generated mask vector is counterproductive to the prediction.
 
-### 4.4 Hyper-parameter Analysis
+### 4 Hyper-parameter Analysis
 
 There are two unexplored hyper-parameters α and λ in CENET. We adjust the values of α and λ respectively to observe the performance change of CENET on ICEWS18 and YAGO. The results are shown in Figure 3. The hyper-
 
@@ -337,7 +339,7 @@ This work was supported by NSF China (No. 62020106005, 42050105, 62061146002, 61
 
 # References
 
-Bordes, A.; Usunier, N.; Garcia-Duran, A.; Weston, J.; and Yakhnenko, O. 2013. Translating embeddings for modeling multi-relational data. *Advances in neural information processing systems*, 26.
+Bordes, A.; Usunier, N.; Garcia-Duran, A.; Weston, J.; and Yakhnenko, O. 2013. Translating embeddings for modeling multi-relational data.*Advances in neural information processing systems*, 26.
 
 Boschee, E.; Lautenschlager, J.; O'Brien, S.; Shellman, S.; Starz, J.; and Ward, M. 2015. ICEWS coded event data. *Harvard Dataverse*, 12.
 
@@ -439,10 +441,10 @@ CENET is compared with 9 more models, including static and temporal approaches. 
 
 # E Case Study
 
-As shown in Figure 5, we select three representative queries with *North Korea* as subject entity to investigate the predicted results of CENET.
+As shown in Figure 5, we select three representative queries with *North Korea*as subject entity to investigate the predicted results of CENET.
 
-- Query *(North Korea, Halt negotiations, ?, t)*: It can be observed that the group *(Halt negotiations, the United States)* appears most frequently in the past (with blue font). It is easy for CENET to obtain the correct answer for the reason that the historical dependency has been captured, and the mask-based inference with a binary classifier can reduce the probabilities of non-historical entities such as *Russia and Singapore* etc, which have nothing to do with the relation '*Halt negotiations*'.
-- Query *(North Korea, Intent to cooperate, ?, t)*: The group *(Intent to cooperate, South Korea)* only happened once (with red font), which is the same to other object entities such as *the United States* and *Russia*. Not surprisingly, the model can predict correctly. Although the *United States* and *North Korea* had the relation '*Intent to cooperate*' in the past, CENET believes that other relations between the *United States* and *North Korea* were more likely to happen, the first case is the best evidence. Thus, the model chose *South Korea*.
+- Query*(North Korea, Halt negotiations, ?, t)*: It can be observed that the group *(Halt negotiations, the United States)*appears most frequently in the past (with blue font). It is easy for CENET to obtain the correct answer for the reason that the historical dependency has been captured, and the mask-based inference with a binary classifier can reduce the probabilities of non-historical entities such as*Russia and Singapore* etc, which have nothing to do with the relation '*Halt negotiations*'.
+- Query *(North Korea, Intent to cooperate, ?, t)*: The group *(Intent to cooperate, South Korea)*only happened once (with red font), which is the same to other object entities such as*the United States*and*Russia*. Not surprisingly, the model can predict correctly. Although the *United States*and*North Korea* had the relation '*Intent to cooperate*' in the past, CENET believes that other relations between the *United States*and*North Korea*were more likely to happen, the first case is the best evidence. Thus, the model chose*South Korea*.
 - Query *(North Korea, Express accord, ?, t)*: This query has no historical events from the first timestamp 0, but the model also gets the correct result, demonstrating that CENET has learned the non-historical dependency.
 
 | Dataset |        |     |           | Entities Relation Training Validation | Test    |          |       | Granularity Time Granules Proportion of New Events |
@@ -469,7 +471,7 @@ Table 5: Statistics of the datasets.
 | R-GCRN+MLP      | 35.12   | 27.19  | 38.26  | 50.49   | 36.77 | 28.63   | 40.15  | 52.33   | 37.29 | 29.00  | 41.08  | 51.88   |  |
 | CENET           | 51.06   | 47.10  | 51.92  | 58.82   | 53.35 | 49.61   | 54.07  | 60.62   | 58.48 | 55.99  | 58.63  | 62.96   |  |
 
-Table 6: Experimental results of temporal link prediction on three event-based TKGs (ICEWS18, ICEWS14, GDELT). *1 day* means running time is more than 1 day. The best results are boldfaced.
+Table 6: Experimental results of temporal link prediction on three event-based TKGs (ICEWS18, ICEWS14, GDELT). *1 day*means running time is more than 1 day. The best results are boldfaced.
 
 | Method          | WIKI  |        |        |         | YAGO  |        |        |         |
 |-----------------|-------|--------|--------|---------|-------|--------|--------|---------|
@@ -489,4 +491,4 @@ Table 7: Experimental results of temporal link prediction on two public KGs (WIK
 
 ![](_page_10_Figure_6.jpeg)
 
-Figure 5: Case study of CENET's predictions. We select three queries with *North Korea* as subject entity for analysis.
+Figure 5: Case study of CENET's predictions. We select three queries with*North Korea* as subject entity for analysis.

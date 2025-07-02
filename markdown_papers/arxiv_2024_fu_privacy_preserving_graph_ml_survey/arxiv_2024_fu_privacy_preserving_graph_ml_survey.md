@@ -1,4 +1,6 @@
-# **Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey**
+<!-- cite_key: fu2024b -->
+
+# Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey
 
 Dongqi Fu ∗ † , Wenxuan Bao† , Ross Maciejewski§ , Hanghang Tong† , Jingrui He† †University of Illinois Urbana-Champaign
 
@@ -10,7 +12,7 @@ dongqif2@illinois.edu, wbao4@illinois.edu, rmacieje@asu.edu, htong@illinois.edu,
 
 In graph machine learning, data collection, sharing, and analysis often involve multiple parties, each of which may require varying levels of data security and privacy. To this end, preserving privacy is of great importance in protecting sensitive information. In the era of big data, the relationships among data entities have become unprecedentedly complex, and more applications utilize advanced data structures (i.e., graphs) that can support network structures and relevant attribute information. To date, many graph-based AI models have been proposed (e.g., graph neural networks) for various domain tasks, like computer vision and natural language processing. In this paper, we focus on reviewing privacypreserving techniques of graph machine learning. We systematically review related works from the data to the computational aspects. We first review methods for generating privacy-preserving graph data. Then we describe methods for transmitting privacy-preserved information (e.g., graph model parameters) to realize the optimization-based computation when data sharing among multiple parties is risky or impossible. In addition to discussing relevant theoretical methodology and software tools, we also discuss current challenges and highlight several possible future research opportunities for privacy-preserving graph machine learning. Finally, we envision a unified and comprehensive secure graph machine learning system.
 
-## 1. INTRODUCTION
+## INTRODUCTION
 
 According to the recent report from the United Nations [1](#page-0-0) , strengthening multilateralism is indispensable to solve the unprecedented challenges in critical areas, such as hunger crisis, misinformation, personal identity disclosure, hate speech, targeted violence, human trafficking, etc. Addressing these problems requires collaborative efforts from governments, industry, academia, and individuals. In particular, effective and efficient data collection, sharing, and analysis are at the core of many decision-making processes, during which preserving privacy is an important topic. Due to the distributed, sensitive, and private nature of the large volume of involved data (e.g., personally identifiable information, images, and video from surveillance cameras or body cameras), it is thus of great importance to make use of the data while avoiding the sharing and use of sensitive information. On the other side, in the era of big data, the relationships among entities have become remarkably complicated. Graph, as a relational data structure, attracts much industrial and research interest for its carrying complex structural and attributed information. For example, with the development of graph neural networks, many application domains have obtained non-trivial improvements, such as computer vision [\[7\]](#page-13-0), natural language processing [\[93\]](#page-18-0), recommender systems [\[85\]](#page-17-0), drug discovery [\[25\]](#page-14-0), fraud detection [\[55\]](#page-16-0), etc. Within the trend of applying graph machine learning methods to systematically address problems in various application domains, protecting privacy in the meanwhile is nonneglectable [\[20\]](#page-14-1). To this end, we consider two complementary strategies in this survey, namely, (1) to share faithfully generated graph data instead of the actual sensitive graph data, and (2) to enable multi-party computation without graph data sharing. Inspired by the above discussion, we focus on introducing two fundamental aspects of privacypreserving techniques on graphs, i.e., privacy-preserving graph data and graph data privacy-preserving computation.
 
@@ -38,7 +40,7 @@ After we introduce privacy-preserving graph data and graph data privacy-preservi
 
 Relation with Previous Studies. For the privacy-preserving graph data, we systematically review the privacy attackers and the corresponding privacy protection techniques, which takes a balance of classic methods [\[113;](#page-18-1) [94\]](#page-18-2) and emerging solutions [\[36\]](#page-15-0), such as topology perturbation methods, deep generation methods, etc. Beyond that, we extend the privacy-preserving techniques review from the data level to the computation level, i.e., the graph data privacypreserving computation within the federated learning framework. Most of the existing federated learning reviews do not primarily concentrate on graph federated learning [\[37;](#page-15-1) [84;](#page-17-1) [46;](#page-15-2) [77\]](#page-17-2). Recently, two survey papers [\[53;](#page-16-1) [24\]](#page-14-2) introduce two problem settings in graph federated learning and their corresponding techniques. They exclusively focus on graph federated learning solutions and ignore the connections to traditional federated learning. Thus, we start from various application scenarios and provide a comprehensive classification and exposition of graph federated learning. While our focus primarily revolves around graph federated learning, we also highlight its connections and distinctions to traditional federated learning, aiming to present the big picture of this field. In addition to reviewing the two aspects (i.e., privacy-preserving graph data and graph data privacy-preserving computation), we also discuss the necessity and possibility of combining these two directions and propose several promising future research directions.
 
-# 2. PRIVACY-PRESERVING GRAPH DATA
+# PRIVACY-PRESERVING GRAPH DATA
 
 <span id="page-1-1"></span>![](_page_1_Figure_9.jpeg)
 
@@ -46,13 +48,11 @@ Figure 3: Taxonomy Structure of Section 2.
 
 As for making privacy-preserving graph data to publish or share, the ultimate goal is to successfully protect the published graph data from various attacks from adversaries or attackers. To this end, we first introduce the different kinds of attackers, such as node identity disclosure or sensitive link re-identification in Subsection 2.1 and necessary background knowledge in Subsection 2.2. Then, we introduce how the corresponding privacy-preserving mechanisms are proposed, such as several of them being deliberately designed to defend against certain attackers and some of them being general protections and not aiming at specific attacks, in Subsection 2.3. The taxonomy is shown in Figure [3.](#page-1-1)
 
-## 2.1 Privacy Attackers on Graphs
+## 1 Privacy Attackers on Graphs
 
 According to [\[5\]](#page-13-1), what the attackers aim to attack is that they (1) want to learn whether edges exist or not between specific target pairs of nodes and also (2) want to reveal the true identities of targeted users, even from just a single anonymized copy of the graph, with a surprisingly small investment of effort.
 
-#### *2.1.1 Category of Attackers*
-
-Attackers can be classified into the active attackers and passive attackers [\[5\]](#page-13-1).
+### *2.1.1 Category of Attackers*Attackers can be classified into the active attackers and passive attackers [\[5\]](#page-13-1).
 
 The first category is active attackers, where the core idea is that the attackers actively plant certain structures into the graph before it is being published. Then, the attackers can identify victims in the published graph by locating the planted structures. For example [\[113\]](#page-18-1), the attackers create a subgraph H containing k nodes and then use H to connect b target nodes in the original graph G (subgraph H is better to be unique and has the property to be recovered in the published graph). After the original graph G is privacy-preserved (e.g., mask and disturb connections) and published as G ′ , the attackers try to find H in G ′ and then determine those b nodes.
 
@@ -60,9 +60,7 @@ Active attackers usually need to access the original graph beforehand and then m
 
 Passive attackers are based on the fact or the assumption that most entities (e.g., nodes and edges) in graphs usually belong to a unique, small identifiable graph. Then, different from active attackers, passive ones do not need to create new nodes and edges in the original but mostly rely on the observation of the published graph to identify victims. In the initial proposal of passive attacks [\[5\]](#page-13-1), a passive attacker (e.g., a node in a social network) needs to collude with other (k−1) nodes on the original graph, and the coalition needs to know the external information (e.g., their 1-hop neighbors' name in the social network), such that they can reconnect on the published graph to identify the victims. Here, we expand the scope of passive attacks to include the attackers whose core is observation plus little external information. For example, in [\[29\]](#page-14-3), an attacker knows the external background information like "Greg is connected to at least two nodes, each with degree 2" and tries to observe the candidate of plausible Greg in the published social network.
 
-#### *2.1.2 Goal of Attackers*
-
-The ultimate goals of most graph privacy attackers can be roughly divided into disclosing the node identity (e.g., name, DOB, and SSN in the social network) and the link existence (e.g., sensitive connections in the social network) [\[51;](#page-15-3) [94;](#page-18-2) [101;](#page-18-3) [113\]](#page-18-1). Next, we formally introduce the general definition of these two goals.
+####*2.1.2 Goal of Attackers*The ultimate goals of most graph privacy attackers can be roughly divided into disclosing the node identity (e.g., name, DOB, and SSN in the social network) and the link existence (e.g., sensitive connections in the social network) [\[51;](#page-15-3) [94;](#page-18-2) [101;](#page-18-3) [113\]](#page-18-1). Next, we formally introduce the general definition of these two goals.
 
 Node Identity Disclosure. The node identity disclosure problem often arises from the scenario that the attackers aim to identify a target node identity in the published graph (usually, which has been anonymized already). For example, in a published social network with usernames masked already, the node identity disclosure aims to identify which node is Greg [\[29\]](#page-14-3). To be more specific, the identity disclosure can be detailedly divided into node existence disclosure (i.e., whether a target node existed or not in a published graph), node property disclosure (i.e., partial features of a target node are disclosed like its degree, distance to the center, or even sensitive labels, etc) [\[113\]](#page-18-1).
 
@@ -70,13 +68,11 @@ Link Re-Identification. In a given graph, edges may be of different types and ca
 
 Compared with active attackers, passive attackers are typically efficient in executing for adversaries and do not need to interact with the original graph beforehand very much. Thus, within the scope of passive attackers, achieving those attacking goals (node identity disclosure or link re-identification) relies on the observation of the published graph and certain external background knowledge to further identify victims.[3](#page-2-0) Next, we focus on introducing what requirements passive attackers need to execute attacks passively.
 
-## 2.2 Background Knowledge for Passive Attacks
+## 2 Background Knowledge for Passive Attacks
 
 Here, we first discuss some background knowledge that could contribute to the goal of node identity disclosure. Then, we list some background knowledge that could contribute to sensitive link re-identification attacks.
 
-#### *2.2.1 Background Knowledge for Node Identity Disclosure*
-
-In general, the background knowledge for achieving node identity disclosure is to help them to detect the uniqueness of victims (i.e., nodes in the published graph) and thus narrow down the scope of candidate sets to increase the successful attack probability. For example, assume that the attackers know some background knowledge H about a target node, after that, the attackers observe the published graph and find 2 candidates satisfying the condition (i.e., H), then the attackers have 50% confidence to reveal the identity of that target node in the published graph. Next, we introduce some methods to acquire background knowledge.
+###*2.2.1 Background Knowledge for Node Identity Disclosure*In general, the background knowledge for achieving node identity disclosure is to help them to detect the uniqueness of victims (i.e., nodes in the published graph) and thus narrow down the scope of candidate sets to increase the successful attack probability. For example, assume that the attackers know some background knowledge H about a target node, after that, the attackers observe the published graph and find 2 candidates satisfying the condition (i.e., H), then the attackers have 50% confidence to reveal the identity of that target node in the published graph. Next, we introduce some methods to acquire background knowledge.
 
 Vertex Refinement Queries [\[29\]](#page-14-3). These are interactive queries, which describe the local structure of the graph around a target node x. The initial query in vertex refinement queries is denoted as H0(x) that simply returns the label of node x in the labeled graph (or a constant ϵ in the unlabeled graph). And H1(x) returns the degree of node x. Then, iteratively, Hi(x) is defined as the multiset of Hi−1(·) queries on 1-hop neighbors of node x, which can be expressed
 
@@ -96,9 +92,7 @@ Hub Fingerprint Queries [\[29\]](#page-14-3). First of all, a hub stands for a n
 
 Neighborhood Relationships Queries [\[112\]](#page-18-5). Targeting a node, if an adversary has background knowledge about its neighbors and the relationship among the neighbors, then the victim can be identified in the anonymized graph. To be specific, the neighborhood relationship query rely more on the isomorphism of the ego-graph (i.e., 1-hop neighbors) of a target node to reveal its identity, compared with iterative vertex refinement query [\[29\]](#page-14-3) and general subgraph query [\[29\]](#page-14-3). For example, in a social network, if Bob has two close friends who know each other (i.e., are connected) and two close friends who do not know each other (i.e., are not connected), then this unique information obtained by the adversary can be used to find Bob in the published anonymized graph.
 
-#### *2.2.2 Background Knowledge for Link Re-Identification*
-
-Link Prediction Probabilistic Model [\[111\]](#page-18-4). This probabilistic model is proposed to determine whether a relationship between two target nodes. And different kinds of background information (i.e., observation) can be leveraged to formalize the probabilistic model, such as (1) node attributes, e.g., two social network users who share the same interest are more likely to be friends; (2) existing relationships, e.g., two social network users in the same community are more likely to be friends; (3) structural properties, e.g., the high degree nodes are more likely to connect in a graph; and (4) inferred relationships (i.e., a complex observation that is more likely based on the inference of the invisible relationship), e.g., two social network users are more likely to be friends if they both are close friends of a third user.
+####*2.2.2 Background Knowledge for Link Re-Identification*Link Prediction Probabilistic Model [\[111\]](#page-18-4). This probabilistic model is proposed to determine whether a relationship between two target nodes. And different kinds of background information (i.e., observation) can be leveraged to formalize the probabilistic model, such as (1) node attributes, e.g., two social network users who share the same interest are more likely to be friends; (2) existing relationships, e.g., two social network users in the same community are more likely to be friends; (3) structural properties, e.g., the high degree nodes are more likely to connect in a graph; and (4) inferred relationships (i.e., a complex observation that is more likely based on the inference of the invisible relationship), e.g., two social network users are more likely to be friends if they both are close friends of a third user.
 
 Mathematically, those above observations can be expressed for predicting the existence of a sensitive relation between node i and node j as P(e s ij |O), where e s ij stands for the sensitive relationship and O consists of several observations {o1, . . . , on}. For example, if we use the second kind of information (i.e., existing relationships), then {o1, . . . , on} is a set of edges between node i and node j with the edge type other than s, denoted as e l ij and l ∈ {1, . . . , n} is the index of other edge relationships. To solve out P(e s ij |O), the noisy-or model [\[61\]](#page-16-2) can be used as suggested by [\[111\]](#page-18-4), where each observation o<sup>l</sup> ∈ {o1, . . . , on} is considered as independent with each other and parameterised as λ<sup>l</sup> ∈ {λ1, . . . , λn}. Moreover, there is a leak parameter λ<sup>0</sup> to capture the probability that the sensitive edge is there due to other unmodeled reasons. Hence, the probability of a sensitive edge is expressed as follows.
 
@@ -116,13 +110,11 @@ $$
 
 where the attacker applies a certain randomization mechanism on the published graph G ′ N times to get a sequence of G ′ <sup>s</sup>, and s ∈ {1, . . . , N}. In each G ′ s, if there is an edge connects the target nodes i and j, then the indicator function 1(G ′ <sup>s</sup>(i, j) == 1) will count one.
 
-## 2.3 Privacy-Preserving Mechanisms
+## 3 Privacy-Preserving Mechanisms
 
 Here, we discuss some privacy-preserving techniques that are deliberately designed for specific attackers and also some general protection techniques that are not targeting attackers but can be widely applied.
 
-#### *2.3.1 Protection Mechanism Designed for Node Identity Dislosure*
-
-In general, the protection mechanisms are proposed to enlarge the scope of candidates of victims, i.e., reduce the uniqueness of victims in the anonymized graphs.
+###*2.3.1 Protection Mechanism Designed for Node Identity Dislosure*In general, the protection mechanisms are proposed to enlarge the scope of candidates of victims, i.e., reduce the uniqueness of victims in the anonymized graphs.
 
 k-degree Anonymization [\[52\]](#page-16-3). The motivation for kdegree anonymization is that degree distribution is highly skewed in real-world graphs, such that it is usually effective to collect the degree information (as the background knowledge) to identify a target node. Therefore, this protection mechanism aims to ensure that there at least exist k − 1 nodes in the published graph G ′ , in which k −1 nodes share the same degree with any possible target node x. In this way, it can largely prevent the node identity disclosure even if the adversary has some background knowledge about degree distribution. To obtain such anonymized graph G ′ , the method is two-step. First, for the original graph G with n nodes, the degree distribution is encoded into a n-dimensional vector d, where each entry records the degree of an individual node; And then, based on d, the authors proposed to create a new degree distribution d ′ , which is k-anonymous with a tolerated utility loss (e.g., isomorphism cost) instanced by the L<sup>1</sup> distance between two vectors d and d ′ . Second, based on the k-anonymous degree vector d ′ , the authors proposed to construct a graph G ′ whose degree distribution is identical to d ′ .
 
@@ -134,9 +126,7 @@ k-neighborhood Anonymization [\[112\]](#page-18-5). This protection is proposed 
 
 k-automorphism Anonymization [\[117\]](#page-18-7). This method is proposed for the structural queries by attackers, especially for the subgraph queries (as discussed in Subsection 2.2.1). Basically, given an original graph G, this method produces an anonymization graph G ′ to publish, where G is the subgraph of G ′ and G ′ is k-automorphic. To do this, the authors propose the KM algorithm, which partitions the original graph G and adds the crossing edge copies into G, to further convert G into G ′ . Hence, the G ′ can satisfy the k-different match principle to defend the subgraph query attacks, which means that there are at least k-different matches in G ′ for a subgraph query, but those matches do not share any nodes.
 
-#### *2.3.2 Protection Mechanism Designed for Link Re-Identification*
-
-The general idea of solutions here is proposed to reduce the confidence of attackers (which usually can be realized by a probabilistic model) for inferring or predicting links based on observing the published anonymized graphs.
+####*2.3.2 Protection Mechanism Designed for Link Re-Identification*The general idea of solutions here is proposed to reduce the confidence of attackers (which usually can be realized by a probabilistic model) for inferring or predicting links based on observing the published anonymized graphs.
 
 Intact Edges [\[111\]](#page-18-4). This solution is straightforward and trivial. Given the link re-identification attacker aims to predict a target link between two nodes, and the corresponding link type (i.e., edge type) is denoted as s, then the intact edges strategy is to remove all s type edges in the original graph G and publish the rest as the anonymized graph G ′ . Those remaining edges are so-called intact.
 
@@ -146,9 +136,7 @@ Cluster-edge Anonymization [\[111\]](#page-18-4). This method requires that the 
 
 Cluster-edge Anonymization with Constraints [\[111\]](#page-18-4). This method is the upgraded version of the previous clusteredge anonymization, and it is proposed to strengthen the utility of the anonymized graph G ′ by adjusting the edges between clusters (i.e., equivalence classes). The core idea is to require the equivalence class nodes (i.e., cluster nodes or supernodes in G ′ ) to have the same constraints as any two nodes in the original graph G. For example, if there can be at most two edges of a certain type between nodes in G, there can be at most two edges of a certain type between the cluster nodes in G ′ .
 
-#### *2.3.3 General Privacy Protection Mechanisms*
-
-Besides the protections that are designed deliberately for the node identity disclosure and link re-identification risks, there are also other protection mechanisms that are not designed for a specific kind of attacker but for the general and comprehensive scenario, such as randomized mechanisms with constraints and differential privacy schema. Next, we will discuss these research works.
+####*2.3.3 General Privacy Protection Mechanisms*Besides the protections that are designed deliberately for the node identity disclosure and link re-identification risks, there are also other protection mechanisms that are not designed for a specific kind of attacker but for the general and comprehensive scenario, such as randomized mechanisms with constraints and differential privacy schema. Next, we will discuss these research works.
 
 Graph Summarization [\[29\]](#page-14-3). This method aims to publish a set of anonymized graphs G ′ given an original graph G, through the graph summarization manner. To be specific, this method relies on a pre-defined partitioning method to partition the original graph G into several clusters, then each cluster will just serve as a node in the anonymized graph G ′ . The selection of connecting nodes in G ′ results in the variety of G ′ , which means that a sequence of G ′ will appear with a different edge connecting strategy. The detailed connection strategy can be referred to [\[29\]](#page-14-3).
 
@@ -192,21 +180,17 @@ privacy [\[1\]](#page-13-3), another way to preserve privacy is targeting the gr
 
 Node-level Differential Privacy Graph Generation. Compared with edge-level differential privacy, node-level differential privacy is relatively difficult to be formalized and solve. In [\[39\]](#page-15-9), authors contribute several theoretical nodelevel differential privacy solutions such as Flow-based Lipschitz extension and LP-based Lipschitz extensions. But they all focus on realizing part of the graph properties instead of the graph data itself, such as anonymized degree distribution, subgraph counting, etc. The same kind of research flavor also appeared in relevant node-level differential privacy works like [\[6;](#page-13-4) [39;](#page-15-9) [66\]](#page-16-10). Again, differential privacy mechanisms on graphs is a large and comprehensive topic, a more detailed introduction and extensive literature review can be found in [\[36\]](#page-15-0).
 
-## 2.4 Other Aspects of Graph Anonymization
+## 4 Other Aspects of Graph Anonymization
 
 Here, we would also like to review several graph anonymization techniques, but the difference from the majority mentioned above is that: they are not publishing the anonymized graph G ′ but anonymize some non-trivial and graph statistics of the original graph G and release them to the public [\[88;](#page-17-5) [105;](#page-18-10) [74;](#page-17-6) [81\]](#page-17-7). The central requirement for protecting the graph statistics is that some scalar graph parameters are essential to describe the graph topology (e.g., degree distributions) or even reconstruct the graph topology (e.g., the number of nodes and edge connection probability in the Erdos-Renyi graph). To this end, some methods focus on protecting the important graph parameters and their statistics before releasing them. For example, the spectrum of a graph (i.e., eigen-decomposition of the graph Laplacian matrix) can preserve many important graph properties such as topological connections, low-pass or high-pass graph single filters, etc. Therefore, in [\[88\]](#page-17-5), the authors proposed to permute the eigen-decomposition under the differential privacy and then release the permuted parameters. To be specific, given the original eigenvalues and eigenvectors, certain calibrated random noises are sampled and added to them under the differential privacy constraint. Under the same protection mechanism, i.e., differential privacy, the protection goal is set to be the number of occurrences of subgraphs in [\[105\]](#page-18-10), the sequence of degree distribution in directed graphs and undirected graphs in [\[74\]](#page-17-6), and the edge connection probability of random graphs in [\[81\]](#page-17-7).
 
-## 2.5 Challenges and Future Opportunities
+## 5 Challenges and Future Opportunities
 
 After introducing different graph anonymization techniques, we would like to share some open questions and corresponding challenges.
 
-#### *2.5.1 Preserving Privacy for Temporal Graphs*
+###*2.5.1 Preserving Privacy for Temporal Graphs*As discussed above, most privacy-preserving graph anonymization methods still consider the input graphs as static. However, in complex real-world scenarios, the graphs are usually evolving over time [\[22;](#page-14-6) [114;](#page-18-11) [17;](#page-14-7) [18\]](#page-14-8), which brings critical challenges to the current privacy-preserving static graph generation process. In other words, the time domain enriches the node attribute dimension and may also dictate the attribute distribution, which leads to increased exposure risk. For example, some graphs contain multiple dynamics and accurately representing them could contribute to graph tasks like classification [\[115;](#page-18-12) [16\]](#page-14-9). But, the existence of various dynamics increases the probability of being unique and enlarges the leaking risk.
 
-As discussed above, most privacy-preserving graph anonymization methods still consider the input graphs as static. However, in complex real-world scenarios, the graphs are usually evolving over time [\[22;](#page-14-6) [114;](#page-18-11) [17;](#page-14-7) [18\]](#page-14-8), which brings critical challenges to the current privacy-preserving static graph generation process. In other words, the time domain enriches the node attribute dimension and may also dictate the attribute distribution, which leads to increased exposure risk. For example, some graphs contain multiple dynamics and accurately representing them could contribute to graph tasks like classification [\[115;](#page-18-12) [16\]](#page-14-9). But, the existence of various dynamics increases the probability of being unique and enlarges the leaking risk.
-
-#### *2.5.2 Preserving Privacy for Heterogeneous Graphs*
-
-During the node identity disclosure and link re-identification, it can be observed that the majority of background knowledge is solely from structural queries, which is already forceful enough. In heterogeneous graphs [\[76;](#page-17-8) [21\]](#page-14-10), the abundant node and edge features increase the risk of leaking sensitive information and bring challenges to protection mechanisms, especially the heterogeneous graphs start to evolve [\[23;](#page-14-11) [48\]](#page-15-10).
+####*2.5.2 Preserving Privacy for Heterogeneous Graphs*During the node identity disclosure and link re-identification, it can be observed that the majority of background knowledge is solely from structural queries, which is already forceful enough. In heterogeneous graphs [\[76;](#page-17-8) [21\]](#page-14-10), the abundant node and edge features increase the risk of leaking sensitive information and bring challenges to protection mechanisms, especially the heterogeneous graphs start to evolve [\[23;](#page-14-11) [48\]](#page-15-10).
 
 To the best of our knowledge, how to generate privacypreserving heterogeneous or temporal graphs remains open.
 
@@ -214,7 +198,7 @@ To the best of our knowledge, how to generate privacypreserving heterogeneous or
 - If the corresponding sensitive information is determined, what techniques are effective for protecting structures and features in the heterogeneous or time-evolving environment?
 - Last but not least, if the corresponding protection mechanism is designed, how to maintain the generation utility simultaneously with privacy constraints?
 
-# 3. GRAPH DATA PRIVACY-PRESERVING COMPUTATION
+# GRAPH DATA PRIVACY-PRESERVING COMPUTATION
 
 In recent years, graph machine learning has become increasingly popular due to the abundance of graph-structured data in various domains, such as social networks, recommendation systems, and bioinformatics. However, graph data is usually distributed in multiple data sources, and each data owner does not have enough data to train satisfactory machine learning models, which require a massive amount of graph data. For example, biochemical industries may wish to collaboratively train a graph neural network model to predict the property of molecules. While we introduce one solution with privacy-preserving graph data generation in the last section, another solution is to enable multi-party computation without exchanging raw data. In this section, we introduce federated learning (FL) [\[58\]](#page-16-11), a machine learning system where multiple clients (i.e., data owners) collaboratively train machine learning models without exchanging their raw data. In particular, we first introduce the framework of federated learning and its applications with graph data in Subsection [3.1.](#page-7-0) Then we introduce important FL algorithms under three representative graph federated learning scenarios: graph-level FL (Subsection [3.2\)](#page-8-0), subgraphlevel FL (Subsection [3.3\)](#page-10-0), and node-level FL (Subsection [3.4\)](#page-10-1). Finally, we summarize the challenges of future opportunities of graph FL in Section [3.5.](#page-11-0)
 
@@ -222,9 +206,7 @@ In recent years, graph machine learning has become increasingly popular due to t
 
 Federated learning (FL) [\[58\]](#page-16-11) is a distributed learning system where multiple clients (i.e., data sources) collaborate to train a machine learning model under the orchestration of the central server (i.e., the service provider), while keeping their data decentralized and private [\[37\]](#page-15-1). This subsection provides an exposition on the FL framework, followed by an overview of the application of federated learning on graph data.
 
-#### *3.1.1 Federated Learning Framework*
-
-A typical FL framework has one central server and N clients, each with its own dataset Di. The main steps can be summarized as follows:
+###*3.1.1 Federated Learning Framework*A typical FL framework has one central server and N clients, each with its own dataset Di. The main steps can be summarized as follows:
 
 - 1. Parameter broadcasting. The server broadcasts the current global model to (selected) clients.
 - 2. Local update. Each client locally trains its local model.
@@ -244,9 +226,7 @@ parameters, which are updated based on the local data of each client. By doing s
 
 FL can be equipped with differential privacy mechanisms [\[59;](#page-16-12) [91\]](#page-17-9) to enhance privacy protection. As described in the last section, differential privacy is a technique that involves adding noise to data in order to obscure individual contributions while still maintaining overall data patterns. However, different from graph generation, where the noise is added to the data (e.g., node feature, edges, etc), in the context of FL, the noise is added to the uploaded and downloaded model parameters. This ensures that even if an attacker were to obtain the model parameters, they would not be able to accurately infer the raw data from the model parameter. By adding moderate noise to the parameters, the model's accuracy may be slightly reduced, but the overall performance remains comparable to non-private models. In summary, by using differential privacy mechanisms, FL can achieve even better privacy protection by making it harder for attackers to identify the sensitive data contributed by individual clients.
 
-## *3.1.2 Application of Graph Federated Learning*
-
-In this part, we introduce important applications of federated learning on graph data. Roughly, we survey three representative application scenarios: graph-level FL, subgraphlevel FL, and node-level FL.
+##*3.1.2 Application of Graph Federated Learning*In this part, we introduce important applications of federated learning on graph data. Roughly, we survey three representative application scenarios: graph-level FL, subgraphlevel FL, and node-level FL.
 
 1. Graph-level FL: Each client has one or several graphs, while different graphs are isolated and independent. One typical application of graph-level FL is for drug discovery [\[31\]](#page-15-12), where biochemical industries collaborate to train a graph neural network model predicting the property of molecules. Each molecule is a graph with basic atoms as nodes and chemical bonds as edges.
 
@@ -265,9 +245,7 @@ The biggest challenge of graph-level FL is the non-identical distribution among 
 
 Next, we will introduce algorithms for graph-level FL in two parts: global federated learning and personalized federated learning. Since graph-level FL is a natural extension of traditional FL, we will cover both general FL algorithms and graph FL algorithms.
 
-### *3.2.1 Global Federated Learning*
-
-Global federated learning (GFL) aims to train a shared global model for all clients. FedAvg [\[58\]](#page-16-11) provides an initial solution for training GNNs with isolated graphs from multiple clients.
+##*3.2.1 Global Federated Learning*Global federated learning (GFL) aims to train a shared global model for all clients. FedAvg [\[58\]](#page-16-11) provides an initial solution for training GNNs with isolated graphs from multiple clients.
 
 <span id="page-9-0"></span>![](_page_9_Figure_0.jpeg)
 
@@ -279,9 +257,7 @@ Data-sharing. To tackle the non-IID challenge to FL optimization, a simple but e
 
 Modifying local update. Another line of research works modifies the local update procedure to alleviate weight divergence without changing the communication protocol of FL. FedProx [\[47\]](#page-15-11) adds a proximal term to the local objective to stabilize the training procedure. The proximal term is the squared L2 distance between the current global model and the local model, which prevents the local model from drifting too far from the global model. SCAFFOLD [\[38\]](#page-15-15) estimates how local updates deviate from the global update, and it then corrects the local updates via variance reduction. Based on the intuition that the global model can learn better representation than local models, MOON [\[45\]](#page-15-16) conducts contrastive learning at the model level, encouraging the agreement of representation learned by the local and global models.
 
-#### *3.2.2 Personalized Federated Learning*
-
-While the aforementioned algorithms can accelerate the model optimization for GFL, one model may not always be ideal for all participating clients [\[72\]](#page-16-14). Recently, personalized federated learning (PFL) has been proposed to tackle this challenge. PFL allows FL clients to collaboratively train machine learning models while each client can have different model parameters.
+###*3.2.2 Personalized Federated Learning*While the aforementioned algorithms can accelerate the model optimization for GFL, one model may not always be ideal for all participating clients [\[72\]](#page-16-14). Recently, personalized federated learning (PFL) has been proposed to tackle this challenge. PFL allows FL clients to collaboratively train machine learning models while each client can have different model parameters.
 
 Clustered FL. In clustered FL, clients are partitioned into non-overlapping groups. Clients in the same group will share the same model, while clients from different groups can have different model parameters. In IFCA [\[27\]](#page-14-13), k models are initialized and transmitted to all clients in each communication round, and each client picks the model with the smallest loss value to optimize. FedCluster [\[72\]](#page-16-14) iteratively bipartition the clients based on their cosine similarity of gradients. GCFL [\[95\]](#page-18-16) generalizes this idea to graph data, enabling collaborative training with graphs from different domains. Observing that the gradients of GNNs can be fluctuating, GCFL+ [\[95\]](#page-18-16) uses a gradient sequence-based clustering mechanism to form more robust clusters.
 
@@ -301,13 +277,9 @@ The biggest challenge for subgraph-level FL is to handle cross-client edges. In 
 
 In this subsection, we will mainly focus on two scenarios. In the first part, we introduce algorithms when the hidden entire graph is given but stored separately in different clients. In the second part, we consider a more challenging setting: the cross-client edges are missing, and we cannot simply concatenate local graphs to reconstruct the entire graph losslessly. We focus on how to generate these missing edges or missing neighbors for each node.
 
-#### *3.3.1 Cross-client Propagation*
+###*3.3.1 Cross-client Propagation*When the cross-client edges are available, the major challenge is to enable cross-client information propagation without leaking raw data. FedGraph [\[8\]](#page-13-8) designs a novel crossclient convolution operation to avoid sharing raw data across clients. It avoids exchanging representations in the first GCN layer. Similarly, FedPNS [\[11\]](#page-14-17) control the number of neighbor sampling to reduce communication costs. Fed-Cog [\[43\]](#page-15-13) proposes graph decoupling operation, splitting local graph to internal graph and border graph. The graph convolution is accordingly divided into two sequential steps: internal propagation and border propagation. In this process, each client sends the intermediate representation of internal nodes to other clients. Considering that directly exchanging feature representations between clients can leak private information. In user-item graphs, FedPerGNN [\[92\]](#page-17-15) design a privacy-preserving user-item graph expansion protocol. Clients upload encrypted item IDs to the trusted server, and the server matches the ciphertexts of item IDs to find clients with overlapping item IDs. DP-FedRec [\[65\]](#page-16-18) uses private set intersection to exchange the edges information between clients and applies differential privacy techniques to further protect privacy. Different from the above methods, FedGCN [\[98\]](#page-18-19) does not rely on communication between clients. Instead, it transmits all the information needed to train a GCN between the server and each client, only once before the training. Moreover, each node at a given client only needs to know the accumulated information about the node's neighbors, which reduces possible privacy leakage.
 
-When the cross-client edges are available, the major challenge is to enable cross-client information propagation without leaking raw data. FedGraph [\[8\]](#page-13-8) designs a novel crossclient convolution operation to avoid sharing raw data across clients. It avoids exchanging representations in the first GCN layer. Similarly, FedPNS [\[11\]](#page-14-17) control the number of neighbor sampling to reduce communication costs. Fed-Cog [\[43\]](#page-15-13) proposes graph decoupling operation, splitting local graph to internal graph and border graph. The graph convolution is accordingly divided into two sequential steps: internal propagation and border propagation. In this process, each client sends the intermediate representation of internal nodes to other clients. Considering that directly exchanging feature representations between clients can leak private information. In user-item graphs, FedPerGNN [\[92\]](#page-17-15) design a privacy-preserving user-item graph expansion protocol. Clients upload encrypted item IDs to the trusted server, and the server matches the ciphertexts of item IDs to find clients with overlapping item IDs. DP-FedRec [\[65\]](#page-16-18) uses private set intersection to exchange the edges information between clients and applies differential privacy techniques to further protect privacy. Different from the above methods, FedGCN [\[98\]](#page-18-19) does not rely on communication between clients. Instead, it transmits all the information needed to train a GCN between the server and each client, only once before the training. Moreover, each node at a given client only needs to know the accumulated information about the node's neighbors, which reduces possible privacy leakage.
-
-## *3.3.2 Missing Neighbors*
-
-For some applications, the cross-client edges can be missing or not stored in any clients. Notice that although each client also holds a disjoint graph in graph-level FL, graph-level FL and subgraph-level FL with missing neighbors are substantially different. For graph-level FL, there are essentially no cross-client edges. For example, there are no chemical bonds between two molecules from different corporations' datasets. However, for subgraph-level FL, the cross-client edges exist, but are missing in certain applications. We may get suboptimal GNN models if ignoring the existence of crossclient edges. Therefore, the major challenge is to reconstruct these missing edges, or reconstruct missing neighbors for each node.
+##*3.3.2 Missing Neighbors*For some applications, the cross-client edges can be missing or not stored in any clients. Notice that although each client also holds a disjoint graph in graph-level FL, graph-level FL and subgraph-level FL with missing neighbors are substantially different. For graph-level FL, there are essentially no cross-client edges. For example, there are no chemical bonds between two molecules from different corporations' datasets. However, for subgraph-level FL, the cross-client edges exist, but are missing in certain applications. We may get suboptimal GNN models if ignoring the existence of crossclient edges. Therefore, the major challenge is to reconstruct these missing edges, or reconstruct missing neighbors for each node.
 
 FedSAGE [\[106\]](#page-18-20) first defines the missing neighbors' challenge, and proposes a method the generate pseudo neighbors for each node. It uses existing subgraphs to train a neighbors generator and generate one-hop neighbors for each client to mend the graph. Since missing neighbors are generated locally, no feature exchange is required between clients after the local subgraphs are mended. However, the training of neighbor generators requires cross-client hidden representation exchanges. Similarly, FedNI [\[63\]](#page-16-19) uses a graph GAN model to generate missing nodes and edges.
 
@@ -342,17 +314,13 @@ One typical application of node-level FL is the Internet of Things (IOT) devices
 
 In this subsection, we will first introduce algorithms where the graph models communication constraints among clients. In these works, there is no central server, and clients can only exchange information along edges. Then, we will introduce algorithms where the graph models the relationship between clients' distributions. In these works, although a central server is available, the graph among clients models distributional similarity or dependency among clients, potentially contributes to the model performance.
 
-#### *3.4.1 Graph as Communication Network*
-
-Traditional FL relies on a central server to enable communication among clients. Each client trusts the central server and uploads their model update to the server. However, in many scenarios, a trusted central server may not exist. Even when a central server exists, it may be expensive for clients to communicate with the server. Therefore, serverless FL (a.k.a. peer-to-peer FL) has been studied to relieve communication constraints.
+##*3.4.1 Graph as Communication Network*Traditional FL relies on a central server to enable communication among clients. Each client trusts the central server and uploads their model update to the server. However, in many scenarios, a trusted central server may not exist. Even when a central server exists, it may be expensive for clients to communicate with the server. Therefore, serverless FL (a.k.a. peer-to-peer FL) has been studied to relieve communication constraints.
 
 The standard solution for serverless FL is fully decentral-
 
 ized FL [\[42;](#page-15-18) [41\]](#page-15-19), where each client only averages its model parameter with its neighbors. D-FedGNN [\[62\]](#page-16-21) uses these techniques to train GNN models. SpreadGNN [\[31\]](#page-15-12) generalizes this framework to personalized FL, where each client has non-IID data and a different label space.
 
-#### *3.4.2 Graph as Distribution Similarities*
-
-When the central server is available, a graph of clients may still be beneficial when it models distributional relationships among clients. When edges link clients with highly similar distributions, parameter sharing along edges can potentially improve the model performance for both clients. When edges link clients with data dependency, information exchange along edges can even provide additional features for inference.
+###*3.4.2 Graph as Distribution Similarities*When the central server is available, a graph of clients may still be beneficial when it models distributional relationships among clients. When edges link clients with highly similar distributions, parameter sharing along edges can potentially improve the model performance for both clients. When edges link clients with data dependency, information exchange along edges can even provide additional features for inference.
 
 FedGS [\[89\]](#page-17-16) models the data correlations of clients with a data-distribution-dependency graph, and improves the unbiasedness of the client sampling process. Meanwhile, SFL [\[9\]](#page-13-9) assumes a pre-defined client relation graph stored on the server, and the client-centric model aggregation is conducted along the relation graph's structure. GraphFL [\[108\]](#page-18-22) considers client-side information to encourage similar clients to have similar models. BiG-Fed [\[96\]](#page-18-23) applies graph convolution on the client graph, so each client's prediction can benefit from its neighbors with highly correlated data. Finally, [\[86\]](#page-17-18) designs a client sampling technique considers both communication cost and distribution similarity.
 
@@ -362,19 +330,15 @@ Finally, we summarize the official implementation of FL algorithms and useful re
 
 In this part, we present several limitations in current works and provide open problems for future research.
 
-#### *3.5.1 Model Heterogeneity for Graph-Level FL*
+###*3.5.1 Model Heterogeneity for Graph-Level FL*In previous works of graph-level FL, although each FL client usually has different data distribution it is usually assumed that the model architecture is shared across all clients. However, the optimal architecture for different clients can be different. For example, a well-known issue in GNNs is the over-smoothing problem. When the number of graph convolutional layers is higher than the diameter of the graph, GNN models may learn similar representations for all nodes in the graph, which harms the model performance. When each FL clients hold a substantially different size of graphs, it is highly likely that the optimal depth of the GNN model is different for them.
 
-In previous works of graph-level FL, although each FL client usually has different data distribution it is usually assumed that the model architecture is shared across all clients. However, the optimal architecture for different clients can be different. For example, a well-known issue in GNNs is the over-smoothing problem. When the number of graph convolutional layers is higher than the diameter of the graph, GNN models may learn similar representations for all nodes in the graph, which harms the model performance. When each FL clients hold a substantially different size of graphs, it is highly likely that the optimal depth of the GNN model is different for them.
+####*3.5.2 Avoiding Cross-Client Transmission for Subgraph-Level FL*Most of the previous subgraph-level FL algorithms highly rely on direct information exchange along cross-client edges. While such operations are natural variants of graph convolution, such operations also raise privacy concerns. Moreover, different from traditional FL where each client downloads aggregated model parameters that reveal the population, feature exchange along the edges can expose information about individuals. It would be beneficial if the cross-client transmission can be avoided without greatly degrading the model.
 
-#### *3.5.2 Avoiding Cross-Client Transmission for Subgraph-Level FL*
-
-Most of the previous subgraph-level FL algorithms highly rely on direct information exchange along cross-client edges. While such operations are natural variants of graph convolution, such operations also raise privacy concerns. Moreover, different from traditional FL where each client downloads aggregated model parameters that reveal the population, feature exchange along the edges can expose information about individuals. It would be beneficial if the cross-client transmission can be avoided without greatly degrading the model.
-
-## 4. ENVISIONING
+## ENVISIONING
 
 In this section, we analyze the current developments and limitations of privacy-preserving graph machine learning, and explain the necessity of combining them. In addition, we identify a number of unsolved research directions that could be addressed to improve the privacy of graph machine learning systems.
 
-## 4.1 Limitation of Current Techniques
+## 1 Limitation of Current Techniques
 
 In the previous two sections, we introduced privacy-preserving graph data generation and computation, respectively. However, both techniques have their own limitations.
 
@@ -383,7 +347,7 @@ In the previous two sections, we introduced privacy-preserving graph data genera
 
 also leak private information. Therefore, protecting the raw data from being reconstructed is essential to federated learning systems.
 
-## 4.2 Combination of Privacy-Preserving Graph Data Generation and Computation
+## 2 Combination of Privacy-Preserving Graph Data Generation and Computation
 
 To address the limitations of current privacy-preserving techniques, it is essential to combine privacy graph data generation with the graph federated learning frameworks, as shown in Figure [5.](#page-12-0) This approach can provide an effective solution to the privacy preservation issues of graph machine learning models.
 
@@ -395,29 +359,27 @@ The combination of privacy graph data generation and graph federated learning fr
 
 Figure 5: Privacy-preserving Graph Data with Privacypreserving Computation.
 
-## 4.3 Future Directions
+## 3 Future Directions
 
 Combining privacy-preserving data generation and computation is a promising approach to protect individual privacy while maintaining model utility in machine learning. However, it also poses several challenges and possible future directions.
 
-#### *4.3.1 Distribution of Privacy Budget*
+###*4.3.1 Distribution of Privacy Budget*When combining privacy-preserving data generation with computation, noises are added to both raw data and model parameters. However, it is still unclear how to distribute the privacy budget between data generation and computation in a way that optimizes the privacy-utility trade-off. In this approach, noises are added to the graph data during data generation and to the model parameters during data computation (i.e., federated learning), which results in an overall reduction in accuracy. However, while the privacy analysis for data generation is directly defined on the data space, the privacy analysis for federated learning requires transforming the change on parameter space back to data space. Such transformation requires estimating the sensitivity of a machine learning algorithm (i.e., how the change of a data point affects the learned parameters), which is only loosely bounded in current works [\[59;](#page-16-12) [91\]](#page-17-9). A more precise analysis of privacy is required to better understand the impact of privacy budget allocation on the overall privacyutility trade-off.
 
-When combining privacy-preserving data generation with computation, noises are added to both raw data and model parameters. However, it is still unclear how to distribute the privacy budget between data generation and computation in a way that optimizes the privacy-utility trade-off. In this approach, noises are added to the graph data during data generation and to the model parameters during data computation (i.e., federated learning), which results in an overall reduction in accuracy. However, while the privacy analysis for data generation is directly defined on the data space, the privacy analysis for federated learning requires transforming the change on parameter space back to data space. Such transformation requires estimating the sensitivity of a machine learning algorithm (i.e., how the change of a data point affects the learned parameters), which is only loosely bounded in current works [\[59;](#page-16-12) [91\]](#page-17-9). A more precise analysis of privacy is required to better understand the impact of privacy budget allocation on the overall privacyutility trade-off.
-
-#### *4.3.2 Parameter Information Disentanglement*
+####*4.3.2 Parameter Information Disentanglement*
 
 Another future challenge when combining privacy-preserving data generation and computation is the disentanglement of task-relevant and task-irrelevant information. Currently, the noise added to the model parameters is isotropic, meaning that task-relevant and task-irrelevant information are equally protected. However, not all information is equally important for model utility. If we can identify which information has a significant influence on model performance, we can distribute more privacy budget to this information while allocating less privacy budget to task-irrelevant information. This can result in a better privacy-utility trade-off. Disentangling task-relevant and task-irrelevant information would require a more sophisticated analysis of model architecture and data characteristics to determine which features contribute most to model performance.
 
-## 5. CONCLUSION
+## CONCLUSION
 
 In this paper, we review the research for privacy-preserving techniques for graph machine learning from the data to the computation, considering the situation where the data need to be shared or are banned from being transmitted. To be specific, for privacy-preserving graph data generation techniques, we analyze the forceful attackers first and then introduce how corresponding protection methods are proposed to defend attackers. For the privacy graph data computation, we circle around the federated learning setting and discuss how the general federated learning framework applied to graph data and what the potential challenges originated from non-IIDness, and how the nascent research works address them. In the end, we analyze the current limitation and propose several promising research directions.
 
-## 6. ACKNOWLEDGEMENTS
+## ACKNOWLEDGEMENTS
 
 This work is supported by the National Science Foundation (1947203, 2117902, 2137468, 1947135, 2134079, and 1939725), the U.S. Department of Homeland Security (2017- ST-061-QA0001, 17STQAC00001-06-00, and 17STQAC00001- 03-03), DARPA (HR001121C0165), NIFA (2020-67021-32799), and ARO (W911NF2110088). The views and conclusions are those of the authors and should not be interpreted as
 
 representing the official policies of the funding agencies or the government.
 
-## 7. REFERENCES
+## REFERENCES
 
 - <span id="page-13-3"></span>[1] M. Abadi, A. Chu, I. J. Goodfellow, H. B. McMahan, I. Mironov, K. Talwar, and L. Zhang. Deep learning with differential privacy. In SIGSAC 2016, 2016.
 - <span id="page-13-6"></span>[2] M. G. Arivazhagan, V. Aggarwal, A. K. Singh, and S. Choudhary. Federated learning with personalization layers. CoRR, abs/1912.00818, 2019.

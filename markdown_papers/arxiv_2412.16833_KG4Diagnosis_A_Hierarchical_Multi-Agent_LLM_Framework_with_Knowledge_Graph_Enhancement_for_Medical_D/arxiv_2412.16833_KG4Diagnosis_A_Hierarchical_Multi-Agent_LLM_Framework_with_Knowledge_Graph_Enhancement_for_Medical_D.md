@@ -1,3 +1,5 @@
+<!-- cite_key: zuosupsup2023 -->
+
 # KG4Diagnosis: A Hierarchical Multi-Agent LLM Framework with Knowledge Graph Enhancement for Medical Diagnosis
 
 Kaiwen Zuo<sup>1</sup> , Yirui Jiang2, 4, Fan Mo3\*, Pietro Lio` 3
@@ -6,7 +8,7 @@ Kaiwen Zuo<sup>1</sup> , Yirui Jiang2, 4, Fan Mo3\*, Pietro Lio` 3
 
 Kaiwen.Zuo@warwick.ac.uk, yirui.jiang@cranfield.ac.uk, yirui.jiang@said.oxford.edu, {fm651,pl219}@cam.ac.uk
 
-#### Abstract
+## Abstract
 
 Integrating Large Language Models (LLMs) in healthcare diagnosis demands systematic frameworks that can handle complex medical scenarios while maintaining specialized expertise. We present KG4Diagnosis, a novel hierarchical multi-agent framework that combines LLMs with automated knowledge graph construction, encompassing 362 common diseases across medical specialties. Our framework mirrors real-world medical systems through a two-tier architecture: a general practitioner (GP) agent for initial assessment and triage, coordinating with specialized agents for in-depth diagnosis in specific domains. The core innovation lies in our end-to-end knowledge graph generation methodology, incorporating: (1) semantic-driven entity and relation extraction optimized for medical terminology, (2) multi-dimensional decision relationship reconstruction from unstructured medical texts, and (3) human-guided reasoning for knowledge expansion. KG4Diagnosis serves as an extensible foundation for specialized medical diagnosis systems, with capabilities to incorporate new diseases and medical knowledge. The framework's modular design enables seamless integration of domain-specific enhancements, making it valuable for developing targeted medical diagnosis systems. We provide architectural guidelines and protocols to facilitate adoption across medical contexts.
 
@@ -68,7 +70,7 @@ where fseg is a function that maps a document d<sup>i</sup> to a set of data chu
 
 Stage 2: Semantic-driven Entity and Relationship Extraction The pipeline leverages BioBERT's contextual embeddings along with medical ontologies, such as SNOMED-CT and UMLS, to extract entities and relationships from the segmented data chunks. The process of extraction can be represented as follows:
 
-• *Entity Extraction:* The set of extracted entities E is defined as:
+• *Entity Extraction:*The set of extracted entities E is defined as:
 
 $$
 E = \{e_1, e_2, \ldots, e_n\}
@@ -77,16 +79,13 @@ $$
 ![](_page_2_Figure_0.jpeg)
 
 Figure 1: An overview of the KG4Diagnosis framework. The system includes the following components: (1) input medical text is segmented into chunks and processed through entity extraction and relation extraction modules; (2) extracted entities and relations are stored in dedicated databases; (3) these databases are utilized to construct the medical KG; (4) the medical KG is integrated with LLMs and MAS to enhance diagnostic reasoning; (5) diagnostic responses are delivered to user endpoints, supported by human-guided reasoning. The framework highlights a structured approach to medical text processing, accurate knowledge graph construction, and collaborative reasoning for advanced diagnostic outcomes.
-
-**Diagnosis Example**
-
-![](_page_2_Figure_3.jpeg)
+**Diagnosis Example**![](_page_2_Figure_3.jpeg)
 
 Figure 2: An example of a diagnostic conversation illustrating interactions between a patient, a doctor, and an AI medical assistant. The patient describes symptoms, the doctor asks clarifying questions, and the AI provides explanations and suggestions. This dialogue highlights the collaborative diagnostic process and how AI systems can assist in providing personalized medical advice.
 
 where E represents the set of medical entities, such as diseases, drugs, symptoms, etc.
 
-• *Relationship Extraction:* The set of relationships R be-
+•*Relationship Extraction:*The set of relationships R be-
 
 tween entities e<sup>i</sup> and e<sup>j</sup> is represented as:
 
@@ -111,7 +110,7 @@ The construction of the knowledge graph is based on the extracted entities and r
 $$
 G = (V, E)
 $$
- where  $V = E$  and  $E = R$ 
+ where  $V = E$  and  $E = R$
 
 The nodes represent entities, and the edges represent relationships.
 
@@ -119,8 +118,8 @@ Stage 4: LLM-Augmented Knowledge Graph We utilize LLMs to enhance the medical kn
 
 Stage 5: Human-Guided Reasoning In this final stage, expert validation is crucial in ensuring the quality and accuracy of the constructed relationships and entities in the knowledge graph. The expert validation process involves active learning and reinforcement learning techniques to expand the graph with verified and reliable information.
 
-- *Expert Validation of Relationships:* Medical experts manually review the extracted relationships R between entities to validate their clinical relevance. If a relationship (e<sup>i</sup> , r, e<sup>j</sup> ) is confirmed to be accurate, it is retained in the knowledge graph. If a relationship is deemed invalid or uncertain, it is either corrected or removed.
-- *Graph Expansion with Expert-Verified Relationships:* After validation, the knowledge graph is expanded by incorporating new, expert-verified entities and relationships. The validated graph is enriched with these confirmed connections, improving the graph's reliability and comprehensiveness.
+-*Expert Validation of Relationships:*Medical experts manually review the extracted relationships R between entities to validate their clinical relevance. If a relationship (e<sup>i</sup> , r, e<sup>j</sup> ) is confirmed to be accurate, it is retained in the knowledge graph. If a relationship is deemed invalid or uncertain, it is either corrected or removed.
+-*Graph Expansion with Expert-Verified Relationships:*After validation, the knowledge graph is expanded by incorporating new, expert-verified entities and relationships. The validated graph is enriched with these confirmed connections, improving the graph's reliability and comprehensiveness.
 
 $$
 G_{\text{expanded}} = G \cup \text{Validated entities and Relationships}
@@ -283,7 +282,7 @@ This paper presents KG4Diagnosis, a novel hierarchical multi-agent framework tha
 
 ## References
 
-Abdulla, K.; Mukherjee, S.; and Ranganathan, P. 2023. Integrating Multimodal Data for Enhancing Knowledge Graphs: Current Challenges and Opportunities. *Journal of Big Data*, 10(1): 1–15.
+Abdulla, K.; Mukherjee, S.; and Ranganathan, P. 2023. Integrating Multimodal Data for Enhancing Knowledge Graphs: Current Challenges and Opportunities.*Journal of Big Data*, 10(1): 1–15.
 
 Al Khatib, H. S.; Neupane, S.; Kumar Manchukonda, H.; Golilarz, N. A.; Mittal, S.; Amirlatifi, A.; and Rahimi, S. 2024. Patient-centric Knowledge Graphs: A Survey of Current Methods, Challenges, and Applications. *Frontiers in Artificial Intelligence*, 7: 1388479.
 

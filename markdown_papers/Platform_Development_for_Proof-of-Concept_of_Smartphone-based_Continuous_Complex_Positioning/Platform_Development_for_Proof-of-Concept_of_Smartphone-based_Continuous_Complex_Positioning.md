@@ -1,28 +1,27 @@
+<!-- cite_key: ji2022 -->
+
 # Platform Development for Proof-of-Concept of Smartphone-based Continuous Complex Positioning
 
-Seonghun Seo *Mobility UX Research Section ETRI* Daejeon, Korea ssh@etri.re.kr
+Seonghun Seo *Mobility UX Research Section ETRI*Daejeon, Korea ssh@etri.re.kr
 
-Kyunghyun Park *Mobility UX Research Section ETRI* Daejeon, Korea hareton@etri.re.kr
+Kyunghyun Park*Mobility UX Research Section ETRI*Daejeon, Korea hareton@etri.re.kr
 
-Daesub Yoon *Mobility UX Research Section ETRI* Daejeon, Korea eyetracker@etri.re.kr
+Daesub Yoon*Mobility UX Research Section ETRI*Daejeon, Korea eyetracker@etri.re.kr
 
-JaeJun Yoo *Mobility UX Research Section ETRI* Daejeon, Korea jjryu@etri.re.kr
+JaeJun Yoo*Mobility UX Research Section ETRI*Daejeon, Korea jjryu@etri.re.kr
 
-Yonghyun Kim *Mobility UX Research Section ETRI* Daejeon, Korea yhkeen@etri.re.kr
+Yonghyun Kim*Mobility UX Research Section ETRI*Daejeon, Korea yhkeen@etri.re.kr
 
-Yangkoo Lee *Mobility UX Research Section ETRI* Daejeon, Korea yk\_lee@etri.re.kr
+Yangkoo Lee*Mobility UX Research Section ETRI*Daejeon, Korea yk\_lee@etri.re.kr
 
-Jiwoo Han *Mobility UX Research Section ETRI* Daejeon, Korea chau@etri.re.kr
-
+Jiwoo Han*Mobility UX Research Section ETRI*Daejeon, Korea chau@etri.re.kr
 *Abstract***—The rapid evolution and widespread adoption of Location-Based Services (LBS) have fueled an unprecedented demand for personal location data. This need spans both indoor and outdoor environments, with smartphones emerging as the primary tool for processing such information. However, significant disparities exist in the types and characteristics of sensors available for indoor versus outdoor use, as well as in the methodologies employed for sensor data processing. Furthermore, the inherent asynchronous architecture of smartphones poses substantial challenges in effectively processing and integrating diverse positioning data sources. This study proposes the development of a cutting-edge Proof of Concept (PoC) platform designed to enable seamless positioning technology on smartphones across both indoor and outdoor settings.**
 
-*Keywords—seamless positioning, smartphones, GNSS, Wi-Fi, BLE, IMU*
-
-### I. INTRODUCTION
+*Keywords—seamless positioning, smartphones, GNSS, Wi-Fi, BLE, IMU*## I. INTRODUCTION
 
 The growing demand for precise positioning has catalyzed significant advancements in both indoor and outdoor localization technologies [1][2][3]. However, a substantial body of research is now focused on the seamless integration of these technologies to achieve uninterrupted positioning across diverse environments [4][5][6]. Continuous complex positioning systems increasingly leverage smartphones, capitalizing on their ability to harness data from a multitude of sensors and wireless signals. This paper presents the conceptualization and implementation of an innovative smartphone-based Proof of Concept (PoC) platform. This platform is designed to utilize an array of sensors and wireless signals, facilitating comprehensive research into continuous and complex positioning scenarios.
 
-#### II. RELATED WORK
+### II. RELATED WORK
 
 Indoor positioning technologies often necessitate additional infrastructure to provide specific signals. Reference [1] delves into various RF-based techniques for indoor positioning systems (IPS), encompassing Wi-Fi, Bluetooth Low Energy (BLE), Ultra-Wideband (UWB), and Radio-Frequency Identification (RFID). This research examines complex indoor systems that integrate these techniques to enhance accuracy and reliability. A separate study introduces a hybrid positioning approach combining Long-Term Evolution (LTE) and Wi-Fi signals for precise emergency rescue localization. This system meets E911 standards, delivering high accuracy across diverse devices and environments. Concurrently, complex outdoor positioning techniques are being explored, utilizing Global Navigation Satellite System (GNSS) and cellular networks to provide seamless positioning [3]. These methods aim to reduce positioning delay and increase scalability in dense, heterogeneous environments. Recent research has shifted focus towards seamless positioning methods that transcend the indoor-outdoor divide. One such approach integrates GNSS pseudoranges with Wireless Local Area Network (WLAN) Received Signal Strength Indicators (RSSIs) using particle filters to enhance localization in urban and indoor areas [4]. By modeling WLAN signal distributions with Gaussian processes, this method achieves high accuracy in challenging environments. However, its application in smartphones may be hindered by limited computing resources and asynchronous data acquisition. Several studies present smartphone-based positioning results. One explores the integration of multiple technologies, including Global Positioning System (GPS), Assisted GPS (AGPS), Bluetooth GPS, and WLAN, on smartphones for seamless positioning [5]. This study analyzes the performance of various positioning techniques by leveraging smartphone-available sensors and signals. Another approach, BlueDetect, offers efficient indoor-outdoor detection [6] by proposing the installation of BLE beacons at transition areas. While energyefficient, its application may be limited if line-of-sight (LOS) beacon installation is unfeasible. It's worth noting that previous smartphone-based studies primarily focused on analyzing individual sensor-specific positioning methods without considering their integration for optimal results. Reference [7] proposes a tightly coupled integration of smartphone-based vision, Micro-Electro-Mechanical Systems Inertial Measurement Unit (MEMS-IMU), and GNSS for seamless indoor-outdoor positioning using factor graph optimization. This method improves smartphone positioning accuracy by addressing timing instability and adapting to GNSS signal availability, demonstrating robustness in complex environments. However, while this technology can leverage GNSS to compensate for sensor error accumulation in vision and MEMS-IMU sensors outdoors, a comparable solution for indoor environments is currently lacking. Consequently, there is a critical need to develop correction data mechanisms to mitigate errors in relative positioning technologies within indoor settings.
 
@@ -34,15 +33,11 @@ Building upon the findings from the aforementioned studies, we present the archi
 
 Fig. 1. Continuous complex positioning system architecture.
 
-## *A. On-device positioning*
+##*A. On-device positioning*Satellite navigation leveraging GNSS does not require prebuilt databases (DB). Moreover, methods with short measurement acquisition cycles, such as Pedestrian Dead-Reckoning (PDR) and Inertial Navigation Systems (INS) utilizing IMU, are sensitive to time delays, rendering ondevice processing essential. These positioning techniques have relatively low computing resource requirements, enabling their implementation without significantly impacting the asynchronous operation.
 
-Satellite navigation leveraging GNSS does not require prebuilt databases (DB). Moreover, methods with short measurement acquisition cycles, such as Pedestrian Dead-Reckoning (PDR) and Inertial Navigation Systems (INS) utilizing IMU, are sensitive to time delays, rendering ondevice processing essential. These positioning techniques have relatively low computing resource requirements, enabling their implementation without significantly impacting the asynchronous operation.
+###*B. Server-based positioning*Wireless signal positioning techniques, such as Wi-Fi and BLE, typically rely on pre-built DB. In the proposed architecture, the device requests refined data from the DB and performs positioning operations using real-time measurements. Depending on the specific techniques employed, the positioning process can be carried out either on the device or on the server.
 
-#### *B. Server-based positioning*
-
-Wireless signal positioning techniques, such as Wi-Fi and BLE, typically rely on pre-built DB. In the proposed architecture, the device requests refined data from the DB and performs positioning operations using real-time measurements. Depending on the specific techniques employed, the positioning process can be carried out either on the device or on the server.
-
-#### *C. Communication with positionig support server*
+####*C. Communication with positionig support server*
 
 The positioning support server is responsible for data collection and management to enable server-based positioning. If processing the data on the device would require substantial
 

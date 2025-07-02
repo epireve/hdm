@@ -1,8 +1,10 @@
+<!-- cite_key: hoffart2019c -->
+
 # Personal Knowledge Graphs: A Research Agenda
 
 Krisztian Balog Google London, UK krisztianb@google.com
 
-### ABSTRACT
+## ABSTRACT
 
 Knowledge graphs, organizing structured information about entities, and their attributes and relationships, are ubiquitous today. Entities, in this context, are usually taken to be anyone or anything considered to be globally important. This, however, rules out many entities people interact with on a daily basis. In this position paper, we present the concept of personal knowledge graphs: resources of structured information about entities personally related to its user, including the ones that might not be globally important. We discuss key aspects that separate them for general knowledge graphs, identify the main challenges involved in constructing and using them, and define a r esearch agenda.
 
@@ -21,8 +23,6 @@ Krisztian Balog and Tom Kenter. 2019. Personal Knowledge Graphs: A Research Agen
 ### 1 INTRODUCTION
 
 Knowledge graphs (KGs)—resources of structured information about entities, their attributes, and relations between them—are ubiquitous today. They have become powerful assets for a broad range of search, recommendation, and mining scenarios. Obvious use cases include enabling rich knowledge panels and direct answers in search result pages, powering smart assistants, supporting data exploration and visualization (tables and graphs), and facilitating media monitoring and reputation management [\[1\]](#page-3-1). Public KGs include generalpurpose ("encyclopaedic") resources, such as Wikidata, DBpedia, YAGO, and Freebase, as well as domain-specific ones, like GeoNames for geographical data and MusicBrainz for
-
-![](_page_0_Picture_14.jpeg)
 
 [This work is licensed under a Creative Commons Attribution-NonCommercial-](https://creativecommons.org/licenses/by-nc-nd/4.0/)NoDerivsInternational 4.0 License.
 
@@ -108,7 +108,7 @@ In case of PKGs, there is a number of important differences. First, unlike tradi
 
 In short, the considerations above lead to (RQ4): How should external knowledge sources continuously be integrated with, in a two-way process, potentially involving the user?
 
-#### 3.3 Further Opportunities and Challenges
+#### 3 Further Opportunities and Challenges
 
 The focus of this paper is to identify the key properties and aspects of PKGs in relation to general KGs. There is a range of further issues, opportunities, and open challenges associated with PKGs. We highlight three specific areas.
 

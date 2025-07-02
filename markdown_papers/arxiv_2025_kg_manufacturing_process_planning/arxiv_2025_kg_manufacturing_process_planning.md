@@ -1,3 +1,5 @@
+<!-- cite_key: hoang2025 -->
+
 # KNOWLEDGE GRAPH FUSION WITH LARGE LANGUAGE MODELS FOR ACCURATE, EXPLAINABLE MANUFACTURING PROCESS PLANNING
 
 Danny Hoang
@@ -8,7 +10,7 @@ David Gorsich
 
 The United States Army Combat Capabilities Development Command Ground Vehicle Systems Center Warren, Michigan, USA
 
-#### Matthew P. Castanier
+## Matthew P. Castanier
 
 The United States Army Combat Capabilities Development Command Ground Vehicle Systems Center Warren, Michigan, USA
 
@@ -57,13 +59,13 @@ The rest of the paper is as follows: Section [2](#page-3-0) provides relevant kn
 
 # <span id="page-3-0"></span>2 Research Background
 
-### 2.1 Large Language Models in Machining
+## 1 Large Language Models in Machining
 
 LLMs are rapidly transitioning from research curiosities to core enablers of AI-driven production, thanks to their capacity to parse free-form instructions, fuse heterogeneous context, and return actionable, domain-specific guidance. A recent survey by Li et al. categorized their early penetration into the manufacturing stack—spanning generative CAD modeling, bio-process recipe design, robot path planning, and vision-based quality control [\[22\]](#page-18-16). Within subtractive manufacturing, the most direct application is natural-language-to-G-code translation. Šket et al. evaluated commercial ChatGPT models for 3-axis G-code generation testing GPT-3.5 and GPT-4 in three phases including independent G-code generation, interpretation of the generated G-code, and detecting and simplifying errors [\[12\]](#page-18-6). Their results showed promise of implementing LLMs for G-code generation with GPT-4 producing more correct toolpaths but is severely limited to simple operations such as drilling. Additionally, their method relied heavily on user input to align the LLMs for generation which can lead to increased downtime if deployed in manufacturing environments. Jeon et al. expanded upon just G-code generation by developing ChatCNC that integrated various LLM agents with real-time CNC machining data [\[13\]](#page-18-7). This allowed users receive context-aware answers regarding the status of their 3-axis CNC machines such as spindle load at specific instances or times; their method achieved an accuracy of 93.3% in queries requiring complex data inference such as production tracking showcasing applications in analyzing data recorded in the manufacturing pipeline. Despite the high accuracy, the authors acknowledged that the model resulted in failures when encountered with missing context or the inability to retrieve information from their database. This suggests a more in depth search beyond conventional retrieval methods such as defined SQL database structures is required to supplement existing knowledge gaps.
 
 Beyond prompting and traditional retrieving techniques, researchers have also introduced domain-specific fine-tuning to better align a LLMs responses with domain-specific knowledge. Rosati et al. finetuned Llama 3 for industrial applications achieving uplifts in average ROUGE-1 F1-score from 0.164 to 0.314 when trained on user manuals of a 360-degree camera [\[14\]](#page-18-8). Wang et al. finetuned GPT-3.5 for air craft maintenance outperforming general GPT-3.5 and its upgraded counterpart GPT-4.0 [\[23\]](#page-18-17). In areas specific to machining, Soundararajan et al. developed CNCGPT aimed for on-site CNC operator assistance by finetuning GPT-3.5 Turbo on machine-specific data, operational instructions, and troubleshooting assertions [\[15\]](#page-18-9). Results showed an increase in factual correctness when using ROGUE-L scores from 0.296 to 0.692 before and after finetuning, respectively. Despite the validity of their method, there are some challenges that might prevent further deployment on factory floors. One such issue is the amount of resources and training time required as the authors only trained around thirty query-response examples. In real world scenarios, there might be hundreds to thousands of scenarios and responses which can severely limit scalability during training. Moreover, as new scenarios continually emerge, the system must be frequently retrained to stay current which can further strain computational resources and complicates maintenance. There is also the challenge of security regarding production processes and information contained within. The authors used commercial LLMs which operate on external, cloud-based platforms where data flows and storage may raise concerns about data privacy and intellectual property protection. This reliance on third-party systems increases the risk of unauthorized access or data leakage, making it imperative to implement solutions that explore on-premise solutions to ensure that proprietary manufacturing data remains strictly confidential.
 
-### 2.2 Knowledge Graphs in Machining
+### 2 Knowledge Graphs in Machining
 
 The ability to reuse and implement machining knowledge in a structured way provides not only enhanced consistency across planning and decision making but also ensures existing knowledge gaps are mitigated. Xiao et al. reviewed how computer-aided process planning involving knowledge graphs can benefit from reduced labor costs, shortened production cycles, and more intelligent use of existing information [\[16\]](#page-18-10). The authors analyzed key steps of implementing knowledge graphs from process knowledge representation to process knowledge graph construction and validation, showcasing how these methods can overcome traditional CAPP by reducing excessive manual interventions, and increasing flexibility and generalization. This implementation of process knowledge was shown in Wang et al. where they constructed a process knowledge graph for feature-based machining to automate machining scheme selection [\[19\]](#page-18-13). Through use of an improved cosine-similarity formula for machining scheme selection, they achieved a similarity score of 0.8450 closely matching existing mature schemes implemented in industry for a typical shell part composed of 6 holes. By using their method, Wang et al. argued that the recommended machining steps would reduce tool load and increase both part quality and machining safety. In a similar study, Guo et al. created a knowledge graph for process route reuse by organizing historical process plans using part feature topology and machine capabilities [\[20\]](#page-18-14). When introducing a new part, the authors determine the process route that best aligns with its feature topology through a similarity check with existing process routes. Their case study on a shaft part resulted in completing the overall machining process route in about 15 minutes, down from the typical 50 to 80 minutes, significantly enhancing efficiency.
 
@@ -75,7 +77,7 @@ Despite the considerable progress in implementing knowledge graphs, there remain
 
 This section details the two main components of the ARKNESS framework with 1) Knowledge graph construction and 2) Graph transversal, retrieval and LLM response. Figure [2](#page-5-0) provides the general overview of the two components.
 
-### 3.1 Knowledge Graph
+## 1 Knowledge Graph
 
 A knowledge graph can be considered as a set of tuples G = {(v, r, w)} where v and w are vertices (entities) from a set of vertices V and r is an edge (relationship) from a set of relationships R. The set of tuples is commonly known as triples denoted as (*head*, *relation*, *tail*) representing v, r, and w, respectively.
 
@@ -91,7 +93,7 @@ the Docling [\[25\]](#page-18-19) Python package which efficiently parses throug
 
 Document splitting was done through parsing out each individual paragraph. Given a document with p individual paragraphs, each paragraph was given to a LLM to extract entities and relations forming T triples. Specific instructions were given to guide the LLM to output structured information given below:
 
-```
+```text
 -Goal-
 Extract structured triples directly from the input text in the following format:
 ENTITY_1, RELATIONSHIP_TYPE, ENTITY_2, "RELATIONSHIP_DESCRIPTION"
@@ -112,7 +114,7 @@ relationship.
   ENTITY_1, RELATIONSHIP_TYPE, ENTITY_2, "RELATIONSHIP_DESCRIPTION"
 4. Use the original text verbatim where possible for the description, ensuring accuracy.
 Avoid adding external interpretations or explanations.
-```
+```text
 
 This process was repeated for each document chosen creating G<sup>D</sup> subgraphs. The purpose of including the 'Relationship Description' in the triplet information is to retain the relevant contextual information by which the triplet was created. This removes ambiguity and often missing information found in traditional knowledge graphs. All subgraphs were then stored into respective text files which were then combined together for further processing.
 
@@ -130,7 +132,7 @@ with a single triple entry represented as:
 
 ⟨s, r,(v, c)⟩ (2)
 
-#### 3.3 Graph Retrieval and Transversal
+#### 3 Graph Retrieval and Transversal
 
 ![](_page_6_Figure_6.jpeg)
 
@@ -179,7 +181,7 @@ $$
 (8)
 $$
 
-#### 3.4 Large Language Model Generation
+#### 4 Large Language Model Generation
 
 The last step of answering the query q involves prompt construction where the information retrieved from the knowledge graph is given to the large language model to help its answering. This is done by defining a set of system instructions that designate that the LLM is design to answer questions incorporate both its own knowledge and the given retrieved knowledge. For example, we define the system instructions as:
 
@@ -201,7 +203,7 @@ $$
 
 ## <span id="page-8-0"></span>4 Experimental Design
 
-#### 4.1 Knowledge Graph
+### 1 Knowledge Graph
 
 To test the efficacy of ARKNESS, we first created our machining knowledge graph composed of research and technical documents spanning 5-axis milling capabilities, industrial robotic integration in CNC machining, sustainability in CNC machining, CNC programming and process planning, and fundamentals of CNC machining. By exposing ARKNESS to a spectrum of complexity levels, domain-specific terminologies, and the assembled documents enables a comprehensive evaluation of the model's CNC machining knowledge. Each document was processed using the automated graph-construction pipeline detailed in Section [3.2](#page-4-1) using GPT-4o [\[26\]](#page-18-20). An example regarding the output given the text information is given in the following box [\[27\]](#page-18-21). Descriptions of each documents chosen are listed in Table [1](#page-9-0) along with the total number of entities, relations, and triples after processing. In total, the full knowledge graph contains 4329 triples, 6659 unique entities, and 1251 unique relations providing a relatively large graph to test to test ARKNESS' capacity robust inference, and accurate knowledge retrieval across diverse CNC-machining scenarios. An example of the graph-construction output given text input is given below:
 
@@ -213,7 +215,7 @@ Output:
 
 5-AXIS CNC MILLING MACHINE TOOL, is used for, PRECISION MACHINING, "A 5-axis CNC milling machine tool is a sophisticated piece of equipment used for precision machining of complex parts with high accuracy and consistency." 5-AXIS CNC MILLING MACHINE TOOL, has, FIVE AXES OF MOTION, "It has five axes of motion that can move the cutting tool in various directions to create intricate shapes and contours." 5-AXIS CNC MILLING MACHINE TOOL, performs, "MILLING, DRILLING, CUTTING, AND ENGRAVING", " The machine is designed to perform a wide range of operations, including milling, drilling, cutting, and engraving, using multiple axes of movement." 5-AXIS CNC MILLING MACHINE TOOL, creates, HIGHLY COMPLEX GEOMETRIES, "A 5-axis CNC milling machine tool can create highly complex geometries using five axes of motion during machining operations that which can be difficult or impossible to be implemented by using traditional 3-axis machine." TRADITIONAL 3-AXIS MACHINE, limits, GEOMETRY COMPLEXITY, "Machining operations that can be difficult or impossible to be implemented by using traditional 3-axis machine."
 
-#### 4.2 Models
+#### 2 Models
 
 To rigorously assess how model choice shapes our framework's performance, we evaluate a diverse set of both open-source and closed-source large language models across multiple parameter scales. For open sources models, Llama 3.2 3B Instruct [\[36\]](#page-19-0), LLama 3.1 8B Instruct [\[37\]](#page-19-1), and Qwen 2.5 7B Instruct [\[38\]](#page-19-2) were chosen due to their ease of access and relatively low computational requirements; here B represents the number of parameters in billions. By spanning 3B, 7B, and 8B parameter tiers, we can isolate how model capacity and design choices interact with our knowledge graph augmentation. Evaluating these models across a broad spectrum of parameter scales enables us to quantify how the integration of supplementary knowledge graph information influences overall performance. To establish an upper bound on attainable performance, we also benchmark against state-of-the-art closed sourced models including GPT-4o [\[26\]](#page-18-20), its smaller GPT-4o-mini, Gemini 2.0 Flash [\[39\]](#page-19-3), and Gemini 2.0 Flash-Lite [\[40\]](#page-19-4). These comprehensive models enables us to quantify precisely how supplemental structured knowledge closes the gap between open source baselines and leading proprietary offerings.
 
@@ -233,7 +235,7 @@ To rigorously assess how model choice shapes our framework's performance, we eva
 
 Table 1: Overview of source documents and their corresponding knowledge graph sizes.
 
-#### 4.3 Question Category
+#### 3 Question Category
 
 Following knowledge graph construction, we devised two question formats namely, multiple choice and open ended to evaluate each model's capabilities. Multiple choice questions present a controlled benchmark for retrieval precision, enabling objective measurement and direct comparison across models, while open-ended questions simulate real-world case studies by challenging models to perform generative synthesis and coherently integrate the retrieved information into comprehensive answers. For each question format, two categories of questions were created namely: content
 

@@ -1,3 +1,5 @@
+<!-- cite_key: rossi2020 -->
+
 # TEMPORAL GRAPH NETWORKS FOR DEEP LEARNING ON DYNAMIC GRAPHS
 
 Emanuele Rossi<sup>∗</sup> Twitter
@@ -30,7 +32,7 @@ Contributions. In this paper, we first propose the generic inductive framework o
 
 ## 2 BACKGROUND
 
-Deep learning on static graphs. A static graph G = (V, E) comprises nodes V = {1, . . . , n} and edges E ⊆ V × V, which are endowed with features, denoted by v<sup>i</sup> and eij for all i, j = 1, . . . , n, respectively. A typical *graph neural network* (GNN) creates an *embedding* z<sup>i</sup> of the nodes by learning a local aggregation rule of the form
+Deep learning on static graphs. A static graph G = (V, E) comprises nodes V = {1, . . . , n} and edges E ⊆ V × V, which are endowed with features, denoted by v<sup>i</sup> and eij for all i, j = 1, . . . , n, respectively. A typical *graph neural network*(GNN) creates an*embedding*z<sup>i</sup> of the nodes by learning a local aggregation rule of the form
 
 $$
 \mathbf{z}_i = \sum_{j \in \mathcal{H}_i} h(\mathbf{m}_{ij}, \mathbf{v}_i) \qquad \mathbf{m}_{ij} = \text{msg}(\mathbf{v}_i, \mathbf{v}_j, \mathbf{e}_{ij}),
@@ -38,21 +40,21 @@ $$
 
 which is interpreted as message passing from the neighbors j of i. Here, N<sup>i</sup> = {j : (i, j) ∈ E} denotes the neighborhood of node i and msg and h are learnable functions.
 
-Dynamic Graphs. There exist two main models for dynamic graphs. *Discrete-time dynamic graph*s (DTDG) are sequences of static graph snapshots taken at intervals in time. *Continuos-time dynamic graph*s (CTDG) are more general and can be represented as timed lists of events, which may include edge addition or deletion, node addition or deletion and node or edge feature transformations.
+Dynamic Graphs. There exist two main models for dynamic graphs.*Discrete-time dynamic graph*s (DTDG) are sequences of static graph snapshots taken at intervals in time. *Continuos-time dynamic graph*s (CTDG) are more general and can be represented as timed lists of events, which may include edge addition or deletion, node addition or deletion and node or edge feature transformations.
 
-Our temporal (multi-)graph is modeled as a sequence of time-stamped *events* G = {x(t1), x(t2), . . .}, representing addition or change of a node or interaction between a pair of nodes at times 0 ≤ t<sup>1</sup> ≤ t<sup>2</sup> ≤ . . .. An event x(t) can be of two types: 1) A node-wise event is represented by vi(t), where i denotes the index of the node and v is the vector attribute associated with the event. If the index i has not been seen before, the event creates node i (with the given features), otherwise it updates the features. 2) An interaction event between nodes i and j is represented by a (directed) *temporal edge* eij (t) (there might be more than one edge between a pair of nodes, so technically this is a multigraph). We denote by V(T) = {i : ∃vi(t) ∈ G, t ∈ T} and E(T) = {(i, j) : ∃eij (t) ∈ G, t ∈ T} the temporal set of vertices and edges, respectively, and by Ni(T) = {j : (i, j) ∈ E(T)} the neighborhood of node i in time interval T. N<sup>k</sup> i (T) denotes the k-hop neighborhood. A *snapshot* of the temporal graph G at time t is the (multi-)graph G(t) = (V[0, t], E[0, t]) with n(t) nodes. Deletion events are discussed in Appendix [A.1.](#page-12-6)
+Our temporal (multi-)graph is modeled as a sequence of time-stamped *events*G = {x(t1), x(t2), . . .}, representing addition or change of a node or interaction between a pair of nodes at times 0 ≤ t<sup>1</sup> ≤ t<sup>2</sup> ≤ . . .. An event x(t) can be of two types: 1) A node-wise event is represented by vi(t), where i denotes the index of the node and v is the vector attribute associated with the event. If the index i has not been seen before, the event creates node i (with the given features), otherwise it updates the features. 2) An interaction event between nodes i and j is represented by a (directed)*temporal edge*eij (t) (there might be more than one edge between a pair of nodes, so technically this is a multigraph). We denote by V(T) = {i : ∃vi(t) ∈ G, t ∈ T} and E(T) = {(i, j) : ∃eij (t) ∈ G, t ∈ T} the temporal set of vertices and edges, respectively, and by Ni(T) = {j : (i, j) ∈ E(T)} the neighborhood of node i in time interval T. N<sup>k</sup> i (T) denotes the k-hop neighborhood. A*snapshot*of the temporal graph G at time t is the (multi-)graph G(t) = (V[0, t], E[0, t]) with n(t) nodes. Deletion events are discussed in Appendix [A.1.](#page-12-6)
 
 ## 3 TEMPORAL GRAPH NETWORKS
 
 Following the terminology in [\(Kazemi et al., 2020\)](#page-10-8), a neural model for dynamic graphs can be regarded as an encoder-decoder pair, where an encoder is a function that maps from a dynamic graph to node embeddings, and a decoder takes as input one or more node embeddings and makes a task-specific prediction e.g. node classification or edge prediction. The key contribution of this paper is a novel Temporal Graph Network (TGN) encoder applied on a continuous-time dynamic graph represented as a sequence of time-stamped events and producing, for each time t, the embedding of the graph nodes Z t) = (z1(t), . . . , zn(t)(t) .
 
-#### <span id="page-1-0"></span>3.1 CORE MODULES
+### <span id="page-1-0"></span>3.1 CORE MODULES
 
 Memory. The memory (state) of the model at time t consists of a vector si(t) for each node i the model has seen so far. The memory of a node is updated after an event (e.g. interaction with another node or node-wise change), and its purpose is to represent the node's history in a compressed format.
 
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
 
-Figure 1: Computations performed by TGN on a batch of time-stamped interactions. *Top:* embeddings are produced by the embedding module using the temporal graph and the node's memory (1). The embeddings are then used to predict the batch interactions and compute the loss (2, 3). *Bottom:* these same interactions are used to update the memory (4, 5, 6). This is a simplified flow of operations which would prevent the training of all the modules in the bottom as they would not receiving a gradient. Section [3.2](#page-4-0) explains how to change the flow of operations to solve this problem and figure [2](#page-4-1) shows the complete diagram.
+Figure 1: Computations performed by TGN on a batch of time-stamped interactions.*Top:*embeddings are produced by the embedding module using the temporal graph and the node's memory (1). The embeddings are then used to predict the batch interactions and compute the loss (2, 3).*Bottom:*these same interactions are used to update the memory (4, 5, 6). This is a simplified flow of operations which would prevent the training of all the modules in the bottom as they would not receiving a gradient. Section [3.2](#page-4-0) explains how to change the flow of operations to solve this problem and figure [2](#page-4-1) shows the complete diagram.
 
 Thanks to this specific module, TGNs have the capability to memorize long term dependencies for each node in the graph. When a new node is encountered, its memory is initialized as the zero vector, and it is then updated for each event involving the node, even after the model has finished training. While a global (graph-wise) memory can also be added to the model to track the evolution of the entire network, we leave this as future work.
 
@@ -68,7 +70,7 @@ $$
 \mathbf{m}_i(t) = \text{msg}_n\left(\mathbf{s}_i(t^-), t, \mathbf{v}_i(t)\right). \tag{2}
 $$
 
-Here, si(t <sup>−</sup>) is the memory of node i just before time t (i.e., from the time of the previous interaction involving i) and msgs, msg<sup>d</sup> and msg<sup>n</sup> are learnable message functions, e.g. MLPs. In all experiments, we choose the message function as *identity* (id), which is simply the concatenation of the inputs, for the sake of simplicity. Deletion events are also supported by the framework and are presented in Appendix [A.1.](#page-12-6) A more complex message function that involves additional aggregation from the neighbours of nodes i and j is also possible and is left for future study.
+Here, si(t <sup>−</sup>) is the memory of node i just before time t (i.e., from the time of the previous interaction involving i) and msgs, msg<sup>d</sup> and msg<sup>n</sup> are learnable message functions, e.g. MLPs. In all experiments, we choose the message function as*identity*(id), which is simply the concatenation of the inputs, for the sake of simplicity. Deletion events are also supported by the framework and are presented in Appendix [A.1.](#page-12-6) A more complex message function that involves additional aggregation from the neighbours of nodes i and j is also possible and is left for future study.
 
 Message Aggregator. Resorting to batch processing for efficiency reasons may lead to multiple events involving the same node i in the same batch. As each event generates a message in our formulation, we use a mechanism to aggregate messages mi(t1), . . . , mi(tb) for t1, . . . , t<sup>b</sup> ≤ t,
 
@@ -76,7 +78,7 @@ $$
 \bar{\mathbf{m}}_i(t) = \arg\left(\mathbf{m}_i(t_1), \dots, \mathbf{m}_i(t_b)\right). \tag{3}
 $$
 
-Here, agg is an aggregation function. While multiple choices can be considered for implementing this module (e.g. RNNs or attention w.r.t. the node memory), for the sake of simplicity we considered two efficient non-learnable solutions in our experiments: *most recent message* (keep only most recent message for a given node) and *mean message* (average all messages for a given node). We leave learnable aggregation as a future research direction.
+Here, agg is an aggregation function. While multiple choices can be considered for implementing this module (e.g. RNNs or attention w.r.t. the node memory), for the sake of simplicity we considered two efficient non-learnable solutions in our experiments:*most recent message*(keep only most recent message for a given node) and*mean message*(average all messages for a given node). We leave learnable aggregation as a future research direction.
 
 Memory Updater. As previously mentioned, the memory of a node is updated upon each event involving the node itself:
 
@@ -93,12 +95,9 @@ $$
 $$
 
 where h is a learnable function. This includes many different formulations as particular cases:
-
-*Identity* (id): emb(i, t) = si(t), which uses the memory directly as the node embedding.
-
-*Time projection* (time): emb(i, t) = (1 + ∆t w) ◦ si(t), where w are learnable parameters, ∆t is the time since the last interaction, and ◦ denotes element-wise vector product. This version of the embedding method was used in Jodie [\(Kumar et al., 2019\)](#page-10-5).
-
-*Temporal Graph Attention* (attn): A series of L graph attention layers compute i's embedding by aggregating information from its L-hop temporal neighborhood.
+*Identity*(id): emb(i, t) = si(t), which uses the memory directly as the node embedding.
+*Time projection*(time): emb(i, t) = (1 + ∆t w) ◦ si(t), where w are learnable parameters, ∆t is the time since the last interaction, and ◦ denotes element-wise vector product. This version of the embedding method was used in Jodie [\(Kumar et al., 2019\)](#page-10-5).
+*Temporal Graph Attention*(attn): A series of L graph attention layers compute i's embedding by aggregating information from its L-hop temporal neighborhood.
 
 The input to the l-th layer is i's representation h (l−1) i (t), the current timestamp t, i's neighborhood representation {h (l−1) 1 (t), . . . , h (l−1) <sup>N</sup> (t)} together with timestamps t1, . . . , t<sup>N</sup> and features ei1(t1), . . . , eiN (t<sup>N</sup> ) for each of the considered interactions which form an edge in i's temporal neighborhood:
 
@@ -125,8 +124,7 @@ $$
 $$
 
 Here, φ(·) represents a generic time encoding [\(Xu et al., 2020\)](#page-12-3), k is the concatenation operator and zi(t) = emb(i, t) = h (L) i (t). Each layer amounts to performing multi-head-attention [\(Vaswani et al.,](#page-11-8) [2017\)](#page-11-8) where the query (q (l) (t)) is a reference node (i.e. the target node or one of its L − 1-hop neighbors), and the keys K(l) (t) and values V(l) (t) are its neighbors. Finally, an MLP is used to combine the reference node representation with the aggregated information. Differently from the original formulation of this layer (firstly proposed in TGAT [\(Xu et al., 2020\)](#page-12-3)) where no node-wise temporal features were used, in our case the input representation of each node h (0) j (t) = s<sup>j</sup> (t)+v<sup>j</sup> (t) and as such it allows the model to exploit both the current memory s<sup>j</sup> (t) and the temporal node features v<sup>j</sup> (t).
-
-*Temporal Graph Sum* (sum): A simpler and faster aggregation over the graph:
+*Temporal Graph Sum*(sum): A simpler and faster aggregation over the graph:
 
 $$
 \mathbf{h}_i^{(l)}(t) = \mathbf{W}_2^{(l)}(\mathbf{h}_i^{(l-1)}(t) \| \tilde{\mathbf{h}}_i^{(l)}(t)),\tag{10}
@@ -136,13 +134,13 @@ $$
 \tilde{\mathbf{h}}_i^{(l)}(t) = \text{ReLu}(\sum_{j \in \mathcal{H}_i([0,t])} \mathbf{W}_1^{(l)}(\mathbf{h}_j^{(l-1)}(t) \| \mathbf{e}_{ij} \| \boldsymbol{\phi}(t - t_j))). \tag{11}
 $$
 
-Here as well, φ(·) is a time encoding and zi(t) = emb(i, t) = h (L) i (t). In the experiment, both for the *Temporal Graph Attention* and for the *Temporal Graph Sum* modules we use the time encoding presented in Time2Vec [\(Kazemi et al., 2019\)](#page-9-6) and used in TGAT [\(Xu et al., 2020\)](#page-12-3).
+Here as well, φ(·) is a time encoding and zi(t) = emb(i, t) = h (L) i (t). In the experiment, both for the*Temporal Graph Attention*and for the*Temporal Graph Sum*modules we use the time encoding presented in Time2Vec [\(Kazemi et al., 2019\)](#page-9-6) and used in TGAT [\(Xu et al., 2020\)](#page-12-3).
 
 The graph embedding modules mitigate the staleness problem by aggregating information from a node's neighbors memory. When a node has been inactive for a while, it is likely that some of its
 
 <span id="page-4-1"></span>![](_page_4_Figure_0.jpeg)
 
-Figure 2: Flow of operations of TGN used to train the memory-related modules. *Raw Message Store* stores the necessary raw information to compute messages, i.e. the input to the message functions, which we call raw messages, for interactions which have been processed by the model in the past. This allows the model to delay the memory update brought by an interaction to later batches. At first, the memory is updated using messages computed from raw messages stored in previous batches (1, 2, 3). The embeddings can then be computed using the just updated memory (grey link) (4). By doing this, the computation of the memory-related modules directly influences the loss (5, 6), and they receive a gradient. Finally, the raw messages for this batch interactions are stored in the raw message store (6) to be used in future batches.
+Figure 2: Flow of operations of TGN used to train the memory-related modules.*Raw Message Store* stores the necessary raw information to compute messages, i.e. the input to the message functions, which we call raw messages, for interactions which have been processed by the model in the past. This allows the model to delay the memory update brought by an interaction to later batches. At first, the memory is updated using messages computed from raw messages stored in previous batches (1, 2, 3). The embeddings can then be computed using the just updated memory (grey link) (4). By doing this, the computation of the memory-related modules directly influences the loss (5, 6), and they receive a gradient. Finally, the raw messages for this batch interactions are stored in the raw message store (6) to be used in future batches.
 
 neighbours have been recently active, and by aggregating their memories, TGN can compute an up-to-date embedding for the node. The temporal graph attention is additionally able to select which neighbors are more important based on both features and timing information.
 
@@ -164,7 +162,7 @@ CTDGs have been addressed only recently. Several approaches use random walk mode
 
 Most recent CTDGs learning models can be interpreted as specific cases of our framework (see Table [1\)](#page-5-0). For example, Jodie [\(Kumar et al., 2019\)](#page-10-5) uses the time projection embedding module emb(i, t) = (1 + ∆tw) ◦ si(t). TGAT [\(Xu et al., 2020\)](#page-12-3) is a specific case of TGN when the memory and its related modules are missing, and graph attention is used as the Embedding module. DyRep [\(Trivedi et al., 2019\)](#page-11-7) computes messages using graph attention on the destination node neighbors. Finally, we note that TGN generalizes the Graph Networks (GN) model [\(Battaglia et al.,](#page-8-1) [2018\)](#page-8-1) for static graphs (with the exception of the global block that we omitted from our model for the sake of simplicity), and thus the majority of existing graph message passing-type architectures.
 
-<span id="page-5-0"></span>Table 1: Previous models for deep learning on continuous-time dynamic graphs are specific case of our TGN framework. Shown are multiple variants of TGN used in our ablation studies. *method* (l,n) refers to graph convolution using l layers and n neighbors. †uses t-batches. <sup>∗</sup> uses uniform sampling of neighbors, while the default is sampling the most recent neighbors. ‡message aggregation not explained in the paper. <sup>k</sup> uses a summary of the destination node neighborhood (obtained through graph attention) as additional input to the message function.
+<span id="page-5-0"></span>Table 1: Previous models for deep learning on continuous-time dynamic graphs are specific case of our TGN framework. Shown are multiple variants of TGN used in our ablation studies. *method*(l,n) refers to graph convolution using l layers and n neighbors. †uses t-batches. <sup>∗</sup> uses uniform sampling of neighbors, while the default is sampling the most recent neighbors. ‡message aggregation not explained in the paper. <sup>k</sup> uses a summary of the destination node neighborhood (obtained through graph attention) as additional input to the message function.
 
 |            | Mem. | Mem. Updater | Embedding       | Mess. Agg. | Mess. Func. |
 |------------|------|--------------|-----------------|------------|-------------|
@@ -206,7 +204,7 @@ Datasets. We use three datasets in our experiments: Wikipedia, Reddit [\(Kumar e
 
 Baselines. Our strong baselines are state-of-the-art approaches for continuous time dynamic graphs (CTDNE [\(Nguyen et al., 2018\)](#page-10-16), Jodie [\(Kumar et al., 2019\)](#page-10-5), DyRep [\(Trivedi et al., 2019\)](#page-11-7) and TGAT [\(Xu et al., 2020\)](#page-12-3)) as well as state-of-the-art models for static graphs (GAE [\(Kipf & Welling,](#page-10-17) [2016\)](#page-10-17), VGAE [\(Kipf & Welling, 2016\)](#page-10-17), DeepWalk [\(Perozzi et al., 2014\)](#page-11-16), Node2Vec [\(Grover &](#page-9-16) [Leskovec, 2016\)](#page-9-16), GAT [\(Velickovic et al., 2018\)](#page-11-5) and GraphSAGE [\(Hamilton et al., 2017b\)](#page-9-0)).
 
-#### 5.1 PERFORMANCE
+## 1 PERFORMANCE
 
 Table [2](#page-6-0) presents the results on future edge prediction. Our model clearly outperforms the baselines by a large margin in both transductive and inductive settings on all datasets. The gap is particularly large on the Twitter dataset, where we outperfom the second-best method (DyRep) by over 4% and 10% in the transductive and inductive case respectively. Table [3](#page-6-1) shows the results on dynamic node classification, where again our model obtains stateof-the-art results, with a large improvement over all other methods.
 
@@ -235,11 +233,11 @@ model is up to 30× faster than TGAT per epoch (Figure [3a\)](#page-7-1), while 
 
 ![](_page_7_Figure_2.jpeg)
 
-(b) Performance of methods with different number of layers and with or without memory when sampling an increasing number of neighbors. *Last* and *uniform* refer to neighbor sampling strategy.
+(b) Performance of methods with different number of layers and with or without memory when sampling an increasing number of neighbors.*Last*and*uniform*refer to neighbor sampling strategy.
 
 Figure 3: Ablation studies on the Wikipedia dataset for the transductive setting of the future edge prediction task. Means and standard deviations were computed over 10 runs.
 
-#### <span id="page-7-0"></span>5.2 CHOICE OF MODULES
+### <span id="page-7-0"></span>5.2 CHOICE OF MODULES
 
 We perform a detailed ablation study comparing different instances of our TGN framework, focusing on the speed vs accuracy tradeoff resulting from the choice of modules and their combination. The variants we experiment with are reported in Table [1](#page-5-0) and their results are depicted in Figure [3a.](#page-7-1)
 
@@ -257,7 +255,7 @@ We introduce TGN, a generic framework for learning on continuous-time dynamic gr
 
 ## REFERENCES
 
-- <span id="page-8-7"></span>Nahla Mohamed Ahmed and Ling Chen. An efficient algorithm for link prediction in temporal uncertain social networks. *Information Sciences*, 331:120–136, 2016.
+- <span id="page-8-7"></span>Nahla Mohamed Ahmed and Ling Chen. An efficient algorithm for link prediction in temporal uncertain social networks.*Information Sciences*, 331:120–136, 2016.
 - <span id="page-8-8"></span>Nahla Mohamed Ahmed, Ling Chen, Yulong Wang, Bin Li, Yun Li, and Wei Liu. Sampling-based algorithm for link prediction in temporal networks. *Information Sciences*, 374:1–14, 2016.
 - <span id="page-8-5"></span>Nikolaos Bastas, Theodoros Semertzidis, Apostolos Axenopoulos, and Petros Daras. evolve2vec: Learning network representations using temporal unfolding. In *International Conference on Multimedia Modeling*, pp. 447–458. Springer, 2019.
 - <span id="page-8-2"></span>Peter W Battaglia, Razvan Pascanu, Matthew Lai, Danilo Jimenez Rezende, et al. Interaction networks for learning about objects, relations and physics. In *NIPS*, pp. 4502–4510, 2016.
@@ -344,7 +342,7 @@ We introduce TGN, a generic framework for learning on continuous-time dynamic gr
 
 ## A APPENDIX
 
-#### <span id="page-12-6"></span>A.1 DELETION EVENTS
+### <span id="page-12-6"></span>A.1 DELETION EVENTS
 
 The TGN frameworks also support edge and node deletions events.
 
@@ -369,7 +367,7 @@ This issues motivate our training algorithm, which processes all interactions in
 
 #### Algorithm 1: Training TGN
 
-```
+```text
 1 s ← 0 ; // Initialize memory to zeros
 2 m_raw ← {} ; // Initialize raw messages
 3 foreach batch (i,j, e, t) ∈ training data do
@@ -399,7 +397,7 @@ This issues motivate our training algorithm, which processes all interactions in
              ; // Store updated memory for sources and
      destinations
 14 end
-```
+```text
 
 <span id="page-13-1"></span><sup>1</sup> For the sake of clarity, we use the same message function for both sources and destination.
 

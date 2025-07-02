@@ -1,10 +1,12 @@
+<!-- cite_key: galke2021 -->
+
 # Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes ?
 
 Lukas Galkea,1, ∗ , Iacopo Vagliano b , Benedikt Franke c , Tobias Zielke c , Marcel Hoffmann c , Ansgar Scherp c
 
 > <sup>a</sup>Max Planck Institute for Psycholinguistics, Nijmegen, Netherlands <sup>b</sup>Amsterdam UMC, location University of Amsterdam, Netherlands <sup>c</sup>University of Ulm, Germany
 
-### Abstract
+## Abstract
 
 Lifelong graph learning deals with the problem of continually adapting graph neural network (GNN) models to changes in evolving graphs. We address two critical challenges of lifelong graph learning in this work: dealing with new classes and tackling imbalanced class distributions. The combination of these two challenges is particularly relevant since newly emerging classes typically resemble only a tiny fraction of the data, adding to the already skewed class distribution. We make several contributions: First, we show that the amount of unlabeled data does not influence the results, which is an essential prerequisite for lifelong learning on a sequence of tasks. Second, we experiment with different label rates and show that our methods can perform well with only a tiny fraction of annotated nodes. Third, we propose the gDOC method to detect new classes under the constraint of having an imbalanced class distribution. The critical ingredient is a weighted binary cross-entropy loss function to account for the class imbalance. Moreover, we demonstrate combinations of gDOC with various base GNN models such as GraphSAGE, Simplified Graph Convolution, and Graph Attention Networks. Lastly, our k-neighborhood time difference measure provably normalizes the temporal changes across different graph datasets. With extensive experimentation, we find that the proposed gDOC method is consistently better than a naive adaption of DOC to graphs. Specifically, in experiments using the smallest history size, the out-of-distribution detection score of gDOC is 0.09 compared to 0.01 for DOC. Furthermore, gDOC achieves an
 
@@ -85,7 +87,7 @@ Task-sequence Setting with Limited Labeled Data. This setting is the same as the
 
 Task-sequence Setting with Unseen Class Detection. In the final variant, we analyze the capabilities of the GNN models to detect new classes. In addition to lifelong vertex classification as in previous task-sequence settings, the models now need to emit a binary decision per vertex whether it belongs to a previously known class in Yt−<sup>1</sup> (in-distribution), or belongs to a new, unseen class Yt\Yt−<sup>1</sup> (out-of-distribution). This setting is reflected in the experiments of Section [9.](#page-34-0)
 
-### 1.2. Key Contributions
+## 2. Key Contributions
 
 We analyze different aspects of lifelong graph learning, detecting new classes and training graph models with skewed class distributions. This research is based on and significantly extends a training procedure and framework for lifelong learning published in our work [\[13,](#page-45-11) [19\]](#page-46-3). The main findings of our prior work are that warm restarts in lifelong learning enable one to use fewer training data, i. e., using a smaller history size. Only a small amount of historical data is necessary to achieve a performance comparable to retraining, i. e., cold start on the entire graph. The key contributions of this work that expand on our previous findings are summarized below.
 
@@ -95,7 +97,7 @@ Influence of the Availability of Labels on the Performance. We investigate diffe
 
 The k-Neighborhood Time Difference Measure is Equivariant to the Temporal Granularity of Evolving Graphs. Our k-neighborhood time difference measure tdiffk(G) [\[13\]](#page-45-11) captures the temporal differences between connected vertices in evolving graphs. It can be reused independently from the other methods proposed in this work. We use the tdiffk(G) measure to determine history sizes comparable between different temporal graphs with differing change behavior (fast versus slow changes). Here, we prove that tdiffk(G) is equivariant to temporal granularity, such as when having monthly versus yearly time information.
 
-## 1.3. Organization of the Article
+## 3. Organization of the Article
 
 Subsequently, we provide an overview of related work. The extended incremental training algorithm for lifelong graph learning, as well as our new class detection method gDOC, are described in Section [3.](#page-12-0) In Section [4,](#page-16-0) we describe the k-neighborhood time differences measure, which we use to determine comparable history sizes across datasets and provide proof that the measure is invariant to different temporal granularities. The datasets used in our experiments are described and analyzed in Section [5.](#page-19-0) In Sections [6](#page-24-0) to [9,](#page-34-0) we describe the experimental procedure and report the results of our four experiments. We perform experiments for each of the four lifelong graph learning settings introduced in Section [1.1.](#page-2-0) First, in Section [6,](#page-24-0) we analyze the difference between transductive vs. inductive learning, i. e., the influence of adding unlabeled data, on standard (static) datasets, pre-processed in either many-few or few-many train/test splits. Second, we analyze the case of continually adding labeled data during a sequence of tasks in Section [7.](#page-27-0) Third, in Section [8,](#page-32-0) we take the most powerful methods and the hardest dataset of the previous experiment to analyze the influence of different label rates. Lastly, in the experiments reported in Section [9,](#page-34-0) we employ our gDOC method to automatically detect new classes while still being able to correctly classify the vertices of known classes. The results are discussed in Section [10](#page-41-0) before we conclude.
 
@@ -105,7 +107,7 @@ Our work connects with various research areas: graph neural networks, lifelong l
 
 In Section [2.1,](#page-6-0) we relate our work to the literature on graph neural networks [\[1\]](#page-44-0). Since our aim is that our incremental training algorithm applies to a wide range of GNN models, we seek to obtain high coverage among different types of GNN models in our experiments and select a representative GNN model for each type. In Section [2.2,](#page-9-0) we relate our work to the lifelong learning literature [\[8\]](#page-45-6) concerning general approaches for non-graph data and approaches for graph data. In Section [2.3,](#page-11-0) we relate our work to the literature on unseen class detection and approaches to the more general problem of out-of-distribution detection while differentiating between supervised and unsupervised, as well as between crisp and scoring approaches.
 
-### <span id="page-6-0"></span>2.1. Graph Neural Networks
+## <span id="page-6-0"></span>2.1. Graph Neural Networks
 
 The success of graph convolution [\[3\]](#page-45-1) has caused a resurgence of interest in graph neural networks [\[2\]](#page-45-0). In a generic formulation, the hidden representation of vertex i in layer l is defined as: h (l+1) <sup>i</sup> = σ P j∈N(i) 1 <sup>c</sup>ij <sup>W</sup>(l)<sup>h</sup> (l) j , where N (·) refers to the set of adjacent vertices and σ is a nonlinear activation function. The normalization factor cij depends on the respective model: the original Graph Convolutional Networks (GCN) [\[3\]](#page-45-1) use cij = p | N (i) | · p | N (j) |.
 
@@ -167,7 +169,7 @@ Xu et al. [\[73\]](#page-50-2) propose L2AC for open-world learning in product c
 
 Reusing existing OOD detection methods for graphs with interconnected nodes (non-i.i.d.) and imbalanced class distributions is not straightforward. While technically possible, combining graph neural networks with standard OOD methods is rarely evaluated. Here, we transfer the most promising method that is capable of crisp new class detection, DOC, from text to graphs, along with an extension to account for class imbalance.
 
-### 2.4. Summary
+### 4. Summary
 
 To summarize, lifelong learning on graphs is a new research topic with only a few previous works. The previous works on lifelong graph learning mainly tackle catastrophic forgetting in class- or data-incremental settings on standard datasets. In contrast, we focus on forward transfer, i. e., whether and how much previous knowledge is helpful for future tasks, and use evolving graph datasets close to assumed applications None of the discussed works analyzes the problem of new class detection on graph data we tackle in this work. Moreover, we analyze the effects of label rate, history size, and parameter reuse in incremental learning on evolving graphs with selected representative GNN base models to obtain a complete picture. Although OOD methods are related to new class detection, dealing with interconnected vertices in graphs with imbalanced class distributions is a new challenge, which we tackle in this work.
 
@@ -231,7 +233,7 @@ Extension to deal with class imbalance (gDOC). Here, we transfer the DOC method 
 
 We propose an extension, which we denote as gDOC, to make DOC more suitable for lifelong learning on graphs, where we have to deal with a highly imbalanced class distribution. We use a GNN model to emit the logits and adjust the loss scaling of binary cross-entropy to account for class imbalance, which is inevitable in real-world graph data. This is particularly important for unseen class detection because here the magnitude of all outputs is relevant for the final decision, rather than only their maximum value. In detail, if class i appears n + times in the training data, we multiply the loss of output i by the factor <sup>n</sup>−<sup>n</sup> + <sup>n</sup><sup>+</sup> . This is a standard weighting procedure for binary cross-entropy that increases the loss according to the fraction of positive versus negative examples within the training data (cf. [\[74\]](#page-50-3)). We denote this variant as gDOC. Furthermore, our experiments will carefully investigate different values for τmin, while the original DOC [\[17\]](#page-46-1) used a fixed minimum threshold of τmin = 0.5. Similarly, we also closely investigate the effect of the risk reduction factor α.
 
-### 3.3. Summary
+### 3. Summary
 
 We have extended the incremental training algorithm with a generic unseen class detection module. As an unseen class detection module, we introduce gDOC as an extension of the DOC method from text to the challenges of lifelong learning with graph neural networks. Note that both our adaptation of the original DOC to graphs (abbreviated simply as DOC) as well as our extended version (gDOC) can be employed in conjunction with arbitrary GNN base models.
 
@@ -241,7 +243,7 @@ Real-world graphs grow and change at different speeds [\[75\]](#page-50-4). Some
 
 Below, we first introduce such a measure, which we call tdiffk. In the experiments, we will use the tdiff<sup>k</sup> measure to derive candidate history sizes as percentiles of the time differences in the data. Applying the measure can be regarded as a preprocessing step. Subsequently, we show that the history sizes that our measure produces are equivariant to the temporal granularity of the graph.
 
-# 4.1. Formal Definition of the tdiff<sup>k</sup> Measure
+# 1. Formal Definition of the tdiff<sup>k</sup> Measure
 
 The k-neighborhood Time Difference Distribution measure tdiff<sup>k</sup> [\[13\]](#page-45-11) enumerates the distribution of time differences within the k-hop neighborhood of each vertex. This corresponds to the receptive field [\[76\]](#page-50-5) of a GNN with k-many graph convolutional layers. Intuitively, we collect the time differences between all pairs of vertices v and w, which are reachable within at most k edges. We aggregate these time differences based on frequency, i. e., we obtain the number of times a certain time difference has been observed between v and w in the dataset. On this distribution of time differences (represented as a multiset), we compute the percentiles and use them as candidate history sizes.
 
@@ -259,7 +261,7 @@ vertices and five edges. In this example, the 25th percentile of tdiff<sup>2</su
 
 The tdiff<sup>k</sup> measure is used in our experiments to compare models trained with a limited history size against models trained with the full history. Thus, we calculate the 25th, 50th, and 75th percentiles of the tdiff<sup>k</sup> distribution, which we then compare against the full graph (100th percentile) to analyze the influence of explicit knowledge.
 
-# 4.2. Equivariance to Temporal Granularity
+# 2. Equivariance to Temporal Granularity
 
 Any good measure to determine the discrete history sizes c : (V, E, t) 7→ N in evolving graphs should be equivariant to granularity to ensure comparability between different datasets and different granularities. This means that if we change the perspective, for instance, from years to months, we should get history sizes that are about 12 times larger (on the same data).
 
@@ -271,12 +273,12 @@ Prerequisite (PRE). With t(u) = j t 0 (u) a k we have <sup>t</sup> 0 (u) <sup>a<
 
 Proof. Using the prerequisite, we now show that
 
-(i) 
+(i)
 $$
 a \cdot |t(u) - t(v)| > |t'(u) - t'(v)| - a
 $$
-, and  
-(ii)  $a \cdot |t(u) - t(v)| < |t'(u) - t'(v)| + a$ 
+, and
+(ii)  $a \cdot |t(u) - t(v)| < |t'(u) - t'(v)| + a$
 
 via case differentiation.
 
@@ -288,11 +290,11 @@ Case (ii-a): t(u) = t(v). The left-hand side of (ii) becomes zero and it remains
 
 Case (ii-b): t(u) 6= t(v). Again, we transform the left-hand side of (ii) to |a · t(u) − a · t(v)|. This time, we are interested in the highest possible value with respect to (PRE), which is |t 0 (u) + a − − t 0 (v)| with 0 < < a. This is because the highest possible difference is between the upper bound t <sup>0</sup> + a − and the lower bound t 0 . With the triangle inequality, we obtain |t 0 (u) + a − − t 0 (v)| ≤ |t 0 (u)−t 0 (v)|+|a−| < |t 0 (u)−t 0 (v)|+a, which holds because |a−| < a. This concludes the proof.
 
-# 4.3. Summary
+# 3. Summary
 
 The k-neighborhood Time Difference Distribution tdiff<sup>k</sup> measures the granularity and temporal connectivity patterns of the given graph dataset with vertex-level time information. In general, we can hardly assume that any absolute history size on dataset A would be comparable to the same history size on dataset B. But if we derive the history size from tdiffk, e. g., the median of tdiff2, we have a strategy to find comparable history sizes across datasets, even if they come from different domains, e. g., social graphs with postings at the minute level versus citation graphs with data on, at least, daily level. This is because our tdiff<sup>k</sup> measure is equivariant to granularity and is based solely on time differences between the connected vertices.
 
-### <span id="page-19-0"></span>5. Datasets and Analyses
+## <span id="page-19-0"></span>5. Datasets and Analyses
 
 Adapting models to new data is an important problem whenever machine learning models are deployed in production. However, many graph benchmark datasets are stripped of any temporal data, which is needed to divide the data into realistic partitions for lifelong learning, i. e., a sequence of tasks. To build a lifelong vertex classification dataset with new classes, the following criteria need to be fulfilled:
 
@@ -351,7 +353,7 @@ The datasets were generated by imposing a minimum threshold of publications per 
 | DBLP-hard | 198,675 | 643,734 | 4,043 | 73 (23 new) | 12 |
 | PharmaBio | 68,068  | 2,1M    | 4,829 | 7 (0 new)   | 18 |
 
-### 5.2.1. Basic Characteristics
+## 2.1. Basic Characteristics
 
 Table [3](#page-21-0) summarizes the basic characteristics of the datasets. DBLP-easy and DBLP-hard are organized into 12 annual snapshots, while PharmaBio has 18 annual snapshots. DBLP-easy has 45k vertices, 112k edges, and a feature dimension of 2,278. The vertices are assigned to one of 12 classes, of which four only appear during the sequence of snapshots, i. e., they are not present in the first snapshots. DBLP-hard has 199k vertices, 644k edges, and a feature dimension of 4,043 (because the word vocabulary is set up based on occurrences within documents). Twenty-three of the 73 classes appear only during subsequent snapshots. PharmaBio comes with 68k vertices, 2.1M edges, feature dimension 4,829, 7 classes, and 18 snapshots. The number of edges is much higher than in the DBLP variants because PharmaBio is a coauthorship graph, which is denser than the citation graphs. Note that DBLP-easy is a subset of DBLP-hard as both were generated by applying a minimum threshold on the number of publications per class.
 
@@ -361,7 +363,7 @@ Table [3](#page-21-0) summarizes the basic characteristics of the datasets. DBLP
 
 We report the label distribution of the datasets, the degree distribution, and the distribution over time in Figure [4.](#page-22-0) The annual number of publications grows over time. Only in PharmaBio, there is a higher amount of vertices between 1991-1997 than between 1998 and 2003. The global degree distributions of DBLP-easy and DBLP-hard seem to follow a power-law distribution [\[80\]](#page-50-9) as the degree distribution is almost a straight line except for the blurry tail. For PharmaBio, the degree distribution is more blurry, while a trend line can still be identified. Furthermore, we observe that the number of examples per class is imbalanced in all three datasets. Although the three datasets have different numbers of classes, the shape of the label distributions is similar.
 
-### 5.2.2. Changes in the Class Set and Distribution Shift
+### 2.2. Changes in the Class Set and Distribution Shift
 
 Regarding changes in the set of classes, DBLP-easy has 12 venues in total, including one biannual conference and four venues, which appear in 2005, 2006, 2007, and 2012. DBLP-hard has 73 venues, including one discontinued, nine biannual, six irregular venues, and 23 new venues. To quantify the changes in the class set, we calculate the magnitude of the class drift as the total variation distance [\[81,](#page-50-10) [82\]](#page-50-11):
 
@@ -377,7 +379,7 @@ where Pt(y) is the observed class probability at time t. We visualize the drift
 
 magnitudes per dataset in Figure [5.](#page-23-0) An IID dataset would have a drift magnitude of zero by definition. As expected, the drift magnitude is high (between 0.12 and 0.16) for the two datasets with new classes: DBLP-easy and DBLPhard. On PharmaBio, which does not have new classes, the drift magnitude is consistently lower than 0.07.
 
-# 5.2.3. Analyzing Time Differences using tdiff<sup>k</sup>
+# 2.3. Analyzing Time Differences using tdiff<sup>k</sup>
 
 We analyze each dataset using our k-neighborhood time differences tdiff<sup>k</sup> introduced in Section [4.](#page-16-0) In Figure [6,](#page-24-1) we show the distributions for three different values of k = 1, 2, 3. As expected, the time differences increase if we allow a longer maximum path length k. For our experiments, we will use GNN models with 2 layers, i. e.,, which take into account the two-hop neighborhood of each vertex. Thus, we use tdiff<sup>2</sup> to derive candidate history sizes, which we will compare to each other in the experiments. Following the distributions for k = 2 depicted in Figure [6,](#page-24-1) we select 1, 3, 6, and 25 as history sizes for DBLP- {easy,hard} and 1, 4, 8, and 21 as history sizes for PharmaBio according to the 25th, 50th, 75th, and 100th percentiles of tdiff2.
 
@@ -385,13 +387,13 @@ We analyze each dataset using our k-neighborhood time differences tdiff<sup>k</s
 
 <span id="page-24-1"></span>Figure 6: Distributions of time differences tdiff<sup>k</sup> (y-axis) for DBLP-easy (left), DBLP-hard (center) and PharmaBio (right) within the k-hop neighborhood for k = {1, 2, 3} (x-axis).
 
-### 5.2.4. Dataset Preprocessing
+## 2.4. Dataset Preprocessing
 
 For each dynamic dataset, we construct the sequence of tasks T˜ <sup>1</sup>, . . . , T˜ T based on the publication year along with a history size c. For each task T˜ <sup>t</sup>, we construct a graph with publications of time [t − c, t], where publications of time t are the test vertices, and t < c training vertices (transductive). We also use it for inductive training, where we train exclusively on T˜ <sup>t</sup>−1, but still evaluate the test vertices of T˜ t
 
 We set the first evaluation task T˜ <sup>1</sup> to the time, at which 25% of the total number of publications are available. Therefore, by mapping the datasets to our problem statement (see Figure [1\)](#page-3-1), our first evaluation task t = 1 corresponds to the year 1999 in PharmaBio (1985–2016) and 2004 in DBLP-{easy,hard} (1990- 2015). We continue to iterate over the next years for subsequent tasks, i. e., from 2000 to 2016 for PharmaBio and from 2005 to 2015 for DBLP.
 
-### 5.3. Summary
+### 3. Summary
 
 We have three static graph datasets (Cora, Citeseer, and Pubmed) and three dynamic graph datasets (PharmaBio, DBLP-easy, and DBLP-hard). All datasets have scientific publications as vertices. All datasets use citations to set up the edges of the graph, except PharmaBio, where the edges are determined by coauthorships. All graph datasets have a highly imbalanced label distribution (see Figure [4\)](#page-22-0). Two of the dynamic graph datasets come with new classes: DBLP-easy and DBLP-hard, which is reflected in a high class drift over time (see Figure [5\)](#page-23-0).
 
@@ -405,15 +407,15 @@ In the context of lifelong learning, settings A and B correspond to different st
 
 In the following, we describe the procedure, hyperparameter, and metrics of our experiments to analyze transductive vs. inductive learning on standard benchmark datasets with two complementary train-test splits. The aim is to analyze the effect of adding unlabeled data after (pre-)training and comparing inductively pre-trained models to models that have been trained transductively including the unlabeled test data. We will show that the addition of unlabeled data does not further improve the performance of the inductively pre-trained models.
 
-### 6.1. Procedure
+### 1. Procedure
 
 We construct a dedicated experimental setup to assess the inference capabilities of graph neural networks. We include edges in the training set if and only if its source and destination vertex are both in the training set. The training process is then divided into two steps. First, we pre-train the model on the labeled training set. Then we insert the previously unseen vertices and edges into the graph and continue training for a limited number of inference epochs. The unseen vertices do not introduce any new labels. Instead, the unseen vertices provide features and may be connected to known labeled vertices. We evaluate the accuracy on the test vertices, which form a subset of the unseen vertices, before the first and after each inference epoch. We consider the graph neural networks GCN, GAT, GraphSAGE, as discussed in Section [2,](#page-6-1) along with a baseline model MLP. For each model, we compare 200 pre-training epochs versus no pre-training. In the latter case, training begins during inference, which is equivalent to retraining from scratch whenever new vertices and edges are inserted. This allows us to assess whether pre-training is helpful for applying graph neural networks on dynamic graphs.
 
-### 6.2. Hyperparameters
+### 2. Hyperparameters
 
 All employed graph neural networks use two graph convolution layers that aggregate neighbor representations. The output dimension of the second layer corresponds to the number of classes. Thus, the features within the two-hop neighborhood of each labeled vertex are taken into account for its prediction. We adopt the same hyperparameter values as proposed in the respective original work. For GCN, we use 16 or 64 hidden units (denoted GCN-64) per layer, ReLU activation, 0.5 dropout rate, along with an (initial) learning rate of 0.005 and weight decay 5 · 10−<sup>4</sup> [\[3\]](#page-45-1). For GAT, we use 8 hidden units per layer and 8 attention heads in the first layer. The second layer has 1 attention head (8 on Pubmed). We set the learning rate to 0.005 (0.01 on Pubmed) with weight decay 0.0005 (0.001 on Pubmed) [\[5\]](#page-45-3). For GraphSAGE, we use 64 hidden units per layer with mean aggregation, ReLU activation, and a dropout rate of 0.5. We set the learning rate to 0.01 with weight decay 5·10−<sup>4</sup> [\[4\]](#page-45-2). Our MLP baseline has one hidden layer with 64 hidden units, ReLU activation, a dropout rate of 0.5, a learning rate of 0.005 and a weight decay of 5 · 10−<sup>4</sup> . In all cases, we use Glorot initialization [\[83\]](#page-50-12) and Adam [\[84\]](#page-50-13) to optimize cross-entropy. We initialize the optimizer at the beginning of the inference epochs.
 
-### 6.3. Measures
+### 3. Measures
 
 Accuracy. We train each model for 35 epochs and repeat the training 100 times with different seeds. The plot shows the mean accuracy plus the standard deviation of the models at each of these training epochs.
 
@@ -427,7 +429,7 @@ $$
 
 As DJS is a divergence measure, lower values indicate more similar distributions.
 
-### 6.4. Results
+### 4. Results
 
 Figure [7](#page-27-1) shows the results of the GNN models and the MLP on the three datasets: Cora, Citeseer, and Pubmed. The scores of the many-few setting B are higher than those of the few-many setting A by a constant margin. Pre-trained models score consistently higher than non-pre-trained models while having less variance. The accuracy of the pre-trained models plateaus after a few inference epochs (up to 10 on Cora-A, i. e., the Cora dataset investigated in setting A, and Pubmed-B, i. e., setting B applied on the Pubmed dataset). Without any pre-training, GAT shows the fastest learning process. The absolute scores of pretrained graph neural networks are higher than the ones of MLP. From a broad perspective, the scores of pre-trained graph neural networks are all on the same level. While GCN falls behind the others on Cora-B, GAT falls behind the others on Pubmed in both settings.
 
@@ -437,7 +439,7 @@ Figure [7](#page-27-1) shows the results of the GNN models and the MLP on the th
 
 We compare the results of setting A and B by measuring the Jensen-Shannon divergence between the accuracy distributions. The Jenson-Shannon divergence between the two settings is lower with pre-training (between 0.0057 for GAT and 0.0115 for MLP) than it is without pre-training (between 0.0666 for GraphSAGE and 0.1013 for GCN). This shows that the accuracy distributions are similar in both train-test splits.
 
-# 6.5. Summary
+# 5. Summary
 
 Our results show that inductive graph neural networks perform well even though we insert new unlabeled vertices and edges after training. For all three datasets, the accuracy plateaus after very few inference epochs. This observation holds for both train-test split settings A and B, i. e., many-few and fewmany data for training and testing, respectively. In different terms, we have not observed any gain from up-training an inductive model on extra unlabeled data. This motivates us to use the warm restart strategy, i. e., reusing previous parameters, in the following experiments on lifelong learning.
 
@@ -447,7 +449,7 @@ From the previous experiment, we know that inductively trained models are stable
 
 The challenge in this experiment is that the GNN models have to sequentially adapt to new tasks with new labeled data including unseen classes. We apply the GNNs GraphSAGE, GAT, SGC, GraphSAINT, JKNet, and the baseline MLP on our evolving graph datasets, which we described in Section [5.2.](#page-21-1) As we know from our analyses of Section [5,](#page-19-0) the dynamic datasets are naturally heavily imbalanced. The datasets also feature new classes that appear over time. The first appearance of a new class is always at test time, and, only afterward, the vertices with new classes are only added to the training data. In summary, we find interactions between implicit and explicit knowledge: Reusing past parameters (warm restart) enables using smaller history sizes with only a small decrease in performance.
 
-## 7.1. Procedure
+## 1. Procedure
 
 The evolving graph is divided into tasks according to the time slices in years (see Section [5.2\)](#page-21-1). We apply the incremental training algorithm of Section [3.1](#page-12-1) to each of the considered models, GraphSAGE, GAT, SGC, GraphSAINT, JKNet, along with a graph-agnostic MLP baseline. The rationale for the selection of these particular base GNN models is provided in Section [2.1.](#page-8-0)
 
@@ -457,7 +459,7 @@ Furthermore, we consider the history size as a controlled parameter and vary it 
 
 All methods are trained in a transductive fashion, except for GraphSAINT, which needed to use the inductive setting. However, we have ensured that the evaluation is fair (see Section [5\)](#page-19-0) and we have confirmed in Experiment 1 (see Section [6\)](#page-24-0) that the difference between inductive and transductive training is negligible.
 
-### 7.2. Hyperparameters
+### 2. Hyperparameters
 
 We constrain all models to two graph convolutional layers, a comparable penultimate hidden dimension (2x32 GraphSAGE, 4x8 GAT, 2x2x16 JKNet, 64 MLP), and a dropout rate of 0.5. We fix an update step budget of 200 per task and use Adam [\[84\]](#page-50-13) to optimize cross-entropy. We implemented GAT, GraphSAGE-mean, SGC, and JKNet with dgl [\[86\]](#page-51-1) and use torch-geometric [\[87\]](#page-51-2) for GraphSAINT. We had to disable GraphSAINT's norm recomputation for each task so that our experiments could finish in a reasonable time.
 
@@ -465,7 +467,7 @@ For each combination of a GNN, history size, and restart configuration, we tune 
 
 For the sake of a fair comparison, we have optimized the hyperparameters separately for each possible history size and restart configuration.
 
-### 7.3. Measures
+### 3. Measures
 
 Our primary evaluation measure for lifelong vertex classification f is accuracy. With acct(f (t) ), we denote the accuracy of model f (t) on task Tt. We aggregate the accuracy scores over the sequence of tasks T1, . . . , T<sup>T</sup> by using their unweighted average [\[48\]](#page-48-4):
 
@@ -481,7 +483,7 @@ $$
 
 Experiments are repeated 10 times with different random seeds. We report the mean accuracy plus/minus 1.96 times the standard error of the mean.
 
-### 7.4. Results
+### 4. Results
 
 Table [4](#page-31-0) shows the aggregated results of 20,160 evaluation steps (48 configurations with 10 repetitions on two datasets with 12 tasks each and one dataset with 18 tasks). We consider the method A to be better than the method B when the mean accuracy of A is higher than that of B and the 95% confidence intervals do not overlap [\[88\]](#page-51-3). In terms of the absolute best methods per setting (= dataset × history size), we find that GraphSAGE consistently gives the highest scores except for DBLP-hard, where it is challenged by SGC.
 
@@ -493,11 +495,11 @@ Regarding isotropic vs. anisotropic GNNs, we find that GAT and Graph-SAGE perfor
 
 Regarding memory-efficient methods, we observe that the scores of SGC are among the highest of all methods on DBLP-hard. To understand this result, we recall that SGC uses only one single weight matrix of shape nfeatures × noutputs, which leads to 300,000 learnable parameters on DBLP-hard, but only 27,000 and 34,000 on DBLP-easy and PharmaBio, respectively. SGC maps input features directly to classes, which results in a very high number of parameters on DBLP-Hard because this dataset has a high number of classes. For comparison, GraphSAGE has 146, 000 learnable parameters on DBLP-easy, 264, 000 on DBLP-hard, and 310, 000 on PharmaBio. On the other hand, GraphSAINT yields scores on PharmaBio comparable to GraphSAGE, but lower scores on both DBLP datasets.
 
-### 7.5. Ablation Study: Incrementally-Trained vs. Once-Trained Models
+### 5. Ablation Study: Incrementally-Trained vs. Once-Trained Models
 
 In contrast to retraining with different history sizes, one may also wonder how long a once-trained model generalizes. Thus, we have analyzed how long a model, which is trained only once at a specific point in time, will generalize well over a sequence of tasks over time. We isolate the effect of incremental training and compare once-trained trained models (static) with incrementally trained models (incremental). Static models are trained for 400 epochs on the data before the first evaluation time step, which comprises 25% of the total vertices. Incrementally trained models are trained for 200 epochs with history sizes of 3 timesteps (4 on the PharmaBio dataset) before evaluating each task. We repeat each experiment 10 times with different random seeds. In Figure [8,](#page-32-1) we see that the accuracy of the static models decreases with time on DBLP-easy and DBLPhard, where new classes appear over time. On PharmaBio (fixed class set), the accuracy of the static models plateaus, whereas the accuracy of incrementally trained models increases. We see that incremental training is not only necessary to adapt to new classes, but also helpful to make use of an increased amount of training data.
 
-## 7.6. Summary
+## 6. Summary
 
 This experiment shows that in the three analyzed datasets, with only history sizes of 3 or 4 (corresponding to 50% coverage of the receptive field of a 2-layer
 
@@ -524,21 +526,21 @@ GCN), almost all methods obtain 95% accuracy compared to the same model under fu
 
 Until now, we have assumed that the true labels of vertices become part of the training data for subsequent tasks. Now we relax this assumption and release only a portion of the labeled data in task t for training in the subsequent task t + 1. This resembles real-world applications, such as the indexing of scientific articles in libraries [\[89\]](#page-51-4). The motivation is that labeled data is expensive to "produce". Again, we work with the most challenging dataset, DBLP-hard, for this experiment, because it has the highest number of new classes.
 
-## 8.1. Procedure
+## 1. Procedure
 
 To implement the idea of learning with only a fraction of labeled data, we randomly sample a subset of vertices, for which true class labels are available for training. We denote this fraction as label rate. For the experiments, it is important to sample globally rather than on a per-task basis to avoid nodes toggling between being labeled and unlabeled. Therefore, we sample the entire dataset before splitting it into tasks. In this way, the subset of vertices that comes with classes is fixed for the entire duration of the experiments. Furthermore, we used the same subset of classes with all different configurations and all repetitions of the experiment. We sample uniformly at random on the vertex level without any stratification between classes. Note that this problem statement of testing different label rates is similar to the difference between settings A and B in Experiment 1 of Section [6.](#page-24-0) However, here we test the influence of the label rate in the context of a task sequence (instead of comparing only two tasks) and systematically change the label rates ranging from 0.1 to 0.9 (instead of only one "split").
 
 For this experiment, we use GraphSAGE-Mean as the GNN model because it achieved the best results in the previous experiment, where the label rate was not restricted. As above, we experiment with different history sizes 1, 3, and 6 and both restart configurations warm and cold. As the dataset, we use DBLP-hard because it has the highest number of classes both in total and new classes that appear over time, and thus is the most challenging.
 
-### 8.2. Hyperparameters
+### 2. Hyperparameters
 
 Again, as in the previous experiment, the optimal hyperparameters were determined on DBLP-easy, the sub-dataset of DBLP-hard that we consistently use to tune hyperparameters. The search space for the learning rate is again {0.1, 0.05, 0.01, 0.005, 0.001, 0.0005}. We have not tuned the hyperparameters separately for each label rate, but we reuse the optimal hyperparameters from training with a 100% label rate.
 
-### 8.3. Measures
+### 3. Measures
 
 As in the previous experiment, we use the average accuracy across tasks as the evaluation metric.
 
-### 8.4. Results
+### 4. Results
 
 In Figure [9,](#page-34-1) we plot the average accuracy between tasks as a function of the label rate. As expected, the absolute accuracy values decrease as the label rate decreases. However, we made a similar observation as in previous experiments with respect to warm/cold restarts. Using warm restarts consistently leads to higher scores than cold restarts. The effect is more prolonged when the history size is small.
 
@@ -546,7 +548,7 @@ When comparing history sizes, we again observe that a larger history size leads 
 
 With very low label rates (in the range between 10% and 30%), the accuracy of the cold restart strategy drops faster than the accuracy of warm restarts. In other words, the use of warm restarts leads to more stable models when dealing with lower label rates.
 
-## 8.5. Summary
+## 5. Summary
 
 This experiment shows that the effect of varying the label rate is as expected: the performance degrades with fewer labeled training data. We confirm the finding from previous experiments that warm restarts consistently lead to higher performance than cold restarts when the history size is small. Furthermore, we observe that warm restarts become even more important when the label rate is low.
 
@@ -558,7 +560,7 @@ This experiment shows that the effect of varying the label rate is as expected: 
 
 In our evolving graphs, we have to deal with previously unseen classes. In previous experiments on lifelong learning, these unseen classes (and the vertices that have these classes) were already part of the test data. However, the models did not have the opportunity to actually predict those classes, as no dedicated technique has been used to detect vertices from unseen classes. Here, we evaluate our adaptation of the unseen class detection method DOC to graph data, called gDOC, as introduced in Section [3.2.](#page-13-1) The experiments comprise a crisp unsupervised detection of instances of unseen classes. At the same time, the models need to make predictions as usual for the known classes.
 
-### 9.1. Procedure
+### 1. Procedure
 
 In previous experiments, unseen classes were part of the test data, while there was no active treatment of having them detected automatically. In this experiment, we seek to evaluate the performance of the gDOC method to detect unseen classes. As before, we train on task t−1 and evaluate on t over a sequence of T tasks. However, for each vertex, we use our unseen class detection module gDOC to predict whether this vertex belongs to a previously known class or not. If the prediction is that the vertex does not belong to any previously known class, we reject its classification and assign a special virtual class ("unseen"). As unseen class detection modules, we compare the original DOC as a baseline with our proposed gDOC method.
 
@@ -568,13 +570,13 @@ In previous experiments, unseen classes were part of the test data, while there 
 
 We used the DBLP-hard dataset, which has 23 new classes. In addition to the dataset analysis in Section [5.2,](#page-21-1) we show in Figure [10](#page-35-0) how many vertices belong to unseen classes in the DBLP-hard dataset. We also experiment with DBLP-easy, which has 4 new classes. We use the best-performing model GraphSAGE-mean along with gDOC for unseen class detection that we have introduced in Section [3.2.](#page-13-1) Our baseline is the original DOC method, also applied to the outputs of GraphSAGE-mean. We observe that in every task except for the last one, there are vertices with unseen classes.
 
-### 9.2. Hyperparameters
+### 2. Hyperparameters
 
 As in the previous experiments, we optimize the model hyperparameters in our development data set DBLP-easy. We repeat the hyperparameter optimization because the loss function has changed from categorical to binary cross-entropy. As before, the best learning rate is selected based on the best accuracy on DBLP-easy and transferred to DBLP-hard.
 
 Note that we did not tune the learning rate for unseen class detection performance, but for the best accuracy, as in previous experiments. We then compare DOC with gDOC, where the former is our baseline and the latter uses our proposed class weighting loss function for lifelong learning.
 
-### 9.3. Measures
+### 3. Measures
 
 We evaluate how well the models detect unseen classes. For this purpose, we use two measures: Macro-F1 with a special class for instances of unseen classes [\[17\]](#page-46-1) and the Matthews correlation coefficient (MCC). Note that Macro-F1 averages the F1 scores over classes such that the effect of the 'unseen' class
 
@@ -584,7 +586,7 @@ Figure 11: MCC score of gDOC with GraphSAGE-mean as GNN model (history size 3, w
 
 is taken into account as any of the known classes. In detail, we compute this Open Macro-F1 as
 
-<span id="page-36-0"></span>Open Macro-F1 := 
+<span id="page-36-0"></span>Open Macro-F1 :=
 $$
 \frac{1}{T} \sum_{t=1}^{T} \text{Macro-F1}(\boldsymbol{y}'(t), \boldsymbol{y}'_{\text{pred}}(t))
 $$
@@ -612,7 +614,7 @@ $$
 
 where TP are true positives or correctly rejected instances, TN true negatives, FP false positives, and FN false negatives. We accumulate those numbers over the entire sequence of tasks.
 
-### 9.4. Results
+### 4. Results
 
 The results for DBLP-easy are shown in Table [5](#page-38-0) and the results for DBLPhard in Table [6.](#page-39-0) For both DBLP-easy and DBLP-hard, we observe that the MCC scores, which measure the correct detection of new classes, are consistently higher for gDOC than for plain DOC. The same holds for the Open F1 Macro scores, which measure the overall performance of OOD detection + classification: gDOC is consistently better than plain DOC.
 
@@ -711,13 +713,13 @@ We assess how in-distribution accuracy is affected by new class detection capabi
 
 <span id="page-41-1"></span>Table 7: Comparison of gDOC combined with different base models on DBLP-hard. The gDOC threshold is set to the 0.75 and no risk reduction is applied.
 
-### 9.7. Summary
+### 7. Summary
 
 Our experiments have shown that weighting the binary cross-entropy loss function in gDOC is essential for unseen class detection in imbalanced graph data. We also learned that the risk reduction technique (as proposed in DOC [\[17\]](#page-46-1)) is not helpful on our imbalanced graph datasets. That is because the variance among predictions in the unbalanced case is so high that the (minimum) threshold effectively never changed. The only exceptions are tiny factors of standard deviation (< 1). Nevertheless, this only decreases the unseen class detection performance measured by MCC. We recommend using gDOC with weighted binary cross-entropy to account for class imbalance. However, we could not find any benefits of the risk reduction technique proposed in the original DOC. We have successfully combined gDOC with different base models (see Section [9.5\)](#page-40-0) and analyzed the trade-off between ID accuracy and OOD detection capabilities (see Section [9.6\)](#page-40-1).
 
 ### <span id="page-41-0"></span>10. General Discussion
 
-### 10.1. Main Findings
+### 1. Main Findings
 
 Our experiments show several key results. First, we have shown in Section [6](#page-24-0) that it is not necessary to up-train GNNs when new unlabeled data arrives. Instead, the performance of inductively pre-trained GNNs remains stable, even when new unlabeled data are added to the graph.
 
@@ -750,7 +752,7 @@ With the introduction of gDOC, we have made the first step to introduce new clas
 
 Another interesting result is that combining warm restarts with small history sizes has increased MCC scores on the most challenging DBLP-hard dataset. It seems that omitting old data helps to detect out-of-distribution examples better.
 
-### 10.2. Generalizability
+### 2. Generalizability
 
 We have shown that our incremental training approach can be applied to various GNN models and is orthogonal to sampling and preprocessing approaches. Our incremental training procedure can generally be applied to any GNN architecture with few caveats. If the GNN architecture depends on transductive learning, this constraint carries over to incremental training. Similarly, any precomputation steps, such as computing normalizing constants such as in GCN [\[3\]](#page-45-1) or GraphSAINT [\[33\]](#page-47-3), must be performed again when adapting the model to a new task.
 
@@ -758,7 +760,7 @@ We assume in this work that old data do not change, e. g., the vertices' labels 
 
 To reflect our work in the broader context of lifelong or continual learning, we reconsider the gradient episodic memory framework [\[48\]](#page-48-4) for image data, in which the examples are independent. Specific pre-processing steps are required to cast graph data into independent examples for vertex classification, such as transforming each vertex into a graph [\[12\]](#page-45-10). This increases the number of inference steps by O(|V |) compared to our approach.
 
-### 11. Conclusion and Future Work
+### Conclusion and Future Work
 
 We have conducted extensive experiments to investigate how graph neural networks behave in a lifelong learning setting on evolving graph data in which the class distribution is highly imbalanced and the models need to adapt to new classes over time. In the first experiment, we have shown that it is not necessary to up-train GNNs on new unlabeled data. Based on this result, we have explored in a second experiment the case of an evolving graph in which new labeled vertices are continually added, including new classes over a sequence of tasks. The results show that parameter reuse allows us to retain a high level of accuracy, even with a limited history size. In the third experiment, we continued in this setup and tested the sensitivity to the label rate in the evolving graph setup, where we confirmed our previous finding. Lastly, in the fourth experiment, we compared our newly proposed gDOC extension against the simple adaption of DOC to graphs, showing that taking the class imbalance into account during training is crucial. We have shown that gDOC can be successfully combined with different GNN models. To facilitate our analyses, we have shown that the tdiff<sup>k</sup> measure to derive the history sizes is equivariant to different temporal granularities. The measure tdiff<sup>k</sup> quantifies the temporal differences along the edges in a temporal graph and is suitable to be reused independently from the other methods presented in this work. These results show a rich picture covering numerous challenges of applying graph neural networks in practical settings without retraining the model from scratch as soon as new data arrive.
 
@@ -769,7 +771,7 @@ As future work, we intend to explore and adapt more out-of-distribution approach
 - Availability of data: We published our lifelong graph learning datasets at [https://doi.org/10.5281/zenodo.3764770.](https://doi.org/10.5281/zenodo.3764770)
 - Availability of code: An implementation of our experimental framework is available at <https://github.com/lgalke/lifelong-learning>
 
-### References
+## References
 
 <span id="page-44-0"></span>[1] W. L. Hamilton, Graph Representation Learning, Synthesis Lectures on Artificial Intelligence and Machine Learning, Morgan & Claypool Publishers, 2020. [doi:10.2200/S01045ED1V01Y202009AIM046](http://dx.doi.org/10.2200/S01045ED1V01Y202009AIM046).
 

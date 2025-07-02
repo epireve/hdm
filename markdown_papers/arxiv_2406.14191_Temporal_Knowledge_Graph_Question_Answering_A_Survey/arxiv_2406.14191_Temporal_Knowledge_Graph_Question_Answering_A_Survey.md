@@ -1,3 +1,5 @@
+<!-- cite_key: su2024 -->
+
 # Temporal Knowledge Graph Question Answering: A Survey
 
 Miao Su, Zixuan Li, Zhuo Chen, Long Bai, Xiaolong Jin[\\*](#page-0-0), Jiafeng Guo\*
@@ -53,7 +55,7 @@ Temporal Knowledge Graph Question Answering. Given the temporal knowledge graph 
 
 We categorize the questions based on three aspects as illustrated in Figure [1:](#page-2-2) 1) Question Content: We use several time-related dimensions in question content to categorize the questions, as these dimensions naturally differentiate how questions are answered. 2) Answer Type: We classify the questions based on the answer types; unlike KBQA questions with a single answer type (i.e., entity), temporal questions encompass various types of answers. 3) Complexity: Similar to KBQA, we categorize the questions by their complexity [\(Hu et al.,](#page-9-9) [2018;](#page-9-9) [Luo](#page-10-2) [et al.,](#page-10-2) [2018\)](#page-10-2).
 
-#### <span id="page-1-3"></span>3.1 Question Content
+### <span id="page-1-3"></span>3.1 Question Content
 
 Temporal Granularity. Questions can be categorized by the temporal granularity of their temporal
 
@@ -72,7 +74,7 @@ Temporal Constraints. The types of temporal constraints mirror those of temporal
 
 A summary of the meanings of these temporal constraint types is provided in Table [2.](#page-2-3)
 
-The *Ordinal* type requires facts to be arranged in chronological order.
+The *Ordinal*type requires facts to be arranged in chronological order.
 
 Temporal Constraints Composition. Temporal constraints composition occurs when multiple temporal constraints are in one question. For instance,
 
@@ -91,7 +93,7 @@ Temporal Constraints Composition. Temporal constraints composition occurs when m
 
 Table 2: Formalization of constraint types.
 
-"Who was the first to request a meeting with Togo in 2005?" combines an *Equal* type constraint "in 2005" with an *Ordinal* type constraint "first". The answer must satisfy both. This combination represents a more complex and challenging type of question.
+"Who was the first to request a meeting with Togo in 2005?" combines an*Equal*type constraint "in 2005" with an*Ordinal*type constraint "first". The answer must satisfy both. This combination represents a more complex and challenging type of question.
 
 ### <span id="page-2-0"></span>3.2 Answer type
 
@@ -117,21 +119,21 @@ As illustrated in Figure [2,](#page-3-2) SP-based methods usually have four step
 
 Figure 2: Overall procedure of SP-based methods.
 
-# 4.1.1 Question Understanding
+# 1.1 Question Understanding
 
-The question understanding module analyzes the input question to generate an encoded representation. This module is sometimes simplified to tag or extract logical candidates like temporal words, entities, and timestamps. Abstract Meaning Representation (AMR) [\(Kapanipathi et al.,](#page-10-5) [2020\)](#page-10-5) is one of the most widely used representations for KBQA questions, SYGMA [\(Neelam et al.,](#page-11-3) [2021\)](#page-11-3) uses AMR to capture temporal words as part of the *:time* relation and handling implicit temporal constraints. [Kannen et al.](#page-10-6) [\(2023\)](#page-10-6) and [Long et al.](#page-10-7) [\(2022\)](#page-10-7) also employ AMR to identify question constituents. SF-TQA [\(Ding et al.,](#page-9-12) [2023\)](#page-9-12) fine-tunes BERT [\(Devlin et al.,](#page-8-7) [2019\)](#page-8-7) to annotate elements determined by TimeML [\(Pustejovsky et al.\)](#page-11-2) relations. With its impressive performance on text generation and induction, Large Language Model (LLM) have been applied to generate a simplified version of logical forms directly [\(Chen et al.,](#page-8-2) [2024\)](#page-8-2) and induce step-wise abstract methodological guidance to the present question [\(Chen et al.,](#page-8-8) [2023a\)](#page-8-8).
+The question understanding module analyzes the input question to generate an encoded representation. This module is sometimes simplified to tag or extract logical candidates like temporal words, entities, and timestamps. Abstract Meaning Representation (AMR) [\(Kapanipathi et al.,](#page-10-5) [2020\)](#page-10-5) is one of the most widely used representations for KBQA questions, SYGMA [\(Neelam et al.,](#page-11-3) [2021\)](#page-11-3) uses AMR to capture temporal words as part of the*:time*relation and handling implicit temporal constraints. [Kannen et al.](#page-10-6) [\(2023\)](#page-10-6) and [Long et al.](#page-10-7) [\(2022\)](#page-10-7) also employ AMR to identify question constituents. SF-TQA [\(Ding et al.,](#page-9-12) [2023\)](#page-9-12) fine-tunes BERT [\(Devlin et al.,](#page-8-7) [2019\)](#page-8-7) to annotate elements determined by TimeML [\(Pustejovsky et al.\)](#page-11-2) relations. With its impressive performance on text generation and induction, Large Language Model (LLM) have been applied to generate a simplified version of logical forms directly [\(Chen et al.,](#page-8-2) [2024\)](#page-8-2) and induce step-wise abstract methodological guidance to the present question [\(Chen et al.,](#page-8-8) [2023a\)](#page-8-8).
 
-# 4.1.2 Logical Parsing
+# 1.2 Logical Parsing
 
-Logical parsing transforms the encoded question into an uninstantiated logical form. TEQUILA uses the existing KBQA engines AQQU [\(Bast and](#page-8-0) [Haussmann,](#page-8-0) [2015\)](#page-8-0) and QUINT [\(Abujabal et al.,](#page-8-1) [2017\)](#page-8-1) to answer the sub-questions; these engines primarily rely on predefined rules or templates to parse questions and derive logical forms [\(Fu et al.,](#page-9-5) [2020\)](#page-9-5). Early TKGQA approaches also employed rule-based translation, further incorporating timerelated rules. SYGMA introduces KB-agnostic rules into λ-expressions [\(Cai and Yates,](#page-8-9) [2013\)](#page-8-9) to match temporal constraints indicated by the *:time* relation in AMR. Built on SYGMA, [Kannen et al.](#page-10-6) [\(2023\)](#page-10-6) decompose the λ-expression into main-λ and aux-λ, with the former containing the primary event questioned and the latter containing the temporal constraint.
+Logical parsing transforms the encoded question into an uninstantiated logical form. TEQUILA uses the existing KBQA engines AQQU [\(Bast and](#page-8-0) [Haussmann,](#page-8-0) [2015\)](#page-8-0) and QUINT [\(Abujabal et al.,](#page-8-1) [2017\)](#page-8-1) to answer the sub-questions; these engines primarily rely on predefined rules or templates to parse questions and derive logical forms [\(Fu et al.,](#page-9-5) [2020\)](#page-9-5). Early TKGQA approaches also employed rule-based translation, further incorporating timerelated rules. SYGMA introduces KB-agnostic rules into λ-expressions [\(Cai and Yates,](#page-8-9) [2013\)](#page-8-9) to match temporal constraints indicated by the*:time*relation in AMR. Built on SYGMA, [Kannen et al.](#page-10-6) [\(2023\)](#page-10-6) decompose the λ-expression into main-λ and aux-λ, with the former containing the primary event questioned and the latter containing the temporal constraint.
 
 Additionally, many methods design specialized logical forms to represent temporal information [\(Long et al.,](#page-10-7) [2022\)](#page-10-7). [Ding et al.](#page-9-12) [\(2023\)](#page-9-12) introduce the Semantic Framework of Temporal Constraints (SF-TCons), which captures temporal constraints and their interpretation structures. Six interpretation structures (IS) are summarized based on the intrinsic connection between events and their connectors. For example, the IS-1 Comparison structure 'COMPARE〈 INCLUDES, time("direct"), "1960" 〉' in Figure [3](#page-4-1) interprets that the "direct" event's time should be "INCLUDES" by "1960". After linking, it can be transformed into the query graph under it. Prog-TQA expands temporal operators based on Knowledge-oriented Programming Language (KoPL) [\(Cao et al.,](#page-8-10) [2022\)](#page-8-10), which enables a more concise implementation of temporal logical queries compared to KBQA logical forms such as SPARQL [\(Polleres\)](#page-11-4). ARI defines specialized actions for precise information retrieval, such as "get-Between(entities,Time1,Time2)", which identifies entities/events that occurred between two specific times. An action sequence generated by LLM can be viewed as a logical form here. reasoning based on rules in Table [2.](#page-2-3) AE-TQ con- Alfred\_Hitchcock Psycho (ANS)
 
-#### 4.1.3 TKG Grounding
+## 1.3 TKG Grounding
 
 TKG grounding grounds the elements in the unbound logical form with the entities, relations, and timestamps in the TKG. A series of methods are employed in this module, including rule-based approaches [\(Neelam et al.,](#page-11-3) [2021\)](#page-11-3), BERT representation similarity [\(Yih et al.,](#page-12-2) [2015\)](#page-12-2), fuzzy matching algorithms [\(Chen et al.,](#page-8-2) [2024\)](#page-8-2), and an off-the-shelf Named Entity Linking (NEL) model [\(Chen et al.,](#page-8-8) [2023a\)](#page-8-8).
 
-## 4.1.4 Query Execution
+## 1.4 Query Execution
 
 The query execution module runs the grounded logical form against the TKG to retrieve the final answers. Some methods conduct temporal reasoning during this module. TEQUILA casts sub-questions answers' time range into intervals and conducts
 
@@ -147,7 +149,7 @@ To mitigate the TKG's incompleteness, [Kannen](#page-10-6) [et al.](#page-10-6) 
 
 As illustrated in Figure [4,](#page-5-0) TKGE-based methods typically involve three steps: TKG embedding, question embedding, and answer ranking. In these methods, questions and candidate answers (i.e., entities and timestamps) are converted into embeddings through the question embedding and TKG embedding modules, respectively. The question embedding is then projected into Qent and Qtime for ranking entities and timestamps during the answer ranking process.
 
-### 4.2.1 TKG Embedding
+### 2.1 TKG Embedding
 
 The TKG Embedding module generates embeddings of TKG elements. The entity and timestamp embeddings are filtered and augmented to create a pool of candidate answers. EXAQT [\(Jia](#page-9-15) [et al.,](#page-9-15) [2021\)](#page-9-15) follows a line of KBQA research [\(Sun](#page-11-5) [et al.,](#page-11-5) [2018a;](#page-11-5) [Yasunaga et al.,](#page-12-3) [2022\)](#page-12-3), employ-
 
@@ -163,7 +165,7 @@ To reduce the search space, EXAQT generates compact question subgraphs using Gro
 
 To address the inconsistency between a question's granularity and the TKG's temporal granularity, MultiQA [\(Chen et al.,](#page-8-12) [2023b\)](#page-8-12) employs multigranularity temporal aggregation. It splices days within each month or year interval, adds position vectors, and then fuses the information using the transformer.
 
-#### 4.2.2 Question Embedding
+#### 2.2 Question Embedding
 
 The question embedding module embeds the temporal question, analyzing its semantics and incorporating time-relevant information. EXAQT embeds the question words with Wikipedia2Vec [\(Yamada](#page-12-4)
 
@@ -215,31 +217,31 @@ tures from questions: CTRN [\(Jiao et al.,](#page-10-13) [2023\)](#page-10-13) u
 
 To enhance the interpretability of reasoning on implicit temporal questions, SubGTR designs an implicit expression parsing module to rewrite their temporal constraints explicitly.
 
-#### 4.2.3 Answer Ranking
+#### 2.3 Answer Ranking
 
 The answer ranking module ranks candidate answers based on the question and candidate answer embeddings. TKG models employ various techniques: leveraging TComplEx scoring functions [\(Saxena et al.,](#page-11-7) [2021;](#page-11-7) [Mavromatis et al.,](#page-11-9) [2021\)](#page-11-9), applying temporal activation functions to satisfy time constraints [\(Chen et al.,](#page-8-11) [2022\)](#page-8-11), introducing gating mechanisms [\(Sharma et al.,](#page-11-10) [2022\)](#page-11-10) or type discrimination losses [\(Huang et al.,](#page-9-4) [2024\)](#page-9-4) to distinguish among answer types, and fine-tuning a LLM to list the most relevant answers [\(Ye et al.,](#page-12-14) [2023\)](#page-12-14).
 
 ## <span id="page-6-0"></span>4.3 Question Category Coverage Comparison Across TKGQA Methods
 
-Building on the question taxonomy and methodologies overview, we match each type of temporal question with the appropriate method designed to address it effectively, providing a detailed table as Table [3.](#page-6-2) We can see from the table that finergrained granularities have been brought into focus over time. *Implicit* questions received more attention than *explicit*; *before/after* and *ordinal* questions received the most attention, followed by *during/include* and *overlap*; *start/end* and *equal* questions gain less attention because fewer datasets present them as separate categories. More methods focused on solving more *complex* questions; however, there was a lack of attention to the most complex type of *temporal constraint compositions*.
+Building on the question taxonomy and methodologies overview, we match each type of temporal question with the appropriate method designed to address it effectively, providing a detailed table as Table [3.](#page-6-2) We can see from the table that finergrained granularities have been brought into focus over time.*Implicit*questions received more attention than*explicit*; *before/after*and*ordinal*questions received the most attention, followed by*during/include*and*overlap*; *start/end*and*equal*questions gain less attention because fewer datasets present them as separate categories. More methods focused on solving more*complex*questions; however, there was a lack of attention to the most complex type of*temporal constraint compositions*.
 
 ## <span id="page-6-1"></span>5 Future Directions
 
 This section will discuss emerging frontiers for TKGQA, aiming to stimulate further research in this field.
 
-#### 5.1 Introduce More Question Types
+### 1 Introduce More Question Types
 
 While existing datasets already cover some of the temporal questions, there are still more questions to be explored in the real world. 1) More combination of existing question types: "Who was the first person to win a medal during the 2024 Olympic Games?" 2) More time granularity: Some questions demand more fine-grained granularities, such as "When was the Long March 1 launched?" 3) Questions must consider the posed time: "Where are the seneca indians now?" [\(Jia et al.,](#page-9-15) [2021;](#page-9-15) [Liška et al.,](#page-10-15) [2022\)](#page-10-15) 3) Predicting the future questions: "Will the Palestinian-Israeli conflict end next year?" [\(Jin et al.,](#page-10-16) [2021;](#page-10-16) [Ding et al.,](#page-9-17) [2022b](#page-9-17)[,a\)](#page-9-18) 4) Common sense temporal questions: "How often are the Olympics held?"
 
-# 5.2 Enhance Model Robustness
+# 2 Enhance Model Robustness
 
 Most existing TKGQA datasets provide entity and temporal annotations [\(Saxena et al.,](#page-11-7) [2021;](#page-11-7) [Jia et al.,](#page-9-15) [2021;](#page-9-15) [Neelam et al.,](#page-11-14) [2022\)](#page-11-14), greatly reducing the task's difficulty. Results on unlabeled datasets rely on the effects of NEL or temporal annotators [\(Chen](#page-8-12) [et al.,](#page-8-12) [2023b\)](#page-8-12), corrupting the model's robustness. Robust models should be able to perform well on datasets with no additional annotations and be able to generalize to unseen entities and relationships [\(Chen et al.,](#page-8-11) [2022\)](#page-8-11). In addition, most existing datasets rely on template generation and lack diversity; there are very few event types, and they are still single-domain. These can be improved in future work.
 
-# 5.3 Multi-modal TKGQA
+# 3 Multi-modal TKGQA
 
 Current TKGQA systems mainly handle plain text input. However, we experience the world with multiple modalities (e.g., language and image). Therefore, building a multi-modal TKGQA system that can handle multiple modalities is an important direction to investigate [\(Yu et al.,](#page-12-15) [2023\)](#page-12-15). A nontrivial challenge is how to effectively make a multimodal feature alignment and complementary to understand the temporal part better.
 
-# 5.4 LLM for TKGQA
+# 4 LLM for TKGQA
 
 Recently, Large Language Models (LLMs) have gained significant attention for their remarkable performance across a wide range of Natural Language Processing (NLP) tasks [\(Touvron et al.;](#page-12-16) [Ope](#page-11-15)[nAI,](#page-11-15) [2024;](#page-11-15) [Team and Googlba,](#page-12-17) [2024\)](#page-12-17). Existing research has also explored applying LLMs in KBQA scenarios, employing both few-shot and zero-shot learning paradigms [\(Nie et al.,](#page-11-16) [2024;](#page-11-16) [Sun et al.,](#page-11-17) [2024;](#page-11-17) [Jiang et al.,](#page-9-19) [2023;](#page-9-19) [Baek et al.,](#page-8-13) [2023;](#page-8-13) [Li et al.,](#page-10-17) [2023a,](#page-10-17)[b\)](#page-10-18)
 
@@ -398,7 +400,7 @@ TimeQuestions [\(Jia et al.,](#page-9-15) [2021\)](#page-9-15) is based on Wikid
 
 CronQuestions [\(Chen et al.,](#page-8-11) [2022\)](#page-8-11) utilizes a subset of Wikidata that includes facts annotated with temporal information [\(Lacroix et al.,](#page-10-8) [2020\)](#page-10-8), such as <Barack Obama, held position, President of USA, 2008, 2016>. Entities extracted from Wikidata with both "start time" and "end time" annotations are transformed into event format (e.g., <WWII, significant event, occurred, 1939, 1945>). The dataset comprises a Temporal KG with 125k entities and 328k facts (including 5k event facts), and 410k natural language questions requiring temporal reasoning.
 
-Complex-CronQuestions [Chen et al.](#page-8-11) [\(2022\)](#page-8-11) observe that existing benchmarks contain many pseudo-temporal questions. For instance, for the question *"What's the first award Carlo Taverna got?"* there is only one fact related to *Carlo Taverna* in the TKG, which makes the temporal word "first" meaningless as a constraint. They remove all simple and pseudo-temporal questions and filter out questions with less than 5 relevant facts in CronQuestions.
+Complex-CronQuestions [Chen et al.](#page-8-11) [\(2022\)](#page-8-11) observe that existing benchmarks contain many pseudo-temporal questions. For instance, for the question *"What's the first award Carlo Taverna got?"*there is only one fact related to*Carlo Taverna* in the TKG, which makes the temporal word "first" meaningless as a constraint. They remove all simple and pseudo-temporal questions and filter out questions with less than 5 relevant facts in CronQuestions.
 
 MultiTQ [\(Chen et al.,](#page-8-12) [2023b\)](#page-8-12) is a dataset derived from ICEWS05-15 [\(García-Durán et al.,](#page-9-21) [2018\)](#page-9-21), where all facts are standardized as quadruple (s, r, o, t). ICEWS05-15 is notable for its rich semantic information, with a higher average number of relation types per entity than other TKGs. The MultiTQ dataset features several advantages, including its large scale, ample relations, and multiple temporal granularity. ICEWS provides time information at a day granularity, while the authors generate higher granularities, such as year and month, for the questions. MultiTQ contains 500,000 questions, making it a significant resource for temporal question-answering research.
 

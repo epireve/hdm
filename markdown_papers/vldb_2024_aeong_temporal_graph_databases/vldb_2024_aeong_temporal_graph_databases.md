@@ -1,4 +1,6 @@
-![](_page_0_Picture_0.jpeg)
+<!-- cite_key: lu2024 -->
+
+
 
 # AeonG: An Efficient Built-in Temporal Support in Graph Databases
 
@@ -20,11 +22,11 @@ Xiaoyong Du Renmin University of China duyong@ruc.edu.cn
 
 Real-world graphs are often dynamic and evolve over time. It is crucial for storing and querying a graph's evolution in graph databases. However, existing works either suffer from high storage overhead or lack efficient temporal query support, or both. In this paper, we propose AeonG, a new graph database with built-in temporal support. AeonG is based on a novel temporal graph model. To fit this model, we design a storage engine and a query engine. Our storage engine is hybrid, with one current storage to manage the most recent versions of graph objects, and another historical storage to manage the previous versions of graph objects. This separation makes the performance degradation of querying the most recent graph object versions as slight as possible. To reduce the historical storage overhead, we propose a novel anchor+delta strategy, in which we periodically create a complete version (namely anchor) of a graph object, and maintain every change (namely delta) between two adjacent anchors of the same object. To boost temporal query processing, we propose an anchor-based version retrieval technique in the query engine to skip unnecessary historical version traversals. Extensive experiments are conducted on both real and synthetic datasets. The results show that AeonG achieves up to 5.73× lower storage consumption and 2.57× lower temporal query latency against state-of-the-art approaches, while introducing only 9.74% performance degradation for supporting temporal features.
 
-#### PVLDB Reference Format:
+## PVLDB Reference Format:
 
 Jiamin Hou, Zhanhao Zhao, Zhouyu Wang, Wei Lu, Guodong Jin, Dong Wen, and Xiaoyong Du. AeonG: An Efficient Built-in Temporal Support in Graph Databases. PVLDB, 17(6): 1515 - 1527, 2024. [doi:10.14778/3648160.3648187](https://doi.org/10.14778/3648160.3648187)
 
-#### PVLDB Artifact Availability:
+### PVLDB Artifact Availability:
 
 The source code, data, and/or other artifacts have been made available at [https://github.com/hououou/AeonG.git.](https://github.com/hououou/AeonG.git)
 
@@ -120,7 +122,7 @@ has a unique id 2, a label "Phone", a property with the key-value pair (IP, Sing
 
 AeonG incorporates a temporal-enhanced Cypher [\[25\]](#page-12-15), which extends the standard syntax defined in OpenCypher [\[25\]](#page-12-15) to support temporal queries. As illustrated in Listing [1,](#page-3-0) AeonG introduces two temporal syntax extensions in the MATCH clause (line 3): (1) FOR AS OF , which retrieves all graph objects legal at time , and (2) FOR FROM <sup>1</sup> TO 2, which locates all graph objects consistently legal within the time range from <sup>1</sup> to 2. The former is referred to as "time-point" queries, while the latter is known as "time-slice" queries. Users can apply any time conditions to temporal queries, spanning a wide time range from the oldest historical records up to the most recent updates. Further, apart from retrieving temporal graph data of user interest using temporal queries, AeonG allows users to submit common (non-temporal) queries and data manipulation operations (creating, updating, and deleting) with the standard Cypher syntax.
 
-#### Listing 1: Syntax of Temporal-enhanced Cypher
+### Listing 1: Syntax of Temporal-enhanced Cypher
 
 <span id="page-3-0"></span>
 
@@ -134,7 +136,7 @@ Example 3. Consider the query "What was Jack's phone IP at ". This query can be 
 
 In this section, we introduce the system architecture of AeonG as shown in Figure [4.](#page-4-0) AeonG includes a transaction manager which enables handling a sequence of graph operations with ACID properties. We process transactions by employing the Multi-Version Concurrency Control (MVCC) [\[33\]](#page-12-18). MVCC ensures that transactions only see a consistent snapshot of the data that is visible to them, thus enabling multiple transactions to work concurrently without interfering with one another [\[33](#page-12-18)[–38\]](#page-12-19). Given our primary focus on temporal data management, we now describe how we utilize the MVCC mechanism to manage temporal data effectively. AeonG supports built-in temporal features through two major components: the storage engine and the query engine.
 
-### 3.1 Storage Engine
+### 1 Storage Engine
 
 The storage engine of AeonG has two physically isolated storages: current storage and historical storage. The current storage typically
 
@@ -148,7 +150,7 @@ Asynchronous migration. AeonG utilizes an asynchronous migration approach to tra
 
 Example 4. In the right part of Figure [4,](#page-4-0) we demonstrate how AeonG stores the customer purchase graph as presented in Example 2. In the current storage, component C records the current versions at +1. Besides, the historical versions at (1.<sup>2</sup> and 2.<sup>7</sup> in this case), are stored in component <sup>D</sup> . Take <sup>2</sup> as an example. To capture the change in 2's IP from Singapore to New York at +1, AeonG performs two steps. First, it updates <sup>2</sup> in place to create a new current version 2.8. Second, to maintain the previous state, AeonG generates a historical version 2.7, which is linked to 2.<sup>8</sup> in a chain and managed by MVCC. We migrate historical data in component D to the historical storage (component E ) asynchronously. In the historical storage, the historical versions, 1.<sup>2</sup> and 2.7, are organized as an anchor (represented as a long rectangle) and a delta (represented as a short rectangle). □
 
-## 3.2 Query Engine
+## 2 Query Engine
 
 The query engine is responsible for handling user-issued queries, retrieving relevant graph data from the hybrid storage engine. Adhering to the "textbook" separation of components, AeonG consists
 
@@ -224,7 +226,7 @@ We propose an adaptive anchoring approach, which assigns different anchor interv
 
 <span id="page-6-2"></span>
 $$
-u_o = \begin{cases} \tau_1 * c & f(o) \le \tau_1 \\ \tau_2 * c & \tau_1 < f(o) \le \tau_2 \\ \tau_2^2 / \tau_1 * c & \tau_2 \le f(o) \end{cases}
+u_o = \begin{cases} \tau_1 *c & f(o) \le \tau_1 \\ \tau_2* c & \tau_1 < f(o) \le \tau_2 \\ \tau_2^2 / \tau_1 * c & \tau_2 \le f(o) \end{cases}
 $$
  medium frequency (1)
 
@@ -254,7 +256,7 @@ Data migration. In MVCC, unreclaimed historical versions will be physically remo
 
 AeonG inherits and extends scan and expand operators to empower consistent and efficient temporal query processing.
 
-### 5.1 Scan Operator
+### 1 Scan Operator
 
 AeonG uses the scan operator to efficiently fetch vertex versions while ensuring data consistency for both current data and historical data. We elaborate on it from the aspect of fetching data from each storage component. When fetching data from the current storage, it is essential to ensure consistent data capture in the presence of concurrent transactions. To achieve this, we start by locating relevant vertex object(s) of interest. For each vertex object, we first employ the snapshot visibility check [\[33\]](#page-12-18) to find a visible version of the given transaction. All versions preceding this visible version in the version chain are candidate legal versions we may want. Then we utilize a legal check mechanism, which verifies whether each candidate version ′ is legal to the given query time condition, as per the following equation.
 
@@ -319,7 +321,7 @@ Algorithm 3: Expanding Vertices
 
 store using SkipList, the complexity of this process is (( )), where is the average number of anchors for vertices. Then, we sequentially scan deltas from the anchor until satisfying the query time condition, with a time complexity of (), where represents the average length of defined in Equation [1.](#page-6-2) In conclusion, the scan operator has a complexity of (() + ( ) + ).
 
-## 5.2 Expand Operator
+## 2 Expand Operator
 
 AeonG utilizes the expand operator to fetch linked edge and adjacency vertex versions. The overall design insight of the expand operator is similar to that of the scan operator, which employs different retrieval strategies in two separate storage engines. Additionally, the expand operator considers the retrieval of graph structures. We next elaborate on how the expand operator fetches edge and neighboring vertex versions of a given vertex.
 
@@ -363,7 +365,7 @@ period. For instance, setting retention\_period to one month enables the periodi
 
 In this section, we first introduce the experimental setup. We then compare AeonG against two state-of-the-art temporal systems, Clock-G and T-GQL, and provide in-depth performance analyses for AeonG, with two metrics: 1) latency of temporal queries/graph operations; 2) storage overheads of temporal graph data.
 
-## 7.1 Experimental Setup
+## 1 Experimental Setup
 
 AeonG is built on Memgraph 2.2.0, RocksDB 6.14.6, and TiKV 7.1.2 for evaluation. We run the experiments in a cluster of up to 5 nodes. Each node is equipped with 32 Intel(R) Xeon(R) Gold 5220 CPU @ 2.20GHz, 128 GB memory, running CentOS 7.9.
 
@@ -398,7 +400,7 @@ To effectively evaluate the efficiency of temporal features in AeonG and baselin
 
 7.1.3 Default Configuration. By default, the Zipf distribution factor is set to 1.1. The parameters of the adaptive anchoring approach defined in Equation [1](#page-6-2) are configured as <sup>1</sup> = 1, <sup>2</sup> = 10 and = 1%. The retention\_period discussed in Section [6](#page-8-1) is set to 0, indicating that all historical data will be retained permanently.
 
-## 7.2 AeonG vs Baseline Systems
+## 2 AeonG vs Baseline Systems
 
 We now compare AeonG with two baseline systems, Clock-G and T-GQL. As T-GQL is an in-memory database, to ensure fair comparisons, we make sure all data is cached in memory for AeonG and Clock-G by configuring RocksDB's MemTable size to 640MB.
 
@@ -408,7 +410,7 @@ We also run experiments using T-LDBC and T-gMrak to evaluate the storage consump
 
 <span id="page-9-4"></span><span id="page-9-3"></span><span id="page-9-2"></span><span id="page-9-1"></span>![](_page_9_Figure_9.jpeg)
 
-#### Figure 8: Comparisons on Storage Consumption and Graph Operation Latency
+### Figure 8: Comparisons on Storage Consumption and Graph Operation Latency
 
 7.2.2 Experiments on the graph operation latency. We then evaluate the graph operation latency with varying numbers of graph operations using T-mgBench. As shown in Figure [8\(b\),](#page-9-4) AeonG performs similarly to Clock-G, but significantly outperforms T-GQL by up to 397.06×. As the number of graph operations grows, both AeonG and Clock-G exhibit a performance degradation of 5.4× from 80k to 400k, whereas T-GQL shows a much larger degradation of 34.95×. The performance difference is mainly due to that T-GQL does not separate the storage of current and historical data. Therefore, graph operations, such as updates, require traversing through a larger number of graph objects (both current and historical data) to reach the specific graph object for updating. However, AeonG separate current and historical data, leading to much smaller latency overheads. The similar performance of AeonG and Clock-G in T-mgBench can be explained as the overhead from snapshot creation is not significant when handling a relatively small size graph. Therefore, to further evaluate storage operation latency with larger graphs, we conducted additional experiments using the T-LDBC workload. As observed in Figur[e8\(c\)](#page-9-2) , the graph operation latency of AeonG is lower than Clock-G and T-GQL by up to 2.82× and 10.11×, respectively. As T-LDBC is more substantial, Clock-G requires extra CPU and IO resources to periodically create large historical snapshots, which can negatively affect graph operation performance due to resource contention. We also report the graph operation latency under T-gMark in the extended version [1], where the observations are similar to those reported.
 
@@ -430,7 +432,7 @@ Figure 10: AeonG vs Memgraph on Non-temporal Queries
 
 <span id="page-10-5"></span>We additionally evaluate the temporal query performance on T-LDBC. As depicted in Figure [9\(e\),](#page-10-4) AeonG outperforms among all temporal query types and achieves lower latency by up to 1.37× and 7× than Clock-G and T-GQL, in alignment with the trends observed in Figure [9\(a\).](#page-10-0) Due to space limitations, we leave the latency details of IS2 and IS6 in our extended manuscript [\[42\]](#page-12-23). Their trends align with Figure [9\(e\),](#page-10-4) only but their scales differ. Furthermore, we conduct experiments using T-gMrak. As depicted in Figure [9\(f\),](#page-10-5) AeonG consistency outperforms in all the datasets and demonstrates up to 26.16× faster temporal query performance than Clock-G and 6.56× faster than T-GQL.
 
-## 7.3 Performance Analysis on AeonG
+## 3 Performance Analysis on AeonG
 
 We now provide an in-depth analysis of AeonG's performance under diverse configurations. In the following experiments, we fix RocksDB's MemTable size to the default value of 64MB.
 
@@ -462,7 +464,7 @@ In this paper, we propose AeonG, a new graph database that efficiently offers bu
 
 This work was supported by the National Natural Science Foundation of China (Number 61972403, 62072458).
 
-### REFERENCES
+## REFERENCES
 
 - <span id="page-12-0"></span>[1] Neo4j, "https://neo4j.com." Accessed on 2024-02.
 - <span id="page-12-1"></span>[2] ArangoDB, "https://www.arangodb.com." Accessed on 2024-02.

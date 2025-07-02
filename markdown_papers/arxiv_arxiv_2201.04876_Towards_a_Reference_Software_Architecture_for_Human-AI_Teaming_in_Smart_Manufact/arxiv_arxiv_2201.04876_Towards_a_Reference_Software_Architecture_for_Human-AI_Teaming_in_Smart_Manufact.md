@@ -1,10 +1,12 @@
+<!-- cite_key: hagenberg2022 -->
+
 # Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing
 
 Philipp Haindl philipp.haindl@scch.at Software Competence Center Hagenberg Hagenberg, Austria
 
 Maqbool Khan maqbool.khan@fecid.paf-iast.edu.pk Pak-Austria Fachhochschule - Institute of Applied Sciences and Technology Mang, Haripur, Pakistan
 
-#### ABSTRACT
+## ABSTRACT
 
 With the proliferation of AI-enabled software systems in smart manufacturing, the role of such systems moves away from a reactive to a proactive role that provides context-specific support to manufacturing operators. In the frame of the EU funded Teaming.AI project, we identified the monitoring of teaming aspects in human-AI collaboration, the runtime monitoring and validation of ethical policies, and the support for experimentation with data and machine learning algorithms as the most relevant challenges for human-AI teaming in smart manufacturing. Based on these challenges, we developed a reference software architecture based on knowledge graphs, tracking and scene analysis, and components for relational machine learning with a particular focus on its scalability. Our approach uses knowledge graphs to capture productand process specific knowledge in the manufacturing process and to utilize it for relational machine learning. This allows for contextspecific recommendations for actions in the manufacturing process for the optimization of product quality and the prevention of physical harm. The empirical validation of this software architecture will be conducted in cooperation with three large-scale companies in the automotive, energy systems, and precision machining domain. In this paper we discuss the identified challenges for such a reference software architecture, present its preliminary status, and sketch our further research vision in this project.
 
@@ -24,7 +26,7 @@ Georg Buchgeher georg.buchgeher@scch.at Software Competence Center Hagenberg Hag
 
 Bernhard Moser bernhard.moser@scch.at Software Competence Center Hagenberg Hagenberg, Austria
 
-#### KEYWORDS
+### KEYWORDS
 
 human-AI teaming, IIoT, knowledge graphs, relational machine learning, software architecture, smart manufacturing
 
@@ -76,27 +78,27 @@ Based on the aforementioned challenges our research consortium developed a refer
 
 Figure [1](#page-3-1) shows the different components of this reference architecture. To account for the different latency requirements of the components to process the data in a streaming-like manner, we followed the Lambda architecture pattern as described by Warren and Marz [\[31\]](#page-4-18). This architectural pattern groups the components based on their latency requirements into three layers. The batch layer (model authoring) ingests and stores large amounts of data, the speed layer (knowledge graph, graph-based ML and teaming engine, production line systems) processes updates to the data in low-latency, and the serving layer (operation support, ML experimentation, introspection & policy monitoring) provides precalculated results also in a low-latency fashion [\[19\]](#page-4-19). To separate read and write operations and therewith be able to balance the processing of large data volumes, all data stores used in the architecture (i.e., dynamic knowledge graph, time series, and media data) are replicated as read and write shards. The synchronization between these replicas is performed autonomously by the synchronization management component.
 
-#### 4.1 Model Authoring & Import
+### 1 Model Authoring & Import
 
 Product- and process specific models for the manufacturing process are imported into the knowledge graph by means of batches. In this regard, importing might also comprise to convert these domainspecific models into a graph representation such as RDF (Resource Description Framework). This component also embodies the functionality needed for authoring and versioning the models.
 
-#### 4.2 ML Experimentation
+#### 2 ML Experimentation
 
 During the continuous improvement and testing of AI-based systems, huge amounts of data are generated that can be used for targeted experiments with these systems [\[1,](#page-4-20) [2\]](#page-4-21). Particularly, the indeterministic nature of data-driven algorithms and their entanglement with the used training data underpins the need for continuous experimentation and validation of AI components.
 
-#### 4.3 Introspection & Policy Monitoring
+#### 3 Introspection & Policy Monitoring
 
 Explainability of AI (XAI) [\[23\]](#page-4-22), ethics-based auditability [\[14\]](#page-4-23), and the alignment with human rights and autonomy [\[8\]](#page-4-24) are common examples for ethical requirements towards AI systems. In recent years, several policies and guidelines have been presented by companies, e.g., Google [\[18\]](#page-4-25), governmental bodies, e.g., the EU [\[7\]](#page-4-26), and standardization organizations, e.g., from IEEE [\[8\]](#page-4-24). The compliance with these standards and policies needs to be assured throughout the operation of any AI-enabled software system. To this end, this component encapsulates introspection capabilities, i.e., the self-directed evaluation of the AI system by itself, and additional monitoring and validation facilities related to ethical standards and policies. While introspection is triggered ad-hoc, e.g., upon the detection of suspicious interaction patterns, monitoring and validation is performed continuously at runtime. To also take into account historical data when evaluating the compliance with ethical policies, all processed events are stored in the event store.
 
-#### 4.4 Knowledge Graph
+#### 4 Knowledge Graph
 
 Due to the emerging use of knowledge graphs to represent ontologies and semantic data, they also become increasingly important to formalize expert knowledge, process, and simulation data in manufacturing [\[13\]](#page-4-27). Based on the frequency of updates to the data, the reference architecture differentiates between a dynamic and a static knowledge subgraph. Models related to the product, the manufacturing process, and to experimentation are static in the sense that they do not need to be continuously updated at runtime. These data are embodied in the static subgraph. The dynamic subgraph on the other hand covers operational data accruing in the manufacturing process itself [\[21,](#page-4-28) [22\]](#page-4-29), augmented by added facts from relational machine learning to optimize the interplay between human and AI. This interplay can, e.g., be optimized by proactively giving the operator recommendations for the next manufacturing step or suggesting parameter changes for the machinery to respond to observed product quality deviations, detected by the AI systems.
 
-#### 4.5 Graph-based ML Engine
+#### 5 Graph-based ML Engine
 
 This component provides relational machine learning capabilities that focus on the application of machine learning methods onto relational or graph-structured data such as knowledge graphs. An essential prerequisite for this is the calculation of graph embeddings, i.e., the transfer of a graph representation into a vector space. to orchestrate complex machine learning tasks (e.g., via frameworks such as Kubeflow, TensorFlow Extended, or MLFlow) it provides a framework abstraction layer to make these frameworks accessible through a generic software interface.
 
-#### 4.6 Teaming Engine
+#### 6 Teaming Engine
 
 The orchestration engine controls the reliable execution of the teaming process, which is defined in the teaming model. This model structures the concrete sequence of activities in the interaction between the AI system and the manufacturing operator. Also, it gives a framework to define which policies are relevant in a specific time period of the manufacturing process and to formalize the ground rules for team interaction, as described by the 4S Interdependence Framework of Johnson and Vera [\[10\]](#page-4-30). For the orchestration of the
 
@@ -108,13 +110,13 @@ Figure 1: Reference Software Architecture For Human-AI Teaming in Smart Manufact
 
 teaming process, two types of events are processed by the teaming engine: Raw events are extracted from the production line system through IIoT sensors, whereby teaming events are exchanged by the different components after processing. As a result, only teaming events contain contextual data. The orchestration engine can only work with teaming events, since the contextual data must also be evaluated to decide on the next manufacturing activity. The event translation merges several atomic events so that they can be used for decision-making by the orchestration engine.
 
-#### 4.7 Operation Support
+#### 7 Operation Support
 
 The current situation on the shopfloor, i.e., the position of parts and movements of the manufacturing operator, machine settings, and their observed effects on production quality must be taken into account when giving recommendations to the manufacturing operator. Thereby, tracking and scene analysis (TSA) is provided by the situation awareness component, based on media data such as video, imagery or audio recordings. The system's self diagnosis evaluates the reliability of its recommendations and prematurely alerts upon violations of policies. The interplay of these components, the knowledge graph, and machine learning components for the calculation and selection of recommended actions to the manufacturing operator is controlled by the decision support component.
 
 For the storage of near-realtime data acquired from the production line systems, a time series database is provided. Media data from the TSA system are persisted in the context media database.
 
-#### 4.8 Production Line Systems
+#### 8 Production Line Systems
 
 Operational data from production and contextual systems, e.g., auxillary systems or manufacturing process control, are acquired from IIoT sensors or from machine-specific implementations, e.g., based on the OPC Unified Architecture [\[4\]](#page-4-31). An HMI (Human Machine
 
@@ -130,7 +132,7 @@ This project has received funding from the European Union's Horizon 2020 researc
 
 <span id="page-4-0"></span>Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing ICSE-NIER'22, May 21–29, 2022, Pittsburgh, PA, USA
 
-#### REFERENCES
+### REFERENCES
 
 - <span id="page-4-20"></span>[1] Saleema Amershi, Andrew Begel, Christian Bird, Robert DeLine, Harald Gall, Ece Kamar, Nachiappan Nagappan, Besmira Nushi, and Thomas Zimmermann. 2019. Software Engineering for Machine Learning: A Case Study. In 2019 IEEE/ACM 41st International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP). 291–300.<https://doi.org/10.1109/ICSE-SEIP.2019.00042>
 - <span id="page-4-21"></span>[2] Anders Arpteg, Björn Brinne, Luka Crnkovic-Friis, and Jan Bosch. 2018. Software Engineering Challenges of Deep Learning. In 2018 44th Euromicro Conference on Software Engineering and Advanced Applications (SEAA). 50–59. [https://doi.org/](https://doi.org/10.1109/SEAA.2018.00018) [10.1109/SEAA.2018.00018](https://doi.org/10.1109/SEAA.2018.00018)

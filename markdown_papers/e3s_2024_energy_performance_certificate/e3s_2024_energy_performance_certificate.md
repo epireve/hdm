@@ -1,3 +1,5 @@
+<!-- cite_key: salvalai2024 -->
+
 # New generation Energy Performance Certificate: development and application in an Italian case study as an EU proof of concept
 
 Graziano Salvalai1\*, Marta Maria Sesana<sup>2</sup> , and Ilaria Isacco<sup>1</sup>
@@ -28,7 +30,7 @@ In this context, the H2020 Energy Performance Certificate Recast (EPC RECAST) pr
 
 To verify the compliance of the overall methodology in terms of user-friendliness and reliability of the calculation results [18], the project has framed a testing approach on selected case studies (i.e., buildings and dwellings from the different consortium partner countries). The state of progress of the methodological framework is described in section 2, followed by the application of the method to an Italian case study as a proof of concept of the overall approach in section 3. Afterward, the main results in terms of the applicability of the methodology and potentialities for improvement are highlighted and reported in the conclusions.
 
-#### 2 Methodology
+## 2 Methodology
 
 The EPC RECAST testing method aims to assess both a valid national EPC, through the standard procedure currently in use in each country, and a new generation one, using the procedure developed in the project, benchmarking then the new process and output with the current ones. It is based on four main steps (Fig. 1): (i) site inspection preparation, (ii) onsite data collection, (iii) in-office modelling and calibration, (iv) EPC and Renovation Roadmap creation and delivery.
 
@@ -48,7 +50,7 @@ The fourth step is the "EPC and Renovation Roadmap creation and delivery", it is
 
 Fig. 1. EPC RECAST testing method. Authors' elaboration.
 
-#### 2.1 The Quantitative Verification Strategy
+### 1 The Quantitative Verification Strategy
 
 The Quantitative Verification Strategy is a procedure defined within the EPC RECAST project to verify the effective improvement of the EPC RECAST calculation process for the building energy consumption assessment. It is based on eight different Evaluation Strategies, namely an energy consumption comparison between the elements of the new generation EPC and the standard one in terms of climatic and building use conditions, input data collection method, calculation method, and output generation process. One of the comparisons focuses on the benchmark between the calculated energy consumption values and the measured ones, obtained by the Long-Term Monitoring (LTM) campaign on the specific case study, to assess the reliability of the EPC RECAST data through the overall procedure from collection and modelling to the final data assessment of the new generation EPC.
 
@@ -98,7 +100,7 @@ The applicability of the developed methodology has been one of the main importan
 
 In the following subsection the current state of progress about the application of the testing approach to an Italian case study is presented.
 
-#### 3.1 Application of the methodology in a real case study
+## 1 Application of the methodology in a real case study
 
 The case study described in this section has the goal to show and discuss the status of the testing approach validation on a residential building in Italy.
 
@@ -240,7 +242,7 @@ Data availability statement: The data that support the findings of this study ar
 
 Author contribution statement: Graziano Salvalai and Marta Maria Sesana: Conceptualization, Data curation, Investigation, Methodology, Supervision, Writing – original draft, Writing – review & editing. Ilaria Isacco: Data curation, Visualization, Writing – original draft.
 
-### References
+## References
 
 - 1. European Commission, Communication from the Commission to the European Parliament, the European Council, the Council, the European Economic and Social Committee and the Committee of the Regions, The European Green Deal, COM(2019) 640 final (2019).
 - 2. European Commission, Commission welcomes political agreement on new rules to boost energy performance of buildings across the EU, European Commission – Press release (2023).

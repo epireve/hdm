@@ -1,30 +1,22 @@
-![](_page_0_Picture_0.jpeg)
+<!-- cite_key: yu2052 -->
 
-# *Article* **Ontology-Driven Architecture for Managing Environmental, Social, and Governance Metrics**
 
-**Mingqin Yu 1,\*, Fethi A. Rabhi [1](https://orcid.org/0000-0001-8934-6259) and Madhushi Bandara [2](https://orcid.org/0000-0001-6543-3841)**
 
-- <sup>1</sup> School of Computer Science and Engineering Building K17, University of New South Wales, Sydney, NSW 2052, Australia; f.rabhi@unsw.edu.au
+# *Article*Ontology-Driven Architecture for Managing Environmental, Social, and Governance Metrics
+**Mingqin Yu 1,\*, Fethi A. Rabhi [1](https://orcid.org/0000-0001-8934-6259) and Madhushi Bandara [2](https://orcid.org/0000-0001-6543-3841)**- <sup>1</sup> School of Computer Science and Engineering Building K17, University of New South Wales, Sydney, NSW 2052, Australia; f.rabhi@unsw.edu.au
 - <sup>2</sup> School of Computer Science, University of Technology Sydney, Ultimo, NSW 2007, Australia; madhushi.bandara@uts.edu.au
-- **\*** Correspondence: mingqin.yu@unsw.edu.au
+-**\***Correspondence: mingqin.yu@unsw.edu.au
+**Abstract:**The burgeoning significance of environmental, social, and governance (ESG) metrics in realms such as investment decision making, corporate reporting, and risk management underscores the imperative for a robust, comprehensive solution capable of effectively capturing, representing, and analysing the multifaceted and intricate ESG data landscape. Facing the challenge of aligning with diverse standards and utilising complex datasets, organisations require robust systems for the integration of ESG metrics with traditional financial reporting. Amidst this, the evolving regulatory landscape and the demand for transparency and stakeholder engagement present significant challenges, given the lack of standardized ESG metrics in certain areas. Recently, the use of ontologydriven architectures has gained attention for their ability to encapsulate domain knowledge and facilitate integration with decision-support systems. This paper proposes a knowledge graph in the ESG metric domain to assist corporations in cataloguing and navigating ESG reporting requirements, standards, and associated data. Employing a design science methodology, we developed an ontology that serves as both a conceptual foundation and a semantic layer, fostering the creation of an interoperable ESG Metrics Knowledge Graph (ESGMKG) and its integration within operational layers. This ontology-driven approach promises seamless integration with diverse ESG data sources and reporting frameworks, while addressing the critical challenges of metric selection, alignment, and data verification, supporting the dynamic nature of ESG metrics. The utility and effectiveness of the proposed ontology were demonstrated through a case study centred on the International Financial Reporting Standards (IFRS) framework that is widely used within the banking industry.
+**Keywords:**ESG; ontology; ontology-driven architecture; ESG metrics; design science method
 
-**Abstract:** The burgeoning significance of environmental, social, and governance (ESG) metrics in realms such as investment decision making, corporate reporting, and risk management underscores the imperative for a robust, comprehensive solution capable of effectively capturing, representing, and analysing the multifaceted and intricate ESG data landscape. Facing the challenge of aligning with diverse standards and utilising complex datasets, organisations require robust systems for the integration of ESG metrics with traditional financial reporting. Amidst this, the evolving regulatory landscape and the demand for transparency and stakeholder engagement present significant challenges, given the lack of standardized ESG metrics in certain areas. Recently, the use of ontologydriven architectures has gained attention for their ability to encapsulate domain knowledge and facilitate integration with decision-support systems. This paper proposes a knowledge graph in the ESG metric domain to assist corporations in cataloguing and navigating ESG reporting requirements, standards, and associated data. Employing a design science methodology, we developed an ontology that serves as both a conceptual foundation and a semantic layer, fostering the creation of an interoperable ESG Metrics Knowledge Graph (ESGMKG) and its integration within operational layers. This ontology-driven approach promises seamless integration with diverse ESG data sources and reporting frameworks, while addressing the critical challenges of metric selection, alignment, and data verification, supporting the dynamic nature of ESG metrics. The utility and effectiveness of the proposed ontology were demonstrated through a case study centred on the International Financial Reporting Standards (IFRS) framework that is widely used within the banking industry.
-
-**Keywords:** ESG; ontology; ontology-driven architecture; ESG metrics; design science method
-
-# **1. Introduction**
+# 1. Introduction
 
 The risks of a changing climate extend to all sectors of the economy [\[1\]](#page-13-0). The burgeoning significance of environmental, social, and governance (ESG) metrics in realms such as investment decision making, corporate reporting, and risk management underscores the imperative for a robust, comprehensive solution capable of effectively capturing, representing, and analysing the multifaceted and intricate ESG data landscape. As organisations delve into the realm of ESG reporting, they encounter a landscape rife with complexities, primarily due to the diversity of reporting standards and the intricate process of managing ESG-related data [\[2,](#page-13-1)[3\]](#page-13-2). This environment not only demands the meticulous selection and alignment of relevant ESG metrics with overarching reporting frameworks but also necessitates sophisticated data management systems to ensure the integrity and verifiability of the reported metrics [\[4,](#page-14-0)[5\]](#page-14-1). The integration of these metrics into traditional financial reporting frameworks adds another layer of complexity, highlighting the critical need for a nuanced understanding of materiality in relation to stakeholder expectations [\[6\]](#page-14-2). Moreover, the evolving regulatory landscape further complicates these challenges, making transparency, stakeholder engagement, and the pursuit of standardized metrics essential
-
-![](_page_0_Picture_11.jpeg)
-
-**Citation:** Yu, M.; Rabhi, F.A.; Bandara, M. Ontology-Driven Architecture for Managing Environmental, Social, and Governance Metrics. *Electronics* **2024**, *13*, 1719. [https://doi.org/10.3390/](https://doi.org/10.3390/electronics13091719) [electronics13091719](https://doi.org/10.3390/electronics13091719)
+**Citation:**Yu, M.; Rabhi, F.A.; Bandara, M. Ontology-Driven Architecture for Managing Environmental, Social, and Governance Metrics.*Electronics* **2024**, *13*, 1719. [https://doi.org/10.3390/](https://doi.org/10.3390/electronics13091719) [electronics13091719](https://doi.org/10.3390/electronics13091719)
 
 Academic Editors: Stefano Ferilli and Domenico Redavid
 
 Received: 22 March 2024 Revised: 13 April 2024 Accepted: 26 April 2024 Published: 29 April 2024
-
-![](_page_0_Picture_15.jpeg)
 
 **Copyright:** © 2024 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license [\(https://](https://creativecommons.org/licenses/by/4.0/) [creativecommons.org/licenses/by/](https://creativecommons.org/licenses/by/4.0/) 4.0/).
 
@@ -40,7 +32,7 @@ The main contribution of this paper is the ESG Metric Knowledge Graph (ESGMKG). 
 
 The rest of the paper is structured as follows: Section [2](#page-1-0) presents the challenges associated with integrating various metrics, measures, frameworks, and indicators within the ESG domain, highlighting the gap in adopting knowledge-driven approaches. In Section [3,](#page-3-0) we delve into the research methodology, focusing on the design science research methodology tailored for developing and assessing ESGMKG. This section further elucidates the methodologies for ontology and knowledge graph development, including both top–down and bottom–up approaches. Section [4](#page-5-0) outlines a proposed architectural framework for managing ESG metrics. This framework is underpinned by an ontology data management layer, which facilitates the provision of services to end-users, identified here as stakeholders, through a modular architecture. In addition, we detail the structure of the proposed ESGMKG, including its hierarchy, classes, and instances. In Section [5,](#page-9-0) the ESGMKG is showcased and its effectiveness is assessed through a series of competency questions. The paper concludes with a discussion of future research directions and a summary of our findings.
 
-## <span id="page-1-0"></span>**2. Background and Literature**
+## <span id="page-1-0"></span>2. Background and Literature
 
 ## <span id="page-1-1"></span>*2.1. Challenges in ESG Solutions*
 
@@ -50,9 +42,7 @@ Navigating the complexities of ESG reporting, organisations are confronted with 
 
 In addition to these challenges, organisations must adeptly navigate an evolving regulatory landscape, where ESG reporting mandates can vary widely across jurisdictions [\[6\]](#page-14-2). The principles of transparency and clear disclosure of ESG practices and their impacts stand as fundamental requirements, ensuring accountability to a diverse stakeholder base. Active stakeholder engagement is crucial in ensuring that ESG reports accurately reflect stakeholder concerns and interests. Yet, the challenges of achieving consistency and comparability in reporting is significant given the lack of standardized metrics in certain areas [\[7\]](#page-14-3). The credibility of ESG disclosures is increasingly enhanced by independent assurances, similarly to financial audits. This highlights the dynamic nature of ESG reporting as an ongoing endeavour that requires continuous monitoring, updating, and communication of ESG performance [\[7\]](#page-14-3).
 
-## <span id="page-2-0"></span>*2.2. Role of Ontologies in ESG*
-
-The evolution of ESG reporting underscores a critical need for robust data management frameworks capable of navigating its complex landscape, which is marked by diverse standards and metrics. The introduction of ontologies and knowledge graphs into the ESG space presents a promising avenue to mitigate these challenges, offering structured approaches to improve data management and interoperability [\[18\]](#page-14-14). By establishing welldefined domain concepts and providing clear terminologies and relationships, ontologies are instrumental in enhancing the semantic richness of ESG data [\[19\]](#page-14-15). This is particularly relevant in addressing the challenge of aligning ESG metrics with multiple reporting frameworks, where clarity and consistency in terminologies can significantly reduce ambiguities and streamline reporting processes.
+## <span id="page-2-0"></span>*2.2. Role of Ontologies in ESG*The evolution of ESG reporting underscores a critical need for robust data management frameworks capable of navigating its complex landscape, which is marked by diverse standards and metrics. The introduction of ontologies and knowledge graphs into the ESG space presents a promising avenue to mitigate these challenges, offering structured approaches to improve data management and interoperability [\[18\]](#page-14-14). By establishing welldefined domain concepts and providing clear terminologies and relationships, ontologies are instrumental in enhancing the semantic richness of ESG data [\[19\]](#page-14-15). This is particularly relevant in addressing the challenge of aligning ESG metrics with multiple reporting frameworks, where clarity and consistency in terminologies can significantly reduce ambiguities and streamline reporting processes.
 
 Building upon the foundation provided by ontologies, knowledge graphs represent a further evolution in managing and utilising complex data. While ontologies define the structural framework, knowledge graphs bring this structure to life by populating it with instances of the defined concepts and relationships, thereby creating a network of interconnected data points. Knowledge graphs excel in representing complex relationships between ESG metrics and facilitating the aggregation and analysis of vast datasets from diverse sources, thereby enhancing the accessibility and usability of ESG data for stakeholders [\[20\]](#page-14-16). The dynamic nature of knowledge graphs, supported by the foundational clarity of ontologies, enables the dynamic linking and querying of related information, which is crucial for the adaptive requirements of ESG reporting [\[21,](#page-14-17)[22\]](#page-14-18).
 
@@ -62,18 +52,15 @@ Ontologies and knowledge graphs are particularly beneficial for financial instit
 
 In summary, the collaborative application of ESG metric ontologies and knowledge graphs holds the promise of addressing the intricate challenges of ESG reporting. Ontologies provide the necessary terminological clarity and structural framework, while knowledge graphs offer a dynamic and interconnected representation of ESG data, enhancing data interoperability and management. The next step in this domain involves crafting solutions that encapsulate the complexities of ESG metrics and are tailored for seamless integration within existing organisational systems, thereby meeting the critical needs of ESG data management and reporting.
 
-## <span id="page-3-0"></span>**3. Development Methodology**
+## <span id="page-3-0"></span>3. Development Methodology
 
-### *3.1. Research Methodology*
-
-This study was conducted following the Design Science Research (DSR) Methodology, as detailed by Peffers et al. [\[26\]](#page-14-22). DSR offers a structured approach to creating and evaluating IT artifacts that address specific challenges in the real world. In this case, the main desired artifact is the *ESG Metrics Knowledge Graph (ESGMKG)* and its underpinning ontology. DSR encompasses six well-defined stages, each contributing to the systematic development and assessment of the ESGMKG, thereby ensuring its relevance and efficacy in addressing the intricacies of ESG metric management, especially for data management and reporting. This methodology is structured in six distinct steps, as shown in Figure [1.](#page-4-0)
+###*3.1. Research Methodology*This study was conducted following the Design Science Research (DSR) Methodology, as detailed by Peffers et al. [\[26\]](#page-14-22). DSR offers a structured approach to creating and evaluating IT artifacts that address specific challenges in the real world. In this case, the main desired artifact is the*ESG Metrics Knowledge Graph (ESGMKG)*and its underpinning ontology. DSR encompasses six well-defined stages, each contributing to the systematic development and assessment of the ESGMKG, thereby ensuring its relevance and efficacy in addressing the intricacies of ESG metric management, especially for data management and reporting. This methodology is structured in six distinct steps, as shown in Figure [1.](#page-4-0)
 
 Here, we describe how the six DSR steps are applied in our work. The motivation (identified in the first step) is the lack of comprehensive knowledge-driven approaches in the ESG metric management and assessment space, as discussed in Section [2.1.](#page-1-1) The objective (part of the second step) is developing a knowledge graph-based solution for ESG metric management and assessment that maintains the links between ESG reporting categories and the selected metrics used to fulfill disclosure requirements as organisations need to satisfy multiple reporting frameworks, as discussed in Section [2.2.](#page-2-0)
 
 As the third step, our approach is to design and develop the ESGMKG following a standard ontology development process, as detailed in Section [3.2.](#page-4-1)
 
 <span id="page-4-0"></span>![](_page_4_Figure_2.jpeg)
-
 **Figure 1.** DSR process adapted in this paper [\[26\]](#page-14-22).
 
 As the fourth step, the modelled ontology will be implemented within the Stardog Enterprise Knowledge Graph platform [\(http://stardog.com](http://stardog.com) (accessed on 3 March 2024)) following semantic web principles in RDF/OWL notation. Details about the demonstration are given in Section [5.1.](#page-9-1)
@@ -96,20 +83,15 @@ As the foundation for our domain knowledge and context, we utilised concepts and
 
 The resulting ESGMKG in this paper is envisioned as a representation of an initial set of ESG metrics that can be used across diverse industries. However, the ESGMKG aims to cater to a broader spectrum of stakeholders, from corporations and investors to regulators, for addressing their ESG reporting needs and defining ESG targets. Therefore, ESGMKG will maintain the flexibility to incorporate other frameworks and emerging standards as required by the organisation or the end-user. It is expected that the development of a comprehensive ontology and knowledge graph will be a long-term process where each version is evaluated over an initial set of generic and domain-specific competency questions and then iteratively improved by evaluating its ability to answer new competency questions.
 
-## <span id="page-5-1"></span>*3.3. Ontology Validation*
-
-Competency questions (CQs) are instrumental throughout the ontology development life-cycle, serving as a pivotal tool for both scoping and validating ontologies [\[32\]](#page-14-28). In aligning with the methodology outlined in *Ontology Development 101* by Noy et al. [\[27\]](#page-14-23), we established an array of CQs detailed in Section [4.2.](#page-6-0) These CQs were meticulously crafted to delineate the ontology's intended scope. The objective was to ensure that any knowledge graph derived from the ontology would competently respond to these queries, and thereby they act as a critical benchmark in our validation process, which is detailed in Section [5.3.](#page-11-0)
+## <span id="page-5-1"></span>*3.3. Ontology Validation*Competency questions (CQs) are instrumental throughout the ontology development life-cycle, serving as a pivotal tool for both scoping and validating ontologies [\[32\]](#page-14-28). In aligning with the methodology outlined in*Ontology Development 101*by Noy et al. [\[27\]](#page-14-23), we established an array of CQs detailed in Section [4.2.](#page-6-0) These CQs were meticulously crafted to delineate the ontology's intended scope. The objective was to ensure that any knowledge graph derived from the ontology would competently respond to these queries, and thereby they act as a critical benchmark in our validation process, which is detailed in Section [5.3.](#page-11-0)
 
 The formulation of these CQs was an elaborate process that entailed extensive consultations with domain experts across various industries, coupled with a thorough examination of existing literature to identify prevalent challenges. This comprehensive approach ensured that our competency questions were not only grounded in theoretical knowledge but could also deliver practical value in real-world applications, thereby enhancing the relevance and efficacy of our ontology in addressing complex industry-specific problems.
 
-## <span id="page-5-0"></span>**4. Proposed Architecture and Ontology**
+## <span id="page-5-0"></span>4. Proposed Architecture and Ontology
 
-### *4.1. Architecture Overview*
-
-To envision how the proposed ontology can be used within organisations and align with existing systems, we proposed a system architecture structured into three integral layers. Each layer caters to specific functionalities and user groups, drawing on the categorisation of stakeholders by CFA Institute [\[33\]](#page-14-29). The target users of this architecture include a broad spectrum of stakeholders ranging from asset owners to regulators, all of whom stand to benefit from enhanced ESG reporting and investment management [\[34\]](#page-14-30). Figure [2](#page-6-1) shows the hierarchical structure of the proposed ESG metric management system.
+###*4.1. Architecture Overview*To envision how the proposed ontology can be used within organisations and align with existing systems, we proposed a system architecture structured into three integral layers. Each layer caters to specific functionalities and user groups, drawing on the categorisation of stakeholders by CFA Institute [\[33\]](#page-14-29). The target users of this architecture include a broad spectrum of stakeholders ranging from asset owners to regulators, all of whom stand to benefit from enhanced ESG reporting and investment management [\[34\]](#page-14-30). Figure [2](#page-6-1) shows the hierarchical structure of the proposed ESG metric management system.
 
 <span id="page-6-1"></span>![](_page_6_Picture_2.jpeg)
-
 **Figure 2.** The general architecture of an ESG metric management system.
 
 Each layer's role is defined as follows:
@@ -154,7 +136,7 @@ ESG metrics can be derived in two primary ways. Firstly, they can be calculated 
 
 structure not only underscores the layered approach of the ESGMKG ontology but also highlights the methodological rigour in capturing and computing ESG metrics, which is essential for comprehensive ESG reporting.
 
-<span id="page-8-0"></span>**Table 2.** Key Classes of ESGMKG.
+<span id="page-8-0"></span>**Table 2.**Key Classes of ESGMKG.
 
 | ESGMKG Class           | Definition                                                                                                                                                |
 |------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -167,20 +149,17 @@ structure not only underscores the layered approach of the ESGMKG ontology but a
 | Datasource             | The origin of an ESG dataset, which can be a primary or secondary source.                                                                                 |
 
 <span id="page-8-1"></span>![](_page_8_Figure_4.jpeg)
+**Figure 3.**Visualisation of ESGMKG key classes and relationships on Stardog platform.
 
-**Figure 3.** Visualisation of ESGMKG key classes and relationships on Stardog platform.
-
-## *4.3. ESGMKG Integration*
+##*4.3. ESGMKG Integration*
 
 In the practical implementation of the ESG metric management system, the integration of the ESGMKG within the architecture's three layers—GUI, service, and data management—plays a pivotal role in operationalizing the system's functionality. At the GUI layer, the ontology's structured representation of ESG concepts directly informs the user interface design, enabling tailored views and interactive elements that resonate with the specific needs of chief sustainability officers, investors, and regulators. This ensures that users are presented with relevant, knowledge-driven insights, facilitating efficient navigation and decision-making processes. Moving deeper into the architecture, the service layer leverages the ESGMKG to interpret and process user queries, translating them into semantic operations that interact with the underlying knowledge graph. This layer acts as the bridge between the user-facing interface and the data-rich ESGMKG, employing advanced querying capabilities to fetch, analyse, and return precise ESG metrics and relationships. Finally, at the ontology data management platform layer, the practical application of the ontology extends to managing the lifecycle of ESG data, where the underlying technology
 
 ensures data integrity, governance, and compliance with evolving ESG standards[\[30–](#page-14-26)[32\]](#page-14-28) . This layer's functionality underscores the system's adaptability and scalability, highlighting the ontology's role in maintaining a dynamic, up-to-date repository of ESG knowledge. Through this integration, the ontology enables contextualised ESG information to flow across all layers.
 
-## <span id="page-9-0"></span>**5. Demonstration and Evaluation**
+## <span id="page-9-0"></span>5. Demonstration and Evaluation
 
-## <span id="page-9-1"></span>*5.1. ESGMKG Instantiation*
-
-For evaluation purposes, we assumed a fictive organisation in the financial domain that incorporated ESG stewardship and engagement into its strategic framework prompted by initiatives such as the Network for Greening the Financial System (NGFS) [\[36\]](#page-15-1) and the Net Zero Alliance [\[37\]](#page-15-2). Consequently, it needs to perform different types of ESG reporting by combining data from multiple sources.
+## <span id="page-9-1"></span>*5.1. ESGMKG Instantiation*For evaluation purposes, we assumed a fictive organisation in the financial domain that incorporated ESG stewardship and engagement into its strategic framework prompted by initiatives such as the Network for Greening the Financial System (NGFS) [\[36\]](#page-15-1) and the Net Zero Alliance [\[37\]](#page-15-2). Consequently, it needs to perform different types of ESG reporting by combining data from multiple sources.
 
 The first step in designing an instance of ESGMKG for this organisation is to create ESG\_ReportingFramework instances of the frameworks that apply in the organisation's context such as IFRS S1 [\[30\]](#page-14-26), TCFD [\[31\]](#page-14-27), and TNFD [\[38\]](#page-15-3). Each framework will capture the requirements or recommendations for a number of ESG categories, which can be subdivided into ESG subcategories, which will further distil these into more specific categories, such as environmental, social and governance risks.
 
@@ -188,17 +167,17 @@ The next step is to define ESG metrics that quantify these categories. The proto
 
 As an example, consider a metric called Environmental Risk Metric 1 which combines five other metrics, as shown in Equation [\(1\)](#page-9-2):
 
-Environmental Risk Metric 1 (ERM 1) = *α* · Carbon EmissionReported + *β* · ElectricityPurchased
+Environmental Risk Metric 1 (ERM 1) =*α*· Carbon EmissionReported +*β*· ElectricityPurchased
 
-<span id="page-9-2"></span>+ *γ* · Energy ConsumedTotal + *δ* · WasteTotal + *ϵ* · Water WithdrawalTotal + *ζ* (1)
+<span id="page-9-2"></span>+*γ*· Energy ConsumedTotal +*δ*· WasteTotal +*ϵ*· Water WithdrawalTotal +*ζ*(1)
 
-The coefficients *α*, *β*, *γ*, *δ*, and *ϵ* are weighting factors assigned to each environmental parameter to signify its relative impact on the overall environmental performance. *ζ* is introduced as an adjustment factor to account for additional environmental impacts not explicitly measured by the other terms in the equation, thereby enhancing the metric's comprehensiveness. This metric is designed to be a robust and flexible instrument, enabling the evaluation and comparison of environmental performance across different organisations. It also aids in identifying areas for environmental improvements and in benchmarking organisational performance against industry standards or regulatory requirements.
+The coefficients*α*, *β*, *γ*, *δ*, and *ϵ*are weighting factors assigned to each environmental parameter to signify its relative impact on the overall environmental performance.*ζ*is introduced as an adjustment factor to account for additional environmental impacts not explicitly measured by the other terms in the equation, thereby enhancing the metric's comprehensiveness. This metric is designed to be a robust and flexible instrument, enabling the evaluation and comparison of environmental performance across different organisations. It also aids in identifying areas for environmental improvements and in benchmarking organisational performance against industry standards or regulatory requirements.
 
 Each of the metrics used in the calculation can be calculated using other metrics. For example, in our prototype, the metric Carbon EmissionReported (used in Equation [\(1\)](#page-9-2)) is calculated according to Equation [\(2\)](#page-9-3):
 
-<span id="page-9-3"></span>Carbon EmissionReported = *α* · CO2Direct Scope1 + *β* · CO2Indirect Scope2 + *γ* · CO2Indirect Scope3 + *δ* (2)
+<span id="page-9-3"></span>Carbon EmissionReported =*α*· CO2Direct Scope1 +*β*· CO2Indirect Scope2 +*γ*· CO2Indirect Scope3 +*δ*(2)
 
-In this given equation, *α*, *β*, and *γ* coefficients represent factors that scale the contributions of each type of emission to the total carbon emission footprint of an entity. The terms CO2Direct Scope1, CO2Indirect Scope2, and CO2Indirect Scope3 denote the quantities of CO<sup>2</sup> emissions for each respective scope. Finally, *δ* represents a constant term in the equation, which may be used for adjustments or to account for offsets that are not captured by the other terms in the equation.
+In this given equation,*α*, *β*, and *γ*coefficients represent factors that scale the contributions of each type of emission to the total carbon emission footprint of an entity. The terms CO2Direct Scope1, CO2Indirect Scope2, and CO2Indirect Scope3 denote the quantities of CO<sup>2</sup> emissions for each respective scope. Finally,*δ* represents a constant term in the equation, which may be used for adjustments or to account for offsets that are not captured by the other terms in the equation.
 
 Following this step, we created a number of ESG\_ComputingModel instances which connect metrics with their constituents. For example:
 
@@ -209,9 +188,7 @@ Our prototype ESGMKG also correspondingly identifies primary and secondary data 
 
 The ESGMKG ontology utilizes three value types to represent data: string, number (with more specific types like float and integer for numeric data), and Boolean slots for yes–no flags. For instance, a variable Company Name is represented as simple strings, CO2 Direct Scope1 (Scope 1 emissions that occur within a company's organisational boundary from sources that the company owns or controls in tons of CO2e) might be represented with Float. The Global Compact metric assesses a company's engagement with the United Nations Global Compact, represented by a Boolean value: 1 if the company has signed the Compact, indicating a commitment to sustainable and ethical practices, and 0 if it has not. These value types provide a structured and consistent approach to representing diverse ESG data within our ontology.
 
-## <span id="page-10-0"></span>*5.2. Usage Scenarios and Competency Questions*
-
-The prototype knowledge graph is designed to provide answers regarding models, metrics, indicators, datasets, and data sources that are integral to the entire reporting process for different types of users within an organisation. For validation purposes, we defined some usage scenarios that make use of the competency questions. The development of these questions was guided by established methodologies in ontology construction as discussed in Sections [3.2](#page-4-1) and [3.3.](#page-5-1) An example of a usage scenario which was tailored to our specific use case is shown in Table [3.](#page-10-1) In this scenario, the user is able to identify which metric corresponds to which reporting category and which data sources are used in calculating each data component of this metric. Other usage scenarios have been tested to ensure that the ESGMKG is not only theoretically sound but also practically applicable to the selected scenarios. Whenever necessary, new instances were added to provide a full picture of the ESG data managed by the organisation. This ensures that ESGMKG possesses the necessary depth and breadth to cater to the information needs of users within the specified domain.
+## <span id="page-10-0"></span>*5.2. Usage Scenarios and Competency Questions*The prototype knowledge graph is designed to provide answers regarding models, metrics, indicators, datasets, and data sources that are integral to the entire reporting process for different types of users within an organisation. For validation purposes, we defined some usage scenarios that make use of the competency questions. The development of these questions was guided by established methodologies in ontology construction as discussed in Sections [3.2](#page-4-1) and [3.3.](#page-5-1) An example of a usage scenario which was tailored to our specific use case is shown in Table [3.](#page-10-1) In this scenario, the user is able to identify which metric corresponds to which reporting category and which data sources are used in calculating each data component of this metric. Other usage scenarios have been tested to ensure that the ESGMKG is not only theoretically sound but also practically applicable to the selected scenarios. Whenever necessary, new instances were added to provide a full picture of the ESG data managed by the organisation. This ensures that ESGMKG possesses the necessary depth and breadth to cater to the information needs of users within the specified domain.
 
 <span id="page-10-1"></span>
 
@@ -236,7 +213,7 @@ The prototype knowledge graph is designed to provide answers regarding models, m
 | 10. What model is used to compute CO2DirectScope1?                                    | It is a column in 'esg_raw_data_on_corporations.csv.zip' dataset.                                                        |
 | 11. What is the datasource for the dataset<br>'esg_raw_data_on_corporations.csv.zip'? | It is obtained from the Eurofidai data source.                                                                           |
 
-#### **Table 3.** *Cont.*
+### Table 3.*Cont.*
 
 ## <span id="page-11-0"></span>*5.3. Linked Data Implementation*
 
@@ -244,7 +221,7 @@ To integrate and standardise ESG metrics within corporate reporting frameworks, 
 
 Table [4](#page-11-1) presents two samples of RDF representations reflecting instances of the IFRS S1 reporting framework and the ESG MetricComputingModel3 instance, which is a model that captures the computation detailed in Equation [\(2\)](#page-9-3). The notation employed is in RDF Turtle format [\[40\]](#page-15-5), with the prefix 'ESGMKG:' denoting concepts modelled within the ESGMKG.
 
-<span id="page-11-1"></span>**Table 4.** Triples in RDF turtle format for two sample entities in ESGMKG.
+<span id="page-11-1"></span>**Table 4.**Triples in RDF turtle format for two sample entities in ESGMKG.
 
 | Subject                                                               | Predicate                | Object                                                                                                        |
 |-----------------------------------------------------------------------|--------------------------|---------------------------------------------------------------------------------------------------------------|
@@ -267,15 +244,12 @@ Table [4](#page-11-1) presents two samples of RDF representations reflecting ins
 
 The first set of triples in Table [4](#page-11-1) showcases that the IFRS S1 framework is divided into different metric categories: Environmental Risk, Environmental Opportunity, Governance Risk, and Social Risk. Each triple consists of a subject (e.g., 'ESGMKG: IFRS\_S1'), a predicate (e.g., 'rdfs: label'), and an object, which can be a literal value like 'IFRS\_S1' or a reference to another resource instance such as 'ESGMKG: Environmental\_Risk'. Following the same structure, the second set of triples ESG\_MetricComputingModel3 showcases its dependent variables (as in Equation [\(2\)](#page-9-3)). The last triple represents that 'ESGMKG: Reported\_Carbon\_Emission' is obtained from ESG\_MetricComputingModel3. This structured approach not only facilitates the precise definition of entities but also enables the dynamic association of different entities' ESG metrics with relevant categories.
 
-## *5.4. Querying the Implementation*
-
-Each competency question is translated into a SPARQL query (the query language for semantic web notation) and executed on the Stardog platform. When tested against the instance ontology, the Stardog implementation was able to answer all listed competency questions. An example of how we evaluated competency questions 6 and 7 shown in Table [3](#page-10-1) is showcased by Figure [4.](#page-12-0) The SPARQL query retrieves the ESG model(s) that compute the 'Reported Carbon Emission' metric, as well as all input metrics or indicators required for these models.
+##*5.4. Querying the Implementation*Each competency question is translated into a SPARQL query (the query language for semantic web notation) and executed on the Stardog platform. When tested against the instance ontology, the Stardog implementation was able to answer all listed competency questions. An example of how we evaluated competency questions 6 and 7 shown in Table [3](#page-10-1) is showcased by Figure [4.](#page-12-0) The SPARQL query retrieves the ESG model(s) that compute the 'Reported Carbon Emission' metric, as well as all input metrics or indicators required for these models.
 
 <span id="page-12-0"></span>![](_page_12_Figure_4.jpeg)
+**Figure 4.**Visualisation of sample query on Stardog platform for competency questions 6 and 7.
 
-**Figure 4.** Visualisation of sample query on Stardog platform for competency questions 6 and 7.
-
-### **6. Conclusions and Future Work**
+### 6. Conclusions and Future Work
 
 Motivated by the increasing importance of ESG initiatives, this paper aims to address the challenge of diverse standards and the complex task of data management. Organisations require robust systems for integrating ESG metrics with traditional financial reporting and must place emphasis on achieving a comprehensive understanding of materiality assessment in the context of stakeholder expectations. The key contribution of this paper is the novel ESG Metric Knowledge Graph (ESGMKG) that was developed using design science research methodology.
 
@@ -288,18 +262,13 @@ However, many untapped classes and properties within the ESG domain remain not i
 of our work is the limited evaluation of competency questions for different organisations and datasets. We plan to expand our implementation to accommodate more use cases in the future.
 
 Another future direction is incorporating natural language processing capabilities to realise automatic knowledge extraction from regulatory reports and frameworks. This will enable organisations to automatically expand the ESGMKG and its capabilities when new regulations and data sources are discovered. Furthermore, cutting-edge technologies such as large language models can be incorporated to expand the analysis capability of ESGMKG by providing the capability to answer open-ended questions such as 'What metrics are best suited to calculate environmental risk?'. These technologies can minimise the maintenance effort of the proposed approach for organisations.
+**Author Contributions:**Conceptualisation, M.Y., F.A.R. and M.B.; methodology, M.Y., F.A.R. and M.B.; validation, M.Y., F.A.R. and M.B.; formal analysis, M.Y., F.A.R. and M.B.; investigation, M.Y.; resources, M.Y.; data curation, M.Y.; writing—original draft preparation, M.Y.; writing—review and editing, F.A.R. and M.B.; visualisation, M.Y. and M.B.; supervision, F.A.R. All authors have read and agreed to the published version of the manuscript.
+**Funding:**This research received no external funding.
+**Data Availability Statement:**The data from this research can be made available by the corresponding author following a justified request. Due to privacy concerns and confidentiality agreements with data providers, none of the datasets are shared publicly.
+**Acknowledgments:**We extend our sincere gratitude to the members and the board of the Fintech AI Innovation Consortium (FAIC), with a special mention of Cognitivo and Westpac, for their invaluable support. Additionally, we are grateful to the consulted industry experts who provided insights and guidance, significantly enriching our understanding on the ESG assessment process. Their expertise and contributions have been pivotal to the success of this work.
+**Conflicts of Interest:**The authors declare no conflicts of interest.
 
-**Author Contributions:** Conceptualisation, M.Y., F.A.R. and M.B.; methodology, M.Y., F.A.R. and M.B.; validation, M.Y., F.A.R. and M.B.; formal analysis, M.Y., F.A.R. and M.B.; investigation, M.Y.; resources, M.Y.; data curation, M.Y.; writing—original draft preparation, M.Y.; writing—review and editing, F.A.R. and M.B.; visualisation, M.Y. and M.B.; supervision, F.A.R. All authors have read and agreed to the published version of the manuscript.
-
-**Funding:** This research received no external funding.
-
-**Data Availability Statement:** The data from this research can be made available by the corresponding author following a justified request. Due to privacy concerns and confidentiality agreements with data providers, none of the datasets are shared publicly.
-
-**Acknowledgments:** We extend our sincere gratitude to the members and the board of the Fintech AI Innovation Consortium (FAIC), with a special mention of Cognitivo and Westpac, for their invaluable support. Additionally, we are grateful to the consulted industry experts who provided insights and guidance, significantly enriching our understanding on the ESG assessment process. Their expertise and contributions have been pivotal to the success of this work.
-
-**Conflicts of Interest:** The authors declare no conflicts of interest.
-
-# **Abbreviations**
+# Abbreviations
 
 The following abbreviations are used in this manuscript:
 
@@ -321,10 +290,10 @@ The following abbreviations are used in this manuscript:
 | MSCI   | Morgan Stanley Capital International                |
 |        |                                                     |
 
-# **References**
+# References
 
 - <span id="page-13-0"></span>1. Australian Prudential Regulation Authority. Prudential Practice Guide: Draft CPG 229 Climate Change Financial Risks. 2021. Available online: [https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.apra.gov.au/sites/](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.apra.gov.au/sites/default/files/2021-11/Final%2520Prudential%2520Practice%2520Guide%2520CPG%2520229%2520Climate%2520Change%2520Financial%2520Risks.pdf&ved=2ahUKEwitmZq1u9qFAxX8cvUHHZhUAAEQFnoECBMQAQ&usg=AOvVaw2H1HYzEaB49QpQ1eyC1dw_) [default/files/2021-11/Final%2520Prudential%2520Practice%2520Guide%2520CPG%2520229%2520Climate%2520Change%25](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.apra.gov.au/sites/default/files/2021-11/Final%2520Prudential%2520Practice%2520Guide%2520CPG%2520229%2520Climate%2520Change%2520Financial%2520Risks.pdf&ved=2ahUKEwitmZq1u9qFAxX8cvUHHZhUAAEQFnoECBMQAQ&usg=AOvVaw2H1HYzEaB49QpQ1eyC1dw_) [20Financial%2520Risks.pdf&ved=2ahUKEwitmZq1u9qFAxX8cvUHHZhUAAEQFnoECBMQAQ&usg=AOvVaw2H1HYzEaB4](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.apra.gov.au/sites/default/files/2021-11/Final%2520Prudential%2520Practice%2520Guide%2520CPG%2520229%2520Climate%2520Change%2520Financial%2520Risks.pdf&ved=2ahUKEwitmZq1u9qFAxX8cvUHHZhUAAEQFnoECBMQAQ&usg=AOvVaw2H1HYzEaB49QpQ1eyC1dw_) [9QpQ1eyC1dw\\_](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.apra.gov.au/sites/default/files/2021-11/Final%2520Prudential%2520Practice%2520Guide%2520CPG%2520229%2520Climate%2520Change%2520Financial%2520Risks.pdf&ved=2ahUKEwitmZq1u9qFAxX8cvUHHZhUAAEQFnoECBMQAQ&usg=AOvVaw2H1HYzEaB49QpQ1eyC1dw_) (accessed on 6 March 2024).
-- <span id="page-13-1"></span>2. Elkington, J. Cannibals with Forks: The Triple Bottom Line of 21st Century Business. *Capstone* **1997**, *1*, 1–16. [\[CrossRef\]](http://doi.org/10.1002/tqem.3310080106)
+- <span id="page-13-1"></span>2. Elkington, J. Cannibals with Forks: The Triple Bottom Line of 21st Century Business.*Capstone* **1997**, *1*, 1–16. [\[CrossRef\]](http://doi.org/10.1002/tqem.3310080106)
 - <span id="page-13-2"></span>3. KPMG International. *KPMG International Survey of Corporate Responsibility Reporting*; KPMG International: Amstelveen, The Netherlands, 2008.
 
 - <span id="page-14-0"></span>4. Flower, J. The International Integrated Reporting Council: A Story of Failure. *Crit. Perspect. Account.* **2015**, *27*, 1–17. [\[CrossRef\]](http://dx.doi.org/10.1016/j.cpa.2014.07.002)

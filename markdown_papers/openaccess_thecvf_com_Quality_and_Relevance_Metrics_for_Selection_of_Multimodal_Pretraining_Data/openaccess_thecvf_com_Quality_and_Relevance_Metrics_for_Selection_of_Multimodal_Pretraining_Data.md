@@ -1,4 +1,6 @@
-![](_page_0_Picture_0.jpeg)
+<!-- cite_key: openaccess_thecvf_com_quality_ -->
+
+
 
 # Quality and Relevance Metrics for Selection of Multimodal Pretraining Data
 
@@ -18,13 +20,11 @@ Elnaz Nouri Microsoft Research Elnaz.Nouri@microsoft.com
 
 Abstract
 
-*Self-supervised pretraining has become a strong force in both language and vision tasks. Current efforts to improve the effects of pretraining focus on improving network architecture or defining new tasks to extract representations from the data. We focus on a third axis, the data itself, to quantify and measure how different sources and quality of data can affect the learned representations. As pretraining datasets grow larger and larger, the cost of pretraining will continue to increase. This issue is especially acute for visuolingusitic data, as the cost of storage and processing for image and video data will rise quickly. We therefore examine four visuolinguistic datasets (three preexisting datasets and one collected by us) for their utility as pretraining datasets. We define metrics for dataset quality and relevance, propose a method for subsampling large corpuses for the data most relevant to a set of downstream multimodal vision and language tasks of interest, and show that this method increases performance across the board for all downstream tasks.*
-
-## 1. Introduction
+*Self-supervised pretraining has become a strong force in both language and vision tasks. Current efforts to improve the effects of pretraining focus on improving network architecture or defining new tasks to extract representations from the data. We focus on a third axis, the data itself, to quantify and measure how different sources and quality of data can affect the learned representations. As pretraining datasets grow larger and larger, the cost of pretraining will continue to increase. This issue is especially acute for visuolingusitic data, as the cost of storage and processing for image and video data will rise quickly. We therefore examine four visuolinguistic datasets (three preexisting datasets and one collected by us) for their utility as pretraining datasets. We define metrics for dataset quality and relevance, propose a method for subsampling large corpuses for the data most relevant to a set of downstream multimodal vision and language tasks of interest, and show that this method increases performance across the board for all downstream tasks.*## Introduction
 
 In the last several years, self-supervised pretraining has emerged as a powerful tool for extracting information from large, unlabeled datasets. In both natural language processing and computer vision, a number of groups have shown significant increases in performance across a variety of models and tasks by training representations on large scale data, before transferring to smaller labeled datasets [4, 20].
 
-A standard pretraining pipeline consists of roughly three choices: data selection, model selection, and pretraining task/loss selection. Most work focuses on the latter two parts of this pipeline, examining new models [10, 17] or new tasks/losses [13, 19, 20]. Where data is studied, it is mostly to look at the effect of data *size*, rather than data quality or relevance [5, 18].
+A standard pretraining pipeline consists of roughly three choices: data selection, model selection, and pretraining task/loss selection. Most work focuses on the latter two parts of this pipeline, examining new models [10, 17] or new tasks/losses [13, 19, 20]. Where data is studied, it is mostly to look at the effect of data*size*, rather than data quality or relevance [5, 18].
 
 We believe that although the pretraining datasets of today are still small enough to train on for multiple epochs, datasets will grow increasingly larger to the point where it will be infeasible to train on the full dataset (at least for most organizations). Mahajan et al. [11] have already shown that, in a billion-image scale dataset, 'label space engineering' - the process of pruning labels to only those relevant to the downstream task in mind - can improve performance of models. This will be an especially large issue for visuolinguistic datasets as the storage and processing of images and videos will become too large for the average practitioner to manage.
 
@@ -32,19 +32,19 @@ In this paper we ask several exploratory questions. Given a fixed model, task, a
 
 In order to answer these questions we analyze several datasets consisting of paired image and text data: ConceptualCaptions [16], ICE-Title, ICE-Comments [7], and Ngram Image Search. More details about each dataset can be found in Section 4.
 
-We propose to score each example in a dataset along two axes: *quality* and *relevance*, for which we propose two metrics based on GloVe vector [14] word similarity and TF-IDF, respectively (see Section 3). Based on these metrics, we sample from our four base datasets to construct several additional pretraining sets designed to maximize/minimize our metrics of quality and relevance.
+We propose to score each example in a dataset along two axes: *quality*and*relevance*, for which we propose two metrics based on GloVe vector [14] word similarity and TF-IDF, respectively (see Section 3). Based on these metrics, we sample from our four base datasets to construct several additional pretraining sets designed to maximize/minimize our metrics of quality and relevance.
 
 Finally, for each dataset we pretrain a ViLBERT [10] style model and evaluate on four downstream tasks: Visual Question Answering (VQA) [6], Visual Commonsense Reasoning (VCR) [22], Grounded Referring Expressions [8], and Image Retrieval [21]. We compare the performance of our pretrained model on each downstream task, and find that our quality and relevance metrics correlate well with performance on downstream tasks (Spearman's ρ of 0.893 and 0.577, respectively). We also find that constructing 'Amalgam' datasets from the base datasets based on our metrics enables us to improve pretraining utility even further, boosting performance on all downstream tasks.
 
-## 2. Related Work
+## Related Work
 
-#### 2.1. Dataset Curation
+### 1. Dataset Curation
 
 The most common data ablation performed in recent self-supervised learning papers is one of dataset size. This examines the effects of pretraining on more and more data. The story here has been relatively conistent: more data is better [5, 10, 18]. However, this only tests one axis of data selection. ConceptualCaptions [16], for example, is a relatively high-quality image-text dataset. During its creation, 97% of candidate (image, text) pairs were filtered out for quality issues. If dataset size is the only important axis, we would expect that a lower quality version of ConceptualCaptions containing 100M (image, text) pairs would necessarily make for a superior pretraining dataset.
 
 Mahajan et al. [11] explore the question of engineering a pretraining dataset more directly. They introduce a concept called *label-space engineering*, where they prune a set of hashtags across 1 billion images down to sets of 1.5k, 8.5k, and 17k hashtags. These are pruned via WordNet synsets [12] of ImageNet [3] classes, with higher thresholds for 'relatedness' creating smaller hashtag sets. They find that pretraining on a smaller set of hashtags can improve performance on some downstream tasks, suggesting that noisier pretraining data can be less helpful. Inspired by their techniques for filtering their data and labels, we define two metrics to empirically measure dataset quality and relatedness. We work with visuolinguistic data rather than pure vision data, as this allows us a wider variety of downstream tasks and makes the problem of defining quality and relatedness more difficult. We also test our hypotheses across a variety of datasets collected from different sources and with differing levels of effort and money placed into creating and filtering them. By comparing across methodologies we can determine whether increased effort and cost of pretraining dataset curation translates into increased gains for downstream tasks.
 
-#### 2.2. Network Architecture and Pretraining Task
+#### 2. Network Architecture and Pretraining Task
 
 We chose to fix our model the ViLBERT model proposed by Lu et al. [10] which allows us to train on a wide variety of image and text data, without careful tailoring of the dataset for our model architecture. ViLBERT is a multimodal model designed to work with both visual and linguistic inputs. For the visual component of the model, each image is run through a pretrained object-detection network to extract bounding boxes and visual features. For the text component of the model, the input is preprocessed via a byte-pair encoding and the resulting discrete tokens embedded via a learned embedding layer. The visual features are concatenated with the embedded tokens as input to the model. The model is then trained via two tasks: masked multi-modal modeling and multi-modal alignment prediction.
 
@@ -54,11 +54,11 @@ For mutli-modal alignment prediction, the model receives as input either truly a
 
 We evaluate our pretrained models using the same tasks chosen in the VilBERT paper, namely Visual Question Answering (VQA), Visual Commonsense Reasoning (VCR), Grounded Referential Expressions, and Image Retrieval.
 
-## 3. Methods
+## Methods
 
 We define two metrics of dataset relatedness and quality, which we use to score each of our datasets. The both metrics are also used to curate "amalgam" datasets consisting of high-scoring examples.
 
-#### 3.1. Relatedness
+### 1. Relatedness
 
 We use a TFIDF-based metric for determining the relatedness of the text in a given (image, text) pair to the text in the downstream tasks. We first take all text across all our base datasets (described in Sections 4.1-4.3), and compute the TFIDF matrix:
 
@@ -80,13 +80,13 @@ relatedness
 $$
 (d)
 $$
- = 
+ =
 $$
 \sum_{d' \in S} \frac{K_d^T Q_{d'}}{||K_d|| ||Q_{d'}||} \forall d \in D
 $$
  (2)
 
-#### 3.2. Quality
+#### 2. Quality
 
 We define quality of data as similarity between the image and text of an (image, text) pair. High quality data should have a strong similarity between image and text, with text referring to at least one if not more parts of the image. Low quality data should have weak or no similarity between image and text, and may even be missing text altogether.
 
@@ -102,7 +102,7 @@ quality
 $$
 (i, d)
 $$
- = sum $\left(\text{top}_k\left(\right)$   
+ = sum $\left(\text{top}_k\left(\right)$
 $$
 1 - \frac{g(o)g(w)}{||g(o)|| ||g(w)||} \forall o \in O_i, w \in d\right)
 $$
@@ -110,15 +110,15 @@ $$
 
 Here, top<sup>k</sup> refers to the k highest-scoring pairs of words w ∈ d and objects o ∈ O<sup>i</sup> . We use a sum of the top<sup>k</sup> function here, rather than a direct max or a mean. The mean function penalizes longer text and the use of articles, determiners, etc. too heavily. The max function lacks fidelity, scoring many pairs at perfect similarity. k is a hyperparameter, which we choose to be 3. A good choice of k should balance the likelihood of detecting reasonable text (which is unlikely to mention every single object in the image) with also rewarding text that is more directly descriptive of the image. Further experimentation would be necessary to determine the effect of k on the scoring of examples.
 
-## 4. Datasets
+## Datasets
 
 Here we describe all datasets used in this work. Some datasets are publicly available, some are not, and some were collected by us for this work. We note the distinction when discussing each dataset. In addition, we construct some specific datasets to probe the relatedness/quality metrics more directly. Note that as all datasets are of different size, we downsample each training set to 2 million examples to ensure equal comparison across each dataset.
 
-### 4.1. Conceptual Captions
+### 1. Conceptual Captions
 
 The ConceptualCaptions dataset is a high-quality image caption dataset where images are sourced from the web and text is source from corresponding HTML Alttext attribute [16]. It consists of approximately 3.3 million (image, text) pairs. When this dataset was constructed, candidate (image, text) pairs were filtered in three ways. First, images were filtered to exclude non-JPEG images, images where one dimension has fewer than 400 pixels, or images with an aspect ratio greater than 2. Second, pairs were filtered based on alt-text to exclude those without wellformed English (e.g. existence of determiners, capitalization, etc.). Third, pairs with no relationship between objects detected in the image and associated text were removed. This results in a dataset highly amenable for pretraining, and which we show scores highly on both of our proposed metrics.
 
-#### 4.2. Image CommEnting (ICE) Dataset
+#### 2. Image CommEnting (ICE) Dataset
 
 The ICE dataset [7] for image commenting consists of images sourced from Reddit, along with the title and comments on each post. While the original dataset consists of only 1 million examples, we obtained the unfiltered superset of the data from the authors. This results in a dataset large enough for our purposes (> 2 million examples), but which has little to no filtering. From this superset of the ICE dataset, we construct two pretraining datasets, which we call ICE-Titles, and ICE-Comments.
 
@@ -126,7 +126,7 @@ ICE-Titles In the ICE-Titles pretraining dataset we pair each image with its cor
 
 ICE-Comments In the ICE-Comments pretraining dataset, we pair each image with its corresponding post comments. The distribution of text in the post comments is significantly different from the distribution in standard captioning datasets. Comment text mentions objects present in the image much less frequently while using verb part-of-speech (POS) words more frequently. Sentiment words also occur more often as comments tend to express subjective/emotional descriptions. Overall, by directly comparing this to the ICE-Titles dataset, we can see the effect of how pretraining text is generated, examine the usefulness of training on more natural human conversations, and compare training on small, higher-quality text against longer lower-quality text (where quality refers to our quality measure from Section 3.2).
 
-#### 4.3. Ngram Image Search
+#### 3. Ngram Image Search
 
 For this dataset, we construct a set of (image, text) pairs based on common English ngrams. We obtained a set of 2 grams, 3-grams, 4-grams, and 5-grams from the Corpus of Contemporary American English (COCA) [2]. Collected n-grams were then scored based on several measures:
 
@@ -137,39 +137,39 @@ For this dataset, we construct a set of (image, text) pairs based on common Engl
 
 N-grams were then sorted and the top ∼2M n-grams were selected (to match the size of the other datasets). The final filtered set of n-grams consisted of 21% 2-grams, 22% 3-grams, 24% 4-grams, and 33% 5-grams. After collecting these n-grams, we performed an image search to find corresponding images. In each case, we simply selected the first image result.
 
-#### 4.4. RandomCaptions
+#### 4. RandomCaptions
 
-The RandomCaptions dataset is constructed from the ConceptualCaptions dataset and consists of the same images and text. However, rather than the paired image text present in the original dataset, each image is paired with a *random* caption. This dataset is constructed specifically to examine the relationship between our notions of relatedness and quality. Since it contains the same text as the ConceptualCaptions dataset, RandomCaptions scores very highly on our relatedness metric. Obviously, however, it scores very poorly on our quality metric.
+The RandomCaptions dataset is constructed from the ConceptualCaptions dataset and consists of the same images and text. However, rather than the paired image text present in the original dataset, each image is paired with a *random*caption. This dataset is constructed specifically to examine the relationship between our notions of relatedness and quality. Since it contains the same text as the ConceptualCaptions dataset, RandomCaptions scores very highly on our relatedness metric. Obviously, however, it scores very poorly on our quality metric.
 
-This dataset disentangles the benefits of training on *unpaired* visuolinguistic data from the benefits of training on *paired* visuolinguistic data. Unpaired data may still be highly related to the downstream task. As such, it enables the model to independently train its visual processing weights (masked objects can be predicted from unmasked objects) and its text processing weights (masked text can be predicted from unmasked text). It does not, however, allow learning text-image grounding, as masked text cannot be predicted from the unmasked objects, and masked objects cannot be predicted from unmasked text. Therefore pretraining on this dataset directly measures the impact of learning the relationship between text and image, as opposed to learning how to process the modes independently.
+This dataset disentangles the benefits of training on*unpaired*visuolinguistic data from the benefits of training on*paired*visuolinguistic data. Unpaired data may still be highly related to the downstream task. As such, it enables the model to independently train its visual processing weights (masked objects can be predicted from unmasked objects) and its text processing weights (masked text can be predicted from unmasked text). It does not, however, allow learning text-image grounding, as masked text cannot be predicted from the unmasked objects, and masked objects cannot be predicted from unmasked text. Therefore pretraining on this dataset directly measures the impact of learning the relationship between text and image, as opposed to learning how to process the modes independently.
 
-#### 4.5. Amalgam - Relatedness
+#### 5. Amalgam - Relatedness
 
 This is an amalgam dataset constructed from the superset of all (image, text) pairs in all our datasets, filtered for relatedness. Using Eq. 3.1 we score each (image, text) pair, then select the 2.015 million highest scoring examples. These are split into a training set of 2 million examples and a validation set of 15 thousand examples. This dataset directly tests our relatedness metric, and shows the impact that relatedness to downstream task has on final performance.
 
-#### 4.6. Amalgam - Quality
+#### 6. Amalgam - Quality
 
 As with the 'Amalgam - Relatedness' dataset, this is an amalgam dataset constructed from the superset of all (image, text) pairs in our other datasets, filtered for quality. Using Eq. 3.2 we score each (image, text) pair, then select the 2.015 million highest scoring examples. These are split into a training set of 2 million examples and a validation set of 15 thousand examples. This dataset directly tests our quality metric, and shows the impact that quality to downstream task has on final performance.
 
-## 5. Downstream Tasks
+## Downstream Tasks
 
 We train on the same downstream visuolinguistic tasks used in the original ViLBERT paper. Below we describe the problem proposed by each downstream task. As we do not make modifications to the ViLBERT fine-tuning procedure, details of architecture and hyperparameters are omitted for brevity (see Lu et al. [10] for these details).
 
-#### 5.1. Image Retrieval
+### 1. Image Retrieval
 
 Image Retrieval is the task of returning a specific image from a large set of images, given a natural language description. We train this via the Flickr30k [21] dataset, which consists of 31,000 images, each with five high-quality natural language descriptions. At training time, four options are constructed from a given image, description pair: the original image and description pair, the original image and a random description, a random image and the original description, and a hard-negative image with the original description. Hard-negative images are sampled from the 100 nearest neighbors of the original image. At test time, similarity is scored across all images in the test set, to better simulate a "search". This task tests the model's ability to detect and ground similarity between images and text, with hard-negative images requiring a more fine grained ability to detect similarities and discrepancies.
 
-#### 5.2. Grounded Referring Expressions
+#### 2. Grounded Referring Expressions
 
 The Grounded Referring Expressions task requires localizing an area of an image given a natural language description of the area. These descriptions can be simple (e.g. 'door') or more extensive (e.g. 'man in red shirt on horse'). The task is trained by obtaining object detections from an RCNN and reranking the set of object detections based on similarity to the input text string. This has some similarities to the Image Retrieval task, but requires a greater understanding of the individual objects in the image as well as an understanding of the relations between the objects ('on top of', 'next to', etc.). For training and test we use the RefCOCO+ dataset [8].
 
-#### 5.3. Visual Question Answering (VQA)
+#### 3. Visual Question Answering (VQA)
 
 VQA is the task of answering a natural language question about a given input image. For this task we use the VQAv2 dataset [6]. This dataset consists of 1.1 million questions over all images in the COCO 2017 train/val/test set. Questions and answers are both solicited from human annotators, resulting in a wide variety of natural language. Answers are pruned to 3129 possible answer classes, and the model emits a distribution over these answer classes.
 
 In addition, the dataset is specifically constructed to minimize linguistic bias. In the original VQA dataset, simple ngram based methods could achieve very high performance without looking at the image. The authors counteract this by adding new (image, question) pairs to the dataset which are visually similar and linguistically identical to other pairs in the dataset, but which have different answers. This forces a model to ground its answer in both the language and the image.
 
-#### 5.4. Visual Commonsense Reasoning (VCR)
+#### 4. Visual Commonsense Reasoning (VCR)
 
 VCR is the task of answering a commonsense-reasoning question about a given input image. While this may seem similar to the VQA task, questions in the VCR dataset target higher-order semantics and relationships that are implicitly present in an image (e.g. 'Why is person4 pointing at person1?') rather than clearly present attributes of the image (e.g. 'What color is the ball?').
 
@@ -201,7 +201,7 @@ Table 2. Average metric scores for each pretraining set.
 
 Each example in the VCR dataset [22] consists of four entities - the image, question, answer, and rationale, and the dataset consists of 110K images with 290K questions, answers, and rationales. VCR actually consists of two tasks: question to answer (Q→A), question + answer to rationale (QA→R). Each task is cast as a multiple choice question, with the model being provided with the image and input, as well as four possible outputs. Distractor outputs are selected via 'adversarial matching' which attempts to minimize the models ability to guess the answer via linguistic biases.
 
-## 6. Results
+## Results
 
 Table 1 shows results for all downstream supervised tasks when comparing against different pretraining datasets. Overall, we find that a rough ordering of performance improvement improvement emerges across different pretraining datasets and tasks. This can be seen in the final 'Score' column of the table, which displays the average normalized score across all tasks. To compute this average normalized score, we first normalize scores within each task by the following transformation:
 
@@ -219,7 +219,7 @@ and 1. The average of this normalized score across all tasks gives us a way of m
 
 In addition, our measures of relatedness and quality both correlated well with performance increases. Our relatedness measure has a Spearman's rank correlation of 0.577 with overall score (0.771 if we ignore the adversarially constructed RandomCaptions dataset), and our quality measure has a Spearman's rank correlation of 0.893 with the overall score. See Figures 3-4 for plots of relatedness and quality against normalized performance measures.
 
-## 7. Discussion
+## Discussion
 
 Our quality and relatedness measures both correlated well with normalized performance on the downstream tasks. Our results show that this is true not only for existing datasets, but also for datasets constructed to explicitly maximize these metrics, which suggests a causal relationship between improving the metrics and increasing performance on downstream tasks.
 
@@ -227,7 +227,7 @@ Our quality and relatedness measures both correlated well with normalized perfor
 
 Figure 4. Quality versus normalized performance measure for all datasets. Marks from left to right represent Ngram Image Search, RandomCaptions, ICE-Comments, ICE-Title, ConceptualCaptions, Amalgam - Relatedness, and Amalgam - Quality.
 
-#### 7.1. Disentangling Quality and Relatedness
+### 1. Disentangling Quality and Relatedness
 
 While both quality and relatedness are correlated with final performance, they are also correlated with each other. This is especially clear from the Amalgam - Quality and Amalgam - Relatedness datasets. Although each dataset is constructed to maximize one of the metrics, they both also score second-highest on the other metric (see Table 2). This makes it difficult to determine the effect of each metric on performance.
 
@@ -235,7 +235,7 @@ First, we note that (ignoring the RandomCaptions dataset), the quality metric co
 
 To further examine this hypothesis, we can look at the RandomCaptions dataset. This is a low-quality dataset with minimal relationship between paired text and image. It is also a high-relatedness dataset as the individual captions are exactly the same as the ConceptualCaptions dataset on which it is built. This dataset performs little better than no pretraining at all, which suggests that the largest benefit of pretraining is the ability of the model to learn image-text grounding.
 
-#### 7.2. Limitations of Analysis
+#### 2. Limitations of Analysis
 
 While the current set of experiments point to interesting relationships between these simple metrics and performance on downstream tasks, there are limitations in the current methodology when it comes to investigating these relationships further.
 
@@ -245,13 +245,13 @@ Second, our downstream evaluations consist of broad, general image understanding
 
 Finally, it is clear that the metrics tested do not capture all the variance in the data. In particular, the Ngram Image Search dataset scores poorly on both of our metrics, yet still improves performance more than the ICE-Comments and RandomCaptions datasets. Further experimentation could help determine what aspect of the datasets our current metrics miss.
 
-## 8. Future Work
+## Future Work
 
 Our results show that simple, inexpensive to calculate metrics can help maximize pretraining utility across the board for many downstream tasks. In the future, we hope to apply these metrics to domains where the amount of data dwarfs our ability to use it in pretraining. For example, paired video and automatic speech recognition (ASR) data suffers from this problem. Our metrics could help filter the available data to find highly related segments of paired video and ASR, so that we avoid training on data that provides no more benefit than a random caption.
 
 ## References
 
-- [1] Steven Bird, Ewan Klein, and Edward Loper. *Natural Language Processing with Python*. O'Reilly Media Inc., 2009. 4
+- [1] Steven Bird, Ewan Klein, and Edward Loper.*Natural Language Processing with Python*. O'Reilly Media Inc., 2009. 4
 - [2] Mark Davies. English n-grams (based on data from the coca corpus). https://www.ngrams.info, 2011. 4
 - [3] J. Deng, W. Dong, R. Socher, L.-J. Li, K. Li, and L. Fei-Fei. ImageNet: A Large-Scale Hierarchical Image Database. In *The Conference on Computer Vision and Pattern Recognition (CVPR)*, 2009. 2
 - [4] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. BERT: Pre-training of deep bidirectional transformers for language understanding. In *The Conference of*

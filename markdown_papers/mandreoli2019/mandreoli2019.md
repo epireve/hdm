@@ -1,10 +1,12 @@
+<!-- cite_key: mandreoli2019 -->
+
 # 9
 
 # Dealing With Data Heterogeneity in a Data Fusion Perspective: Models, Methodologies, and Algorithms
 
 Federica Mandreoli<sup>1</sup> , Manuela Montangero Dip. di Scienze Fisiche, Informatiche e Matematiche, Modena, Italy <sup>1</sup> Corresponding author
 
-# 1. INTRODUCTION
+# INTRODUCTION
 
 The proliferation of data sources accessible via the Web and the availability of large amount of data created by humans and machines represent an enormous opportunity to improve knowledge in a wide range of application fields, including life science.
 
@@ -28,7 +30,7 @@ This chapter focusses on the main sources of heterogeneity in the life science c
 
 The rest of the chapter is organized as follows. Section 2 provides an overview of the data sources that can be exploited in life science applications. [Section 3](#page-4-0) presents an example from a computer science perspective and an overview of the main traditional techniques to deal with entity resolution and data fusion. [Section 4](#page-20-0) presents some new challenges that emerged more recently and relative proposed solutions.
 
-# 2. OVERVIEW OF LIFE SCIENCE DATA SOURCES
+# OVERVIEW OF LIFE SCIENCE DATA SOURCES
 
 This section provides an overview of the different kinds of publicly available data sources that can be exploited in a data integration application for the life science domain.
 
@@ -44,7 +46,7 @@ Of particular interest for knowledge sharing on the Web in a wide range of appli
 
 Finally, life science digital libraries can be exploited to enable the connection of life science data to the related literature. PubMed [\[22\]](#page-31-0) is probably the most known digital library for the biomedical literature. PubMed comprises more than 27 million citations for the biomedical literature from MEDLINE, life science journals, and online books. Citations may include links to full-text content from PubMed Central and publisher websites. It supports a highly expressive query language. Queries can contain Boolean operators, such as AND and OR, and field-based filters, such as searches limited to the title fields, and the specification of MeSH terms.
 
-# 3. ADDRESSING DATA HETEROGENEITY
+# ADDRESSING DATA HETEROGENEITY
 
 Dealing with multiple manifestations of the same real-world entity across several data sources is a very common challenge for many modern applications, including life science applications. This challenge is referenced as data heterogeneity in the data management research field where the final aim is often to get a unified or integrated view of the real-world entities represented in the data sources.
 
@@ -84,9 +86,9 @@ Traditionally, schema mapping and matching, entity resolution, and data fusion r
 
 FIGURE 9.2 The data integration process.
 
-#### 244 9. DEALING WITH DATA HETEROGENEITY IN A DATA FUSION PERSPECTIVE
+## 244 9. DEALING WITH DATA HETEROGENEITY IN A DATA FUSION PERSPECTIVE
 
-# 3.1 Entity Resolution
+# 1 Entity Resolution
 
 This entity resolution problem consists in identifying different records referring to the same real-world entity. The problem comes into different declinations reflecting different perspectives:
 
@@ -96,7 +98,7 @@ This entity resolution problem consists in identifying different records referri
 
 In the following we will refer to the general entity resolution problem. Traditionally, entity resolution techniques can be broadly divided into two categories: similarity based and learning based.
 
-# 3.1.1 Similarity-Based Techniques
+# 1.1 Similarity-Based Techniques
 
 Similarity-based techniques require similarity functions and thresholds to determine if two records are similar or not. Similarity is computed component by component using a similarity function that is proper for the property domain. To decide if the two records are similar or not, there are two main ways to proceed:
 
@@ -104,19 +106,19 @@ Similarity-based techniques require similarity functions and thresholds to deter
 
 For example, given two records r<sup>1</sup> and r<sup>2</sup> with properties (we omit domains for the sake of presentation)
 
-```
+```text
 (name, symbol, gene-id, is-cancer-gene)
-```
+```text
 
 a similarity function s fi and a weight wi for each property pi, <sup>i</sup> <sup>¼</sup> 1,2,3,4, and a threshold s, the two records are declared a match if
 
-```
+```text
 w1$s f1(r1:name; r2:name)
 þw2$s f2(r1:symbol; r2:symbol)
 þw3 s f3(r1:gene-id; r2:gene-id)
 þw4$s f4(r1:is-cancer-gene; r2:is-cancer-gene) -
                                                    s:
-```
+```text
 
 This method is easy to implement; nevertheless it is not trivial to tune the threshold value and, eventually, weights that should reflect which, among the record properties, are more predictive.
 
@@ -124,14 +126,14 @@ This method is easy to implement; nevertheless it is not trivial to tune the thr
 
 Referring to the former example, given thresholds s1, s2, s3, we can define matching records those for which
 
-```
+```text
 s f4(r1.is-cancer-gene; r2:is-cancer-gene) > s1 AND
 [s f1(r1:name; r2:name) > s2 OR s f3(r1:gene-id; r2:gene-id) > s3].
-```
+```text
 
 This method requires experts to meticulously design rules and tune thresholds; unfortunately, these tasks are particularly hard, even if they potentially produce a high-quality result.
 
-#### 3.1.2 Learning-Based Techniques
+## 1.2 Learning-Based Techniques
 
 In many current approaches the entity resolution problem is seen as a classification problem where pairs of records have to be divided into two classes M and U, respectively, match and unmatch. To this end, classifiers are trained using labeled examples of matching and nonmatching pairs. Then, the input to the classifiers are vectors of pairwise similarities properties values. Thus, the general learning-based workflow is divided in two phases: first, in the training phase, record pairs are manually (and usually off-line) labeled according to the fact that they are a match or not and are annotated with similarity values. Labels and annotations are then used by a machine learning algorithm to generate a classifier. Second, in the application phase, the classifier is applied to unlabeled record pairs.
 
@@ -152,7 +154,7 @@ independence of components of g (match or nonmatch) and, thus, compute the forme
 $$
 m(\gamma) = \prod_{j=1}^{n} Pr(\gamma_j | (r_1, r_2) \in M),
 $$
-  
+
 $$
 u(\gamma) = \prod_{j=1}^{n} Pr(\gamma_j | (r_1, r_2) \in U).
 $$
@@ -173,7 +175,7 @@ Authors in [\[48\]](#page-32-0) designed their system starting from the idea tha
 
 A loss function for a classification is a function that is intended to capture the price paid for inaccuracy in the prediction of the classification and active learning techniques try to carefully select examples to label while learning a good classifier, according to a given loss function. Traditional active learning techniques concentrate in the 0e1 loss function that, unfortunately, turns out to be a bad choice for entity resolution, mainly because of the unbalanced nature of the classification. Hence, authors in [\[51\]](#page-32-0) propose to use a loss function that maximizes recall (fraction of real matches that are labeled as matches) under a constraint that precision (fraction of pairs labeled as matches that are real matches) should be greater than a specified threshold and propose an active learning algorithm. Ref. [\[52\]](#page-32-0) highlights some criticalities of the former work (including computational complexity) and proposes a more efficient algorithm to optimize recall under the precision constraint, using as a black box any active learning approach that minimizes the 0e1 loss. They also show that the classifier learnt by their algorithm is pareto-optimal and close to the true optimal in terms of recall.
 
-#### 3.1.3 Similarity Functions
+### 1.3 Similarity Functions
 
 Similarity functions are fundamental in all approaches to entity resolution. The choice of the similarity function is crucial, as a wrong choice might compromise the quality of the classification (into matches and nomatches). Here we report some of the most commonly used functions of interest in the life science context.
 
@@ -259,11 +261,11 @@ $$
 
 where <sup>p</sup> ¼ <sup>j</sup>n<sup>1</sup>n<sup>2</sup><sup>j</sup> maxfjn<sup>1</sup>j;jn<sup>2</sup>jg: 100 is the percentage difference between the two numbers.
 
-# 3.2 Data fusion
+# 2 Data fusion
 
 Data fusion consists in combining records that refer to the same realworld entity into a single representation by resolving possible conflicts from different data sources.
 
-#### 3.2.1 Dealing With Conflicts
+## 2.1 Dealing With Conflicts
 
 Possible conflicts fall into two categories: uncertainty and contradiction. Uncertainty occurs in case of missing information, that is when a data source either does not represent a property for a given entity that instead is represented in other data sources or exhibits a null value for that property. Contradiction, instead, is a conflict between two nonnull values for the same property and the same entity.
 
@@ -292,7 +294,7 @@ Choosing a good conflict resolution function for a specific data heterogeneity p
 
 computation cost, the quality of the results, and the information at function disposal.
 
-#### Algorithm 1 Data fusion
+### Algorithm 1 Data fusion
 
 1: Remove exact duplicates from R
 
@@ -304,7 +306,7 @@ computation cost, the quality of the results, and the information at function di
 
 5: Compute <sup>r</sup> ¼ ðp<sup>1</sup> : <sup>v</sup>1;.; pn : vn<sup>Þ</sup>
 
-#### 3.2.2 The Data Fusion Process
+#### 2.2 The Data Fusion Process
 
 The data fusion process takes in input a collection of records referring to the same real-world entity and comes up with a single consistent representation of the real-world object by implementing the conflict resolution strategy and function selected for the specific task.
 
@@ -325,19 +327,19 @@ The output is a record <sup>r</sup> ¼ ðp<sup>1</sup> : <sup>v</sup>1; .; pn : 
 
 Many researches address the implementation of the data fusion process in practical contexts. The most diffused data model is the relational model that is implemented in Relational Database Management Systems (RDMSs). Samples of RDMSs are IBM DB2 [\[66\],](#page-33-0) Oracle [\[67\],](#page-33-0) and PostgreSQL [\[68\]](#page-33-0). Standard techniques are devised in terms of the standard database operators join and union: join-based techniques generally combine records from different tables while evaluating some predicates on some of their properties; union-based techniques generally build a common schema first and then append the different record sets from the source tables. Less standard techniques extend the relational model or the existing relational operators or combine operators to incorporate additional information and fuse data. A detailed implementation of the data fusion process in the relational model is described in [\[69\]](#page-33-0). This work introduces standard and advanced relational operators and examines their abilities in fusing data from different data sources. Moreover, it compares different data integration systems with respect to the kind of data fusion support.
 
-# 4. LATEST TRENDS AND CHALLENGES
+# LATEST TRENDS AND CHALLENGES
 
 <span id="page-20-0"></span>Entity resolution and data fusion are problems that have been initially addressed for "controlled" data sources, usually databases, whereby the owner of the data source can guarantee a high degree of data representation homogeneity, correctness, up-to-dateness, security, and so on. Nowadays, the situation has greatly changed, mostly because of the advent of the Internet and the Web. New opportunities arose, as well as new problems to be addressed. In particular, we can detect the following emerging research fields and directions: Big Data provide access to a huge amount of dynamic, heterogeneous, and interesting data that are not guaranteed to be consistent; crowd-sourcing easily provides the possibility to involve a large number of human workers to collaborate on tasks that are still difficult for computers; privacy issues arise when dealing with data sources that might contain sensitive and private information; integration of textual data with nontextual data, for example, images, that are more and more available and might contain interesting information.
 
 In the following section we concentrate on Big Data integration (BDI) and the use of crowdsourcing. We present new challenges and newly arising problems, providing some of the solutions devised up to now.
 
-# 4.1 Big Data Integration
+# 1 Big Data Integration
 
 We are now living in what is called the Big Data era, that is, we are now generating, collecting, and storing an incredible amount of digital data at a high rate every day. Data come from the most variable sources in most variable domains: medical records, genomics, sensor networks, social networks, Web logs, Web text documents, e-commerce product details, and so on. Big Data applications work with data coming from different sources not only to improve their data quality but also to enrich their data or to perform data analysis that might be impossible if data are derived from a single source. For example, to prevent the outbreak of epidemics it is fundamental to be able to find out as soon as possible (ideally in real time) the occurrence of unusual patterns of symptoms. Early detection of such patterns might be conducted by collecting and analyzing very heterogeneous data coming from several different sources: emergency hospital admissions, travel and immigrant records, drug purchases in pharmacies, family doctor files, social network data, and probably many others.
 
 Big Data applications come with great expectations and opportunities, but they have to face new situations in which "the data is too big, moves too fast, or doesn't fit the structures of your database architectures" [\[70\]](#page-33-0). Hence, there are several new critical aspects that have to be taken into consideration when dealing with BDI [\[71,72\]](#page-33-0), and they require new solutions: (1) the volume of data coming from sources; (2) the velocity with which data are produced and updated: data sources might be dynamic and evolving; (3) the variety of data coming from different sources, even if they describe the same real-world entity (data might also be unstructured); (4) the veracity of data, as data sources might be in conflict and, moreover, data might be copied from one source to another, propagating inaccurate data very quickly.
 
-### 4.1.1 Entity Resolution With Large Volumes of Data
+## 1.1 Entity Resolution With Large Volumes of Data
 
 The naı¨ve approach to entity resolution that compares all pairs of records becomes quickly unfeasible when the set of records is large, not only because the number of pairs is quadratic in the number of records but also because each record contains several fields and thus each record comparison requires multiple field comparisons, and each field comparison might be expensive (e.g., if the content of a field is a long text, then computing the edit distance is linear with the product of the number of characters in the two strings to compare). For example, given 1 million records we have almost 1012/2 pairs. Assuming that a single comparison takes 1 ms, we need around 11 days to complete the pairwise process. The problem has been approached from two perspectives: (1) avoid unnecessary pair comparisons through blocking, metablocking, and canopies techniques, and (2) parallelize the pair comparison jobs through distributed techniques.
 
@@ -369,7 +371,7 @@ A straightforward way to use MapReduce is to think to the map phase as blocking 
 
 Nevertheless, when blocks are not disjoint, nodes cannot work completely independent from one another. In particular, in the presence of inference rules, the information needed for a record might be in different nodes: node i finds out that record r<sup>1</sup> matches record r2, and node j finds out that record r<sup>1</sup> matches record r3. By transitivity r<sup>2</sup> matches r3, but there is no way for the two nodes to find that out unless they communicate, in some way. Authors in [\[91\]](#page-34-0) propose a simple iterative message passing algorithm to deal with this situation: run the entity matcher locally in each canopy at a single node; if a match is found, then send a message to all other nodes with the found evidence; if new evidences are received, run the matcher locally again; repeat until no new match is found in all canopies. Unfortunately, the algorithm converges to sound matches but is not complete. The variant of the simple message passing algorithm in which a message is sent not only for found matches but also for potential matches finds more matches than the former one but does still not guarantee completeness.
 
-#### 4.1.2 Entity Resolution With Dynamic Data
+### 1.2 Entity Resolution With Dynamic Data
 
 There are situations in which data sources produce/collect/store records related to real entities for long periods of time (e.g., the registry office) and the values of some record properties might change over time (e.g., family or first names, living addresses, affiliations). Data dynamicity might resolve into traditional entity resolution solutions to identify as the same real entity records that refer to different ones (e.g., the new owner of a house has a family name similar to the old one and has, of course, the same address) or to miss to associate one (or more) record(s) to a single real entity because the value of some properties is greatly different (e.g., when moving to a different town, one changes street name, ZIP code, and town).
 
@@ -377,7 +379,7 @@ Temporal entity resolution tries to address the former problem by using temporal
 
 Temporal entity resolution models adjust the way in which pairwise similarities are computed to work in this setting, usually adopting a machine learning approach [92e[94\].](#page-34-0) Temporal entity resolution techniques determine the way in which pairs of records should be compared taking into consideration the way in which they evolved in time, often using a similarity function defined in a temporal entity resolution model [\[93,95\].](#page-34-0)
 
-#### 4.1.3 Data Fusion and Big Data
+#### 1.3 Data Fusion and Big Data
 
 In the context of Big Data, the variety of sources, especially those accessible on the Web, brings along new problems that cannot be ignored if one wants to resolve conflicts and produce quality integrated data. Indeed, some sources might be copies, crawls, or aggregates from others, some might be produced by humans, and some might be built by exchanging data with or buying data from other sources [\[96\]](#page-34-0). Moreover, data often dynamically change and sources undergo continuous updates to reflect these changes, leaving behind an evolving history of true values. The consequence is that many sources might provide erroneous or out-ofdate data and these undesired data might be propagated by copiers (sources that copied data from other sources). To make things more complicated, also copiers behavior might vary in time, by changing coping source or stopping coping or coping at different time rates. Traditional techniques for data fusion are usually not suitable in the Big Data context as they have been devised to work off-line, are time-consuming, and do not take into consideration the fact that, during the aggregation process, data might have changed.
 
@@ -385,7 +387,7 @@ Authors in [\[97\]](#page-34-0) are the first to propose an on-line data fusion 
 
 The work in [\[98\]](#page-34-0) addresses the problem of determining the copying relationship between sources and between the evolving true values. They also propose some measures for the quality of data sources, such as coverage (how many values in history a given source covers), exactness (how many updates conform to the reality), and freshness (how quickly a source captures a new value).
 
-# 4.2 A Crowdsource Approach
+# 2 A Crowdsource Approach
 
 Problems related to data integration have been studied for decades and many automated algorithms have been devised; nevertheless, at the same time other studies described the difficulties and limits of machine-based approaches in producing exact results [\[99\].](#page-34-0) Starting from the beginning of the new millennium, some works began investigating the benefits of human interaction to help solving problems that are difficult for computers [\[48,51,100\]](#page-32-0). The concept of Human-in-the-loop refers to the idea of using human cognitive abilities in the process of solving a problem. Sometimes an expert in the field might be needed, but in other cases the fact of being human and not a machine might be sufficient. More recently, crowdsourcing has attracted significant attention because of the availability of easily accessible crowdsourcing platforms (e.g., Amazon Mechanical Turk (AMT) [\[101\],](#page-35-0) CrowdFlower [\[102\],](#page-35-0) MicroWorkers [\[103\],](#page-35-0) etc.), which help "people with a problem" meet "people available to work to the problem."
 
@@ -418,7 +420,7 @@ Crowdsourcing has attracted much attention in the last years, and many approache
 
 Even if crowdsourcing is promising, we have seen that it opens a new world of problematics that have to be addressed. First, we do not have to forget that crowdsourcing needs a budget to be dedicated to this activity and that a too small budget might result in useless results, if the number of answers is not enough. Second, humans can make mistakes too, and hence quality issues have to be taken into serious considerations if one does not want to frustrate the effort (and the budget). Last (but not for importance), authors in [\[113\]](#page-35-0) consider what is called the Truth Inference problem: given the workers' answers, how do we effectively infer the truth for each task? They compare 17 different existing algorithms on five datasets and show that these algorithms are not stable across datasets and that no one consistently outperforms the others. Hence, they conclude that the truth inference problem has not been fully solved and suggest some possible future research directions.
 
-# 5. CONCLUSIONS
+# CONCLUSIONS
 
 This chapter reviews the main modeling, methodological, and algorithmic solutions that stemmed from the computer science field to address the issue of data heterogeneity in a data integration context.
 
@@ -446,7 +448,7 @@ It is intended for life science researchers and practitioners who need to integr
 - [18] G. Klyne, J.J. Carroll, Resource Description Framework (RDF): Concepts and Abstract Syntax - W3C Recommendation, 2004. [http://www.w3.org/TR/rdf-concepts/.](http://www.w3.org/TR/%20rdf-concepts/)
 - [19] [http://lod-cloud.net.](http://lod-cloud.net)
 
-#### <span id="page-31-0"></span>266 9. DEALING WITH DATA HETEROGENEITY IN A DATA FUSION PERSPECTIVE
+## <span id="page-31-0"></span>266 9. DEALING WITH DATA HETEROGENEITY IN A DATA FUSION PERSPECTIVE
 
 - [20] F. Belleau, M.-A. Nolin, N. Tourigny, P. Rigault, J. Moris-sette, Bio2rdf: towards a mashup to build bioinformatics knowledge systems, J. Biomed. Inform. 41 (5) (2008) 706e716.
 - [21] M. Dumontier, A. Callahan, J. Cruz-Toledo, P. Ansell, V. Emonet, F. Belleau, A. Droit, Bio2rdf release 3: a larger connected network of linked data for the life sciences, in: Proceedings of the 2014 International Conference on Posters & Demonstrations Track, vol. 1272, 2014, pp. 401e404.
@@ -493,7 +495,7 @@ of Data, SIGMOD 2010, Indianapolis, Indiana, USA, June 6e10, 2010, 2010, pp. 303
 - [59] T.F. Smith, M.S. Waterman, Identification of common molecular subsequences, J. Mol. Biol. 147 (1) (1981) 195e197.
 - [60] W.E. Winkler, String comparator metrics and enhanced decision rules in the Fellegi-Sunter model of record linkage, in: Proceedings of the Section on Survey Research Methods, American Statistical Association, 1990, pp. 354e359.
 
-#### <span id="page-33-0"></span>268 9. DEALING WITH DATA HETEROGENEITY IN A DATA FUSION PERSPECTIVE
+### <span id="page-33-0"></span>268 9. DEALING WITH DATA HETEROGENEITY IN A DATA FUSION PERSPECTIVE
 
 - [61] A.E. Monge, C. Elkan, The field matching problem: algorithms and applications, in: Proceedings of the Second International Conference on Knowledge Discovery and Data Mining (KDD-96), Portland, Oregon, USA, 1996, pp. 267e270.
 - [62] W.W. Cohen, Integration of heterogeneous databases without common domains using queries based on textual similarity, in: , Proceedings ACM SIGMOD International Conference on Management of Data, June 2e4, 1998, Seattle, Washington, USA, SIG-MOD 1998, 1998, pp. 201e212.

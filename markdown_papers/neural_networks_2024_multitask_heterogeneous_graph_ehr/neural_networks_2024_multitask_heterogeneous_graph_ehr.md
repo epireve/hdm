@@ -1,16 +1,15 @@
+<!-- cite_key: chan2024 -->
+
 # Multi-task Heterogeneous Graph Learning on Electronic Health Records
 
 Tsai Hor Chan<sup>a</sup> , Guosheng Yin<sup>a</sup> , Kyongtae Bae<sup>b</sup> , Lequan Yua,<sup>∗</sup>
 
-*<sup>a</sup>Department of Statistics and Actuarial Science, The University of Hong Kong, Pokfulam Road, Hong Kong SAR, China <sup>b</sup>Department of Diagnostic Radiology, The University of Hong Kong, Pokfulam Road, Hong Kong SAR, China*
-
-# Abstract
+*<sup>a</sup>Department of Statistics and Actuarial Science, The University of Hong Kong, Pokfulam Road, Hong Kong SAR, China <sup>b</sup>Department of Diagnostic Radiology, The University of Hong Kong, Pokfulam Road, Hong Kong SAR, China*# Abstract
 
 Learning electronic health records (EHRs) has received emerging attention because of its capability to facilitate accurate medical diagnosis. Since the EHRs contain enriched information specifying complex interactions between entities, modeling EHRs with graphs is shown to be effective in practice. The EHRs, however, present a great degree of heterogeneity, sparsity, and complexity, which hamper the performance of most of the models applied to them. Moreover, existing approaches modeling EHRs often focus on learning the representations for a single task, overlooking the multi-task nature of EHR analysis problems and resulting in limited generalizability across different tasks. In view of these limitations, we propose a novel framework for EHR modeling, namely MulT-EHR (Multi-Task EHR), which leverages a heterogeneous graph to mine the complex relations and model the heterogeneity in the EHRs. To mitigate the large degree of noise, we introduce a denoising module based on the causal inference framework to adjust for severe confounding effects and reduce noise in the EHR data. Additionally, since our model adopts a single graph neural network for simultaneous multi-task prediction, we design a multi-task learning module to leverage the intertask knowledge to regularize the training process. Extensive empirical studies on MIMIC-III and MIMIC-IV datasets validate that the proposed method consistently outperforms the state-of-the-art designs in four popular EHR analysis tasks — drug recommendation, and predictions of the length of stay, mortality, and readmission. Thorough ablation studies demonstrate the robustness of our method upon variations to key components and hyperparameters.
+*Keywords:*Causal Inference, Electronic Health Records, Graph Representation Learning, Multi-task Learning
 
-*Keywords:* Causal Inference, Electronic Health Records, Graph Representation Learning, Multi-task Learning
-
-# 1. Introduction
+# Introduction
 
 The process of clinical decision making heavily relies on the medical records of patients. These records, however, present a great degree of heterogeneity, sparsity, and complexity in practice, making feature representation learning difficult. Figure [1](#page-1-0) illustrates the current challenges of EHR analysis. In order to provide accurate clinical decisions, clinicians have to traverse through the complex records to search for evidential information, which is time-consuming and costineffective. Recently, with the increasing availability of electronic health records (EHRs) in machine-readable forms, deep learning models have shown their powerful capability to mine the deep connections between medical entities and facilitate accurate decision making. These deep learning models on EHRs have shown great potential in developing personalized medical treatment and improving healthcare quality.
 
@@ -19,10 +18,7 @@ Most of the early methods leverage the longitudinal characteristics of the clini
 Furthermore, the EHR data encompass various tasks
 
 <sup>∗</sup>Corresponding author. Email address lqyu@hku.hk
-
-*Preprint submitted to Neural Networks August 15, 2024*
-
-<span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+*Preprint submitted to Neural Networks August 15, 2024*<span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
 
 Figure 1: Illustration of EHR data and the challenges. EHRs contain enriched information on clinical visits of patients, including relevant medications and diagnoses. However, analysis of EHR data poses three challenges — the sparsity in the data structure, noisiness, and heterogeneity of patients and their visits make it difficult to deliver accurate analysis.
 
@@ -43,45 +39,35 @@ Motivated by the aforementioned limitations in existing research, we propose a n
 
 Figure 2: Four examples of meta-relations highlighted in the EHRs. These meta-relations involve structural connections between multiple nodes with different node types, highlighting the heterogeneity of the data. Consequently, a homogeneous graph model is insufficient to effectively capture and represent these complex meta-relations.
 
-# 2. Related Works
+# Related Works
 
-# *2.1. Graph Neural Networks*
+#*2.1. Graph Neural Networks*GNNs are gaining significant success in many problem domains [\[16,](#page-12-2) [11,](#page-12-3) [18,](#page-12-4) [2\]](#page-11-1). Most of the existing GNN architectures focus on homogeneous graphs [\[35,](#page-12-5) [33,](#page-12-6) [37,](#page-12-7) [45\]](#page-13-0). They learn node representations by aggregating information from the neighboring nodes on the graph topology. These algorithms are effective when the level of node and edge heterogeneity is negligible. As a heterogeneous graph contains enriched semantic information, several works [\[34,](#page-12-8) [11,](#page-12-3) [12,](#page-12-9) [42\]](#page-13-1) attempt to design GNN algorithms on heterogeneous graphs. These works mine the complex relational information in a heterogeneous graph by designing the node-type-specific and relation-specific convolutional layers. The research on aggregation of heterogeneous graphs is well-developed, and hence we directly use a state-of-the-art (SOTA) heterogeneous GNN architecture (i.e., the heterogeneous graph transformer [\[11\]](#page-12-3)) in our framework.
 
-GNNs are gaining significant success in many problem domains [\[16,](#page-12-2) [11,](#page-12-3) [18,](#page-12-4) [2\]](#page-11-1). Most of the existing GNN architectures focus on homogeneous graphs [\[35,](#page-12-5) [33,](#page-12-6) [37,](#page-12-7) [45\]](#page-13-0). They learn node representations by aggregating information from the neighboring nodes on the graph topology. These algorithms are effective when the level of node and edge heterogeneity is negligible. As a heterogeneous graph contains enriched semantic information, several works [\[34,](#page-12-8) [11,](#page-12-3) [12,](#page-12-9) [42\]](#page-13-1) attempt to design GNN algorithms on heterogeneous graphs. These works mine the complex relational information in a heterogeneous graph by designing the node-type-specific and relation-specific convolutional layers. The research on aggregation of heterogeneous graphs is well-developed, and hence we directly use a state-of-the-art (SOTA) heterogeneous GNN architecture (i.e., the heterogeneous graph transformer [\[11\]](#page-12-3)) in our framework.
+#*2.2. EHR Representation Learning*Knowledge distillation from massive EHRs has been a popular topic in healthcare informatics. To address the longitudinal features in the EHR data, several early works [\[20,](#page-12-1) [23,](#page-12-10) [22\]](#page-12-11) learned the EHR features with recurrent neural networks. Since the EHR data represent relational information between the medical entities (e.g., patients make clinical visits), graph-based models are widely adopted for EHR analysis in recent works [\[3,](#page-11-0) [4,](#page-11-2) [21,](#page-12-12) [18\]](#page-12-4). Early works on graph-based EHR analysis model EHR data with a homogeneous graph. GRAM [\[3\]](#page-11-0) is a well-known method that learns robust medical code representations by adopting a graph-based attention mechanism. To address the heterogeneity in the EHR entities, recently there are works [\[18,](#page-12-4) [21,](#page-12-12) [50,](#page-13-2) [46\]](#page-13-3) attempting to model EHR data as a heterogeneous graph or a knowledge graph. They design heterogeneous GNNs to integrate the node and edge heterogeneity in graph representation learning. However, almost all the existing attempts are trained on each individual task separately, which does not incorporate the multi-task nature of the EHR data.
 
-# *2.2. EHR Representation Learning*
-
-Knowledge distillation from massive EHRs has been a popular topic in healthcare informatics. To address the longitudinal features in the EHR data, several early works [\[20,](#page-12-1) [23,](#page-12-10) [22\]](#page-12-11) learned the EHR features with recurrent neural networks. Since the EHR data represent relational information between the medical entities (e.g., patients make clinical visits), graph-based models are widely adopted for EHR analysis in recent works [\[3,](#page-11-0) [4,](#page-11-2) [21,](#page-12-12) [18\]](#page-12-4). Early works on graph-based EHR analysis model EHR data with a homogeneous graph. GRAM [\[3\]](#page-11-0) is a well-known method that learns robust medical code representations by adopting a graph-based attention mechanism. To address the heterogeneity in the EHR entities, recently there are works [\[18,](#page-12-4) [21,](#page-12-12) [50,](#page-13-2) [46\]](#page-13-3) attempting to model EHR data as a heterogeneous graph or a knowledge graph. They design heterogeneous GNNs to integrate the node and edge heterogeneity in graph representation learning. However, almost all the existing attempts are trained on each individual task separately, which does not incorporate the multi-task nature of the EHR data.
-
-# *2.3. Confounding E*ff*ect Adjustment*
-
-The challenge of addressing confounding effects in EHR data is amplified by its high degree of heterogeneity. Variations in patients' medical histories, comorbidities, and treatment plans contribute to these confounding effects. Consequently, there is a growing focus on learning feature representations in the counterfactual world, where confounding effects are excluded, within the healthcare research community.
+#*2.3. Confounding E*ff*ect Adjustment*The challenge of addressing confounding effects in EHR data is amplified by its high degree of heterogeneity. Variations in patients' medical histories, comorbidities, and treatment plans contribute to these confounding effects. Consequently, there is a growing focus on learning feature representations in the counterfactual world, where confounding effects are excluded, within the healthcare research community.
 
 Many recent works [\[44,](#page-13-4) [25,](#page-12-13) [9,](#page-12-14) [48\]](#page-13-5) take advantage of the advances in causal inference and aim to learn a representation of the data that captures the causal relationships between the variables. By doing so, they can separate the confounding factors from the causal factors and provide a more accurate representation of the underlying causal mechanism. CAL [\[31\]](#page-12-15) learns the causal features by disentangling a set of random features. By excluding the shortcut/trivial features, it achieves promising predictive and interpretation enhancement to vanilla GNN architectures (e.g., GCN [\[35\]](#page-12-5)).
 
-# *2.4. Multi-task Learning*
+#*2.4. Multi-task Learning*Multi-task learning aims to design a learning paradigm to obtain superior performance by training the tasks jointly rather than learning them independently [\[29\]](#page-12-16). Existing works on multi-task learning can be categorized into two major trends: hard parameter sharing [\[29,](#page-12-16) [5\]](#page-11-3) and soft parameter sharing [\[43,](#page-13-6) [19,](#page-12-17) [38\]](#page-13-7). Soft parameter sharing takes all the trainable parameters taskspecific but constrains them via Bayesian priors [\[38\]](#page-13-7) or a joint dictionary [\[43,](#page-13-6) [19\]](#page-12-17). Hard parameter sharing takes a subset of parameters as shared while others remain as task-specific. We adopt hard parameter sharing in this paper and optimize the joint objective using an environment-invariant approach.
 
-Multi-task learning aims to design a learning paradigm to obtain superior performance by training the tasks jointly rather than learning them independently [\[29\]](#page-12-16). Existing works on multi-task learning can be categorized into two major trends: hard parameter sharing [\[29,](#page-12-16) [5\]](#page-11-3) and soft parameter sharing [\[43,](#page-13-6) [19,](#page-12-17) [38\]](#page-13-7). Soft parameter sharing takes all the trainable parameters taskspecific but constrains them via Bayesian priors [\[38\]](#page-13-7) or a joint dictionary [\[43,](#page-13-6) [19\]](#page-12-17). Hard parameter sharing takes a subset of parameters as shared while others remain as task-specific. We adopt hard parameter sharing in this paper and optimize the joint objective using an environment-invariant approach.
+# Preliminaries
 
-# 3. Preliminaries
-
-Heterogeneous Graph. A heterogeneous graph is defined by a graph <sup>G</sup> <sup>=</sup> (V, <sup>E</sup>, <sup>A</sup>,R), where <sup>V</sup>, <sup>E</sup>, <sup>A</sup> represent the set of entities (vertices or nodes), relations (edges), and entity types respectively, and R represents the space of edge attributes. For *v* ∈ V, *v* is mapped to an entity type by a function τ(*v*) ∈ A. An edge *<sup>e</sup>* <sup>=</sup> (*h*,*r*, *<sup>t</sup>*) ∈ E links the head node *<sup>h</sup>* and the tail node
+Heterogeneous Graph. A heterogeneous graph is defined by a graph <sup>G</sup> <sup>=</sup> (V, <sup>E</sup>, <sup>A</sup>,R), where <sup>V</sup>, <sup>E</sup>, <sup>A</sup> represent the set of entities (vertices or nodes), relations (edges), and entity types respectively, and R represents the space of edge attributes. For*v*∈ V,*v* is mapped to an entity type by a function τ(*v*) ∈ A. An edge *<sup>e</sup>* <sup>=</sup> (*h*,*r*, *<sup>t</sup>*) ∈ E links the head node *<sup>h</sup>*and the tail node
 
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
 
-Figure 3: An example of a heterogeneous graph constructed from EHR data, where *N* represents the total number of patients, and *m<sup>i</sup>* represents the total number of visits by the *i*-th patient.
+Figure 3: An example of a heterogeneous graph constructed from EHR data, where*N*represents the total number of patients, and*m<sup>i</sup>*represents the total number of visits by the*i*-th patient.
 
-*t*, and *r* ∈ R. Every node *v* has a *d*-dimensional node feature *x* ∈ X, where X is the embedding space of node features.
+*t*, and *r*∈ R. Every node*v*has a*d*-dimensional node feature *x* ∈ X, where X is the embedding space of node features.
 
-Problem: Multi-task EHR Learning. Given the EHR data D, our goal is to construct a heterogeneous graph G from <sup>D</sup>. Let <sup>T</sup><sup>1</sup>, . . . ,T*<sup>K</sup>* on <sup>G</sup> be a series of *<sup>K</sup>* tasks on D. We aim to train a multi-task graph neural network model M such that M can deliver high performance on <sup>T</sup><sup>1</sup>, . . . ,T*K*.
+Problem: Multi-task EHR Learning. Given the EHR data D, our goal is to construct a heterogeneous graph G from <sup>D</sup>. Let <sup>T</sup><sup>1</sup>, . . . ,T*<sup>K</sup>*on <sup>G</sup> be a series of*<sup>K</sup>* tasks on D. We aim to train a multi-task graph neural network model M such that M can deliver high performance on <sup>T</sup><sup>1</sup>, . . . ,T*K*.
 
-# 4. Methodology
+# Methodology
 
 Our proposed framework starts with a heterogeneous graph construction stage. We learn the heterogeneous graph through a GNN that incorporates causal disentanglement for debiasing, which reduces the effects of confounding variables. We then improve cross-task performance by minimizing the task-level variance. Figure [4](#page-4-0) illustrates the workflow of our proposed method, and Algorithm [1](#page-5-0) presents the training paradigm.
 
-# *4.1. Modeling EHR with Heterogeneous Graph*
-
-Heterogeneous Graph Construction. We construct the heterogeneous graph by merging the tabular components in the EHR data. We define six node types: patients, visits, diagnoses, prescriptions, procedures, and lab events. We further define five types of connections between the nodes: patient—visit, visit—diagnosis, visit—prescription, visit—procedure, visit—lab events. Figure [3](#page-3-0) presents the example of the heterogeneous graph constructed from EHR data. The heterogeneous graph data structure highlights the meta-relations between the medical entities, which provides an effective data structure for mining EHRs. Examples of the metarelations modeled by the EHR heterogeneous graph are illustrated in Figure [2.](#page-2-0) There are visits which are indirectly connected through a common medication (upperleft panel) or one visit leads to two diagnoses (lowerright panel), and there are patients who are indirectly connected with a treatment via a specific visit (upperright panel) or a prescription with a diagnosis (lower-left panel). By leveraging the relational features introduced by these meta relations, we can obtain a better graph representation for EHRs and thus better performances on downstream tasks.
+# *4.1. Modeling EHR with Heterogeneous Graph*Heterogeneous Graph Construction. We construct the heterogeneous graph by merging the tabular components in the EHR data. We define six node types: patients, visits, diagnoses, prescriptions, procedures, and lab events. We further define five types of connections between the nodes: patient—visit, visit—diagnosis, visit—prescription, visit—procedure, visit—lab events. Figure [3](#page-3-0) presents the example of the heterogeneous graph constructed from EHR data. The heterogeneous graph data structure highlights the meta-relations between the medical entities, which provides an effective data structure for mining EHRs. Examples of the metarelations modeled by the EHR heterogeneous graph are illustrated in Figure [2.](#page-2-0) There are visits which are indirectly connected through a common medication (upperleft panel) or one visit leads to two diagnoses (lowerright panel), and there are patients who are indirectly connected with a treatment via a specific visit (upperright panel) or a prescription with a diagnosis (lower-left panel). By leveraging the relational features introduced by these meta relations, we can obtain a better graph representation for EHRs and thus better performances on downstream tasks.
 
 Self-supervised Embedding Pretraining Module. Node features are important for optimal GNN performance. Randomly initializing the embeddings would cause difficulties for GNN to distinguish the distributions of node embeddings, and thus might lead to trivial results. Moreover, the randomly initialized embeddings contain no information (including the most important relational features) on the nodes, which makes learning difficult. Hence, instead of randomly initialized node features, we pretrain the embeddings of EHRs with relational graph embedding methods, such that the relational features can be encoded into node features in this stage. Translational methods [\[1,](#page-11-4) [13,](#page-12-18) [17\]](#page-12-19) are classic approaches to translating relational features into node embeddings. We adopt a simple unsupervised translation method — TransE [\[1\]](#page-11-4) to obtain the pretrained node embeddings,
 
@@ -90,13 +76,13 @@ f(\mathbf{h}, \mathbf{r}, t) = ||\mathbf{h} + \mathbf{r} - t||,
 $$
  (1)
 
-where *<sup>h</sup>*, *<sup>t</sup>* <sup>∈</sup> <sup>R</sup> *d* are the embeddings of the head and the tail of an edge, and *r* represents the embeddings corresponding to the relation type of the edge. We then adopt a contrastive learning-based score function to calculate the relational similarity between the nodes and backpropagate the loss to the node embeddings,
+where*<sup>h</sup>*, *<sup>t</sup>*<sup>∈</sup> <sup>R</sup>*d*are the embeddings of the head and the tail of an edge, and*r* represents the embeddings corresponding to the relation type of the edge. We then adopt a contrastive learning-based score function to calculate the relational similarity between the nodes and backpropagate the loss to the node embeddings,
 
 $$
 \mathcal{L}_{\text{sim}} = \sum_{e \in \mathcal{G}} \sum_{e' \in S'_e} [f(e) - f(e') + \gamma]_+, \tag{2}
 $$
 
-where <sup>γ</sup> is the margin for contrastive learning, [*x*]<sup>+</sup> <sup>=</sup> max(*x*, 0), and *<sup>S</sup>* ′ *<sup>e</sup>* = {(*h* ′ ,*r*, *<sup>t</sup>*)|*<sup>h</sup>* ′ ∈ V} ∪ {(*h*,*r*, *<sup>t</sup>* ′ )|*t* ′ ∈ V} is the set of negative samples by replacing either a head *h* or a tail *t* with another node in the graph. Through self-supervised learning, nodes sharing similar features would be pulled together and those whose features are different would be pushed away, leading to more distinguishable node features. Since most medical entities (e.g., diagnosis) are static, pretraining the node embeddings would also lead to improved inductive inference performance when new nodes (e.g., visits or patients) arrive.
+where <sup>γ</sup> is the margin for contrastive learning, [*x*]<sup>+</sup> <sup>=</sup> max(*x*, 0), and *<sup>S</sup>*′*<sup>e</sup>* = {(*h* ′ ,*r*, *<sup>t</sup>*)|*<sup>h</sup>* ′ ∈ V} ∪ {(*h*,*r*, *<sup>t</sup>* ′ )|*t*′ ∈ V} is the set of negative samples by replacing either a head*h*or a tail*t* with another node in the graph. Through self-supervised learning, nodes sharing similar features would be pulled together and those whose features are different would be pushed away, leading to more distinguishable node features. Since most medical entities (e.g., diagnosis) are static, pretraining the node embeddings would also lead to improved inductive inference performance when new nodes (e.g., visits or patients) arrive.
 
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
 
@@ -108,11 +94,9 @@ $$
 \hat{y} = \text{softmax}\left(\sum_{l=1}^{L} \text{act}(\text{Agg}(\mathcal{G}_l))\right),\tag{3}
 $$
 
-where Agg is the aggregation rule, either convolutionbased (e.g., GCN [\[35\]](#page-12-5)) or attention-based (e.g., GAT [\[33,](#page-12-6) [34\]](#page-12-8)), G*<sup>l</sup>* is the output subgraph from layer *l*, act and softmax are the activation function and softmax normalizing module, respectively, and ˆ*y* is the classification probabilities output by the GNN. In particular, we adopt the heterogeneous graph transformer (HGT) [\[11\]](#page-12-3) as it yields state-of-the-art performance in predictive tasks on heterogeneous graphs. Detailed formulation of the aggregation rule of HGT is described by [Hu et al.](#page-12-3) [\[11\]](#page-12-3). Latent representations of nodes are obtained after the aggregation. We then use a readout layer (e.g., multiplelayer perceptron) to obtain the prediction for each task. We study the effects of different GNN architectures in Section [6.3.](#page-9-0)
+where Agg is the aggregation rule, either convolutionbased (e.g., GCN [\[35\]](#page-12-5)) or attention-based (e.g., GAT [\[33,](#page-12-6) [34\]](#page-12-8)), G*<sup>l</sup>*is the output subgraph from layer*l*, act and softmax are the activation function and softmax normalizing module, respectively, and ˆ*y*is the classification probabilities output by the GNN. In particular, we adopt the heterogeneous graph transformer (HGT) [\[11\]](#page-12-3) as it yields state-of-the-art performance in predictive tasks on heterogeneous graphs. Detailed formulation of the aggregation rule of HGT is described by [Hu et al.](#page-12-3) [\[11\]](#page-12-3). Latent representations of nodes are obtained after the aggregation. We then use a readout layer (e.g., multiplelayer perceptron) to obtain the prediction for each task. We study the effects of different GNN architectures in Section [6.3.](#page-9-0)
 
-# *4.2. Adjusting for Confounders with Causal Inference*
-
-The EHR graph is known to be noisy and suffers from confounding effects. The trivial effects are presented as noise or shortcut features that mislead the learning process of GNNs. Figure [5](#page-5-1) presents an illustration of the causal diagram. The variable nodes *S* represent the trivial features in the data, which impose noise (or confounding effects) to target prediction. The path *A* → *S* → *Y* is called the shortcut path or the backdoor path that the model would take during the forward propagation. If there are too many shortcut paths in the graph learning process, the GNN model would be heavily affected by the shortcut (or trivial) features and this affects the learning knowledge representation in the graph. For example, patients with presumed (but unconfirmed) interstitial lung disease may be biased toward specific or
+#*4.2. Adjusting for Confounders with Causal Inference*The EHR graph is known to be noisy and suffers from confounding effects. The trivial effects are presented as noise or shortcut features that mislead the learning process of GNNs. Figure [5](#page-5-1) presents an illustration of the causal diagram. The variable nodes*S*represent the trivial features in the data, which impose noise (or confounding effects) to target prediction. The path*A*→*S*→*Y* is called the shortcut path or the backdoor path that the model would take during the forward propagation. If there are too many shortcut paths in the graph learning process, the GNN model would be heavily affected by the shortcut (or trivial) features and this affects the learning knowledge representation in the graph. For example, patients with presumed (but unconfirmed) interstitial lung disease may be biased toward specific or
 
 <span id="page-5-0"></span>
 
@@ -120,24 +104,24 @@ The EHR graph is known to be noisy and suffers from confounding effects. The tri
 |-----------------------------------------------|--|--|--|
 |-----------------------------------------------|--|--|--|
 
-Input: Heterogeneous graph G with node features {*H<sup>i</sup>* , <sup>∀</sup>*<sup>i</sup>* ∈ V} and shared-weight GNN model <sup>M</sup>; Number of visits *n*visit in a sampled subgraph; Task set <sup>T</sup> <sup>=</sup> {T1, . . . ,T*K*}; Output: The trained GNN model M. 1: Pretraining the node features with TransE. 2: for each step do 3: Initialize a list of losses L = {}. 4: Sample subgraph G*<sup>S</sup>* with *n*visit visit nodes; 5: for t ∈ T do 6: if *t* is mortality prediction then 7: Downsample positive nodes. 8: end if 9: Logits = GNN(G*<sup>S</sup>* ) 10: Compute Lce or Lbce 11: Compute uniform loss with Eq. [\(4\)](#page-5-2) 12: Compute task-specific loss L*<sup>k</sup>* with Eq. [\(7\)](#page-5-3) 13: Append L*<sup>k</sup>* to L 14: end for 15: Compute the mean and variance of L, and total loss with Eq. [\(8\)](#page-6-0). 16: Backpropagate the loss to GNN. 17: end for
+Input: Heterogeneous graph G with node features {*H<sup>i</sup>* , <sup>∀</sup>*<sup>i</sup>*∈ V} and shared-weight GNN model <sup>M</sup>; Number of visits*n*visit in a sampled subgraph; Task set <sup>T</sup> <sup>=</sup> {T1, . . . ,T*K*}; Output: The trained GNN model M. 1: Pretraining the node features with TransE. 2: for each step do 3: Initialize a list of losses L = {}. 4: Sample subgraph G*<sup>S</sup>*with*n*visit visit nodes; 5: for t ∈ T do 6: if *t* is mortality prediction then 7: Downsample positive nodes. 8: end if 9: Logits = GNN(G*<sup>S</sup>* ) 10: Compute Lce or Lbce 11: Compute uniform loss with Eq. [\(4\)](#page-5-2) 12: Compute task-specific loss L*<sup>k</sup>* with Eq. [\(7\)](#page-5-3) 13: Append L*<sup>k</sup>*to L 14: end for 15: Compute the mean and variance of L, and total loss with Eq. [\(8\)](#page-6-0). 16: Backpropagate the loss to GNN. 17: end for
 
-optimized imaging protocols that are intended to confirm the diagnosis, versus unsuspected cases that receive generic screening protocols [\[27\]](#page-12-20). Here, the lung disease is the predictive variable *Y*, *R* is the latent features which are used by the GNN to predict *Y*, and *S* the imaging protocol is the shortcut variable. Hence, removing the shortcuts (or backdoor paths) is critical for noise-free representation learning with GNNs.
+optimized imaging protocols that are intended to confirm the diagnosis, versus unsuspected cases that receive generic screening protocols [\[27\]](#page-12-20). Here, the lung disease is the predictive variable*Y*, *R*is the latent features which are used by the GNN to predict*Y*, and *S* the imaging protocol is the shortcut variable. Hence, removing the shortcuts (or backdoor paths) is critical for noise-free representation learning with GNNs.
 
 18: return M
 
-Motivated by [Sui et al.](#page-12-15) [\[31\]](#page-12-15), we introduce a causal denoising module into our framework adjusting for the confounders in the EHR data. We first disentangle the features in G into two components — the causal features and the trivial features. [Sui et al.](#page-12-15) [\[31\]](#page-12-15) proved that the causal features are invariant across training and testing distributions. The objective of the trivial features is to match a uniform distribution to ensure the randomness of the trivial graph G*<sup>t</sup>* [\[31\]](#page-12-15),
+Motivated by [Sui et al.](#page-12-15) [\[31\]](#page-12-15), we introduce a causal denoising module into our framework adjusting for the confounders in the EHR data. We first disentangle the features in G into two components — the causal features and the trivial features. [Sui et al.](#page-12-15) [\[31\]](#page-12-15) proved that the causal features are invariant across training and testing distributions. The objective of the trivial features is to match a uniform distribution to ensure the randomness of the trivial graph G*<sup>t</sup>*[\[31\]](#page-12-15),
 
 <span id="page-5-2"></span>
 $$
 \mathcal{L}_{\text{unif}} = \frac{1}{|\mathcal{D}|} \sum_{\mathcal{G} \in \mathcal{D}} \text{JS}(y_{\text{unif}}, z_{\mathcal{G}_t}), \tag{4}
 $$
 
-where JS is the Jensen–Shannon divergence [\[6\]](#page-12-21) between two distributions, *z*<sup>G</sup>*<sup>t</sup>* is the trivial representation predictive with the node features from trivial graph G*<sup>t</sup>* , and *y*unif is the noise feature vector where each element is
+where JS is the Jensen–Shannon divergence [\[6\]](#page-12-21) between two distributions,*z*<sup>G</sup>*<sup>t</sup>* is the trivial representation predictive with the node features from trivial graph G*<sup>t</sup>*, and*y*unif is the noise feature vector where each element is
 
 <span id="page-5-1"></span>![](_page_5_Figure_6.jpeg)
 
-Figure 5: A causal diagram illustrating the effects of shortcut features. Without denoising, the model would make a prediction based on trivial features *S* (i.e., the backdoor path *S* → *R* → *Y*) , and the trivial variables (i.e., noise variables *S* ) would hamper the prediction performance. Causal denoising aims to reduce the confounding effects by removing these backdoor paths during the training.
+Figure 5: A causal diagram illustrating the effects of shortcut features. Without denoising, the model would make a prediction based on trivial features *S*(i.e., the backdoor path*S*→*R*→*Y*) , and the trivial variables (i.e., noise variables *S*) would hamper the prediction performance. Causal denoising aims to reduce the confounding effects by removing these backdoor paths during the training.
 
 sampled from <sup>U</sup>(0, 1).
 
@@ -154,7 +138,7 @@ $$
 $$
 , (6)
 
-where Lbce is the binary cross-entropy loss, Lce is the cross-entropy loss, *y<sup>i</sup>* is the ground truth label for patient *i*, *P* is the number of patients, *C* is the number of classes, and *<sup>z</sup><sup>i</sup>* and *<sup>z</sup><sup>i</sup>*,*<sup>c</sup>* are logits obtained from the model. The final loss for task *k* is then given by
+where Lbce is the binary cross-entropy loss, Lce is the cross-entropy loss,*y<sup>i</sup>*is the ground truth label for patient*i*, *P*is the number of patients,*C*is the number of classes, and*<sup>z</sup><sup>i</sup>*and*<sup>z</sup><sup>i</sup>*,*<sup>c</sup>*are logits obtained from the model. The final loss for task*k* is then given by
 
 <span id="page-5-3"></span>
 $$
@@ -165,7 +149,7 @@ where <sup>L</sup>(*y*, *<sup>y</sup>*ˆ) <sup>=</sup> <sup>L</sup>ce for binary
 
 # *4.3. Multi-task Learning via Environment-Invariant Objective*
 
-We obtain the task-specific loss L*<sup>k</sup>* for each task *k* in the previous step. We aggregate the losses from all tasks
+We obtain the task-specific loss L*<sup>k</sup>*for each task*k*in the previous step. We aggregate the losses from all tasks
 
 <span id="page-6-1"></span>
 
@@ -187,7 +171,7 @@ We obtain the task-specific loss L*<sup>k</sup>* for each task *k* in the previo
 
 Table 1: Summary of MIMIC-III and MIMIC-IV datasets
 
-to train the single shared-weight GNN for multi-task learning. We propose a task-invariant objective similar to [\[36\]](#page-12-22) to minimize the extrapolation risks in both training and testing environments. In addition to the mean of the loss in each task, we also minimize the variance of all the *K* losses to control the extrapolation risk,
+to train the single shared-weight GNN for multi-task learning. We propose a task-invariant objective similar to [\[36\]](#page-12-22) to minimize the extrapolation risks in both training and testing environments. In addition to the mean of the loss in each task, we also minimize the variance of all the*K*losses to control the extrapolation risk,
 
 <span id="page-6-0"></span>
 $$
@@ -198,17 +182,13 @@ where Var(·) returns the variance of the set, β is the tasklevel regularizatio
 
 Each task can be considered as an environment that specifies a distribution of embeddings. If the predictions for different tasks are very different, then the model may be overfitting to the current task and not learning generalizable representations. To address this issue, the invariance objective is used in multi-task learning to encourage the model to learn task-invariant representations that are consistent across different tasks. One way to achieve this goal is by minimizing the cross-task variance regularization term, which penalizes the model for producing very different predictions for different tasks. By minimizing this term, the model is encouraged to learn representations that are both task-specific and invariant across tasks, leading to better generalization performance.
 
-# 5. Experiments
+# Experiments
 
-# *5.1. Settings*
-
-Datasets. We use the MIMIC-III and MIMIC-IV datasets to evaluate our method in comparison with the competitors. Because the lab events are sparse and introduce heavy noise to the heterogeneous graph, we exclude them when constructing the graph. Table [1](#page-6-1) presents a summary of the types and counts of the entities in the MIMIC-III and MIMIC-IV datasets, and the details of each task.
+#*5.1. Settings*Datasets. We use the MIMIC-III and MIMIC-IV datasets to evaluate our method in comparison with the competitors. Because the lab events are sparse and introduce heavy noise to the heterogeneous graph, we exclude them when constructing the graph. Table [1](#page-6-1) presents a summary of the types and counts of the entities in the MIMIC-III and MIMIC-IV datasets, and the details of each task.
 
 Tasks and Evaluation Metrics. We evaluate our proposed method with common tasks on EHR data. Our model is trained by four supervised tasks — in-hospital mortality prediction (MORT), readmission prediction (READM), length of stay (LoS) prediction, and drug recommendation (DR). The trained multi-task model is then evaluated on each individual task using the testing data from each task. We treat mortality prediction and readmission prediction as binary classification tasks, LoS as the multi-class classification task (with 10 classes), and drug recommendation as multi-label classification tasks (with 351 labels for MIMIC-III and 501 labels for MIMIC-IV). We report the areas under the receiver operating curve (AUROC) and precision-recall curve (AUPR), accuracy, F1-scores, and Jaccard index for the tasks when appropriate. We perform five-fold cross-validation for each experiment. Detailed definitions of the evaluation metrics are provided in the appendix.
 
-# *5.2. Implementation Details*
-
-The proposed framework is implemented in Python with the *Pytorch* library on a server equipped with four NVIDIA TESLA V100 GPUs. We use the *dgl* library to perform graph-related operations, and *pyhealth* [\[49\]](#page-13-8) to benchmark SOTA methods and perform EHR-related operations. The dropout ratio of each dropout layer is set as 0.2. All models are trained with 1000 epochs with early stopping. We choose the model at the epoch where it yields the best performance in terms of AUROC. We
+#*5.2. Implementation Details*The proposed framework is implemented in Python with the*Pytorch*library on a server equipped with four NVIDIA TESLA V100 GPUs. We use the*dgl*library to perform graph-related operations, and*pyhealth* [\[49\]](#page-13-8) to benchmark SOTA methods and perform EHR-related operations. The dropout ratio of each dropout layer is set as 0.2. All models are trained with 1000 epochs with early stopping. We choose the model at the epoch where it yields the best performance in terms of AUROC. We
 
 <span id="page-7-0"></span>Table 2: Performance (in %) of our method on mortality prediction and readmission prediction on the MIMIC-III and MIMIC-IV datasets. Our proposed method, MulT-EHR, is the last row, highlighted in boldface, and standard deviations are given in brackets.
 
@@ -230,23 +210,17 @@ The proposed framework is implemented in Python with the *Pytorch* library on a 
 
 adopt the cross-entropy loss to train the network for classification tasks, and MSE for regression tasks. We use the Adam optimizer to optimize the model with a learning rate of 5×10<sup>−</sup><sup>5</sup> and a weight decay of 1×10<sup>−</sup><sup>5</sup> . We perform data augmentations on the training graphs by randomly dropping the edges and nodes, and adding Gaussian noises to the node and edge features.
 
-Temperature Annealing. We are aware of the vanishing classification loss in practice. Therefore, we alleviate this issue by annealing the temperature over the training epochs with the schedule τ <sup>=</sup> max(0.05, exp(*rp*)), where *<sup>p</sup>* is the training epoch and *<sup>r</sup>* <sup>=</sup> <sup>0</sup>.01.
+Temperature Annealing. We are aware of the vanishing classification loss in practice. Therefore, we alleviate this issue by annealing the temperature over the training epochs with the schedule τ <sup>=</sup> max(0.05, exp(*rp*)), where *<sup>p</sup>*is the training epoch and*<sup>r</sup>*<sup>=</sup> <sup>0</sup>.01.
 
-Subgraph Sampling. Since it is not always possible to pass the whole EHR graph into the memory (especially for MIMIC-IV), we compose subgraphs by sampling *n*visit visits nodes and their connected nodes at each epoch. We set *n*visit = 2000 as this parameter is finegrained with empirical experience to which the performance is less sensitive.
+Subgraph Sampling. Since it is not always possible to pass the whole EHR graph into the memory (especially for MIMIC-IV), we compose subgraphs by sampling*n*visit visits nodes and their connected nodes at each epoch. We set *n*visit = 2000 as this parameter is finegrained with empirical experience to which the performance is less sensitive.
 
 Downsampling for MORT Task. We are aware that the samples in the mortality prediction task are heavily imbalanced (i.e., most of the samples are alive). We therefore perform downsampling during the training to balance the samples.
 
-# *5.3. Comparable Methods*
+# *5.3. Comparable Methods*We compare our method to the following competitors: GRU [\[24\]](#page-12-0), Transformer [\[32\]](#page-12-28), GRAM [\[3\]](#page-11-0), StageNet [\[8\]](#page-12-26), AdaCare [\[22\]](#page-12-11), Concare [\[23\]](#page-12-10), GRASP [\[46\]](#page-13-3), Deepr [\[26\]](#page-12-24), and GraphCare [\[14\]](#page-12-27). For the drug recommendation task, we further include the following competitors which are distinctively designed to tackle this task: MI-CRON [\[39\]](#page-13-9), Safedrug [\[40\]](#page-13-10) and MoleRec [\[41\]](#page-13-11). Detailed description of each baseline method can be found in the appendix.
 
-We compare our method to the following competitors: GRU [\[24\]](#page-12-0), Transformer [\[32\]](#page-12-28), GRAM [\[3\]](#page-11-0), StageNet [\[8\]](#page-12-26), AdaCare [\[22\]](#page-12-11), Concare [\[23\]](#page-12-10), GRASP [\[46\]](#page-13-3), Deepr [\[26\]](#page-12-24), and GraphCare [\[14\]](#page-12-27). For the drug recommendation task, we further include the following competitors which are distinctively designed to tackle this task: MI-CRON [\[39\]](#page-13-9), Safedrug [\[40\]](#page-13-10) and MoleRec [\[41\]](#page-13-11). Detailed description of each baseline method can be found in the appendix.
+#*5.4. Quantitative Results*Tables [2](#page-7-0)[–4](#page-8-0) present the results of different tasks on the MIMIC-III and MIMIC-IV datasets. We observe that our proposed framework outperforms the competitive methods on all tasks, which validates its predictive performance. Our method adopts one model for all benchmark tasks, which does not require training a GNN for each individual task. Remarkably, despite using a single-shared weight model, our approach consistently outperforms single-task methods across all individual tasks. We also observe that for the drug recommendation task, our method not only outperforms the SOTA methods for EHR prediction but also recent methods [\[39,](#page-13-9) [41,](#page-13-11) [40\]](#page-13-10) specifically tackling the drug recommendation tasks. This compelling evidence suggests that through multi-task learning, we exert the potential to surpass the limitations of single-task models by leveraging knowledge from other downstream tasks. Our model can even consistently outperform the large language model-based methods (e.g., GraphCare [\[14\]](#page-12-27)) in the downstream tasks, where these methods borrow excessive knowledge from the open-world knowledge base.
 
-# *5.4. Quantitative Results*
-
-Tables [2](#page-7-0)[–4](#page-8-0) present the results of different tasks on the MIMIC-III and MIMIC-IV datasets. We observe that our proposed framework outperforms the competitive methods on all tasks, which validates its predictive performance. Our method adopts one model for all benchmark tasks, which does not require training a GNN for each individual task. Remarkably, despite using a single-shared weight model, our approach consistently outperforms single-task methods across all individual tasks. We also observe that for the drug recommendation task, our method not only outperforms the SOTA methods for EHR prediction but also recent methods [\[39,](#page-13-9) [41,](#page-13-11) [40\]](#page-13-10) specifically tackling the drug recommendation tasks. This compelling evidence suggests that through multi-task learning, we exert the potential to surpass the limitations of single-task models by leveraging knowledge from other downstream tasks. Our model can even consistently outperform the large language model-based methods (e.g., GraphCare [\[14\]](#page-12-27)) in the downstream tasks, where these methods borrow excessive knowledge from the open-world knowledge base.
-
-# *5.5. Qualitative Evaluation*
-
-Embedding Visualization. We visualize the node embeddings of each type of entity to evaluate the performance of feature representation learning. Figure [6](#page-9-1) presents the T-SNE (t-distributed stochastic neighbor embedding) plots of the embeddings generated by different methods. In general, the embeddings are clustered according to their node types, which validates
+#*5.5. Qualitative Evaluation*Embedding Visualization. We visualize the node embeddings of each type of entity to evaluate the performance of feature representation learning. Figure [6](#page-9-1) presents the T-SNE (t-distributed stochastic neighbor embedding) plots of the embeddings generated by different methods. In general, the embeddings are clustered according to their node types, which validates
 
 Table 3: Performance of our method on prediction of the length of stay on the MIMIC-III and MIMIC-IV datasets. Our proposed method, MulT-EHR, is the last row, highlighted in boldface, and standard deviations are shown in brackets.
 
@@ -286,7 +260,7 @@ Table 3: Performance of our method on prediction of the length of stay on the MI
 | SafeDrug [40]    | 94.20 (0.1) | 76.40 (0.0) | 47.20 (0.4) | 91.80 (0.2) | 66.40 (0.5) | 44.30 (0.3) |
 | MulT-EHR         | 96.67 (0.1) | 78.58 (0.2) | 52.20 (0.8) | 97.68 (0.1) | 70.43 (0.2) | 44.23 (0.0) |
 
-9
+
 
 that the embeddings can learn the unique representation of each node type. We also compare the embeddings across different methods. We observe that all the methods can capture the patterns of medical entities. However, the pattern captured by MulT-EHR is more unique and complex than other methods. This shows that our method is more capable of capturing the unique pattern presented in the EHR data.
 
@@ -313,13 +287,11 @@ Figure 6: T-SNE scatter plot of the embeddings (Left panel: MulT-EHR, Middle pan
 
 mission predictions.
 
-# 6. Ablation Analysis
+# Ablation Analysis
 
-# *6.1. Ablation Study on Di*ff*erent Components*
+#*6.1. Ablation Study on Di*ff*erent Components*To validate the contributions of each component of our model, we deactivate the causal debiasing and/or multi-task learning modules to examine their effects on the results. Table [6](#page-9-3) presents the results on the readmission task. We observe that including either the causal denoising module or the multi-task aggregation module leads to improvement in performance, while including both modules results in the best performance. This validates both modules proposed in our framework improve the learning performance.
 
-To validate the contributions of each component of our model, we deactivate the causal debiasing and/or multi-task learning modules to examine their effects on the results. Table [6](#page-9-3) presents the results on the readmission task. We observe that including either the causal denoising module or the multi-task aggregation module leads to improvement in performance, while including both modules results in the best performance. This validates both modules proposed in our framework improve the learning performance.
-
-# *6.2. E*ff*ects of Di*ff*erent Numbers of Tasks*
+#*6.2. E*ff*ects of Di*ff*erent Numbers of Tasks*
 
 We show that as more tasks are incorporated into our multi-task learning method, the predictive task performance can be improved due to cross-task knowledge <span id="page-9-3"></span>Table 6: Effects of the causal denoising module and task-level aggregation module. We evaluate the performance on the MIMIC-III readmission task.
 
@@ -344,9 +316,7 @@ We show that as more tasks are incorporated into our multi-task learning method,
 
 sharing. We experiment with one to four tasks, and Table [7](#page-9-4) presents the results. We observe that as the number of tasks in the training increases, the performance on readmission prediction improves accordingly. This validates that our multi-task learning framework can leverage more inter-task knowledge as more tasks are included in the training stage.
 
-# <span id="page-9-0"></span>*6.3. E*ff*ects of Di*ff*erent GNN Architetures*
-
-We compare different graph convolutional methods to show how ablations in aggregation methods affect our framework. Table [8](#page-10-0) presents the results of the MIMIC-III hospital readmission task. We observe that our method is overall robust when the GNN architecture
+# <span id="page-9-0"></span>*6.3. E*ff*ects of Di*ff*erent GNN Architetures*We compare different graph convolutional methods to show how ablations in aggregation methods affect our framework. Table [8](#page-10-0) presents the results of the MIMIC-III hospital readmission task. We observe that our method is overall robust when the GNN architecture
 
 <span id="page-10-0"></span>Table 8: Effects of different GNN architectures by evaluating the performance of the readmission prediction task on the MIMIC-III dataset.
 
@@ -359,7 +329,7 @@ We compare different graph convolutional methods to show how ablations in aggreg
 | RGCN [28] | 52.75     | 55.53 | 64.66 | 51.25    | 51.64 | 63.60 |
 | HGT [11]  | 71.33     | 70.61 | 69.86 | 68.74    | 70.02 | 68.31 |
 
-<span id="page-10-2"></span>Table 9: Performance of our framework on different numbers of layers *L*. We evaluate the performance of the readmission prediction task on MIMIC-III and MIMIC-IV.
+<span id="page-10-2"></span>Table 9: Performance of our framework on different numbers of layers*L*. We evaluate the performance of the readmission prediction task on MIMIC-III and MIMIC-IV.
 
 | MIMIC-III |       |       |       | MIMIC-IV |       |       |  |
 |-----------|-------|-------|-------|----------|-------|-------|--|
@@ -375,9 +345,7 @@ changes. However, using a homogeneous GNN architecture (e.g., GCN) would hamper 
 
 Figure 7: Performance in AUROC of MulT-EHR with different values of λ on MIMIC-III tasks (DR: drug recommendation, MORT: mortality, READM: readmission, LoS: length of stay).
 
-# *6.4. Hyperparameter Tuning*
-
-Tuning Parameters for Objectives. We evaluate the <sup>e</sup>ffect of the regularization parameter λ of different task losses. Figure [7](#page-10-1) presents the change in performance as λ increases. We observe that the performance is in general robust to λ, where a slightly decreased performance is observed when λ is too large. Since λ represents the
+# *6.4. Hyperparameter Tuning*Tuning Parameters for Objectives. We evaluate the <sup>e</sup>ffect of the regularization parameter λ of different task losses. Figure [7](#page-10-1) presents the change in performance as λ increases. We observe that the performance is in general robust to λ, where a slightly decreased performance is observed when λ is too large. Since λ represents the
 
 <span id="page-10-3"></span>![](_page_10_Figure_10.jpeg)
 
@@ -389,7 +357,7 @@ Number of GNN Layers. We evaluate the performance of our framework with respect 
 
 Hidden Embedding Dimension. Figure [8](#page-10-3) presents the comparison of different dimensions of hidden features. We observe that the performance generally improves when a larger number of feature dimensions is adopted. The number of feature dimensions controls the width of the neural network. Hence, this verifies that increasing the width instead of depth can improve the feature representation learning performance while more effectively preventing the over-smoothing issue [\[30,](#page-12-30) [47\]](#page-13-12).
 
-# 7. Discussion and Conclusion
+# Discussion and Conclusion
 
 To address the significant confounding effects present in EHR data, we propose a denoising module based on causal inference. This module effectively adjusts for the confounding effects and yields causal features by eliminating most of the backdoor paths associated with trivial features. Not only do these causal features enhance predictive performance, but they also offer potential for causal explanations. While in this work we interpret the model using attention weights on causal features from the GNN model, this does not necessarily provide a causal explanation. Developing algorithms for causal explanations would require rigorous theoretical work to ensure causality, which falls outside of the focus of this paper. However, based on the causal features obtained for each entity, there is a promising potential to develop a robust causal interpretation model that can identify the causes of medical events such as mortality, diseases, or readmission. This has significant implications for medical reasoning and future clinical research.
 
@@ -409,7 +377,7 @@ Acknowledgement. We thank the anonymous reviewers for their valuable comments an
 
 # References
 
-- <span id="page-11-4"></span>[1] Antoine Bordes, Nicolas Usunier, Alberto Garcia-Duran, Jason Weston, and Oksana Yakhnenko. Translating embeddings for modeling multi-relational data. *Advances in neural information processing systems*, 26, 2013.
+- <span id="page-11-4"></span>[1] Antoine Bordes, Nicolas Usunier, Alberto Garcia-Duran, Jason Weston, and Oksana Yakhnenko. Translating embeddings for modeling multi-relational data.*Advances in neural information processing systems*, 26, 2013.
 - <span id="page-11-1"></span>[2] Tsai Hor Chan, Chi Ho Wong, Jiajun Shen, and Guosheng Yin. Source-aware embedding training on heterogeneous information networks. *Data Intelligence*, pages 1–14, 2023.
 - <span id="page-11-0"></span>[3] Edward Choi, Mohammad Taha Bahadori, Le Song, Walter F Stewart, and Jimeng Sun. Gram: graph-based attention model for healthcare representation learning. In *Proceedings of the 23rd ACM SIGKDD international conference on knowledge discovery and data mining*, pages 787–795, 2017.
 - <span id="page-11-2"></span>[4] Edward Choi, Cao Xiao, Walter Stewart, and Jimeng Sun. Mime: Multilevel medical embedding of electronic health records for predictive healthcare. *Advances in neural information processing systems*, 31, 2018.
@@ -474,7 +442,7 @@ We provide detailed definitions of the evaluation metrics.
 - Accuracy: the fraction of correct predictions to the total number of ground truth labels.
 - F-1 score: the F-1 score for each class is defined as
 
-F-1 score = 
+F-1 score =
 $$
 2 \cdot \frac{\text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}
 $$

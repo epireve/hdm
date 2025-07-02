@@ -1,16 +1,10 @@
+<!-- cite_key: gaosupsup2014 -->
+
 # Large Language Models and Medical Knowledge Grounding for Diagnosis Prediction
 
 Yanjun Gao<sup>1</sup>, Ruizhe Li<sup>2</sup>, Emma Croxford<sup>1</sup>, Samuel Tesch<sup>1</sup>, Daniel To<sup>1</sup>, John Caskey<sup>1</sup>, Brian W. Patterson<sup>1</sup>, Matthew M. Churpek<sup>1</sup>, Timothy Miller<sup>4</sup>, Dmitriy Dligach<sup>3</sup>, and Majid Afshar<sup>1</sup>
 
-<sup>1</sup> *Department of Medicine, School of Medicine and Public Health, University of Wisconsin Madison*
-
-<sup>2</sup> *Department of Computing Science, University of Aberdeen*
-
-<sup>3</sup> *Department of Computer Science, Loyola University Chicago*
-
-<sup>4</sup> *Boston Children's Hospital and Harvard Medical School*
-
-# Abstract
+<sup>1</sup> *Department of Medicine, School of Medicine and Public Health, University of Wisconsin Madison*<sup>2</sup>*Department of Computing Science, University of Aberdeen*<sup>3</sup>*Department of Computer Science, Loyola University Chicago*<sup>4</sup>*Boston Children's Hospital and Harvard Medical School*# Abstract
 
 While Large Language Models (LLMs) have showcased their potential in diverse language tasks, their application in the healthcare arena needs to ensure the minimization of diagnostic errors and the prevention of patient harm. A Medical Knowledge Graph (KG) houses a wealth of structured medical concept relations sourced from authoritative references, such as UMLS, making it a valuable resource to ground LLMs' diagnostic process in knowledge. In this paper, we examine the synergistic potential of LLMs and medical KG in predicting diagnoses given electronic health records (EHR), under the framework of Retrieval-augmented generation (RAG). We proposed a novel graph model: DR.KNOWS, that selects the most relevant pathology knowledge paths based on the medical problem descriptions. In order to evaluate DR.KNOWS, we developed the first comprehensive human evaluation approach to assess the performance of LLMs for diagnosis prediction and examine the rationale behind their decision-making processes, aimed at improving diagnostic safety. Using real-world hospital datasets, our study serves to enrich the discourse on the role of medical KGs in grounding medical knowledge into LLMs, revealing both challenges and opportunities in harnessing external knowledge for explainable diagnostic pathway and the realization of AI-augmented diagnostic decision support systems.
 
@@ -55,7 +49,7 @@ Future Knowledge Graph Model Enhancements: Analysis of DR.KNOWS highlighted limi
 
 Utility of Our Proposed Human Evaluation for LLM: While the overall diagnostic accuracy and reasoning scores show the output with and without knowledge paths in the input has no differences, the broken-down scores present the strengths and weaknesses of different models. The granular approach of evaluation enables a more informed analysis of LLMs for particular applications and contributes to the iterative process of model refinement. The scoring aspects of PLAUSIBILITY, OMISSION, SPECIFICITY, RATIONALE address various critical facets of AI interpretability and decision-making quality, aiming at mitigating the risks and enhancing the reliability and safety of diagnostics provided by AI systems. We provide the full guidelines of human evaluation in Supplementary Material and hope to contribute to facilitating the development of safe AI diagnostic tools.
 
-Figure 1 presents the study overview of this work. We studied summarizing diagnoses from daily progress notes written in the SOAP-format. We developed a novel graph model, DR.KNOWS, that identifies and retrieves relevant knowledge paths from UMLS KG. DR.KNOWS is available in two versions: *TriAttnw*, which employs trilinear attention to determine the relevance scores for each knowledge path, and *MultiAttnw*, which utilizes a multi-head attention mechanism to score and select knowledge paths. Our initial evaluation of DR.KNOWS focuses on its capability to identify and predict Concept Unique Identifiers (CUIs) for diagnoses, specifically addressing the *CUI prediction task*. Subsequently, we explored how these additional knowledge pathways could be harnessed to enhance ChatGPT's ability to summarize diagnoses derived from daily progress notes. To achieve this, we integrated the knowledge pathways predicted by DR.KNOWS into a prompting framework for ChatGPT. Additionally, we presented the performance difference between the zero-shot and few-shot settings.
+Figure 1 presents the study overview of this work. We studied summarizing diagnoses from daily progress notes written in the SOAP-format. We developed a novel graph model, DR.KNOWS, that identifies and retrieves relevant knowledge paths from UMLS KG. DR.KNOWS is available in two versions:*TriAttnw*, which employs trilinear attention to determine the relevance scores for each knowledge path, and *MultiAttnw*, which utilizes a multi-head attention mechanism to score and select knowledge paths. Our initial evaluation of DR.KNOWS focuses on its capability to identify and predict Concept Unique Identifiers (CUIs) for diagnoses, specifically addressing the *CUI prediction task*. Subsequently, we explored how these additional knowledge pathways could be harnessed to enhance ChatGPT's ability to summarize diagnoses derived from daily progress notes. To achieve this, we integrated the knowledge pathways predicted by DR.KNOWS into a prompting framework for ChatGPT. Additionally, we presented the performance difference between the zero-shot and few-shot settings.
 
 We summarized the deployment of evaluation metrics in Table 2. On CUI prediction task, we reported CUI-based Recall, Precision and F-score. The metrics helped us understand if the DR.KNOWS could accurately identify CUIs that are the final diagnoses. On the results obtained through ChatGPT,
 
@@ -63,7 +57,7 @@ We summarized the deployment of evaluation metrics in Table 2. On CUI prediction
 
 # 2 Results
 
-### 2.1 Data overview
+## 1 Data overview
 
 We used two sets of progress notes from different clinical settings in this study: MIMIC-III and IN-HOUSE EHR datasets. MIMIC-III is one of the largest publicly available databases that contains de-identified health data from patients admitted to intensive care units (ICUs), developed by the Massachusetts Institute of Technology and Beth Israel Deaconess Medical Center (BIDMC). MIMIC-III includes data from over 38,000 patients admitted to ICUs at the BIDMC between 2001 and 2012. The second set, namely the IN-HOUSE EHR data, was a subset of EHRs including adult patients (ages > 18) admitted to the Univesity of Wisconsin Health System between 2008 to 2021. In contrast to the MIMIC subset, the IN-HOUSE set covered progress notes from all hospital settings, including Emergency Department, General Medicine Wards, Subspecialty Wards, etc. While the two datasets originated from separate hospitals and departmental settings and might reflect distinct note-taking practices, they both followed the SOAP documentation format for progress notes.
 
@@ -96,13 +90,13 @@ Table 2: Overview of the evaluation for the tasks. Note that for CUI-based evalu
 | (95% CI)                | 6     | 26.23, 33.45<br>37.06 | 16.33, 18.89<br>19.10 | 19.67, 22.21<br>25.20 | 8        | 31.04,36.97<br>44.58  | 20.92, 24.85<br>22.43 | 21.71, 25.06<br>25.70 |
 |                         |       | 35.80, 38.33          | 17.82, 20.37          | 23.93, 26.48          |          | 41.38, 47.78          | 20.62, 24.23          | 24.06, 27.37          |
 
-### 2.2 Evaluation of DR.KNOWS on Predicting Diagnoses
+### 2 Evaluation of DR.KNOWS on Predicting Diagnoses
 
 Table 3: Performance comparison between concept extraction (Concept Ex.) and two DR.KNOWS variants on target CUI prediction using MIMIC and IN-HOUSE dataset.
 
-We compared DR.KNOWS with QuickUMLS (Soldaini and Goharian, 2016), which is a concept extraction baseline that identified the medical concepts from raw text. We took input text, parsed it with the QuickUMLS and outputted a list of concepts. Table 3 provided results on the two EHR datasets MIMIC and IN-HOUSE. The selection of different top *N* values was determined by the disparity in length between the two datasets (see App. A). DR.KNOWS demonstrated superior precision and F-score across both datasets compared to the baseline, with precision scores of 19.10 (95% CI: 17.82 - 20.37) versus 13.59 (95% CI: 12.32 - 14.88) on MIMIC, and 22.88 (95% CI: 20.92 - 24.85) versus 12.38 (95% CI: 11.09 - 13.66) on the in-house dataset. Additionally, its F-scores of 25.20 on MIMIC and 25.70 on the in-house dataset exceeded the comparison scores of 21.13 (95% CI: 19.85 - 22.41) and 20.09 (95% CI: 18.81 - 21.37), respectively, underscoring its effectiveness in accurately predicting diagnostic CUIs. The TriAttn*<sup>w</sup>* variant of Dr. Knows consistently outperformed the MultiAttn*<sup>w</sup>* variant on both datasets, with F-scores of 25.20 (95% CI: 23.93 - 26.48) versus 23.10 (95% CI: 21.83 - 24.39) on MIMIC and 25.70 (95% CI: 24.06 - 27.37) versus 17.69 (95% CI: 16.40 - 18.96) on IN-HOUSE. The concept extractor baseline reached the highest recall, with 56.91 on MIMIC and 90.11 on IN-HOUSE, as it found all the input concepts that overlapped with the reference CUIs, in particular on the IN-HOUSE dataset that was largely an extractive dataset (App. A).
+We compared DR.KNOWS with QuickUMLS (Soldaini and Goharian, 2016), which is a concept extraction baseline that identified the medical concepts from raw text. We took input text, parsed it with the QuickUMLS and outputted a list of concepts. Table 3 provided results on the two EHR datasets MIMIC and IN-HOUSE. The selection of different top *N* values was determined by the disparity in length between the two datasets (see App. A). DR.KNOWS demonstrated superior precision and F-score across both datasets compared to the baseline, with precision scores of 19.10 (95% CI: 17.82 - 20.37) versus 13.59 (95% CI: 12.32 - 14.88) on MIMIC, and 22.88 (95% CI: 20.92 - 24.85) versus 12.38 (95% CI: 11.09 - 13.66) on the in-house dataset. Additionally, its F-scores of 25.20 on MIMIC and 25.70 on the in-house dataset exceeded the comparison scores of 21.13 (95% CI: 19.85 - 22.41) and 20.09 (95% CI: 18.81 - 21.37), respectively, underscoring its effectiveness in accurately predicting diagnostic CUIs. The TriAttn*<sup>w</sup>* variant of Dr. Knows consistently outperformed the MultiAttn*<sup>w</sup>*variant on both datasets, with F-scores of 25.20 (95% CI: 23.93 - 26.48) versus 23.10 (95% CI: 21.83 - 24.39) on MIMIC and 25.70 (95% CI: 24.06 - 27.37) versus 17.69 (95% CI: 16.40 - 18.96) on IN-HOUSE. The concept extractor baseline reached the highest recall, with 56.91 on MIMIC and 90.11 on IN-HOUSE, as it found all the input concepts that overlapped with the reference CUIs, in particular on the IN-HOUSE dataset that was largely an extractive dataset (App. A).
 
-# 2.3 Prompting Large Language Models for Diagnosis Generation
+# 3 Prompting Large Language Models for Diagnosis Generation
 
 | Model                  | ROUGE 2               | ROUGE L      | CUI Recall   | CUI Precision | CUI F-Score  |  |  |  |
 |------------------------|-----------------------|--------------|--------------|---------------|--------------|--|--|--|
@@ -152,8 +146,6 @@ Error analysis We discovered two primary types of error in DR.KNOWS output that 
 Another error observed occurred when DR.KNOWS selected the source CUIs that were less likely to generate pertinent pathways for clinical diagnoses, resulting in ineffective knowledge paths. Figure 7 shows a retrieved path from "Consulting with (procedure)" to "Consultation-action (qualifier value)". Although some procedure-related concepts like endoscopy or blood testing were valuable for clinical diagnosis, this specific path of consulting did not contribute meaningfully to the input case. Similarly, another erroneous pathway began with "Drug Allergies" and led to "Allergy to dimetindene (finding)", which is contradictory given that the input note explicitly states "No Known Drug Allergies". While the consulting path's issue was its lack of utility, the "Drug Allergies" path could introduce the risk of hallucination (misleading or fabricated content) within ChatGPT.
 
 In addition to DR.KNOWS' errors, there were instances where ChatGPT failed to leverage accurate
-
-![](_page_9_Picture_1.jpeg)
 
 Figure 6: An error example of DR.KNOWS retrieved knowledge pathways. DR.KNOWS finds two paths leading to irrelevant and misleading diagnosis, marked as red fonts. The symbol represents a self-loop.
 
@@ -216,35 +208,35 @@ Figure 10: DR.KNOWS model architecture. The input concepts ("female", "fever", e
 
 # 4 Methods
 
-## 4.1 Grounding Medical Knowledge with Knowledge Graph
+## 1 Grounding Medical Knowledge with Knowledge Graph
 
-#### 4.1.1 Problem Formulation
+### 1.1 Problem Formulation
 
-Diagnosis in progress notes Daily progress notes are formatted using the SOAP Format (Weed, 1969). The *Subjective* section of a SOAP format daily progress note comprises the patient's self-reported symptoms, concerns, and medical history. The *Objective* section consists of structural data collected by healthcare providers during observation or examination, such as vital signs (e.g., blood pressure, heart rate), laboratory results, or physical exam findings. The *Assessment* section summarizes the patient's overall condition with a focus on the most active problems/diagnoses for that day. Finally, the *Plan* section contains multiple subsections, each outlining a diagnosis/problem and its treatment plan. Our task is to predict the list of problems and diagnoses that are part of the *Plan* section.
+Diagnosis in progress notes Daily progress notes are formatted using the SOAP Format (Weed, 1969). The*Subjective*section of a SOAP format daily progress note comprises the patient's self-reported symptoms, concerns, and medical history. The*Objective*section consists of structural data collected by healthcare providers during observation or examination, such as vital signs (e.g., blood pressure, heart rate), laboratory results, or physical exam findings. The*Assessment*section summarizes the patient's overall condition with a focus on the most active problems/diagnoses for that day. Finally, the*Plan*section contains multiple subsections, each outlining a diagnosis/problem and its treatment plan. Our task is to predict the list of problems and diagnoses that are part of the*Plan*section.
 
 Using UMLS KG to find potential diagnoses given a patient's medical narrative The UMLS concepts vocabulary comprises over 187 sources. For our study, we focused on the Systematized Nomenclature of Medicine-Clinical Terms (SNOMED CT). The UMLS vocabulary is a comprehensive, multilingual health terminology and the US national standard for EHRs and health information exchange. Each UMLS medical concept is assigned a unique SNOMED concept identifier (CUI) from the clinical terminology system. We utilize semantic types, networks, and semantic relations from UMLS knowledge sources to categorize concepts based on shared attributes, enabling efficient exploration and supporting semantic understanding and knowledge discovery across various medical vocabularies.
 
-Given a medical knowledge graph where vertices are concepts and edges are semantic relations, and an input text describing a patient's problems, we could perform multi-hop reasoning over the graphs and infer the final diagnoses. Figure 1 demonstrated how UMLS semantic relations and concepts can be used to identify potential diagnoses from the evidence provided in a daily care note. The example patient presents with medical conditions of fever, coughing, and sepsis, which are the concepts recognized by medical concepts extractors (cTAKES (Savova et al., 2010) and QuickUMLS (Soldaini and Goharian, 2016)) and the starting concepts for multi-hop reasoning. Initially, we extracted the direct neighbors for these concepts. Relevant concepts that align with the patient's descriptions were preferred. For precise diagnoses, we chose the top *N* most relevant nodes at each hop.
+Given a medical knowledge graph where vertices are concepts and edges are semantic relations, and an input text describing a patient's problems, we could perform multi-hop reasoning over the graphs and infer the final diagnoses. Figure 1 demonstrated how UMLS semantic relations and concepts can be used to identify potential diagnoses from the evidence provided in a daily care note. The example patient presents with medical conditions of fever, coughing, and sepsis, which are the concepts recognized by medical concepts extractors (cTAKES (Savova et al., 2010) and QuickUMLS (Soldaini and Goharian, 2016)) and the starting concepts for multi-hop reasoning. Initially, we extracted the direct neighbors for these concepts. Relevant concepts that align with the patient's descriptions were preferred. For precise diagnoses, we chose the top*N*most relevant nodes at each hop.
 
 This section introduces the architecture design for DR.KNOWS. As shown in Figure 10, all identified UMLS concepts with assigned CUI from the input patient text will be used to retrieve 1-hop subgraphs from the constructed large UMLS knowledge graph. These subgraphs are encoded as graph representations by a Stack Graph Isomorphism Network (SGIN) (Xu et al., 2019) and then fed to the Path Encoder, which generates path representations. The Path Ranker module assesses 1-hop paths by considering their semantic and logical association with the input text and concept, generating a score using the path
 
 > representation, input text, and concept representation. The top N scores among the set of 1-hop neighbor nodes, aggregated from all paths pointing to those nodes, guide the subsequent hop exploration. In case a suitable diagnosis node is not found, termination is assigned to the self-loop pointing to the current node.
 
-#### 4.1.2 Contextualized Node Representation
+#### 1.2 Contextualized Node Representation
 
-We defined the deterministic UMLS knowledge graph *G* = *VE* based on SNOMED CUIs and semantic relations, where *V* is a set of CUIs, and *E* is a set of semantic relations. Given an input text x containing a set of source CUIs *Vsrc* ✓ *V*, and their 1-hop relations *Esrc* ✓ *E*, we can construct relation paths for each <sup>h</sup>v*i*i*<sup>I</sup> <sup>i</sup>*=1 ✓ *Vsrc* as P = *{*p1*,* p2*,...,* p*<sup>J</sup> }* s.t. p*<sup>j</sup>* = *{*v1*,* e1*,* v<sup>2</sup> *...* e*t*1*,* v*t*}, *j* 2 *J*, where t is a pre-defined scalar and *J* is non-deterministic. Relations e*<sup>t</sup>* were encoded as one-hot embeddings. We concatenated all concept names for v*<sup>i</sup>* with special token [SEP], s.t. l*<sup>i</sup>* = [name 1 [SEP] name 2 [SEP] ...], and encoded l*<sup>i</sup>* using SapBERT (Liu et al., 2021) to obtain h*i*. This allowed the CUI representation to serve as the contextualized representation of its corresponding concept names. We chose SapBERT for its UMLS-trained biomedical concept representation. The h*<sup>i</sup>* is further updated through topological representation using SGIN:
+We defined the deterministic UMLS knowledge graph*G*=*VE*based on SNOMED CUIs and semantic relations, where*V*is a set of CUIs, and*E*is a set of semantic relations. Given an input text x containing a set of source CUIs*Vsrc*✓*V*, and their 1-hop relations *Esrc*✓*E*, we can construct relation paths for each <sup>h</sup>v*i*i*<sup>I</sup> <sup>i</sup>*=1 ✓ *Vsrc*as P =*{*p1*,* p2*,...,* p*<sup>J</sup> }* s.t. p*<sup>j</sup>*=*{*v1*,* e1*,*v<sup>2</sup>*...* e*t*1*,* v*t*}, *j*2*J*, where t is a pre-defined scalar and *J* is non-deterministic. Relations e*<sup>t</sup>* were encoded as one-hot embeddings. We concatenated all concept names for v*<sup>i</sup>* with special token [SEP], s.t. l*<sup>i</sup>* = [name 1 [SEP] name 2 [SEP] ...], and encoded l*<sup>i</sup>* using SapBERT (Liu et al., 2021) to obtain h*i*. This allowed the CUI representation to serve as the contextualized representation of its corresponding concept names. We chose SapBERT for its UMLS-trained biomedical concept representation. The h*<sup>i</sup>*is further updated through topological representation using SGIN:
 
 $$
 \mathbf{h}_{i}^{(k)} = \text{MLP}^{(k)}((1 + \epsilon^{(k)})\mathbf{h}_{i}^{(k)} + \sum_{s \in \mathcal{N}(\mathbf{v}_{i})} \text{RELU}(\mathbf{h}_{s}, \mathbf{e}_{s,i})),
 $$
-  
+
 \n
 $$
 \mathbf{h}_{i} = [\mathbf{h}_{i}^{(1)}; \mathbf{h}_{i}^{(2)}; \dots; \mathbf{h}_{i}^{(K)}].
 $$
 \n(1)
 
-where *<sup>N</sup>* (v*i*) represents the neighborhood of node <sup>v</sup>*i*, <sup>h</sup>(*k*) *<sup>i</sup>* is the representation of node v*<sup>i</sup>* at layer *k*, ✏(*k*) is a learnable parameter, and MLP(*k*) is a multilayer perceptron. GIN iteratively aggregates neighborhood information using graph convolution followed by nonlinearity, modeling interactions among different v ✓ *V*. Furthermore, the stacking mechanism is introduced to combine multiple GIN layers. The final node representation v*<sup>i</sup>* at layer *K* is computed by stacking the GIN layers, where [*·*; *·*] denotes concatenation.
+where*<sup>N</sup>* (v*i*) represents the neighborhood of node <sup>v</sup>*i*, <sup>h</sup>(*k*) *<sup>i</sup>* is the representation of node v*<sup>i</sup>*at layer*k*, ✏(*k*) is a learnable parameter, and MLP(*k*) is a multilayer perceptron. GIN iteratively aggregates neighborhood information using graph convolution followed by nonlinearity, modeling interactions among different v ✓ *V*. Furthermore, the stacking mechanism is introduced to combine multiple GIN layers. The final node representation v*<sup>i</sup>*at layer*K* is computed by stacking the GIN layers, where [*·*; *·*] denotes concatenation.
 
 We empirically observed that some types of CUIs are less likely to lead to useful paths for diseases, e.g., the concept "recent" (CUI: C0332185) is a temporal concept and the neighbors associated with it are less useful. We designed a TF-IDF-based weighting scheme to assign higher weights to more relevant CUIs and semantic types, and multiply these *W*CUI to its corresponding h*i*:
 
@@ -252,9 +244,9 @@ $$
 W_{\text{CUI}} = \text{TFIDF}_{\text{concept}} * \sum \text{TFIDF}_{\text{semtype}_{\text{concept}}} \,. \tag{2}
 $$
 
-### 4.1.3 Path Reasoning and Ranking
+### 1.3 Path Reasoning and Ranking
 
-For each node representation h*i*, we used its n-hop h(*n*) *t,i* of the set neighborhood *<sup>V</sup>*(*n*) *<sup>t</sup>* for h*<sup>i</sup>* and the associated relation edge e (*n*) *t,i* to generate the corresponding path embeddings:
+For each node representation h*i*, we used its n-hop h(*n*) *t,i*of the set neighborhood*<sup>V</sup>*(*n*) *<sup>t</sup>* for h*<sup>i</sup>* and the associated relation edge e (*n*) *t,i*to generate the corresponding path embeddings:
 
 $$
 \mathbf{p}_{i} = \begin{cases} \mathbf{h}_{i} & \text{if } n = 1\\ \mathbf{p}_{t,i}^{(n-1)} & \text{otherwise}, \end{cases}
@@ -265,7 +257,7 @@ $$
 \mathbf{p}_{t,i}^{(n)} = \text{FFN}(W_i \mathbf{h}_i^{(n)} + W_t([\mathbf{e}_{t,i}^{(n)}, \mathbf{h}_{t,i}^{(n)}]))\,. \tag{4}
 $$
 
-where FFN is feed-forward network, and *n* is the number of hop in the subgraph *Gsrc*.
+where FFN is feed-forward network, and*n*is the number of hop in the subgraph*Gsrc*.
 
 For each path embedding p*i*, we proposed two attention mechanisms, i.e., MultiHead attention (MultiAttn) and Trilinear attention (TriAttn), to compute its logical relation leveraging the input narrative representation h<sup>x</sup> and input list of CUIs hv, both of which are encoded by SapBERT. We further defined H*<sup>i</sup>* as context relevancy matrix, and Z*<sup>i</sup>* as concept relevancy matrix:
 
@@ -291,24 +283,24 @@ $$
 $$
 \alpha_i = (\mathbf{h_x}, \mathbf{h_y}, \mathbf{p}_i) = \sum_{a, b, c} (\mathbf{h_x})_a (\mathbf{h_y})_b (\mathbf{p_i})_c \mathbf{W}_{abc},
 $$
-  
+
 $$
 S_i^{\text{Tri}} = \phi(\text{Relu}(\sigma(\alpha_i))).
 $$
  (6)
 
-where hx*,* p*<sup>i</sup>* and h<sup>v</sup> have same dimensionality *D*, and is a MLP. Finally, we aggregated the MultiAttn or TriAttn scores on all candidate nodes , and select the top *N* entity *V<sup>N</sup>* for next hop iteration based on the aggregated scores:
+where hx*,* p*<sup>i</sup>*and h<sup>v</sup> have same dimensionality*D*, and is a MLP. Finally, we aggregated the MultiAttn or TriAttn scores on all candidate nodes , and select the top *N*entity*V<sup>N</sup>*for next hop iteration based on the aggregated scores:
 
 $$
 \beta = \text{Softmax}(\Sigma_{i=1}^{\mathcal{V}_{\text{src}}} \Sigma_{t=1}^T S_{i,t}^{\text{Tri}}),
 $$
-  
+
 $$
 \mathcal{V}_N = \text{argmax}_N(\beta).
 $$
  (7)
 
-### 4.1.4 Loss Function
+### 1.4 Loss Function
 
 Our loss function consisted of two parts, i.e., a CUI prediction loss and a contrastive learning loss:
 
@@ -316,14 +308,14 @@ $$
 \mathcal{L} = \mathcal{L}_{\text{Pred}} + \mathcal{L}_{\text{CL}} \,. \tag{8}
 $$
 
-For prediction loss *L*Pred, we used Binary Cross Entropy (BCE) loss to calculate whether selected *V<sup>N</sup>* is in the gold label *Y*:
+For prediction loss*L*Pred, we used Binary Cross Entropy (BCE) loss to calculate whether selected *V<sup>N</sup>*is in the gold label*Y*:
 
 $$
-\mathcal{L}_{\text{Pred}} = \sum_{m}^{M} \sum_{n}^{N} (y_{m,n} * \log(v_{m,n}) + (1 - y_{m,n}) * \log(1 - v_{m,n})).
+\mathcal{L}_{\text{Pred}} = \sum_{m}^{M} \sum_{n}^{N} (y_{m,n} *\log(v_{m,n}) + (1 - y_{m,n})* \log(1 - v_{m,n})).
 $$
 \n(9)
 
-where *M* is the number of gold label *Y*.
+where *M*is the number of gold label*Y*.
 
 For contrastive learning loss *L*CL, we encouraged the model to learn meaningful and discriminative representations by comparing with positive and negative samples:
 
@@ -331,11 +323,11 @@ $$
 \mathcal{L}_{CL} = \sum_{i} \max(\cos(A_i, f_{i+}) - \cos(A_i, f_{i-}) + \text{margin}, 0). \tag{10}
 $$
 
-where *<sup>A</sup><sup>i</sup>* is the anchor embedding, defined as <sup>h</sup><sup>x</sup> <sup>h</sup>v, and is Hadamard product. <sup>P</sup> *<sup>i</sup>* indicates a summation over a set of indices *i*, typically representing different training samples or pairs. Inspired from (Yasunaga et al., 2022), we construct cos(*Ai, fi*+) and cos(*Ai, fi*) to calculate cosine similarity between *A<sup>i</sup>* and positive feature *fi*<sup>+</sup> or negative feature *fi*, respectively. This equation measures the loss when the similarity between an anchor and its positive feature is not significantly greater than the similarity between the same anchor and a negative feature, considering a margin for desired separation. Appendix C described the full DR.KNOWS model training process.
+where *<sup>A</sup><sup>i</sup>*is the anchor embedding, defined as <sup>h</sup><sup>x</sup> <sup>h</sup>v, and is Hadamard product. <sup>P</sup>*<sup>i</sup>*indicates a summation over a set of indices*i*, typically representing different training samples or pairs. Inspired from (Yasunaga et al., 2022), we construct cos(*Ai, fi*+) and cos(*Ai, fi*) to calculate cosine similarity between *A<sup>i</sup>*and positive feature*fi*<sup>+</sup> or negative feature *fi*, respectively. This equation measures the loss when the similarity between an anchor and its positive feature is not significantly greater than the similarity between the same anchor and a negative feature, considering a margin for desired separation. Appendix C described the full DR.KNOWS model training process.
 
-#### 4.1.5 Prompting for foundational models
+#### 1.5 Prompting for foundational models
 
-To incorporate graph model predicted paths into a prompt, we applied a prompt engineering strategy utilizing domain-independent prompt patterns, as delineated in White et al. (2023). Our prompt was constructed with two primary components: the *output customization* prompt, which specifies the requirement of exploiting knowledge paths, and the *context control patterns*, which are directly linked to the DR.KNOWS's output.
+To incorporate graph model predicted paths into a prompt, we applied a prompt engineering strategy utilizing domain-independent prompt patterns, as delineated in White et al. (2023). Our prompt was constructed with two primary components: the *output customization*prompt, which specifies the requirement of exploiting knowledge paths, and the*context control patterns*, which are directly linked to the DR.KNOWS's output.
 
 Given that our core objective was to assess the extent to which the prompt can bolster the model's performance, it became imperative to test an array of prompts. Gonen et al. (2022) presented a technique, BETTERPROMPT, which relied on SELECTING PROMPTS BY ESTIMATING LANGUAGE MODEL LIKELIHOOD (SPELL). Essentially, we initiated the process with a set of manual task-specific prompts,
 
@@ -352,11 +344,11 @@ subsequently expanding the prompt set via automatic paraphrasing facilitated by 
 
 Guided by this framework, we manually crafted five sets of prompts to integrate the path input, which are visually represented in Table 5. Specifically, the first three prompts were designed by a non-medical domain expert (computer scientist), whereas the final two sets of prompts were developed by a medical domain expert (a critical care physician and a medical informaticist). We designated the last two prompts as "Subject-Matter Prompts," with the medical persona, and the first three prompts as "Non-Subject-Matter Prompts." A comprehensive outline elucidating our approach to generating the prompt with paths can be found in Appendix E.
 
-## 4.2 Experiments and Automated Evaluation
+## 2 Experiments and Automated Evaluation
 
-We trained the proposed DR.KNOWS (TriAttn*<sup>W</sup>* and MultiAttn*<sup>W</sup>* ) on IN-HOUSE and MIMIC dataset. We obtained a data split of 600, 81, and 87 on the MIMIC dataset and 3885, 520, 447 on the IN-HOUSE dataset. The main task is to assess how well DR.KNOWS predicts diagnoses using CUIs. To achieve this, we analyzed the text in the plan section using a concept extractor and extract the CUIs that fall under the semantic type T047 DISEASE AND SYNDROMES. Specifically, we included the CUIs that are guaranteed to have at least one path with a maximum length of 2 hops between the target CUIs and input CUIs. These selected CUIs formed the "gold" CUI set, which was used for training and evaluating the model's performance. Appendix B and D described the preprocessing and training setup, respectively.
+We trained the proposed DR.KNOWS (TriAttn*<sup>W</sup>* and MultiAttn*<sup>W</sup>*) on IN-HOUSE and MIMIC dataset. We obtained a data split of 600, 81, and 87 on the MIMIC dataset and 3885, 520, 447 on the IN-HOUSE dataset. The main task is to assess how well DR.KNOWS predicts diagnoses using CUIs. To achieve this, we analyzed the text in the plan section using a concept extractor and extract the CUIs that fall under the semantic type T047 DISEASE AND SYNDROMES. Specifically, we included the CUIs that are guaranteed to have at least one path with a maximum length of 2 hops between the target CUIs and input CUIs. These selected CUIs formed the "gold" CUI set, which was used for training and evaluating the model's performance. Appendix B and D described the preprocessing and training setup, respectively.
 
-Since DR.KNOWS predicts the top *N* CUIs, we measured the Recall@N and Precision@N as below. The F-score is the harmonic mean between Recall and Precision, which will also be reported.
+Since DR.KNOWS predicts the top*N*CUIs, we measured the Recall@N and Precision@N as below. The F-score is the harmonic mean between Recall and Precision, which will also be reported.
 
 $$
 Recall = \frac{|pred \cap gold|}{|gold|} \tag{11}
@@ -368,9 +360,9 @@ $$
 
 When evaluating the output diagnoses, we applied the above evaluation metric as well as ROUGE (Lin, 2004). Specifically, ROUGE is a widely used set of metrics designed for evaluating the quality of machinegenerated text by comparing it to reference texts. We utilized the ROUGE-L variant, which is based on the longest common substring, and the ROUGE-2 variant, which focuses on bigram matching.
 
-### 4.3 Metrics Development for Human Evaluation
+### 3 Metrics Development for Human Evaluation
 
-#### 4.3.1 Motivation
+#### 3.1 Motivation
 
 Existing frameworks of human evaluation have been implemented for generative AI on certain tasks such as radiology report generation, but the field of diagnosis generation remains underdeveloped. Robust evaluation methodologies like SaferDX (Singh et al., 2019) have paved the way for assessing missed
 
@@ -378,9 +370,9 @@ Existing frameworks of human evaluation have been implemented for generative AI 
 
 > We identified seven broad aspects widely deployed in human evaluation for biomedical NLP tasks: (1) Factual Consistency (Guo et al., 2020; Yadav et al., 2021; Wallace et al., 2020; Abacha et al., 2023; Moramarco et al., 2021; Otmakhova et al., 2022; Dalla Serra et al., 2022; Cai et al., 2022), (2) Hallucination (Guo et al., 2020; Umapathi et al., 2023), (3) Quality of Evidence (Otmakhova et al., 2022; Singhal et al., 2023), (4) Safety / Potential for Harm (Singhal et al., 2023; Dalla Serra et al., 2022; Adams et al., 2023), (5) Confidence (Otmakhova et al., 2022), (6) Omission (Abacha et al., 2023), and (7) Linguistic Quality (Radev and Tam, 2003; Guo et al., 2020). These aspects were then broken down and more clearly defined for inclusion in a human evaluation framework. The only factor not considered was Linguistic Quality. This factor was tied to general domain tasks and those intent on the fluency and readability of generated text for the general population. However, in a clinical setting, this is not a key focus so attention was given to aspects relating to content, instead.
 
-#### 4.3.2 Survey Development
+#### 3.2 Survey Development
 
-Evaluation criteria The intent of evaluation of clinical diagnostic reasoning tasks is to verify that inclusion of generative LLMs in the clinical setting does not introduce additional potential for harm on patients. Therefore, the diagnostic evaluation portion was largely influenced by the revised SaferDx instrument (Singh et al., 2019) because of its applications in identifying and defining diagnostic errors and their potential for harm. Based on this instrument and our 6 identified aspects of manual evaluation from literature searching, the diagnostic evaluation process was broken down into 4 sections: (1) ACCURACY, (2) PLAUSIBILITY, (3) SPECIFICITY, and (4) OMISSION AND UNCERTAINTY. ACCURACY was intended to capture the factuality of the diagnostic output as well as penalize a model for hallucinating output that does not qualify as a diagnosis. PLAUSIBILITY, which is conditional on ACCURACY, was intended to capture the potential for harm present in an inaccurate diagnosis. SPECIFICITY, which is conditional on PLAUSIBILITY, is defined as the level of detail provided in the diagnosis. Finally, OMISSION AND UNCERTAINTY defined cases when a diagnosis is not included in the list of outputted diagnoses but would be considered by a clinician in the clinical setting based upon the input data. In the case of the omission, the UNCERTAINTY further defined the reasons as *aleatoric uncertainty* – when LLM has been provided with the necessary information but has not utilized it; *epistemic uncertainty* – when the input to LLM does not contain the data needed to make a diagnosis.
+Evaluation criteria The intent of evaluation of clinical diagnostic reasoning tasks is to verify that inclusion of generative LLMs in the clinical setting does not introduce additional potential for harm on patients. Therefore, the diagnostic evaluation portion was largely influenced by the revised SaferDx instrument (Singh et al., 2019) because of its applications in identifying and defining diagnostic errors and their potential for harm. Based on this instrument and our 6 identified aspects of manual evaluation from literature searching, the diagnostic evaluation process was broken down into 4 sections: (1) ACCURACY, (2) PLAUSIBILITY, (3) SPECIFICITY, and (4) OMISSION AND UNCERTAINTY. ACCURACY was intended to capture the factuality of the diagnostic output as well as penalize a model for hallucinating output that does not qualify as a diagnosis. PLAUSIBILITY, which is conditional on ACCURACY, was intended to capture the potential for harm present in an inaccurate diagnosis. SPECIFICITY, which is conditional on PLAUSIBILITY, is defined as the level of detail provided in the diagnosis. Finally, OMISSION AND UNCERTAINTY defined cases when a diagnosis is not included in the list of outputted diagnoses but would be considered by a clinician in the clinical setting based upon the input data. In the case of the omission, the UNCERTAINTY further defined the reasons as*aleatoric uncertainty*– when LLM has been provided with the necessary information but has not utilized it;*epistemic uncertainty* – when the input to LLM does not contain the data needed to make a diagnosis.
 
 The quality of evidence aspect of evaluation becomes a key factor in evaluating the reasoning output because clinical diagnostic reasoning is not a definitive process. Therefore, the reasoning evaluation portion was largely influenced by the framework established in Singhal et al. (2023), because of their rigorous validity measures compared to other established evaluation frameworks and focus on evidence quality as an aspect of evaluation. We utilized three of the aspects of their evaluation framework - (1) READING COMPREHENSION, (2) RATIONALE, and (3) RECALL OF KNOWLEDGE - and incorporated an aspect on (4) OMISSION of diagnostic reasoning. READING COMPREHENSION was intended to capture if a model understood the information in a progress note. RATIONALE was intended to capture the inclusion of incorrect reasoning steps. RECALL OF KNOWLEDGE was intended to capture the hallucination of incorrect facts as well as the inclusion of irrelevant facts in the output. Finally, OMISSION served the same purpose as previously by capturing when the model failed to support conclusions or provide evidence for a diagnostic choice.
 
@@ -404,7 +396,7 @@ The construct validity of the proposed survey received further support from our 
 
 > evaluation framework for text summarization from publications in the Association for Computational Linguistics and PubMed, and identified the 7 broad aspects of manual evaluation (see §??). We also used the SaferDx survey instrument to guide our survey development, ensuring the survey was designed with a focus on diagnostic safety.
 
-#### 4.3.3 Survey scoring
+#### 3.3 Survey scoring
 
 Once the resident and medical student were verified as in agreement with the senior clinicians, each was given a set of output records from each model to evaluate. In total, at least 92 records were evaluated for each model.
 
@@ -412,29 +404,29 @@ Processing Steps In the pre-processing phase, we handled missing values in the P
 
 Due to the inherent branching logic within some of the categories, missing values were substituted with a value of 0 during the score calculations. Additionally, we implemented a scoring transformation to the COMPREHENSION, RECALL, AND RATIONALE questions: to address the reverse interpretation of these questions, we employed a transformation formula: (6 *x*).
 
-Diagnosis Scoring The diagnosis score *D<sup>i</sup>* given a record *i* is computed as below:
+Diagnosis Scoring The diagnosis score *D<sup>i</sup>*given a record*i*is computed as below:
 
 $$
 D_i = \frac{\bar{p}_i + \bar{s}_i + o_i}{15} \tag{13}
 $$
 
-where *p*¯*<sup>i</sup>* is the mean of the plausibility scores for record *i*, *s*¯*<sup>i</sup>* is the mean of the specificity scores for record *i*, *o<sup>i</sup>* is the mean of the omission and uncertainty scores for record *i*, The denominator is 15 because each component was scored on a 5-point Likert scale and this 15 normalizes the scores into a (0*,* 1) scale.
+where*p*¯*<sup>i</sup>*is the mean of the plausibility scores for record*i*, *s*¯*<sup>i</sup>*is the mean of the specificity scores for record*i*, *o<sup>i</sup>*is the mean of the omission and uncertainty scores for record*i*, The denominator is 15 because each component was scored on a 5-point Likert scale and this 15 normalizes the scores into a (0*,*1) scale.
 
-Reasoning Scoring The reasoning score *R<sup>i</sup>* given a record *i* is computed as below:
+Reasoning Scoring The reasoning score*R<sup>i</sup>*given a record*i*is computed as below:
 
 $$
 R_i = \frac{\bar{c}_i + \bar{e}_i + \bar{a}_i}{15} \tag{14}
 $$
 
-where *c*¯*<sup>i</sup>* is the mean of the comprehension scores, *e*¯*<sup>i</sup>* is the mean of the recall scores, *a*¯*<sup>i</sup>* is the mean of the rationale scores for record *i*. The denominator is 15 because each component was scored on a 5-point Likert scale and this 15 normalizes the scores into a (0*,* 1) scale.
+where*c*¯*<sup>i</sup>*is the mean of the comprehension scores,*e*¯*<sup>i</sup>*is the mean of the recall scores,*a*¯*<sup>i</sup>*is the mean of the rationale scores for record*i*. The denominator is 15 because each component was scored on a 5-point Likert scale and this 15 normalizes the scores into a (0*,*1) scale.
 
-#### 4.3.4 Significance Testing
+#### 3.4 Significance Testing
 
 Statistical significance testing was performed utilizing a paired assumption. Since the KG and No KG scoring processes were done using the same progress notes, a pair was considered to be the score from each model for a particular progress note. Tests on statistical significance between normalized diagnosis and reasoning scores used a two-sided paired t-test. This is because the diagnosis and reasoning scores were quantitative values on a 0 to 1 scale. In cases where analysis was done on aspects of the scores (i.e. SPECIFICITY, OMISSION, PLAUSIBILITY), a McNemar test was utilized. The Likert and binary scale values were considered nominal categories for this test. All statistical significance testing was performed in R v4.3.1.
 
 # References
 
-Asma Ben Abacha, Wen-wai Yim, George Michalopoulos, and Thomas Lin. 2023. An investigation of evaluation metrics for automated medical note generation. *arXiv preprint arXiv:2305.17364*.
+Asma Ben Abacha, Wen-wai Yim, George Michalopoulos, and Thomas Lin. 2023. An investigation of evaluation metrics for automated medical note generation.*arXiv preprint arXiv:2305.17364*.
 
 - Griffin Adams, Emily Alsentzer, Mert Ketenci, Jason Zucker, and Noémie Elhadad. 2021. What's in a summary? laying the groundwork for advances in hospital-course summarization. In *Proceedings of the conference. Association for Computational Linguistics. North American Chapter. Meeting*, volume 2021, page 4794. NIH Public Access.
 - Griffin Adams, Jason Zucker, and Noémie Elhadad. 2023. A meta-evaluation of faithfulness metrics for long-form hospital-course summarization. *arXiv preprint arXiv:2303.03948*.

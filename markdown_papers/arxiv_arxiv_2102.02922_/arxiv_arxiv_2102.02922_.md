@@ -1,7 +1,8 @@
+<!-- cite_key: arxiv_arxiv_210202922_ -->
+
 # Towards a Flexible System Architecture for Automated Knowledge Base Construction Frameworks
 
-Osman Din *Massachusetts Institute of Technology* Cambridge, MA https://orcid.org/0000-0001-6507-2468
-
+Osman Din *Massachusetts Institute of Technology*Cambridge, MA https://orcid.org/0000-0001-6507-2468
 *Abstract*—Although knowledge bases play an important role in many domains (including in archives, where they are sometimes used for entity extraction and semantic annotation tasks), it is challenging to build knowledge bases by hand. This is owing to a number of factors: Knowledge bases must be accurate, up-todate, comprehensive, and as flexible and as efficient as possible. These requirements mean a large undertaking, in the form of extensive work by subject matter experts (such as scientists, programmers, archivists, and other information professionals). Even when successfully engineered, manually built knowledge bases are typically one-off, use-case-specific, non-standardized, hard-to-maintain solutions.
 
 Recent advances in the field of automated knowledge base construction (AKBC) offer a promising alternative. A knowledge base construction framework takes as input source documents (such as journal articles containing text, figures, and tables) and produces as output a database of the extracted information.
@@ -12,7 +13,7 @@ As knowledge bases will be increasingly relevant to many domains, we present a s
 
 *Index Terms*—Automated Knowledge Base Construction Frameworks, Big Data, Computational Archival Science, Information Extraction, Software Architecture
 
-### I. INTRODUCTION
+## I. INTRODUCTION
 
 Knowledge bases have been successfully used for various applications, including entity extraction, semantic annotation, entity disambiguation, entity resolution, question answering, and the preservation of the social Web. As an example, many sophisticated widely known applications such as IBM Watson
 
@@ -37,9 +38,7 @@ The organization of the paper is as follows. We provide background information o
 
 ## II. BACKGROUND
 
-### *A. Knowledge Bases in Relevant Domains*
-
-Knowledge bases have been used in a variety of contexts in archives and related communities. A number of examples are listed below. These projects go beyond simple information extraction techniques used in projects such as [\[3\]](#page-5-2), [\[4\]](#page-5-3).
+### *A. Knowledge Bases in Relevant Domains*Knowledge bases have been used in a variety of contexts in archives and related communities. A number of examples are listed below. These projects go beyond simple information extraction techniques used in projects such as [\[3\]](#page-5-2), [\[4\]](#page-5-3).
 
 - The US National Library of Medicine has built a knowledge base of biomedical conference proceedings literature. The knowledge base stores information such as publications and authors. Entities extracted from a relational database are converted into a OWL-RDF based knowledge base for semantic querying.
 - The UK National Archives (TNA) has a search system, TNA-Search, comprising of a knowledge base and a text mining tool [\[5\]](#page-5-4). The knowledge base, built using the OWLIM semantic graph [\[6\]](#page-5-5), contains various sources (such as resources from data.gov.uk, TNA projects, and geographical databases). Source data, comprising of government web archives, is then semantically annotated and indexed against this knowledge base, allowing semantic queries on the data.
@@ -52,9 +51,7 @@ has been used by a European project to create a querable graph of nested name en
 
 To the best of our knowledge, existing literature does not provide evidence on the use of automated knowledge base frameworks for archives and related domains.
 
-## *B. Automated Knowledge Base Construction*
-
-Knowledge base construction is the process of populating a database with information from text, tables, images, video, and even incomplete knowledge bases.
+##*B. Automated Knowledge Base Construction*Knowledge base construction is the process of populating a database with information from text, tables, images, video, and even incomplete knowledge bases.
 
 Examples of AKBC frameworks include Fonduer [\[10\]](#page-5-9), DeepDive [\[2\]](#page-5-1), MinIE [\[11\]](#page-5-10), Alexandria [\[12\]](#page-5-11), NELL [\[13\]](#page-5-12), KnolwedgeVault [\[14\]](#page-5-13), etc. Examples of automatically populated knowledge bases, comprising of real world entities such as people and places, include, YAGO, Freebase, DBPedia, YAGO2, and Google Knowledge Graph [\[14\]](#page-5-13).
 
@@ -72,17 +69,13 @@ Finally, some knowledge base frameworks include an error analysis step, whereby 
 
 Besides underlying requirements for precision, high coverage, and being up-to-date, the main requirements of the system are as follows.
 
-## *A. Functional Requirements*
-
-- 1) Support for multiple types and formats of data. AKBC frameworks must offer the capability of processing a diversity of data and data formats.
+##*A. Functional Requirements*- 1) Support for multiple types and formats of data. AKBC frameworks must offer the capability of processing a diversity of data and data formats.
 - 2) Support for storage and search. The knowledge base framework must store extracted facts in a format that is indexable and queryable.
 - 3) Support for flexible feature selection. To allow for variation and noise in input text, extraction rules should be flexible, and not rigid expressions or regex-like patterns.
 - 4) Support for adding domain features. As there is variation between corpora from different domains, it must be possible to add domain-specific features to a knowledge base construction framework to increase the accuracy and completeness of a knowledge base.
 - 5) Support for human feedback. For systems that require any user input, the knowledge base framework should support error analysis to fix (or flag) incorrect or overlyspecific features.
 
-## *B. Non-functional Requirements*
-
-- 1) Performance. The system should be performant when training a model or applying inferences.
+##*B. Non-functional Requirements*- 1) Performance. The system should be performant when training a model or applying inferences.
 - 2) Scaling. The system must be able to scale in order to process a large corpus of potentially billions of documents, containing, in turn, billions of figures and tables. This is increasingly relevant as larger and larger data sets become available, and especially as new forms of archives, social and web, emerge.
 - 3) Usability. The system must not require end users to learn technical details of underlying algorithms. The system should also not require writing complex extraction functions (in the form of programs or scripts).
 - 4) Support for transparency and fairness. The system should provide the capability to choose between different features (and even models), as this can allow end users to decide if any features or models do not meet desired properties (such as fairness).
@@ -93,17 +86,13 @@ We recognize that an organization that implements a knowledge base system is lik
 
 In this section, we briefly introduce a number of modern knowledge base construction engines and discuss their limitations. For brevity and for adherence to some of the requirements (in particular, flexible feature selection), we restrict our attention to machine learning based systems (as opposed to rule-based systems). We also do not consider open information extraction systems (such as MinIE), as they are more prone to errors (such as duplicate facts due to slight changes in wordings).
 
-## *A. Overview*
-
-Fonduer [\[10\]](#page-5-9) is a knowledge base framework concerned with richly formatted data (prevalent in web pages, business reports, product specifications, etc.), where relations and attributes are expressed via combinations of textual, structural, tabular and visual information. The key insight behind Fonduer's extraction approach is that the organization and layout of a document determines the semantics of the data. To represent features of relation candidates, Fonduer uses a bidirectional Long Short-term Memory (LSTM) with attention. Relying on LSTM, along with weak supervision, obviates the need to create large sets of training data by hand, an important consideration since it is difficult to build proper training data at a large scale.
+##*A. Overview*Fonduer [\[10\]](#page-5-9) is a knowledge base framework concerned with richly formatted data (prevalent in web pages, business reports, product specifications, etc.), where relations and attributes are expressed via combinations of textual, structural, tabular and visual information. The key insight behind Fonduer's extraction approach is that the organization and layout of a document determines the semantics of the data. To represent features of relation candidates, Fonduer uses a bidirectional Long Short-term Memory (LSTM) with attention. Relying on LSTM, along with weak supervision, obviates the need to create large sets of training data by hand, an important consideration since it is difficult to build proper training data at a large scale.
 
 DeepDive [\[2\]](#page-5-1) uses manually created feature extractors to extract candidate facts from text. In addition to manually labelled training examples, DeepDive supports distant supervision. This allows a user to define a mapping between a preexisting, yet incomplete, knowledge base (possibly manually created) and a corpus of text. DeepDive uses Markov Logic Networks (MLN), a probabilistic model.
 
 Alexandria [\[12\]](#page-5-11) also makes use of a probabilistic machine learning model. Alexandria creates a probabilistic program, which it inverts to retrieve the facts, schemas, and entities from a text. Alexandria does not require any supervision (only a single seed example is required).
 
-## *B. Missing Features*
-
-Table I illustrates how the selected AKBC engines adhere to the requirements postulated in Section III. We observe that the selected engines fulfill some of the requirements, but there are a number of instances where the design of these systems does not adequately address the requirements:
+##*B. Missing Features*Table I illustrates how the selected AKBC engines adhere to the requirements postulated in Section III. We observe that the selected engines fulfill some of the requirements, but there are a number of instances where the design of these systems does not adequately address the requirements:
 
 - 1) First, the selected frameworks do not provide the functionality to easily add domain features. This limitation may therefore mean that end users have to hard code such features into the framework itself.
 - 2) Second, the frameworks do not allow their pipelines to be extended easily. This may result in burdening end users with updating the framework source code directly to add certain phases (to process images, for example).
@@ -132,19 +121,15 @@ framework and extending it. The goal of this work, therefore, is to fill this ga
 
 In this section we outline a proposal for an architecture for knowledge base frameworks. First, we introduce a number of design principles that guide the architecture. Next, we describe an architecture that is consistent with these principles and the set of functional and non-functional requirements from Section III. Finally, we describe a preliminary realization of this architecture, in the form of extensions to a specific knowledge base framework.
 
-## *A. Design Principles*
+##*A. Design Principles*Before discussing the architecture, we establish a number of key design principles.
 
-Before discussing the architecture, we establish a number of key design principles.
-
-- 1) *The framework's design should be based on APIs*. Exposing the underlying functionality through APIs can make it easier to scale and customize the framework in accordance with difference use cases.
+- 1)*The framework's design should be based on APIs*. Exposing the underlying functionality through APIs can make it easier to scale and customize the framework in accordance with difference use cases.
 - 2) *Middleware services should be used*. Leveraging middleware services instead of point-to-point connections between components of the system can make it easier to rapidly implement new use cases and functionality.
 - 3) *The design should not be reliant on proprietary components*. Among other factors, depending on proprietary vendor solutions can result in unsustainable solutions.
 
 4) *Transparency and fairness aspects should be weighed*. Filtering out discriminative information (often a negative consequence of machine learning systems) at the very source of data generation can prevent biases in upstream applications.
 
-## *B. Architecture*
-
-The system consists of several components, as illustrated in Figure 1. The major components of the system are listed below.
+## *B. Architecture*The system consists of several components, as illustrated in Figure 1. The major components of the system are listed below.
 
 - 1) Knowledge base framework. The core of the system is the knowledge base construction engine.
 - 2) Distributed middleware. Different components of the framework are scaled out using TensorFlow (a machine learning library) and Apache Spark (a cluster computing framework). Leveraging these solutions enables distributed model training and distributed supervision.
@@ -157,9 +142,7 @@ Fig. 1: Overview of the system architecture. The API-based design allows for hor
 
 5) Workflow engine. An external workflow engine (such as Airflow) is responsible for programmatically ingesting documents from different source repositories.
 
-## *C. Architectural Extensions to Fonduer*
-
-To demonstrate our position, we describe the application of these architectural building blocks to a knowledge base framework. The system, named System Architecture for the Generation and Extension of Knowledge Bases (SageKB), is a work in progress. All artifacts are available on the project's website [\[15\]](#page-5-14).
+##*C. Architectural Extensions to Fonduer*To demonstrate our position, we describe the application of these architectural building blocks to a knowledge base framework. The system, named System Architecture for the Generation and Extension of Knowledge Bases (SageKB), is a work in progress. All artifacts are available on the project's website [\[15\]](#page-5-14).
 
 The following are the main components of the system:
 
@@ -178,7 +161,7 @@ In their work, Choudhury and Giles (2015) propose a modular architecture for ana
 
 AKBC frameworks such as DeepDive partly rely on performance characteristics of relational databases or use low-level performance techniques [\[2\]](#page-5-1). For feature extraction, Hadoop and Candor frameworks have also been used [\[21\]](#page-5-20). Similarly, Alexandria relies on low-level techniques, and can make use of a big data framework [\[12\]](#page-5-11), which in Alexandria's case is proprietary. Our work differs from these projects in that we incorporate scalability aspects into the framework itself and in that we make explicit use of horizontal scalability, realized through the use of open source frameworks such as Apache Spark. In addition, the discussed selected works do not directly address usability and extensibility aspects.
 
-### VII. CONCLUSIONS AND FUTURE WORK
+## VII. CONCLUSIONS AND FUTURE WORK
 
 In this paper, we have presented a flexible architecture for frameworks that aim to provide end-to-end functionality for automating the development of knowledge bases. We identified some of the challenges associated with AKBC frameworks and postulated a set of important requirements. Based on these requirements, we discussed the features missing in these systems, and presented an architecture that is more scalable, usable, and extensible than current approaches. We also presented an initial implementation of our ideas, in the form of extensions to a knowledge base engine.
 
@@ -188,7 +171,7 @@ Finally, an implicit contribution of this paper is raising awareness of the pote
 
 ### REFERENCES
 
-- <span id="page-5-0"></span>[1] F. M. Suchanek and G. Weikum, "Knowledge bases in the age of big data analytics," *Proc. VLDB Endow.*, vol. 7, no. 13, pp. 1713–1714, Aug. 2014. [Online]. Available:<http://dx.doi.org/10.14778/2733004.2733069>
+- <span id="page-5-0"></span>[1] F. M. Suchanek and G. Weikum, "Knowledge bases in the age of big data analytics,"*Proc. VLDB Endow.*, vol. 7, no. 13, pp. 1713–1714, Aug. 2014. [Online]. Available:<http://dx.doi.org/10.14778/2733004.2733069>
 - <span id="page-5-1"></span>[2] C. Zhang, "Deepdive: A data management system for automatic knowledge base construction," Ph.D. dissertation, UW Madison, 2015.
 - <span id="page-5-2"></span>[3] *Using Named Entity Recognition to Enhance Access to a Museum Catalog*, 2018 (accessed October 11, 2019), [https://blog.ehri-project.eu/](https://blog.ehri-project.eu/2018/08/27/named-entity-recognition/) [2018/08/27/named-entity-recognition/.](https://blog.ehri-project.eu/2018/08/27/named-entity-recognition/)
 - <span id="page-5-3"></span>[4] M. Won, P. Murrieta-Flores, and B. Martins, "Ensemble named entity recognition (ner): Evaluating ner tools in the identification of place names in historical corpora," *Frontiers in Digital Humanities*, vol. 5, p. 2, 2018. [Online]. Available: [https://www.frontiersin.org/article/10.](https://www.frontiersin.org/article/10.3389/fdigh.2018.00002) [3389/fdigh.2018.00002](https://www.frontiersin.org/article/10.3389/fdigh.2018.00002)

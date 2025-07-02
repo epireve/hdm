@@ -1,18 +1,18 @@
-# **Knowledge Management System with NLP-Assisted Annotations: A Brief Survey and Outlook**
+<!-- cite_key: linsupsup2022 -->
+
+# Knowledge Management System with NLP-Assisted Annotations: A Brief Survey and Outlook
 
 Baihan Lin*<sup>1</sup>*,\*
 
-*<sup>1</sup>Columbia University, New York, NY 10027, USA*
-
-#### **Abstract**
+*<sup>1</sup>Columbia University, New York, NY 10027, USA*## Abstract
 
 Knowledge management systems (KMS) are in high demand for industrial researchers, chemical or research enterprises, or evidence-based decision making. However, existing systems have limitations in categorizing and organizing paper insights or relationships. Traditional databases are usually disjoint with logging systems, which limit its utility in generating concise, collated overviews. In this work, we briefly survey existing approaches of this problem space and propose a unified framework that utilizes relational databases to log hierarchical information to facilitate the research and writing process, or generate useful knowledge from references or insights from connected concepts. Our framework of bidirectional knowledge management system (BKMS) enables novel functionalities encompassing improved hierarchical note-taking, AI-assisted brainstorming, and multi-directional relationships. Potential applications include managing inventories and changes for manufacture or research enterprises, or generating analytic reports with evidence-based decision making.
 
-#### **Keywords**
+### Keywords
 
 knowledge management, insight annotation, relational databases, natural language processing, machine learning
 
-## **1. Introduction**
+## 1. Introduction
 
 Knowledge management systems (KMS) are the driving engines of modern day information technologies (IT). These IT systems store data in parsed ways and retrieve knowledge insights to improve the information understanding, team collaboration and process alignment within organizations and groups. As an engineering entities in high demand for industrial researchers, chemical or research enterprises and evidence-based decision making, knowledge management systems are often used by organizations to affect innovation performance and generate accurate metrics on organizational capacity [\[1\]](#page-4-0), but they can also be user-centric by centering the knowledge base around individual users or customers [\[2\]](#page-4-1).
 
@@ -25,7 +25,6 @@ want the system to be able to automatically assign topic to some papers based on
 We see from this example that the relationships between papers chosen in academic fields can have multiple, bidirectional relationships. Existing knowledge management systems for organizing research papers in scientific fields or organizing manufacture enterprises use directed acyclic graphs, Bayesian networks, and machine learning [\[3\]](#page-4-2), which have limitations in categorizing and organizing these multi-faceted insights or relationships. This is because many traditional databases are usually disjoint with logging systems, which limit its utility in generating concise, collated overviews. In this work, we briefly survey existing approaches in the general field of these knowledge management systems, and propose a unified framework as a solution to these challenges. In our framework, we describe a knowledge management system that utilizes relational databases to log hierarchical information with connected concepts.
 
 Back to the example problem of reference management, our KMS would utilize relational databases to log hierarchical information to facilitate the research and writing process, or to help generate useful knowledge from references or insights from connected concepts. This would enable novel functionalities encompassing improved hier-
-
 *CIKM 22: Workshop on Human-In-the-Loop Data Curation, October 21, 2022, Atlanta, GA*
 
 <sup>\*</sup>Corresponding author.
@@ -42,13 +41,13 @@ archical notetaking, AI-assisted brainstorming, and multidirectional relationshi
 
 Although we have seen successful system designs in commercial products such as Mendeley and recent community efforts such as Open Research Knowledge Graph (ORKG), we believe that our survey can still bring useful and new insights on the practical considerations on the intersections among machine learning, database management and human-system collaboration. In the following sections, we will first briefly survey the existing knowledge management systems approaches, and propose a unified bidirectional KMS (BKMS) framework that utilizes relational databases to log hierarchical information to facilitate the research and writing and generate helpful knowledge from references or insights from related concepts. We present a useful and novel system design for this bidirectional information management, formulate a few potential use-cases for this design, address the foursubset system of NLP-assisted annotations, and discuss future design considerations.
 
-## **2. An Applied Perspective**
+## 2. An Applied Perspective
 
-#### **2.1. Applications**
+### 2.1. Applications
 
 There are different application domains for knowledge management systems with relational databases and insight annotation enabled by machine learning, including but not limited to reference manager for academic researchers, education and research tool, consulting firm report generator with evidence-based decision making, inventory management for manufacture or research enterprises, organizational tool for industries with highvolume data, and internal auditing tool for customized employee metrics.
 
-#### **2.2. User scenarios**
+#### 2.2. User scenarios
 
 Other than the reference management example in our introduction, we also include two additional applications. The first one is managing inventories and changes for manufacture, chemistry or research enterprises. The inventories or measurements of factories usually involves dependency and hierarchical interactions. A knowledge management system that uses a relational database instead of disjoint databases with separate logging systems can enable useful curation function to offer very useful and concise report regarding key events or phenomon
 
@@ -56,7 +55,7 @@ Other than the reference management example in our introduction, we also include
 
 The second user scenario example is evidence-based decision making. In large business entities, critical decisions are usually made with a group of market researchers or consulting firms that come up with various analytic reports. A knowledge management system with AI-assisted insight annotation can provide a fast and evidence-based solution by generating a report (given the keyword or topic as input) which curates from hierarchical and interaconnected records. This hierarchical knowledge graph can serve as a useful primer in important decision making processes and guide the investigators to locate relevant resources.
 
-#### **2.3. Case studies**
+#### 2.3. Case studies
 
 In this section, we outline three case studies that recent real-world knowledge management systems are likely adopt to become more interconnected and intelligent.
 
@@ -68,36 +67,33 @@ In this section, we outline three case studies that recent real-world knowledge 
 
 ![](_page_2_Figure_0.jpeg)
 
-<span id="page-2-0"></span>**Figure 1:** A unified framework of a knowledge management system with relational databases and NLP-assisted annotation
+<span id="page-2-0"></span>**Figure 1:**A unified framework of a knowledge management system with relational databases and NLP-assisted annotation
 
 do not interact with users. Often used in e-commerce, social media, and entertainment applications, CRS are becoming increasingly popular as they can provide a more personalized and interactive experience for users, but can pose additional challenges in managing different layers of knowledge at different states: the intent of the conversation, the entities matched by the intents, the long-term preferences of the users and similar users, their state-dependent preferences related to the current contexts, and the relationships between different entities, intents and users. One practical examples is recommending discussion topic to therapist during psychotherapy in real-time given automatically speech-transcribed dialogue records [\[10\]](#page-4-9) and helpful visual analytics [\[11\]](#page-4-10).
 
-## **3. Bidirectional KMS Framework**
+## 3. Bidirectional KMS Framework
 
 Figure [1](#page-2-0) outlines our framework of bidirectional knowledge management systems (BKMS) with relational databases and insight annotation powered by natural language processing (NLP). The user interface provides the entry points into our knowledge management systems. Different interfaces introduces different routes, but they all involve a parsing and extraction process to atomize the user inputs into nodes that connects in a small knowledge graph. This graph is then placed into a relational database where their links are preserved. The orange and blue arrows indicates intro- and inter-database data flows. The relational databases include three parts. Some databases in the relational databases are only used for storage. Some are used for analysis and annotations. And some databases are kept to store annotated insights or other downstream analytical artifacts, which provide an additional data flow direction.
 
-## **4. NLP-Assisted Insight Annotation**
+## 4. NLP-Assisted Insight Annotation
 
 As shown in the annotation component of Figure [1,](#page-2-0) there are several routes we can utilize natural language processing to generate and annotate insights within our databases. We will elaborate on how they play in knowledge management systems and survey modern machine learning methods in each of these routes below.
-
-*Semantic similarity:* In principle, any sentence or paragraph embeddings can help us characterize our document and inventories of interest. For instance, the Doc2Vec embedding [\[12\]](#page-4-11) is a popular unsupervised learning model that learns vector representations of sentences and text documents. It improves upon the traditional bag-ofwords representation by utilizing a distributed memory that remembers what is missing from the current context. SentenceBERT [\[13\]](#page-4-12) is another popular option which modifies a pre-trained BERT network by using siamese and triplet network structures to infer semantically meaningful sentence embeddings. With word or sentence embeddings, we can embed the document entries from our relational databases into vectors, and then compute the cosine similarity between the vector at certain turn and an inventory entry. With that, for each text, we obtain a *N*-dimension score for the said property. For instance, the inventory can be written guidelines that evaluate the usefulness of certain documents, say, a list of leadership principles that some companies use to evaluate a candidate's resume, work report or performance review form. And the relational database could be hosting an employee's self reported performance review form. The system can automatically compute a score based on each item of the guidelines and annotate these document
+*Semantic similarity:*In principle, any sentence or paragraph embeddings can help us characterize our document and inventories of interest. For instance, the Doc2Vec embedding [\[12\]](#page-4-11) is a popular unsupervised learning model that learns vector representations of sentences and text documents. It improves upon the traditional bag-ofwords representation by utilizing a distributed memory that remembers what is missing from the current context. SentenceBERT [\[13\]](#page-4-12) is another popular option which modifies a pre-trained BERT network by using siamese and triplet network structures to infer semantically meaningful sentence embeddings. With word or sentence embeddings, we can embed the document entries from our relational databases into vectors, and then compute the cosine similarity between the vector at certain turn and an inventory entry. With that, for each text, we obtain a*N*-dimension score for the said property. For instance, the inventory can be written guidelines that evaluate the usefulness of certain documents, say, a list of leadership principles that some companies use to evaluate a candidate's resume, work report or performance review form. And the relational database could be hosting an employee's self reported performance review form. The system can automatically compute a score based on each item of the guidelines and annotate these document
 
 entry accordingly. Other applications can be evaluating the patient-doctor alignment from an automatically transcribed psychotherapy sessions based on a clinical questionnaire inventory, as shown in [\[14,](#page-4-13) [15,](#page-4-14) [16\]](#page-4-15).
 
-*Topic modeling:* In natural language processing and machine learning, a topic model is a type of statistical graphical model that help uncover the abstract "topics" that appear in a collection of documents. The topic modeling technique is frequently used in text-mining pipeline to unravel the hidden semantic structures of a text body. This can be very handy in annotating the database entry. For instance, a user scenario could be in a clinical consumer-facing chatbot, where the dialogue between the client and agent is transcribed, and a topic modeling analysis is automatically performed and generate a list of discussed topics and their scores based on semantic similarity, as shown in [\[17\]](#page-4-16). Several state-of-theart neural topic models include the Neural Variational Document Model (NVDM) [\[18\]](#page-5-0) (an unsupervised text modeling approach based on variational auto-encoder), Gaussian softmax construction (GSM) [\[19\]](#page-5-1) (a NVDM variant), the Wasserstein-based Topic Model (WTM) [\[20\]](#page-5-2), the Embedded Topic Model (ETM) [\[21\]](#page-5-3) among others.
-
-*Text summarization:* When the scale of our databases increases, maintaining the interpretability of our knowledge management system becomes more and more challenging. This expanding availability of documents and entries inside the database cannot yield actionable insights without proper aggregation. The field of automatic text summarization deals with this problem by producing a concise and fluent summary while preserving key information content and overall meaning [\[22\]](#page-5-4). For instance, we can first group or cluster the database entries (such as paper abstracts, or reading notes as in our reference manager example) by their semantic similarity or inferred topics. And then, within each group, generate a condensed descriptions. A user case would be, automatically generating writing outlines or topics based on the available references and reading notes in a paper reference manager. In the active field of text summarization, extraction and abstraction are the two main approaches. The extractive summarization techniques generate summaries by choosing a subset of the sentences in the original text, by computing first an intermediate representation of the text, then a sentence score and finally a subset selection operation onto the original texts [\[23\]](#page-5-5). The abstraction approach uses latent semantic analysis, frequency-driven approaches [\[24\]](#page-5-6) and topics modeling which we cover above.
-
-*Symbolic reasoning:* While topic modeling offers interpretable subjects, and text summarization offers interpretable paragraphs, the logic and causal relationship between these insights can be arbitrary. The field of symbolic AI bridge this gap by introducing high-level and human-readable symbolic representations into these
+*Topic modeling:*In natural language processing and machine learning, a topic model is a type of statistical graphical model that help uncover the abstract "topics" that appear in a collection of documents. The topic modeling technique is frequently used in text-mining pipeline to unravel the hidden semantic structures of a text body. This can be very handy in annotating the database entry. For instance, a user scenario could be in a clinical consumer-facing chatbot, where the dialogue between the client and agent is transcribed, and a topic modeling analysis is automatically performed and generate a list of discussed topics and their scores based on semantic similarity, as shown in [\[17\]](#page-4-16). Several state-of-theart neural topic models include the Neural Variational Document Model (NVDM) [\[18\]](#page-5-0) (an unsupervised text modeling approach based on variational auto-encoder), Gaussian softmax construction (GSM) [\[19\]](#page-5-1) (a NVDM variant), the Wasserstein-based Topic Model (WTM) [\[20\]](#page-5-2), the Embedded Topic Model (ETM) [\[21\]](#page-5-3) among others.
+*Text summarization:*When the scale of our databases increases, maintaining the interpretability of our knowledge management system becomes more and more challenging. This expanding availability of documents and entries inside the database cannot yield actionable insights without proper aggregation. The field of automatic text summarization deals with this problem by producing a concise and fluent summary while preserving key information content and overall meaning [\[22\]](#page-5-4). For instance, we can first group or cluster the database entries (such as paper abstracts, or reading notes as in our reference manager example) by their semantic similarity or inferred topics. And then, within each group, generate a condensed descriptions. A user case would be, automatically generating writing outlines or topics based on the available references and reading notes in a paper reference manager. In the active field of text summarization, extraction and abstraction are the two main approaches. The extractive summarization techniques generate summaries by choosing a subset of the sentences in the original text, by computing first an intermediate representation of the text, then a sentence score and finally a subset selection operation onto the original texts [\[23\]](#page-5-5). The abstraction approach uses latent semantic analysis, frequency-driven approaches [\[24\]](#page-5-6) and topics modeling which we cover above.
+*Symbolic reasoning:*While topic modeling offers interpretable subjects, and text summarization offers interpretable paragraphs, the logic and causal relationship between these insights can be arbitrary. The field of symbolic AI bridge this gap by introducing high-level and human-readable symbolic representations into these
 
 practical problems. They can potentially derive logic programming rules and semantic relationships that can be use as actionable knowledge graphs [\[25\]](#page-5-7). Recently, there have also been increasing interests in a modern approach called neuro-symbolic AI [\[26,](#page-5-8) [27\]](#page-5-9), where the well-founded knowledge representation and reasoning from the symbolic perspective are integrated with deep learning from the statistical perspective. This offers both effective predictive power and necessary explainability for many real-world applications.
 
-## **5. Practical Considerations**
+## 5. Practical Considerations
 
 When designing a interconnected and intelligent knowledge management systems for a domain-specific application, here are some practical questions to be considered:
 
 - Database consideration: What are the storage capacities of this technology?
-- *User interface*: What visual and user interface is preferred by users?
+-*User interface*: What visual and user interface is preferred by users?
 - Organizational benefits: What specific organizational functionality would this system provide over current systems?
 - Latency and responsiveness: What are the synchronization capacities of this technology across devices?
 - Customization: Can users modify or customize this system to their own preferences?
@@ -112,11 +108,11 @@ Since we are proposing the idea of introducing relational databases and various 
 
 in terms of the human-system "collaboration" enabled by these systems. Methodologically, tne machine learning engine that powers many human-in-the-loop (HIL) solutions in data curation is reinforcement learning methods that have been demonstrated to effectively learn from human interactions with the speech- or text-based systems [\[33\]](#page-5-15). Operationally, from the human side, we need to encourage people to contribute their knowledge and expertise (e.g. crowdsourcing) by creating an effective user interface that allows people to easily log in, search for and find the information they need.From the system side, we need to ensure that knowledge is effectively captured and stored, consistently updated to keep the knowledge up to date and accuratem and manage different types of knowledge such that it is accessible to the right people. Finally, there are also ethical and societal considerations when we use machine learning and AI to encode knowledge related to human biometrics and well-beings, as reviewed in [\[34\]](#page-5-16).
 
-## **6. Conclusions**
+## 6. Conclusions
 
 In summary, we describe the applied problem of a knowledge management systems that host information that contain multiple and bidirectional relationships in layers of meta data. We briefly survey the application domains, user scenarios and the existing approaches in the fields, and eventually propose a framework for a knowledge management system with relational database and NLPassisted insight annotation. In our framework, a knowledge management system can comprise a user interface to provide input and present output relating to one or more documents or sensors. The system maintains a relational database storing information relating to the one or more documents, and a knowledge parsing unit, in communication to the user interface and the server, can determine at a first time instance the metadata information elements associated with the particular document entry. The databases can then be automatically annotated with NLP techniques such as semantic similarity analysis, topic modeling, text summarization and symbolic reasoning. A knowledge graph can then be learned from these language models to be used as interpretable insights for real-world downstream tasks.
 
-## **References**
+## References
 
 - <span id="page-4-0"></span>[1] B. Lawson, D. Samson, Developing innovation capability in organisations: a dynamic capabilities approach, International journal of innovation management 5 (2001) 377–400.
 - <span id="page-4-1"></span>[2] M. A. Kabir, J. Han, J. Yu, A. Colman, Usercentric social context information management: an

@@ -1,3 +1,5 @@
+<!-- cite_key: luosupsupsupsup2024 -->
+
 # Chain of History: Learning and Forecasting with LLMs for Temporal Knowledge Graph Completion
 
 Ruilin Luo<sup>1</sup><sup>∗</sup> , Tianle Gu<sup>1</sup><sup>∗</sup> , Haoling Li<sup>1</sup><sup>∗</sup> , Junzhe Li<sup>2</sup> , Zicheng Lin<sup>1</sup> , Jiayi Li<sup>3</sup> , Yujiu Yang<sup>1</sup>†
@@ -66,7 +68,7 @@ where M(|θ ′ ) denotes the output of the fine-tuned LLM M with parameters θ 
 
 ## 4 Methodology
 
-#### 4.1 Structure-augmented History Modeling
+### 1 Structure-augmented History Modeling
 
 The LLM's predictions of undiscovered links in the TKG rely on knowledge derived from historical facts. In particular, when dealing with a query quadruple represented as q = (s<sup>i</sup> , p<sup>j</sup> , ?, tq) in a forward reasoning mode, we aim to model the historical chain H<sup>q</sup> associated with this query.
 
@@ -104,13 +106,13 @@ Table 1: Prompts for query (*Japan, Make\_a\_visit*<sup>−</sup><sup>1</sup> *,
 
 the current timestamp is introduced with priority. By following these two criteria, we aim to select the most relevant knowledge to inspire forecasting capabilities in LLMs.
 
-#### 4.2 Introduction of Reverse Logic
+#### 2 Introduction of Reverse Logic
 
 Similar to reasoning on static KGs, we require the model to also possess the capability of reverse inference on TKG [\(Li et al.,](#page-9-4) [2021a\)](#page-9-4). However, recent research indicates that LLM's reasoning has encountered the issue of reversal curse [\(Qi et al.,](#page-9-16) [2023;](#page-9-16) [Berglund et al.,](#page-8-12) [2023;](#page-8-12) [Lv et al.,](#page-9-8) [2023\)](#page-9-8). In this problem, models often succeed in correctly deducing questions like '*Who is Tom Cruise's mother?*' but struggle to answer '*Who is the son of Mary Lee Pfeiffer?*'. We believe that this phenomenon also exists in structured knowledge reasoning. We propose using three prompt strategies to incorporate reverse quadruples during the fine-tuning phase to alleviate this issue, and explore the performance patterns in the context of structured knowledge reasoning scenarios.
 
 As demonstrated in Tbl. [1,](#page-3-0) the most ordinary construction is to treat the structure of backward inferences as forward inferences. The text-aware prompt leverages *reverse* to indicate reverse reasoning, and the position-aware prompt follows the order of backward inference, providing different head entities in the historical records.
 
-#### 4.3 Instruction-tuning in TKGC
+#### 3 Instruction-tuning in TKGC
 
 Instruction-tuning [\(Wei et al.,](#page-10-11) [2021\)](#page-10-11) achieves remarkable zero-shot generalization results by training LLMs on different tasks with instructions. While prior work has demonstrated the effectiveness of fine-tuning LLMs via full-parameter updates, this approach presents considerable challenges at large scale. Hence, we apply the Low-
 
@@ -136,7 +138,7 @@ $$
 
 where Rˆ is the temporal knowledge graph completion predicted by LLM M and R˜ is the given label.
 
-#### 4.4 Predict with LLMs
+#### 4 Predict with LLMs
 
 The instructions constructed are fed into the trained LLMs for prediction. The response is obtained by beam search, which is a decoding strategy that maintains k beams of possible generated responses at each time step t. The generation of response is updated as follows: for each generated response, the k tokens with the highest probabilities are selected based on Eq. [5.](#page-3-1) This results in k × k new response candidates. The next k beams of response are obtained by selecting the top k responses with the highest probabilities from the generated response candidates. The highest probability is determined by the product of probabilities of |R| ˆ tokens that constitute the response, where |R| ˆ represents the length of the current response.
 
@@ -151,7 +153,7 @@ dataset, the model can access the ground truth from past timestamps. Consequentl
 
 ## 5 Experiments
 
-#### 5.1 Datasets
+### 1 Datasets
 
 In our experimental setup, we utilize the ICEWS14 dataset [\(García-Durán et al.,](#page-8-13) [2018\)](#page-8-13), ICEWS18 dataset [\(Li et al.,](#page-9-4) [2021a\)](#page-9-4), ICEWS05-15 dataset [\(Li](#page-9-17) [et al.,](#page-9-17) [2021b\)](#page-9-17), and YAGO dataset [\(Mahdis](#page-9-9)[oltani et al.,](#page-9-9) [2015\)](#page-9-9) as benchmarks for evaluation. The specific statistics are listed in Tbl. [2.](#page-4-0) We employ partition criteria widely accepted in prior studies [\(Han et al.,](#page-8-1) [2021a\)](#page-8-1) and establish instruction-tuning data on the validation set. Specifically, for the ordered timestamp set T = {t 1 train, t<sup>2</sup> train, · · · , t<sup>n</sup> train, t<sup>1</sup> val, · · · , t<sup>m</sup> val}, comprising training and validation sets, when gathering historical data for timestamp t i val, we observe only facts within the range t < t<sup>i</sup> val. In the context of testing under a single-step setup [\(Trivedi et al.,](#page-10-12) [2017\)](#page-10-12), for a query at timestamp tq, we construct a ground-truth chain of history based on facts preceding timestamp tq, serving as the input to the model.
 
@@ -166,17 +168,17 @@ In our experimental setup, we utilize the ICEWS14 dataset [\(García-Durán et a
 
 Table 2: Statistics of leveraged datasets.
 
-#### 5.2 Baseline Models
+#### 2 Baseline Models
 
 The models selected for comparative analysis primarily fall into two categories: embedding-based methods and LLM-based approaches. Within the realm of embedding-based methods, we present the performance evaluations of RE-NET [\(Jin et al.,](#page-8-4) [2020\)](#page-8-4), RE-GCN [\(Li et al.,](#page-9-4) [2021a\)](#page-9-4), TiRGN [\(Li et al.,](#page-9-2) [2022\)](#page-9-2), xERTE [\(Han et al.,](#page-8-1) [2021a\)](#page-8-1), TANGO [\(Han](#page-8-5) [et al.,](#page-8-5) [2021b\)](#page-8-5), Timetraveler [\(Sun et al.,](#page-10-3) [2021\)](#page-10-3). As for GNN-based methodologies, we choose TiRGN [\(Li et al.,](#page-9-2) [2022\)](#page-9-2) and HGLS [\(Zhang et al.,](#page-10-4) [2023\)](#page-10-4) for comparison. Regarding LLM-based approaches, we test GenTKG [\(Liao et al.,](#page-9-6) [2023\)](#page-9-6) and align with our model settings, we focus on the effects of 8-shot in-context learning for Llama-2-7b [\(Touvron et al.,](#page-10-13) [2023\)](#page-10-13), Vicuna-7b [\(Vicuna,](#page-10-14) [2023\)](#page-10-14), and GPT-NeoX-20B [\(Black et al.,](#page-8-14) [2022\)](#page-8-14). In
 
 addition to these, we also include the rule-based method TLogic [\(Liu et al.,](#page-9-5) [2022\)](#page-9-5) in our comparison.
 
-#### 5.3 Evaluation Protocol
+#### 3 Evaluation Protocol
 
 We acknowledge that, at the metric level, notable distinctions exist between LLM-based methods and embedding-based approaches. The latter proves advantageous as it can furnish a precise ranking of all entities in the graph for a query presented in the form of (s, q, ?), facilitating the calculation of metrics like Mean Reciprocal Rank [\(Chao et al.,](#page-8-15) [2021;](#page-8-15) [Yu et al.,](#page-10-15) [2022\)](#page-10-15). However, for LLM-based methods, we can only furnish the ranking of a predetermined number of candidates, relying on the probabilities of output paths from the open-source model [\(Lee](#page-9-3) [et al.,](#page-9-3) [2023a\)](#page-9-3). This is in contrast to obtaining the ranking of all entities in the graph. This constraint stems from the inability to compel the model to remember all entities directly, and it introduces impractical search costs. Consequently, we choose to report relatively accurate Hits@1, Hits@3, and Hits@10 [\(Sun et al.,](#page-10-16) [2019\)](#page-10-16). Furthermore, we align with the perspective outlined in [\(Ding et al.,](#page-8-16) [2021;](#page-8-16) [Jain et al.,](#page-8-17) [2020\)](#page-8-17) that directly excluding all other valid candidates to a specific query in a filtering setting is not entirely reasonable. Additionally, given that the proprietary LLMs we employ for comparison lack the opportunities to output ranking lists, we report raw metrics without loss of generality.[2](#page-4-1)
 
-#### 5.4 Main Results
+#### 4 Main Results
 
 As shown in Tbl. [3,](#page-5-0) Llama-2-7b-CoH and Vicuna-7b-CoH achieves results that surpass or are comparable to the state-of-the-art across multiple metrics under raw setting. Significantly, on the ICEWS05- 15 and YAGO datasets, Vicuna-7b-CoH shows an improvement of 3.3% and 1.9% in the Hits@1 metric compared to the current best models. We observe that on the YAGO dataset, the 8-shot ICL performance of GPT-NeoX-20B, Llama-2-7b, and vicuna-7b is not significantly worse than Llama-2-7b-CoH. However, there is a noticeable gap on the ICEWS14 series datasets, even falling behind embedding-based models. We also report the metrics under the time-aware filtered setting in Tbl. [4,](#page-5-1) where Llama-2-7b-CoH outperforms the previous best-performing TiRGN model by 4.1 percentage points in the Hits@1 on YAGO and also exhibits a substantial advantage on ICEWS05-15
 
@@ -230,13 +232,13 @@ and ICEWS18. The relative performance of the model remains generally consistent 
 
 ## 6 Analysis
 
-#### 6.1 Effective Stucture-based Augmentation
+### 1 Effective Stucture-based Augmentation
 
 To assess the efficacy of the structure-augmented history modeling strategy, we conduct comprehensive ablation experiments on all used datasets, employing Hits@1 as the evaluation criterion. For comparison, we exclude entity-augmented and relation-augmented histories during both the finetuning and inference phases, relying solely on schema-matching history for predictive determination. The results of the ablation studies are depicted in Tbl. [5,](#page-6-0) enabling a clear analysis that structureaugmented history is beneficial for both forward and backward inference.
 
-Illustrating with a practical case, when reasoning about the quadruple (*Economist (United Kingdom), Criticize or denounce, ?, 6960*), due to schema-matching history capturing only a historical fact (*Economist (United Kingdom), Criticize or denounce, Silvio Berlusconi, 120*), this leads to an incorrect inference of *Afghanistan*. However, the entity-augmented history contains multiple instances of *Economist (United Kingdom)* linked through the *Make statement* relation to *United Kingdom*. This similar behavior guides the model to output the correct answer *United Kingdom*. Thus, supplementation enhances to some extent the expression of structured information related to the central node, thereby aiding LLM in making more accurate predictions beyond simply relying on the ground truth history.
+Illustrating with a practical case, when reasoning about the quadruple (*Economist (United Kingdom), Criticize or denounce, ?, 6960*), due to schema-matching history capturing only a historical fact (*Economist (United Kingdom), Criticize or denounce, Silvio Berlusconi, 120*), this leads to an incorrect inference of *Afghanistan*. However, the entity-augmented history contains multiple instances of *Economist (United Kingdom)*linked through the*Make statement*relation to*United Kingdom*. This similar behavior guides the model to output the correct answer *United Kingdom*. Thus, supplementation enhances to some extent the expression of structured information related to the central node, thereby aiding LLM in making more accurate predictions beyond simply relying on the ground truth history.
 
-## 6.2 Effect of Introducing Reverse Logic
+## 2 Effect of Introducing Reverse Logic
 
 We conduct a comprehensive ablation experiment for the introduction of reverse quadruples in the fine-tuning phase. Considering the difficulty of ICEWS18 dataset, we set the length of the history chain to 30, and we set this value to 10 on the other datasets. We use the ordinary prompt as a comparison to verify the effect of the reverse data introduc-
 
@@ -276,9 +278,9 @@ tion. The results are demonstrated in Tbl. [6,](#page-6-1) where Llama-2-7b-CoH 
 
 We still give a comparison of three proposed prompt styles in Tbl. [7.](#page-6-2) We observe that ordinary and text-aware strategies always lead to better results, so we believe that consistency in preserving the inflectional position of different structured quadruples during fine-tuning is more critical.
 
-## 6.3 Exploration on History Length
+## 3 Exploration on History Length
 
-The length of the historical chain L significantly influences prediction outcomes, reflecting the amount of information provided to the LLMs. We conduct experiments with varying history lengths (L = 10, 20, 30, 50), while maintaining other settings constant. We choose the *ordinary prompt* for incorporating reverse quadruples and harness entityaugmented and relation-augmented quadruples to enrich historical facts.
+The length of the historical chain L significantly influences prediction outcomes, reflecting the amount of information provided to the LLMs. We conduct experiments with varying history lengths (L = 10, 20, 30, 50), while maintaining other settings constant. We choose the *ordinary prompt*for incorporating reverse quadruples and harness entityaugmented and relation-augmented quadruples to enrich historical facts.
 
 As illustrated in Fig. [2,](#page-6-3) except the ICEWS14 dataset, on other datasets, the Hits@1 metric ex-
 
@@ -309,11 +311,11 @@ hibits an upward trend followed by stabilization as L increases. We calculate th
 
 Table 9: The performance of some powerful commercial models on 1000 randomly selected test samples in each dataset.
 
-#### 6.4 How Model Size Affects Results
+### 4 How Model Size Affects Results
 
 In this section, we explore how model size of LLMs affects performance in TKGC. We choose Llama-2-13b and Vicuna-33b as comparison and consider leveraging total history length with L = 20, and both add inverse quadruples and structure-based augmentation data for fine-tuning. The results, as shown in Tbl. [8,](#page-6-4) depict that these three sizes models achieve very similar results in Hits@1. Unusually, Hits@1 on ICEWS18 dataset decreases by 3.7% and 0.9% compared to Llama-2-7b-CoH. We point out that increasing the size of the model is a relatively inefficient approach in the context of temporal logical reasoning. Larger models do not necessarily result in a better understanding of interactive information along the temporal chain. This leads us to explore data-centric approaches and improvements in the inherent reasoning limitations of LLMs, such as catastrophic forgetting and the curse of reversibility.
 
-#### 6.5 Performance of Commercial LLMs
+#### 5 Performance of Commercial LLMs
 
 In this section, we test the effectiveness of three powerful commercial LLMs on the TKGC task, aiming to explore the performance differences after multi-task instruction fine-tuning and Reinforcement Learning from Human Feedback (RLHF). We provide the same 8-shot ICL prompt samples for each of the three models on different datasets, as detailed in the appendix. For the test data, we randomly select 1000 queries for both directions on each dataset. Since these models do not provide output probabilities, we only present the most accurate exact match metric, equivalent to the Hits@1 metric under the raw setting. After confirming that there are no fine-tuning on TKGC task and related datasets in the available technical reports [\(OpenAI,](#page-9-18) [2023;](#page-9-18) [Bai et al.,](#page-8-18) [2023\)](#page-8-18), we consider this comparison to be relatively fair.
 
@@ -329,7 +331,7 @@ significant factor, and the subpar performance of commercial LLMs suggests that 
 
 ## References
 
-- <span id="page-8-18"></span>Jinze Bai, Shuai Bai, Yunfei Chu, Zeyu Cui, Kai Dang, Xiaodong Deng, Yang Fan, Wenbin Ge, Yu Han, Fei Huang, Binyuan Hui, Luo Ji, Mei Li, Junyang Lin, Runji Lin, Dayiheng Liu, Gao Liu, Chengqiang Lu, Keming Lu, Jianxin Ma, Rui Men, Xingzhang Ren, Xuancheng Ren, Chuanqi Tan, Sinan Tan, Jianhong Tu, Peng Wang, Shijie Wang, Wei Wang, Shengguang Wu, Benfeng Xu, Jin Xu, An Yang, Hao Yang, Jian Yang, Shusheng Yang, Yang Yao, Bowen Yu, Hongyi Yuan, Zheng Yuan, Jianwei Zhang, Xingxuan Zhang, Yichang Zhang, Zhenru Zhang, Chang Zhou, Jingren Zhou, Xiaohuan Zhou, and Tianhang Zhu. 2023. [Qwen technical report.](https://doi.org/10.48550/ARXIV.2309.16609) *CoRR*, abs/2309.16609.
+- <span id="page-8-18"></span>Jinze Bai, Shuai Bai, Yunfei Chu, Zeyu Cui, Kai Dang, Xiaodong Deng, Yang Fan, Wenbin Ge, Yu Han, Fei Huang, Binyuan Hui, Luo Ji, Mei Li, Junyang Lin, Runji Lin, Dayiheng Liu, Gao Liu, Chengqiang Lu, Keming Lu, Jianxin Ma, Rui Men, Xingzhang Ren, Xuancheng Ren, Chuanqi Tan, Sinan Tan, Jianhong Tu, Peng Wang, Shijie Wang, Wei Wang, Shengguang Wu, Benfeng Xu, Jin Xu, An Yang, Hao Yang, Jian Yang, Shusheng Yang, Yang Yao, Bowen Yu, Hongyi Yuan, Zheng Yuan, Jianwei Zhang, Xingxuan Zhang, Yichang Zhang, Zhenru Zhang, Chang Zhou, Jingren Zhou, Xiaohuan Zhou, and Tianhang Zhu. 2023. [Qwen technical report.](https://doi.org/10.48550/ARXIV.2309.16609)*CoRR*, abs/2309.16609.
 - <span id="page-8-10"></span>Ankur Bapna, Naveen Arivazhagan, and Orhan Firat. 2019. [Simple, scalable adaptation for neural machine](http://arxiv.org/abs/1909.08478) [translation.](http://arxiv.org/abs/1909.08478)
 - <span id="page-8-12"></span>Lukas Berglund, Meg Tong, Max Kaufmann, Mikita Balesni, Asa Cooper Stickland, Tomasz Korbak, and Owain Evans. 2023. [The reversal curse: Llms](https://doi.org/10.48550/ARXIV.2309.12288) [trained on "a is b" fail to learn "b is a".](https://doi.org/10.48550/ARXIV.2309.12288) *CoRR*, abs/2309.12288.
 - <span id="page-8-14"></span>Sid Black, Stella Biderman, Eric Hallahan, Quentin Anthony, Leo Gao, Laurence Golding, Horace He, Connor Leahy, Kyle McDonell, Jason Phang, Michael Pieler, USVSN Sai Prashanth, Shivanshu Purohit, Laria Reynolds, Jonathan Tow, Ben Wang, and Samuel Weinbach. 2022. [Gpt-neox-20b: An](https://doi.org/10.48550/ARXIV.2204.06745) [open-source autoregressive language model.](https://doi.org/10.48550/ARXIV.2204.06745) *CoRR*, abs/2204.06745.
@@ -383,8 +385,8 @@ significant factor, and the subpar performance of commercial LLMs suggests that 
 - <span id="page-10-13"></span>Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurélien Rodriguez, Armand Joulin, Edouard Grave, and Guillaume Lample. 2023. [Llama: Open](https://doi.org/10.48550/ARXIV.2302.13971) [and efficient foundation language models.](https://doi.org/10.48550/ARXIV.2302.13971) *CoRR*, abs/2302.13971.
 - <span id="page-10-12"></span>Rakshit Trivedi, Hanjun Dai, Yichen Wang, and Le Song. 2017. [Know-evolve: Deep temporal reason](http://proceedings.mlr.press/v70/trivedi17a.html)[ing for dynamic knowledge graphs.](http://proceedings.mlr.press/v70/trivedi17a.html) In *Proceedings of the 34th International Conference on Machine Learning, ICML 2017, Sydney, NSW, Australia, 6-11 August 2017*, volume 70 of *Proceedings of Machine Learning Research*, pages 3462–3471. PMLR.
 
-- <span id="page-10-14"></span>Vicuna. 2023. Vicuna: An open-source chatbot impressing gpt-4 with 90%\* chatgpt quality. [https:](https://vicuna.lmsys.org/) [//vicuna.lmsys.org/](https://vicuna.lmsys.org/).
-- <span id="page-10-11"></span>Jason Wei, Maarten Bosma, Vincent Y Zhao, Kelvin Guu, Adams Wei Yu, Brian Lester, Nan Du, Andrew M Dai, and Quoc V Le. 2021. Finetuned language models are zero-shot learners. *arXiv preprint arXiv:2109.01652*.
+- <span id="page-10-14"></span>Vicuna. 2023. Vicuna: An open-source chatbot impressing gpt-4 with 90%\*chatgpt quality. [https:](https://vicuna.lmsys.org/) [//vicuna.lmsys.org/](https://vicuna.lmsys.org/).
+- <span id="page-10-11"></span>Jason Wei, Maarten Bosma, Vincent Y Zhao, Kelvin Guu, Adams Wei Yu, Brian Lester, Nan Du, Andrew M Dai, and Quoc V Le. 2021. Finetuned language models are zero-shot learners.*arXiv preprint arXiv:2109.01652*.
 - <span id="page-10-10"></span>Wenhan Xiong, Mo Yu, Shiyu Chang, Xiaoxiao Guo, and William Yang Wang. 2018. [One-shot relational](https://doi.org/10.18653/V1/D18-1223) [learning for knowledge graphs.](https://doi.org/10.18653/V1/D18-1223) In *Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, Brussels, Belgium, October 31 - November 4, 2018*, pages 1980–1990. Association for Computational Linguistics.
 - <span id="page-10-15"></span>Long Yu, Zhicong Luo, Huanyong Liu, Deng Lin, Hongzhu Li, and Yafeng Deng. 2022. Triplere: Knowledge graph embeddings via tripled relation vectors. *CoRR*, abs/2209.08271.
 - <span id="page-10-4"></span>Mengqi Zhang, Yuwei Xia, Qiang Liu, Shu Wu, and Liang Wang. 2023. Learning long-and short-term representations for temporal knowledge graph reasoning. In *Proceedings of the ACM Web Conference 2023*, pages 2412–2422.
@@ -450,7 +452,7 @@ Table 10: Prompt design using text only.
 
 Table 11: Prompt design using text and id.
 
-#### 8-shot Prompt
+### 8-shot Prompt
 
 <span id="page-13-0"></span>You must be able to correctly predict the next {object} from a given text consisting of multiple quadruplets in the form of "{time}:[{subject}, {relation}, {object}]" and the query in the form of "{time}:[{subject}, {relation}," in the end.
 

@@ -1,3 +1,5 @@
+<!-- cite_key: bui2024 -->
+
 # Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUT
 
 [Tuan Bui](https://orcid.org/0000-0002-8587-182X)<sup>∗</sup> tuanbc88@hcmut.edu.vn Ho Chi Minh City University of Technology (HCMUT) HoChiMinhCity, VietNam
@@ -38,7 +40,7 @@ Graph from multiple data sources and discusses some initial applications (experi
 
 Open Intent Discovery, Knowledge Graph, Large language model, Education, Question-Answering System
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Tuan Bui, Oanh Tran, Phuong Nguyen, Bao Ho, Long Nguyen, Thang Bui, and Tho Quan. 2024. Cross-Data Knowledge Graph Construction for LLMenabled Educational Question-Answering System: A Case Study at HCMUT. In Proceedings of ACM Conference (Conference'17). ACM, New York, NY, USA, [8](#page-7-0) pages.<https://doi.org/10.1145/nnnnnnn.nnnnnnn>
 
@@ -56,7 +58,7 @@ In this paper, we aim to pioneer a KG-based RAG approach for an Educational Ques
 
 ## 2 RELATED WORK
 
-## 2.1 Open Intent Discovery
+## 1 Open Intent Discovery
 
 The task of Open Intent Discovery [\[3\]](#page-5-9) presents several challenges and difficulties in the field of Natural Language Understanding and dialogue systems. One significant challenge is the inherent ambiguity and variability in user expressions. Unlike traditional intent recognition, where a predefined set of categories is used for classification, open intent discovery involves identifying user intents that may not have been encountered during the training phase. This introduces a level of uncertainty and unpredictability, as users can express their intents in diverse and unanticipated ways. Another challenge is the lack of sufficient labeled data for training models in
 
@@ -64,11 +66,11 @@ The task of Open Intent Discovery [\[3\]](#page-5-9) presents several challenges
 
 an open-world setting. Creating labeled datasets for every potential intent becomes impractical, especially when dealing with a wide range of domains and applications. This scarcity of annotated examples for novel intents makes it challenging for models to generalize effectively and accurately identify open intents. In recent years, there has been an increased interest in determining user intent from both written and spoken language, with a focus on modeling and comprehending interactions. Recent studies, such as a method employing a bidirectional LSTM and CRF for detecting user intent efficiently [\[27\]](#page-5-10), an unsupervised two-stage approach aimed at discovering intents and generating meaningful intent labels automatically from unlabeled utterances [\[28\]](#page-5-11), and a method mining unlabeled utterance data to uncover common intents [\[17\]](#page-5-12). These studies collectively highlight the significance of robust approaches for understanding user intent, paving the way for enhanced dialogue systems and virtual assistants. Open intents has been studied in fields such as Customer Care in businesses [\[17,](#page-5-12) [28\]](#page-5-11) and Healthcare facilities[\[19\]](#page-5-13); however, in the realm of education, particularly in Student Care, it remains relatively unexplored.
 
-## 2.2 Knowledge Graph in Education Domain
+## 2 Knowledge Graph in Education Domain
 
 Knowledge Graphs (KGs) have evolved as an effective way to represent knowledge. KGs present a structured and integrated representation of concepts, relationships, and attributes within a domain. There have been many studies on Educational KGs such as knowledge graph for mathematics [\[4\]](#page-5-14), ontology modeling university teaching programs and student profiles (EducOnto) [\[10\]](#page-5-15), knowledge schema for university teaching [\[24\]](#page-5-16), and knowledge graphs to identify labor market needs (education and employment) [\[5\]](#page-5-17). Notably, research on KGs for the Vietnamese educational area is sparse. Huong and Phuc [\[25\]](#page-5-18) introduced a framework for extracting triples (subject-predicate-object relationships) from Vietnamese. However, their technique has limitations in handling complex sentences and is applied to the travel area.
 
-## 2.3 KG-augmented LLMs
+## 3 KG-augmented LLMs
 
 One major hurdle for LLMs is their occasional struggle with factual accuracy and hallucinations. This is where KGs come in. KGs offer a structured representation of knowledge, encoding entities and their relationships in a machine-readable format. KG-augmented LLMs aim to bridge this gap by leveraging the strengths of both approaches. If the generated information from LLMs aligns with the "ground truth" represented by the KGs, it can be considered factually accurate and non-hallucinatory. This enhancing method involves refining the inference process of LLMs [\[1\]](#page-5-19), optimizing learning mechanisms [\[14\]](#page-5-20) , and establishing a result validation mechanism [\[12\]](#page-5-21). Significant progress has been made through these studies, highlighting the importance of continuous innovation and supporting the advancement of more advanced KG-augmented LLMs.
 
@@ -82,7 +84,7 @@ Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Ans
 
 In this section, we delve into the methodological approach employed in our research to extract valuable insights from a multisource educational data environment for KG construction, served as the foundation of an LLM-enabled educational QA system. We begin by discussing the nature of the data sources in the university environment of HCMUT and how they contribute to a comprehensive understanding of the educational ecosystem. We then introduce the E-OED Framework (Educational Open Entity Discovery) , a robust methodology designed to explore intents using unsupervised learning methods. This framework is particularly adept at handling challenges such as overlapping entities, open intents, and data fusion from multiple sources. Lastly, we present our method for Relation Discovery, allowing us to explore relationships among different types of entities and construct a KG representing the education domain.
 
-## 3.1 Multi-source educational data at HCMUT
+## 1 Multi-source educational data at HCMUT
 
 In the dynamic landscape of a university environment like HCMUT, data streams from a myriad of sources, forming a complex multisource ecosystem. This diverse and interconnected web of entities provides a comprehensive picture of the university ecosystem, enabling a deeper understanding of user needs, educational processes, and the overall university environment. includes the following data sources.
 
@@ -99,7 +101,7 @@ policies/regulations, and course information. Knowledge extractable from this so
 
 • Learning Management System (LMS) and other supporting systems: These systems help students keep track of their coursework throughout the school year. Knowledge extractable from this source includes courses, keywords, discipline terminology, discipline theory, books, documents, journals, and course participants (students, lecturers, teaching assistants).
 
-## 3.2 The E-OED Framework
+## 2 The E-OED Framework
 
 <span id="page-2-1"></span>![](_page_2_Figure_13.jpeg)
 
@@ -119,7 +121,7 @@ Semantic Clustering To obtain sentence embedding, we employ SimCSE [\[6\]](#page
 
 Automatic Cluster Labeling The final step in this process involves the automatic labeling of the clusters. To accomplish this task, our initial approach entails employing the word-segmentation tool for sentence segmentation within each cluster. Subsequently, the segmented sentences undergo analysis using the PhoNLP [\[21\]](#page-5-25) to execute both POS tagging and dependency tagging. Following the extraction of tags by the PhoNLP, a rule-based approach is implemented. Further refinement is achieved by identifying the most frequently occurring tokens within each subset, which are then designated as our cluster labels. Figure [4](#page-3-1) presents a compilation of some of the discovered intents from the FAQ dataset as the results of Semantic Clustering and Cluster Labelling processes. Involving courses and class groups, there exists a multitude of inquiries ranging from course enrollment, class transfers, and capacity expansions, to timetable matters. Investigating the intents and associated entities can aid in providing good responses or initiating subsequent actions.
 
-# 3.3 Embedding-based method for Relation Discovery
+# 3 Embedding-based method for Relation Discovery
 
 In the context of Relation Discovery between Intents and other entities, we adopt an Embedding-based approach. Due to resource and time constraints, we initially experimented with two major types of entities: intent and policy. To accommodate a large amount of diverse data with varying lengths, we employ two-stage retriever.
 
@@ -137,17 +139,17 @@ Fig. 5: Relation Discovery Module using Embedding-based method
 
 ## 4 EXPERIMENTS
 
-## 4.1 Datasets
+## 1 Datasets
 
 The experimental datasets consist of three different datasets Banking77\_eng, Banking77\_vni, and FAQ\_HCMUT\_vni presented in Table [1.](#page-4-0) Banking77\_en [\[2\]](#page-5-27) is an English dataset that contains 77 customer intents from over 10,000 questions in the banking domain. Banking77\_vni is a Vietnamese dataset that is an auto-translation (using Google Translate) of the Banking77\_eng dataset. FAQ\_HCMUT\_vni is a Vietnamese dataset that contains over 200,000 frequently asked questions (FAQs) collected from the HelpDesk system of the HC-MUT. The Banking77\_eng and Banking77\_vni datasets are used to evaluate the performance of the our framework. While FAQ\_HCMUT\_vni dataset is used to demonstrate the result of the OED framework. To investigate the impact of different embeddings on clustering performance, our framework utilizes Vietnamese SimCSE for Vietnamese datasets, while the original BERTopic employs a sentencetransformers model (all-miniLM-L6 variant).
 
 Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUTConference'17, July 2017, Washington, DC, USA
 
-## 4.2 Discovered Educational Open Intents
+## 2 Discovered Educational Open Intents
 
 Table [1](#page-4-0) illustrates the outcomes of our experimentation in discovering intents across the specified datasets. To validate the OED Framework, we executed the BERTopic framework on two datasets, Banking77\_eng and Banking77\_vni. The clustering results in Cases 1 and 2 demonstrate the superior performance of the BERTopic framework with the English dataset, where 73 intents were identified, closely aligning with the 77 predetermined categories. However, in the Banking77\_vni dataset, the count of identified intents notably decreased to 65. In Case 3, the OED Framework exhibited better performance with the Banking77\_vni dataset compared to the BERTopic framework for the Vietnamese language, yielding 76 extracted intents. Subsequently, we applied the OED Framework to the HCMUT\_FAQ\_vni dataset (Case 4), resulting in a total of 284 clusters with significant noised clusters, and duplicated clusters. Despite this, approximately 372 intents were derived from these clusters, although a substantial number of intents remain undiscovered. As previously mentioned, Figure [4](#page-3-1) illustrates some remarkable open intents discovered by our approach.
 
-#### Table 1: Open intent discovery result
+### Table 1: Open intent discovery result
 
 <span id="page-4-0"></span>
 
@@ -158,7 +160,7 @@ Table [1](#page-4-0) illustrates the outcomes of our experimentation in discover
 | 3    | OED Framework | Banking77_vni | 257          | 76               |
 | 4    | OED Framework | HCMUT_FAQ_vni | 284          | 372              |
 
-# 4.3 Embedding-based method for Relation Discovery Result
+# 3 Embedding-based method for Relation Discovery Result
 
 The embedding-based approach for relation discovery has yielded promising results in exploring relationships between entities, particularly in the education domain. Table [2](#page-4-1) show the result of Embeddingbased approach, in this experiment, there are 243 intent entities and 237 policy entities. Following our approach, and after several trials, we've settled on a threshold of 0.32. A total of 613 relationships between entity pairs (intent and policy) have been identified. Out of these, 53 intent entities do not have any associations with policy entities. For instance, the intent "download form" is broad and lacks specific entity references. Additionally, among these 53 intent entities without relationships, 22 intents are overlooked, indicating they indeed have connections with policies but were not detected. For example, "Cancel course" and "Withdraw course" are linked to the Withdrawal Policy.
 
@@ -171,7 +173,7 @@ The embedding-based approach for relation discovery has yielded promising result
 | Non-associative intents  | 53               |  |
 | Overlooked intents       | 22               |  |
 
-# 4.4 KG-augmented LLMs Approach in Educational Context
+# 4 KG-augmented LLMs Approach in Educational Context
 
 To address the "KG-augmented LLMs" aspect of the research and its application in the education domain at HCMUT, we conduct a general pipeline of the question-answering system following the Figure [6](#page-4-2) (a). The process of answering user questions involves feeding the question into our institution's LLM, URA, which generates a structured query in the form of Neo4j's Cypher language, as our knowledge graph database is built on Neo4j. This query searches a knowledge graph database handcrafted using intent discovery's result to retrieve matching sub-graphs and relevant triples. Next, the triples are converted into a natural language format and combined with the original user question to create a final prompt for the LLM. The prompt guides the LLM in generating a coherent and accurate answer as demonstrated in Figure [6](#page-4-2) (b).
 
@@ -181,7 +183,7 @@ To address the "KG-augmented LLMs" aspect of the research and its application in
 
 Fig. 6: KG-augmented LLMs Approach and Demonstration of course withdrawal case
 
-## 4.5 Discussion
+## 5 Discussion
 
 The section above outlines the outcomes of our research efforts focused on three key areas: Discovering open-intents, Developing an embedding-based technique for Relation Discovery, and Implementing KG-augmented LLMs approach.
 
@@ -247,7 +249,7 @@ A.1.1 Data Preprocessing. Due to Vietnamese being a predominantly analytic langu
 
 Furthermore, to comply with dataset privacy policies, we implemented a text anonymization tool to censor any personally identifiable information (PII) within the sentences. Details regarding the specific objects censored and the corresponding replacement terms are presented in Table [3](#page-6-0)
 
-#### Table 3: Data censored tool
+### Table 3: Data censored tool
 
 <span id="page-6-0"></span>
 

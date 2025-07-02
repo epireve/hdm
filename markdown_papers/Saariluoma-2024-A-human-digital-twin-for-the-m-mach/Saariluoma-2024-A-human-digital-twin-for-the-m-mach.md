@@ -1,18 +1,17 @@
-#### **Research**
+<!-- cite_key: new2023 -->
 
-# **A human digital twin for the M‑Machine**
+# Research
 
-**Pertti Saariluoma1  [·](http://orcid.org/0000-0001-7331-8448) Mari Myllylä[1](http://orcid.org/0000-0002-9753-373X) · Antero Karvonen2 · Mika Luimula3  [·](http://orcid.org/0000-0001-6368-1366) Jami Aho<sup>3</sup>**
+# A human digital twin for the M‑Machine
 
-Received: 22 December 2023 / Accepted: 26 August 2024 © The Author(s) 2024 OPEN
+**Pertti Saariluoma1  [·](http://orcid.org/0000-0001-7331-8448) Mari Myllylä[1](http://orcid.org/0000-0002-9753-373X) · Antero Karvonen2 · Mika Luimula3  [·](http://orcid.org/0000-0001-6368-1366) Jami Aho<sup>3</sup>**Received: 22 December 2023 / Accepted: 26 August 2024 © The Author(s) 2024 OPEN
 
-### **Abstract**
+## Abstract
 
 Human digital twins are computational models of the human actions involved in interacting and operating technical artifacts. Such models provide a conceptual and practical tool for artifcial intelligence designers when they seek to replace human work with intelligent machines. Indeed, digital twins have long served as models of technical and cyber-physical processes. Human digital twins have such models as their foundations but also include models of human actions. As a result, human digital twin models enable technology designers to model how people interact with intelligent technical artifacts. Yet, development of human digital twins is associated with certain conceptual problems. To clarify the basic idea, we constructed a human digital twin for Minsky's M-Machine. The abstract conceptual structure of this machine and its generality allowed us to analyze the general properties of human digital twins, their design, and their use as tools in designing intelligent technologies.
-
 **Keywords** User modeling · Interaction design · HTI design theory · Human digital twins · M-machine · Design science · Cognitive mimetics
 
-# **1 Introduction**
+# 1 Introduction
 
 Society 5.0 and its industrial component, Industry 5.0 programs, are changing thinking regarding technology design [[1–](#page-10-0)[3](#page-10-1)]. In the future, the focus of design will likely be as much on what people do with technologies as on the actual physical or cyber-physical artifacts [\[4\]](#page-10-2). The ultimate motivation for this changing perspective is the emergence of intelligent technologies and artifcial intelligence (AI). Future technologies will be able to perform tasks that previously only people could perform [\[5](#page-10-3), [6\]](#page-10-4). The efciency of new technologies makes it necessary to shift the focus of design to more holistic concepts, including what people will do with future technical artifacts. Indeed, it is no longer wise to separate technical artifacts from their social efects during design processes.
 
@@ -22,11 +21,7 @@ Designers should consider how people interact with new, intelligent technical ar
 
 <sup>\*</sup> Pertti Saariluoma, ps@jyu.f; Mari Myllylä, mari.t.myllyla@jyu.f; Antero Karvonen, antero.karvonen@vtt.f; Mika Luimula, mika.luimula@ turkuamk.f; Jami Aho, jami.aho@turkuamk.f | 1 University of Jyväskylä, PL 35, 40014 Jyväskylä, Finland. 2 VTT Technical Research Centre of Finland Ltd, P.O. Box 1000, 02044 VTT Espoo, Finland. 3 Turku AMK Turku University of Applied Sciences, Joukahaisenkatu 3, 20520 Turku, Finland.
 
-![](_page_0_Picture_13.jpeg)
-
 Discover Artifcial Intelligence (2024) 4:61 | https://doi.org/10.1007/s44163-024-00164-x
-
-![](_page_0_Picture_16.jpeg)
 
 issue in designing intelligent technologies, although it represents only part of the challenge. It is also important to model how people process information in using and interacting with these technological artefacts. Such models we have called Human Digital Twins (HDTs) [[7\]](#page-10-6).
 
@@ -40,7 +35,7 @@ Here, we call attention to conceptual and cognitive engineering [[12](#page-10-1
 
 In sum, our research question is how to use human research in digital twinning, i.e. how to construct human digital twins. The question makes sense, because digital twinning is generally used in technology design paradigm, but it largely ignores modeling human users. Modern technology design should be holistic and consider how technologies function in human life [[1–](#page-10-0)[4](#page-10-2)].
 
-## **2 Thought, mind, machine**
+## 2 Thought, mind, machine
 
 Cognitive mimetics is a method of design by which designers imitate human information processing. In traditional biomimetic thinking, designers imitate biological structures to support their ideation. Thus, the structure of a bird's wing has been used to search for solutions concerning the forms of airplane wings. In the future, intelligence will be central to the innovation of technological solutions, which indicates that an additional model imitating nature will be required.
 
@@ -62,7 +57,7 @@ Each state is evaluated, and a choice is made regarding whether to proceed to th
 
 The conception of the mind as an information-processing system allows us to analyze how people process information when performing tasks that demand intelligence. Such knowledge enables us to consider how computational machines could carry out the same tasks. For example, it is possible to assess how machines could load ships or trucks, how machines could drive cars or ships, how the whole transportation chain could be automatized so that human work was minimized, and what the social consequence of replacing millions of truck drivers with intelligent transportation systems would be. As these tasks can currently be performed by people, there must be information processes taking care of such tasks. As a consequence, when designing computational processes, it is important to explicate how people perform the mental aspects of their work. To concretize our concepts over the paper we use car user interface as a toy example, as it is familiar to practically all readers.
 
-### **3 Cognitive mimetics**
+### 3 Cognitive mimetics
 
 Intelligence can be understood as adaptive, sense-making information processing [\[22\]](#page-10-19). Thus, intelligence depends on the system's capacity to organize information efectively. For example, when solving problems, people are able to transform an initial information state into a solution state by means of logical operations [[16\]](#page-10-14). Solutions are reached using organized sets of operations or deeds leading from an initial state to a defnite goal state. AI systems can also intelligently solve problems [\[6](#page-10-4), [16](#page-10-14)]. A practical example of this can be seen in Alan Turing's work on deciphering German naval codes during World War Two [\[29](#page-11-6)].
 
@@ -76,7 +71,7 @@ It takes just a brief step to move from modeling human thinking to designing int
 
 In case of car driving researcher explicates drivers' thought processes using e.g. protocol analysis [[32](#page-11-9)]. Drivers relate what come in their minds and on the grounds of this information researchers can design mimetic model of what happens in the minds of the drivers. Such model entails e.g., route plans, how drivers observe trafc situations, meters and how they use controls.
 
-### **4 Human digital twins**
+### 4 Human digital twins
 
 Cognitive mimetics is a model for designing intelligent industrial and everyday technology-supported processes. However, a mere process is not sufcient. It is also essential to construct models of intelligent actions in which people and machines process information as systems [[33](#page-11-10)]. HDTs provide a conceptual framework for operationalizing the research and design of cognitive mimetics. The main goal of cognitive mimetics is to investigate what happens in the human mind during thinking and then to use that fnding as a central element in the design of intelligent technology.
 
@@ -86,17 +81,17 @@ However, the cyber-physical world operates in causally organized, physically or 
 
 If similar benefts are to be gained from DTs, the models need to mimic human thought and action to a degree that is ft for purpose. Cognitive mimetics and HDTs form a natural pair from this perspective. In practice, human actions should be harmonized with the actions of technical artifacts in models; however, thanks to diferences in the principles that human minds follow, it is essential to use paradigms that best ft mental operations, such as perception, attention, language, and thinking [[15\]](#page-10-13). Such models have been developed, for example, within cognitive psychology, over the years, beginning with the Turing machine [[22\]](#page-10-19), test–operate–test–exit (TOTE) model [\[37\]](#page-11-14), and physical symbol systems [\[17\]](#page-10-15) as well as the goals–operators–methods–selection (GOMS)—[\[30](#page-11-7)] and adaptive character of thought–rational (ACT–R)-like [[15](#page-10-13)] architectures. Moreover, additional kinds of models have been built based on neural networks [\[38](#page-11-15)[–40\]](#page-11-16). In this paper,
 
-#### <span id="page-4-0"></span>**Fig. 1** The M-Machine (adapted from [\[5](#page-10-3)])
+#### <span id="page-4-0"></span>Fig. 1 The M-Machine (adapted from [\[5](#page-10-3)])
 
 ![](_page_4_Figure_4.jpeg)
 
-<span id="page-4-1"></span>**Fig. 2** A human digital twin for the M-Machine. U=user or operator, HIP=human interaction point, M=machine, and EN=(action) environment
+<span id="page-4-1"></span>**Fig. 2**A human digital twin for the M-Machine. U=user or operator, HIP=human interaction point, M=machine, and EN=(action) environment
 
 we suggest an additional model of human action in process control that we refer to as the ideal–exception–correction (IEC) model [\[20\]](#page-10-17). The proposed model is characteristic of industrial control processes.
 
 In constructing HDTs our model specifcally focusses on human information processing. Human mind represents situations, actions and information contents in mind and uses the properties of information contents in the minds of users to solve interaction design problems. Thus, diferently from many approaches thoroughly revied in a recent study [[41,](#page-11-17) Table 5], we look humans in HDTs as human information processing systems and focus especially on relevant information contents ofpercepts, thoughts and mental representations, i.e. on mental contents [[42\]](#page-11-18).
 
-# **5 The M‑Machine**
+# 5 The M‑Machine
 
 One way to develop an HDT is to design it based on an abstract conceptual machine, which could be, for example, a Turing machine, fnite automaton machine, post-Turing machine, or Kleene machine [[43\]](#page-11-19). The basic idea behind such a theoretical approach is to conceptualize key problems with a general conceptual model. If some aspect of designing an HDT would become obvious when designing an HDT for a general machine, the same problem would emerge with any concrete solution.
 
@@ -124,7 +119,7 @@ A paper machine, for example, has controls that enable users to steer the behavi
 
 The M-Machine can, by means of interpretation—defning the input variables, output variables, and internal processes—be modifed to model any machine. As a result, it can become a model of any control-dominated HDT. The core process is the interpretation of the key elements, which concretizes the machine component of the HDT. In our mind, the proposed IEC model is an example of this concretization [\[20](#page-10-17)].
 
-### **6 HIP**
+## 6 HIP
 
 People operate machines, and they are also involved in the processes therein. However, the degree of human involvement may vary. The control of a room's temperature regulation can be fully automatized so that people can set it and then not touch it for a decade. Nevertheless, the thermostat is still operated by people. Of course, sometimes, as in driving a car, people are very much in the loop and constantly steer the process. The points and actions through which people are involved in the processes of any machine, including the M-Machine, can be termed HIPs.
 
@@ -140,7 +135,7 @@ Technically, an HIP in the widest sense entails all the possible states of all t
 
 An HIP space can often be analogical, such as when playing a violin or driving a car. However, if required, analogical action spaces can be digitalized, as is possible when recording music. The key issue is that the controls and their possible states create limits for people when it comes to operating machines. An HIP refers to control instruments and feedback meters as well as to the direct observational states of the machine. Direct and instrumented observations play the same role in terms of the HIP. They provide knowledge concerning the current state of the process and the way the process has deviated from the assumed ideal state, thereby providing information about the expected correction operations. HIP is state space combining all possible human input states, (e.g., meter values) with all the possible instrument values.
 
-### **7 Describing the users of HDTs**
+### 7 Describing the users of HDTs
 
 A necessary component of an HDT is the description of the user or operator. Minsky [[5\]](#page-10-3) did not include a model of the user in his M-Machine, although it still makes sense to consider what kinds of properties are needed when describing human users. The issue may be complicated, but it still makes sense to model users and their actions [[46](#page-11-22)]. In fact, user modeling is key to constructing HDTs.
 
@@ -164,7 +159,7 @@ dimension of usability can be suggested. In principle, several models for the ps
 
 As all the defning parameters of the M-Machine HDTs are abstract, the HDT model presented in this paper can be applied to very diferent types of machines whose operations people intend to control. Our approach to the design of HDTs is based on the idea that HDTs are abstractly analogous. Thus, by creating abstract HDTs, it is possible to study HDT design problems on a higher level and by bonding abstract variables to concrete processes.
 
-### **8 Ideal, exception, and correction**
+### 8 Ideal, exception, and correction
 
 HDTs serve as tools for designers. The spectrum of technology-supported human actions that can be modelled by HDTs is wide; therefore, the palette of possible HDTs and their diferent types also vary extensively. Our IEC model was designed based on modeling the empirical results of the work of operators within the paper industry [\[20\]](#page-10-17).
 
@@ -184,7 +179,7 @@ Yet, the IEC\_081 model does not yet supply comprehensive descriptions of ideal 
 
 Thus, the IEC model fulfills the function of guiding research. If it reaches a final state, it becomes an HDT in the sense that it is both a model of operators' actions and a reflection of their mental contents. Essentially, it would be a potential automatic controller (or, at least, form a basis for one) that is cognitively mimetic of operators' actions and thoughts. This simple basis can, however, be taken in many directions.
 
-### **9 IEC 2.0**
+### 9 IEC 2.0
 
 Methodologically, one of the most conceptually insightful methods is to model human thinking by means of simulation [[15,](#page-10-13) [17\]](#page-10-15). Simulation models of human thinking make it necessary to consider the conceptual structure of the thought processes in detail and, therefore, to eliminate illogical intuitive assumptions. For this reason, we modelled mental processes by developing a computational model of human information processing known as the IEC model [[20](#page-10-17)].
 
@@ -208,7 +203,7 @@ The IEC model is unique, although this does not mean that the same process could
 
 ![](_page_8_Picture_15.jpeg)
 
-### **10 Discussion: using HDTs in designing human‑operated technical artifacts**
+### 10 Discussion: using HDTs in designing human‑operated technical artifacts
 
 In developing new super intelligent Society 5.0 it is essential to combine designing what people do with technical artifacts with designing what kinds of artifacts they use [[4](#page-10-2)]. This presupposes holistic design practices, in which the two aspects are combined. As Digital twinning is a very commonly used approach in technology design [[34\]](#page-11-11) it makes sense to add human digital twins (HTDs). We have used M-Machine as a demonstration platform for such a design practice.
 
@@ -227,26 +222,19 @@ The IEC model is an example of an HDT model. It is intended to assist work by mo
 HDTs can serve as a framework that captures actions and, over time, learns to act increasingly autonomously. Human operators can simply choose to capture an activity as a macro, while the episodic structure apparent in many contexts can be automated from a human perspective. The adaptive intentionality inherent in human action can thus be abstracted bit by bit to higher orders of actions so that machine operations are no longer strange, alien processes but rather recognizably human ones. This will situate human actions in the future intelligent society in the place they belong—as conductors of intricate machine intelligence with human roots.
 
 HDTs provide a good tool for conceptual engineering when working toward holistic design processes in which designers focus as much on human actions and the ways people live as they do on artifacts [[13,](#page-10-21) [48](#page-11-24)]. This is necessary in relation to transforming technology design from mere artifact design into the construction of new kinds of societies.
-
-**Acknowledgments** This work for PS, AK and MM was supported by both the Etairos STN project of the Academy of Finland (decision number 327355) and Business Finland through the COACH project (project number 3289/31/2022), operating under the umbrella of the SEEDForest ecosystem. This work for ML and JA was supported by Business Finland through the COACH project (project number 3289/31/2022).
-
-**Author contributions** The authors Pertti Saariluoma, Mari Myllylä, Antero Karvonen, Mika Luimula and Jami Aho contributed equally to the work.
+**Acknowledgments**This work for PS, AK and MM was supported by both the Etairos STN project of the Academy of Finland (decision number 327355) and Business Finland through the COACH project (project number 3289/31/2022), operating under the umbrella of the SEEDForest ecosystem. This work for ML and JA was supported by Business Finland through the COACH project (project number 3289/31/2022).
+**Author contributions**The authors Pertti Saariluoma, Mari Myllylä, Antero Karvonen, Mika Luimula and Jami Aho contributed equally to the work.
 
 ![](_page_9_Picture_15.jpeg)
+**Funding**Saariluoma, Karvonen and Myllylä's work was supported by both the Etairos STN project of the Academy of Finland (decision number 327355) and Business Finland through the COACH project (project number 3289/31/2022), operating under the umbrella of the SEEDForest ecosystem. Luimula and Aho's work was supported by Business Finland through the COACH project (project number 3289/31/2022).
+**Data availability**No datasets were generated or analysed during the current study.
+**Code availability**Not applicable.
 
-**Funding** Saariluoma, Karvonen and Myllylä's work was supported by both the Etairos STN project of the Academy of Finland (decision number 327355) and Business Finland through the COACH project (project number 3289/31/2022), operating under the umbrella of the SEEDForest ecosystem. Luimula and Aho's work was supported by Business Finland through the COACH project (project number 3289/31/2022).
+#### Declarations
+**Competing interests**The authors declare no competing interests.
+**Open Access**This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modifed the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit [http://creativeco](http://creativecommons.org/licenses/by-nc-nd/4.0/) [mmons.org/licenses/by-nc-nd/4.0/.](http://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-**Data availability** No datasets were generated or analysed during the current study.
-
-**Code availability** Not applicable.
-
-#### **Declarations**
-
-**Competing interests** The authors declare no competing interests.
-
-**Open Access** This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modifed the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit [http://creativeco](http://creativecommons.org/licenses/by-nc-nd/4.0/) [mmons.org/licenses/by-nc-nd/4.0/.](http://creativecommons.org/licenses/by-nc-nd/4.0/)
-
-### **References**
+### References
 
 - <span id="page-10-0"></span>1. Deguchi A, Hirai C, Matsuoka H, Nakano T, Oshima K, Tai M, Tani S. What is society 5.0? In: Society 5.0. Singapore: Springer; 2020. [https://](https://doi.org/10.1007/978-981-15-2989-4_1) [doi.org/10.1007/978-981-15-2989-4\\_1](https://doi.org/10.1007/978-981-15-2989-4_1).
 - <span id="page-10-5"></span>2. Fukuyama M. Society 5.0: aiming for a new human-centered society. Jpn Spotlight. 2018;27:47–50.
@@ -299,7 +287,6 @@ HDTs provide a good tool for conceptual engineering when working toward holistic
 - <span id="page-11-22"></span>46. Carroll JM. Human-computer interaction: psychology as a science of design. Annu Rev Psychol. 1997;48:61–83. [https://doi.org/10.1146/](https://doi.org/10.1146/annurev.psych.48.1.61) [annurev.psych.48.1.61](https://doi.org/10.1146/annurev.psych.48.1.61).
 - <span id="page-11-23"></span>47. Baddeley A. Working memory: theories, models, and controversies. Annu Rev Psychol. 2012;63:1–29. [https://doi.org/10.1146/annur](https://doi.org/10.1146/annurev-psych-120710-100422) [ev-psych-120710-100422.](https://doi.org/10.1146/annurev-psych-120710-100422)
 - <span id="page-11-24"></span>48. Eklund M. Conceptual engineering in philosophy. In: Khoo J, Sterken RK, editors. The Routledge handbook of social and political philosophy of language. New York: Routledge; 2021. p. 15–30.
-
 **Publisher's Note** Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional afliations.
 
 ![](_page_11_Picture_30.jpeg)

@@ -1,3 +1,5 @@
+<!-- cite_key: qiu2022 -->
+
 # A Privacy-Preserving Subgraph-Level Federated Graph Neural Network via Differential Privacy
 
 Yeqing Qiu 1 , 2 , Chenyu Huang 1 , Jianzong Wang 1 ? , Zhangcheng Huang 1 , and Jing Xiao 1
@@ -28,7 +30,7 @@ In this paper, we propose a novel DP-based GNN that aims at the sub-graph level 
 
 # 2 Preliminaries
 
-#### 2.1 Problem Formulation
+## 1 Problem Formulation
 
 In this work, denote U = {u1, u2, · · · , un} and P = {p1, p2, · · · , pm} as user and item respectively. The purchasing interaction of user and item relationship is represented by a bipartite graph G ∈ R <sup>n</sup>×m, in which the value of edges refers to the points the user rate the item. Since each client will only have a part of global graph, for client i, the user-item bipartite graph is denoted as G<sup>i</sup> = (V i , E<sup>i</sup> ). In detail, the set of vertexes and edges are denoted as V i , E<sup>i</sup> respectively. The task is to predict the ratings of users and items based on user-item graph. Thus, client i will train a local model in round r, the parameters of which are denoted as θ l i . The global model parameter that aggregate from each client is θ r . Additionally, define dist(x, y, G) as the shortest path of vertex x and y in graph G. Define dist(v, S, G) = minx∈S dist(v, x, G). The notation is summarized in Table [1.](#page-2-0)
 
@@ -48,7 +50,7 @@ In this work, denote U = {u1, u2, · · · , un} and P = {p1, p2, · · · , pm}
 
 <span id="page-2-0"></span>Table 1. Notations used in DP-FedRec.
 
-#### 2.2 Local Differential Privacy
+### 2 Local Differential Privacy
 
 Local differential privacy guarantees the privacy of the user in the process of collecting information. Specifically, before the user uploads the data to an untrusted third party, a certain amount of noises is added to the uploaded data. This guarantees that the data collectors can hardly infer the specific information of any user, but are able to learn the statistical properties of the data by increasing the amount of data.
 
@@ -63,19 +65,19 @@ P[M(X) = t] \le e^{\epsilon} P[M(X') = t]
 $$
 \n<sup>(1)</sup>
 
-#### 2.3 Federated Graph Neural Network
+#### 3 Federated Graph Neural Network
 
 Graph neural network is widely used in recent recommendation systems [\[27\]](#page-11-7). In this paper, we leverage the graph convectional network (GCN) [\[9\]](#page-10-5) under the message passing neural network framework (MPNN) . MPNN is a supervised learning framework which extracts information from the user-item graph by aggregating adjacency information into the latent space, and then generates the prediction from the latent space.
 
 Furthermore, we extend GNN to the federated scenario which is the same as in [\[7\]](#page-10-3). Specifically, it is a sub-graph setting where each entity/company has a part of data/graph, such as users and rating information, and a model is jointly trained on the entire data for better prediction accuracy. Therefore, there are multiple clients and one centralized server. For communication round r in the training stage, client i will get the model parameter θ r <sup>i</sup> by training the local model for e epochs on the sub-graph G<sup>i</sup> r . The server will aggregates the parameters θ<sup>r</sup> = Pθ r i l and distribute them to all local clients, and each client updates its local model parameters as θ r i .
 
-#### 2.4 Private Set Intersection
+#### 4 Private Set Intersection
 
 Private Set Intersection (PSI) is a cryptographic protocol in multiparty computation. It allows two clients to get the intersection set of the data without revealing any information outside the intersected data. There are many different implementations of PSI, DP-FedRec instantiates the PSI the same as [\[10\]](#page-11-8). It leverages the programmable pseudo random function (OPPRF) which is fast and efficient.
 
 # 3 Approach
 
-#### 3.1 Overview
+## 1 Overview
 
 The basic federated GNN framework does not use the graph information from others and could cause non-IID problem in the training data. We will first present FedRec which extends the sub-graph of each client without leaking the information of the edges. Then we will introduce DP-FedRec that combines FedRec and DP and jointly considers the privacy of both weights and connectivity of the edges simultaneously.
 
@@ -85,7 +87,7 @@ Specifically, DP-FedRec jointly trains a model via four steps as shown in Fig. [
 
 <span id="page-4-0"></span>Fig. 1. Overall framework of DP-FedRec. Each bipartite graph refers to purchasing relationship between user and item in each platform and client. The purple ones are the users in the intersection set of clients' sub-graphs.
 
-#### 3.2 User-Item Graph K-hop Expansion
+### 2 User-Item Graph K-hop Expansion
 
 To overcome the non-IID problem, FedRec privately exchanges the edges information between clients. The main idea is to expand the edges from the intersected users in different sub-graphs. In two-client setting, for example, the intersected users are the users appear in both sub-graphs. We integrate PSI to the K-hop extension, which avoid leaking the user-item information that is not in the intersection set.
 
@@ -95,7 +97,7 @@ edges with G<sup>i</sup> to form the new graph G¯(i) (Line 11-14 in Algorithm [
 
 However, the PSI only preserves the privacy of the edges the other clients do not own. It's not able to protect the privacy of the edges in the intersection set. Thus, we leverage DP to FedRec to extend FedRec to DP-FedRec via DP.
 
-### 3.3 Privacy-Preserve User-Item Graph Sharing
+### 3 Privacy-Preserve User-Item Graph Sharing
 
 Since the user-item graph contains sensitive information involving user privacy, the direct interaction of the user-item graph between clients will be strictly restricted due to privacy regulations. DP-FedRec applies different DP algorithms in both topology as well as the weights information to preserve the privacy of both.
 
@@ -105,7 +107,7 @@ For the protection of the edge weights information of the user-item graph, a Lap
 
 # 4 Analysis
 
-#### 4.1 Privacy Analysis
+## 1 Privacy Analysis
 
 The privacy of DP-FedRec is protected by the following aspects: (i) The vertexes outside of the intersection set during K-hop extension. The privacy of this part is guaranteed by PSI. (ii) The vertexes within the intersection set during K-hop extension. The privacy of this part is guaranteed by DP. The protection of privacy is divided into protection of the topology structure and protection of the weights of the edges. For preservation of topology, the Laplace noise is added to its adjacency matrix using the Lapgraph algorithm so that the information is perturbed. For protection of edge weights, the values of edge weights are disturbed by adding noises directly to the edge weights. It has been demonstrated in [\[26\]](#page-11-3) that when the noise added satisfies Lap(0, ∆f<sup>1</sup> 1 ), the Lapgraph algorithm satisfies <sup>1</sup> − DP. At the same time, due to the characteristics of Laplace mechanism [\[4\]](#page-10-6), the noise added to the edge weights satisfies Lap(0, ∆f<sup>2</sup> 2 ), which is <sup>2</sup> − DP. By Composition theorem [\[4\]](#page-10-6), DP-FedRec satisfies <sup>1</sup> + 2-DP.
 
@@ -113,7 +115,7 @@ The privacy of DP-FedRec is protected by the following aspects: (i) The vertexes
 
 <span id="page-6-0"></span>Algorithm 1 K-hop extension of client i
 
-```
+```text
 Input: K, the parameter of K-hop; the graph G
                                                i
 Output: the extended graph G¯i
@@ -146,15 +148,15 @@ Output: the extended graph G¯i
                        , E¯i
                            )
 15: end procedure
-```
+```text
 
-#### 4.2 Performance Analysis
+### 2 Performance Analysis
 
 First, consider the time complexity of DP-FedRec for one client. Since a certain amount of noise needs to be added to each element of the adjacency matrix, the time for single addition of noise is O(|V i | 2 ). Then analysis is performed on the communication complexity of DP-FedRec for client i. Since DP-FedRec requires interaction between two clients, communication cost of such interaction between clients is O(l 2 ). Each interaction contains PSI, K-hop extension, and adding noise towards expanded graph data. Correspondingly, the time complexity of PSI is O(|V i |), the time complexity of K-hop extension is O(|V i |). The time for single addition of noise, as analyzed above, is O(|V i 2 ). So the communication cost of DP-FedRec is O(l 2 · |V i 2 ).
 
 # 5 Evaluation
 
-#### 5.1 Evaluation Setup
+## 1 Evaluation Setup
 
 Implementation We implement both FedRec and DP-FedRec via Python based code of FedGraphNN [\[7\]](#page-10-3). We conduct the evaluation on a computation instance equipped with 2.1GHz 64 Intel(R) Xeon(R Gold 6130 CPU, 512 GB memroy and 8 Tesla V100 GPU with 12GB.
 
@@ -180,7 +182,7 @@ large number of points in the epinions dataset and the limitation of memory, we 
 
 Setting of Experiments Our evaluation goal is to prove two claim: the K-hop extension improves the accuracy of the federated GNN and the leverage of DP in DP-FedRec do not reduce the accuracy too much. The experiments is conducts under two client settings: 8 and 12 clients. Five experiments were performed in each setting: (i) Centralized training, the central server owns the full graph for training; (ii) FedGraphNN with FedAvg, the structure proposed in [\[7\]](#page-10-3), which is also the baseline we compared. For simplicity we denote it as FedGraphNN in the remaining sections; (iii) FedRec, where we only perform K-hop extension without adding noise to the interactive content. The purpose of this experiment is to demonstrate that the K-hop extension helps to increase the accuracy of link prediction; (iv) DP-FedGraphNN, we add Laplace(0, 1) noise to the edge weights of the user-item graph based on FedGraphNN as a baseline to compare with DP-FedRec. (v) DP-FedRec with different K, which is realized by adding noise to the interactive content on the basis of the third group of FedRec. For evaluation metrics, we adopt mean absolute error (MAE), mean square error (MSE) and root mean square error (RMSE) to evaluate the accuracy of edge weights prediction and record the average time it takes to add noise to a single client in each experiment.
 
-### 5.2 Performance of K-Hop Extension
+### 2 Performance of K-Hop Extension
 
 Table [3](#page-8-0) and Table [4](#page-8-1) show the performance of centralized server, FedRec and FedGraphNN. It indicates that FedRec performed better than FedGraphNN in all metrics. The result proves the K-hop extension does really help to handle the non-IID problem in federated learning and thus improve the link prediction accuracy.
 
@@ -204,7 +206,7 @@ The effect of DP-FedRec is also better than FedGraphNN, which proves that the K-
 
 <span id="page-8-0"></span>Table 3. Performance of different systems with 8 clients. Noising time refers to the time of adding noise per client.
 
-#### 5.3 Performance of Differential Privacy
+#### 3 Performance of Differential Privacy
 
 From the results, the performance of DP-FedRec does not decrease much than FedRec. However, after adding noise to FedGraphNN, accuracy drops a lot.
 
@@ -236,11 +238,11 @@ edges of MovieLens1M is significantly larger than the number of points of Epinio
 
 # 6 Related Work
 
-### 6.1 Federated Recommendation System
+## 1 Federated Recommendation System
 
 Federated Learning is being applied in lots of field [\[24](#page-11-10)[,11,](#page-11-11)[22,](#page-11-12)[23,](#page-11-13)[12\]](#page-11-14). And as the laws and regulations of data and privacy become stricter, recommendation systems based on federated learning with privacy-preserving features have become a hot research trend. FCF [\[1\]](#page-10-8), a classic federated recommendation system, is the first collaborative filtering framework based on the federated learning paradigm. They build a joint model by using user implicit feedback. [\[15\]](#page-11-6) is a privacy-preserving method which leverages the behavior data of massive users and meanwhile don't require centralized storage to protect user privacy to train news recommendation model with accuracy. FedFast [\[14\]](#page-11-15) achieves high accuracy for each user during the federated learning training phase as quickly as possible. In each training round, They sample from a set of participating clients and apply an active aggregation method that propagates the updated model to the other clients.
 
-### 6.2 Differential Privacy Graph Neural Network
+### 2 Differential Privacy Graph Neural Network
 
 Several literature leverage DP to preserve the privacy of GNN. Solitude [\[13\]](#page-11-16) is a privacy-preserving learning framework based on GNN, with formal privacy guarantees based on edge local differential privacy. The crux of Solitude is a set of new delicate mechanisms that calibrate the introduced noise in the decentralized graph collected from the users. LDPGen [\[16\]](#page-11-17) is a multi-phase technique that incrementally clusters users based on their connections to different partitions of the whole population. LDPGen carefully injects noise to ensure local differential privacy whenever a user reports information. There are only few works that combine the DP with the GNN federated learning. [\[25\]](#page-11-4) applies differential privacy techniques to the local gradients of GNN model to protect user privacy in federated learning setting. But it need a third-party server to store embedding of users besides training server.So FedGNN is a two-server model. In [\[29\]](#page-12-0), They propose (VFGNN), a federated GNN learning model for privacy-preserving node classification task under data vertically partitioned setting. They leave the private data related computations on data holders, and delegate the rest of computations to a semi-honest server. However, their work has an strong assumption that every data holders have the same nodes, which is far different from real scenario.
 
